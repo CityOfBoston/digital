@@ -1,0 +1,15 @@
+query ServicesLoadMetadata($code: String!) {
+  serviceMetadata(code: $code) {
+    attributes {
+      required
+      type
+      code
+      order
+      description
+      values {
+        key
+        value
+      }
+    }
+  }
+}

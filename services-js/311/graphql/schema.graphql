@@ -1,0 +1,49 @@
+type Mutation {
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String): Request
+}
+
+type Query {
+  services: [Service!]!
+  serviceMetadata(code: String!): ServiceMetadata
+}
+
+type Request {
+  id: String!
+  code: String!
+  description: String!
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+}
+
+type Service {
+  code: String!
+  name: String!
+  hasMetadata: Boolean!
+  metadata: ServiceMetadata
+}
+
+type ServiceMetadata {
+  attributes: [ServiceMetadataAttribute!]!
+}
+
+type ServiceMetadataAttribute {
+  type: ServiceMetadataAttributeDatatype!
+  required: Boolean!
+  order: Int
+  description: String!
+  code: String!
+  values: [ServiceMetadataAttributeValue!]
+}
+
+enum ServiceMetadataAttributeDatatype {
+  text
+  informational
+  picklist
+}
+
+type ServiceMetadataAttributeValue {
+  key: String!
+  value: String!
+}

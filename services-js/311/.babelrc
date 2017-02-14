@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "next/babel",
+    "latest"
+  ],
+
+  "plugins": [
+    "inline-import",
+    "transform-class-properties"
+  ],
+
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

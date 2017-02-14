@@ -1,0 +1,68 @@
+exports[`test snapshot 1`] = `
+<div>
+  <label>
+    <p>
+      Please provide any other relevant information:
+    </p>
+    <textarea
+      className={
+        Object {
+          "data-css-1bm19ha": "",
+        }
+      } />
+  </label>
+  <p>
+    **All needle pickup cases should be followed up with a phone call to one of the below agencies.**
+  </p>
+  <p>
+    Mobile Sharps Collection Team: 617-534-7123 (Monday-Friday 8am-6pm)
+  </p>
+  <p>
+    Boston EMS: 617-343-1400 (All hours outside of Monday-Friday 8am-6pm)
+  </p>
+  <label>
+    <p>
+      How many needles are at the location?
+    </p>
+    <select
+      name="SR-NEDRMV1">
+      <option
+        value="One">
+        One
+      </option>
+      <option
+        value="Two">
+        Two
+      </option>
+      <option
+        value="Three">
+        Three
+      </option>
+      <option
+        value="More than Three">
+        More than Three
+      </option>
+    </select>
+  </label>
+  <label>
+    <p>
+      Property location type
+    </p>
+    <select
+      name="ST-PROPLOC">
+      <option
+        value="Private">
+        Private
+      </option>
+      <option
+        value="Public">
+        Public
+      </option>
+      <option
+        value="Unknown">
+        Unknown
+      </option>
+    </select>
+  </label>
+</div>
+`;

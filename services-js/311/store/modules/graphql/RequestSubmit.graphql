@@ -1,0 +1,5 @@
+mutation RequestSubmit($code: String!, $description: String!, $firstName: String, $lastName: String, $email: String, $phone: String) {
+  createRequest(code: $code, description: $description, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone) {
+    id
+  }
+}

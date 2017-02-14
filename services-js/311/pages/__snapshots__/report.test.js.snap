@@ -1,0 +1,234 @@
+exports[`test request flow 1`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-saiqwd": "",
+      }
+    }>
+    <img
+      alt=""
+      className={
+        Object {
+          "data-css-63oe3q": "",
+        }
+      }
+      src="https://maps.googleapis.com/maps/api/staticmap?center=Boston%20Common&zoom=13&size=1200x800&maptype=roadmap&scale=2&key=FAKE_GOOGLE_API_KEY" />
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1lz9nu": "",
+      }
+    }>
+    <div
+      className="sh">
+      <h2
+        className="sh-title">
+        311: Boston City Services
+      </h2>
+    </div>
+    <form
+      action="/report/submit"
+      className={
+        Object {
+          "data-css-1cqgl9p": "",
+        }
+      }
+      method="POST">
+      <input
+        name="initialState"
+        type="hidden"
+        value="{\"request\":{\"description\":\"\",\"code\":null,\"firstName\":\"\",\"lastName\":\"\",\"email\":\"\",\"phone\":\"\",\"submitting\":false,\"submitError\":null}}" />
+      <input
+        name="actions"
+        type="hidden"
+        value="[{\"type\":\"REQUEST_SET_CODE\",\"payload\":\"code\"},{\"type\":\"REQUEST_SET_DESCRIPTION\",\"payload\":\"description\"}]" />
+      <textarea
+        defaultValue=""
+        name="description"
+        onInput={[Function]} />
+      <ul>
+        <li>
+          <button
+            name="code"
+            onClick={[Function]}
+            type="submit"
+            value="needles">
+            Needle Pickup
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`test request flow 2`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-saiqwd": "",
+      }
+    }>
+    <img
+      alt=""
+      className={
+        Object {
+          "data-css-63oe3q": "",
+        }
+      }
+      src="https://maps.googleapis.com/maps/api/staticmap?center=Boston%20Common&zoom=13&size=1200x800&maptype=roadmap&scale=2&key=FAKE_GOOGLE_API_KEY" />
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1lz9nu": "",
+      }
+    }>
+    <div>
+      <h2>
+        CONTACT FORM
+      </h2>
+      <p>
+        (will not be shared with public; leave blank to submit anonymously)
+      </p>
+      <label
+        className={
+          Object {
+            "data-css-572cbq": "",
+          }
+        }>
+        <span>
+          First Name
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-1etfc0l": "",
+            }
+          }
+          name="firstName"
+          onChange={[Function]}
+          placeholder="First Name"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-572cbq": "",
+          }
+        }>
+        <span>
+          Last Name
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-1etfc0l": "",
+            }
+          }
+          name="lastName"
+          onChange={[Function]}
+          placeholder="Last Name"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-572cbq": "",
+          }
+        }>
+        <span>
+          Email
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-1etfc0l": "",
+            }
+          }
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-572cbq": "",
+          }
+        }>
+        <span>
+          Phone
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-1etfc0l": "",
+            }
+          }
+          name="phone"
+          onChange={[Function]}
+          placeholder="Phone"
+          type="tel"
+          value="" />
+      </label>
+      <button
+        disabled={false}
+        onClick={[Function]}
+        type="submit">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+`;

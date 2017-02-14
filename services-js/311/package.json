@@ -1,0 +1,66 @@
+{
+  "name": "311",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CityOfBoston/311.git",
+  "license": "CC0-1.0",
+  "scripts": {
+    "dev": "babel-watch -D -w server server",
+    "test": "jest",
+    "build": "next build",
+    "start": "next start",
+    "storybook": "start-storybook -p 9001 -c storybook",
+    "lint": "eslint --fix .",
+    "generate-schema": "babel-node ./scripts/generate-schema",
+    "generate-graphql-flow": "apollo-codegen generate store/modules/graphql/*.graphql --schema graphql/schema.json --target flow --output store/modules/graphql/schema.flow.js"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.next/"
+    ]
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "fs-extra": "^2.0.0",
+    "glamor": "^2.20.22",
+    "graphql": "^0.9.1",
+    "graphql-server-hapi": "^0.6.0",
+    "graphql-tools": "^0.10.0",
+    "hapi": "^16.1.0",
+    "https-proxy-agent": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "beta",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-inject": "^1.0.2",
+    "redux-pack": "^0.1.4",
+    "redux-thunk": "^2.2.0",
+    "urlsearchparams": "^0.1.1"
+  },
+  "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "apollo-codegen": "^0.10.7",
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-inline-import": "^2.0.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-watch": "^2.0.6",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "flow-bin": "^0.39.0",
+    "jest": "^18.1.0",
+    "react-test-renderer": "^15.4.2",
+    "webpack-bundle-analyzer": "^2.3.0"
+  }
+}
