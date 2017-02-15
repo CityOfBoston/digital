@@ -14,6 +14,7 @@ import type { Context } from './graphql';
 
 dotenv.config();
 
+const port = parseInt(process.env.PORT || '3000', 10);
 const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY']);
 
 (async function startServer() {
@@ -24,7 +25,7 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
 
   await app.prepare();
 
-  server.connection({ port: 3000 });
+  server.connection({ port }, '0.0.0.0');
 
   server.register({
     register: graphqlHapi,
@@ -89,7 +90,7 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
   });
 
   await server.start();
-  console.log('> Ready on http://localhost:3000');
+  console.log(`> Ready on http://localhost:${port}`);
 }()).catch((err) => {
   console.error('Error starting server');
   console.error(err);

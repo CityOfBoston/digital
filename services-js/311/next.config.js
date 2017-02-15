@@ -1,9 +1,9 @@
-/* eslint comma-dangle: 0 */
-
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+/* eslint comma-dangle: 0, global-require: 0 */
 
 module.exports = {
   webpack: (config) => {
+    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
     // Perform customizations to config
     config.plugins.push(
       new BundleAnalyzerPlugin({

@@ -1,14 +1,17 @@
 {
   "name": "311",
   "version": "0.0.0",
-  "main": "index.js",
   "repository": "https://github.com/CityOfBoston/311.git",
   "license": "CC0-1.0",
+  "engines": {
+    "node": "7.5.0"
+  },
   "scripts": {
     "dev": "babel-watch -D -w server server",
     "test": "jest",
-    "build": "next build",
-    "start": "next start",
+    "build": "./scripts/build_server.sh",
+    "heroku-postbuild": "./scripts/build_server.sh",
+    "start": "node build/server",
     "storybook": "start-storybook -p 9001 -c storybook",
     "lint": "eslint --fix .",
     "generate-schema": "babel-node ./scripts/generate-schema",
@@ -16,11 +19,13 @@
   },
   "jest": {
     "testPathIgnorePatterns": [
+      "/build/",
       "/node_modules/",
       "/.next/"
     ]
   },
   "dependencies": {
+    "babel-runtime": "^6.22.0",
     "dotenv": "^4.0.0",
     "fs-extra": "^2.0.0",
     "glamor": "^2.20.22",
@@ -30,7 +35,7 @@
     "hapi": "^16.1.0",
     "https-proxy-agent": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "next": "beta",
+    "next": "finneganh/next.js#b36ebc0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
