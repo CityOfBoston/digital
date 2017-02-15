@@ -8,7 +8,7 @@ export default class extends Document {
       <html lang="en">
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Montserrat:400,700" rel="stylesheet" />
-          <link rel="stylesheet" type="text/css" href="http://patterns.boston.gov/css/public.css" />
+          <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
 
           <style type="text/css">{`
             body {
