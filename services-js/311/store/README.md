@@ -1,6 +1,8 @@
-Modules for Redux, containing reducers and action creators.
+Redux store for the 311 app.
 
-Follows the "Duck" pattern: https://github.com/erikras/ducks-modular-redux
+The `modules/` subdirectory contains reducers and action creators, grouped by
+substate, following the "Duck" pattern:
+https://github.com/erikras/ducks-modular-redux
 
 
 ### Action creators

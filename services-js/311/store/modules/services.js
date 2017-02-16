@@ -4,16 +4,9 @@ import { handle } from 'redux-pack';
 import type { Deps } from '../';
 import ServicesLoadGraphql from './graphql/ServicesLoad.graphql';
 import ServicesLoadMetadataGraphql from './graphql/ServicesLoadMetadata.graphql';
-import type { ServicesLoadMetadataQuery, ServicesLoadMetadataQueryVariables } from './graphql/schema.flow';
+import type { ServicesLoadQuery, ServicesLoadMetadataQuery, ServicesLoadMetadataQueryVariables } from './graphql/schema.flow';
 
-// TODO(finh): extract from ServicesLoadQuery when
-// https://github.com/facebook/flow/issues/3379 is resolved
-export type Service = {
-  code: string,
-  name: string,
-  hasMetadata: boolean,
-};
-
+export type Service = $ArrayElement<$PropertyType<ServicesLoadQuery, 'services'>>;
 export type ServiceMetadata = $PropertyType<ServicesLoadMetadataQuery, 'serviceMetadata'>;
 
 export type Action =
