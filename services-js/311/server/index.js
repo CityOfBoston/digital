@@ -2,6 +2,7 @@
 /* eslint no-console: 0 */
 
 import Hapi from 'hapi';
+import Good from 'good';
 import next from 'next';
 import dotenv from 'dotenv';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
@@ -26,6 +27,27 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
   await app.prepare();
 
   server.connection({ port }, '0.0.0.0');
+
+  server.register({
+    register: Good,
+    options: {
+      reporters: {
+        console: [
+          {
+            module: 'good-squeeze',
+            name: 'Squeeze',
+            args: [{
+              response: '*',
+              log: '*',
+            }],
+          }, {
+            module: 'good-console',
+          },
+          'stdout',
+        ],
+      },
+    },
+  });
 
   server.register({
     register: graphqlHapi,
