@@ -42,6 +42,9 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
             }],
           }, {
             module: 'good-console',
+            args: [{
+              color: process.env.NODE_ENV !== 'production',
+            }],
           },
           'stdout',
         ],
