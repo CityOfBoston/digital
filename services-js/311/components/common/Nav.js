@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 const STYLE = {
   nav: css({
-    'backgroundColor': 'black',
-    'color': 'white',
-    'textTransform': 'uppercase',
-    'padding': 10,
-    'display': 'flex',
-    'justifyContent': 'flex-end',
+    backgroundColor: 'black',
+    color: 'white',
+    textTransform: 'uppercase',
+    padding: 10,
+    display: 'flex',
+    justifyContent: 'flex-end',
 
     '& a': {
       color: 'white',

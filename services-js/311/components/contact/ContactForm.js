@@ -32,8 +32,8 @@ const STYLE = {
   }),
 
   label: css({
-    'display': 'block',
-    'marginBottom': 15,
+    display: 'block',
+    marginBottom: 15,
     '& > span': {
       display: 'block',
       fontWeight: 'bold',

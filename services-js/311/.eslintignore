@@ -1,4 +1,4 @@
 /app
 /flow-typed
-/data/modules/graphql/schema.flow.js
+/store/modules/graphql/schema.flow.js
 /graphql
