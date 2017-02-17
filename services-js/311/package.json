@@ -15,7 +15,9 @@
     "storybook": "start-storybook -p 9001 -c storybook",
     "lint": "eslint --fix .",
     "generate-schema": "babel-node ./scripts/generate-schema",
-    "generate-graphql-flow": "apollo-codegen generate store/modules/graphql/*.graphql --schema graphql/schema.json --target flow --output store/modules/graphql/schema.flow.js"
+    "generate-graphql-flow": "apollo-codegen generate store/modules/graphql/*.graphql --schema graphql/schema.json --target flow --output store/modules/graphql/schema.flow.js",
+    "precommit": "eslint --quiet .",
+    "prepush": "flow check --quiet && jest --silent --noStackTrace"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -67,6 +69,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.39.0",
+    "husky": "^0.13.1",
     "jest": "^18.1.0",
     "react-test-renderer": "^15.4.2",
     "webpack-bundle-analyzer": "^2.3.0"
