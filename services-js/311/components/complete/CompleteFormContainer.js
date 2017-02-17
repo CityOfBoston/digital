@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import type { State } from '../../store';
+import type { State } from '../../data/store';
 
 type Props = {
   request: $PropertyType<State, 'request'>,

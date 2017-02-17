@@ -6,9 +6,9 @@ import type { RequestAdditions } from '../../server/next-handlers';
 type QueryVariables = { [key: string]: any };
 export type LoopbackGraphql = (query: string, variables: ?QueryVariables) => Promise<Object>;
 
-export class GraphQLQueryError {
+export type GraphQLQueryError = {|
   message: string;
-}
+|};
 
 export class GraphQLError {
   message: string;

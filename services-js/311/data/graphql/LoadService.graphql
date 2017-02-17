@@ -1,0 +1,20 @@
+query LoadService($code: String!) {
+  service(code: $code) {
+    name
+    code
+    hasMetadata
+    metadata {
+      attributes {
+        required
+        type
+        code
+        description
+        values {
+          key
+          name
+
+        }
+      }
+    }
+  }
+}

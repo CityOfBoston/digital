@@ -41,53 +41,67 @@ exports[`test request flow 1`] = `
   <div
     className={
       Object {
-        "data-css-1lz9nu": "",
+        "data-css-1t5zf7p": "",
       }
     }>
     <div
-      className="sh">
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }>
       <h2
         className="sh-title">
         311: Boston City Services
       </h2>
     </div>
-    <form
-      action="/report/submit"
+    <div
       className={
         Object {
-          "data-css-1cqgl9p": "",
+          "data-css-9sglvw": "",
         }
-      }
-      method="POST">
-      <input
-        name="initialState"
-        type="hidden"
-        value="{\"request\":{\"description\":\"\",\"code\":null,\"firstName\":\"\",\"lastName\":\"\",\"email\":\"\",\"phone\":\"\",\"submitting\":false,\"submitError\":null}}" />
-      <input
-        name="actions"
-        type="hidden"
-        value="[{\"type\":\"REQUEST_SET_CODE\",\"payload\":\"code\"},{\"type\":\"REQUEST_SET_DESCRIPTION\",\"payload\":\"description\"}]" />
+      }>
       <textarea
+        className={
+          Object {
+            "data-css-1j8x7ul": "",
+          }
+        }
         defaultValue=""
         name="description"
-        onInput={[Function]} />
-      <ul>
-        <li>
-          <button
-            name="code"
-            onClick={[Function]}
-            type="submit"
-            value="needles">
+        onInput={[Function]}
+        placeholder="How can we help?" />
+      <ul
+        className={
+          Object {
+            "data-css-117fchh": "",
+          }
+        }>
+        <li
+          className={
+            Object {
+              "data-css-14nloni": "",
+            }
+          }>
+          <a
+            className={
+              Object {
+                "data-css-3br7c8": "",
+              }
+            }
+            href="/report/needles"
+            onClick={[Function]}>
             Needle Pickup
-          </button>
+          </a>
         </li>
       </ul>
-    </form>
+    </div>
   </div>
 </div>
 `;
 
-exports[`test request flow 2`] = `
+exports[`test service page 1`] = `
 <div>
   <div
     className="nav ft-ll css-1avoji2">
@@ -130,104 +144,62 @@ exports[`test request flow 2`] = `
   <div
     className={
       Object {
-        "data-css-1lz9nu": "",
+        "data-css-1t5zf7p": "",
       }
     }>
-    <div>
-      <h2>
-        CONTACT FORM
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }>
+      <h2
+        className="sh-title">
+        Needle Pickup
       </h2>
+    </div>
+    <div>
+       
+      <label>
+        <p>
+          Please provide any other relevant information:
+        </p>
+        <textarea
+          className={
+            Object {
+              "data-css-1bm19ha": "",
+            }
+          } />
+      </label>
       <p>
-        (will not be shared with public; leave blank to submit anonymously)
+        **All needle pickup cases should be followed up with a phone call to one of the below agencies.**
       </p>
-      <label
-        className={
-          Object {
-            "data-css-572cbq": "",
-          }
-        }>
-        <span>
-          First Name
-        </span>
-        <input
-          className={
-            Object {
-              "data-css-1etfc0l": "",
-            }
-          }
-          name="firstName"
-          onChange={[Function]}
-          placeholder="First Name"
-          value="" />
+      <label>
+        <p>
+          How many needles are at the location?
+        </p>
+        <select
+          name="SR-NEDRMV1">
+          <option
+            value="One">
+            One
+          </option>
+          <option
+            value="Two">
+            Two
+          </option>
+          <option
+            value="Three">
+            Three
+          </option>
+          <option
+            value="More than Three">
+            More than Three
+          </option>
+        </select>
       </label>
-      <label
-        className={
-          Object {
-            "data-css-572cbq": "",
-          }
-        }>
-        <span>
-          Last Name
-        </span>
-        <input
-          className={
-            Object {
-              "data-css-1etfc0l": "",
-            }
-          }
-          name="lastName"
-          onChange={[Function]}
-          placeholder="Last Name"
-          value="" />
-      </label>
-      <label
-        className={
-          Object {
-            "data-css-572cbq": "",
-          }
-        }>
-        <span>
-          Email
-        </span>
-        <input
-          className={
-            Object {
-              "data-css-1etfc0l": "",
-            }
-          }
-          name="email"
-          onChange={[Function]}
-          placeholder="Email"
-          type="email"
-          value="" />
-      </label>
-      <label
-        className={
-          Object {
-            "data-css-572cbq": "",
-          }
-        }>
-        <span>
-          Phone
-        </span>
-        <input
-          className={
-            Object {
-              "data-css-1etfc0l": "",
-            }
-          }
-          name="phone"
-          onChange={[Function]}
-          placeholder="Phone"
-          type="tel"
-          value="" />
-      </label>
-      <button
-        disabled={false}
-        onClick={[Function]}
-        type="submit">
-        Submit
-      </button>
+       
     </div>
   </div>
 </div>

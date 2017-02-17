@@ -1,9 +1,8 @@
 // @flow weak
-/* eslint no-param-reassign: 0 */
 
-import { makeStore } from '../store';
-import type { State } from '../store';
-import { setKeys } from '../store/modules/keys';
+import { makeStore } from '../data/store';
+import type { State } from '../data/store';
+import { setKeys } from '../data/store/keys';
 
 declare class HapiResponse {
   statusCode: number,
@@ -21,7 +20,7 @@ export type RequestAdditions = {|
   reduxInitialState: State,
 |}
 
-const nextHandler = (app, page, staticQuery) => ({ method, server, raw: { req, res }, query }, reply) => {
+const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
   const store = makeStore();
   store.dispatch(setKeys({
     googleApi: process.env.GOOGLE_API_KEY,
@@ -37,9 +36,11 @@ const nextHandler = (app, page, staticQuery) => ({ method, server, raw: { req, r
   const pageQuery = {
     ...staticQuery,
     ...query,
+    ...params,
   };
 
-  reply(app.renderToHTML(req, res, page, pageQuery));
+  const html = await app.renderToHTML(req, res, page, pageQuery);
+  reply(html).code(res.statusCode);
 };
 
 const nextDefaultHandler = (app) => {

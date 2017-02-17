@@ -5,7 +5,7 @@ import SectionHeader from './SectionHeader';
 
 const STYLE = {
   dialog: css({
-    borderTop: '5px solid yellow',
+    borderTop: '.444444rem solid #fcb61a',
     display: 'flex-box',
     flexDirection: 'column',
     width: 900,

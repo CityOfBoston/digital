@@ -1,8 +1,8 @@
 // @flow
 
 import type { Context } from 'next';
-import { makeStore } from '../../store';
-import { setKeys } from '../../store/modules/keys';
+import { makeStore } from '../../data/store';
+import { setKeys } from '../../data/store/keys';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 /**
@@ -23,6 +23,7 @@ export function makeServerContext(pathname: string, query: {[key: string]: strin
   return {
   // TODO(finh): could include resp if anyone needs it
     req: (req: any),
+    res: (({ statusCode: 200 }): any),
     pathname,
     query,
   };
@@ -36,6 +37,7 @@ export function makeBrowserContext(pathname: string, query: {[key: string]: stri
   // TODO(finh): could include xhr if anyone needs it
   return {
     req: null,
+    res: null,
     pathname,
     query,
   };

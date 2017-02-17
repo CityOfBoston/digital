@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 
-import type { State, Dispatch } from '../../store';
+import type { State, Dispatch } from '../../data/store';
 
 import {
   setRequestFirstName,
@@ -10,9 +10,9 @@ import {
   setRequestEmail,
   setRequestPhone,
   submitRequest,
-} from '../../store/modules/request';
+} from '../../data/store/request';
 
-import { navigate } from '../../store/modules/route';
+import { navigate } from '../../data/store/route';
 
 import ContactForm from './ContactForm';
 import type { ValueProps, ActionProps } from './ContactForm';

@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 import type { Dispatch } from 'redux';
 
 import type { RequestAdditions } from '../../server/next-handlers';
-import getStore from '../../store';
-import type { State, Action, Store } from '../../store';
+import getStore from '../../data/store';
+import type { State, Action, Store } from '../../data/store';
 
-import { setRoute } from '../../store/modules/route';
+import { setRoute } from '../../data/store/route';
 
 // If we're running under Jest for testing, fakes handling change of query
 // for the same route by calling the component's getInitialProps again and

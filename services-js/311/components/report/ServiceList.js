@@ -1,12 +1,44 @@
 // @flow
 import React from 'react';
+import { css } from 'glamor';
+import Link from 'next/link';
 
-import type { Service } from '../../store/modules/services';
+import type { ServiceSummary } from '../../data/types';
+
+const STYLES = {
+  list: css({
+    margin: '0.75em 0',
+    padding: '0 1em',
+    listStyle: 'none',
+  }),
+
+  item: css({
+    ':before': {
+      content: '""',
+      borderColor: 'transparent #111',
+      borderStyle: 'solid',
+      borderWidth: '0.35em 0 0.35em 0.45em',
+      display: 'block',
+      height: 0,
+      width: 0,
+      left: '-1em',
+      top: '0.9em',
+      position: 'relative',
+    },
+  }),
+
+  link: css({
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    color: '#37a0e7',
+    fontWeight: 500,
+    fontSize: 15,
+  }),
+};
 
 export default class ServiceList extends React.Component {
   props: {
-    services: ?Service[],
-    servicesError: ?Object,
+    serviceSummaries: ServiceSummary[],
     onCodeChosen: (string) => void,
   }
 
@@ -16,22 +48,15 @@ export default class ServiceList extends React.Component {
   }
 
   render() {
-    const { services, servicesError } = this.props;
-
-    if (servicesError) {
-      return <h2>{servicesError.message}</h2>;
-    }
-
+    const { serviceSummaries } = this.props;
     return (
-      <ul>
-        { services && services.map(this.renderServiceButton) }
-      </ul>
+      <ul className={STYLES.list}>{ serviceSummaries.map(this.renderServiceButton) }</ul>
     );
   }
 
-  renderServiceButton = ({ name, code }: Service) => (
-    <li key={code}>
-      <button type="submit" name="code" value={code} onClick={this.handleServiceClick}>{name}</button>
+  renderServiceButton = ({ name, code }: ServiceSummary) => (
+    <li className={STYLES.item} key={code}>
+      <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className={STYLES.link}>{name}</a></Link>
     </li>
   );
 }

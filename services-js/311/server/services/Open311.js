@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import url from 'url';
 import { URLSearchParams } from 'urlsearchparams';
 import HttpsProxyAgent from 'https-proxy-agent';
+import DataLoader from 'dataloader';
 
 // types taken from Open311
 export type Service = {|
@@ -18,7 +19,7 @@ export type Service = {|
 
 export type ServiceMetadataAttribute = {|
   required: boolean,
-  datatype: 'Text' | 'Informational' | 'Picklist',
+  datatype: 'Text' | 'Informational' | 'Picklist' | 'Boolean (checkbox)',
   datatype_description: ?string,
   order: ?number,
   description: string,
@@ -26,7 +27,7 @@ export type ServiceMetadataAttribute = {|
   variable: boolean,
   values?: {|
     key: string,
-    value: string,
+    name: string,
   |}[],
 |};
 
@@ -51,14 +52,24 @@ export type NewRequestParams = {|
 
 async function processResponse(res): Promise<any> {
   if (!res.ok) {
-    throw new Error(await res.text());
+    let message;
+
+    if (res.headers.get('content-type').startsWith('application/json')) {
+      const firstError = (await res.json())[0];
+      message = firstError.message || firstError.description || 'Open311 server error';
+    } else {
+      message = await res.text();
+    }
+
+    throw new Error(message);
   }
 
   return res.json();
 }
 
 /**
- * Service wrapper around our Open311 endpoint.
+ * Service wrapper around our Open311 endpoint. Expected to be created fresh
+ * for each request.
  *
  * Supports an HTTP proxy set via the $http_proxy env variable.
  *
@@ -68,6 +79,7 @@ export default class Open311 {
   agent: any;
   endpoint: string;
   apiKey: string;
+  serviceDataLoader: DataLoader<string, ?Service>;
 
   constructor(endpoint: ?string, apiKey: ?string) {
     if (!endpoint || !apiKey) {
@@ -80,6 +92,16 @@ export default class Open311 {
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
     }
+
+    // There's no API for just loading the name / code info for a single
+    // service, so if we need that information we load all of the services
+    // and then filter. We use DataLoader here to coallesce any simultaneous
+    // requests for service lookup to a single API call.
+    this.serviceDataLoader = new DataLoader(async (codes: string[]) => {
+      const servicesByCode = {};
+      (await this.services()).forEach((s) => { servicesByCode[s.service_code] = s; });
+      return codes.map((code) => servicesByCode[code] || null);
+    });
   }
 
   url(path: string) {
@@ -95,6 +117,10 @@ export default class Open311 {
     });
 
     return processResponse(response);
+  }
+
+  async service(code: string): Promise<?Service> {
+    return this.serviceDataLoader.load(code);
   }
 
   async serviceMetadata(code: string): Promise<ServiceMetadata> {

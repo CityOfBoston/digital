@@ -26,15 +26,18 @@ type ServiceMetadataAttribute {
 
 type ServiceMetadataAttributeValue {
   key: String!
-  value: String!
+  name: String!
 }
 
 enum ServiceMetadataAttributeDatatype {
-  text
-  informational
-  picklist
+  TEXT
+  INFORMATIONAL
+  PICKLIST
+  BOOLEAN_CHECKBOX
 }
 `;
+
+export type Root = Service;
 
 export const resolvers = {
   Service: {
@@ -51,12 +54,12 @@ export const resolvers = {
   },
 
   ServiceMetadataAttribute: {
-    type: (a: ServiceMetadataAttribute) => a.datatype.toLowerCase(),
+    type: (a: ServiceMetadataAttribute) => a.datatype.toUpperCase().replace(' ', '_').replace(/[()]/g, ''),
     required: (a: ServiceMetadataAttribute) => a.required,
     order: (a: ServiceMetadataAttribute) => a.order,
     code: (a: ServiceMetadataAttribute) => a.code,
     description: (a: ServiceMetadataAttribute) => a.description,
-    values: (a: ServiceMetadataAttribute): null | {| key: string, value: string |}[] => a.values || null,
+    values: (a: ServiceMetadataAttribute): null | {| key: string, name: string |}[] => a.values || null,
   },
 
   // Just using the default key / value resolvers

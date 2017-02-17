@@ -1,4 +1,5 @@
-Redux store for the 311 app.
+Redux store for the 311 app. Used for any data that needs to be shared across
+pages. Use Next's getInitialProps for any single-page data.
 
 The `modules/` subdirectory contains reducers and action creators, grouped by
 substate, following the "Duck" pattern:

@@ -4,19 +4,20 @@ import React from 'react';
 import { css } from 'glamor';
 import { connect } from 'react-redux';
 
-import type { Dispatch, State } from '../../store';
-import { setRequestServiceCode, setRequestDescription } from '../../store/modules/request';
-import { navigate } from '../../store/modules/route';
-import { loadServiceMetadata } from '../../store/modules/services';
-import type { Service } from '../../store/modules/services';
+import type { Dispatch, State } from '../../data/store';
+import { setRequestServiceCode, setRequestDescription } from '../../data/store/request';
+import { navigate } from '../../data/store/route';
+import type { ServiceSummary } from '../../data/types';
 
 import ReportBox from './ReportBox';
 import ServiceList from './ServiceList';
 
+export type ExternalProps = {
+  serviceSummaries: ServiceSummary[],
+}
+
 export type ValueProps = {
   request: $PropertyType<State, 'request'>,
-  services: ?Service[],
-  servicesError: ?Object,
 };
 
 export type ActionProps = {
@@ -27,12 +28,12 @@ export type ActionProps = {
 const STYLE = {
   form: css({
     display: 'flex',
+    alignItems: 'flex-start',
   }),
 };
 
 const setCodeAndContinue = (code) => () => async (dispatch) => {
   await dispatch(setRequestServiceCode(code));
-  await dispatch(loadServiceMetadata(code));
   await dispatch(navigate(
     '/report',
     { step: 'contact' },
@@ -41,36 +42,26 @@ const setCodeAndContinue = (code) => () => async (dispatch) => {
 };
 
 class ReportFormContainer extends React.Component {
-  props: ValueProps & ActionProps;
+  props: ExternalProps & ValueProps & ActionProps;
 
   onCodeChosen = (code) => {
     this.props.dispatchServiceCode(code);
   }
 
   render() {
-    const { request, services, servicesError, descriptionInputChanged } = this.props;
-
-    const actions = [
-      setRequestServiceCode('code'),
-      setRequestDescription('description'),
-    ];
+    const { request, serviceSummaries, descriptionInputChanged } = this.props;
 
     return (
-      <form className={STYLE.form} action="/report/submit" method="POST">
-        <input type="hidden" name="initialState" value={JSON.stringify({ request })} />
-        <input type="hidden" name="actions" value={JSON.stringify(actions)} />
-
+      <div className={STYLE.form}>
         <ReportBox text={request.description} onInput={descriptionInputChanged} />
-        <ServiceList services={services} servicesError={servicesError} onCodeChosen={this.onCodeChosen} />
-      </form>
+        <ServiceList serviceSummaries={serviceSummaries} onCodeChosen={this.onCodeChosen} />
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ request, services }: State): ValueProps => ({
+const mapStateToProps = ({ request }: State): ValueProps => ({
   request,
-  services: services.services,
-  servicesError: services.servicesError,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): ActionProps => ({

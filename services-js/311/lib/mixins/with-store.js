@@ -4,8 +4,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import type { Context } from 'next';
 import type { RequestAdditions } from '../../server/next-handlers';
-import getStore from '../../store';
-import type { Store } from '../../store';
+import getStore from '../../data/store';
+import type { Store } from '../../data/store';
 
 /**
  * Higher-order React component that initializes our Redux store and preserves its

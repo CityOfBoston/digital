@@ -16,7 +16,6 @@ import type { Context } from './graphql';
 dotenv.config();
 
 const port = parseInt(process.env.PORT || '3000', 10);
-const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY']);
 
 (async function startServer() {
   const server = new Hapi.Server();
@@ -56,12 +55,14 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
     register: graphqlHapi,
     options: {
       path: '/graphql',
-      graphqlOptions: {
+      // We use a function here so that all of our services are request-scoped
+      // and can cache within the same query but not leak to others.
+      graphqlOptions: () => ({
         schema,
         context: ({
-          open311,
+          open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY']),
         }: Context),
-      },
+      }),
       route: {
         cors: true,
       },
@@ -81,7 +82,7 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
   server.route({
     method: 'GET',
     path: '/',
-    handler: nextHandler(app, '/report', { step: 'report' }),
+    handler: nextHandler(app, '/report'),
   });
 
   server.route({
@@ -92,8 +93,20 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
 
   server.route({
     method: 'GET',
-    path: '/report/{p*}',
+    path: '/report/location',
     handler: (request, reply) => reply.redirect('/'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/report/contact',
+    handler: (request, reply) => reply.redirect('/'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/report/{code}',
+    handler: nextHandler(app, '/report'),
   });
 
   server.route({
@@ -111,6 +124,12 @@ const open311 = new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'])
   server.route({
     method: 'GET',
     path: '/_webpack/{p*}',
+    handler: nextDefaultHandler(app),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/static/{p*}',
     handler: nextDefaultHandler(app),
   });
 

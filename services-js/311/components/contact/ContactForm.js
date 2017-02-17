@@ -3,7 +3,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import { GraphQLError } from '../../store/deps/loopback-graphql';
+import { GraphQLError } from '../../data/graphql/loopback-graphql';
 
 export type ValueProps = {
   firstName: string,

@@ -1,8 +1,11 @@
+import type { IncomingMessage, ServerResponse } from 'http';
+
 declare module 'next' {
   // We include a generic here that's merged with the request to support
   // type checking on the attributes that we add to a request in our middleware.
   declare type Context<Q> = {|
-    req: ?(http$IncomingMessage & Q),
+    req: ?(IncomingMessage & Q),
+    res: ?ServerResponse,
     pathname: string,
     query: {[key: string]: string},
   |};
@@ -19,4 +22,3 @@ declare module 'next' {
 declare var process: Process & {
   browser: boolean,
 };
-

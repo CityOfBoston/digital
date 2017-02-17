@@ -2,12 +2,13 @@
 
 import React from 'react';
 import { css } from 'glamor';
+import FormDialog from '../common/FormDialog';
 
-import type { ServiceMetadata } from '../../store/modules/services';
+import type { Service } from '../../data/types';
 
-export type Props = {|
-  attributes: $PropertyType<$NonMaybeType<ServiceMetadata>, 'attributes'>,
-|}
+export type Props = {
+  service: ?Service,
+}
 
 const STYLE = {
   textTextarea: css({
@@ -15,6 +16,14 @@ const STYLE = {
     height: 180,
   }),
 };
+
+function getTitle(service) {
+  if (service) {
+    return service.name;
+  } else {
+    return 'Service not found';
+  }
+}
 
 function renderInformationalAttribute(attribute) {
   return (
@@ -36,7 +45,7 @@ function renderPicklistAttribute(attribute) {
     <label key={attribute.code}>
       <p>{attribute.description}</p>
       <select name={attribute.code}>
-        {(attribute.values || []).map(({ key, value }) => <option value={key} key={key}>{value}</option>)}
+        {(attribute.values || []).map(({ key, name }) => <option value={key} key={key}>{name}</option>)}
       </select>
     </label>
   );
@@ -44,21 +53,37 @@ function renderPicklistAttribute(attribute) {
 
 function renderAttribute(attribute) {
   switch (attribute.type) {
-    case 'informational':
+    case 'INFORMATIONAL':
       return renderInformationalAttribute(attribute);
-    case 'text':
+    case 'TEXT':
       return renderTextAttribute(attribute);
-    case 'picklist':
+    case 'PICKLIST':
       return renderPicklistAttribute(attribute);
     default:
       return null;
   }
 }
 
-export default function MetadataForm({ attributes }: Props) {
+function selectAttributes(service) {
+  if (service.metadata && service.metadata.attributes) {
+    return service.metadata.attributes;
+  } else {
+    return [];
+  }
+}
+
+function renderContent(service) {
+  if (service) {
+    return <div> {selectAttributes(service).map(renderAttribute)} </div>;
+  } else {
+    return null;
+  }
+}
+
+export default function ServiceFormDialog({ service }: Props) {
   return (
-    <div>
-      {(attributes || []).map(renderAttribute)}
-    </div>
+    <FormDialog title={getTitle(service)}>
+      { renderContent(service) }
+    </FormDialog>
   );
 }

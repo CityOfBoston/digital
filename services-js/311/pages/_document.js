@@ -11,10 +11,12 @@ export default class extends Document {
           <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
 
           <style type="text/css">{`
+            /* Add any new styles here to storybook/head.html as well */
             body {
               margin: 0;
               padding: 0;
-              overflow-x: hidden
+              overflow-x: hidden;
+              font-family: Montserrat, Arial, sans-serif;
             }
 
             * {

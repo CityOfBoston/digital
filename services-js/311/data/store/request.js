@@ -2,9 +2,9 @@
 
 import { handle } from 'redux-pack';
 
-import RequestSubmitGraphql from './graphql/RequestSubmit.graphql';
-import type { RequestSubmitMutationVariables } from './graphql/schema.flow';
-import type { Dispatch, Deps } from '../';
+import RequestSubmitGraphql from '../graphql/RequestSubmit.graphql';
+import type { RequestSubmitMutationVariables } from '../graphql/schema.flow';
+import type { Dispatch, Deps } from '.';
 
 export type Action =
   {| type: 'REQUEST_SET_DESCRIPTION', payload: string |} |

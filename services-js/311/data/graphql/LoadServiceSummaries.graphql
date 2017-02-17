@@ -1,4 +1,4 @@
-query ServicesLoad {
+query LoadServiceSummaries {
   services {
     code
     name

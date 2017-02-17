@@ -39,7 +39,7 @@
               "deprecationReason": null
             },
             {
-              "name": "serviceMetadata",
+              "name": "service",
               "description": "",
               "args": [
                 {
@@ -59,7 +59,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "ServiceMetadata",
+                "name": "Service",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -313,19 +313,25 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "text",
+              "name": "TEXT",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "informational",
+              "name": "INFORMATIONAL",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "picklist",
+              "name": "PICKLIST",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BOOLEAN_CHECKBOX",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
@@ -365,7 +371,7 @@
               "deprecationReason": null
             },
             {
-              "name": "value",
+              "name": "name",
               "description": "",
               "args": [],
               "type": {

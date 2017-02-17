@@ -4,7 +4,7 @@ type Mutation {
 
 type Query {
   services: [Service!]!
-  serviceMetadata(code: String!): ServiceMetadata
+  service(code: String!): Service
 }
 
 type Request {
@@ -38,12 +38,13 @@ type ServiceMetadataAttribute {
 }
 
 enum ServiceMetadataAttributeDatatype {
-  text
-  informational
-  picklist
+  TEXT
+  INFORMATIONAL
+  PICKLIST
+  BOOLEAN_CHECKBOX
 }
 
 type ServiceMetadataAttributeValue {
   key: String!
-  value: String!
+  name: String!
 }

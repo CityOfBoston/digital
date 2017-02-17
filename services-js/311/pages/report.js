@@ -3,11 +3,8 @@
 import React from 'react';
 import Head from 'next/head';
 import type { Context } from 'next';
-import { connect } from 'react-redux';
 
 import type { RequestAdditions } from '../server/next-handlers';
-import { loadServices } from '../store/modules/services';
-import type { Store, State } from '../store';
 
 import withStore from '../lib/mixins/with-store';
 import withStoreRoute from '../lib/mixins/with-store-route';
@@ -16,92 +13,96 @@ import Nav from '../components/common/Nav';
 import FormDialog from '../components/common/FormDialog';
 import LocationMap from '../components/common/LocationMap';
 import ReportFormContainer from '../components/report/ReportFormContainer';
-import CompleteFormContainer from '../components/complete/CompleteFormContainer';
-import ContactFormContainer from '../components/contact/ContactFormContainer';
+import ServiceFormDialog from '../components/service/ServiceFormDialog';
 
-const mapStateToProps = ({ keys }: State) => ({
-  googleApiKey: keys.googleApi,
-});
+import makeLoopbackGraphql from '../data/graphql/loopback-graphql';
 
-class ReportBase extends React.Component {
-  static determineStep(step, requestState) {
-    if (step !== 'submit') {
-      // TODO(finh): make sure state has data for step
-      return step;
-    } else if (requestState.description && requestState.code) {
-      return 'complete';
+import type { Service, ServiceArgs, ServiceSummary } from '../data/types';
+import LoadServiceGraphql from '../data/graphql/LoadServiceSummaries.graphql';
+import LoadServiceSummariesGraphql from '../data/graphql/LoadService.graphql';
+
+type SummaryProps = {|
+  view: 'summaries',
+  serviceSummaries: ?ServiceSummary[],
+|};
+
+type ServiceProps = {|
+  view: 'service',
+  code: string,
+  service: ?Service,
+|};
+
+type InitialProps = SummaryProps | ServiceProps;
+
+class Report extends React.Component {
+  static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
+    const { code } = query;
+    const loopbackGraphql = makeLoopbackGraphql(req);
+
+    if (code) {
+      const service = (await loopbackGraphql(LoadServiceSummariesGraphql, ({ code }: ServiceArgs))).service;
+
+      if (!service && res) {
+        // eslint-disable-next-line no-param-reassign
+        res.statusCode = 404;
+      }
+
+      return {
+        view: 'service',
+        code,
+        service,
+      };
     } else {
-      return 'report';
+      return {
+        view: 'summaries',
+        serviceSummaries: (await loopbackGraphql(LoadServiceGraphql)).services,
+      };
     }
   }
 
-  static async getInitialProps({ query }: Context<RequestAdditions>, store: Store) {
-    const step = this.determineStep(query.step, store.getState().request);
-
-    if (step === 'report') {
-      await store.dispatch(loadServices());
-    }
-
-    return {
-      step,
-    };
-  }
+  props: InitialProps;
 
   render() {
-    const { step, googleApiKey } = this.props;
-
     return (
       <div>
         <Head>
-          <title>BOS:311 — {this.renderTitle(step)}</title>
+          <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
         <Nav />
+        <LocationMap />
 
-        <LocationMap googleApiKey={googleApiKey} />
-
-        { this.renderContent(step) }
+        {this.renderContent()}
       </div>
     );
   }
 
-  renderTitle(step) {
-    switch (step) {
-      case 'report':
-        return 'Report a Problem';
-      case 'contact':
-        return 'Contact Information';
-      case 'complete':
-        return 'Report Submitted';
-      default:
-        return '';
+  renderTitle() {
+    switch (this.props.view) {
+      case 'summaries': return 'Report a Problem';
+      case 'service': return this.props.service ? this.props.service.name : 'Not found';
+      default: return '';
     }
   }
 
-  renderContent(step) {
-    switch (step) {
-      case 'report':
+  renderContent() {
+    switch (this.props.view) {
+      case 'summaries':
         return (
           <FormDialog title="311: Boston City Services">
-            <ReportFormContainer />
+            <ReportFormContainer serviceSummaries={this.props.serviceSummaries} />
           </FormDialog>
         );
-      case 'contact':
+
+      case 'service':
         return (
-          <FormDialog>
-            <ContactFormContainer />
-          </FormDialog>
+          <ServiceFormDialog service={this.props.service} />
         );
-      case 'complete':
-        return (
-          <FormDialog title="Form Submitted">
-            <CompleteFormContainer />
-          </FormDialog>
-        );
+
       default:
         return null;
     }
   }
 }
 
-export default withStore(withStoreRoute(connect(mapStateToProps)(ReportBase)));
+export default withStore(withStoreRoute(Report));
