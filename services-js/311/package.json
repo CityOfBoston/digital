@@ -18,13 +18,18 @@
     "generate-graphql-flow": "apollo-codegen generate data/graphql/*.graphql --schema graphql/schema.json --target flow --output data/graphql/schema.flow.js",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "eslint --quiet .",
-    "prepush": "flow check --quiet && jest --silent --noStackTrace"
+    "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace"
   },
   "jest": {
     "testPathIgnorePatterns": [
-      "/build/",
-      "/node_modules/",
-      "/.next/"
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/.next/",
+      "<rootDir>/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "{components,data,lib,pages,server}/**/*\\.js",
+      "!**/*.stories.js"
     ]
   },
   "dependencies": {
@@ -64,6 +69,7 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "babel-watch": "^2.0.6",
+    "codecov": "^1.0.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-flowtype": "^2.30.0",
