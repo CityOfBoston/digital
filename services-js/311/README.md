@@ -3,6 +3,7 @@
 The source code for the future [311.boston.gov](https://311.boston.gov).
 
 [![Build Status](https://travis-ci.org/CityOfBoston/311.svg?branch=develop)](https://travis-ci.org/CityOfBoston/311)
+[![codecov](https://codecov.io/gh/CityOfBoston/311/branch/develop/graph/badge.svg)](https://codecov.io/gh/CityOfBoston/311)
 
 ## Developers
 
