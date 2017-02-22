@@ -31,6 +31,7 @@ const ACTIONS = {
   onEmailChange: jest.fn(),
   onPhoneChange: jest.fn(),
   onShowService: jest.fn(),
+  onAttributeChange: jest.fn(),
 };
 
 test('missing service', () => {

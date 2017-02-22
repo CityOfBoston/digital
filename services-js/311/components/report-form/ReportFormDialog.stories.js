@@ -26,5 +26,6 @@ storiesOf('ReportFormDialog', module)
     onEmailChange={action('Email Change')}
     onPhoneChange={action('Phone Change')}
     onShowService={action('Showing Service')}
+    onAttributeChange={action('Attribute Changed')}
   />
 ));

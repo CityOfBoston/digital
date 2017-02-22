@@ -28,6 +28,7 @@ export type ActionProps = {
   onLastNameChange: (SyntheticInputEvent) => void,
   onEmailChange: (SyntheticInputEvent) => void,
   onPhoneChange: (SyntheticInputEvent) => void,
+  onAttributeChange: (string, string) => void,
 }
 
 export type Props = ExternalProps & ValueProps & ActionProps;
@@ -134,6 +135,7 @@ export default class ReportFormDialog extends React.Component {
     this.setState({ submitting: true });
     try {
       const response: SubmitRequestMutation = await this.props.loopbackGraphql(SubmitRequestGraphql, vars);
+      window.scrollTo(0, 0);
       this.setState({
         submittedRequest: response.createRequest,
         submitting: false,
@@ -150,6 +152,7 @@ export default class ReportFormDialog extends React.Component {
     const {
       service,
       request,
+      onAttributeChange,
     } = this.props;
 
     const {
@@ -172,7 +175,7 @@ export default class ReportFormDialog extends React.Component {
       <FormDialog title={(service.name)}>
         { this.renderDescription(request) }
 
-        <MetadataFields service={service} />
+        <MetadataFields service={service} attributeChanged={onAttributeChange} />
 
         { this.renderContactFields() }
 

@@ -31,7 +31,7 @@ const SERVICE_WITHOUT_METADATA: Service = {
 
 test('service with metadata renders', () => {
   const component = renderer.create(
-    <MetadataFields service={SERVICE_WITH_METADATA} />,
+    <MetadataFields service={SERVICE_WITH_METADATA} attributeChanged={jest.fn()} />,
   );
 
   expect(component.toJSON).toBeDefined();
@@ -39,7 +39,7 @@ test('service with metadata renders', () => {
 
 test('service without metadata renders', () => {
   const component = renderer.create(
-    <MetadataFields service={SERVICE_WITHOUT_METADATA} />,
+    <MetadataFields service={SERVICE_WITHOUT_METADATA} attributeChanged={jest.fn()} />,
   );
 
   expect(component.toJSON).toBeDefined();
