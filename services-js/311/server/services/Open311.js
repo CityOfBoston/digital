@@ -9,7 +9,7 @@ import DataLoader from 'dataloader';
 // types taken from Open311
 export type Service = {|
   service_code: string,
-  service_name: string,
+  service_name: ?string,
   description: string,
   metadata: boolean,
   type: 'realtime' | 'batch' | 'blackbox',
@@ -36,18 +36,39 @@ export type ServiceMetadata = {|
   attributes: ServiceMetadataAttribute[],
 |}
 
-export type NewRequestParams = {|
+export type ServiceRequest = {|
+  service_request_id: string,
+  status: string,
+  status_notes: ?string,
+  service_name: ?string,
+  service_code: string,
+  description: ?string,
+  agency_responsible: ?string,
+  service_notice: ?string,
+  // 2017-02-21T22:18:27.000Z
+  requested_datetime: string,
+  updated_datetime: string,
+  expected_datetime: string,
+  address: ?string,
+  address_id: ?string,
+  zipcode: ?string,
+  lat: ?number,
+  long: ?number,
+  media_url: ?string,
+|};
+
+export type CreateServiceRequestArgs = {|
   service_code: string,
   lat?: number,
   long?: number,
   address_string?: string,
   address_id?: string,
-  attribute?: string[],
   requestor_first_name: ?string,
   requestor_last_name: ?string,
   requestor_email: ?string,
   requestor_phone: ?string,
   service_description: string,
+  attributes: {code: string, value: string}[],
 |};
 
 async function processResponse(res): Promise<any> {
@@ -134,7 +155,7 @@ export default class Open311 {
     return processResponse(response);
   }
 
-  async createRequest(args: NewRequestParams) {
+  async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest[]> {
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 
@@ -146,8 +167,8 @@ export default class Open311 {
             params.append(key, args[key].toString());
           }
           break;
-        case 'attribute':
-          // TODO(finh): figure this out
+        case 'attributes':
+          args[key].map(({ code, value }) => params.append(`attribute[${code}]`, value));
           break;
         default:
           params.append(key, args[key] || '');
@@ -160,7 +181,7 @@ export default class Open311 {
     const response = await fetch(this.url('requests.json'), {
       agent: this.agent,
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'Content-Length': `${bodyBuf.length}`,
       },
       method: 'POST',

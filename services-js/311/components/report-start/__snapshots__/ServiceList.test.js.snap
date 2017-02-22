@@ -1,0 +1,27 @@
+exports[`test services 1`] = `
+<ul
+  className={
+    Object {
+      "data-css-117fchh": "",
+    }
+  }>
+  <li
+    className={
+      Object {
+        "data-css-14nloni": "",
+      }
+    }>
+    <a
+      className={
+        Object {
+          "data-css-3br7c8": "",
+        }
+      }
+      data-code="needles"
+      href="/report/needles"
+      onClick={[Function]}>
+      Needle Pickup
+    </a>
+  </li>
+</ul>
+`;

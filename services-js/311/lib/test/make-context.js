@@ -21,7 +21,6 @@ export function makeServerContext(pathname: string, query: {[key: string]: strin
   };
 
   return {
-  // TODO(finh): could include resp if anyone needs it
     req: (req: any),
     res: (({ statusCode: 200 }): any),
     pathname,

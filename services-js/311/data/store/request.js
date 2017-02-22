@@ -1,39 +1,29 @@
 // @flow
 
-import { handle } from 'redux-pack';
-
-import RequestSubmitGraphql from '../graphql/RequestSubmit.graphql';
-import type { RequestSubmitMutationVariables } from '../graphql/schema.flow';
-import type { Dispatch, Deps } from '.';
+import type { Service } from '../types';
 
 export type Action =
   {| type: 'REQUEST_SET_DESCRIPTION', payload: string |} |
-  {| type: 'REQUEST_SET_CODE', payload: string |} |
   {| type: 'REQUEST_SET_FIRST_NAME', payload: string |} |
   {| type: 'REQUEST_SET_LAST_NAME', payload: string |} |
   {| type: 'REQUEST_SET_EMAIL', payload: string |} |
   {| type: 'REQUEST_SET_PHONE', payload: string |} |
-  {| type: 'REQUEST_SUBMIT', payload: any |};
+  {| type: 'REQUEST_SET_ATTRIBUTE', payload: {| code: string, value: string |} |} |
+  {| type: 'REQUEST_RESET_FOR_SERVICE', payload: Service |};
 
 export type State = {
-  description: string,
   code: ?string,
+  description: string,
   firstName: string,
   lastName: string,
   email: string,
   phone: string,
-  submitting: boolean,
-  submitError: ?Object,
+  attributes: {[code: string]: string},
 }
 
 export const setRequestDescription = (description: string): Action => ({
   type: 'REQUEST_SET_DESCRIPTION',
   payload: description,
-});
-
-export const setRequestServiceCode = (code: string): Action => ({
-  type: 'REQUEST_SET_CODE',
-  payload: code,
 });
 
 export const setRequestFirstName = (firstName: string): Action => ({
@@ -56,59 +46,79 @@ export const setRequestPhone = (phone: string): Action => ({
   payload: phone,
 });
 
-// Submits the service request based on the current values in the store.
-//
-// This action creator uses redux-thunk in order to get access to getState().
-export const submitRequest = () => ({ loopbackGraphql }: Deps) => (dispatch: Dispatch, getState: () => { request: State }): Promise<any> => {
-  const request = getState().request;
+export const setAttribute = (code: string, value: string): Action => ({
+  type: 'REQUEST_SET_ATTRIBUTE',
+  payload: { code, value },
+});
 
-  if (!request.code) {
-    throw new Error('code is not set!');
-  }
+export const resetForService = (service: Service): Action => ({
+  type: 'REQUEST_RESET_FOR_SERVICE',
+  payload: service,
+});
 
-  const variables: RequestSubmitMutationVariables = {
-    code: request.code,
-    description: request.description,
-    firstName: request.firstName,
-    lastName: request.lastName,
-    email: request.email,
-    phone: request.phone,
-  };
-
-  return dispatch({
-    type: 'REQUEST_SUBMIT',
-    promise: loopbackGraphql(RequestSubmitGraphql, variables),
-  });
-};
-
-const DEFAULT_STATE = {
-  description: '',
+export const DEFAULT_STATE: State = {
   code: null,
+  description: '',
   firstName: '',
   lastName: '',
   email: '',
   phone: '',
-  submitting: false,
-  submitError: null,
+  attributes: {},
 };
+
+function generateAttributeDefaults(metadata) {
+  const attributesByCode = {};
+
+  (metadata ? metadata.attributes : []).forEach(({ code, type, values }) => {
+    if (type === 'INFORMATIONAL') {
+      return;
+    }
+
+    if (values && values.length) {
+      attributesByCode[code] = values[0].key;
+    } else {
+      attributesByCode[code] = '';
+    }
+  });
+
+  return attributesByCode;
+}
 
 export default function reducer(state: State = DEFAULT_STATE, action: Action): State {
   switch (action.type) {
     case 'REQUEST_SET_DESCRIPTION': return { ...state, description: action.payload };
-    case 'REQUEST_SET_CODE': return { ...state, code: action.payload };
     case 'REQUEST_SET_FIRST_NAME': return { ...state, firstName: action.payload };
     case 'REQUEST_SET_LAST_NAME': return { ...state, lastName: action.payload };
     case 'REQUEST_SET_EMAIL': return { ...state, email: action.payload };
     case 'REQUEST_SET_PHONE': return { ...state, phone: action.payload };
 
-    case 'REQUEST_SUBMIT': {
-      const { payload } = action;
-      return handle(state, action, {
-        start: (s) => ({ ...s, submitting: true, submitError: null }),
-        success: (s) => ({ ...s }),
-        failure: (s) => ({ ...s, submitError: payload }),
-        finish: (s) => ({ ...s, submitting: false }),
-      });
+    case 'REQUEST_SET_ATTRIBUTE': {
+      const { code, value } = action.payload;
+      if (typeof state.attributes[code] === 'undefined') {
+        throw new Error(`Attribute code ${code} not found in the current service (${state.code || 'not set'})`);
+      }
+
+      return {
+        ...state,
+        attributes: {
+          ...state.attributes,
+          [code]: value,
+        },
+      };
+    }
+
+    case 'REQUEST_RESET_FOR_SERVICE': {
+      const service = action.payload;
+
+      if (service.code === state.code) {
+        return state;
+      }
+
+      return {
+        ...state,
+        code: service.code,
+        attributes: generateAttributeDefaults(service.metadata),
+      };
     }
 
     default:

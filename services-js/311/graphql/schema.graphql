@@ -1,5 +1,10 @@
+input CreateRequestAttribute {
+  code: String!
+  value: String!
+}
+
 type Mutation {
-  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String): Request
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, attributes: [CreateRequestAttribute!]!): Request!
 }
 
 type Query {
@@ -9,12 +14,11 @@ type Query {
 
 type Request {
   id: String!
-  code: String!
-  description: String!
-  firstName: String
-  lastName: String
-  email: String
-  phone: String
+  service: Service!
+  description: String
+  status: String!
+  requestedAt: Int!
+  updatedAt: Int!
 }
 
 type Service {

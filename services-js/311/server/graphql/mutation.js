@@ -3,6 +3,11 @@
 import type { Context } from '.';
 
 export const Schema = `
+input CreateRequestAttribute {
+  code: String!
+  value: String!
+}
+
 type Mutation {
   createRequest (
     code: String!
@@ -11,7 +16,8 @@ type Mutation {
     lastName: String
     email: String
     phone: String
-  ): Request
+    attributes: [CreateRequestAttribute!]!
+  ): Request!
 }
 `;
 
@@ -22,6 +28,7 @@ type CreateRequestArgs = {|
   lastName: ?string,
   email: ?string,
   phone: ?string,
+  attributes: { code: string, value: string }[],
 |};
 
 export const resolvers = {
@@ -34,7 +41,8 @@ export const resolvers = {
         requestor_last_name: args.lastName,
         requestor_email: args.email,
         requestor_phone: args.phone,
-      })
+        attributes: args.attributes,
+      }).then((arr) => arr[0])
     ),
   },
 };

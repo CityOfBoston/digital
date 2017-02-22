@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { css } from 'glamor';
-import Link from 'next/link';
 
 import type { ServiceSummary } from '../../data/types';
 
@@ -44,7 +43,11 @@ export default class ServiceList extends React.Component {
 
   handleServiceClick = (ev: SyntheticInputEvent) => {
     ev.preventDefault();
-    this.props.onCodeChosen(ev.target.value);
+
+    const code = ev.target.getAttribute('data-code');
+    if (code) {
+      this.props.onCodeChosen(code);
+    }
   }
 
   render() {
@@ -56,7 +59,7 @@ export default class ServiceList extends React.Component {
 
   renderServiceButton = ({ name, code }: ServiceSummary) => (
     <li className={STYLES.item} key={code}>
-      <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className={STYLES.link}>{name}</a></Link>
+      <a className={STYLES.link} href={`/report/${code}`} data-code={code} onClick={this.handleServiceClick}>{name}</a>
     </li>
   );
 }

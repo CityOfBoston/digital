@@ -1,0 +1,22 @@
+mutation SubmitRequest(
+  $code: String!,
+  $description: String!,
+  $firstName: String,
+  $lastName: String,
+  $email: String,
+  $phone: String,
+  $attributes: [CreateRequestAttribute!]!) {
+  createRequest(
+    code: $code,
+    description: $description,
+    firstName: $firstName,
+    lastName: $lastName,
+    email: $email,
+    phone: $phone,
+    attributes: $attributes
+  ) {
+    id
+    status
+    requestedAt
+  }
+}

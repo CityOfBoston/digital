@@ -42,7 +42,7 @@ export type Root = Service;
 export const resolvers = {
   Service: {
     code: (s: Service) => s.service_code,
-    name: (s: Service) => s.service_name,
+    name: (s: Service) => s.service_name || '',
     hasMetadata: (s: Service) => s.metadata,
     metadata: (s: Service, args: mixed, { open311 }: Context): ?Promise<ServiceMetadata> => (
       s.metadata ? open311.serviceMetadata(s.service_code) : null

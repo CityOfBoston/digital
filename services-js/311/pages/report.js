@@ -2,35 +2,35 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Router from 'next/router';
 import type { Context } from 'next';
 
 import type { RequestAdditions } from '../server/next-handlers';
 
 import withStore from '../lib/mixins/with-store';
-import withStoreRoute from '../lib/mixins/with-store-route';
 
 import Nav from '../components/common/Nav';
-import FormDialog from '../components/common/FormDialog';
 import LocationMap from '../components/common/LocationMap';
-import ReportFormContainer from '../components/report/ReportFormContainer';
-import ServiceFormDialog from '../components/service/ServiceFormDialog';
+import StartFormContainer from '../components/report-start';
+import ReportFormContainer from '../components/report-form';
 
 import makeLoopbackGraphql from '../data/graphql/loopback-graphql';
+import type { LoopbackGraphql } from '../data/graphql/loopback-graphql';
 
 import type { Service, ServiceArgs, ServiceSummary } from '../data/types';
 import LoadServiceGraphql from '../data/graphql/LoadServiceSummaries.graphql';
 import LoadServiceSummariesGraphql from '../data/graphql/LoadService.graphql';
 
-type SummaryProps = {|
+type SummaryProps = {
   view: 'summaries',
   serviceSummaries: ?ServiceSummary[],
-|};
+};
 
-type ServiceProps = {|
+type ServiceProps = {
   view: 'service',
   code: string,
   service: ?Service,
-|};
+};
 
 type InitialProps = SummaryProps | ServiceProps;
 
@@ -60,7 +60,20 @@ class Report extends React.Component {
     }
   }
 
+  constructor(props) {
+    super(props);
+
+    this.loopbackGraphql = makeLoopbackGraphql();
+  }
+
   props: InitialProps;
+  loopbackGraphql: LoopbackGraphql;
+
+  showServiceForm = (code) => {
+    // TODO(finh): Use "url" prop if we have a better way of pulling it off
+    // type-safely (probably after rest spreads land)
+    Router.push(`/report?code=${code}`, `/report/${code}`);
+  }
 
   render() {
     return (
@@ -89,14 +102,12 @@ class Report extends React.Component {
     switch (this.props.view) {
       case 'summaries':
         return (
-          <FormDialog title="311: Boston City Services">
-            <ReportFormContainer serviceSummaries={this.props.serviceSummaries} />
-          </FormDialog>
+          <StartFormContainer serviceSummaries={this.props.serviceSummaries} showServiceForm={this.showServiceForm} />
         );
 
       case 'service':
         return (
-          <ServiceFormDialog service={this.props.service} />
+          <ReportFormContainer service={this.props.service} loopbackGraphql={this.loopbackGraphql} />
         );
 
       default:
@@ -105,4 +116,4 @@ class Report extends React.Component {
   }
 }
 
-export default withStore(withStoreRoute(Report));
+export default withStore(Report);

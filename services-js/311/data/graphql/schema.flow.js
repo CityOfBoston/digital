@@ -8,6 +8,11 @@ export type ServiceMetadataAttributeDatatype =
   "BOOLEAN_CHECKBOX";
 
 
+export type CreateRequestAttribute = {
+  code: string,
+  value: string,
+};
+
 export type LoadServiceQueryVariables = {
   code: string,
 };
@@ -40,17 +45,20 @@ export type LoadServiceSummariesQuery = {
   } >,
 };
 
-export type RequestSubmitMutationVariables = {
+export type SubmitRequestMutationVariables = {
   code: string,
   description: string,
   firstName: ?string,
   lastName: ?string,
   email: ?string,
   phone: ?string,
+  attributes: Array< CreateRequestAttribute >,
 };
 
-export type RequestSubmitMutation = {
-  createRequest: ? {
+export type SubmitRequestMutation = {
+  createRequest: {
     id: string,
+    status: string,
+    requestedAt: number,
   },
 };
