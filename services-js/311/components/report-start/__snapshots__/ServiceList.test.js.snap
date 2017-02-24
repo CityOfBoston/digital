@@ -18,7 +18,7 @@ exports[`test services 1`] = `
         }
       }
       data-code="needles"
-      href="/report/needles"
+      href="/report/needles/location"
       onClick={[Function]}>
       Needle Pickup
     </a>

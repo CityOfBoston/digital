@@ -22,7 +22,7 @@ type ValueProps = {
 };
 
 type ActionProps = {
-  descriptionInputChanged: (SyntheticInputEvent) => mixed,
+  descriptionInputChanged: (SyntheticInputEvent) => void,
 };
 
 export type Props = ExternalProps & ValueProps & ActionProps;
@@ -48,7 +48,7 @@ const mapStateToProps = ({ request }: State): ValueProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): ActionProps => ({
-  descriptionInputChanged: (ev) => dispatch(setRequestDescription(ev.target.value)),
+  descriptionInputChanged: (ev) => { dispatch(setRequestDescription(ev.target.value)); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReportFormDialog);

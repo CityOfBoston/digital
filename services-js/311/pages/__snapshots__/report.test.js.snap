@@ -26,21 +26,6 @@ exports[`test request flow 1`] = `
   <div
     className={
       Object {
-        "data-css-saiqwd": "",
-      }
-    }>
-    <img
-      alt=""
-      className={
-        Object {
-          "data-css-63oe3q": "",
-        }
-      }
-      src="https://maps.googleapis.com/maps/api/staticmap?center=Boston%20Common&zoom=13&size=1200x800&maptype=roadmap&scale=2&key=FAKE_GOOGLE_API_KEY" />
-  </div>
-  <div
-    className={
-      Object {
         "data-css-1t5zf7p": "",
       }
     }>
@@ -91,7 +76,7 @@ exports[`test request flow 1`] = `
               }
             }
             data-code="needles"
-            href="/report/needles"
+            href="/report/needles/location"
             onClick={[Function]}>
             Needle Pickup
           </a>
@@ -130,21 +115,6 @@ exports[`test service page 1`] = `
   <div
     className={
       Object {
-        "data-css-saiqwd": "",
-      }
-    }>
-    <img
-      alt=""
-      className={
-        Object {
-          "data-css-63oe3q": "",
-        }
-      }
-      src="https://maps.googleapis.com/maps/api/staticmap?center=Boston%20Common&zoom=13&size=1200x800&maptype=roadmap&scale=2&key=FAKE_GOOGLE_API_KEY" />
-  </div>
-  <div
-    className={
-      Object {
         "data-css-1t5zf7p": "",
       }
     }>
@@ -159,6 +129,14 @@ exports[`test service page 1`] = `
         className="sh-title">
         Needle Pickup
       </h2>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-dgukzt": "",
+        }
+      }>
+      
     </div>
     <div>
       <label>

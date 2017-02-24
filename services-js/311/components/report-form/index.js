@@ -1,7 +1,7 @@
 // @flow
 
 import { connect } from 'react-redux';
-import type { State } from '../../data/store';
+import type { State, Dispatch } from '../../data/store';
 
 import {
   setRequestFirstName,
@@ -20,12 +20,12 @@ const mapStateToProps = ({ request }: State): ValueProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): ActionProps => ({
-  onFirstNameChange: (ev) => dispatch(setRequestFirstName(ev.target.value)),
-  onLastNameChange: (ev) => dispatch(setRequestLastName(ev.target.value)),
-  onEmailChange: (ev) => dispatch(setRequestEmail(ev.target.value)),
-  onPhoneChange: (ev) => dispatch(setRequestPhone(ev.target.value)),
-  onShowService: (service) => dispatch(resetForService(service)),
-  onAttributeChange: (code, value) => dispatch(setAttribute(code, value)),
+  onFirstNameChange: (ev) => { dispatch(setRequestFirstName(ev.target.value)); },
+  onLastNameChange: (ev) => { dispatch(setRequestLastName(ev.target.value)); },
+  onEmailChange: (ev) => { dispatch(setRequestEmail(ev.target.value)); },
+  onPhoneChange: (ev) => { dispatch(setRequestPhone(ev.target.value)); },
+  onShowService: (service) => { dispatch(resetForService(service)); },
+  onAttributeChange: (code, value) => { dispatch(setAttribute(code, value)); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReportFormDialog);

@@ -17,6 +17,14 @@ exports[`test blank request 1`] = `
       Needle Pickup
     </h2>
   </div>
+  <div
+    className={
+      Object {
+        "data-css-dgukzt": "",
+      }
+    }>
+    
+  </div>
   <div />
   <div>
     <h2
@@ -154,6 +162,14 @@ exports[`test existing description 1`] = `
     “
     Please pick up my bulk items. 
     ”
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-dgukzt": "",
+      }
+    }>
+    
   </div>
   <div />
   <div>

@@ -59,7 +59,7 @@ export default class ServiceList extends React.Component {
 
   renderServiceButton = ({ name, code }: ServiceSummary) => (
     <li className={STYLES.item} key={code}>
-      <a className={STYLES.link} href={`/report/${code}`} data-code={code} onClick={this.handleServiceClick}>{name}</a>
+      <a className={STYLES.link} href={`/report/${code}/location`} data-code={code} onClick={this.handleServiceClick}>{name}</a>
     </li>
   );
 }

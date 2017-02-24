@@ -9,6 +9,7 @@ export type Action =
   {| type: 'REQUEST_SET_EMAIL', payload: string |} |
   {| type: 'REQUEST_SET_PHONE', payload: string |} |
   {| type: 'REQUEST_SET_ATTRIBUTE', payload: {| code: string, value: string |} |} |
+  {| type: 'REQUEST_SET_LOCATION', payload: {| location: ?{| lat: number, lng: number |}, address: string |} |} |
   {| type: 'REQUEST_RESET_FOR_SERVICE', payload: Service |};
 
 export type State = {
@@ -18,6 +19,11 @@ export type State = {
   lastName: string,
   email: string,
   phone: string,
+  location: ?{|
+    lat: number,
+    lng: number,
+  |},
+  address: string,
   attributes: {[code: string]: string},
 }
 
@@ -51,6 +57,11 @@ export const setAttribute = (code: string, value: string): Action => ({
   payload: { code, value },
 });
 
+export const setLocation = (location: ?{| lat: number, lng: number |}, address: string): Action => ({
+  type: 'REQUEST_SET_LOCATION',
+  payload: { location, address },
+});
+
 export const resetForService = (service: Service): Action => ({
   type: 'REQUEST_RESET_FOR_SERVICE',
   payload: service,
@@ -63,6 +74,8 @@ export const DEFAULT_STATE: State = {
   lastName: '',
   email: '',
   phone: '',
+  location: null,
+  address: '',
   attributes: {},
 };
 
@@ -91,6 +104,7 @@ export default function reducer(state: State = DEFAULT_STATE, action: Action): S
     case 'REQUEST_SET_LAST_NAME': return { ...state, lastName: action.payload };
     case 'REQUEST_SET_EMAIL': return { ...state, email: action.payload };
     case 'REQUEST_SET_PHONE': return { ...state, phone: action.payload };
+    case 'REQUEST_SET_LOCATION': return { ...state, ...action.payload };
 
     case 'REQUEST_SET_ATTRIBUTE': {
       const { code, value } = action.payload;

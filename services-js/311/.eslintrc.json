@@ -26,6 +26,7 @@
     "max-len": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "import/no-extraneous-dependencies": [
       "error",
       {"devDependencies": ["storybook/**.js", "**/*.test.js", "**/*.stories.js", "scripts/*.js", "*.config.js"]}

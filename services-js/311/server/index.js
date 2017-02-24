@@ -1,6 +1,5 @@
 // @flow
 /* eslint no-console: 0 */
-
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
@@ -86,27 +85,15 @@ const port = parseInt(process.env.PORT || '3000', 10);
   });
 
   server.route({
-    method: 'POST',
-    path: '/report/submit',
-    handler: nextHandler(app, '/report', { step: 'submit' }),
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/report/location',
-    handler: (request, reply) => reply.redirect('/'),
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/report/contact',
-    handler: (request, reply) => reply.redirect('/'),
-  });
-
-  server.route({
     method: 'GET',
     path: '/report/{code}',
     handler: nextHandler(app, '/report'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/report/{code}/location',
+    handler: nextHandler(app, '/report', { pickLocation: 'true' }),
   });
 
   server.route({

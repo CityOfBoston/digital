@@ -12,6 +12,8 @@ const EMPTY_REQUEST = {
   lastName: '',
   email: '',
   phone: '',
+  location: null,
+  address: '',
   attributes: {},
 };
 

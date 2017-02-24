@@ -22,6 +22,8 @@ const DEFAULT_REQUEST: Request = {
   lastName: '',
   email: '',
   phone: '',
+  location: null,
+  address: '',
   attributes: {},
 };
 

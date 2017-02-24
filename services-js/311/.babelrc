@@ -5,7 +5,13 @@
   ],
 
   "plugins": [
-    "inline-import",
+    ["inline-import", {
+      "extensions": [
+        ".graphql",
+        ".env"
+      ]
+    }],
+
     "transform-class-properties"
   ],
 

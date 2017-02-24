@@ -40,6 +40,14 @@ const DESCRIPTION_STYLE = css({
   lineHeight: 1.7,
 });
 
+const ADDRESS_STYLE = css({
+  textTransform: 'uppercase',
+  whiteSpace: 'pre-line',
+  margin: '30px 0 0',
+  fontSize: 16,
+  fontWeight: 'bold',
+});
+
 const ERROR_STYLE = css({
   backgroundColor: 'red',
   padding: 30,
@@ -174,6 +182,7 @@ export default class ReportFormDialog extends React.Component {
     return (
       <FormDialog title={(service.name)}>
         { this.renderDescription(request) }
+        { this.renderLocation(request) }
 
         <MetadataFields service={service} attributeChanged={onAttributeChange} />
 
@@ -192,6 +201,10 @@ export default class ReportFormDialog extends React.Component {
     } else {
       return null;
     }
+  }
+
+  renderLocation({ address }: Request) {
+    return <div className={ADDRESS_STYLE}>{address}</div>;
   }
 
   renderContactFields() {

@@ -2688,6 +2688,14 @@ fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.8:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
+fetch-mock@^5.9.4:
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-5.9.4.tgz#80f736db4d12d3621577665cc6fbbf125638092a"
+  dependencies:
+    glob-to-regexp "^0.3.0"
+    node-fetch "^1.3.3"
+    path-to-regexp "^1.7.0"
+
 figures@^1.3.5:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-1.7.0.tgz#cbe1e3affcf1cd44b80cadfed28dc793a9701d2e"
@@ -2936,6 +2944,10 @@ glob-parent@^2.0.0:
 glob-promise@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-promise/-/glob-promise-3.1.0.tgz#198882a3817be7dc2c55f92623aa9e7b3f82d1eb"
+
+glob-to-regexp@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
 
 glob@^6.0.1:
   version "6.0.4"
@@ -4295,11 +4307,11 @@ mobx@^2.3.4:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-2.7.0.tgz#cf3d82d18c0ca7f458d8f2a240817b3dc7e54a01"
 
-moment@2.15.x, moment@2.x.x, moment@^2.11.2:
+moment@2.15.x:
   version "2.15.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.15.2.tgz#1bfdedf6a6e345f322fe956d5df5bd08a8ce84dc"
 
-moment@^2.17.1:
+moment@2.x.x, moment@^2.11.2, moment@^2.17.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
@@ -4421,7 +4433,7 @@ node-emoji@^1.4.1:
   dependencies:
     string.prototype.codepointat "^0.2.0"
 
-node-fetch@^1.0.1, node-fetch@^1.5.3:
+node-fetch@^1.0.1, node-fetch@^1.3.3, node-fetch@^1.5.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
   dependencies:
@@ -4623,10 +4635,6 @@ object.values@^1.0.3:
     function-bind "^1.1.0"
     has "^1.0.1"
 
-obtain-unicode@~0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/obtain-unicode/-/obtain-unicode-0.0.5.tgz#655f337a8f135280495d77a60efc601f9af5d5dc"
-
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -4808,7 +4816,7 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
 
-path-to-regexp@^1.0.0:
+path-to-regexp@^1.0.0, path-to-regexp@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
   dependencies:
@@ -6350,6 +6358,10 @@ url-loader@^0.5.7:
     loader-utils "0.2.x"
     mime "1.2.x"
 
+url-search-params@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/url-search-params/-/url-search-params-0.6.1.tgz#3adb7858b807d56b81e7abf3b9dae4978c03f99d"
+
 url@0.11.0, url@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
@@ -6361,12 +6373,6 @@ urlgrey@>=0.4.0:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/urlgrey/-/urlgrey-0.4.4.tgz#892fe95960805e85519f1cd4389f2cb4cbb7652f"
 
-urlsearchparams@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/urlsearchparams/-/urlsearchparams-0.1.1.tgz#5b99d29d930ce2eed27e2292b6330102eeee9cbd"
-  dependencies:
-    utf8-encoding "~0.1.x"
-
 user-home@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/user-home/-/user-home-1.1.1.tgz#2b5be23a32b63a7c9deb8d0f28d485724a3df190"
@@ -6376,12 +6382,6 @@ user-home@^2.0.0:
   resolved "https://registry.yarnpkg.com/user-home/-/user-home-2.0.0.tgz#9c70bfd8169bc1dcbf48604e0f04b8b49cde9e9f"
   dependencies:
     os-homedir "^1.0.0"
-
-utf8-encoding@~0.1.x:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/utf8-encoding/-/utf8-encoding-0.1.2.tgz#8717015cb8b923bc0303bf4af520af96f06ae9a2"
-  dependencies:
-    obtain-unicode "~0.0.5"
 
 util-deprecate@~1.0.1:
   version "1.0.2"

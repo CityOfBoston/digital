@@ -1,8 +1,8 @@
 // @flow
 
-import fetch from 'isomorphic-fetch';
+import 'isomorphic-fetch';
+import URLSearchParams from 'url-search-params';
 import url from 'url';
-import { URLSearchParams } from 'urlsearchparams';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
 
