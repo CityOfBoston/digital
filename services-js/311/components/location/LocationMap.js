@@ -4,7 +4,7 @@ import React from 'react';
 import { css } from 'glamor';
 
 // eslint-disable-next-line
-import type { Map as GoogleMap, MapsEventListener, Marker, LatLng } from 'google-maps';
+import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
 
 import Geocoder from '../../data/external/Geocoder';
 import LocationPopUp from './LocationPopUp';
@@ -102,11 +102,12 @@ export default class LocationMap extends React.Component {
     this.mapEl = div;
   }
 
-  getMapOptions() {
+  getMapOptions(): MapOptions {
     const { active, location } = this.props;
 
     return {
       clickableIcons: false,
+      disableDoubleClickZoom: true,
       disableDefaultUI: true,
       draggable: active,
       scrollwheel: active,
@@ -135,8 +136,9 @@ export default class LocationMap extends React.Component {
 
   addressChanged = async (latLng: LatLng) => {
     const { map } = this;
+    const { active } = this.props;
 
-    if (!map) {
+    if (!map || !active) {
       return;
     }
 
