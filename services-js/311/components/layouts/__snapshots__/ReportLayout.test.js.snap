@@ -1,0 +1,366 @@
+exports[`location picker rendering 1`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+</div>
+`;
+
+exports[`report form rendering 1`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1t5zf7p": "",
+      }
+    }>
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }>
+      <h2
+        className="sh-title">
+        311: Boston City Services
+      </h2>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-9sglvw": "",
+        }
+      }>
+      <textarea
+        className={
+          Object {
+            "data-css-1j8x7ul": "",
+          }
+        }
+        defaultValue=""
+        name="description"
+        onInput={[Function]}
+        placeholder="How can we help?" />
+      <ul
+        className={
+          Object {
+            "data-css-117fchh": "",
+          }
+        }>
+        <li
+          className={
+            Object {
+              "data-css-14nloni": "",
+            }
+          }>
+          <a
+            className={
+              Object {
+                "data-css-3br7c8": "",
+              }
+            }
+            href="/report/CSMCINC/location"
+            onClick={[Function]}>
+            Cosmic Incursion
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`service form existing rendering 1`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1t5zf7p": "",
+      }
+    }>
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }>
+      <h2
+        className="sh-title">
+        Cosmic Incursion
+      </h2>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-dgukzt": "",
+        }
+      }>
+      
+    </div>
+    <div>
+      <label>
+        <p>
+          Please provide any other relevant information:
+           
+        </p>
+        <textarea
+          className={
+            Object {
+              "data-css-1bm19ha": "",
+            }
+          }
+          name="ST-CMTS"
+          onInput={[Function]} />
+      </label>
+      <p>
+        **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
+      </p>
+      <label>
+        <p>
+          How many dimensions have been breached?
+        </p>
+        <select
+          name="SR-CSIRMV1"
+          onInput={[Function]}>
+          <option
+            value="One">
+            One
+          </option>
+          <option
+            value="Two">
+            Two
+          </option>
+          <option
+            value="Three">
+            Three
+          </option>
+          <option
+            value="More than Three">
+            More than Three
+          </option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <h2
+        className={
+          Object {
+            "data-css-16pm9zd": "",
+          }
+        }>
+        CONTACT FORM
+      </h2>
+      <div
+        className={
+          Object {
+            "data-css-1w0rge6": "",
+          }
+        }>
+        (will not be shared with public; leave blank to submit anonymously)
+      </div>
+      <label
+        className={
+          Object {
+            "data-css-12a7iqv": "",
+          }
+        }>
+        <span>
+          First Name (required)
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-b35x0h": "",
+            }
+          }
+          name="firstName"
+          onChange={[Function]}
+          placeholder="First Name"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-12a7iqv": "",
+          }
+        }>
+        <span>
+          Last Name (required)
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-b35x0h": "",
+            }
+          }
+          name="lastName"
+          onChange={[Function]}
+          placeholder="Last Name"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-12a7iqv": "",
+          }
+        }>
+        <span>
+          Email (required)
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-b35x0h": "",
+            }
+          }
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value="" />
+      </label>
+      <label
+        className={
+          Object {
+            "data-css-12a7iqv": "",
+          }
+        }>
+        <span>
+          Phone
+        </span>
+        <input
+          className={
+            Object {
+              "data-css-b35x0h": "",
+            }
+          }
+          name="phone"
+          onChange={[Function]}
+          placeholder="Phone"
+          type="tel"
+          value="" />
+      </label>
+    </div>
+    <button
+      disabled={true}
+      onClick={[Function]}>
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`service form missing rendering missing 1`] = `
+<div>
+  <div
+    className="nav ft-ll css-1avoji2">
+    <a
+      href="/"
+      onClick={[Function]}>
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}>
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}>
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}>
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1t5zf7p": "",
+      }
+    }>
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }>
+      <h2
+        className="sh-title">
+        Service not found
+      </h2>
+    </div>
+  </div>
+</div>
+`;

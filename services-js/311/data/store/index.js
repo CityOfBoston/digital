@@ -28,7 +28,7 @@ let browserStore = null;
 
 // Factored out to allow for injecting test dependencies and state while
 // maintaining the same middleware.
-export function makeStore(initialState: ?State = null): Store {
+export function makeStore(initialState: ?State = undefined): Store {
   const reducer: Reducer<State, Action> = combineReducers({
     keys,
     request,
@@ -59,7 +59,7 @@ export function makeStore(initialState: ?State = null): Store {
  * server’s getInitialProps calls. Can be null when server rendering or on the
  * client.
  */
-export default function getStore(req: ?RequestAdditions, initialState: ?State = null): Store {
+export default function getStore(req: ?RequestAdditions, initialState: ?State = undefined): Store {
   if (process.browser && browserStore) {
     return browserStore;
   }

@@ -13,10 +13,21 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module 'glamor' {
+ declare module 'glamor' {
+   declare module.exports: {
+     css: (Object) => {
+       toString: () => string;
+     },
+     rehydrate: (string[]) => void,
+   };
+ }
+
+declare module 'glamor/server' {
   declare module.exports: {
-    css: (Object) => {
-      toString: () => string;
-    },
+    renderStatic: (() => string) => {
+      html: string,
+      css: string,
+      ids: string[],
+    };
   };
 }

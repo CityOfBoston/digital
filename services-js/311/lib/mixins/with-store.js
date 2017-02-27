@@ -2,10 +2,8 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
+import type { Store } from 'redux';
 import type { Context } from 'next';
-import type { RequestAdditions } from '../../server/next-handlers';
-import getStore from '../../data/store';
-import type { Store } from '../../data/store';
 
 /**
  * Higher-order React component that initializes our Redux store and preserves its
@@ -27,14 +25,16 @@ import type { Store } from '../../data/store';
  *  - When new pages are accessed on the client, their getInitialProps and constructors
  *    will received the memoized store, preserving the data throughout the session.
  */
-export default (Component: Class<React.Component<*, *, *>>) => (
-  class withStore extends React.Component {
-    store: Store;
+export type GetStore<R, S, A> = (req: ?R, initialState: ?S) => Store<S, A>;
 
-    static async getInitialProps(ctx: Context<RequestAdditions>) {
+export default <R, S, A> (getStore: GetStore<R, S, A>) => (Component: Class<React.Component<*, *, *>>) => (
+  class withStore extends React.Component {
+    store: Store<S, A>;
+
+    static async getInitialProps(ctx: Context<R>) {
       const { req } = ctx;
 
-      const initialState = req ? req.reduxInitialState : null;
+      const initialState = req ? req.reduxInitialState : undefined;
       const store = getStore(req, initialState);
 
       const props = await (typeof Component.getInitialProps === 'function' ? Component.getInitialProps(ctx, store) : {});

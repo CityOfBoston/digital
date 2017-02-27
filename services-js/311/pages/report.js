@@ -3,40 +3,31 @@
 import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
+import { rehydrate } from 'glamor';
 import type { Context } from 'next';
 
 import type { RequestAdditions } from '../server/next-handlers';
 
 import withStore from '../lib/mixins/with-store';
-
-import Nav from '../components/common/Nav';
-import LocationMap from '../components/location';
-import StartFormContainer from '../components/report-start';
-import ReportFormContainer from '../components/report-form';
+import getStore from '../data/store';
 
 import makeLoopbackGraphql from '../data/graphql/loopback-graphql';
 import type { LoopbackGraphql } from '../data/graphql/loopback-graphql';
 
-import type { Service, ServiceArgs, ServiceSummary } from '../data/types';
+import type { ServiceSummary, ServiceArgs } from '../data/types';
 import LoadServiceGraphql from '../data/graphql/LoadServiceSummaries.graphql';
 import LoadServiceSummariesGraphql from '../data/graphql/LoadService.graphql';
+import type { InitialProps } from '../components/layouts/ReportLayout';
 
-type SummaryProps = {
-  view: 'summaries',
-  serviceSummaries: ?ServiceSummary[],
-  pickLocation: boolean,
-};
+if (process.browser) {
+  // eslint-disable-next-line no-underscore-dangle
+  rehydrate(window.__NEXT_DATA__.ids);
+}
 
-type ServiceProps = {
-  view: 'service',
-  code: string,
-  service: ?Service,
-  pickLocation: boolean,
-};
+// Use 'require' so this executes after the glamor rehydration
+const ReportLayout = require('../components/layouts/ReportLayout').default;
 
-type InitialProps = SummaryProps | ServiceProps;
-
-class Report extends React.Component {
+export class Report extends React.Component {
   props: InitialProps;
   loopbackGraphql: LoopbackGraphql;
 
@@ -67,7 +58,7 @@ class Report extends React.Component {
     }
   }
 
-  constructor(props) {
+  constructor(props: InitialProps) {
     super(props);
 
     this.loopbackGraphql = makeLoopbackGraphql();
@@ -91,60 +82,23 @@ class Report extends React.Component {
   }
 
   render() {
-    const { pickLocation } = this.props;
+    const initialProps = this.props;
 
     return (
       <div>
         <Head>
-          <title>BOS:311 — {this.renderTitle()}</title>
+          <title>BOS:311 — {ReportLayout.getTitle(initialProps)}</title>
         </Head>
 
-        <Nav />
-        <LocationMap active={pickLocation} goToReportForm={this.goToReportForm} />
-
-        {this.renderContent()}
+        <ReportLayout
+          initialProps={initialProps}
+          loopbackGraphql={this.loopbackGraphql}
+          showServiceForm={this.showServiceForm}
+          goToReportForm={this.goToReportForm}
+        />
       </div>
     );
   }
-
-  renderTitle() {
-    switch (this.props.view) {
-      case 'summaries': return 'Report a Problem';
-      case 'service': {
-        const { service, pickLocation } = this.props;
-
-        if (pickLocation) {
-          return 'Choose location';
-        } else if (service) {
-          return service.name;
-        } else {
-          return 'Not found';
-        }
-      }
-      default: return '';
-    }
-  }
-
-  renderContent() {
-    switch (this.props.view) {
-      case 'summaries':
-        return (
-          <StartFormContainer serviceSummaries={this.props.serviceSummaries} showServiceForm={this.showServiceForm} />
-        );
-
-      case 'service': {
-        const { service, pickLocation } = this.props;
-        if (pickLocation) {
-          return null;
-        } else {
-          return <ReportFormContainer service={service} loopbackGraphql={this.loopbackGraphql} />;
-        }
-      }
-
-      default:
-        return null;
-    }
-  }
 }
 
-export default withStore(Report);
+export default withStore(getStore)(Report);

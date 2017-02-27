@@ -106,6 +106,12 @@ const port = parseInt(process.env.PORT || '3000', 10);
 
   server.route({
     method: 'GET',
+    path: '/on-demand-entries-ping',
+    handler: nextDefaultHandler(app),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/__webpack_hmr',
     handler: nextDefaultHandler(app),
   });
