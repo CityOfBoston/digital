@@ -179,7 +179,7 @@ export default class ReportFormDialog extends React.Component {
       return this.renderSubmittedRequest(submittedRequest);
     }
 
-    const allowSubmit = !submitting && request.lastName;
+    const allowSubmit = !submitting && request.lastName && request.firstName && request.email;
 
     return (
       <FormDialog title={(service.name)}>
@@ -224,7 +224,7 @@ export default class ReportFormDialog extends React.Component {
         <div className={CONTACT_SUBHEADER_STYLE}>(will not be shared with public; leave blank to submit anonymously)</div>
 
         <label className={CONTACT_LABEL_STYLE}>
-          <span>First Name</span>
+          <span>First Name (required)</span>
           <input className={TEXT_INPUT_STYLE} placeholder="First Name" name="firstName" value={firstName} onChange={onFirstNameChange} />
         </label>
 
@@ -234,7 +234,7 @@ export default class ReportFormDialog extends React.Component {
         </label>
 
         <label className={CONTACT_LABEL_STYLE}>
-          <span>Email</span>
+          <span>Email (required)</span>
           <input className={TEXT_INPUT_STYLE} type="email" placeholder="Email" name="email" value={email} onChange={onEmailChange} />
         </label>
 

@@ -205,7 +205,7 @@ exports[`test service page 1`] = `
           }
         }>
         <span>
-          First Name
+          First Name (required)
         </span>
         <input
           className={
@@ -245,7 +245,7 @@ exports[`test service page 1`] = `
           }
         }>
         <span>
-          Email
+          Email (required)
         </span>
         <input
           className={

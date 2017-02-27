@@ -50,7 +50,7 @@ exports[`test blank request 1`] = `
         }
       }>
       <span>
-        First Name
+        First Name (required)
       </span>
       <input
         className={
@@ -90,7 +90,7 @@ exports[`test blank request 1`] = `
         }
       }>
       <span>
-        Email
+        Email (required)
       </span>
       <input
         className={
@@ -196,7 +196,7 @@ exports[`test existing description 1`] = `
         }
       }>
       <span>
-        First Name
+        First Name (required)
       </span>
       <input
         className={
@@ -236,7 +236,7 @@ exports[`test existing description 1`] = `
         }
       }>
       <span>
-        Email
+        Email (required)
       </span>
       <input
         className={

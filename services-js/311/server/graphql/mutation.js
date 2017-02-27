@@ -50,10 +50,10 @@ export const resolvers = {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
         service_description: args.description,
-        requestor_first_name: args.firstName,
-        requestor_last_name: args.lastName,
-        requestor_email: args.email,
-        requestor_phone: args.phone,
+        first_name: args.firstName,
+        last_name: args.lastName,
+        email: args.email,
+        phone: args.phone,
         attributes: args.attributes,
       };
 
