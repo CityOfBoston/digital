@@ -3,5 +3,6 @@ query LoadServiceSummaries {
     code
     name
     hasMetadata
+    locationRequired
   }
 }

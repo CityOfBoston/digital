@@ -83,7 +83,7 @@ function generateAttributeDefaults(metadata) {
   const attributesByCode = {};
 
   (metadata ? metadata.attributes : []).forEach(({ code, type, values }) => {
-    if (type === 'INFORMATIONAL') {
+    if (type === 'INFORMATIONAL' || type === 'STRING') {
       return;
     }
 

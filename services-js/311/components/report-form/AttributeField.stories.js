@@ -36,12 +36,12 @@ storiesOf('AttributeField', module)
       />
     </Container>
   ))
-  .add('Picklist', () => (
+  .add('Single Value List', () => (
     <Container>
       <AttributeField
         attribute={{
           required: true,
-          type: 'PICKLIST',
+          type: 'SINGLEVALUELIST',
           code: 'SR-NEDRMV1',
           description: 'How many needles are at the location?',
           values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],

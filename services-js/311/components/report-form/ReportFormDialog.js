@@ -126,7 +126,7 @@ export default class ReportFormDialog extends React.Component {
     }
 
     const { code } = this.props.service;
-    const { description, firstName, lastName, email, phone, attributes } = this.props.request;
+    const { description, firstName, lastName, email, phone, location, address, attributes } = this.props.request;
 
     const attributesArray = Object.keys(attributes).map((c) => ({ code: c, value: attributes[c] }));
 
@@ -137,6 +137,8 @@ export default class ReportFormDialog extends React.Component {
       lastName,
       email,
       phone,
+      location,
+      address,
       attributes: attributesArray,
     };
 

@@ -7,6 +7,7 @@ export const Schema = `
 type Service {
   code: String!
   name: String!
+  locationRequired: Boolean!
   hasMetadata: Boolean!
   metadata: ServiceMetadata
 }
@@ -30,19 +31,37 @@ type ServiceMetadataAttributeValue {
 }
 
 enum ServiceMetadataAttributeDatatype {
-  TEXT
-  INFORMATIONAL
-  PICKLIST
   BOOLEAN_CHECKBOX
+  INFORMATIONAL
+  MULTIVALUELIST
+  NUMBER
+  DATETIME
+  SINGLEVALUELIST
+  STRING
+  TEXT
 }
 `;
 
 export type Root = Service;
 
+// TODO(finh): Either support this with authorization or delete Salesforce code
+const USE_SALESFORCE = false;
+
 export const resolvers = {
   Service: {
     code: (s: Service) => s.service_code,
     name: (s: Service) => s.service_name || '',
+    locationRequired: async (s: Service, args: mixed, { salesforce }: Context) => {
+      if (USE_SALESFORCE) {
+        const serviceVersion = await salesforce.serviceVersion(s.service_code);
+        if (!serviceVersion) {
+          throw new Error(`Salesforce had no record for code ${s.service_code}`);
+        }
+        return serviceVersion.Incap311__Service_Location_Required__c;
+      } else {
+        return true;
+      }
+    },
     hasMetadata: (s: Service) => s.metadata,
     metadata: (s: Service, args: mixed, { open311 }: Context): ?Promise<ServiceMetadata> => (
       s.metadata ? open311.serviceMetadata(s.service_code) : null

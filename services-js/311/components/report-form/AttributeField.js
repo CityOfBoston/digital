@@ -29,7 +29,7 @@ function renderTextAttribute(attribute, onInput) {
   );
 }
 
-function renderPicklistAttribute(attribute, onInput) {
+function renderSingleValueListAttribute(attribute, onInput) {
   return (
     <label key={attribute.code}>
       <p>{attribute.description}</p>
@@ -47,11 +47,12 @@ export default function AttributeField({ attribute, attributeChanged }: Props) {
 
   switch (attribute.type) {
     case 'INFORMATIONAL':
+    case 'STRING':
       return renderInformationalAttribute(attribute);
     case 'TEXT':
       return renderTextAttribute(attribute, onInput);
-    case 'PICKLIST':
-      return renderPicklistAttribute(attribute, onInput);
+    case 'SINGLEVALUELIST':
+      return renderSingleValueListAttribute(attribute, onInput);
     default:
       return null;
   }

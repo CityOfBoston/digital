@@ -17,13 +17,13 @@ const NEEDLE_SERVICE: Service = {
       values: null,
     }, {
       required: false,
-      type: 'INFORMATIONAL',
+      type: 'STRING',
       code: 'INFO-NEDRMV1',
       description: '**All needle pickup cases should be followed up with a phone call to one of the below agencies.**',
       values: null,
     }, {
       required: true,
-      type: 'PICKLIST',
+      type: 'SINGLEVALUELIST',
       code: 'SR-NEDRMV1',
       description: 'How many needles are at the location?',
       values: [{ key: 'one', name: 'One' }, { key: 'two', name: 'Two' }, { key: 'three', name: 'Three' }, { key: 'more-than-three', name: 'More than Three' }],

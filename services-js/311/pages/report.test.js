@@ -20,6 +20,7 @@ const MOCK_SERVICE_SUMMARIES_RESPONSE: LoadServiceSummariesQuery = {
     name: 'Needle Pickup',
     code: 'needles',
     hasMetadata: true,
+    locationRequired: true,
   }],
 };
 
@@ -37,13 +38,13 @@ const MOCK_SERVICE_RESPONSE: LoadServiceQuery = {
         values: null,
       }, {
         required: false,
-        type: 'INFORMATIONAL',
+        type: 'STRING',
         code: 'INFO-NEDRMV1',
         description: '**All needle pickup cases should be followed up with a phone call to one of the below agencies.**',
         values: null,
       }, {
         required: true,
-        type: 'PICKLIST',
+        type: 'SINGLEVALUELIST',
         code: 'SR-NEDRMV1',
         description: 'How many needles are at the location?',
         values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],

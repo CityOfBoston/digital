@@ -73,10 +73,14 @@ class Report extends React.Component {
     this.loopbackGraphql = makeLoopbackGraphql();
   }
 
-  showServiceForm = (code) => {
+  showServiceForm = (serviceSummary: ServiceSummary) => {
     // TODO(finh): Use "url" prop if we have a better way of pulling it off
     // type-safely (probably after rest spreads land)
-    Router.push(`/report?code=${code}&pickLocation=true`, `/report/${code}/location`);
+    if (serviceSummary.locationRequired) {
+      Router.push(`/report?code=${serviceSummary.code}&pickLocation=true`, `/report/${serviceSummary.code}/location`);
+    } else {
+      Router.push(`/report?code=${serviceSummary.code}`, `/report/${serviceSummary.code}`);
+    }
   }
 
   goToReportForm = () => {

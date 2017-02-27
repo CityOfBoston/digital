@@ -26,7 +26,7 @@ test('Informational', () => {
     <AttributeField
       attribute={{
         required: false,
-        type: 'INFORMATIONAL',
+        type: 'STRING',
         code: 'INFO-NEDRMV1',
         description: '**All needle pickup cases should be followed up with a phone call to one of the below agencies.**',
         values: null,
@@ -42,7 +42,7 @@ test('Picklist', () => {
     <AttributeField
       attribute={{
         required: true,
-        type: 'PICKLIST',
+        type: 'SINGLEVALUELIST',
         code: 'SR-NEDRMV1',
         description: 'How many needles are at the location?',
         values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],

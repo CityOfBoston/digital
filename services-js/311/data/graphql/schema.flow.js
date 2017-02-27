@@ -2,11 +2,20 @@
 //  This file was automatically generated and should not be edited.
 
 export type ServiceMetadataAttributeDatatype =
-  "TEXT" |
+  "BOOLEAN_CHECKBOX" |
   "INFORMATIONAL" |
-  "PICKLIST" |
-  "BOOLEAN_CHECKBOX";
+  "MULTIVALUELIST" |
+  "NUMBER" |
+  "DATETIME" |
+  "SINGLEVALUELIST" |
+  "STRING" |
+  "TEXT";
 
+
+export type LatLng = {
+  lat: number,
+  lng: number,
+};
 
 export type CreateRequestAttribute = {
   code: string,
@@ -42,6 +51,7 @@ export type LoadServiceSummariesQuery = {
     code: string,
     name: string,
     hasMetadata: boolean,
+    locationRequired: boolean,
   } >,
 };
 
@@ -52,6 +62,8 @@ export type SubmitRequestMutationVariables = {
   lastName: ?string,
   email: ?string,
   phone: ?string,
+  address: ?string,
+  location: ?LatLng,
   attributes: Array< CreateRequestAttribute >,
 };
 

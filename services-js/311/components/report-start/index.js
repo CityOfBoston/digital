@@ -14,7 +14,7 @@ import ServiceList from './ServiceList';
 
 type ExternalProps = {
   serviceSummaries: ServiceSummary[],
-  showServiceForm: (code: string) => void,
+  showServiceForm: (serviceSummary: ServiceSummary) => void,
 }
 
 type ValueProps = {
@@ -37,7 +37,7 @@ function ReportFormDialog({ request, serviceSummaries, descriptionInputChanged, 
     <FormDialog title="311: Boston City Services">
       <div className={FORM_STYLE}>
         <DescriptionBox text={request.description} onInput={descriptionInputChanged} />
-        <ServiceList serviceSummaries={serviceSummaries} onCodeChosen={showServiceForm} />
+        <ServiceList serviceSummaries={serviceSummaries} onServiceChosen={showServiceForm} />
       </div>
     </FormDialog>
   );

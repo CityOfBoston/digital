@@ -18,7 +18,8 @@
     "generate-graphql-flow": "apollo-codegen generate data/graphql/*.graphql --schema graphql/schema.json --target flow --output data/graphql/schema.flow.js",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "eslint --quiet .",
-    "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace"
+    "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace",
+    "fetch-salesforce-access-token": "node ./scripts/fetch-salesforce-access-token"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -82,6 +83,7 @@
     "flow-bin": "^0.40.0",
     "husky": "^0.13.1",
     "jest": "^18.1.0",
+    "prompt": "^1.0.0",
     "react-test-renderer": "^15.4.2",
     "webpack-bundle-analyzer": "^2.3.0"
   }

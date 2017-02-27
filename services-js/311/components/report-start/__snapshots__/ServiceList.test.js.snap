@@ -17,7 +17,6 @@ exports[`test services 1`] = `
           "data-css-3br7c8": "",
         }
       }
-      data-code="needles"
       href="/report/needles/location"
       onClick={[Function]}>
       Needle Pickup

@@ -8,6 +8,7 @@ import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import Open311 from './services/Open311';
+import Salesforce from './services/Salesforce';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -60,6 +61,7 @@ const port = parseInt(process.env.PORT || '3000', 10);
         schema,
         context: ({
           open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY']),
+          salesforce: new Salesforce(process.env.SALESFORCE_HOSTNAME, process.env.SALESFORCE_ACCESS_TOKEN),
         }: Context),
       }),
       route: {

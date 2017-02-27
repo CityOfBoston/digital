@@ -5,6 +5,8 @@ mutation SubmitRequest(
   $lastName: String,
   $email: String,
   $phone: String,
+  $address: String,
+  $location: LatLng,
   $attributes: [CreateRequestAttribute!]!) {
   createRequest(
     code: $code,
@@ -13,6 +15,8 @@ mutation SubmitRequest(
     lastName: $lastName,
     email: $email,
     phone: $phone,
+    address: $address,
+    location: $location,
     attributes: $attributes
   ) {
     id

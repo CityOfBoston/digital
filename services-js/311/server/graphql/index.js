@@ -8,9 +8,11 @@ import { Schema as RequestSchema, resolvers as requestResolvers } from './reques
 import { Schema as ServiceSchema, resolvers as serviceResolvers } from './service';
 
 import type Open311 from '../services/Open311';
+import type Salesforce from '../services/Salesforce';
 
 export type Context = {|
   open311: Open311,
+  salesforce: Salesforce,
 |};
 
 const SchemaDefinition = `

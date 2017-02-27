@@ -35,31 +35,36 @@ const STYLES = {
   }),
 };
 
-export default class ServiceList extends React.Component {
+class ServiceButton extends React.Component {
   props: {
-    serviceSummaries: ServiceSummary[],
-    onCodeChosen: (string) => void,
+    serviceSummary: ServiceSummary,
+    onServiceChosen: (serviceSummary: ServiceSummary) => void;
   }
 
-  handleServiceClick = (ev: SyntheticInputEvent) => {
-    ev.preventDefault();
+  whenClicked = (ev: SyntheticInputEvent) => {
+    const { onServiceChosen, serviceSummary } = this.props;
 
-    const code = ev.target.getAttribute('data-code');
-    if (code) {
-      this.props.onCodeChosen(code);
-    }
+    ev.preventDefault();
+    onServiceChosen(serviceSummary);
   }
 
   render() {
-    const { serviceSummaries } = this.props;
+    const { serviceSummary: { code, name } } = this.props;
     return (
-      <ul className={STYLES.list}>{ serviceSummaries.map(this.renderServiceButton) }</ul>
+      <li className={STYLES.item} key={code}>
+        <a className={STYLES.link} href={`/report/${code}/location`} onClick={this.whenClicked}>{name}</a>
+      </li>
     );
   }
+}
 
-  renderServiceButton = ({ name, code }: ServiceSummary) => (
-    <li className={STYLES.item} key={code}>
-      <a className={STYLES.link} href={`/report/${code}/location`} data-code={code} onClick={this.handleServiceClick}>{name}</a>
-    </li>
+export type Props = {
+  serviceSummaries: ServiceSummary[],
+  onServiceChosen: (ServiceSummary) => void,
+}
+
+export default function ServiceList({ serviceSummaries, onServiceChosen }: Props) {
+  return (
+    <ul className={STYLES.list}>{ serviceSummaries.map((s) => <ServiceButton key={s.code} serviceSummary={s} onServiceChosen={onServiceChosen} />) }</ul>
   );
 }

@@ -109,6 +109,22 @@
               "deprecationReason": null
             },
             {
+              "name": "locationRequired",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "hasMetadata",
               "description": "",
               "args": [],
@@ -313,7 +329,7 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "TEXT",
+              "name": "BOOLEAN_CHECKBOX",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
@@ -325,13 +341,37 @@
               "deprecationReason": null
             },
             {
-              "name": "PICKLIST",
+              "name": "MULTIVALUELIST",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "BOOLEAN_CHECKBOX",
+              "name": "NUMBER",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DATETIME",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGLEVALUELIST",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STRING",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TEXT",
               "description": "",
               "isDeprecated": false,
               "deprecationReason": null
@@ -470,6 +510,26 @@
                   "defaultValue": null
                 },
                 {
+                  "name": "address",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "location",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "LatLng",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
                   "name": "attributes",
                   "description": "",
                   "type": {
@@ -507,6 +567,55 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "LatLng",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "lat",
+              "description": "",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lng",
+              "description": "",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },

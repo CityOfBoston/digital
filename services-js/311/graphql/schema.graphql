@@ -3,8 +3,13 @@ input CreateRequestAttribute {
   value: String!
 }
 
+input LatLng {
+  lat: Float!
+  lng: Float!
+}
+
 type Mutation {
-  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, attributes: [CreateRequestAttribute!]!): Request!
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, location: LatLng, attributes: [CreateRequestAttribute!]!): Request!
 }
 
 type Query {
@@ -24,6 +29,7 @@ type Request {
 type Service {
   code: String!
   name: String!
+  locationRequired: Boolean!
   hasMetadata: Boolean!
   metadata: ServiceMetadata
 }
@@ -42,10 +48,14 @@ type ServiceMetadataAttribute {
 }
 
 enum ServiceMetadataAttributeDatatype {
-  TEXT
-  INFORMATIONAL
-  PICKLIST
   BOOLEAN_CHECKBOX
+  INFORMATIONAL
+  MULTIVALUELIST
+  NUMBER
+  DATETIME
+  SINGLEVALUELIST
+  STRING
+  TEXT
 }
 
 type ServiceMetadataAttributeValue {

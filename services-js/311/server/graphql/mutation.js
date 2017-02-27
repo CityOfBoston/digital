@@ -1,11 +1,17 @@
 // @flow
 
 import type { Context } from '.';
+import type { CreateServiceRequestArgs } from '../services/Open311';
 
 export const Schema = `
 input CreateRequestAttribute {
   code: String!
   value: String!
+}
+
+input LatLng {
+  lat: Float!
+  lng: Float!
 }
 
 type Mutation {
@@ -16,6 +22,8 @@ type Mutation {
     lastName: String
     email: String
     phone: String
+    address: String
+    location: LatLng
     attributes: [CreateRequestAttribute!]!
   ): Request!
 }
@@ -28,13 +36,18 @@ type CreateRequestArgs = {|
   lastName: ?string,
   email: ?string,
   phone: ?string,
+  address: ?string,
+  location: ?{
+    lat: number,
+    lng: number,
+  },
   attributes: { code: string, value: string }[],
 |};
 
 export const resolvers = {
   Mutation: {
-    createRequest: (root: mixed, args: CreateRequestArgs, { open311 }: Context) => (
-      open311.createRequest({
+    createRequest: (root: mixed, args: CreateRequestArgs, { open311 }: Context) => {
+      const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
         service_description: args.description,
         requestor_first_name: args.firstName,
@@ -42,7 +55,18 @@ export const resolvers = {
         requestor_email: args.email,
         requestor_phone: args.phone,
         attributes: args.attributes,
-      }).then((arr) => arr[0])
-    ),
+      };
+
+      if (args.address) {
+        createArgs.address_string = args.address;
+      }
+
+      if (args.location) {
+        createArgs.lat = args.location.lat;
+        createArgs.long = args.location.lng;
+      }
+
+      return open311.createRequest(createArgs).then((arr) => arr[0]);
+    },
   },
 };
