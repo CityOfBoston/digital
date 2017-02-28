@@ -25,17 +25,17 @@ import type { Context } from 'next';
  *  - When new pages are accessed on the client, their getInitialProps and constructors
  *    will received the memoized store, preserving the data throughout the session.
  */
-export type GetStore<R, S, A> = (req: ?R, initialState: ?S) => Store<S, A>;
+export type GetStore<S, A> = (initialState: ?S) => Store<S, A>;
 
-export default <R, S, A> (getStore: GetStore<R, S, A>) => (Component: Class<React.Component<*, *, *>>) => (
+export default <S, A> (getStore: GetStore<S, A>) => (Component: Class<React.Component<*, *, *>>) => (
   class withStore extends React.Component {
     store: Store<S, A>;
 
-    static async getInitialProps(ctx: Context<R>) {
+    static async getInitialProps(ctx: Context<*>) {
       const { req } = ctx;
 
       const initialState = req ? req.reduxInitialState : undefined;
-      const store = getStore(req, initialState);
+      const store = getStore(initialState);
 
       const props = await (typeof Component.getInitialProps === 'function' ? Component.getInitialProps(ctx, store) : {});
 
@@ -50,7 +50,7 @@ export default <R, S, A> (getStore: GetStore<R, S, A>) => (Component: Class<Reac
       super(props);
 
       const { initialState } = props;
-      this.store = getStore(null, initialState);
+      this.store = getStore(initialState);
     }
 
     render() {

@@ -10,8 +10,6 @@ import request from './request';
 import type { State as KeysState, Action as KeysAction } from './keys';
 import type { State as RequestState, Action as RequestAction } from './request';
 
-import type { RequestAdditions } from '../../server/next-handlers';
-
 export type State = {|
   keys: KeysState,
   request: RequestState,
@@ -53,13 +51,8 @@ export function makeStore(initialState: ?State = undefined): Store {
  * Returns a Redux store for this application. For the server, always returns a
  * fresh store with the given initialState. On the browser, will always return
  * the same store and initialState is ignored after the first call.
- *
- * req is the Node request (expected to contain injected dependencies for server
- * data fetching) that should be provided when creating the store for the
- * server’s getInitialProps calls. Can be null when server rendering or on the
- * client.
  */
-export default function getStore(req: ?RequestAdditions, initialState: ?State = undefined): Store {
+export default function getStore(initialState: ?State = undefined): Store {
   if (process.browser && browserStore) {
     return browserStore;
   }

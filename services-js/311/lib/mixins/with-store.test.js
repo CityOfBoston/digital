@@ -16,7 +16,7 @@ function reducer(state = INITIAL_STATE) {
   return state;
 }
 
-function getStore(req, initialState) {
+function getStore(initialState) {
   return createStore(reducer, initialState);
 }
 
