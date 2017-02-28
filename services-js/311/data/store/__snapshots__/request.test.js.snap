@@ -1,1 +1,1 @@
-exports[`setAttribute throws if the code doesn’t match an attribute 1`] = `"Attribute code UNKNOWN-CODE not found in the current service (needles)"`;
+exports[`setAttribute throws if the code doesn’t match an attribute 1`] = `"Attribute code UNKNOWN-CODE not found in the current service (CSMCINC)"`;

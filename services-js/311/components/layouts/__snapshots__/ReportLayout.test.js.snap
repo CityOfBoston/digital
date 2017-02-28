@@ -178,18 +178,33 @@ exports[`service form existing rendering 1`] = `
             }
           }
           name="ST-CMTS"
-          onInput={[Function]} />
+          onInput={[Function]}
+          value="" />
       </label>
-      <p>
-        **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
-      </p>
+      <label>
+        <p>
+          **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
+           
+        </p>
+        <input
+          className={
+            Object {
+              "data-css-rqg0fb": "",
+            }
+          }
+          name="INFO-CSIRMV1"
+          onInput={[Function]}
+          type="text"
+          value={undefined} />
+      </label>
       <label>
         <p>
           How many dimensions have been breached?
         </p>
         <select
           name="SR-CSIRMV1"
-          onInput={[Function]}>
+          onInput={[Function]}
+          value="One">
           <option
             value="One">
             One

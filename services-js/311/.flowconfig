@@ -1,7 +1,9 @@
 [libs]
-
 flow-typed/
 flow-decl/
+
+[ignore]
+<PROJECT_ROOT>/node_modules/jsverify/.*
 
 [options]
 module.file_ext=.graphql

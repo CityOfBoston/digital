@@ -28,7 +28,7 @@ export type ActionProps = {
   onLastNameChange: (SyntheticInputEvent) => void,
   onEmailChange: (SyntheticInputEvent) => void,
   onPhoneChange: (SyntheticInputEvent) => void,
-  onAttributeChange: (string, string) => void,
+  onAttributeChange: (string, string | string[]) => void,
 }
 
 export type Props = ExternalProps & ValueProps & ActionProps;
@@ -128,7 +128,16 @@ export default class ReportFormDialog extends React.Component {
     const { code } = this.props.service;
     const { description, firstName, lastName, email, phone, location, address, attributes } = this.props.request;
 
-    const attributesArray = Object.keys(attributes).map((c) => ({ code: c, value: attributes[c] }));
+    const attributesArray = [];
+    Object.keys(attributes).forEach((c) => {
+      const value = attributes[c];
+      if (Array.isArray(value)) {
+        value.forEach((v) => attributesArray.push({ code: c, value: v }));
+      } else {
+        attributesArray.push({ code: c, value });
+      }
+    });
+
 
     const vars: SubmitRequestMutationVariables = {
       code,
@@ -145,7 +154,9 @@ export default class ReportFormDialog extends React.Component {
     this.setState({ submitting: true });
     try {
       const response: SubmitRequestMutation = await this.props.loopbackGraphql(SubmitRequestGraphql, vars);
+
       window.scrollTo(0, 0);
+
       this.setState({
         submittedRequest: response.createRequest,
         submitting: false,
@@ -186,7 +197,7 @@ export default class ReportFormDialog extends React.Component {
         { this.renderDescription(request) }
         { this.renderLocation(request) }
 
-        <MetadataFields service={service} attributeChanged={onAttributeChange} />
+        <MetadataFields service={service} attributeChanged={onAttributeChange} attributes={request.attributes} />
 
         { this.renderContactFields() }
 

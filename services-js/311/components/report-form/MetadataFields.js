@@ -7,7 +7,8 @@ import AttributeField from './AttributeField';
 
 export type Props = {
   service: Service,
-  attributeChanged: (code: string, value: string) => mixed,
+  attributeChanged: (code: string, value: string | string[]) => void,
+  attributes: {[code: string]: string | string[]},
 };
 
 function selectAttributes(service) {
@@ -18,10 +19,14 @@ function selectAttributes(service) {
   }
 }
 
-export default function MetadataFields({ service, attributeChanged }: Props) {
+export default function MetadataFields({ service, attributeChanged, attributes }: Props) {
   return (
     <div>
-      { selectAttributes(service).map((a) => <AttributeField attribute={a} key={a.code} attributeChanged={attributeChanged} />) }
+      {
+        selectAttributes(service).map((a) => (
+          <AttributeField attribute={a} key={a.code} attributeChanged={attributeChanged} currentValue={attributes[a.code]} />
+        ))
+      }
     </div>
   );
 }

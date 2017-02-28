@@ -8,8 +8,8 @@ import type { Service } from '../../data/types';
 import MetadataFields from './MetadataFields';
 
 const SERVICE_WITH_METADATA: Service = {
-  name: 'Needle Pickup',
-  code: 'needles',
+  name: 'Cosmic Incursion',
+  code: 'CSMCINC',
   hasMetadata: true,
   metadata: {
     attributes: [{
@@ -23,15 +23,15 @@ const SERVICE_WITH_METADATA: Service = {
 };
 
 const SERVICE_WITHOUT_METADATA: Service = {
-  name: 'Needle Pickup',
-  code: 'needles',
+  name: 'Avengers Assemble',
+  code: 'AVGASSM',
   hasMetadata: false,
   metadata: null,
 };
 
 test('service with metadata renders', () => {
   const component = renderer.create(
-    <MetadataFields service={SERVICE_WITH_METADATA} attributeChanged={jest.fn()} />,
+    <MetadataFields service={SERVICE_WITH_METADATA} attributeChanged={jest.fn()} attributes={{ 'ST-CMTS': 'It’s been better.' }} />,
   );
 
   expect(component.toJSON).toBeDefined();
@@ -39,7 +39,7 @@ test('service with metadata renders', () => {
 
 test('service without metadata renders', () => {
   const component = renderer.create(
-    <MetadataFields service={SERVICE_WITHOUT_METADATA} attributeChanged={jest.fn()} />,
+    <MetadataFields service={SERVICE_WITHOUT_METADATA} attributeChanged={jest.fn()} attributes={{}} />,
   );
 
   expect(component.toJSON).toBeDefined();

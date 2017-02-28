@@ -8,6 +8,21 @@ import AttributeField from './AttributeField';
 const Container = FormDialog;
 
 storiesOf('AttributeField', module)
+  .add('Boolean Checkbox', () => (
+    <Container>
+      <AttributeField
+        attribute={{
+          required: false,
+          type: 'BOOLEAN_CHECKBOX',
+          code: 'ST-CMTS',
+          description: 'I solemnly swear that I am up to no good',
+          values: null,
+        }}
+        currentValue="false"
+        attributeChanged={action('Attribute Changed')}
+      />
+    </Container>
+  ))
   .add('Text', () => (
     <Container>
       <AttributeField
@@ -18,6 +33,7 @@ storiesOf('AttributeField', module)
           description: 'Please provide any other relevant information:',
           values: null,
         }}
+        currentValue="Things got bad after Thanos showed up.\n\nPlease send immediate assistance."
         attributeChanged={action('Attribute Changed')}
       />
     </Container>
@@ -29,9 +45,55 @@ storiesOf('AttributeField', module)
           required: false,
           type: 'INFORMATIONAL',
           code: 'INFO-NEDRMV1',
-          description: '**All needle pickup cases should be followed up with a phone call to one of the below agencies.**',
+          description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
           values: null,
         }}
+        currentValue={null}
+        attributeChanged={action('Attribute Changed')}
+      />
+    </Container>
+  ))
+  .add('String', () => (
+    <Container>
+      <AttributeField
+        attribute={{
+          required: false,
+          type: 'STRING',
+          code: 'INFO-NEDRMV1',
+          description: 'What Earth timeline does this problem appear in?',
+          values: null,
+        }}
+        currentValue="Post–Zero Day"
+        attributeChanged={action('Attribute Changed')}
+      />
+    </Container>
+  ))
+  .add('Date', () => (
+    <Container>
+      <AttributeField
+        attribute={{
+          required: false,
+          type: 'DATETIME',
+          code: 'INFO-NEDRMV1',
+          description: 'When are you currently in time?',
+          values: null,
+        }}
+        currentValue="1965-12-31"
+        attributeChanged={action('Attribute Changed')}
+      />
+    </Container>
+  ))
+  .add('Number', () => (
+    <Container>
+      <AttributeField
+        attribute={{
+          required: false,
+          type: 'NUMBER',
+          code: 'INFO-NEDRMV1',
+          description: 'How many Doombots are at your present location?',
+          values: null,
+        }}
+        currentValue="15"
         attributeChanged={action('Attribute Changed')}
       />
     </Container>
@@ -43,10 +105,35 @@ storiesOf('AttributeField', module)
           required: true,
           type: 'SINGLEVALUELIST',
           code: 'SR-NEDRMV1',
-          description: 'How many needles are at the location?',
+          description: 'How many dimensions were breached?',
           values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
         }}
+        currentValue="Three"
         attributeChanged={action('Attribute Changed')}
       />
     </Container>
-  ));
+  ))
+  .add('Multi Value List', () => (
+    <Container>
+      <AttributeField
+        attribute={{
+          required: true,
+          type: 'MULTIVALUELIST',
+          code: 'SR-NEDRMV1',
+          description: 'Which Avengers should be notified?',
+          values: [
+            { key: 'captain-america', name: 'Captain America' },
+            { key: 'hercules', name: 'Hercules' },
+            { key: 'thor', name: 'Thor' },
+            { key: 'wasp', name: 'Wasp' },
+            { key: 'vision', name: 'Vision' },
+            { key: 'ms-marvel', name: 'Ms. Marvel' },
+            { key: 'spider-man', name: 'Spider-Man' },
+            { key: 'captain-marvel', name: 'Captain Marvel' },
+          ],
+        }}
+        currentValue={['wasp', 'spider-man', 'captain-marvel']}
+        attributeChanged={action('Attribute Changed')}
+      />
+    </Container>
+    ));

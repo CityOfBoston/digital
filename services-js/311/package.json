@@ -83,6 +83,7 @@
     "flow-bin": "^0.40.0",
     "husky": "^0.13.1",
     "jest": "^18.1.0",
+    "jsverify": "^0.7.4",
     "prompt": "^1.0.0",
     "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "^15.4.2",
