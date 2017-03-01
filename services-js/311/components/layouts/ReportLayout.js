@@ -2,6 +2,7 @@
 /* eslint react/no-unused-prop-types: 0 */
 
 import React from 'react';
+import { css } from 'glamor';
 
 import Nav from '../common/Nav';
 import LocationMap from '../location';
@@ -33,6 +34,18 @@ export type Props = {
   goToReportForm: () => void,
 }
 
+const CONTAINER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+  marginTop: -55,
+});
+
+const CONTENT_STYLE = css({
+  flex: 1,
+  position: 'relative',
+});
+
 export default class ReportLayout extends React.Component {
   props: Props;
 
@@ -58,11 +71,12 @@ export default class ReportLayout extends React.Component {
     const { initialProps: { pickLocation }, goToReportForm } = this.props;
 
     return (
-      <div>
+      <div className={CONTAINER_STYLE}>
         <Nav />
-        <LocationMap active={pickLocation} goToReportForm={goToReportForm} />
-
-        {this.renderContent()}
+        <div className={CONTENT_STYLE}>
+          <LocationMap active={pickLocation} goToReportForm={goToReportForm} />
+          {this.renderContent()}
+        </div>
       </div>
     );
   }

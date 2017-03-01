@@ -8,7 +8,8 @@
     ["inline-import", {
       "extensions": [
         ".graphql",
-        ".env"
+        ".env",
+        ".html"
       ]
     }],
 

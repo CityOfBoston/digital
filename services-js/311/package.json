@@ -19,7 +19,8 @@
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "eslint --quiet .",
     "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace",
-    "fetch-salesforce-access-token": "node ./scripts/fetch-salesforce-access-token"
+    "fetch-salesforce-access-token": "node ./scripts/fetch-salesforce-access-token",
+    "fetch-templates": "babel-node ./scripts/fetch-templates"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -63,7 +64,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "apollo-codegen": "^0.10.8",
-    "babel-cli": "^6.22.2",
+    "babel-cli": "^6.23.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
@@ -72,6 +73,7 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "babel-watch": "^2.0.6",
+    "cheerio": "^0.22.0",
     "codecov": "^1.0.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",

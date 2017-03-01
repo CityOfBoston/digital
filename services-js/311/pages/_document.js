@@ -4,6 +4,12 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { renderStatic } from 'glamor/server';
 
+import makeCssHead from '../lib/make-css-head';
+
+import headerHtml from '../templates/header.html';
+import footerHtml from '../templates/footer.html';
+import navigationHtml from '../templates/navigation.html';
+
 type Props = {
   __NEXT_DATA__: Object,
   ids: string[],
@@ -27,31 +33,26 @@ export default class extends Document {
   }
 
   render() {
+    const { css } = this.props;
+
     return (
-      <html lang="en">
-        <Head>
-          <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Montserrat:400,700" rel="stylesheet" />
-          <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
-
-          <style type="text/css">{`
-            /* Add any new styles here to storybook/head.html as well */
-            body {
-              margin: 0;
-              padding: 0;
-              overflow-x: hidden;
-              font-family: Montserrat, Arial, sans-serif;
-            }
-
-            * {
-              box-sizing: border-box
-            }
-          `}</style>
-
-          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
-        </Head>
+      <html lang="en" className="js flexbox">
+        { makeCssHead(Head, css) }
 
         <body>
-          <Main />
+          <p className="skip-link__wrapper">
+            <a href="#main-menu" className="skip-link visually-hidden--focusable" id="skip-link">Jump to navigation</a>
+          </p>
+
+          <input type="checkbox" id="hb__trigger" className="hb__trigger" aria-hidden="true" />
+          <div className="main-navigation" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
+
+          <div className="page" id="page">
+            <header className="header" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
+            <Main />
+            <footer className="ft" dangerouslySetInnerHTML={{ __html: footerHtml }} />
+
+          </div>
           <NextScript />
         </body>
       </html>

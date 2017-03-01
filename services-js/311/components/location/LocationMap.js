@@ -12,8 +12,7 @@ import LocationPopUp from './LocationPopUp';
 type AutocompleteService = google.maps.places.AutocompleteService;
 
 const CONTAINER_STYLE = css({
-  position: 'fixed',
-  zIndex: 0,
+  position: 'absolute',
   width: '100%',
   height: '100%',
 });

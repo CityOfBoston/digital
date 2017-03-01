@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
+import Head from 'next/head';
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@kadira/storybook';
 import { makeStore } from '../data/store';
@@ -7,6 +8,7 @@ import { setKeys } from '../data/store/keys';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';
+import makeCssHead from '../lib/make-css-head';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 const dotEnv = parseDotEnv(DOT_ENV);
@@ -38,7 +40,10 @@ class Wrapper extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        { this.props.children }
+        <div>
+          { makeCssHead(Head) }
+          { this.props.children }
+        </div>
       </Provider>
     );
   }

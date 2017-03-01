@@ -9,6 +9,7 @@ const STYLES = {
     margin: '0.75em 0',
     padding: '0 1em',
     listStyle: 'none',
+    lineHeight: 1.1,
   }),
 
   item: css({
