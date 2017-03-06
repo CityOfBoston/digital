@@ -22,6 +22,9 @@ import type { LoadServiceSummariesQuery, LoadServiceQuery } from '../../data/gra
 import type { Store } from '../../data/store';
 import type { ServiceArgs, Service, ServiceSummary } from '../../data/types';
 
+import { addServiceToCache, selectCachedService } from '../../data/store/services';
+
+
 type HomeData = {
   view: 'home',
   serviceSummaries: ServiceSummary[],
@@ -59,14 +62,20 @@ async function getHomeData(loopbackGraphql): Promise<HomeData> {
 }
 
 async function getRequestData({ code, stage }, res, store, loopbackGraphql): Promise<RequestData> {
-  const args: ServiceArgs = { code };
-  const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, args);
+  let service = selectCachedService(store.getState().services, code);
 
-  const service = response.service;
+  if (!service) {
+    const args: ServiceArgs = { code };
+    const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, args);
 
-  if (res && !service) {
-    // eslint-disable-next-line no-param-reassign
-    res.statusCode = 404;
+    service = response.service;
+
+    if (service) {
+      store.dispatch(addServiceToCache(service));
+    } else if (res) {
+      // eslint-disable-next-line no-param-reassign
+      res.statusCode = 404;
+    }
   }
 
   switch (stage) {

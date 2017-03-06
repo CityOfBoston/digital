@@ -129,6 +129,18 @@ describe('existing service page', () => {
     }
   });
 
+  test('service is cached', async () => {
+    // store should have the service cached by code from the beforeEach above,
+    // so to enforce that we're not fetching a second time we clear this out
+    // of the fake GraphQL responses.
+    mockGraphql(LoadServiceGraphql, null);
+
+    const ctx = makeServerContext('/report', { code: 'CSMCINC' });
+    const nextData = (await ReportLayout.getInitialProps(ctx, store)).data;
+
+    expect(nextData).toEqual(data);
+  });
+
   test('rendering', () => {
     const component = renderer.create(
       <Provider store={store}>

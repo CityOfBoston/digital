@@ -6,16 +6,19 @@ import type { Store as ReduxStore, Reducer, Dispatch as ReduxDispatch } from 're
 
 import keys from './keys';
 import request from './request';
+import services from './services';
 
 import type { State as KeysState, Action as KeysAction } from './keys';
 import type { State as RequestState, Action as RequestAction } from './request';
+import type { State as ServicesState, Action as ServicesAction } from './services';
 
 export type State = {|
   keys: KeysState,
   request: RequestState,
+  services: ServicesState,
 |};
 
-export type Action = KeysAction | RequestAction;
+export type Action = KeysAction | RequestAction | ServicesAction;
 export type Dispatch = ReduxDispatch<Action>;
 
 export type Store = ReduxStore<State, Action>;
@@ -30,6 +33,7 @@ export function makeStore(initialState: ?State = undefined): Store {
   const reducer: Reducer<State, Action> = combineReducers({
     keys,
     request,
+    services,
   });
 
   // Support for Redux Devtools Extension: https://github.com/zalmoxisus/redux-devtools-extension

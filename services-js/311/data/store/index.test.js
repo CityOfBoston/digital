@@ -32,6 +32,9 @@ describe('getStore', () => {
         location: null,
         phone: '',
       },
+      services: {
+        cache: {},
+      },
     };
     const store = getStore(initialState);
     expect(store.getState()).toEqual(initialState);
