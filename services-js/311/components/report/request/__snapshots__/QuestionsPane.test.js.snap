@@ -1,0 +1,78 @@
+exports[`test blank request 1`] = `
+<div>
+  <div
+    className={
+      Object {
+        "data-css-dgukzt": "",
+      }
+    }>
+    
+  </div>
+  <button
+    disabled={false}
+    onClick={[Function]}>
+    Next
+  </button>
+</div>
+`;
+
+exports[`test existing description 1`] = `
+<div>
+  <div
+    className={
+      Object {
+        "data-css-wb46si": "",
+      }
+    }>
+    “
+    Please pick up my bulk items. 
+    ”
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-dgukzt": "",
+      }
+    }>
+    
+  </div>
+  <button
+    disabled={false}
+    onClick={[Function]}>
+    Next
+  </button>
+</div>
+`;
+
+exports[`test service with metadata 1`] = `
+<div>
+  <div
+    className={
+      Object {
+        "data-css-dgukzt": "",
+      }
+    }>
+    
+  </div>
+  <label>
+    <p>
+      Please provide any other relevant information:
+       
+    </p>
+    <textarea
+      className={
+        Object {
+          "data-css-1bm19ha": "",
+        }
+      }
+      name="ST-CMTS"
+      onChange={[Function]}
+      value={undefined} />
+  </label>
+  <button
+    disabled={false}
+    onClick={[Function]}>
+    Next
+  </button>
+</div>
+`;

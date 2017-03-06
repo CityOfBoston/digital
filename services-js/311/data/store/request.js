@@ -2,6 +2,10 @@
 
 import type { Service } from '../types';
 
+import type { LoopbackGraphql } from '../graphql/loopback-graphql';
+import type { SubmitRequestMutationVariables, SubmitRequestMutation } from '../graphql/schema.flow';
+import SubmitRequestGraphql from '../graphql/SubmitRequest.graphql';
+
 export type Action =
   {| type: 'REQUEST_SET_DESCRIPTION', payload: string |} |
   {| type: 'REQUEST_SET_FIRST_NAME', payload: string |} |
@@ -62,10 +66,43 @@ export const setLocation = (location: ?{| lat: number, lng: number |}, address: 
   payload: { location, address },
 });
 
-export const resetForService = (service: Service): Action => ({
+export const resetRequestForService = (service: Service): Action => ({
   type: 'REQUEST_RESET_FOR_SERVICE',
   payload: service,
 });
+
+
+export const submitRequest = async (state: State, loopbackGraphql: LoopbackGraphql): Promise<SubmitRequestMutation> => {
+  const { code, description, firstName, lastName, email, phone, location, address, attributes } = state;
+
+  if (!code) {
+    throw new Error(`code not currently set in state: ${JSON.stringify(state, null, 2)}`);
+  }
+
+  const attributesArray = [];
+  Object.keys(attributes).forEach((c) => {
+    const value = attributes[c];
+    if (Array.isArray(value)) {
+      value.forEach((v) => attributesArray.push({ code: c, value: v }));
+    } else {
+      attributesArray.push({ code: c, value });
+    }
+  });
+
+  const vars: SubmitRequestMutationVariables = {
+    code,
+    description,
+    firstName,
+    lastName,
+    email,
+    phone,
+    location,
+    address,
+    attributes: attributesArray,
+  };
+
+  return loopbackGraphql(SubmitRequestGraphql, vars);
+};
 
 export const DEFAULT_STATE: State = {
   code: null,
@@ -83,7 +120,7 @@ function generateAttributeDefaults(metadata) {
   const attributesByCode = {};
 
   (metadata ? metadata.attributes : []).forEach(({ code, type, values }) => {
-    if (type === 'INFORMATIONAL' || type === 'STRING') {
+    if (type === 'INFORMATIONAL') {
       return;
     }
 

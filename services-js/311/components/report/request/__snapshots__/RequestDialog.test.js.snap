@@ -1,0 +1,485 @@
+exports[`rendering contact 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }>
+  <div
+    className={
+      Object {
+        "data-css-1f2iwx6": "",
+      }
+    }>
+    <div>
+      <div>
+        <h2
+          className={
+            Object {
+              "data-css-16pm9zd": "",
+            }
+          }>
+          CONTACT FORM
+        </h2>
+        <div
+          className={
+            Object {
+              "data-css-1w0rge6": "",
+            }
+          }>
+          (will not be shared with public; leave blank to submit anonymously)
+        </div>
+        <label
+          className={
+            Object {
+              "data-css-12a7iqv": "",
+            }
+          }>
+          <span>
+            First Name (required)
+          </span>
+          <input
+            className={
+              Object {
+                "data-css-b35x0h": "",
+              }
+            }
+            name="firstName"
+            onChange={[Function]}
+            placeholder="First Name"
+            value="" />
+        </label>
+        <label
+          className={
+            Object {
+              "data-css-12a7iqv": "",
+            }
+          }>
+          <span>
+            Last Name (required)
+          </span>
+          <input
+            className={
+              Object {
+                "data-css-b35x0h": "",
+              }
+            }
+            name="lastName"
+            onChange={[Function]}
+            placeholder="Last Name"
+            value="" />
+        </label>
+        <label
+          className={
+            Object {
+              "data-css-12a7iqv": "",
+            }
+          }>
+          <span>
+            Email (required)
+          </span>
+          <input
+            className={
+              Object {
+                "data-css-b35x0h": "",
+              }
+            }
+            name="email"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+            value="" />
+        </label>
+        <label
+          className={
+            Object {
+              "data-css-12a7iqv": "",
+            }
+          }>
+          <span>
+            Phone
+          </span>
+          <input
+            className={
+              Object {
+                "data-css-b35x0h": "",
+              }
+            }
+            name="phone"
+            onChange={[Function]}
+            placeholder="Phone"
+            type="tel"
+            value="" />
+        </label>
+      </div>
+      <button
+        disabled={true}
+        onClick={[Function]}>
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering location 1`] = `
+<div
+  className={
+    Object {
+      "data-css-15pzzh6": "",
+    }
+  }>
+  <div
+    className={
+      Object {
+        "data-css-1f2iwx6": "",
+      }
+    }>
+    <div
+      className={
+        Object {
+          "data-css-84wcpg": "",
+        }
+      }>
+      <h3
+        className={
+          Object {
+            "data-css-4ptjc6": "",
+          }
+        }>
+        Where is the problem happening?
+      </h3>
+      
+      <form
+        className={
+          Object {
+            "data-css-19lcmdn": "",
+          }
+        }
+        onSubmit={[Function]}>
+        <input
+          className={
+            Object {
+              "data-css-1rqhb6b": "",
+            }
+          }
+          onInput={[Function]}
+          placeholder="Search for an address…"
+          type="text"
+          value="" />
+        <button
+          disabled={true}
+          type="submit">
+          Search
+        </button>
+      </form>
+      <button
+        className={
+          Object {
+            "data-css-1wppbi7": "",
+          }
+        }
+        disabled={true}
+        onClick={[Function]}>
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering questions 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }>
+  <div
+    className={
+      Object {
+        "data-css-1f2iwx6": "",
+      }
+    }>
+    <div>
+      <div
+        className={
+          Object {
+            "data-css-dgukzt": "",
+          }
+        }>
+        
+      </div>
+      <label>
+        <p>
+          Please provide any other relevant information:
+           
+        </p>
+        <textarea
+          className={
+            Object {
+              "data-css-1bm19ha": "",
+            }
+          }
+          name="ST-CMTS"
+          onChange={[Function]}
+          value={undefined} />
+      </label>
+      <label>
+        <p>
+          **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
+           
+        </p>
+        <input
+          className={
+            Object {
+              "data-css-rqg0fb": "",
+            }
+          }
+          name="INFO-CSIRMV1"
+          onChange={[Function]}
+          type="text"
+          value={undefined} />
+      </label>
+      <label>
+        <p>
+          How many dimensions have been breached?
+        </p>
+        <select
+          name="SR-CSIRMV1"
+          onChange={[Function]}
+          value={undefined}>
+          <option
+            value="One">
+            One
+          </option>
+          <option
+            value="Two">
+            Two
+          </option>
+          <option
+            value="Three">
+            Three
+          </option>
+          <option
+            value="More than Three">
+            More than Three
+          </option>
+        </select>
+      </label>
+      <button
+        disabled={false}
+        onClick={[Function]}>
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`submitting graphql failure 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Contact information
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <Connect(ContactPane)
+      nextFunc={[Function]}
+      service={
+        Object {
+          "code": "CSMCINC",
+          "hasMetadata": true,
+          "metadata": Object {
+            "attributes": Array [
+              Object {
+                "code": "ST-CMTS",
+                "description": "Please provide any other relevant information:",
+                "required": false,
+                "type": "TEXT",
+                "values": null,
+              },
+              Object {
+                "code": "INFO-CSIRMV1",
+                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+                "required": false,
+                "type": "STRING",
+                "values": null,
+              },
+              Object {
+                "code": "SR-CSIRMV1",
+                "description": "How many dimensions have been breached?",
+                "required": true,
+                "type": "SINGLEVALUELIST",
+                "values": Array [
+                  Object {
+                    "key": "One",
+                    "name": "One",
+                  },
+                  Object {
+                    "key": "Two",
+                    "name": "Two",
+                  },
+                  Object {
+                    "key": "Three",
+                    "name": "Three",
+                  },
+                  Object {
+                    "key": "More than Three",
+                    "name": "More than Three",
+                  },
+                ],
+              },
+            ],
+          },
+          "name": "Cosmic Incursion",
+        }
+      } />
+  </FormDialog>
+</div>
+`;
+
+exports[`submitting success 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Contact information
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <Connect(ContactPane)
+      nextFunc={[Function]}
+      service={
+        Object {
+          "code": "CSMCINC",
+          "hasMetadata": true,
+          "metadata": Object {
+            "attributes": Array [
+              Object {
+                "code": "ST-CMTS",
+                "description": "Please provide any other relevant information:",
+                "required": false,
+                "type": "TEXT",
+                "values": null,
+              },
+              Object {
+                "code": "INFO-CSIRMV1",
+                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+                "required": false,
+                "type": "STRING",
+                "values": null,
+              },
+              Object {
+                "code": "SR-CSIRMV1",
+                "description": "How many dimensions have been breached?",
+                "required": true,
+                "type": "SINGLEVALUELIST",
+                "values": Array [
+                  Object {
+                    "key": "One",
+                    "name": "One",
+                  },
+                  Object {
+                    "key": "Two",
+                    "name": "Two",
+                  },
+                  Object {
+                    "key": "Three",
+                    "name": "Three",
+                  },
+                  Object {
+                    "key": "More than Three",
+                    "name": "More than Three",
+                  },
+                ],
+              },
+            ],
+          },
+          "name": "Cosmic Incursion",
+        }
+      } />
+  </FormDialog>
+</div>
+`;
+
+exports[`submitting success 2`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Contact information
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <Connect(ContactPane)
+      nextFunc={[Function]}
+      service={
+        Object {
+          "code": "CSMCINC",
+          "hasMetadata": true,
+          "metadata": Object {
+            "attributes": Array [
+              Object {
+                "code": "ST-CMTS",
+                "description": "Please provide any other relevant information:",
+                "required": false,
+                "type": "TEXT",
+                "values": null,
+              },
+              Object {
+                "code": "INFO-CSIRMV1",
+                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+                "required": false,
+                "type": "STRING",
+                "values": null,
+              },
+              Object {
+                "code": "SR-CSIRMV1",
+                "description": "How many dimensions have been breached?",
+                "required": true,
+                "type": "SINGLEVALUELIST",
+                "values": Array [
+                  Object {
+                    "key": "One",
+                    "name": "One",
+                  },
+                  Object {
+                    "key": "Two",
+                    "name": "Two",
+                  },
+                  Object {
+                    "key": "Three",
+                    "name": "Three",
+                  },
+                  Object {
+                    "key": "More than Three",
+                    "name": "More than Three",
+                  },
+                ],
+              },
+            ],
+          },
+          "name": "Cosmic Incursion",
+        }
+      } />
+  </FormDialog>
+</div>
+`;

@@ -23,6 +23,7 @@
     "fetch-templates": "babel-node ./scripts/fetch-templates"
   },
   "jest": {
+    "resetMocks": true,
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
@@ -36,6 +37,9 @@
     "coverageReporters": [
       "lcov",
       "json"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
     ]
   },
   "dependencies": {
@@ -75,6 +79,8 @@
     "babel-watch": "^2.0.6",
     "cheerio": "^0.22.0",
     "codecov": "^1.0.1",
+    "enzyme": "^2.7.1",
+    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-flowtype": "^2.30.0",
@@ -82,7 +88,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "fetch-mock": "^5.9.4",
-    "flow-bin": "^0.40.0",
+    "flow-bin": "^0.41.0",
     "husky": "^0.13.1",
     "jest": "^18.1.0",
     "jsverify": "^0.7.4",

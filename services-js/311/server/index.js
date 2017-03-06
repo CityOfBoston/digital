@@ -94,8 +94,8 @@ const port = parseInt(process.env.PORT || '3000', 10);
 
   server.route({
     method: 'GET',
-    path: '/report/{code}/location',
-    handler: nextHandler(app, '/report', { pickLocation: 'true' }),
+    path: '/report/{code}/{stage}',
+    handler: (request, reply) => reply.redirect(`/report/${request.params.code}`),
   });
 
   server.route({

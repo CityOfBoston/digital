@@ -9,6 +9,7 @@ const STYLE = {
     color: 'white',
     textTransform: 'uppercase',
     padding: 10,
+    flexShrink: 0,
     display: 'flex',
     justifyContent: 'flex-end',
 
