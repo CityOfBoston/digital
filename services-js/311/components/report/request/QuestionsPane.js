@@ -5,11 +5,9 @@ import { css } from 'glamor';
 
 import AttributeField from './AttributeField';
 
-import type { Service } from '../../../data/types';
 import type { State as Request } from '../../../data/store/request';
 
 export type ExternalProps = {
-  service: Service,
   nextFunc: () => void,
 }
 
@@ -38,14 +36,6 @@ const ADDRESS_STYLE = css({
   fontWeight: 'bold',
 });
 
-function selectAttributes(service) {
-  if (service.metadata && service.metadata.attributes) {
-    return service.metadata.attributes;
-  } else {
-    return [];
-  }
-}
-
 function renderDescription({ description }: Request) {
   if (description.length) {
     return <div className={DESCRIPTION_STYLE}>“{description}”</div>;
@@ -58,7 +48,7 @@ function renderLocation({ address }: Request) {
   return <div className={ADDRESS_STYLE}>{address}</div>;
 }
 
-export default function QuestionsPane({ service, request, setAttribute, nextFunc }: Props) {
+export default function QuestionsPane({ request, setAttribute, nextFunc }: Props) {
   // TODO(finneganh): required fields
   const allowSubmit = true;
 
@@ -68,8 +58,8 @@ export default function QuestionsPane({ service, request, setAttribute, nextFunc
       { renderLocation(request) }
 
       {
-        selectAttributes(service).map((a) => (
-          <AttributeField attribute={a} key={a.code} attributeChanged={setAttribute} currentValue={request.attributes[a.code]} />
+        request.calculatedAttributes.map((a) => (
+          <AttributeField attribute={a} key={a.code} attributeChanged={setAttribute} currentValue={request.attributeValues[a.code]} />
         ))
       }
 

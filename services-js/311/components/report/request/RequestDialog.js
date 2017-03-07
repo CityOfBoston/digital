@@ -184,7 +184,7 @@ export default class RequestDialog extends React.Component {
 
     switch (stage) {
       case 'questions':
-        return <QuestionsPaneContainer service={service} nextFunc={this.nextAfterQuestions} />;
+        return <QuestionsPaneContainer nextFunc={this.nextAfterQuestions} />;
 
       case 'location':
         return <LocationPopUpContainer nextFunc={this.nextAfterLocation} addressSearch={locationMapSearch} />;

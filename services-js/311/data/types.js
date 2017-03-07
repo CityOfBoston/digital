@@ -6,6 +6,7 @@ import type {
   LoadServiceQuery,
   LoadServiceQueryVariables,
   SubmitRequestMutation,
+  ServiceMetadataAttributeDatatype,
 } from './graphql/schema.flow';
 
 import type { State as RequestState } from './store/request';
@@ -46,4 +47,16 @@ export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
 export type ServiceArgs = LoadServiceQueryVariables;
 export type ServiceMetadata = $NonMaybeType<$PropertyType<Service, 'metadata'>>;
 export type ServiceMetadataAttribute = $ArrayElement<$PropertyType<ServiceMetadata, 'attributes'>>;
+export type ServiceMetadataAttributeValuesCondition = $PropertyType<$ArrayElement<$NonMaybeType<$PropertyType<ServiceMetadataAttribute, 'conditionalValues'>>>, 'dependentOn'>;
+export type CalculatedAttribute = {
+  required: boolean,
+  type: ServiceMetadataAttributeDatatype,
+  code: string,
+  description: string,
+  values: ?Array<{
+    key: string,
+    name: string,
+  }>,
+};
+
 export type SubmittedRequest = $PropertyType<SubmitRequestMutation, 'createRequest'>;

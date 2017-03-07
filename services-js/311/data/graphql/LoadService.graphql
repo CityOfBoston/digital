@@ -12,7 +12,20 @@ query LoadService($code: String!) {
         values {
           key
           name
-
+        }
+        conditionalValues {
+          dependentOn {
+            clause
+            conditions {
+              attribute
+              op
+              value
+            }
+          }
+          values {
+            key
+            name
+          }
         }
       }
     }

@@ -45,6 +45,33 @@ type ServiceMetadataAttribute {
   description: String!
   code: String!
   values: [ServiceMetadataAttributeValue!]
+  conditionalValues: [ServiceMetadataAttributeConditionalValues!]
+}
+
+type ServiceMetadataAttributeCondition {
+  attribute: String!
+  op: ServiceMetadataAttributeConditionalOp!
+  value: String!
+}
+
+type ServiceMetadataAttributeConditional {
+  clause: ServiceMetadataAttributeConditionalClause!
+  conditions: [ServiceMetadataAttributeCondition!]!
+}
+
+enum ServiceMetadataAttributeConditionalClause {
+  AND
+  OR
+}
+
+enum ServiceMetadataAttributeConditionalOp {
+  eq
+  neq
+}
+
+type ServiceMetadataAttributeConditionalValues {
+  dependentOn: ServiceMetadataAttributeConditional!
+  values: [ServiceMetadataAttributeValue!]!
 }
 
 enum ServiceMetadataAttributeDatatype {
@@ -53,6 +80,7 @@ enum ServiceMetadataAttributeDatatype {
   MULTIVALUELIST
   NUMBER
   DATETIME
+  DATE
   SINGLEVALUELIST
   STRING
   TEXT

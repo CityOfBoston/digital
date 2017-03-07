@@ -7,9 +7,20 @@ export type ServiceMetadataAttributeDatatype =
   "MULTIVALUELIST" |
   "NUMBER" |
   "DATETIME" |
+  "DATE" |
   "SINGLEVALUELIST" |
   "STRING" |
   "TEXT";
+
+
+export type ServiceMetadataAttributeConditionalClause =
+  "AND" |
+  "OR";
+
+
+export type ServiceMetadataAttributeConditionalOp =
+  "eq" |
+  "neq";
 
 
 export type LatLng = {
@@ -40,6 +51,20 @@ export type LoadServiceQuery = {
         values: ?Array< {
           key: string,
           name: string,
+        } >,
+        conditionalValues: ?Array< {
+          dependentOn: {
+            clause: ServiceMetadataAttributeConditionalClause,
+            conditions: Array< {
+              attribute: string,
+              op: ServiceMetadataAttributeConditionalOp,
+              value: string,
+            } >,
+          },
+          values: Array< {
+            key: string,
+            name: string,
+          } >,
         } >,
       } >,
     },

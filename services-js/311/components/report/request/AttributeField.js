@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import type { ServiceMetadataAttribute } from '../../../data/types';
+import type { CalculatedAttribute } from '../../../data/types';
 
 export type Props = {
-  attribute: ServiceMetadataAttribute,
+  attribute: CalculatedAttribute,
   attributeChanged: (code: string, value: string | string[]) => void,
   currentValue: ?string | ?string[],
 };
@@ -116,7 +116,11 @@ function renderSingleValueListAttribute(attribute, onChange, currentValue) {
     <label key={attribute.code}>
       <p>{attribute.description}</p>
       <select name={attribute.code} onChange={onChange} value={currentValue}>
+        <option disabled selected={currentValue === null}>Please choose</option>
+        <option disabled>--------------------------</option>
         {(attribute.values || []).map(({ key, name }) => <option value={key} key={key}>{name}</option>)}
+        { !attribute.required && <option disabled>--------------------------</option> }
+        { !attribute.required && <option value="">No answer</option> }
       </select>
     </label>
   );

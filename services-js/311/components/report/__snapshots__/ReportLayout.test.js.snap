@@ -93,7 +93,16 @@ exports[`existing service page rendering 1`] = `
             <select
               name="SR-CSIRMV1"
               onChange={[Function]}
-              value="One">
+              value={null}>
+              <option
+                disabled={true}
+                selected={true}>
+                Please choose
+              </option>
+              <option
+                disabled={true}>
+                --------------------------
+              </option>
               <option
                 value="One">
                 One

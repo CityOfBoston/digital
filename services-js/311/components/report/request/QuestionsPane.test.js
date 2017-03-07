@@ -23,7 +23,9 @@ export const DEFAULT_REQUEST: Request = {
   phone: '',
   location: null,
   address: '',
-  attributes: {},
+  attributeValues: {},
+  rawAttributes: [],
+  calculatedAttributes: [],
 };
 
 export const SERVICE_WITH_METADATA: Service = {
@@ -37,6 +39,7 @@ export const SERVICE_WITH_METADATA: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      conditionalValues: null,
     }],
   },
 };
@@ -50,9 +53,17 @@ export const REQUEST_WITH_METADATA: Request = {
   phone: '',
   location: null,
   address: '',
-  attributes: {
+  attributeValues: {
     ST_CMTS: 'A portal to the Negative Zone has opened',
   },
+  rawAttributes: (SERVICE_WITH_METADATA.metadata || {}).attributes || [],
+  calculatedAttributes: [{
+    required: false,
+    type: 'TEXT',
+    code: 'ST-CMTS',
+    description: 'Please provide any other relevant information:',
+    values: null,
+  }],
 };
 
 const ACTIONS = {

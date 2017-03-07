@@ -6,8 +6,9 @@ import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import RequestDialog from './RequestDialog';
 
-import type { Service, Request } from '../../../data/types';
+import type { Service } from '../../../data/types';
 import { makeStore } from '../../../data/store';
+import { resetRequestForService, DEFAULT_STATE as MOCK_REQUEST } from '../../../data/store/request';
 
 import { GraphQLError } from '../../../data/graphql/loopback-graphql';
 import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
@@ -23,32 +24,23 @@ const MOCK_SERVICE: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      conditionalValues: null,
     }, {
       required: false,
       type: 'STRING',
       code: 'INFO-CSIRMV1',
       description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
+      conditionalValues: null,
     }, {
       required: true,
       type: 'SINGLEVALUELIST',
       code: 'SR-CSIRMV1',
       description: 'How many dimensions have been breached?',
       values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
+      conditionalValues: null,
     }],
   },
-};
-
-const MOCK_REQUEST: Request = {
-  code: 'CSMCINC',
-  description: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  location: null,
-  address: '',
-  attributes: {},
 };
 
 const MOCK_ACTIONS = {
@@ -60,10 +52,19 @@ const MOCK_ACTIONS = {
 };
 
 describe('rendering', () => {
+  let store;
+  let request;
+
+  beforeEach(() => {
+    store = makeStore();
+    store.dispatch(resetRequestForService(MOCK_SERVICE));
+    request = store.getState().request;
+  });
+
   test('questions', () => {
     const component = renderer.create(
-      <Provider store={makeStore()}>
-        <RequestDialog service={MOCK_SERVICE} request={MOCK_REQUEST} stage="questions" {...MOCK_ACTIONS} />
+      <Provider store={store}>
+        <RequestDialog service={MOCK_SERVICE} request={request} stage="questions" {...MOCK_ACTIONS} />
       </Provider>,
     );
     expect(component.toJSON()).toMatchSnapshot();
@@ -71,8 +72,8 @@ describe('rendering', () => {
 
   test('location', () => {
     const component = renderer.create(
-      <Provider store={makeStore()}>
-        <RequestDialog service={MOCK_SERVICE} request={MOCK_REQUEST} stage="location" {...MOCK_ACTIONS} />
+      <Provider store={store}>
+        <RequestDialog service={MOCK_SERVICE} request={request} stage="location" {...MOCK_ACTIONS} />
       </Provider>,
     );
     expect(component.toJSON()).toMatchSnapshot();
@@ -80,8 +81,8 @@ describe('rendering', () => {
 
   it('contact', () => {
     const component = renderer.create(
-      <Provider store={makeStore()}>
-        <RequestDialog service={MOCK_SERVICE} request={MOCK_REQUEST} stage="contact" {...MOCK_ACTIONS} />
+      <Provider store={store}>
+        <RequestDialog service={MOCK_SERVICE} request={request} stage="contact" {...MOCK_ACTIONS} />
       </Provider>,
     );
     expect(component.toJSON()).toMatchSnapshot();

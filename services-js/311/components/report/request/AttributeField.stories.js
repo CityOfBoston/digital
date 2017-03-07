@@ -90,13 +90,13 @@ storiesOf('AttributeField', module)
   .add('Single Value List', () => (
     <AttributeField
       attribute={{
-        required: true,
+        required: false,
         type: 'SINGLEVALUELIST',
         code: 'SR-NEDRMV1',
         description: 'How many dimensions were breached?',
         values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
       }}
-      currentValue="Three"
+      currentValue={null}
       attributeChanged={action('Attribute Changed')}
     />
   ))

@@ -40,18 +40,21 @@ const MOCK_SERVICE: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      conditionalValues: null,
     }, {
       required: false,
       type: 'STRING',
       code: 'INFO-CSIRMV1',
       description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
+      conditionalValues: null,
     }, {
       required: true,
       type: 'SINGLEVALUELIST',
       code: 'SR-CSIRMV1',
       description: 'How many dimensions have been breached?',
       values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
+      conditionalValues: null,
     }],
   },
 };

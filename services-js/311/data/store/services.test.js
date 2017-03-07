@@ -18,10 +18,10 @@ const COSMIC_SERVICE: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      conditionalValues: null,
     }],
   },
 };
-
 
 describe('addServiceToCache', () => {
   it('adds the service to the cache', () => {

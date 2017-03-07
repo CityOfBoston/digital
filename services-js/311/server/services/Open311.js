@@ -17,6 +17,28 @@ export type Service = {|
   group: string,
 |}
 
+export type PlainValue = {|
+  key: string,
+  name: string,
+  img?: string,
+|};
+
+export type DependentCondition = {|
+  attribute: string,
+  op: 'eq' | 'neq',
+  value: string,
+|};
+
+export type ConditionalValue = {|
+  dependentOn: {
+    clause: 'OR' | 'AND',
+    conditions: DependentCondition[],
+  },
+  values: PlainValue[],
+|};
+
+export type ServiceMetadataAttributeValue = PlainValue | ConditionalValue;
+
 export type ServiceMetadataAttribute = {|
   required: boolean,
   datatype: 'Text' | 'Informational' | 'Picklist' | 'Boolean (checkbox)',
@@ -25,10 +47,7 @@ export type ServiceMetadataAttribute = {|
   description: string,
   code: string,
   variable: boolean,
-  values?: {|
-    key: string,
-    name: string,
-  |}[],
+  values?: ServiceMetadataAttributeValue[],
 |};
 
 export type ServiceMetadata = {|

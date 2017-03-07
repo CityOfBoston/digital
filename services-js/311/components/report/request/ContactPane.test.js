@@ -22,7 +22,9 @@ export const EMPTY_REQUEST: Request = {
   phone: '',
   location: null,
   address: '',
-  attributes: {},
+  attributeValues: {},
+  rawAttributes: [],
+  calculatedAttributes: [],
 };
 
 export const FILLED_REQUEST: Request = {
@@ -34,7 +36,9 @@ export const FILLED_REQUEST: Request = {
   phone: '6175551234',
   location: null,
   address: '',
-  attributes: {},
+  attributeValues: {},
+  rawAttributes: [],
+  calculatedAttributes: [],
 };
 
 const ACTIONS = {

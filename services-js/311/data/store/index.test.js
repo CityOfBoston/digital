@@ -23,7 +23,7 @@ describe('getStore', () => {
       },
       request: {
         address: '',
-        attributes: {},
+        attributeValues: {},
         code: '',
         description: 'initial description',
         email: '',
@@ -31,6 +31,8 @@ describe('getStore', () => {
         lastName: '',
         location: null,
         phone: '',
+        rawAttributes: [],
+        calculatedAttributes: [],
       },
       services: {
         cache: {},
