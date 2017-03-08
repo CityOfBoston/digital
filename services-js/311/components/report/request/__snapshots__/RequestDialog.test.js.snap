@@ -244,6 +244,8 @@ exports[`rendering questions 1`] = `
       <label>
         <p>
           How many dimensions have been breached?
+           
+          (required)
         </p>
         <select
           name="SR-CSIRMV1"
@@ -311,6 +313,7 @@ exports[`submitting graphql failure 1`] = `
               Object {
                 "code": "ST-CMTS",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "Please provide any other relevant information:",
                 "required": false,
                 "type": "TEXT",
@@ -319,6 +322,7 @@ exports[`submitting graphql failure 1`] = `
               Object {
                 "code": "INFO-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
                 "required": false,
                 "type": "STRING",
@@ -327,6 +331,7 @@ exports[`submitting graphql failure 1`] = `
               Object {
                 "code": "SR-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "How many dimensions have been breached?",
                 "required": true,
                 "type": "SINGLEVALUELIST",
@@ -383,6 +388,7 @@ exports[`submitting success 1`] = `
               Object {
                 "code": "ST-CMTS",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "Please provide any other relevant information:",
                 "required": false,
                 "type": "TEXT",
@@ -391,6 +397,7 @@ exports[`submitting success 1`] = `
               Object {
                 "code": "INFO-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
                 "required": false,
                 "type": "STRING",
@@ -399,6 +406,7 @@ exports[`submitting success 1`] = `
               Object {
                 "code": "SR-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "How many dimensions have been breached?",
                 "required": true,
                 "type": "SINGLEVALUELIST",
@@ -455,6 +463,7 @@ exports[`submitting success 2`] = `
               Object {
                 "code": "ST-CMTS",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "Please provide any other relevant information:",
                 "required": false,
                 "type": "TEXT",
@@ -463,6 +472,7 @@ exports[`submitting success 2`] = `
               Object {
                 "code": "INFO-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
                 "required": false,
                 "type": "STRING",
@@ -471,6 +481,7 @@ exports[`submitting success 2`] = `
               Object {
                 "code": "SR-CSIRMV1",
                 "conditionalValues": null,
+                "dependencies": null,
                 "description": "How many dimensions have been breached?",
                 "required": true,
                 "type": "SINGLEVALUELIST",

@@ -41,6 +41,7 @@ const MOCK_SERVICE: Service = {
       description: 'Please provide any other relevant information:',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }, {
       required: false,
       type: 'STRING',
@@ -48,6 +49,7 @@ const MOCK_SERVICE: Service = {
       description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }, {
       required: true,
       type: 'SINGLEVALUELIST',
@@ -55,6 +57,7 @@ const MOCK_SERVICE: Service = {
       description: 'How many dimensions have been breached?',
       values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
       conditionalValues: null,
+      dependencies: null,
     }],
   },
 };

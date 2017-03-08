@@ -6,7 +6,9 @@ import type {
   ServiceMetadataAttribute,
   ServiceMetadataAttributeValue,
   PlainValue,
-  ConditionalValue,
+  ConditionalValues,
+  DependentConditions,
+  DependentCondition,
 } from '../services/Open311';
 import type { Context } from '.';
 
@@ -29,6 +31,7 @@ type ServiceMetadataAttribute {
   order: Int
   description: String!
   code: String!
+  dependencies: ServiceMetadataAttributeConditional
   values: [ServiceMetadataAttributeValue!]
   conditionalValues: [ServiceMetadataAttributeConditionalValues!]
 }
@@ -48,10 +51,17 @@ type ServiceMetadataAttributeConditionalValues {
   values: [ServiceMetadataAttributeValue!]!
 }
 
+type ServiceMetadataAttributeConditionValue {
+  type: ServiceMetadataAttributeConditionValueType
+  string: String
+  array: [String!]
+  number: Float
+}
+
 type ServiceMetadataAttributeCondition {
   attribute: String!
   op: ServiceMetadataAttributeConditionalOp!
-  value: String!
+  value: ServiceMetadataAttributeConditionValue!
 }
 
 enum ServiceMetadataAttributeDatatype {
@@ -74,6 +84,17 @@ enum ServiceMetadataAttributeConditionalClause {
 enum ServiceMetadataAttributeConditionalOp {
   eq
   neq
+  in
+  gt
+  gte
+  lt
+  lte
+}
+
+enum ServiceMetadataAttributeConditionValueType {
+  STRING
+  STRING_ARRAY
+  NUMBER
 }
 `;
 
@@ -116,7 +137,7 @@ export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeVa
     return null;
   }
 
-  const conditionalValues: ConditionalValue[] = [];
+  const conditionalValues: ConditionalValues[] = [];
 
   mixedValues.forEach((value) => {
     let dependentOn;
@@ -170,7 +191,38 @@ export const resolvers = {
     code: (a: ServiceMetadataAttribute) => a.code,
     description: (a: ServiceMetadataAttribute) => a.description,
     values: (a: ServiceMetadataAttribute): null | PlainValue[] => filterPlainValues(a.values),
-    conditionalValues: (a: ServiceMetadataAttribute): null | ConditionalValue[] => filterConditionalValues(a.values),
+    conditionalValues: (a: ServiceMetadataAttribute): null | ConditionalValues[] => filterConditionalValues(a.values),
+    dependencies: (a: ServiceMetadataAttribute): null | DependentConditions => a.dependencies || null,
+  },
+
+  ServiceMetadataAttributeCondition: {
+    // getting around the polymorphism from the Open311 API. Our generated
+    // Flow types don't handle unions very well, so we do a faux union by
+    // just providing each of the types.
+    value: (a: DependentCondition) => {
+      if (Array.isArray(a.value)) {
+        return {
+          type: 'STRING_ARRAY',
+          string: null,
+          array: a.value,
+          number: null,
+        };
+      } else if (typeof a.value === 'number') {
+        return {
+          type: 'NUMBER',
+          string: null,
+          array: null,
+          number: a.value,
+        };
+      } else {
+        return {
+          type: 'STRING',
+          string: a.value,
+          array: null,
+          number: null,
+        };
+      }
+    },
   },
 
   // Just using the default key / value resolvers

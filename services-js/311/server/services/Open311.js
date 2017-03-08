@@ -25,19 +25,23 @@ export type PlainValue = {|
 
 export type DependentCondition = {|
   attribute: string,
-  op: 'eq' | 'neq',
-  value: string,
+  op: 'eq' | 'neq' | 'in' | 'gt' | 'gte' | 'lt' | 'lte',
+  // This is polymorphic; when comparing with a multipicklist this can 'eq'
+  // an array of strings.
+  value: number | string | string[],
 |};
 
-export type ConditionalValue = {|
-  dependentOn: {
+export type DependentConditions = {|
     clause: 'OR' | 'AND',
     conditions: DependentCondition[],
-  },
+|};
+
+export type ConditionalValues = {|
+  dependentOn: DependentConditions,
   values: PlainValue[],
 |};
 
-export type ServiceMetadataAttributeValue = PlainValue | ConditionalValue;
+export type ServiceMetadataAttributeValue = PlainValue | ConditionalValues;
 
 export type ServiceMetadataAttribute = {|
   required: boolean,
@@ -48,6 +52,7 @@ export type ServiceMetadataAttribute = {|
   code: string,
   variable: boolean,
   values?: ServiceMetadataAttributeValue[],
+  dependencies?: DependentConditions,
 |};
 
 export type ServiceMetadata = {|

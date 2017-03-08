@@ -40,6 +40,7 @@ export const SERVICE_WITH_METADATA: Service = {
       description: 'Please provide any other relevant information:',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }],
   },
 };

@@ -19,12 +19,30 @@ query LoadService($code: String!) {
             conditions {
               attribute
               op
-              value
+              value {
+                type
+                string
+                array
+                number
+              }
             }
           }
           values {
             key
             name
+          }
+        }
+        dependencies {
+          clause
+          conditions {
+            attribute
+            op
+            value {
+              type
+              string
+              array
+              number
+            }
           }
         }
       }

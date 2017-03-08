@@ -20,7 +20,18 @@ export type ServiceMetadataAttributeConditionalClause =
 
 export type ServiceMetadataAttributeConditionalOp =
   "eq" |
-  "neq";
+  "neq" |
+  "in" |
+  "gt" |
+  "gte" |
+  "lt" |
+  "lte";
+
+
+export type ServiceMetadataAttributeConditionValueType =
+  "STRING" |
+  "STRING_ARRAY" |
+  "NUMBER";
 
 
 export type LatLng = {
@@ -58,7 +69,12 @@ export type LoadServiceQuery = {
             conditions: Array< {
               attribute: string,
               op: ServiceMetadataAttributeConditionalOp,
-              value: string,
+              value: {
+                type: ?ServiceMetadataAttributeConditionValueType,
+                string: ?string,
+                array: ?Array< string >,
+                number: ?number,
+              },
             } >,
           },
           values: Array< {
@@ -66,6 +82,19 @@ export type LoadServiceQuery = {
             name: string,
           } >,
         } >,
+        dependencies: ? {
+          clause: ServiceMetadataAttributeConditionalClause,
+          conditions: Array< {
+            attribute: string,
+            op: ServiceMetadataAttributeConditionalOp,
+            value: {
+              type: ?ServiceMetadataAttributeConditionValueType,
+              string: ?string,
+              array: ?Array< string >,
+              number: ?number,
+            },
+          } >,
+        },
       } >,
     },
   },

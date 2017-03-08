@@ -27,6 +27,7 @@ const COSMIC_SERVICE: Service = {
       description: 'Please provide any other relevant information:',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }, {
       required: false,
       type: 'INFORMATIONAL',
@@ -34,6 +35,7 @@ const COSMIC_SERVICE: Service = {
       description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }, {
       required: true,
       type: 'SINGLEVALUELIST',
@@ -41,6 +43,7 @@ const COSMIC_SERVICE: Service = {
       description: 'Which Avengers team do you need?',
       values: [{ key: 'mcu', name: 'Cinematic' }, { key: 'great-lakes', name: 'Great Lakes' }, { key: 'us-avengers', name: 'US Avengers' }],
       conditionalValues: [],
+      dependencies: null,
     }, {
       required: false,
       type: 'MULTIVALUELIST',
@@ -52,7 +55,7 @@ const COSMIC_SERVICE: Service = {
       conditionalValues: [{
         dependentOn: {
           clause: 'AND',
-          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: 'mcu' }],
+          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: { type: 'STRING', string: 'mcu', array: null, number: null } }],
         },
         values: [
           { key: 'iron-man', name: 'Iron Man' },
@@ -65,7 +68,7 @@ const COSMIC_SERVICE: Service = {
       }, {
         dependentOn: {
           clause: 'AND',
-          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: 'great-lakes' }],
+          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: { type: 'STRING', string: 'great-lakes', array: null, number: null } }],
         },
         values: [
           { key: 'flatman', name: 'Flatman' },
@@ -77,7 +80,7 @@ const COSMIC_SERVICE: Service = {
       }, {
         dependentOn: {
           clause: 'AND',
-          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: 'us-avengers' }],
+          conditions: [{ attribute: 'SR-AVENG', op: 'eq', value: { type: 'STRING', string: 'us-avengers', array: null, number: null } }],
         },
         values: [
           { key: 'citizen-v', name: 'Citizen V' },
@@ -88,6 +91,18 @@ const COSMIC_SERVICE: Service = {
           { key: 'enigma', name: 'Enigma' },
         ],
       }],
+      dependencies: null,
+    }, {
+      required: true,
+      type: 'STRING',
+      code: 'SR-CAP',
+      description: 'Which Captain America are you looking for?',
+      dependencies: {
+        clause: 'AND',
+        conditions: [{ attribute: 'MR-WHO', op: 'in', value: { type: 'STRING', string: 'captain-america', array: null, number: null } }],
+      },
+      values: null,
+      conditionalValues: null,
     }],
   },
 };
@@ -104,6 +119,7 @@ const OTHER_SERVICE: Service = {
       description: 'Please provide any other relevant information:',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }],
   },
 };
@@ -191,29 +207,178 @@ describe('setAttribute', () => {
     const { attributeValues } = state;
     expect(attributeValues['MR-WHO']).toEqual(['anyone', 'big-bertha', 'good-boy']);
   });
+
+
+  describe('conditional questions', () => {
+    it('displays it when the value occurs', () => {
+      let state = DEFAULT_STATE;
+      state = reducer(state, resetRequestForService(COSMIC_SERVICE));
+      state = reducer(state, setAttribute('SR-AVENG', 'mcu'));
+      state = reducer(state, setAttribute('MR-WHO', ['captain-america']));
+      const { calculatedAttributes } = state;
+      expect(calculatedAttributes.find((a) => a.code === 'SR-CAP')).toBeDefined();
+    });
+
+    it('hides it when the value is not visible', () => {
+      let state = DEFAULT_STATE;
+      state = reducer(state, resetRequestForService(COSMIC_SERVICE));
+      state = reducer(state, setAttribute('SR-AVENG', 'mcu'));
+      state = reducer(state, setAttribute('MR-WHO', ['captain-america']));
+      state = reducer(state, setAttribute('SR-AVENG', 'us-avengers'));
+      const { calculatedAttributes } = state;
+      expect(calculatedAttributes.find((a) => a.code === 'SR-CAP')).not.toBeDefined();
+    });
+  });
 });
 
 // Pulling this out as its own test to get good coverage, rather than setting
 // up a mock service that handles all cases.
 describe('conditionsApply', () => {
-  test('single condition equals', () => {
-    expect(conditionsApply({ code: 'value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: 'value' }] })).toEqual(true);
-    expect(conditionsApply({ code: 'not-value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: 'value' }] })).toEqual(false);
+  const makeString = (string) => ({ type: 'STRING', string, array: null, number: null });
+  const makeArray = (array) => ({ type: 'STRING_ARRAY', string: null, array, number: null });
+  const makeNumber = (number) => ({ type: 'NUMBER', string: null, array: null, number });
+
+  describe('eq', () => {
+    test('two strings equal is true', () => {
+      expect(conditionsApply({ code: 'value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeString('value') }] })).toEqual(true);
+    });
+
+    test('two numbers equal is true', () => {
+      expect(conditionsApply({ code: '1' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeNumber(1) }] })).toEqual(true);
+    });
+
+    test('two strings not equal is false', () => {
+      expect(conditionsApply({ code: 'not-value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeString('value') }] })).toEqual(false);
+    });
+
+    test('two numbers not equal is false', () => {
+      expect(conditionsApply({ code: '2' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeNumber(1) }] })).toEqual(false);
+    });
+
+    test('comparing to not a number is false', () => {
+      expect(conditionsApply({ code: 'not-a-number' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeNumber(0) }] })).toEqual(false);
+    });
+
+    test('string compared to array is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeString('value-2') }] })).toEqual(false);
+    });
+
+    test('subarray compared to array is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeArray(['value-2']) }] })).toEqual(false);
+    });
+
+    test('arrays in order is true', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeArray(['value-1', 'value-2']) }] })).toEqual(true);
+    });
+
+    test('arrays out of order is true', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: makeArray(['value-2', 'value-1']) }] })).toEqual(true);
+    });
   });
 
-  test('single condition not-equals', () => {
-    expect(conditionsApply({ code: 'value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: 'value' }] })).toEqual(false);
-    expect(conditionsApply({ code: 'not-value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: 'value' }] })).toEqual(true);
+  describe('neq', () => {
+    test('two equal strings is false', () => {
+      expect(conditionsApply({ code: 'value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeString('value') }] })).toEqual(false);
+    });
+
+    test('two not equal strings is true', () => {
+      expect(conditionsApply({ code: 'not-value' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeString('value') }] })).toEqual(true);
+    });
+
+    test('array not equal to a string is true', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeString('value-2') }] })).toEqual(true);
+    });
+
+    test('subarray compared to array is true', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeArray(['value-2']) }] })).toEqual(true);
+    });
+
+    test('arrays in order is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeArray(['value-1', 'value-2']) }] })).toEqual(false);
+    });
+
+    test('arrays out of order is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: makeArray(['value-2', 'value-1']) }] })).toEqual(false);
+    });
   });
 
-  test('single condition contains', () => {
-    expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: 'value-2' }] })).toEqual(true);
-    expect(conditionsApply({ code: ['value-1', 'value-3'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'eq', value: 'value-2' }] })).toEqual(false);
+  describe('in', () => {
+    test('string in array is true', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'in', value: makeString('value-2') }] })).toEqual(true);
+    });
+    test('string not in array is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'in', value: makeString('value-3') }] })).toEqual(false);
+    });
+    test('array in array is false', () => {
+      expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'in', value: makeArray(['value-2']) }] })).toEqual(false);
+    });
+    test('number in array is false', () => {
+      expect(conditionsApply({ code: ['1', '2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'in', value: makeNumber(1) }] })).toEqual(false);
+    });
   });
 
-  test('single condition not contains', () => {
-    expect(conditionsApply({ code: ['value-1', 'value-2'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: 'value-2' }] })).toEqual(false);
-    expect(conditionsApply({ code: ['value-1', 'value-3'] }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'neq', value: 'value-2' }] })).toEqual(true);
+  describe('gt', () => {
+    test('current value greater than condition is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gt', value: makeNumber(1) }] })).toEqual(true);
+    });
+
+    test('current value not greater than condition is false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gt', value: makeNumber(100) }] })).toEqual(false);
+    });
+
+    test('string is always false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gt', value: makeString('1') }] })).toEqual(false);
+    });
+  });
+
+  describe('gte', () => {
+    test('current value greater than condition is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gte', value: makeNumber(1) }] })).toEqual(true);
+    });
+
+    test('current value equal is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gte', value: makeNumber(100) }] })).toEqual(true);
+    });
+
+    test('current value not greater than condition is false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gte', value: makeNumber(200) }] })).toEqual(false);
+    });
+
+    test('string is always false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'gte', value: makeString('1') }] })).toEqual(false);
+    });
+  });
+
+  describe('lt', () => {
+    test('current value less than condition is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lt', value: makeNumber(101) }] })).toEqual(true);
+    });
+
+    test('current value not less than condition is false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lt', value: makeNumber(1) }] })).toEqual(false);
+    });
+
+    test('string is always false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lt', value: makeString('1000') }] })).toEqual(false);
+    });
+  });
+
+  describe('lte', () => {
+    test('current value less than condition is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lte', value: makeNumber(101) }] })).toEqual(true);
+    });
+
+    test('current value equal is true', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lte', value: makeNumber(100) }] })).toEqual(true);
+    });
+
+    test('current value not less than condition is false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lte', value: makeNumber(1) }] })).toEqual(false);
+    });
+
+    test('string is always false', () => {
+      expect(conditionsApply({ code: '100' }, { clause: 'AND', conditions: [{ attribute: 'code', op: 'lte', value: makeString('1000') }] })).toEqual(false);
+    });
   });
 
   test('and condition success', () => {
@@ -222,8 +387,8 @@ describe('conditionsApply', () => {
       {
         clause: 'AND',
         conditions: [
-          { attribute: 'code1', op: 'eq', value: 'value-1' },
-          { attribute: 'code2', op: 'eq', value: 'value-2' },
+          { attribute: 'code1', op: 'eq', value: makeString('value-1') },
+          { attribute: 'code2', op: 'eq', value: makeString('value-2') },
         ],
       })).toEqual(true);
   });
@@ -234,8 +399,8 @@ describe('conditionsApply', () => {
       {
         clause: 'AND',
         conditions: [
-          { attribute: 'code1', op: 'eq', value: 'value-1' },
-          { attribute: 'code2', op: 'eq', value: 'value-2' },
+          { attribute: 'code1', op: 'eq', value: makeString('value-1') },
+          { attribute: 'code2', op: 'eq', value: makeString('value-2') },
         ],
       })).toEqual(false);
   });
@@ -246,8 +411,8 @@ describe('conditionsApply', () => {
       {
         clause: 'OR',
         conditions: [
-          { attribute: 'code1', op: 'eq', value: 'value-1' },
-          { attribute: 'code2', op: 'eq', value: 'value-2' },
+          { attribute: 'code1', op: 'eq', value: makeString('value-1') },
+          { attribute: 'code2', op: 'eq', value: makeString('value-2') },
         ],
       })).toEqual(true);
   });
@@ -258,8 +423,8 @@ describe('conditionsApply', () => {
       {
         clause: 'OR',
         conditions: [
-          { attribute: 'code1', op: 'eq', value: 'value-1' },
-          { attribute: 'code2', op: 'eq', value: 'value-2' },
+          { attribute: 'code1', op: 'eq', value: makeString('value-1') },
+          { attribute: 'code2', op: 'eq', value: makeString('value-2') },
         ],
       })).toEqual(true);
   });
@@ -270,8 +435,8 @@ describe('conditionsApply', () => {
       {
         clause: 'OR',
         conditions: [
-          { attribute: 'code1', op: 'eq', value: 'value-1' },
-          { attribute: 'code2', op: 'eq', value: 'value-2' },
+          { attribute: 'code1', op: 'eq', value: makeString('value-1') },
+          { attribute: 'code2', op: 'eq', value: makeString('value-2') },
         ],
       })).toEqual(false);
   });

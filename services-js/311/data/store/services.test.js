@@ -19,6 +19,7 @@ const COSMIC_SERVICE: Service = {
       description: 'Please provide any other relevant information:',
       values: null,
       conditionalValues: null,
+      dependencies: null,
     }],
   },
 };

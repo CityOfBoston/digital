@@ -30,8 +30,14 @@ export type State = {
     lng: number,
   |},
   address: string,
+  // Map of the data that the user has set in the form. This may contain data
+  // that is not displayed, e.g. the value of a select box that no longer
+  // appears because a box was unchecked.
   attributeValues: AttributeValuesMap,
+  // Attributes copied off of a Service.
   rawAttributes: ServiceMetadataAttribute[],
+  // Filtered version of rawAttributes that includes only visible questions and
+  // allowed values of depenedent picklists.
   calculatedAttributes: CalculatedAttribute[],
 }
 
@@ -75,11 +81,31 @@ export const resetRequestForService = (service: Service): Action => ({
   payload: service,
 });
 
+// Given the value from the form input and a potentially null list of { key, name }
+// objects, returns a version of currentValue that conforms to the values.
+// If values is null, assumes that there's no value limiting (e.g. a string
+// input). If currentValue is not found in values, returns null.
+function filterValidValues(currentValue, values) {
+  if (!values) {
+    return currentValue;
+  }
+
+  const valuesArr = values;
+
+  const isValid = (val) => !!valuesArr.find(({ key }) => key === val);
+  if (Array.isArray(currentValue)) {
+    return currentValue.filter(isValid);
+  } else if (isValid(currentValue)) {
+    return currentValue;
+  } else {
+    return null;
+  }
+}
 
 export const submitRequest = async (state: State, loopbackGraphql: LoopbackGraphql): Promise<SubmitRequestMutation> => {
-  const { code, description, firstName, lastName, email, phone, location, address, attributeValues, calculatedAttributes } = state;
+  const { code: serviceCode, description, firstName, lastName, email, phone, location, address, attributeValues, calculatedAttributes } = state;
 
-  if (!code) {
+  if (!serviceCode) {
     throw new Error(`code not currently set in state: ${JSON.stringify(state, null, 2)}`);
   }
 
@@ -87,27 +113,24 @@ export const submitRequest = async (state: State, loopbackGraphql: LoopbackGraph
   calculatedAttributes.forEach((attr) => { calculatedAttributesByCode[attr.code] = attr; });
 
   const attributesArray = [];
-  Object.keys(attributeValues).forEach((c) => {
-    const value = attributeValues[c];
 
-    const calculatedAttribute = calculatedAttributesByCode[c];
-    if (!calculatedAttribute) {
-      return;
-    }
+  // We only iterate over the displayed form fields when doing a submit. Note
+  // that attributeValues may contain data for fields that are not currently
+  // being shown, and we don't want to submit those.
+  calculatedAttributes.forEach(({ code, values }) => {
+    const value = filterValidValues(attributeValues[code], values);
 
     if (Array.isArray(value)) {
       value.forEach((v) => {
-        if (!calculatedAttribute.values || calculatedAttribute.values.find(({ key }) => key === v)) {
-          attributesArray.push({ code: c, value: v });
-        }
+        attributesArray.push({ code, value: v });
       });
-    } else if (!calculatedAttribute.values || calculatedAttribute.values.find(({ key }) => key === value)) {
-      attributesArray.push({ code: c, value });
+    } else if (value !== null) {
+      attributesArray.push({ code, value });
     }
   });
 
   const vars: SubmitRequestMutationVariables = {
-    code,
+    code: serviceCode,
     description,
     firstName,
     lastName,
@@ -154,40 +177,110 @@ function generateAttributeValueDefaults(metadata) {
   return attributeValuesByCode;
 }
 
+function conditionEq(currentValue, { type, string, number, array }) {
+  switch (type) {
+    case 'STRING': return currentValue === string;
+    case 'STRING_ARRAY': {
+      if (!array || !Array.isArray(currentValue)) {
+        return false;
+      }
+      // Making copies since sort mutates
+      const currentValueArr = [...currentValue].sort();
+      const expectedValueArr = [...array].sort();
+
+      // array equality!
+      return currentValueArr.length === expectedValueArr.length &&
+        currentValueArr.filter((el, i) => el === expectedValueArr[i]).length === currentValueArr.length;
+    }
+    case 'NUMBER': return parseFloat(currentValue, 10) === number;
+    default: throw new Error('Unknown type');
+  }
+}
+
+function conditionIn(currentValue, { string }) {
+  if (string === null || string === undefined || !Array.isArray(currentValue)) {
+    return false;
+  }
+
+  return currentValue.indexOf(string) !== -1;
+}
+
+function conditionNumericOp(currentValue, { number }, op) {
+  if (number === null || number === undefined || typeof currentValue !== 'string') {
+    return false;
+  }
+
+  const currentNumber = parseFloat(currentValue);
+  return op(currentNumber, number);
+}
+
+// Calculates a ServiceMetadataAttributeValuesCondition block, which includes
+// a clause of either 'AND' or 'OR' and a list of eq/neq conditions to
+// evaluate against other data on the form.
+//
+// We evaluate data against attributeValues higher up in the form to avoid
+// circular dependencies across form elements.
 export function conditionsApply(attributeValues: AttributeValuesMap, { clause, conditions }: ServiceMetadataAttributeValuesCondition) {
   // number of conditions that must be true for us to be true
   const minConditions = clause === 'AND' ? conditions.length : 1;
 
   return conditions.filter(({ attribute, op, value }) => {
     const currentValue = attributeValues[attribute];
-    if (Array.isArray(currentValue)) {
-      const idx = currentValue.indexOf(value);
-      if (op === 'eq') {
-        return idx !== -1;
-      } else {
-        return idx === -1;
-      }
-    } else if (op === 'eq') {
-      return currentValue === value;
-    } else {
-      return currentValue !== value;
+    switch (op) {
+      case 'eq': return conditionEq(currentValue, value);
+      case 'neq': return !conditionEq(currentValue, value);
+      case 'in': return conditionIn(currentValue, value);
+      case 'gt': return conditionNumericOp(currentValue, value, (a, b) => a > b);
+      case 'gte': return conditionNumericOp(currentValue, value, (a, b) => a >= b);
+      case 'lt': return conditionNumericOp(currentValue, value, (a, b) => a < b);
+      case 'lte': return conditionNumericOp(currentValue, value, (a, b) => a <= b);
+      default:
+        return false;
     }
   }).length >= minConditions;
 }
 
 function calculateAttributes(rawAttributes: ServiceMetadataAttribute[], attributeValues: AttributeValuesMap): CalculatedAttribute[] {
-  return rawAttributes.map(({ code, type, required, description, values, conditionalValues }) => {
-    const activeConditionals = (conditionalValues || []).filter(({ dependentOn }) => conditionsApply(attributeValues, dependentOn));
-    const calculatedValues = [].concat(...activeConditionals.map((c) => c.values));
+  // We build up a map of attribute values as they appear on the form and use
+  // this to calculate field visibility. This prevents cycles (since dependencies
+  // can only be on previous things) and accounts for when hidden questions
+  // still have values stored in attributeValues.
+  const visibleAttributeValues: AttributeValuesMap = {};
+  const calculatedAttributes = [];
 
-    return {
+  rawAttributes.forEach(({ code, type, required, description, values, conditionalValues, dependencies }) => {
+    // This variable will hold any static values as well as any conditional
+    // values that come up due to dependencies.
+    let combinedValues = null;
+
+    if (values !== null || conditionalValues !== null) {
+      const activeConditionals = (conditionalValues || []).filter(({ dependentOn }) => (
+        conditionsApply(visibleAttributeValues, dependentOn)
+      ));
+      const calculatedValues = [].concat(...activeConditionals.map((c) => c.values));
+      combinedValues = [...(values || []), ...calculatedValues];
+    }
+
+    if (dependencies && !conditionsApply(visibleAttributeValues, dependencies)) {
+      return;
+    }
+
+    const filteredValue = filterValidValues(attributeValues[code], combinedValues);
+
+    if (filteredValue) {
+      visibleAttributeValues[code] = filteredValue;
+    }
+
+    calculatedAttributes.push({
       code,
       type,
       required,
       description,
-      values: [...(values || []), ...calculatedValues],
-    };
+      values: combinedValues,
+    });
   });
+
+  return calculatedAttributes;
 }
 
 export default function reducer(state: State = DEFAULT_STATE, action: Action): State {

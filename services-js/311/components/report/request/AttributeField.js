@@ -110,11 +110,10 @@ function renderNumberAttribute(attribute, onChange, currentValue) {
   );
 }
 
-
 function renderSingleValueListAttribute(attribute, onChange, currentValue) {
   return (
     <label key={attribute.code}>
-      <p>{attribute.description}</p>
+      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
       <select name={attribute.code} onChange={onChange} value={currentValue}>
         <option disabled selected={currentValue === null}>Please choose</option>
         <option disabled>--------------------------</option>

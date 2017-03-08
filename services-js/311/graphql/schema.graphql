@@ -44,6 +44,7 @@ type ServiceMetadataAttribute {
   order: Int
   description: String!
   code: String!
+  dependencies: ServiceMetadataAttributeConditional
   values: [ServiceMetadataAttributeValue!]
   conditionalValues: [ServiceMetadataAttributeConditionalValues!]
 }
@@ -51,7 +52,7 @@ type ServiceMetadataAttribute {
 type ServiceMetadataAttributeCondition {
   attribute: String!
   op: ServiceMetadataAttributeConditionalOp!
-  value: String!
+  value: ServiceMetadataAttributeConditionValue!
 }
 
 type ServiceMetadataAttributeConditional {
@@ -67,11 +68,29 @@ enum ServiceMetadataAttributeConditionalClause {
 enum ServiceMetadataAttributeConditionalOp {
   eq
   neq
+  in
+  gt
+  gte
+  lt
+  lte
 }
 
 type ServiceMetadataAttributeConditionalValues {
   dependentOn: ServiceMetadataAttributeConditional!
   values: [ServiceMetadataAttributeValue!]!
+}
+
+type ServiceMetadataAttributeConditionValue {
+  type: ServiceMetadataAttributeConditionValueType
+  string: String
+  array: [String!]
+  number: Float
+}
+
+enum ServiceMetadataAttributeConditionValueType {
+  STRING
+  STRING_ARRAY
+  NUMBER
 }
 
 enum ServiceMetadataAttributeDatatype {

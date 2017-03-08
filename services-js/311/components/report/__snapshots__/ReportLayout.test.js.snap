@@ -89,6 +89,8 @@ exports[`existing service page rendering 1`] = `
           <label>
             <p>
               How many dimensions have been breached?
+               
+              (required)
             </p>
             <select
               name="SR-CSIRMV1"
