@@ -1,0 +1,1 @@
+exports[`constructor throws if the question can’t be found 1`] = `"Question not found for code: CODE"`;

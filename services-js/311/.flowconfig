@@ -11,3 +11,5 @@ module.file_ext=.js
 module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.html
+esproposal.decorators=ignore
+unsafe.enable_getters_and_setters=true

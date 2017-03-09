@@ -1,36 +1,28 @@
 // @flow
 
 import React from 'react';
+import { action } from 'mobx';
+import { observer } from 'mobx-react';
 import Head from 'next/head';
 import { css } from 'glamor';
 
-import type { ServiceSummary } from '../../../data/types';
+import type { AppStore } from '../../../data/store';
 
 import FormDialog from '../../common/FormDialog';
 import DescriptionBox from './DescriptionBox';
 import ServiceList from './ServiceList';
 
-type ExternalProps = {
-  serviceSummaries: ServiceSummary[],
+export type Props = {
+  store: AppStore,
   routeToServiceForm: (code: string) => void,
-}
-
-export type ValueProps = {
-  requestDescription: string,
 };
-
-export type ActionProps = {
-  setRequestDescription: (description: string) => void,
-};
-
-export type Props = ExternalProps & ValueProps & ActionProps;
 
 const FORM_STYLE = css({
   display: 'flex',
   alignItems: 'flex-start',
 });
 
-export default function ReportHomeDialog({ requestDescription, serviceSummaries, setRequestDescription, routeToServiceForm }: Props) {
+export default observer(function HomeDialog({ store, routeToServiceForm }: Props) {
   return (
     <FormDialog title="311: Boston City Services">
       <Head>
@@ -38,9 +30,9 @@ export default function ReportHomeDialog({ requestDescription, serviceSummaries,
       </Head>
 
       <div className={FORM_STYLE}>
-        <DescriptionBox text={requestDescription} onInput={(ev) => { setRequestDescription(ev.target.value); }} />
-        <ServiceList serviceSummaries={serviceSummaries} onServiceChosen={routeToServiceForm} />
+        <DescriptionBox text={store.description} onInput={action((ev) => { store.description = ev.target.value; })} />
+        <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
       </div>
     </FormDialog>
   );
-}
+});

@@ -3,12 +3,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
 import RequestDialog from './RequestDialog';
 
 import type { Service } from '../../../data/types';
-import { makeStore } from '../../../data/store';
-import { resetRequestForService, DEFAULT_STATE as DEFAULT_REQUEST } from '../../../data/store/request';
+import { AppStore } from '../../../data/store';
 
 import { GraphQLError } from '../../../data/graphql/loopback-graphql';
 import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
@@ -40,15 +38,10 @@ const MOCK_SERVICE: Service = {
       code: 'SR-CSIRMV1',
       description: 'How many dimensions have been breached?',
       values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
-      conditionalValues: null,
+      conditionalValues: [],
       dependencies: null,
     }],
   },
-};
-
-const MOCK_REQUEST = {
-  ...DEFAULT_REQUEST,
-  code: 'CSMCINC',
 };
 
 const MOCK_ACTIONS = {
@@ -61,37 +54,29 @@ const MOCK_ACTIONS = {
 
 describe('rendering', () => {
   let store;
-  let request;
 
   beforeEach(() => {
-    store = makeStore();
-    store.dispatch(resetRequestForService(MOCK_SERVICE));
-    request = store.getState().request;
+    store = new AppStore();
+    store.currentService = MOCK_SERVICE;
   });
 
   test('questions', () => {
     const component = renderer.create(
-      <Provider store={store}>
-        <RequestDialog service={MOCK_SERVICE} request={request} stage="questions" {...MOCK_ACTIONS} />
-      </Provider>,
+      <RequestDialog store={store} stage="questions" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   test('location', () => {
     const component = renderer.create(
-      <Provider store={store}>
-        <RequestDialog service={MOCK_SERVICE} request={request} stage="location" {...MOCK_ACTIONS} />
-      </Provider>,
+      <RequestDialog store={store} stage="location" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('contact', () => {
     const component = renderer.create(
-      <Provider store={store}>
-        <RequestDialog service={MOCK_SERVICE} request={request} stage="contact" {...MOCK_ACTIONS} />
-      </Provider>,
+      <RequestDialog store={store} stage="contact" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -99,6 +84,7 @@ describe('rendering', () => {
 
 describe('submitting', () => {
   let wrapper;
+  let store;
   let requestDialog;
   let resolveGraphql;
   let rejectGraphql;
@@ -108,15 +94,19 @@ describe('submitting', () => {
       resolveGraphql = resolve;
       rejectGraphql = reject;
     });
-    const loopbackGraphql = jest.fn(() => promise);
+
+    store = new AppStore();
+    store.currentService = MOCK_SERVICE;
+    store.submitRequest = (): Promise<any> => promise;
 
     wrapper = shallow(
       <RequestDialog
-        service={MOCK_SERVICE} request={MOCK_REQUEST} stage="contact"
+        store={store}
+        stage="contact"
         locationMapSearch={jest.fn()}
-        loopbackGraphql={loopbackGraphql} routeToServiceForm={jest.fn()}
+        loopbackGraphql={jest.fn()}
+        routeToServiceForm={jest.fn()}
         setLocationMapActive={jest.fn()}
-        resetRequestForService={jest.fn()}
       />);
 
     requestDialog = wrapper.instance();
@@ -126,6 +116,7 @@ describe('submitting', () => {
     const submission = requestDialog.submitRequest();
 
     // rendering loading
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
 
     const result: SubmitRequestMutation = {
@@ -141,6 +132,7 @@ describe('submitting', () => {
     await submission;
 
     // rendering success
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -152,9 +144,14 @@ describe('submitting', () => {
       { message: 'Also your location is in Cambridge' },
     ]));
 
-    await submission;
+    try {
+      await submission;
+    } catch (e) {
+      // expected
+    }
 
     // should be rendering the error here
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -2,24 +2,16 @@
 
 import React from 'react';
 import { css } from 'glamor';
+import { observer } from 'mobx-react';
 
 import AttributeField from './AttributeField';
 
-import type { State as Request } from '../../../data/store/request';
+import type { AppStore, LocationInfo } from '../../../data/store';
 
-export type ExternalProps = {
+export type Props = {
+  store: AppStore,
   nextFunc: () => void,
-}
-
-export type ValueProps = {
-  request: Request,
-}
-
-export type ActionProps = {
-  setAttribute: (string, string | string[]) => void,
-}
-
-export type Props = ExternalProps & ValueProps & ActionProps;
+};
 
 const DESCRIPTION_STYLE = css({
   fontFamily: '"Lora", Georgia, serif',
@@ -36,7 +28,7 @@ const ADDRESS_STYLE = css({
   fontWeight: 'bold',
 });
 
-function renderDescription({ description }: Request) {
+function renderDescription(description: string) {
   if (description.length) {
     return <div className={DESCRIPTION_STYLE}>“{description}”</div>;
   } else {
@@ -44,26 +36,24 @@ function renderDescription({ description }: Request) {
   }
 }
 
-function renderLocation({ address }: Request) {
+function renderLocation({ address }: LocationInfo) {
   return <div className={ADDRESS_STYLE}>{address}</div>;
 }
 
-export default function QuestionsPane({ request, setAttribute, nextFunc }: Props) {
+export default observer(function QuestionsPane({ store, nextFunc }: Props) {
   // TODO(finneganh): required fields
   const allowSubmit = true;
 
   return (
     <div>
-      { renderDescription(request) }
-      { renderLocation(request) }
+      { renderDescription(store.description) }
+      { renderLocation(store.locationInfo) }
 
       {
-        request.calculatedAttributes.map((a) => (
-          <AttributeField attribute={a} key={a.code} attributeChanged={setAttribute} currentValue={request.attributeValues[a.code]} />
-        ))
+        store.questions.map((q) => <AttributeField key={q.code} question={q} />)
       }
 
       <button onClick={nextFunc} disabled={!allowSubmit}>Next</button>
     </div>
   );
-}
+});

@@ -2,36 +2,32 @@
 
 import React from 'react';
 import Head from 'next/head';
+import { observable, action } from 'mobx';
+import { observer } from 'mobx-react';
+import { fromPromise } from 'mobx-utils';
+import type { IPromiseBasedObservable } from 'mobx-utils';
 import { css } from 'glamor';
 
-import type { Service, SubmittedRequest, Request } from '../../../data/types';
+import type { AppStore } from '../../../data/store';
 import type { LoopbackGraphql } from '../../../data/graphql/loopback-graphql';
-import { submitRequest } from '../../../data/store/request';
+import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
 
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
 
-import { QuestionsPaneContainer, ContactPaneContainer, LocationPopUpContainer } from './containers';
+import QuestionsPane from './QuestionsPane';
+import LocationPopUp from './LocationPopUp';
+import ContactPane from './ContactPane';
 import SubmitPane from './SubmitPane';
 
-type ExternalProps = {
-  service: ?Service,
+type Props = {
+  store: AppStore,
   stage: 'questions' | 'location' | 'contact',
   loopbackGraphql: LoopbackGraphql,
   routeToServiceForm: (code: string, stage: string) => void,
   setLocationMapActive: (active: boolean) => void,
   locationMapSearch: ?(query: string) => Promise<boolean>,
-};
-
-export type ValueProps = {
-  request: Request,
 }
-
-export type ActionProps = {
-  resetRequestForService: (service: Service) => void,
-}
-
-type Props = ExternalProps & ValueProps & ActionProps;
 
 const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',
@@ -44,56 +40,38 @@ const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: '-60px 60% 0 20px',
 });
 
-/*
-  <LocationPopUp address={address} addressSearch={this.whenAddressSearch} next={this.whenNextClicked} />
-*/
-
+@observer
 export default class RequestDialog extends React.Component {
   props: Props;
-  state: {
-    submitting: boolean,
-    submitError: ?Object,
-    submittedRequest: ?SubmittedRequest,
-  }
-
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      submitting: false,
-      submitError: null,
-      submittedRequest: null,
-    };
-  }
+  @observable submission: ?IPromiseBasedObservable<SubmitRequestMutation> = null;
 
   componentWillMount() {
-    const { service, resetRequestForService, stage, setLocationMapActive } = this.props;
-    if (service) {
-      resetRequestForService(service);
-    }
-
+    const { stage, setLocationMapActive } = this.props;
     setLocationMapActive(stage === 'location');
   }
 
+  @action
   componentWillReceiveProps(newProps: Props) {
     const { setLocationMapActive, stage } = this.props;
 
     if (stage !== newProps.stage) {
       setLocationMapActive(newProps.stage === 'location');
     }
+
+    this.submission = null;
   }
 
   nextAfterQuestions = () => {
-    const { service, routeToServiceForm } = this.props;
-    if (service) {
-      routeToServiceForm(service.code, 'location');
+    const { store: { currentService }, routeToServiceForm } = this.props;
+    if (currentService) {
+      routeToServiceForm(currentService.code, 'location');
     }
   }
 
   nextAfterLocation = () => {
-    const { service, routeToServiceForm } = this.props;
-    if (service) {
-      routeToServiceForm(service.code, 'contact');
+    const { store: { currentService }, routeToServiceForm } = this.props;
+    if (currentService) {
+      routeToServiceForm(currentService.code, 'contact');
     }
   }
 
@@ -101,28 +79,12 @@ export default class RequestDialog extends React.Component {
     this.submitRequest();
   }
 
-  submitRequest = async () => {
-    // Pull the store out of the context rather than via connect because we
-    // don't need it for rendering, just for doing this submission.
-    this.setState({
-      submitting: true,
-      submitError: null,
-      submittedRequest: null,
-    });
-
-    try {
-      const { request, loopbackGraphql } = this.props;
-      const { createRequest } = await submitRequest(request, loopbackGraphql);
-
-      this.setState({
-        submitting: false,
-        submittedRequest: createRequest,
-      });
-    } catch (e) {
-      this.setState({
-        submitError: e,
-      });
-    }
+  @action
+  submitRequest(): Promise<mixed> {
+    const { store, loopbackGraphql } = this.props;
+    const promise = store.submitRequest(loopbackGraphql);
+    this.submission = fromPromise(promise);
+    return promise;
   }
 
   render() {
@@ -143,23 +105,23 @@ export default class RequestDialog extends React.Component {
   }
 
   renderTitle() {
-    const { stage, service } = this.props;
-    const { submitting, submitError, submittedRequest } = this.state;
+    const { stage, store: { currentService } } = this.props;
 
-    if (!service) {
+    if (!currentService) {
       return 'Not Found';
     }
 
-    if (submitError) {
-      return 'Submission error';
-    } else if (submitting) {
-      return 'Submitting…';
-    } else if (submittedRequest) {
-      return `Success: Case ${submittedRequest.id}`;
+    if (this.submission) {
+      switch (this.submission.state) {
+        case 'pending': return 'Submitting…';
+        case 'fulfilled': return `Success: Case ${this.submission.value.createRequest.id}`;
+        case 'rejected': return 'Submission error';
+        default: return '';
+      }
     }
 
     switch (stage) {
-      case 'questions': return service.name;
+      case 'questions': return currentService.name;
       case 'location': return 'Choose location';
       case 'contact': return 'Contact information';
       default: return '';
@@ -167,30 +129,31 @@ export default class RequestDialog extends React.Component {
   }
 
   renderContent() {
-    const { service, stage, locationMapSearch } = this.props;
-    const { submitting, submitError, submittedRequest } = this.state;
+    const { store, stage, locationMapSearch } = this.props;
+    const { currentService } = store;
 
-    if (submitError) {
-      return <SubmitPane state="error" error={submitError} />;
-    } else if (submitting) {
-      return <SubmitPane state="submitting" />;
-    } else if (submittedRequest) {
-      return <SubmitPane state="success" submittedRequest={submittedRequest} />;
+    if (this.submission) {
+      switch (this.submission.state) {
+        case 'pending': return <SubmitPane state="submitting" />;
+        case 'fulfilled': return <SubmitPane state="success" submittedRequest={this.submission.value.createRequest} />;
+        case 'rejected': return <SubmitPane state="error" error={this.submission.value} />;
+        default: return '';
+      }
     }
 
-    if (!service) {
+    if (!currentService) {
       return <SectionHeader>Service not found</SectionHeader>;
     }
 
     switch (stage) {
       case 'questions':
-        return <QuestionsPaneContainer nextFunc={this.nextAfterQuestions} />;
+        return <QuestionsPane store={store} nextFunc={this.nextAfterQuestions} />;
 
       case 'location':
-        return <LocationPopUpContainer nextFunc={this.nextAfterLocation} addressSearch={locationMapSearch} />;
+        return <LocationPopUp store={store} nextFunc={this.nextAfterLocation} addressSearch={locationMapSearch} />;
 
       case 'contact':
-        return <ContactPaneContainer service={service} nextFunc={this.nextAfterContact} />;
+        return <ContactPane store={store} nextFunc={this.nextAfterContact} />;
 
       default: return null;
     }

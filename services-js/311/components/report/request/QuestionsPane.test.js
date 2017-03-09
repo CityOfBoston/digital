@@ -3,7 +3,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import type { Service, Request } from '../../../data/types';
+import type { Service } from '../../../data/types';
+import { AppStore } from '../../../data/store';
 
 import QuestionsPane from './QuestionsPane';
 
@@ -12,20 +13,6 @@ export const DEFAULT_SERVICE: Service = {
   code: 'CSMCINC',
   hasMetadata: false,
   metadata: null,
-};
-
-export const DEFAULT_REQUEST: Request = {
-  code: null,
-  description: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  location: null,
-  address: '',
-  attributeValues: {},
-  rawAttributes: [],
-  calculatedAttributes: [],
 };
 
 export const SERVICE_WITH_METADATA: Service = {
@@ -45,60 +32,36 @@ export const SERVICE_WITH_METADATA: Service = {
   },
 };
 
-export const REQUEST_WITH_METADATA: Request = {
-  code: null,
-  description: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  location: null,
-  address: '',
-  attributeValues: {
-    ST_CMTS: 'A portal to the Negative Zone has opened',
-  },
-  rawAttributes: (SERVICE_WITH_METADATA.metadata || {}).attributes || [],
-  calculatedAttributes: [{
-    required: false,
-    type: 'TEXT',
-    code: 'ST-CMTS',
-    description: 'Please provide any other relevant information:',
-    values: null,
-  }],
-};
+let store;
 
-const ACTIONS = {
-  nextFunc: jest.fn(),
-  setAttribute: jest.fn(),
-};
+beforeEach(() => {
+  store = new AppStore();
+  store.currentService = DEFAULT_SERVICE;
+});
 
 test('blank request', () => {
   const component = renderer.create(
-    <QuestionsPane service={DEFAULT_SERVICE} request={DEFAULT_REQUEST} {...ACTIONS} loopbackGraphql={jest.fn()} />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('existing description', () => {
+  store.description = 'Please pick up my bulk items. ';
+
   const component = renderer.create(
-    <QuestionsPane
-      service={DEFAULT_SERVICE}
-      request={{ ...DEFAULT_REQUEST, description: 'Please pick up my bulk items. ' }}
-      {...ACTIONS}
-      loopbackGraphql={jest.fn()}
-    />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('service with metadata', () => {
+  store.currentService = SERVICE_WITH_METADATA;
+
   const component = renderer.create(
-    <QuestionsPane
-      service={SERVICE_WITH_METADATA}
-      request={REQUEST_WITH_METADATA}
-      {...ACTIONS}
-      loopbackGraphql={jest.fn()}
-    />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();

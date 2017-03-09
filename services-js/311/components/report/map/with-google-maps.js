@@ -15,10 +15,6 @@ import URLSearchParams from 'url-search-params';
 import React from 'react';
 import Head from 'next/head';
 
-type Props = {
-  googleApiKey: string,
-};
-
 const CALLBACKS_ARRAY_NAME = '__withGoogleMaps__CALLBACKS';
 const CALLBACK_NAME = '__withGoogleMaps__CALLBACK';
 
@@ -39,15 +35,15 @@ const STATIC_CALLBACK_SCRIPT = `
   };
 `;
 
-export default (libraries: string[] = []) => (Component: Class<React.Component<*, *, *>>) => (
+export default (libraries: string[], apiKeyFn: (props: Object) => string) => (Component: Class<React.Component<*, *, *>>) => (
   class withGoogleMaps extends React.Component {
-    props: Props;
+    props: Object;
 
     state: {
       mapsLoaded: boolean,
     }
 
-    constructor(props: Props) {
+    constructor(props: Object) {
       super(props);
 
       this.state = {
@@ -81,7 +77,7 @@ export default (libraries: string[] = []) => (Component: Class<React.Component<*
     }
 
     render() {
-      const { googleApiKey } = this.props;
+      const googleApiKey = apiKeyFn(this.props);
       const { mapsLoaded } = this.state;
 
       // Distinct from mapsLoaded to handle the case where the <script> is on

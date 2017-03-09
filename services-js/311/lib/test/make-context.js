@@ -1,8 +1,6 @@
 // @flow
 
 import type { Context } from 'next';
-import { makeStore } from '../../data/store';
-import { setKeys } from '../../data/store/keys';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 /**
@@ -10,14 +8,11 @@ import type { RequestAdditions } from '../../server/next-handlers';
  * will provide on the server-side.
  */
 export function makeServerContext(pathname: string, query: {[key: string]: string} = {}): Context<RequestAdditions> {
-  const store = makeStore();
-  store.dispatch(setKeys({
-    googleApi: 'FAKE_GOOGLE_API_KEY',
-  }));
-
   const req: RequestAdditions = {
     hapiInject: () => { throw new Error('hapiInject is not supported in tests'); },
-    reduxInitialState: store.getState(),
+    apiKeys: {
+      google: 'FAKE_GOOGLE_API_KEY',
+    },
   };
 
   return {

@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Provider } from 'react-redux';
 import Head from 'next/head';
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@kadira/storybook';
-import { makeStore } from '../data/store';
-import { setKeys } from '../data/store/keys';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';
@@ -27,10 +24,9 @@ class Wrapper extends React.Component {
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
     }
 
-    this.store = makeStore();
-    this.store.dispatch(setKeys({
-      googleApi: dotEnv.GOOGLE_API_KEY,
-    }));
+    window.API_KEYS = {
+      google: dotEnv.GOOGLE_API_KEY,
+    };
   }
 
   getChildContext() {
@@ -39,12 +35,10 @@ class Wrapper extends React.Component {
 
   render() {
     return (
-      <Provider store={this.store}>
-        <div>
-          { makeCssHead(Head) }
-          { this.props.children }
-        </div>
-      </Provider>
+      <div>
+        { makeCssHead(Head) }
+        { this.props.children }
+      </div>
     );
   }
 }

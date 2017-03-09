@@ -2,11 +2,15 @@
 
 import React from 'react';
 import { css } from 'glamor';
+import { runInAction } from 'mobx';
+import { observer } from 'mobx-react';
 
 // eslint-disable-next-line
 import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
+import type { AppStore } from '../../../data/store';
 
 import Geocoder from '../../../data/external/Geocoder';
+import withGoogleMaps from './with-google-maps';
 
 type AutocompleteService = google.maps.places.AutocompleteService;
 
@@ -23,22 +27,15 @@ const MAP_STYLE = css({
 
 export type ExternalProps = {
   active: boolean,
-  googleMaps: $Exports<'google-maps'>,
   setLocationMapSearch: (locationMapSearch: ?(query: string) => Promise<boolean>) => void,
+  store: AppStore,
 }
 
-export type ValueProps = {
-  googleApiKey: ?string,
-  location: ?{| lat: number, lng: number |},
-  address: string,
-};
+export type Props = {
+  googleMaps: $Exports<'google-maps'>,
+} & ExternalProps;
 
-export type ActionProps = {
-  dispatchLocation: (location: ?{| lat: number, lng: number |}, address: string) => void,
-}
-
-export type Props = ExternalProps & ValueProps & ActionProps;
-
+@observer
 export default class LocationMap extends React.Component {
   props: Props;
 
@@ -55,8 +52,10 @@ export default class LocationMap extends React.Component {
   constructor(props: Props) {
     super(props);
 
-    this.geocoder = new Geocoder(props.googleApiKey || '');
-    this.autocompleteService = new props.googleMaps.places.AutocompleteService();
+    const { store, googleMaps } = props;
+
+    this.geocoder = new Geocoder(store.apiKeys.google || '');
+    this.autocompleteService = new googleMaps.places.AutocompleteService();
 
     this.mapEl = null;
     this.map = null;
@@ -69,7 +68,8 @@ export default class LocationMap extends React.Component {
 
   componentDidUpdate(oldProps: Props) {
     if (oldProps.active !== this.props.active) {
-      const { active, location, address } = this.props;
+      const { active, store } = this.props;
+      const { location, address } = store.locationInfo;
 
       if (this.map) {
         this.map.setOptions(this.getMapOptions());
@@ -97,7 +97,8 @@ export default class LocationMap extends React.Component {
   }
 
   getMapOptions(): MapOptions {
-    const { active, location } = this.props;
+    const { active, store } = this.props;
+    const { location } = store.locationInfo;
 
     return {
       clickableIcons: false,
@@ -130,7 +131,7 @@ export default class LocationMap extends React.Component {
 
   addressChanged = async (latLng: LatLng) => {
     const { map } = this;
-    const { active } = this.props;
+    const { active, store } = this.props;
 
     if (!map || !active) {
       return;
@@ -148,17 +149,24 @@ export default class LocationMap extends React.Component {
       marker.setIcon('http://maps.google.com/mapfiles/ms/icons/grey.png');
     }
 
-    this.props.dispatchLocation(location, address || '');
+    runInAction('geocode complete', () => {
+      store.locationInfo.location = location;
+      store.locationInfo.address = address || '';
+    });
   }
 
   whenAddressSearch = async (query: string): Promise<boolean> => {
     const { map, autocompleteService } = this;
+    const { store } = this.props;
 
     if (!autocompleteService || !map) {
       return false;
     }
 
-    this.props.dispatchLocation(null, '');
+    runInAction('search start', () => {
+      store.locationInfo.location = null;
+      store.locationInfo.address = '';
+    });
 
     this.removeMarker();
 
@@ -186,7 +194,11 @@ export default class LocationMap extends React.Component {
     const { address, location } = await this.geocoder.place(placeId) || {};
 
     if (address && location) {
-      this.props.dispatchLocation(location, address);
+      runInAction('search complete', () => {
+        store.locationInfo.location = location;
+        store.locationInfo.address = address;
+      });
+
       this.positionMarker(location, true);
 
       const projection = map.getProjection();
@@ -249,3 +261,5 @@ export default class LocationMap extends React.Component {
     );
   }
 }
+
+export const LocationMapWithLib = withGoogleMaps(['places'], ({ store }: ExternalProps) => store.apiKeys.google)(LocationMap);

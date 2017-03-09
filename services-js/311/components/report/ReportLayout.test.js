@@ -5,12 +5,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Router from 'next/router';
 
-import { Provider } from 'react-redux';
-
 import type { Service, ServiceSummary } from '../../data/types';
-import { makeStore } from '../../data/store';
 
 import { makeServerContext } from '../../lib/test/make-context';
+import inBrowser from '../../lib/test/in-browser';
 import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
 
 import LoadServiceSummariesGraphql from '../../data/graphql/LoadServiceSummaries.graphql';
@@ -56,7 +54,7 @@ const MOCK_SERVICE: Service = {
       code: 'SR-CSIRMV1',
       description: 'How many dimensions have been breached?',
       values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
-      conditionalValues: null,
+      conditionalValues: [],
       dependencies: null,
     }],
   },
@@ -81,11 +79,7 @@ function mockGraphql(query, value) {
   }
 }
 
-let store;
-
 beforeEach(() => {
-  store = makeStore();
-
   mockGraphql(LoadServiceSummariesGraphql, MOCK_SERVICE_SUMMARIES_RESPONSE);
   mockGraphql(LoadServiceGraphql, MOCK_SERVICE_RESPONSE);
 });
@@ -95,7 +89,7 @@ describe('report form', () => {
 
   beforeEach(async () => {
     const ctx = makeServerContext('/report');
-    data = (await ReportLayout.getInitialProps(ctx, store)).data;
+    data = (await ReportLayout.getInitialProps(ctx)).data;
   });
 
   test('getInitialProps', () => {
@@ -109,23 +103,17 @@ describe('report form', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <Provider store={store}>
-        <ReportLayout data={data} />
-      </Provider>,
+      <ReportLayout data={data} apiKeys={null} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 });
 
 describe('existing service page', () => {
-  let data;
-
-  beforeEach(async () => {
+  test('getInitialProps', async () => {
     const ctx = makeServerContext('/report', { code: 'CSMCINC' });
-    data = (await ReportLayout.getInitialProps(ctx, store)).data;
-  });
+    const data = (await ReportLayout.getInitialProps(ctx)).data;
 
-  test('getInitialProps', () => {
     switch (data.view) {
       case 'request':
         expect(data.service).toBeDefined();
@@ -136,22 +124,31 @@ describe('existing service page', () => {
   });
 
   test('service is cached', async () => {
-    // store should have the service cached by code from the beforeEach above,
-    // so to enforce that we're not fetching a second time we clear this out
-    // of the fake GraphQL responses.
-    mockGraphql(LoadServiceGraphql, null);
+    await inBrowser(async () => {
+      let ctx = makeServerContext('/report', { code: 'CSMCINC' });
+      const data = (await ReportLayout.getInitialProps(ctx)).data;
 
-    const ctx = makeServerContext('/report', { code: 'CSMCINC' });
-    const nextData = (await ReportLayout.getInitialProps(ctx, store)).data;
+      // store should have the service cached by code from the beforeEach above,
+      // so to enforce that we're not fetching a second time we clear this out
+      // of the fake GraphQL responses.
+      mockGraphql(LoadServiceGraphql, null);
 
-    expect(nextData).toEqual(data);
+      // caching happens when the layout is created
+      // eslint-disable-next-line no-new
+      new ReportLayout({ data, apiKeys: {} });
+
+      ctx = makeServerContext('/report', { code: 'CSMCINC' });
+      const nextData = (await ReportLayout.getInitialProps(ctx)).data;
+
+      expect(nextData).toEqual(data);
+    });
   });
 
-  test('rendering', () => {
+  test('rendering', async () => {
+    const ctx = makeServerContext('/report', { code: 'CSMCINC' });
+    const data = (await ReportLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
-      <Provider store={store}>
-        <ReportLayout data={data} />
-      </Provider>,
+      <ReportLayout data={data} apiKeys={null} />,
       );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -166,7 +163,7 @@ describe('missing service page', () => {
     mockGraphql(LoadServiceGraphql, MOCK_MISSING_SERVICE_RESPONSE);
 
     ctx = makeServerContext('/report', { code: 'CSMCINC' });
-    data = (await ReportLayout.getInitialProps(ctx, store)).data;
+    data = (await ReportLayout.getInitialProps(ctx)).data;
   });
 
   test('getInitialProps', () => {
@@ -187,9 +184,7 @@ describe('missing service page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <Provider store={store}>
-        <ReportLayout data={data} />
-      </Provider>,
+      <ReportLayout data={data} apiKeys={null} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -200,7 +195,9 @@ describe('routeToServiceForm', () => {
   let reportLayout;
 
   beforeEach(() => {
-    const props: any = {};
+    const props: any = {
+      data: {},
+    };
     reportLayout = new ReportLayout(props);
   });
 

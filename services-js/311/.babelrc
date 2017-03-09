@@ -5,6 +5,8 @@
   ],
 
   "plugins": [
+    "babel-plugin-transform-decorators-legacy",
+
     ["inline-import", {
       "extensions": [
         ".graphql",

@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import type { CalculatedAttribute } from '../../../data/types';
+import { action } from 'mobx';
+import { observer } from 'mobx-react';
+import type Question from '../../../data/store/Question';
 
 export type Props = {
-  attribute: CalculatedAttribute,
-  attributeChanged: (code: string, value: string | string[]) => void,
-  currentValue: ?string | ?string[],
+  question: Question;
 };
 
 const TEXT_TEXTAREA_STYLE = css({
@@ -32,34 +32,38 @@ const DATETIME_INPUT_STYLE = css({
   fontSize: 18,
 });
 
-function currentValueAsArray(currentValue) {
+function currentValueAsArray(currentValue): string[] {
   if (!currentValue) {
     return [];
-  } else if (Array.isArray(currentValue)) {
+  }
+
+  currentValue = currentValue.slice();
+
+  if (Array.isArray(currentValue)) {
     return currentValue;
   } else {
     return [currentValue];
   }
 }
 
-function renderCheckbox(attribute, onChange, currentValue) {
+function renderCheckbox(question, onChange) {
   return (
     <label className="cb">
-      <input name={attribute.code} type="checkbox" value="true" className="cb-f" checked={currentValue === 'true'} onChange={onChange} />
-      <span className="cb-l">{attribute.description}</span>
+      <input name={question.code} type="checkbox" value="true" className="cb-f" checked={question.value === 'true'} onChange={onChange} />
+      <span className="cb-l">{question.description}</span>
     </label>
   );
 }
 
-function renderMultiValueListAttribute(attribute, onChange, currentValue) {
-  const values = currentValueAsArray(currentValue);
+function renderMultiValueListAttribute(question, onChange) {
+  const values = currentValueAsArray(question.value);
 
   return (
     <div>
-      { attribute.description }
-      { (attribute.values || []).map(({ key, name }) => (
+      { question.description }
+      { (question.valueOptions || []).map(({ key, name }) => (
         <label className="cb" key={key}>
-          <input name={attribute.code} type="checkbox" value={key} className="cb-f" checked={values.indexOf(key) !== -1} onChange={onChange} />
+          <input name={question.code} type="checkbox" value={key} className="cb-f" checked={values.indexOf(key) !== -1} onChange={onChange} />
           <span className="cb-l">{name}</span>
         </label>
       ))
@@ -68,100 +72,104 @@ function renderMultiValueListAttribute(attribute, onChange, currentValue) {
   );
 }
 
-function renderDatetimeAttribute(attribute, onChange, currentValue) {
+function renderDatetimeAttribute(question, onChange) {
   return (
-    <label key={attribute.code}>
-      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
-      <input type="date" name={attribute.code} className={DATETIME_INPUT_STYLE} value={currentValue} onChange={onChange} />
+    <label key={question.code}>
+      <p>{question.description} {question.required ? '(required)' : null}</p>
+      <input type="date" name={question.code} className={DATETIME_INPUT_STYLE} value={question.value} onChange={onChange} />
     </label>
   );
 }
 
-function renderInformationalAttribute(attribute) {
+function renderInformationalAttribute(question) {
   return (
-    <p key={attribute.code}>{attribute.description}</p>
+    <p key={question.code}>{question.description}</p>
   );
 }
 
-function renderTextAttribute(attribute, onChange, currentValue) {
+function renderTextAttribute(question, onChange) {
   return (
-    <label key={attribute.code}>
-      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
-      <textarea name={attribute.code} className={TEXT_TEXTAREA_STYLE} value={currentValue} onChange={onChange} />
+    <label key={question.code}>
+      <p>{question.description} {question.required ? '(required)' : null}</p>
+      <textarea name={question.code} className={TEXT_TEXTAREA_STYLE} value={question.value} onChange={onChange} />
     </label>
   );
 }
 
-function renderStringAttribute(attribute, onChange, currentValue) {
+function renderStringAttribute(question, onChange) {
   return (
-    <label key={attribute.code}>
-      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
-      <input type="text" name={attribute.code} className={TEXT_INPUT_STYLE} value={currentValue} onChange={onChange} />
+    <label key={question.code}>
+      <p>{question.description} {question.required ? '(required)' : null}</p>
+      <input type="text" name={question.code} className={TEXT_INPUT_STYLE} value={question.value} onChange={onChange} />
     </label>
   );
 }
 
-function renderNumberAttribute(attribute, onChange, currentValue) {
+function renderNumberAttribute(question, onChange) {
   return (
-    <label key={attribute.code}>
-      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
-      <input type="number" name={attribute.code} className={NUMBER_INPUT_STYLE} value={currentValue} onChange={onChange} />
+    <label key={question.code}>
+      <p>{question.description} {question.required ? '(required)' : null}</p>
+      <input type="number" name={question.code} className={NUMBER_INPUT_STYLE} value={question.value} onChange={onChange} />
     </label>
   );
 }
 
-function renderSingleValueListAttribute(attribute, onChange, currentValue) {
+function renderSingleValueListAttribute(question, onChange) {
   return (
-    <label key={attribute.code}>
-      <p>{attribute.description} {attribute.required ? '(required)' : null}</p>
-      <select name={attribute.code} onChange={onChange} value={currentValue}>
-        <option disabled selected={currentValue === null}>Please choose</option>
+    <label key={question.code}>
+      <p>{question.description} {question.required ? '(required)' : null}</p>
+      <select name={question.code} onChange={onChange} value={question.value}>
+        <option disabled selected={question.value === null}>Please choose</option>
         <option disabled>--------------------------</option>
-        {(attribute.values || []).map(({ key, name }) => <option value={key} key={key}>{name}</option>)}
-        { !attribute.required && <option disabled>--------------------------</option> }
-        { !attribute.required && <option value="">No answer</option> }
+        {(question.valueOptions || []).map(({ key, name }) => <option value={key} key={key}>{name}</option>)}
+        { !question.required && <option disabled>--------------------------</option> }
+        { !question.required && <option value="">No answer</option> }
       </select>
     </label>
   );
 }
 
-export default function AttributeField({ attribute, attributeChanged, currentValue }: Props) {
-  const onChange = (ev: SyntheticInputEvent) => {
-    attributeChanged(attribute.code, ev.target.value);
-  };
+export default observer(function AttributeField({ question }: Props) {
+  if (!question.visible) {
+    return null;
+  }
 
-  const onCheckbox = (ev: SyntheticInputEvent) => {
-    attributeChanged(attribute.code, (ev.target.checked || false).toString());
-  };
+  const onChange = action('onChange', (ev: SyntheticInputEvent) => {
+    question.value = ev.target.value;
+  });
 
-  const onMultivalueList = (ev: SyntheticInputEvent) => {
-    const values = currentValueAsArray(currentValue);
+  const onCheckbox = action('onCheckbox', (ev: SyntheticInputEvent) => {
+    question.value = (ev.target.checked || false).toString();
+  });
+
+  const onMultivalueList = action('onMultivalueList', (ev: SyntheticInputEvent) => {
+    const values = currentValueAsArray(question.value);
 
     if (ev.target.checked) {
-      attributeChanged(attribute.code, [...values, ev.target.value]);
+      question.value = [...values, ev.target.value];
     } else {
-      attributeChanged(attribute.code, values.filter((v) => v !== ev.target.value));
+      question.value = values.filter((v) => v !== ev.target.value);
     }
-  };
+  });
 
-  switch (attribute.type) {
+  switch (question.type) {
     case 'BOOLEAN_CHECKBOX':
-      return renderCheckbox(attribute, onCheckbox, currentValue);
+      return renderCheckbox(question, onCheckbox);
     case 'INFORMATIONAL':
-      return renderInformationalAttribute(attribute);
+      return renderInformationalAttribute(question);
     case 'DATETIME':
-      return renderDatetimeAttribute(attribute, onChange, currentValue);
+      return renderDatetimeAttribute(question, onChange);
     case 'STRING':
-      return renderStringAttribute(attribute, onChange, currentValue);
+      return renderStringAttribute(question, onChange);
     case 'NUMBER':
-      return renderNumberAttribute(attribute, onChange, currentValue);
+      return renderNumberAttribute(question, onChange);
     case 'TEXT':
-      return renderTextAttribute(attribute, onChange, currentValue);
+      return renderTextAttribute(question, onChange);
     case 'SINGLEVALUELIST':
-      return renderSingleValueListAttribute(attribute, onChange, currentValue);
+      return renderSingleValueListAttribute(question, onChange);
     case 'MULTIVALUELIST':
-      return renderMultiValueListAttribute(attribute, onMultivalueList, currentValue);
+      return renderMultiValueListAttribute(question, onMultivalueList);
     default:
       return null;
   }
-}
+});

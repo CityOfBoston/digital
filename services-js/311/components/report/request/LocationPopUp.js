@@ -2,6 +2,10 @@
 
 import React from 'react';
 import { css } from 'glamor';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
+
+import type { AppStore } from '../../../data/store';
 
 const CONTENT_STYLE = css({
   // padding: '0 30px 30px 30px',
@@ -61,37 +65,23 @@ const BUTTON_STYLE = css({
   },
 });
 
-export type ExternalProps = {
+export type Props = {
+  store: AppStore,
   addressSearch: ?((string) => Promise<boolean>),
   nextFunc: () => void,
 }
 
-export type ValueProps = {
-  address: ?string,
-}
-
-export type Props = ExternalProps & ValueProps;
-
+@observer
 export default class LocationPopUp extends React.Component {
   props: Props;
-  state: {
-    addressQuery: string,
-  }
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      addressQuery: '',
-    };
-  }
+  @observable addressQuery: string = '';
 
   whenSearchInput = (ev: SyntheticInputEvent) => {
-    this.setState({ addressQuery: ev.target.value });
+    this.addressQuery = ev.target.value;
   }
 
   whenSearchSubmit = async (ev: SyntheticInputEvent) => {
     const { addressSearch } = this.props;
-    const { addressQuery } = this.state;
 
     ev.preventDefault();
 
@@ -99,15 +89,15 @@ export default class LocationPopUp extends React.Component {
       return;
     }
 
-    const found = await addressSearch(addressQuery);
+    const found = await addressSearch(this.addressQuery);
     if (found) {
-      this.setState({ addressQuery: '' });
+      this.addressQuery = '';
     }
   }
 
   render() {
-    const { address, nextFunc, addressSearch } = this.props;
-    const { addressQuery } = this.state;
+    const { store, nextFunc, addressSearch } = this.props;
+    const { address } = store.locationInfo;
 
     return (
       <div className={CONTENT_STYLE}>
@@ -117,11 +107,11 @@ export default class LocationPopUp extends React.Component {
           <input
             className={SEARCH_BOX_STYLE}
             onInput={this.whenSearchInput}
-            value={addressQuery}
+            value={this.addressQuery}
             placeholder={address ? 'Search for another address…' : 'Search for an address…'}
             type="text"
           />
-          <button type="submit" disabled={addressQuery.length === 0 || !addressSearch}>Search</button>
+          <button type="submit" disabled={this.addressQuery.length === 0 || !addressSearch}>Search</button>
         </form>
         <button className={BUTTON_STYLE} disabled={!address} onClick={nextFunc}>Next</button>
       </div>

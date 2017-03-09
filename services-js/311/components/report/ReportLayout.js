@@ -5,13 +5,14 @@ import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
+import { action } from 'mobx';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
-import LocationMapContainer from './map';
-import HomeDialogContainer from './home';
-import RequestDialogContainer from './request';
+import { LocationMapWithLib } from './map/LocationMap';
+import HomeDialog from './home/HomeDialog';
+import RequestDialog from './request/RequestDialog';
 
 import LoadServiceGraphql from '../../data/graphql/LoadService.graphql';
 import LoadServiceSummariesGraphql from '../../data/graphql/LoadServiceSummaries.graphql';
@@ -19,11 +20,10 @@ import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/graphql/loopback-graphql';
 
 import type { LoadServiceSummariesQuery, LoadServiceQuery } from '../../data/graphql/schema.flow';
-import type { Store } from '../../data/store';
 import type { ServiceArgs, Service, ServiceSummary } from '../../data/types';
 
-import { addServiceToCache, selectCachedService } from '../../data/store/services';
-
+import getStore from '../../data/store';
+import type { AppStore } from '../../data/store';
 
 type HomeData = {
   view: 'home',
@@ -39,6 +39,7 @@ type RequestData = {
 
 export type InitialProps = {
   data: HomeData | RequestData,
+  apiKeys: ?{[service: string]: string},
 };
 
 const CONTAINER_STYLE = css({
@@ -53,46 +54,6 @@ const CONTENT_STYLE = css({
   position: 'relative',
 });
 
-async function getHomeData(loopbackGraphql): Promise<HomeData> {
-  const response: LoadServiceSummariesQuery = await loopbackGraphql(LoadServiceSummariesGraphql);
-  return {
-    view: 'home',
-    serviceSummaries: response.services,
-  };
-}
-
-async function getRequestData({ code, stage }, res, store, loopbackGraphql): Promise<RequestData> {
-  let service = selectCachedService(store.getState().services, code);
-
-  if (!service) {
-    const args: ServiceArgs = { code };
-    const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, args);
-
-    service = response.service;
-
-    if (service) {
-      store.dispatch(addServiceToCache(service));
-    } else if (res) {
-      // eslint-disable-next-line no-param-reassign
-      res.statusCode = 404;
-    }
-  }
-
-  switch (stage) {
-    case undefined:
-    case 'questions':
-    case 'location':
-    case 'contact':
-      return {
-        view: 'request',
-        code,
-        service,
-        stage: stage || 'questions',
-      };
-    default:
-      throw new Error(`Unknown stage: ${stage}`);
-  }
-}
 
 // We have one class for picking the service type and doing the entire request
 // so that we can keep a consistent Google Maps background behind the
@@ -108,26 +69,110 @@ export default class ReportLayout extends React.Component {
     locationMapActive: boolean,
   }
   loopbackGraphql: LoopbackGraphql;
+  store: AppStore;
 
-  static async getInitialProps({ query, req, res }: Context<RequestAdditions>, store: Store): Promise<InitialProps> {
+  static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
     const loopbackGraphql = makeLoopbackGraphql(req);
 
+    let data;
+
     if (query.code) {
-      return { data: await getRequestData(query, res, store, loopbackGraphql) };
+      data = await ReportLayout.getRequestData(query, res, getStore(), loopbackGraphql);
     } else {
-      return { data: await getHomeData(loopbackGraphql) };
+      data = await ReportLayout.getHomeData(loopbackGraphql);
     }
+
+    return {
+      data,
+      apiKeys: req ? req.apiKeys : null,
+    };
+  }
+
+  static async getHomeData(loopbackGraphql): Promise<HomeData> {
+    const response: LoadServiceSummariesQuery = await loopbackGraphql(LoadServiceSummariesGraphql);
+    return {
+      view: 'home',
+      serviceSummaries: response.services,
+    };
+  }
+
+  static async getRequestData({ code, stage }, res, store, loopbackGraphql): Promise<RequestData> {
+    let service = store.serviceCache[code];
+
+    if (!service) {
+      const args: ServiceArgs = { code };
+      const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, args);
+
+      service = response.service;
+
+      if (!service && res) {
+        res.statusCode = 404;
+      }
+    }
+
+    switch (stage) {
+      case undefined:
+      case 'questions':
+      case 'location':
+      case 'contact':
+        return {
+          view: 'request',
+          code,
+          service,
+          stage: stage || 'questions',
+        };
+      default:
+        throw new Error(`Unknown stage: ${stage}`);
+    }
+  }
+
+  // TODO(finneganh): Move service cache and lookup out of this class
+  @action static addServiceToCache(store: AppStore, service: Service) {
+    store.serviceCache[service.code] = service;
   }
 
   constructor(props: InitialProps) {
     super(props);
 
+    this.store = getStore();
     this.loopbackGraphql = makeLoopbackGraphql();
+
+    this.updateStoreWithProps(props);
 
     this.state = {
       locationMapSearch: null,
       locationMapActive: false,
     };
+  }
+
+  componentWillReceiveProps(props: InitialProps) {
+    this.updateStoreWithProps(props);
+  }
+
+  @action
+  updateStoreWithProps(props: InitialProps) {
+    if (props.apiKeys) {
+      this.store.apiKeys = props.apiKeys;
+    }
+
+    switch (props.data.view) {
+      case 'home':
+        this.store.serviceSummaries = props.data.serviceSummaries;
+        this.store.currentService = null;
+        break;
+
+      case 'request': {
+        const { service } = props.data;
+        if (service) {
+          ReportLayout.addServiceToCache(this.store, service);
+        }
+        this.store.currentService = service;
+        break;
+      }
+
+      default:
+        break;
+    }
   }
 
   routeToServiceForm = (code: string, stage: string = 'questions') => {
@@ -159,19 +204,19 @@ export default class ReportLayout extends React.Component {
         <Nav />
 
         <div className={CONTENT_STYLE}>
-          <LocationMapContainer
-            setSearchFunc={this.setLocationMapSearch}
+          <LocationMapWithLib
+            store={this.store}
             setLocationMapSearch={this.setLocationMapSearch}
             active={locationMapActive}
           />
           { data.view === 'home' &&
-            <HomeDialogContainer
-              serviceSummaries={data.serviceSummaries}
+            <HomeDialog
+              store={this.store}
               routeToServiceForm={this.routeToServiceForm}
             /> }
           { data.view === 'request' &&
-            <RequestDialogContainer
-              service={data.service}
+            <RequestDialog
+              store={this.store}
               stage={data.stage}
               locationMapSearch={locationMapSearch}
               loopbackGraphql={this.loopbackGraphql}

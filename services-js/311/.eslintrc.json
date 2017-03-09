@@ -27,12 +27,15 @@
     "react/no-multi-comp": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-param-reassign": 0,
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
     "import/no-extraneous-dependencies": [
       "error",
       {"devDependencies": ["storybook/**.js", "**/*.test.js", "**/*.stories.js", "scripts/*.js", "*.config.js", "lib/test/**.js"]}
     ],
-    "react/sort-comp": [1, {
+    "react/sort-comp": [0, {
       "order": [
         "type-annotations",
         "static-methods",

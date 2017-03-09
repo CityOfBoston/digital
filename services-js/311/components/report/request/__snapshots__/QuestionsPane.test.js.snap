@@ -67,7 +67,7 @@ exports[`test service with metadata 1`] = `
       }
       name="ST-CMTS"
       onChange={[Function]}
-      value={undefined} />
+      value="" />
   </label>
   <button
     disabled={false}

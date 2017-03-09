@@ -1,9 +1,5 @@
 // @flow weak
 
-import { makeStore } from '../data/store';
-import type { State } from '../data/store';
-import { setKeys } from '../data/store/keys';
-
 declare class HapiResponse {
   statusCode: number,
   result: any,
@@ -17,18 +13,17 @@ type HapiInject = (options: {|
 
 export type RequestAdditions = {|
   hapiInject: HapiInject,
-  reduxInitialState: State,
+  apiKeys: {|
+    google: string,
+  |},
 |}
 
 const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
-  const store = makeStore();
-  store.dispatch(setKeys({
-    googleApi: process.env.GOOGLE_API_KEY,
-  }));
-
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
-    reduxInitialState: store.getState(),
+    apiKeys: {
+      google: process.env.GOOGLE_API_KEY || '',
+    },
   };
 
   Object.assign(req, requestAdditions);

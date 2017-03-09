@@ -2,63 +2,31 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import type { Service, Request } from '../../../data/types';
+import { AppStore } from '../../../data/store';
 
 import ContactPane from './ContactPane';
 
-export const SERVICE: Service = {
-  name: 'Cosmic Incursion',
-  code: 'CSMCINC',
-  hasMetadata: false,
-  metadata: null,
-};
+let store;
 
-export const EMPTY_REQUEST: Request = {
-  code: null,
-  description: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  location: null,
-  address: '',
-  attributeValues: {},
-  rawAttributes: [],
-  calculatedAttributes: [],
-};
-
-export const FILLED_REQUEST: Request = {
-  code: null,
-  description: '',
-  firstName: 'Carol',
-  lastName: 'Danvers',
-  email: 'marvel@alphaflight.gov',
-  phone: '6175551234',
-  location: null,
-  address: '',
-  attributeValues: {},
-  rawAttributes: [],
-  calculatedAttributes: [],
-};
-
-const ACTIONS = {
-  setRequestFirstName: jest.fn(),
-  setRequestLastName: jest.fn(),
-  setRequestEmail: jest.fn(),
-  setRequestPhone: jest.fn(),
-  nextFunc: jest.fn(),
-};
+beforeEach(() => {
+  store = new AppStore();
+});
 
 test('blank request', () => {
   const component = renderer.create(
-    <ContactPane service={SERVICE} request={EMPTY_REQUEST} {...ACTIONS} />,
+    <ContactPane store={store} nextFunc={jest.fn()} />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('filled request', () => {
+  store.contactInfo.firstName = 'Carol';
+  store.contactInfo.lastName = 'Danvers';
+  store.contactInfo.email = 'marvel@alphaflight.gov';
+  store.contactInfo.phone = '6175551234';
+
   const component = renderer.create(
-    <ContactPane service={SERVICE} request={FILLED_REQUEST} {...ACTIONS} />,
+    <ContactPane store={store} nextFunc={jest.fn()} />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

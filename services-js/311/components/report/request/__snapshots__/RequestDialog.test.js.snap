@@ -298,67 +298,25 @@ exports[`submitting graphql failure 1`] = `
   <SideEffect(Head)>
     <title>
       BOS:311 — 
-      Contact information
+      Submission error
     </title>
   </SideEffect(Head)>
   <FormDialog>
-    <Connect(ContactPane)
-      nextFunc={[Function]}
-      service={
-        Object {
-          "code": "CSMCINC",
-          "hasMetadata": true,
-          "metadata": Object {
-            "attributes": Array [
-              Object {
-                "code": "ST-CMTS",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "Please provide any other relevant information:",
-                "required": false,
-                "type": "TEXT",
-                "values": null,
-              },
-              Object {
-                "code": "INFO-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
-                "required": false,
-                "type": "STRING",
-                "values": null,
-              },
-              Object {
-                "code": "SR-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "How many dimensions have been breached?",
-                "required": true,
-                "type": "SINGLEVALUELIST",
-                "values": Array [
-                  Object {
-                    "key": "One",
-                    "name": "One",
-                  },
-                  Object {
-                    "key": "Two",
-                    "name": "Two",
-                  },
-                  Object {
-                    "key": "Three",
-                    "name": "Three",
-                  },
-                  Object {
-                    "key": "More than Three",
-                    "name": "More than Three",
-                  },
-                ],
-              },
-            ],
-          },
-          "name": "Cosmic Incursion",
+    <SubmitPane
+      error={
+        GraphQLError {
+          "errors": Array [
+            Object {
+              "message": "All required fields were missing",
+            },
+            Object {
+              "message": "Also your location is in Cambridge",
+            },
+          ],
+          "message": "Error submitting",
         }
-      } />
+      }
+      state="error" />
   </FormDialog>
 </div>
 `;
@@ -373,67 +331,12 @@ exports[`submitting success 1`] = `
   <SideEffect(Head)>
     <title>
       BOS:311 — 
-      Contact information
+      Submitting…
     </title>
   </SideEffect(Head)>
   <FormDialog>
-    <Connect(ContactPane)
-      nextFunc={[Function]}
-      service={
-        Object {
-          "code": "CSMCINC",
-          "hasMetadata": true,
-          "metadata": Object {
-            "attributes": Array [
-              Object {
-                "code": "ST-CMTS",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "Please provide any other relevant information:",
-                "required": false,
-                "type": "TEXT",
-                "values": null,
-              },
-              Object {
-                "code": "INFO-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
-                "required": false,
-                "type": "STRING",
-                "values": null,
-              },
-              Object {
-                "code": "SR-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "How many dimensions have been breached?",
-                "required": true,
-                "type": "SINGLEVALUELIST",
-                "values": Array [
-                  Object {
-                    "key": "One",
-                    "name": "One",
-                  },
-                  Object {
-                    "key": "Two",
-                    "name": "Two",
-                  },
-                  Object {
-                    "key": "Three",
-                    "name": "Three",
-                  },
-                  Object {
-                    "key": "More than Three",
-                    "name": "More than Three",
-                  },
-                ],
-              },
-            ],
-          },
-          "name": "Cosmic Incursion",
-        }
-      } />
+    <SubmitPane
+      state="submitting" />
   </FormDialog>
 </div>
 `;
@@ -448,65 +351,17 @@ exports[`submitting success 2`] = `
   <SideEffect(Head)>
     <title>
       BOS:311 — 
-      Contact information
+      Success: Case new-request
     </title>
   </SideEffect(Head)>
   <FormDialog>
-    <Connect(ContactPane)
-      nextFunc={[Function]}
-      service={
+    <SubmitPane
+      state="success"
+      submittedRequest={
         Object {
-          "code": "CSMCINC",
-          "hasMetadata": true,
-          "metadata": Object {
-            "attributes": Array [
-              Object {
-                "code": "ST-CMTS",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "Please provide any other relevant information:",
-                "required": false,
-                "type": "TEXT",
-                "values": null,
-              },
-              Object {
-                "code": "INFO-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
-                "required": false,
-                "type": "STRING",
-                "values": null,
-              },
-              Object {
-                "code": "SR-CSIRMV1",
-                "conditionalValues": null,
-                "dependencies": null,
-                "description": "How many dimensions have been breached?",
-                "required": true,
-                "type": "SINGLEVALUELIST",
-                "values": Array [
-                  Object {
-                    "key": "One",
-                    "name": "One",
-                  },
-                  Object {
-                    "key": "Two",
-                    "name": "Two",
-                  },
-                  Object {
-                    "key": "Three",
-                    "name": "Three",
-                  },
-                  Object {
-                    "key": "More than Three",
-                    "name": "More than Three",
-                  },
-                ],
-              },
-            ],
-          },
-          "name": "Cosmic Incursion",
+          "id": "new-request",
+          "requestedAt": 1488464201,
+          "status": "open",
         }
       } />
   </FormDialog>

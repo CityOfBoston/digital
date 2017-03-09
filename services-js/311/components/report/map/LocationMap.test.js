@@ -3,6 +3,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
+import { AppStore } from '../../../data/store';
+
 import LocationMap from './LocationMap';
 
 class FakeMapsEventListener {
@@ -22,20 +24,14 @@ const FAKE_GOOGLE_MAPS = {
   },
 };
 
-const DEFAULT_PROPS = {
-  active: true,
-  nextFunc: jest.fn(),
-  dispatchLocation: jest.fn(),
-  googleMaps: FAKE_GOOGLE_MAPS,
-  address: '',
-  location: null,
-  googleApiKey: 'fake-api-key',
-  setLocationMapSearch: jest.fn(),
-};
-
 test('rendering active', () => {
+  const store = new AppStore();
   const component = renderer.create(
-    <LocationMap {...DEFAULT_PROPS} />,
+    <LocationMap
+      store={store}
+      googleMaps={FAKE_GOOGLE_MAPS}
+      setLocationMapSearch={jest.fn()}
+    />,
     { createNodeMock: () => 'FAKE-NODE-ELEMENT' },
   );
   expect(component.toJSON()).toMatchSnapshot();
