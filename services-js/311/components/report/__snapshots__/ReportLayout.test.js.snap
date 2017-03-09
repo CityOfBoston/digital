@@ -1,30 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`existing service page rendering 1`] = `
 <div
   className={
     Object {
       "data-css-awku5i": "",
     }
-  }>
+  }
+>
   <div
-    className="nav ft-ll css-gf15pf">
+    className="nav ft-ll css-gf15pf"
+  >
     <a
       href="/"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Report a problem
     </a>
     <a
       href="/lookup"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Case look up
     </a>
     <a
       href="/go"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       311 on the go
     </a>
     <a
       href="/faq"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       FAQ
     </a>
   </div>
@@ -33,26 +41,30 @@ exports[`existing service page rendering 1`] = `
       Object {
         "data-css-1nvfmj1": "",
       }
-    }>
+    }
+  >
     <div
       className={
         Object {
           "data-css-1ldikjo": "",
         }
-      }>
+      }
+    >
       <div
         className={
           Object {
             "data-css-1f2iwx6": "",
           }
-        }>
+        }
+      >
         <div>
           <div
             className={
               Object {
                 "data-css-dgukzt": "",
               }
-            }>
+            }
+          >
             
           </div>
           <label>
@@ -68,7 +80,8 @@ exports[`existing service page rendering 1`] = `
               }
               name="ST-CMTS"
               onChange={[Function]}
-              value="" />
+              value=""
+            />
           </label>
           <label>
             <p>
@@ -84,7 +97,8 @@ exports[`existing service page rendering 1`] = `
               name="INFO-CSIRMV1"
               onChange={[Function]}
               type="text"
-              value="" />
+              value=""
+            />
           </label>
           <label>
             <p>
@@ -95,37 +109,45 @@ exports[`existing service page rendering 1`] = `
             <select
               name="SR-CSIRMV1"
               onChange={[Function]}
-              value={null}>
+              value={null}
+            >
               <option
                 disabled={true}
-                selected={true}>
+                selected={true}
+              >
                 Please choose
               </option>
               <option
-                disabled={true}>
+                disabled={true}
+              >
                 --------------------------
               </option>
               <option
-                value="One">
+                value="One"
+              >
                 One
               </option>
               <option
-                value="Two">
+                value="Two"
+              >
                 Two
               </option>
               <option
-                value="Three">
+                value="Three"
+              >
                 Three
               </option>
               <option
-                value="More than Three">
+                value="More than Three"
+              >
                 More than Three
               </option>
             </select>
           </label>
           <button
             disabled={false}
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Next
           </button>
         </div>
@@ -141,27 +163,33 @@ exports[`missing service page rendering 1`] = `
     Object {
       "data-css-awku5i": "",
     }
-  }>
+  }
+>
   <div
-    className="nav ft-ll css-gf15pf">
+    className="nav ft-ll css-gf15pf"
+  >
     <a
       href="/"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Report a problem
     </a>
     <a
       href="/lookup"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Case look up
     </a>
     <a
       href="/go"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       311 on the go
     </a>
     <a
       href="/faq"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       FAQ
     </a>
   </div>
@@ -170,28 +198,33 @@ exports[`missing service page rendering 1`] = `
       Object {
         "data-css-1nvfmj1": "",
       }
-    }>
+    }
+  >
     <div
       className={
         Object {
           "data-css-1ldikjo": "",
         }
-      }>
+      }
+    >
       <div
         className={
           Object {
             "data-css-1f2iwx6": "",
           }
-        }>
+        }
+      >
         <div
           className="sh sh--y"
           style={
             Object {
               "marginBottom": 40,
             }
-          }>
+          }
+        >
           <h2
-            className="sh-title">
+            className="sh-title"
+          >
             Service not found
           </h2>
         </div>
@@ -207,27 +240,33 @@ exports[`report form rendering 1`] = `
     Object {
       "data-css-awku5i": "",
     }
-  }>
+  }
+>
   <div
-    className="nav ft-ll css-gf15pf">
+    className="nav ft-ll css-gf15pf"
+  >
     <a
       href="/"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Report a problem
     </a>
     <a
       href="/lookup"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Case look up
     </a>
     <a
       href="/go"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       311 on the go
     </a>
     <a
       href="/faq"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       FAQ
     </a>
   </div>
@@ -236,22 +275,26 @@ exports[`report form rendering 1`] = `
       Object {
         "data-css-1nvfmj1": "",
       }
-    }>
+    }
+  >
     <div
       className={
         Object {
           "data-css-1f2iwx6": "",
         }
-      }>
+      }
+    >
       <div
         className="sh sh--y"
         style={
           Object {
             "marginBottom": 40,
           }
-        }>
+        }
+      >
         <h2
-          className="sh-title">
+          className="sh-title"
+        >
           311: Boston City Services
         </h2>
       </div>
@@ -260,7 +303,8 @@ exports[`report form rendering 1`] = `
           Object {
             "data-css-9sglvw": "",
           }
-        }>
+        }
+      >
         <textarea
           className={
             Object {
@@ -270,19 +314,22 @@ exports[`report form rendering 1`] = `
           defaultValue=""
           name="description"
           onInput={[Function]}
-          placeholder="How can we help?" />
+          placeholder="How can we help?"
+        />
         <ul
           className={
             Object {
               "data-css-18escyg": "",
             }
-          }>
+          }
+        >
           <li
             className={
               Object {
                 "data-css-14nloni": "",
               }
-            }>
+            }
+          >
             <a
               className={
                 Object {
@@ -290,7 +337,8 @@ exports[`report form rendering 1`] = `
                 }
               }
               href="/report/CSMCINC/location"
-              onClick={[Function]}>
+              onClick={[Function]}
+            >
               Cosmic Incursion
             </a>
           </li>

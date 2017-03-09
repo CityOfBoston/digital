@@ -1,4 +1,6 @@
-exports[`test blank request 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blank request 1`] = `
 <div>
   <div>
     <h2
@@ -6,7 +8,8 @@ exports[`test blank request 1`] = `
         Object {
           "data-css-16pm9zd": "",
         }
-      }>
+      }
+    >
       CONTACT FORM
     </h2>
     <div
@@ -14,7 +17,8 @@ exports[`test blank request 1`] = `
         Object {
           "data-css-1w0rge6": "",
         }
-      }>
+      }
+    >
       (will not be shared with public; leave blank to submit anonymously)
     </div>
     <label
@@ -22,7 +26,8 @@ exports[`test blank request 1`] = `
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         First Name (required)
       </span>
@@ -35,14 +40,16 @@ exports[`test blank request 1`] = `
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
-        value="" />
+        value=""
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Last Name (required)
       </span>
@@ -55,14 +62,16 @@ exports[`test blank request 1`] = `
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
-        value="" />
+        value=""
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Email (required)
       </span>
@@ -76,14 +85,16 @@ exports[`test blank request 1`] = `
         onChange={[Function]}
         placeholder="Email"
         type="email"
-        value="" />
+        value=""
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Phone
       </span>
@@ -97,18 +108,20 @@ exports[`test blank request 1`] = `
         onChange={[Function]}
         placeholder="Phone"
         type="tel"
-        value="" />
+        value=""
+      />
     </label>
   </div>
   <button
     disabled={true}
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     Submit
   </button>
 </div>
 `;
 
-exports[`test filled request 1`] = `
+exports[`filled request 1`] = `
 <div>
   <div>
     <h2
@@ -116,7 +129,8 @@ exports[`test filled request 1`] = `
         Object {
           "data-css-16pm9zd": "",
         }
-      }>
+      }
+    >
       CONTACT FORM
     </h2>
     <div
@@ -124,7 +138,8 @@ exports[`test filled request 1`] = `
         Object {
           "data-css-1w0rge6": "",
         }
-      }>
+      }
+    >
       (will not be shared with public; leave blank to submit anonymously)
     </div>
     <label
@@ -132,7 +147,8 @@ exports[`test filled request 1`] = `
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         First Name (required)
       </span>
@@ -145,14 +161,16 @@ exports[`test filled request 1`] = `
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
-        value="Carol" />
+        value="Carol"
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Last Name (required)
       </span>
@@ -165,14 +183,16 @@ exports[`test filled request 1`] = `
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
-        value="Danvers" />
+        value="Danvers"
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Email (required)
       </span>
@@ -186,14 +206,16 @@ exports[`test filled request 1`] = `
         onChange={[Function]}
         placeholder="Email"
         type="email"
-        value="marvel@alphaflight.gov" />
+        value="marvel@alphaflight.gov"
+      />
     </label>
     <label
       className={
         Object {
           "data-css-12a7iqv": "",
         }
-      }>
+      }
+    >
       <span>
         Phone
       </span>
@@ -207,12 +229,14 @@ exports[`test filled request 1`] = `
         onChange={[Function]}
         placeholder="Phone"
         type="tel"
-        value="6175551234" />
+        value="6175551234"
+      />
     </label>
   </div>
   <button
     disabled={false}
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     Submit
   </button>
 </div>

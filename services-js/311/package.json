@@ -92,7 +92,7 @@
     "fetch-mock": "^5.9.4",
     "flow-bin": "^0.41.0",
     "husky": "^0.13.1",
-    "jest": "^18.1.0",
+    "jest": "^19.0.2",
     "jsverify": "^0.7.4",
     "prompt": "^1.0.0",
     "react-addons-test-utils": "^15.4.2",

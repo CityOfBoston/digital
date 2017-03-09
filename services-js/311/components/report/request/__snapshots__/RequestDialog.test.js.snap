@@ -1,16 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`rendering contact 1`] = `
 <div
   className={
     Object {
       "data-css-1ldikjo": "",
     }
-  }>
+  }
+>
   <div
     className={
       Object {
         "data-css-1f2iwx6": "",
       }
-    }>
+    }
+  >
     <div>
       <div>
         <h2
@@ -18,7 +22,8 @@ exports[`rendering contact 1`] = `
             Object {
               "data-css-16pm9zd": "",
             }
-          }>
+          }
+        >
           CONTACT FORM
         </h2>
         <div
@@ -26,7 +31,8 @@ exports[`rendering contact 1`] = `
             Object {
               "data-css-1w0rge6": "",
             }
-          }>
+          }
+        >
           (will not be shared with public; leave blank to submit anonymously)
         </div>
         <label
@@ -34,7 +40,8 @@ exports[`rendering contact 1`] = `
             Object {
               "data-css-12a7iqv": "",
             }
-          }>
+          }
+        >
           <span>
             First Name (required)
           </span>
@@ -47,14 +54,16 @@ exports[`rendering contact 1`] = `
             name="firstName"
             onChange={[Function]}
             placeholder="First Name"
-            value="" />
+            value=""
+          />
         </label>
         <label
           className={
             Object {
               "data-css-12a7iqv": "",
             }
-          }>
+          }
+        >
           <span>
             Last Name (required)
           </span>
@@ -67,14 +76,16 @@ exports[`rendering contact 1`] = `
             name="lastName"
             onChange={[Function]}
             placeholder="Last Name"
-            value="" />
+            value=""
+          />
         </label>
         <label
           className={
             Object {
               "data-css-12a7iqv": "",
             }
-          }>
+          }
+        >
           <span>
             Email (required)
           </span>
@@ -88,14 +99,16 @@ exports[`rendering contact 1`] = `
             onChange={[Function]}
             placeholder="Email"
             type="email"
-            value="" />
+            value=""
+          />
         </label>
         <label
           className={
             Object {
               "data-css-12a7iqv": "",
             }
-          }>
+          }
+        >
           <span>
             Phone
           </span>
@@ -109,12 +122,14 @@ exports[`rendering contact 1`] = `
             onChange={[Function]}
             placeholder="Phone"
             type="tel"
-            value="" />
+            value=""
+          />
         </label>
       </div>
       <button
         disabled={true}
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Submit
       </button>
     </div>
@@ -128,25 +143,29 @@ exports[`rendering location 1`] = `
     Object {
       "data-css-15pzzh6": "",
     }
-  }>
+  }
+>
   <div
     className={
       Object {
         "data-css-1f2iwx6": "",
       }
-    }>
+    }
+  >
     <div
       className={
         Object {
           "data-css-84wcpg": "",
         }
-      }>
+      }
+    >
       <h3
         className={
           Object {
             "data-css-4ptjc6": "",
           }
-        }>
+        }
+      >
         Where is the problem happening?
       </h3>
       
@@ -156,7 +175,8 @@ exports[`rendering location 1`] = `
             "data-css-19lcmdn": "",
           }
         }
-        onSubmit={[Function]}>
+        onSubmit={[Function]}
+      >
         <input
           className={
             Object {
@@ -166,10 +186,12 @@ exports[`rendering location 1`] = `
           onInput={[Function]}
           placeholder="Search for an address…"
           type="text"
-          value="" />
+          value=""
+        />
         <button
           disabled={true}
-          type="submit">
+          type="submit"
+        >
           Search
         </button>
       </form>
@@ -180,7 +202,8 @@ exports[`rendering location 1`] = `
           }
         }
         disabled={true}
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Next
       </button>
     </div>
@@ -194,20 +217,23 @@ exports[`rendering questions 1`] = `
     Object {
       "data-css-1ldikjo": "",
     }
-  }>
+  }
+>
   <div
     className={
       Object {
         "data-css-1f2iwx6": "",
       }
-    }>
+    }
+  >
     <div>
       <div
         className={
           Object {
             "data-css-dgukzt": "",
           }
-        }>
+        }
+      >
         
       </div>
       <label>
@@ -223,7 +249,8 @@ exports[`rendering questions 1`] = `
           }
           name="ST-CMTS"
           onChange={[Function]}
-          value="" />
+          value=""
+        />
       </label>
       <label>
         <p>
@@ -239,7 +266,8 @@ exports[`rendering questions 1`] = `
           name="INFO-CSIRMV1"
           onChange={[Function]}
           type="text"
-          value="" />
+          value=""
+        />
       </label>
       <label>
         <p>
@@ -250,37 +278,45 @@ exports[`rendering questions 1`] = `
         <select
           name="SR-CSIRMV1"
           onChange={[Function]}
-          value={null}>
+          value={null}
+        >
           <option
             disabled={true}
-            selected={true}>
+            selected={true}
+          >
             Please choose
           </option>
           <option
-            disabled={true}>
+            disabled={true}
+          >
             --------------------------
           </option>
           <option
-            value="One">
+            value="One"
+          >
             One
           </option>
           <option
-            value="Two">
+            value="Two"
+          >
             Two
           </option>
           <option
-            value="Three">
+            value="Three"
+          >
             Three
           </option>
           <option
-            value="More than Three">
+            value="More than Three"
+          >
             More than Three
           </option>
         </select>
       </label>
       <button
         disabled={false}
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Next
       </button>
     </div>
@@ -294,7 +330,8 @@ exports[`submitting graphql failure 1`] = `
     Object {
       "data-css-1ldikjo": "",
     }
-  }>
+  }
+>
   <SideEffect(Head)>
     <title>
       BOS:311 — 
@@ -316,7 +353,8 @@ exports[`submitting graphql failure 1`] = `
           "message": "Error submitting",
         }
       }
-      state="error" />
+      state="error"
+    />
   </FormDialog>
 </div>
 `;
@@ -327,7 +365,8 @@ exports[`submitting success 1`] = `
     Object {
       "data-css-1ldikjo": "",
     }
-  }>
+  }
+>
   <SideEffect(Head)>
     <title>
       BOS:311 — 
@@ -336,7 +375,8 @@ exports[`submitting success 1`] = `
   </SideEffect(Head)>
   <FormDialog>
     <SubmitPane
-      state="submitting" />
+      state="submitting"
+    />
   </FormDialog>
 </div>
 `;
@@ -347,7 +387,8 @@ exports[`submitting success 2`] = `
     Object {
       "data-css-1ldikjo": "",
     }
-  }>
+  }
+>
   <SideEffect(Head)>
     <title>
       BOS:311 — 
@@ -363,7 +404,8 @@ exports[`submitting success 2`] = `
           "requestedAt": 1488464201,
           "status": "open",
         }
-      } />
+      }
+    />
   </FormDialog>
 </div>
 `;

@@ -1,16 +1,20 @@
-exports[`test services 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`services 1`] = `
 <ul
   className={
     Object {
       "data-css-18escyg": "",
     }
-  }>
+  }
+>
   <li
     className={
       Object {
         "data-css-14nloni": "",
       }
-    }>
+    }
+  >
     <a
       className={
         Object {
@@ -18,7 +22,8 @@ exports[`test services 1`] = `
         }
       }
       href="/report/CSMCINC/location"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Cosmic Incursion
     </a>
   </li>
