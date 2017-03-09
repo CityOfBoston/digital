@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`methods submitRequest graphql failure 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }
+>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Submission error
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <SubmitPane
+      error={
+        GraphQLError {
+          "errors": Array [
+            Object {
+              "message": "All required fields were missing",
+            },
+            Object {
+              "message": "Also your location is in Cambridge",
+            },
+          ],
+          "message": "Error submitting",
+        }
+      }
+      state="error"
+    />
+  </FormDialog>
+</div>
+`;
+
+exports[`methods submitRequest success 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }
+>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Submitting…
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <SubmitPane
+      state="submitting"
+    />
+  </FormDialog>
+</div>
+`;
+
+exports[`methods submitRequest success 2`] = `
+<div
+  className={
+    Object {
+      "data-css-1ldikjo": "",
+    }
+  }
+>
+  <SideEffect(Head)>
+    <title>
+      BOS:311 — 
+      Success: Case new-request
+    </title>
+  </SideEffect(Head)>
+  <FormDialog>
+    <SubmitPane
+      state="success"
+      submittedRequest={
+        Object {
+          "id": "new-request",
+          "requestedAt": 1488464201,
+          "status": "open",
+        }
+      }
+    />
+  </FormDialog>
+</div>
+`;
+
 exports[`rendering contact 1`] = `
 <div
   className={
@@ -321,91 +407,5 @@ exports[`rendering questions 1`] = `
       </button>
     </div>
   </div>
-</div>
-`;
-
-exports[`submitting graphql failure 1`] = `
-<div
-  className={
-    Object {
-      "data-css-1ldikjo": "",
-    }
-  }
->
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Submission error
-    </title>
-  </SideEffect(Head)>
-  <FormDialog>
-    <SubmitPane
-      error={
-        GraphQLError {
-          "errors": Array [
-            Object {
-              "message": "All required fields were missing",
-            },
-            Object {
-              "message": "Also your location is in Cambridge",
-            },
-          ],
-          "message": "Error submitting",
-        }
-      }
-      state="error"
-    />
-  </FormDialog>
-</div>
-`;
-
-exports[`submitting success 1`] = `
-<div
-  className={
-    Object {
-      "data-css-1ldikjo": "",
-    }
-  }
->
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Submitting…
-    </title>
-  </SideEffect(Head)>
-  <FormDialog>
-    <SubmitPane
-      state="submitting"
-    />
-  </FormDialog>
-</div>
-`;
-
-exports[`submitting success 2`] = `
-<div
-  className={
-    Object {
-      "data-css-1ldikjo": "",
-    }
-  }
->
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Success: Case new-request
-    </title>
-  </SideEffect(Head)>
-  <FormDialog>
-    <SubmitPane
-      state="success"
-      submittedRequest={
-        Object {
-          "id": "new-request",
-          "requestedAt": 1488464201,
-          "status": "open",
-        }
-      }
-    />
-  </FormDialog>
 </div>
 `;

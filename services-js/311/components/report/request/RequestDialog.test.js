@@ -82,22 +82,15 @@ describe('rendering', () => {
   });
 });
 
-describe('submitting', () => {
+describe('methods', () => {
   let wrapper;
   let store;
   let requestDialog;
-  let resolveGraphql;
-  let rejectGraphql;
+  const routeToServiceForm = jest.fn();
 
   beforeEach(() => {
-    const promise = new Promise((resolve, reject) => {
-      resolveGraphql = resolve;
-      rejectGraphql = reject;
-    });
-
     store = new AppStore();
     store.currentService = MOCK_SERVICE;
-    store.submitRequest = (): Promise<any> => promise;
 
     wrapper = shallow(
       <RequestDialog
@@ -105,53 +98,85 @@ describe('submitting', () => {
         stage="contact"
         locationMapSearch={jest.fn()}
         loopbackGraphql={jest.fn()}
-        routeToServiceForm={jest.fn()}
+        routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
       />);
 
     requestDialog = wrapper.instance();
   });
 
-  test('success', async () => {
-    const submission = requestDialog.submitRequest();
+  describe('navigation', () => {
+    test('nextAfterQuestions', () => {
+      requestDialog.nextAfterQuestions();
+      expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'location');
+    });
 
-    // rendering loading
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    test('nextAfterLocation', () => {
+      requestDialog.nextAfterLocation();
+      expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'contact');
+    });
 
-    const result: SubmitRequestMutation = {
-      createRequest: {
-        id: 'new-request',
-        requestedAt: 1488464201,
-        status: 'open',
-      },
-    };
-
-    resolveGraphql(result);
-
-    await submission;
-
-    // rendering success
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    test('nextAfterContact', () => {
+      requestDialog.submitRequest = jest.fn();
+      requestDialog.nextAfterContact();
+      expect(requestDialog.submitRequest).toHaveBeenCalledWith();
+    });
   });
 
-  test('graphql failure', async () => {
-    const submission = requestDialog.submitRequest();
+  describe('submitRequest', () => {
+    let resolveGraphql;
+    let rejectGraphql;
 
-    rejectGraphql(new GraphQLError('Error submitting', [
-      { message: 'All required fields were missing' },
-      { message: 'Also your location is in Cambridge' },
-    ]));
+    beforeEach(() => {
+      const promise = new Promise((resolve, reject) => {
+        resolveGraphql = resolve;
+        rejectGraphql = reject;
+      });
 
-    try {
+      store.submitRequest = (): Promise<any> => promise;
+    });
+
+    test('success', async () => {
+      const submission = requestDialog.submitRequest();
+
+      // rendering loading
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+
+      const result: SubmitRequestMutation = {
+        createRequest: {
+          id: 'new-request',
+          requestedAt: 1488464201,
+          status: 'open',
+        },
+      };
+
+      resolveGraphql(result);
+
       await submission;
-    } catch (e) {
-      // expected
-    }
 
-    // should be rendering the error here
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+      // rendering success
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    test('graphql failure', async () => {
+      const submission = requestDialog.submitRequest();
+
+      rejectGraphql(new GraphQLError('Error submitting', [
+        { message: 'All required fields were missing' },
+        { message: 'Also your location is in Cambridge' },
+      ]));
+
+      try {
+        await submission;
+      } catch (e) {
+        // expected
+      }
+
+      // should be rendering the error here
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
