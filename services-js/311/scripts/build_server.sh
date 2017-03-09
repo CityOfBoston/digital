@@ -10,4 +10,5 @@ rm -rf .next
 yarn babel -- --ignore __mocks__ --ignore *.test.js -d ./build/server server
 yarn babel -- --ignore __mocks__ --ignore *.test.js -d ./build/data data
 yarn next build
-yarn fetch-templates
+# Temporarily disabled until the new template is live in prod
+# yarn fetch-templates

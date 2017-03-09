@@ -17,7 +17,7 @@ import path from 'path';
 import cheerio from 'cheerio';
 import 'isomorphic-fetch';
 
-const TEMPLATE_URL = 'https://www.boston.gov/api/v1/layouts/generic';
+const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
 
 (async function fetchTemplates() {
   const templatesPath = path.join(__dirname, '../templates');
@@ -32,6 +32,18 @@ const TEMPLATE_URL = 'https://www.boston.gov/api/v1/layouts/generic';
   const templateHtml = await res.text();
   const $ = cheerio.load(templateHtml);
 
+  $('a').each((i, el) => {
+    const $el = $(el);
+    let href = $el.attr('href');
+    if (!href.match(/^https?:/)) {
+      if (!href.startsWith('/')) {
+        href = `/${href}`;
+      }
+      href = `https://www.boston.gov${href}`;
+    }
+    $el.attr('href', href);
+  });
+
   ['header', 'footer'].forEach((tag) => {
     const html = $(tag).html();
     if (!html) {
@@ -40,7 +52,7 @@ const TEMPLATE_URL = 'https://www.boston.gov/api/v1/layouts/generic';
     fs.writeFileSync(path.join(templatesPath, `${tag}.html`), html);
   });
 
-  const navigationHtml = $('.main-navigation').html();
+  const navigationHtml = $('nav.nv-m').html();
   fs.writeFileSync(path.join(templatesPath, 'navigation.html'), navigationHtml);
 
   const stylesheetHrefs = $('link[rel=stylesheet]').map((i, el) => $(el).attr('href')).toArray();

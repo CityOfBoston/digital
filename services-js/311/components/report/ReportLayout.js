@@ -46,7 +46,6 @@ const CONTAINER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  marginTop: -55,
 });
 
 const CONTENT_STYLE = css({

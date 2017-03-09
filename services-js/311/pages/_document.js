@@ -40,15 +40,12 @@ export default class extends Document {
         { makeCssHead(Head, css) }
 
         <body>
-          <p className="skip-link__wrapper">
-            <a href="#main-menu" className="skip-link visually-hidden--focusable" id="skip-link">Jump to navigation</a>
-          </p>
+          <nav className="nv-m" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
+          <input type="checkbox" id="brg-tr" className="brg-tr" aria-hidden="true" />
 
-          <input type="checkbox" id="hb__trigger" className="hb__trigger" aria-hidden="true" />
-          <div className="main-navigation" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
-
-          <div className="page" id="page">
-            <header className="header" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
+          <div className="mn">
+            <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
+            <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
             <Main />
             <footer className="ft" dangerouslySetInnerHTML={{ __html: footerHtml }} />
 
