@@ -29,43 +29,38 @@ type Request {
 type Service {
   code: String!
   name: String!
+  attributes: [ServiceAttribute!]!
   locationRequired: Boolean!
-  hasMetadata: Boolean!
-  metadata: ServiceMetadata
+  contactRequired: Boolean!
 }
 
-type ServiceMetadata {
-  attributes: [ServiceMetadataAttribute!]!
-}
-
-type ServiceMetadataAttribute {
-  type: ServiceMetadataAttributeDatatype!
+type ServiceAttribute {
+  type: ServiceAttributeDatatype!
   required: Boolean!
-  order: Int
   description: String!
   code: String!
-  dependencies: ServiceMetadataAttributeConditional
-  values: [ServiceMetadataAttributeValue!]
-  conditionalValues: [ServiceMetadataAttributeConditionalValues!]
+  dependencies: ServiceAttributeConditional
+  values: [ServiceAttributeValue!]
+  conditionalValues: [ServiceAttributeConditionalValues!]
 }
 
-type ServiceMetadataAttributeCondition {
+type ServiceAttributeCondition {
   attribute: String!
-  op: ServiceMetadataAttributeConditionalOp!
-  value: ServiceMetadataAttributeConditionValue!
+  op: ServiceAttributeConditionalOp!
+  value: ServiceAttributeConditionValue!
 }
 
-type ServiceMetadataAttributeConditional {
-  clause: ServiceMetadataAttributeConditionalClause!
-  conditions: [ServiceMetadataAttributeCondition!]!
+type ServiceAttributeConditional {
+  clause: ServiceAttributeConditionalClause!
+  conditions: [ServiceAttributeCondition!]!
 }
 
-enum ServiceMetadataAttributeConditionalClause {
+enum ServiceAttributeConditionalClause {
   AND
   OR
 }
 
-enum ServiceMetadataAttributeConditionalOp {
+enum ServiceAttributeConditionalOp {
   eq
   neq
   in
@@ -75,25 +70,25 @@ enum ServiceMetadataAttributeConditionalOp {
   lte
 }
 
-type ServiceMetadataAttributeConditionalValues {
-  dependentOn: ServiceMetadataAttributeConditional!
-  values: [ServiceMetadataAttributeValue!]!
+type ServiceAttributeConditionalValues {
+  dependentOn: ServiceAttributeConditional!
+  values: [ServiceAttributeValue!]!
 }
 
-type ServiceMetadataAttributeConditionValue {
-  type: ServiceMetadataAttributeConditionValueType
+type ServiceAttributeConditionValue {
+  type: ServiceAttributeConditionValueType
   string: String
   array: [String!]
   number: Float
 }
 
-enum ServiceMetadataAttributeConditionValueType {
+enum ServiceAttributeConditionValueType {
   STRING
   STRING_ARRAY
   NUMBER
 }
 
-enum ServiceMetadataAttributeDatatype {
+enum ServiceAttributeDatatype {
   BOOLEAN_CHECKBOX
   INFORMATIONAL
   MULTIVALUELIST
@@ -105,7 +100,7 @@ enum ServiceMetadataAttributeDatatype {
   TEXT
 }
 
-type ServiceMetadataAttributeValue {
+type ServiceAttributeValue {
   key: String!
   name: String!
 }

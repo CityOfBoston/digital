@@ -109,6 +109,30 @@
               "deprecationReason": null
             },
             {
+              "name": "attributes",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "ServiceAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "locationRequired",
               "description": "",
               "args": [],
@@ -125,7 +149,7 @@
               "deprecationReason": null
             },
             {
-              "name": "hasMetadata",
+              "name": "contactRequired",
               "description": "",
               "args": [],
               "type": {
@@ -136,18 +160,6 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "metadata",
-              "description": "",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ServiceMetadata",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -169,53 +181,8 @@
           "possibleTypes": null
         },
         {
-          "kind": "SCALAR",
-          "name": "Boolean",
-          "description": "The `Boolean` scalar type represents `true` or `false`.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
-          "name": "ServiceMetadata",
-          "description": "",
-          "fields": [
-            {
-              "name": "attributes",
-              "description": "",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "ServiceMetadataAttribute",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ServiceMetadataAttribute",
+          "name": "ServiceAttribute",
           "description": "",
           "fields": [
             {
@@ -227,7 +194,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ServiceMetadataAttributeDatatype",
+                  "name": "ServiceAttributeDatatype",
                   "ofType": null
                 }
               },
@@ -246,18 +213,6 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "order",
-              "description": "",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -300,7 +255,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ServiceMetadataAttributeConditional",
+                "name": "ServiceAttributeConditional",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -318,7 +273,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "ServiceMetadataAttributeValue",
+                    "name": "ServiceAttributeValue",
                     "ofType": null
                   }
                 }
@@ -338,7 +293,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "ServiceMetadataAttributeConditionalValues",
+                    "name": "ServiceAttributeConditionalValues",
                     "ofType": null
                   }
                 }
@@ -354,7 +309,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "ServiceMetadataAttributeDatatype",
+          "name": "ServiceAttributeDatatype",
           "description": "",
           "fields": null,
           "inputFields": null,
@@ -419,8 +374,8 @@
         },
         {
           "kind": "SCALAR",
-          "name": "Int",
-          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+          "name": "Boolean",
+          "description": "The `Boolean` scalar type represents `true` or `false`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -429,7 +384,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ServiceMetadataAttributeConditional",
+          "name": "ServiceAttributeConditional",
           "description": "",
           "fields": [
             {
@@ -441,7 +396,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ServiceMetadataAttributeConditionalClause",
+                  "name": "ServiceAttributeConditionalClause",
                   "ofType": null
                 }
               },
@@ -463,7 +418,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "ServiceMetadataAttributeCondition",
+                      "name": "ServiceAttributeCondition",
                       "ofType": null
                     }
                   }
@@ -480,7 +435,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "ServiceMetadataAttributeConditionalClause",
+          "name": "ServiceAttributeConditionalClause",
           "description": "",
           "fields": null,
           "inputFields": null,
@@ -503,7 +458,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ServiceMetadataAttributeCondition",
+          "name": "ServiceAttributeCondition",
           "description": "",
           "fields": [
             {
@@ -531,7 +486,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ServiceMetadataAttributeConditionalOp",
+                  "name": "ServiceAttributeConditionalOp",
                   "ofType": null
                 }
               },
@@ -547,7 +502,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "ServiceMetadataAttributeConditionValue",
+                  "name": "ServiceAttributeConditionValue",
                   "ofType": null
                 }
               },
@@ -562,7 +517,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "ServiceMetadataAttributeConditionalOp",
+          "name": "ServiceAttributeConditionalOp",
           "description": "",
           "fields": null,
           "inputFields": null,
@@ -615,7 +570,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ServiceMetadataAttributeConditionValue",
+          "name": "ServiceAttributeConditionValue",
           "description": "",
           "fields": [
             {
@@ -624,7 +579,7 @@
               "args": [],
               "type": {
                 "kind": "ENUM",
-                "name": "ServiceMetadataAttributeConditionValueType",
+                "name": "ServiceAttributeConditionValueType",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -682,7 +637,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "ServiceMetadataAttributeConditionValueType",
+          "name": "ServiceAttributeConditionValueType",
           "description": "",
           "fields": null,
           "inputFields": null,
@@ -721,7 +676,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ServiceMetadataAttributeValue",
+          "name": "ServiceAttributeValue",
           "description": "",
           "fields": [
             {
@@ -764,7 +719,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ServiceMetadataAttributeConditionalValues",
+          "name": "ServiceAttributeConditionalValues",
           "description": "",
           "fields": [
             {
@@ -776,7 +731,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "ServiceMetadataAttributeConditional",
+                  "name": "ServiceAttributeConditional",
                   "ofType": null
                 }
               },
@@ -798,7 +753,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "ServiceMetadataAttributeValue",
+                      "name": "ServiceAttributeValue",
                       "ofType": null
                     }
                   }
@@ -1129,6 +1084,16 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },

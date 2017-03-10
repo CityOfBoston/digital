@@ -1,7 +1,7 @@
 /* @flow */
 //  This file was automatically generated and should not be edited.
 
-export type ServiceMetadataAttributeDatatype =
+export type ServiceAttributeDatatype =
   "BOOLEAN_CHECKBOX" |
   "INFORMATIONAL" |
   "MULTIVALUELIST" |
@@ -13,12 +13,12 @@ export type ServiceMetadataAttributeDatatype =
   "TEXT";
 
 
-export type ServiceMetadataAttributeConditionalClause =
+export type ServiceAttributeConditionalClause =
   "AND" |
   "OR";
 
 
-export type ServiceMetadataAttributeConditionalOp =
+export type ServiceAttributeConditionalOp =
   "eq" |
   "neq" |
   "in" |
@@ -28,7 +28,7 @@ export type ServiceMetadataAttributeConditionalOp =
   "lte";
 
 
-export type ServiceMetadataAttributeConditionValueType =
+export type ServiceAttributeConditionValueType =
   "STRING" |
   "STRING_ARRAY" |
   "NUMBER";
@@ -52,51 +52,50 @@ export type LoadServiceQuery = {
   service: ? {
     name: string,
     code: string,
-    hasMetadata: boolean,
-    metadata: ? {
-      attributes: Array< {
-        required: boolean,
-        type: ServiceMetadataAttributeDatatype,
-        code: string,
-        description: string,
-        values: ?Array< {
-          key: string,
-          name: string,
-        } >,
-        conditionalValues: ?Array< {
-          dependentOn: {
-            clause: ServiceMetadataAttributeConditionalClause,
-            conditions: Array< {
-              attribute: string,
-              op: ServiceMetadataAttributeConditionalOp,
-              value: {
-                type: ?ServiceMetadataAttributeConditionValueType,
-                string: ?string,
-                array: ?Array< string >,
-                number: ?number,
-              },
-            } >,
-          },
-          values: Array< {
-            key: string,
-            name: string,
-          } >,
-        } >,
-        dependencies: ? {
-          clause: ServiceMetadataAttributeConditionalClause,
+    contactRequired: boolean,
+    locationRequired: boolean,
+    attributes: Array< {
+      required: boolean,
+      type: ServiceAttributeDatatype,
+      code: string,
+      description: string,
+      values: ?Array< {
+        key: string,
+        name: string,
+      } >,
+      conditionalValues: ?Array< {
+        dependentOn: {
+          clause: ServiceAttributeConditionalClause,
           conditions: Array< {
             attribute: string,
-            op: ServiceMetadataAttributeConditionalOp,
+            op: ServiceAttributeConditionalOp,
             value: {
-              type: ?ServiceMetadataAttributeConditionValueType,
+              type: ?ServiceAttributeConditionValueType,
               string: ?string,
               array: ?Array< string >,
               number: ?number,
             },
           } >,
         },
+        values: Array< {
+          key: string,
+          name: string,
+        } >,
       } >,
-    },
+      dependencies: ? {
+        clause: ServiceAttributeConditionalClause,
+        conditions: Array< {
+          attribute: string,
+          op: ServiceAttributeConditionalOp,
+          value: {
+            type: ?ServiceAttributeConditionValueType,
+            string: ?string,
+            array: ?Array< string >,
+            number: ?number,
+          },
+        } >,
+      },
+    } >,
   },
 };
 
@@ -104,8 +103,6 @@ export type LoadServiceSummariesQuery = {
   services: Array< {
     code: string,
     name: string,
-    hasMetadata: boolean,
-    locationRequired: boolean,
   } >,
 };
 

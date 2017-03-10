@@ -2,7 +2,5 @@ query LoadServiceSummaries {
   services {
     code
     name
-    hasMetadata
-    locationRequired
   }
 }

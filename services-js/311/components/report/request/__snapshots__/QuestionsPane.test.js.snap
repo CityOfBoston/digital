@@ -11,12 +11,14 @@ exports[`blank request 1`] = `
   >
     
   </div>
-  <button
-    disabled={false}
-    onClick={[Function]}
-  >
-    Next
-  </button>
+  <div>
+    <button
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
 </div>
 `;
 
@@ -42,12 +44,14 @@ exports[`existing description 1`] = `
   >
     
   </div>
-  <button
-    disabled={false}
-    onClick={[Function]}
-  >
-    Next
-  </button>
+  <div>
+    <button
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
 </div>
 `;
 
@@ -78,11 +82,13 @@ exports[`service with metadata 1`] = `
       value=""
     />
   </label>
-  <button
-    disabled={false}
-    onClick={[Function]}
-  >
-    Next
-  </button>
+  <div>
+    <button
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
 </div>
 `;

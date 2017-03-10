@@ -3,8 +3,8 @@
 import { observable, computed } from 'mobx';
 import type { ObservableArray } from 'mobx';
 
-import type { ServiceMetadataAttributeDatatype } from '../graphql/schema.flow';
-import type { ServiceMetadataAttribute } from '../types';
+import type { ServiceAttributeDatatype } from '../graphql/schema.flow';
+import type { ServiceAttribute } from '../types';
 
 import ConditionGroup from './ConditionGroup';
 
@@ -22,13 +22,13 @@ export default class Question {
   code: string;
   description: string;
   required: boolean;
-  type: ServiceMetadataAttributeDatatype;
+  type: ServiceAttributeDatatype;
   _values: ?ValuesArray;
   _conditionalValues: ?ConditionalValuesArray;
   _dependencies: ?ConditionGroup;
   @observable value: ?string | ObservableArray<string>;
 
-  static buildQuestions(attributes: ServiceMetadataAttribute[]): Question[] {
+  static buildQuestions(attributes: ServiceAttribute[]): Question[] {
     const questionMap = {};
     return attributes.map((attr) => {
       const question = new Question(attr, questionMap);
@@ -37,7 +37,7 @@ export default class Question {
     });
   }
 
-  constructor(attribute: ServiceMetadataAttribute, questionMap: {[code: string]: Question} = {}) {
+  constructor(attribute: ServiceAttribute, questionMap: {[code: string]: Question} = {}) {
     this.code = attribute.code;
     this.description = attribute.description;
     this.required = attribute.required;
@@ -67,6 +67,12 @@ export default class Question {
   @computed
   get visible(): boolean {
     return !this._dependencies || this._dependencies.holds;
+  }
+
+  @computed
+  get requirementsMet(): boolean {
+    const { validatedValue } = this;
+    return Array.isArray(validatedValue) ? !!validatedValue.length : !!validatedValue;
   }
 
   @computed

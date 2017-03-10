@@ -29,7 +29,7 @@ exports[`blank request 1`] = `
       }
     >
       <span>
-        First Name (required)
+        First Name 
       </span>
       <input
         className={
@@ -51,7 +51,7 @@ exports[`blank request 1`] = `
       }
     >
       <span>
-        Last Name (required)
+        Last Name 
       </span>
       <input
         className={
@@ -73,7 +73,7 @@ exports[`blank request 1`] = `
       }
     >
       <span>
-        Email (required)
+        Email
       </span>
       <input
         className={
@@ -113,7 +113,7 @@ exports[`blank request 1`] = `
     </label>
   </div>
   <button
-    disabled={true}
+    disabled={false}
     onClick={[Function]}
   >
     Submit
@@ -150,7 +150,7 @@ exports[`filled request 1`] = `
       }
     >
       <span>
-        First Name (required)
+        First Name 
       </span>
       <input
         className={
@@ -172,7 +172,7 @@ exports[`filled request 1`] = `
       }
     >
       <span>
-        Last Name (required)
+        Last Name 
       </span>
       <input
         className={
@@ -194,7 +194,7 @@ exports[`filled request 1`] = `
       }
     >
       <span>
-        Email (required)
+        Email
       </span>
       <input
         className={

@@ -16,55 +16,50 @@ export const Schema = `
 type Service {
   code: String!
   name: String!
+  attributes: [ServiceAttribute!]!
   locationRequired: Boolean!
-  hasMetadata: Boolean!
-  metadata: ServiceMetadata
+  contactRequired: Boolean!
 }
 
-type ServiceMetadata {
-  attributes: [ServiceMetadataAttribute!]!
-}
-
-type ServiceMetadataAttribute {
-  type: ServiceMetadataAttributeDatatype!
+type ServiceAttribute {
+  type: ServiceAttributeDatatype!
   required: Boolean!
-  order: Int
   description: String!
   code: String!
-  dependencies: ServiceMetadataAttributeConditional
-  values: [ServiceMetadataAttributeValue!]
-  conditionalValues: [ServiceMetadataAttributeConditionalValues!]
+  dependencies: ServiceAttributeConditional
+  values: [ServiceAttributeValue!]
+  conditionalValues: [ServiceAttributeConditionalValues!]
 }
 
-type ServiceMetadataAttributeValue {
+type ServiceAttributeValue {
   key: String!
   name: String!
 }
 
-type ServiceMetadataAttributeConditional {
-  clause: ServiceMetadataAttributeConditionalClause!
-  conditions: [ServiceMetadataAttributeCondition!]!
+type ServiceAttributeConditional {
+  clause: ServiceAttributeConditionalClause!
+  conditions: [ServiceAttributeCondition!]!
 }
 
-type ServiceMetadataAttributeConditionalValues {
-  dependentOn: ServiceMetadataAttributeConditional!,
-  values: [ServiceMetadataAttributeValue!]!
+type ServiceAttributeConditionalValues {
+  dependentOn: ServiceAttributeConditional!,
+  values: [ServiceAttributeValue!]!
 }
 
-type ServiceMetadataAttributeConditionValue {
-  type: ServiceMetadataAttributeConditionValueType
+type ServiceAttributeConditionValue {
+  type: ServiceAttributeConditionValueType
   string: String
   array: [String!]
   number: Float
 }
 
-type ServiceMetadataAttributeCondition {
+type ServiceAttributeCondition {
   attribute: String!
-  op: ServiceMetadataAttributeConditionalOp!
-  value: ServiceMetadataAttributeConditionValue!
+  op: ServiceAttributeConditionalOp!
+  value: ServiceAttributeConditionValue!
 }
 
-enum ServiceMetadataAttributeDatatype {
+enum ServiceAttributeDatatype {
   BOOLEAN_CHECKBOX
   INFORMATIONAL
   MULTIVALUELIST
@@ -76,12 +71,12 @@ enum ServiceMetadataAttributeDatatype {
   TEXT
 }
 
-enum ServiceMetadataAttributeConditionalClause {
+enum ServiceAttributeConditionalClause {
   AND
   OR
 }
 
-enum ServiceMetadataAttributeConditionalOp {
+enum ServiceAttributeConditionalOp {
   eq
   neq
   in
@@ -91,7 +86,7 @@ enum ServiceMetadataAttributeConditionalOp {
   lte
 }
 
-enum ServiceMetadataAttributeConditionValueType {
+enum ServiceAttributeConditionValueType {
   STRING
   STRING_ARRAY
   NUMBER
@@ -99,9 +94,6 @@ enum ServiceMetadataAttributeConditionValueType {
 `;
 
 export type Root = Service;
-
-// TODO(finh): Either support this with authorization or delete Salesforce code
-const USE_SALESFORCE = false;
 
 // Here we filter the disjoint union type of {key/value} vs. {dependendOn/values}
 // down to just key/value pairs. A bit odd because of Flow.
@@ -159,43 +151,27 @@ export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeVa
   return conditionalValues;
 }
 
+const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => async (s: Service, args: mixed, { open311 }: Context) => (
+  cb(s.metadata ? await open311.serviceMetadata(s.service_code) : null)
+);
+
 export const resolvers = {
   Service: {
     code: (s: Service) => s.service_code,
     name: (s: Service) => s.service_name || '',
-    locationRequired: async (s: Service, args: mixed, { salesforce }: Context) => {
-      if (USE_SALESFORCE) {
-        const serviceVersion = await salesforce.serviceVersion(s.service_code);
-        if (!serviceVersion) {
-          throw new Error(`Salesforce had no record for code ${s.service_code}`);
-        }
-        return serviceVersion.Incap311__Service_Location_Required__c;
-      } else {
-        return true;
-      }
-    },
-    hasMetadata: (s: Service) => s.metadata,
-    metadata: (s: Service, args: mixed, { open311 }: Context): ?Promise<ServiceMetadata> => (
-      s.metadata ? open311.serviceMetadata(s.service_code) : null
-    ),
+    attributes: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])),
+    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.definitions.location_required : true)),
+    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.definitions.contact_required : true)),
   },
 
-  ServiceMetadata: {
-    attributes: (m: ServiceMetadata): ServiceMetadataAttribute[] => m.attributes,
-  },
-
-  ServiceMetadataAttribute: {
+  ServiceAttribute: {
     type: (a: ServiceMetadataAttribute) => a.datatype.toUpperCase().replace(' ', '_').replace(/[()]/g, ''),
-    required: (a: ServiceMetadataAttribute) => a.required,
-    order: (a: ServiceMetadataAttribute) => a.order,
-    code: (a: ServiceMetadataAttribute) => a.code,
-    description: (a: ServiceMetadataAttribute) => a.description,
     values: (a: ServiceMetadataAttribute): null | PlainValue[] => filterPlainValues(a.values),
     conditionalValues: (a: ServiceMetadataAttribute): null | ConditionalValues[] => filterConditionalValues(a.values),
     dependencies: (a: ServiceMetadataAttribute): null | DependentConditions => a.dependencies || null,
   },
 
-  ServiceMetadataAttributeCondition: {
+  ServiceAttributeCondition: {
     // getting around the polymorphism from the Open311 API. Our generated
     // Flow types don't handle unions very well, so we do a faux union by
     // just providing each of the types.
@@ -226,5 +202,5 @@ export const resolvers = {
   },
 
   // Just using the default key / value resolvers
-  ServiceMetadataAttributeValue: {},
+  ServiceAttributeValue: {},
 };

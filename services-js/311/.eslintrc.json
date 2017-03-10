@@ -30,6 +30,7 @@
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-param-reassign": 0,
+    "no-script-url": 0,
     "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
     "import/no-extraneous-dependencies": [
       "error",

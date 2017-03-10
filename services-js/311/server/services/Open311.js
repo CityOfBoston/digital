@@ -58,6 +58,10 @@ export type ServiceMetadataAttribute = {|
 export type ServiceMetadata = {|
   service_code: string,
   attributes: ServiceMetadataAttribute[],
+  definitions: {|
+    location_required: boolean,
+    contact_required: boolean,
+  |}
 |}
 
 export type ServiceRequest = {|

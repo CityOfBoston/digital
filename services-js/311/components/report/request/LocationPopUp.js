@@ -65,6 +65,13 @@ const BUTTON_STYLE = css({
   },
 });
 
+const BUTTON_ROW_STYLE = css({
+  display: 'flex',
+  flexDirection: 'row-reverse',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
 export type Props = {
   store: AppStore,
   addressSearch: ?((string) => Promise<boolean>),
@@ -97,7 +104,7 @@ export default class LocationPopUp extends React.Component {
 
   render() {
     const { store, nextFunc, addressSearch } = this.props;
-    const { address } = store.locationInfo;
+    const { address, requirementsMet, required } = store.locationInfo;
 
     return (
       <div className={CONTENT_STYLE}>
@@ -113,7 +120,12 @@ export default class LocationPopUp extends React.Component {
           />
           <button type="submit" disabled={this.addressQuery.length === 0 || !addressSearch}>Search</button>
         </form>
-        <button className={BUTTON_STYLE} disabled={!address} onClick={nextFunc}>Next</button>
+
+        <div className={BUTTON_ROW_STYLE}>
+          <button className={BUTTON_STYLE} disabled={!requirementsMet} onClick={nextFunc}>Next</button>
+
+          { !required && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
+        </div>
       </div>
     );
   }

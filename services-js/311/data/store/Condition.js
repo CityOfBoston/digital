@@ -2,8 +2,8 @@
 
 import { computed } from 'mobx';
 
-import type { ServiceMetadataAttributeConditionalOp } from '../graphql/schema.flow';
-import type { ServiceMetadataAttributeValuesCondition } from '../types';
+import type { ServiceAttributeConditionalOp } from '../graphql/schema.flow';
+import type { ServiceAttributeValuesCondition } from '../types';
 
 import type Question from './Question';
 
@@ -18,10 +18,10 @@ import type Question from './Question';
 // in when it was visible.
 export default class Condition {
   question: Question;
-  operator: ServiceMetadataAttributeConditionalOp;
+  operator: ServiceAttributeConditionalOp;
   value: string | string[] | number;
 
-  constructor({ attribute, op, value }: ServiceMetadataAttributeValuesCondition, questionMap: {[code: string]: Question}) {
+  constructor({ attribute, op, value }: ServiceAttributeValuesCondition, questionMap: {[code: string]: Question}) {
     const question = questionMap[attribute];
     if (!question) {
       throw new Error(`Question not found for code: ${attribute}`);

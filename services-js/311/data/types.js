@@ -6,7 +6,7 @@ import type {
   LoadServiceQuery,
   LoadServiceQueryVariables,
   SubmitRequestMutation,
-  ServiceMetadataAttributeDatatype,
+  ServiceAttributeDatatype,
 } from './graphql/schema.flow';
 
 // HACK(finh): As of v0.41.0, Flow throws internal errors due something in
@@ -15,8 +15,6 @@ import type {
 export type ServiceSummary = {
   code: string,
   name: string,
-  hasMetadata: boolean,
-  locationRequired: boolean,
 }
 
 export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
@@ -41,13 +39,12 @@ export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
 // };
 
 export type ServiceArgs = LoadServiceQueryVariables;
-export type ServiceMetadata = $NonMaybeType<$PropertyType<Service, 'metadata'>>;
-export type ServiceMetadataAttribute = $ArrayElement<$PropertyType<ServiceMetadata, 'attributes'>>;
-export type ServiceMetadataAttributeValuesConditionSet = $PropertyType<$ArrayElement<$NonMaybeType<$PropertyType<ServiceMetadataAttribute, 'conditionalValues'>>>, 'dependentOn'>;
-export type ServiceMetadataAttributeValuesCondition = $ArrayElement<$PropertyType<ServiceMetadataAttributeValuesConditionSet, 'conditions'>>;
+export type ServiceAttribute = $ArrayElement<$PropertyType<Service, 'attributes'>>;
+export type ServiceAttributeValuesConditionSet = $PropertyType<$ArrayElement<$NonMaybeType<$PropertyType<ServiceAttribute, 'conditionalValues'>>>, 'dependentOn'>;
+export type ServiceAttributeValuesCondition = $ArrayElement<$PropertyType<ServiceAttributeValuesConditionSet, 'conditions'>>;
 export type CalculatedAttribute = {
   required: boolean,
-  type: ServiceMetadataAttributeDatatype,
+  type: ServiceAttributeDatatype,
   code: string,
   description: string,
   values: ?Array<{

@@ -2,17 +2,17 @@
 
 import { computed } from 'mobx';
 
-import type { ServiceMetadataAttributeConditionalClause } from '../graphql/schema.flow';
-import type { ServiceMetadataAttributeValuesConditionSet } from '../types';
+import type { ServiceAttributeConditionalClause } from '../graphql/schema.flow';
+import type { ServiceAttributeValuesConditionSet } from '../types';
 
 import type Question from './Question';
 import Condition from './Condition';
 
 export default class ConditionGroup {
-  clause: ServiceMetadataAttributeConditionalClause;
+  clause: ServiceAttributeConditionalClause;
   conditions: Condition[];
 
-  constructor({ clause, conditions }: ServiceMetadataAttributeValuesConditionSet, questionMap: {[code: string]: Question}) {
+  constructor({ clause, conditions }: ServiceAttributeValuesConditionSet, questionMap: {[code: string]: Question}) {
     this.clause = clause;
     this.conditions = conditions.map((c) => new Condition(c, questionMap));
   }

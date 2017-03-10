@@ -186,3 +186,28 @@ describe('validatedValue', () => {
     expect(dependentTextQuestion.validatedValue).toEqual(null);
   });
 });
+
+describe('requirementsMet', () => {
+  describe('no specified values', () => {
+    it('is false if there’s no value', () => {
+      expect(textFieldQuestion.requirementsMet).toEqual(false);
+    });
+
+    it('is true if there’s a value', () => {
+      textFieldQuestion.value = 'value';
+      expect(textFieldQuestion.requirementsMet).toEqual(true);
+    });
+  });
+
+  describe('multivalue', () => {
+    it('is false if none are checked', () => {
+      textFieldQuestion.value = [];
+      expect(textFieldQuestion.requirementsMet).toEqual(false);
+    });
+
+    it('is true if one is checked', () => {
+      textFieldQuestion.value = ['value'];
+      expect(textFieldQuestion.requirementsMet).toEqual(true);
+    });
+  });
+});

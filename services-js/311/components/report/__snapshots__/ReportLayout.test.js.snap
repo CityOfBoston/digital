@@ -144,12 +144,14 @@ exports[`existing service page rendering 1`] = `
               </option>
             </select>
           </label>
-          <button
-            disabled={false}
-            onClick={[Function]}
-          >
-            Next
-          </button>
+          <div>
+            <button
+              disabled={true}
+              onClick={[Function]}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

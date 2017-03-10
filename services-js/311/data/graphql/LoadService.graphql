@@ -2,37 +2,19 @@ query LoadService($code: String!) {
   service(code: $code) {
     name
     code
-    hasMetadata
-    metadata {
-      attributes {
-        required
-        type
-        code
-        description
-        values {
-          key
-          name
-        }
-        conditionalValues {
-          dependentOn {
-            clause
-            conditions {
-              attribute
-              op
-              value {
-                type
-                string
-                array
-                number
-              }
-            }
-          }
-          values {
-            key
-            name
-          }
-        }
-        dependencies {
+    contactRequired
+    locationRequired
+    attributes {
+      required
+      type
+      code
+      description
+      values {
+        key
+        name
+      }
+      conditionalValues {
+        dependentOn {
           clause
           conditions {
             attribute
@@ -43,6 +25,23 @@ query LoadService($code: String!) {
               array
               number
             }
+          }
+        }
+        values {
+          key
+          name
+        }
+      }
+      dependencies {
+        clause
+        conditions {
+          attribute
+          op
+          value {
+            type
+            string
+            array
+            number
           }
         }
       }

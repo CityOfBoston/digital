@@ -48,8 +48,8 @@ const TEXT_INPUT_STYLE = css({
 });
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
-  const { firstName, lastName, email, phone } = store.contactInfo;
-  const allowSubmit = lastName && firstName && email;
+  const { firstName, lastName, email, phone, required, requirementsMet } = store.contactInfo;
+  const allowSubmit = !required || requirementsMet;
 
   const onChange = action((ev) => {
     const value = ev.target.value;
@@ -78,17 +78,17 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
         <div className={CONTACT_SUBHEADER_STYLE}>(will not be shared with public; leave blank to submit anonymously)</div>
 
         <label className={CONTACT_LABEL_STYLE}>
-          <span>First Name (required)</span>
+          <span>First Name {required && '(required)'}</span>
           <input className={TEXT_INPUT_STYLE} placeholder="First Name" name="firstName" value={firstName} onChange={onChange} />
         </label>
 
         <label className={CONTACT_LABEL_STYLE}>
-          <span>Last Name (required)</span>
+          <span>Last Name {required && '(required)'}</span>
           <input className={TEXT_INPUT_STYLE} placeholder="Last Name" name="lastName" value={lastName} onChange={onChange} />
         </label>
 
         <label className={CONTACT_LABEL_STYLE}>
-          <span>Email (required)</span>
+          <span>Email</span>
           <input className={TEXT_INPUT_STYLE} type="email" placeholder="Email" name="email" value={email} onChange={onChange} />
         </label>
 

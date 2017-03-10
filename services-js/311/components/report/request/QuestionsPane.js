@@ -41,9 +41,6 @@ function renderLocation({ address }: LocationInfo) {
 }
 
 export default observer(function QuestionsPane({ store, nextFunc }: Props) {
-  // TODO(finneganh): required fields
-  const allowSubmit = true;
-
   return (
     <div>
       { renderDescription(store.description) }
@@ -53,7 +50,9 @@ export default observer(function QuestionsPane({ store, nextFunc }: Props) {
         store.questions.map((q) => <AttributeField key={q.code} question={q} />)
       }
 
-      <button onClick={nextFunc} disabled={!allowSubmit}>Next</button>
+      <div>
+        <button onClick={nextFunc} disabled={!store.questionRequirementsMet}>Next</button>
+      </div>
     </div>
   );
 });

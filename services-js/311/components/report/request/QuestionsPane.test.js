@@ -11,25 +11,25 @@ import QuestionsPane from './QuestionsPane';
 export const DEFAULT_SERVICE: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
-  hasMetadata: false,
-  metadata: null,
+  attributes: [],
+  contactRequired: true,
+  locationRequired: true,
 };
 
 export const SERVICE_WITH_METADATA: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
-  hasMetadata: true,
-  metadata: {
-    attributes: [{
-      required: false,
-      type: 'TEXT',
-      code: 'ST-CMTS',
-      description: 'Please provide any other relevant information:',
-      values: null,
-      conditionalValues: null,
-      dependencies: null,
-    }],
-  },
+  contactRequired: true,
+  locationRequired: true,
+  attributes: [{
+    required: false,
+    type: 'TEXT',
+    code: 'ST-CMTS',
+    description: 'Please provide any other relevant information:',
+    values: null,
+    conditionalValues: null,
+    dependencies: null,
+  }],
 };
 
 let store;

@@ -53,17 +53,31 @@ exports[`rendering renders with an address 1`] = `
       Search
     </button>
   </form>
-  <button
+  <div
     className={
       Object {
-        "data-css-1wppbi7": "",
+        "data-css-19e7ai6": "",
       }
     }
-    disabled={false}
-    onClick={[Function]}
   >
-    Next
-  </button>
+    <button
+      className={
+        Object {
+          "data-css-1wppbi7": "",
+        }
+      }
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+    <a
+      href="javascript:void(0)"
+      onClick={[Function]}
+    >
+      Continue without location
+    </a>
+  </div>
 </div>
 `;
 
@@ -111,16 +125,30 @@ exports[`rendering renders without an address 1`] = `
       Search
     </button>
   </form>
-  <button
+  <div
     className={
       Object {
-        "data-css-1wppbi7": "",
+        "data-css-19e7ai6": "",
       }
     }
-    disabled={true}
-    onClick={[Function]}
   >
-    Next
-  </button>
+    <button
+      className={
+        Object {
+          "data-css-1wppbi7": "",
+        }
+      }
+      disabled={true}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+    <a
+      href="javascript:void(0)"
+      onClick={[Function]}
+    >
+      Continue without location
+    </a>
+  </div>
 </div>
 `;

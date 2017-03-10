@@ -12,15 +12,31 @@ import Question from './Question';
 useStrict(true);
 
 class ContactInfo {
+  @observable required: boolean = false;
   @observable firstName: string = '';
   @observable lastName: string = '';
   @observable email: string = '';
   @observable phone: string = '';
+
+  // can be false even when required is false to differentiate between submitting
+  // and skipping
+  @computed
+  get requirementsMet(): boolean {
+    return !!(this.firstName && this.lastName);
+  }
 }
 
 export class LocationInfo {
+  @observable required: boolean = false;
   @observable address: string = '';
   @observable.shallow location: ?{| lat: number, lng: number |} = null;
+
+  // can be false even when required is false to differentiate between submitting
+  // and skipping
+  @computed
+  get requirementsMet(): boolean {
+    return this.address.length > 0;
+  }
 }
 
 export class AppStore {
@@ -47,11 +63,16 @@ export class AppStore {
     }
 
     this._currentService = service;
-    if (service && service.metadata) {
-      this.questions = Question.buildQuestions(service.metadata.attributes);
-    } else {
-      this.questions = [];
+    if (service) {
+      this.contactInfo.required = service.contactRequired;
+      this.locationInfo.required = service.locationRequired;
+      this.questions = Question.buildQuestions(service.attributes);
     }
+  }
+
+  @computed
+  get questionRequirementsMet(): boolean {
+    return this.questions.filter((q) => !q.required || !q.visible || q.requirementsMet).length === this.questions.length;
   }
 
   submitRequest = async (loopbackGraphql: LoopbackGraphql): Promise<SubmitRequestMutation> => {
