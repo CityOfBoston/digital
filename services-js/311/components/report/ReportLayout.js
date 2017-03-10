@@ -39,8 +39,11 @@ type RequestData = {
 
 export type InitialProps = {
   data: HomeData | RequestData,
-  apiKeys: ?{[service: string]: string},
 };
+
+export type Props = {
+  store: AppStore,
+} & InitialProps;
 
 const CONTAINER_STYLE = css({
   display: 'flex',
@@ -62,13 +65,12 @@ const CONTENT_STYLE = css({
 // service request, and the "service" view for the request flow. That flow
 // proceeds through the "questions" "location" and "contact" stages.
 export default class ReportLayout extends React.Component {
-  props: InitialProps;
+  props: Props;
   state: {
     locationMapSearch: ?(query: string) => Promise<boolean>,
     locationMapActive: boolean,
   }
   loopbackGraphql: LoopbackGraphql;
-  store: AppStore;
 
   static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
     const loopbackGraphql = makeLoopbackGraphql(req);
@@ -83,7 +85,6 @@ export default class ReportLayout extends React.Component {
 
     return {
       data,
-      apiKeys: req ? req.apiKeys : null,
     };
   }
 
@@ -96,7 +97,7 @@ export default class ReportLayout extends React.Component {
   }
 
   static async getRequestData({ code, stage }, res, store, loopbackGraphql): Promise<RequestData> {
-    let service = store.serviceCache[code];
+    let service = store.serviceCache.get(code);
 
     if (!service) {
       const args: ServiceArgs = { code };
@@ -127,13 +128,12 @@ export default class ReportLayout extends React.Component {
 
   // TODO(finneganh): Move service cache and lookup out of this class
   @action static addServiceToCache(store: AppStore, service: Service) {
-    store.serviceCache[service.code] = service;
+    store.serviceCache.set(service.code, service);
   }
 
-  constructor(props: InitialProps) {
+  constructor(props: Props) {
     super(props);
 
-    this.store = getStore();
     this.loopbackGraphql = makeLoopbackGraphql();
 
     this.updateStoreWithProps(props);
@@ -144,28 +144,26 @@ export default class ReportLayout extends React.Component {
     };
   }
 
-  componentWillReceiveProps(props: InitialProps) {
+  componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
   }
 
   @action
-  updateStoreWithProps(props: InitialProps) {
-    if (props.apiKeys) {
-      this.store.apiKeys = props.apiKeys;
-    }
+  updateStoreWithProps(props: Props) {
+    const { store, data } = props;
 
-    switch (props.data.view) {
+    switch (data.view) {
       case 'home':
-        this.store.serviceSummaries = props.data.serviceSummaries;
-        this.store.currentService = null;
+        store.serviceSummaries = data.serviceSummaries;
+        store.currentService = null;
         break;
 
       case 'request': {
-        const { service } = props.data;
+        const { service } = data;
         if (service) {
-          ReportLayout.addServiceToCache(this.store, service);
+          ReportLayout.addServiceToCache(store, service);
         }
-        this.store.currentService = service;
+        store.currentService = service;
         break;
       }
 
@@ -197,7 +195,7 @@ export default class ReportLayout extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, store } = this.props;
     const { locationMapActive, locationMapSearch } = this.state;
 
     return (
@@ -206,18 +204,18 @@ export default class ReportLayout extends React.Component {
 
         <div className={CONTENT_STYLE}>
           <LocationMapWithLib
-            store={this.store}
+            store={store}
             setLocationMapSearch={this.setLocationMapSearch}
             active={locationMapActive}
           />
           { data.view === 'home' &&
             <HomeDialog
-              store={this.store}
+              store={store}
               routeToServiceForm={this.routeToServiceForm}
             /> }
           { data.view === 'request' &&
             <RequestDialog
-              store={this.store}
+              store={store}
               stage={data.stage}
               locationMapSearch={locationMapSearch}
               loopbackGraphql={this.loopbackGraphql}

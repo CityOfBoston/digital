@@ -47,7 +47,7 @@ export class AppStore {
   @observable questions: Question[] = [];
 
   @observable.shallow serviceSummaries: ServiceSummary[];
-  serviceCache: {[code: string]: Service} = observable.shallowMap({});
+  serviceCache: Map<string, Service> = observable.shallowMap({});
 
   apiKeys: {[service: string]: string} = {};
 

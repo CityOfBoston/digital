@@ -15,6 +15,8 @@ import LoadServiceSummariesGraphql from '../../data/graphql/LoadServiceSummaries
 import LoadServiceGraphql from '../../data/graphql/LoadService.graphql';
 import type { LoadServiceSummariesQuery, LoadServiceQuery } from '../../data/graphql/schema.flow';
 
+import getStore from '../../data/store';
+
 import ReportLayout from './ReportLayout';
 
 jest.mock('next/router');
@@ -76,7 +78,11 @@ function mockGraphql(query, value) {
   }
 }
 
+let store;
+
 beforeEach(() => {
+  store = getStore();
+
   mockGraphql(LoadServiceSummariesGraphql, MOCK_SERVICE_SUMMARIES_RESPONSE);
   mockGraphql(LoadServiceGraphql, MOCK_SERVICE_RESPONSE);
 });
@@ -100,7 +106,7 @@ describe('report form', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <ReportLayout data={data} apiKeys={null} />,
+      <ReportLayout store={store} data={data} apiKeys={null} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -122,6 +128,7 @@ describe('existing service page', () => {
 
   test('service is cached', async () => {
     await inBrowser(async () => {
+      store = getStore();
       let ctx = makeServerContext('/report', { code: 'CSMCINC' });
       const data = (await ReportLayout.getInitialProps(ctx)).data;
 
@@ -132,7 +139,7 @@ describe('existing service page', () => {
 
       // caching happens when the layout is created
       // eslint-disable-next-line no-new
-      new ReportLayout({ data, apiKeys: {} });
+      new ReportLayout({ data, store });
 
       ctx = makeServerContext('/report', { code: 'CSMCINC' });
       const nextData = (await ReportLayout.getInitialProps(ctx)).data;
@@ -145,8 +152,8 @@ describe('existing service page', () => {
     const ctx = makeServerContext('/report', { code: 'CSMCINC' });
     const data = (await ReportLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
-      <ReportLayout data={data} apiKeys={null} />,
-      );
+      <ReportLayout data={data} store={store} />,
+    );
 
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -181,7 +188,7 @@ describe('missing service page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <ReportLayout data={data} apiKeys={null} />,
+      <ReportLayout data={data} store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -194,6 +201,7 @@ describe('routeToServiceForm', () => {
   beforeEach(() => {
     const props: any = {
       data: {},
+      store,
     };
     reportLayout = new ReportLayout(props);
   });
