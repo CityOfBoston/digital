@@ -25,7 +25,7 @@ type Props = {
   store: AppStore,
   stage: 'questions' | 'location' | 'contact',
   loopbackGraphql: LoopbackGraphql,
-  routeToServiceForm: (code: string, stage: string) => void,
+  routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
   locationMapSearch: ?(query: string) => Promise<boolean>,
 }

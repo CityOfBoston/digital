@@ -174,12 +174,14 @@ export default class ReportLayout extends React.Component {
     }
   }
 
-  routeToServiceForm = (code: string, stage: string = 'questions') => {
+  routeToServiceForm = async (code: string, stage: string = 'questions') => {
     if (stage === 'questions') {
-      Router.push(`/report?code=${code}`, `/report/${code}`);
+      await Router.push(`/report?code=${code}`, `/report/${code}`);
     } else {
-      Router.push(`/report?code=${code}&stage=${stage}`, `/report/${code}/${stage}`);
+      await Router.push(`/report?code=${code}&stage=${stage}`, `/report/${code}/${stage}`);
     }
+
+    window.scrollTo(0, 0);
   }
 
   setLocationMapSearch = (locationMapSearch: ?(query: string) => Promise<boolean>) => {
