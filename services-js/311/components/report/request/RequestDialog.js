@@ -3,6 +3,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { observable, action } from 'mobx';
+import ScopedError from 'react-scoped-error-component';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
 import type { IPromiseBasedObservable } from 'mobx-utils';
@@ -130,7 +131,7 @@ export default class RequestDialog extends React.Component {
 
   renderContent() {
     const { store, stage, locationMapSearch } = this.props;
-    const { currentService } = store;
+    const { currentService, currentServiceError } = store;
 
     if (this.submission) {
       switch (this.submission.state) {
@@ -143,6 +144,15 @@ export default class RequestDialog extends React.Component {
 
     if (!currentService) {
       return <SectionHeader>Service not found</SectionHeader>;
+    }
+
+    if (currentServiceError) {
+      return (
+        <div>
+          <SectionHeader>Error loading service</SectionHeader>
+          <ScopedError error={currentServiceError} />
+        </div>
+      );
     }
 
     switch (stage) {

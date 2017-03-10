@@ -52,6 +52,7 @@ export class AppStore {
   apiKeys: {[service: string]: string} = {};
 
   @observable.ref _currentService: ?Service = null;
+  @observable.ref currentServiceError: ?Object = null;
 
   @computed get currentService(): ?Service {
     return this._currentService;
@@ -63,10 +64,17 @@ export class AppStore {
     }
 
     this._currentService = service;
+    this.currentServiceError = null;
+    this.questions = [];
+
     if (service) {
-      this.contactInfo.required = service.contactRequired;
-      this.locationInfo.required = service.locationRequired;
-      this.questions = Question.buildQuestions(service.attributes);
+      try {
+        this.contactInfo.required = service.contactRequired;
+        this.locationInfo.required = service.locationRequired;
+        this.questions = Question.buildQuestions(service.attributes);
+      } catch (e) {
+        this.currentServiceError = e;
+      }
     }
   }
 

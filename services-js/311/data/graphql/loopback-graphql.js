@@ -6,19 +6,15 @@ import type { RequestAdditions } from '../../server/next-handlers';
 type QueryVariables = { [key: string]: any };
 export type LoopbackGraphql = (query: string, variables: ?QueryVariables) => Promise<Object>;
 
-export type GraphQLQueryError = {|
-  message: string;
-|};
-
-export class GraphQLError {
-  message: string;
-  errors: GraphQLQueryError[];
-
-  constructor(message: string, errors: ?GraphQLQueryError[]) {
-    this.message = message || 'GraphQL server error';
-    this.errors = errors || [];
+const makeGraphQLError = (message, errors) => {
+  if (!message) {
+    message = `[Server] ${errors.map((e) => e.message).join(', ')}`;
   }
-}
+
+  const e: Object = new Error(message);
+  e.errors = errors;
+  return e;
+};
 
 /**
  * Given a bit that's true if the response was a 200, and a parsed JSON
@@ -30,7 +26,7 @@ function handleGraphqlResponse(ok, json) {
   if (ok && !json.errors) {
     return json.data;
   } else {
-    throw new GraphQLError(json.message, json.errors);
+    throw makeGraphQLError(json.message, json.errors);
   }
 }
 

@@ -8,7 +8,6 @@ import RequestDialog from './RequestDialog';
 import type { Service } from '../../../data/types';
 import { AppStore } from '../../../data/store';
 
-import { GraphQLError } from '../../../data/graphql/loopback-graphql';
 import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
 
 const MOCK_SERVICE: Service = {
@@ -162,10 +161,13 @@ describe('methods', () => {
     test('graphql failure', async () => {
       const submission = requestDialog.submitRequest();
 
-      rejectGraphql(new GraphQLError('Error submitting', [
+      const error: Object = new Error('Error submitting');
+      error.errors = [
         { message: 'All required fields were missing' },
         { message: 'Also your location is in Cambridge' },
-      ]));
+      ];
+
+      rejectGraphql(error);
 
       try {
         await submission;

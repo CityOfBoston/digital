@@ -4,7 +4,6 @@ import React from 'react';
 import SectionHeader from '../../common/SectionHeader';
 
 import type { SubmittedRequest } from '../../../data/types';
-import { GraphQLError } from '../../../data/graphql/loopback-graphql';
 
 export type Props = {
   state: 'submitting',
@@ -30,8 +29,8 @@ export default function SubmitPane(props: Props) {
       return (
         <div>
           <SectionHeader>Submission Error</SectionHeader>
-          { error instanceof GraphQLError && error.errors.map((e, i) => <p key={i}>{e.message}</p>) }
-          { !(error instanceof GraphQLError) && (error.message ? error.message : error.toString()) }
+          { Array.isArray(error.errors) && error.errors.map((e, i) => <p key={i}>{e.message}</p>) }
+          { !Array.isArray(error.errors) && (error.message ? error.message : error.toString()) }
         </div>
       );
     }

@@ -3,9 +3,14 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { GraphQLError } from '../../../data/graphql/loopback-graphql';
 import SubmitPane from './SubmitPane';
 import FormDialog from '../../common/FormDialog';
+
+const makeError = (message, errors) => {
+  const error: Object = new Error(message);
+  error.errors = errors;
+  return error;
+};
 
 storiesOf('SubmitPane', module)
 .addDecorator((story) => (
@@ -20,7 +25,7 @@ storiesOf('SubmitPane', module)
 .add('GraphQL Error', () => (
   <SubmitPane
     state="error"
-    error={new GraphQLError('GraphQL Server Error', [
+    error={makeError('GraphQL Server Error', [
       { message: 'firstName is a required field' },
       { message: 'lastName is a required field' },
     ])}

@@ -160,8 +160,8 @@ export const resolvers = {
     code: (s: Service) => s.service_code,
     name: (s: Service) => s.service_name || '',
     attributes: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])),
-    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.definitions.location_required : true)),
-    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.definitions.contact_required : true)),
+    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.location_required : true)),
+    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.contact_required : true)),
   },
 
   ServiceAttribute: {

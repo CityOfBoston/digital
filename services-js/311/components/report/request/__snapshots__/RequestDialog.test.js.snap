@@ -16,19 +16,7 @@ exports[`methods submitRequest graphql failure 1`] = `
   </SideEffect(Head)>
   <FormDialog>
     <SubmitPane
-      error={
-        GraphQLError {
-          "errors": Array [
-            Object {
-              "message": "All required fields were missing",
-            },
-            Object {
-              "message": "Also your location is in Cambridge",
-            },
-          ],
-          "message": "Error submitting",
-        }
-      }
+      error={[Error: Error submitting]}
       state="error"
     />
   </FormDialog>

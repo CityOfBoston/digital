@@ -5700,6 +5700,12 @@ react-proxy@^3.0.0-alpha.0:
   dependencies:
     lodash "^4.6.1"
 
+react-scoped-error-component@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/react-scoped-error-component/-/react-scoped-error-component-0.9.1.tgz#89068bba73b36afc3a2586885e226236f0eaa1bc"
+  dependencies:
+    redbox-react "^1.2.0"
+
 react-simple-di@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-simple-di/-/react-simple-di-1.2.0.tgz#dde0e5bf689f391ef2ab02c9043b213fe239c6d0"
@@ -5805,7 +5811,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-redbox-react@^1.2.5:
+redbox-react@^1.2.0, redbox-react@^1.2.5:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/redbox-react/-/redbox-react-1.3.3.tgz#63ec9c2cb9c620c46e2b9f8543b4898f1b787e41"
   dependencies:

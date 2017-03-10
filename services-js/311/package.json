@@ -64,6 +64,7 @@
     "next": "2.0.0-beta.36",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-scoped-error-component": "^0.9.1",
     "url-search-params": "^0.6.1"
   },
   "devDependencies": {

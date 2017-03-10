@@ -53,7 +53,7 @@ class ServiceButton extends React.Component {
     const { serviceSummary: { code, name } } = this.props;
     return (
       <li className={STYLES.item} key={code}>
-        <a className={STYLES.link} href={`/report/${code}/location`} onClick={this.whenClicked}>{name}</a>
+        <a className={STYLES.link} href={`/report/${code}`} onClick={this.whenClicked}>{name}</a>
       </li>
     );
   }

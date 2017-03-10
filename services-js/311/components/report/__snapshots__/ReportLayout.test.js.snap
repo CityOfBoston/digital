@@ -338,7 +338,7 @@ exports[`report form rendering 1`] = `
                   "data-css-3br7c8": "",
                 }
               }
-              href="/report/CSMCINC/location"
+              href="/report/CSMCINC"
               onClick={[Function]}
             >
               Cosmic Incursion

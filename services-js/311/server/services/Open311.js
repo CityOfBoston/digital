@@ -58,7 +58,7 @@ export type ServiceMetadataAttribute = {|
 export type ServiceMetadata = {|
   service_code: string,
   attributes: ServiceMetadataAttribute[],
-  definitions: {|
+  definitions: ?{|
     location_required: boolean,
     contact_required: boolean,
   |}
@@ -129,6 +129,7 @@ export default class Open311 {
   endpoint: string;
   apiKey: string;
   serviceDataLoader: DataLoader<string, ?Service>;
+  serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
 
   constructor(endpoint: ?string, apiKey: ?string) {
     if (!endpoint || !apiKey) {
@@ -151,6 +152,19 @@ export default class Open311 {
       (await this.services()).forEach((s) => { servicesByCode[s.service_code] = s; });
       return codes.map((code) => servicesByCode[code] || null);
     });
+
+    this.serviceMetadataLoader = new DataLoader((codes: string[]) => (
+      Promise.all(codes.map(async (code) => {
+        const params = new URLSearchParams();
+        params.append('api_key', this.apiKey);
+
+        const response = await fetch(this.url(`services/${code}.json?${params.toString()}`), {
+          agent: this.agent,
+        });
+
+        return processResponse(response);
+      }))
+    ));
   }
 
   url(path: string) {
@@ -172,15 +186,8 @@ export default class Open311 {
     return this.serviceDataLoader.load(code);
   }
 
-  async serviceMetadata(code: string): Promise<ServiceMetadata> {
-    const params = new URLSearchParams();
-    params.append('api_key', this.apiKey);
-
-    const response = await fetch(this.url(`services/${code}.json?${params.toString()}`), {
-      agent: this.agent,
-    });
-
-    return processResponse(response);
+  async serviceMetadata(code: string): Promise<?ServiceMetadata> {
+    return this.serviceMetadataLoader.load(code);
   }
 
   async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest[]> {
