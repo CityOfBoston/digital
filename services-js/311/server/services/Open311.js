@@ -128,8 +128,9 @@ export default class Open311 {
   agent: any;
   endpoint: string;
   apiKey: string;
-  serviceDataLoader: DataLoader<string, ?Service>;
+  serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
+  requestLoader: DataLoader<string, ServiceRequest[]>;
 
   constructor(endpoint: ?string, apiKey: ?string) {
     if (!endpoint || !apiKey) {
@@ -147,7 +148,7 @@ export default class Open311 {
     // service, so if we need that information we load all of the services
     // and then filter. We use DataLoader here to coallesce any simultaneous
     // requests for service lookup to a single API call.
-    this.serviceDataLoader = new DataLoader(async (codes: string[]) => {
+    this.serviceLoader = new DataLoader(async (codes: string[]) => {
       const servicesByCode = {};
       (await this.services()).forEach((s) => { servicesByCode[s.service_code] = s; });
       return codes.map((code) => servicesByCode[code] || null);
@@ -159,6 +160,19 @@ export default class Open311 {
         params.append('api_key', this.apiKey);
 
         const response = await fetch(this.url(`services/${code}.json?${params.toString()}`), {
+          agent: this.agent,
+        });
+
+        return processResponse(response);
+      }))
+    ));
+
+    this.requestLoader = new DataLoader((ids: string[]) => (
+      Promise.all(ids.map(async (id) => {
+        const params = new URLSearchParams();
+        params.append('api_key', this.apiKey);
+
+        const response = await fetch(this.url(`requests/${id}.json?${params.toString()}`), {
           agent: this.agent,
         });
 
@@ -182,12 +196,16 @@ export default class Open311 {
     return processResponse(response);
   }
 
-  async service(code: string): Promise<?Service> {
-    return this.serviceDataLoader.load(code);
+  service(code: string): Promise<?Service> {
+    return this.serviceLoader.load(code);
   }
 
-  async serviceMetadata(code: string): Promise<?ServiceMetadata> {
+  serviceMetadata(code: string): Promise<?ServiceMetadata> {
     return this.serviceMetadataLoader.load(code);
+  }
+
+  async request(id: string): Promise<?ServiceRequest> {
+    return (await this.requestLoader.load(id))[0];
   }
 
   async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest[]> {

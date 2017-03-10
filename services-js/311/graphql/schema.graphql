@@ -15,6 +15,7 @@ type Mutation {
 type Query {
   services: [Service!]!
   service(code: String!): Service
+  request(id: String!): Request
 }
 
 type Request {

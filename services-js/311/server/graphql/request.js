@@ -5,6 +5,8 @@ import moment from 'moment';
 import type { Context } from '.';
 import type { ServiceRequest } from '../services/Open311';
 
+export type Root = ServiceRequest;
+
 export const Schema = `
 type Request {
   id: String!
