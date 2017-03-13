@@ -63,6 +63,7 @@
     "moment": "^2.17.1",
     "moment-timezone": "^0.5.11",
     "next": "2.0.0-beta.36",
+    "opbeat": "^4.11.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-scoped-error-component": "^0.9.1",
