@@ -5,8 +5,7 @@ import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
-
-import { measure } from './metrics';
+import newrelic from 'newrelic';
 
 // types taken from Open311
 export type Service = {|
@@ -158,8 +157,8 @@ export default class Open311 {
       return codes.map((code) => servicesByCode[code] || null);
     });
 
-    this.serviceMetadataLoader = new DataLoader((codes: string[]) => (
-      Promise.all(codes.map(measure('service', 'Open311', async (code) => {
+    this.serviceMetadataLoader = new DataLoader(newrelic.createBackgroundTransaction('serviceMetadata', 'Open311', async (codes: string[]) => {
+      const out = await Promise.all(codes.map(async (code) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -168,11 +167,14 @@ export default class Open311 {
         });
 
         return processResponse(response);
-      })),
-    )));
+      }));
 
-    this.requestLoader = new DataLoader((ids: string[]) => (
-      Promise.all(ids.map(measure('request', 'Open311', async (id) => {
+      newrelic.endTransaction();
+      return out;
+    }));
+
+    this.requestLoader = new DataLoader(newrelic.createBackgroundTransaction('request', 'Open311', async (ids: string[]) => {
+      const out = await Promise.all(ids.map(async (id) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -183,15 +185,18 @@ export default class Open311 {
         // the endpoint returns the request in an array
         const requestArr: ?ServiceRequest[] = await processResponse(response);
         return requestArr ? requestArr[0] : null;
-      })),
-    )));
+      }));
+
+      newrelic.endTransaction();
+      return out;
+    }));
   }
 
   url(path: string) {
     return url.resolve(this.endpoint, path);
   }
 
-  services = measure('services', 'Open311', async (): Promise<Service[]> => {
+  services = newrelic.createBackgroundTransaction('services', 'Open311', async () => {
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 
@@ -199,8 +204,10 @@ export default class Open311 {
       agent: this.agent,
     });
 
-    return await processResponse(response) || [];
-  })
+    const out = await processResponse(response) || [];
+    newrelic.endTransaction();
+    return out;
+  });
 
   service(code: string): Promise<?Service> {
     return this.serviceLoader.load(code);
