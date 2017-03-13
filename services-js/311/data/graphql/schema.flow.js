@@ -56,7 +56,7 @@ export type LoadRequestQuery = {
     },
     status: string,
     description: ?string,
-    address: string,
+    address: ?string,
     requestedAtString: string,
     updatedAtString: string,
   },
