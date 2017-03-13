@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { css } from 'glamor';
+import Link from 'next/link';
 
 import type { Request } from '../../data/types';
 
@@ -41,6 +42,17 @@ const TABLE_STYLE = css({
 const ID_STYLE = css({
   fontWeight: 'bold',
   fontStyle: 'normal',
+});
+
+const BUTTON_LINK_STYLE = css({
+  display: 'inline-block',
+  fontFamily: '"Montserrat", Arial, sans-serif',
+  backgroundColor: '#f3a536',
+  marginTop: 60,
+  color: 'black',
+  textDecoration: 'none',
+  textTransform: 'uppercase',
+  padding: '20px 30px',
 });
 
 function renderMissingRequest(query: string) {
@@ -84,6 +96,8 @@ function renderRequest(request: Request) {
           </li>
         </ul>
       </div>
+
+      <Link href="/lookup"><a className={BUTTON_LINK_STYLE}>Back to Search</a></Link>
     </div>
   );
 }
