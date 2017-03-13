@@ -3,6 +3,7 @@
 // Friendlier versions of the auto-created GraphQL types
 
 import type {
+  LoadRequestQuery,
   LoadServiceQuery,
   LoadServiceQueryVariables,
   SubmitRequestMutation,
@@ -54,3 +55,4 @@ export type CalculatedAttribute = {
 };
 
 export type SubmittedRequest = $PropertyType<SubmitRequestMutation, 'createRequest'>;
+export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'request'>>;

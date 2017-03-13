@@ -1,0 +1,13 @@
+query LoadRequest($id: String!) {
+  request(id: $id) {
+    id
+    service {
+      name
+    }
+    status
+    description
+    address
+    requestedAtString(format: "MMMM D, YYYY, h:mm A")
+    updatedAtString(format: "MMMM D, YYYY, h:mm A")
+  }
+}

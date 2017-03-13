@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`case not found rendering 1`] = `
+<div
+  className={
+    Object {
+      "data-css-awku5i": "",
+    }
+  }
+>
+  <div
+    className="nav ft-ll css-gf15pf"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}
+    >
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}
+    >
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}
+    >
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-d7jlfw": "",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }
+    >
+      <h2
+        className="sh-title"
+      >
+        Case Search
+      </h2>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-1kcx6e8": "",
+        }
+      }
+    >
+      <p>
+        Case “
+        not-a-real-id
+        ” not found
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`case rendering 1`] = `
+<div
+  className={
+    Object {
+      "data-css-awku5i": "",
+    }
+  }
+>
+  <div
+    className="nav ft-ll css-gf15pf"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}
+    >
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}
+    >
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}
+    >
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-d7jlfw": "",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }
+    >
+      <h2
+        className="sh-title"
+      >
+        Case Search
+      </h2>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-1kcx6e8": "",
+        }
+      }
+    >
+      <div>
+        <h3
+          className={
+            Object {
+              "data-css-1md1it5": "",
+            }
+          }
+        >
+          Case Number: 
+          <span
+            className={
+              Object {
+                "data-css-89xru3": "",
+              }
+            }
+          >
+            17-000000001
+          </span>
+        </h3>
+        <div
+          className={
+            Object {
+              "data-css-muvs8w": "",
+            }
+          }
+        >
+          <ul
+            className="dl css-1que147"
+          >
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Opened
+              </span>
+              <span
+                className="dl-d"
+              >
+                March 7, 2017, 12:59 PM
+              </span>
+            </li>
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Where
+              </span>
+              <span
+                className="dl-d"
+              >
+                City Hall Plaza, Boston, MA 02131
+              </span>
+            </li>
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Title
+              </span>
+              <span
+                className="dl-d"
+              >
+                Cosmic Intervention
+              </span>
+            </li>
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Status
+              </span>
+              <span
+                className="dl-d"
+              >
+                open
+              </span>
+            </li>
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Updated
+              </span>
+              <span
+                className="dl-d"
+              >
+                April 8, 2017, 12:59 PM
+              </span>
+            </li>
+          </ul>
+          <ul
+            className="dl css-1que147"
+          >
+            <li
+              className="dl-i"
+            >
+              <span
+                className="dl-t"
+              >
+                Description
+              </span>
+              <span
+                className="dl-d"
+              >
+                I think that Thanos is here
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`search form rendering 1`] = `
+<div
+  className={
+    Object {
+      "data-css-awku5i": "",
+    }
+  }
+>
+  <div
+    className="nav ft-ll css-gf15pf"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Report a problem
+    </a>
+    <a
+      href="/lookup"
+      onClick={[Function]}
+    >
+      Case look up
+    </a>
+    <a
+      href="/go"
+      onClick={[Function]}
+    >
+      311 on the go
+    </a>
+    <a
+      href="/faq"
+      onClick={[Function]}
+    >
+      FAQ
+    </a>
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-18erp1v": "",
+      }
+    }
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          className="sf-i-f"
+          name="q"
+          onInput={[Function]}
+          placeholder="Search case ID…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

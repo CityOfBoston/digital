@@ -100,7 +100,9 @@ export type CreateServiceRequestArgs = {|
 |};
 
 async function processResponse(res): Promise<any> {
-  if (!res.ok) {
+  if (res.status === 404) {
+    return null;
+  } else if (!res.ok) {
     let message;
 
     if (res.headers.get('content-type').startsWith('application/json')) {
@@ -130,7 +132,7 @@ export default class Open311 {
   apiKey: string;
   serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
-  requestLoader: DataLoader<string, ServiceRequest[]>;
+  requestLoader: DataLoader<string, ?ServiceRequest>;
 
   constructor(endpoint: ?string, apiKey: ?string) {
     if (!endpoint || !apiKey) {
@@ -176,7 +178,9 @@ export default class Open311 {
           agent: this.agent,
         });
 
-        return processResponse(response);
+        // the endpoint returns the request in an array
+        const requestArr: ?ServiceRequest[] = await processResponse(response);
+        return requestArr ? requestArr[0] : null;
       }))
     ));
   }
@@ -193,7 +197,7 @@ export default class Open311 {
       agent: this.agent,
     });
 
-    return processResponse(response);
+    return await processResponse(response) || [];
   }
 
   service(code: string): Promise<?Service> {
@@ -204,11 +208,11 @@ export default class Open311 {
     return this.serviceMetadataLoader.load(code);
   }
 
-  async request(id: string): Promise<?ServiceRequest> {
-    return (await this.requestLoader.load(id))[0];
+  request(id: string): Promise<?ServiceRequest> {
+    return this.requestLoader.load(id);
   }
 
-  async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest[]> {
+  async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest> {
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 

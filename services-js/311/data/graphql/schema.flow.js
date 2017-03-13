@@ -44,6 +44,24 @@ export type CreateRequestAttribute = {
   value: string,
 };
 
+export type LoadRequestQueryVariables = {
+  id: string,
+};
+
+export type LoadRequestQuery = {
+  request: ? {
+    id: string,
+    service: {
+      name: string,
+    },
+    status: string,
+    description: ?string,
+    address: string,
+    requestedAtString: string,
+    updatedAtString: string,
+  },
+};
+
 export type LoadServiceQueryVariables = {
   code: string,
 };

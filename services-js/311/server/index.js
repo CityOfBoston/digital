@@ -98,6 +98,12 @@ const port = parseInt(process.env.PORT || '3000', 10);
 
   server.route({
     method: 'GET',
+    path: '/lookup',
+    handler: nextHandler(app, '/lookup'),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/_next/{p*}',
     handler: nextDefaultHandler(app),
   });

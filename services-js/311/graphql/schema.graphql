@@ -23,8 +23,11 @@ type Request {
   service: Service!
   description: String
   status: String!
+  address: String!
   requestedAt: Int!
   updatedAt: Int!
+  requestedAtString(format: String): String!
+  updatedAtString(format: String): String!
 }
 
 type Service {
