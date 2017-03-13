@@ -5,7 +5,7 @@ import { configure, addDecorator } from '@kadira/storybook';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';
-import makeCssHead from '../lib/make-css-head';
+import makeCss from '../lib/make-css';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 const dotEnv = parseDotEnv(DOT_ENV);
@@ -36,7 +36,7 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        { makeCssHead(Head) }
+        <Head>{ makeCss() }</Head>
         { this.props.children }
       </div>
     );

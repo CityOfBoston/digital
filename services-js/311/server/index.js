@@ -1,5 +1,6 @@
 // @flow
 /* eslint no-console: 0 */
+import rollbar from 'rollbar';
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
@@ -13,6 +14,11 @@ import schema from './graphql';
 import type { Context } from './graphql';
 
 dotenv.config();
+
+rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
+  environment: process.env.HEROKU_PIPELINE || process.env.NODE_ENV || 'development',
+  enabled: (process.env.NODE_ENV || 'development') !== 'development',
+});
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -56,11 +62,19 @@ const port = parseInt(process.env.PORT || '3000', 10);
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: () => ({
+      graphqlOptions: (req) => ({
         schema,
         context: ({
           open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY']),
         }: Context),
+        formatError: (e) => {
+          rollbar.handleError(e, req, (err) => {
+            if (err) {
+              console.error('Error sending exception to rollbar', err);
+            }
+          });
+          return e;
+        },
       }),
       route: {
         cors: true,
