@@ -5,6 +5,8 @@
 
 require('dotenv').config();
 
+require('newrelic');
+
 const opbeat = require('opbeat').start({
   appId: 'dbd94d8c1a',
   organizationId: '3a2bb4270ee94e65ac727ec16c7482e2',
