@@ -11,6 +11,7 @@ exports.config = {
    * Array of application names.
    */
   app_name: ['311'],
+  agent_enabled: process.env.NODE_ENV === 'production',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
