@@ -9,6 +9,7 @@ const opbeat = require('opbeat').start({
   appId: 'dbd94d8c1a',
   organizationId: '3a2bb4270ee94e65ac727ec16c7482e2',
   secretToken: process.env.OPBEAT_KEY,
+  active: process.env.NODE_ENV === 'production',
 });
 
 const rollbar = require('rollbar');

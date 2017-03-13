@@ -6,6 +6,8 @@ import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
 
+import { measure } from './metrics';
+
 // types taken from Open311
 export type Service = {|
   service_code: string,
@@ -157,7 +159,7 @@ export default class Open311 {
     });
 
     this.serviceMetadataLoader = new DataLoader((codes: string[]) => (
-      Promise.all(codes.map(async (code) => {
+      Promise.all(codes.map(measure('open311.service', async (code) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -166,11 +168,11 @@ export default class Open311 {
         });
 
         return processResponse(response);
-      }))
-    ));
+      })),
+    )));
 
     this.requestLoader = new DataLoader((ids: string[]) => (
-      Promise.all(ids.map(async (id) => {
+      Promise.all(ids.map(measure('open311.request', async (id) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -181,15 +183,15 @@ export default class Open311 {
         // the endpoint returns the request in an array
         const requestArr: ?ServiceRequest[] = await processResponse(response);
         return requestArr ? requestArr[0] : null;
-      }))
-    ));
+      })),
+    )));
   }
 
   url(path: string) {
     return url.resolve(this.endpoint, path);
   }
 
-  async services(): Promise<Service[]> {
+  services = measure('open311.services', async (): Promise<Service[]> => {
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 
@@ -198,7 +200,7 @@ export default class Open311 {
     });
 
     return await processResponse(response) || [];
-  }
+  })
 
   service(code: string): Promise<?Service> {
     return this.serviceLoader.load(code);
