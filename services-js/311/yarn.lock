@@ -99,6 +99,12 @@
     webpack-dev-middleware "^1.6.0"
     webpack-hot-middleware "^2.13.2"
 
+"@newrelic/native-metrics@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@newrelic/native-metrics/-/native-metrics-2.1.0.tgz#81eb234e6801c752266de9d61aec34f237e89b12"
+  dependencies:
+    nan "^2.4.0"
+
 "@types/graphql@^0.8.5":
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.8.6.tgz#b34fb880493ba835b0c067024ee70130d6f9bb68"
@@ -4691,7 +4697,7 @@ mz@2.6.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
-nan@^2.3.0:
+nan@^2.3.0, nan@^2.4.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.1.tgz#d5b01691253326a97a2bbee9e61c55d8d60351e2"
 

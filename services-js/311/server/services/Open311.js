@@ -159,7 +159,7 @@ export default class Open311 {
     });
 
     this.serviceMetadataLoader = new DataLoader((codes: string[]) => (
-      Promise.all(codes.map(measure('open311.service', async (code) => {
+      Promise.all(codes.map(measure('open311:service', async (code) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -172,7 +172,7 @@ export default class Open311 {
     )));
 
     this.requestLoader = new DataLoader((ids: string[]) => (
-      Promise.all(ids.map(measure('open311.request', async (id) => {
+      Promise.all(ids.map(measure('open311:request', async (id) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
 
@@ -191,7 +191,7 @@ export default class Open311 {
     return url.resolve(this.endpoint, path);
   }
 
-  services = measure('open311.services', async (): Promise<Service[]> => {
+  services = measure('open311:services', async (): Promise<Service[]> => {
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 

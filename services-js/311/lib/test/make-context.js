@@ -9,6 +9,7 @@ import type { RequestAdditions } from '../../server/next-handlers';
  */
 export function makeServerContext(pathname: string, query: {[key: string]: string} = {}): Context<RequestAdditions> {
   const req: RequestAdditions = {
+    newRelicScript: '',
     hapiInject: () => { throw new Error('hapiInject is not supported in tests'); },
     apiKeys: {
       google: 'FAKE_GOOGLE_API_KEY',
