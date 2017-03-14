@@ -24,10 +24,10 @@ const STYLE = {
 export default function Nav() {
   return (
     <div className={`nav ft-ll ${STYLE.nav}`}>
-      <Link href="/report" as="/"><a>Report a problem</a></Link>
-      <Link href="/lookup"><a>Case look up</a></Link>
-      <Link href="/go"><a>311 on the go</a></Link>
-      <Link href="/faq"><a>FAQ</a></Link>
+      <Link prefetch href="/report" as="/"><a>Report a problem</a></Link>
+      <Link prefetch href="/lookup"><a>Case look up</a></Link>
+      <Link prefetch href="/go"><a>311 on the go</a></Link>
+      <Link prefetch href="/faq"><a>FAQ</a></Link>
     </div>
   );
 }
