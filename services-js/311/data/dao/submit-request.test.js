@@ -1,9 +1,12 @@
 // @flow
 
 import type { Service } from '../types';
+import type { SubmitRequestMutationVariables } from './graphql/types';
+import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
 
-import inBrowser from '../../lib/test/in-browser';
-import getStore, { AppStore } from '.';
+import { AppStore } from '../store';
+
+import submitRequest from './submit-request';
 
 const COSMIC_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -96,89 +99,49 @@ const COSMIC_SERVICE: Service = {
   }],
 };
 
-describe('getStore', () => {
-  it('returns the same instance twice in browser', async () => {
-    await inBrowser(() => {
-      const store = getStore();
-      expect(getStore()).toBe(store);
-    });
+test('submitRequest', async () => {
+  // We use a store to build up questions and such for us.
+  const store = new AppStore();
+  store.currentService = COSMIC_SERVICE;
+
+  store.description = 'Things are bad';
+  store.contactInfo.firstName = 'Carol';
+  store.contactInfo.lastName = 'Danvers';
+  store.contactInfo.email = 'marvel@alphaflight.gov';
+
+  store.questions[0].value = 'Thanos is here';
+  store.questions[2].value = 'us-avengers';
+  // This should get filtered to Squrrel Girl and Enigma
+  store.questions[3].value = ['thor', 'squirrel-girl', 'enigma'];
+  // This should not appear at all because Captain America is not picked
+  store.questions[4].value = 'Danielle Cage';
+
+  const loopbackGraphql = jest.fn().mockReturnValue({});
+
+  await submitRequest(loopbackGraphql, {
+    service: COSMIC_SERVICE,
+    description: store.description,
+    contactInfo: store.contactInfo,
+    locationInfo: store.locationInfo,
+    questions: store.questions,
   });
 
-  it('returns different instances on the server', () => {
-    const store = getStore();
-    expect(getStore()).not.toBe(store);
-  });
-});
+  const mutationVariables: SubmitRequestMutationVariables = {
+    code: 'CSMCINC',
+    description: 'Things are bad',
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    email: 'marvel@alphaflight.gov',
+    phone: '',
+    address: '',
+    location: null,
+    attributes: [
+      { code: 'ST-CMTS', value: 'Thanos is here' },
+      { code: 'SR-AVENG', value: 'us-avengers' },
+      { code: 'MR-WHO', value: 'squirrel-girl' },
+      { code: 'MR-WHO', value: 'enigma' },
+    ],
+  };
 
-describe('questionRequirementsMet', () => {
-  let store;
-
-  beforeEach(() => {
-    store = new AppStore();
-  });
-
-  it('is true when there are no questions', () => {
-    expect(store.questionRequirementsMet).toEqual(true);
-  });
-
-  it('is false if required questions don’t have values', () => {
-    store.currentService = COSMIC_SERVICE;
-    expect(store.questionRequirementsMet).toEqual(false);
-  });
-
-  it('is true if required questions have valid values', () => {
-    store.currentService = COSMIC_SERVICE;
-
-    const avengersQuestion = store.questions.find(({ code }) => code === 'SR-AVENG');
-    if (!avengersQuestion) {
-      throw new Error('missing');
-    }
-
-    avengersQuestion.value = 'great-lakes';
-
-    expect(store.questionRequirementsMet).toEqual(true);
-  });
-
-  it('is false if required questions have invalid values', () => {
-    store.currentService = COSMIC_SERVICE;
-
-    const avengersQuestion = store.questions.find(({ code }) => code === 'SR-AVENG');
-    if (!avengersQuestion) {
-      throw new Error('missing');
-    }
-
-    avengersQuestion.value = 'fantastic-four';
-
-    expect(store.questionRequirementsMet).toEqual(false);
-  });
-
-  test('visibility of required question', () => {
-    store.currentService = COSMIC_SERVICE;
-
-    const avengersQuestion = store.questions.find(({ code }) => code === 'SR-AVENG');
-    if (!avengersQuestion) {
-      throw new Error('missing');
-    }
-
-    const whoQuestion = store.questions.find(({ code }) => code === 'MR-WHO');
-    if (!whoQuestion) {
-      throw new Error('missing');
-    }
-
-    const capQuestion = store.questions.find(({ code }) => code === 'SR-CAP');
-    if (!capQuestion) {
-      throw new Error('missing');
-    }
-
-    expect(store.questionRequirementsMet).toEqual(false);
-
-    avengersQuestion.value = 'mcu';
-    expect(store.questionRequirementsMet).toEqual(true);
-
-    whoQuestion.value = ['captain-america'];
-    expect(store.questionRequirementsMet).toEqual(false);
-
-    capQuestion.value = 'Danielle Cage';
-    expect(store.questionRequirementsMet).toEqual(true);
-  });
+  expect(loopbackGraphql).toHaveBeenCalledWith(SubmitRequestGraphql, mutationVariables);
 });

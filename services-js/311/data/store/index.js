@@ -1,17 +1,13 @@
 // @flow
 
 import { observable, computed, useStrict } from 'mobx';
-
-import type { LoopbackGraphql } from '../graphql/loopback-graphql';
 import type { Service, ServiceSummary } from '../types';
-import type { SubmitRequestMutationVariables, SubmitRequestMutation } from '../graphql/schema.flow';
-import SubmitRequestGraphql from '../graphql/SubmitRequest.graphql';
 
 import Question from './Question';
 
 useStrict(true);
 
-class ContactInfo {
+export class ContactInfo {
   @observable required: boolean = false;
   @observable firstName: string = '';
   @observable lastName: string = '';
@@ -81,43 +77,6 @@ export class AppStore {
   @computed
   get questionRequirementsMet(): boolean {
     return this.questions.filter((q) => !q.required || !q.visible || q.requirementsMet).length === this.questions.length;
-  }
-
-  submitRequest = async (loopbackGraphql: LoopbackGraphql): Promise<SubmitRequestMutation> => {
-    const { currentService, questions } = this;
-
-    if (!currentService) {
-      throw new Error('service not currently set in store');
-    }
-
-    const attributes = [];
-
-    questions.forEach(({ code, validatedValue }) => {
-      // null takes into account question visibility
-      if (validatedValue == null) {
-        return;
-      }
-
-      if (Array.isArray(validatedValue)) {
-        validatedValue.forEach((v) => { attributes.push({ code, value: v }); });
-      } else {
-        attributes.push({ code, value: validatedValue });
-      }
-    });
-
-    const vars: SubmitRequestMutationVariables = {
-      code: currentService.code,
-      description: this.description,
-      firstName: this.contactInfo.firstName,
-      lastName: this.contactInfo.lastName,
-      email: this.contactInfo.email,
-      phone: this.contactInfo.phone,
-      location: this.locationInfo.location,
-      address: this.locationInfo.address,
-      attributes,
-    };
-
-    return loopbackGraphql(SubmitRequestGraphql, vars);
   }
 }
 

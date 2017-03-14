@@ -10,8 +10,9 @@ import type { IPromiseBasedObservable } from 'mobx-utils';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../../data/store';
-import type { LoopbackGraphql } from '../../../data/graphql/loopback-graphql';
-import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
+import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
+import submitRequest from '../../../data/dao/submit-request';
+import type { SubmittedRequest } from '../../../data/types';
 
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
@@ -44,7 +45,7 @@ const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 @observer
 export default class RequestDialog extends React.Component {
   props: Props;
-  @observable submission: ?IPromiseBasedObservable<SubmitRequestMutation> = null;
+  @observable submission: ?IPromiseBasedObservable<SubmittedRequest> = null;
 
   componentWillMount() {
     const { stage, setLocationMapActive } = this.props;
@@ -82,9 +83,22 @@ export default class RequestDialog extends React.Component {
 
   @action
   submitRequest(): Promise<mixed> {
-    const { store, loopbackGraphql } = this.props;
-    const promise = store.submitRequest(loopbackGraphql);
+    const { store: { currentService, contactInfo, locationInfo, description, questions }, loopbackGraphql } = this.props;
+
+    if (!currentService) {
+      throw new Error('currentService is null in submitRequest');
+    }
+
+    const promise = submitRequest(loopbackGraphql, {
+      service: currentService,
+      description,
+      contactInfo,
+      locationInfo,
+      questions,
+    });
+
     this.submission = fromPromise(promise);
+
     return promise;
   }
 
@@ -115,7 +129,7 @@ export default class RequestDialog extends React.Component {
     if (this.submission) {
       switch (this.submission.state) {
         case 'pending': return 'Submitting…';
-        case 'fulfilled': return `Success: Case ${this.submission.value.createRequest.id}`;
+        case 'fulfilled': return `Success: Case ${this.submission.value.id}`;
         case 'rejected': return 'Submission error';
         default: return '';
       }
@@ -136,7 +150,7 @@ export default class RequestDialog extends React.Component {
     if (this.submission) {
       switch (this.submission.state) {
         case 'pending': return <SubmitPane state="submitting" />;
-        case 'fulfilled': return <SubmitPane state="success" submittedRequest={this.submission.value.createRequest} />;
+        case 'fulfilled': return <SubmitPane state="success" submittedRequest={this.submission.value} />;
         case 'rejected': return <SubmitPane state="error" error={this.submission.value} />;
         default: return '';
       }

@@ -14,13 +14,13 @@ import { LocationMapWithLib } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import RequestDialog from './request/RequestDialog';
 
-import LoadServiceGraphql from '../../data/graphql/LoadService.graphql';
-import LoadServiceSummariesGraphql from '../../data/graphql/LoadServiceSummaries.graphql';
-import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
-import type { LoopbackGraphql } from '../../data/graphql/loopback-graphql';
+import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
+import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
-import type { LoadServiceSummariesQuery, LoadServiceQuery } from '../../data/graphql/schema.flow';
-import type { ServiceArgs, Service, ServiceSummary } from '../../data/types';
+import loadServiceSummaries from '../../data/dao/load-service-summaries';
+import loadService from '../../data/dao/load-service';
+
+import type { Service, ServiceSummary } from '../../data/types';
 
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
@@ -89,10 +89,9 @@ export default class ReportLayout extends React.Component {
   }
 
   static async getHomeData(loopbackGraphql): Promise<HomeData> {
-    const response: LoadServiceSummariesQuery = await loopbackGraphql(LoadServiceSummariesGraphql);
     return {
       view: 'home',
-      serviceSummaries: response.services,
+      serviceSummaries: await loadServiceSummaries(loopbackGraphql),
     };
   }
 
@@ -100,10 +99,7 @@ export default class ReportLayout extends React.Component {
     let service = store.serviceCache.get(code);
 
     if (!service) {
-      const args: ServiceArgs = { code };
-      const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, args);
-
-      service = response.service;
+      service = await loadService(loopbackGraphql, code);
 
       if (!service && res) {
         res.statusCode = 404;

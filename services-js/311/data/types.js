@@ -5,10 +5,9 @@
 import type {
   LoadRequestQuery,
   LoadServiceQuery,
-  LoadServiceQueryVariables,
   SubmitRequestMutation,
   ServiceAttributeDatatype,
-} from './graphql/schema.flow';
+} from './dao/graphql/types';
 
 // HACK(finh): As of v0.41.0, Flow throws internal errors due something in
 // here, so we have to manually create this type. :(
@@ -39,7 +38,6 @@ export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
 //   },
 // };
 
-export type ServiceArgs = LoadServiceQueryVariables;
 export type ServiceAttribute = $ArrayElement<$PropertyType<Service, 'attributes'>>;
 export type ServiceAttributeValuesConditionSet = $PropertyType<$ArrayElement<$NonMaybeType<$PropertyType<ServiceAttribute, 'conditionalValues'>>>, 'dependentOn'>;
 export type ServiceAttributeValuesCondition = $ArrayElement<$PropertyType<ServiceAttributeValuesConditionSet, 'conditions'>>;

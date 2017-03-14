@@ -12,11 +12,9 @@ import Nav from '../common/Nav';
 import CaseView from './CaseView';
 import SearchForm from './SearchForm';
 
-import LoadRequestGraphql from '../../data/graphql/LoadRequest.graphql';
-import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
-
-import type { LoadRequestQuery, LoadRequestQueryVariables } from '../../data/graphql/schema.flow';
 import type { Request } from '../../data/types';
+import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
+import loadRequest from '../../data/dao/load-request';
 
 const CONTAINER_STYLE = css({
   display: 'flex',
@@ -44,18 +42,16 @@ export default class LookupLayout extends React.Component {
 
     if (query.q) {
       const loopbackGraphql = makeLoopbackGraphql(req);
-      const vars: LoadRequestQueryVariables = { id: query.q };
+      const request = await loadRequest(loopbackGraphql, query.q);
 
-      const response: LoadRequestQuery = await loopbackGraphql(LoadRequestGraphql, vars);
-
-      if (res && !response.request) {
+      if (res && !request) {
         res.statusCode = 404;
       }
 
       data = {
         view: 'case',
         query: query.q,
-        request: response.request,
+        request,
       };
     } else {
       data = { view: 'search' };

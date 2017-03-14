@@ -5,10 +5,11 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import RequestDialog from './RequestDialog';
 
-import type { Service } from '../../../data/types';
+import type { Service, SubmittedRequest } from '../../../data/types';
 import { AppStore } from '../../../data/store';
 
-import type { SubmitRequestMutation } from '../../../data/graphql/schema.flow';
+jest.mock('../../../data/dao/submit-request');
+const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): any).default;
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -131,7 +132,7 @@ describe('methods', () => {
         rejectGraphql = reject;
       });
 
-      store.submitRequest = (): Promise<any> => promise;
+      submitRequest.mockReturnValue(promise);
     });
 
     test('success', async () => {
@@ -141,12 +142,10 @@ describe('methods', () => {
       wrapper.update();
       expect(wrapper).toMatchSnapshot();
 
-      const result: SubmitRequestMutation = {
-        createRequest: {
-          id: 'new-request',
-          requestedAt: 1488464201,
-          status: 'open',
-        },
+      const result: SubmittedRequest = {
+        id: 'new-request',
+        requestedAt: 1488464201,
+        status: 'open',
       };
 
       resolveGraphql(result);

@@ -2,7 +2,7 @@
 
 import { computed } from 'mobx';
 
-import type { ServiceAttributeConditionalOp } from '../graphql/schema.flow';
+import type { ServiceAttributeConditionalOp } from '../dao/graphql/types';
 import type { ServiceAttributeValuesCondition } from '../types';
 
 import type Question from './Question';

@@ -3,7 +3,7 @@
 import { observable, computed } from 'mobx';
 import type { ObservableArray } from 'mobx';
 
-import type { ServiceAttributeDatatype } from '../graphql/schema.flow';
+import type { ServiceAttributeDatatype } from '../dao/graphql/types';
 import type { ServiceAttribute } from '../types';
 
 import ConditionGroup from './ConditionGroup';

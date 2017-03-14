@@ -5,45 +5,27 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Router from 'next/router';
 
+import type { Request } from '../../data/types';
 import { makeServerContext } from '../../lib/test/make-context';
-import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
-
-import LoadRequestGraphql from '../../data/graphql/LoadRequest.graphql';
-import type { LoadRequestQuery } from '../../data/graphql/schema.flow';
 
 import LookupLayout from './LookupLayout';
 
 jest.mock('next/router');
-jest.mock('../../data/graphql/loopback-graphql');
+jest.mock('../../data/dao/load-request');
 
-export const MOCK_REQUEST_RESPONSE: LoadRequestQuery = {
-  request: {
-    id: '17-000000001',
-    service: {
-      name: 'Cosmic Intervention',
-    },
-    description: 'I think that Thanos is here',
-    status: 'open',
-    address: 'City Hall Plaza, Boston, MA 02131',
-    requestedAtString: 'March 7, 2017, 12:59 PM',
-    updatedAtString: 'April 8, 2017, 12:59 PM',
+const loadRequest: JestMockFn = (require('../../data/dao/load-request'): any).default;
+
+export const MOCK_REQUEST: Request = {
+  id: '17-000000001',
+  service: {
+    name: 'Cosmic Intervention',
   },
+  description: 'I think that Thanos is here',
+  status: 'open',
+  address: 'City Hall Plaza, Boston, MA 02131',
+  requestedAtString: 'March 7, 2017, 12:59 PM',
+  updatedAtString: 'April 8, 2017, 12:59 PM',
 };
-
-const MOCK_MISSING_REQUEST_RESPONSE: LoadRequestQuery = {
-  request: null,
-};
-
-function mockGraphql(query, value) {
-  // check to make Flow happy
-  if (typeof makeLoopbackGraphql.mockResponse === 'function') {
-    makeLoopbackGraphql.mockResponse(query, value);
-  }
-}
-
-beforeEach(() => {
-  mockGraphql(LoadRequestGraphql, MOCK_REQUEST_RESPONSE);
-});
 
 describe('search form', () => {
   let data;
@@ -69,6 +51,7 @@ describe('case', () => {
   let data;
 
   beforeEach(async () => {
+    loadRequest.mockReturnValue(Promise.resolve(MOCK_REQUEST));
     const ctx = makeServerContext('/lookup', { q: 'case-id' });
     data = (await LookupLayout.getInitialProps(ctx)).data;
   });
@@ -95,8 +78,7 @@ describe('case not found', () => {
   let data;
 
   beforeEach(async () => {
-    mockGraphql(LoadRequestGraphql, MOCK_MISSING_REQUEST_RESPONSE);
-
+    loadRequest.mockReturnValue(Promise.resolve(null));
     ctx = makeServerContext('/lookup', { q: 'not-a-real-id' });
     data = (await LookupLayout.getInitialProps(ctx)).data;
   });

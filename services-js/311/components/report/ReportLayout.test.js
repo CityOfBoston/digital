@@ -9,18 +9,17 @@ import type { Service, ServiceSummary } from '../../data/types';
 
 import { makeServerContext } from '../../lib/test/make-context';
 import inBrowser from '../../lib/test/in-browser';
-import makeLoopbackGraphql from '../../data/graphql/loopback-graphql';
-
-import LoadServiceSummariesGraphql from '../../data/graphql/LoadServiceSummaries.graphql';
-import LoadServiceGraphql from '../../data/graphql/LoadService.graphql';
-import type { LoadServiceSummariesQuery, LoadServiceQuery } from '../../data/graphql/schema.flow';
 
 import getStore from '../../data/store';
 
 import ReportLayout from './ReportLayout';
 
 jest.mock('next/router');
-jest.mock('../../data/graphql/loopback-graphql');
+
+jest.mock('../../data/dao/load-service-summaries');
+jest.mock('../../data/dao/load-service');
+const loadServiceSummaries: JestMockFn = (require('../../data/dao/load-service-summaries'): any).default;
+const loadService: JestMockFn = (require('../../data/dao/load-service'): any).default;
 
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
   name: 'Cosmic Incursion',
@@ -59,38 +58,18 @@ const MOCK_SERVICE: Service = {
   }],
 };
 
-const MOCK_SERVICE_SUMMARIES_RESPONSE: LoadServiceSummariesQuery = {
-  services: MOCK_SERVICE_SUMMARIES,
-};
-
-const MOCK_SERVICE_RESPONSE: LoadServiceQuery = {
-  service: MOCK_SERVICE,
-};
-
-const MOCK_MISSING_SERVICE_RESPONSE: LoadServiceQuery = {
-  service: null,
-};
-
-function mockGraphql(query, value) {
-  // check to make Flow happy
-  if (typeof makeLoopbackGraphql.mockResponse === 'function') {
-    makeLoopbackGraphql.mockResponse(query, value);
-  }
-}
-
 let store;
 
 beforeEach(() => {
   store = getStore();
-
-  mockGraphql(LoadServiceSummariesGraphql, MOCK_SERVICE_SUMMARIES_RESPONSE);
-  mockGraphql(LoadServiceGraphql, MOCK_SERVICE_RESPONSE);
 });
 
 describe('report form', () => {
   let data;
 
   beforeEach(async () => {
+    loadServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
+
     const ctx = makeServerContext('/report');
     data = (await ReportLayout.getInitialProps(ctx)).data;
   });
@@ -113,6 +92,10 @@ describe('report form', () => {
 });
 
 describe('existing service page', () => {
+  beforeEach(() => {
+    loadService.mockReturnValue(MOCK_SERVICE);
+  });
+
   test('getInitialProps', async () => {
     const ctx = makeServerContext('/report', { code: 'CSMCINC' });
     const data = (await ReportLayout.getInitialProps(ctx)).data;
@@ -134,8 +117,7 @@ describe('existing service page', () => {
 
       // store should have the service cached by code from the beforeEach above,
       // so to enforce that we're not fetching a second time we clear this out
-      // of the fake GraphQL responses.
-      mockGraphql(LoadServiceGraphql, null);
+      loadService.mockClear();
 
       // caching happens when the layout is created
       // eslint-disable-next-line no-new
@@ -145,6 +127,7 @@ describe('existing service page', () => {
       const nextData = (await ReportLayout.getInitialProps(ctx)).data;
 
       expect(nextData).toEqual(data);
+      expect(loadService).not.toHaveBeenCalled();
     });
   });
 
@@ -164,7 +147,7 @@ describe('missing service page', () => {
   let data;
 
   beforeEach(async () => {
-    mockGraphql(LoadServiceGraphql, MOCK_MISSING_SERVICE_RESPONSE);
+    loadService.mockReturnValue(null);
 
     ctx = makeServerContext('/report', { code: 'CSMCINC' });
     data = (await ReportLayout.getInitialProps(ctx)).data;

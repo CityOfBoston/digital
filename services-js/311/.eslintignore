@@ -1,6 +1,6 @@
 /app
 /flow-typed
-/data/graphql/schema.flow.js
+/data/dao/graphql
 /graphql
 /build
 /coverage

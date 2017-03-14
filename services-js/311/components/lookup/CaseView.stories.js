@@ -4,13 +4,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 import CaseView from './CaseView';
-import { MOCK_REQUEST_RESPONSE } from './LookupLayout.test';
-
-const MOCK_REQUEST = MOCK_REQUEST_RESPONSE.request;
-if (!MOCK_REQUEST) {
-  // flow
-  throw new Error('Missing request in mock data');
-}
+import { MOCK_REQUEST } from './LookupLayout.test';
 
 storiesOf('CaseView', module)
 .add('Not found', () => (
