@@ -14,13 +14,20 @@ type Props = {
   __NEXT_DATA__: Object,
   ids: string[],
   css: string,
+  newRelicScript: string,
 };
 
 export default class extends Document {
+  props: Props;
+
   static async getInitialProps({ renderPage, req }) {
     const page = renderPage();
     const styles = renderStatic(() => page.html);
-    return { ...page, ...styles, newRelicScript: req.newRelicScript };
+    return {
+      ...page,
+      ...styles,
+      newRelicScript: req.newRelicScript || '',
+    };
   }
 
   constructor(props: Props) {
