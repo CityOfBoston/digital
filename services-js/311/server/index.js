@@ -6,14 +6,6 @@
 require('dotenv').config();
 
 const newrelic = require('newrelic');
-
-const opbeat = require('opbeat').start({
-  appId: 'dbd94d8c1a',
-  organizationId: '3a2bb4270ee94e65ac727ec16c7482e2',
-  secretToken: process.env.OPBEAT_KEY,
-  active: process.env.NODE_ENV === 'production',
-});
-
 const rollbar = require('rollbar');
 
 rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
@@ -21,7 +13,10 @@ rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
   enabled: (process.env.NODE_ENV || 'development') !== 'development',
 });
 
-require('./server').default({ opbeat, rollbar, newrelic }).catch((err) => {
+require('./server').default({ rollbar, newrelic }).catch((err) => {
+  newrelic.noticeError(err);
+  rollbar.handlerError(err);
+
   console.error('Error starting server');
   console.error(err);
 });
