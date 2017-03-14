@@ -129,19 +129,22 @@ async function processResponse(res): Promise<any> {
  */
 export default class Open311 {
   agent: any;
+  opbeat: any;
   endpoint: string;
   apiKey: string;
   serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
   requestLoader: DataLoader<string, ?ServiceRequest>;
 
-  constructor(endpoint: ?string, apiKey: ?string) {
+  constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
     if (!endpoint || !apiKey) {
       throw new Error('Must specify an api key and and endpoint');
     }
 
     this.endpoint = endpoint;
     this.apiKey = apiKey;
+
+    this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
@@ -158,6 +161,7 @@ export default class Open311 {
     });
 
     this.serviceMetadataLoader = new DataLoader(newrelic.createBackgroundTransaction('serviceMetadata', 'Open311', async (codes: string[]) => {
+      const transaction = opbeat.startTransaction('serviceMetadata', 'Open311');
       const out = await Promise.all(codes.map(async (code) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
@@ -169,11 +173,13 @@ export default class Open311 {
         return processResponse(response);
       }));
 
+      transaction.end();
       newrelic.endTransaction();
       return out;
     }));
 
     this.requestLoader = new DataLoader(newrelic.createBackgroundTransaction('request', 'Open311', async (ids: string[]) => {
+      const transaction = opbeat.startTransaction('request', 'Open311');
       const out = await Promise.all(ids.map(async (id) => {
         const params = new URLSearchParams();
         params.append('api_key', this.apiKey);
@@ -187,6 +193,7 @@ export default class Open311 {
         return requestArr ? requestArr[0] : null;
       }));
 
+      transaction.end();
       newrelic.endTransaction();
       return out;
     }));
@@ -197,6 +204,7 @@ export default class Open311 {
   }
 
   services = newrelic.createBackgroundTransaction('services', 'Open311', async () => {
+    const transaction = this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
 
@@ -205,6 +213,7 @@ export default class Open311 {
     });
 
     const out = await processResponse(response) || [];
+    transaction.end();
     newrelic.endTransaction();
     return out;
   });

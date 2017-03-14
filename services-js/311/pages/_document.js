@@ -72,8 +72,14 @@ export default class extends Document {
             <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
             <Main />
             <footer className="ft" dangerouslySetInnerHTML={{ __html: footerHtml }} />
-
           </div>
+
+          <script
+            src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"
+            data-org-id={process.env.OPBEAT_ORGANIZATION_ID}
+            data-app-id={process.env.OPBEAT_APP_ID}
+          />
+
           <NextScript />
         </body>
       </html>
