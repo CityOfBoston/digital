@@ -32,6 +32,8 @@ const DATETIME_INPUT_STYLE = css({
   fontSize: 18,
 });
 
+const LIST_AS_RADIOS = true;
+
 function currentValueAsArray(currentValue): string[] {
   if (!currentValue) {
     return [];
@@ -114,7 +116,7 @@ function renderNumberAttribute(question, onChange) {
   );
 }
 
-function renderSingleValueListAttribute(question, onChange) {
+function renderSingleValueListAttributeAsSelect(question, onChange) {
   return (
     <label key={question.code}>
       <p>{question.description} {question.required ? '(required)' : null}</p>
@@ -126,6 +128,26 @@ function renderSingleValueListAttribute(question, onChange) {
         { !question.required && <option value="">No answer</option> }
       </select>
     </label>
+  );
+}
+
+function renderSingleValueListAttributeAsRadios(question, onChange) {
+  return (
+    <div>
+      <p>{ question.description } {question.required ? '(required)' : null}</p>
+      { (question.valueOptions || []).map(({ key, name }) => (
+        <label className="ra" key={key}>
+          <input name={question.code} type="radio" value={key} className="ra-f" checked={question.value === key} onChange={onChange} />
+          <span className="ra-l">{name}</span>
+        </label>
+        ))
+      }
+      { !question.required && <label className="ra">
+        <input name={question.code} type="radio" value="" className="ra-f" checked={question.value === '' || question.value === null} onChange={onChange} />
+        <span className="ra-l">No Answer</span>
+        </label>
+      }
+    </div>
   );
 }
 
@@ -166,7 +188,7 @@ export default observer(function AttributeField({ question }: Props) {
     case 'TEXT':
       return renderTextAttribute(question, onChange);
     case 'SINGLEVALUELIST':
-      return renderSingleValueListAttribute(question, onChange);
+      return LIST_AS_RADIOS ? renderSingleValueListAttributeAsRadios(question, onChange) : renderSingleValueListAttributeAsSelect(question, onChange);
     case 'MULTIVALUELIST':
       return renderMultiValueListAttribute(question, onMultivalueList);
     default:
