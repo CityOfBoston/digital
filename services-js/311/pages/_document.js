@@ -14,19 +14,17 @@ type Props = {
   __NEXT_DATA__: Object,
   ids: string[],
   css: string,
-  newRelicScript: string,
 };
 
 export default class extends Document {
   props: Props;
 
-  static async getInitialProps({ renderPage, req }) {
+  static async getInitialProps({ renderPage }) {
     const page = renderPage();
     const styles = renderStatic(() => page.html);
     return {
       ...page,
       ...styles,
-      newRelicScript: req.newRelicScript || '',
     };
   }
 
@@ -40,12 +38,11 @@ export default class extends Document {
   }
 
   render() {
-    const { css, newRelicScript } = this.props;
+    const { css } = this.props;
 
     return (
       <html lang="en" className="js flexbox">
         <Head>
-          { newRelicScript.length > 0 && <script type="text/javascript" dangerouslySetInnerHTML={{ __html: newRelicScript }} />}
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{ __html: `

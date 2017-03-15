@@ -5,7 +5,6 @@ import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
-import newrelic from 'newrelic';
 
 // types taken from Open311
 export type Service = {|
@@ -160,7 +159,7 @@ export default class Open311 {
       return codes.map((code) => servicesByCode[code] || null);
     });
 
-    this.serviceMetadataLoader = new DataLoader(newrelic.createBackgroundTransaction('serviceMetadata', 'Open311', async (codes: string[]) => {
+    this.serviceMetadataLoader = new DataLoader(async (codes: string[]) => {
       const transaction = opbeat.startTransaction('serviceMetadata', 'Open311');
       const out = await Promise.all(codes.map(async (code) => {
         const params = new URLSearchParams();
@@ -174,11 +173,10 @@ export default class Open311 {
       }));
 
       transaction.end();
-      newrelic.endTransaction();
       return out;
-    }));
+    });
 
-    this.requestLoader = new DataLoader(newrelic.createBackgroundTransaction('request', 'Open311', async (ids: string[]) => {
+    this.requestLoader = new DataLoader(async (ids: string[]) => {
       const transaction = opbeat.startTransaction('request', 'Open311');
       const out = await Promise.all(ids.map(async (id) => {
         const params = new URLSearchParams();
@@ -194,16 +192,15 @@ export default class Open311 {
       }));
 
       transaction.end();
-      newrelic.endTransaction();
       return out;
-    }));
+    });
   }
 
   url(path: string) {
     return url.resolve(this.endpoint, path);
   }
 
-  services = newrelic.createBackgroundTransaction('services', 'Open311', async () => {
+  services = async () => {
     const transaction = this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
     params.append('api_key', this.apiKey);
@@ -214,9 +211,8 @@ export default class Open311 {
 
     const out = await processResponse(response) || [];
     transaction.end();
-    newrelic.endTransaction();
     return out;
-  });
+  };
 
   service(code: string): Promise<?Service> {
     return this.serviceLoader.load(code);

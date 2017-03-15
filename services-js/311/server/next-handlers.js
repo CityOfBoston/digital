@@ -1,7 +1,5 @@
 // @flow weak
 
-import newrelic from 'newrelic';
-
 declare class HapiResponse {
   statusCode: number,
   result: any,
@@ -14,7 +12,6 @@ type HapiInject = (options: {|
 |}) => Promise<HapiResponse>;
 
 export type RequestAdditions = {|
-  newRelicScript: string,
   hapiInject: HapiInject,
   apiKeys: {|
     google: string,
@@ -22,13 +19,7 @@ export type RequestAdditions = {|
 |}
 
 const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
-  let newRelicScript = newrelic.getBrowserTimingHeader();
-  if (newRelicScript) {
-    newRelicScript = newRelicScript.replace(/<\/?script[^<]*>/g, '');
-  }
-
   const requestAdditions: RequestAdditions = {
-    newRelicScript,
     hapiInject: server.inject.bind(server),
     apiKeys: {
       google: process.env.GOOGLE_API_KEY || '',

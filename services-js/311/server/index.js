@@ -5,8 +5,6 @@
 
 require('dotenv').config();
 
-const newrelic = require('newrelic');
-
 const opbeat = require('opbeat').start({
   appId: process.env.OPBEAT_APP_ID,
   organizationId: process.env.OPBEAT_ORGANIZATION_ID,
@@ -21,7 +19,7 @@ rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
   enabled: (process.env.NODE_ENV || 'development') !== 'development',
 });
 
-require('./server').default({ opbeat, rollbar, newrelic }).catch((err) => {
+require('./server').default({ opbeat, rollbar }).catch((err) => {
   opbeat.captureError(err, (e, url) => {
     if (e) {
       console.error('Error sending exception to Opbeat', e);
@@ -30,7 +28,6 @@ require('./server').default({ opbeat, rollbar, newrelic }).catch((err) => {
     }
   });
 
-  newrelic.noticeError(err);
   rollbar.handlerError(err);
   console.error('Error starting server');
   console.error(err);

@@ -13,7 +13,7 @@ import type { Context } from './graphql';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export default async function startServer({ rollbar, opbeat, newrelic }: any) {
+export default async function startServer({ rollbar, opbeat }: any) {
   const server = new Hapi.Server();
   const app = next({
     dev: process.env.NODE_ENV !== 'production',
@@ -59,8 +59,6 @@ export default async function startServer({ rollbar, opbeat, newrelic }: any) {
           open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'], opbeat),
         }: Context),
         formatError: (e) => {
-          newrelic.noticeError(e);
-
           opbeat.captureError(e, { request: req }, (err, url) => {
             if (err) {
               console.error('Error sending exception to Opbeat', err);
