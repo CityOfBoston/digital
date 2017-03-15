@@ -17,10 +17,18 @@ type AutocompleteService = google.maps.places.AutocompleteService;
 const CONTAINER_STYLE = css({
   position: 'absolute',
   width: '100%',
-  height: '100%',
+  top: 0,
+  bottom: 0,
+});
+
+const PHONE_STYLE = css({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 const MAP_STYLE = css({
+  flex: 1,
   width: '100%',
   height: '100%',
 });
@@ -105,6 +113,7 @@ export default class LocationMap extends React.Component {
       disableDoubleClickZoom: true,
       disableDefaultUI: true,
       draggable: active,
+      gestureHandling: 'greedy',
       scrollwheel: active,
       scaleControl: true,
       zoomControl: active,
@@ -254,8 +263,11 @@ export default class LocationMap extends React.Component {
   }
 
   render() {
+    const { store } = this.props;
+    const { isPhone } = store;
+
     return (
-      <div className={CONTAINER_STYLE}>
+      <div className={isPhone ? PHONE_STYLE : CONTAINER_STYLE}>
         <div className={MAP_STYLE} ref={this.setMapEl} />
       </div>
     );

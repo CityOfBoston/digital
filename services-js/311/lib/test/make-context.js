@@ -7,12 +7,14 @@ import type { RequestAdditions } from '../../server/next-handlers';
  * Test helper to make a `getInitialProps` context that matches what Next.js
  * will provide on the server-side.
  */
-export function makeServerContext(pathname: string, query: {[key: string]: string} = {}): Context<RequestAdditions> {
-  const req: RequestAdditions = {
+export function makeServerContext(pathname: string, query: {[key: string]: string} = {}, requestAdditions: Object = {}): Context<RequestAdditions> {
+  const req: Object = {
     hapiInject: () => { throw new Error('hapiInject is not supported in tests'); },
     apiKeys: {
       google: 'FAKE_GOOGLE_API_KEY',
     },
+    isPhone: false,
+    ...requestAdditions,
   };
 
   return {

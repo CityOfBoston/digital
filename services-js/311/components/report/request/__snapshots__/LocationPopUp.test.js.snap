@@ -4,7 +4,7 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-84wcpg": "",
+      "data-css-179g4cq": "",
     }
   }
 >
@@ -85,7 +85,7 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-84wcpg": "",
+      "data-css-179g4cq": "",
     }
   }
 >

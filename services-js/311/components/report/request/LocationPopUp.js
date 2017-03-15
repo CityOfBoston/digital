@@ -7,11 +7,15 @@ import { observer } from 'mobx-react';
 
 import type { AppStore } from '../../../data/store';
 
+import { SMALL_SCREEN } from '../../style-constants';
+
 const CONTENT_STYLE = css({
-  // padding: '0 30px 30px 30px',
   marginTop: -60,
   display: 'flex',
   flexDirection: 'column',
+  [SMALL_SCREEN]: {
+    marginTop: 0,
+  },
 });
 
 const HEADING_STYLE = css({

@@ -27,7 +27,7 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
 
     return {
       ...initialProps,
-      initialStoreState: req ? { apiKeys: req.apiKeys } : null,
+      initialStoreState: req ? { apiKeys: req.apiKeys, isPhone: req.isPhone } : null,
     };
   }
 

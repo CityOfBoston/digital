@@ -140,6 +140,26 @@ describe('existing service page', () => {
 
     expect(component.toJSON()).toMatchSnapshot();
   });
+
+  test('rendering phone', async () => {
+    const ctx = makeServerContext('/report', { code: 'CSMCINC' }, { isPhone: true });
+    const data = (await ReportLayout.getInitialProps(ctx)).data;
+    const component = renderer.create(
+      <ReportLayout data={data} store={store} />,
+    );
+
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+
+  test('rendering phone location step', async () => {
+    const ctx = makeServerContext('/report', { code: 'CSMCINC', stage: 'location' }, { isPhone: true });
+    const data = (await ReportLayout.getInitialProps(ctx)).data;
+    const component = renderer.create(
+      <ReportLayout data={data} store={store} />,
+    );
+
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 });
 
 describe('missing service page', () => {

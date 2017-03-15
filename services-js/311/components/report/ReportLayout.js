@@ -48,10 +48,12 @@ export type Props = {
 const CONTAINER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh',
+  minHeight: 'calc(100vh - 65px)',
 });
 
 const CONTENT_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
   flex: 1,
   position: 'relative',
 });
@@ -193,17 +195,20 @@ export default class ReportLayout extends React.Component {
   render() {
     const { data, store } = this.props;
     const { locationMapActive, locationMapSearch } = this.state;
+    const { isPhone } = store;
 
     return (
       <div className={CONTAINER_STYLE}>
         <Nav />
 
         <div className={CONTENT_STYLE}>
-          <LocationMapWithLib
-            store={store}
-            setLocationMapSearch={this.setLocationMapSearch}
-            active={locationMapActive}
-          />
+          { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
+            <LocationMapWithLib
+              store={store}
+              setLocationMapSearch={this.setLocationMapSearch}
+              active={locationMapActive}
+            />
+          }
           { data.view === 'home' &&
             <HomeDialog
               store={store}

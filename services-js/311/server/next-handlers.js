@@ -1,6 +1,7 @@
 // @flow weak
 
 import compression from 'compression';
+import MobileDetect from 'mobile-detect';
 
 declare class HapiResponse {
   statusCode: number,
@@ -18,14 +19,20 @@ export type RequestAdditions = {|
   apiKeys: {|
     google: string,
   |},
+  isPhone: boolean,
 |}
 
 const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
+  const md = new MobileDetect(req.headers['user-agent']);
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
     apiKeys: {
       google: process.env.GOOGLE_API_KEY || '',
     },
+    // We detect this through user-agent because we want different HTML layout
+    // for small devices (e.g. not rendering the map until you hit the
+    // location page).
+    isPhone: !!md.phone(),
   };
 
   Object.assign(req, requestAdditions);

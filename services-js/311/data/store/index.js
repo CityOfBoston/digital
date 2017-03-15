@@ -46,6 +46,7 @@ export class AppStore {
   serviceCache: Map<string, Service> = observable.shallowMap({});
 
   apiKeys: {[service: string]: string} = {};
+  isPhone: boolean = false;
 
   @observable.ref _currentService: ?Service = null;
   @observable.ref currentServiceError: ?Object = null;
