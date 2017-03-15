@@ -45,11 +45,6 @@ exports[`case not found rendering 1`] = `
   >
     <div
       className="sh sh--y"
-      style={
-        Object {
-          "marginBottom": 40,
-        }
-      }
     >
       <h2
         className="sh-title"
@@ -119,11 +114,6 @@ exports[`case rendering 1`] = `
   >
     <div
       className="sh sh--y"
-      style={
-        Object {
-          "marginBottom": 40,
-        }
-      }
     >
       <h2
         className="sh-title"

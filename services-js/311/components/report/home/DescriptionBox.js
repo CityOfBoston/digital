@@ -5,6 +5,7 @@ import { css } from 'glamor';
 
 export type ValueProps = {
   text: string,
+  style?: Object,
 };
 
 export type ActionProps = {
@@ -14,10 +15,8 @@ export type ActionProps = {
 export type Props = ValueProps & ActionProps;
 
 const TEXTAREA_STYLE = css({
-  width: '70%',
-  height: 222,
-  margin: '0 40px 40px 0',
   display: 'block',
+  width: '100%',
   fontFamily: '"Lora", Georgia, serif',
   fontSize: 28,
   fontStyle: 'italic',
@@ -28,8 +27,8 @@ const TEXTAREA_STYLE = css({
   lineHeight: '45px',
 });
 
-export default function DescriptionBox({ text, onInput }: Props) {
+export default function DescriptionBox({ text, style, onInput }: Props) {
   return (
-    <textarea className={TEXTAREA_STYLE} name="description" placeholder="How can we help?" defaultValue={text} onInput={onInput} />
+    <textarea className={css(TEXTAREA_STYLE, style)} name="description" placeholder="How can we help?" defaultValue={text} onInput={onInput} />
   );
 }

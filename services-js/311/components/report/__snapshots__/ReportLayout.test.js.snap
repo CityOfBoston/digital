@@ -53,7 +53,7 @@ exports[`existing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-1f2iwx6": "",
+            "data-css-1fz8tjx": "",
           }
         }
       >
@@ -212,17 +212,12 @@ exports[`missing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-1f2iwx6": "",
+            "data-css-1fz8tjx": "",
           }
         }
       >
         <div
           className="sh sh--y"
-          style={
-            Object {
-              "marginBottom": 40,
-            }
-          }
         >
           <h2
             className="sh-title"
@@ -282,17 +277,12 @@ exports[`report form rendering 1`] = `
     <div
       className={
         Object {
-          "data-css-1f2iwx6": "",
+          "data-css-1fz8tjx": "",
         }
       }
     >
       <div
         className="sh sh--y"
-        style={
-          Object {
-            "marginBottom": 40,
-          }
-        }
       >
         <h2
           className="sh-title"
@@ -303,14 +293,14 @@ exports[`report form rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-9sglvw": "",
+            "data-css-1xfudx": "",
           }
         }
       >
         <textarea
           className={
             Object {
-              "data-css-1j8x7ul": "",
+              "data-css-1kc88za": "",
             }
           }
           defaultValue=""
