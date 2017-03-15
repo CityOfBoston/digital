@@ -3,6 +3,15 @@
 exports[`blank request 1`] = `
 <div>
   <div
+    className="sh sh--y"
+  >
+    <h2
+      className="sh-title"
+    >
+      Cosmic Incursion
+    </h2>
+  </div>
+  <div
     className={
       Object {
         "data-css-dgukzt": "",
@@ -24,6 +33,15 @@ exports[`blank request 1`] = `
 
 exports[`existing description 1`] = `
 <div>
+  <div
+    className="sh sh--y"
+  >
+    <h2
+      className="sh-title"
+    >
+      Cosmic Incursion
+    </h2>
+  </div>
   <div
     className={
       Object {
@@ -57,6 +75,15 @@ exports[`existing description 1`] = `
 
 exports[`service with metadata 1`] = `
 <div>
+  <div
+    className="sh sh--y"
+  >
+    <h2
+      className="sh-title"
+    >
+      Cosmic Incursion
+    </h2>
+  </div>
   <div
     className={
       Object {

@@ -4,6 +4,7 @@ import React from 'react';
 import { css } from 'glamor';
 import { observer } from 'mobx-react';
 
+import SectionHeader from '../../common/SectionHeader';
 import AttributeField from './AttributeField';
 
 import type { AppStore, LocationInfo } from '../../../data/store';
@@ -41,17 +42,21 @@ function renderLocation({ address }: LocationInfo) {
 }
 
 export default observer(function QuestionsPane({ store, nextFunc }: Props) {
+  const { currentService, description, locationInfo, questions, questionRequirementsMet } = store;
+
   return (
     <div>
-      { renderDescription(store.description) }
-      { renderLocation(store.locationInfo) }
+      <SectionHeader>{ currentService ? currentService.name : '' }</SectionHeader>
+
+      { renderDescription(description) }
+      { renderLocation(locationInfo) }
 
       {
-        store.questions.map((q) => <AttributeField key={q.code} question={q} />)
+        questions.map((q) => <AttributeField key={q.code} question={q} />)
       }
 
       <div>
-        <button onClick={nextFunc} disabled={!store.questionRequirementsMet}>Next</button>
+        <button onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
       </div>
     </div>
   );
