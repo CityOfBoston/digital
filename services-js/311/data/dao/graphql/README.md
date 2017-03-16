@@ -1,3 +1,5 @@
+## dao/graphql
+
 This directory contains .graphql files for the GraphQL queries and mutations
 used by action creators in the services directory.
 
@@ -7,9 +9,9 @@ changes, but you can run `yarn clear-babel-cache` if you are seeing stale
 queries.
 
 These files are split out so that the `apollo-codegen` utility can create
-Flow types for them, which are available in the schema.flow.js file.
+Flow types for them, which are available in the types.js file.
 
-Run `yarn generate-graphql-flow` to create schema.flow.js.
+Run `yarn generate-graphql-flow` to create types.js.
 
 The .graphql files are loaded as modules that export strings by the
 `babel-plugin-inline-import` plugin, registered in .babelrc. (We use babel

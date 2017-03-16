@@ -22,12 +22,12 @@ framework for server-side rendering.
 
 ### Getting started
 
- 1) Get the Open311 api_key and URL from a friend
- 1) Visit https://developers.google.com/maps/web/ and get a Google API key
- 1) Copy `.env.sample` to `.env` and fill in the endpoint and keys
- 1) `yarn install`
- 1) `yarn dev`
- 1) Visit <http://localhost:3000/> in your browser
+ 1. Get the Open311 api_key and URL from a friend
+ 1. Visit https://developers.google.com/maps/web/ and get a Google API key
+ 1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
+ 1. `yarn install`
+ 1. `yarn dev`
+ 1. Visit <http://localhost:3000/> in your browser
 
 ### JavaScript
 
@@ -82,7 +82,7 @@ Server-only code, including the GraphQL schema and resolvers, is in the
 
 After modifying the schema, make sure to run `yarn generate-schema && yarn
 generate-graphql-flow` to update `schema.json` and the Flow types in
-`schema.flow.js`.
+`data/dao/graphql/types.js`.
 
 **Backend debugging with Charles:**
 `env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ yarn dev`
@@ -90,12 +90,11 @@ generate-graphql-flow` to update `schema.json` and the Flow types in
 ### Frontend
 
 The Next.js framework turns components in the `/pages` directory into entry
-points for the app.
+points for the app. These are wrapped in higher-order components to provide
+common setup for our store and Glamor CSS setup.
 
-The Redux store is configured in the `/store` directory. Its reducers and
-actions are specified in domain-specific files under `/store/modules`, in the
-spirit of the [ducks pattern](https://github.com/erikras/ducks-modular-redux)
-for Redux.
+The MobX store is configured in the `/data/store` directory. Access to the
+GraphQL backend is mediated through the function modules in `/data/dao`.
 
 Components and containers are organized under `/components` by page.
 

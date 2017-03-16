@@ -1,6 +1,6 @@
 // @flow
 
-import fetch from 'isomorphic-fetch';
+import 'isomorphic-fetch';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 type QueryVariables = { [key: string]: any };
@@ -43,7 +43,12 @@ async function clientGraphqlFetch(query, variables = null) {
     }),
   });
 
-  return handleGraphqlResponse(res.ok, await res.json());
+  if (res.ok) {
+    // only assume we can json if the response is ok
+    return handleGraphqlResponse(true, await res.json());
+  } else {
+    throw new Error(await res.text());
+  }
 }
 
 async function serverGraphqlFetch(hapiInject, query, variables = null) {
@@ -77,6 +82,11 @@ export default function makeLoopbackGraphql(req: ?RequestAdditions): LoopbackGra
     return clientGraphqlFetch;
   } else if (req) {
     return serverGraphqlFetch.bind(null, req.hapiInject);
+  } else {
+    // This case comes up when components make a loopbackGraphql outside of
+    // getInitialProps but during server rendering. We don't error immediately
+    // because the same codepath will run on the client, but we will error if
+    // the component tries to perform a fetch during server rendering.
+    return serverRenderGraphqlFetch;
   }
-  return serverRenderGraphqlFetch;
 }

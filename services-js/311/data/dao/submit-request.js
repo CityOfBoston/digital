@@ -15,6 +15,10 @@ type Args = {|
   questions: Question[],
 |};
 
+// Submits a new request to the backend based on the given arguments. These
+// are taken from Store but are split out to clarify what values are necessary.
+//
+// Only submits valid values for the questions.
 export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   service,
   description,
@@ -31,6 +35,8 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
     }
 
     if (Array.isArray(validatedValue)) {
+      // Format for MULTIVALUELIST questions is to repeat the key in several
+      // key/value pairs.
       validatedValue.forEach((v) => { attributes.push({ code, value: v }); });
     } else {
       attributes.push({ code, value: validatedValue });
