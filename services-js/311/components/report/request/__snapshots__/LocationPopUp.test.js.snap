@@ -43,7 +43,7 @@ exports[`rendering renders with an address 1`] = `
       }
       onInput={[Function]}
       placeholder="Search for another address…"
-      type="text"
+      type="search"
       value=""
     />
     <button
@@ -115,7 +115,7 @@ exports[`rendering renders without an address 1`] = `
       }
       onInput={[Function]}
       placeholder="Search for an address…"
-      type="text"
+      type="search"
       value=""
     />
     <button

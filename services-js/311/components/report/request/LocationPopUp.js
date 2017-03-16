@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable } from 'mobx';
+import { observable, action, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { AppStore } from '../../../data/store';
@@ -87,7 +87,8 @@ export default class LocationPopUp extends React.Component {
   props: Props;
   @observable addressQuery: string = '';
 
-  whenSearchInput = (ev: SyntheticInputEvent) => {
+  @action.bound
+  whenSearchInput(ev: SyntheticInputEvent) {
     this.addressQuery = ev.target.value;
   }
 
@@ -102,7 +103,9 @@ export default class LocationPopUp extends React.Component {
 
     const found = await addressSearch(this.addressQuery);
     if (found) {
-      this.addressQuery = '';
+      runInAction('whenSearchSubmit success', () => {
+        this.addressQuery = '';
+      });
     }
   }
 
@@ -120,7 +123,7 @@ export default class LocationPopUp extends React.Component {
             onInput={this.whenSearchInput}
             value={this.addressQuery}
             placeholder={address ? 'Search for another address…' : 'Search for an address…'}
-            type="text"
+            type="search"
           />
           <button type="submit" disabled={this.addressQuery.length === 0 || !addressSearch}>Search</button>
         </form>

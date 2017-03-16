@@ -261,7 +261,7 @@ exports[`rendering location 1`] = `
           }
           onInput={[Function]}
           placeholder="Search for an address…"
-          type="text"
+          type="search"
           value=""
         />
         <button
