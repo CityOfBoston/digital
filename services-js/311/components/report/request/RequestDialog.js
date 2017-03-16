@@ -101,6 +101,7 @@ export default class RequestDialog extends React.Component {
       questions,
     });
 
+    window.scrollTo(0, 0);
     this.submission = fromPromise(promise);
 
     return promise;
