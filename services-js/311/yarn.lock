@@ -3078,9 +3078,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@^0.41.0:
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.41.0.tgz#8badac9a19da45004997e599bd316518db489b2e"
+flow-bin@^0.42.0:
+  version "0.42.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.42.0.tgz#05dd754b6b052de7b150f9210e2160746961e3cf"
 
 for-in@^0.1.5:
   version "0.1.6"
@@ -5924,13 +5924,7 @@ react-modal@^1.2.0, react-modal@^1.2.1:
     exenv "1.2.0"
     lodash.assign "^4.2.0"
 
-react-proxy@^3.0.0-alpha.0, "react-proxy@https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-v3.0.0-alpha.1.tgz":
-  version "3.0.0-alpha.1"
-  resolved "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-v3.0.0-alpha.1.tgz#5b54594a78d87e95a0eff9ecba238ee47a2aa715"
-  dependencies:
-    lodash "^4.6.1"
-
-"react-proxy@https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz":
+react-proxy@^3.0.0-alpha.0, "react-proxy@https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz":
   version "3.0.0-alpha.1"
   resolved "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz#91066726b6a476791b2b8a5cf379919f9e8431da"
   dependencies:

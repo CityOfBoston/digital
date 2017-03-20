@@ -96,7 +96,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "fetch-mock": "^5.9.4",
-    "flow-bin": "^0.41.0",
+    "flow-bin": "^0.42.0",
     "husky": "^0.13.1",
     "jest": "^19.0.2",
     "jsverify": "^0.7.4",
