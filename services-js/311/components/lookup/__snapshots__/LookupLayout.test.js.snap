@@ -2,14 +2,10 @@
 
 exports[`case not found rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-awku5i": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -174,14 +170,10 @@ exports[`case not found rendering 1`] = `
 
 exports[`case rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-awku5i": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -403,14 +395,10 @@ exports[`case rendering 1`] = `
 
 exports[`search form rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-awku5i": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}

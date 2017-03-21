@@ -2,14 +2,10 @@
 
 exports[`existing service page rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ze4mz1": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -270,14 +266,10 @@ exports[`existing service page rendering 1`] = `
 
 exports[`existing service page rendering phone 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ze4mz1": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -538,14 +530,10 @@ exports[`existing service page rendering phone 1`] = `
 
 exports[`existing service page rendering phone location step 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ze4mz1": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -705,14 +693,10 @@ exports[`existing service page rendering phone location step 1`] = `
 
 exports[`missing service page rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ze4mz1": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}
@@ -827,14 +811,10 @@ exports[`missing service page rendering 1`] = `
 
 exports[`report form rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ze4mz1": "",
-    }
-  }
+  className="mn mn--full mn--nv-s"
 >
   <nav
-    className="nv-s nv-s--y"
+    className="nv-s nv-s--y nv-s--sticky"
   >
     <input
       aria-hidden={true}

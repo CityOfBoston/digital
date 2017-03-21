@@ -47,12 +47,6 @@ export type Props = {
   store: AppStore,
 } & InitialProps;
 
-const CONTAINER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: 'calc(100vh - 65px)',
-});
-
 const CONTENT_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
@@ -209,7 +203,7 @@ export default class ReportLayout extends React.Component {
     const { isPhone } = store;
 
     return (
-      <div className={CONTAINER_STYLE}>
+      <div className="mn mn--full mn--nv-s">
         <Nav activeSection="report" />
 
         <div className={CONTENT_STYLE}>

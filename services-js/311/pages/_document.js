@@ -66,12 +66,12 @@ export default class extends Document {
           <nav className="nv-m" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
           <input type="checkbox" id="brg-tr" className="brg-tr" aria-hidden="true" />
 
-          <div className="mn">
-            <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
-            <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
-            <Main />
-            <footer className="ft" dangerouslySetInnerHTML={{ __html: footerHtml }} />
-          </div>
+          <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
+          <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
+
+          <Main />
+
+          <footer className="ft" dangerouslySetInnerHTML={{ __html: footerHtml }} />
 
           <script
             src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"

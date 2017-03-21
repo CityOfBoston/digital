@@ -20,7 +20,7 @@ function renderNavItem({ href, as, title }, active) {
 
 export default function Nav({ activeSection }: Props) {
   return (
-    <nav className="nv-s nv-s--y">
+    <nav className="nv-s nv-s--y nv-s--sticky">
       <input type="checkbox" id="nv-s-tr" className="nv-s-tr" aria-hidden />
 
       <ul className="nv-s-l">

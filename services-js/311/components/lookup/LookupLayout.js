@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
 import type { Context } from 'next';
 import Head from 'next/head';
 import Router from 'next/router';
@@ -15,12 +14,6 @@ import SearchForm from './SearchForm';
 import type { Request } from '../../data/types';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import loadRequest from '../../data/dao/load-request';
-
-const CONTAINER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: '100vh',
-});
 
 type SearchData = {
   view: 'search',
@@ -67,7 +60,7 @@ export default class LookupLayout extends React.Component {
 
   render() {
     return (
-      <div className={CONTAINER_STYLE}>
+      <div className="mn mn--full mn--nv-s">
         <Head>
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
