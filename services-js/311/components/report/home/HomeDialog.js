@@ -9,6 +9,7 @@ import { css } from 'glamor';
 import type { AppStore } from '../../../data/store';
 
 import FormDialog from '../../common/FormDialog';
+import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from './DescriptionBox';
 import ServiceList from './ServiceList';
 
@@ -23,10 +24,12 @@ const BOX_STYLE = css({
 
 export default observer(function HomeDialog({ store, routeToServiceForm }: Props) {
   return (
-    <FormDialog title="311: Boston City Services">
+    <FormDialog>
       <Head>
         <title>BOS:311 — Report a Problem</title>
       </Head>
+
+      <SectionHeader>311: Boston City Services</SectionHeader>
 
       <div className="m-v500">
         <div className="g">
