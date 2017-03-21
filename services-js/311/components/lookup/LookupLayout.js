@@ -106,7 +106,7 @@ export default class LookupLayout extends React.Component {
       case 'case': {
         const { query, request } = data;
         return (
-          <CaseView query={query} request={request} />
+          <CaseView searchFunc={this.search} query={query} request={request} />
         );
       }
       default:

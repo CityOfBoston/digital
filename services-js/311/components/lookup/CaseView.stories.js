@@ -11,11 +11,13 @@ storiesOf('CaseView', module)
   <CaseView
     query="kittens"
     request={null}
+    searchFunc={async () => {}}
   />
 ))
 .add('Exists', () => (
   <CaseView
     query={MOCK_REQUEST.id}
     request={MOCK_REQUEST}
+    searchFunc={async () => {}}
   />
 ));

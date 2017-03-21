@@ -15,12 +15,20 @@ const CONTAINER_STYLE = css({
 });
 
 export type Props = {
+  fromCaseView?: boolean,
   searchFunc: (q: string) => Promise<void>,
 };
+
+export type DefaultProps = {
+  fromCaseView: boolean,
+}
 
 @observer
 export default class SearchForm extends React.Component {
   props: Props;
+  static defaultProps: DefaultProps = {
+    fromCaseView: false,
+  };
 
   @observable query: string = '';
 
@@ -37,11 +45,13 @@ export default class SearchForm extends React.Component {
   }
 
   render() {
+    const { fromCaseView } = this.props;
+
     return (
-      <div className={CONTAINER_STYLE}>
-        <form className="sf sf--y" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.onSubmit}>
+      <div className={fromCaseView ? null : CONTAINER_STYLE}>
+        <form className={`sf sf--y ${fromCaseView ? 'sf--md' : ''}`} acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.onSubmit}>
           <div className="sf-i">
-            <input type="text" name="q" placeholder="Search case ID…" value={this.query} onInput={this.onInput} className="sf-i-f" />
+            <input type="text" name="q" placeholder={fromCaseView ? 'Search again…' : 'Search case ID…'} value={this.query} onInput={this.onInput} className="sf-i-f" />
             <button className="sf-i-b">Search</button>
           </div>
         </form>

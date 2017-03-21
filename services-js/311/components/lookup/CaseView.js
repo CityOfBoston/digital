@@ -7,10 +7,12 @@ import Link from 'next/link';
 import type { Request } from '../../data/types';
 
 import SectionHeader from '../common/SectionHeader';
+import SearchForm from './SearchForm';
 
 export type Props = {
   query: string,
   request: ?Request,
+  searchFunc: (q: string) => Promise<void>,
 }
 
 const CONTAINER_STYLE = css({
@@ -21,15 +23,44 @@ const RESULT_STYLE = css({
   padding: '0px 60px',
 });
 
-function renderMissingRequest(query: string) {
+const STEP_OVERRIDE_STYLE = css({
+  margin: '5rem 0 6rem',
+  textTransform: 'none !important',
+});
+
+const NUMBER_OVERRIDE_STYLE = css({
+  marginRight: '1.5rem !important',
+});
+
+const SECOND_NUMBER_OVERRIDE_STYLE = css(NUMBER_OVERRIDE_STYLE, {
+  alignSelf: 'flex-start',
+  marginTop: 3,
+});
+
+function renderMissingRequest(query, searchFunc) {
   return (
-    <p>Case “{query}” not found</p>
+    <div>
+      <p className="t--info">There is no case number matching “{query}”.</p>
+
+      <div className={`step ${STEP_OVERRIDE_STYLE.toString()}`}>
+        <span className={`step-number ${NUMBER_OVERRIDE_STYLE.toString()}`}>1</span>
+        <SearchForm fromCaseView searchFunc={searchFunc} />
+      </div>
+
+      <div className={`step ${STEP_OVERRIDE_STYLE.toString()}`}>
+        <span className={`step-number ${SECOND_NUMBER_OVERRIDE_STYLE.toString()}`}>2</span>
+        <span className="t--intro">
+          Our 311 operators are available 24/7 to help point you <br />
+          in the right direction. Call <a href="tel:311">311</a>, or <a href="tel:+16176354500">617-635-4500</a>.
+        </span>
+      </div>
+    </div>
   );
 }
 
 function renderRequest(request: Request) {
   return (
-    <div>
+    <div className={RESULT_STYLE}>
       <h3 className="t--intro m-v500">Case Number: <span className="t--number">{request.id}</span></h3>
       <hr className="hr hr--dash m-v300" />
       <div className="g">
@@ -73,14 +104,17 @@ function renderRequest(request: Request) {
   );
 }
 
-export default function CaseView({ query, request }: Props) {
+function renderHeaderText(request: ?Request): string {
+  return request ? 'Case Search' : 'No results found';
+}
+
+export default function CaseView({ query, request, searchFunc }: Props) {
   return (
     <div className={CONTAINER_STYLE}>
-      <SectionHeader>Case Search</SectionHeader>
-      <div className={RESULT_STYLE}>
-        { !request && renderMissingRequest(query) }
-        { request && renderRequest(request) }
-      </div>
+      <SectionHeader>{renderHeaderText(request)}</SectionHeader>
+
+      { !request && renderMissingRequest(query, searchFunc) }
+      { request && renderRequest(request) }
     </div>
   );
 }
