@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import type Question from '../../../data/store/Question';
@@ -9,28 +8,6 @@ import type Question from '../../../data/store/Question';
 export type Props = {
   question: Question;
 };
-
-const TEXT_TEXTAREA_STYLE = css({
-  width: '100%',
-  height: 180,
-});
-
-const TEXT_INPUT_STYLE = css({
-  width: '100%',
-  padding: 10,
-  fontSize: 18,
-});
-
-const NUMBER_INPUT_STYLE = css({
-  padding: 10,
-  fontSize: 18,
-  textAlign: 'right',
-});
-
-const DATETIME_INPUT_STYLE = css({
-  padding: 10,
-  fontSize: 18,
-});
 
 const LIST_AS_RADIOS = true;
 
@@ -62,7 +39,7 @@ function renderMultiValueListAttribute(question, onChange) {
 
   return (
     <div>
-      { question.description }
+      <span className="txt-l">{ question.description }</span>
       { (question.valueOptions || []).map(({ key, name }) => (
         <label className="cb" key={key}>
           <input name={question.code} type="checkbox" value={key} className="cb-f" checked={values.indexOf(key) !== -1} onChange={onChange} />
@@ -76,50 +53,50 @@ function renderMultiValueListAttribute(question, onChange) {
 
 function renderDatetimeAttribute(question, onChange) {
   return (
-    <label key={question.code}>
-      <p>{question.description} {question.required ? '(required)' : null}</p>
-      <input type="date" name={question.code} className={DATETIME_INPUT_STYLE} value={question.value} onChange={onChange} />
+    <label className="txt">
+      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <input type="date" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
 }
 
 function renderInformationalAttribute(question) {
   return (
-    <p key={question.code}>{question.description}</p>
+    <p className="t--info">{question.description}</p>
   );
 }
 
 function renderTextAttribute(question, onChange) {
   return (
-    <label key={question.code}>
-      <p>{question.description} {question.required ? '(required)' : null}</p>
-      <textarea name={question.code} className={TEXT_TEXTAREA_STYLE} value={question.value} onChange={onChange} />
+    <label className="txt">
+      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <textarea name={question.code} className="txt-f" value={question.value} onChange={onChange} rows="5" />
     </label>
   );
 }
 
 function renderStringAttribute(question, onChange) {
   return (
-    <label key={question.code}>
-      <p>{question.description} {question.required ? '(required)' : null}</p>
-      <input type="text" name={question.code} className={TEXT_INPUT_STYLE} value={question.value} onChange={onChange} />
+    <label className="txt">
+      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <input type="text" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
 }
 
 function renderNumberAttribute(question, onChange) {
   return (
-    <label key={question.code}>
-      <p>{question.description} {question.required ? '(required)' : null}</p>
-      <input type="number" name={question.code} className={NUMBER_INPUT_STYLE} value={question.value} onChange={onChange} />
+    <label className="txt">
+      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <input type="number" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
 }
 
 function renderSingleValueListAttributeAsSelect(question, onChange) {
   return (
-    <label key={question.code}>
-      <p>{question.description} {question.required ? '(required)' : null}</p>
+    <label>
+      <span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span>
       <select name={question.code} onChange={onChange} value={question.value}>
         <option disabled selected={question.value === null}>Please choose</option>
         <option disabled>--------------------------</option>
@@ -134,7 +111,7 @@ function renderSingleValueListAttributeAsSelect(question, onChange) {
 function renderSingleValueListAttributeAsRadios(question, onChange) {
   return (
     <div>
-      <p>{ question.description } {question.required ? '(required)' : null}</p>
+      <span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span>
       { (question.valueOptions || []).map(({ key, name }) => (
         <label className="ra" key={key}>
           <input name={question.code} type="radio" value={key} className="ra-f" checked={question.value === key} onChange={onChange} />
@@ -180,6 +157,7 @@ export default observer(function AttributeField({ question }: Props) {
     case 'INFORMATIONAL':
       return renderInformationalAttribute(question);
     case 'DATETIME':
+    case 'DATE':
       return renderDatetimeAttribute(question, onChange);
     case 'STRING':
       return renderStringAttribute(question, onChange);

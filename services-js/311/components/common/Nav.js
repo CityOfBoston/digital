@@ -1,33 +1,38 @@
 import React from 'react';
-import { css } from 'glamor';
 
 import Link from 'next/link';
 
-const STYLE = {
-  nav: css({
-    backgroundColor: 'black',
-    color: 'white',
-    textTransform: 'uppercase',
-    padding: 10,
-    flexShrink: 0,
-    display: 'flex',
-    justifyContent: 'flex-end',
+export type Props = {
+  activeSection: 'report' | 'lookup' | 'go' | 'faq',
+}
 
-    '& a': {
-      color: 'white',
-      textDecoration: 'none',
-      margin: '0 10px',
-    },
-  }),
-};
-
-export default function Nav() {
+function renderNavItem({ href, as, title }, active) {
   return (
-    <div className={`nav ft-ll ${STYLE.nav}`}>
-      <Link prefetch href="/report" as="/"><a>Report a problem</a></Link>
-      <Link prefetch href="/lookup"><a>Case look up</a></Link>
-      <Link prefetch href="/go"><a>311 on the go</a></Link>
-      <Link prefetch href="/faq"><a>FAQ</a></Link>
-    </div>
+    <li className="nv-s-l-i">
+      <Link href={href} as={as}>
+        <a className={`nv-s-l-a ${active ? 'nv-s-l-a--active' : ''}`}>
+          {title}
+        </a>
+      </Link>
+    </li>
+  );
+}
+
+export default function Nav({ activeSection }: Props) {
+  return (
+    <nav className="nv-s nv-s--y">
+      <input type="checkbox" id="nv-s-tr" className="nv-s-tr" aria-hidden />
+
+      <ul className="nv-s-l">
+        <li className="nv-s-l-i">
+          <label htmlFor="nv-s-tr" className="nv-s-l-b" type="button">Navigation</label>
+        </li>
+
+        { renderNavItem({ href: '/report', as: '/', title: 'Report a problem' }, activeSection === 'report')}
+        { renderNavItem({ href: '/lookup', title: 'Case look up' }, activeSection === 'lookup')}
+        { renderNavItem({ href: '/go', title: '311 on the go' }, activeSection === 'go')}
+        { renderNavItem({ href: '/faq', title: 'FAQ' }, activeSection === 'faq')}
+      </ul>
+    </nav>
   );
 }

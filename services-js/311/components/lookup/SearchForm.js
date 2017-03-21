@@ -39,7 +39,7 @@ export default class SearchForm extends React.Component {
   render() {
     return (
       <div className={CONTAINER_STYLE}>
-        <form className="sf" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.onSubmit}>
+        <form className="sf sf--y" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.onSubmit}>
           <div className="sf-i">
             <input type="text" name="q" placeholder="Search case ID…" value={this.query} onInput={this.onInput} className="sf-i-f" />
             <button className="sf-i-b">Search</button>

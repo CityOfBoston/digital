@@ -4,23 +4,23 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-179g4cq": "",
+      "data-css-n3n77q": "",
     }
   }
 >
   <h3
-    className={
-      Object {
-        "data-css-4ptjc6": "",
-      }
-    }
+    className="t--info"
   >
     Where is the problem happening?
   </h3>
+  <hr
+    className="hr hr--dash"
+  />
   <div
-    className={
+    className="addr addr--s"
+    style={
       Object {
-        "data-css-dgukzt": "",
+        "whiteSpace": "pre-line",
       }
     }
   >
@@ -28,55 +28,48 @@ exports[`rendering renders with an address 1`] = `
     Boston, MA
   </div>
   <form
-    className={
-      Object {
-        "data-css-19lcmdn": "",
-      }
-    }
+    className="sf sf--sm sf--y m-v300"
     onSubmit={[Function]}
   >
-    <input
-      className={
-        Object {
-          "data-css-1rqhb6b": "",
-        }
-      }
-      onInput={[Function]}
-      placeholder="Search for another address…"
-      type="search"
-      value=""
-    />
-    <button
-      disabled={true}
-      type="submit"
+    <div
+      className="sf-i"
     >
-      Search
-    </button>
+      <input
+        className="sf-i-f"
+        onInput={[Function]}
+        placeholder="Search for another address…"
+        type="text"
+        value=""
+      />
+      <button
+        className="sf-i-b"
+        disabled={true}
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
   </form>
   <div
-    className={
-      Object {
-        "data-css-19e7ai6": "",
-      }
-    }
+    className="g css-1k8tu3j"
   >
+    <div
+      className="g--6"
+    >
+      <a
+        href="javascript:void(0)"
+        onClick={[Function]}
+      >
+        Continue without location
+      </a>
+    </div>
     <button
-      className={
-        Object {
-          "data-css-1wppbi7": "",
-        }
-      }
+      className="btn g--6"
       disabled={false}
       onClick={[Function]}
     >
       Next
     </button>
-    <a
-      href="javascript:void(0)"
-      onClick={[Function]}
-    >
-      Continue without location
-    </a>
   </div>
 </div>
 `;
@@ -85,70 +78,62 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-179g4cq": "",
+      "data-css-n3n77q": "",
     }
   }
 >
   <h3
-    className={
-      Object {
-        "data-css-4ptjc6": "",
-      }
-    }
+    className="t--info"
   >
     Where is the problem happening?
   </h3>
+  <hr
+    className="hr hr--dash"
+  />
   
   <form
-    className={
-      Object {
-        "data-css-19lcmdn": "",
-      }
-    }
+    className="sf sf--sm sf--y m-v300"
     onSubmit={[Function]}
   >
-    <input
-      className={
-        Object {
-          "data-css-1rqhb6b": "",
-        }
-      }
-      onInput={[Function]}
-      placeholder="Search for an address…"
-      type="search"
-      value=""
-    />
-    <button
-      disabled={true}
-      type="submit"
+    <div
+      className="sf-i"
     >
-      Search
-    </button>
+      <input
+        className="sf-i-f"
+        onInput={[Function]}
+        placeholder="Search for an address…"
+        type="text"
+        value=""
+      />
+      <button
+        className="sf-i-b"
+        disabled={true}
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
   </form>
   <div
-    className={
-      Object {
-        "data-css-19e7ai6": "",
-      }
-    }
+    className="g css-1k8tu3j"
   >
+    <div
+      className="g--6"
+    >
+      <a
+        href="javascript:void(0)"
+        onClick={[Function]}
+      >
+        Continue without location
+      </a>
+    </div>
     <button
-      className={
-        Object {
-          "data-css-1wppbi7": "",
-        }
-      }
+      className="btn g--6"
       disabled={true}
       onClick={[Function]}
     >
       Next
     </button>
-    <a
-      href="javascript:void(0)"
-      onClick={[Function]}
-    >
-      Continue without location
-    </a>
   </div>
 </div>
 `;

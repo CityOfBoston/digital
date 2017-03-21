@@ -44,7 +44,7 @@ test('searching', () => {
     <LocationPopUp store={store} {...ACTIONS} />,
   );
 
-  const inputWrapper = wrapper.find('input[type="search"]').first();
+  const inputWrapper = wrapper.find('input[type="text"]').first();
   inputWrapper.simulate('input', { target: { value: 'City Hall' } });
   expect(inputWrapper.getDOMNode().value).toEqual('City Hall');
 

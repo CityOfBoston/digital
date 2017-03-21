@@ -2,25 +2,11 @@
 
 exports[`services 1`] = `
 <ul
-  className={
-    Object {
-      "data-css-18escyg": "",
-    }
-  }
+  className="ul"
 >
-  <li
-    className={
-      Object {
-        "data-css-14nloni": "",
-      }
-    }
-  >
+  <li>
     <a
-      className={
-        Object {
-          "data-css-3br7c8": "",
-        }
-      }
+      className="t--sans tt-u"
       href="/report/CSMCINC"
       onClick={[Function]}
     >

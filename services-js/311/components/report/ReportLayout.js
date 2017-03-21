@@ -14,6 +14,8 @@ import { LocationMapWithLib } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import RequestDialog from './request/RequestDialog';
 
+import { LARGE_SCREEN } from '../style-constants';
+
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
@@ -56,6 +58,14 @@ const CONTENT_STYLE = css({
   flexDirection: 'column',
   flex: 1,
   position: 'relative',
+});
+
+// Puts a little spacing around the dialog, which has auto left/right margins.
+// Lets the map show through on large screens.
+const DIALONG_WRAPPER_STYLE = css({
+  [LARGE_SCREEN]: {
+    padding: '0 40px',
+  },
 });
 
 
@@ -199,7 +209,7 @@ export default class ReportLayout extends React.Component {
 
     return (
       <div className={CONTAINER_STYLE}>
-        <Nav />
+        <Nav activeSection="report" />
 
         <div className={CONTENT_STYLE}>
           { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
@@ -209,20 +219,22 @@ export default class ReportLayout extends React.Component {
               active={locationMapActive}
             />
           }
-          { data.view === 'home' &&
-            <HomeDialog
-              store={store}
-              routeToServiceForm={this.routeToServiceForm}
-            /> }
-          { data.view === 'request' &&
-            <RequestDialog
-              store={store}
-              stage={data.stage}
-              locationMapSearch={locationMapSearch}
-              loopbackGraphql={this.loopbackGraphql}
-              routeToServiceForm={this.routeToServiceForm}
-              setLocationMapActive={this.setLocationMapActive}
-            />}
+          <div className={DIALONG_WRAPPER_STYLE}>
+            { data.view === 'home' &&
+              <HomeDialog
+                store={store}
+                routeToServiceForm={this.routeToServiceForm}
+              /> }
+            { data.view === 'request' &&
+              <RequestDialog
+                store={store}
+                stage={data.stage}
+                locationMapSearch={locationMapSearch}
+                loopbackGraphql={this.loopbackGraphql}
+                routeToServiceForm={this.routeToServiceForm}
+                setLocationMapActive={this.setLocationMapActive}
+              />}
+          </div>
         </div>
       </div>
     );

@@ -4,120 +4,118 @@ exports[`blank request 1`] = `
 <div>
   <div>
     <h2
-      className={
-        Object {
-          "data-css-16pm9zd": "",
-        }
-      }
+      className="step"
     >
-      CONTACT FORM
+      Contact Form
     </h2>
     <div
-      className={
-        Object {
-          "data-css-1w0rge6": "",
-        }
-      }
+      className="t--info"
     >
       (will not be shared with public; leave blank to submit anonymously)
     </div>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         First Name 
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        type="text"
         value=""
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Last Name 
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        type="text"
         value=""
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Email
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="email"
         onChange={[Function]}
         placeholder="Email"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
         type="email"
         value=""
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Phone
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="phone"
         onChange={[Function]}
         placeholder="Phone"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
         type="tel"
         value=""
       />
     </label>
   </div>
-  <button
-    disabled={false}
-    onClick={[Function]}
+  <div
+    className="g"
   >
-    Submit
-  </button>
+    <div
+      className="g--9"
+    />
+    <button
+      className="btn g--33 m-v300"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </div>
 </div>
 `;
 
@@ -125,119 +123,117 @@ exports[`filled request 1`] = `
 <div>
   <div>
     <h2
-      className={
-        Object {
-          "data-css-16pm9zd": "",
-        }
-      }
+      className="step"
     >
-      CONTACT FORM
+      Contact Form
     </h2>
     <div
-      className={
-        Object {
-          "data-css-1w0rge6": "",
-        }
-      }
+      className="t--info"
     >
       (will not be shared with public; leave blank to submit anonymously)
     </div>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         First Name 
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        type="text"
         value="Carol"
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Last Name 
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        type="text"
         value="Danvers"
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Email
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="email"
         onChange={[Function]}
         placeholder="Email"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
         type="email"
         value="marvel@alphaflight.gov"
       />
     </label>
     <label
-      className={
-        Object {
-          "data-css-12a7iqv": "",
-        }
-      }
+      className="txt"
     >
-      <span>
+      <span
+        className="txt-l"
+      >
         Phone
       </span>
       <input
-        className={
-          Object {
-            "data-css-b35x0h": "",
-          }
-        }
+        className="txt-f"
         name="phone"
         onChange={[Function]}
         placeholder="Phone"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
         type="tel"
         value="6175551234"
       />
     </label>
   </div>
-  <button
-    disabled={false}
-    onClick={[Function]}
+  <div
+    className="g"
   >
-    Submit
-  </button>
+    <div
+      className="g--9"
+    />
+    <button
+      className="btn g--33 m-v300"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </div>
 </div>
 `;

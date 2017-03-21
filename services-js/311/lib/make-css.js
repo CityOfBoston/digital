@@ -11,6 +11,13 @@ export default function makeCss(css: ?string) {
       <link href={href} key={href} type="text/css" rel="stylesheet" />
     )),
 
+    <style type="text/css" key="default">{`
+      body {
+        color: #58585B;
+        font-family: Lora, serif;
+      }
+    `}</style>,
+
     css && <style type="text/css" key="static" dangerouslySetInnerHTML={{ __html: css }} />,
   ];
 }

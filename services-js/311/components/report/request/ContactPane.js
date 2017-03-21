@@ -1,51 +1,19 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { AppStore } from '../../../data/store';
 
+const FIELD_STYLE = {
+  width: '100%',
+};
+
 export type Props = {
   store: AppStore,
   nextFunc: () => void,
 }
-
-const CONTACT_HEADER_STYLE = css({
-  fontSize: 30,
-  textTransform: 'uppercase',
-  marginTop: 20,
-});
-
-const CONTACT_SUBHEADER_STYLE = css({
-  fontFamily: '"Lora", Georgia, serif',
-  fontStyle: 'italic',
-  fontSize: 22,
-  marginBottom: 20,
-});
-
-const CONTACT_LABEL_STYLE = css({
-  display: 'block',
-  marginBottom: 15,
-  '& > span': {
-    display: 'block',
-    textTransform: 'uppercase',
-    fontSize: 12,
-    letterSpacing: 1,
-    marginBottom: 2,
-  },
-});
-
-const TEXT_INPUT_STYLE = css({
-  border: '3px solid black',
-  padding: 20,
-  display: 'block',
-  fontFamily: '"Lora", Georgia, serif',
-  fontStyle: 'italic',
-  fontSize: 18,
-  width: '100%',
-});
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
   const { firstName, lastName, email, phone, required, requirementsMet } = store.contactInfo;
@@ -74,31 +42,34 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
   return (
     <div>
       <div>
-        <h2 className={CONTACT_HEADER_STYLE}>CONTACT FORM</h2>
-        <div className={CONTACT_SUBHEADER_STYLE}>(will not be shared with public; leave blank to submit anonymously)</div>
+        <h2 className="step">Contact Form</h2>
+        <div className="t--info">(will not be shared with public; leave blank to submit anonymously)</div>
 
-        <label className={CONTACT_LABEL_STYLE}>
-          <span>First Name {required && '(required)'}</span>
-          <input className={TEXT_INPUT_STYLE} placeholder="First Name" name="firstName" value={firstName} onChange={onChange} />
+        <label className="txt">
+          <span className="txt-l">First Name {required && '(required)'}</span>
+          <input type="text" className="txt-f" placeholder="First Name" name="firstName" value={firstName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
-        <label className={CONTACT_LABEL_STYLE}>
-          <span>Last Name {required && '(required)'}</span>
-          <input className={TEXT_INPUT_STYLE} placeholder="Last Name" name="lastName" value={lastName} onChange={onChange} />
+        <label className="txt">
+          <span className="txt-l">Last Name {required && '(required)'}</span>
+          <input type="text" className="txt-f" placeholder="Last Name" name="lastName" value={lastName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
-        <label className={CONTACT_LABEL_STYLE}>
-          <span>Email</span>
-          <input className={TEXT_INPUT_STYLE} type="email" placeholder="Email" name="email" value={email} onChange={onChange} />
+        <label className="txt">
+          <span className="txt-l">Email</span>
+          <input className="txt-f" type="email" placeholder="Email" name="email" value={email} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
-        <label className={CONTACT_LABEL_STYLE}>
-          <span>Phone</span>
-          <input className={TEXT_INPUT_STYLE} type="tel" placeholder="Phone" name="phone" value={phone} onChange={onChange} />
+        <label className="txt">
+          <span className="txt-l">Phone</span>
+          <input className="txt-f" type="tel" placeholder="Phone" name="phone" value={phone} onChange={onChange} style={FIELD_STYLE} />
         </label>
       </div>
 
-      <button onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
+      <div className="g">
+        <div className="g--9" />
+        <button className="btn g--33 m-v300" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
+      </div>
     </div>
   );
 });

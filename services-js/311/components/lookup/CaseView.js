@@ -21,40 +21,6 @@ const RESULT_STYLE = css({
   padding: '0px 60px',
 });
 
-const HEADER_STYLE = css({
-  fontSize: 30,
-  fontStyle: 'italic',
-  marginBottom: 40,
-});
-
-const TABLE_CONTAINER_STYLE = css({
-  display: 'flex',
-  width: '100%',
-  flexDirection: 'row',
-  alignItems: 'stretch',
-});
-
-const TABLE_STYLE = css({
-  flex: 1,
-  marginRight: 60,
-});
-
-const ID_STYLE = css({
-  fontWeight: 'bold',
-  fontStyle: 'normal',
-});
-
-const BUTTON_LINK_STYLE = css({
-  display: 'inline-block',
-  fontFamily: '"Montserrat", Arial, sans-serif',
-  backgroundColor: '#f3a536',
-  marginTop: 60,
-  color: 'black',
-  textDecoration: 'none',
-  textTransform: 'uppercase',
-  padding: '20px 30px',
-});
-
 function renderMissingRequest(query: string) {
   return (
     <p>Case “{query}” not found</p>
@@ -64,9 +30,10 @@ function renderMissingRequest(query: string) {
 function renderRequest(request: Request) {
   return (
     <div>
-      <h3 className={HEADER_STYLE}>Case Number: <span className={ID_STYLE}>{request.id}</span></h3>
-      <div className={TABLE_CONTAINER_STYLE}>
-        <ul className={`dl ${TABLE_STYLE.toString()}`}>
+      <h3 className="t--intro m-v500">Case Number: <span className="t--number">{request.id}</span></h3>
+      <hr className="hr hr--dash m-v300" />
+      <div className="g">
+        <ul className="dl g--6">
           <li className="dl-i">
             <span className="dl-t">Opened</span>
             <span className="dl-d">{ request.requestedAtString }</span>
@@ -89,7 +56,7 @@ function renderRequest(request: Request) {
           </li>
         </ul>
 
-        <ul className={`dl ${TABLE_STYLE.toString()}`}>
+        <ul className="dl g--6">
           <li className="dl-i">
             <span className="dl-t">Description</span>
             <span className="dl-d">{ request.description }</span>
@@ -97,7 +64,11 @@ function renderRequest(request: Request) {
         </ul>
       </div>
 
-      <Link href="/lookup"><a className={BUTTON_LINK_STYLE}>Back to Search</a></Link>
+      <div className="m-v500">
+        <div className="g">
+          <Link href="/lookup"><a className="g--33 ta-c btn btn--y">Back to Search</a></Link>
+        </div>
+      </div>
     </div>
   );
 }

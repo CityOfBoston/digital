@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Head from 'next/head';
+import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@kadira/storybook';
 
@@ -14,6 +15,7 @@ const headManager = new HeadManager();
 class Wrapper extends React.Component {
   static childContextTypes = {
     headManager: PropTypes.object,
+    router: PropTypes.object,
   }
 
   constructor() {
@@ -30,7 +32,10 @@ class Wrapper extends React.Component {
   }
 
   getChildContext() {
-    return { headManager: this.props.headManager };
+    return {
+      headManager: this.props.headManager,
+      router: Router,
+    };
   }
 
   render() {

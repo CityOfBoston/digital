@@ -10,69 +10,15 @@ import type { AppStore } from '../../../data/store';
 import { SMALL_SCREEN } from '../../style-constants';
 
 const CONTENT_STYLE = css({
-  marginTop: -60,
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'stretch',
   [SMALL_SCREEN]: {
     marginTop: 0,
   },
 });
 
-const HEADING_STYLE = css({
-  fontFamily: '"Lora", Georgia, serif',
-  fontSize: 18,
-  fontStyle: 'italic',
-  borderBottom: '2px dashed #999',
-  padding: '15px 0',
-  marginBottom: 0,
-});
-
-const ADDRESS_STYLE = css({
-  textTransform: 'uppercase',
-  whiteSpace: 'pre-line',
-  margin: '30px 0 0',
-  fontSize: 16,
-  fontWeight: 'bold',
-});
-
-const SEARCH_FORM_STYLE = css({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-});
-
-const SEARCH_BOX_STYLE = css({
-  margin: '30px 0',
-  borderTop: 'none',
-  borderLeft: 'none',
-  borderRight: 'none',
-  borderBottom: '3px solid black',
-  paddingBottom: 8,
-  fontFamily: '"Lora", Georgia, serif',
-  fontSize: 18,
-  fontStyle: 'italic',
-  flex: 1,
-});
-
-const BUTTON_STYLE = css({
-  padding: '10px 0',
-  width: '50%',
-  alignSelf: 'flex-end',
-  backgroundColor: '#308de1',
-  border: 'none',
-  color: 'white',
-  fontWeight: 'bold',
-  fontSize: 16,
-
-  '&:disabled': {
-    backgroundColor: '#aaa',
-  },
-});
-
 const BUTTON_ROW_STYLE = css({
-  display: 'flex',
-  flexDirection: 'row-reverse',
-  justifyContent: 'space-between',
   alignItems: 'center',
 });
 
@@ -115,23 +61,31 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={CONTENT_STYLE}>
-        <h3 className={HEADING_STYLE}>Where is the problem happening?</h3>
-        { address && <div className={ADDRESS_STYLE}>{ address }</div> }
-        <form className={SEARCH_FORM_STYLE} onSubmit={this.whenSearchSubmit}>
-          <input
-            className={SEARCH_BOX_STYLE}
-            onInput={this.whenSearchInput}
-            value={this.addressQuery}
-            placeholder={address ? 'Search for another address…' : 'Search for an address…'}
-            type="search"
-          />
-          <button type="submit" disabled={this.addressQuery.length === 0 || !addressSearch}>Search</button>
+        <h3 className="t--info">Where is the problem happening?</h3>
+
+        <hr className="hr hr--dash" />
+
+        { address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
+
+        <form className="sf sf--sm sf--y m-v300" onSubmit={this.whenSearchSubmit}>
+          <div className="sf-i">
+            <input
+              className="sf-i-f"
+              onInput={this.whenSearchInput}
+              value={this.addressQuery}
+              placeholder={address ? 'Search for another address…' : 'Search for an address…'}
+              type="text"
+            />
+
+            <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0 || !addressSearch}>Search</button>
+          </div>
         </form>
 
-        <div className={BUTTON_ROW_STYLE}>
-          <button className={BUTTON_STYLE} disabled={!requirementsMet} onClick={nextFunc}>Next</button>
-
-          { !required && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
+        <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
+          <div className="g--6">
+            { !required && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
+          </div>
+          <button className="btn g--6" disabled={!requirementsMet} onClick={nextFunc}>Next</button>
         </div>
       </div>
     );

@@ -52,11 +52,12 @@ export default observer(function QuestionsPane({ store, nextFunc }: Props) {
       { renderLocation(locationInfo) }
 
       {
-        questions.map((q) => <AttributeField key={q.code} question={q} />)
+        questions.map((q) => <div key={q.code}><AttributeField question={q} /></div>)
       }
 
-      <div>
-        <button onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
+      <div className="g">
+        <div className="g--9" />
+        <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
       </div>
     </div>
   );

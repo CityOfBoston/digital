@@ -72,7 +72,7 @@ export default class LookupLayout extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <Nav />
+        <Nav activeSection="lookup" />
 
         {this.renderContent()}
       </div>

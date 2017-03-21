@@ -14,7 +14,9 @@ exports[`methods submitRequest graphql failure 1`] = `
       Submission error
     </title>
   </SideEffect(Head)>
-  <FormDialog>
+  <FormDialog
+    small={false}
+  >
     <SubmitPane
       error={[Error: Error submitting]}
       state="error"
@@ -37,7 +39,9 @@ exports[`methods submitRequest success 1`] = `
       Submitting…
     </title>
   </SideEffect(Head)>
-  <FormDialog>
+  <FormDialog
+    small={false}
+  >
     <SubmitPane
       state="submitting"
     />
@@ -59,7 +63,9 @@ exports[`methods submitRequest success 2`] = `
       Success: Case new-request
     </title>
   </SideEffect(Head)>
-  <FormDialog>
+  <FormDialog
+    small={false}
+  >
     <SubmitPane
       state="success"
       submittedRequest={
@@ -83,131 +89,130 @@ exports[`rendering contact 1`] = `
   }
 >
   <div
-    className={
+    className="br br-t400 br--y css-27fzcj"
+    style={
       Object {
-        "data-css-1fz8tjx": "",
+        "padding": 40,
       }
     }
   >
     <div>
       <div>
         <h2
-          className={
-            Object {
-              "data-css-16pm9zd": "",
-            }
-          }
+          className="step"
         >
-          CONTACT FORM
+          Contact Form
         </h2>
         <div
-          className={
-            Object {
-              "data-css-1w0rge6": "",
-            }
-          }
+          className="t--info"
         >
           (will not be shared with public; leave blank to submit anonymously)
         </div>
         <label
-          className={
-            Object {
-              "data-css-12a7iqv": "",
-            }
-          }
+          className="txt"
         >
-          <span>
+          <span
+            className="txt-l"
+          >
             First Name 
             (required)
           </span>
           <input
-            className={
-              Object {
-                "data-css-b35x0h": "",
-              }
-            }
+            className="txt-f"
             name="firstName"
             onChange={[Function]}
             placeholder="First Name"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+            type="text"
             value=""
           />
         </label>
         <label
-          className={
-            Object {
-              "data-css-12a7iqv": "",
-            }
-          }
+          className="txt"
         >
-          <span>
+          <span
+            className="txt-l"
+          >
             Last Name 
             (required)
           </span>
           <input
-            className={
-              Object {
-                "data-css-b35x0h": "",
-              }
-            }
+            className="txt-f"
             name="lastName"
             onChange={[Function]}
             placeholder="Last Name"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+            type="text"
             value=""
           />
         </label>
         <label
-          className={
-            Object {
-              "data-css-12a7iqv": "",
-            }
-          }
+          className="txt"
         >
-          <span>
+          <span
+            className="txt-l"
+          >
             Email
           </span>
           <input
-            className={
-              Object {
-                "data-css-b35x0h": "",
-              }
-            }
+            className="txt-f"
             name="email"
             onChange={[Function]}
             placeholder="Email"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
             type="email"
             value=""
           />
         </label>
         <label
-          className={
-            Object {
-              "data-css-12a7iqv": "",
-            }
-          }
+          className="txt"
         >
-          <span>
+          <span
+            className="txt-l"
+          >
             Phone
           </span>
           <input
-            className={
-              Object {
-                "data-css-b35x0h": "",
-              }
-            }
+            className="txt-f"
             name="phone"
             onChange={[Function]}
             placeholder="Phone"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
             type="tel"
             value=""
           />
         </label>
       </div>
-      <button
-        disabled={true}
-        onClick={[Function]}
+      <div
+        className="g"
       >
-        Submit
-      </button>
+        <div
+          className="g--9"
+        />
+        <button
+          className="btn g--33 m-v300"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -222,68 +227,60 @@ exports[`rendering location 1`] = `
   }
 >
   <div
-    className={
+    className="br br-t400 br--y css-27fzcj"
+    style={
       Object {
-        "data-css-1fz8tjx": "",
+        "padding": 20,
       }
     }
   >
     <div
       className={
         Object {
-          "data-css-179g4cq": "",
+          "data-css-n3n77q": "",
         }
       }
     >
       <h3
-        className={
-          Object {
-            "data-css-4ptjc6": "",
-          }
-        }
+        className="t--info"
       >
         Where is the problem happening?
       </h3>
+      <hr
+        className="hr hr--dash"
+      />
       
       <form
-        className={
-          Object {
-            "data-css-19lcmdn": "",
-          }
-        }
+        className="sf sf--sm sf--y m-v300"
         onSubmit={[Function]}
       >
-        <input
-          className={
-            Object {
-              "data-css-1rqhb6b": "",
-            }
-          }
-          onInput={[Function]}
-          placeholder="Search for an address…"
-          type="search"
-          value=""
-        />
-        <button
-          disabled={true}
-          type="submit"
+        <div
+          className="sf-i"
         >
-          Search
-        </button>
+          <input
+            className="sf-i-f"
+            onInput={[Function]}
+            placeholder="Search for an address…"
+            type="text"
+            value=""
+          />
+          <button
+            className="sf-i-b"
+            disabled={true}
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
       </form>
       <div
-        className={
-          Object {
-            "data-css-19e7ai6": "",
-          }
-        }
+        className="g css-1k8tu3j"
       >
+        <div
+          className="g--6"
+        />
         <button
-          className={
-            Object {
-              "data-css-1wppbi7": "",
-            }
-          }
+          className="btn g--6"
           disabled={true}
           onClick={[Function]}
         >
@@ -304,9 +301,10 @@ exports[`rendering questions 1`] = `
   }
 >
   <div
-    className={
+    className="br br-t400 br--y css-27fzcj"
+    style={
       Object {
-        "data-css-1fz8tjx": "",
+        "padding": 40,
       }
     }
   >
@@ -329,116 +327,131 @@ exports[`rendering questions 1`] = `
       >
         
       </div>
-      <label>
-        <p>
-          Please provide any other relevant information:
-           
-        </p>
-        <textarea
-          className={
-            Object {
-              "data-css-1bm19ha": "",
-            }
-          }
-          name="ST-CMTS"
-          onChange={[Function]}
-          value=""
-        />
-      </label>
-      <label>
-        <p>
-          **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
-           
-        </p>
-        <input
-          className={
-            Object {
-              "data-css-rqg0fb": "",
-            }
-          }
-          name="INFO-CSIRMV1"
-          onChange={[Function]}
-          type="text"
-          value=""
-        />
-      </label>
       <div>
-        <p>
-          How many dimensions have been breached?
-           
-          (required)
-        </p>
         <label
-          className="ra"
+          className="txt"
         >
-          <input
-            checked={false}
-            className="ra-f"
-            name="SR-CSIRMV1"
-            onChange={[Function]}
-            type="radio"
-            value="One"
-          />
           <span
-            className="ra-l"
+            className="txt-l"
           >
-            One
+            Please provide any other relevant information:
+             
           </span>
-        </label>
-        <label
-          className="ra"
-        >
-          <input
-            checked={false}
-            className="ra-f"
-            name="SR-CSIRMV1"
+          <textarea
+            className="txt-f"
+            name="ST-CMTS"
             onChange={[Function]}
-            type="radio"
-            value="Two"
+            rows="5"
+            value=""
           />
-          <span
-            className="ra-l"
-          >
-            Two
-          </span>
-        </label>
-        <label
-          className="ra"
-        >
-          <input
-            checked={false}
-            className="ra-f"
-            name="SR-CSIRMV1"
-            onChange={[Function]}
-            type="radio"
-            value="Three"
-          />
-          <span
-            className="ra-l"
-          >
-            Three
-          </span>
-        </label>
-        <label
-          className="ra"
-        >
-          <input
-            checked={false}
-            className="ra-f"
-            name="SR-CSIRMV1"
-            onChange={[Function]}
-            type="radio"
-            value="More than Three"
-          />
-          <span
-            className="ra-l"
-          >
-            More than Three
-          </span>
         </label>
       </div>
       <div>
+        <label
+          className="txt"
+        >
+          <span
+            className="txt-l"
+          >
+            **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
+             
+          </span>
+          <input
+            className="txt-f"
+            name="INFO-CSIRMV1"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </label>
+      </div>
+      <div>
+        <div>
+          <span
+            className="txt-l"
+          >
+            How many dimensions have been breached?
+             
+            (required)
+          </span>
+          <label
+            className="ra"
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="SR-CSIRMV1"
+              onChange={[Function]}
+              type="radio"
+              value="One"
+            />
+            <span
+              className="ra-l"
+            >
+              One
+            </span>
+          </label>
+          <label
+            className="ra"
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="SR-CSIRMV1"
+              onChange={[Function]}
+              type="radio"
+              value="Two"
+            />
+            <span
+              className="ra-l"
+            >
+              Two
+            </span>
+          </label>
+          <label
+            className="ra"
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="SR-CSIRMV1"
+              onChange={[Function]}
+              type="radio"
+              value="Three"
+            />
+            <span
+              className="ra-l"
+            >
+              Three
+            </span>
+          </label>
+          <label
+            className="ra"
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="SR-CSIRMV1"
+              onChange={[Function]}
+              type="radio"
+              value="More than Three"
+            />
+            <span
+              className="ra-l"
+            >
+              More than Three
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="g"
+      >
+        <div
+          className="g--9"
+        />
         <button
+          className="btn g--33"
           disabled={true}
           onClick={[Function]}
         >

@@ -8,34 +8,75 @@ exports[`case not found rendering 1`] = `
     }
   }
 >
-  <div
-    className="nav ft-ll css-gf15pf"
+  <nav
+    className="nv-s nv-s--y"
   >
-    <a
-      href="/"
-      onClick={[Function]}
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
     >
-      Report a problem
-    </a>
-    <a
-      href="/lookup"
-      onClick={[Function]}
-    >
-      Case look up
-    </a>
-    <a
-      href="/go"
-      onClick={[Function]}
-    >
-      311 on the go
-    </a>
-    <a
-      href="/faq"
-      onClick={[Function]}
-    >
-      FAQ
-    </a>
-  </div>
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/lookup"
+          onClick={[Function]}
+        >
+          Case look up
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/go"
+          onClick={[Function]}
+        >
+          311 on the go
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div
     className={
       Object {
@@ -77,34 +118,75 @@ exports[`case rendering 1`] = `
     }
   }
 >
-  <div
-    className="nav ft-ll css-gf15pf"
+  <nav
+    className="nv-s nv-s--y"
   >
-    <a
-      href="/"
-      onClick={[Function]}
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
     >
-      Report a problem
-    </a>
-    <a
-      href="/lookup"
-      onClick={[Function]}
-    >
-      Case look up
-    </a>
-    <a
-      href="/go"
-      onClick={[Function]}
-    >
-      311 on the go
-    </a>
-    <a
-      href="/faq"
-      onClick={[Function]}
-    >
-      FAQ
-    </a>
-  </div>
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/lookup"
+          onClick={[Function]}
+        >
+          Case look up
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/go"
+          onClick={[Function]}
+        >
+          311 on the go
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div
     className={
       Object {
@@ -130,32 +212,23 @@ exports[`case rendering 1`] = `
     >
       <div>
         <h3
-          className={
-            Object {
-              "data-css-1md1it5": "",
-            }
-          }
+          className="t--intro m-v500"
         >
           Case Number: 
           <span
-            className={
-              Object {
-                "data-css-89xru3": "",
-              }
-            }
+            className="t--number"
           >
             17-000000001
           </span>
         </h3>
+        <hr
+          className="hr hr--dash m-v300"
+        />
         <div
-          className={
-            Object {
-              "data-css-muvs8w": "",
-            }
-          }
+          className="g"
         >
           <ul
-            className="dl css-1que147"
+            className="dl g--6"
           >
             <li
               className="dl-i"
@@ -229,7 +302,7 @@ exports[`case rendering 1`] = `
             </li>
           </ul>
           <ul
-            className="dl css-1que147"
+            className="dl g--6"
           >
             <li
               className="dl-i"
@@ -247,17 +320,21 @@ exports[`case rendering 1`] = `
             </li>
           </ul>
         </div>
-        <a
-          className={
-            Object {
-              "data-css-uavu6e": "",
-            }
-          }
-          href="/lookup"
-          onClick={[Function]}
+        <div
+          className="m-v500"
         >
-          Back to Search
-        </a>
+          <div
+            className="g"
+          >
+            <a
+              className="g--33 ta-c btn btn--y"
+              href="/lookup"
+              onClick={[Function]}
+            >
+              Back to Search
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -272,34 +349,75 @@ exports[`search form rendering 1`] = `
     }
   }
 >
-  <div
-    className="nav ft-ll css-gf15pf"
+  <nav
+    className="nv-s nv-s--y"
   >
-    <a
-      href="/"
-      onClick={[Function]}
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
     >
-      Report a problem
-    </a>
-    <a
-      href="/lookup"
-      onClick={[Function]}
-    >
-      Case look up
-    </a>
-    <a
-      href="/go"
-      onClick={[Function]}
-    >
-      311 on the go
-    </a>
-    <a
-      href="/faq"
-      onClick={[Function]}
-    >
-      FAQ
-    </a>
-  </div>
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/lookup"
+          onClick={[Function]}
+        >
+          Case look up
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/go"
+          onClick={[Function]}
+        >
+          311 on the go
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div
     className={
       Object {
@@ -310,7 +428,7 @@ exports[`search form rendering 1`] = `
     <form
       acceptCharset="UTF-8"
       action="/lookup"
-      className="sf"
+      className="sf sf--y"
       method="get"
       onSubmit={[Function]}
     >
