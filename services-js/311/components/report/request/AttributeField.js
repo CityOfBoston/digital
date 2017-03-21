@@ -9,8 +9,6 @@ export type Props = {
   question: Question;
 };
 
-const LIST_AS_RADIOS = true;
-
 function currentValueAsArray(currentValue): string[] {
   if (!currentValue) {
     return [];
@@ -39,7 +37,7 @@ function renderMultiValueListAttribute(question, onChange) {
 
   return (
     <div>
-      <span className="txt-l">{ question.description }</span>
+      <div className="m-v200"><span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span></div>
       { (question.valueOptions || []).map(({ key, name }) => (
         <label className="cb" key={key}>
           <input name={question.code} type="checkbox" value={key} className="cb-f" checked={values.indexOf(key) !== -1} onChange={onChange} />
@@ -52,6 +50,15 @@ function renderMultiValueListAttribute(question, onChange) {
 }
 
 function renderDatetimeAttribute(question, onChange) {
+  return (
+    <label className="txt">
+      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <input type="datetime-local" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
+    </label>
+  );
+}
+
+function renderDateAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
@@ -93,25 +100,10 @@ function renderNumberAttribute(question, onChange) {
   );
 }
 
-function renderSingleValueListAttributeAsSelect(question, onChange) {
-  return (
-    <label>
-      <span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span>
-      <select name={question.code} onChange={onChange} value={question.value}>
-        <option disabled selected={question.value === null}>Please choose</option>
-        <option disabled>--------------------------</option>
-        {(question.valueOptions || []).map(({ key, name }) => <option value={key} key={key}>{name}</option>)}
-        { !question.required && <option disabled>--------------------------</option> }
-        { !question.required && <option value="">No answer</option> }
-      </select>
-    </label>
-  );
-}
-
 function renderSingleValueListAttributeAsRadios(question, onChange) {
   return (
     <div>
-      <span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span>
+      <div className="m-v200"><span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span></div>
       { (question.valueOptions || []).map(({ key, name }) => (
         <label className="ra" key={key}>
           <input name={question.code} type="radio" value={key} className="ra-f" checked={question.value === key} onChange={onChange} />
@@ -157,8 +149,9 @@ export default observer(function AttributeField({ question }: Props) {
     case 'INFORMATIONAL':
       return renderInformationalAttribute(question);
     case 'DATETIME':
-    case 'DATE':
       return renderDatetimeAttribute(question, onChange);
+    case 'DATE':
+      return renderDateAttribute(question, onChange);
     case 'STRING':
       return renderStringAttribute(question, onChange);
     case 'NUMBER':
@@ -166,7 +159,7 @@ export default observer(function AttributeField({ question }: Props) {
     case 'TEXT':
       return renderTextAttribute(question, onChange);
     case 'SINGLEVALUELIST':
-      return LIST_AS_RADIOS ? renderSingleValueListAttributeAsRadios(question, onChange) : renderSingleValueListAttributeAsSelect(question, onChange);
+      return renderSingleValueListAttributeAsRadios(question, onChange);
     case 'MULTIVALUELIST':
       return renderMultiValueListAttribute(question, onMultivalueList);
     default:

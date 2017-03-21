@@ -367,13 +367,17 @@ exports[`rendering questions 1`] = `
       </div>
       <div>
         <div>
-          <span
-            className="txt-l"
+          <div
+            className="m-v200"
           >
-            How many dimensions have been breached?
-             
-            (required)
-          </span>
+            <span
+              className="txt-l"
+            >
+              How many dimensions have been breached?
+               
+              (required)
+            </span>
+          </div>
           <label
             className="ra"
           >
