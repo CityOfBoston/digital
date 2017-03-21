@@ -19,7 +19,7 @@ framework for server-side rendering.
  * **Lint**: `yarn lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
  * **Typecheck**: `yarn flow`
  * **Update GraphQL schema.json**: `yarn generate-schema`
- * **Update GraphQL schema.flow.js**: `yarn generate-graphql-flow`
+ * **Update GraphQL types.js**: `yarn generate-graphql-types`
 
 ### Getting started
 

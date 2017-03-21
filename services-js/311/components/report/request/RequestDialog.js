@@ -2,17 +2,15 @@
 
 import React from 'react';
 import Head from 'next/head';
-import { observable, action } from 'mobx';
+import { action } from 'mobx';
 import ScopedError from 'react-scoped-error-component';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
-import type { IPromiseBasedObservable } from 'mobx-utils';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../../data/store';
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import submitRequest from '../../../data/dao/submit-request';
-import type { SubmittedRequest } from '../../../data/types';
 
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
@@ -25,7 +23,7 @@ import SubmitPane from './SubmitPane';
 
 type Props = {
   store: AppStore,
-  stage: 'questions' | 'location' | 'contact',
+  stage: 'questions' | 'location' | 'contact' | 'submit',
   loopbackGraphql: LoopbackGraphql,
   routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
@@ -49,7 +47,6 @@ const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 @observer
 export default class RequestDialog extends React.Component {
   props: Props;
-  @observable submission: ?IPromiseBasedObservable<SubmittedRequest> = null;
 
   componentWillMount() {
     const { stage, setLocationMapActive } = this.props;
@@ -63,8 +60,6 @@ export default class RequestDialog extends React.Component {
     if (stage !== newProps.stage) {
       setLocationMapActive(newProps.stage === 'location');
     }
-
-    this.submission = null;
   }
 
   nextAfterQuestions = () => {
@@ -87,7 +82,8 @@ export default class RequestDialog extends React.Component {
 
   @action
   submitRequest(): Promise<mixed> {
-    const { store: { currentService, contactInfo, locationInfo, description, questions }, loopbackGraphql } = this.props;
+    const { store, loopbackGraphql, routeToServiceForm } = this.props;
+    const { currentService, contactInfo, locationInfo, description, questions } = store;
 
     if (!currentService) {
       throw new Error('currentService is null in submitRequest');
@@ -101,8 +97,9 @@ export default class RequestDialog extends React.Component {
       questions,
     });
 
-    window.scrollTo(0, 0);
-    this.submission = fromPromise(promise);
+    store.requestSubmission = fromPromise(promise);
+
+    routeToServiceForm(currentService.code, 'submit');
 
     return promise;
   }
@@ -125,41 +122,35 @@ export default class RequestDialog extends React.Component {
   }
 
   renderTitle() {
-    const { stage, store: { currentService } } = this.props;
+    const { stage, store: { currentService, requestSubmission } } = this.props;
 
     if (!currentService) {
       return 'Not Found';
-    }
-
-    if (this.submission) {
-      switch (this.submission.state) {
-        case 'pending': return 'Submitting…';
-        case 'fulfilled': return `Success: Case ${this.submission.value.id}`;
-        case 'rejected': return 'Submission error';
-        default: return '';
-      }
     }
 
     switch (stage) {
       case 'questions': return currentService.name;
       case 'location': return 'Choose location';
       case 'contact': return 'Contact information';
+      case 'submit':
+        if (!requestSubmission) {
+          return '';
+        }
+
+        switch (requestSubmission.state) {
+          case 'pending': return 'Submitting…';
+          case 'fulfilled': return `Success: Case ${requestSubmission.value.id}`;
+          case 'rejected': return 'Submission error';
+          default: return '';
+        }
+
       default: return '';
     }
   }
 
   renderContent() {
     const { store, stage, locationMapSearch } = this.props;
-    const { currentService, currentServiceError } = store;
-
-    if (this.submission) {
-      switch (this.submission.state) {
-        case 'pending': return <SubmitPane state="submitting" />;
-        case 'fulfilled': return <SubmitPane state="success" submittedRequest={this.submission.value} />;
-        case 'rejected': return <SubmitPane state="error" error={this.submission.value} />;
-        default: return '';
-      }
-    }
+    const { currentService, currentServiceError, requestSubmission } = store;
 
     if (!currentService) {
       return <SectionHeader>Service not found</SectionHeader>;
@@ -183,6 +174,18 @@ export default class RequestDialog extends React.Component {
 
       case 'contact':
         return <ContactPane store={store} nextFunc={this.nextAfterContact} />;
+
+      case 'submit':
+        if (!requestSubmission) {
+          return '';
+        }
+
+        switch (requestSubmission.state) {
+          case 'pending': return <SubmitPane state="submitting" />;
+          case 'fulfilled': return <SubmitPane state="success" submittedRequest={requestSubmission.value} />;
+          case 'rejected': return <SubmitPane state="error" error={requestSubmission.value} />;
+          default: return '';
+        }
 
       default: return null;
     }

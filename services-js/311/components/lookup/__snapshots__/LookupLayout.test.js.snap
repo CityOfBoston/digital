@@ -300,7 +300,7 @@ exports[`case rendering 1`] = `
               Opened
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               March 7, 2017, 12:59 PM
             </span>
@@ -314,7 +314,7 @@ exports[`case rendering 1`] = `
               Where
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               City Hall Plaza, Boston, MA 02131
             </span>
@@ -328,7 +328,7 @@ exports[`case rendering 1`] = `
               Title
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               Cosmic Intervention
             </span>
@@ -342,7 +342,7 @@ exports[`case rendering 1`] = `
               Status
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               open
             </span>
@@ -356,7 +356,7 @@ exports[`case rendering 1`] = `
               Updated
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               April 8, 2017, 12:59 PM
             </span>
@@ -374,7 +374,7 @@ exports[`case rendering 1`] = `
               Description
             </span>
             <span
-              className="dl-d"
+              className="dl-d dl-d--tt-n"
             >
               I think that Thanos is here
             </span>

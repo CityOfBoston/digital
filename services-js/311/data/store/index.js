@@ -1,10 +1,12 @@
 // @flow
 
 import { observable, computed, useStrict } from 'mobx';
-import type { Service, ServiceSummary } from '../types';
+import type { IPromiseBasedObservable } from 'mobx-utils';
 
+import type { Service, ServiceSummary, SubmittedRequest } from '../types';
 import Question from './Question';
 
+// MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
 
 export class ContactInfo {
@@ -47,6 +49,8 @@ export class AppStore {
 
   apiKeys: {[service: string]: string} = {};
   isPhone: boolean = false;
+
+  @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
 
   @observable.ref _currentService: ?Service = null;
   @observable.ref currentServiceError: ?Object = null;

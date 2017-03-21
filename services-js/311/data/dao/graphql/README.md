@@ -11,7 +11,7 @@ queries.
 These files are split out so that the `apollo-codegen` utility can create
 Flow types for them, which are available in the types.js file.
 
-Run `yarn generate-graphql-flow` to create types.js.
+Run `yarn generate-graphql-types` to create types.js.
 
 The .graphql files are loaded as modules that export strings by the
 `babel-plugin-inline-import` plugin, registered in .babelrc. (We use babel

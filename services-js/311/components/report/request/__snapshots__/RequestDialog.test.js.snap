@@ -60,7 +60,7 @@ exports[`methods submitRequest success 2`] = `
   <SideEffect(Head)>
     <title>
       BOS:311 — 
-      Success: Case new-request
+      Success: Case 17-00001615
     </title>
   </SideEffect(Head)>
   <FormDialog
@@ -70,9 +70,10 @@ exports[`methods submitRequest success 2`] = `
       state="success"
       submittedRequest={
         Object {
-          "id": "new-request",
-          "requestedAt": 1488464201,
-          "status": "open",
+          "address": "City Hall Plaza, Boston, MA",
+          "description": "A cosmic encursion seems likely.",
+          "id": "17-00001615",
+          "requestedAtString": "January 1, 2017 2:00 PM",
         }
       }
     />

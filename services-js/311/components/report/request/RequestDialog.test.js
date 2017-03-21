@@ -94,7 +94,7 @@ describe('methods', () => {
     wrapper = shallow(
       <RequestDialog
         store={store}
-        stage="contact"
+        stage="submit"
         locationMapSearch={jest.fn()}
         loopbackGraphql={jest.fn()}
         routeToServiceForm={routeToServiceForm}
@@ -143,9 +143,10 @@ describe('methods', () => {
       expect(wrapper).toMatchSnapshot();
 
       const result: SubmittedRequest = {
-        id: 'new-request',
-        requestedAt: 1488464201,
-        status: 'open',
+        id: '17-00001615',
+        requestedAtString: 'January 1, 2017 2:00 PM',
+        description: 'A cosmic encursion seems likely.',
+        address: 'City Hall Plaza, Boston, MA',
       };
 
       resolveGraphql(result);

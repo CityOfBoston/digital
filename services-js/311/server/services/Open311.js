@@ -95,7 +95,7 @@ export type CreateServiceRequestArgs = {|
   last_name: ?string,
   email: ?string,
   phone: ?string,
-  service_description: string,
+  description: string,
   attributes: {code: string, value: string}[],
 |};
 

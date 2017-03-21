@@ -36,7 +36,7 @@ type RequestData = {
   view: 'request',
   code: string,
   service: ?Service,
-  stage: 'questions' | 'location' | 'contact',
+  stage: 'questions' | 'location' | 'contact' | 'submit',
 };
 
 export type InitialProps = {
@@ -123,6 +123,7 @@ export default class ReportLayout extends React.Component {
       case 'questions':
       case 'location':
       case 'contact':
+      case 'submit':
         return {
           view: 'request',
           code,

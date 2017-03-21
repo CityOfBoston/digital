@@ -36,8 +36,20 @@ storiesOf('SubmitPane', module)
     state="success"
     submittedRequest={{
       id: '17-00001615',
-      status: 'open',
-      requestedAt: 1488464201,
+      requestedAtString: 'January 1, 2017 2:00 PM',
+      description: 'A cosmic encursion seems likely.',
+      address: 'City Hall Plaza, Boston, MA',
+    }}
+  />
+))
+.add('Success missing things', () => (
+  <SubmitPane
+    state="success"
+    submittedRequest={{
+      id: '17-00001615',
+      requestedAtString: 'January 1, 2017 2:00 PM',
+      description: '',
+      address: null,
     }}
   />
 ));

@@ -67,30 +67,30 @@ function renderRequest(request: Request) {
         <ul className="dl g--6">
           <li className="dl-i">
             <span className="dl-t">Opened</span>
-            <span className="dl-d">{ request.requestedAtString }</span>
+            <span className="dl-d dl-d--tt-n">{ request.requestedAtString }</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Where</span>
-            <span className="dl-d">{ request.address }</span>
+            <span className="dl-d dl-d--tt-n">{ request.address }</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Title</span>
-            <span className="dl-d">{ request.service.name }</span>
+            <span className="dl-d dl-d--tt-n">{ request.service.name }</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Status</span>
-            <span className="dl-d">{ request.status }</span>
+            <span className="dl-d dl-d--tt-n">{ request.status }</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Updated</span>
-            <span className="dl-d">{ request.updatedAtString }</span>
+            <span className="dl-d dl-d--tt-n">{ request.updatedAtString }</span>
           </li>
         </ul>
 
         <ul className="dl g--6">
           <li className="dl-i">
             <span className="dl-t">Description</span>
-            <span className="dl-d">{ request.description }</span>
+            <span className="dl-d dl-d--tt-n">{ request.description }</span>
           </li>
         </ul>
       </div>

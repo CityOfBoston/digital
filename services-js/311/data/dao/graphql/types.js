@@ -139,7 +139,8 @@ export type SubmitRequestMutationVariables = {
 export type SubmitRequestMutation = {
   createRequest: {
     id: string,
-    status: string,
-    requestedAt: number,
+    requestedAtString: string,
+    address: ?string,
+    description: ?string,
   },
 };

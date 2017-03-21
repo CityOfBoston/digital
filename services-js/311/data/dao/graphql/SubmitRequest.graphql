@@ -20,7 +20,8 @@ mutation SubmitRequest(
     attributes: $attributes
   ) {
     id
-    status
-    requestedAt
+    requestedAtString(format: "MMMM D, YYYY, h:mm A")
+    address
+    description
   }
 }
