@@ -4,23 +4,18 @@ import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
-import { css } from 'glamor';
 
 import type { AppStore } from '../../../data/store';
 
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
-import DescriptionBox from './DescriptionBox';
+import DescriptionBox from '../../common/DescriptionBox';
 import ServiceList from './ServiceList';
 
 export type Props = {
   store: AppStore,
   routeToServiceForm: (code: string) => void,
 };
-
-const BOX_STYLE = css({
-  height: 222,
-});
 
 export default observer(function HomeDialog({ store, routeToServiceForm }: Props) {
   return (
@@ -36,9 +31,16 @@ export default observer(function HomeDialog({ store, routeToServiceForm }: Props
           <div className="g--8">
             <h3 className="step m-v300">
               <span className="step-number">1</span>
-            What can we do for you?
-          </h3>
-            <DescriptionBox style={BOX_STYLE} text={store.description} onInput={action((ev) => { store.description = ev.target.value; })} />
+              What can we do for you?
+            </h3>
+
+            <DescriptionBox
+              minHeight={222}
+              maxHeight={222}
+              text={store.description}
+              placeholder="How can we help?"
+              onInput={action((ev) => { store.description = ev.target.value; })}
+            />
           </div>
 
           <div className="g--44">

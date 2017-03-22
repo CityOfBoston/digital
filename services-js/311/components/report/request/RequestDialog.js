@@ -114,7 +114,7 @@ export default class RequestDialog extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <FormDialog small={stage === 'location'}>
+        <FormDialog small={stage === 'location'} narrow={stage === 'contact'}>
           { this.renderContent() }
         </FormDialog>
       </div>

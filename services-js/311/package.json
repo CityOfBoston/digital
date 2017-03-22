@@ -12,7 +12,7 @@
     "build": "./scripts/build_server.sh",
     "heroku-postbuild": "./scripts/build_server.sh",
     "start": "node build/server",
-    "storybook": "start-storybook -p 9001 -c storybook",
+    "storybook": "start-storybook -p 9001 -s . -c storybook",
     "lint": "eslint --fix .",
     "generate-schema": "babel-node ./scripts/generate-schema",
     "generate-graphql-types": "apollo-codegen generate data/dao/graphql/*.graphql --schema graphql/schema.json --target flow --output data/dao/graphql/types.js",

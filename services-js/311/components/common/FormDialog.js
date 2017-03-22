@@ -11,7 +11,8 @@ const DIALOG_STYLE = css({
   background: 'white',
   margin: '80px auto 80px',
   position: 'relative',
-  transition: 'padding 250ms',
+  transition: 'padding 250ms, max-width 250ms',
+  padding: '70px 80px',
   [SMALL_SCREEN]: {
     borderTop: 'none',
     padding: 20,
@@ -19,9 +20,19 @@ const DIALOG_STYLE = css({
   },
 });
 
-export default function FormDialog({ small, children }) {
+export default function FormDialog({ small, narrow, children }) {
+  const style = {};
+
+  if (small) {
+    style.padding = 20;
+  }
+
+  if (narrow) {
+    style.maxWidth = 800;
+  }
+
   return (
-    <div className={`br br-t400 br--y ${DIALOG_STYLE}`} style={{ padding: small ? 20 : 40 }}>
+    <div className={`br br-t400 br--y ${DIALOG_STYLE}`} style={style}>
       {children}
     </div>
   );

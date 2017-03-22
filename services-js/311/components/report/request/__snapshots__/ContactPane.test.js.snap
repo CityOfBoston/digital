@@ -3,16 +3,20 @@
 exports[`blank request 1`] = `
 <div>
   <div>
-    <h2
-      className="step"
-    >
-      Contact Form
-    </h2>
     <div
-      className="t--info"
+      className="sh sh--y"
     >
-      (will not be shared with public; leave blank to submit anonymously)
+      <h2
+        className="sh-title"
+      >
+        Contact Info
+      </h2>
     </div>
+    <p
+      className="m-v300 t--info"
+    >
+      Contact info will not be shared with public. Leave blank to submit anonymously.
+    </p>
     <label
       className="txt"
     >
@@ -122,16 +126,20 @@ exports[`blank request 1`] = `
 exports[`filled request 1`] = `
 <div>
   <div>
-    <h2
-      className="step"
-    >
-      Contact Form
-    </h2>
     <div
-      className="t--info"
+      className="sh sh--y"
     >
-      (will not be shared with public; leave blank to submit anonymously)
+      <h2
+        className="sh-title"
+      >
+        Contact Info
+      </h2>
     </div>
+    <p
+      className="m-v300 t--info"
+    >
+      Contact info will not be shared with public. Leave blank to submit anonymously.
+    </p>
     <label
       className="txt"
     >

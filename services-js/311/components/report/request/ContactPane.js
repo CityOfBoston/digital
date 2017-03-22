@@ -4,6 +4,7 @@ import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
+import SectionHeader from '../../common/SectionHeader';
 import type { AppStore } from '../../../data/store';
 
 const FIELD_STYLE = {
@@ -16,7 +17,8 @@ export type Props = {
 }
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
-  const { firstName, lastName, email, phone, required, requirementsMet } = store.contactInfo;
+  const { currentService, contactInfo } = store;
+  const { firstName, lastName, email, phone, required, requirementsMet } = contactInfo;
   const allowSubmit = !required || requirementsMet;
 
   const onChange = action((ev) => {
@@ -39,11 +41,13 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
     }
   });
 
+  const title = currentService ? currentService.name : 'Contact Info';
+
   return (
     <div>
       <div>
-        <h2 className="step">Contact Form</h2>
-        <div className="t--info">(will not be shared with public; leave blank to submit anonymously)</div>
+        <SectionHeader>{ title }</SectionHeader>
+        <p className="m-v300 t--info">Contact info will not be shared with public. Leave blank to submit anonymously.</p>
 
         <label className="txt">
           <span className="txt-l">First Name {required && '(required)'}</span>

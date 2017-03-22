@@ -42,7 +42,6 @@ class Wrapper extends React.Component {
     return (
       <div>
         <Head>
-          <base href="http://localhost:3000" />
           { makeCss() }
         </Head>
         { this.props.children }

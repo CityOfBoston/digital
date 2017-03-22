@@ -19,6 +19,7 @@ const CONTAINER_STYLE = css({
   width: '100%',
   top: 0,
   bottom: 0,
+  backgroundColor: '#9B9B9B',
 });
 
 const PHONE_STYLE = css({
@@ -31,6 +32,7 @@ const MAP_STYLE = css({
   flex: 1,
   width: '100%',
   height: '100%',
+  transition: 'opacity 250ms',
 });
 
 export type ExternalProps = {
@@ -263,12 +265,12 @@ export default class LocationMap extends React.Component {
   }
 
   render() {
-    const { store } = this.props;
+    const { store, active } = this.props;
     const { isPhone } = store;
 
     return (
       <div className={isPhone ? PHONE_STYLE : CONTAINER_STYLE}>
-        <div className={MAP_STYLE} ref={this.setMapEl} />
+        <div className={MAP_STYLE} style={{ opacity: active ? 1 : 0.6 }} ref={this.setMapEl} />
       </div>
     );
   }

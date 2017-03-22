@@ -12,13 +12,38 @@ exports[`blank request 1`] = `
     </h2>
   </div>
   <div
-    className={
-      Object {
-        "data-css-dgukzt": "",
-      }
-    }
+    className="m-v500"
   >
-    
+    <div
+      className="g g--top"
+    >
+      <div
+        className="g--7"
+      >
+        <textarea
+          className={
+            Object {
+              "data-css-1gh870p": "",
+            }
+          }
+          defaultValue=""
+          name="description"
+          onBlur={[Function]}
+          onInput={[Function]}
+          placeholder="How can we help?"
+        />
+      </div>
+      <img
+        alt=""
+        className="g--5"
+        src="/static/img/311-watermark.svg"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      />
+    </div>
   </div>
   <div
     className="g"
@@ -49,24 +74,38 @@ exports[`existing description 1`] = `
     </h2>
   </div>
   <div
-    className={
-      Object {
-        "data-css-wb46si": "",
-      }
-    }
+    className="m-v500"
   >
-    “
-    Please pick up my bulk items. 
-    ”
-  </div>
-  <div
-    className={
-      Object {
-        "data-css-dgukzt": "",
-      }
-    }
-  >
-    
+    <div
+      className="g g--top"
+    >
+      <div
+        className="g--7"
+      >
+        <textarea
+          className={
+            Object {
+              "data-css-1i2zjxt": "",
+            }
+          }
+          defaultValue="Please pick up my bulk items. "
+          name="description"
+          onBlur={[Function]}
+          onInput={[Function]}
+          placeholder="How can we help?"
+        />
+      </div>
+      <img
+        alt=""
+        className="g--5"
+        src="/static/img/311-watermark.svg"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      />
+    </div>
   </div>
   <div
     className="g"
@@ -97,32 +136,57 @@ exports[`service with metadata 1`] = `
     </h2>
   </div>
   <div
-    className={
-      Object {
-        "data-css-dgukzt": "",
-      }
-    }
+    className="m-v500"
   >
-    
-  </div>
-  <div>
-    <label
-      className="txt"
+    <div
+      className="g g--top"
     >
-      <span
-        className="txt-l"
+      <div
+        className="g--7"
       >
-        Please provide any other relevant information:
-         
-      </span>
-      <textarea
-        className="txt-f"
-        name="ST-CMTS"
-        onChange={[Function]}
-        rows="5"
-        value=""
+        <textarea
+          className={
+            Object {
+              "data-css-1gh870p": "",
+            }
+          }
+          defaultValue=""
+          name="description"
+          onBlur={[Function]}
+          onInput={[Function]}
+          placeholder="How can we help?"
+        />
+        <div>
+          <label
+            className="txt"
+          >
+            <span
+              className="txt-l"
+            >
+              Please provide any other relevant information:
+               
+            </span>
+            <textarea
+              className="txt-f"
+              name="ST-CMTS"
+              onChange={[Function]}
+              rows="5"
+              value=""
+            />
+          </label>
+        </div>
+      </div>
+      <img
+        alt=""
+        className="g--5"
+        src="/static/img/311-watermark.svg"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
       />
-    </label>
+    </div>
   </div>
   <div
     className="g"
