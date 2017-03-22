@@ -1,11 +1,12 @@
 // @flow
-/* eslint react/no-unused-prop-types: 0 */
+/* global liveagent */
 
 import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
 import { action } from 'mobx';
+import { observer } from 'mobx-react';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
@@ -62,6 +63,13 @@ const DIALONG_WRAPPER_STYLE = css({
   },
 });
 
+const CHAT_TAB_STYLE = css({
+  position: 'absolute',
+  bottom: 0,
+  right: '20%',
+  background: 'white',
+  borderWidth: '3px 3px 0',
+});
 
 // We have one class for picking the service type and doing the entire request
 // so that we can keep a consistent Google Maps background behind the
@@ -70,6 +78,7 @@ const DIALONG_WRAPPER_STYLE = css({
 // This class has two "views": the "summaries" view that lets the user pick a
 // service request, and the "service" view for the request flow. That flow
 // proceeds through the "questions" "location" and "contact" stages.
+@observer
 export default class ReportLayout extends React.Component {
   props: Props;
   state: {
@@ -151,6 +160,11 @@ export default class ReportLayout extends React.Component {
     this.updateStoreWithProps(props);
   }
 
+  startChat = () => {
+    const { liveAgentButtonId } = this.props.store;
+    liveagent.startChat(liveAgentButtonId);
+  }
+
   @action
   updateStoreWithProps(props: Props) {
     const { store, data } = props;
@@ -200,7 +214,7 @@ export default class ReportLayout extends React.Component {
   render() {
     const { data, store } = this.props;
     const { locationMapActive, locationMapSearch } = this.state;
-    const { isPhone } = store;
+    const { isPhone, liveAgentAvailable } = store;
 
     return (
       <div className="mn mn--full mn--nv-s">
@@ -231,6 +245,13 @@ export default class ReportLayout extends React.Component {
               />}
           </div>
         </div>
+
+        { liveAgentAvailable &&
+          <a
+            className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
+            href="javascript:void(0)"
+            onClick={this.startChat}
+          >Live Chat Online</a> }
       </div>
     );
   }

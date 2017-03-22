@@ -115,7 +115,7 @@ export default class LocationMap extends React.Component {
       draggable: active,
       gestureHandling: 'greedy',
       scrollwheel: active,
-      scaleControl: true,
+      scaleControl: false,
       zoomControl: active,
       zoom: 13,
       center: location || {

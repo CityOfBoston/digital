@@ -62,6 +62,7 @@ let store;
 
 beforeEach(() => {
   store = getStore();
+  store.liveAgentAvailable = true;
 });
 
 describe('report form', () => {

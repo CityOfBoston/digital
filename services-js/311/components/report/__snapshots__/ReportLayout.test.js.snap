@@ -261,6 +261,13 @@ exports[`existing service page rendering 1`] = `
       </div>
     </div>
   </div>
+  <a
+    className="p-a300 t--sans tt-u br css-1aqmvnb"
+    href="javascript:void(0)"
+    onClick={[Function]}
+  >
+    Live Chat Online
+  </a>
 </div>
 `;
 
@@ -525,6 +532,13 @@ exports[`existing service page rendering phone 1`] = `
       </div>
     </div>
   </div>
+  <a
+    className="p-a300 t--sans tt-u br css-1aqmvnb"
+    href="javascript:void(0)"
+    onClick={[Function]}
+  >
+    Live Chat Online
+  </a>
 </div>
 `;
 
@@ -688,6 +702,13 @@ exports[`existing service page rendering phone location step 1`] = `
       </div>
     </div>
   </div>
+  <a
+    className="p-a300 t--sans tt-u br css-1aqmvnb"
+    href="javascript:void(0)"
+    onClick={[Function]}
+  >
+    Live Chat Online
+  </a>
 </div>
 `;
 
@@ -806,6 +827,13 @@ exports[`missing service page rendering 1`] = `
       </div>
     </div>
   </div>
+  <a
+    className="p-a300 t--sans tt-u br css-1aqmvnb"
+    href="javascript:void(0)"
+    onClick={[Function]}
+  >
+    Live Chat Online
+  </a>
 </div>
 `;
 
@@ -971,5 +999,12 @@ exports[`report form rendering 1`] = `
       </div>
     </div>
   </div>
+  <a
+    className="p-a300 t--sans tt-u br css-1aqmvnb"
+    href="javascript:void(0)"
+    onClick={[Function]}
+  >
+    Live Chat Online
+  </a>
 </div>
 `;

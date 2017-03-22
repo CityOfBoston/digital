@@ -1,6 +1,8 @@
 // @flow
+/* global window */
+/* eslint no-underscore-dangle: 0 */
 
-import { observable, computed, useStrict } from 'mobx';
+import { observable, computed, useStrict, action } from 'mobx';
 import type { IPromiseBasedObservable } from 'mobx-utils';
 
 import type { Service, ServiceSummary, SubmittedRequest } from '../types';
@@ -47,10 +49,48 @@ export class AppStore {
   @observable.shallow serviceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});
 
+  @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
+
+  // Initialization data from the server
   apiKeys: {[service: string]: string} = {};
   isPhone: boolean = false;
 
   @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
+
+  _liveAgentButtonId: string = '';
+
+  get liveAgentButtonId(): string {
+    return this._liveAgentButtonId;
+  }
+
+  set liveAgentButtonId(liveAgentButtonId: string) {
+    this._liveAgentButtonId = liveAgentButtonId;
+
+    if (typeof window !== 'undefined') {
+      if (window.liveagent) {
+        this.listenForLiveAgentEvents(liveAgentButtonId);
+      } else {
+        if (!window._laq) {
+          window._laq = [];
+        }
+
+        window._laq.push(() => this.listenForLiveAgentEvents(liveAgentButtonId));
+      }
+    }
+  }
+
+  listenForLiveAgentEvents(liveAgentButtonId: string) {
+    window.liveagent.addButtonEventHandler(liveAgentButtonId, this.liveAgentEventHandler);
+  }
+
+  @action.bound
+  liveAgentEventHandler(event: string) {
+    switch (event) {
+      case 'BUTTON_AVAILABLE': this.liveAgentAvailable = true; break;
+      case 'BUTTON_UNAVAILABLE': this.liveAgentAvailable = false; break;
+      default: break;
+    }
+  }
 
   @observable.ref _currentService: ?Service = null;
   @observable.ref currentServiceError: ?Object = null;

@@ -80,6 +80,26 @@ export default class extends Document {
           />
 
           <NextScript />
+
+          <script src={process.env.LIVE_AGENT_SCRIPT_SRC} />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{ __html: `
+              (function() {
+                var buttonId = "${process.env.LIVE_AGENT_BUTTON_ID || ''}";
+                // We need to make a fake "showWhenOnline" in order to get
+                // button events from the server. All of the app showing/hiding
+                // is done though addButtonEventHandler because Live Agent does
+                // not support adding new buttons after init is called, which
+                // runs against what we need in a single-page app.
+                liveagent.showWhenOnline(buttonId, document.createElement('DIV'));
+                liveagent.addButtonEventHandler(buttonId, function(event) {
+                  window.LIVE_AGENT_AVAILABLE = event === 'BUTTON_AVAILABLE';
+                });
+                liveagent.init("${process.env.LIVE_AGENT_CHAT_URL || ''}", "${process.env.LIVE_AGENT_ORG_ID || ''}", "${process.env.LIVE_AGENT_DEPLOYMENT_ID || ''}");
+              })();
+            ` }}
+          />
         </body>
       </html>
     );
