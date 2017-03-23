@@ -16,6 +16,7 @@
     "lint": "eslint --fix .",
     "generate-schema": "babel-node ./scripts/generate-schema",
     "generate-graphql-types": "apollo-codegen generate data/dao/graphql/*.graphql --schema graphql/schema.json --target flow --output data/dao/graphql/types.js",
+    "swiftype-load": "babel-node ./scripts/swiftype-load",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "eslint --quiet .",
     "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace",
@@ -70,6 +71,7 @@
     "react-dom": "^15.4.2",
     "react-scoped-error-component": "^0.9.1",
     "rollbar": "^0.6.5",
+    "swiftype": "^0.3.1",
     "url-search-params": "^0.7.0"
   },
   "devDependencies": {

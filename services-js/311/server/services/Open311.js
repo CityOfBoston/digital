@@ -130,14 +130,14 @@ export default class Open311 {
   agent: any;
   opbeat: any;
   endpoint: string;
-  apiKey: string;
+  apiKey: ?string;
   serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
   requestLoader: DataLoader<string, ?ServiceRequest>;
 
   constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
-    if (!endpoint || !apiKey) {
-      throw new Error('Must specify an api key and and endpoint');
+    if (!endpoint) {
+      throw new Error('Must specify an endpoint');
     }
 
     this.endpoint = endpoint;
@@ -160,10 +160,12 @@ export default class Open311 {
     });
 
     this.serviceMetadataLoader = new DataLoader(async (codes: string[]) => {
-      const transaction = opbeat.startTransaction('serviceMetadata', 'Open311');
+      const transaction = opbeat && opbeat.startTransaction('serviceMetadata', 'Open311');
       const out = await Promise.all(codes.map(async (code) => {
         const params = new URLSearchParams();
-        params.append('api_key', this.apiKey);
+        if (this.apiKey) {
+          params.append('api_key', this.apiKey);
+        }
 
         const response = await fetch(this.url(`services/${code}.json?${params.toString()}`), {
           agent: this.agent,
@@ -172,15 +174,19 @@ export default class Open311 {
         return processResponse(response);
       }));
 
-      transaction.end();
+      if (transaction) {
+        transaction.end();
+      }
       return out;
     });
 
     this.requestLoader = new DataLoader(async (ids: string[]) => {
-      const transaction = opbeat.startTransaction('request', 'Open311');
+      const transaction = opbeat && opbeat.startTransaction('request', 'Open311');
       const out = await Promise.all(ids.map(async (id) => {
         const params = new URLSearchParams();
-        params.append('api_key', this.apiKey);
+        if (this.apiKey) {
+          params.append('api_key', this.apiKey);
+        }
 
         const response = await fetch(this.url(`requests/${id}.json?${params.toString()}`), {
           agent: this.agent,
@@ -191,7 +197,9 @@ export default class Open311 {
         return requestArr ? requestArr[0] : null;
       }));
 
-      transaction.end();
+      if (transaction) {
+        transaction.end();
+      }
       return out;
     });
   }
@@ -201,16 +209,20 @@ export default class Open311 {
   }
 
   services = async () => {
-    const transaction = this.opbeat.startTransaction('services', 'Open311');
+    const transaction = this.opbeat && this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
-    params.append('api_key', this.apiKey);
+    if (this.apiKey) {
+      params.append('api_key', this.apiKey);
+    }
 
     const response = await fetch(this.url(`services.json?${params.toString()}`), {
       agent: this.agent,
     });
 
     const out = await processResponse(response) || [];
-    transaction.end();
+    if (transaction) {
+      transaction.end();
+    }
     return out;
   };
 
@@ -226,9 +238,30 @@ export default class Open311 {
     return this.requestLoader.load(id);
   }
 
+  requests = async () => {
+    const transaction = this.opbeat && this.opbeat.startTransaction('requests', 'Open311');
+    const params = new URLSearchParams();
+    if (this.apiKey) {
+      params.append('api_key', this.apiKey);
+    }
+
+    const response = await fetch(this.url(`requests.json?${params.toString()}`), {
+      agent: this.agent,
+    });
+
+    const out = await processResponse(response) || [];
+    if (transaction) {
+      transaction.end();
+    }
+    return out;
+  };
+
+
   async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest> {
     const params = new URLSearchParams();
-    params.append('api_key', this.apiKey);
+    if (this.apiKey) {
+      params.append('api_key', this.apiKey);
+    }
 
     Object.keys(args).forEach((key) => {
       switch (key) {
