@@ -16,6 +16,7 @@ type Query {
   services: [Service!]!
   service(code: String!): Service
   request(id: String!): Request
+  requests(page: Int): RequestsPage!
 }
 
 type Request {
@@ -28,6 +29,12 @@ type Request {
   updatedAt: Int!
   requestedAtString(format: String): String!
   updatedAtString(format: String): String!
+}
+
+type RequestsPage {
+  requests: [Request!]!
+  currentPage: Int!
+  totalPages: Int!
 }
 
 type Service {

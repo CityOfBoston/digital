@@ -76,7 +76,7 @@ export type ServiceRequest = {|
   // 2017-02-21T22:18:27.000Z
   requested_datetime: string,
   updated_datetime: string,
-  expected_datetime: string,
+  expected_datetime: ?string,
   address: ?string,
   address_id: ?string,
   zipcode: ?string,

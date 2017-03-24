@@ -14,10 +14,14 @@ const opbeat = require('opbeat').start({
 
 const rollbar = require('rollbar');
 
-rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
-  environment: process.env.HEROKU_PIPELINE || process.env.NODE_ENV || 'development',
-  enabled: (process.env.NODE_ENV || 'development') !== 'development',
-});
+// Only turn this on in production because it hides exceptions thrown as the
+// app is starting up in dev.
+if (process.env.NODE_ENV === 'production') {
+  rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
+    environment: process.env.HEROKU_PIPELINE || process.env.NODE_ENV || 'development',
+    exitOnUncaughtException: true,
+  });
+}
 
 require('./server').default({ opbeat, rollbar }).catch((err) => {
   opbeat.captureError(err, (e, url) => {
