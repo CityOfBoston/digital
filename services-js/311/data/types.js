@@ -7,6 +7,7 @@ import type {
   LoadServiceQuery,
   LoadServiceSummariesQuery,
   SubmitRequestMutation,
+  SearchRequestsQuery,
   ServiceAttributeDatatype,
 } from './dao/graphql/types';
 
@@ -55,3 +56,6 @@ export type CalculatedAttribute = {
 
 export type SubmittedRequest = $PropertyType<SubmitRequestMutation, 'createRequest'>;
 export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'request'>>;
+
+export type SearchRequestsPage = $PropertyType<SearchRequestsQuery, 'requests'>;
+export type SearchRequest = $ArrayElement<$PropertyType<SearchRequestsPage, 'requests'>>;

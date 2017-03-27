@@ -1,0 +1,19 @@
+query SearchRequests($query: String) {
+  requests(query: $query) {
+    requests {
+      id
+      status
+      description
+      address
+      mediaUrl
+      updatedAtRelativeString
+      location {
+        lat
+        lng
+      }
+      service {
+        name
+      }
+    }
+  }
+}

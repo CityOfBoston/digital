@@ -6,6 +6,8 @@ import { observable, computed, useStrict, action } from 'mobx';
 import type { IPromiseBasedObservable } from 'mobx-utils';
 
 import type { Service, ServiceSummary, SubmittedRequest } from '../types';
+
+import RequestSearch from './RequestSearch';
 import Question from './Question';
 
 // MobX will enforce that state changes only happen in action blocks.
@@ -45,6 +47,8 @@ export class AppStore {
   @observable contactInfo: ContactInfo = new ContactInfo();
   @observable locationInfo: LocationInfo = new LocationInfo();
   @observable questions: Question[] = [];
+
+  @observable requestSearch: RequestSearch = new RequestSearch();
 
   @observable.shallow serviceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});

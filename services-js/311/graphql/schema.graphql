@@ -3,20 +3,25 @@ input CreateRequestAttribute {
   value: String!
 }
 
-input LatLng {
+type LatLng {
+  lat: Float!
+  lng: Float!
+}
+
+input LatLngIn {
   lat: Float!
   lng: Float!
 }
 
 type Mutation {
-  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, location: LatLng, attributes: [CreateRequestAttribute!]!): Request!
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
 }
 
 type Query {
   services: [Service!]!
   service(code: String!): Service
   request(id: String!): Request
-  requests(page: Int): RequestsPage!
+  requests(page: Int, query: String): RequestsPage!
 }
 
 type Request {
@@ -25,10 +30,14 @@ type Request {
   description: String
   status: String!
   address: String
+  mediaUrl: String
+  location: LatLng
   requestedAt: Int!
   updatedAt: Int!
   requestedAtString(format: String): String!
   updatedAtString(format: String): String!
+  requestedAtRelativeString: String!
+  updatedAtRelativeString: String!
 }
 
 type RequestsPage {

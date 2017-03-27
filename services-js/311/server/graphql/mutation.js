@@ -9,7 +9,7 @@ input CreateRequestAttribute {
   value: String!
 }
 
-input LatLng {
+input LatLngIn {
   lat: Float!
   lng: Float!
 }
@@ -23,7 +23,7 @@ type Mutation {
     email: String
     phone: String
     address: String
-    location: LatLng
+    location: LatLngIn
     attributes: [CreateRequestAttribute!]!
   ): Request!
 }

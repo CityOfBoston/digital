@@ -93,7 +93,12 @@ enum ServiceAttributeConditionValueType {
 }
 `;
 
-export type Root = Service;
+export type ServiceStub = {
+  service_name: string,
+  service_code: string,
+}
+
+export type Root = Service | ServiceStub;
 
 // Here we filter the disjoint union type of {key/value} vs. {dependendOn/values}
 // down to just key/value pairs. A bit odd because of Flow.
@@ -151,14 +156,14 @@ export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeVa
   return conditionalValues;
 }
 
-const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => async (s: Service, args: mixed, { open311 }: Context) => (
+const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => async (s: Root, args: mixed, { open311 }: Context) => (
   cb(s.metadata ? await open311.serviceMetadata(s.service_code) : null)
 );
 
 export const resolvers = {
   Service: {
-    code: (s: Service) => s.service_code,
-    name: (s: Service) => s.service_name || '',
+    code: (s: Root) => s.service_code,
+    name: (s: Root) => s.service_name || '',
     attributes: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])),
     locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.location_required : true)),
     contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.contact_required : true)),

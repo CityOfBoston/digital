@@ -1,21 +1,24 @@
 // @flow
 /* global liveagent */
+/* eslint jsx-a11y/anchor-has-content: 0 */
 
 import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
-import { action } from 'mobx';
+import { action, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
+import throttle from 'lodash/throttle';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
 import { LocationMapWithLib } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
+import RecentRequests from './home/RecentRequests';
 import RequestDialog from './request/RequestDialog';
 
-import { LARGE_SCREEN } from '../style-constants';
+import { LARGE_SCREEN, HEADER_HEIGHT } from '../style-constants';
 
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
@@ -66,9 +69,16 @@ const DIALONG_WRAPPER_STYLE = css({
 const CHAT_TAB_STYLE = css({
   position: 'absolute',
   bottom: 0,
-  right: '20%',
   background: 'white',
   borderWidth: '3px 3px 0',
+});
+
+const RECENT_CASES_STYLE = css({
+  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+  width: '40%',
+  position: 'relative',
+  zIndex: 1,
+  backgroundColor: 'white',
 });
 
 // We have one class for picking the service type and doing the entire request
@@ -86,6 +96,10 @@ export default class ReportLayout extends React.Component {
     locationMapActive: boolean,
   }
   loopbackGraphql: LoopbackGraphql;
+
+  // This tracks the current window height, minus the fixed header height
+  @observable visibleHeight: number = Number.MAX_SAFE_INTEGER;
+  @observable bodyScrollTop: number = 0;
 
   static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
     const loopbackGraphql = makeLoopbackGraphql(req);
@@ -156,6 +170,18 @@ export default class ReportLayout extends React.Component {
     };
   }
 
+  @action
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleResize);
+    this.bodyScrollTop = window.document.body.scrollTop;
+    this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
   }
@@ -163,6 +189,18 @@ export default class ReportLayout extends React.Component {
   startChat = () => {
     const { liveAgentButtonId } = this.props.store;
     liveagent.startChat(liveAgentButtonId);
+  }
+
+  handleScroll = throttle(action('scroll handler', (ev) => {
+    this.bodyScrollTop = ev.target.body.scrollTop;
+  }));
+
+  handleResize = throttle(action('resize handler', () => {
+    this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
+  }));
+
+  @computed get mapActivationRatio(): number {
+    return Math.min(1.0, this.bodyScrollTop / (this.visibleHeight * 0.25));
   }
 
   @action
@@ -216,42 +254,71 @@ export default class ReportLayout extends React.Component {
     const { locationMapActive, locationMapSearch } = this.state;
     const { isPhone, liveAgentAvailable } = store;
 
+    let mapMode;
+    if (locationMapActive) {
+      mapMode = 'picker';
+    } else if (this.mapActivationRatio === 1.0) {
+      mapMode = 'requests';
+    } else {
+      mapMode = 'inactive';
+    }
+
     return (
-      <div className="mn mn--full mn--nv-s">
+      <div>
         <Nav activeSection="report" />
 
-        <div className={CONTENT_STYLE}>
-          { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
-            <LocationMapWithLib
-              store={store}
-              setLocationMapSearch={this.setLocationMapSearch}
-              active={locationMapActive}
-            />
-          }
-          <div className={DIALONG_WRAPPER_STYLE}>
-            { data.view === 'home' &&
-              <HomeDialog
-                store={store}
-                routeToServiceForm={this.routeToServiceForm}
-              /> }
-            { data.view === 'request' &&
-              <RequestDialog
-                store={store}
-                stage={data.stage}
-                locationMapSearch={locationMapSearch}
-                loopbackGraphql={this.loopbackGraphql}
-                routeToServiceForm={this.routeToServiceForm}
-                setLocationMapActive={this.setLocationMapActive}
-              />}
+        { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
+          <LocationMapWithLib
+            store={store}
+            setLocationMapSearch={this.setLocationMapSearch}
+            mode={mapMode}
+            opacityRatio={this.mapActivationRatio}
+          />
+        }
+
+        <div className="mn mn--full mn--nv-s" style={{ backgroundColor: 'transparent' }}>
+          <div className={CONTENT_STYLE}>
+            <div className={DIALONG_WRAPPER_STYLE}>
+              { data.view === 'home' &&
+                <HomeDialog
+                  store={store}
+                  routeToServiceForm={this.routeToServiceForm}
+                /> }
+              { data.view === 'request' &&
+                <RequestDialog
+                  store={store}
+                  stage={data.stage}
+                  locationMapSearch={locationMapSearch}
+                  loopbackGraphql={this.loopbackGraphql}
+                  routeToServiceForm={this.routeToServiceForm}
+                  setLocationMapActive={this.setLocationMapActive}
+                />}
+            </div>
           </div>
+
+          { data.view === 'home' &&
+            <a
+              href="#recent"
+              className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
+              style={{ left: 80 }}
+            >Recent Cases</a> }
+
+          { liveAgentAvailable &&
+            <a
+              className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
+              style={{ right: '20%' }}
+              href="javascript:void(0)"
+              onClick={this.startChat}
+            >Live Chat Online</a> }
         </div>
 
-        { liveAgentAvailable &&
-          <a
-            className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
-            href="javascript:void(0)"
-            onClick={this.startChat}
-          >Live Chat Online</a> }
+        {
+          data.view === 'home' &&
+          <div className={RECENT_CASES_STYLE}>
+            <a name="recent" />
+            <RecentRequests loopbackGraphql={this.loopbackGraphql} store={store} loadRequests={this.mapActivationRatio === 1.0} />
+          </div>
+        }
       </div>
     );
   }

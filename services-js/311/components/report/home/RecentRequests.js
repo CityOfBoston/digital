@@ -1,0 +1,212 @@
+// @flow
+/* eslint react/jsx-no-bind: 0 */
+
+import React from 'react';
+import { observable, action, autorun, untracked } from 'mobx';
+import { observer } from 'mobx-react';
+import { css } from 'glamor';
+
+import searchRequests from '../../../data/dao/search-requests';
+import type { AppStore } from '../../../data/store';
+import type { SearchRequest } from '../../../data/types';
+import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
+import { HEADER_HEIGHT } from '../../style-constants';
+
+let Velocity;
+if (typeof window !== 'undefined') {
+  Velocity = require('velocity-animate');
+}
+
+const CONTAINER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const REQUEST_STYLE = css({
+  display: 'flex',
+  cursor: 'pointer',
+});
+
+const THUMBNAIL_SYLE = css({
+  width: '8rem',
+  height: '8rem',
+  margin: '0 1rem 0 0',
+  flexShrink: 0,
+  backgroundSize: 'cover',
+});
+
+const REQUEST_INFO_STYLE = css({
+  height: '8rem',
+  display: 'flex',
+  flex: '1 1 0',
+  flexDirection: 'column',
+  minWidth: 0,
+});
+
+const DESCRIPTION_STYLE = css({
+  flex: 1,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  minHeight: 0,
+});
+
+const STATUS_COMMON_STYLE = css({
+  color: 'white',
+  padding: '0.1111rem 0.33333rem',
+  marginRight: '0.6666666rem',
+});
+
+const STATUS_OPEN_STYLE = css(STATUS_COMMON_STYLE, {
+  backgroundColor: '#62A744',
+});
+
+const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
+  backgroundColor: '#F6A623',
+});
+
+export type Props = {
+  loopbackGraphql: LoopbackGraphql,
+  store: AppStore,
+  loadRequests: boolean,
+}
+
+@observer
+export default class RecentRequests extends React.Component {
+  props: Props;
+
+  mainEl: ?HTMLElement = null;
+  @observable query: string = '';
+  scrollSelectedIntoViewDisposer: ?Function = null;
+
+  componentDidMount() {
+    if (this.props.loadRequests) {
+      this.loadRequests();
+    }
+
+    this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    const { loadRequests, store: { requestSearch } } = this.props;
+    if (loadRequests && !prevProps.loadRequests && requestSearch.results.length === 0) {
+      this.loadRequests();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.scrollSelectedIntoViewDisposer) {
+      this.scrollSelectedIntoViewDisposer();
+    }
+  }
+
+  setMainEl = (mainEl: HTMLElement) => {
+    this.mainEl = mainEl;
+  }
+
+  loadRequests() {
+    const { loopbackGraphql, store: { requestSearch } } = this.props;
+    searchRequests(loopbackGraphql).then(requestSearch.update);
+  }
+
+  scrollSelectedIntoView = () => {
+    // Keeps us from getting a dependency on props
+    const { store } = untracked(() => Object.assign({}, this.props));
+    const { selectedRequest, selectedSource } = store.requestSearch;
+
+    if (selectedRequest && this.mainEl && selectedSource !== 'list') {
+      const requestEl = this.mainEl.querySelector(`[data-request-id="${selectedRequest.id}"]`);
+      if (requestEl) {
+        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT - 20 });
+      }
+    }
+  }
+
+  handleSearchSubmit = (ev: SyntheticInputEvent) => {
+    const { loopbackGraphql, store: { requestSearch } } = this.props;
+    searchRequests(loopbackGraphql, this.query).then(requestSearch.update);
+
+    ev.preventDefault();
+  }
+
+  @action.bound
+  handleSearchInput(ev: SyntheticInputEvent) {
+    this.query = ev.target.value;
+  }
+
+  @action.bound
+  handleHoverRequest(request: SearchRequest) {
+    const { store: { requestSearch } } = this.props;
+    requestSearch.selectedRequest = request;
+    requestSearch.selectedSource = 'list';
+  }
+
+  @action.bound
+  handleUnhoverRequest() {
+    const { store: { requestSearch } } = this.props;
+    requestSearch.selectedRequest = null;
+    requestSearch.selectedSource = null;
+  }
+
+  render() {
+    const { store: { requestSearch } } = this.props;
+    const { results } = requestSearch;
+
+    return (
+      <div className={`${CONTAINER_STYLE.toString()}`} ref={this.setMainEl}>
+        <div className="p-a300">
+          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
+            <div className="sf-i">
+              <input type="text" name="q" placeholder="Search recent cases…" value={this.query} onInput={this.handleSearchInput} className="sf-i-f" />
+              <button className="sf-i-b">Search</button>
+            </div>
+          </form>
+        </div>
+
+        <hr className="hr hr--dash" />
+
+        { results.map(this.renderRequest) }
+      </div>
+    );
+  }
+
+  renderRequest = (request: SearchRequest) => {
+    const { store: { requestSearch } } = this.props;
+    const mediaUrl = request.mediaUrl || '/static/img/311-watermark.svg';
+
+    let statusStyle;
+    let statusText;
+
+    if (request.status === 'open') {
+      statusStyle = STATUS_OPEN_STYLE;
+      statusText = 'Opened';
+    } else {
+      statusStyle = STATUS_CLOSE_STYLE;
+      statusText = 'Closed';
+    }
+
+    return (
+      <div
+        key={request.id}
+        data-request-id={request.id}
+        className={`p-a300 ${REQUEST_STYLE.toString()}`}
+        onMouseEnter={this.handleHoverRequest.bind(null, request)}
+        onMouseLeave={this.handleUnhoverRequest}
+        style={{
+          backgroundColor: (request === requestSearch.selectedRequest) ? '#e0e0e0' : 'transparent',
+        }}
+      >
+        <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
+        <div className={REQUEST_INFO_STYLE}>
+          <h4 className="t--intro t--ellipsis">{request.service.name}</h4>
+          <div className={DESCRIPTION_STYLE}>
+            { request.description}
+          </div>
+          <div style={{ paddingTop: 5 }}>
+            <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
+            <span className="t--info" style={{ fontSize: 14 }}>{ request.updatedAtRelativeString }</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}

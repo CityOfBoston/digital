@@ -15,12 +15,13 @@ type Query {
   services: [Service!]!
   service(code: String!): Service
   request(id: String!): Request
-  requests(page: Int): RequestsPage!
+  requests(page: Int, query: String): RequestsPage!
 }
 `;
 
 type RequestsArgs = {
   page: ?number,
+  query: ?string,
 };
 
 type RequestsPage = {
@@ -34,8 +35,8 @@ export const resolvers = {
     services: (root: mixed, args: mixed, { open311 }: Context): Promise<Service[]> => open311.services(),
     service: (root: mixed, { code }: { code: string }, { open311 }: Context): Promise<?Service> => open311.service(code),
     request: (root: mixed, { id }: { id: string }, { open311 }: Context): Promise<?Request> => open311.request(id),
-    requests: async (root: mixed, { page }: RequestsArgs, { swiftype }: Context): Promise<RequestsPage> => {
-      const { requests, info } = await swiftype.searchCases({ page });
+    requests: async (root: mixed, { page, query }: RequestsArgs, { swiftype }: Context): Promise<RequestsPage> => {
+      const { requests, info } = await swiftype.searchCases({ page, query });
       return {
         requests,
         currentPage: info.current_page,

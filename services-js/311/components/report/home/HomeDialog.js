@@ -45,7 +45,9 @@ export default observer(function HomeDialog({ store, routeToServiceForm }: Props
 
           <div className="g--44">
             <h3 className="step m-v300">Top Service Requests</h3>
-            <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
+            <div style={{ height: 222, overflowY: 'scroll' }}>
+              <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
+            </div>
           </div>
         </div>
       </div>

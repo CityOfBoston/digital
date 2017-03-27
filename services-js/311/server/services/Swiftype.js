@@ -50,6 +50,7 @@ function convertCaseToServiceRequest(caseObj: Object): ServiceRequest {
 
 type SearchCasesArgs = {
   page: ?number,
+  query: ?string,
 }
 
 export default class Swiftype {
@@ -94,15 +95,17 @@ export default class Swiftype {
     });
   }
 
-  searchCases({ page }: SearchCasesArgs): Promise<{ requests: ServiceRequest[], info: SearchInfo }> {
+  searchCases({ page, query }: SearchCasesArgs): Promise<{ requests: ServiceRequest[], info: SearchInfo }> {
     return new Promise((resolve, reject) => {
       const transaction = this.opbeat && this.opbeat.startTransaction('search', 'Swiftype');
 
       const params = {
         engine: this.engine,
         documentType: 'cases',
-        q: '',
+        q: query || '',
         page,
+        sort_field: { cases: 'updated_datetime' },
+        sort_direction: { cases: 'desc' },
       };
 
       this.swiftype.documentTypes.search(params, (err, res) => {

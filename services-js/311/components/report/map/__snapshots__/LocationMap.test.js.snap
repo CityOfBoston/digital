@@ -4,19 +4,19 @@ exports[`rendering active 1`] = `
 <div
   className={
     Object {
-      "data-css-104odnn": "",
+      "data-css-gjfmv8": "",
     }
   }
 >
   <div
     className={
       Object {
-        "data-css-19ud92s": "",
+        "data-css-fcmlsr": "",
       }
     }
     style={
       Object {
-        "opacity": 0.6,
+        "opacity": 1,
       }
     }
   />

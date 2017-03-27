@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering results loaded 1`] = `
+<div
+  className="css-1t62idy"
+>
+  <div
+    className="p-a300"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          className="sf-i-f"
+          name="q"
+          onInput={[Function]}
+          placeholder="Search recent cases…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <hr
+    className="hr hr--dash"
+  />
+  <div
+    className="p-a300 css-hlpxua"
+    data-request-id="17-000000001"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1ho2t36": "",
+        }
+      }
+      style={
+        Object {
+          "backgroundImage": "url(/static/img/311-watermark.svg)",
+        }
+      }
+    />
+    <div
+      className={
+        Object {
+          "data-css-bp10x1": "",
+        }
+      }
+    >
+      <h4
+        className="t--intro t--ellipsis"
+      >
+        Cosmic Intervention
+      </h4>
+      <div
+        className={
+          Object {
+            "data-css-1muti8u": "",
+          }
+        }
+      >
+        I think that Thanos is here
+      </div>
+      <div
+        style={
+          Object {
+            "paddingTop": 5,
+          }
+        }
+      >
+        <span
+          className="t--upper t--sans css-14tkn0p"
+        >
+          Opened
+        </span>
+        <span
+          className="t--info"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          4 minutes ago
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering with request selected 1`] = `
+<div
+  className="css-1t62idy"
+>
+  <div
+    className="p-a300"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          className="sf-i-f"
+          name="q"
+          onInput={[Function]}
+          placeholder="Search recent cases…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <hr
+    className="hr hr--dash"
+  />
+  <div
+    className="p-a300 css-hlpxua"
+    data-request-id="17-000000001"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e0e0e0",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1ho2t36": "",
+        }
+      }
+      style={
+        Object {
+          "backgroundImage": "url(/static/img/311-watermark.svg)",
+        }
+      }
+    />
+    <div
+      className={
+        Object {
+          "data-css-bp10x1": "",
+        }
+      }
+    >
+      <h4
+        className="t--intro t--ellipsis"
+      >
+        Cosmic Intervention
+      </h4>
+      <div
+        className={
+          Object {
+            "data-css-1muti8u": "",
+          }
+        }
+      >
+        I think that Thanos is here
+      </div>
+      <div
+        style={
+          Object {
+            "paddingTop": 5,
+          }
+        }
+      >
+        <span
+          className="t--upper t--sans css-14tkn0p"
+        >
+          Opened
+        </span>
+        <span
+          className="t--info"
+          style={
+            Object {
+              "fontSize": 14,
+            }
+          }
+        >
+          4 minutes ago
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -34,7 +34,7 @@ export type ServiceAttributeConditionValueType =
   "NUMBER";
 
 
-export type LatLng = {
+export type LatLngIn = {
   lat: number,
   lng: number,
 };
@@ -124,6 +124,30 @@ export type LoadServiceSummariesQuery = {
   } >,
 };
 
+export type SearchRequestsQueryVariables = {
+  query: ?string,
+};
+
+export type SearchRequestsQuery = {
+  requests: {
+    requests: Array< {
+      id: string,
+      status: string,
+      description: ?string,
+      address: ?string,
+      mediaUrl: ?string,
+      updatedAtRelativeString: string,
+      location: ? {
+        lat: number,
+        lng: number,
+      },
+      service: {
+        name: string,
+      },
+    } >,
+  },
+};
+
 export type SubmitRequestMutationVariables = {
   code: string,
   description: string,
@@ -132,7 +156,7 @@ export type SubmitRequestMutationVariables = {
   email: ?string,
   phone: ?string,
   address: ?string,
-  location: ?LatLng,
+  location: ?LatLngIn,
   attributes: Array< CreateRequestAttribute >,
 };
 
