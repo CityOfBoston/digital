@@ -1067,10 +1067,10 @@ exports[`report form rendering 1`] = `
                 className="g--8"
               >
                 <h3
-                  className="step m-v300"
+                  className="stp m-v300"
                 >
                   <span
-                    className="step-number"
+                    className="stp-number"
                   >
                     1
                   </span>
@@ -1093,7 +1093,7 @@ exports[`report form rendering 1`] = `
                 className="g--44"
               >
                 <h3
-                  className="step m-v300"
+                  className="stp m-v300"
                 >
                   Top Service Requests
                 </h3>

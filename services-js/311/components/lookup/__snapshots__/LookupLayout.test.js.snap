@@ -98,10 +98,10 @@ exports[`case not found rendering 1`] = `
         ”.
       </p>
       <div
-        className="step css-38gbn5"
+        className="stp css-38gbn5"
       >
         <span
-          className="step-number css-px1sz5"
+          className="stp-number css-px1sz5"
         >
           1
         </span>
@@ -136,10 +136,10 @@ exports[`case not found rendering 1`] = `
         </div>
       </div>
       <div
-        className="step css-38gbn5"
+        className="stp css-38gbn5"
       >
         <span
-          className="step-number css-lzdudf"
+          className="stp-number css-lzdudf"
         >
           2
         </span>

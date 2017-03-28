@@ -42,13 +42,13 @@ function renderMissingRequest(query, searchFunc) {
     <div>
       <p className="t--info">There is no case number matching “{query}”.</p>
 
-      <div className={`step ${STEP_OVERRIDE_STYLE.toString()}`}>
-        <span className={`step-number ${NUMBER_OVERRIDE_STYLE.toString()}`}>1</span>
+      <div className={`stp ${STEP_OVERRIDE_STYLE.toString()}`}>
+        <span className={`stp-number ${NUMBER_OVERRIDE_STYLE.toString()}`}>1</span>
         <SearchForm fromCaseView searchFunc={searchFunc} />
       </div>
 
-      <div className={`step ${STEP_OVERRIDE_STYLE.toString()}`}>
-        <span className={`step-number ${SECOND_NUMBER_OVERRIDE_STYLE.toString()}`}>2</span>
+      <div className={`stp ${STEP_OVERRIDE_STYLE.toString()}`}>
+        <span className={`stp-number ${SECOND_NUMBER_OVERRIDE_STYLE.toString()}`}>2</span>
         <span className="t--intro">
           Our 311 operators are available 24/7 to help point you <br />
           in the right direction. Call <a href="tel:311">311</a>, or <a href="tel:+16176354500">617-635-4500</a>.

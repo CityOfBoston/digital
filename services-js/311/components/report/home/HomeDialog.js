@@ -29,8 +29,8 @@ export default observer(function HomeDialog({ store, routeToServiceForm }: Props
       <div className="m-v500">
         <div className="g">
           <div className="g--8">
-            <h3 className="step m-v300">
-              <span className="step-number">1</span>
+            <h3 className="stp m-v300">
+              <span className="stp-number">1</span>
               What can we do for you?
             </h3>
 
@@ -44,7 +44,7 @@ export default observer(function HomeDialog({ store, routeToServiceForm }: Props
           </div>
 
           <div className="g--44">
-            <h3 className="step m-v300">Top Service Requests</h3>
+            <h3 className="stp m-v300">Top Service Requests</h3>
             <div style={{ height: 222, overflowY: 'scroll' }}>
               <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
             </div>
