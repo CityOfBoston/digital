@@ -49,12 +49,11 @@ export class AppStore {
   @observable locationInfo: LocationInfo = new LocationInfo();
   @observable questions: Question[] = [];
 
-  @observable requestSearch: RequestSearch = new RequestSearch();
-  @observable ui: Ui = new Ui();
+  requestSearch: RequestSearch = new RequestSearch();
+  ui: Ui = new Ui();
 
   @observable.shallow serviceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});
-
 
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 

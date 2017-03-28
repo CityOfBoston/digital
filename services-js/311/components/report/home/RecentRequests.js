@@ -73,7 +73,6 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
 export type Props = {
   loopbackGraphql: LoopbackGraphql,
   store: AppStore,
-  loadRequests: boolean,
 }
 
 @observer
@@ -86,18 +85,8 @@ export default class RecentRequests extends React.Component {
   scrollSelectedIntoViewDisposer: ?Function = null;
 
   componentDidMount() {
-    if (this.props.loadRequests) {
-      this.loadRequests();
-    }
-
+    this.loadRequests();
     this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    const { loadRequests, store: { requestSearch } } = this.props;
-    if (loadRequests && !prevProps.loadRequests && requestSearch.results.length === 0) {
-      this.loadRequests();
-    }
   }
 
   componentWillUnmount() {
@@ -128,8 +117,9 @@ export default class RecentRequests extends React.Component {
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
       const requestEl = this.mainEl.querySelector(`[data-request-id="${selectedRequest.id}"]`);
-      if (requestEl) {
-        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT - 20 });
+      const { searchEl } = this;
+      if (Velocity && requestEl && searchEl) {
+        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT + -searchEl.clientHeight });
       }
     }
   }
@@ -148,8 +138,8 @@ export default class RecentRequests extends React.Component {
   handleSearchSubmit = (ev: SyntheticInputEvent) => {
     const { loopbackGraphql, store } = this.props;
     searchRequests(loopbackGraphql, this.query).then(store.requestSearch.update).then(() => {
-      const { mainEl, searchEl } = this;
-      if (mainEl && searchEl && Velocity) {
+      const { mainEl } = this;
+      if (Velocity && mainEl) {
         const bounds = mainEl.getBoundingClientRect();
         Velocity(window.document.body, 'scroll', { offset: bounds.top + store.ui.scrollY + -HEADER_HEIGHT });
       }

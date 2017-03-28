@@ -292,7 +292,7 @@ export default class ReportLayout extends React.Component {
           data.view === 'home' &&
           <div className={RECENT_CASES_STYLE}>
             <a name="recent" />
-            <RecentRequests loopbackGraphql={this.loopbackGraphql} store={store} loadRequests={this.mapActivationRatio === 1.0} />
+            <RecentRequests loopbackGraphql={this.loopbackGraphql} store={store} />
           </div>
         }
       </div>

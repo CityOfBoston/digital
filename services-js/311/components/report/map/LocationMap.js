@@ -2,17 +2,17 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { runInAction, autorun, untracked, computed, extras, action } from 'mobx';
+import { runInAction, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
 // eslint-disable-next-line
 import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
 import type { AppStore } from '../../../data/store';
-import type { SearchRequest } from '../../../data/types';
 
 import { HEADER_HEIGHT } from '../../style-constants';
 
 import Geocoder from '../../../data/external/Geocoder';
+import SearchMarkerPool from './SearchMarkerPool';
 import withGoogleMaps from './with-google-maps';
 
 type AutocompleteService = google.maps.places.AutocompleteService;
@@ -62,7 +62,7 @@ export default class LocationMap extends React.Component {
   autocompleteService: AutocompleteService;
   geocoder: Geocoder;
 
-  updateSearchResultMarkersDisposer: ?Function;
+  searchMarkerPool: ?SearchMarkerPool = null;
 
   constructor(props: Props) {
     super(props);
@@ -77,10 +77,13 @@ export default class LocationMap extends React.Component {
   }
 
   componentDidMount() {
-    this.attachMap();
+    const map = this.attachMap();
     this.props.setLocationMapSearch(this.whenAddressSearch);
 
-    this.updateSearchResultMarkersDisposer = autorun('updateSearchResultMarkers', this.updateSearchResultMarkers);
+    const { googleMaps, store } = this.props;
+    this.searchMarkerPool = new SearchMarkerPool(googleMaps.Marker, map, store.requestSearch, computed(() => (
+      this.props.mode === 'picker' ? 0 : this.props.opacityRatio
+    )));
   }
 
   componentDidUpdate(oldProps: Props) {
@@ -108,20 +111,13 @@ export default class LocationMap extends React.Component {
 
     this.props.setLocationMapSearch(null);
 
-    if (this.updateSearchResultMarkersDisposer) {
-      this.updateSearchResultMarkersDisposer();
+    if (this.searchMarkerPool) {
+      this.searchMarkerPool.dispose();
     }
   }
 
   setMapEl = (div: HTMLElement) => {
     this.mapEl = div;
-  }
-
-  // Pulled out as a computed property so that placeSearchResultMarkers doesn't
-  // depend directly on this.props.
-  @computed get showRecentRequestsMarkers(): boolean {
-    const { mode } = this.props;
-    return mode === 'requests';
   }
 
   getMapOptions(): MapOptions {
@@ -145,17 +141,19 @@ export default class LocationMap extends React.Component {
     };
   }
 
-  attachMap() {
+  attachMap(): GoogleMap {
     if (!this.mapEl) {
-      // eslint-disable-next-line no-console
-      console.warn('Attaching map without the mapEl being mounted');
-      return;
+      throw new Error('Attaching map without the mapEl being mounted');
     }
 
-    this.map = new this.props.googleMaps.Map(this.mapEl, this.getMapOptions());
+    const map = new this.props.googleMaps.Map(this.mapEl, this.getMapOptions());
+    this.map = map;
     this.mapClickListener = this.map.addListener('click', (ev) => {
       this.addressChanged(ev.latLng);
     });
+
+    // return convenience to avoid null checks on this.map
+    return map;
   }
 
   addressChanged = async (latLng: LatLng) => {
@@ -280,93 +278,6 @@ export default class LocationMap extends React.Component {
       this.markerDragListener.remove();
       this.markerDragListener = null;
     }
-  }
-
-  @computed get searchResultMarkers(): google.maps.Marker[] {
-    // We need untracked so that this helper doesn't develop a dependency on
-    // all props directly, because then it will be triggered for any prop
-    // change, even for ones it never references.
-    //
-    // Specifically, the opacityRatio prop changes quickly when scrolling.
-    const { store, googleMaps } = untracked(() => Object.assign({}, this.props));
-
-    const lastMarkers: ?(google.maps.Marker[]) = extras.getAtom(this, 'searchResultMarkers').value;
-    if (lastMarkers) {
-      lastMarkers.forEach((m) => { m.setMap(null); });
-    }
-
-    const markers = [];
-    store.requestSearch.results.forEach((r) => {
-      if (!r.location) {
-        return;
-      }
-
-      const marker = new googleMaps.Marker({
-        position: {
-          lat: r.location.lat,
-          lng: r.location.lng,
-        },
-      });
-      marker.addListener('click', this.handleSearchResultMarkerClick.bind(this, r));
-      marker.request = r;
-      markers.push(marker);
-    });
-
-    return markers;
-  }
-
-  updateSearchResultMarkers = () => {
-    const { mode, store } = this.props;
-    const { selectedRequest } = store.requestSearch;
-
-    const map = (mode === 'requests' ? this.map : null);
-
-    this.searchResultMarkers.forEach((m) => {
-      if (!(m.request instanceof Object)) {
-        return;
-      }
-
-      const selected = selectedRequest === m.request;
-
-      let icon;
-      if (m.request.status === 'open') {
-        if (selected) {
-          icon = '/static/img/waypoint-open-selected.png';
-        } else {
-          icon = '/static/img/waypoint-open.png';
-        }
-      } else {
-        if (selected) {
-          icon = '/static/img/waypoint-closed-selected.png';
-        } else {
-          icon = '/static/img/waypoint-closed.png';
-        }
-      }
-
-      if (m.getIcon() !== icon) {
-        m.setIcon(icon);
-      }
-
-      const zIndex = selected ? 1 : 0;
-      if (m.getZIndex() !== zIndex) {
-        m.setZIndex(zIndex);
-      }
-
-      if (m.getMap() !== map) {
-        if (!map) {
-          m.setMap(map);
-        } else {
-          window.setTimeout(() => { m.setMap(map); }, Math.random() * 500);
-        }
-      }
-    });
-  }
-
-  @action.bound
-  handleSearchResultMarkerClick(request: SearchRequest) {
-    const { store: { requestSearch } } = this.props;
-    requestSearch.selectedRequest = request;
-    requestSearch.selectedSource = 'map';
   }
 
   render() {

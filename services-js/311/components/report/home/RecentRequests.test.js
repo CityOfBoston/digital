@@ -34,11 +34,12 @@ describe('rendering', () => {
   beforeEach(() => {
     store = new AppStore();
     store.requestSearch.results = [MOCK_REQUEST];
+    searchRequests.mockReturnValue(new Promise(() => {}));
   });
 
   test('results loaded', () => {
     const component = renderer.create(
-      <RecentRequests loadRequests={false} loopbackGraphql={jest.fn()} store={store} />,
+      <RecentRequests loopbackGraphql={jest.fn()} store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -48,7 +49,7 @@ describe('rendering', () => {
     store.requestSearch.selectedRequest = MOCK_REQUEST;
 
     const component = renderer.create(
-      <RecentRequests loadRequests={false} loopbackGraphql={jest.fn()} store={store} />,
+      <RecentRequests loopbackGraphql={jest.fn()} store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();

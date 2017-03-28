@@ -18,8 +18,10 @@ jest.mock('next/router');
 
 jest.mock('../../data/dao/load-service-summaries');
 jest.mock('../../data/dao/load-service');
+jest.mock('../../data/dao/search-requests');
 const loadServiceSummaries: JestMockFn = (require('../../data/dao/load-service-summaries'): any).default;
 const loadService: JestMockFn = (require('../../data/dao/load-service'): any).default;
+const searchRequests: JestMockFn = (require('../../data/dao/search-requests'): any).default;
 
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
   name: 'Cosmic Incursion',
@@ -63,6 +65,7 @@ let store;
 beforeEach(() => {
   store = getStore();
   store.liveAgentAvailable = true;
+  searchRequests.mockReturnValue(new Promise(() => {}));
 });
 
 describe('report form', () => {
