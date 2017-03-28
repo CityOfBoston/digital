@@ -21,7 +21,7 @@ type Query {
   services: [Service!]!
   service(code: String!): Service
   request(id: String!): Request
-  requests(page: Int, query: String): RequestsPage!
+  requests(page: Int, query: String, location: LatLngIn, radiusKm: Float): RequestsPage!
 }
 
 type Request {

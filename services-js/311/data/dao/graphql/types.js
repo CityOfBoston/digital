@@ -126,6 +126,8 @@ export type LoadServiceSummariesQuery = {
 
 export type SearchRequestsQueryVariables = {
   query: ?string,
+  location: ?LatLngIn,
+  radiusKm: ?number,
 };
 
 export type SearchRequestsQuery = {

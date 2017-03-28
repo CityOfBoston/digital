@@ -51,6 +51,11 @@ function convertCaseToServiceRequest(caseObj: Object): ServiceRequest {
 type SearchCasesArgs = {
   page: ?number,
   query: ?string,
+  location: ?{
+    lat: number,
+    lng: number,
+  },
+  radiusKm: ?number,
 }
 
 export default class Swiftype {
@@ -95,15 +100,28 @@ export default class Swiftype {
     });
   }
 
-  searchCases({ page, query }: SearchCasesArgs): Promise<{ requests: ServiceRequest[], info: SearchInfo }> {
+  searchCases({ page, query, location, radiusKm }: SearchCasesArgs): Promise<{ requests: ServiceRequest[], info: SearchInfo }> {
     return new Promise((resolve, reject) => {
       const transaction = this.opbeat && this.opbeat.startTransaction('search', 'Swiftype');
+
+      const filters = {};
+      if (location) {
+        filters.cases = {
+          location: {
+            type: 'distance',
+            max: `${Math.ceil(radiusKm || 5)}km`,
+            lat: location.lat,
+            lon: location.lng,
+          },
+        };
+      }
 
       const params = {
         engine: this.engine,
         documentType: 'cases',
         q: query || '',
         page,
+        filters,
         sort_field: { cases: 'updated_datetime' },
         sort_direction: { cases: 'desc' },
       };

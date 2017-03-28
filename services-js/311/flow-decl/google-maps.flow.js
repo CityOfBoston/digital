@@ -28,6 +28,9 @@ declare module 'google-maps' {
 
   declare class LatLngBounds {
     constructor(sw?: LatLng | LatLngLiteral, ne?: LatLng | LatLngLiteral): this;
+    getNorthEast(): LatLng,
+    getSouthWest(): LatLng,
+    getCenter(): LatLng,
   }
 
   declare type LatLngBoundsLiteral = {|

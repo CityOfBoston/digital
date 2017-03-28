@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { runInAction, computed } from 'mobx';
+import { runInAction, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
+import debounce from 'lodash/debounce';
+import haversine from 'haversine';
 
 // eslint-disable-next-line
 import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
@@ -84,6 +86,8 @@ export default class LocationMap extends React.Component {
     this.searchMarkerPool = new SearchMarkerPool(googleMaps.Marker, map, store.requestSearch, computed(() => (
       this.props.mode === 'picker' ? 0 : this.props.opacityRatio
     )));
+
+    this.updateMapCenter();
   }
 
   componentDidUpdate(oldProps: Props) {
@@ -126,7 +130,7 @@ export default class LocationMap extends React.Component {
 
     return {
       clickableIcons: false,
-      disableDoubleClickZoom: true,
+      disableDoubleClickZoom: mode === 'disabled',
       disableDefaultUI: true,
       draggable: mode !== 'disabled',
       gestureHandling: 'greedy',
@@ -141,6 +145,54 @@ export default class LocationMap extends React.Component {
     };
   }
 
+  updateMapCenter = debounce(action('updateMapCenter', () => {
+    const { map, mapEl } = this;
+    if (!map || !mapEl) {
+      return;
+    }
+
+    const { googleMaps, store: { requestSearch } } = this.props;
+
+    const projection = map.getProjection();
+    const scale = 2 ** map.getZoom();
+    const bounds = map.getBounds();
+
+    const topRightPoint = projection.fromLatLngToPoint(bounds.getNorthEast());
+
+    const topRightToEdgeOffset = {
+      x: 0,
+      y: (mapEl.clientHeight / 2) / scale,
+    };
+
+    const topRightToCenterOffset = {
+      // only right 60% of map is visible when showing results, so take half of
+      // that to get the visible center
+      x: (-mapEl.clientWidth * 0.3) / scale,
+      y: (mapEl.clientHeight / 2) / scale,
+    };
+
+    const edgePoint = new googleMaps.Point(topRightPoint.x + topRightToEdgeOffset.x, topRightPoint.y + topRightToEdgeOffset.y);
+    const centerPoint = new googleMaps.Point(topRightPoint.x + topRightToCenterOffset.x, topRightPoint.y + topRightToCenterOffset.y);
+
+    const edgeLoc = projection.fromPointToLatLng(edgePoint);
+    const centerLoc = projection.fromPointToLatLng(centerPoint);
+
+    requestSearch.mapCenter = {
+      lat: centerLoc.lat(),
+      lng: centerLoc.lng(),
+    };
+
+    requestSearch.radiusKm = haversine({
+      latitude: centerLoc.lat(),
+      longitude: centerLoc.lng(),
+    }, {
+      latitude: edgeLoc.lat(),
+      longitude: edgeLoc.lng(),
+    }, {
+      unit: 'km',
+    });
+  }), 1000)
+
   attachMap(): GoogleMap {
     if (!this.mapEl) {
       throw new Error('Attaching map without the mapEl being mounted');
@@ -151,6 +203,8 @@ export default class LocationMap extends React.Component {
     this.mapClickListener = this.map.addListener('click', (ev) => {
       this.addressChanged(ev.latLng);
     });
+
+    map.addListener('bounds_changed', this.updateMapCenter);
 
     // return convenience to avoid null checks on this.map
     return map;

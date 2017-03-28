@@ -3410,6 +3410,10 @@ hashlru@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/hashlru/-/hashlru-1.0.6.tgz#91c264be438dbba77a3deb595a282eb99684e714"
 
+haversine@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/haversine/-/haversine-1.0.2.tgz#7872a584383230e1565875477da02f18c518c3e5"
+
 hawk@~3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"

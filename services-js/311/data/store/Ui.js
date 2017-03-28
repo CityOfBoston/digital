@@ -34,9 +34,9 @@ export default class Ui {
 
   handleScroll = throttle(action('scroll handler', () => {
     this.scrollY = window.scrollY || (document.documentElement && document.documentElement.scrollTop) || 0;
-  }));
+  }), 100);
 
   handleResize = throttle(action('resize handler', () => {
     this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
-  }));
+  }), 100);
 }

@@ -165,8 +165,16 @@ export default class ReportLayout extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.store.requestSearch.start(this.loopbackGraphql);
+  }
+
   componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
+  }
+
+  componentWillUnmount() {
+    this.props.store.requestSearch.stop();
   }
 
   startChat = () => {
@@ -292,7 +300,7 @@ export default class ReportLayout extends React.Component {
           data.view === 'home' &&
           <div className={RECENT_CASES_STYLE}>
             <a name="recent" />
-            <RecentRequests loopbackGraphql={this.loopbackGraphql} store={store} />
+            <RecentRequests store={store} />
           </div>
         }
       </div>

@@ -52,7 +52,7 @@ class SearchMarker {
   }
 
   @computed get selected(): boolean {
-    return this.requestSearch.selectedRequest === this.request;
+    return !!this.requestSearch.selectedRequest && this.requestSearch.selectedRequest.id === this.request.id;
   }
 
   updateIcon = () => {

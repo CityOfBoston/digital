@@ -1,5 +1,5 @@
-query SearchRequests($query: String) {
-  requests(query: $query) {
+query SearchRequests($query: String, $location: LatLngIn, $radiusKm: Float) {
+  requests(query: $query, location: $location, radiusKm: $radiusKm) {
     requests {
       id
       status

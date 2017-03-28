@@ -6,10 +6,8 @@ import { observable, action, autorun, untracked, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
-import searchRequests from '../../../data/dao/search-requests';
 import type { AppStore } from '../../../data/store';
 import type { SearchRequest } from '../../../data/types';
-import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import { HEADER_HEIGHT } from '../../style-constants';
 
 let Velocity;
@@ -71,7 +69,6 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
 });
 
 export type Props = {
-  loopbackGraphql: LoopbackGraphql,
   store: AppStore,
 }
 
@@ -82,10 +79,10 @@ export default class RecentRequests extends React.Component {
   @observable.ref mainEl: ?HTMLElement = null;
   @observable.ref searchEl: ?HTMLElement = null;
   @observable query: string = '';
+
   scrollSelectedIntoViewDisposer: ?Function = null;
 
   componentDidMount() {
-    this.loadRequests();
     this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
   }
 
@@ -103,11 +100,6 @@ export default class RecentRequests extends React.Component {
   @action.bound
   setSearchEl(searchEl: HTMLElement) {
     this.searchEl = searchEl;
-  }
-
-  loadRequests() {
-    const { loopbackGraphql, store: { requestSearch } } = this.props;
-    searchRequests(loopbackGraphql).then(requestSearch.update);
   }
 
   scrollSelectedIntoView = () => {
@@ -135,15 +127,18 @@ export default class RecentRequests extends React.Component {
     return store.ui.scrollY && mainBounds.top <= HEADER_HEIGHT;
   }
 
-  handleSearchSubmit = (ev: SyntheticInputEvent) => {
-    const { loopbackGraphql, store } = this.props;
-    searchRequests(loopbackGraphql, this.query).then(store.requestSearch.update).then(() => {
-      const { mainEl } = this;
-      if (Velocity && mainEl) {
-        const bounds = mainEl.getBoundingClientRect();
-        Velocity(window.document.body, 'scroll', { offset: bounds.top + store.ui.scrollY + -HEADER_HEIGHT });
-      }
-    });
+  @action.bound
+  handleSearchSubmit(ev: SyntheticInputEvent) {
+    const { mainEl } = this;
+    const { store } = this.props;
+
+    // This actually triggers the search to happen
+    store.requestSearch.query = this.query;
+
+    if (Velocity && mainEl) {
+      const bounds = mainEl.getBoundingClientRect();
+      Velocity(window.document.body, 'scroll', { offset: bounds.top + store.ui.scrollY + -HEADER_HEIGHT });
+    }
 
     ev.preventDefault();
   }
@@ -223,7 +218,7 @@ export default class RecentRequests extends React.Component {
         onMouseEnter={this.handleHoverRequest.bind(null, request)}
         onMouseLeave={this.handleUnhoverRequest}
         style={{
-          backgroundColor: (request === requestSearch.selectedRequest) ? '#e0e0e0' : 'transparent',
+          backgroundColor: (requestSearch.selectedRequest && requestSearch.selectedRequest.id === request.id) ? '#e0e0e0' : 'transparent',
         }}
       >
         <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />

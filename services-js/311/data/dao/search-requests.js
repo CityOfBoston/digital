@@ -7,9 +7,15 @@ import type { SearchRequestsQuery, SearchRequestsQueryVariables } from './graphq
 import SearchRequestsGraphql from './graphql/SearchRequests.graphql';
 
 // Searches requests by query and / or location.
-export default async function searchRequests(loopbackGraphql: LoopbackGraphql, query: ?string = null): Promise<SearchRequestsPage> {
+export default async function searchRequests(
+  loopbackGraphql: LoopbackGraphql,
+  query: ?string = null,
+  location: ?{lat: number, lng: number},
+  radiusKm: ?number): Promise<SearchRequestsPage> {
   const args: SearchRequestsQueryVariables = {
     query,
+    location,
+    radiusKm,
   };
 
   const response: SearchRequestsQuery = await loopbackGraphql(SearchRequestsGraphql, args);

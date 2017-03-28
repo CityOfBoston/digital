@@ -9,9 +9,6 @@ import type { SearchRequest } from '../../../data/types';
 
 import RecentRequests from './RecentRequests';
 
-jest.mock('../../../data/dao/search-requests');
-const searchRequests: JestMockFn = (require('../../../data/dao/search-requests'): any).default;
-
 export const MOCK_REQUEST: SearchRequest = {
   id: '17-000000001',
   service: {
@@ -34,12 +31,11 @@ describe('rendering', () => {
   beforeEach(() => {
     store = new AppStore();
     store.requestSearch.results = [MOCK_REQUEST];
-    searchRequests.mockReturnValue(new Promise(() => {}));
   });
 
   test('results loaded', () => {
     const component = renderer.create(
-      <RecentRequests loopbackGraphql={jest.fn()} store={store} />,
+      <RecentRequests store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -49,7 +45,7 @@ describe('rendering', () => {
     store.requestSearch.selectedRequest = MOCK_REQUEST;
 
     const component = renderer.create(
-      <RecentRequests loopbackGraphql={jest.fn()} store={store} />,
+      <RecentRequests store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -58,11 +54,9 @@ describe('rendering', () => {
 
 test('searching', () => {
   const store = new AppStore();
-  const loopbackGraphql = jest.fn();
 
-  searchRequests.mockReturnValue(new Promise(() => {}));
   const wrapper = mount(
-    <RecentRequests store={store} loadRequests={false} loopbackGraphql={loopbackGraphql} />,
+    <RecentRequests store={store} loadRequests={false} />,
   );
 
   const inputWrapper = wrapper.find('input[type="text"]').first();
@@ -70,5 +64,5 @@ test('searching', () => {
   expect(inputWrapper.getDOMNode().value).toEqual('Mewnir');
 
   wrapper.find('form').simulate('submit');
-  expect(searchRequests).toHaveBeenCalledWith(loopbackGraphql, 'Mewnir');
+  expect(store.requestSearch.query).toEqual('Mewnir');
 });
