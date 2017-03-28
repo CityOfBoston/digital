@@ -9,6 +9,7 @@ import type { Service, ServiceSummary, SubmittedRequest } from '../types';
 
 import RequestSearch from './RequestSearch';
 import Question from './Question';
+import Ui from './Ui';
 
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
@@ -49,9 +50,11 @@ export class AppStore {
   @observable questions: Question[] = [];
 
   @observable requestSearch: RequestSearch = new RequestSearch();
+  @observable ui: Ui = new Ui();
 
   @observable.shallow serviceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});
+
 
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 
@@ -145,6 +148,7 @@ export default function getStore(): AppStore {
 
   if (process.browser) {
     browserStore = store;
+    store.ui.attach();
   }
 
   return store;

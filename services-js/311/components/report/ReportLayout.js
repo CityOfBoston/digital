@@ -6,9 +6,8 @@ import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
-import { action, observable, computed } from 'mobx';
+import { action, computed } from 'mobx';
 import { observer } from 'mobx-react';
-import throttle from 'lodash/throttle';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
@@ -97,10 +96,6 @@ export default class ReportLayout extends React.Component {
   }
   loopbackGraphql: LoopbackGraphql;
 
-  // This tracks the current window height, minus the fixed header height
-  @observable visibleHeight: number = Number.MAX_SAFE_INTEGER;
-  @observable bodyScrollTop: number = 0;
-
   static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
     const loopbackGraphql = makeLoopbackGraphql(req);
 
@@ -170,18 +165,6 @@ export default class ReportLayout extends React.Component {
     };
   }
 
-  @action
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', this.handleResize);
-    this.bodyScrollTop = window.document.body.scrollTop;
-    this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
   componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
   }
@@ -191,16 +174,9 @@ export default class ReportLayout extends React.Component {
     liveagent.startChat(liveAgentButtonId);
   }
 
-  handleScroll = throttle(action('scroll handler', (ev) => {
-    this.bodyScrollTop = ev.target.body.scrollTop;
-  }));
-
-  handleResize = throttle(action('resize handler', () => {
-    this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
-  }));
-
   @computed get mapActivationRatio(): number {
-    return Math.min(1.0, this.bodyScrollTop / (this.visibleHeight * 0.25));
+    const { store: { ui } } = this.props;
+    return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.25));
   }
 
   @action

@@ -2,7 +2,7 @@
 /* eslint react/jsx-no-bind: 0 */
 
 import React from 'react';
-import { observable, action, autorun, untracked } from 'mobx';
+import { observable, action, autorun, untracked, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
@@ -16,6 +16,12 @@ let Velocity;
 if (typeof window !== 'undefined') {
   Velocity = require('velocity-animate');
 }
+
+const STICKY_SEARCH_STYLE = css({
+  position: 'fixed',
+  top: HEADER_HEIGHT,
+  background: 'white',
+});
 
 const CONTAINER_STYLE = css({
   display: 'flex',
@@ -74,7 +80,8 @@ export type Props = {
 export default class RecentRequests extends React.Component {
   props: Props;
 
-  mainEl: ?HTMLElement = null;
+  @observable.ref mainEl: ?HTMLElement = null;
+  @observable.ref searchEl: ?HTMLElement = null;
   @observable query: string = '';
   scrollSelectedIntoViewDisposer: ?Function = null;
 
@@ -99,8 +106,14 @@ export default class RecentRequests extends React.Component {
     }
   }
 
-  setMainEl = (mainEl: HTMLElement) => {
+  @action.bound
+  setMainEl(mainEl: HTMLElement) {
     this.mainEl = mainEl;
+  }
+
+  @action.bound
+  setSearchEl(searchEl: HTMLElement) {
+    this.searchEl = searchEl;
   }
 
   loadRequests() {
@@ -121,9 +134,26 @@ export default class RecentRequests extends React.Component {
     }
   }
 
+  @computed get stickySearch(): boolean {
+    const { store } = untracked(() => Object.assign({}, this.props));
+
+    if (!this.mainEl) {
+      return false;
+    }
+
+    const mainBounds = this.mainEl.getBoundingClientRect();
+    return store.ui.scrollY && mainBounds.top <= HEADER_HEIGHT;
+  }
+
   handleSearchSubmit = (ev: SyntheticInputEvent) => {
-    const { loopbackGraphql, store: { requestSearch } } = this.props;
-    searchRequests(loopbackGraphql, this.query).then(requestSearch.update);
+    const { loopbackGraphql, store } = this.props;
+    searchRequests(loopbackGraphql, this.query).then(store.requestSearch.update).then(() => {
+      const { mainEl, searchEl } = this;
+      if (mainEl && searchEl && Velocity) {
+        const bounds = mainEl.getBoundingClientRect();
+        Velocity(window.document.body, 'scroll', { offset: bounds.top + store.ui.scrollY + -HEADER_HEIGHT });
+      }
+    });
 
     ev.preventDefault();
   }
@@ -151,18 +181,29 @@ export default class RecentRequests extends React.Component {
     const { store: { requestSearch } } = this.props;
     const { results } = requestSearch;
 
+    const containerStyle = {};
+    const searchStyle = {};
+
+    if (this.stickySearch && this.searchEl && this.mainEl) {
+      containerStyle.paddingTop = this.searchEl.clientHeight;
+      searchStyle.width = this.mainEl.clientWidth;
+    }
+
     return (
-      <div className={`${CONTAINER_STYLE.toString()}`} ref={this.setMainEl}>
-        <div className="p-a300">
-          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
-            <div className="sf-i">
-              <input type="text" name="q" placeholder="Search recent cases…" value={this.query} onInput={this.handleSearchInput} className="sf-i-f" />
-              <button className="sf-i-b">Search</button>
-            </div>
-          </form>
+      <div className={`${CONTAINER_STYLE.toString()}`} ref={this.setMainEl} style={containerStyle}>
+        <div className={this.stickySearch && STICKY_SEARCH_STYLE} ref={this.setSearchEl} style={searchStyle}>
+          <div className="p-a300">
+            <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
+              <div className="sf-i">
+                <input type="text" name="q" placeholder="Search recent cases…" value={this.query} onInput={this.handleSearchInput} className="sf-i-f" />
+                <button className="sf-i-b">Search</button>
+              </div>
+            </form>
+          </div>
+
+          <hr className="hr hr--dash" />
         </div>
 
-        <hr className="hr hr--dash" />
 
         { results.map(this.renderRequest) }
       </div>

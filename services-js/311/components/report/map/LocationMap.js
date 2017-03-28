@@ -137,10 +137,10 @@ export default class LocationMap extends React.Component {
       scrollwheel: mode === 'picker',
       scaleControl: false,
       zoomControl: mode !== 'disabled',
-      zoom: 13,
+      zoom: 12,
       center: location || {
-        lat: 42.346026,
-        lng: -71.097279,
+        lat: 42.326782,
+        lng: -71.151948,
       },
     };
   }
@@ -353,7 +353,11 @@ export default class LocationMap extends React.Component {
       }
 
       if (m.getMap() !== map) {
-        m.setMap(map);
+        if (!map) {
+          m.setMap(map);
+        } else {
+          window.setTimeout(() => { m.setMap(map); }, Math.random() * 500);
+        }
       }
     });
   }

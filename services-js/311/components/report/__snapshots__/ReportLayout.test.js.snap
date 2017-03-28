@@ -1161,39 +1161,45 @@ exports[`report form rendering 1`] = `
     />
     <div
       className="css-1t62idy"
+      style={Object {}}
     >
       <div
-        className="p-a300"
+        className={false}
+        style={Object {}}
       >
-        <form
-          acceptCharset="UTF-8"
-          action="/lookup"
-          className="sf sf--y sf--md"
-          method="get"
-          onSubmit={[Function]}
+        <div
+          className="p-a300"
         >
-          <div
-            className="sf-i"
+          <form
+            acceptCharset="UTF-8"
+            action="/lookup"
+            className="sf sf--y sf--md"
+            method="get"
+            onSubmit={[Function]}
           >
-            <input
-              className="sf-i-f"
-              name="q"
-              onInput={[Function]}
-              placeholder="Search recent cases…"
-              type="text"
-              value=""
-            />
-            <button
-              className="sf-i-b"
+            <div
+              className="sf-i"
             >
-              Search
-            </button>
-          </div>
-        </form>
+              <input
+                className="sf-i-f"
+                name="q"
+                onInput={[Function]}
+                placeholder="Search recent cases…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <hr
+          className="hr hr--dash"
+        />
       </div>
-      <hr
-        className="hr hr--dash"
-      />
     </div>
   </div>
 </div>
