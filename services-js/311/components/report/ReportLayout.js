@@ -13,6 +13,7 @@ import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
 import { LocationMapWithLib } from './map/LocationMap';
+import type { MapMode } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import RecentRequests from './home/RecentRequests';
 import RequestDialog from './request/RequestDialog';
@@ -171,6 +172,7 @@ export default class ReportLayout extends React.Component {
 
   componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
+    this.setState({ locationMapActive: false });
   }
 
   componentWillUnmount() {
@@ -183,8 +185,12 @@ export default class ReportLayout extends React.Component {
   }
 
   @computed get mapActivationRatio(): number {
-    const { store: { ui } } = this.props;
-    return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.25));
+    const { store: { ui }, data: { view } } = this.props;
+    if (view === 'home') {
+      return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.25));
+    } else {
+      return 0;
+    }
   }
 
   @action
@@ -238,30 +244,30 @@ export default class ReportLayout extends React.Component {
     const { locationMapActive, locationMapSearch } = this.state;
     const { isPhone, liveAgentAvailable } = store;
 
-    let mapMode;
+    let mapMode: MapMode;
     if (locationMapActive) {
       mapMode = 'picker';
     } else if (this.mapActivationRatio === 1.0) {
       mapMode = 'requests';
     } else {
-      mapMode = 'inactive';
+      mapMode = 'disabled';
     }
 
     return (
       <div>
         <Nav activeSection="report" />
 
-        { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
-          <LocationMapWithLib
-            store={store}
-            setLocationMapSearch={this.setLocationMapSearch}
-            mode={mapMode}
-            opacityRatio={this.mapActivationRatio}
-          />
-        }
-
         <div className="mn mn--full mn--nv-s" style={{ backgroundColor: 'transparent' }}>
           <div className={CONTENT_STYLE}>
+            { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
+              <LocationMapWithLib
+                store={store}
+                setLocationMapSearch={this.setLocationMapSearch}
+                mode={mapMode}
+                opacityRatio={this.mapActivationRatio}
+              />
+            }
+
             <div className={DIALONG_WRAPPER_STYLE}>
               { data.view === 'home' &&
                 <HomeDialog

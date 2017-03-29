@@ -61,7 +61,7 @@ exports[`rendering results loaded 1`] = `
       }
       style={
         Object {
-          "backgroundImage": "url(/static/img/311-watermark.svg)",
+          "backgroundImage": "url(/static/img/311-logo-white-on-grey.svg)",
         }
       }
     />
@@ -175,7 +175,7 @@ exports[`rendering with request selected 1`] = `
       }
       style={
         Object {
-          "backgroundImage": "url(/static/img/311-watermark.svg)",
+          "backgroundImage": "url(/static/img/311-logo-grey-on-white.svg)",
         }
       }
     />

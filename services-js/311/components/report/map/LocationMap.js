@@ -39,8 +39,10 @@ const MAP_STYLE = css({
   height: '100%',
 });
 
+export type MapMode = 'disabled' | 'requests' | 'picker';
+
 export type ExternalProps = {
-  mode: 'disabled' | 'requests' | 'picker',
+  mode: MapMode,
   setLocationMapSearch: (locationMapSearch: ?(query: string) => Promise<boolean>) => void,
   store: AppStore,
   opacityRatio: number,
@@ -135,6 +137,7 @@ export default class LocationMap extends React.Component {
       scrollwheel: mode === 'picker',
       scaleControl: false,
       zoomControl: mode !== 'disabled',
+      minZoom: 11,
     };
   }
 
@@ -354,7 +357,7 @@ export default class LocationMap extends React.Component {
     const { store, mode, opacityRatio } = this.props;
     const { isPhone } = store;
 
-    const opacity = mode !== 'inactive' ? 1 : 0.6 + (0.4 * opacityRatio);
+    const opacity = mode !== 'disabled' ? 1 : 0.6 + (0.4 * opacityRatio);
 
     return (
       <div className={isPhone ? PHONE_STYLE : CONTAINER_STYLE}>

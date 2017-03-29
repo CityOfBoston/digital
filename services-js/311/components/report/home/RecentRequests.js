@@ -197,7 +197,8 @@ export default class RecentRequests extends React.Component {
 
   renderRequest = (request: SearchRequest) => {
     const { store: { requestSearch } } = this.props;
-    const mediaUrl = request.mediaUrl || '/static/img/311-watermark.svg';
+    const selected = requestSearch.selectedRequest && requestSearch.selectedRequest.id === request.id;
+    const mediaUrl = request.mediaUrl || (selected ? '/static/img/311-logo-grey-on-white.svg' : '/static/img/311-logo-white-on-grey.svg');
 
     let statusStyle;
     let statusText;
@@ -218,7 +219,7 @@ export default class RecentRequests extends React.Component {
         onMouseEnter={this.handleHoverRequest.bind(null, request)}
         onMouseLeave={this.handleUnhoverRequest}
         style={{
-          backgroundColor: (requestSearch.selectedRequest && requestSearch.selectedRequest.id === request.id) ? '#e0e0e0' : 'transparent',
+          backgroundColor: selected ? '#e0e0e0' : 'transparent',
         }}
       >
         <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
