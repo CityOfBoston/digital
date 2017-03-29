@@ -20,12 +20,14 @@ export const MOCK_REQUEST: SearchRequest = {
     lat: 4,
     lng: 5,
   },
+  updatedAt: 1490804343,
   updatedAtRelativeString: '4 minutes ago',
   mediaUrl: null,
 };
 
 const MOCK_SEARCH_RESULTS_PAGE = {
   requests: [MOCK_REQUEST],
+  query: '',
 };
 
 beforeEach(() => {
@@ -36,6 +38,52 @@ describe('update', () => {
   it('sets the results', () => {
     requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
     expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
+  });
+
+  it('merges old results in', () => {
+    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE,
+      requests: [{
+        ...MOCK_REQUEST,
+        id: 'new-id',
+        updatedAt: MOCK_REQUEST.updatedAt + 1,
+      }] });
+
+    expect(requestSearch.results[0].id).toEqual('new-id');
+    expect(requestSearch.results[1]).toEqual(MOCK_REQUEST);
+  });
+
+  it('re-uses existing IDs', () => {
+    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE, requests: [{ ...MOCK_REQUEST }] });
+
+    expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
+    expect(requestSearch.results.length).toEqual(1);
+  });
+
+  it('clears when the query changes', () => {
+    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE,
+      requests: [{
+        ...MOCK_REQUEST,
+        id: 'new-id',
+        updatedAt: MOCK_REQUEST.updatedAt + 1,
+      }],
+      query: 'new search' });
+
+    expect(requestSearch.results[0].id).toEqual('new-id');
+    expect(requestSearch.results.length).toEqual(1);
+  });
+});
+
+describe('results', () => {
+  it('filters to bounds', () => {
+    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.mapBounds = ({
+      contains: () => false,
+    }: any);
+
+    expect(requestSearch.results).toEqual([]);
   });
 });
 

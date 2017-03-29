@@ -42,6 +42,7 @@ type Request {
 
 type RequestsPage {
   requests: [Request!]!
+  query: String!
   currentPage: Int!
   totalPages: Int!
 }

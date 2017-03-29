@@ -40,6 +40,7 @@ export const MOCK_REQUEST = {
     lat: 4,
     lng: 5,
   },
+  updatedAt: 1490804343,
   updatedAtRelativeString: '4 minutes ago',
   mediaUrl: null,
 };
@@ -64,7 +65,7 @@ afterEach(() => {
 
 describe('generation', () => {
   test('request with location', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
 
     const marker = FakeMarker.markers[0];
     expect(marker).toBeDefined();
@@ -73,24 +74,24 @@ describe('generation', () => {
   });
 
   test('request without location', () => {
-    requestSearch.results = [{ ...MOCK_REQUEST, location: null }];
+    requestSearch.update({ requests: [{ ...MOCK_REQUEST, location: null }], query: '' });
     expect(FakeMarker.markers.length).toEqual(0);
   });
 
   it('caches markers', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     expect(FakeMarker.markers.length).toEqual(1);
 
-    requestSearch.results = [{ ...MOCK_REQUEST }];
+    requestSearch.update({ requests: [{ ...MOCK_REQUEST }], query: '' });
     // new Marker was not created
     expect(FakeMarker.markers.length).toEqual(1);
   });
 
   it('disposes of old markers', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
 
-    requestSearch.results = [{ ...MOCK_REQUEST, id: 'new-request-id' }];
+    requestSearch.update({ requests: [{ ...MOCK_REQUEST, id: 'new-request-id' }], query: 'new query' });
     // new Marker was created
     expect(FakeMarker.markers.length).toEqual(2);
     expect(marker.map).toEqual(null);
@@ -99,13 +100,13 @@ describe('generation', () => {
 
 describe('opacity update', () => {
   it('sets a map', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
     expect(marker.map).toEqual(FAKE_MAP);
   });
 
   it('clears the map', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
     opacityBox.set(0);
     expect(marker.setOpacity).toHaveBeenCalledWith(0);
@@ -115,19 +116,19 @@ describe('opacity update', () => {
 
 describe('icon update', () => {
   it('sets an icon', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
     expect(marker.setIcon).toHaveBeenCalledWith('/static/img/waypoint-open.png');
   });
 
   it('sets a closed icon', () => {
-    requestSearch.results = [{ ...MOCK_REQUEST, status: 'closed' }];
+    requestSearch.update({ requests: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
     const marker = FakeMarker.markers[0];
     expect(marker.setIcon).toHaveBeenCalledWith('/static/img/waypoint-closed.png');
   });
 
   it('updates to hover when selected', () => {
-    requestSearch.results = [MOCK_REQUEST];
+    requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
     marker.setIcon.mockReset();
 
@@ -137,7 +138,7 @@ describe('icon update', () => {
 });
 
 test('click handler', () => {
-  requestSearch.results = [MOCK_REQUEST];
+  requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
   const marker = FakeMarker.markers[0];
 
   expect(marker.addListener).toHaveBeenCalledWith('click', expect.anything());

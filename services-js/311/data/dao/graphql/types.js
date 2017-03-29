@@ -132,12 +132,14 @@ export type SearchRequestsQueryVariables = {
 
 export type SearchRequestsQuery = {
   requests: {
+    query: string,
     requests: Array< {
       id: string,
       status: string,
       description: ?string,
       address: ?string,
       mediaUrl: ?string,
+      updatedAt: number,
       updatedAtRelativeString: string,
       location: ? {
         lat: number,

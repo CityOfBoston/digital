@@ -21,6 +21,7 @@ export const MOCK_REQUEST: SearchRequest = {
     lat: 4,
     lng: 5,
   },
+  updatedAt: 1490804343,
   updatedAtRelativeString: '4 minutes ago',
   mediaUrl: null,
 };
@@ -30,7 +31,7 @@ describe('rendering', () => {
 
   beforeEach(() => {
     store = new AppStore();
-    store.requestSearch.results = [MOCK_REQUEST];
+    store.requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
   });
 
   test('results loaded', () => {

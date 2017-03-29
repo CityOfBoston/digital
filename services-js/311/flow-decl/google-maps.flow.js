@@ -21,24 +21,25 @@ declare module 'google-maps' {
     lng(): number;
   }
 
-  declare type LatLngLiteral = {|
+  declare type LatLngLiteral = {
     lat: number,
     lng: number,
-  |};
+  };
 
   declare class LatLngBounds {
     constructor(sw?: LatLng | LatLngLiteral, ne?: LatLng | LatLngLiteral): this;
-    getNorthEast(): LatLng,
-    getSouthWest(): LatLng,
-    getCenter(): LatLng,
+    getNorthEast(): LatLng;
+    getSouthWest(): LatLng;
+    getCenter(): LatLng;
+    contains(latLng: LatLng | LatLngLiteral): boolean;
   }
 
-  declare type LatLngBoundsLiteral = {|
+  declare type LatLngBoundsLiteral = {
     east: number,
     north: number,
     south: number,
     west: number,
-  |};
+  };
 
   declare type MapTypeId = 'HYBRID' | 'ROADMAP' | 'SATELLITE' | 'TERRAIN';
 
@@ -96,7 +97,7 @@ declare module 'google-maps' {
     zoomControlOptios?: Object,
   |};
 
-  declare class MouseEVent {
+  declare class MouseEvent {
     stop(): void;
     latLng: LatLng;
   }
@@ -251,6 +252,7 @@ declare module 'google-maps' {
 
   declare module.exports: {
     LatLng: Class<LatLng>,
+    LatLngBounds: Class<LatLngBounds>,
     Map: Class<Map>,
     Marker: Class<Marker>,
     MapsEventListener: Class<MapsEventListener>,

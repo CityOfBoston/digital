@@ -120,6 +120,7 @@ export default class Swiftype {
         engine: this.engine,
         documentType: 'cases',
         q: query || '',
+        per_page: 100,
         page,
         filters,
         sort_field: { cases: 'updated_datetime' },

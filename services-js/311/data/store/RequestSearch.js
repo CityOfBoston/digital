@@ -1,6 +1,9 @@
 // @flow
 
 import { observable, action, autorun, computed } from 'mobx';
+// eslint-disable-next-line
+import type { LatLngBounds } from 'google-maps';
+import uniqBy from 'lodash/uniqBy';
 import type { SearchRequest, SearchRequestsPage } from '../types';
 import searchRequests from '../dao/search-requests';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
@@ -12,10 +15,15 @@ type LatLng = {
 
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
+  @observable.struct mapCenter: ?LatLng = null;
   @observable query: string = '';
   @observable radiusKm: number = 0;
 
-  @observable.shallow results: SearchRequest[] = [];
+  @observable mapBounds: ?LatLngBounds = null;
+
+  @observable.shallow _results: SearchRequest[] = [];
+  _resultsQuery: string = '';
+
   @observable.ref selectedRequest: ?SearchRequest = null;
   @observable selectedSource: ?string = null;
 
@@ -23,19 +31,28 @@ export default class RequestSearch {
   searchPending: boolean = false;
   searchDisposer: ?Function = null;
 
-  // We pipe mapCenter through @computed.struct so that assignments to mapCenter
-  // that don't actually change the lat/lng values don't cause re-queries.
-  @observable _mapCenter: ?LatLng = null;
-  @computed.struct get mapCenter(): ?LatLng {
-    return this._mapCenter;
-  }
-  set mapCenter(center: LatLng) {
-    this._mapCenter = center;
+  @action.bound
+  update({ requests, query }: SearchRequestsPage) {
+    // In this method we want to bring in the new requests, but preserve any
+    // existing ones that match the location / query. Without this, moving
+    // across the map could make requests disappear if they are not in the top
+    // 100 of the new map center.
+    //
+    // We use this.results so we filter by bounds automatically.
+    const previousResults = (query === this._resultsQuery) ? this.results : [];
+    const newResults = uniqBy([...previousResults, ...requests], (r) => r.id);
+    newResults.sort((a, b) => b.updatedAt - a.updatedAt);
+    this._results = newResults;
+    this._resultsQuery = query;
   }
 
-  @action.bound
-  update({ requests }: SearchRequestsPage) {
-    this.results = requests;
+  @computed get results(): SearchRequest[] {
+    const { mapBounds } = this;
+    if (!mapBounds) {
+      return this._results;
+    } else {
+      return this._results.filter((r) => r.location && mapBounds.contains(r.location));
+    }
   }
 
   // Starting / stopping currently done in ReportLayout

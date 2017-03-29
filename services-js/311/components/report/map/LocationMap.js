@@ -164,11 +164,22 @@ export default class LocationMap extends React.Component {
       y: (mapEl.clientHeight / 2) / scale,
     };
 
+    const topRightToBottomLeftOffset = {
+      // only right 60% of map is visible when showing results
+      x: (-mapEl.clientWidth * 0.6) / scale,
+      y: mapEl.clientHeight / scale,
+    };
+
     const edgePoint = new googleMaps.Point(topRightPoint.x + topRightToEdgeOffset.x, topRightPoint.y + topRightToEdgeOffset.y);
     const centerPoint = new googleMaps.Point(topRightPoint.x + topRightToCenterOffset.x, topRightPoint.y + topRightToCenterOffset.y);
+    const bottomLeftPoint = new googleMaps.Point(topRightPoint.x + topRightToBottomLeftOffset.x, topRightPoint.y + topRightToBottomLeftOffset.y);
 
     const edgeLoc = projection.fromPointToLatLng(edgePoint);
     const centerLoc = projection.fromPointToLatLng(centerPoint);
+
+    requestSearch.mapBounds = new googleMaps.LatLngBounds(
+      projection.fromPointToLatLng(bottomLeftPoint),
+      projection.fromPointToLatLng(topRightPoint));
 
     requestSearch.mapCenter = {
       lat: centerLoc.lat(),
@@ -201,7 +212,6 @@ export default class LocationMap extends React.Component {
         lat: 42.326782,
         lng: -71.151948,
       },
-
     });
 
     this.mapClickListener = map.addListener('click', (ev) => {

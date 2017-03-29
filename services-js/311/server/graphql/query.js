@@ -7,6 +7,7 @@ import type { Root as Request } from './request';
 export const Schema = `
 type RequestsPage {
   requests: [Request!]!
+  query: String!
   currentPage: Int!
   totalPages: Int!
 }
@@ -31,6 +32,7 @@ type RequestsArgs = {
 
 type RequestsPage = {
   requests: Request[],
+  query: string,
   currentPage: number,
   totalPages: number,
 };
@@ -44,6 +46,7 @@ export const resolvers = {
       const { requests, info } = await swiftype.searchCases({ page, query, location, radiusKm });
       return {
         requests,
+        query: info.query,
         currentPage: info.current_page,
         totalPages: info.num_pages,
       };
