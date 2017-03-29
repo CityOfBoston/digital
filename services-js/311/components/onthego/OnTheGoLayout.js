@@ -29,7 +29,7 @@ export default class OnTheGoLayout extends React.Component {
                 <span className="lwi-ic"><img src="https://www.cityofboston.gov/311/css/build/images/oldphone.png" alt="" className="lwi-i" /></span>
                 <span className="lwi-t">Dial 311</span>
               </a>
-              <a href="https://www.boston.gov/departments/innovation-and-technology/apps" className="lwi lwi--y g--4">
+              <a href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311" className="lwi lwi--y g--4">
                 <span className="lwi-ic"><img src="https://www.cityofboston.gov/311/css/build/images/iphone.png" alt="" className="lwi-i" /></span>
                 <span className="lwi-t">Download the App</span>
               </a>
