@@ -37,12 +37,6 @@ describe('update', () => {
     requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
     expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
   });
-
-  it('clears the selected request', () => {
-    requestSearch.selectedRequest = MOCK_REQUEST;
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
-    expect(requestSearch.selectedRequest).toEqual(null);
-  });
 });
 
 describe('search', () => {

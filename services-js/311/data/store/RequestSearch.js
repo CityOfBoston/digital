@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, action, autorun } from 'mobx';
+import { observable, action, autorun, computed } from 'mobx';
 import type { SearchRequest, SearchRequestsPage } from '../types';
 import searchRequests from '../dao/search-requests';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
@@ -13,7 +13,6 @@ type LatLng = {
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
   @observable query: string = '';
-  @observable mapCenter: ?LatLng = null;
   @observable radiusKm: number = 0;
 
   @observable.shallow results: SearchRequest[] = [];
@@ -24,10 +23,19 @@ export default class RequestSearch {
   searchPending: boolean = false;
   searchDisposer: ?Function = null;
 
+  // We pipe mapCenter through @computed.struct so that assignments to mapCenter
+  // that don't actually change the lat/lng values don't cause re-queries.
+  @observable _mapCenter: ?LatLng = null;
+  @computed.struct get mapCenter(): ?LatLng {
+    return this._mapCenter;
+  }
+  set mapCenter(center: LatLng) {
+    this._mapCenter = center;
+  }
+
   @action.bound
   update({ requests }: SearchRequestsPage) {
     this.results = requests;
-    this.selectedRequest = null;
   }
 
   // Starting / stopping currently done in ReportLayout

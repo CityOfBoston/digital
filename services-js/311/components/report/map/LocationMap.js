@@ -125,9 +125,7 @@ export default class LocationMap extends React.Component {
   }
 
   getMapOptions(): MapOptions {
-    const { mode, store } = this.props;
-    const { location } = store.locationInfo;
-
+    const { mode } = this.props;
     return {
       clickableIcons: false,
       disableDoubleClickZoom: mode === 'disabled',
@@ -137,11 +135,6 @@ export default class LocationMap extends React.Component {
       scrollwheel: mode === 'picker',
       scaleControl: false,
       zoomControl: mode !== 'disabled',
-      zoom: 12,
-      center: location || {
-        lat: 42.326782,
-        lng: -71.151948,
-      },
     };
   }
 
@@ -198,13 +191,26 @@ export default class LocationMap extends React.Component {
       throw new Error('Attaching map without the mapEl being mounted');
     }
 
-    const map = new this.props.googleMaps.Map(this.mapEl, this.getMapOptions());
-    this.map = map;
-    this.mapClickListener = this.map.addListener('click', (ev) => {
+    const { store } = this.props;
+    const { location } = store.locationInfo;
+
+    const map = new this.props.googleMaps.Map(this.mapEl, {
+      ...this.getMapOptions(),
+      zoom: 12,
+      center: location || {
+        lat: 42.326782,
+        lng: -71.151948,
+      },
+
+    });
+
+    this.mapClickListener = map.addListener('click', (ev) => {
       this.addressChanged(ev.latLng);
     });
 
     map.addListener('bounds_changed', this.updateMapCenter);
+
+    this.map = map;
 
     // return convenience to avoid null checks on this.map
     return map;
