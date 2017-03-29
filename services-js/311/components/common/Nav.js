@@ -30,7 +30,7 @@ export default function Nav({ activeSection }: Props) {
 
         { renderNavItem({ href: '/report', as: '/', title: 'Report a problem' }, activeSection === 'report')}
         { renderNavItem({ href: '/lookup', title: 'Case look up' }, activeSection === 'lookup')}
-        { renderNavItem({ href: '/go', title: '311 on the go' }, activeSection === 'go')}
+        { renderNavItem({ href: '/onthego', title: '311 on the go' }, activeSection === 'onthego')}
         { renderNavItem({ href: '/faq', title: 'FAQ' }, activeSection === 'faq')}
       </ul>
     </nav>

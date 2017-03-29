@@ -119,6 +119,12 @@ export default async function startServer({ rollbar, opbeat }: any) {
 
   server.route({
     method: 'GET',
+    path: '/onthego',
+    handler: nextHandler(app, '/onthego'),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/_next/{p*}',
     handler: nextDefaultHandler(app),
   });

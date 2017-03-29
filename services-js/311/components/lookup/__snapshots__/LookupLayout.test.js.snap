@@ -54,7 +54,7 @@ exports[`case not found rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -222,7 +222,7 @@ exports[`case rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -447,7 +447,7 @@ exports[`search form rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go

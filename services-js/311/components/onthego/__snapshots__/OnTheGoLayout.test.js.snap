@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<div
+  className="mn mn--nv-s"
+>
+  <nav
+    className="nv-s nv-s--y nv-s--sticky"
+  >
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
+    >
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/lookup"
+          onClick={[Function]}
+        >
+          Case look up
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/onthego"
+          onClick={[Function]}
+        >
+          311 on the go
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="b b--fw"
+  >
+    <div
+      className="b-c"
+    >
+      <div
+        className="sh sh--y"
+      >
+        <h2
+          className="sh-title"
+        >
+          311 on the go
+        </h2>
+      </div>
+      <div
+        className="g"
+      >
+        <a
+          className="lwi lwi--y g--4"
+          href="https://twitter.com/bos311"
+        >
+          <span
+            className="lwi-ic"
+          >
+            <img
+              alt=""
+              className="lwi-i"
+              src="https://www.cityofboston.gov/311/css/build/images/birdbird.png"
+            />
+          </span>
+          <span
+            className="lwi-t"
+          >
+            Tweet @bos311
+          </span>
+        </a>
+        <a
+          className="lwi lwi--y g--4"
+          href="tel:+311"
+        >
+          <span
+            className="lwi-ic"
+          >
+            <img
+              alt=""
+              className="lwi-i"
+              src="https://www.cityofboston.gov/311/css/build/images/oldphone.png"
+            />
+          </span>
+          <span
+            className="lwi-t"
+          >
+            Dial 311
+          </span>
+        </a>
+        <a
+          className="lwi lwi--y g--4"
+          href="https://www.boston.gov/departments/innovation-and-technology/apps"
+        >
+          <span
+            className="lwi-ic"
+          >
+            <img
+              alt=""
+              className="lwi-i"
+              src="https://www.cityofboston.gov/311/css/build/images/iphone.png"
+            />
+          </span>
+          <span
+            className="lwi-t"
+          >
+            Download the App
+          </span>
+        </a>
+        <a
+          className="lwi lwi--y g--4"
+          href="/"
+        >
+          <span
+            className="lwi-ic"
+          >
+            <img
+              alt=""
+              className="lwi-i"
+              src="https://www.cityofboston.gov/311/css/build/images/screen.png"
+            />
+          </span>
+          <span
+            className="lwi-t"
+          >
+            Use this site
+          </span>
+        </a>
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="g"
+        >
+          <div
+            className="g--8 t--intro"
+          >
+            Nemo enim ipsam voluptatem quia voluptas sit tu noc aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.
+          </div>
+          <div
+            className="g--44"
+          >
+            <h3
+              className="t--sans tt-u"
+            >
+              Download the App
+            </h3>
+            <hr
+              className="hr hr--dash m-v300"
+            />
+            <a
+              href="https://itunes.apple.com/us/app/boston-citizens-connect/id330894558?mt=8"
+            >
+              <img
+                alt="Download on the App Store"
+                height="60"
+                src="/static/img/app-store-badge.svg"
+                style={
+                  Object {
+                    "display": "block",
+                  }
+                }
+              />
+            </a>
+            <hr
+              className="hr hr--dash m-v300"
+            />
+            <a
+              href="https://play.google.com/store/apps/details?id=gov.cityofboston.citizensconnect&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+            >
+              <img
+                alt="Get it on Google Play"
+                height="90"
+                src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+                style={
+                  Object {
+                    "display": "block",
+                    "margin": -14,
+                  }
+                }
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="m-v500 t--info"
+      >
+        Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google Inc.
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -52,7 +52,7 @@ exports[`existing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -370,7 +370,7 @@ exports[`existing service page rendering phone 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -688,7 +688,7 @@ exports[`existing service page rendering phone location step 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -870,7 +870,7 @@ exports[`missing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
@@ -1003,7 +1003,7 @@ exports[`report form rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/go"
+          href="/onthego"
           onClick={[Function]}
         >
           311 on the go
