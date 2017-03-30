@@ -15,6 +15,7 @@ import { HEADER_HEIGHT } from '../../style-constants';
 
 import Geocoder from '../../../data/external/Geocoder';
 import SearchMarkerPool from './SearchMarkerPool';
+import { preloadWaypointSprite, closedSelectedWaypointIcon, disabledWaypointIcon } from './WaypointIcons';
 import withGoogleMaps from './with-google-maps';
 
 type AutocompleteService = google.maps.places.AutocompleteService;
@@ -81,6 +82,8 @@ export default class LocationMap extends React.Component {
   }
 
   componentDidMount() {
+    preloadWaypointSprite();
+
     const map = this.attachMap();
     this.props.setLocationMapSearch(this.whenAddressSearch);
 
@@ -242,11 +245,11 @@ export default class LocationMap extends React.Component {
 
     const { address } = await this.geocoder.address(location) || {};
     if (address) {
-      marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+      marker.setIcon(closedSelectedWaypointIcon);
     } else {
       // Location is outside of Boston
       location = null;
-      marker.setIcon('http://maps.google.com/mapfiles/ms/icons/grey.png');
+      marker.setIcon(disabledWaypointIcon);
     }
 
     runInAction('geocode complete', () => {
@@ -326,7 +329,7 @@ export default class LocationMap extends React.Component {
         map,
         draggable: true,
         position: latLng,
-        icon: inBoston ? 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/grey.png',
+        icon: inBoston ? closedSelectedWaypointIcon : disabledWaypointIcon,
       });
 
       this.marker = marker;

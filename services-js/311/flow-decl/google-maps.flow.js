@@ -55,6 +55,12 @@ declare module 'google-maps' {
     y: number,
   }
 
+  declare class Size {
+    constructor(width: number, height: number, widthUnit: ?string, heightUnit: ?string): this;
+    height: number,
+    width: number,
+  }
+
   declare type Projection = {|
     fromLatLngToPoint(latLng: LatLng, point?: Point): Point;
     fromPointToLatLng(pixel: Point, nowrap?: boolean): LatLng;
@@ -165,7 +171,7 @@ declare module 'google-maps' {
     getClickable(): boolean;
     getCursor(): ?string;
     getDraggable(): boolean;
-    getIcon(): ?string;
+    getIcon(): ?string | ?Icon;
     getLabel(): ?string;
     getMap(): ?Map;
     getOpacity(): number;
@@ -179,7 +185,7 @@ declare module 'google-maps' {
     setClickable(flag: boolean): void;
     setCursor(cursor: string): void;
     setDraggable(flag: boolean): void;
-    setIcon(icon: string): void;
+    setIcon(icon: string | Icon): void;
     setLabel(label: string): void;
     setMap(map: ?Map): void;
     setOpacity(opacity: number): void;
@@ -191,6 +197,15 @@ declare module 'google-maps' {
     setVisible(visible: boolean): void;
     setZIndex(zIndex: number): void;
   }
+
+  declare type Icon = {
+    anchor?: Point,
+    labelOrigin?: Point,
+    origin?: Point,
+    scaledSize?: Size,
+    size?: Size,
+    url: string,
+  };
 
   declare type ComponentRestrictions = {|
     country?: string | string[],
@@ -256,6 +271,8 @@ declare module 'google-maps' {
     Map: Class<Map>,
     Marker: Class<Marker>,
     MapsEventListener: Class<MapsEventListener>,
+    Point: Class<Point>,
+    Size: Class<Size>,
     places: {
       AutocompleteService: Class<AutocompleteService>,
     }

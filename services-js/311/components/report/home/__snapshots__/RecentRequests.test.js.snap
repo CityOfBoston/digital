@@ -44,7 +44,6 @@ exports[`rendering results loaded 1`] = `
   </div>
   <div
     className="p-a300 css-hlpxua"
-    data-request-id="17-000000001"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -64,7 +63,20 @@ exports[`rendering results loaded 1`] = `
           "backgroundImage": "url(/static/img/311-logo-white-on-grey.svg)",
         }
       }
-    />
+    >
+      <div
+        className={
+          Object {
+            "data-css-1ho2t36": "",
+          }
+        }
+        style={
+          Object {
+            "backgroundImage": "url()",
+          }
+        }
+      />
+    </div>
     <div
       className={
         Object {
@@ -158,7 +170,6 @@ exports[`rendering with request selected 1`] = `
   </div>
   <div
     className="p-a300 css-hlpxua"
-    data-request-id="17-000000001"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -178,7 +189,20 @@ exports[`rendering with request selected 1`] = `
           "backgroundImage": "url(/static/img/311-logo-grey-on-white.svg)",
         }
       }
-    />
+    >
+      <div
+        className={
+          Object {
+            "data-css-1ho2t36": "",
+          }
+        }
+        style={
+          Object {
+            "backgroundImage": "url()",
+          }
+        }
+      />
+    </div>
     <div
       className={
         Object {

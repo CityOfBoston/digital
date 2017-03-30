@@ -7,6 +7,8 @@ import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } 
 import type RequestSearch from '../../../data/store/RequestSearch';
 import type { SearchRequest } from '../../../data/types';
 
+import { openWaypointIcon, openSelectedWaypointIcon, closedWaypointIcon, closedSelectedWaypointIcon } from './WaypointIcons';
+
 // Reactive wrapper around Google Maps' Marker that responds to visibility and
 // hover state.
 class SearchMarker {
@@ -60,15 +62,15 @@ class SearchMarker {
 
     if (this.request.status === 'open') {
       if (this.selected) {
-        icon = '/static/img/waypoint-open-selected.png';
+        icon = openSelectedWaypointIcon;
       } else {
-        icon = '/static/img/waypoint-open.png';
+        icon = openWaypointIcon;
       }
     } else {
       if (this.selected) {
-        icon = '/static/img/waypoint-closed-selected.png';
+        icon = closedSelectedWaypointIcon;
       } else {
-        icon = '/static/img/waypoint-closed.png';
+        icon = closedWaypointIcon;
       }
     }
 

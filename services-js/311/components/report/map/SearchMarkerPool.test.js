@@ -6,6 +6,8 @@ import type { IObservable } from 'mobx';
 import RequestSearch from '../../../data/store/RequestSearch';
 import SearchMarkerPool from './SearchMarkerPool';
 
+import { openWaypointIcon, openSelectedWaypointIcon, closedWaypointIcon, closedSelectedWaypointIcon } from './WaypointIcons';
+
 const FAKE_MAP: any = {};
 
 class FakeMarker {
@@ -118,13 +120,13 @@ describe('icon update', () => {
   it('sets an icon', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
     const marker = FakeMarker.markers[0];
-    expect(marker.setIcon).toHaveBeenCalledWith('/static/img/waypoint-open.png');
+    expect(marker.setIcon).toHaveBeenCalledWith(openWaypointIcon);
   });
 
   it('sets a closed icon', () => {
     requestSearch.update({ requests: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
     const marker = FakeMarker.markers[0];
-    expect(marker.setIcon).toHaveBeenCalledWith('/static/img/waypoint-closed.png');
+    expect(marker.setIcon).toHaveBeenCalledWith(closedWaypointIcon);
   });
 
   it('updates to hover when selected', () => {
@@ -133,7 +135,16 @@ describe('icon update', () => {
     marker.setIcon.mockReset();
 
     requestSearch.selectedRequest = MOCK_REQUEST;
-    expect(marker.setIcon).toHaveBeenCalledWith('/static/img/waypoint-open-selected.png');
+    expect(marker.setIcon).toHaveBeenCalledWith(openSelectedWaypointIcon);
+  });
+
+  it('updates to hover when selected', () => {
+    requestSearch.update({ requests: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
+    const marker = FakeMarker.markers[0];
+    marker.setIcon.mockReset();
+
+    requestSearch.selectedRequest = MOCK_REQUEST;
+    expect(marker.setIcon).toHaveBeenCalledWith(closedSelectedWaypointIcon);
   });
 });
 
