@@ -96,6 +96,11 @@ export default class RequestDialog extends React.Component {
       locationInfo,
       questions,
       mediaUrl,
+    }).then((v) => {
+      store.description = '';
+      store.mediaUrl = '';
+      store.questions.forEach((q) => { q.value = ''; });
+      return v;
     });
 
     store.requestSubmission = fromPromise(promise);

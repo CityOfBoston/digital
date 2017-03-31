@@ -157,6 +157,9 @@ describe('methods', () => {
       // rendering success
       wrapper.update();
       expect(wrapper).toMatchSnapshot();
+
+      expect(store.description).toEqual('');
+      expect(store.mediaUrl).toEqual('');
     });
 
     test('graphql failure', async () => {
