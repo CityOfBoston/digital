@@ -121,6 +121,7 @@ export default class RecentRequestRow extends React.Component {
     return (
       <div
         ref={this.setEl}
+        data-request-id={request.id}
         className={`p-a300 ${REQUEST_STYLE.toString()}`}
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleUnhover}

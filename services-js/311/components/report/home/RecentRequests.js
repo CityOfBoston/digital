@@ -134,7 +134,6 @@ export default class RecentRequests extends React.Component {
           <hr className="hr hr--dash" />
         </div>
 
-
         { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
       </div>
     );
