@@ -161,6 +161,7 @@ export type SubmitRequestMutationVariables = {
   phone: ?string,
   address: ?string,
   location: ?LatLngIn,
+  mediaUrl: ?string,
   attributes: Array< CreateRequestAttribute >,
 };
 
@@ -170,5 +171,6 @@ export type SubmitRequestMutation = {
     requestedAtString: string,
     address: ?string,
     description: ?string,
+    mediaUrl: ?string,
   },
 };

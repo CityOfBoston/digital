@@ -18,6 +18,7 @@ export type RequestAdditions = {|
   hapiInject: HapiInject,
   apiKeys: {|
     google: string,
+    cloudinary: Object,
   |},
   isPhone: boolean,
   liveAgentButtonId: string,
@@ -29,6 +30,10 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
     hapiInject: server.inject.bind(server),
     apiKeys: {
       google: process.env.GOOGLE_API_KEY || '',
+      cloudinary: {
+        url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD || ''}`,
+        uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET || '',
+      },
     },
     // We detect this through user-agent because we want different HTML layout
     // for small devices (e.g. not rendering the map until you hit the

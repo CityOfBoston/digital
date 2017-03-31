@@ -124,6 +124,7 @@ test('submitRequest', async () => {
     contactInfo: store.contactInfo,
     locationInfo: store.locationInfo,
     questions: store.questions,
+    mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
   });
 
   const mutationVariables: SubmitRequestMutationVariables = {
@@ -135,6 +136,7 @@ test('submitRequest', async () => {
     phone: '',
     address: '',
     location: null,
+    mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
     attributes: [
       { code: 'ST-CMTS', value: 'Thanos is here' },
       { code: 'SR-AVENG', value: 'us-avengers' },

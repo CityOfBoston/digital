@@ -13,6 +13,7 @@ type Args = {|
   contactInfo: ContactInfo,
   locationInfo: LocationInfo,
   questions: Question[],
+  mediaUrl: string,
 |};
 
 // Submits a new request to the backend based on the given arguments. These
@@ -22,6 +23,7 @@ type Args = {|
 export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   service,
   description,
+  mediaUrl,
   contactInfo,
   locationInfo,
   questions,
@@ -52,6 +54,7 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
     phone: contactInfo.phone,
     location: locationInfo.location,
     address: locationInfo.address,
+    mediaUrl,
     attributes,
   };
 

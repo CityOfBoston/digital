@@ -69,7 +69,7 @@ export default function SubmitPane(props: Props) {
                 </ul>
               </div>
 
-              <img style={{ display: 'block' }} alt="" src="/static/img/311-watermark.svg" className="g--6" />
+              <img style={{ display: 'block' }} alt="" src={submittedRequest.mediaUrl || '/static/img/311-watermark.svg'} className="g--6" />
             </div>
 
             <hr className="hr hr--dash m-v300" />

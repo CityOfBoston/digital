@@ -83,7 +83,7 @@ export default class RequestDialog extends React.Component {
   @action
   submitRequest(): Promise<mixed> {
     const { store, loopbackGraphql, routeToServiceForm } = this.props;
-    const { currentService, contactInfo, locationInfo, description, questions } = store;
+    const { currentService, contactInfo, locationInfo, description, questions, mediaUrl } = store;
 
     if (!currentService) {
       throw new Error('currentService is null in submitRequest');
@@ -95,6 +95,7 @@ export default class RequestDialog extends React.Component {
       contactInfo,
       locationInfo,
       questions,
+      mediaUrl,
     });
 
     store.requestSubmission = fromPromise(promise);

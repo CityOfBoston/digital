@@ -23,6 +23,7 @@ type Mutation {
     email: String
     phone: String
     address: String
+    mediaUrl: String
     location: LatLngIn
     attributes: [CreateRequestAttribute!]!
   ): Request!
@@ -41,6 +42,7 @@ type CreateRequestArgs = {|
     lat: number,
     lng: number,
   },
+  mediaUrl: ?string,
   attributes: { code: string, value: string }[],
 |};
 
@@ -54,6 +56,7 @@ export const resolvers = {
         last_name: args.lastName,
         email: args.email,
         phone: args.phone,
+        media_url: args.mediaUrl,
         attributes: args.attributes,
       };
 

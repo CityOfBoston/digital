@@ -147,6 +147,7 @@ describe('methods', () => {
         requestedAtString: 'January 1, 2017 2:00 PM',
         description: 'A cosmic encursion seems likely.',
         address: 'City Hall Plaza, Boston, MA',
+        mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
       };
 
       resolveGraphql(result);

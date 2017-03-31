@@ -271,16 +271,45 @@ exports[`existing service page rendering 1`] = `
                       </div>
                     </div>
                   </div>
-                  <img
-                    alt=""
+                  <div
                     className="g--5"
-                    src="/static/img/311-watermark.svg"
-                    style={
-                      Object {
-                        "display": "block",
-                      }
-                    }
-                  />
+                  >
+                    <div
+                      className="css-14detlc"
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      style={Object {}}
+                    >
+                      <img
+                        alt=""
+                        height="324"
+                        src="/static/img/311-watermark.svg"
+                        style={
+                          Object {
+                            "display": "block",
+                            "height": "auto",
+                            "width": "100%",
+                          }
+                        }
+                        width="479"
+                      />
+                      <input
+                        accept="image/*"
+                        multiple={false}
+                        onChange={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        type="file"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -589,16 +618,45 @@ exports[`existing service page rendering phone 1`] = `
                       </div>
                     </div>
                   </div>
-                  <img
-                    alt=""
+                  <div
                     className="g--5"
-                    src="/static/img/311-watermark.svg"
-                    style={
-                      Object {
-                        "display": "block",
-                      }
-                    }
-                  />
+                  >
+                    <div
+                      className="css-14detlc"
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      style={Object {}}
+                    >
+                      <img
+                        alt=""
+                        height="324"
+                        src="/static/img/311-watermark.svg"
+                        style={
+                          Object {
+                            "display": "block",
+                            "height": "auto",
+                            "width": "100%",
+                          }
+                        }
+                        width="479"
+                      />
+                      <input
+                        accept="image/*"
+                        multiple={false}
+                        onChange={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        type="file"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div

@@ -7,6 +7,7 @@ mutation SubmitRequest(
   $phone: String,
   $address: String,
   $location: LatLngIn,
+  $mediaUrl: String,
   $attributes: [CreateRequestAttribute!]!) {
   createRequest(
     code: $code,
@@ -17,11 +18,13 @@ mutation SubmitRequest(
     phone: $phone,
     address: $address,
     location: $location,
-    attributes: $attributes
+    attributes: $attributes,
+    mediaUrl: $mediaUrl
   ) {
     id
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     address
     description
+    mediaUrl
   }
 }

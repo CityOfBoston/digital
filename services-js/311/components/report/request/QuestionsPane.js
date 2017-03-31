@@ -1,13 +1,16 @@
 // @flow
 
 import React from 'react';
-import { action } from 'mobx';
+import { css } from 'glamor';
+import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
+import Dropzone from 'react-dropzone';
 
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 import AttributeField from './AttributeField';
 
+import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
 import type { AppStore } from '../../../data/store';
 
 export type Props = {
@@ -15,49 +18,120 @@ export type Props = {
   nextFunc: () => void,
 };
 
-export default observer(function QuestionsPane({ store, nextFunc }: Props) {
-  const { currentService, description, questions, questionRequirementsMet } = store;
+const DROPZONE_STYLE = css({
+  width: '100%',
+  border: 'none',
+});
 
-  const questionsEls = [];
-  questions.forEach((q, i) => {
-    if (!q.visible) {
-      return;
+@observer
+export default class QuestionsPane extends React.Component {
+  props: Props;
+
+  imageUpload: CloudinaryImageUpload;
+  mediaUrlDisposer: ?Function = null;
+
+  constructor(props: Props) {
+    super(props);
+
+    const { store } = props;
+    this.imageUpload = new CloudinaryImageUpload(store.apiKeys.cloudinary);
+  }
+
+  componentDidMount() {
+    this.mediaUrlDisposer = reaction(
+      () => this.imageUpload.mediaUrl,
+      (mediaUrl: string) => { this.props.store.mediaUrl = mediaUrl; },
+      true,
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.mediaUrlDisposer) {
+      this.mediaUrlDisposer();
     }
+  }
 
-    questionsEls.push(<div key={q.code}><AttributeField question={q} /></div>);
+  @action.bound
+  handleDrop(acceptedFiles: File[]) {
+    this.imageUpload.file = acceptedFiles[0];
+  }
 
-    if (i < questions.length - 1) {
-      questionsEls.push(<hr className="hr hr--dash m-v500" key={`${q.code}-HR`} />);
-    }
-  });
+  @action.bound
+  handleRemoveImage() {
+    this.imageUpload.file = null;
+  }
 
-  return (
-    <div>
-      <SectionHeader>{ currentService ? currentService.name : '' }</SectionHeader>
+  @action.bound
+  handleUpdateDescription(ev: SyntheticInputEvent) {
+    const { store } = this.props;
+    store.description = ev.target.value;
+  }
 
-      <div className="m-v500">
-        <div className="g g--top">
-          <div className="g--7">
-            <DescriptionBox
-              text={description}
-              placeholder="How can we help?"
-              onInput={action((ev) => { store.description = ev.target.value; })}
-              minHeight={100}
-              maxHeight={360}
-            />
+  render() {
+    const { store, nextFunc } = this.props;
+    const { currentService, description, questions, questionRequirementsMet } = store;
 
-            { questionsEls }
+    const questionsEls = [];
+    questions.forEach((q, i) => {
+      if (!q.visible) {
+        return;
+      }
+
+      questionsEls.push(<div key={q.code}><AttributeField question={q} /></div>);
+
+      if (i < questions.length - 1) {
+        questionsEls.push(<hr className="hr hr--dash m-v500" key={`${q.code}-HR`} />);
+      }
+    });
+
+    return (
+      <div>
+        <SectionHeader>{ currentService ? currentService.name : '' }</SectionHeader>
+
+        <div className="m-v500">
+          <div className="g g--top">
+            <div className="g--7">
+              <DescriptionBox
+                text={description}
+                placeholder="How can we help?"
+                onInput={this.handleUpdateDescription}
+                minHeight={100}
+                maxHeight={360}
+              />
+
+              { questionsEls }
+            </div>
+
+            { this.renderImageUpload() }
           </div>
+        </div>
 
-          <img style={{ display: 'block' }} alt="" src="/static/img/311-watermark.svg" className="g--5" />
+
+        <div className="g">
+          <div className="g--9" />
+          <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
         </div>
       </div>
+    );
+  }
 
+  renderImageUpload() {
+    const { errorMessage, loaded, previewUrl, uploading, uploadingProgress } = this.imageUpload;
 
-      <div className="g">
-        <div className="g--9" />
-        <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
+    return (
+      <div className="g--5">
+        <Dropzone className={DROPZONE_STYLE.toString()} onDrop={this.handleDrop} multiple={false} accept="image/*">
+          { previewUrl ?
+            <img style={{ display: 'block', width: '100%' }} alt="" src={previewUrl} /> :
+            <img style={{ display: 'block', width: '100%', height: 'auto' }} alt="" width="479" height="324" src="/static/img/311-watermark.svg" />
+          }
+        </Dropzone>
+
+        { uploading && <progress value={uploadingProgress} max="1" style={{ width: '100%' }} />}
+        { errorMessage && <div className="t--info">{errorMessage}</div> }
+        { loaded && <a href="javascript:void(0)" onClick={this.handleRemoveImage}>Remove</a> }
       </div>
-    </div>
-  );
-});
+
+    );
+  }
+}

@@ -44,6 +44,7 @@ export class LocationInfo {
 
 export class AppStore {
   @observable description: string = '';
+  @observable mediaUrl: string = '';
 
   @observable contactInfo: ContactInfo = new ContactInfo();
   @observable locationInfo: LocationInfo = new LocationInfo();
@@ -58,7 +59,7 @@ export class AppStore {
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 
   // Initialization data from the server
-  apiKeys: {[service: string]: string} = {};
+  apiKeys: {[service: string]: any} = {};
   isPhone: boolean = false;
 
   @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;

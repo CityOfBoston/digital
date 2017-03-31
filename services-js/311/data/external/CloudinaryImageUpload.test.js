@@ -1,0 +1,150 @@
+// @flow
+
+import FakeXMLHttpRequest from 'fake-xml-http-request';
+import fetchMock from 'fetch-mock';
+
+import CloudinaryImageUpload from './CloudinaryImageUpload';
+import type { Config, UploadResponse } from './CloudinaryImageUpload';
+
+
+let previousXMLHttpRequest;
+
+const FAKE_CONFIG: Config = {
+  url: 'https://cloudinary',
+  uploadPreset: 'preset-code',
+};
+
+const FAKE_UPLOAD_RESPONSE: UploadResponse = {
+  public_id: 'cob-311-staging/poaqtvjcgoiuspnz4fak',
+  version: 1490979693,
+  signature: 'bdd21f61ffec31069df8a826b4c2330cbb3dd452',
+  width: 1536,
+  height: 974,
+  format: 'jpg',
+  resource_type: 'image',
+  created_at: '2017-03-31T17:01:33Z',
+  tags: [],
+  bytes: 211575,
+  type: 'upload',
+  etag: '5896cf0797b48ebe199e054b2d20d908',
+  url: 'http://res.cloudinary.com/boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
+  secure_url: 'https://res.cloudinary.com/boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
+  original_filename: 'Screen Shot 2017-02-22 at 11.17.52 AM',
+  delete_token: 'ebfcb90e9a00a99170dc4fb92339f150f3d556a7fa1d21f17bc1daa680a4286fa8843ad653b33b8fb9969f9d086943d33e0835a77ac2b842f953525bb722929293d1f913d8da9c7296b96c29fcae867bd9cb6e83464a1e211de28007f6c8fb5c7c0786184da7cf6ff6c3aaff36ba6eae435d01bdf7589f4dbe0f0c43bd73946707610034dc1c8de7db1c455722d42148',
+};
+
+const FAKE_UPLOAD_ERROR = { error: { message: 'Upload preset must be whitelisted for unsigned uploads' } };
+
+beforeAll(() => {
+  previousXMLHttpRequest = window.XMLHttpRequest;
+  window.XMLHttpRequest = FakeXMLHttpRequest;
+});
+
+afterAll(() => {
+  window.XMLHttpRequest = previousXMLHttpRequest;
+});
+
+beforeEach(() => {
+  fetchMock.post(`${FAKE_CONFIG.url}/delete_by_token`, { result: 'ok' });
+});
+
+afterEach(fetchMock.restore);
+
+describe('file', () => {
+  let imageUpload;
+  let file: any;
+
+  beforeEach(() => {
+    imageUpload = new CloudinaryImageUpload(FAKE_CONFIG);
+    file = {
+      preview: 'data:file-preview',
+    };
+  });
+
+  it('starts uploading when a file is set', () => {
+    imageUpload.file = file;
+
+    expect(imageUpload.previewUrl).toEqual('data:file-preview');
+    expect(imageUpload.uploading).toEqual(true);
+    expect(imageUpload.mediaUrl).toBeNull();
+  });
+
+  it('updates progress', () => {
+    imageUpload.file = file;
+
+    const ev = {
+      lengthComputable: true,
+      total: 500,
+      loaded: 100,
+    };
+
+    if (!imageUpload.uploadRequest) {
+      expect(imageUpload.uploadRequest).toBeDefined();
+      return;
+    }
+
+    if (!imageUpload.uploadRequest.upload) {
+      expect(imageUpload.uploadRequest.upload).toBeDefined();
+      return;
+    }
+
+    imageUpload.uploadRequest.upload.onprogress((ev: any));
+
+    expect(imageUpload.uploadingProgress).toEqual(0.2);
+  });
+
+  it('provides a URL after upload succeeds', () => {
+    imageUpload.file = file;
+
+    if (!imageUpload.uploadRequest) {
+      expect(imageUpload.uploadRequest).toBeDefined();
+      return;
+    }
+
+    (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_RESPONSE));
+
+    expect(imageUpload.loaded).toEqual(true);
+    expect(imageUpload.mediaUrl).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
+    expect(imageUpload.uploading).toEqual(false);
+    expect(imageUpload.errorMessage).toEqual(null);
+  });
+
+  it('shows a Cloudinary error message', () => {
+    imageUpload.file = file;
+
+    if (!imageUpload.uploadRequest) {
+      expect(imageUpload.uploadRequest).toBeDefined();
+      return;
+    }
+
+    (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(401, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_ERROR));
+    expect(imageUpload.errorMessage).toEqual('Upload preset must be whitelisted for unsigned uploads');
+  });
+
+  it('aborts if a new file is set', () => {
+    imageUpload.file = file;
+    imageUpload.file = null;
+
+    expect(imageUpload.uploading).toEqual(false);
+    expect(imageUpload.loaded).toEqual(false);
+    expect(imageUpload.previewUrl).toBeNull();
+    expect(imageUpload.mediaUrl).toBeNull();
+  });
+
+  it('deletes the image when the file changes', () => {
+    imageUpload.file = file;
+
+    if (!imageUpload.uploadRequest) {
+      expect(imageUpload.uploadRequest).toBeDefined();
+      return;
+    }
+
+    (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_RESPONSE));
+
+    imageUpload.file = null;
+    expect(fetchMock.called('https://cloudinary/delete_by_token')).toEqual(true);
+    expect(imageUpload.loaded).toEqual(false);
+    expect(imageUpload.previewUrl).toBeNull();
+    expect(imageUpload.mediaUrl).toBeNull();
+  });
+});

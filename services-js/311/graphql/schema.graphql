@@ -14,7 +14,7 @@ input LatLngIn {
 }
 
 type Mutation {
-  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, mediaUrl: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
 }
 
 type Query {
