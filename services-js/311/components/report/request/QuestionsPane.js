@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { action, reaction } from 'mobx';
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
@@ -10,7 +10,6 @@ import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 import AttributeField from './AttributeField';
 
-import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
 import type { AppStore } from '../../../data/store';
 
 export type Props = {
@@ -27,38 +26,16 @@ const DROPZONE_STYLE = css({
 export default class QuestionsPane extends React.Component {
   props: Props;
 
-  imageUpload: CloudinaryImageUpload;
-  mediaUrlDisposer: ?Function = null;
-
-  constructor(props: Props) {
-    super(props);
-
-    const { store } = props;
-    this.imageUpload = new CloudinaryImageUpload(store.apiKeys.cloudinary);
-  }
-
-  componentDidMount() {
-    this.mediaUrlDisposer = reaction(
-      () => this.imageUpload.mediaUrl,
-      (mediaUrl: string) => { this.props.store.mediaUrl = mediaUrl; },
-      true,
-    );
-  }
-
-  componentWillUnmount() {
-    if (this.mediaUrlDisposer) {
-      this.mediaUrlDisposer();
-    }
-  }
-
   @action.bound
   handleDrop(acceptedFiles: File[]) {
-    this.imageUpload.file = acceptedFiles[0];
+    const { store } = this.props;
+    store.requestMediaUploader.file = acceptedFiles[0];
   }
 
   @action.bound
   handleRemoveImage() {
-    this.imageUpload.file = null;
+    const { store } = this.props;
+    store.requestMediaUploader.file = null;
   }
 
   @action.bound
@@ -116,7 +93,8 @@ export default class QuestionsPane extends React.Component {
   }
 
   renderImageUpload() {
-    const { errorMessage, loaded, previewUrl, uploading, uploadingProgress } = this.imageUpload;
+    const { store } = this.props;
+    const { errorMessage, loaded, previewUrl, uploading, uploadingProgress } = store.requestMediaUploader;
 
     return (
       <div className="g--5">

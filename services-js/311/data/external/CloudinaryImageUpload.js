@@ -28,7 +28,7 @@ export type UploadResponse = {
 };
 
 export default class CloudinaryImageUpload {
-  config: Config;
+  config: ?Config;
 
   @observable.ref _file: ?File = null;
 
@@ -38,7 +38,11 @@ export default class CloudinaryImageUpload {
   @observable.ref uploadResponse: ?UploadResponse = null;
   @observable errorMessage: ?string = null;
 
-  constructor(config: Config) {
+  constructor(config: ?Config = null) {
+    this.setConfig(config);
+  }
+
+  setConfig(config: ?Config) {
     this.config = config;
   }
 
@@ -47,6 +51,12 @@ export default class CloudinaryImageUpload {
   }
 
   set file(file: ?File) {
+    const { config } = this;
+
+    if (!config) {
+      throw new Error('Trying to upload a file without configuring Cloudinary');
+    }
+
     this._file = file;
     this.errorMessage = null;
 
@@ -57,7 +67,7 @@ export default class CloudinaryImageUpload {
       const formData = new FormData();
       formData.append('token', this.uploadResponse.delete_token);
 
-      fetch(`${this.config.url}/delete_by_token`, {
+      fetch(`${config.url}/delete_by_token`, {
         method: 'POST',
         body: formData,
       });
@@ -71,7 +81,6 @@ export default class CloudinaryImageUpload {
     }
 
     if (file) {
-      const { config } = this;
       const uploadRequest = new XMLHttpRequest();
       this.uploadRequest = uploadRequest;
 
@@ -165,5 +174,13 @@ export default class CloudinaryImageUpload {
 
   @computed get mediaUrl(): ?string {
     return this.uploadResponse ? this.uploadResponse.secure_url : null;
+  }
+
+  @action
+  fileSubmitted() {
+    // we don't go through .file because that would delete the upload!
+    this._file = null;
+    this.uploadResponse = null;
+    this.errorMessage = null;
   }
 }

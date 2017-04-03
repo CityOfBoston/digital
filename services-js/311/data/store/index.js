@@ -7,6 +7,8 @@ import type { IPromiseBasedObservable } from 'mobx-utils';
 
 import type { Service, ServiceSummary, SubmittedRequest } from '../types';
 
+import CloudinaryImageUpload from '../external/CloudinaryImageUpload';
+
 import RequestSearch from './RequestSearch';
 import Question from './Question';
 import Ui from './Ui';
@@ -44,7 +46,7 @@ export class LocationInfo {
 
 export class AppStore {
   @observable description: string = '';
-  @observable mediaUrl: string = '';
+  requestMediaUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
 
   @observable contactInfo: ContactInfo = new ContactInfo();
   @observable locationInfo: LocationInfo = new LocationInfo();
@@ -59,7 +61,17 @@ export class AppStore {
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 
   // Initialization data from the server
-  apiKeys: {[service: string]: any} = {};
+  _apiKeys: {[service: string]: any} = {};
+
+  get apiKeys(): {[service: string]: any} {
+    return this._apiKeys;
+  }
+
+  set apiKeys(apiKeys: {[service: string]: any}) {
+    this._apiKeys = apiKeys;
+    this.requestMediaUploader.setConfig(apiKeys.cloudinary);
+  }
+
   isPhone: boolean = false;
 
   @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
@@ -126,9 +138,20 @@ export class AppStore {
     }
   }
 
-  @computed
-  get questionRequirementsMet(): boolean {
+  @computed get questionRequirementsMet(): boolean {
     return this.questions.filter((q) => !q.required || !q.visible || q.requirementsMet).length === this.questions.length;
+  }
+
+  @computed get mediaUrl(): string {
+    return this.requestMediaUploader.mediaUrl || '';
+  }
+
+  @action
+  // Call after a succesful submit to clear the form
+  resetRequest() {
+    this.description = '';
+    this.questions.forEach((q) => { q.value = ''; });
+    this.requestMediaUploader.fileSubmitted();
   }
 }
 

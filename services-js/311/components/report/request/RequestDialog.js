@@ -97,9 +97,7 @@ export default class RequestDialog extends React.Component {
       questions,
       mediaUrl,
     }).then((v) => {
-      store.description = '';
-      store.mediaUrl = '';
-      store.questions.forEach((q) => { q.value = ''; });
+      store.resetRequest();
       return v;
     });
 
