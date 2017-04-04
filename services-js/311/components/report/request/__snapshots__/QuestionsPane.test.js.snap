@@ -12,81 +12,81 @@ exports[`blank request 1`] = `
     </h2>
   </div>
   <div
-    className="m-v500"
+    className="g g--top"
   >
     <div
-      className="g g--top"
+      className="g--7 m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1gh870p": "",
+          }
+        }
+        defaultValue=""
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="How can we help?"
+      />
+    </div>
+    <div
+      className="g--5 m-v500"
     >
       <div
-        className="g--7"
+        className="css-14detlc"
+        onClick={[Function]}
+        onDragEnter={[Function]}
+        onDragLeave={[Function]}
+        onDragOver={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        style={Object {}}
       >
-        <textarea
-          className={
+        <img
+          alt=""
+          height="324"
+          src="/static/img/311-watermark.svg"
+          style={
             Object {
-              "data-css-1gh870p": "",
+              "display": "block",
+              "height": "auto",
+              "width": "100%",
             }
           }
-          defaultValue=""
-          name="description"
-          onBlur={[Function]}
-          onInput={[Function]}
-          placeholder="How can we help?"
+          width="479"
         />
-      </div>
-      <div
-        className="g--5"
-      >
-        <div
-          className="css-14detlc"
-          onClick={[Function]}
-          onDragEnter={[Function]}
-          onDragLeave={[Function]}
-          onDragOver={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          style={Object {}}
-        >
-          <img
-            alt=""
-            height="324"
-            src="/static/img/311-watermark.svg"
-            style={
-              Object {
-                "display": "block",
-                "height": "auto",
-                "width": "100%",
-              }
+        <input
+          accept="image/*"
+          multiple={false}
+          onChange={[Function]}
+          style={
+            Object {
+              "display": "none",
             }
-            width="479"
-          />
-          <input
-            accept="image/*"
-            multiple={false}
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file"
-          />
-        </div>
+          }
+          type="file"
+        />
       </div>
     </div>
   </div>
   <div
-    className="g"
+    className="m-v500"
   >
     <div
-      className="g--9"
-    />
-    <button
-      className="btn g--33"
-      disabled={false}
-      onClick={[Function]}
+      className="g"
     >
-      Next
-    </button>
+      <div
+        className="g--9"
+      />
+      <button
+        className="btn g--33"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -103,81 +103,81 @@ exports[`existing description 1`] = `
     </h2>
   </div>
   <div
-    className="m-v500"
+    className="g g--top"
   >
     <div
-      className="g g--top"
+      className="g--7 m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1i2zjxt": "",
+          }
+        }
+        defaultValue="Please pick up my bulk items. "
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="How can we help?"
+      />
+    </div>
+    <div
+      className="g--5 m-v500"
     >
       <div
-        className="g--7"
+        className="css-14detlc"
+        onClick={[Function]}
+        onDragEnter={[Function]}
+        onDragLeave={[Function]}
+        onDragOver={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        style={Object {}}
       >
-        <textarea
-          className={
+        <img
+          alt=""
+          height="324"
+          src="/static/img/311-watermark.svg"
+          style={
             Object {
-              "data-css-1i2zjxt": "",
+              "display": "block",
+              "height": "auto",
+              "width": "100%",
             }
           }
-          defaultValue="Please pick up my bulk items. "
-          name="description"
-          onBlur={[Function]}
-          onInput={[Function]}
-          placeholder="How can we help?"
+          width="479"
         />
-      </div>
-      <div
-        className="g--5"
-      >
-        <div
-          className="css-14detlc"
-          onClick={[Function]}
-          onDragEnter={[Function]}
-          onDragLeave={[Function]}
-          onDragOver={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          style={Object {}}
-        >
-          <img
-            alt=""
-            height="324"
-            src="/static/img/311-watermark.svg"
-            style={
-              Object {
-                "display": "block",
-                "height": "auto",
-                "width": "100%",
-              }
+        <input
+          accept="image/*"
+          multiple={false}
+          onChange={[Function]}
+          style={
+            Object {
+              "display": "none",
             }
-            width="479"
-          />
-          <input
-            accept="image/*"
-            multiple={false}
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file"
-          />
-        </div>
+          }
+          type="file"
+        />
       </div>
     </div>
   </div>
   <div
-    className="g"
+    className="m-v500"
   >
     <div
-      className="g--9"
-    />
-    <button
-      className="btn g--33"
-      disabled={false}
-      onClick={[Function]}
+      className="g"
     >
-      Next
-    </button>
+      <div
+        className="g--9"
+      />
+      <button
+        className="btn g--33"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -194,100 +194,100 @@ exports[`service with metadata 1`] = `
     </h2>
   </div>
   <div
-    className="m-v500"
+    className="g g--top"
   >
     <div
-      className="g g--top"
+      className="g--7 m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1gh870p": "",
+          }
+        }
+        defaultValue=""
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="How can we help?"
+      />
+      <div>
+        <label
+          className="txt"
+        >
+          <span
+            className="txt-l"
+          >
+            Please provide any other relevant information:
+             
+          </span>
+          <textarea
+            className="txt-f"
+            name="ST-CMTS"
+            onChange={[Function]}
+            rows="5"
+            value=""
+          />
+        </label>
+      </div>
+    </div>
+    <div
+      className="g--5 m-v500"
     >
       <div
-        className="g--7"
+        className="css-14detlc"
+        onClick={[Function]}
+        onDragEnter={[Function]}
+        onDragLeave={[Function]}
+        onDragOver={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        style={Object {}}
       >
-        <textarea
-          className={
+        <img
+          alt=""
+          height="324"
+          src="/static/img/311-watermark.svg"
+          style={
             Object {
-              "data-css-1gh870p": "",
+              "display": "block",
+              "height": "auto",
+              "width": "100%",
             }
           }
-          defaultValue=""
-          name="description"
-          onBlur={[Function]}
-          onInput={[Function]}
-          placeholder="How can we help?"
+          width="479"
         />
-        <div>
-          <label
-            className="txt"
-          >
-            <span
-              className="txt-l"
-            >
-              Please provide any other relevant information:
-               
-            </span>
-            <textarea
-              className="txt-f"
-              name="ST-CMTS"
-              onChange={[Function]}
-              rows="5"
-              value=""
-            />
-          </label>
-        </div>
-      </div>
-      <div
-        className="g--5"
-      >
-        <div
-          className="css-14detlc"
-          onClick={[Function]}
-          onDragEnter={[Function]}
-          onDragLeave={[Function]}
-          onDragOver={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          style={Object {}}
-        >
-          <img
-            alt=""
-            height="324"
-            src="/static/img/311-watermark.svg"
-            style={
-              Object {
-                "display": "block",
-                "height": "auto",
-                "width": "100%",
-              }
+        <input
+          accept="image/*"
+          multiple={false}
+          onChange={[Function]}
+          style={
+            Object {
+              "display": "none",
             }
-            width="479"
-          />
-          <input
-            accept="image/*"
-            multiple={false}
-            onChange={[Function]}
-            style={
-              Object {
-                "display": "none",
-              }
-            }
-            type="file"
-          />
-        </div>
+          }
+          type="file"
+        />
       </div>
     </div>
   </div>
   <div
-    className="g"
+    className="m-v500"
   >
     <div
-      className="g--9"
-    />
-    <button
-      className="btn g--33"
-      disabled={false}
-      onClick={[Function]}
+      className="g"
     >
-      Next
-    </button>
+      <div
+        className="g--9"
+      />
+      <button
+        className="btn g--33"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
   </div>
 </div>
 `;

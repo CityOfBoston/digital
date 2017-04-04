@@ -72,8 +72,6 @@ export class AppStore {
     this.requestMediaUploader.setConfig(apiKeys.cloudinary);
   }
 
-  isPhone: boolean = false;
-
   @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
 
   _liveAgentButtonId: string = '';

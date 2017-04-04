@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering home screen 1`] = `
+<div
+  className="p-a400 br br-t400 br--y css-1t9hh8g"
+  style={Object {}}
+>
+  <div
+    className="sh sh--y"
+  >
+    <h2
+      className="sh-title"
+    >
+      311: Boston City Services
+    </h2>
+  </div>
+  <div
+    className="m-v500"
+  >
+    <div
+      className="g"
+    >
+      <div
+        className="g--8"
+      >
+        <h3
+          className="stp m-v300 css-17cwx2g"
+        >
+          <span
+            className="stp-number"
+          >
+            1
+          </span>
+          What can we do for you?
+        </h3>
+        <textarea
+          className={
+            Object {
+              "data-css-1red1ju": "",
+            }
+          }
+          defaultValue="Thanos is attacking."
+          name="description"
+          onBlur={[Function]}
+          onInput={[Function]}
+          placeholder="How can we help?"
+        />
+      </div>
+      <div
+        className="g--44 css-17cwx2g"
+      >
+        <h3
+          className="stp m-v300"
+        >
+          Top Service Requests
+        </h3>
+        <div
+          style={
+            Object {
+              "height": 222,
+              "overflowY": "scroll",
+            }
+          }
+        >
+          <ul
+            className="ul"
+          >
+            <li>
+              <a
+                className="t--sans tt-u"
+                href="/report/CSMCINC"
+                onClick={[Function]}
+              >
+                Cosmic Incursion
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="btn css-13boa87"
+    onClick={[Function]}
+  >
+    Next
+  </button>
+</div>
+`;
+
+exports[`rendering small screen service picker 1`] = `
+<div
+  className="p-a400 br br-t400 br--y css-1t9hh8g"
+  style={Object {}}
+>
+  <div
+    className="sh sh--y"
+  >
+    <h2
+      className="sh-title"
+    >
+      311: Boston City Services
+    </h2>
+  </div>
+  <div
+    className="m-v500"
+  >
+    <div
+      className="t--intro"
+    >
+      Pick the most related:
+    </div>
+    <div
+      style={
+        Object {
+          "height": 222,
+          "overflowY": "scroll",
+        }
+      }
+    >
+      <ul
+        className="ul"
+      >
+        <li>
+          <a
+            className="t--sans tt-u"
+            href="/report/CSMCINC"
+            onClick={[Function]}
+          >
+            Cosmic Incursion
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

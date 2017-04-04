@@ -14,7 +14,8 @@ import submitRequest from '../../../data/dao/submit-request';
 
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
-import { SMALL_SCREEN } from '../../style-constants';
+
+import { MEDIA_LARGE } from '../../style-constants';
 
 import QuestionsPane from './QuestionsPane';
 import LocationPopUp from './LocationPopUp';
@@ -38,9 +39,9 @@ const CENTERED_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 });
 
 const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
-  margin: '-60px 60% 0 20px',
-  [SMALL_SCREEN]: {
-    margin: 0,
+  margin: 0,
+  [MEDIA_LARGE]: {
+    margin: '-60px 60% 0 20px',
   },
 });
 
@@ -118,7 +119,7 @@ export default class RequestDialog extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <FormDialog small={stage === 'location'} narrow={stage === 'contact'}>
+        <FormDialog narrow={stage === 'contact'}>
           { this.renderContent() }
         </FormDialog>
       </div>

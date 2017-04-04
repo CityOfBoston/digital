@@ -101,6 +101,12 @@ export default async function startServer({ rollbar, opbeat }: any) {
 
   server.route({
     method: 'GET',
+    path: '/service',
+    handler: (request, reply) => reply.redirect('/'),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/report/{code}',
     handler: nextHandler(app, '/report'),
   });

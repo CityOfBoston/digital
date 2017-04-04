@@ -11,8 +11,6 @@ import haversine from 'haversine';
 import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
 import type { AppStore } from '../../../data/store';
 
-import { HEADER_HEIGHT } from '../../style-constants';
-
 import Geocoder from '../../../data/external/Geocoder';
 import SearchMarkerPool from './SearchMarkerPool';
 import { preloadWaypointSprite, closedSelectedWaypointIcon, disabledWaypointIcon } from './WaypointIcons';
@@ -20,24 +18,11 @@ import withGoogleMaps from './with-google-maps';
 
 type AutocompleteService = google.maps.places.AutocompleteService;
 
-const CONTAINER_STYLE = css({
-  position: 'fixed',
-  width: '100%',
-  top: HEADER_HEIGHT,
-  bottom: 0,
-  backgroundColor: '#9B9B9B',
-});
-
-const PHONE_STYLE = css({
-  flex: 1,
-  display: 'flex',
-  flexDirection: 'column',
-});
-
 const MAP_STYLE = css({
   flex: 1,
   width: '100%',
   height: '100%',
+  backgroundColor: '#9B9B9B',
 });
 
 export type MapMode = 'disabled' | 'requests' | 'picker';
@@ -357,15 +342,12 @@ export default class LocationMap extends React.Component {
   }
 
   render() {
-    const { store, mode, opacityRatio } = this.props;
-    const { isPhone } = store;
+    const { mode, opacityRatio } = this.props;
 
     const opacity = mode !== 'disabled' ? 1 : 0.6 + (0.4 * opacityRatio);
 
     return (
-      <div className={isPhone ? PHONE_STYLE : CONTAINER_STYLE}>
-        <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl} />
-      </div>
+      <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl} />
     );
   }
 }

@@ -65,6 +65,7 @@ let store;
 beforeEach(() => {
   store = getStore();
   store.liveAgentAvailable = true;
+  store.ui.visibleWidth = 1300;
   searchRequests.mockReturnValue(new Promise(() => {}));
 });
 

@@ -4,21 +4,13 @@ exports[`rendering active 1`] = `
 <div
   className={
     Object {
-      "data-css-gjfmv8": "",
+      "data-css-1k30xul": "",
     }
   }
->
-  <div
-    className={
-      Object {
-        "data-css-fcmlsr": "",
-      }
+  style={
+    Object {
+      "opacity": 1,
     }
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  />
-</div>
+  }
+/>
 `;

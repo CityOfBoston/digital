@@ -13,7 +13,6 @@ export function makeServerContext(pathname: string, query: {[key: string]: strin
     apiKeys: {
       google: 'FAKE_GOOGLE_API_KEY',
     },
-    isPhone: false,
     ...requestAdditions,
   };
 

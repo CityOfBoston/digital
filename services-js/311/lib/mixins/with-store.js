@@ -27,7 +27,6 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
 
     const initialStoreState = req ? {
       apiKeys: req.apiKeys,
-      isPhone: req.isPhone,
       liveAgentButtonId: req.liveAgentButtonId,
     } : null;
 

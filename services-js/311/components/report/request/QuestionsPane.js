@@ -65,28 +65,27 @@ export default class QuestionsPane extends React.Component {
       <div>
         <SectionHeader>{ currentService ? currentService.name : '' }</SectionHeader>
 
-        <div className="m-v500">
-          <div className="g g--top">
-            <div className="g--7">
-              <DescriptionBox
-                text={description}
-                placeholder="How can we help?"
-                onInput={this.handleUpdateDescription}
-                minHeight={100}
-                maxHeight={360}
-              />
+        <div className="g g--top">
+          <div className="g--7 m-v500">
+            <DescriptionBox
+              text={description}
+              placeholder="How can we help?"
+              onInput={this.handleUpdateDescription}
+              minHeight={100}
+              maxHeight={360}
+            />
 
-              { questionsEls }
-            </div>
-
-            { this.renderImageUpload() }
+            { questionsEls }
           </div>
+
+          { this.renderImageUpload() }
         </div>
 
-
-        <div className="g">
-          <div className="g--9" />
-          <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
+        <div className="m-v500">
+          <div className="g">
+            <div className="g--9" />
+            <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
+          </div>
         </div>
       </div>
     );
@@ -97,7 +96,7 @@ export default class QuestionsPane extends React.Component {
     const { errorMessage, loaded, previewUrl, uploading, uploadingProgress } = store.requestMediaUploader;
 
     return (
-      <div className="g--5">
+      <div className="g--5 m-v500">
         <Dropzone className={DROPZONE_STYLE.toString()} onDrop={this.handleDrop} multiple={false} accept="image/*">
           { previewUrl ?
             <img style={{ display: 'block', width: '100%' }} alt="" src={previewUrl} /> :

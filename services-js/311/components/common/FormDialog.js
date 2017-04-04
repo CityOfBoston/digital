@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import { css } from 'glamor';
 
-import { SMALL_SCREEN } from '../style-constants';
+import { MEDIA_LARGE } from '../style-constants';
 
 const DIALOG_STYLE = css({
   display: 'flex-box',
@@ -9,30 +11,27 @@ const DIALOG_STYLE = css({
   maxWidth: 1300,
   width: '100%',
   background: 'white',
-  margin: '80px auto 80px',
   position: 'relative',
   transition: 'padding 250ms, max-width 250ms',
-  padding: '70px 80px',
-  [SMALL_SCREEN]: {
-    borderTop: 'none',
-    padding: 20,
-    margin: 0,
+  [MEDIA_LARGE]: {
+    margin: '80px auto',
   },
 });
 
-export default function FormDialog({ small, narrow, children }) {
-  const style = {};
+type Props = {
+  narrow?: boolean,
+  children?: any
+}
 
-  if (small) {
-    style.padding = 20;
-  }
+export default function FormDialog({ narrow, children }: Props = { narrow: false, children: null }) {
+  const style = {};
 
   if (narrow) {
     style.maxWidth = 800;
   }
 
   return (
-    <div className={`br br-t400 br--y ${DIALOG_STYLE}`} style={style}>
+    <div className={`p-a400 br br-t400 br--y ${DIALOG_STYLE.toString()}`} style={style}>
       {children}
     </div>
   );

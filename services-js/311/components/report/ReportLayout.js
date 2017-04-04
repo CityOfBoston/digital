@@ -18,7 +18,7 @@ import HomeDialog from './home/HomeDialog';
 import RecentRequests from './home/RecentRequests';
 import RequestDialog from './request/RequestDialog';
 
-import { LARGE_SCREEN, HEADER_HEIGHT } from '../style-constants';
+import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
 
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
@@ -34,6 +34,7 @@ import type { AppStore } from '../../data/store';
 type HomeData = {
   view: 'home',
   serviceSummaries: ServiceSummary[],
+  stage: 'home' | 'service',
 };
 
 type RequestData = {
@@ -51,6 +52,13 @@ export type Props = {
   store: AppStore,
 } & InitialProps;
 
+const CONTAINER_STYLE = css({
+  minHeight: 0,
+  [MEDIA_LARGE]: {
+    minHeight: '100vh',
+  },
+});
+
 const CONTENT_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
@@ -61,7 +69,7 @@ const CONTENT_STYLE = css({
 // Puts a little spacing around the dialog, which has auto left/right margins.
 // Lets the map show through on large screens.
 const DIALONG_WRAPPER_STYLE = css({
-  [LARGE_SCREEN]: {
+  [MEDIA_LARGE]: {
     padding: '0 40px',
   },
 });
@@ -79,6 +87,13 @@ const RECENT_CASES_STYLE = css({
   position: 'relative',
   zIndex: 1,
   backgroundColor: 'white',
+});
+
+const BACKGROUND_MAP_CONTAINER_STYLE = css({
+  position: 'fixed',
+  width: '100%',
+  top: HEADER_HEIGHT,
+  bottom: 0,
 });
 
 // We have one class for picking the service type and doing the entire request
@@ -105,7 +120,7 @@ export default class ReportLayout extends React.Component {
     if (query.code) {
       data = await ReportLayout.getRequestData(query, res, getStore(), loopbackGraphql);
     } else {
-      data = await ReportLayout.getHomeData(loopbackGraphql);
+      data = await ReportLayout.getHomeData(query, loopbackGraphql);
     }
 
     return {
@@ -113,10 +128,11 @@ export default class ReportLayout extends React.Component {
     };
   }
 
-  static async getHomeData(loopbackGraphql): Promise<HomeData> {
+  static async getHomeData({ stage }, loopbackGraphql): Promise<HomeData> {
     return {
       view: 'home',
       serviceSummaries: await loadServiceSummaries(loopbackGraphql),
+      stage: stage === 'service' ? stage : 'home',
     };
   }
 
@@ -217,8 +233,10 @@ export default class ReportLayout extends React.Component {
     }
   }
 
-  routeToServiceForm = async (code: string, stage: string = 'questions') => {
-    if (stage === 'questions') {
+  routeToServiceForm = async (code: ?string = null, stage: string = 'questions') => {
+    if (!code) {
+      await Router.push('/report?stage=service', '/report/service');
+    } else if (stage === 'questions') {
       await Router.push(`/report?code=${code}`, `/report/${code}`);
     } else {
       await Router.push(`/report?code=${code}&stage=${stage}`, `/report/${code}/${stage}`);
@@ -242,7 +260,7 @@ export default class ReportLayout extends React.Component {
   render() {
     const { data, store } = this.props;
     const { locationMapActive, locationMapSearch } = this.state;
-    const { isPhone, liveAgentAvailable } = store;
+    const { ui: { mediaLarge }, liveAgentAvailable } = store;
 
     let mapMode: MapMode;
     if (locationMapActive) {
@@ -257,15 +275,17 @@ export default class ReportLayout extends React.Component {
       <div>
         <Nav activeSection="report" />
 
-        <div className="mn mn--full mn--nv-s" style={{ backgroundColor: 'transparent' }}>
+        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
           <div className={CONTENT_STYLE}>
-            { (!isPhone || (data.view === 'request' && data.stage === 'location')) &&
-              <LocationMapWithLib
-                store={store}
-                setLocationMapSearch={this.setLocationMapSearch}
-                mode={mapMode}
-                opacityRatio={this.mapActivationRatio}
-              />
+            { mediaLarge &&
+              <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+                <LocationMapWithLib
+                  store={store}
+                  setLocationMapSearch={this.setLocationMapSearch}
+                  mode={mapMode}
+                  opacityRatio={this.mapActivationRatio}
+                />
+              </div>
             }
 
             <div className={DIALONG_WRAPPER_STYLE}>
@@ -273,6 +293,7 @@ export default class ReportLayout extends React.Component {
                 <HomeDialog
                   store={store}
                   routeToServiceForm={this.routeToServiceForm}
+                  stage={data.stage}
                 /> }
               { data.view === 'request' &&
                 <RequestDialog
@@ -286,14 +307,14 @@ export default class ReportLayout extends React.Component {
             </div>
           </div>
 
-          { data.view === 'home' &&
+          { data.view === 'home' && mediaLarge &&
             <a
               href="#recent"
               className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
               style={{ left: 80 }}
             >Recent Cases</a> }
 
-          { liveAgentAvailable &&
+          { liveAgentAvailable && mediaLarge &&
             <a
               className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
               style={{ right: '20%' }}
@@ -303,7 +324,7 @@ export default class ReportLayout extends React.Component {
         </div>
 
         {
-          data.view === 'home' &&
+          data.view === 'home' && mediaLarge &&
           <div className={RECENT_CASES_STYLE}>
             <a name="recent" />
             <RecentRequests store={store} />

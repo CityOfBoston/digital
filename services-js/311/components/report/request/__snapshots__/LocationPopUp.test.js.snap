@@ -4,7 +4,7 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-n3n77q": "",
+      "data-css-1szwbq4": "",
     }
   }
 >
@@ -78,7 +78,7 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-n3n77q": "",
+      "data-css-1szwbq4": "",
     }
   }
 >
