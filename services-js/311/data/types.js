@@ -9,6 +9,8 @@ import type {
   SubmitRequestMutation,
   SearchRequestsQuery,
   ServiceAttributeDatatype,
+  ReverseGeocodeQuery,
+  SearchAddressQuery,
 } from './dao/graphql/types';
 
 export type ServiceSummary = $ArrayElement<$PropertyType<LoadServiceSummariesQuery, 'services'>>;
@@ -59,3 +61,6 @@ export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'request'>>;
 
 export type SearchRequestsPage = $PropertyType<SearchRequestsQuery, 'requests'>;
 export type SearchRequest = $ArrayElement<$PropertyType<SearchRequestsPage, 'requests'>>;
+
+export type ReverseGeocodedPlace = $NonMaybeType<$PropertyType<$PropertyType<ReverseGeocodeQuery, 'geocoder'>, 'reverse'>>;
+export type SearchAddressPlace = $NonMaybeType<$PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>>;

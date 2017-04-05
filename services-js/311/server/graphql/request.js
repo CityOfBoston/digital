@@ -8,11 +8,6 @@ import type { ServiceRequest } from '../services/Open311';
 export type Root = ServiceRequest;
 
 export const Schema = `
-type LatLng {
-  lat: Float!
-  lng: Float!
-}
-
 type Request {
   id: String!
   service: Service!

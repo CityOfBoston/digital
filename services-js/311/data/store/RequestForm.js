@@ -23,7 +23,7 @@ export class ContactInfo {
 export class LocationInfo {
   @observable required: boolean = false;
   @observable address: string = '';
-  @observable.shallow location: ?{| lat: number, lng: number |} = null;
+  @observable.shallow location: ?{ lat: number, lng: number } = null;
 
   // can be false even when required is false to differentiate between submitting
   // and skipping

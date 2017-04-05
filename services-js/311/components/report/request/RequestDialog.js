@@ -30,7 +30,6 @@ type Props = {
   loopbackGraphql: LoopbackGraphql,
   routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
-  locationMapSearch: ?(query: string) => Promise<boolean>,
 }
 
 const COMMON_DIALOG_STYLE = {
@@ -161,7 +160,7 @@ export default class RequestDialog extends React.Component {
 
   renderContent() {
     const { requestSubmission } = this;
-    const { store, stage, locationMapSearch } = this.props;
+    const { store, stage, loopbackGraphql } = this.props;
     const { currentService, currentServiceError } = store;
 
     if (!currentService) {
@@ -182,7 +181,7 @@ export default class RequestDialog extends React.Component {
         return <QuestionsPane store={store} nextFunc={this.nextAfterQuestions} />;
 
       case 'location':
-        return <LocationPopUp store={store} nextFunc={this.nextAfterLocation} addressSearch={locationMapSearch} />;
+        return <LocationPopUp store={store} nextFunc={this.nextAfterLocation} loopbackGraphql={loopbackGraphql} />;
 
       case 'contact':
         return <ContactPane store={store} nextFunc={this.nextAfterContact} />;

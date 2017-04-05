@@ -2,21 +2,18 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { runInAction, computed, action } from 'mobx';
+import { computed, action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import haversine from 'haversine';
 
 // eslint-disable-next-line
-import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
+import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions, LatLngLiteral } from 'google-maps';
 import type { AppStore } from '../../../data/store';
 
-import Geocoder from '../../../data/external/Geocoder';
 import SearchMarkerPool from './SearchMarkerPool';
 import { preloadWaypointSprite, closedSelectedWaypointIcon, disabledWaypointIcon } from './WaypointIcons';
 import withGoogleMaps from './with-google-maps';
-
-type AutocompleteService = google.maps.places.AutocompleteService;
 
 const MAP_STYLE = css({
   flex: 1,
@@ -29,7 +26,6 @@ export type MapMode = 'disabled' | 'requests' | 'picker';
 
 export type ExternalProps = {
   mode: MapMode,
-  setLocationMapSearch: (locationMapSearch: ?(query: string) => Promise<boolean>) => void,
   store: AppStore,
   opacityRatio: number,
 }
@@ -42,35 +38,41 @@ export type Props = {
 export default class LocationMap extends React.Component {
   props: Props;
 
-  mapEl: ?HTMLElement;
-  map: ?GoogleMap;
-  mapClickListener: ?MapsEventListener;
+  mapEl: ?HTMLElement = null;
+  map: ?GoogleMap = null;
 
-  marker: ?Marker;
-  markerDragListener: ?MapsEventListener;
-
-  autocompleteService: AutocompleteService;
-  geocoder: Geocoder;
+  requestMarker: Marker;
+  requestLocationMonitorDisposer: Function;
 
   searchMarkerPool: ?SearchMarkerPool = null;
 
-  constructor(props: Props) {
-    super(props);
+  componentWillMount() {
+    this.requestMarker = new this.props.googleMaps.Marker({
+      draggable: true,
+    });
 
-    const { store, googleMaps } = props;
+    this.requestMarker.addListener('dragend', this.whenRequestLocationChosen);
 
-    this.geocoder = new Geocoder(store.apiKeys.google || '');
-    this.autocompleteService = new googleMaps.places.AutocompleteService();
+    this.requestLocationMonitorDisposer = autorun(() => {
+      if (this.requestLocationActive) {
+        this.requestMarker.setIcon(closedSelectedWaypointIcon);
+      } else {
+        this.requestMarker.setIcon(disabledWaypointIcon);
+      }
 
-    this.mapEl = null;
-    this.map = null;
+      if (this.requestLocation) {
+        this.requestMarker.setPosition(this.requestLocation);
+        this.requestMarker.setMap(this.map);
+      } else {
+        this.requestMarker.setMap(null);
+      }
+    });
   }
 
   componentDidMount() {
     preloadWaypointSprite();
 
     const map = this.attachMap();
-    this.props.setLocationMapSearch(this.whenAddressSearch);
 
     const { googleMaps, store } = this.props;
     this.searchMarkerPool = new SearchMarkerPool(googleMaps.Marker, map, store.requestSearch, computed(() => (
@@ -82,32 +84,32 @@ export default class LocationMap extends React.Component {
 
   componentDidUpdate(oldProps: Props) {
     if (oldProps.mode !== this.props.mode) {
-      const { mode, store: { requestForm } } = this.props;
-      const { location, address } = requestForm.locationInfo;
-
       if (this.map) {
         this.map.setOptions(this.getMapOptions());
-      }
-
-      if (mode === 'picker' && location) {
-        this.positionMarker(location, !!address);
-      } else {
-        this.removeMarker();
       }
     }
   }
 
   componentWillUnmount() {
-    if (this.mapClickListener) {
-      this.mapClickListener.remove();
-      this.mapClickListener = null;
-    }
-
-    this.props.setLocationMapSearch(null);
-
     if (this.searchMarkerPool) {
       this.searchMarkerPool.dispose();
     }
+
+    this.requestLocationMonitorDisposer();
+  }
+
+  @computed get requestLocation(): ?LatLngLiteral {
+    const { mode, store: { requestForm } } = this.props;
+    if (mode === 'picker') {
+      return requestForm.locationInfo.location;
+    } else {
+      return null;
+    }
+  }
+
+  @computed get requestLocationActive(): boolean {
+    const { store: { requestForm } } = this.props;
+    return requestForm.locationInfo.address.length > 0;
   }
 
   setMapEl = (div: HTMLElement) => {
@@ -205,10 +207,7 @@ export default class LocationMap extends React.Component {
       },
     });
 
-    this.mapClickListener = map.addListener('click', (ev) => {
-      this.addressChanged(ev.latLng);
-    });
-
+    map.addListener('click', this.whenRequestLocationChosen);
     map.addListener('bounds_changed', this.updateMapCenter);
 
     this.map = map;
@@ -217,130 +216,20 @@ export default class LocationMap extends React.Component {
     return map;
   }
 
-  addressChanged = async (latLng: LatLng) => {
-    const { map } = this;
-    const { mode, store } = this.props;
-    const { locationInfo } = store.requestForm;
+  @action.bound
+  whenRequestLocationChosen(ev: Object) {
+    const { mode, store: { requestForm } } = this.props;
+    const latLng: LatLng = ev.latLng;
 
-    if (!map || mode !== 'picker') {
+    if (mode !== 'picker') {
       return;
     }
 
-    const marker = this.positionMarker(latLng, false);
-    let location = { lat: latLng.lat(), lng: latLng.lng() };
-
-    const { address } = await this.geocoder.address(location) || {};
-    if (address) {
-      marker.setIcon(closedSelectedWaypointIcon);
-    } else {
-      // Location is outside of Boston
-      location = null;
-      marker.setIcon(disabledWaypointIcon);
-    }
-
-    runInAction('geocode complete', () => {
-      locationInfo.location = location;
-      locationInfo.address = address || '';
-    });
-  }
-
-  whenAddressSearch = async (query: string): Promise<boolean> => {
-    const { map, autocompleteService } = this;
-    const { store } = this.props;
-    const { locationInfo } = store.requestForm;
-
-    if (!autocompleteService || !map) {
-      return false;
-    }
-
-    runInAction('search start', () => {
-      locationInfo.location = null;
-      locationInfo.address = '';
-    });
-
-    this.removeMarker();
-
-    const autocompleteRequest = {
-      input: query,
-      bounds: map.getBounds(),
-      types: ['geocode'],
+    requestForm.locationInfo.location = {
+      lat: latLng.lat(),
+      lng: latLng.lng(),
     };
-
-    const predictions = await new Promise((resolve, reject) => {
-      autocompleteService.getPlacePredictions(autocompleteRequest, (results, status) => {
-        if (status === 'OK') {
-          resolve(results || []);
-        } else {
-          reject(new Error(`Autocomplete prediction error: ${status}`));
-        }
-      });
-    });
-
-    if (predictions.length === 0) {
-      return false;
-    }
-
-    const placeId = predictions[0].place_id;
-    const { address, location } = await this.geocoder.place(placeId) || {};
-
-    if (address && location) {
-      runInAction('search complete', () => {
-        locationInfo.location = location;
-        locationInfo.address = address;
-      });
-
-      this.positionMarker(location, true);
-
-      const projection = map.getProjection();
-      const latlng: LatLng = new this.props.googleMaps.LatLng(location);
-      const point = projection.fromLatLngToPoint(latlng);
-      point.y -= 0.01;
-      map.panTo(projection.fromPointToLatLng(point));
-
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  positionMarker(latLng: LatLng | {|lat: number, lng: number|}, inBoston: boolean): Marker {
-    const { map } = this;
-    let { marker } = this;
-
-    if (!map) {
-      throw new Error('Positioning marker without map loaded');
-    }
-
-    if (!marker) {
-      marker = new this.props.googleMaps.Marker({
-        map,
-        draggable: true,
-        position: latLng,
-        icon: inBoston ? closedSelectedWaypointIcon : disabledWaypointIcon,
-      });
-
-      this.marker = marker;
-      this.markerDragListener = marker.addListener('dragend', (ev) => {
-        this.addressChanged(ev.latLng);
-      });
-
-      return marker;
-    } else {
-      marker.setPosition(latLng);
-      return marker;
-    }
-  }
-
-  removeMarker() {
-    if (this.marker) {
-      this.marker.setMap(null);
-      this.marker = null;
-    }
-
-    if (this.markerDragListener) {
-      this.markerDragListener.remove();
-      this.markerDragListener = null;
-    }
+    requestForm.locationInfo.address = '';
   }
 
   render() {

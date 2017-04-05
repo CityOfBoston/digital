@@ -5,6 +5,16 @@ import type { Root as Service } from './service';
 import type { Root as Request } from './request';
 
 export const Schema = `
+type LatLng {
+  lat: Float!
+  lng: Float!
+}
+
+input LatLngIn {
+  lat: Float!
+  lng: Float!
+}
+
 type RequestsPage {
   requests: [Request!]!
   query: String!
@@ -17,6 +27,7 @@ type Query {
   service(code: String!): Service
   request(id: String!): Request
   requests(page: Int, query: String, location: LatLngIn, radiusKm: Float): RequestsPage!
+  geocoder: Geocoder!
 }
 `;
 
@@ -51,5 +62,6 @@ export const resolvers = {
         totalPages: info.num_pages,
       };
     },
+    geocoder: () => ({}),
   },
 };

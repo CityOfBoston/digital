@@ -9,11 +9,6 @@ input CreateRequestAttribute {
   value: String!
 }
 
-input LatLngIn {
-  lat: Float!
-  lng: Float!
-}
-
 type Mutation {
   createRequest (
     code: String!

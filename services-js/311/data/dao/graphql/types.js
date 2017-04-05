@@ -124,6 +124,38 @@ export type LoadServiceSummariesQuery = {
   } >,
 };
 
+export type ReverseGeocodeQueryVariables = {
+  location: LatLngIn,
+};
+
+export type ReverseGeocodeQuery = {
+  geocoder: {
+    reverse: ? {
+      location: {
+        lat: number,
+        lng: number,
+      },
+      address: string,
+    },
+  },
+};
+
+export type SearchAddressQueryVariables = {
+  query: string,
+};
+
+export type SearchAddressQuery = {
+  geocoder: {
+    search: ? {
+      location: {
+        lat: number,
+        lng: number,
+      },
+      address: string,
+    },
+  },
+};
+
 export type SearchRequestsQueryVariables = {
   query: ?string,
   location: ?LatLngIn,

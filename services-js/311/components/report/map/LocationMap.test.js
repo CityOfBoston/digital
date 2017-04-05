@@ -15,10 +15,17 @@ class FakeGoogleMap {
   addListener() { return new FakeMapsEventListener(); }
 }
 
+class FakeMarker {
+  addListener() { return new FakeMapsEventListener(); }
+  setIcon = jest.fn()
+  setMap = jest.fn()
+}
+
 class FakeAutocompleteService {}
 
 const FAKE_GOOGLE_MAPS = {
   Map: FakeGoogleMap,
+  Marker: FakeMarker,
   places: {
     AutocompleteService: FakeAutocompleteService,
   },

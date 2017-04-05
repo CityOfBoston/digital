@@ -107,7 +107,6 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
 export default class ReportLayout extends React.Component {
   props: Props;
   state: {
-    locationMapSearch: ?(query: string) => Promise<boolean>,
     locationMapActive: boolean,
   }
   loopbackGraphql: LoopbackGraphql;
@@ -177,7 +176,6 @@ export default class ReportLayout extends React.Component {
     this.updateStoreWithProps(props);
 
     this.state = {
-      locationMapSearch: null,
       locationMapActive: false,
     };
   }
@@ -245,10 +243,6 @@ export default class ReportLayout extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  setLocationMapSearch = (locationMapSearch: ?(query: string) => Promise<boolean>) => {
-    this.setState({ locationMapSearch });
-  }
-
   setLocationMapActive = (active: boolean) => {
     const { locationMapActive } = this.state;
 
@@ -259,7 +253,7 @@ export default class ReportLayout extends React.Component {
 
   render() {
     const { data, store } = this.props;
-    const { locationMapActive, locationMapSearch } = this.state;
+    const { locationMapActive } = this.state;
     const { ui: { mediaLarge }, liveAgentAvailable } = store;
 
     let mapMode: MapMode;
@@ -281,7 +275,6 @@ export default class ReportLayout extends React.Component {
               <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
                 <LocationMapWithLib
                   store={store}
-                  setLocationMapSearch={this.setLocationMapSearch}
                   mode={mapMode}
                   opacityRatio={this.mapActivationRatio}
                 />
@@ -299,7 +292,6 @@ export default class ReportLayout extends React.Component {
                 <RequestDialog
                   store={store}
                   stage={data.stage}
-                  locationMapSearch={locationMapSearch}
                   loopbackGraphql={this.loopbackGraphql}
                   routeToServiceForm={this.routeToServiceForm}
                   setLocationMapActive={this.setLocationMapActive}

@@ -2,8 +2,12 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable, action, runInAction } from 'mobx';
+import { observable, action, runInAction, autorun } from 'mobx';
 import { observer } from 'mobx-react';
+
+import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
+import reverseGeocode from '../../../data/dao/reverse-geocode';
+import searchAddress from '../../../data/dao/search-address';
 
 import type { AppStore } from '../../../data/store';
 
@@ -25,25 +29,38 @@ const MAP_CONTAINER_STYLE = css({
 
 export type Props = {
   store: AppStore,
-  addressSearch: ?((query: string) => Promise<boolean>),
+  loopbackGraphql: LoopbackGraphql,
   nextFunc: () => void,
 }
 
 @observer
 export default class LocationPopUp extends React.Component {
   props: Props;
+  reverseGeocodeDisposer: Function;
+
   @observable addressQuery: string = '';
 
-  addressSearch: ?((query: string) => Promise<boolean>);
+  componentWillMount() {
+    // If the location changes from somewhere (e.g. clicking on the map) we
+    // notice and reverse geocode to get the address.
+    this.reverseGeocodeDisposer = autorun(async () => {
+      const { loopbackGraphql, store: { requestForm: { locationInfo } } } = this.props;
 
-  constructor(props: Props) {
-    super(props);
+      if (locationInfo.location && !locationInfo.address) {
+        const searchLocation = locationInfo.location;
+        const place = await reverseGeocode(loopbackGraphql, searchLocation);
 
-    this.addressSearch = props.addressSearch;
+        runInAction('reverse geocode result', () => {
+          if (place && locationInfo.location === searchLocation) {
+            locationInfo.address = place.address;
+          }
+        });
+      }
+    });
   }
 
-  setAddressSearch = (addressSearch: ?((query: string) => Promise<boolean>)) => {
-    this.addressSearch = addressSearch;
+  componentWillUnmount() {
+    this.reverseGeocodeDisposer();
   }
 
   @action.bound
@@ -51,19 +68,24 @@ export default class LocationPopUp extends React.Component {
     this.addressQuery = ev.target.value;
   }
 
-  whenSearchSubmit = async (ev: SyntheticInputEvent) => {
+  @action.bound
+  async whenSearchSubmit(ev: SyntheticInputEvent) {
     ev.preventDefault();
 
-    if (!this.addressSearch) {
-      return;
-    }
+    const { loopbackGraphql, store: { requestForm: { locationInfo } } } = this.props;
 
-    const found = await this.addressSearch(this.addressQuery);
-    if (found) {
-      runInAction('whenSearchSubmit success', () => {
+    locationInfo.address = '';
+    locationInfo.location = null;
+
+    const place = await searchAddress(loopbackGraphql, this.addressQuery);
+
+    runInAction('address search result', () => {
+      if (place) {
         this.addressQuery = '';
-      });
-    }
+        locationInfo.location = place.location;
+        locationInfo.address = place.address;
+      }
+    });
   }
 
   render() {
@@ -90,7 +112,7 @@ export default class LocationPopUp extends React.Component {
               type="text"
             />
 
-            <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0 || !this.addressSearch}>Search</button>
+            <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0}>Search</button>
           </div>
         </form>
 
@@ -114,7 +136,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMapWithLib store={store} mode="picker" setLocationMapSearch={this.setAddressSearch} opacityRatio={1} />
+        <LocationMapWithLib store={store} mode="picker" opacityRatio={1} />
       </div>
     );
   }

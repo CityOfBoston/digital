@@ -30,18 +30,21 @@ export default class QuestionsPane extends React.Component {
 
   imageUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
 
+  @action
   componentWillMount() {
     const { store } = this.props;
     this.imageUploader.config = store.apiKeys.cloudinary;
     this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
   }
 
+  @action
   componentWillReceiveProps(newProps: Props) {
     const { store } = newProps;
     this.imageUploader.config = store.apiKeys.cloudinary;
     this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
   }
 
+  @action
   componnetWillUnmount() {
     this.imageUploader.adoptedUrlObservable = null;
   }

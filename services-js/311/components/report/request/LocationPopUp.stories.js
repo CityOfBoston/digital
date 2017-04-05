@@ -8,7 +8,7 @@ import { AppStore } from '../../../data/store';
 
 const props = {
   nextFunc: action('Next'),
-  addressSearch: async (s) => { action('Search')(s); return true; },
+  loopbackGraphql: ({}: any),
 };
 
 const makeStore = (address: string) => {

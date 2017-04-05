@@ -3,6 +3,11 @@ input CreateRequestAttribute {
   value: String!
 }
 
+type Geocoder {
+  reverse(location: LatLngIn!): Place
+  search(query: String!): Place
+}
+
 type LatLng {
   lat: Float!
   lng: Float!
@@ -17,11 +22,17 @@ type Mutation {
   createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, mediaUrl: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
 }
 
+type Place {
+  location: LatLng!
+  address: String!
+}
+
 type Query {
   services: [Service!]!
   service(code: String!): Service
   request(id: String!): Request
   requests(page: Int, query: String, location: LatLngIn, radiusKm: Float): RequestsPage!
+  geocoder: Geocoder!
 }
 
 type Request {
