@@ -20,10 +20,12 @@ test('blank request', () => {
 });
 
 test('filled request', () => {
-  store.contactInfo.firstName = 'Carol';
-  store.contactInfo.lastName = 'Danvers';
-  store.contactInfo.email = 'marvel@alphaflight.gov';
-  store.contactInfo.phone = '6175551234';
+  const { contactInfo } = store.requestForm;
+
+  contactInfo.firstName = 'Carol';
+  contactInfo.lastName = 'Danvers';
+  contactInfo.email = 'marvel@alphaflight.gov';
+  contactInfo.phone = '6175551234';
 
   const component = renderer.create(
     <ContactPane store={store} nextFunc={jest.fn()} />,

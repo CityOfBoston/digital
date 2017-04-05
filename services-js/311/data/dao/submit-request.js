@@ -2,7 +2,7 @@
 
 import type { Service, SubmittedRequest } from '../types';
 import type Question from '../store/Question';
-import type { ContactInfo, LocationInfo } from '../store';
+import type { ContactInfo, LocationInfo } from '../store/RequestForm';
 import type { LoopbackGraphql } from './loopback-graphql';
 import type { SubmitRequestMutationVariables, SubmitRequestMutation } from './graphql/types';
 import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';

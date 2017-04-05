@@ -158,8 +158,8 @@ describe('methods', () => {
       wrapper.update();
       expect(wrapper).toMatchSnapshot();
 
-      expect(store.description).toEqual('');
-      expect(store.mediaUrl).toEqual('');
+      expect(store.requestForm.description).toEqual('');
+      expect(store.requestForm.mediaUrl).toEqual('');
     });
 
     test('graphql failure', async () => {

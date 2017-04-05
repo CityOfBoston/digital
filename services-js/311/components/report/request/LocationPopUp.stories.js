@@ -14,7 +14,7 @@ const props = {
 const makeStore = (address: string) => {
   const store = new AppStore();
 
-  store.locationInfo.address = address;
+  store.requestForm.locationInfo.address = address;
 
   return store;
 };

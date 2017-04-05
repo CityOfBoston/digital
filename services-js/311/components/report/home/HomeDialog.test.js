@@ -19,7 +19,7 @@ describe('rendering', () => {
 
   beforeEach(() => {
     store = new AppStore();
-    store.description = 'Thanos is attacking.';
+    store.requestForm.description = 'Thanos is attacking.';
     store.serviceSummaries = SERVICE_SUMMARIES;
   });
 

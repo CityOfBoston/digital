@@ -62,9 +62,9 @@ function renderHome({ store, routeToServiceForm }: Props) {
             <DescriptionBox
               minHeight={222}
               maxHeight={222}
-              text={store.description}
+              text={store.requestForm.description}
               placeholder="How can we help?"
-              onInput={action((ev) => { store.description = ev.target.value; })}
+              onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
             />
           </div>
 

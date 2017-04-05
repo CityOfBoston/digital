@@ -3,9 +3,11 @@
 import FakeXMLHttpRequest from 'fake-xml-http-request';
 import fetchMock from 'fetch-mock';
 
+import { observable } from 'mobx';
+import type { IObservable } from 'mobx';
+
 import CloudinaryImageUpload from './CloudinaryImageUpload';
 import type { Config, UploadResponse } from './CloudinaryImageUpload';
-
 
 let previousXMLHttpRequest;
 
@@ -50,27 +52,37 @@ beforeEach(() => {
 
 afterEach(fetchMock.restore);
 
-describe('file', () => {
-  let imageUpload;
-  let file: any;
+let imageUpload;
+let file: any;
+let mediaUrlObservable: IObservable<?string>;
 
-  beforeEach(() => {
-    imageUpload = new CloudinaryImageUpload(FAKE_CONFIG);
-    file = {
-      preview: 'data:file-preview',
-    };
-  });
+beforeEach(() => {
+  mediaUrlObservable = observable.box(null);
 
-  it('starts uploading when a file is set', () => {
-    imageUpload.file = file;
+  imageUpload = new CloudinaryImageUpload();
+  imageUpload.config = FAKE_CONFIG;
+  imageUpload.adoptedUrlObservable = mediaUrlObservable;
+
+  file = {
+    preview: 'data:file-preview',
+  };
+});
+
+describe('upload', () => {
+  it('starts uploading', () => {
+    expect(imageUpload.canRemove).toEqual(false);
+
+    imageUpload.upload(file);
 
     expect(imageUpload.previewUrl).toEqual('data:file-preview');
     expect(imageUpload.uploading).toEqual(true);
-    expect(imageUpload.mediaUrl).toBeNull();
+    expect(imageUpload.canRemove).toEqual(false);
+    expect(imageUpload.uploadedUrl).toBeNull();
+    expect(mediaUrlObservable.get()).toBeNull();
   });
 
   it('updates progress', () => {
-    imageUpload.file = file;
+    imageUpload.upload(file);
 
     const ev = {
       lengthComputable: true,
@@ -94,7 +106,7 @@ describe('file', () => {
   });
 
   it('provides a URL after upload succeeds', () => {
-    imageUpload.file = file;
+    imageUpload.upload(file);
 
     if (!imageUpload.uploadRequest) {
       expect(imageUpload.uploadRequest).toBeDefined();
@@ -104,13 +116,15 @@ describe('file', () => {
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_RESPONSE));
 
     expect(imageUpload.loaded).toEqual(true);
-    expect(imageUpload.mediaUrl).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
+    expect(imageUpload.uploadedUrl).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
+    expect(mediaUrlObservable.get()).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
     expect(imageUpload.uploading).toEqual(false);
+    expect(imageUpload.canRemove).toEqual(true);
     expect(imageUpload.errorMessage).toEqual(null);
   });
 
   it('shows a Cloudinary error message', () => {
-    imageUpload.file = file;
+    imageUpload.upload(file);
 
     if (!imageUpload.uploadRequest) {
       expect(imageUpload.uploadRequest).toBeDefined();
@@ -120,19 +134,23 @@ describe('file', () => {
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(401, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_ERROR));
     expect(imageUpload.errorMessage).toEqual('Upload preset must be whitelisted for unsigned uploads');
   });
+});
 
-  it('aborts if a new file is set', () => {
-    imageUpload.file = file;
-    imageUpload.file = null;
+describe('remove', () => {
+  it('aborts if a new upload is made', () => {
+    imageUpload.upload(file);
+    imageUpload.remove();
 
     expect(imageUpload.uploading).toEqual(false);
     expect(imageUpload.loaded).toEqual(false);
+    expect(imageUpload.canRemove).toEqual(false);
     expect(imageUpload.previewUrl).toBeNull();
-    expect(imageUpload.mediaUrl).toBeNull();
+    expect(imageUpload.uploadedUrl).toBeNull();
+    expect(mediaUrlObservable.get()).toBeNull();
   });
 
-  it('deletes the image when the file changes', () => {
-    imageUpload.file = file;
+  it('deletes the image when removing', () => {
+    imageUpload.upload(file);
 
     if (!imageUpload.uploadRequest) {
       expect(imageUpload.uploadRequest).toBeDefined();
@@ -141,10 +159,23 @@ describe('file', () => {
 
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(FAKE_UPLOAD_RESPONSE));
 
-    imageUpload.file = null;
+    imageUpload.remove();
     expect(fetchMock.called('https://cloudinary/delete_by_token')).toEqual(true);
     expect(imageUpload.loaded).toEqual(false);
+    expect(imageUpload.canRemove).toEqual(false);
     expect(imageUpload.previewUrl).toBeNull();
-    expect(imageUpload.mediaUrl).toBeNull();
+    expect(imageUpload.uploadedUrl).toBeNull();
+    expect(mediaUrlObservable.get()).toBeNull();
+  });
+
+  it('clears an existing observed URL', () => {
+    mediaUrlObservable.set('http://image');
+
+    expect(imageUpload.canRemove).toEqual(true);
+
+    imageUpload.remove();
+
+    expect(mediaUrlObservable.get()).toEqual(null);
+    expect(imageUpload.canRemove).toEqual(false);
   });
 });

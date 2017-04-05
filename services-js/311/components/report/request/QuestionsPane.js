@@ -2,13 +2,15 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { action } from 'mobx';
+import { action, extras } from 'mobx';
 import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 import AttributeField from './AttributeField';
+
+import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
 
 import type { AppStore } from '../../../data/store';
 
@@ -26,27 +28,45 @@ const DROPZONE_STYLE = css({
 export default class QuestionsPane extends React.Component {
   props: Props;
 
+  imageUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
+
+  componentWillMount() {
+    const { store } = this.props;
+    this.imageUploader.config = store.apiKeys.cloudinary;
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
+  }
+
+  componentWillReceiveProps(newProps: Props) {
+    const { store } = newProps;
+    this.imageUploader.config = store.apiKeys.cloudinary;
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
+  }
+
+  componnetWillUnmount() {
+    this.imageUploader.adoptedUrlObservable = null;
+  }
+
   @action.bound
   handleDrop(acceptedFiles: File[]) {
-    const { store } = this.props;
-    store.requestMediaUploader.file = acceptedFiles[0];
+    if (acceptedFiles[0]) {
+      this.imageUploader.upload(acceptedFiles[0]);
+    }
   }
 
   @action.bound
   handleRemoveImage() {
-    const { store } = this.props;
-    store.requestMediaUploader.file = null;
+    this.imageUploader.remove();
   }
 
   @action.bound
   handleUpdateDescription(ev: SyntheticInputEvent) {
     const { store } = this.props;
-    store.description = ev.target.value;
+    store.requestForm.description = ev.target.value;
   }
 
   render() {
     const { store, nextFunc } = this.props;
-    const { currentService, description, questions, questionRequirementsMet } = store;
+    const { currentService, requestForm: { description, questions, questionRequirementsMet } } = store;
 
     const questionsEls = [];
     questions.forEach((q, i) => {
@@ -92,21 +112,20 @@ export default class QuestionsPane extends React.Component {
   }
 
   renderImageUpload() {
-    const { store } = this.props;
-    const { errorMessage, loaded, previewUrl, uploading, uploadingProgress } = store.requestMediaUploader;
+    const { errorMessage, displayUrl, uploading, uploadingProgress, canRemove } = this.imageUploader;
 
     return (
       <div className="g--5 m-v500">
         <Dropzone className={DROPZONE_STYLE.toString()} onDrop={this.handleDrop} multiple={false} accept="image/*">
-          { previewUrl ?
-            <img style={{ display: 'block', width: '100%' }} alt="" src={previewUrl} /> :
+          { displayUrl ?
+            <img style={{ display: 'block', width: '100%' }} alt="" src={displayUrl} /> :
             <img style={{ display: 'block', width: '100%', height: 'auto' }} alt="" width="479" height="324" src="/static/img/311-watermark.svg" />
           }
         </Dropzone>
 
         { uploading && <progress value={uploadingProgress} max="1" style={{ width: '100%' }} />}
         { errorMessage && <div className="t--info">{errorMessage}</div> }
-        { loaded && <a href="javascript:void(0)" onClick={this.handleRemoveImage}>Remove</a> }
+        { canRemove && <a href="javascript:void(0)" onClick={this.handleRemoveImage}>Remove</a> }
       </div>
 
     );

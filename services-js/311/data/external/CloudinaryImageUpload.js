@@ -1,7 +1,8 @@
 // @flow
 
 import 'isomorphic-fetch';
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action, reaction } from 'mobx';
+import type { IObservable } from 'mobx';
 
 export type Config = {
   url: string,
@@ -27,10 +28,16 @@ export type UploadResponse = {
   width: number,
 };
 
+// Uploader that pushes Files to Cloudinary. Expects to get File objects from
+// react-dropzone, which have a preview URL on them.
+//
+// The pattern of this file is to have it act on the main mobx store without
+// coupling the mobx store to it. Hence we accept an observable object that
+// we set based on this object's results.
 export default class CloudinaryImageUpload {
-  config: ?Config;
+  config: ?Config = null;
 
-  @observable.ref _file: ?File = null;
+  @observable.ref file: ?File = null;
 
   @observable.ref uploadRequest: ?XMLHttpRequest = null;
   @observable uploadingProgress: number = 0;
@@ -38,32 +45,70 @@ export default class CloudinaryImageUpload {
   @observable.ref uploadResponse: ?UploadResponse = null;
   @observable errorMessage: ?string = null;
 
-  constructor(config: ?Config = null) {
-    this.setConfig(config);
+  // set this to get it updated with the URL after upload
+  @observable adoptedUrlObservable: ?IObservable<?string> = null;
+
+  constructor() {
+    // reaction to update our observed mediaURL when we get a new uploadedUrl
+    reaction(
+      () => this.uploadedUrl,
+      (uploadedUrl) => {
+        if (this.adoptedUrlObservable) {
+          this.adoptedUrlObservable.set(uploadedUrl);
+        }
+      },
+    );
   }
 
-  setConfig(config: ?Config) {
-    this.config = config;
-  }
-
-  @computed get file(): ?File {
-    return this._file;
-  }
-
-  set file(file: ?File) {
+  // file is expected to also have a .preview field set by react-dropzone
+  @action
+  upload(file: File) {
     const { config } = this;
 
     if (!config) {
       throw new Error('Trying to upload a file without configuring Cloudinary');
     }
 
-    this._file = file;
+    this.remove();
+
+    this.file = file;
+
+    const uploadRequest = new XMLHttpRequest();
+    this.uploadRequest = uploadRequest;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', config.uploadPreset);
+
+    uploadRequest.onload = this.handleLoad;
+    uploadRequest.onerror = this.handleError;
+    uploadRequest.onloadend = this.handleLoadEnd;
+
+    if (uploadRequest.upload) {
+      uploadRequest.upload.onprogress = this.handleProgress;
+    }
+
+    uploadRequest.open('POST', `${config.url}/image/upload`, true);
+    uploadRequest.send(formData);
+
+    this.uploadingProgress = 0;
+  }
+
+  @action
+  remove() {
+    const { config } = this;
+
+    this.file = null;
     this.errorMessage = null;
 
     // If a file is already uploaded, we want to try and delete it just to
     // keep things tidy. We don't really care if this call succeeds or fails
     // (i.e. we wouldn't fail a "remove" if the API call didn't work)
     if (this.uploadResponse) {
+      if (!config) {
+        throw new Error('Trying to remove a file without configuring Cloudinary');
+      }
+
       const formData = new FormData();
       formData.append('token', this.uploadResponse.delete_token);
 
@@ -80,26 +125,12 @@ export default class CloudinaryImageUpload {
       this.uploadRequest = null;
     }
 
-    if (file) {
-      const uploadRequest = new XMLHttpRequest();
-      this.uploadRequest = uploadRequest;
-
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', config.uploadPreset);
-
-      uploadRequest.onload = this.handleLoad;
-      uploadRequest.onerror = this.handleError;
-      uploadRequest.onloadend = this.handleLoadEnd;
-
-      if (uploadRequest.upload) {
-        uploadRequest.upload.onprogress = this.handleProgress;
-      }
-
-      uploadRequest.open('POST', `${config.url}/image/upload`, true);
-      uploadRequest.send(formData);
-
-      this.uploadingProgress = 0;
+    // In all cases, remove the adopted URL. The reaction above will only update
+    // it if we already had an uploaded file, because uploadedUrl would change.
+    // If we didn't and someone just called remove() after pressing "Back" to
+    // the form, we still need to clear the URL.
+    if (this.adoptedUrlObservable) {
+      this.adoptedUrlObservable.set(null);
     }
   }
 
@@ -149,7 +180,7 @@ export default class CloudinaryImageUpload {
       return;
     }
 
-    this._file = null;
+    this.file = null;
     if (!this.uploadRequest.aborted) {
       this.errorMessage = 'Network error during upload';
     }
@@ -172,15 +203,15 @@ export default class CloudinaryImageUpload {
     }
   }
 
-  @computed get mediaUrl(): ?string {
+  @computed get uploadedUrl(): ?string {
     return this.uploadResponse ? this.uploadResponse.secure_url : null;
   }
 
-  @action
-  fileSubmitted() {
-    // we don't go through .file because that would delete the upload!
-    this._file = null;
-    this.uploadResponse = null;
-    this.errorMessage = null;
+  @computed get displayUrl(): ?string {
+    return this.previewUrl || (this.adoptedUrlObservable && this.adoptedUrlObservable.get());
+  }
+
+  @computed get canRemove(): boolean {
+    return this.loaded || !!(this.adoptedUrlObservable && this.adoptedUrlObservable.get());
   }
 }

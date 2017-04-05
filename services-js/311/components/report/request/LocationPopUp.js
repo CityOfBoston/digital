@@ -67,8 +67,8 @@ export default class LocationPopUp extends React.Component {
   }
 
   render() {
-    const { store, nextFunc } = this.props;
-    const { address, requirementsMet, required } = store.locationInfo;
+    const { store: { requestForm }, nextFunc } = this.props;
+    const { address, requirementsMet, required } = requestForm.locationInfo;
 
     return (
       <div className={CONTENT_STYLE}>

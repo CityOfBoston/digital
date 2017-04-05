@@ -17,7 +17,7 @@ export type Props = {
 }
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
-  const { currentService, contactInfo } = store;
+  const { currentService, requestForm: { contactInfo } } = store;
   const { firstName, lastName, email, phone, required, requirementsMet } = contactInfo;
   const allowSubmit = !required || requirementsMet;
 
@@ -25,16 +25,16 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
     const value = ev.target.value;
     switch (ev.target.name) {
       case 'firstName':
-        store.contactInfo.firstName = value;
+        contactInfo.firstName = value;
         break;
       case 'lastName':
-        store.contactInfo.lastName = value;
+        contactInfo.lastName = value;
         break;
       case 'email':
-        store.contactInfo.email = value;
+        contactInfo.email = value;
         break;
       case 'phone':
-        store.contactInfo.phone = value;
+        contactInfo.phone = value;
         break;
       default:
         break;

@@ -2,12 +2,14 @@
 
 import React from 'react';
 import Head from 'next/head';
-import { action } from 'mobx';
+import { action, observable } from 'mobx';
 import ScopedError from 'react-scoped-error-component';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
 import { css } from 'glamor';
+import type { IPromiseBasedObservable } from 'mobx-utils';
 
+import type { SubmittedRequest } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import submitRequest from '../../../data/dao/submit-request';
@@ -49,6 +51,8 @@ const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 export default class RequestDialog extends React.Component {
   props: Props;
 
+  @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
+
   componentWillMount() {
     const { stage, setLocationMapActive } = this.props;
     setLocationMapActive(stage === 'location');
@@ -84,7 +88,8 @@ export default class RequestDialog extends React.Component {
   @action
   submitRequest(): Promise<mixed> {
     const { store, loopbackGraphql, routeToServiceForm } = this.props;
-    const { currentService, contactInfo, locationInfo, description, questions, mediaUrl } = store;
+    const { currentService, requestForm } = store;
+    const { contactInfo, locationInfo, description, questions, mediaUrl } = requestForm;
 
     if (!currentService) {
       throw new Error('currentService is null in submitRequest');
@@ -102,7 +107,7 @@ export default class RequestDialog extends React.Component {
       return v;
     });
 
-    store.requestSubmission = fromPromise(promise);
+    this.requestSubmission = fromPromise(promise);
 
     routeToServiceForm(currentService.code, 'submit');
 
@@ -127,7 +132,8 @@ export default class RequestDialog extends React.Component {
   }
 
   renderTitle() {
-    const { stage, store: { currentService, requestSubmission } } = this.props;
+    const { requestSubmission } = this;
+    const { stage, store: { currentService } } = this.props;
 
     if (!currentService) {
       return 'Not Found';
@@ -154,8 +160,9 @@ export default class RequestDialog extends React.Component {
   }
 
   renderContent() {
+    const { requestSubmission } = this;
     const { store, stage, locationMapSearch } = this.props;
-    const { currentService, currentServiceError, requestSubmission } = store;
+    const { currentService, currentServiceError } = store;
 
     if (!currentService) {
       return <SectionHeader>Service not found</SectionHeader>;

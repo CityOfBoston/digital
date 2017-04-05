@@ -48,7 +48,7 @@ test('blank request', () => {
 });
 
 test('existing description', () => {
-  store.description = 'Please pick up my bulk items. ';
+  store.requestForm.description = 'Please pick up my bulk items. ';
 
   const component = renderer.create(
     <QuestionsPane store={store} nextFunc={jest.fn()} />,

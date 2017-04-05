@@ -82,8 +82,8 @@ export default class LocationMap extends React.Component {
 
   componentDidUpdate(oldProps: Props) {
     if (oldProps.mode !== this.props.mode) {
-      const { mode, store } = this.props;
-      const { location, address } = store.locationInfo;
+      const { mode, store: { requestForm } } = this.props;
+      const { location, address } = requestForm.locationInfo;
 
       if (this.map) {
         this.map.setOptions(this.getMapOptions());
@@ -193,8 +193,8 @@ export default class LocationMap extends React.Component {
       throw new Error('Attaching map without the mapEl being mounted');
     }
 
-    const { store } = this.props;
-    const { location } = store.locationInfo;
+    const { store: { requestForm } } = this.props;
+    const { location } = requestForm.locationInfo;
 
     const map = new this.props.googleMaps.Map(this.mapEl, {
       ...this.getMapOptions(),
@@ -220,6 +220,7 @@ export default class LocationMap extends React.Component {
   addressChanged = async (latLng: LatLng) => {
     const { map } = this;
     const { mode, store } = this.props;
+    const { locationInfo } = store.requestForm;
 
     if (!map || mode !== 'picker') {
       return;
@@ -238,22 +239,23 @@ export default class LocationMap extends React.Component {
     }
 
     runInAction('geocode complete', () => {
-      store.locationInfo.location = location;
-      store.locationInfo.address = address || '';
+      locationInfo.location = location;
+      locationInfo.address = address || '';
     });
   }
 
   whenAddressSearch = async (query: string): Promise<boolean> => {
     const { map, autocompleteService } = this;
     const { store } = this.props;
+    const { locationInfo } = store.requestForm;
 
     if (!autocompleteService || !map) {
       return false;
     }
 
     runInAction('search start', () => {
-      store.locationInfo.location = null;
-      store.locationInfo.address = '';
+      locationInfo.location = null;
+      locationInfo.address = '';
     });
 
     this.removeMarker();
@@ -283,8 +285,8 @@ export default class LocationMap extends React.Component {
 
     if (address && location) {
       runInAction('search complete', () => {
-        store.locationInfo.location = location;
-        store.locationInfo.address = address;
+        locationInfo.location = location;
+        locationInfo.address = address;
       });
 
       this.positionMarker(location, true);

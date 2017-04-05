@@ -20,7 +20,7 @@ describe('rendering', () => {
   });
 
   it('renders without an address', () => {
-    store.locationInfo.address = '';
+    store.requestForm.locationInfo.address = '';
 
     const component = renderer.create(
       <LocationPopUp store={store} {...ACTIONS} />,
@@ -29,7 +29,7 @@ describe('rendering', () => {
   });
 
   it('renders with an address', () => {
-    store.locationInfo.address = 'City Hall Square\nBoston, MA';
+    store.requestForm.locationInfo.address = 'City Hall Square\nBoston, MA';
     const component = renderer.create(
       <LocationPopUp store={store} {...ACTIONS} />,
     );

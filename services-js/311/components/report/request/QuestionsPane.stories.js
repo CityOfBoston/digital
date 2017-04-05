@@ -11,7 +11,7 @@ import FormDialog from '../../common/FormDialog';
 
 const makeStore = (service) => {
   const store = new AppStore();
-  store.description = 'I could use some heroic support.';
+  store.requestForm.description = 'I could use some heroic support.';
   store.currentService = service;
   return store;
 };

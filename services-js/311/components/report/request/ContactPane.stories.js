@@ -10,12 +10,13 @@ import FormDialog from '../../common/FormDialog';
 
 const makeStore = (fillIn: boolean) => {
   const store = new AppStore();
+  const { contactInfo } = store.requestForm;
 
   if (fillIn) {
-    store.contactInfo.firstName = 'Carol';
-    store.contactInfo.lastName = 'Danvers';
-    store.contactInfo.email = 'marvel@alphaflight.gov';
-    store.contactInfo.phone = '6175551234';
+    contactInfo.firstName = 'Carol';
+    contactInfo.lastName = 'Danvers';
+    contactInfo.email = 'marvel@alphaflight.gov';
+    contactInfo.phone = '6175551234';
   }
 
   return store;

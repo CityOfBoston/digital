@@ -3,55 +3,18 @@
 /* eslint no-underscore-dangle: 0 */
 
 import { observable, computed, useStrict, action } from 'mobx';
-import type { IPromiseBasedObservable } from 'mobx-utils';
 
-import type { Service, ServiceSummary, SubmittedRequest } from '../types';
+import type { Service, ServiceSummary } from '../types';
 
-import CloudinaryImageUpload from '../external/CloudinaryImageUpload';
-
+import RequestForm from './RequestForm';
 import RequestSearch from './RequestSearch';
-import Question from './Question';
 import Ui from './Ui';
 
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
 
-export class ContactInfo {
-  @observable required: boolean = false;
-  @observable firstName: string = '';
-  @observable lastName: string = '';
-  @observable email: string = '';
-  @observable phone: string = '';
-
-  // can be false even when required is false to differentiate between submitting
-  // and skipping
-  @computed
-  get requirementsMet(): boolean {
-    return !!(this.firstName && this.lastName);
-  }
-}
-
-export class LocationInfo {
-  @observable required: boolean = false;
-  @observable address: string = '';
-  @observable.shallow location: ?{| lat: number, lng: number |} = null;
-
-  // can be false even when required is false to differentiate between submitting
-  // and skipping
-  @computed
-  get requirementsMet(): boolean {
-    return this.address.length > 0;
-  }
-}
-
 export class AppStore {
-  @observable description: string = '';
-  requestMediaUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
-
-  @observable contactInfo: ContactInfo = new ContactInfo();
-  @observable locationInfo: LocationInfo = new LocationInfo();
-  @observable questions: Question[] = [];
-
+  @observable requestForm: RequestForm = new RequestForm();
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
 
@@ -61,18 +24,7 @@ export class AppStore {
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 
   // Initialization data from the server
-  _apiKeys: {[service: string]: any} = {};
-
-  get apiKeys(): {[service: string]: any} {
-    return this._apiKeys;
-  }
-
-  set apiKeys(apiKeys: {[service: string]: any}) {
-    this._apiKeys = apiKeys;
-    this.requestMediaUploader.setConfig(apiKeys.cloudinary);
-  }
-
-  @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
+  apiKeys: {[service: string]: any} = {};
 
   _liveAgentButtonId: string = '';
 
@@ -123,33 +75,18 @@ export class AppStore {
 
     this._currentService = service;
     this.currentServiceError = null;
-    this.questions = [];
 
-    if (service) {
-      try {
-        this.contactInfo.required = service.contactRequired;
-        this.locationInfo.required = service.locationRequired;
-        this.questions = Question.buildQuestions(service.attributes);
-      } catch (e) {
-        this.currentServiceError = e;
-      }
+    try {
+      this.requestForm.updateForService(service);
+    } catch (e) {
+      this.currentServiceError = e;
     }
-  }
-
-  @computed get questionRequirementsMet(): boolean {
-    return this.questions.filter((q) => !q.required || !q.visible || q.requirementsMet).length === this.questions.length;
-  }
-
-  @computed get mediaUrl(): string {
-    return this.requestMediaUploader.mediaUrl || '';
   }
 
   @action
   // Call after a succesful submit to clear the form
   resetRequest() {
-    this.description = '';
-    this.questions.forEach((q) => { q.value = ''; });
-    this.requestMediaUploader.fileSubmitted();
+    this.requestForm = new RequestForm();
   }
 }
 
