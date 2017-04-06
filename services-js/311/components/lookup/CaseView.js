@@ -95,10 +95,8 @@ function renderRequest(request: Request) {
         </ul>
       </div>
 
-      <div className="m-v500">
-        <div className="g">
-          <Link href="/lookup"><a className="g--33 ta-c btn btn--y">Back to Search</a></Link>
-        </div>
+      <div className="g m-v500">
+        <Link href="/lookup"><a className="g--3 ta-c btn btn--y">Back to Search</a></Link>
       </div>
     </div>
   );

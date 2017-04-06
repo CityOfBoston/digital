@@ -104,11 +104,9 @@ export default class QuestionsPane extends React.Component {
           { this.renderImageUpload() }
         </div>
 
-        <div className="m-v500">
-          <div className="g">
-            <div className="g--9" />
-            <button className="btn g--33" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
-          </div>
+        <div className="g m-v500">
+          <div className="g--9" />
+          <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
         </div>
       </div>
     );

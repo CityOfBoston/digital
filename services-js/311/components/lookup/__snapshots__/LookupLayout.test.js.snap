@@ -374,19 +374,15 @@ exports[`case rendering 1`] = `
         </ul>
       </div>
       <div
-        className="m-v500"
+        className="g m-v500"
       >
-        <div
-          className="g"
+        <a
+          className="g--3 ta-c btn btn--y"
+          href="/lookup"
+          onClick={[Function]}
         >
-          <a
-            className="g--33 ta-c btn btn--y"
-            href="/lookup"
-            onClick={[Function]}
-          >
-            Back to Search
-          </a>
-        </div>
+          Back to Search
+        </a>
       </div>
     </div>
   </div>

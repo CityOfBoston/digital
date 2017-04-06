@@ -72,7 +72,7 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
 
       <div className="g">
         <div className="g--9" />
-        <button className="btn g--33 m-v300" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
+        <button className="btn g--3 m-v300" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
       </div>
     </div>
   );

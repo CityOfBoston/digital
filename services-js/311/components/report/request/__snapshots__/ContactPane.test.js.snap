@@ -113,7 +113,7 @@ exports[`blank request 1`] = `
       className="g--9"
     />
     <button
-      className="btn g--33 m-v300"
+      className="btn g--3 m-v300"
       disabled={false}
       onClick={[Function]}
     >
@@ -236,7 +236,7 @@ exports[`filled request 1`] = `
       className="g--9"
     />
     <button
-      className="btn g--33 m-v300"
+      className="btn g--3 m-v300"
       disabled={false}
       onClick={[Function]}
     >

@@ -46,39 +46,35 @@ export default function SubmitPane(props: Props) {
       return (
         <div>
           <SectionHeader>Thank you for your submission</SectionHeader>
-          <div className="m-v500">
-            <div className={`g ${GRID_OVERRIDE_STYLE.toString()}`}>
-              <div className="m-v300 g--6">
-                <ul className="dl">
-                  <li className="dl-i">
-                    <span className="dl-t">Case No.</span>
-                    <span className="dl-d dl-d--tt-n"><Link href={`/lookup?q=${submittedRequest.id}`}><a>{ submittedRequest.id }</a></Link></span>
-                  </li>
-                  <li className="dl-i">
-                    <span className="dl-t">Opened</span>
-                    <span className="dl-d dl-d--tt-n">{ submittedRequest.requestedAtString }</span>
-                  </li>
-                  <li className="dl-i">
-                    <span className="dl-t">Where</span>
-                    <span className="dl-d dl-d--tt-n">{ submittedRequest.address }</span>
-                  </li>
-                  <li className="dl-i">
-                    <span className="dl-t">Description</span>
-                    <span className="dl-d dl-d--tt-n">{ submittedRequest.description }</span>
-                  </li>
-                </ul>
-              </div>
-
-              <img style={{ display: 'block' }} alt="" src={submittedRequest.mediaUrl || '/static/img/311-watermark.svg'} className="g--6" />
+          <div className={`g m-v500 ${GRID_OVERRIDE_STYLE.toString()}`}>
+            <div className="m-v300 g--6">
+              <ul className="dl">
+                <li className="dl-i">
+                  <span className="dl-t">Case No.</span>
+                  <span className="dl-d dl-d--tt-n"><Link href={`/lookup?q=${submittedRequest.id}`}><a>{ submittedRequest.id }</a></Link></span>
+                </li>
+                <li className="dl-i">
+                  <span className="dl-t">Opened</span>
+                  <span className="dl-d dl-d--tt-n">{ submittedRequest.requestedAtString }</span>
+                </li>
+                <li className="dl-i">
+                  <span className="dl-t">Where</span>
+                  <span className="dl-d dl-d--tt-n">{ submittedRequest.address }</span>
+                </li>
+                <li className="dl-i">
+                  <span className="dl-t">Description</span>
+                  <span className="dl-d dl-d--tt-n">{ submittedRequest.description }</span>
+                </li>
+              </ul>
             </div>
 
-            <hr className="hr hr--dash m-v300" />
+            <img style={{ display: 'block' }} alt="" src={submittedRequest.mediaUrl || '/static/img/311-watermark.svg'} className="g--6" />
+          </div>
 
-            <div className="m-v500">
-              <div className="g">
-                <Link href="/"><a className="g--33 ta-c btn">Create a New Case</a></Link>
-              </div>
-            </div>
+          <hr className="hr hr--dash m-v300" />
+
+          <div className="g m-v500">
+            <Link href="/"><a className="g--3 ta-c btn">Create a New Case</a></Link>
           </div>
         </div>
       );

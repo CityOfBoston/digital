@@ -316,22 +316,18 @@ exports[`existing service page rendering 1`] = `
                 </div>
               </div>
               <div
-                className="m-v500"
+                className="g m-v500"
               >
                 <div
-                  className="g"
+                  className="g--9"
+                />
+                <button
+                  className="btn g--3"
+                  disabled={true}
+                  onClick={[Function]}
                 >
-                  <div
-                    className="g--9"
-                  />
-                  <button
-                    className="btn g--33"
-                    disabled={true}
-                    onClick={[Function]}
-                  >
-                    Next
-                  </button>
-                </div>
+                  Next
+                </button>
               </div>
             </div>
           </div>
@@ -670,22 +666,18 @@ exports[`existing service page rendering phone 1`] = `
                 </div>
               </div>
               <div
-                className="m-v500"
+                className="g m-v500"
               >
                 <div
-                  className="g"
+                  className="g--9"
+                />
+                <button
+                  className="btn g--3"
+                  disabled={true}
+                  onClick={[Function]}
                 >
-                  <div
-                    className="g--9"
-                  />
-                  <button
-                    className="btn g--33"
-                    disabled={true}
-                    onClick={[Function]}
-                  >
-                    Next
-                  </button>
-                </div>
+                  Next
+                </button>
               </div>
             </div>
           </div>
@@ -1147,67 +1139,63 @@ exports[`report form rendering 1`] = `
             </h2>
           </div>
           <div
-            className="m-v500"
+            className="g m-v500"
           >
             <div
-              className="g"
+              className="g--8"
             >
-              <div
-                className="g--8"
+              <h3
+                className="stp m-v300 css-17cwx2g"
               >
-                <h3
-                  className="stp m-v300 css-17cwx2g"
+                <span
+                  className="stp-number"
                 >
-                  <span
-                    className="stp-number"
-                  >
-                    1
-                  </span>
-                  What can we do for you?
-                </h3>
-                <textarea
-                  className={
-                    Object {
-                      "data-css-1red1ju": "",
-                    }
+                  1
+                </span>
+                What can we do for you?
+              </h3>
+              <textarea
+                className={
+                  Object {
+                    "data-css-1red1ju": "",
                   }
-                  defaultValue=""
-                  name="description"
-                  onBlur={[Function]}
-                  onInput={[Function]}
-                  placeholder="How can we help?"
-                />
-              </div>
-              <div
-                className="g--44 css-17cwx2g"
+                }
+                defaultValue=""
+                name="description"
+                onBlur={[Function]}
+                onInput={[Function]}
+                placeholder="How can we help?"
+              />
+            </div>
+            <div
+              className="g--4 css-17cwx2g"
+            >
+              <h3
+                className="stp m-v300"
               >
-                <h3
-                  className="stp m-v300"
-                >
-                  Top Service Requests
-                </h3>
-                <div
-                  style={
-                    Object {
-                      "height": 222,
-                      "overflowY": "scroll",
-                    }
+                Top Service Requests
+              </h3>
+              <div
+                style={
+                  Object {
+                    "height": 222,
+                    "overflowY": "scroll",
                   }
+                }
+              >
+                <ul
+                  className="ul"
                 >
-                  <ul
-                    className="ul"
-                  >
-                    <li>
-                      <a
-                        className="t--sans tt-u"
-                        href="/report/CSMCINC"
-                        onClick={[Function]}
-                      >
-                        Cosmic Incursion
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  <li>
+                    <a
+                      className="t--sans tt-u"
+                      href="/report/CSMCINC"
+                      onClick={[Function]}
+                    >
+                      Cosmic Incursion
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

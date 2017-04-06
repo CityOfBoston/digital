@@ -51,31 +51,28 @@ function renderHome({ store, routeToServiceForm }: Props) {
 
       <SectionHeader>311: Boston City Services</SectionHeader>
 
-      <div className="m-v500">
-        <div className="g">
-          <div className="g--8">
-            <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
-              <span className="stp-number">1</span>
-              What can we do for you?
-            </h3>
+      <div className="g m-v500">
+        <div className="g--8">
+          <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
+            <span className="stp-number">1</span>
+            What can we do for you?
+          </h3>
 
-            <DescriptionBox
-              minHeight={222}
-              maxHeight={222}
-              text={store.requestForm.description}
-              placeholder="How can we help?"
-              onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
-            />
-          </div>
-
-          <div className={`g--44 ${SERVICE_PICKER_STYLE.toString()}`}>
-            <h3 className="stp m-v300">Top Service Requests</h3>
-            <div style={{ height: 222, overflowY: 'scroll' }}>
-              <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
-            </div>
-          </div>
+          <DescriptionBox
+            minHeight={222}
+            maxHeight={222}
+            text={store.requestForm.description}
+            placeholder="How can we help?"
+            onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
+          />
         </div>
 
+        <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
+          <h3 className="stp m-v300">Top Service Requests</h3>
+          <div style={{ height: 222, overflowY: 'scroll' }}>
+            <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
+          </div>
+        </div>
       </div>
 
       <button className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={() => { routeToServiceForm(); }}>Next</button>
