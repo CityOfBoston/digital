@@ -168,7 +168,12 @@ export default class Open311 {
           params.append('api_key', this.apiKey);
         }
 
-        const response = await fetch(this.url(`services/${code}.json?${params.toString()}`), {
+        let additionalPath = '';
+        if (process.env['311_METADATA_PATH']) {
+          additionalPath = `${process.env['311_METADATA_PATH']}/`;
+        }
+
+        const response = await fetch(this.url(`services/${additionalPath}${code}.json?${params.toString()}`), {
           agent: this.agent,
         });
 
