@@ -2,7 +2,7 @@
 
 import { observable, action, autorun, computed } from 'mobx';
 // eslint-disable-next-line
-import type { LatLngBounds } from 'google-maps';
+import type { LatLngBounds } from 'leaflet';
 import uniqBy from 'lodash/uniqBy';
 import type { SearchRequest, SearchRequestsPage } from '../types';
 import searchRequests from '../dao/search-requests';
@@ -18,6 +18,7 @@ export default class RequestSearch {
   @observable.struct mapCenter: ?LatLng = null;
   @observable query: string = '';
   @observable radiusKm: number = 0;
+  @observable resultsListWidth: number = 0;
 
   @observable mapBounds: ?LatLngBounds = null;
 
@@ -51,7 +52,7 @@ export default class RequestSearch {
     if (!mapBounds) {
       return this._results;
     } else {
-      return this._results.filter((r) => r.location && mapBounds.contains(r.location));
+      return this._results.filter((r) => r.location && mapBounds.contains([r.location.lat, r.location.lng]));
     }
   }
 

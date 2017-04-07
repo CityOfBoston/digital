@@ -14,9 +14,12 @@ const makeStore = () => {
 };
 
 storiesOf('LocationMap', module)
-  .add('inactive', () => (
-    <LocationMapWithLib store={makeStore()} active={false} setLocationMapSearch={() => {}} />
+  .addDecorator((story) => (
+    <div style={{ width: '100vw', height: '100vh' }}>{ story() }</div>
   ))
-  .add('active', () => (
-    <LocationMapWithLib store={makeStore()} active setLocationMapSearch={() => {}} />
+  .add('inactive', () => (
+    <LocationMapWithLib store={makeStore()} mode="inactive" setLocationMapSearch={() => {}} />
+  ))
+  .add('picker', () => (
+    <LocationMapWithLib store={makeStore()} mode="picker" setLocationMapSearch={() => {}} />
   ));

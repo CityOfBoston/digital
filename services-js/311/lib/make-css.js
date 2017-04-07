@@ -11,6 +11,8 @@ export default function makeCss(css: ?string) {
       <link href={href} key={href} type="text/css" rel="stylesheet" />
     )),
 
+    <link key="mapbox" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />,
+
     <style type="text/css" key="default">{`
       body {
         color: #58585B;

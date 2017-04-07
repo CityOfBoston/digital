@@ -2,33 +2,19 @@
 
 import { observable, computed } from 'mobx';
 import type { IObservable } from 'mobx';
+import * as L from 'leaflet';
 
 import RequestSearch from '../../../data/store/RequestSearch';
 import SearchMarkerPool from './SearchMarkerPool';
 
-import { openWaypointIcon, openSelectedWaypointIcon, closedWaypointIcon, closedSelectedWaypointIcon } from './WaypointIcons';
-
-const FAKE_MAP: any = {};
-
-class FakeMarker {
-  static markers = [];
-
-  map: mixed;
-  options: Object;
-
-  constructor(options: Object) {
-    this.options = options;
-    this.map = options.map || null;
-    FakeMarker.markers.push(this);
-  }
-
-  addListener = jest.fn();
-  setMap(map) { this.map = map; }
-  getMap() { return this.map; }
-  setIcon = jest.fn();
-  setZIndex = jest.fn();
-  setOpacity = jest.fn();
-}
+const FAKE_MAPBOX_L = {
+  ...L,
+  marker: jest.fn(),
+  mapbox: {
+    map: jest.fn(),
+    accessToken: '',
+  },
+};
 
 export const MOCK_REQUEST = {
   id: '17-000000001',
@@ -47,21 +33,32 @@ export const MOCK_REQUEST = {
   mediaUrl: null,
 };
 
+let map;
 let opacityBox: IObservable<boolean>;
 let requestSearch;
 let searchMarkerPool: SearchMarkerPool;
+let createdMarkers;
 
 beforeEach(() => {
-  FakeMarker.markers = [];
+  createdMarkers = [];
+  FAKE_MAPBOX_L.marker.mockImplementation((...args) => {
+    const marker = L.marker(...args);
+    createdMarkers.push(marker);
+    return marker;
+  });
+
   requestSearch = new RequestSearch();
 
   opacityBox = observable(1);
   const opacityComputed = computed(() => opacityBox.get());
 
-  searchMarkerPool = new SearchMarkerPool((FakeMarker: any), FAKE_MAP, requestSearch, opacityComputed);
+  map = L.map(document.createElement('div'));
+
+  searchMarkerPool = new SearchMarkerPool(FAKE_MAPBOX_L, map, requestSearch, opacityComputed);
 });
 
 afterEach(() => {
+  map.remove();
   searchMarkerPool.dispose();
 });
 
@@ -69,95 +66,107 @@ describe('generation', () => {
   test('request with location', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
 
-    const marker = FakeMarker.markers[0];
+    const marker = createdMarkers[0];
     expect(marker).toBeDefined();
-    expect(marker.options.position.lat).toEqual(MOCK_REQUEST.location.lat);
-    expect(marker.options.position.lng).toEqual(MOCK_REQUEST.location.lng);
+    expect(marker.getLatLng().lat).toEqual(MOCK_REQUEST.location.lat);
+    expect(marker.getLatLng().lng).toEqual(MOCK_REQUEST.location.lng);
+    expect(map.hasLayer(marker)).toEqual(true);
   });
 
   test('request without location', () => {
     requestSearch.update({ requests: [{ ...MOCK_REQUEST, location: null }], query: '' });
-    expect(FakeMarker.markers.length).toEqual(0);
+    expect(createdMarkers.length).toEqual(0);
   });
 
   it('caches markers', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    expect(FakeMarker.markers.length).toEqual(1);
+    expect(createdMarkers.length).toEqual(1);
 
     requestSearch.update({ requests: [{ ...MOCK_REQUEST }], query: '' });
     // new Marker was not created
-    expect(FakeMarker.markers.length).toEqual(1);
+    expect(createdMarkers.length).toEqual(1);
   });
 
   it('disposes of old markers', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    const marker = FakeMarker.markers[0];
+    const marker = createdMarkers[0];
 
     requestSearch.update({ requests: [{ ...MOCK_REQUEST, id: 'new-request-id' }], query: 'new query' });
     // new Marker was created
-    expect(FakeMarker.markers.length).toEqual(2);
-    expect(marker.map).toEqual(null);
+    expect(createdMarkers.length).toEqual(2);
+    expect(map.hasLayer(marker)).toEqual(false);
   });
 });
 
 describe('opacity update', () => {
   it('sets a map', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    const marker = FakeMarker.markers[0];
-    expect(marker.map).toEqual(FAKE_MAP);
+    const marker = createdMarkers[0];
+    expect(map.hasLayer(marker)).toEqual(true);
   });
 
   it('clears the map', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    const marker = FakeMarker.markers[0];
+    const marker = createdMarkers[0];
     opacityBox.set(0);
-    expect(marker.setOpacity).toHaveBeenCalledWith(0);
-    expect(marker.map).toEqual(null);
+    expect(marker.options.opacity).toEqual(0);
+    expect(map.hasLayer(marker)).toEqual(false);
   });
 });
 
 describe('icon update', () => {
   it('sets an icon', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    const marker = FakeMarker.markers[0];
-    expect(marker.setIcon).toHaveBeenCalledWith(openWaypointIcon);
+    const marker = createdMarkers[0];
+    if (!marker.options.icon) {
+      expect(marker.options.icon).toBeDefined();
+      return;
+    }
+    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-green-empty.png');
   });
 
   it('sets a closed icon', () => {
     requestSearch.update({ requests: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
-    const marker = FakeMarker.markers[0];
-    expect(marker.setIcon).toHaveBeenCalledWith(closedWaypointIcon);
+    const marker = createdMarkers[0];
+    if (!marker.options.icon) {
+      expect(marker.options.icon).toBeDefined();
+      return;
+    }
+    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-orange-empty.png');
   });
 
   it('updates to hover when selected', () => {
     requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-    const marker = FakeMarker.markers[0];
-    marker.setIcon.mockReset();
+    const marker = createdMarkers[0];
 
     requestSearch.selectedRequest = MOCK_REQUEST;
-    expect(marker.setIcon).toHaveBeenCalledWith(openSelectedWaypointIcon);
+    if (!marker.options.icon) {
+      expect(marker.options.icon).toBeDefined();
+      return;
+    }
+    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-green-filled.png');
   });
 
   it('updates to hover when selected', () => {
     requestSearch.update({ requests: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
-    const marker = FakeMarker.markers[0];
-    marker.setIcon.mockReset();
+    const marker = createdMarkers[0];
 
     requestSearch.selectedRequest = MOCK_REQUEST;
-    expect(marker.setIcon).toHaveBeenCalledWith(closedSelectedWaypointIcon);
+    if (!marker.options.icon) {
+      expect(marker.options.icon).toBeDefined();
+      return;
+    }
+    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-orange-filled.png');
   });
 });
 
 test('click handler', () => {
   requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
-  const marker = FakeMarker.markers[0];
-
-  expect(marker.addListener).toHaveBeenCalledWith('click', expect.anything());
-  const clickHandler = marker.addListener.mock.calls[0][1];
+  const marker = createdMarkers[0];
 
   expect(requestSearch.selectedRequest).toEqual(null);
 
-  clickHandler();
+  marker.fire('click');
 
   expect(requestSearch.selectedRequest).toEqual(MOCK_REQUEST);
 });

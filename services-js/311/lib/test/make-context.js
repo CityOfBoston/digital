@@ -11,7 +11,7 @@ export function makeServerContext(pathname: string, query: {[key: string]: strin
   const req: Object = {
     hapiInject: () => { throw new Error('hapiInject is not supported in tests'); },
     apiKeys: {
-      google: 'FAKE_GOOGLE_API_KEY',
+      mapbox: 'FAKE_MAPBOX_ACCESS_TOKEN',
     },
     ...requestAdditions,
   };

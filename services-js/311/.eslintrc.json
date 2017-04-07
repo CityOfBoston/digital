@@ -27,6 +27,7 @@
     "react/no-multi-comp": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
+    "no-multi-assign": 0,
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-param-reassign": 0,

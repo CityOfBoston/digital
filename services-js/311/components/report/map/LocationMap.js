@@ -2,18 +2,15 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { computed, action, autorun } from 'mobx';
+import { observable, computed, action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
-import haversine from 'haversine';
+import type { Map as MapboxMap, ControlZoom, LatLng, Icon, Marker } from 'mapbox.js';
 
-// eslint-disable-next-line
-import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions, LatLngLiteral } from 'google-maps';
 import type { AppStore } from '../../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
-import { preloadWaypointSprite, closedSelectedWaypointIcon, disabledWaypointIcon } from './WaypointIcons';
-import withGoogleMaps from './with-google-maps';
+import withMapbox from './with-mapbox';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -22,24 +19,41 @@ const MAP_STYLE = css({
   backgroundColor: '#9B9B9B',
 });
 
-export type MapMode = 'disabled' | 'requests' | 'picker';
+const DEFAULT_CENTER = {
+  lat: 42.326782,
+  lng: -71.151948,
+};
 
-export type ExternalProps = {
+const MAX_BOUNDS = [
+  [42.19620169472614, -71.37998785400623],
+  [42.48347020269986, -70.80801214599518],
+];
+
+const WAYPOINT_ICON_SIZE = [39, 51];
+const WAYPOINT_ANCHOR_POINT = [20, 53];
+
+export type MapMode = 'inactive' | 'requests' | 'picker';
+
+type LWithMapbox = $Exports<'mapbox.js'>;
+
+export type Props = {
+  L: LWithMapbox,
   mode: MapMode,
   store: AppStore,
   opacityRatio: number,
-}
-
-export type Props = {
-  googleMaps: $Exports<'google-maps'>,
-} & ExternalProps;
+};
 
 @observer
 export default class LocationMap extends React.Component {
   props: Props;
 
   mapEl: ?HTMLElement = null;
-  map: ?GoogleMap = null;
+
+  @observable.ref mapboxMap: ?MapboxMap = null;
+  zoomControl: ControlZoom;
+
+  waypointActiveIcon: Icon;
+  waypointInactiveIcon: Icon;
 
   requestMarker: Marker;
   requestLocationMonitorDisposer: Function;
@@ -47,46 +61,63 @@ export default class LocationMap extends React.Component {
   searchMarkerPool: ?SearchMarkerPool = null;
 
   componentWillMount() {
-    this.requestMarker = new this.props.googleMaps.Marker({
-      draggable: true,
+    const { L } = this.props;
+    this.zoomControl = L.control.zoom({ position: 'bottomright' });
+    this.waypointActiveIcon = L.icon({
+      iconUrl: '/static/img/waypoint-orange-filled.png',
+      iconSize: WAYPOINT_ICON_SIZE,
+      iconAnchor: WAYPOINT_ANCHOR_POINT,
+    });
+    this.waypointInactiveIcon = L.icon({
+      iconUrl: '/static/img/waypoint-gray-filled.png',
+      iconSize: WAYPOINT_ICON_SIZE,
+      iconAnchor: WAYPOINT_ANCHOR_POINT,
     });
 
-    this.requestMarker.addListener('dragend', this.whenRequestLocationChosen);
+    this.requestMarker = L.marker(null, {
+      draggable: true,
+      keyboard: false,
+    });
+
+    this.requestMarker.on('dragend', this.handleRequestMarkerDrag);
 
     this.requestLocationMonitorDisposer = autorun(() => {
       if (this.requestLocationActive) {
-        this.requestMarker.setIcon(closedSelectedWaypointIcon);
+        this.requestMarker.setIcon(this.waypointActiveIcon);
       } else {
-        this.requestMarker.setIcon(disabledWaypointIcon);
+        this.requestMarker.setIcon(this.waypointInactiveIcon);
       }
 
-      if (this.requestLocation) {
-        this.requestMarker.setPosition(this.requestLocation);
-        this.requestMarker.setMap(this.map);
-      } else {
-        this.requestMarker.setMap(null);
+      const { mapboxMap: map, requestLocation } = this;
+
+      if (map) {
+        if (requestLocation) {
+          this.requestMarker.setLatLng(requestLocation);
+          this.requestMarker.addTo(map);
+
+          const bounds = map.getBounds();
+          if (!bounds.contains([requestLocation.lat, requestLocation.lng])) {
+            map.flyTo(requestLocation, 16);
+          }
+        } else {
+          map.removeLayer(this.requestMarker);
+        }
       }
     });
   }
 
   componentDidMount() {
-    preloadWaypointSprite();
+    this.attachMap();
 
-    const map = this.attachMap();
-
-    const { googleMaps, store } = this.props;
-    this.searchMarkerPool = new SearchMarkerPool(googleMaps.Marker, map, store.requestSearch, computed(() => (
+    const { L, store } = this.props;
+    this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
       this.props.mode === 'picker' ? 0 : this.props.opacityRatio
     )));
-
-    this.updateMapCenter();
   }
 
   componentDidUpdate(oldProps: Props) {
     if (oldProps.mode !== this.props.mode) {
-      if (this.map) {
-        this.map.setOptions(this.getMapOptions());
-      }
+      this.updateMapEventHandlers(this.props.mode);
     }
   }
 
@@ -98,7 +129,7 @@ export default class LocationMap extends React.Component {
     this.requestLocationMonitorDisposer();
   }
 
-  @computed get requestLocation(): ?LatLngLiteral {
+  @computed get requestLocation(): ?{ lat: number, lng: number } {
     const { mode, store: { requestForm } } = this.props;
     if (mode === 'picker') {
       return requestForm.locationInfo.location;
@@ -112,122 +143,139 @@ export default class LocationMap extends React.Component {
     return requestForm.locationInfo.address.length > 0;
   }
 
-  setMapEl = (div: HTMLElement) => {
-    this.mapEl = div;
+  setMapEl = (mapEl: HTMLElement) => {
+    this.mapEl = mapEl;
   }
 
-  getMapOptions(): MapOptions {
-    const { mode } = this.props;
-    return {
-      clickableIcons: false,
-      disableDoubleClickZoom: mode === 'disabled',
-      disableDefaultUI: true,
-      draggable: mode !== 'disabled',
-      gestureHandling: 'greedy',
-      scrollwheel: mode === 'picker',
-      scaleControl: false,
-      zoomControl: mode !== 'disabled',
+  @action.bound
+  attachMap() {
+    const { L, store, mode } = this.props;
+
+    if (!this.mapEl) {
+      throw new Error('mapEl not bound when attaching map');
+    }
+
+    const opts = {
+      accessToken: store.apiKeys.mapbox,
+      center: DEFAULT_CENTER,
+      zoom: 12,
       minZoom: 11,
+      maxZoom: 18,
+      attributionControl: false,
+      maxBounds: MAX_BOUNDS,
+      zoomControl: false,
     };
+
+    const map = this.mapboxMap = L.mapbox.map(this.mapEl, 'mapbox.streets', opts);
+    map.on('click', this.handleMapClick);
+    map.on('resize', this.updateMapCenter);
+    map.on('moveend', this.updateMapCenter);
+    map.on('zoomend', this.updateMapCenter);
+
+    this.updateMapEventHandlers(mode);
+    this.updateMapCenter();
+  }
+
+  updateMapEventHandlers(mode: MapMode) {
+    const map = this.mapboxMap;
+
+    if (!map) {
+      return;
+    }
+
+    switch (mode) {
+      case 'inactive':
+        map.boxZoom.disable();
+        map.dragging.disable();
+        map.doubleClickZoom.disable();
+        map.keyboard.disable();
+        map.scrollWheelZoom.disable();
+        map.touchZoom.disable();
+
+        this.zoomControl.remove();
+        break;
+
+      case 'picker':
+        map.boxZoom.enable();
+        map.dragging.enable();
+        map.doubleClickZoom.enable();
+        map.keyboard.enable();
+        map.scrollWheelZoom.enable();
+        map.touchZoom.enable();
+
+        this.zoomControl.addTo(map);
+        break;
+
+      case 'requests':
+        map.boxZoom.enable();
+        map.doubleClickZoom.enable();
+        map.dragging.enable();
+        map.keyboard.enable();
+        map.scrollWheelZoom.disable();
+        map.touchZoom.enable();
+
+        this.zoomControl.addTo(map);
+        break;
+
+      default:
+        break;
+    }
   }
 
   updateMapCenter = debounce(action('updateMapCenter', () => {
-    const { map, mapEl } = this;
+    const { mapboxMap: map, mapEl } = this;
     if (!map || !mapEl) {
       return;
     }
 
-    const { googleMaps, store: { requestSearch } } = this.props;
+    const { L, store: { requestSearch } } = this.props;
 
-    const projection = map.getProjection();
-    const scale = 2 ** map.getZoom();
-    const bounds = map.getBounds();
+    const containerWidth = mapEl.clientWidth;
+    const containerHeight = mapEl.clientHeight;
 
-    const topRightPoint = projection.fromLatLngToPoint(bounds.getNorthEast());
+    const neContainerPoint = { x: containerWidth, y: 0 };
+    const swContainerPoint = { x: requestSearch.resultsListWidth, y: containerHeight };
 
-    const topRightToEdgeOffset = {
-      x: 0,
-      y: (mapEl.clientHeight / 2) / scale,
-    };
+    const visibleBounds = L.latLngBounds([]);
+    visibleBounds.extend(map.containerPointToLatLng(neContainerPoint));
+    visibleBounds.extend(map.containerPointToLatLng(swContainerPoint));
 
-    const topRightToCenterOffset = {
-      // only right 60% of map is visible when showing results, so take half of
-      // that to get the visible center
-      x: (-mapEl.clientWidth * 0.3) / scale,
-      y: (mapEl.clientHeight / 2) / scale,
-    };
+    const visibleCenter = visibleBounds.getCenter();
+    const visibleEast = map.containerPointToLatLng({ x: containerWidth, y: containerHeight / 2 });
+    const visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
 
-    const topRightToBottomLeftOffset = {
-      // only right 60% of map is visible when showing results
-      x: (-mapEl.clientWidth * 0.6) / scale,
-      y: mapEl.clientHeight / scale,
-    };
-
-    const edgePoint = new googleMaps.Point(topRightPoint.x + topRightToEdgeOffset.x, topRightPoint.y + topRightToEdgeOffset.y);
-    const centerPoint = new googleMaps.Point(topRightPoint.x + topRightToCenterOffset.x, topRightPoint.y + topRightToCenterOffset.y);
-    const bottomLeftPoint = new googleMaps.Point(topRightPoint.x + topRightToBottomLeftOffset.x, topRightPoint.y + topRightToBottomLeftOffset.y);
-
-    const edgeLoc = projection.fromPointToLatLng(edgePoint);
-    const centerLoc = projection.fromPointToLatLng(centerPoint);
-
-    requestSearch.mapBounds = new googleMaps.LatLngBounds(
-      projection.fromPointToLatLng(bottomLeftPoint),
-      projection.fromPointToLatLng(topRightPoint));
-
+    requestSearch.mapBounds = visibleBounds;
     requestSearch.mapCenter = {
-      lat: centerLoc.lat(),
-      lng: centerLoc.lng(),
+      lat: visibleCenter.lat,
+      lng: visibleCenter.lng,
     };
-
-    requestSearch.radiusKm = haversine({
-      latitude: centerLoc.lat(),
-      longitude: centerLoc.lng(),
-    }, {
-      latitude: edgeLoc.lat(),
-      longitude: edgeLoc.lng(),
-    }, {
-      unit: 'km',
-    });
-  }), 1000)
-
-  attachMap(): GoogleMap {
-    if (!this.mapEl) {
-      throw new Error('Attaching map without the mapEl being mounted');
-    }
-
-    const { store: { requestForm } } = this.props;
-    const { location } = requestForm.locationInfo;
-
-    const map = new this.props.googleMaps.Map(this.mapEl, {
-      ...this.getMapOptions(),
-      zoom: 12,
-      center: location || {
-        lat: 42.326782,
-        lng: -71.151948,
-      },
-    });
-
-    map.addListener('click', this.whenRequestLocationChosen);
-    map.addListener('bounds_changed', this.updateMapCenter);
-
-    this.map = map;
-
-    // return convenience to avoid null checks on this.map
-    return map;
-  }
+    requestSearch.radiusKm = visibleRadiusM / 1000;
+  }), 500)
 
   @action.bound
-  whenRequestLocationChosen(ev: Object) {
+  handleMapClick(ev: Object) {
     const { mode, store: { requestForm } } = this.props;
-    const latLng: LatLng = ev.latLng;
+    const latLng: LatLng = ev.latlng;
 
     if (mode !== 'picker') {
       return;
     }
 
     requestForm.locationInfo.location = {
-      lat: latLng.lat(),
-      lng: latLng.lng(),
+      lat: latLng.lat,
+      lng: latLng.lng,
+    };
+    requestForm.locationInfo.address = '';
+  }
+
+  @action.bound
+  handleRequestMarkerDrag() {
+    const { store: { requestForm } } = this.props;
+    const latLng = this.requestMarker.getLatLng();
+
+    requestForm.locationInfo.location = {
+      lat: latLng.lat,
+      lng: latLng.lng,
     };
     requestForm.locationInfo.address = '';
   }
@@ -235,7 +283,7 @@ export default class LocationMap extends React.Component {
   render() {
     const { mode, opacityRatio } = this.props;
 
-    const opacity = mode !== 'disabled' ? 1 : 0.6 + (0.4 * opacityRatio);
+    const opacity = mode !== 'inactive' ? 1 : 0.6 + (0.4 * opacityRatio);
 
     return (
       <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl} />
@@ -243,4 +291,4 @@ export default class LocationMap extends React.Component {
   }
 }
 
-export const LocationMapWithLib = withGoogleMaps(['places'], ({ store }: ExternalProps) => store.apiKeys.google)(LocationMap);
+export const LocationMapWithLib = withMapbox()(LocationMap);

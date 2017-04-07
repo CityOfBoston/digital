@@ -97,7 +97,7 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
 });
 
 // We have one class for picking the service type and doing the entire request
-// so that we can keep a consistent Google Maps background behind the
+// so that we can keep a consistent Map background behind the
 // dialog and not repeatedly re-mount it.
 //
 // This class has two "views": the "summaries" view that lets the user pick a
@@ -262,7 +262,7 @@ export default class ReportLayout extends React.Component {
     } else if (this.mapActivationRatio === 1.0) {
       mapMode = 'requests';
     } else {
-      mapMode = 'disabled';
+      mapMode = 'inactive';
     }
 
     return (

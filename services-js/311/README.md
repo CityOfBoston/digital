@@ -24,8 +24,8 @@ framework for server-side rendering.
 ### Getting started
 
  1. Get the Open311 api_key and URL from a friend
- 1. Visit https://developers.google.com/maps/web/ and get a Google API key
  1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
+ 1. Get other API keys: Mapbox, Swiftype, &c. and put them in .env
  1. `yarn install`
  1. `yarn dev`
  1. Visit <http://localhost:3000/> in your browser

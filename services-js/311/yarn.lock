@@ -2004,6 +2004,10 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
+corslite@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/corslite/-/corslite-0.0.6.tgz#622954e14c33852123c4c68fa3deffa9e2d1c896"
+
 cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-2.1.1.tgz#817f2c2039347a1e9bf7d090c0923e53f749ca82"
@@ -3418,10 +3422,6 @@ hashlru@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/hashlru/-/hashlru-1.0.6.tgz#91c264be438dbba77a3deb595a282eb99684e714"
 
-haversine@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/haversine/-/haversine-1.0.2.tgz#7872a584383230e1565875477da02f18c518c3e5"
-
 hawk@~3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"
@@ -4344,6 +4344,10 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+leaflet@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.0.2.tgz#fa4fbcb7844944fc2bfb0bcf9ca0dea13463ca21"
+
 leven@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-2.1.0.tgz#c2e7a9f772094dee9d34202ae8acce4687875580"
@@ -4562,6 +4566,16 @@ mantra-core@^1.7.0:
     react-komposer "^1.9.0"
     react-simple-di "^1.2.0"
 
+mapbox.js@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mapbox.js/-/mapbox.js-3.0.1.tgz#630a97d1c5aac1fd8dc77f5eef250bf9522aba04"
+  dependencies:
+    corslite "0.0.6"
+    isarray "0.0.1"
+    leaflet "1.0.2"
+    mustache "2.2.1"
+    sanitize-caja "0.1.4"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.16"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.16.tgz#b357fa1ca9faefb8e48d10c14ef2bcb2d9f0a7c9"
@@ -4743,9 +4757,17 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-mute-stream@0.0.5, mute-stream@~0.0.4:
+mustache@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/mustache/-/mustache-2.2.1.tgz#2c40ca21c278f53150682bcf9090e41a3339b876"
+
+mute-stream@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
+
+mute-stream@~0.0.4:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
 mv@2.1.1:
   version "2.1.1"
@@ -6283,6 +6305,10 @@ sane@~1.5.0:
     minimist "^1.1.1"
     walker "~1.0.5"
     watch "~0.10.0"
+
+sanitize-caja@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/sanitize-caja/-/sanitize-caja-0.1.4.tgz#7803e8e452b8e3bacb342dbd93adb885acd078af"
 
 sax@^1.2.1, sax@~1.2.1:
   version "1.2.2"

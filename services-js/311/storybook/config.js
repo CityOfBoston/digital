@@ -18,19 +18,6 @@ class Wrapper extends React.Component {
     router: PropTypes.object,
   }
 
-  constructor() {
-    super();
-
-    if (window.parent) {
-      // eslint-disable-next-line no-underscore-dangle
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-    }
-
-    window.API_KEYS = {
-      google: dotEnv.GOOGLE_API_KEY,
-    };
-  }
-
   getChildContext() {
     return {
       headManager: this.props.headManager,
@@ -68,10 +55,23 @@ function loadStories() {
   storiesContext.keys().forEach((filename) => storiesContext(filename));
 }
 
-addDecorator((story) => (
-  <Wrapper headManager={headManager}>
-    { story() }
-  </Wrapper>
-));
+addDecorator((story) => {
+  if (window.parent) {
+    // eslint-disable-next-line no-underscore-dangle
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+  }
+
+  window.API_KEYS = {
+    google: dotEnv.GOOGLE_API_KEY,
+    mapbox: dotEnv.MAPBOX_ACCESS_TOKEN,
+    cloudinary: {},
+  };
+
+  return (
+    <Wrapper headManager={headManager}>
+      { story() }
+    </Wrapper>
+  );
+});
 
 configure(loadStories, module);

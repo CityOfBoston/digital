@@ -2,26 +2,37 @@
 
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';
-// eslint-disable-next-line
-import type { Map as GoogleMap, MapsEventListener, Marker, LatLng, MapOptions } from 'google-maps';
+import type { Map as MapboxMap, Icon, Marker } from 'mapbox.js';
 import type RequestSearch from '../../../data/store/RequestSearch';
 import type { SearchRequest } from '../../../data/types';
 
-import { openWaypointIcon, openSelectedWaypointIcon, closedWaypointIcon, closedSelectedWaypointIcon } from './WaypointIcons';
+type LWithMapbox = $Exports<'mapbox.js'>;
 
-// Reactive wrapper around Google Maps' Marker that responds to visibility and
+type Icons = {
+  openWaypointIcon: Icon,
+  openSelectedWaypointIcon: Icon,
+  closedWaypointIcon: Icon,
+  closedSelectedWaypointIcon: Icon,
+};
+
+const WAYPOINT_ICON_SIZE = [39, 51];
+const WAYPOINT_ANCHOR_POINT = [20, 53];
+
+// Reactive wrapper around a Marker that responds to visibility and
 // hover state.
 class SearchMarker {
   marker: Marker;
-  map: GoogleMap;
+  icons: Icons;
+  map: MapboxMap;
   request: SearchRequest;
   requestSearch: RequestSearch;
   opacityComputed: IComputedValue<number>;
   updateOpacityDisposer: Function;
   updateIconDisposer: Function;
 
-  constructor(MarkerClass: Class<Marker>, map: GoogleMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchRequest) {
+  constructor(L: LWithMapbox, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchRequest) {
     this.request = request;
+    this.icons = icons;
     this.map = map;
     this.requestSearch = requestSearch;
     this.opacityComputed = opacityComputed;
@@ -30,14 +41,14 @@ class SearchMarker {
       throw new Error(`Request ${request.id} did not have a location`);
     }
 
-    this.marker = new MarkerClass({
-      position: {
-        lat: request.location.lat,
-        lng: request.location.lng,
-      },
+    this.marker = L.marker({
+      lat: request.location.lat,
+      lng: request.location.lng,
+    }, {
+      keyboard: false,
     });
 
-    this.marker.addListener('click', this.handleClick);
+    this.marker.on('click', this.handleClick);
     this.updateOpacityDisposer = autorun('updateOpacity', this.updateOpacity);
     this.updateIconDisposer = autorun('updateIcon', this.updateIcon);
   }
@@ -45,7 +56,7 @@ class SearchMarker {
   dispose() {
     this.updateOpacityDisposer();
     this.updateIconDisposer();
-    this.marker.setMap(null);
+    this.map.removeLayer(this.marker);
   }
 
   @action.bound handleClick() {
@@ -62,52 +73,80 @@ class SearchMarker {
 
     if (this.request.status === 'open') {
       if (this.selected) {
-        icon = openSelectedWaypointIcon;
+        icon = this.icons.openSelectedWaypointIcon;
       } else {
-        icon = openWaypointIcon;
+        icon = this.icons.openWaypointIcon;
       }
     } else {
       if (this.selected) {
-        icon = closedSelectedWaypointIcon;
+        icon = this.icons.closedSelectedWaypointIcon;
       } else {
-        icon = closedWaypointIcon;
+        icon = this.icons.closedWaypointIcon;
       }
     }
 
     this.marker.setIcon(icon);
-    this.marker.setZIndex(this.selected ? 1 : 0);
+    this.marker.setZIndexOffset(this.selected ? 1 : 0);
   }
 
   updateOpacity = () => {
     const opacity = this.opacityComputed.get();
-    const map = opacity === 0 ? null : this.map;
-
     this.marker.setOpacity(opacity);
 
     // we remove the marker from the map if opacity is 0 so it doesn't get
     // clicks
-    if (this.marker.getMap() !== map) {
-      this.marker.setMap(map);
+    if (opacity > 0 && !this.map.hasLayer(this.marker)) {
+      this.marker.addTo(this.map);
+    } else if (opacity === 0 && this.map.hasLayer(this.marker)) {
+      this.map.removeLayer(this.marker);
     }
   }
 }
 
 export default class SearchMarkerPool {
-  MarkerClass: Class<Marker>;
-  map: GoogleMap;
+  L: LWithMapbox;
+  map: MapboxMap;
   requestSearch: RequestSearch;
   opacityComputed: IComputedValue<number>;
+  icons: Icons;
 
   maintainMarkersDisposer: Function;
   markers: {[id: string]: SearchMarker} = {};
 
-  constructor(MarkerClass: Class<Marker>, map: GoogleMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>) {
-    this.MarkerClass = MarkerClass;
+  constructor(L: LWithMapbox, map: ?MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>) {
+    if (!map) {
+      throw new Error('SearchMarkerPool initialized without map');
+    }
+
+    this.L = L;
     this.map = map;
     this.requestSearch = requestSearch;
     this.opacityComputed = opacityComputed;
 
     this.maintainMarkersDisposer = autorun('maintainMarkers', this.maintainMarkers);
+
+    this.icons = {
+      openWaypointIcon: L.icon({
+        iconUrl: '/static/img/waypoint-green-empty.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      }),
+      openSelectedWaypointIcon: L.icon({
+        iconUrl: '/static/img/waypoint-green-filled.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      }),
+      closedWaypointIcon: L.icon({
+        iconUrl: '/static/img/waypoint-orange-empty.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      }),
+      closedSelectedWaypointIcon: L.icon({
+        iconUrl: '/static/img/waypoint-orange-filled.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      }),
+    };
   }
 
   dispose() {
@@ -130,7 +169,7 @@ export default class SearchMarkerPool {
         newMarkers[request.id] = this.markers[request.id];
         delete this.markers[request.id];
       } else {
-        newMarkers[request.id] = new SearchMarker(this.MarkerClass, this.map, this.requestSearch, this.opacityComputed, request);
+        newMarkers[request.id] = new SearchMarker(this.L, this.icons, this.map, this.requestSearch, this.opacityComputed, request);
       }
     });
 

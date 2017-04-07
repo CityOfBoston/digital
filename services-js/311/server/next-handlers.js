@@ -16,8 +16,8 @@ type HapiInject = (options: {|
 export type RequestAdditions = {|
   hapiInject: HapiInject,
   apiKeys: {|
-    google: string,
     cloudinary: Object,
+    mapbox: string,
   |},
   liveAgentButtonId: string,
 |}
@@ -26,11 +26,11 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
     apiKeys: {
-      google: process.env.GOOGLE_API_KEY || '',
       cloudinary: {
         url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD || ''}`,
         uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET || '',
       },
+      mapbox: process.env.MAPBOX_ACCESS_TOKEN || '',
     },
     liveAgentButtonId: process.env.LIVE_AGENT_BUTTON_ID || '',
   };

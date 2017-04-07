@@ -2,7 +2,7 @@
 /* eslint react/jsx-no-bind: 0 */
 
 import React from 'react';
-import { observable, action, autorun, untracked, computed } from 'mobx';
+import { observable, action, autorun, untracked, computed, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
@@ -39,16 +39,31 @@ export default class RecentRequests extends React.Component {
   @observable.ref searchEl: ?HTMLElement = null;
   @observable query: string = '';
 
-  scrollSelectedIntoViewDisposer: ?Function = null;
+  scrollSelectedIntoViewDisposer: Function;
+  updateWidthDisposer: Function;
 
   componentDidMount() {
+    const { store: { ui, requestSearch } } = this.props;
+
     this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
+    this.updateWidthDisposer = reaction(() => ({
+      mainEl: this.mainEl,
+      // means we'll get triggered on resizes, which is important
+      // for being % width.
+      visibleWidth: ui.visibleWidth,
+    }),
+    ({ mainEl }) => {
+      if (mainEl) {
+        requestSearch.resultsListWidth = mainEl.clientWidth;
+      }
+    }, {
+      fireImmediately: true,
+    });
   }
 
   componentWillUnmount() {
-    if (this.scrollSelectedIntoViewDisposer) {
-      this.scrollSelectedIntoViewDisposer();
-    }
+    this.scrollSelectedIntoViewDisposer();
+    this.updateWidthDisposer();
   }
 
   @action.bound
@@ -114,9 +129,9 @@ export default class RecentRequests extends React.Component {
     const containerStyle = {};
     const searchStyle = {};
 
-    if (this.stickySearch && this.searchEl && this.mainEl) {
+    if (this.stickySearch && this.searchEl) {
       containerStyle.paddingTop = this.searchEl.clientHeight;
-      searchStyle.width = this.mainEl.clientWidth;
+      searchStyle.width = requestSearch.resultsListWidth;
     }
 
     return (
