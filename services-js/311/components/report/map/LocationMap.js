@@ -10,7 +10,6 @@ import type { Map as MapboxMap, ControlZoom, LatLng, Icon, Marker } from 'mapbox
 import type { AppStore } from '../../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
-import withMapbox from './with-mapbox';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -25,8 +24,8 @@ const DEFAULT_CENTER = {
 };
 
 const MAX_BOUNDS = [
-  [42.19620169472614, -71.37998785400623],
-  [42.48347020269986, -70.80801214599518],
+  [42.53689200787317, -70.58029174804689],
+  [42.115542659613865, -71.7235565185547],
 ];
 
 const WAYPOINT_ICON_SIZE = [39, 51];
@@ -37,11 +36,15 @@ export type MapMode = 'inactive' | 'requests' | 'picker';
 type LWithMapbox = $Exports<'mapbox.js'>;
 
 export type Props = {
-  L: LWithMapbox,
   mode: MapMode,
   store: AppStore,
   opacityRatio: number,
 };
+
+let L: ?LWithMapbox = null;
+if (process.browser) {
+  L = require('mapbox.js');
+}
 
 @observer
 export default class LocationMap extends React.Component {
@@ -50,69 +53,81 @@ export default class LocationMap extends React.Component {
   mapEl: ?HTMLElement = null;
 
   @observable.ref mapboxMap: ?MapboxMap = null;
-  zoomControl: ControlZoom;
+  zoomControl: ?ControlZoom;
 
-  waypointActiveIcon: Icon;
-  waypointInactiveIcon: Icon;
+  waypointActiveIcon: ?Icon;
+  waypointInactiveIcon: ?Icon;
 
-  requestMarker: Marker;
+  requestMarker: ?Marker;
   requestLocationMonitorDisposer: Function;
 
   searchMarkerPool: ?SearchMarkerPool = null;
 
   componentWillMount() {
-    const { L } = this.props;
-    this.zoomControl = L.control.zoom({ position: 'bottomright' });
-    this.waypointActiveIcon = L.icon({
-      iconUrl: '/static/img/waypoint-orange-filled.png',
-      iconSize: WAYPOINT_ICON_SIZE,
-      iconAnchor: WAYPOINT_ANCHOR_POINT,
-    });
-    this.waypointInactiveIcon = L.icon({
-      iconUrl: '/static/img/waypoint-gray-filled.png',
-      iconSize: WAYPOINT_ICON_SIZE,
-      iconAnchor: WAYPOINT_ANCHOR_POINT,
-    });
+    if (L) {
+      this.zoomControl = L.control.zoom({ position: 'bottomright' });
 
-    this.requestMarker = L.marker(null, {
-      draggable: true,
-      keyboard: false,
-    });
+      this.waypointActiveIcon = L.icon({
+        iconUrl: '/static/img/waypoint-orange-filled.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      });
 
-    this.requestMarker.on('dragend', this.handleRequestMarkerDrag);
+      this.waypointInactiveIcon = L.icon({
+        iconUrl: '/static/img/waypoint-gray-filled.png',
+        iconSize: WAYPOINT_ICON_SIZE,
+        iconAnchor: WAYPOINT_ANCHOR_POINT,
+      });
+
+      this.requestMarker = L.marker(null, {
+        draggable: true,
+        keyboard: false,
+      });
+
+      this.requestMarker.on('dragend', this.handleRequestMarkerDrag);
+    }
 
     this.requestLocationMonitorDisposer = autorun(() => {
-      if (this.requestLocationActive) {
-        this.requestMarker.setIcon(this.waypointActiveIcon);
-      } else {
-        this.requestMarker.setIcon(this.waypointInactiveIcon);
+      const { requestMarker } = this;
+
+      if (!requestMarker) {
+        return;
+      }
+
+      if (this.requestLocationActive && this.waypointActiveIcon) {
+        requestMarker.setIcon(this.waypointActiveIcon);
+      } else if (!this.requestLocationActive && this.waypointInactiveIcon) {
+        requestMarker.setIcon(this.waypointInactiveIcon);
       }
 
       const { mapboxMap: map, requestLocation } = this;
 
       if (map) {
         if (requestLocation) {
-          this.requestMarker.setLatLng(requestLocation);
-          this.requestMarker.addTo(map);
+          requestMarker.setLatLng(requestLocation);
+          requestMarker.addTo(map);
 
           const bounds = map.getBounds();
           if (!bounds.contains([requestLocation.lat, requestLocation.lng])) {
             map.flyTo(requestLocation, 16);
           }
         } else {
-          map.removeLayer(this.requestMarker);
+          map.removeLayer(requestMarker);
         }
       }
     });
   }
 
   componentDidMount() {
+    const { store } = this.props;
+
     this.attachMap();
 
-    const { L, store } = this.props;
-    this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
-      this.props.mode === 'picker' ? 0 : this.props.opacityRatio
-    )));
+    if (L) {
+      this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
+        this.props.mode === 'picker' ? 0 : this.props.opacityRatio
+      )));
+    }
   }
 
   componentDidUpdate(oldProps: Props) {
@@ -127,6 +142,10 @@ export default class LocationMap extends React.Component {
     }
 
     this.requestLocationMonitorDisposer();
+
+    if (this.mapboxMap) {
+      this.mapboxMap.remove();
+    }
   }
 
   @computed get requestLocation(): ?{ lat: number, lng: number } {
@@ -149,7 +168,11 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   attachMap() {
-    const { L, store, mode } = this.props;
+    const { store, mode } = this.props;
+
+    if (!L) {
+      return;
+    }
 
     if (!this.mapEl) {
       throw new Error('mapEl not bound when attaching map');
@@ -166,7 +189,12 @@ export default class LocationMap extends React.Component {
       zoomControl: false,
     };
 
-    const map = this.mapboxMap = L.mapbox.map(this.mapEl, 'mapbox.streets', opts);
+    // In test mode we don't use Mapbox because it requires an API key and
+    // tries to load tile sets. We stick to a basic Leaflet map which should
+    // still do the things we want to.
+    const map = this.mapboxMap = (process.env.NODE_ENV === 'test') ?
+      L.map(this.mapEl, (opts: any)) :
+      L.mapbox.map(this.mapEl, 'mapbox.streets', opts);
     map.on('click', this.handleMapClick);
     map.on('resize', this.updateMapCenter);
     map.on('moveend', this.updateMapCenter);
@@ -192,7 +220,9 @@ export default class LocationMap extends React.Component {
         map.scrollWheelZoom.disable();
         map.touchZoom.disable();
 
-        this.zoomControl.remove();
+        if (this.zoomControl) {
+          this.zoomControl.remove();
+        }
         break;
 
       case 'picker':
@@ -203,7 +233,9 @@ export default class LocationMap extends React.Component {
         map.scrollWheelZoom.enable();
         map.touchZoom.enable();
 
-        this.zoomControl.addTo(map);
+        if (this.zoomControl) {
+          this.zoomControl.addTo(map);
+        }
         break;
 
       case 'requests':
@@ -214,7 +246,9 @@ export default class LocationMap extends React.Component {
         map.scrollWheelZoom.disable();
         map.touchZoom.enable();
 
-        this.zoomControl.addTo(map);
+        if (this.zoomControl) {
+          this.zoomControl.addTo(map);
+        }
         break;
 
       default:
@@ -224,11 +258,11 @@ export default class LocationMap extends React.Component {
 
   updateMapCenter = debounce(action('updateMapCenter', () => {
     const { mapboxMap: map, mapEl } = this;
-    if (!map || !mapEl) {
+    if (!map || !mapEl || !L) {
       return;
     }
 
-    const { L, store: { requestSearch } } = this.props;
+    const { store: { requestSearch } } = this.props;
 
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
@@ -271,6 +305,11 @@ export default class LocationMap extends React.Component {
   @action.bound
   handleRequestMarkerDrag() {
     const { store: { requestForm } } = this.props;
+
+    if (!this.requestMarker) {
+      return;
+    }
+
     const latLng = this.requestMarker.getLatLng();
 
     requestForm.locationInfo.location = {
@@ -290,5 +329,3 @@ export default class LocationMap extends React.Component {
     );
   }
 }
-
-export const LocationMapWithLib = withMapbox()(LocationMap);

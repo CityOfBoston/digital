@@ -12,7 +12,8 @@ import { observer } from 'mobx-react';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
-import { LocationMapWithLib } from './map/LocationMap';
+import { MAX_WIDTH as DIALOG_MAX_WIDTH } from '../common/FormDialog';
+import LocationMap from './map/LocationMap';
 import type { MapMode } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import RecentRequests from './home/RecentRequests';
@@ -74,11 +75,28 @@ const DIALONG_WRAPPER_STYLE = css({
   },
 });
 
-const CHAT_TAB_STYLE = css({
+const TAB_WRAPPER_STYLE = css(DIALONG_WRAPPER_STYLE, {
   position: 'absolute',
   bottom: 0,
+  width: '100%',
+});
+
+const TAB_HOLDER_STYLE = css({
+  maxWidth: DIALOG_MAX_WIDTH,
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
+const TAB_STYLE = css({
   background: 'white',
-  borderWidth: '3px 3px 0',
+});
+
+const LIVE_CHAT_TAB_STYLE = css(TAB_STYLE, {
+  position: 'fixed',
+  // This isn't quite right. Revisit if we keep this as a tab.
+  right: 40,
 });
 
 const RECENT_CASES_STYLE = css({
@@ -94,6 +112,7 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
   width: '100%',
   top: HEADER_HEIGHT,
   bottom: 0,
+  background: '#9B9B9B',
 });
 
 // We have one class for picking the service type and doing the entire request
@@ -273,7 +292,7 @@ export default class ReportLayout extends React.Component {
           <div className={CONTENT_STYLE}>
             { mediaLarge &&
               <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
-                <LocationMapWithLib
+                <LocationMap
                   store={store}
                   mode={mapMode}
                   opacityRatio={this.mapActivationRatio}
@@ -299,20 +318,23 @@ export default class ReportLayout extends React.Component {
             </div>
           </div>
 
-          { data.view === 'home' && mediaLarge &&
-            <a
-              href="#recent"
-              className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
-              style={{ left: 80 }}
-            >Recent Cases</a> }
+          { mediaLarge && data.view === 'home' &&
+            <div className={TAB_WRAPPER_STYLE}><div className={TAB_HOLDER_STYLE}>
+              <a
+                href="#recent"
+                className={`p-a300 t--sans tt-u br ${TAB_STYLE.toString()}`}
+                style={{ left: 80 }}
+              >Recent Cases</a>
 
-          { liveAgentAvailable && mediaLarge &&
-            <a
-              className={`p-a300 t--sans tt-u br ${CHAT_TAB_STYLE.toString()}`}
-              style={{ right: '20%' }}
-              href="javascript:void(0)"
-              onClick={this.startChat}
-            >Live Chat Online</a> }
+              { liveAgentAvailable &&
+                <a
+                  className={`p-a300 t--sans tt-u br ${LIVE_CHAT_TAB_STYLE.toString()}`}
+                  href="javascript:void(0)"
+                  onClick={this.startChat}
+                >Live Chat Online</a> }
+            </div></div>
+          }
+
         </div>
 
         {

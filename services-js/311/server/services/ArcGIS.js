@@ -69,6 +69,20 @@ type SearchResult = {
   address: string,
 }
 
+function formatAddress(address: string): string {
+  if (!address) {
+    return address;
+  }
+
+  // Assume that the last two commas are for city and state. Not sure if this is
+  // a good assumption, but we do see multiple commas in the first line.
+  // E.g.: 764 E BROADWAY, 1, SOUTH BOSTON, MA, 02127
+  const parts = address.split(/, /);
+
+  // -3 because we want 3 pieces: city, state, zip
+  return `${parts.slice(0, -3).join(', ')}\n${parts.slice(-3).join(', ')}`;
+}
+
 export default class ArcGIS {
   agent: any;
   endpoint: string
@@ -115,7 +129,7 @@ export default class ArcGIS {
     if (geocode.error) {
       return null;
     } else {
-      return geocode.address.Match_addr;
+      return formatAddress(geocode.address.Match_addr);
     }
   }
 
@@ -142,7 +156,7 @@ export default class ArcGIS {
       const [lng, lat] = this.project.inverse([candidate.location.x, candidate.location.y]);
       return {
         location: { lat, lng },
-        address: candidate.address,
+        address: formatAddress(candidate.address),
       };
     }
   }

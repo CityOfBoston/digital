@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable, action, runInAction, autorun } from 'mobx';
+import { observable, action, runInAction, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
@@ -11,7 +11,7 @@ import searchAddress from '../../../data/dao/search-address';
 
 import type { AppStore } from '../../../data/store';
 
-import { LocationMapWithLib } from '../map/LocationMap';
+import LocationMap from '../map/LocationMap';
 
 const CONTENT_STYLE = css({
   display: 'flex',
@@ -43,20 +43,34 @@ export default class LocationPopUp extends React.Component {
   componentWillMount() {
     // If the location changes from somewhere (e.g. clicking on the map) we
     // notice and reverse geocode to get the address.
-    this.reverseGeocodeDisposer = autorun(async () => {
-      const { loopbackGraphql, store: { requestForm: { locationInfo } } } = this.props;
+    this.reverseGeocodeDisposer = reaction(
+      () => {
+        const { store: { requestForm: { locationInfo } } } = this.props;
+        return {
+          location: locationInfo.location,
+          address: locationInfo.address,
+        };
+      },
+      async ({ location, address }) => {
+        const { loopbackGraphql } = this.props;
 
-      if (locationInfo.location && !locationInfo.address) {
-        const searchLocation = locationInfo.location;
-        const place = await reverseGeocode(loopbackGraphql, searchLocation);
+        if (location && !address) {
+          // clear the search if we geocode, because that means we got clicked
+          // from somewhere else
+          this.addressQuery = '';
 
-        runInAction('reverse geocode result', () => {
-          if (place && locationInfo.location === searchLocation) {
-            locationInfo.address = place.address;
-          }
-        });
-      }
-    });
+          const place = await reverseGeocode(loopbackGraphql, location);
+
+          runInAction('reverse geocode result', () => {
+            const { store: { requestForm: { locationInfo } } } = this.props;
+
+            if (place && locationInfo.location === location) {
+              locationInfo.address = place.address;
+            }
+          });
+        }
+      },
+      true);
   }
 
   componentWillUnmount() {
@@ -136,7 +150,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMapWithLib store={store} mode="picker" opacityRatio={1} />
+        <LocationMap store={store} mode="picker" opacityRatio={1} />
       </div>
     );
   }

@@ -2,7 +2,7 @@
 
 exports[`rendering home screen 1`] = `
 <div
-  className="p-a400 br br-t400 br--y css-1t9hh8g"
+  className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
   style={Object {}}
 >
   <div
@@ -49,7 +49,12 @@ exports[`rendering home screen 1`] = `
       <h3
         className="stp m-v300"
       >
-        Top Service Requests
+        <span
+          className="stp-number"
+        >
+          2
+        </span>
+        Pick Service
       </h3>
       <div
         style={
@@ -86,7 +91,7 @@ exports[`rendering home screen 1`] = `
 
 exports[`rendering small screen service picker 1`] = `
 <div
-  className="p-a400 br br-t400 br--y css-1t9hh8g"
+  className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
   style={Object {}}
 >
   <div

@@ -68,7 +68,10 @@ function renderHome({ store, routeToServiceForm }: Props) {
         </div>
 
         <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
-          <h3 className="stp m-v300">Top Service Requests</h3>
+          <h3 className="stp m-v300">
+            <span className="stp-number">2</span>
+            Pick Service
+          </h3>
           <div style={{ height: 222, overflowY: 'scroll' }}>
             <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
           </div>

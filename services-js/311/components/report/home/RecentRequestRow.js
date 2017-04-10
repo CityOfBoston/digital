@@ -17,26 +17,30 @@ const REQUEST_STYLE = css({
 });
 
 const THUMBNAIL_SYLE = css({
-  width: '8rem',
-  height: '8rem',
+  width: '6rem',
+  height: '6rem',
   margin: '0 1rem 0 0',
   flexShrink: 0,
   backgroundSize: 'cover',
 });
 
 const REQUEST_INFO_STYLE = css({
-  height: '8rem',
+  height: '6rem',
   display: 'flex',
   flex: '1 1 0',
   flexDirection: 'column',
+  justifyContent: 'space-between',
   minWidth: 0,
 });
 
+const REQUEST_SERVICE_NAME_STYLE = css({
+  height: '1.45em',
+  marginTop: '-.4em',
+});
+
 const DESCRIPTION_STYLE = css({
-  flex: 1,
   overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  minHeight: 0,
+  height: '2.5em',
 });
 
 const STATUS_COMMON_STYLE = css({
@@ -133,7 +137,7 @@ export default class RecentRequestRow extends React.Component {
           <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
         </div>
         <div className={REQUEST_INFO_STYLE}>
-          <h4 className="t--intro t--ellipsis">{request.service.name}</h4>
+          <h4 className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>{request.service.name}</h4>
           <div className={DESCRIPTION_STYLE}>
             { request.description}
           </div>

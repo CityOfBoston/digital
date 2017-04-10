@@ -16,6 +16,7 @@ exports[`methods submitRequest graphql failure 1`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
+    popup={false}
   >
     <SubmitPane
       error={[Error: Error submitting]}
@@ -41,6 +42,7 @@ exports[`methods submitRequest success 1`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
+    popup={false}
   >
     <SubmitPane
       state="submitting"
@@ -65,6 +67,7 @@ exports[`methods submitRequest success 2`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
+    popup={false}
   >
     <SubmitPane
       state="success"
@@ -91,7 +94,7 @@ exports[`rendering contact 1`] = `
   }
 >
   <div
-    className="p-a400 br br-t400 br--y css-1t9hh8g"
+    className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
     style={
       Object {
         "maxWidth": 800,
@@ -228,12 +231,12 @@ exports[`rendering location 1`] = `
 <div
   className={
     Object {
-      "data-css-d1r1f": "",
+      "data-css-14smo0c": "",
     }
   }
 >
   <div
-    className="p-a400 br br-t400 br--y css-1t9hh8g"
+    className="p-a300  br br-t400 br--y css-e5tq8c"
     style={Object {}}
   >
     <div
@@ -303,7 +306,7 @@ exports[`rendering questions 1`] = `
   }
 >
   <div
-    className="p-a400 br br-t400 br--y css-1t9hh8g"
+    className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
     style={Object {}}
   >
     <div>
@@ -388,7 +391,11 @@ exports[`rendering questions 1`] = `
                 >
                   How many dimensions have been breached?
                    
-                  (required)
+                  <span
+                    className="t--req"
+                  >
+                    Required
+                  </span>
                 </span>
               </div>
               <div

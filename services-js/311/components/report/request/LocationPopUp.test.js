@@ -24,6 +24,7 @@ describe('rendering', () => {
 
   beforeEach(() => {
     store = new AppStore();
+    store.apiKeys.mapbox = 'fake-api-key';
   });
 
   it('renders without an address', () => {

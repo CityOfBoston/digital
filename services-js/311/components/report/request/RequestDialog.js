@@ -42,7 +42,8 @@ const CENTERED_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
-    margin: '-60px 60% 0 20px',
+    margin: '-30px 70% 0 20px',
+    minWidth: 400,
   },
 });
 
@@ -123,7 +124,7 @@ export default class RequestDialog extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <FormDialog narrow={stage === 'contact'}>
+        <FormDialog narrow={stage === 'contact'} popup={stage === 'location'}>
           { this.renderContent() }
         </FormDialog>
       </div>

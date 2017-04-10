@@ -89,10 +89,23 @@ exports[`existing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-1t4bb4z": "",
+            "data-css-pmaldw": "",
           }
         }
-      />
+      >
+        <div
+          className={
+            Object {
+              "data-css-1k30xul": "",
+            }
+          }
+          style={
+            Object {
+              "opacity": 0.6,
+            }
+          }
+        />
+      </div>
       <div
         className={
           Object {
@@ -108,7 +121,7 @@ exports[`existing service page rendering 1`] = `
           }
         >
           <div
-            className="p-a400 br br-t400 br--y css-1t9hh8g"
+            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
             style={Object {}}
           >
             <div>
@@ -193,7 +206,11 @@ exports[`existing service page rendering 1`] = `
                         >
                           How many dimensions have been breached?
                            
-                          (required)
+                          <span
+                            className="t--req"
+                          >
+                            Required
+                          </span>
                         </span>
                       </div>
                       <div
@@ -334,18 +351,6 @@ exports[`existing service page rendering 1`] = `
         </div>
       </div>
     </div>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="javascript:void(0)"
-      onClick={[Function]}
-      style={
-        Object {
-          "right": "20%",
-        }
-      }
-    >
-      Live Chat Online
-    </a>
   </div>
 </div>
 `;
@@ -439,10 +444,23 @@ exports[`existing service page rendering phone 1`] = `
       <div
         className={
           Object {
-            "data-css-1t4bb4z": "",
+            "data-css-pmaldw": "",
           }
         }
-      />
+      >
+        <div
+          className={
+            Object {
+              "data-css-1k30xul": "",
+            }
+          }
+          style={
+            Object {
+              "opacity": 0.6,
+            }
+          }
+        />
+      </div>
       <div
         className={
           Object {
@@ -458,7 +476,7 @@ exports[`existing service page rendering phone 1`] = `
           }
         >
           <div
-            className="p-a400 br br-t400 br--y css-1t9hh8g"
+            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
             style={Object {}}
           >
             <div>
@@ -543,7 +561,11 @@ exports[`existing service page rendering phone 1`] = `
                         >
                           How many dimensions have been breached?
                            
-                          (required)
+                          <span
+                            className="t--req"
+                          >
+                            Required
+                          </span>
                         </span>
                       </div>
                       <div
@@ -684,18 +706,6 @@ exports[`existing service page rendering phone 1`] = `
         </div>
       </div>
     </div>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="javascript:void(0)"
-      onClick={[Function]}
-      style={
-        Object {
-          "right": "20%",
-        }
-      }
-    >
-      Live Chat Online
-    </a>
   </div>
 </div>
 `;
@@ -789,10 +799,23 @@ exports[`existing service page rendering phone location step 1`] = `
       <div
         className={
           Object {
-            "data-css-1t4bb4z": "",
+            "data-css-pmaldw": "",
           }
         }
-      />
+      >
+        <div
+          className={
+            Object {
+              "data-css-1k30xul": "",
+            }
+          }
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        />
+      </div>
       <div
         className={
           Object {
@@ -803,12 +826,12 @@ exports[`existing service page rendering phone location step 1`] = `
         <div
           className={
             Object {
-              "data-css-d1r1f": "",
+              "data-css-14smo0c": "",
             }
           }
         >
           <div
-            className="p-a400 br br-t400 br--y css-1t9hh8g"
+            className="p-a300  br br-t400 br--y css-e5tq8c"
             style={Object {}}
           >
             <div
@@ -869,18 +892,6 @@ exports[`existing service page rendering phone location step 1`] = `
         </div>
       </div>
     </div>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="javascript:void(0)"
-      onClick={[Function]}
-      style={
-        Object {
-          "right": "20%",
-        }
-      }
-    >
-      Live Chat Online
-    </a>
   </div>
 </div>
 `;
@@ -974,10 +985,23 @@ exports[`missing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-1t4bb4z": "",
+            "data-css-pmaldw": "",
           }
         }
-      />
+      >
+        <div
+          className={
+            Object {
+              "data-css-1k30xul": "",
+            }
+          }
+          style={
+            Object {
+              "opacity": 0.6,
+            }
+          }
+        />
+      </div>
       <div
         className={
           Object {
@@ -993,7 +1017,7 @@ exports[`missing service page rendering 1`] = `
           }
         >
           <div
-            className="p-a400 br br-t400 br--y css-1t9hh8g"
+            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
             style={Object {}}
           >
             <div
@@ -1009,18 +1033,6 @@ exports[`missing service page rendering 1`] = `
         </div>
       </div>
     </div>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="javascript:void(0)"
-      onClick={[Function]}
-      style={
-        Object {
-          "right": "20%",
-        }
-      }
-    >
-      Live Chat Online
-    </a>
   </div>
 </div>
 `;
@@ -1114,10 +1126,23 @@ exports[`report form rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-1t4bb4z": "",
+            "data-css-pmaldw": "",
           }
         }
-      />
+      >
+        <div
+          className={
+            Object {
+              "data-css-1k30xul": "",
+            }
+          }
+          style={
+            Object {
+              "opacity": 0.6,
+            }
+          }
+        />
+      </div>
       <div
         className={
           Object {
@@ -1126,7 +1151,7 @@ exports[`report form rendering 1`] = `
         }
       >
         <div
-          className="p-a400 br br-t400 br--y css-1t9hh8g"
+          className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
           style={Object {}}
         >
           <div
@@ -1173,7 +1198,12 @@ exports[`report form rendering 1`] = `
               <h3
                 className="stp m-v300"
               >
-                Top Service Requests
+                <span
+                  className="stp-number"
+                >
+                  2
+                </span>
+                Pick Service
               </h3>
               <div
                 style={
@@ -1208,29 +1238,40 @@ exports[`report form rendering 1`] = `
         </div>
       </div>
     </div>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="#recent"
-      style={
+    <div
+      className={
         Object {
-          "left": 80,
+          "data-css-1pfpfou": "",
         }
       }
     >
-      Recent Cases
-    </a>
-    <a
-      className="p-a300 t--sans tt-u br css-1pep5i5"
-      href="javascript:void(0)"
-      onClick={[Function]}
-      style={
-        Object {
-          "right": "20%",
+      <div
+        className={
+          Object {
+            "data-css-1lhxuny": "",
+          }
         }
-      }
-    >
-      Live Chat Online
-    </a>
+      >
+        <a
+          className="p-a300 t--sans tt-u br css-shdobr"
+          href="#recent"
+          style={
+            Object {
+              "left": 80,
+            }
+          }
+        >
+          Recent Cases
+        </a>
+        <a
+          className="p-a300 t--sans tt-u br css-10jqagp"
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Live Chat Online
+        </a>
+      </div>
+    </div>
   </div>
   <div
     className={

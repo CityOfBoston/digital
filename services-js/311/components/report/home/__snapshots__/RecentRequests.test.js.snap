@@ -56,7 +56,7 @@ exports[`rendering results loaded 1`] = `
     <div
       className={
         Object {
-          "data-css-1ho2t36": "",
+          "data-css-1jhr6lu": "",
         }
       }
       style={
@@ -68,7 +68,7 @@ exports[`rendering results loaded 1`] = `
       <div
         className={
           Object {
-            "data-css-1ho2t36": "",
+            "data-css-1jhr6lu": "",
           }
         }
         style={
@@ -81,19 +81,19 @@ exports[`rendering results loaded 1`] = `
     <div
       className={
         Object {
-          "data-css-bp10x1": "",
+          "data-css-n42ldu": "",
         }
       }
     >
       <h4
-        className="t--intro t--ellipsis"
+        className="t--intro t--ellipsis css-1fzcvxa"
       >
         Cosmic Intervention
       </h4>
       <div
         className={
           Object {
-            "data-css-1muti8u": "",
+            "data-css-3l5swg": "",
           }
         }
       >
@@ -183,7 +183,7 @@ exports[`rendering with request selected 1`] = `
     <div
       className={
         Object {
-          "data-css-1ho2t36": "",
+          "data-css-1jhr6lu": "",
         }
       }
       style={
@@ -195,7 +195,7 @@ exports[`rendering with request selected 1`] = `
       <div
         className={
           Object {
-            "data-css-1ho2t36": "",
+            "data-css-1jhr6lu": "",
           }
         }
         style={
@@ -208,19 +208,19 @@ exports[`rendering with request selected 1`] = `
     <div
       className={
         Object {
-          "data-css-bp10x1": "",
+          "data-css-n42ldu": "",
         }
       }
     >
       <h4
-        className="t--intro t--ellipsis"
+        className="t--intro t--ellipsis css-1fzcvxa"
       >
         Cosmic Intervention
       </h4>
       <div
         className={
           Object {
-            "data-css-1muti8u": "",
+            "data-css-3l5swg": "",
           }
         }
       >

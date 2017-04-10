@@ -37,6 +37,14 @@ function currentValueAsArray(currentValue): string[] {
   }
 }
 
+function maybeRenderRequired(required: boolean) {
+  if (required) {
+    return <span className="t--req">Required</span>;
+  } else {
+    return null;
+  }
+}
+
 function renderCheckbox(question, onChange) {
   return (
     <label className="cb">
@@ -49,7 +57,7 @@ function renderCheckbox(question, onChange) {
 function renderDatetimeAttribute(question, onChange) {
   return (
     <label className="txt">
-      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
       <input type="datetime-local" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
@@ -58,7 +66,7 @@ function renderDatetimeAttribute(question, onChange) {
 function renderDateAttribute(question, onChange) {
   return (
     <label className="txt">
-      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
       <input type="date" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
@@ -73,7 +81,7 @@ function renderInformationalAttribute(question) {
 function renderTextAttribute(question, onChange) {
   return (
     <label className="txt">
-      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
       <textarea name={question.code} className="txt-f" value={question.value} onChange={onChange} rows="5" />
     </label>
   );
@@ -82,7 +90,7 @@ function renderTextAttribute(question, onChange) {
 function renderStringAttribute(question, onChange) {
   return (
     <label className="txt">
-      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
       <input type="text" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
@@ -91,7 +99,7 @@ function renderStringAttribute(question, onChange) {
 function renderNumberAttribute(question, onChange) {
   return (
     <label className="txt">
-      <span className="txt-l">{question.description} {question.required ? '(required)' : null}</span>
+      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
       <input type="number" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
     </label>
   );
@@ -103,7 +111,7 @@ function renderMultiValueListAttribute(question, onChange) {
 
   return (
     <div>
-      <div className="m-v300"><span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span></div>
+      <div className="m-v300"><span className="txt-l">{ question.description } {maybeRenderRequired(question.required)}</span></div>
       <div className="g">
         {
         lists.map((list, i) => (
@@ -135,7 +143,7 @@ function renderSingleValueListAttribute(question, onChange) {
 
   return (
     <div>
-      <div className="m-v300"><span className="txt-l">{ question.description } {question.required ? '(required)' : null}</span></div>
+      <div className="m-v300"><span className="txt-l">{ question.description } {maybeRenderRequired(question.required)}</span></div>
       <div className="g">
         {
         lists.map((list, i) => (

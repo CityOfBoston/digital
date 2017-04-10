@@ -10,7 +10,20 @@ exports[`rendering renders a map on a small screen 1`] = `
 >
   <div
     className="m-b300 css-ifia64"
-  />
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+  </div>
   <h3
     className="t--info"
   >

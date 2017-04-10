@@ -123,8 +123,6 @@ export default class SearchMarkerPool {
     this.requestSearch = requestSearch;
     this.opacityComputed = opacityComputed;
 
-    this.maintainMarkersDisposer = autorun('maintainMarkers', this.maintainMarkers);
-
     this.icons = {
       openWaypointIcon: L.icon({
         iconUrl: '/static/img/waypoint-green-empty.png',
@@ -147,6 +145,8 @@ export default class SearchMarkerPool {
         iconAnchor: WAYPOINT_ANCHOR_POINT,
       }),
     };
+
+    this.maintainMarkersDisposer = autorun('maintainMarkers', this.maintainMarkers);
   }
 
   dispose() {
