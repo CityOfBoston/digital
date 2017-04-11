@@ -2,11 +2,15 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { action } from 'mobx';
+import { action, computed, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
+import debounce from 'lodash/debounce';
 
+import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
+import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
+import loadServiceSuggestions from '../../../data/dao/load-service-suggestions';
 
 import { MEDIA_LARGE } from '../../style-constants';
 import FormDialog from '../../common/FormDialog';
@@ -16,9 +20,10 @@ import ServiceList from './ServiceList';
 
 export type Props = {
   store: AppStore,
-  routeToServiceForm: (code: ?string) => void,
+  routeToServiceForm: (code: ?string) => mixed,
   // eslint-disable-next-line react/no-unused-prop-types
   stage: 'home' | 'service',
+  loopbackGraphql: LoopbackGraphql,
 };
 
 const DESCRIPTION_HEADER_STYLE = css({
@@ -42,71 +47,121 @@ const SERVICE_PICKER_STYLE = css({
   },
 });
 
-function renderHome({ store, routeToServiceForm }: Props) {
-  return (
-    <FormDialog>
-      <Head>
-        <title>BOS:311 — Report a Problem</title>
-      </Head>
+type SuggestServicesArgs = {
+  description: string,
+};
 
-      <SectionHeader>311: Boston City Services</SectionHeader>
+@observer
+export default class HomeDialog extends React.Component {
+  props: Props;
 
-      <div className="g m-v500">
-        <div className="g--8">
-          <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
-            <span className="stp-number">1</span>
-            What can we do for you?
-          </h3>
+  @observable.shallow suggestedServiceSummaries: ServiceSummary[] = [];
+  serviceSuggestionsDisposer: ?Function
 
-          <DescriptionBox
-            minHeight={222}
-            maxHeight={222}
-            text={store.requestForm.description}
-            placeholder="How can we help?"
-            onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
-          />
+  componentDidMount() {
+    this.serviceSuggestionsDisposer = reaction(
+      (): SuggestServicesArgs => ({ description: this.props.store.requestForm.description }),
+      debounce(this.suggestServices, 500),
+      { fireImmediately: true },
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.serviceSuggestionsDisposer) {
+      this.serviceSuggestionsDisposer();
+    }
+  }
+
+  @computed get serviceSummaries(): ServiceSummary[] {
+    if (this.suggestedServiceSummaries.length > 0) {
+      return this.suggestedServiceSummaries;
+    } else {
+      return this.props.store.serviceSummaries;
+    }
+  }
+
+  @action.bound
+  async suggestServices({ description }: SuggestServicesArgs) {
+    if (description === '') {
+      this.suggestedServiceSummaries = [];
+    } else {
+      const suggestedServiceSummaries = await loadServiceSuggestions(this.props.loopbackGraphql, description);
+
+      runInAction('suggestServices result', () => {
+        this.suggestedServiceSummaries = suggestedServiceSummaries;
+      });
+    }
+  }
+
+  render() {
+    const { stage } = this.props;
+    switch (stage) {
+      case 'home': return this.renderHome();
+      case 'service': return this.renderServicePicker();
+      default: return null;
+    }
+  }
+
+  renderHome() {
+    const { store, routeToServiceForm } = this.props;
+
+    return (
+      <FormDialog>
+        <Head>
+          <title>BOS:311 — Report a Problem</title>
+        </Head>
+
+        <SectionHeader>311: Boston City Services</SectionHeader>
+
+        <div className="g m-v500">
+          <div className="g--8">
+            <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
+              <span className="stp-number">1</span>
+              What can we do for you?
+            </h3>
+
+            <DescriptionBox
+              minHeight={222}
+              maxHeight={222}
+              text={store.requestForm.description}
+              placeholder="How can we help?"
+              onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
+            />
+          </div>
+
+          <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
+            <h3 className="stp m-v300">
+              <span className="stp-number">2</span>
+              Pick Service
+            </h3>
+            <div style={{ height: 222, overflowY: 'auto' }}>
+              <ServiceList serviceSummaries={this.serviceSummaries} onServiceChosen={routeToServiceForm} />
+            </div>
+          </div>
         </div>
 
-        <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
-          <h3 className="stp m-v300">
-            <span className="stp-number">2</span>
-            Pick Service
-          </h3>
+        <button className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={() => { routeToServiceForm(); }}>Next</button>
+      </FormDialog>
+    );
+  }
+
+  renderServicePicker() {
+    const { store, routeToServiceForm } = this.props;
+    return (
+      <FormDialog>
+        <Head>
+          <title>BOS:311 — Report a Problem</title>
+        </Head>
+
+        <SectionHeader>311: Boston City Services</SectionHeader>
+
+        <div className="m-v500">
+          <div className="t--intro">Pick the most related:</div>
           <div style={{ height: 222, overflowY: 'scroll' }}>
             <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
           </div>
         </div>
-      </div>
-
-      <button className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={() => { routeToServiceForm(); }}>Next</button>
-    </FormDialog>
-  );
-}
-
-function renderServicePicker({ store, routeToServiceForm }: Props) {
-  return (
-    <FormDialog>
-      <Head>
-        <title>BOS:311 — Report a Problem</title>
-      </Head>
-
-      <SectionHeader>311: Boston City Services</SectionHeader>
-
-      <div className="m-v500">
-        <div className="t--intro">Pick the most related:</div>
-        <div style={{ height: 222, overflowY: 'scroll' }}>
-          <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
-        </div>
-      </div>
-    </FormDialog>
-  );
-}
-
-export default observer(function HomeDialog(props: Props) {
-  const { stage } = props;
-  switch (stage) {
-    case 'home': return renderHome(props);
-    case 'service': return renderServicePicker(props);
-    default: return null;
+      </FormDialog>
+    );
   }
-});
+}

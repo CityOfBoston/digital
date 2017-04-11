@@ -11,11 +11,13 @@ import { Schema as GeocoderSchema, resolvers as geocoderResolvers } from './geoc
 import type Open311 from '../services/Open311';
 import type Swiftype from '../services/Swiftype';
 import type ArcGIS from '../services/ArcGIS';
+import type Prediction from '../services/Prediction';
 
 export type Context = {|
   open311: Open311,
   swiftype: Swiftype,
   arcgis: ArcGIS,
+  prediction: Prediction,
 |};
 
 const SchemaDefinition = `

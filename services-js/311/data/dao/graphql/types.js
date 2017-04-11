@@ -117,6 +117,17 @@ export type LoadServiceQuery = {
   },
 };
 
+export type LoadServiceSuggestionsQueryVariables = {
+  text: string,
+};
+
+export type LoadServiceSuggestionsQuery = {
+  servicesForDescription: Array< {
+    name: string,
+    code: string,
+  } >,
+};
+
 export type LoadServiceSummariesQuery = {
   services: Array< {
     code: string,

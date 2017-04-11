@@ -9,6 +9,7 @@ import { nextHandler, nextDefaultHandler } from './next-handlers';
 import Open311 from './services/Open311';
 import Swiftype from './services/Swiftype';
 import ArcGIS from './services/ArcGIS';
+import Prediction from './services/Prediction';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -61,6 +62,7 @@ export default async function startServer({ rollbar, opbeat }: any) {
           open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'], opbeat),
           swiftype: new Swiftype(process.env.SWIFTYPE_API_KEY, process.env.SWIFTYPE_ENGINE_SLUG, opbeat),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
+          prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
         }: Context),
         formatError: (e) => {
           opbeat.captureError(e, { request: req }, (err, url) => {

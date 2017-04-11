@@ -60,7 +60,6 @@ export default class DescriptionBox extends React.Component {
     };
   }
 
-
   componentDidMount() {
     this.maybeRecalculateHeight();
   }
@@ -88,7 +87,8 @@ export default class DescriptionBox extends React.Component {
     const { minHeight, maxHeight, onInput } = this.props;
 
     this.setState({
-      height: Math.min(maxHeight, Math.max(minHeight, ev.target.scrollHeight)),
+      // || minHeight avoids NaN height in enzyme tests
+      height: Math.min(maxHeight, Math.max(minHeight, ev.target.scrollHeight)) || minHeight,
     });
 
     return onInput(ev);

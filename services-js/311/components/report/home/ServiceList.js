@@ -6,7 +6,7 @@ import type { ServiceSummary } from '../../../data/types';
 class ServiceButton extends React.Component {
   props: {
     serviceSummary: ServiceSummary,
-    onServiceChosen: (code: string) => void,
+    onServiceChosen: (code: string) => mixed,
   }
 
   whenClicked = (ev: SyntheticInputEvent) => {
@@ -28,7 +28,7 @@ class ServiceButton extends React.Component {
 
 export type Props = {
   serviceSummaries: ServiceSummary[],
-  onServiceChosen: (code: string) => void,
+  onServiceChosen: (code: string) => mixed,
 }
 
 export default function ServiceList({ serviceSummaries, onServiceChosen }: Props) {

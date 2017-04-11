@@ -304,6 +304,7 @@ export default class ReportLayout extends React.Component {
               { data.view === 'home' &&
                 <HomeDialog
                   store={store}
+                  loopbackGraphql={this.loopbackGraphql}
                   routeToServiceForm={this.routeToServiceForm}
                   stage={data.stage}
                 /> }

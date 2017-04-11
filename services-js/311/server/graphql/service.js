@@ -93,10 +93,10 @@ enum ServiceAttributeConditionValueType {
 }
 `;
 
-export type ServiceStub = {
+export type ServiceStub = {|
   service_name: string,
   service_code: string,
-}
+|}
 
 export type Root = Service | ServiceStub;
 
@@ -157,7 +157,7 @@ export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeVa
 }
 
 const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => async (s: Root, args: mixed, { open311 }: Context) => (
-  cb(s.metadata ? await open311.serviceMetadata(s.service_code) : null)
+  cb(s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null)
 );
 
 export const resolvers = {

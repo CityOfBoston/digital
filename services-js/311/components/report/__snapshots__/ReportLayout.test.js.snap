@@ -1209,7 +1209,7 @@ exports[`report form rendering 1`] = `
                 style={
                   Object {
                     "height": 222,
-                    "overflowY": "scroll",
+                    "overflowY": "auto",
                   }
                 }
               >

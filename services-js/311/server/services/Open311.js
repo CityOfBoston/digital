@@ -214,7 +214,7 @@ export default class Open311 {
     return url.resolve(this.endpoint, path);
   }
 
-  services = async () => {
+  services = async (): Promise<Service[]> => {
     const transaction = this.opbeat && this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
     if (this.apiKey) {

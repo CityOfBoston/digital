@@ -60,7 +60,7 @@ exports[`rendering home screen 1`] = `
         style={
           Object {
             "height": 222,
-            "overflowY": "scroll",
+            "overflowY": "auto",
           }
         }
       >
