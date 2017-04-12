@@ -108,13 +108,13 @@ export default class HomeDialog extends React.Component {
           <title>BOS:311 — Report a Problem</title>
         </Head>
 
-        <SectionHeader>311: Boston City Services</SectionHeader>
+        <SectionHeader>Get help with BOS:311</SectionHeader>
 
         <div className="g m-v500">
           <div className="g--8">
             <h3 className="stp m-v300">
               <span className="stp-number">1</span>
-              Describe your problem
+              Tell us your problem
             </h3>
 
             <DescriptionBox
@@ -138,6 +138,11 @@ export default class HomeDialog extends React.Component {
         </div>
 
         <button className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={() => { routeToServiceForm(); }}>Next</button>
+
+        <div className="t--info">
+          Through BOS:311, you can report non-emergency issues with the City.<br />
+          To make things easier, you can use this form to file reports online.
+        </div>
       </FormDialog>
     );
   }
@@ -150,7 +155,7 @@ export default class HomeDialog extends React.Component {
           <title>BOS:311 — Report a Problem</title>
         </Head>
 
-        <SectionHeader>311: Boston City Services</SectionHeader>
+        <SectionHeader>Get help with BOS:311</SectionHeader>
 
         <div className="m-v500">
           <h3 className="stp m-v300">

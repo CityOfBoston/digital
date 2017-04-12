@@ -1162,7 +1162,7 @@ exports[`report form rendering 1`] = `
             <h2
               className="sh-title"
             >
-              311: Boston City Services
+              Get help with BOS:311
             </h2>
           </div>
           <div
@@ -1179,7 +1179,7 @@ exports[`report form rendering 1`] = `
                 >
                   1
                 </span>
-                Describe your problem
+                Tell us your problem
               </h3>
               <textarea
                 className={
@@ -1237,6 +1237,13 @@ exports[`report form rendering 1`] = `
           >
             Next
           </button>
+          <div
+            className="t--info"
+          >
+            Through BOS:311, you can report non-emergency issues with the City.
+            <br />
+            To make things easier, you can use this form to file reports online.
+          </div>
         </div>
       </div>
     </div>
