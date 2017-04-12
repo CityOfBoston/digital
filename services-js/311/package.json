@@ -20,7 +20,6 @@
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "eslint --quiet .",
     "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace",
-    "fetch-salesforce-access-token": "node ./scripts/fetch-salesforce-access-token",
     "fetch-templates": "babel-node ./scripts/fetch-templates"
   },
   "jest": {
