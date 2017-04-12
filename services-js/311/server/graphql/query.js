@@ -57,12 +57,13 @@ type RequestsPage = {
 
 
 const SUGGESTION_NAME_MAP = {
-  'Needle Pickup': 'Needle Removal',
-  'Sidewalk Repair (Make Safe)': 'Repair Sidewalk',
-  'Request for Snow Plowing': 'SNOW PLOWING & SNOW ICE/CONTROL',
-  'Parking Enforcement': 'PARKING COMPLAINTS',
-  'Sign Repair': 'HP SIGN REQUEST',
-  'Request for Pothole Repair': 'ROADWAY REPAIR',
+  'Needle Pickup': 'NEEDRMVL',
+  'Sidewalk Repair (Make Safe)': 'SDWRPR',
+  'Request for Snow Plowing': 'SNOWPLOW',
+  'Parking Enforcement': 'PKGCMP',
+  'Sign Repair': 'HPSREQ',
+  'Request for Pothole Repair': 'RDWYRPR',
+  'Pick up Dead Animal': 'PUDEADANML',
 };
 
 
@@ -72,7 +73,9 @@ async function serviceSuggestions({ open311, prediction }: Context, { text, max,
   const matchedServices: Service[] = [];
   // "type" here is the name of the service
   suggestions.forEach(({ type }) => {
-    const matchedService = services.find(({ service_name: serviceName }) => serviceName && (serviceName.toLowerCase() === (SUGGESTION_NAME_MAP[type] || type).toLowerCase()));
+    const matchedService = services.find(({ service_name: serviceName, service_code: serviceCode }) => (
+      serviceName && (serviceName.toLowerCase() === type.toLowerCase() || serviceCode === SUGGESTION_NAME_MAP[type])
+    ));
     if (matchedService) {
       matchedServices.push(matchedService);
     }
