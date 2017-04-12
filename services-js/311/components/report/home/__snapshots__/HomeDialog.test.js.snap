@@ -11,7 +11,7 @@ exports[`rendering home screen 1`] = `
     <h2
       className="sh-title"
     >
-      Get help with BOS:311
+      File a Report with BOS:311
     </h2>
   </div>
   <div
@@ -107,7 +107,7 @@ exports[`rendering small screen service picker 1`] = `
     <h2
       className="sh-title"
     >
-      Get help with BOS:311
+      File a Report with BOS:311
     </h2>
   </div>
   <div

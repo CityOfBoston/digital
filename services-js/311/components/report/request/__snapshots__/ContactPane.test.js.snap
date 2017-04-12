@@ -67,7 +67,7 @@ exports[`blank request 1`] = `
       <span
         className="txt-l"
       >
-        Email
+        Email 
       </span>
       <input
         className="txt-f"
@@ -107,13 +107,18 @@ exports[`blank request 1`] = `
     </label>
   </div>
   <div
-    className="g"
+    className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9"
+      className="g--9 t--info"
+      style={
+        Object {
+          "textAlign": "right",
+        }
+      }
     />
     <button
-      className="btn g--3 m-v300"
+      className="btn g--3"
       disabled={false}
       onClick={[Function]}
     >
@@ -190,7 +195,7 @@ exports[`filled request 1`] = `
       <span
         className="txt-l"
       >
-        Email
+        Email 
       </span>
       <input
         className="txt-f"
@@ -230,13 +235,18 @@ exports[`filled request 1`] = `
     </label>
   </div>
   <div
-    className="g"
+    className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9"
+      className="g--9 t--info"
+      style={
+        Object {
+          "textAlign": "right",
+        }
+      }
     />
     <button
-      className="btn g--3 m-v300"
+      className="btn g--3"
       disabled={false}
       onClick={[Function]}
     >

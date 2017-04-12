@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -11,9 +12,21 @@ const FIELD_STYLE = {
   width: '100%',
 };
 
+const BOTTOM_ROW_STYLE = css({
+  alignItems: 'center',
+});
+
 export type Props = {
   store: AppStore,
   nextFunc: () => void,
+}
+
+function maybeRenderRequired(required: boolean) {
+  if (required) {
+    return <span className="t--req">Required</span>;
+  } else {
+    return null;
+  }
 }
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
@@ -50,17 +63,17 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
         <p className="m-v300 t--info">Contact info will not be shared with public. Leave blank to submit anonymously.</p>
 
         <label className="txt">
-          <span className="txt-l">First Name {required && '(required)'}</span>
+          <span className="txt-l">First Name {maybeRenderRequired(required)}</span>
           <input type="text" className="txt-f" placeholder="First Name" name="firstName" value={firstName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
         <label className="txt">
-          <span className="txt-l">Last Name {required && '(required)'}</span>
+          <span className="txt-l">Last Name {maybeRenderRequired(required)}</span>
           <input type="text" className="txt-f" placeholder="Last Name" name="lastName" value={lastName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
         <label className="txt">
-          <span className="txt-l">Email</span>
+          <span className="txt-l">Email {maybeRenderRequired(required)}</span>
           <input className="txt-f" type="email" placeholder="Email" name="email" value={email} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
@@ -70,9 +83,11 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
         </label>
       </div>
 
-      <div className="g">
-        <div className="g--9" />
-        <button className="btn g--3 m-v300" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
+      <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
+        <div className="g--9 t--info" style={{ textAlign: 'right' }}>
+          {!allowSubmit && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+        </div>
+        <button className="btn g--3" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
       </div>
     </div>
   );

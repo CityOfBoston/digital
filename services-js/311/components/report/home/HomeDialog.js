@@ -108,7 +108,7 @@ export default class HomeDialog extends React.Component {
           <title>BOS:311 — Report a Problem</title>
         </Head>
 
-        <SectionHeader>Get help with BOS:311</SectionHeader>
+        <SectionHeader>File a Report with BOS:311</SectionHeader>
 
         <div className="g m-v500">
           <div className="g--8">
@@ -155,7 +155,7 @@ export default class HomeDialog extends React.Component {
           <title>BOS:311 — Report a Problem</title>
         </Head>
 
-        <SectionHeader>Get help with BOS:311</SectionHeader>
+        <SectionHeader>File a Report with BOS:311</SectionHeader>
 
         <div className="m-v500">
           <h3 className="stp m-v300">

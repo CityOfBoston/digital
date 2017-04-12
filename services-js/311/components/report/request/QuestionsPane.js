@@ -24,6 +24,10 @@ const DROPZONE_STYLE = css({
   border: 'none',
 });
 
+const BOTTOM_ROW_STYLE = css({
+  alignItems: 'center',
+});
+
 @observer
 export default class QuestionsPane extends React.Component {
   props: Props;
@@ -104,8 +108,10 @@ export default class QuestionsPane extends React.Component {
           { this.renderImageUpload() }
         </div>
 
-        <div className="g m-v500">
-          <div className="g--9" />
+        <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
+          <div className="g--9 t--info" style={{ textAlign: 'right' }}>
+            {!questionRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+          </div>
           <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
         </div>
       </div>

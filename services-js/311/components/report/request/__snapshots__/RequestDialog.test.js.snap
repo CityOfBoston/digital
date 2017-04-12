@@ -124,7 +124,11 @@ exports[`rendering contact 1`] = `
             className="txt-l"
           >
             First Name 
-            (required)
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
           </span>
           <input
             className="txt-f"
@@ -147,7 +151,11 @@ exports[`rendering contact 1`] = `
             className="txt-l"
           >
             Last Name 
-            (required)
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
           </span>
           <input
             className="txt-f"
@@ -169,7 +177,12 @@ exports[`rendering contact 1`] = `
           <span
             className="txt-l"
           >
-            Email
+            Email 
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
           </span>
           <input
             className="txt-f"
@@ -209,13 +222,28 @@ exports[`rendering contact 1`] = `
         </label>
       </div>
       <div
-        className="g"
+        className="g m-v500 css-1k8tu3j"
       >
         <div
-          className="g--9"
-        />
+          className="g--9 t--info"
+          style={
+            Object {
+              "textAlign": "right",
+            }
+          }
+        >
+          <span>
+            Please fill out 
+            <span
+              className="t--req"
+            >
+              required
+            </span>
+             fields to continue
+          </span>
+        </div>
         <button
-          className="btn g--3 m-v300"
+          className="btn g--3"
           disabled={true}
           onClick={[Function]}
         >
@@ -519,11 +547,26 @@ exports[`rendering questions 1`] = `
         </div>
       </div>
       <div
-        className="g m-v500"
+        className="g m-v500 css-1k8tu3j"
       >
         <div
-          className="g--9"
-        />
+          className="g--9 t--info"
+          style={
+            Object {
+              "textAlign": "right",
+            }
+          }
+        >
+          <span>
+            Please fill out 
+            <span
+              className="t--req"
+            >
+              required
+            </span>
+             fields to continue
+          </span>
+        </div>
         <button
           className="btn g--3"
           disabled={true}
