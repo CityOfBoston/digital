@@ -26,13 +26,6 @@ export type Props = {
   loopbackGraphql: LoopbackGraphql,
 };
 
-const DESCRIPTION_HEADER_STYLE = css({
-  display: 'none',
-  [MEDIA_LARGE]: {
-    display: 'block',
-  },
-});
-
 const NEXT_BUTTON_STYLE = css({
   width: '100%',
   [MEDIA_LARGE]: {
@@ -62,7 +55,11 @@ export default class HomeDialog extends React.Component {
     this.serviceSuggestionsDisposer = reaction(
       (): SuggestServicesArgs => ({ description: this.props.store.requestForm.description }),
       debounce(this.suggestServices, 500),
-      { fireImmediately: true },
+      {
+        fireImmediately: true,
+        compareStructural: true,
+        name: 'update service suggestions from description',
+      },
     );
   }
 
@@ -115,16 +112,16 @@ export default class HomeDialog extends React.Component {
 
         <div className="g m-v500">
           <div className="g--8">
-            <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
+            <h3 className="stp m-v300">
               <span className="stp-number">1</span>
-              What can we do for you?
+              Describe your problem
             </h3>
 
             <DescriptionBox
               minHeight={222}
               maxHeight={222}
               text={store.requestForm.description}
-              placeholder="How can we help?"
+              placeholder="Example: my street hasn’t been plowed"
               onInput={action((ev) => { store.requestForm.description = ev.target.value; })}
             />
           </div>
@@ -132,7 +129,7 @@ export default class HomeDialog extends React.Component {
           <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
             <h3 className="stp m-v300">
               <span className="stp-number">2</span>
-              Pick Service
+              How can we help?
             </h3>
             <div style={{ height: 222, overflowY: 'auto' }}>
               <ServiceList serviceSummaries={this.serviceSummaries} onServiceChosen={routeToServiceForm} />
@@ -146,7 +143,7 @@ export default class HomeDialog extends React.Component {
   }
 
   renderServicePicker() {
-    const { store, routeToServiceForm } = this.props;
+    const { routeToServiceForm } = this.props;
     return (
       <FormDialog>
         <Head>
@@ -156,9 +153,12 @@ export default class HomeDialog extends React.Component {
         <SectionHeader>311: Boston City Services</SectionHeader>
 
         <div className="m-v500">
-          <div className="t--intro">Pick the most related:</div>
-          <div style={{ height: 222, overflowY: 'scroll' }}>
-            <ServiceList serviceSummaries={store.serviceSummaries} onServiceChosen={routeToServiceForm} />
+          <h3 className="stp m-v300">
+            <span className="stp-number">2</span>
+            How can we help?
+          </h3>
+          <div style={{ height: 222, overflowY: 'auto' }}>
+            <ServiceList serviceSummaries={this.serviceSummaries} onServiceChosen={routeToServiceForm} />
           </div>
         </div>
       </FormDialog>

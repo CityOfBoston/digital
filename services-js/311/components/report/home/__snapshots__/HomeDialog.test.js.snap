@@ -21,14 +21,14 @@ exports[`rendering home screen 1`] = `
       className="g--8"
     >
       <h3
-        className="stp m-v300 css-17cwx2g"
+        className="stp m-v300"
       >
         <span
           className="stp-number"
         >
           1
         </span>
-        What can we do for you?
+        Describe your problem
       </h3>
       <textarea
         className={
@@ -40,7 +40,7 @@ exports[`rendering home screen 1`] = `
         name="description"
         onBlur={[Function]}
         onInput={[Function]}
-        placeholder="How can we help?"
+        placeholder="Example: my street hasn’t been plowed"
       />
     </div>
     <div
@@ -54,7 +54,7 @@ exports[`rendering home screen 1`] = `
         >
           2
         </span>
-        Pick Service
+        How can we help?
       </h3>
       <div
         style={
@@ -106,16 +106,21 @@ exports[`rendering small screen service picker 1`] = `
   <div
     className="m-v500"
   >
-    <div
-      className="t--intro"
+    <h3
+      className="stp m-v300"
     >
-      Pick the most related:
-    </div>
+      <span
+        className="stp-number"
+      >
+        2
+      </span>
+      How can we help?
+    </h3>
     <div
       style={
         Object {
           "height": 222,
-          "overflowY": "scroll",
+          "overflowY": "auto",
         }
       }
     >

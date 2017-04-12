@@ -147,9 +147,11 @@ export default class ReportLayout extends React.Component {
   }
 
   static async getHomeData({ stage }, loopbackGraphql): Promise<HomeData> {
+    const store = getStore();
+
     return {
       view: 'home',
-      serviceSummaries: await loadServiceSummaries(loopbackGraphql),
+      serviceSummaries: store.serviceSummaries || await loadServiceSummaries(loopbackGraphql),
       stage: stage === 'service' ? stage : 'home',
     };
   }

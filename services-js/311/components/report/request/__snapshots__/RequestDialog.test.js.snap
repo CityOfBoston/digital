@@ -472,6 +472,7 @@ exports[`rendering questions 1`] = `
                       More than Three
                     </span>
                   </label>
+                  <span />
                 </div>
               </div>
             </div>

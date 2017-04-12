@@ -161,9 +161,10 @@ function renderSingleValueListAttribute(question, onChange) {
                   />
                   <span className="ra-l">{name}</span>
                 </label>
-
               ))
+              // blank span below to be the :last-child so that all the labels have a bottom margin
             }
+            <span />
           </div>
         ))
       }
