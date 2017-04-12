@@ -70,7 +70,11 @@ export default class LocationPopUp extends React.Component {
           });
         }
       },
-      true);
+      {
+        fireImmediately: true,
+        name: 'reverse geocode picked location',
+        compareStructural: true,
+      });
   }
 
   componentWillUnmount() {

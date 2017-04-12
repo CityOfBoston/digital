@@ -58,6 +58,8 @@ export default class RecentRequests extends React.Component {
       }
     }, {
       fireImmediately: true,
+      name: 'update results list width',
+      compareStructural: true,
     });
   }
 
