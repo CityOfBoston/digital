@@ -16,7 +16,7 @@ import type { Context } from './graphql';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export default async function startServer({ rollbar, opbeat }: any) {
+export default async function startServer({ opbeat }: any) {
   const server = new Hapi.Server();
   const app = next({
     dev: process.env.NODE_ENV !== 'production',
@@ -73,11 +73,6 @@ export default async function startServer({ rollbar, opbeat }: any) {
             }
           });
 
-          rollbar.handleError(e, req, (err) => {
-            if (err) {
-              console.error('Error sending exception to rollbar', err);
-            }
-          });
           return e;
         },
       }),

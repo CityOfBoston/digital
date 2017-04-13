@@ -109,6 +109,7 @@ export default class ArcGIS {
   }
 
   async reverseGeocode(lat: number, lng: number): Promise<?string> {
+    const transaction = this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
     const [x, y] = this.project.forward([lng, lat]);
 
     const params = new URLSearchParams();
@@ -126,6 +127,10 @@ export default class ArcGIS {
 
     const geocode: ReverseGeocodeResponse = await response.json();
 
+    if (transaction) {
+      transaction.end();
+    }
+
     if (geocode.error) {
       return null;
     } else {
@@ -135,6 +140,8 @@ export default class ArcGIS {
 
 
   async search(query: string): Promise<?SearchResult> {
+    const transaction = this.opbeat && this.opbeat.startTransaction('findAddressCandidates', 'ArcGIS');
+
     const params = new URLSearchParams();
     params.append('SingleLine', query);
     params.append('f', 'json');
@@ -148,6 +155,10 @@ export default class ArcGIS {
     }
 
     const findAddressResponse: FindAddressResponse = await response.json();
+
+    if (transaction) {
+      transaction.end();
+    }
 
     const candidate = findAddressResponse.candidates[0];
     if (!candidate) {

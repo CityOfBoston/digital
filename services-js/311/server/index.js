@@ -12,18 +12,7 @@ const opbeat = require('opbeat').start({
   active: process.env.NODE_ENV === 'production',
 });
 
-const rollbar = require('rollbar');
-
-// Only turn this on in production because it hides exceptions thrown as the
-// app is starting up in dev.
-if (process.env.NODE_ENV === 'production') {
-  rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_SERVER_KEY, {
-    environment: process.env.HEROKU_PIPELINE || process.env.NODE_ENV || 'development',
-    exitOnUncaughtException: true,
-  });
-}
-
-require('./server').default({ opbeat, rollbar }).catch((err) => {
+require('./server').default({ opbeat }).catch((err) => {
   opbeat.captureError(err, (e, url) => {
     if (e) {
       console.error('Error sending exception to Opbeat', e);
@@ -32,7 +21,6 @@ require('./server').default({ opbeat, rollbar }).catch((err) => {
     }
   });
 
-  rollbar.handlerError(err);
   console.error('Error starting server');
   console.error(err);
 });

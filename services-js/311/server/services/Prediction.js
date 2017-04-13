@@ -39,6 +39,8 @@ export default class Prediction {
   // returns case types in order of most likely to least likely, filtering
   // out any with a too-low probability.
   async caseTypes(text: string, threshold: number): Promise<CaseTypePrediction[]> {
+    const transaction = this.opbeat && this.opbeat.startTransaction('case_type_prediction', 'Prediction');
+
     const requestJson = {
       text,
       time: (new Date()).toISOString(),
@@ -51,6 +53,10 @@ export default class Prediction {
     });
 
     const responseJson: CaseTypePredictionResponse = await response.json();
+
+    if (transaction) {
+      transaction.end();
+    }
 
     const caseTypes = [...responseJson.types];
     caseTypes.sort((a, b) => b.probability - a.probability);
