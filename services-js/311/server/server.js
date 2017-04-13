@@ -141,18 +141,6 @@ export default async function startServer({ rollbar, opbeat }: any) {
 
   server.route({
     method: 'GET',
-    path: '/__webpack_hmr',
-    handler: nextDefaultHandler(app),
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/_webpack/{p*}',
-    handler: nextDefaultHandler(app),
-  });
-
-  server.route({
-    method: 'GET',
     path: '/static/{p*}',
     handler: nextDefaultHandler(app),
   });
