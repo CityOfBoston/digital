@@ -74,7 +74,7 @@ export default function SubmitPane(props: Props) {
           <hr className="hr hr--dash m-v300" />
 
           <div className="g m-v500">
-            <Link href="/"><a className="g--3 ta-c btn">Create a New Case</a></Link>
+            <Link href="/report" as="/"><a className="g--3 ta-c btn">Create a New Case</a></Link>
           </div>
         </div>
       );
