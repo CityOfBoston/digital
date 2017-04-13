@@ -52,17 +52,6 @@ exports[`existing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
-          className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
         >
@@ -441,17 +430,6 @@ exports[`existing service page rendering phone 1`] = `
           onClick={[Function]}
         >
           Case look up
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
-          className="nv-s-l-a "
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
         </a>
       </li>
       <li
@@ -844,17 +822,6 @@ exports[`existing service page rendering phone location step 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
-          className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
         >
@@ -1030,17 +997,6 @@ exports[`missing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
-          className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
         >
@@ -1164,17 +1120,6 @@ exports[`report form rendering 1`] = `
           onClick={[Function]}
         >
           Case look up
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
-          className="nv-s-l-a "
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
         </a>
       </li>
       <li

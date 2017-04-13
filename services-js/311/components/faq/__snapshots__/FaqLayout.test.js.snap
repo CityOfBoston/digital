@@ -53,17 +53,6 @@ exports[`rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a nv-s-l-a--active"
-          href="/onthego"
-          onClick={[Function]}
-        >
-          311 on the go
-        </a>
-      </li>
-      <li
-        className="nv-s-l-i"
-      >
-        <a
           className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
@@ -74,7 +63,7 @@ exports[`rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="b b--fw"
+    className="b"
   >
     <div
       className="b-c"
@@ -85,14 +74,14 @@ exports[`rendering 1`] = `
         <h2
           className="sh-title"
         >
-          311 on the go
+          How to 311
         </h2>
       </div>
       <div
-        className="g"
+        className="g m-v500"
       >
         <a
-          className="lwi lwi--y g--3"
+          className="lwi lwi--y g--3 m-v100"
           href="https://twitter.com/bos311"
         >
           <span
@@ -111,7 +100,7 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3"
+          className="lwi lwi--y g--3 m-v100"
           href="tel:+311"
         >
           <span
@@ -130,7 +119,7 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3"
+          className="lwi lwi--y g--3 m-v100"
           href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311"
         >
           <span
@@ -149,7 +138,7 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3"
+          className="lwi lwi--y g--3 m-v100"
           href="/"
         >
           <span
@@ -168,63 +157,22 @@ exports[`rendering 1`] = `
           </span>
         </a>
       </div>
+    </div>
+  </div>
+  <div
+    className="b b--g"
+  >
+    <div
+      className="b-c"
+    >
       <div
-        className="g m-v500"
+        className="sh sh--y"
       >
-        <div
-          className="g--8 t--intro"
+        <h2
+          className="sh-title"
         >
-          Nemo enim ipsam voluptatem quia voluptas sit tu noc aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.
-        </div>
-        <div
-          className="g--4"
-        >
-          <h3
-            className="t--sans tt-u"
-          >
-            Download the App
-          </h3>
-          <hr
-            className="hr hr--dash m-v300"
-          />
-          <a
-            href="https://itunes.apple.com/us/app/boston-citizens-connect/id330894558?mt=8"
-          >
-            <img
-              alt="Download on the App Store"
-              height="60"
-              src="/static/img/app-store-badge.svg"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
-            />
-          </a>
-          <hr
-            className="hr hr--dash m-v300"
-          />
-          <a
-            href="https://play.google.com/store/apps/details?id=gov.cityofboston.citizensconnect&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
-          >
-            <img
-              alt="Get it on Google Play"
-              height="90"
-              src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
-              style={
-                Object {
-                  "display": "block",
-                  "margin": -14,
-                }
-              }
-            />
-          </a>
-        </div>
-      </div>
-      <div
-        className="m-v500 t--info"
-      >
-        Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google Inc.
+          FAQ
+        </h2>
       </div>
     </div>
   </div>
