@@ -297,39 +297,64 @@ exports[`existing service page rendering 1`] = `
                   className="g--5 m-v500"
                 >
                   <div
-                    className="css-14detlc"
-                    onClick={[Function]}
-                    onDragEnter={[Function]}
-                    onDragLeave={[Function]}
-                    onDragOver={[Function]}
-                    onDragStart={[Function]}
-                    onDrop={[Function]}
-                    style={Object {}}
+                    className="br br-a200"
                   >
-                    <img
-                      alt=""
-                      height="324"
-                      src="/static/img/311-watermark.svg"
+                    <div
+                      className="css-19ub58"
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      style={Object {}}
+                    >
+                      <img
+                        alt=""
+                        height="324"
+                        src="/static/img/image-upload.png"
+                        style={
+                          Object {
+                            "display": "block",
+                            "height": "auto",
+                            "width": "100%",
+                          }
+                        }
+                        width="479"
+                      />
+                      <input
+                        accept="image/*"
+                        multiple={false}
+                        onChange={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        type="file"
+                      />
+                    </div>
+                    <div
+                      className="br br-t200"
                       style={
                         Object {
-                          "display": "block",
-                          "height": "auto",
-                          "width": "100%",
+                          "position": "relative",
                         }
                       }
-                      width="479"
-                    />
-                    <input
-                      accept="image/*"
-                      multiple={false}
-                      onChange={[Function]}
-                      style={
-                        Object {
-                          "display": "none",
+                    >
+                      <a
+                        className="btn btn--w btn--b"
+                        href="javascript:void(0)"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "visibility": "visible",
+                          }
                         }
-                      }
-                      type="file"
-                    />
+                      >
+                        Upload Photo
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -668,39 +693,64 @@ exports[`existing service page rendering phone 1`] = `
                   className="g--5 m-v500"
                 >
                   <div
-                    className="css-14detlc"
-                    onClick={[Function]}
-                    onDragEnter={[Function]}
-                    onDragLeave={[Function]}
-                    onDragOver={[Function]}
-                    onDragStart={[Function]}
-                    onDrop={[Function]}
-                    style={Object {}}
+                    className="br br-a200"
                   >
-                    <img
-                      alt=""
-                      height="324"
-                      src="/static/img/311-watermark.svg"
+                    <div
+                      className="css-19ub58"
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      style={Object {}}
+                    >
+                      <img
+                        alt=""
+                        height="324"
+                        src="/static/img/image-upload.png"
+                        style={
+                          Object {
+                            "display": "block",
+                            "height": "auto",
+                            "width": "100%",
+                          }
+                        }
+                        width="479"
+                      />
+                      <input
+                        accept="image/*"
+                        multiple={false}
+                        onChange={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        type="file"
+                      />
+                    </div>
+                    <div
+                      className="br br-t200"
                       style={
                         Object {
-                          "display": "block",
-                          "height": "auto",
-                          "width": "100%",
+                          "position": "relative",
                         }
                       }
-                      width="479"
-                    />
-                    <input
-                      accept="image/*"
-                      multiple={false}
-                      onChange={[Function]}
-                      style={
-                        Object {
-                          "display": "none",
+                    >
+                      <a
+                        className="btn btn--w btn--b"
+                        href="javascript:void(0)"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "visibility": "visible",
+                          }
                         }
-                      }
-                      type="file"
-                    />
+                      >
+                        Upload Photo
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

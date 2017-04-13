@@ -22,10 +22,29 @@ export type Props = {
 const DROPZONE_STYLE = css({
   width: '100%',
   border: 'none',
+  position: 'relative',
+});
+
+const DRAG_RING_STYLE = css({
+  borderStyle: 'dashed',
+  borderColor: 'white',
+  position: 'absolute',
+  top: '1rem',
+  left: '1rem',
+  bottom: '1rem',
+  right: '1rem',
 });
 
 const BOTTOM_ROW_STYLE = css({
   alignItems: 'center',
+});
+
+const PROGRESS_STYLE = css({
+  position: 'absolute',
+  left: 0,
+  bottom: 0,
+  height: 6,
+  backgroundColor: '#288be4',
 });
 
 @observer
@@ -33,6 +52,7 @@ export default class QuestionsPane extends React.Component {
   props: Props;
 
   imageUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
+  dropEl: ?Dropzone;
 
   @action
   componentWillMount() {
@@ -61,6 +81,13 @@ export default class QuestionsPane extends React.Component {
   }
 
   @action.bound
+  handleUploadPhoto() {
+    if (this.dropEl) {
+      this.dropEl.open();
+    }
+  }
+
+  @action.bound
   handleRemoveImage() {
     this.imageUploader.remove();
   }
@@ -69,6 +96,10 @@ export default class QuestionsPane extends React.Component {
   handleUpdateDescription(ev: SyntheticInputEvent) {
     const { store } = this.props;
     store.requestForm.description = ev.target.value;
+  }
+
+  setDropEl = (dropEl: ?Dropzone) => {
+    this.dropEl = dropEl;
   }
 
   render() {
@@ -121,18 +152,48 @@ export default class QuestionsPane extends React.Component {
   renderImageUpload() {
     const { errorMessage, displayUrl, uploading, uploadingProgress, canRemove } = this.imageUploader;
 
+    let buttonAction = null;
+    let buttonTitle = null;
+    let buttonClasses = 'btn btn--w btn--b';
+
+    if (uploading) {
+      buttonAction = this.handleRemoveImage;
+      buttonTitle = 'Cancel Upload';
+      buttonClasses = `${buttonClasses} btn--r-hov`;
+    } else if (canRemove) {
+      buttonAction = this.handleRemoveImage;
+      buttonTitle = 'Remove Photo';
+    } else {
+      buttonAction = this.handleUploadPhoto;
+      buttonTitle = 'Upload Photo';
+    }
+
     return (
       <div className="g--5 m-v500">
-        <Dropzone className={DROPZONE_STYLE.toString()} onDrop={this.handleDrop} multiple={false} accept="image/*">
-          { displayUrl ?
-            <img style={{ display: 'block', width: '100%' }} alt="" src={displayUrl} /> :
-            <img style={{ display: 'block', width: '100%', height: 'auto' }} alt="" width="479" height="324" src="/static/img/311-watermark.svg" />
-          }
-        </Dropzone>
+        <div className="br br-a200">
+          <Dropzone className={DROPZONE_STYLE.toString()} ref={this.setDropEl} onDrop={this.handleDrop} multiple={false} accept="image/*">
+            {({ isDragActive }) => {
+              const out = [
+                displayUrl ?
+                  <img key="img" style={{ display: 'block', width: '100%' }} alt="" src={displayUrl} /> :
+                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} alt="" width="479" height="324" src="/static/img/image-upload.png" />,
+              ];
 
-        { uploading && <progress value={uploadingProgress} max="1" style={{ width: '100%' }} />}
-        { errorMessage && <div className="t--info">{errorMessage}</div> }
-        { canRemove && <a href="javascript:void(0)" onClick={this.handleRemoveImage}>Remove</a> }
+              if (isDragActive) {
+                out.push(<div key="ring" className={`br-a300 ${DRAG_RING_STYLE.toString()}`} />);
+              }
+
+              return out;
+            }}
+          </Dropzone>
+
+          { errorMessage && <div className="t--info br br-t200 p-a300">{errorMessage}</div> }
+
+          <div className="br br-t200" style={{ position: 'relative' }}>
+            <a href="javascript:void(0)" className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden' }} onClick={buttonAction}>{buttonTitle}</a>
+            { uploading && <div className={PROGRESS_STYLE} style={{ width: `${100 * uploadingProgress}%` }} />}
+          </div>
+        </div>
       </div>
 
     );
