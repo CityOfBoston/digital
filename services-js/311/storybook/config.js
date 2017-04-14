@@ -30,7 +30,13 @@ class Wrapper extends React.Component {
       <div>
         <Head>
           { makeCss() }
+          <style type="text/css">{`
+            body, html {
+              background-color: #eee;
+            }
+          `}</style>
         </Head>
+
         { this.props.children }
       </div>
     );

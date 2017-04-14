@@ -35,7 +35,7 @@ import type { AppStore } from '../../data/store';
 type HomeData = {
   view: 'home',
   serviceSummaries: ServiceSummary[],
-  stage: 'home' | 'service',
+  stage: 'home' | 'choose',
 };
 
 type RequestData = {
@@ -152,7 +152,7 @@ export default class ReportLayout extends React.Component {
     return {
       view: 'home',
       serviceSummaries: store.serviceSummaries || await loadServiceSummaries(loopbackGraphql),
-      stage: stage === 'service' ? stage : 'home',
+      stage: stage === 'choose' ? stage : 'home',
     };
   }
 
@@ -167,8 +167,9 @@ export default class ReportLayout extends React.Component {
       }
     }
 
+    stage = stage || 'questions';
+
     switch (stage) {
-      case undefined:
       case 'questions':
       case 'location':
       case 'contact':
@@ -177,7 +178,7 @@ export default class ReportLayout extends React.Component {
           view: 'request',
           code,
           service,
-          stage: stage || 'questions',
+          stage,
         };
       default:
         throw new Error(`Unknown stage: ${stage}`);
@@ -220,8 +221,8 @@ export default class ReportLayout extends React.Component {
   }
 
   @computed get mapActivationRatio(): number {
-    const { store: { ui }, data: { view } } = this.props;
-    if (view === 'home') {
+    const { store: { ui }, data: { view, stage } } = this.props;
+    if (view === 'home' && stage === 'home') {
       return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.25));
     } else {
       return 0;
@@ -252,10 +253,8 @@ export default class ReportLayout extends React.Component {
     }
   }
 
-  routeToServiceForm = async (code: ?string = null, stage: string = 'questions') => {
-    if (!code) {
-      await Router.push('/report?stage=service', '/report/service');
-    } else if (stage === 'questions') {
+  routeToServiceForm = async (code: string, stage: string = 'questions') => {
+    if (stage === 'questions') {
       await Router.push(`/report?code=${code}`, `/report/${code}`);
     } else {
       await Router.push(`/report?code=${code}&stage=${stage}`, `/report/${code}/${stage}`);
@@ -307,7 +306,6 @@ export default class ReportLayout extends React.Component {
                 <HomeDialog
                   store={store}
                   loopbackGraphql={this.loopbackGraphql}
-                  routeToServiceForm={this.routeToServiceForm}
                   stage={data.stage}
                 /> }
               { data.view === 'request' &&
@@ -321,7 +319,7 @@ export default class ReportLayout extends React.Component {
             </div>
           </div>
 
-          { mediaLarge && data.view === 'home' &&
+          { mediaLarge && data.view === 'home' && data.stage === 'home' &&
             <div className={TAB_WRAPPER_STYLE}><div className={TAB_HOLDER_STYLE}>
               <a
                 href="#recent"
@@ -341,7 +339,7 @@ export default class ReportLayout extends React.Component {
         </div>
 
         {
-          data.view === 'home' && mediaLarge &&
+          mediaLarge && data.view === 'home' && data.stage === 'home' &&
           <div className={RECENT_CASES_STYLE}>
             <a name="recent" />
             <RecentRequests store={store} />

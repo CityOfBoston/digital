@@ -100,7 +100,7 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
-    path: '/service',
+    path: '/report',
     handler: (request, reply) => reply.redirect('/'),
   });
 

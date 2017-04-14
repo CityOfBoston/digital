@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering loading 1`] = `
+<div>
+  <div
+    className="p-a300 p-a800--xl"
+    style={
+      Object {
+        "paddingBottom": ".75rem",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+    >
+      <h2
+        className="sh-title"
+      >
+        File a Report
+      </h2>
+    </div>
+    <div
+      className="m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1i2zjxt": "",
+          }
+        }
+        defaultValue="Thanos is attacking"
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="Tell us your problem"
+      />
+    </div>
+  </div>
+  <div
+    className="b b--g m-v500 p-a300 p-a800--xl"
+  >
+    <h3
+      className="stp"
+    >
+      <span
+        className="stp-number"
+      >
+        2
+      </span>
+      How can we help?
+    </h3>
+    <div
+      className="t--info m-v300"
+    >
+      Matching your problem to BOS:311 services…
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering no description 1`] = `
+<div>
+  <div
+    className="p-a300 p-a800--xl"
+    style={
+      Object {
+        "paddingBottom": ".75rem",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+    >
+      <h2
+        className="sh-title"
+      >
+        File a Report
+      </h2>
+    </div>
+    <div
+      className="m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-139eqxv": "",
+          }
+        }
+        defaultValue=""
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="Tell us your problem"
+      />
+    </div>
+  </div>
+  <div
+    className="b b--g m-v500 p-a300 p-a800--xl"
+  >
+    <h3
+      className="stp"
+    >
+      <span
+        className="stp-number"
+      >
+        2
+      </span>
+      How can we help?
+    </h3>
+    <div
+      className="t--info m-v300"
+    >
+      Type in your problem above to get matched with BOS:311 services.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering no suggested summaries 1`] = `
+<div>
+  <div
+    className="p-a300 p-a800--xl"
+    style={
+      Object {
+        "paddingBottom": ".75rem",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+    >
+      <h2
+        className="sh-title"
+      >
+        File a Report
+      </h2>
+    </div>
+    <div
+      className="m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1i2zjxt": "",
+          }
+        }
+        defaultValue="Thanos is attacking"
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="Tell us your problem"
+      />
+    </div>
+  </div>
+  <div
+    className="b b--g m-v500 p-a300 p-a800--xl"
+  >
+    <h3
+      className="stp"
+    >
+      <span
+        className="stp-number"
+      >
+        2
+      </span>
+      How can we help?
+    </h3>
+    <div>
+      <div
+        className="t--info m-v300"
+      >
+        We weren’t able to automatically match your problem with a service. File a General Request and someone will help you out.
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="dr"
+        >
+          <a
+            className="dr-h"
+            href="/report/BOS311GEN"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+              style={
+                Object {
+                  "transform": "translateY(-49%) rotateZ(-90deg)",
+                }
+              }
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              General Request
+            </div>
+            <div
+              className="dr-st"
+            >
+              Remove dead animals from public property
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rendering some suggested summaries 1`] = `
+<div>
+  <div
+    className="p-a300 p-a800--xl"
+    style={
+      Object {
+        "paddingBottom": ".75rem",
+      }
+    }
+  >
+    <div
+      className="sh sh--y"
+    >
+      <h2
+        className="sh-title"
+      >
+        File a Report
+      </h2>
+    </div>
+    <div
+      className="m-v500"
+    >
+      <textarea
+        className={
+          Object {
+            "data-css-1i2zjxt": "",
+          }
+        }
+        defaultValue="Thanos is attacking"
+        name="description"
+        onBlur={[Function]}
+        onInput={[Function]}
+        placeholder="Tell us your problem"
+      />
+    </div>
+  </div>
+  <div
+    className="b b--g m-v500 p-a300 p-a800--xl"
+  >
+    <h3
+      className="stp"
+    >
+      <span
+        className="stp-number"
+      >
+        2
+      </span>
+      How can we help?
+    </h3>
+    <div>
+      <div
+        className="t--info m-v300"
+      >
+        We’ve matched these services to your problem.
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="dr"
+        >
+          <a
+            className="dr-h"
+            href="/report/CSMCINC"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+              style={
+                Object {
+                  "transform": "translateY(-49%) rotateZ(-90deg)",
+                }
+              }
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Cosmic Incursion
+            </div>
+            <div
+              className="dr-st"
+            >
+              Remove dead animals from public property
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        className="t--info m-v300"
+      >
+        If none of those seem like they’ll help, you can submit a General Request.
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="dr"
+        >
+          <a
+            className="dr-h"
+            href="/report/BOS311GEN"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+              style={
+                Object {
+                  "transform": "translateY(-49%) rotateZ(-90deg)",
+                }
+              }
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              General Request
+            </div>
+            <div
+              className="dr-st"
+            >
+              Remove dead animals from public property
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

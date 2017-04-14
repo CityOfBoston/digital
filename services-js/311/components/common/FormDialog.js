@@ -27,17 +27,18 @@ const DIALOG_STYLE = css({
 type Props = {
   narrow?: boolean,
   popup?: boolean,
+  noPadding?: boolean,
   children?: any
 }
 
-export default function FormDialog({ narrow, popup, children }: Props = { popup: false, narrow: false, children: null }) {
+export default function FormDialog({ narrow, popup, noPadding, children }: Props = { popup: false, narrow: false, noPadding: false, children: null }) {
   const style = {};
 
   if (narrow) {
     style.maxWidth = 800;
   }
 
-  const paddingClasses = `p-a300 ${!popup ? 'p-a800--xl' : ''}`;
+  const paddingClasses = noPadding ? '' : `p-a300 ${!popup ? 'p-a800--xl' : ''}`;
 
   return (
     <div className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`} style={style}>

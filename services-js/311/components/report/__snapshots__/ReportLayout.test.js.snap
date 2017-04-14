@@ -1181,65 +1181,77 @@ exports[`report form rendering 1`] = `
           className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
           style={Object {}}
         >
-          <div
-            className="sh sh--y"
-          >
-            <h2
-              className="sh-title"
-            >
-              File a Report with BOS:311
-            </h2>
-          </div>
-          <div
-            className="g m-v500"
-          >
+          <div>
             <div
-              className="g--8"
+              className="sh sh--y"
             >
-              <h3
-                className="stp m-v300"
+              <h2
+                className="sh-title"
               >
-                <span
-                  className="stp-number"
-                >
-                  1
-                </span>
-                Tell us your problem
-              </h3>
-              <textarea
-                className={
-                  Object {
-                    "data-css-1red1ju": "",
-                  }
-                }
-                defaultValue=""
-                name="description"
-                onBlur={[Function]}
-                onInput={[Function]}
-                placeholder="Example: my street hasn’t been plowed"
-              />
+                File a Report
+              </h2>
             </div>
             <div
-              className="g--4 css-17cwx2g"
+              className="t--intro m-v300"
             >
-              <h3
-                className="stp m-v300"
-              >
-                <span
-                  className="stp-number"
-                >
-                  2
-                </span>
-                How can we help?
-              </h3>
+              Through BOS:311, you can report non-emergency issues with the City.
+            </div>
+            <div
+              className="g m-t500"
+            >
               <div
-                style={
-                  Object {
-                    "height": 222,
-                    "overflowY": "auto",
-                  }
-                }
+                className="g--7"
               >
+                <h3
+                  className="stp m-v300 css-17cwx2g"
+                >
+                  <span
+                    className="stp-number"
+                  >
+                    1
+                  </span>
+                  Tell us your problem
+                </h3>
+                <textarea
+                  className={
+                    Object {
+                      "data-css-1red1ju": "",
+                    }
+                  }
+                  defaultValue=""
+                  name="description"
+                  onBlur={[Function]}
+                  onInput={[Function]}
+                  placeholder="Example: my street hasn’t been plowed"
+                />
+                <div
+                  className="m-t500"
+                  style={
+                    Object {
+                      "textAlign": "right",
+                    }
+                  }
+                >
+                  <button
+                    className="btn css-1q8b8td"
+                    disabled={true}
+                    onClick={[Function]}
+                  >
+                    Start a Report
+                  </button>
+                </div>
+              </div>
+              <div
+                className="g--1"
+              />
+              <div
+                className="g--4 css-jnu3m1"
+              >
+                <div
+                  className="m-v300 t--info"
+                >
+                  You can also start a report by picking one of these popular services:
+                </div>
                 <ul
                   className="ul"
                 >
@@ -1253,21 +1265,23 @@ exports[`report form rendering 1`] = `
                     </a>
                   </li>
                 </ul>
+                .
+                <div
+                  className="t--info m-v300"
+                  style={
+                    Object {
+                      "textAlign": "right",
+                    }
+                  }
+                >
+                  <a
+                    href="javasscript:void(0)"
+                  >
+                    See all services…
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <button
-            className="btn css-13boa87"
-            onClick={[Function]}
-          >
-            Next
-          </button>
-          <div
-            className="t--info"
-          >
-            Through BOS:311, you can report non-emergency issues with the City.
-            <br />
-            To make things easier, you can use this form to file reports online.
           </div>
         </div>
       </div>

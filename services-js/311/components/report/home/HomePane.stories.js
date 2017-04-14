@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import ServiceList from './ServiceList';
+import HomePane from './HomePane';
 import FormDialog from '../../common/FormDialog';
 
 const SERVICE_SUMMARIES = [
@@ -42,29 +42,11 @@ const SERVICE_SUMMARIES = [
     hasMetadata: true,
     locationRequired: true,
   },
-  {
-    name: 'Missed Trash, Recycling, Yard Waste, Bulk Item',
-    code: 'SRTV-00000100',
-    hasMetadata: true,
-    locationRequired: true,
-  },
-  {
-    name: 'Animal Control Generic',
-    code: 'SRTV-00000132',
-    hasMetadata: true,
-    locationRequired: true,
-  },
-  {
-    name: 'DEMO SERVICE TYPE',
-    code: 'SRTV-00000146',
-    hasMetadata: true,
-    locationRequired: true,
-  },
 ];
 
-storiesOf('ServiceList', module)
-  .add('List', () => (
+storiesOf('HomePane', module)
+  .add('Home', () => (
     <FormDialog>
-      <ServiceList serviceSummaries={SERVICE_SUMMARIES} onServiceChosen={action('Service Chosen')} />
+      <HomePane description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} handleDescriptionChanged={action('Description changed')} />
     </FormDialog>
   ));
