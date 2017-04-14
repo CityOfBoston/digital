@@ -16,7 +16,7 @@ export class ContactInfo {
   // and skipping
   @computed
   get requirementsMet(): boolean {
-    return !!(this.firstName && this.lastName);
+    return !!(this.firstName && this.lastName && this.email);
   }
 }
 

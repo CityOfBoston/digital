@@ -115,7 +115,18 @@ exports[`rendering contact 1`] = `
         <p
           className="m-v300 t--info"
         >
-          Contact info will not be shared with public. Leave blank to submit anonymously.
+          We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
+        </p>
+        <p
+          className="m-v300"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          Your contact info will not be made public.
+           
         </p>
         <label
           className="txt"
@@ -225,7 +236,7 @@ exports[`rendering contact 1`] = `
         className="g m-v500 css-1k8tu3j"
       >
         <div
-          className="g--9 t--info"
+          className="g--8 t--info"
           style={
             Object {
               "textAlign": "right",
@@ -243,11 +254,11 @@ exports[`rendering contact 1`] = `
           </span>
         </div>
         <button
-          className="btn g--3"
+          className="btn g--4"
           disabled={true}
           onClick={[Function]}
         >
-          Submit
+          Submit Report
         </button>
       </div>
     </div>

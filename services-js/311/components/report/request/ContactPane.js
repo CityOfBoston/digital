@@ -21,18 +21,13 @@ export type Props = {
   nextFunc: () => void,
 }
 
-function maybeRenderRequired(required: boolean) {
-  if (required) {
-    return <span className="t--req">Required</span>;
-  } else {
-    return null;
-  }
+function renderRequired() {
+  return <span className="t--req">Required</span>;
 }
 
 export default observer(function ContactPane({ store, nextFunc }: Props) {
   const { currentService, requestForm: { contactInfo } } = store;
   const { firstName, lastName, email, phone, required, requirementsMet } = contactInfo;
-  const allowSubmit = !required || requirementsMet;
 
   const onChange = action((ev) => {
     const value = ev.target.value;
@@ -60,20 +55,34 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
     <div>
       <div>
         <SectionHeader>{ title }</SectionHeader>
-        <p className="m-v300 t--info">Contact info will not be shared with public. Leave blank to submit anonymously.</p>
+        <p className="m-v300 t--info">
+          We’ll use your contact info to send you email about the status of your
+          report and to follow up with you if necessary.
+        </p>
+
+        <p className="m-v300" style={{ fontStyle: 'italic' }}>
+          Your contact info will not be made public.{' '}
+
+          { !required && (
+            <span>
+              You can also <a href="javascript:void(0)" onClick={nextFunc}>submit
+              without providing contact info</a>.
+            </span>
+          )}
+        </p>
 
         <label className="txt">
-          <span className="txt-l">First Name {maybeRenderRequired(required)}</span>
+          <span className="txt-l">First Name {renderRequired()}</span>
           <input type="text" className="txt-f" placeholder="First Name" name="firstName" value={firstName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
         <label className="txt">
-          <span className="txt-l">Last Name {maybeRenderRequired(required)}</span>
+          <span className="txt-l">Last Name {renderRequired()}</span>
           <input type="text" className="txt-f" placeholder="Last Name" name="lastName" value={lastName} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
         <label className="txt">
-          <span className="txt-l">Email {maybeRenderRequired(required)}</span>
+          <span className="txt-l">Email {renderRequired()}</span>
           <input className="txt-f" type="email" placeholder="Email" name="email" value={email} onChange={onChange} style={FIELD_STYLE} />
         </label>
 
@@ -84,10 +93,10 @@ export default observer(function ContactPane({ store, nextFunc }: Props) {
       </div>
 
       <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
-        <div className="g--9 t--info" style={{ textAlign: 'right' }}>
-          {!allowSubmit && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+        <div className="g--8 t--info" style={{ textAlign: 'right' }}>
+          {!requirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
         </div>
-        <button className="btn g--3" onClick={nextFunc} disabled={!allowSubmit}>Submit</button>
+        <button className="btn g--4" onClick={nextFunc} disabled={!requirementsMet}>Submit Report</button>
       </div>
     </div>
   );

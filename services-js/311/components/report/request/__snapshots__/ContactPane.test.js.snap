@@ -15,7 +15,28 @@ exports[`blank request 1`] = `
     <p
       className="m-v300 t--info"
     >
-      Contact info will not be shared with public. Leave blank to submit anonymously.
+      We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
+    </p>
+    <p
+      className="m-v300"
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      Your contact info will not be made public.
+       
+      <span>
+        You can also 
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          submit without providing contact info
+        </a>
+        .
+      </span>
     </p>
     <label
       className="txt"
@@ -24,6 +45,11 @@ exports[`blank request 1`] = `
         className="txt-l"
       >
         First Name 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -46,6 +72,11 @@ exports[`blank request 1`] = `
         className="txt-l"
       >
         Last Name 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -68,6 +99,11 @@ exports[`blank request 1`] = `
         className="txt-l"
       >
         Email 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -110,19 +146,29 @@ exports[`blank request 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9 t--info"
+      className="g--8 t--info"
       style={
         Object {
           "textAlign": "right",
         }
       }
-    />
+    >
+      <span>
+        Please fill out 
+        <span
+          className="t--req"
+        >
+          required
+        </span>
+         fields to continue
+      </span>
+    </div>
     <button
-      className="btn g--3"
-      disabled={false}
+      className="btn g--4"
+      disabled={true}
       onClick={[Function]}
     >
-      Submit
+      Submit Report
     </button>
   </div>
 </div>
@@ -143,7 +189,28 @@ exports[`filled request 1`] = `
     <p
       className="m-v300 t--info"
     >
-      Contact info will not be shared with public. Leave blank to submit anonymously.
+      We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
+    </p>
+    <p
+      className="m-v300"
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      Your contact info will not be made public.
+       
+      <span>
+        You can also 
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          submit without providing contact info
+        </a>
+        .
+      </span>
     </p>
     <label
       className="txt"
@@ -152,6 +219,11 @@ exports[`filled request 1`] = `
         className="txt-l"
       >
         First Name 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -174,6 +246,11 @@ exports[`filled request 1`] = `
         className="txt-l"
       >
         Last Name 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -196,6 +273,11 @@ exports[`filled request 1`] = `
         className="txt-l"
       >
         Email 
+        <span
+          className="t--req"
+        >
+          Required
+        </span>
       </span>
       <input
         className="txt-f"
@@ -238,7 +320,7 @@ exports[`filled request 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9 t--info"
+      className="g--8 t--info"
       style={
         Object {
           "textAlign": "right",
@@ -246,11 +328,11 @@ exports[`filled request 1`] = `
       }
     />
     <button
-      className="btn g--3"
+      className="btn g--4"
       disabled={false}
       onClick={[Function]}
     >
-      Submit
+      Submit Report
     </button>
   </div>
 </div>
