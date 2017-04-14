@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 
 import Link from 'next/link';
@@ -19,8 +21,17 @@ function renderNavItem({ href, as, title }, active) {
 }
 
 export default function Nav({ activeSection }: Props) {
+  let key = null;
+
+  if (typeof window !== 'undefined') {
+    // we use the current location as a key to force a complete re-render
+    // on location change, which resets the checkbox to unchecked, closing
+    // the dropdown
+    key = window.location.href;
+  }
+
   return (
-    <nav className="nv-s nv-s--y nv-s--sticky">
+    <nav className="nv-s nv-s--y nv-s--sticky" key={key}>
       <input type="checkbox" id="nv-s-tr" className="nv-s-tr" aria-hidden />
 
       <ul className="nv-s-l">
@@ -29,8 +40,8 @@ export default function Nav({ activeSection }: Props) {
         </li>
 
         { renderNavItem({ href: '/report', as: '/', title: 'Report a problem' }, activeSection === 'report')}
-        { renderNavItem({ href: '/lookup', title: 'Case look up' }, activeSection === 'lookup')}
-        { renderNavItem({ href: '/faq', title: 'FAQ' }, activeSection === 'faq')}
+        { renderNavItem({ href: '/lookup', as: null, title: 'Case look up' }, activeSection === 'lookup')}
+        { renderNavItem({ href: '/faq', as: null, title: 'FAQ' }, activeSection === 'faq')}
       </ul>
     </nav>
   );

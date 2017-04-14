@@ -31,7 +31,7 @@ export default class FaqLayout extends React.Component {
           <title>BOS:311 — Frequently Asked Questions</title>
         </Head>
 
-        <Nav activeSection="onthego" />
+        <Nav activeSection="faq" />
 
         <div className="b">
           <div className="b-c">

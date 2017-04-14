@@ -53,7 +53,7 @@ exports[`rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
+          className="nv-s-l-a nv-s-l-a--active"
           href="/faq"
           onClick={[Function]}
         >
