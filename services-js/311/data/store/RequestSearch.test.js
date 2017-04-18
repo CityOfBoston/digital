@@ -36,13 +36,13 @@ beforeEach(() => {
 
 describe('update', () => {
   it('sets the results', () => {
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.updateRequestSearchResults(MOCK_SEARCH_RESULTS_PAGE);
     expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
   });
 
   it('merges old results in', () => {
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
-    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE,
+    requestSearch.updateRequestSearchResults(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.updateRequestSearchResults({ ...MOCK_SEARCH_RESULTS_PAGE,
       requests: [{
         ...MOCK_REQUEST,
         id: 'new-id',
@@ -54,16 +54,16 @@ describe('update', () => {
   });
 
   it('re-uses existing IDs', () => {
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
-    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE, requests: [{ ...MOCK_REQUEST }] });
+    requestSearch.updateRequestSearchResults(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.updateRequestSearchResults({ ...MOCK_SEARCH_RESULTS_PAGE, requests: [{ ...MOCK_REQUEST }] });
 
     expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
     expect(requestSearch.results.length).toEqual(1);
   });
 
   it('clears when the query changes', () => {
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
-    requestSearch.update({ ...MOCK_SEARCH_RESULTS_PAGE,
+    requestSearch.updateRequestSearchResults(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.updateRequestSearchResults({ ...MOCK_SEARCH_RESULTS_PAGE,
       requests: [{
         ...MOCK_REQUEST,
         id: 'new-id',
@@ -78,7 +78,7 @@ describe('update', () => {
 
 describe('results', () => {
   it('filters to bounds', () => {
-    requestSearch.update(MOCK_SEARCH_RESULTS_PAGE);
+    requestSearch.updateRequestSearchResults(MOCK_SEARCH_RESULTS_PAGE);
     requestSearch.mapBounds = ({
       contains: () => false,
     }: any);

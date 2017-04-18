@@ -68,12 +68,14 @@ export default class LocationMap extends React.Component {
       this.waypointActiveIcon = L.divIcon(waypointMarkers.orangeFilled);
       this.waypointInactiveIcon = L.divIcon(waypointMarkers.grayFilled);
 
-      this.requestMarker = L.marker(null, {
+      const requestMarker = this.requestMarker = L.marker(null, {
+        icon: this.waypointInactiveIcon,
         draggable: true,
         keyboard: false,
       });
 
-      this.requestMarker.on('dragend', this.handleRequestMarkerDrag);
+      requestMarker.on('dragstart', this.handleRequestMarkerDragStart);
+      requestMarker.on('dragend', this.handleRequestMarkerDragEnd);
     }
 
     this.requestLocationMonitorDisposer = autorun(() => {
@@ -98,12 +100,14 @@ export default class LocationMap extends React.Component {
 
           const bounds = map.getBounds();
           if (!bounds.contains([requestLocation.lat, requestLocation.lng])) {
-            map.flyTo(requestLocation, 16);
+            this.flyToRequestLocation();
           }
         } else {
           map.removeLayer(requestMarker);
         }
       }
+    }, {
+      name: 'request location monitor',
     });
   }
 
@@ -122,6 +126,7 @@ export default class LocationMap extends React.Component {
   componentDidUpdate(oldProps: Props) {
     if (oldProps.mode !== this.props.mode) {
       this.updateMapEventHandlers(this.props.mode);
+      this.flyToRequestLocation();
     }
   }
 
@@ -134,6 +139,12 @@ export default class LocationMap extends React.Component {
 
     if (this.mapboxMap) {
       this.mapboxMap.remove();
+    }
+  }
+
+  flyToRequestLocation() {
+    if (this.mapboxMap && this.requestLocation) {
+      this.mapboxMap.flyTo(this.requestLocation, 18);
     }
   }
 
@@ -191,6 +202,8 @@ export default class LocationMap extends React.Component {
 
     this.updateMapEventHandlers(mode);
     this.updateMapCenter();
+
+    this.flyToRequestLocation();
   }
 
   updateMapEventHandlers(mode: MapMode) {
@@ -292,7 +305,17 @@ export default class LocationMap extends React.Component {
   }
 
   @action.bound
-  handleRequestMarkerDrag() {
+  handleRequestMarkerDragStart() {
+    if (!this.mapboxMap) {
+      return;
+    }
+
+    // otherwise a click event will fire on the map
+    this.mapboxMap.off('click', this.handleMapClick);
+  }
+
+  @action.bound
+  handleRequestMarkerDragEnd() {
     const { store: { requestForm } } = this.props;
 
     if (!this.requestMarker) {
@@ -306,6 +329,12 @@ export default class LocationMap extends React.Component {
       lng: latLng.lng,
     };
     requestForm.locationInfo.address = '';
+
+    window.setTimeout(() => {
+      if (this.mapboxMap) {
+        this.mapboxMap.on('click', this.handleMapClick);
+      }
+    }, 0);
   }
 
   render() {

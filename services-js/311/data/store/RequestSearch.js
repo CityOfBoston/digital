@@ -33,7 +33,7 @@ export default class RequestSearch {
   searchDisposer: ?Function = null;
 
   @action.bound
-  update({ requests, query }: SearchRequestsPage) {
+  updateRequestSearchResults({ requests, query }: SearchRequestsPage) {
     // In this method we want to bring in the new requests, but preserve any
     // existing ones that match the location / query. Without this, moving
     // across the map could make requests disappear if they are not in the top
@@ -60,7 +60,7 @@ export default class RequestSearch {
   start(loopbackGraphql: LoopbackGraphql) {
     this.searching = false;
     this.searchPending = false;
-    this.searchDisposer = autorun(this.search.bind(this, loopbackGraphql));
+    this.searchDisposer = autorun('RequestSearch auto-search', this.search.bind(this, loopbackGraphql));
   }
 
   stop() {
@@ -84,14 +84,14 @@ export default class RequestSearch {
     this.searching = true;
     this.searchPending = false;
 
-    const searchComplete = action(() => {
+    const searchComplete = action('search complete', () => {
       this.searching = false;
       if (this.searchPending) {
         this.search(loopbackGraphql);
       }
     });
 
-    searchRequests(loopbackGraphql, query, mapCenter, radiusKm).then(this.update).then(searchComplete, (e) => {
+    searchRequests(loopbackGraphql, query, mapCenter, radiusKm).then(this.updateRequestSearchResults).then(searchComplete, (e) => {
       searchComplete();
       throw e;
     });

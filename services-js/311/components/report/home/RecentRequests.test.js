@@ -31,7 +31,7 @@ describe('rendering', () => {
 
   beforeEach(() => {
     store = new AppStore();
-    store.requestSearch.update({ requests: [MOCK_REQUEST], query: '' });
+    store.requestSearch.updateRequestSearchResults({ requests: [MOCK_REQUEST], query: '' });
   });
 
   test('results loaded', () => {
