@@ -5,11 +5,12 @@ import { css } from 'glamor';
 import { observable, computed, action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
-import type { Map as MapboxMap, ControlZoom, LatLng, Icon, Marker } from 'mapbox.js';
+import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
 
 import type { AppStore } from '../../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
+import waypointMarkers from './WaypointMarkers';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -27,9 +28,6 @@ const MAX_BOUNDS = [
   [42.53689200787317, -70.58029174804689],
   [42.115542659613865, -71.7235565185547],
 ];
-
-const WAYPOINT_ICON_SIZE = [39, 51];
-const WAYPOINT_ANCHOR_POINT = [20, 53];
 
 export type MapMode = 'inactive' | 'requests' | 'picker';
 
@@ -55,8 +53,8 @@ export default class LocationMap extends React.Component {
   @observable.ref mapboxMap: ?MapboxMap = null;
   zoomControl: ?ControlZoom;
 
-  waypointActiveIcon: ?Icon;
-  waypointInactiveIcon: ?Icon;
+  waypointActiveIcon: ?DivIcon;
+  waypointInactiveIcon: ?DivIcon;
 
   requestMarker: ?Marker;
   requestLocationMonitorDisposer: Function;
@@ -67,17 +65,8 @@ export default class LocationMap extends React.Component {
     if (L) {
       this.zoomControl = L.control.zoom({ position: 'bottomright' });
 
-      this.waypointActiveIcon = L.icon({
-        iconUrl: '/static/img/waypoint-orange-filled.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      });
-
-      this.waypointInactiveIcon = L.icon({
-        iconUrl: '/static/img/waypoint-gray-filled.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      });
+      this.waypointActiveIcon = L.divIcon(waypointMarkers.orangeFilled);
+      this.waypointInactiveIcon = L.divIcon(waypointMarkers.grayFilled);
 
       this.requestMarker = L.marker(null, {
         draggable: true,

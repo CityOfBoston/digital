@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -166,7 +166,7 @@ declare module 'leaflet' {
     // keyboard navigation options
     keyboard?: boolean,
     keyboardPanDelta?: number,
-    
+
     // mousewheel options
     scrollWheelZoom?: boolean | string,
     wheelDebounceTime?: number,
@@ -299,7 +299,7 @@ declare module 'leaflet' {
     zoom(options?: ControlZoomOptions): ControlZoom;
   };
 
-  declare type IconOptions = {|
+  declare export type IconOptions = {|
     iconUrl: string,
     iconRetinaUrl?: string,
     iconSize?: PointLike,
@@ -318,10 +318,24 @@ declare module 'leaflet' {
 
   declare export function icon(options: IconOptions): Icon;
 
+  declare export type DivIconOptions = {
+    iconSize?: PointLike,
+    iconAnchor?: PointLike,
+    popupAnchor?: PointLike,
+    className?: string,
+    html?: string,
+  };
+
+  declare export class DivIcon {
+    options: DivIconOptions,
+  }
+
+  declare export function divIcon(options: DivIconOptions): DivIcon;
+
   declare export class Popup {}
 
   declare export type MarkerOptions = {|
-    icon?: Icon,
+    icon?: Icon | DivIcon,
     clickable?: boolean,
     draggable?: boolean,
     keyboard?: boolean,
@@ -339,7 +353,7 @@ declare module 'leaflet' {
     addTo(map: Map): this;
     getLatLng(): LatLng;
     setLatLng(latlng: LatLngLike): this;
-    setIcon(icon: Icon): this;
+    setIcon(icon: Icon | DivIcon): this;
     setZIndexOffset(offset: number): this;
     setOpacity(opacity: number): this;
     update(): this;
@@ -357,4 +371,3 @@ declare module 'leaflet' {
 
   declare export function marker(latlng: ?LatLngLike, options?: MarkerOptions): Marker;
 }
-

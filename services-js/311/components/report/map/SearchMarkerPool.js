@@ -2,21 +2,19 @@
 
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';
-import type { Map as MapboxMap, Icon, Marker } from 'mapbox.js';
+import type { Map as MapboxMap, Marker, DivIcon } from 'mapbox.js';
 import type RequestSearch from '../../../data/store/RequestSearch';
 import type { SearchRequest } from '../../../data/types';
+import waypointMarkers from './WaypointMarkers';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
 
 type Icons = {
-  openWaypointIcon: Icon,
-  openSelectedWaypointIcon: Icon,
-  closedWaypointIcon: Icon,
-  closedSelectedWaypointIcon: Icon,
+  openWaypointIcon: DivIcon,
+  openSelectedWaypointIcon: DivIcon,
+  closedWaypointIcon: DivIcon,
+  closedSelectedWaypointIcon: DivIcon,
 };
-
-const WAYPOINT_ICON_SIZE = [39, 51];
-const WAYPOINT_ANCHOR_POINT = [20, 53];
 
 // Reactive wrapper around a Marker that responds to visibility and
 // hover state.
@@ -124,26 +122,10 @@ export default class SearchMarkerPool {
     this.opacityComputed = opacityComputed;
 
     this.icons = {
-      openWaypointIcon: L.icon({
-        iconUrl: '/static/img/waypoint-green-empty.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      }),
-      openSelectedWaypointIcon: L.icon({
-        iconUrl: '/static/img/waypoint-green-filled.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      }),
-      closedWaypointIcon: L.icon({
-        iconUrl: '/static/img/waypoint-orange-empty.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      }),
-      closedSelectedWaypointIcon: L.icon({
-        iconUrl: '/static/img/waypoint-orange-filled.png',
-        iconSize: WAYPOINT_ICON_SIZE,
-        iconAnchor: WAYPOINT_ANCHOR_POINT,
-      }),
+      openWaypointIcon: L.divIcon(waypointMarkers.greenEmpty),
+      openSelectedWaypointIcon: L.divIcon(waypointMarkers.greenFilled),
+      closedWaypointIcon: L.divIcon(waypointMarkers.orangeEmpty),
+      closedSelectedWaypointIcon: L.divIcon(waypointMarkers.orangeFilled),
     };
 
     this.maintainMarkersDisposer = autorun('maintainMarkers', this.maintainMarkers);

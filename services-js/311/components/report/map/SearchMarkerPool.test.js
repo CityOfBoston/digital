@@ -6,6 +6,7 @@ import * as L from 'leaflet';
 
 import RequestSearch from '../../../data/store/RequestSearch';
 import SearchMarkerPool from './SearchMarkerPool';
+import waypointMarkers from './WaypointMarkers';
 
 const FAKE_MAPBOX_L = {
   ...L,
@@ -122,7 +123,7 @@ describe('icon update', () => {
       expect(marker.options.icon).toBeDefined();
       return;
     }
-    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-green-empty.png');
+    expect(marker.options.icon.options).toEqual(waypointMarkers.greenEmpty);
   });
 
   it('sets a closed icon', () => {
@@ -132,7 +133,7 @@ describe('icon update', () => {
       expect(marker.options.icon).toBeDefined();
       return;
     }
-    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-orange-empty.png');
+    expect(marker.options.icon.options).toEqual(waypointMarkers.orangeEmpty);
   });
 
   it('updates to hover when selected', () => {
@@ -144,7 +145,7 @@ describe('icon update', () => {
       expect(marker.options.icon).toBeDefined();
       return;
     }
-    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-green-filled.png');
+    expect(marker.options.icon.options).toEqual(waypointMarkers.greenFilled);
   });
 
   it('updates to hover when selected', () => {
@@ -156,7 +157,7 @@ describe('icon update', () => {
       expect(marker.options.icon).toBeDefined();
       return;
     }
-    expect(marker.options.icon.options.iconUrl).toEqual('/static/img/waypoint-orange-filled.png');
+    expect(marker.options.icon.options).toEqual(waypointMarkers.orangeFilled);
   });
 });
 
