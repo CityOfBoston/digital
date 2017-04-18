@@ -142,15 +142,11 @@ export default class FaqLayout extends React.Component {
                 Cellular air time charges will apply.
               </Question>
 
-              <Question title="Can you call 311 from a VOIP phone?">
-                If you are a VOIP customer and having difficulty calling 311,
-                it is best to contact your VOIP provider and let them know you
-                cannot connect. It is up to individual VOIP providers to make
-                311 services available to their customers. Once configured, VOIP
-                service should work properly as long as you are registered as
-                located within the boundaries of the City of Boston.
-                Alternatively, you can access Boston 311 services by
-                dialing <a href="tel:+16176354500">617-635-4500</a>.
+              <Question title="How can I track my request?">
+                Once you have successfully submitted your request, you will
+                receive an email with a tracking number that you can use to
+                monitor your request. You can track your service
+                request <Link href="/lookup"><a>here</a></Link>.
               </Question>
 
               <Question title="Why can’t I get through when I dial 311?">
@@ -173,11 +169,15 @@ export default class FaqLayout extends React.Component {
                 City Hall weekdays between 9 a.m. and 5 p.m.
               </Question>
 
-              <Question title="How can I track my request?">
-                Once you have successfully submitted your request, you will
-                receive an email with a tracking number that you can use to
-                monitor your request. You can track your service
-                request <Link href="/lookup"><a>here</a></Link>.
+              <Question title="Can you call 311 from a VOIP phone?">
+                If you are a VOIP customer and having difficulty calling 311,
+                it is best to contact your VOIP provider and let them know you
+                cannot connect. It is up to individual VOIP providers to make
+                311 services available to their customers. Once configured, VOIP
+                service should work properly as long as you are registered as
+                located within the boundaries of the City of Boston.
+                Alternatively, you can access Boston 311 services by
+                dialing <a href="tel:+16176354500">617-635-4500</a>.
               </Question>
 
             </div>
