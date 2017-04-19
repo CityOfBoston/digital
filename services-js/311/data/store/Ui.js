@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed, reaction } from 'mobx';
 import throttle from 'lodash/throttle';
 
 import { HEADER_HEIGHT } from '../../components/style-constants';
@@ -9,10 +9,23 @@ import { HEADER_HEIGHT } from '../../components/style-constants';
 export default class Ui {
   // This tracks the current window height, minus the fixed header height
   @observable visibleHeight: number = Number.MAX_SAFE_INTEGER;
-  @observable scrollY: number = 0;
   @observable visibleWidth: ?number;
 
+  @observable scrollY: number = 0;
+  @observable debouncedScrollY: number = 0;
+
+  debouncedScrollDisposer: ?Function;
+
   attach() {
+    this.debouncedScrollDisposer = reaction(
+      () => this.scrollY,
+      (scrollY) => { this.debouncedScrollY = scrollY; },
+      {
+        name: 'debounced scroll',
+        delay: 250,
+      },
+    );
+
     if (typeof window === 'undefined') {
       return;
     }
@@ -26,6 +39,11 @@ export default class Ui {
   }
 
   detach() {
+    if (this.debouncedScrollDisposer) {
+      this.debouncedScrollDisposer();
+      this.debouncedScrollDisposer = null;
+    }
+
     if (typeof window === 'undefined') {
       return;
     }

@@ -88,7 +88,7 @@ export default class RecentRequestRow extends React.Component {
     const rect = this.el.getBoundingClientRect();
     const buffer = ui.visibleHeight / 2;
     // Referencing scrollY so we get updated on scroll
-    return ui.scrollY >= 0 && rect.bottom > (HEADER_HEIGHT - buffer) && rect.top - HEADER_HEIGHT < (ui.visibleHeight + buffer);
+    return ui.debouncedScrollY >= 0 && rect.bottom > (HEADER_HEIGHT - buffer) && rect.top - HEADER_HEIGHT < (ui.visibleHeight + buffer);
   }
 
   @action.bound

@@ -39,8 +39,8 @@ export default class RecentRequests extends React.Component {
   @observable.ref searchEl: ?HTMLElement = null;
   @observable query: string = '';
 
-  scrollSelectedIntoViewDisposer: Function;
-  updateWidthDisposer: Function;
+  scrollSelectedIntoViewDisposer: ?Function;
+  updateWidthDisposer: ?Function;
 
   componentDidMount() {
     const { store: { ui, requestSearch } } = this.props;
@@ -63,8 +63,13 @@ export default class RecentRequests extends React.Component {
   }
 
   componentWillUnmount() {
-    this.scrollSelectedIntoViewDisposer();
-    this.updateWidthDisposer();
+    if (this.scrollSelectedIntoViewDisposer) {
+      this.scrollSelectedIntoViewDisposer();
+    }
+
+    if (this.updateWidthDisposer) {
+      this.updateWidthDisposer();
+    }
   }
 
   @action.bound
