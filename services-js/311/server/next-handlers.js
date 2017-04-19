@@ -17,7 +17,7 @@ export type RequestAdditions = {|
   hapiInject: HapiInject,
   apiKeys: {|
     cloudinary: Object,
-    mapbox: string,
+    mapbox: Object,
   |},
   liveAgentButtonId: string,
 |}
@@ -30,7 +30,10 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
         url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD || ''}`,
         uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET || '',
       },
-      mapbox: process.env.MAPBOX_ACCESS_TOKEN || '',
+      mapbox: {
+        accessToken: process.env.MAPBOX_ACCESS_TOKEN || '',
+        styleUrl: process.env.MAPBOX_STYLE_URL || '',
+      },
     },
     liveAgentButtonId: process.env.LIVE_AGENT_BUTTON_ID || '',
   };

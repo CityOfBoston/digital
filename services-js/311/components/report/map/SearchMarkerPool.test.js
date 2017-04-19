@@ -14,6 +14,7 @@ const FAKE_MAPBOX_L = {
   mapbox: {
     map: jest.fn(),
     accessToken: '',
+    styleLayer: jest.fn(),
   },
 };
 

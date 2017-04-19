@@ -68,8 +68,10 @@ addDecorator((story) => {
   }
 
   window.API_KEYS = {
-    google: dotEnv.GOOGLE_API_KEY,
-    mapbox: dotEnv.MAPBOX_ACCESS_TOKEN,
+    mapbox: {
+      accessToken: dotEnv.MAPBOX_ACCESS_TOKEN,
+      styleUrl: dotEnv.MAPBOX_STYLE_URL,
+    },
     cloudinary: {},
   };
 

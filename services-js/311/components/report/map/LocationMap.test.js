@@ -30,6 +30,11 @@ afterAll(() => {
 
 test('rendering active', () => {
   const store = new AppStore();
+  store.apiKeys.mapbox = {
+    accessToken: 'FAKE_MAPBOX_ACCESS_TOKEN',
+    styleUrl: 'mapbox://styles/fake-style',
+  };
+
   const component = renderer.create(
     <LocationMap
       store={store}
@@ -55,7 +60,13 @@ describe('mounted map', () => {
     }));
 
     loopbackGraphql = jest.fn();
+
     store = new AppStore();
+    store.apiKeys.mapbox = {
+      accessToken: 'FAKE_MAPBOX_ACCESS_TOKEN',
+      styleUrl: 'mapbox://styles/fake-style',
+    };
+
     wrapper = mount(
       <LocationMap
         store={store}

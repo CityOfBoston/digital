@@ -202,6 +202,7 @@ export default class LocationMap extends React.Component {
   @action.bound
   attachMap() {
     const { store, mode } = this.props;
+    const mapboxKeys = store.apiKeys.mapbox;
 
     if (!L) {
       return;
@@ -212,7 +213,7 @@ export default class LocationMap extends React.Component {
     }
 
     const opts = {
-      accessToken: store.apiKeys.mapbox,
+      accessToken: mapboxKeys.accessToken,
       center: DEFAULT_CENTER,
       zoom: 12,
       minZoom: 11,
@@ -222,12 +223,22 @@ export default class LocationMap extends React.Component {
       zoomControl: false,
     };
 
-    // In test mode we don't use Mapbox because it requires an API key and
-    // tries to load tile sets. We stick to a basic Leaflet map which should
-    // still do the things we want to.
-    const map = this.mapboxMap = (process.env.NODE_ENV === 'test') ?
-      L.map(this.mapEl, (opts: any)) :
-      L.mapbox.map(this.mapEl, 'mapbox.streets', opts);
+    let map;
+    if (process.env.NODE_ENV === 'test') {
+      // In test mode we don't use Mapbox because it requires an API key and
+      // tries to load tile sets. We stick to a basic Leaflet map which should
+      // still do the things we want to.
+
+      map = L.map(this.mapEl, (opts: any));
+    } else {
+      map = L.mapbox.map(this.mapEl, 'mapbox.streets', opts);
+      L.mapbox.styleLayer(mapboxKeys.styleUrl, {
+        accessToken: mapboxKeys.accessToken,
+      }).addTo(map);
+    }
+
+    this.mapboxMap = map;
+
     map.on('click', this.handleMapClick);
     map.on('resize', this.updateMapCenter);
     map.on('moveend', this.updateMapCenter);

@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -17,6 +17,14 @@ declare module 'mapbox.js' {
   import type { Map, MapOptions } from 'leaflet';
 
   declare type L = $Exports<'leaflet'>;
+
+  declare type StyleLayerOptions = {|
+    accessToken?: string,
+  |};
+
+  declare class StyleLayer {
+    addTo(map: Map): this,
+  }
 
   declare type AttributionControlOptions = {
     compact?: boolean,
@@ -30,12 +38,13 @@ declare module 'mapbox.js' {
     legendControl?: mixed,
     shareControl?: mixed,
     accessToken?: string,
-    attributionControl?: AttributionControlOptions, 
+    attributionControl?: AttributionControlOptions,
   |}
 
   declare type mapbox = {
     map: (el: HTMLElement | string, tiles: mixed, options?: MapboxMapOptions) => Map,
     accessToken: string,
+    styleLayer: (url: string, options?: StyleLayerOptions) => StyleLayer,
   }
 
   declare type LWithMapbox = {|
