@@ -295,6 +295,7 @@ export default class ReportLayout extends React.Component {
               <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
                 <LocationMap
                   store={store}
+                  loopbackGraphql={this.loopbackGraphql}
                   mode={mapMode}
                   opacityRatio={this.mapActivationRatio}
                 />

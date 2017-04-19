@@ -6,7 +6,6 @@ import { observable, action, runInAction, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
-import reverseGeocode from '../../../data/dao/reverse-geocode';
 import searchAddress from '../../../data/dao/search-address';
 
 import type { AppStore } from '../../../data/store';
@@ -36,49 +35,31 @@ export type Props = {
 @observer
 export default class LocationPopUp extends React.Component {
   props: Props;
-  reverseGeocodeDisposer: Function;
 
   @observable addressQuery: string = '';
 
+  queryClearerDisposer: Function;
+
   componentWillMount() {
-    // If the location changes from somewhere (e.g. clicking on the map) we
-    // notice and reverse geocode to get the address.
-    this.reverseGeocodeDisposer = reaction(
-      () => {
-        const { store: { requestForm: { locationInfo } } } = this.props;
-        return {
-          location: locationInfo.location,
-          address: locationInfo.address,
-        };
-      },
-      async ({ location, address }) => {
-        const { loopbackGraphql } = this.props;
+    const { store } = this.props;
 
-        if (location && !address) {
-          // clear the search if we geocode, because that means we got clicked
-          // from somewhere else
+    this.queryClearerDisposer = reaction(
+      () => store.requestForm.locationInfo.address,
+      (address) => {
+        // only clear if there's a new address. Otherwise we want to keep
+        // the existing search term so the user can fix it
+        if (address) {
           this.addressQuery = '';
-
-          const place = await reverseGeocode(loopbackGraphql, location);
-
-          runInAction('reverse geocode result', () => {
-            const { store: { requestForm: { locationInfo } } } = this.props;
-
-            if (place && locationInfo.location === location) {
-              locationInfo.address = place.address;
-            }
-          });
         }
       },
       {
-        fireImmediately: true,
-        name: 'reverse geocode picked location',
-        compareStructural: true,
-      });
+        name: 'location query clearer',
+      },
+    );
   }
 
   componentWillUnmount() {
-    this.reverseGeocodeDisposer();
+    this.queryClearerDisposer();
   }
 
   @action.bound
@@ -92,7 +73,6 @@ export default class LocationPopUp extends React.Component {
 
     const { loopbackGraphql, store: { requestForm: { locationInfo } } } = this.props;
 
-    locationInfo.address = '';
     locationInfo.location = null;
 
     const place = await searchAddress(loopbackGraphql, this.addressQuery);
@@ -102,6 +82,8 @@ export default class LocationPopUp extends React.Component {
         this.addressQuery = '';
         locationInfo.location = place.location;
         locationInfo.address = place.address;
+      } else {
+        locationInfo.address = '';
       }
     });
   }
@@ -145,7 +127,7 @@ export default class LocationPopUp extends React.Component {
   }
 
   maybeRenderMap() {
-    const { store } = this.props;
+    const { store, loopbackGraphql } = this.props;
     const { belowMediaLarge } = store.ui;
 
     if (!belowMediaLarge) {
@@ -154,7 +136,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMap store={store} mode="picker" opacityRatio={1} />
+        <LocationMap store={store} mode="picker" opacityRatio={1} loopbackGraphql={loopbackGraphql} />
       </div>
     );
   }

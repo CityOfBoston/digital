@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable, computed, action, autorun } from 'mobx';
+import { observable, computed, action, autorun, runInAction, untracked } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
 
 import type { AppStore } from '../../../data/store';
+import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
+import reverseGeocode from '../../../data/dao/reverse-geocode';
 
 import SearchMarkerPool from './SearchMarkerPool';
 import waypointMarkers from './WaypointMarkers';
@@ -37,6 +39,8 @@ export type Props = {
   mode: MapMode,
   store: AppStore,
   opacityRatio: number,
+  // eslint-disable-next-line react/no-unused-prop-types
+  loopbackGraphql: LoopbackGraphql,
 };
 
 let L: ?LWithMapbox = null;
@@ -59,6 +63,9 @@ export default class LocationMap extends React.Component {
   requestMarker: ?Marker;
   requestLocationMonitorDisposer: Function;
 
+  @observable pickedLocation: ?{lat: number, lng: number} = null;
+  reverseGeocodeDisposer: Function;
+
   searchMarkerPool: ?SearchMarkerPool = null;
 
   componentWillMount() {
@@ -78,37 +85,8 @@ export default class LocationMap extends React.Component {
       requestMarker.on('dragend', this.handleRequestMarkerDragEnd);
     }
 
-    this.requestLocationMonitorDisposer = autorun(() => {
-      const { requestMarker } = this;
-
-      if (!requestMarker) {
-        return;
-      }
-
-      if (this.requestLocationActive && this.waypointActiveIcon) {
-        requestMarker.setIcon(this.waypointActiveIcon);
-      } else if (!this.requestLocationActive && this.waypointInactiveIcon) {
-        requestMarker.setIcon(this.waypointInactiveIcon);
-      }
-
-      const { mapboxMap: map, requestLocation } = this;
-
-      if (map) {
-        if (requestLocation) {
-          requestMarker.setLatLng(requestLocation);
-          requestMarker.addTo(map);
-
-          const bounds = map.getBounds();
-          if (!bounds.contains([requestLocation.lat, requestLocation.lng])) {
-            this.flyToRequestLocation();
-          }
-        } else {
-          map.removeLayer(requestMarker);
-        }
-      }
-    }, {
-      name: 'request location monitor',
-    });
+    this.requestLocationMonitorDisposer = autorun('maintainRequestMarkerLocation', this.maintainRequestMarkerLocation);
+    this.reverseGeocodeDisposer = autorun('maintainReverseGeocode', this.maintainReverseGeocode);
   }
 
   componentDidMount() {
@@ -136,30 +114,85 @@ export default class LocationMap extends React.Component {
     }
 
     this.requestLocationMonitorDisposer();
+    this.reverseGeocodeDisposer();
 
     if (this.mapboxMap) {
       this.mapboxMap.remove();
     }
   }
 
-  flyToRequestLocation() {
-    if (this.mapboxMap && this.requestLocation) {
-      this.mapboxMap.flyTo(this.requestLocation, 18);
-    }
-  }
-
-  @computed get requestLocation(): ?{ lat: number, lng: number } {
+  @computed get markerLocation(): ?{ lat: number, lng: number } {
     const { mode, store: { requestForm } } = this.props;
     if (mode === 'picker') {
-      return requestForm.locationInfo.location;
+      return this.pickedLocation || requestForm.locationInfo.location;
     } else {
       return null;
     }
   }
 
-  @computed get requestLocationActive(): boolean {
+  @computed get isMarkerLocationValid(): boolean {
     const { store: { requestForm } } = this.props;
     return requestForm.locationInfo.address.length > 0;
+  }
+
+  maintainRequestMarkerLocation = () => {
+    const { requestMarker } = this;
+
+    if (!requestMarker) {
+      return;
+    }
+
+    if (this.isMarkerLocationValid && this.waypointActiveIcon) {
+      requestMarker.setIcon(this.waypointActiveIcon);
+    } else if (!this.isMarkerLocationValid && this.waypointInactiveIcon) {
+      requestMarker.setIcon(this.waypointInactiveIcon);
+    }
+
+    const { mapboxMap: map, markerLocation } = this;
+
+    if (map) {
+      if (markerLocation) {
+        requestMarker.setLatLng(markerLocation);
+        requestMarker.addTo(map);
+
+        const bounds = map.getBounds();
+        if (!bounds.contains([markerLocation.lat, markerLocation.lng])) {
+          this.flyToRequestLocation();
+        }
+      } else {
+        map.removeLayer(requestMarker);
+      }
+    }
+  }
+
+  maintainReverseGeocode = async () => {
+    const { pickedLocation } = this;
+
+    if (pickedLocation) {
+      const { loopbackGraphql } = untracked(() => Object.assign({}, this.props));
+      const place = await reverseGeocode(loopbackGraphql, pickedLocation);
+
+      runInAction('reverse geocode result', () => {
+        const { store: { requestForm: { locationInfo } } } = this.props;
+
+        if (this.pickedLocation === pickedLocation) {
+          locationInfo.location = this.pickedLocation;
+          this.pickedLocation = null;
+
+          if (place) {
+            locationInfo.address = place.address;
+          } else {
+            locationInfo.address = '';
+          }
+        }
+      });
+    }
+  }
+
+  flyToRequestLocation() {
+    if (this.mapboxMap && this.markerLocation) {
+      this.mapboxMap.flyTo(this.markerLocation, 18);
+    }
   }
 
   setMapEl = (mapEl: HTMLElement) => {
@@ -290,22 +323,20 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   handleMapClick(ev: Object) {
-    const { mode, store: { requestForm } } = this.props;
+    const { mode } = this.props;
     const latLng: LatLng = ev.latlng;
 
     if (mode !== 'picker') {
       return;
     }
 
-    requestForm.locationInfo.location = {
+    this.pickedLocation = {
       lat: latLng.lat,
       lng: latLng.lng,
     };
-    requestForm.locationInfo.address = '';
   }
 
-  @action.bound
-  handleRequestMarkerDragStart() {
+  handleRequestMarkerDragStart = () => {
     if (!this.mapboxMap) {
       return;
     }
@@ -316,19 +347,16 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   handleRequestMarkerDragEnd() {
-    const { store: { requestForm } } = this.props;
-
     if (!this.requestMarker) {
       return;
     }
 
     const latLng = this.requestMarker.getLatLng();
 
-    requestForm.locationInfo.location = {
+    this.pickedLocation = {
       lat: latLng.lat,
       lng: latLng.lng,
     };
-    requestForm.locationInfo.address = '';
 
     window.setTimeout(() => {
       if (this.mapboxMap) {
