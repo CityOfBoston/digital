@@ -9,6 +9,7 @@ import type { Service, ServiceSummary } from '../types';
 import RequestForm from './RequestForm';
 import RequestSearch from './RequestSearch';
 import Ui from './Ui';
+import BrowserLocation from './BrowserLocation';
 
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
@@ -17,6 +18,7 @@ export class AppStore {
   @observable requestForm: RequestForm = new RequestForm();
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
+  browserLocation: BrowserLocation = new BrowserLocation();
 
   @observable.shallow serviceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});
@@ -107,6 +109,7 @@ export default function getStore(): AppStore {
   if (process.browser) {
     browserStore = store;
     store.ui.attach();
+    store.browserLocation.attach();
   }
 
   return store;

@@ -54,10 +54,19 @@ const grayFilled: DivIconOptions = {
   }).toString(),
 };
 
+const currentLocation: DivIconOptions = {
+  ...WAYPOINT_BASE_OPTIONS,
+  className: css({
+    ...WAYPOINT_BASE_STYLE,
+    backgroundPosition: '-60px 0',
+  }).toString(),
+};
+
 export default {
   greenEmpty,
   greenFilled,
   orangeEmpty,
   orangeFilled,
   grayFilled,
+  currentLocation,
 };

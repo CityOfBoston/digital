@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable, computed, action, autorun, runInAction, untracked } from 'mobx';
+import { computed, action, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
@@ -48,23 +48,43 @@ if (process.browser) {
   L = require('mapbox.js');
 }
 
+type MaintainRequestMarkerArgs = {
+  // eslint-disable-next-line react/no-unused-prop-types
+  markerLocation: ?{lat: number, lng: number},
+  // eslint-disable-next-line react/no-unused-prop-types
+  isMarkerLocationValid: boolean,
+  // eslint-disable-next-line react/no-unused-prop-types
+  showMarker: boolean,
+};
+
+/**
+ * MOBX WARNING!!!!!
+ * The props of this component can change regularly, since the opacity comes
+ * from the outside.
+ *
+ * Because of this, it's recommended to use reaction rather than autorun to
+ * keep from accidentally reacting to any changes to props.
+ */
+
 @observer
 export default class LocationMap extends React.Component {
   props: Props;
 
   mapEl: ?HTMLElement = null;
 
-  @observable.ref mapboxMap: ?MapboxMap = null;
+  mapboxMap: ?MapboxMap = null;
   zoomControl: ?ControlZoom;
 
   waypointActiveIcon: ?DivIcon;
   waypointInactiveIcon: ?DivIcon;
 
   requestMarker: ?Marker;
-  requestLocationMonitorDisposer: Function;
+  requestLocationMonitorDisposer: ?Function;
 
-  @observable pickedLocation: ?{lat: number, lng: number} = null;
-  reverseGeocodeDisposer: Function;
+  currentLocationMarker: ?Marker;
+  currentLocationMonitorDisposer: ?Function;
+
+  lastPickedLocation: ?{lat: number, lng: number} = null;
 
   searchMarkerPool: ?SearchMarkerPool = null;
 
@@ -79,14 +99,22 @@ export default class LocationMap extends React.Component {
         icon: this.waypointInactiveIcon,
         draggable: true,
         keyboard: false,
+        zIndexOffset: 3000,
       });
 
+      requestMarker.on('click', this.handleMarkerClick);
       requestMarker.on('dragstart', this.handleRequestMarkerDragStart);
       requestMarker.on('dragend', this.handleRequestMarkerDragEnd);
-    }
 
-    this.requestLocationMonitorDisposer = autorun('maintainRequestMarkerLocation', this.maintainRequestMarkerLocation);
-    this.reverseGeocodeDisposer = autorun('maintainReverseGeocode', this.maintainReverseGeocode);
+      const currentLocationMarker = this.currentLocationMarker = L.marker(null, {
+        icon: L.divIcon(waypointMarkers.currentLocation),
+        draggable: false,
+        keyboard: false,
+        zIndexOffset: 2000,
+      });
+
+      currentLocationMarker.on('click', this.handleMarkerClick);
+    }
   }
 
   componentDidMount() {
@@ -101,10 +129,23 @@ export default class LocationMap extends React.Component {
     }
   }
 
+  @action
   componentDidUpdate(oldProps: Props) {
-    if (oldProps.mode !== this.props.mode) {
-      this.updateMapEventHandlers(this.props.mode);
-      this.flyToRequestLocation();
+    const { mode, store } = this.props;
+    if (oldProps.mode !== mode) {
+      this.updateMapEventHandlers(mode);
+
+      if (mode === 'picker') {
+        const currentLocation = store.browserLocation.location;
+
+        if (store.requestForm.locationInfo.location) {
+          this.flyToLocation(store.requestForm.locationInfo.location);
+        } else if (currentLocation) {
+          // go through chooseLocation so that we get geocoding
+          this.chooseLocation(currentLocation);
+          this.flyToLocation(currentLocation);
+        }
+      }
     }
   }
 
@@ -113,85 +154,112 @@ export default class LocationMap extends React.Component {
       this.searchMarkerPool.dispose();
     }
 
-    this.requestLocationMonitorDisposer();
-    this.reverseGeocodeDisposer();
+    if (this.requestLocationMonitorDisposer) {
+      this.requestLocationMonitorDisposer();
+    }
+
+    if (this.currentLocationMonitorDisposer) {
+      this.currentLocationMonitorDisposer();
+    }
 
     if (this.mapboxMap) {
       this.mapboxMap.remove();
     }
   }
 
-  @computed get markerLocation(): ?{ lat: number, lng: number } {
-    const { mode, store: { requestForm } } = this.props;
-    if (mode === 'picker') {
-      return this.pickedLocation || requestForm.locationInfo.location;
-    } else {
-      return null;
-    }
-  }
+  maintainRequestMarkerLocationData = (): MaintainRequestMarkerArgs => ({
+    markerLocation: this.props.store.requestForm.locationInfo.location,
+    isMarkerLocationValid: this.props.store.requestForm.locationInfo.address.length > 0,
+    showMarker: this.props.mode === 'picker',
+  })
 
-  @computed get isMarkerLocationValid(): boolean {
-    const { store: { requestForm } } = this.props;
-    return requestForm.locationInfo.address.length > 0;
-  }
-
-  maintainRequestMarkerLocation = () => {
+  maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainRequestMarkerArgs) => {
     const { requestMarker } = this;
 
     if (!requestMarker) {
       return;
     }
 
-    if (this.isMarkerLocationValid && this.waypointActiveIcon) {
+    if (isMarkerLocationValid && this.waypointActiveIcon) {
       requestMarker.setIcon(this.waypointActiveIcon);
-    } else if (!this.isMarkerLocationValid && this.waypointInactiveIcon) {
+    } else if (!isMarkerLocationValid && this.waypointInactiveIcon) {
       requestMarker.setIcon(this.waypointInactiveIcon);
     }
 
-    const { mapboxMap: map, markerLocation } = this;
+    const { mapboxMap: map, lastPickedLocation } = this;
+
+    if (!map) {
+      return;
+    }
+
+    if (markerLocation && showMarker) {
+      requestMarker.setLatLng(markerLocation);
+      requestMarker.addTo(map);
+
+      // zoom to the location if it's not one that we picked by clicking
+      if (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng)) {
+        this.flyToLocation(markerLocation);
+      }
+    } else {
+      map.removeLayer(requestMarker);
+    }
+  }
+
+  maintainCurrentLocationMarkerLocation = (currentLocation: ?{lat: number, lng: number}) => {
+    const { currentLocationMarker, mapboxMap: map } = this;
+    const { mode } = this.props;
+
+    if (!currentLocationMarker) {
+      return;
+    }
 
     if (map) {
-      if (markerLocation) {
-        requestMarker.setLatLng(markerLocation);
-        requestMarker.addTo(map);
+      if (currentLocation) {
+        currentLocationMarker.setLatLng(currentLocation);
+        currentLocationMarker.addTo(map);
 
-        const bounds = map.getBounds();
-        if (!bounds.contains([markerLocation.lat, markerLocation.lng])) {
-          this.flyToRequestLocation();
+        if (mode === 'inactive') {
+          // we only want to zoom around following the current location if
+          // it's not going to disturb the user interacting with the map.
+          this.flyToLocation(currentLocation);
         }
       } else {
-        map.removeLayer(requestMarker);
+        map.removeLayer(currentLocationMarker);
       }
     }
   }
 
-  maintainReverseGeocode = async () => {
-    const { pickedLocation } = this;
+  @action
+  async chooseLocation(location: {lat: number, lng: number}) {
+    const { store, loopbackGraphql } = this.props;
 
-    if (pickedLocation) {
-      const { loopbackGraphql } = untracked(() => Object.assign({}, this.props));
-      const place = await reverseGeocode(loopbackGraphql, pickedLocation);
+    this.lastPickedLocation = location;
+    store.requestForm.locationInfo.location = location;
 
-      runInAction('reverse geocode result', () => {
-        const { store: { requestForm: { locationInfo } } } = this.props;
+    const place = await reverseGeocode(loopbackGraphql, location);
 
-        if (this.pickedLocation === pickedLocation) {
-          locationInfo.location = this.pickedLocation;
-          this.pickedLocation = null;
+    runInAction('reverse geocode result', () => {
+      const { store: { requestForm: { locationInfo } } } = this.props;
 
-          if (place) {
-            locationInfo.address = place.address;
-          } else {
-            locationInfo.address = '';
-          }
+      if (locationInfo.location && locationInfo.location.lat === location.lat && locationInfo.location.lng === location.lng) {
+        if (place) {
+          locationInfo.address = place.address;
+        } else {
+          locationInfo.address = '';
         }
-      });
-    }
+      }
+    });
   }
 
-  flyToRequestLocation() {
-    if (this.mapboxMap && this.markerLocation) {
-      this.mapboxMap.flyTo(this.markerLocation, 18);
+  flyToLocation(location: {lat: number, lng: number}) {
+    const { store, mode } = this.props;
+    const { mapboxMap: map } = this;
+
+    if (map) {
+      map.flyToBounds([[location.lat, location.lng], [location.lat, location.lng]], {
+        maxZoom: 17,
+        paddingTopLeft: [mode === 'picker' ? 0 : store.requestSearch.resultsListWidth, 0],
+      });
     }
   }
 
@@ -247,7 +315,16 @@ export default class LocationMap extends React.Component {
     this.updateMapEventHandlers(mode);
     this.updateMapCenter();
 
-    this.flyToRequestLocation();
+    this.requestLocationMonitorDisposer = reaction(this.maintainRequestMarkerLocationData, this.maintainRequestMarkerLocation, {
+      name: 'maintainRequestMarkerLocation',
+      fireImmediately: true,
+      compareStructural: true,
+    });
+
+    this.currentLocationMonitorDisposer = reaction(() => this.props.store.browserLocation.location, this.maintainCurrentLocationMarkerLocation, {
+      name: 'maintainCurrentLocationMarkerLocation',
+      fireImmediately: true,
+    });
   }
 
   updateMapEventHandlers(mode: MapMode) {
@@ -341,38 +418,57 @@ export default class LocationMap extends React.Component {
       return;
     }
 
-    this.pickedLocation = {
+    this.chooseLocation({
       lat: latLng.lat,
       lng: latLng.lng,
-    };
+    });
   }
 
-  handleRequestMarkerDragStart = () => {
+  @action.bound
+  handleMarkerClick(ev: Object) {
+    if (this.props.mode !== 'picker') {
+      return;
+    }
+
+    const marker: Marker = ev.target;
+    const latLng = marker.getLatLng();
+
+    this.chooseLocation({
+      lat: latLng.lat,
+      lng: latLng.lng,
+    });
+  }
+
+  handleRequestMarkerDragStart = (ev: Object) => {
     if (!this.mapboxMap) {
       return;
     }
 
-    // otherwise a click event will fire on the map
+    const marker: Marker = ev.target;
+
+    // otherwise a click event will fire on the map and the marker when
+    // the drag is over
     this.mapboxMap.off('click', this.handleMapClick);
+    marker.off('click', this.handleMarkerClick);
   }
 
-  @action.bound
-  handleRequestMarkerDragEnd() {
-    if (!this.requestMarker) {
-      return;
-    }
+  handleRequestMarkerDragEnd = (ev: Object) => {
+    const marker: Marker = ev.target;
+    const latLng = marker.getLatLng();
 
-    const latLng = this.requestMarker.getLatLng();
-
-    this.pickedLocation = {
+    this.chooseLocation({
       lat: latLng.lat,
       lng: latLng.lng,
-    };
+    });
 
     window.setTimeout(() => {
-      if (this.mapboxMap) {
-        this.mapboxMap.on('click', this.handleMapClick);
+      if (!this.mapboxMap) {
+        return;
       }
+
+      // restore the click handlers we turned off when the drag started
+      this.mapboxMap.on('click', this.handleMapClick);
+      marker.on('click', this.handleMarkerClick);
     }, 0);
   }
 

@@ -126,7 +126,6 @@ describe('mounted map', () => {
     expect(markerLatLng.lng).toEqual(-71.05802536010744);
 
     // before reverse geocode happens
-    expect(locationInfo.location).toEqual(null);
     expect(locationInfo.address).toEqual('');
 
     expect(reverseGeocode).toHaveBeenCalledWith(loopbackGraphql, {
