@@ -84,7 +84,7 @@ class SearchMarker {
     }
 
     this.marker.setIcon(icon);
-    this.marker.setZIndexOffset(this.selected ? 1 : 0);
+    this.marker.setZIndexOffset(this.selected ? 1000 : 0);
   }
 
   updateOpacity = () => {
