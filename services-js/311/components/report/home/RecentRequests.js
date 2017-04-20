@@ -16,15 +16,8 @@ if (typeof window !== 'undefined') {
   Velocity = require('velocity-animate');
 }
 
-const STICKY_SEARCH_STYLE = css({
-  position: 'fixed',
-  top: HEADER_HEIGHT,
-  background: 'white',
-});
-
 const CONTAINER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
+  background: 'white',
 });
 
 export type Props = {
@@ -36,8 +29,6 @@ export default class RecentRequests extends React.Component {
   props: Props;
 
   @observable.ref mainEl: ?HTMLElement = null;
-  @observable.ref searchEl: ?HTMLElement = null;
-  @observable query: string = '';
 
   scrollSelectedIntoViewDisposer: ?Function;
   updateWidthDisposer: ?Function;
@@ -73,25 +64,19 @@ export default class RecentRequests extends React.Component {
   }
 
   @action.bound
-  setMainEl(mainEl: HTMLElement) {
+  setMainEl(mainEl: ?HTMLElement) {
     this.mainEl = mainEl;
-  }
-
-  @action.bound
-  setSearchEl(searchEl: HTMLElement) {
-    this.searchEl = searchEl;
   }
 
   scrollSelectedIntoView = () => {
     // Keeps us from getting a dependency on props
     const { store } = untracked(() => Object.assign({}, this.props));
-    const { selectedRequest, selectedSource } = store.requestSearch;
+    const { selectedRequest, selectedSource, searchHeaderHeight } = store.requestSearch;
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
       const requestEl = this.mainEl.querySelector(`[data-request-id="${selectedRequest.id}"]`);
-      const { searchEl } = this;
-      if (Velocity && requestEl && searchEl) {
-        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT + -searchEl.clientHeight });
+      if (Velocity && requestEl) {
+        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT + -searchHeaderHeight });
       }
     }
   }
@@ -107,55 +92,19 @@ export default class RecentRequests extends React.Component {
     return store.ui.scrollY && mainBounds.top <= HEADER_HEIGHT;
   }
 
-  @action.bound
-  handleSearchSubmit(ev: SyntheticInputEvent) {
-    const { mainEl } = this;
-    const { store } = this.props;
-
-    // This actually triggers the search to happen
-    store.requestSearch.query = this.query;
-
-    if (Velocity && mainEl) {
-      const bounds = mainEl.getBoundingClientRect();
-      Velocity(window.document.body, 'scroll', { offset: bounds.top + store.ui.scrollY + -HEADER_HEIGHT });
-    }
-
-    ev.preventDefault();
-  }
-
-  @action.bound
-  handleSearchInput(ev: SyntheticInputEvent) {
-    this.query = ev.target.value;
-  }
-
   render() {
     const { store: { requestSearch, ui } } = this.props;
     const { results } = requestSearch;
 
-    const containerStyle = {};
-    const searchStyle = {};
-
-    if (this.stickySearch && this.searchEl) {
-      containerStyle.paddingTop = this.searchEl.clientHeight;
-      searchStyle.width = requestSearch.resultsListWidth;
-    }
-
     return (
-      <div className={`${CONTAINER_STYLE.toString()}`} ref={this.setMainEl} style={containerStyle}>
-        <div className={this.stickySearch && STICKY_SEARCH_STYLE} ref={this.setSearchEl} style={searchStyle}>
-          <div className="p-a300">
-            <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
-              <div className="sf-i">
-                <input type="text" name="q" placeholder="Search recent cases…" value={this.query} onInput={this.handleSearchInput} className="sf-i-f" />
-                <button className="sf-i-b">Search</button>
-              </div>
-            </form>
-          </div>
-
-          <hr className="hr hr--dash" />
-        </div>
-
+      <div className={CONTAINER_STYLE} ref={this.setMainEl}>
         { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
+        { results.length === 0 && (
+          <div className="p-a300">
+            <div className="t--intro">No results found</div>
+            <div className="t--info">Try a different search term or move the map to search a different area.</div>
+          </div>
+        )}
       </div>
     );
   }

@@ -1,9 +1,10 @@
 // @flow
 
-import { observable, action, autorun, computed } from 'mobx';
+import { observable, action, reaction, computed } from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'leaflet';
 import uniqBy from 'lodash/uniqBy';
+import debounce from 'lodash/debounce';
 import type { SearchRequest, SearchRequestsPage } from '../types';
 import searchRequests from '../dao/search-requests';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
@@ -13,11 +14,19 @@ type LatLng = {
   lng: number,
 };
 
+type SearchArgs = {
+  query: string,
+  radiusKm: number,
+  mapCenter: ?LatLng,
+};
+
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
   @observable.struct mapCenter: ?LatLng = null;
   @observable query: string = '';
   @observable radiusKm: number = 0;
+
+  @observable searchHeaderHeight: number = 0;
   @observable resultsListWidth: number = 0;
 
   @observable mapBounds: ?LatLngBounds = null;
@@ -28,8 +37,6 @@ export default class RequestSearch {
   @observable.ref selectedRequest: ?SearchRequest = null;
   @observable selectedSource: ?string = null;
 
-  searching: boolean = false;
-  searchPending: boolean = false;
   searchDisposer: ?Function = null;
 
   @action.bound
@@ -50,17 +57,29 @@ export default class RequestSearch {
   @computed get results(): SearchRequest[] {
     const { mapBounds } = this;
     if (!mapBounds) {
-      return this._results;
+      return this._results.slice(0, 50);
     } else {
-      return this._results.filter((r) => r.location && mapBounds.contains([r.location.lat, r.location.lng]));
+      return this._results.filter((r) => r.location && mapBounds.contains([r.location.lat, r.location.lng])).slice(0, 50);
     }
   }
 
   // Starting / stopping currently done in ReportLayout
   start(loopbackGraphql: LoopbackGraphql) {
-    this.searching = false;
-    this.searchPending = false;
-    this.searchDisposer = autorun('RequestSearch auto-search', this.search.bind(this, loopbackGraphql));
+    // We use a reaction because the effect is debounced, which messes with
+    // mobx's auto-detection of dependencies.
+    this.searchDisposer = reaction(
+      (): SearchArgs => ({
+        mapCenter: this.mapCenter,
+        radiusKm: this.radiusKm,
+        query: this.query,
+      }),
+      debounce(this.search.bind(this, loopbackGraphql), 500),
+      {
+        name: 'RequestSearch auto-search',
+        fireImmediately: true,
+        compareStructural: true,
+      },
+    );
   }
 
   stop() {
@@ -69,31 +88,12 @@ export default class RequestSearch {
     }
   }
 
-  search(loopbackGraphql: LoopbackGraphql) {
-    const { mapCenter, radiusKm, query } = this;
-
+  async search(loopbackGraphql: LoopbackGraphql, { mapCenter, radiusKm, query }: SearchArgs) {
     if (!mapCenter || !radiusKm) {
       return;
     }
 
-    if (this.searching) {
-      this.searchPending = true;
-      return;
-    }
-
-    this.searching = true;
-    this.searchPending = false;
-
-    const searchComplete = action('search complete', () => {
-      this.searching = false;
-      if (this.searchPending) {
-        this.search(loopbackGraphql);
-      }
-    });
-
-    searchRequests(loopbackGraphql, query, mapCenter, radiusKm).then(this.updateRequestSearchResults).then(searchComplete, (e) => {
-      searchComplete();
-      throw e;
-    });
+    const results = await searchRequests(loopbackGraphql, query, mapCenter, radiusKm);
+    this.updateRequestSearchResults(results);
   }
 }

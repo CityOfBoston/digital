@@ -3,6 +3,9 @@
 import RequestSearch from './RequestSearch';
 import type { SearchRequest, SearchRequestsPage } from '../types';
 
+jest.mock('lodash/debounce');
+const debounce: JestMockFn = (require('lodash/debounce'): any);
+
 jest.mock('../dao/search-requests');
 const searchRequests: JestMockFn = (require('../dao/search-requests'): any).default;
 
@@ -32,6 +35,7 @@ const MOCK_SEARCH_RESULTS_PAGE = {
 
 beforeEach(() => {
   requestSearch = new RequestSearch();
+  debounce.mockImplementation((fn) => fn);
 });
 
 describe('update', () => {
@@ -133,26 +137,5 @@ describe('search', () => {
     await Promise.resolve();
 
     expect(requestSearch.results[0]).toEqual(MOCK_REQUEST);
-  });
-
-  it('only searches one at a time', async () => {
-    requestSearch.mapCenter = { lat: 1, lng: 1 };
-    requestSearch.radiusKm = 1;
-    requestSearch.query = 'Mewnir';
-
-    // Search kicked off before query was set
-    expect(searchRequests).toHaveBeenCalledWith(loopbackGraphql, '', { lat: 1, lng: 1 }, 1);
-    expect(searchRequests).not.toHaveBeenCalledWith(loopbackGraphql, 'Mewnir', { lat: 1, lng: 1 }, 1);
-
-    requestSearch.query = 'Cat Thor';
-
-    resolveSearch(MOCK_SEARCH_RESULTS_PAGE);
-
-    await Promise.resolve();
-    await Promise.resolve();
-
-    // It searches on the latest query, not anything that was set in between
-    expect(searchRequests).toHaveBeenCalledWith(loopbackGraphql, 'Cat Thor', { lat: 1, lng: 1 }, 1);
-    expect(searchRequests).not.toHaveBeenCalledWith(loopbackGraphql, 'Mewnir', { lat: 1, lng: 1 }, 1);
   });
 });

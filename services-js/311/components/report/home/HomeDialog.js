@@ -65,7 +65,7 @@ export default class HomeDialog extends React.Component {
   @computed get topServiceSummaries(): ServiceSummary[] {
     const { store } = this.props;
     // random sample now until we get this built
-    return sampleSize((store.serviceSummaries: any).peek(), 6);
+    return sampleSize((store.serviceSummaries: any).peek(), 5);
   }
 
   @action.bound

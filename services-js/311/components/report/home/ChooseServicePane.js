@@ -104,7 +104,6 @@ export default function ChooseServicePane({ description, handleDescriptionChange
 
       <div className="b b--g m-v500 p-a300 p-a800--xl">
         <h3 className="stp">
-          <span className="stp-number">2</span>
           How can we help?
         </h3>
 

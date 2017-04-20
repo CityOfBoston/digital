@@ -2,46 +2,12 @@
 
 exports[`rendering results loaded 1`] = `
 <div
-  className="css-1t62idy"
-  style={Object {}}
+  className={
+    Object {
+      "data-css-shdobr": "",
+    }
+  }
 >
-  <div
-    className={false}
-    style={Object {}}
-  >
-    <div
-      className="p-a300"
-    >
-      <form
-        acceptCharset="UTF-8"
-        action="/lookup"
-        className="sf sf--y sf--md"
-        method="get"
-        onSubmit={[Function]}
-      >
-        <div
-          className="sf-i"
-        >
-          <input
-            className="sf-i-f"
-            name="q"
-            onInput={[Function]}
-            placeholder="Search recent cases…"
-            type="text"
-            value=""
-          />
-          <button
-            className="sf-i-b"
-          >
-            Search
-          </button>
-        </div>
-      </form>
-    </div>
-    <hr
-      className="hr hr--dash"
-    />
-  </div>
   <div
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"
@@ -129,46 +95,12 @@ exports[`rendering results loaded 1`] = `
 
 exports[`rendering with request selected 1`] = `
 <div
-  className="css-1t62idy"
-  style={Object {}}
+  className={
+    Object {
+      "data-css-shdobr": "",
+    }
+  }
 >
-  <div
-    className={false}
-    style={Object {}}
-  >
-    <div
-      className="p-a300"
-    >
-      <form
-        acceptCharset="UTF-8"
-        action="/lookup"
-        className="sf sf--y sf--md"
-        method="get"
-        onSubmit={[Function]}
-      >
-        <div
-          className="sf-i"
-        >
-          <input
-            className="sf-i-f"
-            name="q"
-            onInput={[Function]}
-            placeholder="Search recent cases…"
-            type="text"
-            value=""
-          />
-          <button
-            className="sf-i-b"
-          >
-            Search
-          </button>
-        </div>
-      </form>
-    </div>
-    <hr
-      className="hr hr--dash"
-    />
-  </div>
   <div
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"

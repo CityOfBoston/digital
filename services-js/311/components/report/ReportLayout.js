@@ -12,11 +12,11 @@ import { observer } from 'mobx-react';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
-import { MAX_WIDTH as DIALOG_MAX_WIDTH } from '../common/FormDialog';
 import LocationMap from './map/LocationMap';
 import type { MapMode } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import RecentRequests from './home/RecentRequests';
+import RecentRequestsHeader from './home/RecentRequestsHeader';
 import RequestDialog from './request/RequestDialog';
 
 import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
@@ -55,6 +55,10 @@ export type Props = {
 
 const CONTAINER_STYLE = css({
   minHeight: 0,
+  position: 'relative',
+  // allows sticky children of the container to overlap things below this
+  // container in the source
+  zIndex: 2,
   [MEDIA_LARGE]: {
     minHeight: '100vh',
   },
@@ -70,41 +74,21 @@ const CONTENT_STYLE = css({
 // Puts a little spacing around the dialog, which has auto left/right margins.
 // Lets the map show through on large screens.
 const DIALONG_WRAPPER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
+  justifyContent: 'space-around',
+
   [MEDIA_LARGE]: {
     padding: '0 40px',
   },
 });
 
-const TAB_WRAPPER_STYLE = css(DIALONG_WRAPPER_STYLE, {
-  position: 'absolute',
-  bottom: 0,
-  width: '100%',
-});
-
-const TAB_HOLDER_STYLE = css({
-  maxWidth: DIALOG_MAX_WIDTH,
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
-const TAB_STYLE = css({
-  background: 'white',
-});
-
-const LIVE_CHAT_TAB_STYLE = css(TAB_STYLE, {
-  position: 'fixed',
-  // This isn't quite right. Revisit if we keep this as a tab.
-  right: 40,
-});
-
-const RECENT_CASES_STYLE = css({
+const RECENT_REQUESTS_CONTAINER_STYLE = css({
   minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
-  width: '40%',
   position: 'relative',
-  zIndex: 1,
-  backgroundColor: 'white',
+  width: '40%',
+  maxWidth: '35rem',
 });
 
 const BACKGROUND_MAP_CONTAINER_STYLE = css({
@@ -223,7 +207,7 @@ export default class ReportLayout extends React.Component {
   @computed get mapActivationRatio(): number {
     const { store: { ui }, data: { view, stage } } = this.props;
     if (view === 'home' && stage === 'home') {
-      return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.25));
+      return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.75));
     } else {
       return 0;
     }
@@ -274,7 +258,7 @@ export default class ReportLayout extends React.Component {
   render() {
     const { data, store } = this.props;
     const { locationMapActive } = this.state;
-    const { ui: { mediaLarge }, liveAgentAvailable } = store;
+    const { ui: { mediaLarge } } = store;
 
     let mapMode: MapMode;
     if (locationMapActive) {
@@ -289,19 +273,19 @@ export default class ReportLayout extends React.Component {
       <div>
         <Nav activeSection="report" />
 
+        { mediaLarge &&
+          <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+            <LocationMap
+              store={store}
+              loopbackGraphql={this.loopbackGraphql}
+              mode={mapMode}
+              opacityRatio={this.mapActivationRatio}
+            />
+          </div>
+        }
+
         <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
           <div className={CONTENT_STYLE}>
-            { mediaLarge &&
-              <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
-                <LocationMap
-                  store={store}
-                  loopbackGraphql={this.loopbackGraphql}
-                  mode={mapMode}
-                  opacityRatio={this.mapActivationRatio}
-                />
-              </div>
-            }
-
             <div className={DIALONG_WRAPPER_STYLE}>
               { data.view === 'home' &&
                 <HomeDialog
@@ -320,29 +304,15 @@ export default class ReportLayout extends React.Component {
             </div>
           </div>
 
-          { mediaLarge && data.view === 'home' && data.stage === 'home' &&
-            <div className={TAB_WRAPPER_STYLE}><div className={TAB_HOLDER_STYLE}>
-              <a
-                href="#recent"
-                className={`p-a300 t--sans tt-u br ${TAB_STYLE.toString()}`}
-                style={{ left: 80 }}
-              >Recent Cases</a>
-
-              { liveAgentAvailable &&
-                <a
-                  className={`p-a300 t--sans tt-u br ${LIVE_CHAT_TAB_STYLE.toString()}`}
-                  href="javascript:void(0)"
-                  onClick={this.startChat}
-                >Live Chat Online</a> }
-            </div></div>
+          {
+            mediaLarge && data.view === 'home' && data.stage === 'home' &&
+            <RecentRequestsHeader store={store} />
           }
-
         </div>
 
         {
           mediaLarge && data.view === 'home' && data.stage === 'home' &&
-          <div className={RECENT_CASES_STYLE}>
-            <a name="recent" />
+          <div className={RECENT_REQUESTS_CONTAINER_STYLE}>
             <RecentRequests store={store} />
           </div>
         }

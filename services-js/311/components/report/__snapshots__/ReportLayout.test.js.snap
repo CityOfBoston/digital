@@ -61,7 +61,27 @@ exports[`existing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-78jl5l"
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 0.6,
+        }
+      }
+    />
+  </div>
+  <div
+    className="mn mn--full mn--nv-s css-1qgporj"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -78,27 +98,7 @@ exports[`existing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-pmaldw": "",
-          }
-        }
-      >
-        <div
-          className={
-            Object {
-              "data-css-1k30xul": "",
-            }
-          }
-          style={
-            Object {
-              "opacity": 0.6,
-            }
-          }
-        />
-      </div>
-      <div
-        className={
-          Object {
-            "data-css-19tfmgz": "",
+            "data-css-1d2khtc": "",
           }
         }
       >
@@ -110,7 +110,7 @@ exports[`existing service page rendering 1`] = `
           }
         >
           <div
-            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
+            className="p-a300 p-a800--xl br br-t400 br--y css-o11364"
             style={Object {}}
           >
             <div>
@@ -446,7 +446,27 @@ exports[`existing service page rendering phone 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-78jl5l"
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 0.6,
+        }
+      }
+    />
+  </div>
+  <div
+    className="mn mn--full mn--nv-s css-1qgporj"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -463,27 +483,7 @@ exports[`existing service page rendering phone 1`] = `
       <div
         className={
           Object {
-            "data-css-pmaldw": "",
-          }
-        }
-      >
-        <div
-          className={
-            Object {
-              "data-css-1k30xul": "",
-            }
-          }
-          style={
-            Object {
-              "opacity": 0.6,
-            }
-          }
-        />
-      </div>
-      <div
-        className={
-          Object {
-            "data-css-19tfmgz": "",
+            "data-css-1d2khtc": "",
           }
         }
       >
@@ -495,7 +495,7 @@ exports[`existing service page rendering phone 1`] = `
           }
         >
           <div
-            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
+            className="p-a300 p-a800--xl br br-t400 br--y css-o11364"
             style={Object {}}
           >
             <div>
@@ -831,7 +831,27 @@ exports[`existing service page rendering phone location step 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-78jl5l"
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+  </div>
+  <div
+    className="mn mn--full mn--nv-s css-1qgporj"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -848,27 +868,7 @@ exports[`existing service page rendering phone location step 1`] = `
       <div
         className={
           Object {
-            "data-css-pmaldw": "",
-          }
-        }
-      >
-        <div
-          className={
-            Object {
-              "data-css-1k30xul": "",
-            }
-          }
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        />
-      </div>
-      <div
-        className={
-          Object {
-            "data-css-19tfmgz": "",
+            "data-css-1d2khtc": "",
           }
         }
       >
@@ -880,7 +880,7 @@ exports[`existing service page rendering phone location step 1`] = `
           }
         >
           <div
-            className="p-a300  br br-t400 br--y css-e5tq8c"
+            className="p-a300  br br-t400 br--y css-o11364"
             style={Object {}}
           >
             <div
@@ -1006,7 +1006,27 @@ exports[`missing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-78jl5l"
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 0.6,
+        }
+      }
+    />
+  </div>
+  <div
+    className="mn mn--full mn--nv-s css-1qgporj"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1023,27 +1043,7 @@ exports[`missing service page rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-pmaldw": "",
-          }
-        }
-      >
-        <div
-          className={
-            Object {
-              "data-css-1k30xul": "",
-            }
-          }
-          style={
-            Object {
-              "opacity": 0.6,
-            }
-          }
-        />
-      </div>
-      <div
-        className={
-          Object {
-            "data-css-19tfmgz": "",
+            "data-css-1d2khtc": "",
           }
         }
       >
@@ -1055,7 +1055,7 @@ exports[`missing service page rendering 1`] = `
           }
         >
           <div
-            className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
+            className="p-a300 p-a800--xl br br-t400 br--y css-o11364"
             style={Object {}}
           >
             <div
@@ -1136,7 +1136,27 @@ exports[`report form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-78jl5l"
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-1k30xul": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 0.6,
+        }
+      }
+    />
+  </div>
+  <div
+    className="mn mn--full mn--nv-s css-1qgporj"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1153,32 +1173,12 @@ exports[`report form rendering 1`] = `
       <div
         className={
           Object {
-            "data-css-pmaldw": "",
+            "data-css-1d2khtc": "",
           }
         }
       >
         <div
-          className={
-            Object {
-              "data-css-1k30xul": "",
-            }
-          }
-          style={
-            Object {
-              "opacity": 0.6,
-            }
-          }
-        />
-      </div>
-      <div
-        className={
-          Object {
-            "data-css-19tfmgz": "",
-          }
-        }
-      >
-        <div
-          className="p-a300 p-a800--xl br br-t400 br--y css-e5tq8c"
+          className="p-a300 p-a800--xl br br-t400 br--y css-o11364"
           style={Object {}}
         >
           <div>
@@ -1203,13 +1203,8 @@ exports[`report form rendering 1`] = `
                 className="g--7"
               >
                 <h3
-                  className="stp m-v300 css-17cwx2g"
+                  className="stp m-v100 css-17cwx2g"
                 >
-                  <span
-                    className="stp-number"
-                  >
-                    1
-                  </span>
                   Tell us your problem
                 </h3>
                 <textarea
@@ -1287,90 +1282,104 @@ exports[`report form rendering 1`] = `
       </div>
     </div>
     <div
-      className={
+      style={
         Object {
-          "data-css-1pfpfou": "",
+          "height": "auto",
         }
       }
     >
       <div
-        className={
-          Object {
-            "data-css-1lhxuny": "",
-          }
-        }
+        className="p-a500 g br br-t400 br--y css-zsl5qt "
       >
-        <a
-          className="p-a300 t--sans tt-u br css-shdobr"
-          href="#recent"
-          style={
-            Object {
-              "left": 80,
+        <form
+          acceptCharset="UTF-8"
+          action="/lookup"
+          className="sf sf--y sf--md g--5"
+          method="get"
+          onSubmit={[Function]}
+        >
+          <div
+            className="sf-i"
+          >
+            <input
+              className="sf-i-f"
+              name="q"
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="Search public reports…"
+              type="text"
+              value=""
+            />
+            <button
+              className="sf-i-b"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+        <div
+          className="g--2 ta-c"
+        >
+          <span
+            className="css-1ft9ufz br br-a200"
+          >
+            or
+          </span>
+        </div>
+        <div
+          className="g--5"
+        >
+          <div
+            className="t--sans t--upper"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Browse public reports
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "color": "#828282",
+                "fontStyle": "italic",
+              }
             }
-          }
-        >
-          Recent Cases
-        </a>
-        <a
-          className="p-a300 t--sans tt-u br css-10jqagp"
-          href="javascript:void(0)"
-          onClick={[Function]}
-        >
-          Live Chat Online
-        </a>
+          >
+            
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
     className={
       Object {
-        "data-css-1yc7ffu": "",
+        "data-css-jzbv74": "",
       }
     }
   >
-    <a
-      name="recent"
-    />
     <div
-      className="css-1t62idy"
-      style={Object {}}
+      className={
+        Object {
+          "data-css-shdobr": "",
+        }
+      }
     >
       <div
-        className={false}
-        style={Object {}}
+        className="p-a300"
       >
         <div
-          className="p-a300"
+          className="t--intro"
         >
-          <form
-            acceptCharset="UTF-8"
-            action="/lookup"
-            className="sf sf--y sf--md"
-            method="get"
-            onSubmit={[Function]}
-          >
-            <div
-              className="sf-i"
-            >
-              <input
-                className="sf-i-f"
-                name="q"
-                onInput={[Function]}
-                placeholder="Search recent cases…"
-                type="text"
-                value=""
-              />
-              <button
-                className="sf-i-b"
-              >
-                Search
-              </button>
-            </div>
-          </form>
+          No results found
         </div>
-        <hr
-          className="hr hr--dash"
-        />
+        <div
+          className="t--info"
+        >
+          Try a different search term or move the map to search a different area.
+        </div>
       </div>
     </div>
   </div>

@@ -61,8 +61,7 @@ export default function HomePane({ description, handleDescriptionChanged, topSer
 
       <div className="g m-t500">
         <div className="g--7">
-          <h3 className={`stp m-v300 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
-            <span className="stp-number">1</span>
+          <h3 className={`stp m-v100 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
             Tell us your problem
           </h3>
 

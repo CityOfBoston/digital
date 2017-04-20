@@ -3,7 +3,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import { MEDIA_LARGE, MEDIA_XX_LARGE } from '../style-constants';
+import { MEDIA_LARGE } from '../style-constants';
 
 export const MAX_WIDTH = 1300;
 
@@ -16,11 +16,8 @@ const DIALOG_STYLE = css({
   position: 'relative',
   transition: 'padding 250ms, max-width 250ms',
   [MEDIA_LARGE]: {
-    margin: '40px auto',
+    margin: '0 auto',
 
-  },
-  [MEDIA_XX_LARGE]: {
-    margin: '80px auto',
   },
 });
 

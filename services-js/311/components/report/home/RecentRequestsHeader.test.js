@@ -2,11 +2,12 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 
 import { AppStore } from '../../../data/store';
 import type { SearchRequest } from '../../../data/types';
 
-import RecentRequests from './RecentRequests';
+import RecentRequestsHeader from './RecentRequestsHeader';
 
 export const MOCK_REQUEST: SearchRequest = {
   id: '17-000000001',
@@ -35,7 +36,7 @@ describe('rendering', () => {
 
   test('results loaded', () => {
     const component = renderer.create(
-      <RecentRequests store={store} />,
+      <RecentRequestsHeader store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -45,9 +46,22 @@ describe('rendering', () => {
     store.requestSearch.selectedRequest = MOCK_REQUEST;
 
     const component = renderer.create(
-      <RecentRequests store={store} />,
+      <RecentRequestsHeader store={store} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
   });
+});
+
+test('searching', () => {
+  const store = new AppStore();
+
+  const wrapper = mount(
+    <RecentRequestsHeader store={store} />,
+  );
+
+  const inputWrapper = wrapper.find('input[type="text"]').first();
+  inputWrapper.simulate('change', { target: { value: 'Mewnir' } });
+  expect(inputWrapper.getDOMNode().value).toEqual('Mewnir');
+  expect(store.requestSearch.query).toEqual('Mewnir');
 });
