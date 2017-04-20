@@ -9,9 +9,10 @@ export type CaseTypePrediction = {
 };
 
 type CaseTypePredictionResponse = {
-  types: CaseTypePrediction[],
+  types: ?CaseTypePrediction[],
   // ISO 8601 date/time
-  created: string,
+  created: ?string,
+  message: ?string,
 };
 
 export default class Prediction {
@@ -58,7 +59,11 @@ export default class Prediction {
       transaction.end();
     }
 
-    const caseTypes = [...responseJson.types];
+    if (typeof responseJson.message === 'string') {
+      throw new Error(`Prediction error: ${responseJson.message}`);
+    }
+
+    const caseTypes = [...(responseJson.types || [])];
     caseTypes.sort((a, b) => b.probability - a.probability);
 
     return caseTypes.filter(({ probability }) => probability > threshold);

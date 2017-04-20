@@ -55,11 +55,18 @@ export default class HomeDialog extends React.Component {
   }
 
   suggestServices = debounce(async (description: string) => {
-    const suggestedServiceSummaries = await loadServiceSuggestions(this.props.loopbackGraphql, description);
+    try {
+      const suggestedServiceSummaries = await loadServiceSuggestions(this.props.loopbackGraphql, description);
 
-    runInAction('suggestServices result', () => {
-      this.suggestedServiceSummaries = suggestedServiceSummaries;
-    });
+      runInAction('suggestServices result', () => {
+        this.suggestedServiceSummaries = suggestedServiceSummaries;
+      });
+    } catch (e) {
+      runInAction('suggestServices error', () => {
+        this.suggestedServiceSummaries = [];
+      });
+      throw e;
+    }
   }, 500)
 
   @computed get topServiceSummaries(): ServiceSummary[] {
