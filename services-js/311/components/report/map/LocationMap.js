@@ -390,7 +390,7 @@ export default class LocationMap extends React.Component {
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
 
-    const neContainerPoint = { x: containerWidth, y: 0 };
+    const neContainerPoint = { x: containerWidth, y: requestSearch.searchHeaderHeight };
     const swContainerPoint = { x: requestSearch.resultsListWidth, y: containerHeight };
 
     const visibleBounds = L.latLngBounds([]);
@@ -398,7 +398,10 @@ export default class LocationMap extends React.Component {
     visibleBounds.extend(map.containerPointToLatLng(swContainerPoint));
 
     const visibleCenter = visibleBounds.getCenter();
-    const visibleEast = map.containerPointToLatLng({ x: containerWidth, y: containerHeight / 2 });
+    const visibleEast = map.containerPointToLatLng({
+      x: containerWidth,
+      y: neContainerPoint.y + ((swContainerPoint.y - neContainerPoint.y) / 2),
+    });
     const visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
 
     requestSearch.mapBounds = visibleBounds;
