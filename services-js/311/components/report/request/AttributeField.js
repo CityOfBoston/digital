@@ -3,11 +3,26 @@
 import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
+import { css } from 'glamor';
 import type Question from '../../../data/store/Question';
 
 export type Props = {
   question: Question;
 };
+
+const NUMERIC_FIELD_STYLE = css({
+  width: '6em',
+  textAlign: 'right',
+  MozAppearance: 'textfield',
+  '::-webkit-outer-spin-button': {
+    WebkitAppearance: 'none',
+    margin: 0,
+  },
+  '::-webkit-inner-spin-button': {
+    WebkitAppearance: 'none',
+    margin: 0,
+  },
+});
 
 // Returns either one or two lists. If list’s length is less than splitLength,
 // returns the entire list as the first element of an array. If list’s length
@@ -100,7 +115,7 @@ function renderNumberAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input type="number" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
+      <input type="number" name={question.code} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} />
     </label>
   );
 }
