@@ -26,6 +26,7 @@ const searchRequests: JestMockFn = (require('../../data/dao/search-requests'): a
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
+  description: 'Something is threatening the fabric of the universe',
 }];
 
 const MOCK_SERVICE: Service = {

@@ -193,7 +193,7 @@ exports[`rendering no suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              Remove dead animals from public property
+              
             </div>
           </a>
         </div>
@@ -251,7 +251,7 @@ exports[`rendering some suggested summaries 1`] = `
       <div
         className="t--info m-v300"
       >
-        We’ve matched these services to your problem.
+        We’ve matched these services to your problem. Pick one to continue.
       </div>
       <div
         className="m-v500"
@@ -290,7 +290,7 @@ exports[`rendering some suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              Remove dead animals from public property
+              Something is threatening the fabric of the universe
             </div>
           </a>
         </div>
@@ -337,7 +337,7 @@ exports[`rendering some suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              Remove dead animals from public property
+              
             </div>
           </a>
         </div>

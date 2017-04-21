@@ -15,20 +15,25 @@ export type Props = {
   suggestedServiceSummaries: ?ServiceSummary[],
 };
 
-function renderSummaryRow({ code, name }: { code: string, name: string }) {
+function renderSummaryRow({ code, name, description }: { code: string, name: string, description: ?string }) {
   return (
     <div className="dr" key={code}>
       <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className="dr-h">
         <div className="dr-ic" style={{ transform: 'translateY(-49%) rotateZ(-90deg)' }}><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25"><path className="dr-i" d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z" /></svg></div>
         <div className="dr-t">{name}</div>
-        <div className="dr-st">Remove dead animals from public property</div>
+        <div className="dr-st">{description}</div>
       </a></Link>
     </div>
   );
 }
 
 function renderGeneralRequestRow() {
-  return renderSummaryRow({ code: 'BOS311GEN', name: 'General Request' });
+  return renderSummaryRow({
+    code: 'BOS311GEN',
+    name: 'General Request',
+    // TODO(finh): Add something here
+    description: '',
+  });
 }
 
 function renderLoading() {
@@ -51,7 +56,7 @@ function renderSuggestions(suggestedServiceSummaries: ServiceSummary[]) {
   return (
     <div>
       <div className="t--info m-v300">
-        We’ve matched these services to your problem.
+        We’ve matched these services to your problem. Pick one to continue.
       </div>
 
       <div className="m-v500">

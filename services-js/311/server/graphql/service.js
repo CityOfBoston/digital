@@ -16,6 +16,7 @@ export const Schema = `
 type Service {
   code: String!
   name: String!
+  description: String
   attributes: [ServiceAttribute!]!
   locationRequired: Boolean!
   contactRequired: Boolean!

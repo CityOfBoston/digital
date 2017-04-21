@@ -1,4 +1,5 @@
 // @flow
+/* eslint camelcase: 0 */
 
 import type { Context } from '.';
 import type { Service } from '../services/Open311';
@@ -56,26 +57,13 @@ type RequestsPage = {
 };
 
 
-const SUGGESTION_NAME_MAP = {
-  'Needle Pickup': 'NEEDRMVL',
-  'Sidewalk Repair (Make Safe)': 'SDWRPR',
-  'Request for Snow Plowing': 'SNOWPLOW',
-  'Parking Enforcement': 'PKGCMP',
-  'Sign Repair': 'HPSREQ',
-  'Request for Pothole Repair': 'RDWYRPR',
-  'Pick up Dead Animal': 'PUDEADANML',
-};
-
-
 async function serviceSuggestions({ open311, prediction }: Context, { text, max, threshold }: SuggestionsArgs): Promise<Service[]> {
   const [suggestions, services] = await Promise.all([prediction.caseTypes(text, threshold || 0), open311.services()]);
 
   const matchedServices: Service[] = [];
   // "type" here is the name of the service
-  suggestions.forEach(({ type }) => {
-    const matchedService = services.find(({ service_name: serviceName, service_code: serviceCode }) => (
-      serviceName && (serviceName.toLowerCase() === type.toLowerCase() || serviceCode === SUGGESTION_NAME_MAP[type])
-    ));
+  suggestions.forEach(({ sf_type_id }) => {
+    const matchedService = services.find(({ service_code }) => service_code === sf_type_id);
     if (matchedService) {
       matchedServices.push(matchedService);
     }

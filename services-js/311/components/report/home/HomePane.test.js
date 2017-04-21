@@ -7,6 +7,7 @@ import HomePane from './HomePane';
 const SERVICE_SUMMARIES = [{
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
+  description: 'Something is threatening the fabric of the universe',
   hasMetadata: true,
   locationRequired: true,
 }];

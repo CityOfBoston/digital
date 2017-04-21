@@ -6,6 +6,7 @@ import HttpsProxyAgent from 'https-proxy-agent';
 export type CaseTypePrediction = {
   type: string,
   probability: number,
+  sf_type_id: string,
 };
 
 type CaseTypePredictionResponse = {

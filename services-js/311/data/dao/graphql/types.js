@@ -125,6 +125,7 @@ export type LoadServiceSuggestionsQuery = {
   servicesForDescription: Array< {
     name: string,
     code: string,
+    description: ?string,
   } >,
 };
 
@@ -132,6 +133,7 @@ export type LoadServiceSummariesQuery = {
   services: Array< {
     code: string,
     name: string,
+    description: ?string,
   } >,
 };
 
