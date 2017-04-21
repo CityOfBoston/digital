@@ -1,11 +1,10 @@
 // @flow
 
 import React from 'react';
-import { action, computed, observable, reaction, runInAction } from 'mobx';
+import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 import debounce from 'lodash/debounce';
-import sampleSize from 'lodash/sampleSize';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
@@ -91,12 +90,6 @@ export default class HomeDialog extends React.Component {
     }
   }, 500)
 
-  @computed get topServiceSummaries(): ServiceSummary[] {
-    const { store } = this.props;
-    // random sample now until we get this built
-    return sampleSize((store.serviceSummaries: any).peek(), 5);
-  }
-
   @action.bound
   handleDescriptionChanged(ev: SyntheticInputEvent) {
     const { store } = this.props;
@@ -134,7 +127,7 @@ export default class HomeDialog extends React.Component {
   renderHome() {
     const { store } = this.props;
     return (
-      <HomePane description={store.requestForm.description} handleDescriptionChanged={this.handleDescriptionChanged} topServiceSummaries={this.topServiceSummaries} />
+      <HomePane description={store.requestForm.description} handleDescriptionChanged={this.handleDescriptionChanged} topServiceSummaries={store.topServiceSummaries} />
     );
   }
 

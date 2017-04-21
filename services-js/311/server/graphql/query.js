@@ -25,6 +25,7 @@ type RequestsPage {
 
 type Query {
   services: [Service!]!
+  topServices: [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
   request(id: String!): Request
@@ -56,6 +57,13 @@ type RequestsPage = {
   totalPages: number,
 };
 
+const TOP_SERVICE_CODES = [
+  'PUDEADANML',
+  'ILGLDUMP',
+  'NEEDRMVL',
+  'ILGLPRKING',
+  'STCKRREQ',
+];
 
 async function serviceSuggestions({ open311, prediction }: Context, { text, max, threshold }: SuggestionsArgs): Promise<Service[]> {
   const [suggestions, services] = await Promise.all([prediction.caseTypes(text, threshold || 0), open311.services()]);
@@ -75,6 +83,9 @@ async function serviceSuggestions({ open311, prediction }: Context, { text, max,
 export const resolvers = {
   Query: {
     services: (root: mixed, args: mixed, { open311 }: Context): Promise<Service[]> => open311.services(),
+    topServices: async (root: mixed, args: mixed, { open311 }: Context): Promise<Service[]> => (
+      (await open311.services()).filter(({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1)
+    ),
     servicesForDescription: (root: mixed, args: SuggestionsArgs, context: Context): Promise<Service[]> => serviceSuggestions(context, args),
     service: (root: mixed, { code }: { code: string }, { open311 }: Context): Promise<?Service> => open311.service(code),
     request: (root: mixed, { id }: { id: string }, { open311 }: Context): Promise<?Request> => open311.request(id),

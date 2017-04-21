@@ -16,10 +16,11 @@ import ReportLayout from './ReportLayout';
 
 jest.mock('next/router');
 
-jest.mock('../../data/dao/load-service-summaries');
+jest.mock('../../data/dao/load-top-service-summaries');
 jest.mock('../../data/dao/load-service');
 jest.mock('../../data/dao/search-requests');
-const loadServiceSummaries: JestMockFn = (require('../../data/dao/load-service-summaries'): any).default;
+
+const loadTopServiceSummaries: JestMockFn = (require('../../data/dao/load-top-service-summaries'): any).default;
 const loadService: JestMockFn = (require('../../data/dao/load-service'): any).default;
 const searchRequests: JestMockFn = (require('../../data/dao/search-requests'): any).default;
 
@@ -74,7 +75,7 @@ describe('report form', () => {
   let data;
 
   beforeEach(async () => {
-    loadServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
+    loadTopServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
 
     const ctx = makeServerContext('/report');
     data = (await ReportLayout.getInitialProps(ctx)).data;
@@ -83,7 +84,7 @@ describe('report form', () => {
   test('getInitialProps', () => {
     switch (data.view) {
       case 'home':
-        expect(data.serviceSummaries).toHaveLength(1);
+        expect(data.topServiceSummaries).toHaveLength(1);
       default:
         expect(data.view).toEqual('home');
     }

@@ -5,7 +5,7 @@
 import type {
   LoadRequestQuery,
   LoadServiceQuery,
-  LoadServiceSummariesQuery,
+  LoadTopServiceSummariesQuery,
   SubmitRequestMutation,
   SearchRequestsQuery,
   ServiceAttributeDatatype,
@@ -13,7 +13,7 @@ import type {
   SearchAddressQuery,
 } from './dao/graphql/types';
 
-export type ServiceSummary = $ArrayElement<$PropertyType<LoadServiceSummariesQuery, 'services'>>;
+export type ServiceSummary = $ArrayElement<$PropertyType<LoadTopServiceSummariesQuery, 'topServices'>>;
 // HACK(finh): The above type has been flaky in Flow as recent as 0.41. Here's
 // the definition in case it needs to be used instead.
 // export type ServiceSummary = {

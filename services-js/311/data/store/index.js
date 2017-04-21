@@ -20,7 +20,7 @@ export class AppStore {
   ui: Ui = new Ui();
   browserLocation: BrowserLocation = new BrowserLocation();
 
-  @observable.shallow serviceSummaries: ServiceSummary[];
+  @observable.shallow topServiceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});
 
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;

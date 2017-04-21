@@ -1,0 +1,7 @@
+query LoadTopServiceSummaries {
+  topServices {
+    code
+    name
+    description
+  }
+}

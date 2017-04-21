@@ -29,6 +29,7 @@ type Place {
 
 type Query {
   services: [Service!]!
+  topServices: [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
   request(id: String!): Request

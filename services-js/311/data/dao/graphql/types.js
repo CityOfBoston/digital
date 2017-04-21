@@ -129,8 +129,8 @@ export type LoadServiceSuggestionsQuery = {
   } >,
 };
 
-export type LoadServiceSummariesQuery = {
-  services: Array< {
+export type LoadTopServiceSummariesQuery = {
+  topServices: Array< {
     code: string,
     name: string,
     description: ?string,

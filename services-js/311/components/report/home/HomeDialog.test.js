@@ -32,7 +32,7 @@ describe('integration', () => {
     debounce.mockImplementation((fn) => (...args) => Promise.resolve().then(fn.bind(null, ...args)));
 
     store = new AppStore();
-    store.serviceSummaries = [];
+    store.topServiceSummaries = [];
 
     loadServiceSuggestions.mockReturnValue(new Promise((resolve) => { resolveSuggestions = resolve; }));
     routeToServiceForm = jest.fn();

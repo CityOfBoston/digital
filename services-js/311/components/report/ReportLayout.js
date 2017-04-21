@@ -22,7 +22,7 @@ import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
-import loadServiceSummaries from '../../data/dao/load-service-summaries';
+import loadTopServiceSummaries from '../../data/dao/load-top-service-summaries';
 import loadService from '../../data/dao/load-service';
 
 import type { Service, ServiceSummary } from '../../data/types';
@@ -32,7 +32,7 @@ import type { AppStore } from '../../data/store';
 
 type HomeData = {
   view: 'home',
-  serviceSummaries: ServiceSummary[],
+  topServiceSummaries: ServiceSummary[],
   stage: 'home' | 'choose',
 };
 
@@ -106,7 +106,7 @@ export default class ReportLayout extends React.Component {
 
     return {
       view: 'home',
-      serviceSummaries: store.serviceSummaries || await loadServiceSummaries(loopbackGraphql),
+      topServiceSummaries: store.topServiceSummaries || await loadTopServiceSummaries(loopbackGraphql),
       stage: stage === 'choose' ? stage : 'home',
     };
   }
@@ -182,7 +182,7 @@ export default class ReportLayout extends React.Component {
 
     switch (data.view) {
       case 'home':
-        store.serviceSummaries = data.serviceSummaries;
+        store.topServiceSummaries = data.topServiceSummaries;
         store.currentService = null;
         break;
 
