@@ -4,7 +4,7 @@ exports[`methods submitRequest graphql failure 1`] = `
 <div
   className={
     Object {
-      "data-css-1ldikjo": "",
+      "data-css-12u9but": "",
     }
   }
 >
@@ -30,7 +30,7 @@ exports[`methods submitRequest success 1`] = `
 <div
   className={
     Object {
-      "data-css-1ldikjo": "",
+      "data-css-12u9but": "",
     }
   }
 >
@@ -55,7 +55,7 @@ exports[`methods submitRequest success 2`] = `
 <div
   className={
     Object {
-      "data-css-1ldikjo": "",
+      "data-css-12u9but": "",
     }
   }
 >
@@ -89,12 +89,12 @@ exports[`rendering contact 1`] = `
 <div
   className={
     Object {
-      "data-css-1ldikjo": "",
+      "data-css-12u9but": "",
     }
   }
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-cp2s60"
+    className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
     style={
       Object {
         "maxWidth": 800,
@@ -270,12 +270,12 @@ exports[`rendering location 1`] = `
 <div
   className={
     Object {
-      "data-css-14smo0c": "",
+      "data-css-polgp3": "",
     }
   }
 >
   <div
-    className="p-a300  br br-t400 br--y css-cp2s60"
+    className="p-a300  br br-t400 br--y css-182uick"
     style={Object {}}
   >
     <div
@@ -340,12 +340,12 @@ exports[`rendering questions 1`] = `
 <div
   className={
     Object {
-      "data-css-1ldikjo": "",
+      "data-css-12u9but": "",
     }
   }
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-cp2s60"
+    className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
     style={Object {}}
   >
     <div>

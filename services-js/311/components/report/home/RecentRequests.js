@@ -18,6 +18,12 @@ if (typeof window !== 'undefined') {
 
 const CONTAINER_STYLE = css({
   background: 'white',
+  // lets us scroll a full height without the footer coming up. There's actually
+  // a little slop because of the sticky header.
+  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+  position: 'relative',
+  width: '40%',
+  maxWidth: '35rem',
 });
 
 export type Props = {

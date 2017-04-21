@@ -14,7 +14,7 @@ const DIALOG_STYLE = css({
   width: '100%',
   background: 'white',
   position: 'relative',
-  transition: 'padding 250ms, max-width 250ms',
+  transition: 'max-width 250ms',
   [MEDIA_LARGE]: {
     margin: '2rem auto',
   },

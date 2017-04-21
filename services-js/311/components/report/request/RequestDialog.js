@@ -17,7 +17,7 @@ import submitRequest from '../../../data/dao/submit-request';
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
 
-import { MEDIA_LARGE } from '../../style-constants';
+import { MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
 import QuestionsPane from './QuestionsPane';
 import LocationPopUp from './LocationPopUp';
@@ -36,13 +36,10 @@ const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',
 };
 
-const CENTERED_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
-});
-
 const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
-    margin: '-30px 70% 0 20px',
+    margin: '-0px 70% 0 40px',
     minWidth: 400,
   },
 });
@@ -116,7 +113,7 @@ export default class RequestDialog extends React.Component {
 
   render() {
     const { stage } = this.props;
-    const dialogContainerStyle = stage === 'location' ? CORNER_DIALOG_STYLE : CENTERED_DIALOG_STYLE;
+    const dialogContainerStyle = stage === 'location' ? CORNER_DIALOG_STYLE : css(COMMON_DIALOG_STYLE, CENTERED_DIALOG_STYLE);
 
     return (
       <div className={dialogContainerStyle}>

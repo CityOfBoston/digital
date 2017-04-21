@@ -257,7 +257,7 @@ export default class LocationMap extends React.Component {
 
     if (map) {
       map.flyToBounds([[location.lat, location.lng], [location.lat, location.lng]], {
-        maxZoom: 17,
+        maxZoom: Math.max(17, map.getZoom()),
         paddingTopLeft: [mode === 'picker' ? 0 : store.requestSearch.resultsListWidth, 0],
       });
     }

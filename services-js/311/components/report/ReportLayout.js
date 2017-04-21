@@ -15,8 +15,6 @@ import Nav from '../common/Nav';
 import LocationMap from './map/LocationMap';
 import type { MapMode } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
-import RecentRequests from './home/RecentRequests';
-import RecentRequestsHeader from './home/RecentRequestsHeader';
 import RequestDialog from './request/RequestDialog';
 
 import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
@@ -53,42 +51,15 @@ export type Props = {
   store: AppStore,
 } & InitialProps;
 
+// This is the main container for content. We want to be at least full height on
+// large screens to push the footer down to where you need to scroll for it.
 const CONTAINER_STYLE = css({
   minHeight: 0,
   position: 'relative',
-  // allows sticky children of the container to overlap things below this
-  // container in the source
-  zIndex: 2,
+  justifyContent: 'flex-start',
   [MEDIA_LARGE]: {
     minHeight: '100vh',
   },
-});
-
-const CONTENT_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
-  position: 'relative',
-});
-
-// Puts a little spacing around the dialog, which has auto left/right margins.
-// Lets the map show through on large screens.
-const DIALONG_WRAPPER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
-  justifyContent: 'space-around',
-
-  [MEDIA_LARGE]: {
-    padding: '0 40px',
-  },
-});
-
-const RECENT_REQUESTS_CONTAINER_STYLE = css({
-  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
-  position: 'relative',
-  width: '40%',
-  maxWidth: '35rem',
 });
 
 const BACKGROUND_MAP_CONTAINER_STYLE = css({
@@ -186,17 +157,9 @@ export default class ReportLayout extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.store.requestSearch.start(this.loopbackGraphql);
-  }
-
   componentWillReceiveProps(props: Props) {
     this.updateStoreWithProps(props);
     this.setState({ locationMapActive: false });
-  }
-
-  componentWillUnmount() {
-    this.props.store.requestSearch.stop();
   }
 
   startChat = () => {
@@ -273,49 +236,42 @@ export default class ReportLayout extends React.Component {
       <div>
         <Nav activeSection="report" />
 
-        { mediaLarge &&
-          <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
-            <LocationMap
+        {/* Outer box needs to take up at least the screen size on desktop, so
+            that the content can center over the map and keep the footer from
+            encroaching up. */}
+        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
+          { mediaLarge &&
+            <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+              <LocationMap
+                store={store}
+                loopbackGraphql={this.loopbackGraphql}
+                mode={mapMode}
+                opacityRatio={this.mapActivationRatio}
+              />
+            </div>
+          }
+
+          { /* We can't put any wrappers around the dialogs below because in the
+               case of RequestDialog's location picker, it needs to make sure nothing
+               is overlapping the map so it can get clicks. */}
+
+          { data.view === 'home' &&
+            <HomeDialog
               store={store}
               loopbackGraphql={this.loopbackGraphql}
-              mode={mapMode}
-              opacityRatio={this.mapActivationRatio}
-            />
-          </div>
-        }
+              stage={data.stage}
+            /> }
 
-        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
-          <div className={CONTENT_STYLE}>
-            <div className={DIALONG_WRAPPER_STYLE}>
-              { data.view === 'home' &&
-                <HomeDialog
-                  store={store}
-                  loopbackGraphql={this.loopbackGraphql}
-                  stage={data.stage}
-                /> }
-              { data.view === 'request' &&
-                <RequestDialog
-                  store={store}
-                  stage={data.stage}
-                  loopbackGraphql={this.loopbackGraphql}
-                  routeToServiceForm={this.routeToServiceForm}
-                  setLocationMapActive={this.setLocationMapActive}
-                />}
-            </div>
-          </div>
-
-          {
-            mediaLarge && data.view === 'home' && data.stage === 'home' &&
-            <RecentRequestsHeader store={store} />
-          }
+          { data.view === 'request' &&
+            <RequestDialog
+              store={store}
+              stage={data.stage}
+              loopbackGraphql={this.loopbackGraphql}
+              routeToServiceForm={this.routeToServiceForm}
+              setLocationMapActive={this.setLocationMapActive}
+            />}
         </div>
 
-        {
-          mediaLarge && data.view === 'home' && data.stage === 'home' &&
-          <div className={RECENT_REQUESTS_CONTAINER_STYLE}>
-            <RecentRequests store={store} />
-          </div>
-        }
       </div>
     );
   }
