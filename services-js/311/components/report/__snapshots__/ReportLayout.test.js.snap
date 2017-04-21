@@ -41,6 +41,17 @@ exports[`existing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
           href="/lookup"
           onClick={[Function]}
         >
@@ -403,6 +414,17 @@ exports[`existing service page rendering phone 1`] = `
           onClick={[Function]}
         >
           Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
         </a>
       </li>
       <li
@@ -779,6 +801,17 @@ exports[`existing service page rendering phone location step 1`] = `
       >
         <a
           className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
           href="/lookup"
           onClick={[Function]}
         >
@@ -938,6 +971,17 @@ exports[`missing service page rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
           href="/lookup"
           onClick={[Function]}
         >
@@ -1045,6 +1089,17 @@ exports[`report form rendering 1`] = `
           onClick={[Function]}
         >
           Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
         </a>
       </li>
       <li
@@ -1207,7 +1262,8 @@ exports[`report form rendering 1`] = `
                     }
                   >
                     <a
-                      href="javasscript:void(0)"
+                      href="/services"
+                      onClick={[Function]}
                     >
                       See all services…
                     </a>

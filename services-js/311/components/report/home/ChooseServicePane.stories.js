@@ -12,6 +12,7 @@ const SERVICE_SUMMARIES = [
     description: 'Remove needles',
     hasMetadata: true,
     locationRequired: true,
+    group: null,
   },
   {
     name: 'Park Lighting Issues',
@@ -19,6 +20,7 @@ const SERVICE_SUMMARIES = [
     description: 'Light the park',
     hasMetadata: true,
     locationRequired: true,
+    group: null,
   },
   {
     name: 'Illegal Vending',
@@ -26,6 +28,7 @@ const SERVICE_SUMMARIES = [
     description: 'Vend illegally',
     hasMetadata: true,
     locationRequired: true,
+    group: null,
   },
   {
     name: 'Empty Litter Basket',
@@ -33,6 +36,7 @@ const SERVICE_SUMMARIES = [
     description: 'Empty a litter basket',
     hasMetadata: true,
     locationRequired: true,
+    group: null,
   },
   {
     name: 'Sidewalk Repair',
@@ -40,6 +44,7 @@ const SERVICE_SUMMARIES = [
     description: 'Sidewalk a repair',
     hasMetadata: true,
     locationRequired: true,
+    group: null,
   },
 ];
 

@@ -17,6 +17,7 @@ type Service {
   code: String!
   name: String!
   description: String
+  group: String
   attributes: [ServiceAttribute!]!
   locationRequired: Boolean!
   contactRequired: Boolean!

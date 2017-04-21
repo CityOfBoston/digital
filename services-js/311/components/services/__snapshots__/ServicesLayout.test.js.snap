@@ -1,0 +1,492 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<div
+  className="mn mn--nv-s"
+>
+  <nav
+    className="nv-s nv-s--y nv-s--sticky"
+  >
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
+    >
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/lookup"
+          onClick={[Function]}
+        >
+          Case look up
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="b b--g"
+  >
+    <div
+      className="b-c"
+    >
+      <div
+        className="sh sh--y"
+      >
+        <h2
+          className="sh-title"
+        >
+          All BOS:311 Services
+        </h2>
+      </div>
+      <div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Animals
+            </div>
+            <div
+              className="dr-st"
+            >
+              Pet Ownership, Problems with Animals, Rodents & Pests
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Business
+            </div>
+            <div
+              className="dr-st"
+            >
+              Certificates & Registrations, Licensing & Permitting, Complaints, Business with the City
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Education & Employment
+            </div>
+            <div
+              className="dr-st"
+            >
+              City Jobs, Schools, Library Resources, Internships & Volunteering
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Elections & Records
+            </div>
+            <div
+              className="dr-st"
+            >
+              Voting, Contact Elected Officials, Personal Records (e.g., Births, Deaths & Marriages)
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Garbage, Recycling & Graffiti
+            </div>
+            <div
+              className="dr-st"
+            >
+              Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Health, Safety & Social Services
+            </div>
+            <div
+              className="dr-st"
+            >
+              Crime, Fire Prevention & Control, Healthy Living & Inspections
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Housing, Property & Construction
+            </div>
+            <div
+              className="dr-st"
+            >
+              Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Parks & Trees
+            </div>
+            <div
+              className="dr-st"
+            >
+              Park Maintenance, Permits, Tree Planting, Donations
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Recreation, Entertainment & Event Planning
+            </div>
+            <div
+              className="dr-st"
+            >
+              Calendar, Event Permitting, Facility Request, Youth, Arts
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Taxes & Payments
+            </div>
+            <div
+              className="dr-st"
+            >
+              Real Estate Tax, Boat and Motor Vehicle Excise, Personal Property
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Transportation, Streets & Sidewalks
+            </div>
+            <div
+              className="dr-st"
+            >
+              Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance
+            </div>
+          </button>
+          <span />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            className="dr-h"
+            onClick={[Function]}
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <div
+              className="dr-t"
+            >
+              Utilities
+            </div>
+            <div
+              className="dr-st"
+            >
+              Water & Sewer, Electric, Gas, Heat
+            </div>
+          </button>
+          <span />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

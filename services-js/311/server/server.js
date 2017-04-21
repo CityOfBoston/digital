@@ -118,6 +118,12 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
+    path: '/services',
+    handler: nextHandler(app, '/services'),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/lookup',
     handler: nextHandler(app, '/lookup'),
   });

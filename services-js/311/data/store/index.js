@@ -10,6 +10,7 @@ import RequestForm from './RequestForm';
 import RequestSearch from './RequestSearch';
 import Ui from './Ui';
 import BrowserLocation from './BrowserLocation';
+import AllServices from './AllServices';
 
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
@@ -19,6 +20,7 @@ export class AppStore {
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
   browserLocation: BrowserLocation = new BrowserLocation();
+  allServices: AllServices = new AllServices();
 
   @observable.shallow topServiceSummaries: ServiceSummary[];
   serviceCache: Map<string, Service> = observable.shallowMap({});

@@ -3,5 +3,6 @@ query LoadServiceSuggestions($text: String!) {
     name
     code
     description
+    group
   }
 }

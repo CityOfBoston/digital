@@ -42,6 +42,17 @@ exports[`case not found rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
           className="nv-s-l-a nv-s-l-a--active"
           href="/lookup"
           onClick={[Function]}
@@ -193,6 +204,17 @@ exports[`case rendering 1`] = `
           onClick={[Function]}
         >
           Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
         </a>
       </li>
       <li
@@ -403,6 +425,17 @@ exports[`search form rendering 1`] = `
           onClick={[Function]}
         >
           Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
         </a>
       </li>
       <li

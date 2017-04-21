@@ -90,7 +90,8 @@ exports[`rendering existing description 1`] = `
         }
       >
         <a
-          href="javasscript:void(0)"
+          href="/services"
+          onClick={[Function]}
         >
           See all services…
         </a>

@@ -93,7 +93,7 @@ export default function HomePane({ description, handleDescriptionChanged, topSer
           )) }</ul>
 .
           <div className="t--info m-v300" style={{ textAlign: 'right' }}>
-            <a href="javasscript:void(0)">See all services…</a>
+            <Link href="/services"><a>See all services…</a></Link>
           </div>
         </div>
       </div>

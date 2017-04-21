@@ -43,6 +43,17 @@ exports[`rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          See all services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
           href="/lookup"
           onClick={[Function]}
         >

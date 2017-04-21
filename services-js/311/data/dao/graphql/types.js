@@ -126,6 +126,16 @@ export type LoadServiceSuggestionsQuery = {
     name: string,
     code: string,
     description: ?string,
+    group: ?string,
+  } >,
+};
+
+export type LoadServiceSummariesQuery = {
+  services: Array< {
+    code: string,
+    name: string,
+    description: ?string,
+    group: ?string,
   } >,
 };
 
@@ -134,6 +144,7 @@ export type LoadTopServiceSummariesQuery = {
     code: string,
     name: string,
     description: ?string,
+    group: ?string,
   } >,
 };
 
