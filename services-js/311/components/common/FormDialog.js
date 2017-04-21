@@ -16,8 +16,7 @@ const DIALOG_STYLE = css({
   position: 'relative',
   transition: 'padding 250ms, max-width 250ms',
   [MEDIA_LARGE]: {
-    margin: '0 auto',
-
+    margin: '2rem auto',
   },
 });
 
