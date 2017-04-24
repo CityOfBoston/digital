@@ -64,7 +64,7 @@ function renderSuggestions(suggestedServiceSummaries: ServiceSummary[]) {
       </div>
 
       <div className="t--info m-v300">
-        If none of those seem like they’ll help, you can submit a General Request.
+        If none of those seem like a good fit, you can submit a General Request.
       </div>
 
       <div className="m-v500">{renderGeneralRequestRow()}</div>

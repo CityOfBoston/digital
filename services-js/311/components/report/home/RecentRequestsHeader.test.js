@@ -21,7 +21,7 @@ export const MOCK_REQUEST: SearchRequest = {
     lat: 4,
     lng: 5,
   },
-  updatedAt: 1490804343,
+  updatedAt: ((+new Date()) / 1000) - (24 * 60 * 60),
   updatedAtRelativeString: '4 minutes ago',
   mediaUrl: null,
 };

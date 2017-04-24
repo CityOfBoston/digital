@@ -67,7 +67,7 @@ exports[`rendering results loaded 1`] = `
           }
         }
       >
-        1 cases in this area in the past 3 weeks
+        1 cases in this area in the past 24 hours
       </div>
     </div>
   </div>
@@ -141,7 +141,7 @@ exports[`rendering with request selected 1`] = `
           }
         }
       >
-        1 cases in this area in the past 3 weeks
+        1 cases in this area in the past 24 hours
       </div>
     </div>
   </div>
