@@ -12,15 +12,15 @@ export const DEFAULT_SERVICE: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
   attributes: [],
-  contactRequired: true,
-  locationRequired: true,
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
 };
 
 export const SERVICE_WITH_METADATA: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
-  contactRequired: true,
-  locationRequired: true,
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
   attributes: [{
     required: false,
     type: 'TEXT',
@@ -41,7 +41,7 @@ beforeEach(() => {
 
 test('blank request', () => {
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
@@ -51,7 +51,7 @@ test('existing description', () => {
   store.requestForm.description = 'Please pick up my bulk items. ';
 
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
@@ -61,7 +61,7 @@ test('service with metadata', () => {
   store.currentService = SERVICE_WITH_METADATA;
 
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} />,
+    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();

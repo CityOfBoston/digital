@@ -16,7 +16,8 @@ import type { AppStore } from '../../../data/store';
 
 export type Props = {
   store: AppStore,
-  nextFunc: () => void,
+  nextFunc: () => mixed,
+  nextIsSubmit: boolean,
 };
 
 const DROPZONE_STYLE = css({
@@ -103,7 +104,7 @@ export default class QuestionsPane extends React.Component {
   }
 
   render() {
-    const { store, nextFunc } = this.props;
+    const { store, nextFunc, nextIsSubmit } = this.props;
     const { currentService, requestForm: { description, questions, questionRequirementsMet } } = store;
 
     const questionsEls = [];
@@ -143,7 +144,7 @@ export default class QuestionsPane extends React.Component {
           <div className="g--9 t--info" style={{ textAlign: 'right' }}>
             {!questionRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
-          <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>Next</button>
+          <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
         </div>
       </div>
     );

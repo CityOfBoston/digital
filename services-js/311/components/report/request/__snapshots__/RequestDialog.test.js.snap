@@ -322,7 +322,14 @@ exports[`rendering location 1`] = `
       >
         <div
           className="g--6"
-        />
+        >
+          <a
+            href="javascript:void(0)"
+            onClick={[Function]}
+          >
+            Continue without location
+          </a>
+        </div>
         <button
           className="btn g--6"
           disabled={true}

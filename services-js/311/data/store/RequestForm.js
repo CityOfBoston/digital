@@ -6,6 +6,7 @@ import type { Service } from '../types';
 import Question from './Question';
 
 export class ContactInfo {
+  @observable ask: boolean = true;
   @observable required: boolean = false;
   @observable firstName: string = '';
   @observable lastName: string = '';
@@ -21,6 +22,7 @@ export class ContactInfo {
 }
 
 export class LocationInfo {
+  @observable ask: boolean = true;
   @observable required: boolean = false;
   @observable address: string = '';
   @observable.shallow location: ?{ lat: number, lng: number } = null;
@@ -48,8 +50,12 @@ export default class RequestForm {
     this.questions = [];
 
     if (service) {
-      this.contactInfo.required = service.contactRequired;
-      this.locationInfo.required = service.locationRequired;
+      this.contactInfo.required = service.contactRequirement === 'REQUIRED';
+      this.contactInfo.ask = service.contactRequirement !== 'HIDDEN';
+
+      this.locationInfo.required = service.locationRequirement === 'REQUIRED';
+      this.contactInfo.ask = service.contactRequirement !== 'HIDDEN';
+
       this.questions = Question.buildQuestions(service.attributes);
     }
   }

@@ -24,11 +24,13 @@ storiesOf('QuestionsPane', module)
   <QuestionsPane
     store={makeStore(DEFAULT_SERVICE)}
     nextFunc={action('Next Step')}
+    nextIsSubmit
   />
 ))
 .add('With Metadata', () => (
   <QuestionsPane
     store={makeStore(SERVICE_WITH_METADATA)}
     nextFunc={action('Next Step')}
+    nextIsSubmit={false}
   />
 ));

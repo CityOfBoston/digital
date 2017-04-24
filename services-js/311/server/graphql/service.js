@@ -13,12 +13,20 @@ import type {
 import type { Context } from '.';
 
 export const Schema = `
+enum MetadataRequirement {
+  REQUIRED
+  VISIBLE
+  HIDDEN
+}
+
 type Service {
   code: String!
   name: String!
   description: String
   group: String
   attributes: [ServiceAttribute!]!
+  locationRequirement: MetadataRequirement!
+  contactRequirement: MetadataRequirement!
   locationRequired: Boolean!
   contactRequired: Boolean!
 }
@@ -162,13 +170,45 @@ const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => asyn
   cb(s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null)
 );
 
+type MetadataRequirement = 'REQUIRED' | 'VISIBLE' | 'HIDDEN';
+
+function resolveMetadataRequirement(metadata: ?ServiceMetadata, definitionKey: string, requiredKey: string): MetadataRequirement {
+  if (!metadata) {
+    return 'VISIBLE';
+  }
+
+  const { definitions } = metadata;
+  if (!definitions) {
+    return 'VISIBLE';
+  }
+
+  const definition: ?{ required: boolean, visible: boolean } = definitions[definitionKey];
+  const required: ?boolean = definitions[requiredKey];
+
+  if (definition) {
+    if (definition.required) {
+      return 'REQUIRED';
+    } else if (definition.visible) {
+      return 'VISIBLE';
+    } else {
+      return 'HIDDEN';
+    }
+  } else if (required) {
+    return 'REQUIRED';
+  } else {
+    return 'VISIBLE';
+  }
+}
+
 export const resolvers = {
   Service: {
     code: (s: Root) => s.service_code,
     name: (s: Root) => s.service_name || '',
     attributes: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])),
-    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.location_required : true)),
-    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata && metadata.definitions ? metadata.definitions.contact_required : true)),
+    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'location', 'location_required') === 'REQUIRED'),
+    locationRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'location', 'location_required')),
+    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'reporter', 'contact_required') === 'REQUIRED'),
+    contactRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'reporter', 'contact_required')),
   },
 
   ServiceAttribute: {

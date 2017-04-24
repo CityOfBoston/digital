@@ -64,25 +64,58 @@ export default class RequestDialog extends React.Component {
     }
   }
 
-  nextAfterQuestions = () => {
+  makeNextAfterQuestions(): { fn: () => mixed, isSubmit: boolean } {
+    const { store: { requestForm } } = this.props;
+
+    if (requestForm.locationInfo.ask) {
+      return {
+        fn: this.routeToLocation,
+        isSubmit: false,
+      };
+    } else if (requestForm.contactInfo.ask) {
+      return {
+        fn: this.routeToContact,
+        isSubmit: false,
+      };
+    } else {
+      return {
+        fn: this.submitRequest,
+        isSubmit: true,
+      };
+    }
+  }
+
+  makeNextAfterLocation(): { fn: () => mixed, isSubmit: boolean } {
+    const { store: { requestForm } } = this.props;
+
+    if (requestForm.contactInfo.ask) {
+      return {
+        fn: this.routeToContact,
+        isSubmit: false,
+      };
+    } else {
+      return {
+        fn: this.submitRequest,
+        isSubmit: true,
+      };
+    }
+  }
+
+  routeToLocation = () => {
     const { store: { currentService }, routeToServiceForm } = this.props;
     if (currentService) {
       routeToServiceForm(currentService.code, 'location');
     }
   }
 
-  nextAfterLocation = () => {
+  routeToContact = () => {
     const { store: { currentService }, routeToServiceForm } = this.props;
     if (currentService) {
       routeToServiceForm(currentService.code, 'contact');
     }
   }
 
-  nextAfterContact = () => {
-    this.submitRequest();
-  }
-
-  @action
+  @action.bound
   submitRequest(): Promise<mixed> {
     const { store, loopbackGraphql, routeToServiceForm } = this.props;
     const { currentService, requestForm } = store;
@@ -175,14 +208,18 @@ export default class RequestDialog extends React.Component {
     }
 
     switch (stage) {
-      case 'questions':
-        return <QuestionsPane store={store} nextFunc={this.nextAfterQuestions} />;
+      case 'questions': {
+        const { fn, isSubmit } = this.makeNextAfterQuestions();
+        return <QuestionsPane store={store} nextFunc={fn} nextIsSubmit={isSubmit} />;
+      }
 
-      case 'location':
-        return <LocationPopUp store={store} nextFunc={this.nextAfterLocation} loopbackGraphql={loopbackGraphql} />;
+      case 'location': {
+        const { fn, isSubmit } = this.makeNextAfterLocation();
+        return <LocationPopUp store={store} nextFunc={fn} nextIsSubmit={isSubmit} loopbackGraphql={loopbackGraphql} />;
+      }
 
       case 'contact':
-        return <ContactPane store={store} nextFunc={this.nextAfterContact} />;
+        return <ContactPane store={store} nextFunc={this.submitRequest} />;
 
       case 'submit':
         if (!requestSubmission) {

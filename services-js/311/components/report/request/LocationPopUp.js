@@ -29,7 +29,8 @@ const MAP_CONTAINER_STYLE = css({
 export type Props = {
   store: AppStore,
   loopbackGraphql: LoopbackGraphql,
-  nextFunc: () => void,
+  nextFunc: () => mixed,
+  nextIsSubmit: boolean,
 }
 
 @observer
@@ -89,7 +90,7 @@ export default class LocationPopUp extends React.Component {
   }
 
   render() {
-    const { store: { requestForm }, nextFunc } = this.props;
+    const { store: { requestForm }, nextFunc, nextIsSubmit } = this.props;
     const { address, requirementsMet, required } = requestForm.locationInfo;
 
     return (
@@ -120,7 +121,7 @@ export default class LocationPopUp extends React.Component {
           <div className="g--6">
             { !required && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
           </div>
-          <button className="btn g--6" disabled={!requirementsMet} onClick={nextFunc}>Next</button>
+          <button className="btn g--6" disabled={!requirementsMet} onClick={nextFunc}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
         </div>
       </div>
     );

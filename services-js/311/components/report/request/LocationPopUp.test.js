@@ -14,6 +14,7 @@ const searchAddress: JestMockFn = (require('../../../data/dao/search-address'): 
 const ACTIONS = {
   loopbackGraphql: jest.fn(),
   nextFunc: jest.fn(),
+  nextIsSubmit: false,
 };
 
 describe('rendering', () => {

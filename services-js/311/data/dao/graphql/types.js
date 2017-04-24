@@ -1,6 +1,12 @@
 /* @flow */
 //  This file was automatically generated and should not be edited.
 
+export type MetadataRequirement =
+  "REQUIRED" |
+  "VISIBLE" |
+  "HIDDEN";
+
+
 export type ServiceAttributeDatatype =
   "BOOLEAN_CHECKBOX" |
   "INFORMATIONAL" |
@@ -70,8 +76,8 @@ export type LoadServiceQuery = {
   service: ? {
     name: string,
     code: string,
-    contactRequired: boolean,
-    locationRequired: boolean,
+    contactRequirement: MetadataRequirement,
+    locationRequirement: MetadataRequirement,
     attributes: Array< {
       required: boolean,
       type: ServiceAttributeDatatype,

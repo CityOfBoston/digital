@@ -2,8 +2,8 @@ query LoadService($code: String!) {
   service(code: $code) {
     name
     code
-    contactRequired
-    locationRequired
+    contactRequirement
+    locationRequirement
     attributes {
       required
       type

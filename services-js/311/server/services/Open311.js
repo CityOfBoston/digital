@@ -59,8 +59,16 @@ export type ServiceMetadata = {|
   service_code: string,
   attributes: ServiceMetadataAttribute[],
   definitions: ?{|
-    location_required: boolean,
-    contact_required: boolean,
+    location_required?: boolean,
+    contact_required?: boolean,
+    location?: {|
+      required: boolean,
+      visible: boolean,
+    |},
+    reporter?: {|
+      required: boolean,
+      visible: boolean,
+    |},
   |}
 |}
 
@@ -173,11 +181,15 @@ export default class Open311 {
           additionalPath = `${process.env['311_METADATA_PATH']}/`;
         }
 
-        const response = await fetch(this.url(`services/${additionalPath}${code}.json?${params.toString()}`), {
-          agent: this.agent,
-        });
+        try {
+          const response = await fetch(this.url(`services/${additionalPath}${code}.json?${params.toString()}`), {
+            agent: this.agent,
+          });
 
-        return processResponse(response);
+          return await processResponse(response);
+        } catch (e) {
+          throw new Error(`Error loading metadata for ${code}: ${e.toString()}`);
+        }
       }));
 
       if (transaction) {

@@ -18,6 +18,12 @@ input LatLngIn {
   lng: Float!
 }
 
+enum MetadataRequirement {
+  REQUIRED
+  VISIBLE
+  HIDDEN
+}
+
 type Mutation {
   createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, mediaUrl: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
 }
@@ -66,6 +72,8 @@ type Service {
   description: String
   group: String
   attributes: [ServiceAttribute!]!
+  locationRequirement: MetadataRequirement!
+  contactRequirement: MetadataRequirement!
   locationRequired: Boolean!
   contactRequired: Boolean!
 }

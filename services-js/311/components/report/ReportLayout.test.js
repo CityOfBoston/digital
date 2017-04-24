@@ -34,8 +34,8 @@ const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
-  contactRequired: true,
-  locationRequired: true,
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
   attributes: [{
     required: false,
     type: 'TEXT',

@@ -14,8 +14,8 @@ const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
-  contactRequired: true,
-  locationRequired: true,
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
   attributes: [{
     required: false,
     type: 'TEXT',
@@ -106,19 +106,13 @@ describe('methods', () => {
 
   describe('navigation', () => {
     test('nextAfterQuestions', () => {
-      requestDialog.nextAfterQuestions();
+      requestDialog.routeToLocation();
       expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'location');
     });
 
     test('nextAfterLocation', () => {
-      requestDialog.nextAfterLocation();
+      requestDialog.routeToContact();
       expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'contact');
-    });
-
-    test('nextAfterContact', () => {
-      requestDialog.submitRequest = jest.fn();
-      requestDialog.nextAfterContact();
-      expect(requestDialog.submitRequest).toHaveBeenCalledWith();
     });
   });
 

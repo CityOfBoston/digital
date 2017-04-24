@@ -8,6 +8,7 @@ import { AppStore } from '../../../data/store';
 
 const props = {
   nextFunc: action('Next'),
+  nextIsSubmit: true,
   loopbackGraphql: ({}: any),
 };
 
