@@ -85,9 +85,12 @@ describe('methods', () => {
   let wrapper;
   let store;
   let requestDialog;
+  let loopbackGraphql;
   const routeToServiceForm = jest.fn();
 
   beforeEach(() => {
+    loopbackGraphql = jest.fn();
+
     store = new AppStore();
     store.currentService = MOCK_SERVICE;
 
@@ -96,7 +99,7 @@ describe('methods', () => {
         store={store}
         stage="submit"
         locationMapSearch={jest.fn()}
-        loopbackGraphql={jest.fn()}
+        loopbackGraphql={loopbackGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
       />);
@@ -144,6 +147,10 @@ describe('methods', () => {
         mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
       };
 
+      expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
+        contactInfo: null,
+      }));
+
       resolveGraphql(result);
 
       await submission;
@@ -154,6 +161,14 @@ describe('methods', () => {
 
       expect(store.requestForm.description).toEqual('');
       expect(store.requestForm.mediaUrl).toEqual('');
+    });
+
+    test('success with contact info', async () => {
+      requestDialog.submitRequest(true);
+
+      expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
+        contactInfo: store.requestForm.contactInfo,
+      }));
     });
 
     test('graphql failure', async () => {

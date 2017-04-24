@@ -231,6 +231,27 @@ exports[`rendering contact 1`] = `
             value=""
           />
         </label>
+        <div
+          className="m-v500"
+        >
+          <label
+            className="cb"
+          >
+            <input
+              checked={false}
+              className="cb-f"
+              name="remember"
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+            <span
+              className="cb-l"
+            >
+              Remember contact info on this computer
+            </span>
+          </label>
+        </div>
       </div>
       <div
         className="g m-v500 css-1k8tu3j"

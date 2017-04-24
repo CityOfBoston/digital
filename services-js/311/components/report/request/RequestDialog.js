@@ -116,7 +116,7 @@ export default class RequestDialog extends React.Component {
   }
 
   @action.bound
-  submitRequest(): Promise<mixed> {
+  submitRequest(withContactInfo: boolean = false): Promise<mixed> {
     const { store, loopbackGraphql, routeToServiceForm } = this.props;
     const { currentService, requestForm } = store;
     const { contactInfo, locationInfo, description, questions, mediaUrl } = requestForm;
@@ -128,7 +128,11 @@ export default class RequestDialog extends React.Component {
     const promise = submitRequest(loopbackGraphql, {
       service: currentService,
       description,
-      contactInfo,
+      // We only send contact info with an affirmative boolean that's set by
+      // the ContactPane form's submit button. That way contact info that was
+      // loaded by localStorage won't be pushed to the server if the user didn't
+      // see the contact info form or chose "submit without sending contact info"
+      contactInfo: withContactInfo ? contactInfo : null,
       locationInfo,
       questions,
       mediaUrl,

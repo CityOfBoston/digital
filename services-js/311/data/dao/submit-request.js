@@ -10,7 +10,7 @@ import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
 type Args = {|
   service: Service,
   description: string,
-  contactInfo: ContactInfo,
+  contactInfo: ?ContactInfo,
   locationInfo: LocationInfo,
   questions: Question[],
   mediaUrl: string,
@@ -48,10 +48,10 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   const vars: SubmitRequestMutationVariables = {
     code: service.code,
     description,
-    firstName: contactInfo.firstName,
-    lastName: contactInfo.lastName,
-    email: contactInfo.email,
-    phone: contactInfo.phone,
+    firstName: contactInfo ? contactInfo.firstName : '',
+    lastName: contactInfo ? contactInfo.lastName : '',
+    email: contactInfo ? contactInfo.email : '',
+    phone: contactInfo ? contactInfo.phone : '',
     location: locationInfo.location,
     address: locationInfo.address,
     mediaUrl,

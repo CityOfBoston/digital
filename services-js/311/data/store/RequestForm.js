@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action, autorunAsync } from 'mobx';
 
 import type { Service } from '../types';
 import Question from './Question';
@@ -13,11 +13,41 @@ export class ContactInfo {
   @observable email: string = '';
   @observable phone: string = '';
 
+  @observable rememberInfo: boolean = false;
+
+  constructor() {
+    if (this.canRememberInfo) {
+      this.rememberInfo = localStorage.getItem('ContactInfo.firstName') != null;
+      this.firstName = localStorage.getItem('ContactInfo.firstName') || '';
+      this.lastName = localStorage.getItem('ContactInfo.lastName') || '';
+      this.email = localStorage.getItem('ContactInfo.email') || '';
+      this.phone = localStorage.getItem('ContactInfo.phone') || '';
+
+      autorunAsync('remember contact info', () => {
+        if (this.rememberInfo) {
+          localStorage.setItem('ContactInfo.firstName', this.firstName);
+          localStorage.setItem('ContactInfo.lastName', this.lastName);
+          localStorage.setItem('ContactInfo.email', this.email);
+          localStorage.setItem('ContactInfo.phone', this.phone);
+        } else {
+          localStorage.removeItem('ContactInfo.firstName');
+          localStorage.removeItem('ContactInfo.lastName');
+          localStorage.removeItem('ContactInfo.email');
+          localStorage.removeItem('ContactInfo.phone');
+        }
+      }, 250);
+    }
+  }
+
   // can be false even when required is false to differentiate between submitting
   // and skipping
   @computed
   get requirementsMet(): boolean {
     return !!(this.firstName && this.lastName && this.email);
+  }
+
+  @computed get canRememberInfo(): boolean {
+    return typeof localStorage !== 'undefined';
   }
 }
 
@@ -29,8 +59,7 @@ export class LocationInfo {
 
   // can be false even when required is false to differentiate between submitting
   // and skipping
-  @computed
-  get requirementsMet(): boolean {
+  @computed get requirementsMet(): boolean {
     return this.address.length > 0;
   }
 }
