@@ -1,3 +1,4 @@
+// @flow
 declare var liveagent: {
   // Must be called before window.load event
   init: (chatUrl: string, orgId: string, deploymentId: string) => void,

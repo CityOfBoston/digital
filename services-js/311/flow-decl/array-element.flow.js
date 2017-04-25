@@ -1,3 +1,4 @@
+// @flow
 /* eslint no-unused-vars: 0 */
 
 // Flow type to pull the element type out of an Array. Useful for when
