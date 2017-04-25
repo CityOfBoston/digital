@@ -5,6 +5,8 @@ import { action, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
+import type { AppStore } from '../../../data/store';
+
 import { HEADER_HEIGHT } from '../../style-constants';
 
 let Velocity;
@@ -38,8 +40,14 @@ const OR_CIRCLE_STYLE = css({
   color: '#828282',
 });
 
+type Props = {|
+  store: AppStore,
+|}
+
 @observer
 export default class RecentRequestsHeader extends React.Component {
+  props: Props;
+
   @observable containerEl: ?HTMLElement = null;
   @observable contentEl: ?HTMLElement = null;
 
@@ -97,7 +105,7 @@ export default class RecentRequestsHeader extends React.Component {
     }
 
     const containerBounds = containerEl.getBoundingClientRect();
-    return store.ui.scrollY && containerBounds.top <= HEADER_HEIGHT;
+    return !!store.ui.scrollY && containerBounds.top <= HEADER_HEIGHT;
   }
 
   @computed get containerHeight(): string | number {
@@ -113,7 +121,7 @@ export default class RecentRequestsHeader extends React.Component {
   @computed get isSearchNearYou(): boolean {
     const { store: { requestSearch, browserLocation } } = this.props;
 
-    return browserLocation.location && requestSearch.mapCenter &&
+    return !!browserLocation.location && !!requestSearch.mapCenter &&
       requestSearch.radiusKm < 0.5 &&
       (Math.abs(browserLocation.location.lat - requestSearch.mapCenter.lat) < 0.005) &&
       (Math.abs(browserLocation.location.lng - requestSearch.mapCenter.lng) < 0.005);

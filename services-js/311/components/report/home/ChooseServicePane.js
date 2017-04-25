@@ -9,11 +9,11 @@ import type { ServiceSummary } from '../../../data/types';
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 
-export type Props = {
+export type Props = {|
   description: string,
   handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
   suggestedServiceSummaries: ?ServiceSummary[],
-};
+|};
 
 function renderSummaryRow({ code, name, description }: { code: string, name: string, description: ?string }) {
   return (

@@ -24,13 +24,13 @@ import LocationPopUp from './LocationPopUp';
 import ContactPane from './ContactPane';
 import SubmitPane from './SubmitPane';
 
-type Props = {
+type Props = {|
   store: AppStore,
   stage: 'questions' | 'location' | 'contact' | 'submit',
   loopbackGraphql: LoopbackGraphql,
   routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
-}
+|}
 
 const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',

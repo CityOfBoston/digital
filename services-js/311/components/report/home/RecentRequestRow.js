@@ -57,11 +57,11 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
   backgroundColor: '#F6A623',
 });
 
-export type Props = {
+export type Props = {|
   request: SearchRequest,
   requestSearch: RequestSearch,
   ui: Ui,
-};
+|};
 
 @observer
 export default class RecentRequestRow extends React.Component {

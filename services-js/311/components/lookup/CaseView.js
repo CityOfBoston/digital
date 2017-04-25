@@ -9,11 +9,11 @@ import type { Request } from '../../data/types';
 import SectionHeader from '../common/SectionHeader';
 import SearchForm from './SearchForm';
 
-export type Props = {
+export type Props = {|
   query: string,
   request: ?Request,
   searchFunc: (q: string) => Promise<void>,
-}
+|}
 
 const CONTAINER_STYLE = css({
   padding: '60px 100px',

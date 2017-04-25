@@ -26,12 +26,12 @@ const MAP_CONTAINER_STYLE = css({
   height: '50vh',
 });
 
-export type Props = {
+export type Props = {|
   store: AppStore,
   loopbackGraphql: LoopbackGraphql,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
-}
+|}
 
 @observer
 export default class LocationPopUp extends React.Component {

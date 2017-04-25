@@ -6,9 +6,9 @@ import { observer } from 'mobx-react';
 import { css } from 'glamor';
 import type Question from '../../../data/store/Question';
 
-export type Props = {
+export type Props = {|
   question: Question;
-};
+|};
 
 const NUMERIC_FIELD_STYLE = css({
   width: '6em',

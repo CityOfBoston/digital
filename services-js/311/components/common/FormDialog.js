@@ -20,12 +20,12 @@ const DIALOG_STYLE = css({
   },
 });
 
-type Props = {
+type Props = {|
   narrow?: boolean,
   popup?: boolean,
   noPadding?: boolean,
   children?: any
-}
+|}
 
 export default function FormDialog({ narrow, popup, noPadding, children }: Props = { popup: false, narrow: false, noPadding: false, children: null }) {
   const style = {};

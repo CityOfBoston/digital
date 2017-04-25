@@ -7,15 +7,15 @@ import SectionHeader from '../../common/SectionHeader';
 
 import type { SubmittedRequest } from '../../../data/types';
 
-export type Props = {
+export type Props = {|
   state: 'submitting',
-} | {
+|} | {|
   state: 'error',
   error: Object,
-} | {
+|} | {|
   state: 'success',
   submittedRequest: SubmittedRequest,
-};
+|};
 
 const GRID_OVERRIDE_STYLE = css({
   alignItems: 'flex-start',

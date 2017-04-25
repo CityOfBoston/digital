@@ -34,11 +34,11 @@ const SERVICE_PICKER_STYLE = css({
   },
 });
 
-export type Props = {
+export type Props = {|
   description: string,
   handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
   topServiceSummaries: ServiceSummary[],
-}
+|}
 
 // Button handler rather than a link so we can disable it and because it
 // leads to a page that doesn't (currently?) accept GET requests.

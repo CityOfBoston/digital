@@ -10,8 +10,8 @@ storiesOf('FormDialog', module)
       <SectionHeader>311: Boston City Services</SectionHeader>
     </FormDialog>
   ))
-  .add('Small Dialog', () => (
-    <FormDialog small>
+  .add('Narrow Dialog', () => (
+    <FormDialog narrow>
       <SectionHeader>311: Boston City Services</SectionHeader>
     </FormDialog>
   ));

@@ -14,14 +14,14 @@ const CONTAINER_STYLE = css({
   paddingBottom: 200,
 });
 
-export type Props = {
-  fromCaseView?: boolean,
-  searchFunc: (q: string) => Promise<void>,
-};
-
-export type DefaultProps = {
+export type DefaultProps = {|
   fromCaseView: boolean,
-}
+|}
+
+export type Props = {|
+  /* :: ...DefaultProps, */
+  searchFunc: (q: string) => Promise<void>,
+|};
 
 @observer
 export default class SearchForm extends React.Component {

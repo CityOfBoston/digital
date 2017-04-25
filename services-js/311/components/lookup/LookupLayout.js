@@ -15,19 +15,19 @@ import type { Request } from '../../data/types';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import loadRequest from '../../data/dao/load-request';
 
-type SearchData = {
+type SearchData = {|
   view: 'search',
-}
+|}
 
-type CaseData = {
+type CaseData = {|
   view: 'case',
   query: string,
   request: ?Request,
-}
+|}
 
-export type InitialProps = {
+export type InitialProps = {|
   data: SearchData | CaseData,
-};
+|};
 
 export default class LookupLayout extends React.Component {
   static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {

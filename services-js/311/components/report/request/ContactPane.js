@@ -16,10 +16,10 @@ const BOTTOM_ROW_STYLE = css({
   alignItems: 'center',
 });
 
-export type Props = {
+export type Props = {|
   store: AppStore,
   nextFunc: (contactInfo: ?boolean) => void,
-}
+|}
 
 function renderRequired() {
   return <span className="t--req">Required</span>;

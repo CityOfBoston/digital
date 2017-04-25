@@ -35,13 +35,12 @@ export type MapMode = 'inactive' | 'requests' | 'picker';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
 
-export type Props = {
+export type Props = {|
   mode: MapMode,
   store: AppStore,
   opacityRatio: number,
-  // eslint-disable-next-line react/no-unused-prop-types
   loopbackGraphql: LoopbackGraphql,
-};
+|};
 
 let L: ?LWithMapbox = null;
 if (process.browser) {

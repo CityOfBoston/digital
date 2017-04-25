@@ -4,9 +4,9 @@ import React from 'react';
 
 import Link from 'next/link';
 
-export type Props = {
+export type Props = {|
   activeSection: 'report' | 'services' | 'lookup' | 'faq',
-}
+|}
 
 function renderNavItem({ href, as, title }, active) {
   return (

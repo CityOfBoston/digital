@@ -30,26 +30,27 @@ import type { Service, ServiceSummary } from '../../data/types';
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
 
-type HomeData = {
+type HomeData = {|
   view: 'home',
   topServiceSummaries: ServiceSummary[],
   stage: 'home' | 'choose',
-};
+|};
 
-type RequestData = {
+type RequestData = {|
   view: 'request',
   code: string,
   service: ?Service,
   stage: 'questions' | 'location' | 'contact' | 'submit',
-};
+|};
 
-export type InitialProps = {
+export type InitialProps = {|
   data: HomeData | RequestData,
-};
+|};
 
-export type Props = {
+export type Props = {|
   store: AppStore,
-} & InitialProps;
+  /* :: ...InitialProps, */
+|};
 
 // This is the main container for content. We want to be at least full height on
 // large screens to push the footer down to where you need to scroll for it.

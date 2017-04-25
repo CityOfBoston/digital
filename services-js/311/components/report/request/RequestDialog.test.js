@@ -46,9 +46,7 @@ const MOCK_SERVICE: Service = {
 const MOCK_ACTIONS = {
   loopbackGraphql: jest.fn(),
   routeToServiceForm: jest.fn(),
-  resetRequestForService: jest.fn(),
   setLocationMapActive: jest.fn(),
-  locationMapSearch: jest.fn(),
 };
 
 describe('rendering', () => {
@@ -98,7 +96,6 @@ describe('methods', () => {
       <RequestDialog
         store={store}
         stage="submit"
-        locationMapSearch={jest.fn()}
         loopbackGraphql={loopbackGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}

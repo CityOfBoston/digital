@@ -93,7 +93,7 @@ describe('report form', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <ReportLayout store={store} data={data} apiKeys={null} />,
+      <ReportLayout store={store} data={data} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

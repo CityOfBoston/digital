@@ -26,9 +26,9 @@ const CONTAINER_STYLE = css({
   maxWidth: '35rem',
 });
 
-export type Props = {
+export type Props = {|
   store: AppStore,
-}
+|}
 
 @observer
 export default class RecentRequests extends React.Component {

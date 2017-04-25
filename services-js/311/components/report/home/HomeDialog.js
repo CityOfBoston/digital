@@ -20,12 +20,11 @@ import ChooseServicePane from './ChooseServicePane';
 import RecentRequestsHeader from './RecentRequestsHeader';
 import RecentRequests from './RecentRequests';
 
-export type Props = {
+export type Props = {|
   store: AppStore,
-  // eslint-disable-next-line react/no-unused-prop-types
   stage: 'home' | 'choose',
   loopbackGraphql: LoopbackGraphql,
-};
+|};
 
 const SCREENFULL_CONTAINER = css({
   display: 'flex',

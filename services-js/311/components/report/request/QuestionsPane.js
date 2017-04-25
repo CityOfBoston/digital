@@ -14,11 +14,11 @@ import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload'
 
 import type { AppStore } from '../../../data/store';
 
-export type Props = {
+export type Props = {|
   store: AppStore,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
-};
+|};
 
 const DROPZONE_STYLE = css({
   width: '100%',

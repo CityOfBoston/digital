@@ -23,7 +23,6 @@ const SERVICE_SUMMARIES = [{
 describe('integration', () => {
   let wrapper;
   let store;
-  let routeToServiceForm;
 
   let resolveSuggestions;
 
@@ -35,9 +34,8 @@ describe('integration', () => {
     store.topServiceSummaries = [];
 
     loadServiceSuggestions.mockReturnValue(new Promise((resolve) => { resolveSuggestions = resolve; }));
-    routeToServiceForm = jest.fn();
 
-    wrapper = mount(<HomeDialog store={store} loopbackGraphql={jest.fn()} routeToServiceForm={routeToServiceForm} stage="choose" />);
+    wrapper = mount(<HomeDialog store={store} loopbackGraphql={jest.fn()} stage="choose" />);
   });
 
   afterEach(() => {

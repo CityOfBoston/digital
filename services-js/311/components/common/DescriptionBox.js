@@ -3,18 +3,17 @@
 import React from 'react';
 import { css } from 'glamor';
 
-export type Props = {
+export type DefaultProps = {|
+  minHeight: number,
+  maxHeight: number,
+|}
+
+export type Props = {|
+  /* :: ...DefaultProps, */
   text: string,
   placeholder: string,
   onInput: (SyntheticInputEvent) => mixed,
-  minHeight: number,
-  maxHeight: number,
-}
-
-export type DefaultProps = {
-  minHeight: number,
-  maxHeight: number,
-}
+|}
 
 const TEXTAREA_STYLE = css({
   display: 'block',
