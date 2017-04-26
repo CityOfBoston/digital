@@ -36,6 +36,7 @@ exports[`rendering existing description 1`] = `
         defaultValue="Thanos is attacking"
         name="description"
         onBlur={[Function]}
+        onFocus={[Function]}
         onInput={[Function]}
         placeholder=""
       />
@@ -82,7 +83,7 @@ exports[`rendering existing description 1`] = `
       </ul>
       .
       <div
-        className="t--info m-v300"
+        className="t--info"
         style={
           Object {
             "textAlign": "right",

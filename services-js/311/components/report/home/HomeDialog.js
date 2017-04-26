@@ -66,7 +66,7 @@ export default class HomeDialog extends React.Component {
     const loopbackGraphql = makeLoopbackGraphql(req);
 
     return {
-      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql),
+      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql, 4),
       stage: stage === 'choose' ? stage : 'home',
       description: description || '',
     };

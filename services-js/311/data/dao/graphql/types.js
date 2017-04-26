@@ -145,6 +145,10 @@ export type LoadServiceSummariesQuery = {
   } >,
 };
 
+export type LoadTopServiceSummariesQueryVariables = {
+  first: number,
+};
+
 export type LoadTopServiceSummariesQuery = {
   topServices: Array< {
     code: string,

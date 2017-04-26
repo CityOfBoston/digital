@@ -41,7 +41,18 @@
             {
               "name": "topServices",
               "description": "",
-              "args": [],
+              "args": [
+                {
+                  "name": "first",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,

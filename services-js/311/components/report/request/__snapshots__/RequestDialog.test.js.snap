@@ -401,6 +401,7 @@ exports[`rendering questions 1`] = `
             defaultValue=""
             name="description"
             onBlur={[Function]}
+            onFocus={null}
             onInput={[Function]}
             placeholder="How can we help?"
           />

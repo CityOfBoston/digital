@@ -26,6 +26,7 @@ exports[`blank request 1`] = `
         defaultValue=""
         name="description"
         onBlur={[Function]}
+        onFocus={null}
         onInput={[Function]}
         placeholder="How can we help?"
       />
@@ -143,6 +144,7 @@ exports[`existing description 1`] = `
         defaultValue="Please pick up my bulk items. "
         name="description"
         onBlur={[Function]}
+        onFocus={null}
         onInput={[Function]}
         placeholder="How can we help?"
       />
@@ -260,6 +262,7 @@ exports[`service with metadata 1`] = `
         defaultValue=""
         name="description"
         onBlur={[Function]}
+        onFocus={null}
         onInput={[Function]}
         placeholder="How can we help?"
       />

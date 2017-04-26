@@ -25,7 +25,7 @@ type RequestsPage {
 
 type Query {
   services: [Service!]!
-  topServices: [Service!]!
+  topServices(first: Int): [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
   request(id: String!): Request
@@ -83,8 +83,8 @@ async function serviceSuggestions({ open311, prediction }: Context, { text, max,
 export const resolvers = {
   Query: {
     services: (root: mixed, args: mixed, { open311 }: Context): Promise<Service[]> => open311.services(),
-    topServices: async (root: mixed, args: mixed, { open311 }: Context): Promise<Service[]> => (
-      (await open311.services()).filter(({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1)
+    topServices: async (root: mixed, { first }: {first: ?number}, { open311 }: Context): Promise<Service[]> => (
+      (await open311.services()).filter(({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1).slice(0, first || TOP_SERVICE_CODES.length)
     ),
     servicesForDescription: (root: mixed, args: SuggestionsArgs, context: Context): Promise<Service[]> => serviceSuggestions(context, args),
     service: (root: mixed, { code }: { code: string }, { open311 }: Context): Promise<?Service> => open311.service(code),

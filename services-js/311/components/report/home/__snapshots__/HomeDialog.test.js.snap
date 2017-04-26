@@ -126,6 +126,7 @@ exports[`home page rendering 1`] = `
                 defaultValue=""
                 name="description"
                 onBlur={[Function]}
+                onFocus={[Function]}
                 onInput={[Function]}
                 placeholder=""
               />
@@ -172,7 +173,7 @@ exports[`home page rendering 1`] = `
               </ul>
               .
               <div
-                className="t--info m-v300"
+                className="t--info"
                 style={
                   Object {
                     "textAlign": "right",

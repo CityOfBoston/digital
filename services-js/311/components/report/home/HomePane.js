@@ -57,6 +57,7 @@ const TIME_PER_CHARACTER_MS = 100;
 
 @observer
 export default class HomePane extends React.Component {
+  @observable textareaFocus: boolean = false;
   @observable animationStartMs: number = 0;
 
   @action
@@ -64,8 +65,18 @@ export default class HomePane extends React.Component {
     this.animationStartMs = +new Date();
   }
 
+  @action.bound
+  handleDescriptionFocus() {
+    this.textareaFocus = true;
+  }
+
+  @action.bound
+  handleDescriptionBlur() {
+    this.textareaFocus = false;
+  }
+
   @computed get placeholder(): string {
-    if (this.props.description || !this.animationStartMs) {
+    if (this.props.description || this.textareaFocus || !this.animationStartMs) {
       return '';
     }
 
@@ -103,6 +114,8 @@ export default class HomePane extends React.Component {
               text={description}
               placeholder={this.placeholder}
               onInput={handleDescriptionChanged}
+              onFocus={this.handleDescriptionFocus}
+              onBlur={this.handleDescriptionBlur}
             />
 
             <div className="m-t500" style={{ textAlign: 'right' }}>
@@ -124,7 +137,7 @@ export default class HomePane extends React.Component {
               </li>
           )) }</ul>
 .
-          <div className="t--info m-v300" style={{ textAlign: 'right' }}>
+          <div className="t--info" style={{ textAlign: 'right' }}>
             <Link href="/services"><a>See all services…</a></Link>
           </div>
           </div>
