@@ -107,6 +107,7 @@ describe('methods', () => {
 
     runInAction(() => {
       requestDialog.requestForm.firstName = 'Carol';
+      requestDialog.requestForm.address = 'City Hall Plaza, Boston, MA';
     });
   });
 
@@ -152,6 +153,7 @@ describe('methods', () => {
 
       expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
         firstName: null,
+        address: null,
       }));
 
       resolveGraphql(result);
@@ -163,11 +165,17 @@ describe('methods', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    test('success with contact info', async () => {
-      requestDialog.submitRequest(true);
+    test('success with contact info and location', async () => {
+      runInAction(() => {
+        requestDialog.requestForm.sendContactInfo = true;
+        requestDialog.requestForm.sendLocation = true;
+      });
+
+      requestDialog.submitRequest();
 
       expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
         firstName: 'Carol',
+        address: 'City Hall Plaza, Boston, MA',
       }));
     });
 

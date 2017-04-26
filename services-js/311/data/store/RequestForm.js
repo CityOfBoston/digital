@@ -19,11 +19,13 @@ export default class RequestForm {
 
   @observable address: string = '';
   @observable.shallow location: ?{ lat: number, lng: number } = null;
+  @observable sendLocation: boolean = false;
 
   @observable firstName: string = '';
   @observable lastName: string = '';
   @observable email: string = '';
   @observable phone: string = '';
+  @observable sendContactInfo: boolean = false;
 
   @observable questions: Question[] = [];
 

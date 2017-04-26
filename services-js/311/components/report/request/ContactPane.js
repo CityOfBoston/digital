@@ -21,7 +21,7 @@ const BOTTOM_ROW_STYLE = css({
 export type Props = {|
   requestForm: RequestForm,
   serviceName: string,
-  nextFunc: (contactInfo: boolean) => mixed,
+  nextFunc: () => mixed,
 |}
 
 function renderRequired() {
@@ -41,6 +41,20 @@ export default class ContactPane extends React.Component {
 
   componentWillUnmount() {
     this.localStorageContactInfo.dispose();
+  }
+
+  @action.bound
+  continueWithContactInfo() {
+    const { requestForm, nextFunc } = this.props;
+    requestForm.sendContactInfo = true;
+    nextFunc();
+  }
+
+  @action.bound
+  continueWithoutContactInfo() {
+    const { requestForm, nextFunc } = this.props;
+    requestForm.sendContactInfo = false;
+    nextFunc();
   }
 
   @action.bound
@@ -69,14 +83,8 @@ export default class ContactPane extends React.Component {
     }
   }
 
-  @action.bound
-  submitWithContactInfo() {
-    const { nextFunc } = this.props;
-    nextFunc(true);
-  }
-
   render() {
-    const { nextFunc, serviceName, requestForm } = this.props;
+    const { serviceName, requestForm } = this.props;
     const { firstName, lastName, email, phone, contactInfoRequired, contactInfoRequirementsMet } = requestForm;
     const { rememberInfo } = this.localStorageContactInfo;
 
@@ -94,7 +102,7 @@ export default class ContactPane extends React.Component {
 
             { !contactInfoRequired && (
             <span>
-              You can also <a href="javascript:void(0)" onClick={nextFunc}>submit
+              You can also <a href="javascript:void(0)" onClick={this.continueWithoutContactInfo}>submit
               without providing contact info</a>.
             </span>
           )}
@@ -132,7 +140,7 @@ export default class ContactPane extends React.Component {
           <div className="g--8 t--info" style={{ textAlign: 'right' }}>
             {!contactInfoRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
-          <button className="btn g--4" onClick={this.submitWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>
+          <button className="btn g--4" onClick={this.continueWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>
         </div>
       </div>
     );

@@ -164,10 +164,10 @@ export default class RequestDialog extends React.Component {
   }
 
   @action.bound
-  submitRequest(withContactInfo: boolean = false): Promise<mixed> {
+  submitRequest(): Promise<mixed> {
     const { requestForm } = this;
     const { service, loopbackGraphql, routeToServiceForm } = this.props;
-    const { description, firstName, lastName, email, phone, location, address, questions, mediaUrl } = requestForm;
+    const { description, firstName, lastName, email, phone, location, address, questions, mediaUrl, sendLocation, sendContactInfo } = requestForm;
 
     if (!service) {
       throw new Error('service is null in submitRequest');
@@ -180,12 +180,12 @@ export default class RequestDialog extends React.Component {
       // the ContactPane form's submit button. That way contact info that was
       // loaded by localStorage won't be pushed to the server if the user didn't
       // see the contact info form or chose "submit without sending contact info"
-      firstName: withContactInfo ? firstName : null,
-      lastName: withContactInfo ? lastName : null,
-      email: withContactInfo ? email : null,
-      phone: withContactInfo ? phone : null,
-      location,
-      address,
+      firstName: sendContactInfo ? firstName : null,
+      lastName: sendContactInfo ? lastName : null,
+      email: sendContactInfo ? email : null,
+      phone: sendContactInfo ? phone : null,
+      location: sendLocation ? location : null,
+      address: sendLocation ? address : null,
       questions,
       mediaUrl,
     }).then((v) => {

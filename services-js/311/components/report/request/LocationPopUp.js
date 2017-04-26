@@ -107,8 +107,22 @@ export default class LocationPopUp extends React.Component {
     });
   }
 
+  @action.bound
+  continueWithLocation() {
+    const { nextFunc, requestForm } = this.props;
+    requestForm.sendLocation = true;
+    nextFunc();
+  }
+
+  @action.bound
+  continueWithoutLocation() {
+    const { nextFunc, requestForm } = this.props;
+    requestForm.sendLocation = false;
+    nextFunc();
+  }
+
   render() {
-    const { requestForm, nextFunc, nextIsSubmit } = this.props;
+    const { requestForm, nextIsSubmit } = this.props;
     const { address, locationRequirementsMet, locationRequired } = requestForm;
 
     return (
@@ -137,9 +151,9 @@ export default class LocationPopUp extends React.Component {
 
         <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
           <div className="g--6">
-            { !locationRequired && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
+            { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
           </div>
-          <button className="btn g--6" disabled={!locationRequirementsMet} onClick={nextFunc}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
+          <button className="btn g--6" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
         </div>
       </div>
     );
