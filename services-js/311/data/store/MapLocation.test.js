@@ -26,13 +26,17 @@ describe('reverse geocoding', () => {
     mapLocation.stop();
   });
 
-  it('reverse geocodes when the location changes', async () => {
-    mapLocation.location = {
+  it('reverse geocodes', async () => {
+    mapLocation.geocodeLocation({
       lat: 42.36035940296916,
       lng: -71.05802536010744,
-    };
+    });
 
-    // before reverse geocode happens
+    // before reverse geocode happens, location is updated immediately
+    expect(mapLocation.location).toEqual({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
     expect(mapLocation.address).toEqual('');
 
     expect(reverseGeocode).toHaveBeenCalledWith(loopbackGraphql, {
