@@ -3,8 +3,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { runInAction } from 'mobx';
 
 import { AppStore } from '../../../data/store';
+import RequestForm from '../../../data/store/RequestForm';
 import type { SearchAddressPlace } from '../../../data/types';
 import LocationPopUp from './LocationPopUp';
 
@@ -19,25 +21,28 @@ const ACTIONS = {
 
 describe('rendering', () => {
   let store;
+  let requestForm;
 
   beforeEach(() => {
     store = new AppStore();
     store.apiKeys.mapbox = 'fake-api-key';
+
+    requestForm = new RequestForm();
   });
 
   it('renders without an address', () => {
-    store.requestForm.locationInfo.address = '';
+    runInAction(() => { requestForm.address = ''; });
 
     const component = renderer.create(
-      <LocationPopUp store={store} {...ACTIONS} />,
+      <LocationPopUp store={store} requestForm={requestForm} {...ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('renders with an address', () => {
-    store.requestForm.locationInfo.address = 'City Hall Square\nBoston, MA';
+    runInAction(() => { requestForm.address = 'City Hall Square\nBoston, MA'; });
     const component = renderer.create(
-      <LocationPopUp store={store} {...ACTIONS} />,
+      <LocationPopUp store={store} requestForm={requestForm} {...ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -45,7 +50,7 @@ describe('rendering', () => {
   it('renders a map on a small screen', () => {
     store.ui.visibleWidth = 320;
     const component = renderer.create(
-      <LocationPopUp store={store} {...ACTIONS} />,
+      <LocationPopUp store={store} requestForm={requestForm} {...ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -53,6 +58,7 @@ describe('rendering', () => {
 
 describe('searching', () => {
   let store;
+  let requestForm;
   let resolveGraphql: (place: ?SearchAddressPlace) => void;
   let wrapper;
   let inputWrapper;
@@ -65,14 +71,16 @@ describe('searching', () => {
     searchAddress.mockReturnValue(promise);
 
     store = new AppStore();
-    store.requestForm.locationInfo.address = 'Red Barn';
-    store.requestForm.locationInfo.location = {
+
+    requestForm = new RequestForm();
+    requestForm.address = 'Red Barn';
+    requestForm.location = {
       lat: 42.360071,
       lng: -71.056413,
     };
 
     wrapper = mount(
-      <LocationPopUp store={store} {...ACTIONS} />,
+      <LocationPopUp store={store} requestForm={requestForm} {...ACTIONS} />,
     );
 
     inputWrapper = wrapper.find('input[type="text"]').first();
@@ -95,9 +103,8 @@ describe('searching', () => {
       },
     });
 
-    const { requestForm: { locationInfo } } = store;
-    expect(locationInfo.address).toEqual('121 Devonshire Street, Boston, MA, 02108');
-    expect(locationInfo.location).toEqual({
+    expect(requestForm.address).toEqual('121 Devonshire Street, Boston, MA, 02108');
+    expect(requestForm.location).toEqual({
       lat: 42.35700999905103,
       lng: -71.05761000345488,
     });
@@ -110,9 +117,8 @@ describe('searching', () => {
 
     await resolveGraphql(null);
 
-    const { requestForm: { locationInfo } } = store;
-    expect(locationInfo.address).toEqual('');
-    expect(locationInfo.location).toEqual(null);
+    expect(requestForm.address).toEqual('');
+    expect(requestForm.location).toEqual(null);
     expect(inputWrapper.getDOMNode().value).toEqual('121 devonshire');
   });
 });

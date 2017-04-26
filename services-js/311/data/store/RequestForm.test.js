@@ -99,21 +99,19 @@ describe('questionRequirementsMet', () => {
   let requestForm;
 
   beforeEach(() => {
-    requestForm = new RequestForm();
+    requestForm = new RequestForm(COSMIC_SERVICE);
   });
 
   it('is true when there are no questions', () => {
+    requestForm = new RequestForm();
     expect(requestForm.questionRequirementsMet).toEqual(true);
   });
 
   it('is false if required questions don’t have values', () => {
-    requestForm.updateForService(COSMIC_SERVICE);
     expect(requestForm.questionRequirementsMet).toEqual(false);
   });
 
   it('is true if required questions have valid values', () => {
-    requestForm.updateForService(COSMIC_SERVICE);
-
     const avengersQuestion = requestForm.questions.find(({ code }) => code === 'SR-AVENG');
     if (!avengersQuestion) {
       throw new Error('missing');
@@ -125,8 +123,6 @@ describe('questionRequirementsMet', () => {
   });
 
   it('is false if required questions have invalid values', () => {
-    requestForm.updateForService(COSMIC_SERVICE);
-
     const avengersQuestion = requestForm.questions.find(({ code }) => code === 'SR-AVENG');
     if (!avengersQuestion) {
       throw new Error('missing');
@@ -138,8 +134,6 @@ describe('questionRequirementsMet', () => {
   });
 
   test('visibility of required question', () => {
-    requestForm.updateForService(COSMIC_SERVICE);
-
     const avengersQuestion = requestForm.questions.find(({ code }) => code === 'SR-AVENG');
     if (!avengersQuestion) {
       throw new Error('missing');

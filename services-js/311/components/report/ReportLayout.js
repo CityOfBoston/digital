@@ -6,7 +6,7 @@ import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
-import { action, computed } from 'mobx';
+import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { RequestAdditions } from '../../server/next-handlers';
@@ -15,32 +15,25 @@ import Nav from '../common/Nav';
 import LocationMap from './map/LocationMap';
 import type { MapMode } from './map/LocationMap';
 import HomeDialog from './home/HomeDialog';
+import type { InitialProps as HomeDialogInitialProps } from './home/HomeDialog';
 import RequestDialog from './request/RequestDialog';
+import type { InitialProps as RequestDialogInitialProps } from './request/RequestDialog';
 
 import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
 
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
-import loadTopServiceSummaries from '../../data/dao/load-top-service-summaries';
-import loadService from '../../data/dao/load-service';
-
-import type { Service, ServiceSummary } from '../../data/types';
-
-import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
 
 type HomeData = {|
   view: 'home',
-  topServiceSummaries: ServiceSummary[],
-  stage: 'home' | 'choose',
+  props: HomeDialogInitialProps,
 |};
 
 type RequestData = {|
   view: 'request',
-  code: string,
-  service: ?Service,
-  stage: 'questions' | 'location' | 'contact' | 'submit',
+  props: RequestDialogInitialProps,
 |};
 
 export type InitialProps = {|
@@ -50,6 +43,10 @@ export type InitialProps = {|
 export type Props = {|
   store: AppStore,
   /* :: ...InitialProps, */
+|};
+
+type State = {|
+  locationMapActive: boolean,
 |};
 
 // This is the main container for content. We want to be at least full height on
@@ -81,20 +78,26 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
 @observer
 export default class ReportLayout extends React.Component {
   props: Props;
-  state: {
-    locationMapActive: boolean,
-  }
-  loopbackGraphql: LoopbackGraphql;
+  state: State = {
+    locationMapActive: false,
+  };
+  loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
 
-  static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
-    const loopbackGraphql = makeLoopbackGraphql(req);
+  static async getInitialProps(ctx: Context<RequestAdditions>): Promise<InitialProps> {
+    const { query } = ctx;
 
     let data;
 
     if (query.code) {
-      data = await ReportLayout.getRequestData(query, res, getStore(), loopbackGraphql);
+      data = {
+        view: 'request',
+        props: await RequestDialog.getInitialProps(ctx),
+      };
     } else {
-      data = await ReportLayout.getHomeData(query, loopbackGraphql);
+      data = {
+        view: 'home',
+        props: await HomeDialog.getInitialProps(ctx),
+      };
     }
 
     return {
@@ -102,65 +105,18 @@ export default class ReportLayout extends React.Component {
     };
   }
 
-  static async getHomeData({ stage }, loopbackGraphql): Promise<HomeData> {
-    const store = getStore();
-
-    return {
-      view: 'home',
-      topServiceSummaries: store.topServiceSummaries || await loadTopServiceSummaries(loopbackGraphql),
-      stage: stage === 'choose' ? stage : 'home',
-    };
+  componentDidMount() {
+    const { store } = this.props;
+    store.mapLocation.start(this.loopbackGraphql);
   }
 
-  static async getRequestData({ code, stage }, res, store, loopbackGraphql): Promise<RequestData> {
-    let service = store.serviceCache.get(code);
-
-    if (!service) {
-      service = await loadService(loopbackGraphql, code);
-
-      if (!service && res) {
-        res.statusCode = 404;
-      }
-    }
-
-    stage = stage || 'questions';
-
-    switch (stage) {
-      case 'questions':
-      case 'location':
-      case 'contact':
-      case 'submit':
-        return {
-          view: 'request',
-          code,
-          service,
-          stage,
-        };
-      default:
-        throw new Error(`Unknown stage: ${stage}`);
-    }
-  }
-
-  // TODO(finneganh): Move service cache and lookup out of this class
-  @action static addServiceToCache(store: AppStore, service: Service) {
-    store.serviceCache.set(service.code, service);
-  }
-
-  constructor(props: Props) {
-    super(props);
-
-    this.loopbackGraphql = makeLoopbackGraphql();
-
-    this.updateStoreWithProps(props);
-
-    this.state = {
-      locationMapActive: false,
-    };
-  }
-
-  componentWillReceiveProps(props: Props) {
-    this.updateStoreWithProps(props);
+  componentWillReceiveProps() {
     this.setState({ locationMapActive: false });
+  }
+
+  componentWillUnmount() {
+    const { store } = this.props;
+    store.mapLocation.stop();
   }
 
   startChat = () => {
@@ -169,36 +125,18 @@ export default class ReportLayout extends React.Component {
   }
 
   @computed get mapActivationRatio(): number {
-    const { store: { ui }, data: { view, stage } } = this.props;
-    if (view === 'home' && stage === 'home') {
-      return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.75));
-    } else {
-      return 0;
-    }
-  }
+    const { store: { ui }, data } = this.props;
+    // kind of invasive. Might be better to have the HomeDialog/HomePane signal
+    // that the map should activate on scroll.
+    if (data.view === 'home') {
+      const { stage } = data.props;
 
-  @action
-  updateStoreWithProps(props: Props) {
-    const { store, data } = props;
-
-    switch (data.view) {
-      case 'home':
-        store.topServiceSummaries = data.topServiceSummaries;
-        store.currentService = null;
-        break;
-
-      case 'request': {
-        const { service } = data;
-        if (service) {
-          ReportLayout.addServiceToCache(store, service);
-        }
-        store.currentService = service;
-        break;
+      if (stage === 'home') {
+        return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.75));
       }
-
-      default:
-        break;
     }
+
+    return 0;
   }
 
   routeToServiceForm = async (code: string, stage: string = 'questions') => {
@@ -245,7 +183,6 @@ export default class ReportLayout extends React.Component {
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
               <LocationMap
                 store={store}
-                loopbackGraphql={this.loopbackGraphql}
                 mode={mapMode}
                 opacityRatio={this.mapActivationRatio}
               />
@@ -260,16 +197,16 @@ export default class ReportLayout extends React.Component {
             <HomeDialog
               store={store}
               loopbackGraphql={this.loopbackGraphql}
-              stage={data.stage}
+              {...data.props}
             /> }
 
           { data.view === 'request' &&
             <RequestDialog
               store={store}
-              stage={data.stage}
               loopbackGraphql={this.loopbackGraphql}
               routeToServiceForm={this.routeToServiceForm}
               setLocationMapActive={this.setLocationMapActive}
+              {...data.props}
             />}
         </div>
 

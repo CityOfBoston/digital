@@ -51,6 +51,6 @@ const SERVICE_SUMMARIES = [
 storiesOf('HomePane', module)
   .add('Home', () => (
     <FormDialog>
-      <HomePane description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} handleDescriptionChanged={action('Description changed')} />
+      <HomePane description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} nextFn={action('Next')} handleDescriptionChanged={action('Description changed')} />
     </FormDialog>
   ));

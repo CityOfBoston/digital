@@ -4,7 +4,6 @@ import React from 'react';
 import { css } from 'glamor';
 import Head from 'next/head';
 import Link from 'next/link';
-import Router from 'next/router';
 
 import type { ServiceSummary } from '../../../data/types';
 
@@ -37,16 +36,12 @@ const SERVICE_PICKER_STYLE = css({
 export type Props = {|
   description: string,
   handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
+  nextFn: () => mixed,
   topServiceSummaries: ServiceSummary[],
 |}
 
-// Button handler rather than a link so we can disable it and because it
-// leads to a page that doesn't (currently?) accept GET requests.
-function handleNextClick() {
-  Router.push('/report?stage=choose', '/report');
-}
 
-export default function HomePane({ description, handleDescriptionChanged, topServiceSummaries }: Props) {
+export default function HomePane({ description, handleDescriptionChanged, nextFn, topServiceSummaries }: Props) {
   return (
     <div>
       <Head>
@@ -74,7 +69,7 @@ export default function HomePane({ description, handleDescriptionChanged, topSer
           />
 
           <div className="m-t500" style={{ textAlign: 'right' }}>
-            <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={handleNextClick}>Start a Report</button>
+            <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
           </div>
         </div>
 

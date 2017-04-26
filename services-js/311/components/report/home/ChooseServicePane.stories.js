@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf } from '@kadira/storybook';
 import ChooseServicePane from './ChooseServicePane';
 import FormDialog from '../../common/FormDialog';
 
@@ -53,14 +53,14 @@ storiesOf('ChooseServicePane', module)
     <FormDialog narrow noPadding>{story()}</FormDialog>
   ))
   .add('Loading matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={null} handleDescriptionChanged={action('Description changed')} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={null} />
   ))
   .add('Some matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={SERVICE_SUMMARIES} handleDescriptionChanged={action('Description changed')} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={SERVICE_SUMMARIES} />
   ))
   .add('No matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={[]} handleDescriptionChanged={action('Description changed')} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={[]} />
   ))
   .add('No description', () => (
-    <ChooseServicePane description="" suggestedServiceSummaries={[]} handleDescriptionChanged={action('Description changed')} />
+    <ChooseServicePane description="" suggestedServiceSummaries={[]} />
   ));

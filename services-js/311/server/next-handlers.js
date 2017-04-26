@@ -20,6 +20,7 @@ export type RequestAdditions = {|
     mapbox: Object,
   |},
   liveAgentButtonId: string,
+  loopbackGraphqlCache: {[key: string]: mixed},
 |}
 
 const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
@@ -36,6 +37,7 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
       },
     },
     liveAgentButtonId: process.env.LIVE_AGENT_BUTTON_ID || '',
+    loopbackGraphqlCache: {},
   };
 
   Object.assign(req, requestAdditions);

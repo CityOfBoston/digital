@@ -9,7 +9,7 @@ exports[`blank request 1`] = `
       <h2
         className="sh-title"
       >
-        Contact Info
+        Cosmic Incursion
       </h2>
     </div>
     <p
@@ -204,7 +204,7 @@ exports[`filled request 1`] = `
       <h2
         className="sh-title"
       >
-        Contact Info
+        Cosmic Incursion
       </h2>
     </div>
     <p

@@ -3,23 +3,22 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { AppStore } from '../../../data/store';
+import RequestForm from '../../../data/store/RequestForm';
 
 import ContactPane from './ContactPane';
 import FormDialog from '../../common/FormDialog';
 
-const makeStore = (fillIn: boolean) => {
-  const store = new AppStore();
-  const { contactInfo } = store.requestForm;
+const makeRequestForm = (fillIn: boolean) => {
+  const requestForm = new RequestForm();
 
   if (fillIn) {
-    contactInfo.firstName = 'Carol';
-    contactInfo.lastName = 'Danvers';
-    contactInfo.email = 'marvel@alphaflight.gov';
-    contactInfo.phone = '6175551234';
+    requestForm.firstName = 'Carol';
+    requestForm.lastName = 'Danvers';
+    requestForm.email = 'marvel@alphaflight.gov';
+    requestForm.phone = '6175551234';
   }
 
-  return store;
+  return requestForm;
 };
 
 storiesOf('ContactPane', module)
@@ -28,13 +27,15 @@ storiesOf('ContactPane', module)
 ))
 .add('Empty', () => (
   <ContactPane
-    store={makeStore(false)}
+    serviceName="Cosmic Incursion"
+    requestForm={makeRequestForm(false)}
     nextFunc={action('Next Step')}
   />
 ))
 .add('Filled Out', () => (
   <ContactPane
-    store={makeStore(true)}
+    serviceName="Cosmic Incursion"
+    requestForm={makeRequestForm(true)}
     nextFunc={action('Next Step')}
   />
 ));

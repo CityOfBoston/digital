@@ -2,33 +2,31 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { AppStore } from '../../../data/store';
+import RequestForm from '../../../data/store/RequestForm';
 
 import ContactPane from './ContactPane';
 
-let store;
+let requestForm;
 
 beforeEach(() => {
-  store = new AppStore();
+  requestForm = new RequestForm();
 });
 
 test('blank request', () => {
   const component = renderer.create(
-    <ContactPane store={store} nextFunc={jest.fn()} />,
+    <ContactPane serviceName="Cosmic Incursion" requestForm={requestForm} nextFunc={jest.fn()} />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('filled request', () => {
-  const { contactInfo } = store.requestForm;
-
-  contactInfo.firstName = 'Carol';
-  contactInfo.lastName = 'Danvers';
-  contactInfo.email = 'marvel@alphaflight.gov';
-  contactInfo.phone = '6175551234';
+  requestForm.firstName = 'Carol';
+  requestForm.lastName = 'Danvers';
+  requestForm.email = 'marvel@alphaflight.gov';
+  requestForm.phone = '6175551234';
 
   const component = renderer.create(
-    <ContactPane store={store} nextFunc={jest.fn()} />,
+    <ContactPane serviceName="Cosmic Incursion" requestForm={requestForm} nextFunc={jest.fn()} />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

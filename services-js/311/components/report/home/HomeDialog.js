@@ -5,11 +5,17 @@ import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 import debounce from 'lodash/debounce';
+import type { Context } from 'next';
+import Router from 'next/router';
+
+import type { RequestAdditions } from '../../../server/next-handlers';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
+import makeLoopbackGraphql from '../../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import loadServiceSuggestions from '../../../data/dao/load-service-suggestions';
+import loadTopServiceSummaries from '../../../data/dao/load-top-service-summaries';
 
 import FormDialog from '../../common/FormDialog';
 import { HEADER_HEIGHT, MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
@@ -20,10 +26,18 @@ import ChooseServicePane from './ChooseServicePane';
 import RecentRequestsHeader from './RecentRequestsHeader';
 import RecentRequests from './RecentRequests';
 
+type Stage = 'home' | 'choose';
+
+export type InitialProps = {|
+  topServiceSummaries: ServiceSummary[],
+  description: string,
+  stage: Stage,
+|}
+
 export type Props = {|
   store: AppStore,
-  stage: 'home' | 'choose',
   loopbackGraphql: LoopbackGraphql,
+  /* :: ...InitialProps, */
 |};
 
 const SCREENFULL_CONTAINER = css({
@@ -41,12 +55,31 @@ const SCREENFULL_CONTAINER = css({
 export default class HomeDialog extends React.Component {
   props: Props;
 
+  @observable description: string;
+
   @observable.shallow suggestedServiceSummaries: ?ServiceSummary[] = null;
   serviceSuggestionsDisposer: ?Function
 
+  // Called by ReportLayout
+  static async getInitialProps({ query, req }: Context<RequestAdditions>): Promise<InitialProps> {
+    const { stage, description } = query;
+    const loopbackGraphql = makeLoopbackGraphql(req);
+
+    return {
+      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql),
+      stage: stage === 'choose' ? stage : 'home',
+      description: description || '',
+    };
+  }
+
+  @action
+  componentWillMount() {
+    this.description = this.props.description;
+  }
+
   componentDidMount() {
     this.serviceSuggestionsDisposer = reaction(
-      () => this.props.store.requestForm.description,
+      () => this.description,
       (description: string) => {
         if (description === '') {
           this.suggestedServiceSummaries = [];
@@ -91,9 +124,12 @@ export default class HomeDialog extends React.Component {
 
   @action.bound
   handleDescriptionChanged(ev: SyntheticInputEvent) {
-    const { store } = this.props;
+    this.description = ev.target.value;
+  }
 
-    store.requestForm.description = ev.target.value;
+  @action.bound
+  routeToChoose() {
+    Router.push(`/report?stage=choose&description=${encodeURIComponent(this.description)}`, '/report');
   }
 
   render() {
@@ -124,16 +160,15 @@ export default class HomeDialog extends React.Component {
   }
 
   renderHome() {
-    const { store } = this.props;
+    const { topServiceSummaries } = this.props;
     return (
-      <HomePane description={store.requestForm.description} handleDescriptionChanged={this.handleDescriptionChanged} topServiceSummaries={store.topServiceSummaries} />
+      <HomePane description={this.description} handleDescriptionChanged={this.handleDescriptionChanged} nextFn={this.routeToChoose} topServiceSummaries={topServiceSummaries} />
     );
   }
 
   renderServicePicker() {
-    const { store } = this.props;
     return (
-      <ChooseServicePane description={store.requestForm.description} handleDescriptionChanged={this.handleDescriptionChanged} suggestedServiceSummaries={this.suggestedServiceSummaries} />
+      <ChooseServicePane description={this.description} suggestedServiceSummaries={this.suggestedServiceSummaries} />
     );
   }
 }

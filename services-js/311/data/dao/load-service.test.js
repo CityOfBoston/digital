@@ -14,5 +14,5 @@ test('loadService', async () => {
     code: 'CSMCINC',
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(LoadServiceGraphql, queryVariables);
+  expect(loopbackGraphql).toHaveBeenCalledWith(LoadServiceGraphql, queryVariables, { cacheKey: 'loadService:CSMCINC' });
 });

@@ -8,6 +8,7 @@ import { runInAction } from 'mobx';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
+import { setClientCache } from '../../data/dao/loopback-graphql';
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
 
@@ -30,9 +31,16 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
       liveAgentButtonId: req.liveAgentButtonId,
     } : null;
 
+    const loopbackGraphqlCache = req ? req.loopbackGraphqlCache : null;
+
+    // TODO(finh): If we really needed to, we could try and find the cached
+    // graphQL values in the initialProps and replace them with cache keys, and
+    // then do a lookup into the cache ond the other side in render().
+
     return {
       ...initialProps,
       initialStoreState,
+      loopbackGraphqlCache,
     };
   }
 
@@ -45,6 +53,10 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
       runInAction('withStore initialization', () => {
         Object.assign(this.store, props.initialStoreState);
       });
+    }
+
+    if (props.loopbackGraphqlCache) {
+      setClientCache(props.loopbackGraphqlCache);
     }
   }
 

@@ -16,8 +16,8 @@ storiesOf('LocationMap', module)
     <div style={{ width: '100vw', height: '100vh' }}>{ story() }</div>
   ))
   .add('inactive', () => (
-    <LocationMap store={makeStore()} opacityRatio={0} mode="inactive" loopbackGraphql={(() => {}: any)} />
+    <LocationMap store={makeStore()} opacityRatio={0} mode="inactive" />
   ))
   .add('picker', () => (
-    <LocationMap store={makeStore()} opacityRatio={1} mode="picker" loopbackGraphql={(() => {}: any)} />
+    <LocationMap store={makeStore()} opacityRatio={1} mode="picker" />
   ));

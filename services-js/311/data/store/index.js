@@ -2,12 +2,10 @@
 /* global window */
 /* eslint no-underscore-dangle: 0 */
 
-import { observable, computed, useStrict, action } from 'mobx';
+import { observable, useStrict, action } from 'mobx';
 
-import type { Service, ServiceSummary } from '../types';
-
-import RequestForm from './RequestForm';
 import RequestSearch from './RequestSearch';
+import MapLocation from './MapLocation';
 import Ui from './Ui';
 import BrowserLocation from './BrowserLocation';
 import AllServices from './AllServices';
@@ -16,19 +14,16 @@ import AllServices from './AllServices';
 useStrict(true);
 
 export class AppStore {
-  @observable requestForm: RequestForm = new RequestForm();
+  // Initialization data from the server
+  apiKeys: {[service: string]: any} = {};
+
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
   browserLocation: BrowserLocation = new BrowserLocation();
+  mapLocation: MapLocation = new MapLocation();
   allServices: AllServices = new AllServices();
 
-  @observable.shallow topServiceSummaries: ServiceSummary[];
-  serviceCache: Map<string, Service> = observable.shallowMap({});
-
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
-
-  // Initialization data from the server
-  apiKeys: {[service: string]: any} = {};
 
   _liveAgentButtonId: string = '';
 
@@ -63,34 +58,6 @@ export class AppStore {
       case 'BUTTON_UNAVAILABLE': this.liveAgentAvailable = false; break;
       default: break;
     }
-  }
-
-  @observable.ref _currentService: ?Service = null;
-  @observable.ref currentServiceError: ?Object = null;
-
-  @computed get currentService(): ?Service {
-    return this._currentService;
-  }
-
-  set currentService(service: ?Service) {
-    if (service === this._currentService) {
-      return;
-    }
-
-    this._currentService = service;
-    this.currentServiceError = null;
-
-    try {
-      this.requestForm.updateForService(service);
-    } catch (e) {
-      this.currentServiceError = e;
-    }
-  }
-
-  @action
-  // Call after a succesful submit to clear the form
-  resetRequest() {
-    this.requestForm = new RequestForm();
   }
 }
 

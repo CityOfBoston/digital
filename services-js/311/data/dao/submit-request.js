@@ -2,7 +2,6 @@
 
 import type { Service, SubmittedRequest } from '../types';
 import type Question from '../store/Question';
-import type { ContactInfo, LocationInfo } from '../store/RequestForm';
 import type { LoopbackGraphql } from './loopback-graphql';
 import type { SubmitRequestMutationVariables, SubmitRequestMutation } from './graphql/types';
 import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
@@ -10,8 +9,12 @@ import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
 type Args = {|
   service: Service,
   description: string,
-  contactInfo: ?ContactInfo,
-  locationInfo: LocationInfo,
+  firstName: ?string,
+  lastName: ?string,
+  email: ?string,
+  phone: ?string,
+  location: ?{ lat: number, lng: number },
+  address: ?string,
   questions: Question[],
   mediaUrl: string,
 |};
@@ -24,8 +27,12 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   service,
   description,
   mediaUrl,
-  contactInfo,
-  locationInfo,
+  firstName,
+  lastName,
+  email,
+  phone,
+  address,
+  location,
   questions,
 }: Args): Promise<SubmittedRequest> {
   const attributes = [];
@@ -48,12 +55,12 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   const vars: SubmitRequestMutationVariables = {
     code: service.code,
     description,
-    firstName: contactInfo ? contactInfo.firstName : '',
-    lastName: contactInfo ? contactInfo.lastName : '',
-    email: contactInfo ? contactInfo.email : '',
-    phone: contactInfo ? contactInfo.phone : '',
-    location: locationInfo.location,
-    address: locationInfo.address,
+    firstName,
+    lastName,
+    email,
+    phone,
+    location,
+    address,
     mediaUrl,
     attributes,
   };

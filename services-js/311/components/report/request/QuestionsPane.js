@@ -13,9 +13,12 @@ import AttributeField from './AttributeField';
 import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
 
 import type { AppStore } from '../../../data/store';
+import type RequestForm from '../../../data/store/RequestForm';
 
 export type Props = {|
   store: AppStore,
+  requestForm: RequestForm,
+  serviceName: string,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
 |};
@@ -57,16 +60,16 @@ export default class QuestionsPane extends React.Component {
 
   @action
   componentWillMount() {
-    const { store } = this.props;
+    const { store, requestForm } = this.props;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(requestForm, 'mediaUrl');
   }
 
   @action
   componentWillReceiveProps(newProps: Props) {
-    const { store } = newProps;
+    const { store, requestForm } = newProps;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(store.requestForm, 'mediaUrl');
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(requestForm, 'mediaUrl');
   }
 
   @action
@@ -95,8 +98,8 @@ export default class QuestionsPane extends React.Component {
 
   @action.bound
   handleUpdateDescription(ev: SyntheticInputEvent) {
-    const { store } = this.props;
-    store.requestForm.description = ev.target.value;
+    const { requestForm } = this.props;
+    requestForm.description = ev.target.value;
   }
 
   setDropEl = (dropEl: ?Dropzone) => {
@@ -104,8 +107,8 @@ export default class QuestionsPane extends React.Component {
   }
 
   render() {
-    const { store, nextFunc, nextIsSubmit } = this.props;
-    const { currentService, requestForm: { description, questions, questionRequirementsMet } } = store;
+    const { requestForm, serviceName, nextFunc, nextIsSubmit } = this.props;
+    const { description, questions, questionRequirementsMet } = requestForm;
 
     const questionsEls = [];
     questions.forEach((q, i) => {
@@ -122,7 +125,7 @@ export default class QuestionsPane extends React.Component {
 
     return (
       <div>
-        <SectionHeader>{ currentService ? currentService.name : '' }</SectionHeader>
+        <SectionHeader>{ serviceName }</SectionHeader>
 
         <div className="g g--top">
           <div className="g--7 m-v500">

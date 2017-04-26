@@ -2,14 +2,12 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { computed, action, reaction, runInAction } from 'mobx';
+import { computed, action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
 
 import type { AppStore } from '../../../data/store';
-import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
-import reverseGeocode from '../../../data/dao/reverse-geocode';
 
 import SearchMarkerPool from './SearchMarkerPool';
 import waypointMarkers from './WaypointMarkers';
@@ -39,7 +37,6 @@ export type Props = {|
   mode: MapMode,
   store: AppStore,
   opacityRatio: number,
-  loopbackGraphql: LoopbackGraphql,
 |};
 
 let L: ?LWithMapbox = null;
@@ -47,7 +44,7 @@ if (process.browser) {
   L = require('mapbox.js');
 }
 
-type MaintainRequestMarkerArgs = {
+type MaintainMapLocationMarkerArgs = {
   // eslint-disable-next-line react/no-unused-prop-types
   markerLocation: ?{lat: number, lng: number},
   // eslint-disable-next-line react/no-unused-prop-types
@@ -137,8 +134,8 @@ export default class LocationMap extends React.Component {
       if (mode === 'picker') {
         const currentLocation = store.browserLocation.location;
 
-        if (store.requestForm.locationInfo.location) {
-          this.flyToLocation(store.requestForm.locationInfo.location);
+        if (store.mapLocation.location) {
+          this.flyToLocation(store.mapLocation.location);
         } else if (currentLocation) {
           // go through chooseLocation so that we get geocoding
           this.chooseLocation(currentLocation);
@@ -166,13 +163,13 @@ export default class LocationMap extends React.Component {
     }
   }
 
-  maintainRequestMarkerLocationData = (): MaintainRequestMarkerArgs => ({
-    markerLocation: this.props.store.requestForm.locationInfo.location,
-    isMarkerLocationValid: this.props.store.requestForm.locationInfo.address.length > 0,
+  maintainMapLocationMarkerData = (): MaintainMapLocationMarkerArgs => ({
+    markerLocation: this.props.store.mapLocation.location,
+    isMarkerLocationValid: this.props.store.mapLocation.address.length > 0,
     showMarker: this.props.mode === 'picker',
   })
 
-  maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainRequestMarkerArgs) => {
+  maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainMapLocationMarkerArgs) => {
     const { requestMarker } = this;
 
     if (!requestMarker) {
@@ -228,26 +225,10 @@ export default class LocationMap extends React.Component {
     }
   }
 
-  @action
-  async chooseLocation(location: {lat: number, lng: number}) {
-    const { store, loopbackGraphql } = this.props;
-
-    this.lastPickedLocation = location;
-    store.requestForm.locationInfo.location = location;
-
-    const place = await reverseGeocode(loopbackGraphql, location);
-
-    runInAction('reverse geocode result', () => {
-      const { store: { requestForm: { locationInfo } } } = this.props;
-
-      if (locationInfo.location && locationInfo.location.lat === location.lat && locationInfo.location.lng === location.lng) {
-        if (place) {
-          locationInfo.address = place.address;
-        } else {
-          locationInfo.address = '';
-        }
-      }
-    });
+  @action.bound
+  chooseLocation(location: {lat: number, lng: number}) {
+    const { store } = this.props;
+    store.mapLocation.location = location;
   }
 
   flyToLocation(location: {lat: number, lng: number}) {
@@ -314,7 +295,7 @@ export default class LocationMap extends React.Component {
     this.updateMapEventHandlers(mode);
     this.updateMapCenter();
 
-    this.requestLocationMonitorDisposer = reaction(this.maintainRequestMarkerLocationData, this.maintainRequestMarkerLocation, {
+    this.requestLocationMonitorDisposer = reaction(this.maintainMapLocationMarkerData, this.maintainRequestMarkerLocation, {
       name: 'maintainRequestMarkerLocation',
       fireImmediately: true,
       compareStructural: true,

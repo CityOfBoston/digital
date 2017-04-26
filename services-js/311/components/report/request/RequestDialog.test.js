@@ -3,6 +3,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import { runInAction } from 'mobx';
+
 import RequestDialog from './RequestDialog';
 
 import type { Service, SubmittedRequest } from '../../../data/types';
@@ -54,26 +56,25 @@ describe('rendering', () => {
 
   beforeEach(() => {
     store = new AppStore();
-    store.currentService = MOCK_SERVICE;
   });
 
   test('questions', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="questions" {...MOCK_ACTIONS} />,
+      <RequestDialog store={store} stage="questions" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   test('location', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="location" {...MOCK_ACTIONS} />,
+      <RequestDialog store={store} stage="location" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('contact', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="contact" {...MOCK_ACTIONS} />,
+      <RequestDialog store={store} stage="contact" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -82,7 +83,7 @@ describe('rendering', () => {
 describe('methods', () => {
   let wrapper;
   let store;
-  let requestDialog;
+  let requestDialog: RequestDialog;
   let loopbackGraphql;
   const routeToServiceForm = jest.fn();
 
@@ -90,18 +91,23 @@ describe('methods', () => {
     loopbackGraphql = jest.fn();
 
     store = new AppStore();
-    store.currentService = MOCK_SERVICE;
 
     wrapper = shallow(
       <RequestDialog
         store={store}
+        description=""
         stage="submit"
+        service={MOCK_SERVICE}
         loopbackGraphql={loopbackGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
       />);
 
     requestDialog = wrapper.instance();
+
+    runInAction(() => {
+      requestDialog.requestForm.firstName = 'Carol';
+    });
   });
 
   describe('navigation', () => {
@@ -145,7 +151,7 @@ describe('methods', () => {
       };
 
       expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
-        contactInfo: null,
+        firstName: null,
       }));
 
       resolveGraphql(result);
@@ -155,16 +161,13 @@ describe('methods', () => {
       // rendering success
       wrapper.update();
       expect(wrapper).toMatchSnapshot();
-
-      expect(store.requestForm.description).toEqual('');
-      expect(store.requestForm.mediaUrl).toEqual('');
     });
 
     test('success with contact info', async () => {
       requestDialog.submitRequest(true);
 
       expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
-        contactInfo: store.requestForm.contactInfo,
+        firstName: 'Carol',
       }));
     });
 

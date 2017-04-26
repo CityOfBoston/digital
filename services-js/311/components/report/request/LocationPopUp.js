@@ -9,6 +9,7 @@ import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import searchAddress from '../../../data/dao/search-address';
 
 import type { AppStore } from '../../../data/store';
+import type RequestForm from '../../../data/store/RequestForm';
 
 import LocationMap from '../map/LocationMap';
 
@@ -29,6 +30,7 @@ const MAP_CONTAINER_STYLE = css({
 export type Props = {|
   store: AppStore,
   loopbackGraphql: LoopbackGraphql,
+  requestForm: RequestForm,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
 |}
@@ -40,12 +42,28 @@ export default class LocationPopUp extends React.Component {
   @observable addressQuery: string = '';
 
   queryClearerDisposer: Function;
+  updateFormFromMapDisposer: Function;
 
+  @action
   componentWillMount() {
-    const { store } = this.props;
+    const { store, requestForm } = this.props;
+
+    store.mapLocation.address = requestForm.address;
+    store.mapLocation.location = requestForm.location;
+
+    this.updateFormFromMapDisposer = reaction(
+      () => ({ location: store.mapLocation.location, address: store.mapLocation.address }),
+      ({ location, address }) => {
+        requestForm.location = location;
+        requestForm.address = address;
+      }, {
+        fireImmediately: true,
+        name: 'update form from map',
+      },
+    );
 
     this.queryClearerDisposer = reaction(
-      () => store.requestForm.locationInfo.address,
+      () => requestForm.address,
       (address) => {
         // only clear if there's a new address. Otherwise we want to keep
         // the existing search term so the user can fix it
@@ -72,26 +90,26 @@ export default class LocationPopUp extends React.Component {
   async whenSearchSubmit(ev: SyntheticInputEvent) {
     ev.preventDefault();
 
-    const { loopbackGraphql, store: { requestForm: { locationInfo } } } = this.props;
+    const { loopbackGraphql, store: { mapLocation } } = this.props;
 
-    locationInfo.location = null;
+    mapLocation.location = null;
 
     const place = await searchAddress(loopbackGraphql, this.addressQuery);
 
     runInAction('address search result', () => {
       if (place) {
         this.addressQuery = '';
-        locationInfo.location = place.location;
-        locationInfo.address = place.address;
+        mapLocation.location = place.location;
+        mapLocation.address = place.address;
       } else {
-        locationInfo.address = '';
+        mapLocation.address = '';
       }
     });
   }
 
   render() {
-    const { store: { requestForm }, nextFunc, nextIsSubmit } = this.props;
-    const { address, requirementsMet, required } = requestForm.locationInfo;
+    const { requestForm, nextFunc, nextIsSubmit } = this.props;
+    const { address, locationRequirementsMet, locationRequired } = requestForm;
 
     return (
       <div className={CONTENT_STYLE}>
@@ -119,16 +137,16 @@ export default class LocationPopUp extends React.Component {
 
         <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
           <div className="g--6">
-            { !required && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
+            { !locationRequired && <a href="javascript:void(0)" onClick={nextFunc}>Continue without location</a> }
           </div>
-          <button className="btn g--6" disabled={!requirementsMet} onClick={nextFunc}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
+          <button className="btn g--6" disabled={!locationRequirementsMet} onClick={nextFunc}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
         </div>
       </div>
     );
   }
 
   maybeRenderMap() {
-    const { store, loopbackGraphql } = this.props;
+    const { store } = this.props;
     const { belowMediaLarge } = store.ui;
 
     if (!belowMediaLarge) {
@@ -137,7 +155,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMap store={store} mode="picker" opacityRatio={1} loopbackGraphql={loopbackGraphql} />
+        <LocationMap store={store} mode="picker" opacityRatio={1} />
       </div>
     );
   }

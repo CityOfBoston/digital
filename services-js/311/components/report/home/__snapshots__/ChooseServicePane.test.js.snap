@@ -20,20 +20,11 @@ exports[`rendering loading 1`] = `
       </h2>
     </div>
     <div
-      className="m-v500"
+      className="m-v500 t--intro"
     >
-      <textarea
-        className={
-          Object {
-            "data-css-1i2zjxt": "",
-          }
-        }
-        defaultValue="Thanos is attacking"
-        name="description"
-        onBlur={[Function]}
-        onInput={[Function]}
-        placeholder="Tell us your problem"
-      />
+      “
+      Thanos is attacking
+      ”
     </div>
   </div>
   <div
@@ -73,20 +64,11 @@ exports[`rendering no description 1`] = `
       </h2>
     </div>
     <div
-      className="m-v500"
+      className="m-v500 t--intro"
     >
-      <textarea
-        className={
-          Object {
-            "data-css-139eqxv": "",
-          }
-        }
-        defaultValue=""
-        name="description"
-        onBlur={[Function]}
-        onInput={[Function]}
-        placeholder="Tell us your problem"
-      />
+      “
+      
+      ”
     </div>
   </div>
   <div
@@ -126,20 +108,11 @@ exports[`rendering no suggested summaries 1`] = `
       </h2>
     </div>
     <div
-      className="m-v500"
+      className="m-v500 t--intro"
     >
-      <textarea
-        className={
-          Object {
-            "data-css-1i2zjxt": "",
-          }
-        }
-        defaultValue="Thanos is attacking"
-        name="description"
-        onBlur={[Function]}
-        onInput={[Function]}
-        placeholder="Tell us your problem"
-      />
+      “
+      Thanos is attacking
+      ”
     </div>
   </div>
   <div
@@ -223,20 +196,11 @@ exports[`rendering some suggested summaries 1`] = `
       </h2>
     </div>
     <div
-      className="m-v500"
+      className="m-v500 t--intro"
     >
-      <textarea
-        className={
-          Object {
-            "data-css-1i2zjxt": "",
-          }
-        }
-        defaultValue="Thanos is attacking"
-        name="description"
-        onBlur={[Function]}
-        onInput={[Function]}
-        placeholder="Tell us your problem"
-      />
+      “
+      Thanos is attacking
+      ”
     </div>
   </div>
   <div

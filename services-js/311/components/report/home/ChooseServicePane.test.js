@@ -16,7 +16,7 @@ const SERVICE_SUMMARIES = [{
 describe('rendering', () => {
   test('some suggested summaries', () => {
     const component = renderer.create(
-      <ChooseServicePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} suggestedServiceSummaries={SERVICE_SUMMARIES} />,
+      <ChooseServicePane description="Thanos is attacking" suggestedServiceSummaries={SERVICE_SUMMARIES} />,
     );
 
     const json = component.toJSON();
@@ -25,7 +25,7 @@ describe('rendering', () => {
 
   test('no suggested summaries', () => {
     const component = renderer.create(
-      <ChooseServicePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} suggestedServiceSummaries={[]} />,
+      <ChooseServicePane description="Thanos is attacking" suggestedServiceSummaries={[]} />,
     );
 
     const json = component.toJSON();
@@ -34,7 +34,7 @@ describe('rendering', () => {
 
   test('loading', () => {
     const component = renderer.create(
-      <ChooseServicePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} suggestedServiceSummaries={null} />,
+      <ChooseServicePane description="Thanos is attacking" suggestedServiceSummaries={null} />,
     );
 
     const json = component.toJSON();
@@ -43,7 +43,7 @@ describe('rendering', () => {
 
   test('no description', () => {
     const component = renderer.create(
-      <ChooseServicePane description="" handleDescriptionChanged={jest.fn()} suggestedServiceSummaries={[]} />,
+      <ChooseServicePane description="" suggestedServiceSummaries={[]} />,
     );
 
     const json = component.toJSON();

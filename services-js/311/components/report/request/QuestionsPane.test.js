@@ -5,6 +5,7 @@ import renderer from 'react-test-renderer';
 
 import type { Service } from '../../../data/types';
 import { AppStore } from '../../../data/store';
+import RequestForm from '../../../data/store/RequestForm';
 
 import QuestionsPane from './QuestionsPane';
 
@@ -33,35 +34,36 @@ export const SERVICE_WITH_METADATA: Service = {
 };
 
 let store;
+let requestForm;
 
 beforeEach(() => {
   store = new AppStore();
-  store.currentService = DEFAULT_SERVICE;
+  requestForm = new RequestForm();
 });
 
 test('blank request', () => {
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('existing description', () => {
-  store.requestForm.description = 'Please pick up my bulk items. ';
+  requestForm.description = 'Please pick up my bulk items. ';
 
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 test('service with metadata', () => {
-  store.currentService = SERVICE_WITH_METADATA;
+  requestForm = new RequestForm(SERVICE_WITH_METADATA);
 
   const component = renderer.create(
-    <QuestionsPane store={store} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={SERVICE_WITH_METADATA.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();

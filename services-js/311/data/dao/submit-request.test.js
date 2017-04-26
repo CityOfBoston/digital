@@ -4,7 +4,7 @@ import type { Service } from '../types';
 import type { SubmitRequestMutationVariables } from './graphql/types';
 import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
 
-import { AppStore } from '../store';
+import RequestForm from '../store/RequestForm';
 
 import submitRequest from './submit-request';
 
@@ -100,15 +100,11 @@ const COSMIC_SERVICE: Service = {
 };
 
 test('submitRequest', async () => {
-  // We use a store to build up questions and such for us.
-  const store = new AppStore();
-  store.currentService = COSMIC_SERVICE;
-
-  const requestForm = store.requestForm;
+  const requestForm = new RequestForm(COSMIC_SERVICE);
   requestForm.description = 'Things are bad';
-  requestForm.contactInfo.firstName = 'Carol';
-  requestForm.contactInfo.lastName = 'Danvers';
-  requestForm.contactInfo.email = 'marvel@alphaflight.gov';
+  requestForm.firstName = 'Carol';
+  requestForm.lastName = 'Danvers';
+  requestForm.email = 'marvel@alphaflight.gov';
 
   requestForm.questions[0].value = 'Thanos is here';
   requestForm.questions[2].value = 'us-avengers';
@@ -124,8 +120,12 @@ test('submitRequest', async () => {
   await submitRequest(loopbackGraphql, {
     service: COSMIC_SERVICE,
     description: requestForm.description,
-    contactInfo: requestForm.contactInfo,
-    locationInfo: requestForm.locationInfo,
+    firstName: requestForm.firstName,
+    lastName: requestForm.lastName,
+    email: requestForm.email,
+    phone: requestForm.phone,
+    location: requestForm.location,
+    address: requestForm.address,
     questions: requestForm.questions,
     mediaUrl: requestForm.mediaUrl,
   });

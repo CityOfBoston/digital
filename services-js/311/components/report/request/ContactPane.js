@@ -5,8 +5,10 @@ import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
+import LocalStorageContactInfo from '../../../data/external/LocalStorageContactInfo';
+
 import SectionHeader from '../../common/SectionHeader';
-import type { AppStore } from '../../../data/store';
+import type RequestForm from '../../../data/store/RequestForm';
 
 const FIELD_STYLE = {
   width: '100%',
@@ -17,8 +19,9 @@ const BOTTOM_ROW_STYLE = css({
 });
 
 export type Props = {|
-  store: AppStore,
-  nextFunc: (contactInfo: ?boolean) => void,
+  requestForm: RequestForm,
+  serviceName: string,
+  nextFunc: (contactInfo: boolean) => mixed,
 |}
 
 function renderRequired() {
@@ -27,49 +30,60 @@ function renderRequired() {
 
 @observer
 export default class ContactPane extends React.Component {
+  props: Props;
+
+  localStorageContactInfo: LocalStorageContactInfo;
+
+  componentWillMount() {
+    const { requestForm } = this.props;
+    this.localStorageContactInfo = new LocalStorageContactInfo(requestForm);
+  }
+
+  componentWillUnmount() {
+    this.localStorageContactInfo.dispose();
+  }
+
   @action.bound
   handleChange(ev: SyntheticInputEvent) {
-    const { store } = this.props;
-    const { requestForm: { contactInfo } } = store;
+    const { requestForm } = this.props;
 
     const value = ev.target.value;
     switch (ev.target.name) {
       case 'firstName':
-        contactInfo.firstName = value;
+        requestForm.firstName = value;
         break;
       case 'lastName':
-        contactInfo.lastName = value;
+        requestForm.lastName = value;
         break;
       case 'email':
-        contactInfo.email = value;
+        requestForm.email = value;
         break;
       case 'phone':
-        contactInfo.phone = value;
+        requestForm.phone = value;
         break;
       case 'remember':
-        contactInfo.rememberInfo = ev.target.checked;
+        this.localStorageContactInfo.rememberInfo = ev.target.checked;
         break;
       default:
         break;
     }
   }
 
+  @action.bound
   submitWithContactInfo() {
     const { nextFunc } = this.props;
     nextFunc(true);
   }
 
   render() {
-    const { store, nextFunc } = this.props;
-    const { currentService, requestForm: { contactInfo } } = store;
-    const { firstName, lastName, email, phone, required, requirementsMet, rememberInfo } = contactInfo;
-
-    const title = currentService ? currentService.name : 'Contact Info';
+    const { nextFunc, serviceName, requestForm } = this.props;
+    const { firstName, lastName, email, phone, contactInfoRequired, contactInfoRequirementsMet } = requestForm;
+    const { rememberInfo } = this.localStorageContactInfo;
 
     return (
       <div>
         <div>
-          <SectionHeader>{ title }</SectionHeader>
+          <SectionHeader>{ serviceName }</SectionHeader>
           <p className="m-v300 t--info">
           We’ll use your contact info to send you email about the status of your
           report and to follow up with you if necessary.
@@ -78,7 +92,7 @@ export default class ContactPane extends React.Component {
           <p className="m-v300" style={{ fontStyle: 'italic' }}>
           Your contact info will not be made public.{' '}
 
-            { !required && (
+            { !contactInfoRequired && (
             <span>
               You can also <a href="javascript:void(0)" onClick={nextFunc}>submit
               without providing contact info</a>.
@@ -116,9 +130,9 @@ export default class ContactPane extends React.Component {
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
           <div className="g--8 t--info" style={{ textAlign: 'right' }}>
-            {!requirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+            {!contactInfoRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
-          <button className="btn g--4" onClick={this.submitWithContactInfo} disabled={!requirementsMet}>Submit Report</button>
+          <button className="btn g--4" onClick={this.submitWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>
         </div>
       </div>
     );

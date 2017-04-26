@@ -8,6 +8,6 @@ import LoadTopServiceSummariesGraphql from './graphql/LoadTopServiceSummaries.gr
 
 // Loads a list of all ServiceSummary objects available in the Open311 endpoint.
 export default async function loadTopServiceSummaries(loopbackGraphql: LoopbackGraphql): Promise<ServiceSummary[]> {
-  const response: LoadTopServiceSummariesQuery = await loopbackGraphql(LoadTopServiceSummariesGraphql);
+  const response: LoadTopServiceSummariesQuery = await loopbackGraphql(LoadTopServiceSummariesGraphql, null, { cacheKey: 'loadTopServiceSummaries' });
   return response.topServices;
 }

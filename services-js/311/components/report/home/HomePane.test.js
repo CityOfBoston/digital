@@ -16,7 +16,7 @@ const SERVICE_SUMMARIES = [{
 describe('rendering', () => {
   test('existing description', () => {
     const component = renderer.create(
-      <HomePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} topServiceSummaries={SERVICE_SUMMARIES} />,
+      <HomePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} nextFn={jest.fn()} topServiceSummaries={SERVICE_SUMMARIES} />,
     );
 
     const json = component.toJSON();

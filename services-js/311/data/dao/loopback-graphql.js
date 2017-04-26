@@ -30,7 +30,19 @@ function handleGraphqlResponse(ok, json) {
   }
 }
 
-async function clientGraphqlFetch(query, variables = null) {
+let clientCache = {};
+
+export function setClientCache(cache: {[key: string]: mixed}) {
+  clientCache = cache;
+}
+
+async function clientGraphqlFetch(query, variables = null, options = {}) {
+  const { cacheKey } = options;
+
+  if (cacheKey && clientCache[cacheKey]) {
+    return clientCache[cacheKey];
+  }
+
   const res = await fetch('/graphql', {
     method: 'POST',
     headers: {
@@ -45,13 +57,19 @@ async function clientGraphqlFetch(query, variables = null) {
 
   if (res.ok) {
     // only assume we can json if the response is ok
-    return handleGraphqlResponse(true, await res.json());
+    const value = handleGraphqlResponse(true, await res.json());
+    if (cacheKey) {
+      clientCache[cacheKey] = value;
+    }
+    return value;
   } else {
     throw new Error(await res.text());
   }
 }
 
-async function serverGraphqlFetch(hapiInject, query, variables = null) {
+async function serverGraphqlFetch(hapiInject, cache, query, variables = null, options = {}) {
+  const { cacheKey } = options;
+
   const res = await hapiInject({
     url: '/graphql',
     method: 'post',
@@ -62,7 +80,11 @@ async function serverGraphqlFetch(hapiInject, query, variables = null) {
   });
 
   const json = (typeof res.result === 'string') ? JSON.parse(res.result) : res.result;
-  return handleGraphqlResponse((res.statusCode === 200), json);
+  const value = handleGraphqlResponse((res.statusCode === 200), json);
+  if (cacheKey) {
+    cache[cacheKey] = value;
+  }
+  return value;
 }
 
 function serverRenderGraphqlFetch() {
@@ -81,7 +103,7 @@ export default function makeLoopbackGraphql(req: ?RequestAdditions): LoopbackGra
   if (process.browser) {
     return clientGraphqlFetch;
   } else if (req) {
-    return serverGraphqlFetch.bind(null, req.hapiInject);
+    return serverGraphqlFetch.bind(null, req.hapiInject, req.loopbackGraphqlCache);
   } else {
     // This case comes up when components make a loopbackGraphql outside of
     // getInitialProps but during server rendering. We don't error immediately

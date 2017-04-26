@@ -8,7 +8,6 @@ import Router from 'next/router';
 import type { Service, ServiceSummary } from '../../data/types';
 
 import { makeServerContext } from '../../lib/test/make-context';
-import inBrowser from '../../lib/test/in-browser';
 
 import getStore from '../../data/store';
 
@@ -83,12 +82,7 @@ describe('report form', () => {
   });
 
   test('getInitialProps', () => {
-    switch (data.view) {
-      case 'home':
-        expect(data.topServiceSummaries).toHaveLength(1);
-      default:
-        expect(data.view).toEqual('home');
-    }
+    expect(data.view).toEqual('home');
   });
 
   test('rendering', () => {
@@ -107,36 +101,7 @@ describe('existing service page', () => {
   test('getInitialProps', async () => {
     const ctx = makeServerContext('/report', { code: 'CSMCINC' });
     const data = (await ReportLayout.getInitialProps(ctx)).data;
-
-    switch (data.view) {
-      case 'request':
-        expect(data.service).toBeDefined();
-        expect(data.stage).toEqual('questions');
-      default:
-        expect(data.view).toEqual('request');
-    }
-  });
-
-  test('service is cached', async () => {
-    await inBrowser(async () => {
-      store = getStore();
-      let ctx = makeServerContext('/report', { code: 'CSMCINC' });
-      const data = (await ReportLayout.getInitialProps(ctx)).data;
-
-      // store should have the service cached by code from the beforeEach above,
-      // so to enforce that we're not fetching a second time we clear this out
-      loadService.mockClear();
-
-      // caching happens when the layout is created
-      // eslint-disable-next-line no-new
-      new ReportLayout({ data, store });
-
-      ctx = makeServerContext('/report', { code: 'CSMCINC' });
-      const nextData = (await ReportLayout.getInitialProps(ctx)).data;
-
-      expect(nextData).toEqual(data);
-      expect(loadService).not.toHaveBeenCalled();
-    });
+    expect(data.view).toEqual('request');
   });
 
   test('rendering', async () => {
@@ -191,7 +156,7 @@ describe('missing service page', () => {
 
     switch (data.view) {
       case 'request':
-        expect(data.service).toBeNull();
+        expect(data.props.service).toBeNull();
       default:
         expect(data.view).toEqual('request');
     }

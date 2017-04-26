@@ -11,6 +11,6 @@ import LoadServiceGraphql from './graphql/LoadService.graphql';
 // required, &c.
 export default async function loadService(loopbackGraphql: LoopbackGraphql, code: string): Promise<?Service> {
   const queryVariables: LoadServiceQueryVariables = { code };
-  const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, queryVariables);
+  const response: LoadServiceQuery = await loopbackGraphql(LoadServiceGraphql, queryVariables, { cacheKey: `loadService:${code}` });
   return response.service;
 }
