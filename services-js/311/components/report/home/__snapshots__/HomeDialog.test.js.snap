@@ -115,19 +115,19 @@ exports[`home page rendering 1`] = `
               <h3
                 className="stp m-v100 css-17cwx2g"
               >
-                Tell us your problem
+                Tell us your problem:
               </h3>
               <textarea
                 className={
                   Object {
-                    "data-css-1red1ju": "",
+                    "data-css-81ig8n": "",
                   }
                 }
                 defaultValue=""
                 name="description"
                 onBlur={[Function]}
                 onInput={[Function]}
-                placeholder="Example: my street hasn’t been plowed"
+                placeholder=""
               />
               <div
                 className="m-t500"

@@ -20,7 +20,7 @@ exports[`blank request 1`] = `
       <textarea
         className={
           Object {
-            "data-css-1gh870p": "",
+            "data-css-15q8vxe": "",
           }
         }
         defaultValue=""
@@ -137,7 +137,7 @@ exports[`existing description 1`] = `
       <textarea
         className={
           Object {
-            "data-css-1i2zjxt": "",
+            "data-css-fgw5c1": "",
           }
         }
         defaultValue="Please pick up my bulk items. "
@@ -254,7 +254,7 @@ exports[`service with metadata 1`] = `
       <textarea
         className={
           Object {
-            "data-css-1gh870p": "",
+            "data-css-15q8vxe": "",
           }
         }
         defaultValue=""

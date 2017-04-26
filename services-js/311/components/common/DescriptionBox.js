@@ -17,6 +17,7 @@ export type Props = {|
 
 const TEXTAREA_STYLE = css({
   display: 'block',
+  resize: 'none',
   width: '100%',
   fontFamily: '"Lora", Georgia, serif',
   fontSize: 28,
