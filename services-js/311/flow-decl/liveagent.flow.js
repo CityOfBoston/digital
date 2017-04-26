@@ -11,4 +11,5 @@ declare var liveagent: {
   showWhenOffline: (buttonId: string, el: HTMLElement) => void,
 
   startChat: (buttonId: string) => void,
+  addCustomDetail: (name: string, value: string, showToAgent?: boolean) => void,
 };

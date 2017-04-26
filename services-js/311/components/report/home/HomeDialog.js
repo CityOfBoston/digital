@@ -160,9 +160,9 @@ export default class HomeDialog extends React.Component {
   }
 
   renderHome() {
-    const { topServiceSummaries } = this.props;
+    const { topServiceSummaries, store } = this.props;
     return (
-      <HomePane description={this.description} handleDescriptionChanged={this.handleDescriptionChanged} nextFn={this.routeToChoose} topServiceSummaries={topServiceSummaries} />
+      <HomePane store={store} description={this.description} handleDescriptionChanged={this.handleDescriptionChanged} nextFn={this.routeToChoose} topServiceSummaries={topServiceSummaries} />
     );
   }
 

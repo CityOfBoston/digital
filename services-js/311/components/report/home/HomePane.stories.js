@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+import { AppStore } from '../../../data/store';
 import HomePane from './HomePane';
 import FormDialog from '../../common/FormDialog';
 
@@ -51,6 +52,6 @@ const SERVICE_SUMMARIES = [
 storiesOf('HomePane', module)
   .add('Home', () => (
     <FormDialog>
-      <HomePane description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} nextFn={action('Next')} handleDescriptionChanged={action('Description changed')} />
+      <HomePane store={new AppStore()} description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} nextFn={action('Next')} handleDescriptionChanged={action('Description changed')} />
     </FormDialog>
   ));

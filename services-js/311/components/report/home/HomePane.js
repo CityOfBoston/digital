@@ -1,4 +1,5 @@
 // @flow
+/* global liveagent */
 
 import React from 'react';
 import { css } from 'glamor';
@@ -9,6 +10,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import type { ServiceSummary } from '../../../data/types';
+import type { AppStore } from '../../../data/store';
 
 import { MEDIA_LARGE } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
@@ -37,6 +39,7 @@ const SERVICE_PICKER_STYLE = css({
 });
 
 export type Props = {|
+  store: AppStore,
   description: string,
   handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
   nextFn: () => mixed,
@@ -57,6 +60,8 @@ const TIME_PER_CHARACTER_MS = 100;
 
 @observer
 export default class HomePane extends React.Component {
+  props: Props;
+
   @observable textareaFocus: boolean = false;
   @observable animationStartMs: number = 0;
 
@@ -75,6 +80,14 @@ export default class HomePane extends React.Component {
     this.textareaFocus = false;
   }
 
+  @action.bound
+  startChat() {
+    const { store } = this.props;
+    const { liveAgentButtonId } = store;
+
+    liveagent.startChat(liveAgentButtonId);
+  }
+
   @computed get placeholder(): string {
     if (this.props.description || this.textareaFocus || !this.animationStartMs) {
       return '';
@@ -89,7 +102,7 @@ export default class HomePane extends React.Component {
   }
 
   render() {
-    const { description, handleDescriptionChanged, nextFn, topServiceSummaries } = this.props;
+    const { description, handleDescriptionChanged, nextFn, topServiceSummaries, store } = this.props;
     return (
       <div>
         <Head>
@@ -119,6 +132,7 @@ export default class HomePane extends React.Component {
             />
 
             <div className="m-t500" style={{ textAlign: 'right' }}>
+              { store.liveAgentAvailable && <button className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
               <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
             </div>
           </div>

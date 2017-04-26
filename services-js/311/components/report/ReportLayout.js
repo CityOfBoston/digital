@@ -1,6 +1,5 @@
 // @flow
 /* global liveagent */
-/* eslint jsx-a11y/anchor-has-content: 0 */
 
 import React from 'react';
 import { css } from 'glamor';

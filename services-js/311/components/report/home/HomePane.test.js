@@ -2,6 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { AppStore } from '../../../data/store';
 import HomePane from './HomePane';
 
 const SERVICE_SUMMARIES = [{
@@ -16,7 +17,7 @@ const SERVICE_SUMMARIES = [{
 describe('rendering', () => {
   test('existing description', () => {
     const component = renderer.create(
-      <HomePane description="Thanos is attacking" handleDescriptionChanged={jest.fn()} nextFn={jest.fn()} topServiceSummaries={SERVICE_SUMMARIES} />,
+      <HomePane store={new AppStore()} description="Thanos is attacking" handleDescriptionChanged={jest.fn()} nextFn={jest.fn()} topServiceSummaries={SERVICE_SUMMARIES} />,
     );
 
     const json = component.toJSON();

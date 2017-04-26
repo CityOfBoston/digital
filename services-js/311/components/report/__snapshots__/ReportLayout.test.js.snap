@@ -1230,6 +1230,12 @@ exports[`report form rendering 1`] = `
                     }
                   >
                     <button
+                      className="btn m-h100"
+                      onClick={[Function]}
+                    >
+                      Start Live Chat
+                    </button>
+                    <button
                       className="btn css-1q8b8td"
                       disabled={true}
                       onClick={[Function]}
