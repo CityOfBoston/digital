@@ -18,7 +18,7 @@ export default class LocalStorageContactInfo {
         requestForm.phone = localStorage.getItem('ContactInfo.phone') || '';
       });
 
-      autorunAsync('remember contact info', () => {
+      this.rememberInfoDisposer = autorunAsync('remember contact info', () => {
         if (this.rememberInfo) {
           localStorage.setItem('ContactInfo.firstName', requestForm.firstName);
           localStorage.setItem('ContactInfo.lastName', requestForm.lastName);
