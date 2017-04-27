@@ -92,14 +92,14 @@ export default function ChooseServicePane({ description, suggestedServiceSummari
 
       <div className="p-a300 p-a800--xl" style={{ paddingBottom: '.75rem' }}>
 
-        <SectionHeader>File a Report</SectionHeader>
+        <SectionHeader>BOS:311 — File a Report</SectionHeader>
 
         <div className="m-v500 t--intro">
           “{ description }”
         </div>
       </div>
 
-      <div className="b b--g m-v500 p-a300 p-a800--xl">
+      <div className="b b--g p-a300 p-a800--xl">
         <h3 className="stp">
           How can we help?
         </h3>

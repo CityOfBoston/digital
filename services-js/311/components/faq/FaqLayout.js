@@ -146,7 +146,7 @@ export default class FaqLayout extends React.Component {
                 Once you have successfully submitted your request, you will
                 receive an email with a tracking number that you can use to
                 monitor your request. You can track your service
-                request <Link href="/lookup"><a>here</a></Link>.
+                request <Link href="/search"><a>here</a></Link>.
               </Question>
 
               <Question title="Why can’t I get through when I dial 311?">

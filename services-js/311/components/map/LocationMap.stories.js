@@ -3,7 +3,7 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import LocationMap from './LocationMap';
-import { AppStore } from '../../../data/store';
+import { AppStore } from '../../data/store';
 
 const makeStore = () => {
   const store = new AppStore();
@@ -16,8 +16,8 @@ storiesOf('LocationMap', module)
     <div style={{ width: '100vw', height: '100vh' }}>{ story() }</div>
   ))
   .add('inactive', () => (
-    <LocationMap store={makeStore()} opacityRatio={0} mode="inactive" />
+    <LocationMap store={makeStore()} mode="inactive" />
   ))
   .add('picker', () => (
-    <LocationMap store={makeStore()} opacityRatio={1} mode="picker" />
+    <LocationMap store={makeStore()} mode="picker" />
   ));

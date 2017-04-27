@@ -3,8 +3,8 @@
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';
 import type { Map as MapboxMap, Marker, DivIcon } from 'mapbox.js';
-import type RequestSearch from '../../../data/store/RequestSearch';
-import type { SearchRequest } from '../../../data/types';
+import type RequestSearch from '../../data/store/RequestSearch';
+import type { SearchRequest } from '../../data/types';
 import waypointMarkers from './WaypointMarkers';
 
 type LWithMapbox = $Exports<'mapbox.js'>;

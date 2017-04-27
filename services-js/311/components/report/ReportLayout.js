@@ -5,14 +5,13 @@ import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
-import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
-import LocationMap from './map/LocationMap';
-import type { MapMode } from './map/LocationMap';
+import LocationMap from '../map/LocationMap';
+import type { MapMode } from '../map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import type { InitialProps as HomeDialogInitialProps } from './home/HomeDialog';
 import RequestDialog from './request/RequestDialog';
@@ -118,26 +117,6 @@ export default class ReportLayout extends React.Component {
     store.mapLocation.stop();
   }
 
-  startChat = () => {
-    const { liveAgentButtonId } = this.props.store;
-    liveagent.startChat(liveAgentButtonId);
-  }
-
-  @computed get mapActivationRatio(): number {
-    const { store: { ui }, data } = this.props;
-    // kind of invasive. Might be better to have the HomeDialog/HomePane signal
-    // that the map should activate on scroll.
-    if (data.view === 'home') {
-      const { stage } = data.props;
-
-      if (stage === 'home') {
-        return Math.min(1.0, ui.scrollY / (ui.visibleHeight * 0.75));
-      }
-    }
-
-    return 0;
-  }
-
   routeToServiceForm = async (code: string, stage: string = 'questions') => {
     if (stage === 'questions') {
       await Router.push(`/report?code=${code}`, `/report/${code}`);
@@ -164,8 +143,6 @@ export default class ReportLayout extends React.Component {
     let mapMode: MapMode;
     if (locationMapActive) {
       mapMode = 'picker';
-    } else if (this.mapActivationRatio === 1.0) {
-      mapMode = 'requests';
     } else {
       mapMode = 'inactive';
     }
@@ -183,7 +160,6 @@ export default class ReportLayout extends React.Component {
               <LocationMap
                 store={store}
                 mode={mapMode}
-                opacityRatio={this.mapActivationRatio}
               />
             </div>
           }

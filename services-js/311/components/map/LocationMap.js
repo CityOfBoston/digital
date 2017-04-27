@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
 
-import type { AppStore } from '../../../data/store';
+import type { AppStore } from '../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
 import waypointMarkers from './WaypointMarkers';
@@ -17,6 +17,7 @@ const MAP_STYLE = css({
   width: '100%',
   height: '100%',
   backgroundColor: '#9B9B9B',
+  transition: 'opacity 500ms',
 });
 
 const DEFAULT_CENTER = {
@@ -36,7 +37,6 @@ type LWithMapbox = $Exports<'mapbox.js'>;
 export type Props = {|
   mode: MapMode,
   store: AppStore,
-  opacityRatio: number,
 |};
 
 let L: ?LWithMapbox = null;
@@ -109,7 +109,7 @@ export default class LocationMap extends React.Component {
         zIndexOffset: 2000,
       });
 
-      currentLocationMarker.on('click', this.handleMarkerClick);
+      currentLocationMarker.on('click', this.handleCurrentLocationMarkerClick);
     }
   }
 
@@ -120,7 +120,7 @@ export default class LocationMap extends React.Component {
 
     if (L) {
       this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
-        this.props.mode === 'picker' ? 0 : this.props.opacityRatio
+        this.props.mode === 'requests' ? 1 : 0
       )));
     }
   }
@@ -203,7 +203,6 @@ export default class LocationMap extends React.Component {
 
   maintainCurrentLocationMarkerLocation = (currentLocation: ?{lat: number, lng: number}) => {
     const { currentLocationMarker, mapboxMap: map } = this;
-    const { mode } = this.props;
 
     if (!currentLocationMarker) {
       return;
@@ -213,12 +212,6 @@ export default class LocationMap extends React.Component {
       if (currentLocation) {
         currentLocationMarker.setLatLng(currentLocation);
         currentLocationMarker.addTo(map);
-
-        if (mode === 'inactive') {
-          // we only want to zoom around following the current location if
-          // it's not going to disturb the user interacting with the map.
-          this.flyToLocation(currentLocation);
-        }
       } else {
         map.removeLayer(currentLocationMarker);
       }
@@ -371,7 +364,7 @@ export default class LocationMap extends React.Component {
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
 
-    const neContainerPoint = { x: containerWidth, y: requestSearch.searchHeaderHeight };
+    const neContainerPoint = { x: containerWidth, y: 0 };
     const swContainerPoint = { x: requestSearch.resultsListWidth, y: containerHeight };
 
     const visibleBounds = L.latLngBounds([]);
@@ -406,6 +399,16 @@ export default class LocationMap extends React.Component {
       lat: latLng.lat,
       lng: latLng.lng,
     });
+  }
+
+  @action.bound
+  handleCurrentLocationMarkerClick(ev: Object) {
+    const { mode } = this.props;
+    if (mode === 'picker') {
+      this.handleMarkerClick(ev);
+    } else if (mode === 'requests') {
+      this.flyToLocation(ev.target.getLatLng());
+    }
   }
 
   @action.bound
@@ -457,9 +460,9 @@ export default class LocationMap extends React.Component {
   }
 
   render() {
-    const { mode, opacityRatio } = this.props;
+    const { mode } = this.props;
 
-    const opacity = mode !== 'inactive' ? 1 : 0.6 + (0.4 * opacityRatio);
+    const opacity = mode !== 'inactive' ? 1 : 0.6;
 
     return (
       <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl} />

@@ -52,7 +52,7 @@ describe('case', () => {
 
   beforeEach(async () => {
     loadRequest.mockReturnValue(Promise.resolve(MOCK_REQUEST));
-    const ctx = makeServerContext('/lookup', { q: 'case-id' });
+    const ctx = makeServerContext('/search', { q: 'case-id' });
     data = (await LookupLayout.getInitialProps(ctx)).data;
   });
 
@@ -79,7 +79,7 @@ describe('case not found', () => {
 
   beforeEach(async () => {
     loadRequest.mockReturnValue(Promise.resolve(null));
-    ctx = makeServerContext('/lookup', { q: 'not-a-real-id' });
+    ctx = makeServerContext('/search', { q: 'not-a-real-id' });
     data = (await LookupLayout.getInitialProps(ctx)).data;
   });
 
@@ -110,5 +110,5 @@ describe('case not found', () => {
 test('search', () => {
   const lookupLayout = new LookupLayout({ data: { view: 'search' } });
   lookupLayout.search('query');
-  expect(Router.push).toHaveBeenCalledWith('/lookup?q=query');
+  expect(Router.push).toHaveBeenCalledWith('/search?q=query');
 });

@@ -9,6 +9,35 @@ exports[`rendering results loaded 1`] = `
   }
 >
   <div
+    className="p-a300"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <div
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"
     onMouseEnter={[Function]}
@@ -101,6 +130,35 @@ exports[`rendering with request selected 1`] = `
     }
   }
 >
+  <div
+    className="p-a300"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
   <div
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"

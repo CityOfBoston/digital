@@ -54,7 +54,7 @@ export default class LookupLayout extends React.Component {
   }
 
   search = async (query: string) => {
-    await Router.push(`/lookup?q=${query}`);
+    await Router.push(`/search?q=${query}`);
     window.scrollTo(0, 0);
   }
 
@@ -65,7 +65,7 @@ export default class LookupLayout extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <Nav activeSection="lookup" />
+        <Nav activeSection="search" />
 
         {this.renderContent()}
       </div>

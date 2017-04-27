@@ -2,12 +2,12 @@
 /* eslint react/jsx-no-bind: 0 */
 
 import React from 'react';
-import { observable, action, autorun, untracked, computed, reaction } from 'mobx';
+import { observable, action, autorun, untracked, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
-import type { AppStore } from '../../../data/store';
-import { HEADER_HEIGHT } from '../../style-constants';
+import type { AppStore } from '../../data/store';
+import { HEADER_HEIGHT } from '../style-constants';
 
 import RecentRequestRow from './RecentRequestRow';
 
@@ -69,6 +69,18 @@ export default class RecentRequests extends React.Component {
     }
   }
 
+  handleSearchSubmit = (ev: SyntheticInputEvent) => {
+    // nothing to do, because we are auto-searching
+    ev.preventDefault();
+  }
+
+  @action.bound
+  handleSearchInput(ev: SyntheticInputEvent) {
+    const { store } = this.props;
+
+    store.requestSearch.query = ev.target.value;
+  }
+
   @action.bound
   setMainEl(mainEl: ?HTMLElement) {
     this.mainEl = mainEl;
@@ -77,35 +89,33 @@ export default class RecentRequests extends React.Component {
   scrollSelectedIntoView = () => {
     // Keeps us from getting a dependency on props
     const { store } = untracked(() => Object.assign({}, this.props));
-    const { selectedRequest, selectedSource, searchHeaderHeight } = store.requestSearch;
+    const { selectedRequest, selectedSource } = store.requestSearch;
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
       const requestEl = this.mainEl.querySelector(`[data-request-id="${selectedRequest.id}"]`);
       if (Velocity && requestEl) {
-        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT + -searchHeaderHeight });
+        Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT });
       }
     }
   }
 
-  @computed get stickySearch(): boolean {
-    const { store } = untracked(() => Object.assign({}, this.props));
-
-    if (!this.mainEl) {
-      return false;
-    }
-
-    const mainBounds = this.mainEl.getBoundingClientRect();
-    return store.ui.scrollY && mainBounds.top <= HEADER_HEIGHT;
-  }
-
   render() {
     const { store: { requestSearch, ui } } = this.props;
-    const { results } = requestSearch;
+    const { results, query, resultsQuery } = requestSearch;
 
     return (
       <div className={CONTAINER_STYLE} ref={this.setMainEl}>
+        <div className="p-a300">
+          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
+            <div className="sf-i">
+              <input type="text" name="q" placeholder="Search by case ID or keywords…" value={requestSearch.query} onChange={this.handleSearchInput} className="sf-i-f" />
+              <button className="sf-i-b">Search</button>
+            </div>
+          </form>
+        </div>
+
         { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
-        { results.length === 0 && (
+        { results.length === 0 && query === resultsQuery && (
           <div className="p-a300">
             <div className="t--intro">No results found</div>
             <div className="t--info">Try a different search term or move the map to search a different area.</div>

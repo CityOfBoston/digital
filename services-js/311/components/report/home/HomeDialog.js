@@ -23,9 +23,6 @@ import { HEADER_HEIGHT, MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-c
 import HomePane from './HomePane';
 import ChooseServicePane from './ChooseServicePane';
 
-import RecentRequestsHeader from './RecentRequestsHeader';
-import RecentRequests from './RecentRequests';
-
 type Stage = 'home' | 'choose';
 
 export type InitialProps = {|
@@ -66,7 +63,7 @@ export default class HomeDialog extends React.Component {
     const loopbackGraphql = makeLoopbackGraphql(req);
 
     return {
-      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql, 4),
+      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql, 5),
       stage: stage === 'choose' ? stage : 'home',
       description: description || '',
     };
@@ -93,18 +90,12 @@ export default class HomeDialog extends React.Component {
         name: 'update service suggestions from description',
       },
     );
-
-    const { store, loopbackGraphql } = this.props;
-    store.requestSearch.start(loopbackGraphql);
   }
 
   componentWillUnmount() {
     if (this.serviceSuggestionsDisposer) {
       this.serviceSuggestionsDisposer();
     }
-
-    const { store } = this.props;
-    store.requestSearch.stop();
   }
 
   suggestServices = debounce(async (description: string) => {
@@ -133,28 +124,20 @@ export default class HomeDialog extends React.Component {
   }
 
   render() {
-    const { stage, store } = this.props;
-    const { mediaLarge } = store.ui;
+    const { stage } = this.props;
 
     const narrow = (stage === 'choose');
-    const noPadding = (stage === 'choose');
 
     return (
       <div>
         <div className={SCREENFULL_CONTAINER}>
           <div className={CENTERED_DIALOG_STYLE}>
-            <FormDialog narrow={narrow} noPadding={noPadding}>
+            <FormDialog narrow={narrow} noPadding>
               { stage === 'home' && this.renderHome() }
               { stage === 'choose' && this.renderServicePicker() }
             </FormDialog>
           </div>
-
-          { mediaLarge && stage === 'home' && <RecentRequestsHeader store={store} />}
         </div>
-
-        { mediaLarge && stage === 'home' && (
-          <RecentRequests store={store} />
-        )}
       </div>
     );
   }

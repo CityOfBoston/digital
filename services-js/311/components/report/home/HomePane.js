@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
@@ -15,6 +16,12 @@ import type { AppStore } from '../../../data/store';
 import { MEDIA_LARGE } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
+
+const FORM_COLUMN_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+});
 
 const DESCRIPTION_HEADER_STYLE = css({
   display: 'none',
@@ -33,9 +40,37 @@ const NEXT_BUTTON_STYLE = css({
 const SERVICE_PICKER_STYLE = css({
   display: 'none',
   [MEDIA_LARGE]: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'block',
   },
+});
+
+const OR_HOLDER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
+const OR_RULE_STYLE = css({
+  flex: 1,
+  borderColor: '#828282',
+  borderTopWidth: 0,
+  borderRightWidth: 0,
+  borderBottomWidth: 0,
+});
+
+const OR_CIRCLE_SYTLE = css({
+  textAlign: 'center',
+  borderRadius: '50%',
+  color: '#828282',
+  borderColor: '#828282',
+  width: '2.5em',
+  height: '2.5em',
+  lineHeight: '2.1em',
+});
+
+const BROWSE_CASES_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
 });
 
 export type Props = {|
@@ -65,6 +100,8 @@ export default class HomePane extends React.Component {
   @observable textareaFocus: boolean = false;
   @observable animationStartMs: number = 0;
 
+  @observable searchValue: string = '';
+
   @action
   componentDidMount() {
     this.animationStartMs = +new Date();
@@ -78,6 +115,23 @@ export default class HomePane extends React.Component {
   @action.bound
   handleDescriptionBlur() {
     this.textareaFocus = false;
+  }
+
+  @action.bound
+  handleSearchFocus() {
+    Router.prefetch('/search');
+  }
+
+  @action.bound
+  handleSearchInput(ev: SyntheticInputEvent) {
+    this.searchValue = ev.target.value;
+  }
+
+  @action.bound
+  handleSearchSubmit(ev: SyntheticInputEvent) {
+    ev.preventDefault();
+    const encodedSearch = encodeURIComponent(this.searchValue);
+    Router.push(`/search?q=${encodedSearch}`);
   }
 
   @action.bound
@@ -109,54 +163,78 @@ export default class HomePane extends React.Component {
           <title>BOS:311 — Report a Problem</title>
         </Head>
 
-        <SectionHeader>File a Report</SectionHeader>
+        <div className="p-a300 p-a800--xl">
+          <SectionHeader>BOS:311 — File a Report</SectionHeader>
 
-        <div className="t--intro m-v300">
-          Through BOS:311, you can report non-emergency issues with the City.
-        </div>
+          <div className="t--info m-v300">
+            Through BOS:311, you can report non-emergency issues with the City.
+          </div>
 
-        <div className="g m-t500">
-          <div className="g--7">
-            <h3 className={`stp m-v100 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
-              Tell us your problem:
-            </h3>
+          <div className="g m-t500">
+            <div className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}>
+              <div>
+                <h3 className={`stp m-v100 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
+                  Tell us your problem:
+                </h3>
 
-            <DescriptionBox
-              minHeight={152}
-              maxHeight={222}
-              text={description}
-              placeholder={this.placeholder}
-              onInput={handleDescriptionChanged}
-              onFocus={this.handleDescriptionFocus}
-              onBlur={this.handleDescriptionBlur}
-            />
+                <DescriptionBox
+                  minHeight={137}
+                  maxHeight={222}
+                  text={description}
+                  placeholder={this.placeholder}
+                  onInput={handleDescriptionChanged}
+                  onFocus={this.handleDescriptionFocus}
+                  onBlur={this.handleDescriptionBlur}
+                />
+              </div>
 
-            <div className="m-t500" style={{ textAlign: 'right' }}>
-              { store.liveAgentAvailable && <button className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
-              <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
+              <div className="m-t500" style={{ textAlign: 'right' }}>
+                { store.liveAgentAvailable && <button className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
+                <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
+              </div>
+            </div>
+
+            <div className={`g--1 ${OR_HOLDER_STYLE.toString()}`}>
+              <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
+              <div className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}>or</div>
+              <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
+            </div>
+
+            <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
+              <div className="t--info">
+                You can also start a report by picking one of these
+                popular services:
+              </div>
+
+              <ul className="ul m-v300">{ topServiceSummaries.map(({ code, name }) => (
+                <li key={code} className="t--info">
+                  <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className="m-v100">{name}</a></Link>
+                </li>
+            )) }</ul>
+
+              <div className="t--info">
+                <Link href="/services"><a>See all services…</a></Link>
+              </div>
             </div>
           </div>
-
-          <div className="g--1" />
-
-          <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
-            <div className="m-v300 t--info">
-            You can also start a report by picking one of these
-            popular services:
-          </div>
-
-            <ul className="ul">{ topServiceSummaries.map(({ code, name }) => (
-              <li key={code}>
-                <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className="t--sans tt-u">{name}</a></Link>
-              </li>
-          )) }</ul>
-.
-          <div className="t--info" style={{ textAlign: 'right' }}>
-            <Link href="/services"><a>See all services…</a></Link>
-          </div>
-          </div>
         </div>
 
+        <div className="b b--g p-a300 p-a800--xl" style={{ paddingTop: 0, paddingBottom: 0 }}>
+          <div className="g">
+            <form className="sf sf--y sf--md g--7 m-v400" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit} onFocus={this.handleSearchFocus}>
+              <div className="sf-i">
+                <input type="text" name="q" placeholder="Search by case ID or keywords…" value={this.searchValue} onChange={this.handleSearchInput} className="sf-i-f" />
+                <button className="sf-i-b">Search</button>
+              </div>
+            </form>
+
+            <div className="g--1" />
+
+            <div className={`g--4 t--info ${BROWSE_CASES_STYLE.toString()}`}>
+              <Link href="/search"><a>Browse public cases</a></Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

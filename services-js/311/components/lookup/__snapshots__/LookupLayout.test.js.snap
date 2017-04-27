@@ -42,22 +42,22 @@ exports[`case not found rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
-          href="/services"
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/search"
           onClick={[Function]}
         >
-          See all services
+          Search cases
         </a>
       </li>
       <li
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a nv-s-l-a--active"
-          href="/lookup"
+          className="nv-s-l-a "
+          href="/services"
           onClick={[Function]}
         >
-          Case look up
+          All services
         </a>
       </li>
       <li
@@ -210,22 +210,22 @@ exports[`case rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
-          href="/services"
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/search"
           onClick={[Function]}
         >
-          See all services
+          Search cases
         </a>
       </li>
       <li
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a nv-s-l-a--active"
-          href="/lookup"
+          className="nv-s-l-a "
+          href="/services"
           onClick={[Function]}
         >
-          Case look up
+          All services
         </a>
       </li>
       <li
@@ -431,22 +431,22 @@ exports[`search form rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
-          href="/services"
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/search"
           onClick={[Function]}
         >
-          See all services
+          Search cases
         </a>
       </li>
       <li
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a nv-s-l-a--active"
-          href="/lookup"
+          className="nv-s-l-a "
+          href="/services"
           onClick={[Function]}
         >
-          Case look up
+          All services
         </a>
       </li>
       <li

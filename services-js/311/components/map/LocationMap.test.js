@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { runInAction } from 'mobx';
 
-import { AppStore } from '../../../data/store';
+import { AppStore } from '../../data/store';
 
 import type LocationMapClass from './LocationMap';
 
@@ -37,7 +37,6 @@ test('rendering active', () => {
     <LocationMap
       store={store}
       mode="picker"
-      opacityRatio={1}
     />,
     { createNodeMock: () => document.createElement('div') },
   );
@@ -60,7 +59,6 @@ describe('mounted map', () => {
       <LocationMap
         store={store}
         mode="picker"
-        opacityRatio={1}
       />,
     );
 

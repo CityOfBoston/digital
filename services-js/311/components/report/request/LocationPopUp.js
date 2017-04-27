@@ -11,7 +11,7 @@ import searchAddress from '../../../data/dao/search-address';
 import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
 
-import LocationMap from '../map/LocationMap';
+import LocationMap from '../../map/LocationMap';
 
 const CONTENT_STYLE = css({
   display: 'flex',
@@ -173,7 +173,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMap store={store} mode="picker" opacityRatio={1} />
+        <LocationMap store={store} mode="picker" />
       </div>
     );
   }

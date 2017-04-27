@@ -5,11 +5,11 @@ import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
-import type RequestSearch from '../../../data/store/RequestSearch';
-import type Ui from '../../../data/store/Ui';
-import type { SearchRequest } from '../../../data/types';
+import type RequestSearch from '../../data/store/RequestSearch';
+import type Ui from '../../data/store/Ui';
+import type { SearchRequest } from '../../data/types';
 
-import { HEADER_HEIGHT } from '../../style-constants';
+import { HEADER_HEIGHT } from '../style-constants';
 
 const REQUEST_STYLE = css({
   display: 'flex',

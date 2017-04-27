@@ -26,13 +26,12 @@ export default class RequestSearch {
   @observable query: string = '';
   @observable radiusKm: number = 0;
 
-  @observable searchHeaderHeight: number = 0;
   @observable resultsListWidth: number = 0;
 
   @observable mapBounds: ?LatLngBounds = null;
 
   @observable.shallow _results: SearchRequest[] = [];
-  _resultsQuery: string = '';
+  @observable resultsQuery: ?string = null;
 
   @observable.ref selectedRequest: ?SearchRequest = null;
   @observable selectedSource: ?string = null;
@@ -47,11 +46,11 @@ export default class RequestSearch {
     // 100 of the new map center.
     //
     // We use this.results so we filter by bounds automatically.
-    const previousResults = (query === this._resultsQuery) ? this.results : [];
+    const previousResults = (query === this.resultsQuery) ? this.results : [];
     const newResults = uniqBy([...previousResults, ...requests], (r) => r.id);
     newResults.sort((a, b) => b.updatedAt - a.updatedAt);
     this._results = newResults;
-    this._resultsQuery = query;
+    this.resultsQuery = query;
   }
 
   @computed get results(): SearchRequest[] {

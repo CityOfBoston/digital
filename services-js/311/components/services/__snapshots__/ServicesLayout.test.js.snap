@@ -42,22 +42,22 @@ exports[`rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a nv-s-l-a--active"
-          href="/services"
+          className="nv-s-l-a "
+          href="/search"
           onClick={[Function]}
         >
-          See all services
+          Search cases
         </a>
       </li>
       <li
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
-          href="/lookup"
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/services"
           onClick={[Function]}
         >
-          Case look up
+          All services
         </a>
       </li>
       <li

@@ -4,7 +4,7 @@ import { observable, computed } from 'mobx';
 import type { IObservable } from 'mobx';
 import * as L from 'leaflet';
 
-import RequestSearch from '../../../data/store/RequestSearch';
+import RequestSearch from '../../data/store/RequestSearch';
 import SearchMarkerPool from './SearchMarkerPool';
 import waypointMarkers from './WaypointMarkers';
 

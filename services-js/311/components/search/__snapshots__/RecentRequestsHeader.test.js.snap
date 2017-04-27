@@ -1,15 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering results loaded 1`] = `
-<div
-  style={
-    Object {
-      "height": "auto",
-    }
-  }
->
+<div>
   <div
-    className="p-a500 g br br-t400 br--y css-zsl5qt "
+    className="p-a500 g br br-t400 br--y css-zsl5qt"
   >
     <form
       acceptCharset="UTF-8"
@@ -25,8 +19,7 @@ exports[`rendering results loaded 1`] = `
           className="sf-i-f"
           name="q"
           onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="Search public reports…"
+          placeholder="Search by case ID or keywords…"
           type="text"
           value=""
         />
@@ -75,15 +68,9 @@ exports[`rendering results loaded 1`] = `
 `;
 
 exports[`rendering with request selected 1`] = `
-<div
-  style={
-    Object {
-      "height": "auto",
-    }
-  }
->
+<div>
   <div
-    className="p-a500 g br br-t400 br--y css-zsl5qt "
+    className="p-a500 g br br-t400 br--y css-zsl5qt"
   >
     <form
       acceptCharset="UTF-8"
@@ -99,8 +86,7 @@ exports[`rendering with request selected 1`] = `
           className="sf-i-f"
           name="q"
           onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="Search public reports…"
+          placeholder="Search by case ID or keywords…"
           type="text"
           value=""
         />

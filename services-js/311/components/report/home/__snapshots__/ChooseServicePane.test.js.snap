@@ -16,7 +16,7 @@ exports[`rendering loading 1`] = `
       <h2
         className="sh-title"
       >
-        File a Report
+        BOS:311 — File a Report
       </h2>
     </div>
     <div
@@ -28,7 +28,7 @@ exports[`rendering loading 1`] = `
     </div>
   </div>
   <div
-    className="b b--g m-v500 p-a300 p-a800--xl"
+    className="b b--g p-a300 p-a800--xl"
   >
     <h3
       className="stp"
@@ -60,7 +60,7 @@ exports[`rendering no description 1`] = `
       <h2
         className="sh-title"
       >
-        File a Report
+        BOS:311 — File a Report
       </h2>
     </div>
     <div
@@ -72,7 +72,7 @@ exports[`rendering no description 1`] = `
     </div>
   </div>
   <div
-    className="b b--g m-v500 p-a300 p-a800--xl"
+    className="b b--g p-a300 p-a800--xl"
   >
     <h3
       className="stp"
@@ -104,7 +104,7 @@ exports[`rendering no suggested summaries 1`] = `
       <h2
         className="sh-title"
       >
-        File a Report
+        BOS:311 — File a Report
       </h2>
     </div>
     <div
@@ -116,7 +116,7 @@ exports[`rendering no suggested summaries 1`] = `
     </div>
   </div>
   <div
-    className="b b--g m-v500 p-a300 p-a800--xl"
+    className="b b--g p-a300 p-a800--xl"
   >
     <h3
       className="stp"
@@ -192,7 +192,7 @@ exports[`rendering some suggested summaries 1`] = `
       <h2
         className="sh-title"
       >
-        File a Report
+        BOS:311 — File a Report
       </h2>
     </div>
     <div
@@ -204,7 +204,7 @@ exports[`rendering some suggested summaries 1`] = `
     </div>
   </div>
   <div
-    className="b b--g m-v500 p-a300 p-a800--xl"
+    className="b b--g p-a300 p-a800--xl"
   >
     <h3
       className="stp"

@@ -43,10 +43,10 @@ exports[`rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/services"
+          href="/search"
           onClick={[Function]}
         >
-          See all services
+          Search cases
         </a>
       </li>
       <li
@@ -54,10 +54,10 @@ exports[`rendering 1`] = `
       >
         <a
           className="nv-s-l-a "
-          href="/lookup"
+          href="/services"
           onClick={[Function]}
         >
-          Case look up
+          All services
         </a>
       </li>
       <li

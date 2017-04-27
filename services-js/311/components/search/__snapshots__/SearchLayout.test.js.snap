@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search form rendering 1`] = `
+<div
+  className="mn mn--full mn--nv-s css-1pujyrn"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+    }
+  }
+>
+  <nav
+    className="nv-s nv-s--y nv-s--sticky"
+  >
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
+    >
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/search"
+          onClick={[Function]}
+        >
+          Search cases
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          All services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className={
+      Object {
+        "data-css-pmaldw": "",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-wi5peg": "",
+        }
+      }
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+  </div>
+  <div
+    className={
+      Object {
+        "data-css-1tairn8": "",
+      }
+    }
+  >
+    <div
+      className="p-a300"
+    >
+      <form
+        acceptCharset="UTF-8"
+        action="/lookup"
+        className="sf sf--y sf--md"
+        method="get"
+        onSubmit={[Function]}
+      >
+        <div
+          className="sf-i"
+        >
+          <input
+            className="sf-i-f"
+            name="q"
+            onChange={[Function]}
+            placeholder="Search by case ID or keywords…"
+            type="text"
+            value="Alpha Flight"
+          />
+          <button
+            className="sf-i-b"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
