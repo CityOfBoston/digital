@@ -145,7 +145,7 @@ export default class LocationPopUp extends React.Component {
               className="sf-i-f"
               onInput={this.whenSearchInput}
               value={this.addressQuery}
-              placeholder={address ? 'Search for another address…' : 'Search for an address…'}
+              placeholder={'Search for address or intersection…'}
               type="text"
             />
 

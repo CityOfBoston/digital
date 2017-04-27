@@ -325,7 +325,7 @@ exports[`rendering location 1`] = `
           <input
             className="sf-i-f"
             onInput={[Function]}
-            placeholder="Search for an address…"
+            placeholder="Search for address or intersection…"
             type="text"
             value=""
           />

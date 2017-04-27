@@ -77,13 +77,17 @@ function formatAddress(address: string): string {
     return address;
   }
 
+  // Intersections don't have a zip code
+  const hasZip = !address.endsWith(', MA');
+
   // Assume that the last two commas are for city and state. Not sure if this is
   // a good assumption, but we do see multiple commas in the first line.
   // E.g.: 764 E BROADWAY, 1, SOUTH BOSTON, MA, 02127
   const parts = address.split(/, /);
 
   // -3 because we want 3 pieces: city, state, zip
-  return `${parts.slice(0, -3).join(', ')}\n${parts.slice(-3).join(', ')}`;
+  const offset = hasZip ? -3 : -2;
+  return `${parts.slice(0, offset).join(', ')}\n${parts.slice(offset).join(', ')}`;
 }
 
 export default class ArcGIS {

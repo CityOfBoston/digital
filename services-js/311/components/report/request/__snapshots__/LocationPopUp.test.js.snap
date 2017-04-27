@@ -43,7 +43,7 @@ exports[`rendering renders a map on a small screen 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for an address…"
+        placeholder="Search for address or intersection…"
         type="text"
         value=""
       />
@@ -117,7 +117,7 @@ exports[`rendering renders with an address 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for another address…"
+        placeholder="Search for address or intersection…"
         type="text"
         value=""
       />
@@ -181,7 +181,7 @@ exports[`rendering renders without an address 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for an address…"
+        placeholder="Search for address or intersection…"
         type="text"
         value=""
       />
