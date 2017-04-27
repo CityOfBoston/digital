@@ -6,6 +6,7 @@ mutation SubmitRequest(
   $email: String,
   $phone: String,
   $address: String,
+  $addressId: String,
   $location: LatLngIn,
   $mediaUrl: String,
   $attributes: [CreateRequestAttribute!]!) {
@@ -17,6 +18,7 @@ mutation SubmitRequest(
     email: $email,
     phone: $phone,
     address: $address,
+    addressId: $addressId
     location: $location,
     attributes: $attributes,
     mediaUrl: $mediaUrl

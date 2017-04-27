@@ -25,12 +25,13 @@ enum MetadataRequirement {
 }
 
 type Mutation {
-  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, mediaUrl: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
+  createRequest(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, addressId: String, mediaUrl: String, location: LatLngIn, attributes: [CreateRequestAttribute!]!): Request!
 }
 
 type Place {
   location: LatLng!
   address: String!
+  addressId: String
 }
 
 type Query {

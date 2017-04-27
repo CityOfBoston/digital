@@ -11,6 +11,7 @@ type Geocoder {
 type Place {
   location: LatLng!
   address: String!
+  addressId: String
 }
 `;
 
@@ -32,6 +33,7 @@ type SearchArgs = {
 type Place = {
   location: LatLng,
   address: string,
+  addressId: ?string,
 };
 
 export const resolvers = {
@@ -39,7 +41,7 @@ export const resolvers = {
     reverse: async (s: Root, { location }: ReverseGeocodeArgs, { arcgis }: Context): Promise<?Place> => {
       const address = await arcgis.reverseGeocode(location.lat, location.lng);
       if (address) {
-        return { location, address };
+        return { location, address, addressId: null };
       } else {
         return null;
       }

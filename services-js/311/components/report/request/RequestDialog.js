@@ -167,7 +167,7 @@ export default class RequestDialog extends React.Component {
   submitRequest(): Promise<mixed> {
     const { requestForm } = this;
     const { service, loopbackGraphql, routeToServiceForm } = this.props;
-    const { description, firstName, lastName, email, phone, location, address, questions, mediaUrl, sendLocation, sendContactInfo } = requestForm;
+    const { description, firstName, lastName, email, phone, location, address, addressId, questions, mediaUrl, sendLocation, sendContactInfo } = requestForm;
 
     if (!service) {
       throw new Error('service is null in submitRequest');
@@ -186,6 +186,7 @@ export default class RequestDialog extends React.Component {
       phone: sendContactInfo ? phone : null,
       location: sendLocation ? location : null,
       address: sendLocation ? address : null,
+      addressId: sendLocation ? addressId : null,
       questions,
       mediaUrl,
     }).then((v) => {

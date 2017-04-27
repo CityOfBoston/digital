@@ -6,6 +6,7 @@ query SearchAddress($query: String!) {
         lng
       }
 		  address
+      addressId
 		}
   }
 }

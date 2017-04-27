@@ -170,6 +170,7 @@ export type ReverseGeocodeQuery = {
         lng: number,
       },
       address: string,
+      addressId: ?string,
     },
   },
 };
@@ -186,6 +187,7 @@ export type SearchAddressQuery = {
         lng: number,
       },
       address: string,
+      addressId: ?string,
     },
   },
 };
@@ -226,6 +228,7 @@ export type SubmitRequestMutationVariables = {
   email: ?string,
   phone: ?string,
   address: ?string,
+  addressId: ?string,
   location: ?LatLngIn,
   mediaUrl: ?string,
   attributes: Array< CreateRequestAttribute >,

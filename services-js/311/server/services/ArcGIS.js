@@ -47,7 +47,9 @@ type FindAddressCandidate = {
    y: number,
   },
   score: number,
-  attributes: Object,
+  attributes: {
+    Ref_ID: number,
+  },
   extent: {
    xmin: number,
    ymin: number,
@@ -67,6 +69,7 @@ type SearchResult = {
     lng: number,
   },
   address: string,
+  addressId: ?string,
 }
 
 function formatAddress(address: string): string {
@@ -114,6 +117,7 @@ export default class ArcGIS {
 
     const params = new URLSearchParams();
     params.append('location', `${x.toString()}, ${y.toString()}`);
+    params.append('outFields', '*');
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
 
@@ -144,6 +148,7 @@ export default class ArcGIS {
 
     const params = new URLSearchParams();
     params.append('SingleLine', query);
+    params.append('outFields', '*');
     params.append('f', 'json');
 
     const response = await fetch(this.url(`findAddressCandidates?${params.toString()}`), {
@@ -168,6 +173,7 @@ export default class ArcGIS {
       return {
         location: { lat, lng },
         address: formatAddress(candidate.address),
+        addressId: (candidate.attributes.Ref_ID ? candidate.attributes.Ref_ID.toString() : null),
       };
     }
   }

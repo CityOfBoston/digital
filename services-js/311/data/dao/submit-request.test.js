@@ -126,6 +126,7 @@ test('submitRequest', async () => {
     phone: requestForm.phone,
     location: requestForm.location,
     address: requestForm.address,
+    addressId: requestForm.addressId,
     questions: requestForm.questions,
     mediaUrl: requestForm.mediaUrl,
   });
@@ -138,6 +139,7 @@ test('submitRequest', async () => {
     email: 'marvel@alphaflight.gov',
     phone: '',
     address: '',
+    addressId: null,
     location: null,
     mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
     attributes: [

@@ -50,12 +50,14 @@ export default class LocationPopUp extends React.Component {
 
     store.mapLocation.address = requestForm.address;
     store.mapLocation.location = requestForm.location;
+    store.mapLocation.addressId = requestForm.addressId;
 
     this.updateFormFromMapDisposer = reaction(
-      () => ({ location: store.mapLocation.location, address: store.mapLocation.address }),
-      ({ location, address }) => {
+      () => ({ location: store.mapLocation.location, address: store.mapLocation.address, addressId: store.mapLocation.addressId }),
+      ({ location, address, addressId }) => {
         requestForm.location = location;
         requestForm.address = address;
+        requestForm.addressId = addressId;
       }, {
         fireImmediately: true,
         name: 'update form from map',
@@ -101,8 +103,10 @@ export default class LocationPopUp extends React.Component {
         this.addressQuery = '';
         mapLocation.location = place.location;
         mapLocation.address = place.address;
+        mapLocation.addressId = place.addressId;
       } else {
         mapLocation.address = '';
+        mapLocation.addressId = null;
       }
     });
   }

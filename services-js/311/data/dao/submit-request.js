@@ -15,6 +15,7 @@ type Args = {|
   phone: ?string,
   location: ?{ lat: number, lng: number },
   address: ?string,
+  addressId: ?string,
   questions: Question[],
   mediaUrl: string,
 |};
@@ -32,6 +33,7 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
   email,
   phone,
   address,
+  addressId,
   location,
   questions,
 }: Args): Promise<SubmittedRequest> {
@@ -61,6 +63,7 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
     phone,
     location,
     address,
+    addressId,
     mediaUrl,
     attributes,
   };

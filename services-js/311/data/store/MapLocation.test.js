@@ -50,6 +50,7 @@ describe('reverse geocoding', () => {
         lat: 42.36035940296916,
         lng: -71.05802536010744,
       },
+      addressId: '12345',
     });
 
     // after reverse geocode

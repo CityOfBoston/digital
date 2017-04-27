@@ -8,6 +8,7 @@ import reverseGeocode from '../dao/reverse-geocode';
 export default class MapLocation {
   @observable location: ?{ lat: number, lng: number } = null;
   @observable address: string = '';
+  @observable addressId: ?string = null;
 
   loopbackGraphql: ?LoopbackGraphql;
 

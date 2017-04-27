@@ -228,6 +228,7 @@ export default class LocationMap extends React.Component {
   @action.bound
   chooseLocation(location: {lat: number, lng: number}) {
     const { store } = this.props;
+    this.lastPickedLocation = location;
     store.mapLocation.geocodeLocation(location);
   }
 
