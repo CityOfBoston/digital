@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "node"
 script:
-  - yarn jest -- --coverage
+  - yarn jest -- --coverage --runInBand
   - yarn codecov
 
 deploy:
