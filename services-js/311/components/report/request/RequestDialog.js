@@ -20,6 +20,7 @@ import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import submitRequest from '../../../data/dao/submit-request';
 import loadService from '../../../data/dao/load-service';
 
+import LoadingBuildings from '../../common/LoadingBuildings';
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
 
@@ -101,6 +102,10 @@ export default class RequestDialog extends React.Component {
     this.requestForm.description = description;
 
     setLocationMapActive(stage === 'location');
+  }
+
+  componentDidMount() {
+    LoadingBuildings.preload();
   }
 
   @action

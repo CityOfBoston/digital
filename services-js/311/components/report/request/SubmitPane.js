@@ -4,6 +4,7 @@ import React from 'react';
 import { css } from 'glamor';
 import Link from 'next/link';
 import SectionHeader from '../../common/SectionHeader';
+import LoadingBuildings from '../../common/LoadingBuildings';
 
 import type { SubmittedRequest } from '../../../data/types';
 
@@ -21,12 +22,21 @@ const GRID_OVERRIDE_STYLE = css({
   alignItems: 'flex-start',
 });
 
+const LOADING_CONTAINER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  height: 400,
+});
+
 export default function SubmitPane(props: Props) {
   switch (props.state) {
     case 'submitting':
       return (
         <div>
           <SectionHeader>Submitting…</SectionHeader>
+          <div className={`m-v500 p-a500 ${LOADING_CONTAINER_STYLE.toString()}`}>
+            <LoadingBuildings />
+          </div>
         </div>
       );
 
