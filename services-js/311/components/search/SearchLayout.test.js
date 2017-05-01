@@ -37,6 +37,9 @@ describe('search form', () => {
   test('rendering', () => {
     const component = renderer.create(
       <SearchLayout store={new AppStore()} data={data} />,
+      {
+        createNodeMock: () => document.createElement('div'),
+      },
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

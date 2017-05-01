@@ -9,6 +9,7 @@ import { css } from 'glamor';
 import type { AppStore } from '../../data/store';
 import { HEADER_HEIGHT } from '../style-constants';
 
+import LoadingBuildings from '../common/LoadingBuildings';
 import RecentRequestRow from './RecentRequestRow';
 
 let Velocity;
@@ -24,6 +25,20 @@ const CONTAINER_STYLE = css({
   position: 'relative',
   width: '40%',
   maxWidth: '35rem',
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const LOADING_CONTAINER_STYLE = css({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+});
+
+const LOADING_WRAPPER_STYLE = css({
+  display: 'flex',
+  height: 270,
 });
 
 export type Props = {|
@@ -113,6 +128,14 @@ export default class RecentRequests extends React.Component {
             </div>
           </form>
         </div>
+
+        { results.length === 0 && query !== resultsQuery && (
+          <div className={LOADING_CONTAINER_STYLE}>
+            <div className={LOADING_WRAPPER_STYLE}>
+              <LoadingBuildings />
+            </div>
+          </div>
+        )}
 
         { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
         { results.length === 0 && query === resultsQuery && (

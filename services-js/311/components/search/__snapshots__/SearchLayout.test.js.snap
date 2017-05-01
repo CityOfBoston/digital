@@ -101,7 +101,7 @@ exports[`search form rendering 1`] = `
   <div
     className={
       Object {
-        "data-css-1tairn8": "",
+        "data-css-1g3oppu": "",
       }
     }
   >
@@ -133,6 +133,43 @@ exports[`search form rendering 1`] = `
           </button>
         </div>
       </form>
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-qtfk4q": "",
+        }
+      }
+    >
+      <div
+        className={
+          Object {
+            "data-css-z2og4g": "",
+          }
+        }
+      >
+        <span
+          className={
+            Object {
+              "data-css-1vjs1z7": "",
+            }
+          }
+        >
+          <svg
+            className={
+              Object {
+                "data-css-mfy564": "",
+              }
+            }
+            role="img"
+          >
+            <use
+              height="100%"
+              xlinkHref="/static/img/svg/loading-buildings.svg#east_boston"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
   </div>
 </div>
