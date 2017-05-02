@@ -70,7 +70,7 @@ addDecorator((story) => {
   window.API_KEYS = {
     mapbox: {
       accessToken: dotEnv.MAPBOX_ACCESS_TOKEN,
-      styleUrl: dotEnv.MAPBOX_STYLE_URL,
+      stylePath: dotEnv.MAPBOX_STYLE_PATH,
     },
     cloudinary: {},
   };
