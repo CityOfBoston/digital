@@ -17,14 +17,20 @@ type LatLng = {
 type SearchArgs = {
   query: string,
   radiusKm: number,
-  mapCenter: ?LatLng,
+  searchCenter: ?LatLng,
 };
 
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
-  @observable.struct mapCenter: ?LatLng = null;
+  // search center is the center of the visible map
+  @observable.struct searchCenter: ?LatLng = null;
   @observable query: string = '';
   @observable radiusKm: number = 0;
+
+  // This is the center of the actual map element
+  // TODO(finh): These probably should be somewhere more general
+  @observable mapCenter: ?LatLng = null;
+  @observable mapZoom: number = 12;
 
   @observable resultsListWidth: number = 0;
 
@@ -68,7 +74,7 @@ export default class RequestSearch {
     // mobx's auto-detection of dependencies.
     this.searchDisposer = reaction(
       (): SearchArgs => ({
-        mapCenter: this.mapCenter,
+        searchCenter: this.searchCenter,
         radiusKm: this.radiusKm,
         query: this.query,
       }),
@@ -87,12 +93,12 @@ export default class RequestSearch {
     }
   }
 
-  async search(loopbackGraphql: LoopbackGraphql, { mapCenter, radiusKm, query }: SearchArgs) {
-    if (!mapCenter || !radiusKm) {
+  async search(loopbackGraphql: LoopbackGraphql, { searchCenter, radiusKm, query }: SearchArgs) {
+    if (!searchCenter || !radiusKm) {
       return;
     }
 
-    const results = await searchRequests(loopbackGraphql, query, mapCenter, radiusKm);
+    const results = await searchRequests(loopbackGraphql, query, searchCenter, radiusKm);
     this.updateRequestSearchResults(results);
   }
 }

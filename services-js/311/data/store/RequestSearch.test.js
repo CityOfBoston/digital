@@ -114,7 +114,7 @@ describe('search', () => {
   });
 
   it('searches for location', () => {
-    requestSearch.mapCenter = { lat: 1, lng: 1 };
+    requestSearch.searchCenter = { lat: 1, lng: 1 };
     requestSearch.radiusKm = 1;
 
     expect(searchRequests).toHaveBeenCalledWith(loopbackGraphql, '', { lat: 1, lng: 1 }, 1);
@@ -122,14 +122,14 @@ describe('search', () => {
 
   it('searches with a query', () => {
     requestSearch.query = 'Mewnir';
-    requestSearch.mapCenter = { lat: 1, lng: 1 };
+    requestSearch.searchCenter = { lat: 1, lng: 1 };
     requestSearch.radiusKm = 1;
 
     expect(searchRequests).toHaveBeenCalledWith(loopbackGraphql, 'Mewnir', { lat: 1, lng: 1 }, 1);
   });
 
   it('updates with the response', async () => {
-    requestSearch.mapCenter = { lat: 1, lng: 1 };
+    requestSearch.searchCenter = { lat: 1, lng: 1 };
     requestSearch.radiusKm = 1;
 
     resolveSearch(MOCK_SEARCH_RESULTS_PAGE);

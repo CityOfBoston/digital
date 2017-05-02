@@ -244,7 +244,8 @@ export default class LocationMap extends React.Component {
   @action.bound
   attachMap() {
     const { store, mode } = this.props;
-    const mapboxKeys = store.apiKeys.mapbox;
+    const { apiKeys, requestSearch } = store;
+    const mapboxKeys = apiKeys.mapbox;
 
     if (!L) {
       return;
@@ -256,8 +257,8 @@ export default class LocationMap extends React.Component {
 
     const opts = {
       accessToken: mapboxKeys.accessToken,
-      center: DEFAULT_CENTER,
-      zoom: 12,
+      center: requestSearch.mapCenter || DEFAULT_CENTER,
+      zoom: requestSearch.mapZoom,
       minZoom: 11,
       maxZoom: 18,
       attributionControl: false,
@@ -379,10 +380,17 @@ export default class LocationMap extends React.Component {
     const visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
 
     requestSearch.mapBounds = visibleBounds;
-    requestSearch.mapCenter = {
+    requestSearch.searchCenter = {
       lat: visibleCenter.lat,
       lng: visibleCenter.lng,
     };
+
+    const center = map.getCenter();
+    requestSearch.mapCenter = {
+      lat: center.lat,
+      lng: center.lng,
+    };
+    requestSearch.mapZoom = map.getZoom();
     requestSearch.radiusKm = visibleRadiusM / 1000;
   }), 500)
 

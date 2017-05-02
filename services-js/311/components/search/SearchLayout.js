@@ -23,6 +23,8 @@ import RecentRequests from './RecentRequests';
 type SearchData = {|
   view: 'search',
   query: string,
+  location: ?{lat: number, lng: number},
+  zoom: ?number,
 |}
 
 export type InitialProps = {|
@@ -61,28 +63,75 @@ export default class LookupLayout extends React.Component {
   locationUpdateDisposer: ?Function;
 
   static async getInitialProps({ query }: Context<RequestAdditions>): Promise<InitialProps> {
+    const { lat, lng, zoom } = query;
+    let location;
+
+    if (lat && lng) {
+      location = {
+        lat: parseFloat(query.lat),
+        lng: parseFloat(query.lng),
+
+      };
+    } else {
+      location = null;
+    }
+
     return {
       data: {
         view: 'search',
         query: query.q || '',
+        location,
+        zoom: zoom ? parseInt(zoom, 10) : null,
       },
     };
   }
 
   @action
-  componentDidMount() {
+  componentWillMount() {
     const { store, data } = this.props;
-    store.requestSearch.start(this.loopbackGraphql);
     store.requestSearch.query = data.query;
 
+    if (data.location) {
+      store.requestSearch.mapCenter = data.location;
+    } else {
+      store.requestSearch.mapCenter = null;
+    }
+
+    if (data.zoom) {
+      store.requestSearch.mapZoom = data.zoom;
+    } else {
+      store.requestSearch.mapZoom = 12;
+    }
+  }
+
+  @action
+  componentDidMount() {
+    const { store } = this.props;
+
+    store.requestSearch.start(this.loopbackGraphql);
+
     this.locationUpdateDisposer = reaction(
-      () => store.requestSearch.resultsQuery,
-      (resultsQuery: string) => {
-        if (resultsQuery === '') {
-          Router.push('/search');
-        } else {
-          Router.push(`/search?q=${encodeURIComponent(resultsQuery)}`);
+      () => ({
+        resultsQuery: store.requestSearch.resultsQuery,
+        location: store.requestSearch.mapCenter,
+        zoom: store.requestSearch.mapZoom,
+      }),
+      ({ resultsQuery, location, zoom }) => {
+        const params = new URLSearchParams();
+
+        if (resultsQuery) {
+          params.append('q', resultsQuery);
         }
+
+        if (location) {
+          params.append('lat', location.lat);
+          params.append('lng', location.lng);
+        }
+
+        params.append('zoom', zoom);
+
+        const href = `/search?${params.toString()}`;
+        Router.push(href, href, { shallow: true });
       },
       {
         name: 'location query updater',
