@@ -24,17 +24,8 @@ exports[`rendering renders a map on a small screen 1`] = `
       }
     />
   </div>
-  <h3
-    className="t--info"
-  >
-    Where is the problem happening?
-  </h3>
-  <hr
-    className="hr hr--dash"
-  />
-  
   <form
-    className="sf sf--sm sf--y m-v300"
+    className="sf sf--sm sf--y "
     onSubmit={[Function]}
   >
     <div
@@ -43,7 +34,7 @@ exports[`rendering renders a map on a small screen 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for address or intersection…"
+        placeholder="Search for a street address or intersection…"
         type="text"
         value=""
       />
@@ -57,10 +48,13 @@ exports[`rendering renders a map on a small screen 1`] = `
     </div>
   </form>
   <div
+    className="m-v400"
+  />
+  <div
     className="g css-1k8tu3j"
   >
     <div
-      className="g--6"
+      className="g--7"
     >
       <a
         href="javascript:void(0)"
@@ -70,7 +64,7 @@ exports[`rendering renders a map on a small screen 1`] = `
       </a>
     </div>
     <button
-      className="btn g--6"
+      className="btn g--5"
       disabled={true}
       onClick={[Function]}
     >
@@ -88,27 +82,8 @@ exports[`rendering renders with an address 1`] = `
     }
   }
 >
-  <h3
-    className="t--info"
-  >
-    Where is the problem happening?
-  </h3>
-  <hr
-    className="hr hr--dash"
-  />
-  <div
-    className="addr addr--s"
-    style={
-      Object {
-        "whiteSpace": "pre-line",
-      }
-    }
-  >
-    City Hall Square
-    Boston, MA
-  </div>
   <form
-    className="sf sf--sm sf--y m-v300"
+    className="sf sf--sm sf--y "
     onSubmit={[Function]}
   >
     <div
@@ -117,7 +92,7 @@ exports[`rendering renders with an address 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for address or intersection…"
+        placeholder="Search for a street address or intersection…"
         type="text"
         value=""
       />
@@ -131,10 +106,25 @@ exports[`rendering renders with an address 1`] = `
     </div>
   </form>
   <div
+    className="m-v400"
+  >
+    <div
+      className="addr addr--s"
+      style={
+        Object {
+          "whiteSpace": "pre-line",
+        }
+      }
+    >
+      City Hall Square
+      Boston, MA
+    </div>
+  </div>
+  <div
     className="g css-1k8tu3j"
   >
     <div
-      className="g--6"
+      className="g--7"
     >
       <a
         href="javascript:void(0)"
@@ -144,7 +134,7 @@ exports[`rendering renders with an address 1`] = `
       </a>
     </div>
     <button
-      className="btn g--6"
+      className="btn g--5"
       disabled={false}
       onClick={[Function]}
     >
@@ -162,17 +152,8 @@ exports[`rendering renders without an address 1`] = `
     }
   }
 >
-  <h3
-    className="t--info"
-  >
-    Where is the problem happening?
-  </h3>
-  <hr
-    className="hr hr--dash"
-  />
-  
   <form
-    className="sf sf--sm sf--y m-v300"
+    className="sf sf--sm sf--y "
     onSubmit={[Function]}
   >
     <div
@@ -181,7 +162,7 @@ exports[`rendering renders without an address 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for address or intersection…"
+        placeholder="Search for a street address or intersection…"
         type="text"
         value=""
       />
@@ -195,10 +176,13 @@ exports[`rendering renders without an address 1`] = `
     </div>
   </form>
   <div
+    className="m-v400"
+  />
+  <div
     className="g css-1k8tu3j"
   >
     <div
-      className="g--6"
+      className="g--7"
     >
       <a
         href="javascript:void(0)"
@@ -208,7 +192,7 @@ exports[`rendering renders without an address 1`] = `
       </a>
     </div>
     <button
-      className="btn g--6"
+      className="btn g--5"
       disabled={true}
       onClick={[Function]}
     >

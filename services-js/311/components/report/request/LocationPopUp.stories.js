@@ -2,28 +2,37 @@
 
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import centered from '../../../storybook/centered';
 import LocationPopUp from './LocationPopUp';
 import { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
+import FormDialog from '../../common/FormDialog';
 
 const props = {
   nextFunc: action('Next'),
-  nextIsSubmit: true,
-  loopbackGraphql: ({}: any),
+  nextIsSubmit: false,
 };
 
-const makeStore = (address: string) => {
-  const store = new AppStore();
-  store.mapLocation.address = address;
-  return store;
+const makeRequestForm = (address: string) => {
+  const requestForm = new RequestForm();
+  requestForm.address = address;
+  return requestForm;
 };
 
 storiesOf('LocationPopUp', module)
-  .addDecorator(centered)
+  .addDecorator((story) => (
+    <div style={{ width: 450 }}>
+      <FormDialog popup>{story()}</FormDialog>
+    </div>
+  ))
   .add('with address', () => (
-    <LocationPopUp {...props} store={makeStore('1 Franklin Park Rd\nBoston, MA 02121')} requestForm={new RequestForm()} />
+    <LocationPopUp {...props} requestForm={makeRequestForm('1 Franklin Park Rd\nBoston, MA 02121')} store={new AppStore()} />
   ))
   .add('without address', () => (
-    <LocationPopUp {...props} store={makeStore('')} requestForm={new RequestForm()} />
-  ));
+    <LocationPopUp {...props} requestForm={makeRequestForm('')} store={new AppStore()} />
+  ))
+  .add('address not found', () => {
+    const store = new AppStore();
+    store.mapLocation.notFound = true;
+
+    return <LocationPopUp {...props} requestForm={makeRequestForm('')} store={store} />;
+  });

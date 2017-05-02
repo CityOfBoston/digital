@@ -55,7 +55,7 @@ const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
     margin: '-0px 70% 0 40px',
-    minWidth: 400,
+    minWidth: 450,
   },
 });
 
@@ -268,7 +268,7 @@ export default class RequestDialog extends React.Component {
 
   renderContent() {
     const { requestSubmission, requestForm } = this;
-    const { store, stage, loopbackGraphql, service } = this.props;
+    const { store, stage, service } = this.props;
 
     if (!service) {
       return <SectionHeader>Service not found</SectionHeader>;
@@ -292,7 +292,7 @@ export default class RequestDialog extends React.Component {
 
       case 'location': {
         const { fn, isSubmit } = this.makeNextAfterLocation();
-        return <LocationPopUp store={store} requestForm={requestForm} nextFunc={fn} nextIsSubmit={isSubmit} loopbackGraphql={loopbackGraphql} />;
+        return <LocationPopUp store={store} requestForm={requestForm} nextFunc={fn} nextIsSubmit={isSubmit} />;
       }
 
       case 'contact':

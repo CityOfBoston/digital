@@ -34,7 +34,7 @@ export default function FormDialog({ narrow, popup, noPadding, children }: Props
     style.maxWidth = 800;
   }
 
-  const paddingClasses = noPadding ? '' : `p-a300 ${!popup ? 'p-a800--xl' : ''}`;
+  const paddingClasses = noPadding ? '' : `p-a300 ${!popup ? 'p-a800--xl' : 'p-a500'}`;
 
   return (
     <div className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`} style={style}>

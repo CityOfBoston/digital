@@ -2,11 +2,8 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import { observable, action, runInAction, reaction } from 'mobx';
+import { observable, action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
-
-import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
-import searchAddress from '../../../data/dao/search-address';
 
 import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
@@ -29,7 +26,6 @@ const MAP_CONTAINER_STYLE = css({
 
 export type Props = {|
   store: AppStore,
-  loopbackGraphql: LoopbackGraphql,
   requestForm: RequestForm,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
@@ -46,14 +42,15 @@ export default class LocationPopUp extends React.Component {
 
   @action
   componentWillMount() {
-    const { store, requestForm } = this.props;
+    const { store: { mapLocation }, requestForm } = this.props;
 
-    store.mapLocation.address = requestForm.address;
-    store.mapLocation.location = requestForm.location;
-    store.mapLocation.addressId = requestForm.addressId;
+    mapLocation.query = '';
+    mapLocation.address = requestForm.address;
+    mapLocation.location = requestForm.location;
+    mapLocation.addressId = requestForm.addressId;
 
     this.updateFormFromMapDisposer = reaction(
-      () => ({ location: store.mapLocation.location, address: store.mapLocation.address, addressId: store.mapLocation.addressId }),
+      () => ({ location: mapLocation.location, address: mapLocation.address, addressId: mapLocation.addressId }),
       ({ location, address, addressId }) => {
         requestForm.location = location;
         requestForm.address = address;
@@ -65,11 +62,11 @@ export default class LocationPopUp extends React.Component {
     );
 
     this.queryClearerDisposer = reaction(
-      () => requestForm.address,
-      (address) => {
+      () => requestForm.location,
+      (location) => {
         // only clear if there's a new address. Otherwise we want to keep
         // the existing search term so the user can fix it
-        if (address) {
+        if (location) {
           this.addressQuery = '';
         }
       },
@@ -81,34 +78,23 @@ export default class LocationPopUp extends React.Component {
 
   componentWillUnmount() {
     this.queryClearerDisposer();
+    this.updateFormFromMapDisposer();
   }
 
   @action.bound
   whenSearchInput(ev: SyntheticInputEvent) {
+    const { store: { mapLocation } } = this.props;
+
     this.addressQuery = ev.target.value;
+    mapLocation.notFound = false;
   }
 
   @action.bound
-  async whenSearchSubmit(ev: SyntheticInputEvent) {
+  whenSearchSubmit(ev: SyntheticInputEvent) {
     ev.preventDefault();
 
-    const { loopbackGraphql, store: { mapLocation } } = this.props;
-
-    mapLocation.location = null;
-
-    const place = await searchAddress(loopbackGraphql, this.addressQuery);
-
-    runInAction('address search result', () => {
-      if (place) {
-        this.addressQuery = '';
-        mapLocation.location = place.location;
-        mapLocation.address = place.address;
-        mapLocation.addressId = place.addressId;
-      } else {
-        mapLocation.address = '';
-        mapLocation.addressId = null;
-      }
-    });
+    const { store: { mapLocation } } = this.props;
+    mapLocation.search(this.addressQuery);
   }
 
   @action.bound
@@ -126,26 +112,21 @@ export default class LocationPopUp extends React.Component {
   }
 
   render() {
-    const { requestForm, nextIsSubmit } = this.props;
-    const { address, locationRequirementsMet, locationRequired } = requestForm;
+    const { requestForm, nextIsSubmit, store: { mapLocation } } = this.props;
+    const { locationRequirementsMet, locationRequired } = requestForm;
+    const { notFound, address, location } = mapLocation;
 
     return (
       <div className={CONTENT_STYLE}>
         { this.maybeRenderMap() }
 
-        <h3 className="t--info">Where is the problem happening?</h3>
-
-        <hr className="hr hr--dash" />
-
-        { address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
-
-        <form className="sf sf--sm sf--y m-v300" onSubmit={this.whenSearchSubmit}>
+        <form className="sf sf--sm sf--y " onSubmit={this.whenSearchSubmit}>
           <div className="sf-i">
             <input
               className="sf-i-f"
               onInput={this.whenSearchInput}
               value={this.addressQuery}
-              placeholder={'Search for address or intersection…'}
+              placeholder={'Search for a street address or intersection…'}
               type="text"
             />
 
@@ -153,11 +134,20 @@ export default class LocationPopUp extends React.Component {
           </div>
         </form>
 
+        {notFound
+          ? <div className="t--info m-v300"><span className="t--err">{
+             location ? 'This address is not in Boston' : 'This address was not found in Boston'
+            }</span></div>
+          : <div className="m-v400">
+            {!!address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
+          </div>
+          }
+
         <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
-          <div className="g--6">
+          <div className="g--7">
             { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
           </div>
-          <button className="btn g--6" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
+          <button className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
         </div>
       </div>
     );
