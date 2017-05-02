@@ -88,9 +88,13 @@ export const resolvers = {
     ),
     servicesForDescription: (root: mixed, args: SuggestionsArgs, context: Context): Promise<Service[]> => serviceSuggestions(context, args),
     service: (root: mixed, { code }: { code: string }, { open311 }: Context): Promise<?Service> => open311.service(code),
-    request: (root: mixed, { id }: { id: string }, { open311 }: Context): Promise<?Request> => open311.request(id),
-    requests: async (root: mixed, { page, query, location, radiusKm }: RequestsArgs, { swiftype }: Context): Promise<RequestsPage> => {
-      const { requests, info } = await swiftype.searchCases({ page, query, location, radiusKm });
+    request: (root: mixed, { id }: { id: string }, { publicOpen311 }: Context): Promise<?Request> => publicOpen311.request(id),
+    requests: async (root: mixed, { page, query, location, radiusKm }: RequestsArgs, { swiftype, publicOpen311 }: Context): Promise<RequestsPage> => {
+      const { requests: searchResults, info } = await swiftype.searchCases({ page, query, location, radiusKm });
+
+      // cast to "any" because filter removed the null / undefineds from request
+      const requests = ((await Promise.all(searchResults.map((r) => publicOpen311.request(r.service_request_id)))).filter((r) => !!r): any);
+
       return {
         requests,
         query: info.query,

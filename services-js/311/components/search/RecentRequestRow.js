@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import Link from 'next/link';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
@@ -123,30 +124,33 @@ export default class RecentRequestRow extends React.Component {
     }
 
     return (
-      <div
-        ref={this.setEl}
-        data-request-id={request.id}
-        className={`p-a300 ${REQUEST_STYLE.toString()}`}
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleUnhover}
-        style={{
-          backgroundColor: this.selected ? '#e0e0e0' : 'transparent',
-        }}
-      >
-        <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${defaultUrl})` }}>
-          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
-        </div>
-        <div className={REQUEST_INFO_STYLE}>
-          <h4 className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>{request.service.name}</h4>
-          <div className={DESCRIPTION_STYLE}>
-            { request.description}
+      <Link href={`/reports?id=${request.id}`} as={`/reports/${request.id}`}>
+        <a
+          ref={this.setEl}
+          data-request-id={request.id}
+          className={`p-a300 ${REQUEST_STYLE.toString()}`}
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleUnhover}
+          style={{
+            backgroundColor: this.selected ? '#e0e0e0' : 'transparent',
+            color: 'inherit',
+          }}
+        >
+          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${defaultUrl})` }}>
+            <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
           </div>
-          <div style={{ paddingTop: 5 }}>
-            <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
-            <span className="t--info" style={{ fontSize: 14 }}>{ request.updatedAtRelativeString }</span>
+          <div className={REQUEST_INFO_STYLE}>
+            <h4 className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>{request.service.name}</h4>
+            <div className={DESCRIPTION_STYLE}>
+              { request.description}
+            </div>
+            <div style={{ paddingTop: 5 }}>
+              <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
+              <span className="t--info" style={{ fontSize: 14 }}>{ request.updatedAtRelativeString }</span>
+            </div>
           </div>
-        </div>
-      </div>
+        </a>
+      </Link>
     );
   }
 }

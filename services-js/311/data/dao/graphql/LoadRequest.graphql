@@ -5,8 +5,14 @@ query LoadRequest($id: String!) {
       name
     }
     status
+    statusNotes
     description
     address
+    location {
+      lat
+      lng
+    }
+    mediaUrl
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     updatedAtString(format: "MMMM D, YYYY, h:mm A")
   }

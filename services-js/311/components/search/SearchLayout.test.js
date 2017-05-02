@@ -4,22 +4,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import { AppStore } from '../../data/store';
-import type { Request } from '../../data/types';
 import { makeServerContext } from '../../lib/test/make-context';
 
 import SearchLayout from './SearchLayout';
-
-export const MOCK_REQUEST: Request = {
-  id: '17-000000001',
-  service: {
-    name: 'Cosmic Intervention',
-  },
-  description: 'I think that Thanos is here',
-  status: 'open',
-  address: 'City Hall Plaza, Boston, MA 02131',
-  requestedAtString: 'March 7, 2017, 12:59 PM',
-  updatedAtString: 'April 8, 2017, 12:59 PM',
-};
 
 describe('search form', () => {
   let data;

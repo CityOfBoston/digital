@@ -4,7 +4,7 @@ import { css } from 'glamor';
 
 import type { DivIconOptions } from 'leaflet';
 
-const WAYPOINT_BASE_OPTIONS = {
+export const WAYPOINT_BASE_OPTIONS = {
   iconSize: { x: 30, y: 50 },
   iconAnchor: { x: 14, y: 50 },
 };

@@ -37,14 +37,17 @@ exports[`rendering results loaded 1`] = `
       </div>
     </form>
   </div>
-  <div
+  <a
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"
+    href="/reports/17-000000001"
+    onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
       Object {
         "backgroundColor": "transparent",
+        "color": "inherit",
       }
     }
   >
@@ -118,7 +121,7 @@ exports[`rendering results loaded 1`] = `
         </span>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 `;
 
@@ -159,14 +162,17 @@ exports[`rendering with request selected 1`] = `
       </div>
     </form>
   </div>
-  <div
+  <a
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"
+    href="/reports/17-000000001"
+    onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
       Object {
         "backgroundColor": "#e0e0e0",
+        "color": "inherit",
       }
     }
   >
@@ -240,6 +246,6 @@ exports[`rendering with request selected 1`] = `
         </span>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 `;

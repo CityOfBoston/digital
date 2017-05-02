@@ -15,6 +15,7 @@ import type Prediction from '../services/Prediction';
 
 export type Context = {|
   open311: Open311,
+  publicOpen311: Open311,
   swiftype: Swiftype,
   arcgis: ArcGIS,
   prediction: Prediction,

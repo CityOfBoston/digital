@@ -13,6 +13,7 @@ type Request {
   service: Service!
   description: String
   status: String!
+  statusNotes: String
   address: String
   mediaUrl: String
   location: LatLng
@@ -33,8 +34,9 @@ export const resolvers = {
   Request: {
     id: (r: Root) => r.service_request_id,
     service: (r: Root): ServiceStub => ({ service_name: r.service_name || '', service_code: r.service_code }),
-    description: (r: Root) => r.description,
+    description: (r: Root) => r.description || '',
     status: (r: Root) => r.status,
+    statusNotes: (r: Root) => r.status_notes || null,
     address: (r: Root) => r.address,
     mediaUrl: (r: Root) => (r.media_url || '').trim(),
     location: (r: Root) => ((r.lat != null && r.long != null) ? { lat: r.lat, lng: r.long } : null),

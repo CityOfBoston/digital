@@ -200,25 +200,30 @@ export default class Open311 {
 
     this.requestLoader = new DataLoader(async (ids: string[]) => {
       const transaction = opbeat && opbeat.startTransaction('request', 'Open311');
-      const out = await Promise.all(ids.map(async (id) => {
-        const params = new URLSearchParams();
-        if (this.apiKey) {
-          params.append('api_key', this.apiKey);
-        }
+      const params = new URLSearchParams();
+      if (this.apiKey) {
+        params.append('api_key', this.apiKey);
+      }
+      params.append('service_request_id', ids.join(','));
 
-        const response = await fetch(this.url(`requests/${id}.json?${params.toString()}`), {
-          agent: this.agent,
-        });
+      const response = await fetch(this.url(`requests.json?${params.toString()}`), {
+        agent: this.agent,
+      });
 
-        // the endpoint returns the request in an array
-        const requestArr: ?ServiceRequest[] = await processResponse(response);
-        return requestArr ? requestArr[0] : null;
-      }));
+      // the endpoint returns the request in an array
+      const requestArr: ServiceRequest[] = await processResponse(response);
 
       if (transaction) {
         transaction.end();
       }
-      return out;
+
+      const requestMap: {[id: string]: ServiceRequest} = {};
+
+      requestArr.forEach((r) => {
+        requestMap[r.service_request_id] = r;
+      });
+
+      return ids.map((id) => requestMap[id]);
     });
   }
 

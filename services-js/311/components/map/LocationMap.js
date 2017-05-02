@@ -274,7 +274,7 @@ export default class LocationMap extends React.Component {
       map = L.map(this.mapEl, (opts: any));
     } else {
       map = L.mapbox.map(this.mapEl, null, opts);
-      L.mapbox.styleLayer(mapboxKeys.styleUrl, {
+      L.mapbox.styleLayer(`mapbox://styles/${mapboxKeys.stylePath}`, {
         accessToken: mapboxKeys.accessToken,
       }).addTo(map);
     }

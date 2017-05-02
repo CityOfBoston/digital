@@ -49,6 +49,7 @@ type Request {
   service: Service!
   description: String
   status: String!
+  statusNotes: String
   address: String
   mediaUrl: String
   location: LatLng

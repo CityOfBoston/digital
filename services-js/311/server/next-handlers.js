@@ -33,7 +33,7 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
       },
       mapbox: {
         accessToken: process.env.MAPBOX_ACCESS_TOKEN || '',
-        styleUrl: process.env.MAPBOX_STYLE_URL || '',
+        stylePath: process.env.MAPBOX_STYLE_PATH || '',
       },
     },
     liveAgentButtonId: process.env.LIVE_AGENT_BUTTON_ID || '',

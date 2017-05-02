@@ -1123,6 +1123,18 @@
               "deprecationReason": null
             },
             {
+              "name": "statusNotes",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "address",
               "description": "",
               "args": [],

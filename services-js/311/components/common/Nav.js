@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export type Props = {|
-  activeSection: 'report' | 'services' | 'search' | 'faq',
+  activeSection?: 'report' | 'services' | 'search' | 'faq' | null,
 |}
 
 function renderNavItem({ href, as, title }, active) {
