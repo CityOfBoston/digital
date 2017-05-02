@@ -24,9 +24,19 @@ mutation SubmitRequest(
     mediaUrl: $mediaUrl
   ) {
     id
-    requestedAtString(format: "MMMM D, YYYY, h:mm A")
-    address
+    service {
+      name
+    }
+    status
+    statusNotes
     description
+    address
+    location {
+      lat
+      lng
+    }
     mediaUrl
+    requestedAtString(format: "MMMM D, YYYY, h:mm A")
+    updatedAtString(format: "MMMM D, YYYY, h:mm A")
   }
 }

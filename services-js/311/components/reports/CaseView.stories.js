@@ -14,7 +14,17 @@ function makeStore() {
 }
 
 storiesOf('CaseView', module)
-.add('Exists', () => (
+.add('Submitted', () => (
+  <div style={{ backgroundColor: 'white' }}>
+    <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} submitted />
+  </div>
+))
+.add('Open', () => (
+  <div style={{ backgroundColor: 'white' }}>
+    <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} />
+  </div>
+))
+.add('Resolved', () => (
   <div style={{ backgroundColor: 'white' }}>
     <CaseView request={MOCK_REQUEST} store={makeStore()} />
   </div>

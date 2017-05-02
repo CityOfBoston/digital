@@ -2,25 +2,15 @@
 
 import React from 'react';
 import { css } from 'glamor';
-import Link from 'next/link';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';
-
-import type { SubmittedRequest } from '../../../data/types';
 
 export type Props = {|
   state: 'submitting',
 |} | {|
   state: 'error',
   error: Object,
-|} | {|
-  state: 'success',
-  submittedRequest: SubmittedRequest,
 |};
-
-const GRID_OVERRIDE_STYLE = css({
-  alignItems: 'flex-start',
-});
 
 const LOADING_CONTAINER_STYLE = css({
   display: 'flex',
@@ -47,45 +37,6 @@ export default function SubmitPane(props: Props) {
           <SectionHeader>Submission Error</SectionHeader>
           { Array.isArray(error.errors) && error.errors.map((e, i) => <p key={i}>{e.message}</p>) }
           { !Array.isArray(error.errors) && (error.message ? error.message : error.toString()) }
-        </div>
-      );
-    }
-
-    case 'success': {
-      const { submittedRequest } = props;
-      return (
-        <div>
-          <SectionHeader>Thank you for your submission</SectionHeader>
-          <div className={`g m-v500 ${GRID_OVERRIDE_STYLE.toString()}`}>
-            <div className="m-v300 g--6">
-              <ul className="dl">
-                <li className="dl-i">
-                  <span className="dl-t">Case No.</span>
-                  <span className="dl-d dl-d--tt-n"><Link href={`/lookup?q=${submittedRequest.id}`}><a>{ submittedRequest.id }</a></Link></span>
-                </li>
-                <li className="dl-i">
-                  <span className="dl-t">Opened</span>
-                  <span className="dl-d dl-d--tt-n">{ submittedRequest.requestedAtString }</span>
-                </li>
-                <li className="dl-i">
-                  <span className="dl-t">Where</span>
-                  <span className="dl-d dl-d--tt-n">{ submittedRequest.address }</span>
-                </li>
-                <li className="dl-i">
-                  <span className="dl-t">Description</span>
-                  <span className="dl-d dl-d--tt-n">{ submittedRequest.description }</span>
-                </li>
-              </ul>
-            </div>
-
-            <img style={{ display: 'block' }} alt="" src={submittedRequest.mediaUrl || '/static/img/311-watermark.svg'} className="g--6" />
-          </div>
-
-          <hr className="hr hr--dash m-v300" />
-
-          <div className="g m-v500">
-            <Link href="/report" as="/"><a className="g--3 ta-c btn">Create a New Case</a></Link>
-          </div>
         </div>
       );
     }

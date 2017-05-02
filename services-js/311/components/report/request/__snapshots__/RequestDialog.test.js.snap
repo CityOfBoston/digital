@@ -62,24 +62,120 @@ exports[`methods submitRequest success 2`] = `
   <SideEffect(Head)>
     <title>
       BOS:311 — 
-      Success: Case 17-00001615
+      Success: Case 17-000000001
     </title>
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
     popup={false}
   >
-    <SubmitPane
-      state="success"
-      submittedRequest={
+    <CaseView
+      request={
         Object {
-          "address": "City Hall Plaza, Boston, MA",
-          "description": "A cosmic encursion seems likely.",
-          "id": "17-00001615",
+          "address": "City Hall Plaza, Boston, MA 02131",
+          "description": "I think that Thanos is here",
+          "id": "17-000000001",
+          "location": Object {
+            "lat": 42.359927299999995,
+            "lng": -71.0576853,
+          },
           "mediaUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
-          "requestedAtString": "January 1, 2017 2:00 PM",
+          "requestedAtString": "March 7, 2017, 12:59 PM",
+          "service": Object {
+            "name": "Cosmic Intervention",
+          },
+          "status": "closed",
+          "statusNotes": "Found Thanos. Smashed him into the floor with all of us standing around.",
+          "updatedAtString": "April 8, 2017, 12:59 PM",
         }
       }
+      store={
+        AppStore {
+          "_liveAgentButtonId": "",
+          "allServices": AllServices {
+            "groups": Array [
+              Group {
+                "description": "Pet Ownership, Problems with Animals, Rodents & Pests",
+                "id": "Animal Control",
+                "name": "Animals",
+              },
+              Group {
+                "description": "Certificates & Registrations, Licensing & Permitting, Complaints, Business with the City",
+                "id": "business",
+                "name": "Business",
+              },
+              Group {
+                "description": "City Jobs, Schools, Library Resources, Internships & Volunteering",
+                "id": "education-employment",
+                "name": "Education & Employment",
+              },
+              Group {
+                "description": "Voting, Contact Elected Officials, Personal Records (e.g., Births, Deaths & Marriages)",
+                "id": "elections-records",
+                "name": "Elections & Records",
+              },
+              Group {
+                "description": "Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup",
+                "id": "garbage",
+                "name": "Garbage, Recycling & Graffiti",
+              },
+              Group {
+                "description": "Crime, Fire Prevention & Control, Healthy Living & Inspections",
+                "id": "Health - Safety",
+                "name": "Health, Safety & Social Services",
+              },
+              Group {
+                "description": "Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints",
+                "id": "housing",
+                "name": "Housing, Property & Construction",
+              },
+              Group {
+                "description": "Park Maintenance, Permits, Tree Planting, Donations",
+                "id": "parks",
+                "name": "Parks & Trees",
+              },
+              Group {
+                "description": "Calendar, Event Permitting, Facility Request, Youth, Arts",
+                "id": "entertainment",
+                "name": "Recreation, Entertainment & Event Planning",
+              },
+              Group {
+                "description": "Real Estate Tax, Boat and Motor Vehicle Excise, Personal Property",
+                "id": "taxes",
+                "name": "Taxes & Payments",
+              },
+              Group {
+                "description": "Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance",
+                "id": "transportation",
+                "name": "Transportation, Streets & Sidewalks",
+              },
+              Group {
+                "description": "Water & Sewer, Electric, Gas, Heat",
+                "id": "utilities",
+                "name": "Utilities",
+              },
+            ],
+            "otherGroup": Group {
+              "description": "These services have not yet been categorized",
+              "id": "",
+              "name": "Other Services",
+            },
+          },
+          "apiKeys": Object {},
+          "browserLocation": BrowserLocation {
+            "watchId": null,
+          },
+          "mapLocation": MapLocation {},
+          "requestSearch": RequestSearch {
+            "searchDisposer": null,
+          },
+          "ui": Ui {
+            "handleResize": [Function],
+            "handleScroll": [Function],
+          },
+        }
+      }
+      submitted={true}
     />
   </FormDialog>
 </div>

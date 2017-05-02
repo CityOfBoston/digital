@@ -9,9 +9,14 @@ import type { AppStore } from '../../data/store';
 import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_BASE_OPTIONS } from '../map/WaypointMarkers';
 
+export type DefaultProps = {|
+  submitted: boolean,
+|}
+
 export type Props = {|
   request: Request,
   store: AppStore,
+  submitted?: boolean,
 |}
 
 const CONTAINER_STYLE = css({
@@ -38,6 +43,22 @@ const WAYPOINT_STYLE = css({
   transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor.x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
 });
 
+function renderSubmitted({ id }: Request, submitted: boolean) {
+  if (!submitted) {
+    return null;
+  }
+
+  return (
+    <div className="b b--g p-a500 m-v500">
+      <div className="txt-l" style={{ marginTop: 0 }}>Report submitted successfully</div>
+      <div className="t--intro">
+        Thank you for submitting. Your case number is #{id}.
+        If you gave your email address, we’ll send you an email when it’s
+        resolved. You can also bookmark this page to check back on it.
+      </div>
+    </div>
+  );
+}
 function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   if (status !== 'closed') {
     return null;
@@ -51,6 +72,7 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   );
 }
 
+
 function makeMapboxUrl(store: AppStore, request: Request, size: number): string {
   const { apiKeys: { mapbox } } = store;
   const { location } = request;
@@ -62,7 +84,7 @@ function makeMapboxUrl(store: AppStore, request: Request, size: number): string 
   return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(mapbox.accessToken)}`;
 }
 
-export default function CaseView({ request, store }: Props) {
+export default function CaseView({ request, store, submitted }: Props) {
   const waypointIcon = request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
   return (
@@ -73,6 +95,8 @@ export default function CaseView({ request, store }: Props) {
         <div className="m-v300 t--info">
           {request.requestedAtString} {request.address && ` — ${request.address}`}
         </div>
+
+        { renderSubmitted(request, submitted || false) }
 
         { renderStatus(request) }
 
@@ -101,3 +125,7 @@ export default function CaseView({ request, store }: Props) {
     </div>
   );
 }
+
+CaseView.defaultProps = {
+  submitted: false,
+};

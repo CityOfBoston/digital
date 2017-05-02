@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Head from 'next/head';
-import { action, observable } from 'mobx';
+import Router from 'next/router';
+import { action, observable, autorun } from 'mobx';
 // import ScopedError from 'react-scoped-error-component';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
@@ -30,6 +31,7 @@ import QuestionsPane from './QuestionsPane';
 import LocationPopUp from './LocationPopUp';
 import ContactPane from './ContactPane';
 import SubmitPane from './SubmitPane';
+import CaseView from '../../reports/CaseView';
 
 export type InitialProps = {|
   stage: 'questions' | 'location' | 'contact' | 'submit',
@@ -63,6 +65,8 @@ export default class RequestDialog extends React.Component {
 
   requestForm: RequestForm;
   @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
+
+  caseLookupOnSubmitDisposer: Function;
 
   // Called by ReportLayout
   static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
@@ -106,6 +110,17 @@ export default class RequestDialog extends React.Component {
 
   componentDidMount() {
     LoadingBuildings.preload();
+
+    this.caseLookupOnSubmitDisposer = autorun('route on case submit', () => {
+      if (this.requestSubmission && this.requestSubmission.state === 'fulfilled') {
+        const href = `/reports/${this.requestSubmission.value.id}`;
+        Router.replace('/report', href, { shallow: true });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.caseLookupOnSubmitDisposer();
   }
 
   @action
@@ -290,7 +305,7 @@ export default class RequestDialog extends React.Component {
 
         switch (requestSubmission.state) {
           case 'pending': return <SubmitPane state="submitting" />;
-          case 'fulfilled': return <SubmitPane state="success" submittedRequest={requestSubmission.value} />;
+          case 'fulfilled': return <CaseView store={store} request={requestSubmission.value} submitted />;
           case 'rejected': return <SubmitPane state="error" error={requestSubmission.value} />;
           default: return '';
         }

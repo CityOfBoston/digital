@@ -243,9 +243,19 @@ export type SubmitRequestMutationVariables = {
 export type SubmitRequestMutation = {
   createRequest: {
     id: string,
-    requestedAtString: string,
-    address: ?string,
+    service: {
+      name: string,
+    },
+    status: string,
+    statusNotes: ?string,
     description: ?string,
+    address: ?string,
+    location: ? {
+      lat: number,
+      lng: number,
+    },
     mediaUrl: ?string,
+    requestedAtString: string,
+    updatedAtString: string,
   },
 };

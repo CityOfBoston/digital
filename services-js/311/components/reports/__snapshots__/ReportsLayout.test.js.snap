@@ -249,7 +249,19 @@ exports[`case rendering 1`] = `
         </div>
         <div
           className="g--6"
-        />
+        >
+          <a
+            href="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Submission"
+              className="css-70zt4q m-v300 br br-a150"
+              src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </div>
