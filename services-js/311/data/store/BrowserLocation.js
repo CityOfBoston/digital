@@ -8,7 +8,7 @@ export default class BrowserLocation {
   // lat/lng: browser location
   @observable location: false | null | { lat: number, lng: number } = null;
 
-  watchId: mixed = null;
+  watchId: ?number = null;
 
   hasNavigation() {
     return typeof navigator !== 'undefined' && !!navigator.geolocation;
