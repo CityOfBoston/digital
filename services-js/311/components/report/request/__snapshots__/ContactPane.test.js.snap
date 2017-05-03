@@ -18,12 +18,7 @@ exports[`blank request 1`] = `
       We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
     </p>
     <p
-      className="m-v300"
-      style={
-        Object {
-          "fontStyle": "italic",
-        }
-      }
+      className="m-v300 t--subinfo"
     >
       Your contact info will not be made public.
        
@@ -167,12 +162,7 @@ exports[`blank request 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--8 t--info"
-      style={
-        Object {
-          "textAlign": "right",
-        }
-      }
+      className="g--8 t--info m-v200 css-hn0yet"
     >
       <span>
         Please fill out 
@@ -213,12 +203,7 @@ exports[`filled request 1`] = `
       We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
     </p>
     <p
-      className="m-v300"
-      style={
-        Object {
-          "fontStyle": "italic",
-        }
-      }
+      className="m-v300 t--subinfo"
     >
       Your contact info will not be made public.
        
@@ -362,12 +347,7 @@ exports[`filled request 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--8 t--info"
-      style={
-        Object {
-          "textAlign": "right",
-        }
-      }
+      className="g--8 t--info m-v200 css-hn0yet"
     />
     <button
       className="btn g--4"

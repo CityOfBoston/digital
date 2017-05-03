@@ -23,13 +23,6 @@ const FORM_COLUMN_STYLE = css({
   justifyContent: 'space-between',
 });
 
-const DESCRIPTION_HEADER_STYLE = css({
-  display: 'none',
-  [MEDIA_LARGE]: {
-    display: 'block',
-  },
-});
-
 const NEXT_BUTTON_STYLE = css({
   width: '100%',
   [MEDIA_LARGE]: {
@@ -37,17 +30,13 @@ const NEXT_BUTTON_STYLE = css({
   },
 });
 
-const SERVICE_PICKER_STYLE = css({
-  display: 'none',
-  [MEDIA_LARGE]: {
-    display: 'block',
-  },
-});
-
 const OR_HOLDER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  [MEDIA_LARGE]: {
+    margin: 0,
+  },
 });
 
 const OR_RULE_STYLE = css({
@@ -66,6 +55,13 @@ const OR_CIRCLE_SYTLE = css({
   width: '2.5em',
   height: '2.5em',
   lineHeight: '2.1em',
+});
+
+const SEARCH_CONTAINER_STYLE = css({
+  display: 'none',
+  [MEDIA_LARGE]: {
+    display: 'block',
+  },
 });
 
 const BROWSE_CASES_STYLE = css({
@@ -173,7 +169,7 @@ export default class HomePane extends React.Component {
           <div className="g m-t500">
             <div className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}>
               <div>
-                <h3 className={`stp m-v100 ${DESCRIPTION_HEADER_STYLE.toString()}`}>
+                <h3 className="stp m-v100">
                   Tell us your problem:
                 </h3>
 
@@ -194,13 +190,13 @@ export default class HomePane extends React.Component {
               </div>
             </div>
 
-            <div className={`g--1 ${OR_HOLDER_STYLE.toString()}`}>
+            <div className={`g--1 m-v300 ${OR_HOLDER_STYLE.toString()}`}>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
               <div className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}>or</div>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
             </div>
 
-            <div className={`g--4 ${SERVICE_PICKER_STYLE.toString()}`}>
+            <div className="g--4">
               <div className="t--info">
                 You can also start a report by picking one of these
                 popular services:
@@ -219,7 +215,7 @@ export default class HomePane extends React.Component {
           </div>
         </div>
 
-        <div className="b b--g p-a300 p-a800--xl" style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`} style={{ paddingTop: 0, paddingBottom: 0 }}>
           <div className="g">
             <form className="sf sf--y sf--md g--7 m-v400" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit} onFocus={this.handleSearchFocus}>
               <div className="sf-i">

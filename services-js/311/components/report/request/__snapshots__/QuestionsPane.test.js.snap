@@ -100,12 +100,7 @@ exports[`blank request 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9 t--info"
-      style={
-        Object {
-          "textAlign": "right",
-        }
-      }
+      className="g--9 t--info m-v200 css-hn0yet"
     />
     <button
       className="btn g--3"
@@ -218,12 +213,7 @@ exports[`existing description 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9 t--info"
-      style={
-        Object {
-          "textAlign": "right",
-        }
-      }
+      className="g--9 t--info m-v200 css-hn0yet"
     />
     <button
       className="btn g--3"
@@ -355,12 +345,7 @@ exports[`service with metadata 1`] = `
     className="g m-v500 css-1k8tu3j"
   >
     <div
-      className="g--9 t--info"
-      style={
-        Object {
-          "textAlign": "right",
-        }
-      }
+      className="g--9 t--info m-v200 css-hn0yet"
     />
     <button
       className="btn g--3"

@@ -349,12 +349,7 @@ exports[`existing service page rendering 1`] = `
             className="g m-v500 css-1k8tu3j"
           >
             <div
-              className="g--9 t--info"
-              style={
-                Object {
-                  "textAlign": "right",
-                }
-              }
+              className="g--9 t--info m-v200 css-hn0yet"
             >
               <span>
                 Please fill out 
@@ -730,12 +725,7 @@ exports[`existing service page rendering phone 1`] = `
             className="g m-v500 css-1k8tu3j"
           >
             <div
-              className="g--9 t--info"
-              style={
-                Object {
-                  "textAlign": "right",
-                }
-              }
+              className="g--9 t--info m-v200 css-hn0yet"
             >
               <span>
                 Please fill out 
@@ -909,7 +899,7 @@ exports[`existing service page rendering phone location step 1`] = `
             className="g css-1k8tu3j"
           >
             <div
-              className="g--7"
+              className="g--7 t--subinfo m-v200"
             >
               <a
                 href="javascript:void(0)"
@@ -1202,7 +1192,7 @@ exports[`report form rendering 1`] = `
                   >
                     <div>
                       <h3
-                        className="stp m-v100 css-17cwx2g"
+                        className="stp m-v100"
                       >
                         Tell us your problem:
                       </h3>
@@ -1244,7 +1234,7 @@ exports[`report form rendering 1`] = `
                     </div>
                   </div>
                   <div
-                    className="g--1 css-1lffeal"
+                    className="g--1 m-v300 css-1sliefw"
                   >
                     <div
                       className="br br-a150 css-7mg7kt"
@@ -1259,7 +1249,7 @@ exports[`report form rendering 1`] = `
                     />
                   </div>
                   <div
-                    className="g--4 css-17cwx2g"
+                    className="g--4"
                   >
                     <div
                       className="t--info"
@@ -1295,7 +1285,7 @@ exports[`report form rendering 1`] = `
                 </div>
               </div>
               <div
-                className="b b--g p-a300 p-a800--xl"
+                className="b b--g p-a300 p-a800--xl css-17cwx2g"
                 style={
                   Object {
                     "paddingBottom": 0,

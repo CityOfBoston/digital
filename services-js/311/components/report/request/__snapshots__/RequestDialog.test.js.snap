@@ -214,12 +214,7 @@ exports[`rendering contact 1`] = `
           We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
         </p>
         <p
-          className="m-v300"
-          style={
-            Object {
-              "fontStyle": "italic",
-            }
-          }
+          className="m-v300 t--subinfo"
         >
           Your contact info will not be made public.
            
@@ -353,12 +348,7 @@ exports[`rendering contact 1`] = `
         className="g m-v500 css-1k8tu3j"
       >
         <div
-          className="g--8 t--info"
-          style={
-            Object {
-              "textAlign": "right",
-            }
-          }
+          className="g--8 t--info m-v200 css-hn0yet"
         >
           <span>
             Please fill out 
@@ -432,7 +422,7 @@ exports[`rendering location 1`] = `
         className="g css-1k8tu3j"
       >
         <div
-          className="g--7"
+          className="g--7 t--subinfo m-v200"
         >
           <a
             href="javascript:void(0)"
@@ -705,12 +695,7 @@ exports[`rendering questions 1`] = `
         className="g m-v500 css-1k8tu3j"
       >
         <div
-          className="g--9 t--info"
-          style={
-            Object {
-              "textAlign": "right",
-            }
-          }
+          className="g--9 t--info m-v200 css-hn0yet"
         >
           <span>
             Please fill out 

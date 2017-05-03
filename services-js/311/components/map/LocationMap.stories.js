@@ -12,12 +12,13 @@ const makeStore = () => {
 };
 
 storiesOf('LocationMap', module)
-  .addDecorator((story) => (
-    <div style={{ width: '100vw', height: '100vh' }}>{ story() }</div>
-  ))
   .add('inactive', () => (
-    <LocationMap store={makeStore()} mode="inactive" />
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <LocationMap store={makeStore()} mode="inactive" mobile={false} />
+    </div>
   ))
   .add('picker', () => (
-    <LocationMap store={makeStore()} mode="picker" />
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <LocationMap store={makeStore()} mode="picker" mobile={false} />
+    </div>
   ));

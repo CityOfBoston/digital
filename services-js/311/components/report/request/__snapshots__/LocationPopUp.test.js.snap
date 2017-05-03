@@ -34,7 +34,7 @@ exports[`rendering renders a map on a small screen 1`] = `
       <input
         className="sf-i-f"
         onInput={[Function]}
-        placeholder="Search for a street address or intersection…"
+        placeholder="Search address or intersection…"
         type="text"
         value=""
       />
@@ -54,7 +54,7 @@ exports[`rendering renders a map on a small screen 1`] = `
     className="g css-1k8tu3j"
   >
     <div
-      className="g--7"
+      className="g--7 t--subinfo m-v200"
     >
       <a
         href="javascript:void(0)"
@@ -124,7 +124,7 @@ exports[`rendering renders with an address 1`] = `
     className="g css-1k8tu3j"
   >
     <div
-      className="g--7"
+      className="g--7 t--subinfo m-v200"
     >
       <a
         href="javascript:void(0)"
@@ -182,7 +182,7 @@ exports[`rendering renders without an address 1`] = `
     className="g css-1k8tu3j"
   >
     <div
-      className="g--7"
+      className="g--7 t--subinfo m-v200"
     >
       <a
         href="javascript:void(0)"

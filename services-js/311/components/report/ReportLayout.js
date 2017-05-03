@@ -160,6 +160,7 @@ export default class ReportLayout extends React.Component {
               <LocationMap
                 store={store}
                 mode={mapMode}
+                mobile={false}
               />
             </div>
           }

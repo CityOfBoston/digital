@@ -157,22 +157,22 @@ exports[`case rendering 1`] = `
     }
   >
     <div
-      className="sh sh--y"
+      className="p-a500 css-pym862"
     >
-      <h2
-        className="sh-title"
-      >
-        Cosmic Intervention
-      </h2>
       <div
-        className="sh-contact"
+        className="sh sh--y"
       >
-        Case no: #17-000000001
+        <h2
+          className="sh-title"
+        >
+          Cosmic Intervention
+        </h2>
+        <div
+          className="sh-contact"
+        >
+          Case no: #17-000000001
+        </div>
       </div>
-    </div>
-    <div
-      className=""
-    >
       <div
         className="m-v300 t--info"
       >
@@ -180,88 +180,88 @@ exports[`case rendering 1`] = `
          
          — City Hall Plaza, Boston, MA 02131
       </div>
+    </div>
+    <div
+      className="b b--g p-a500 m-v500"
+    >
       <div
-        className="b b--g p-a500 m-v500"
+        className="txt-l"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Resolution — 
+        April 8, 2017, 12:59 PM
+      </div>
+      <div
+        className="t--intro"
+      >
+        Found Thanos. Smashed him into the floor with all of us standing around.
+      </div>
+    </div>
+    <div
+      className="p-a500"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="txt-l"
+      >
+        Description
+      </div>
+      <div
+        className="t--intro"
+      >
+        I think that Thanos is here
+      </div>
+    </div>
+    <div
+      className="g p-a500"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g--6"
       >
         <div
-          className="txt-l"
-          style={
+          className={
             Object {
-              "marginTop": 0,
+              "data-css-13azwyo": "",
             }
           }
         >
-          Resolution — 
-          April 8, 2017, 12:59 PM
-        </div>
-        <div
-          className="t--intro"
-        >
-          Found Thanos. Smashed him into the floor with all of us standing around.
-        </div>
-      </div>
-      <div
-        className="p-a500"
-        style={
-          Object {
-            "paddingTop": 0,
-          }
-        }
-      >
-        <div
-          className="txt-l"
-        >
-          Description
-        </div>
-        <div
-          className="t--intro"
-        >
-          I think that Thanos is here
-        </div>
-      </div>
-      <div
-        className="g p-a500"
-        style={
-          Object {
-            "paddingTop": 0,
-          }
-        }
-      >
-        <div
-          className="g--6"
-        >
+          <img
+            alt="Map of City Hall Plaza, Boston, MA 02131"
+            className="css-70zt4q m-v300 br br-a150"
+            src="https://api.mapbox.com/styles/v1/fake-style-path/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=fake-access-token"
+          />
           <div
-            className={
-              Object {
-                "data-css-13azwyo": "",
-              }
-            }
-          >
-            <img
-              alt="Map of City Hall Plaza, Boston, MA 02131"
-              className="css-70zt4q m-v300 br br-a150"
-              src="https://api.mapbox.com/styles/v1/undefined/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=fake-access-token"
-            />
-            <div
-              className="css-3nz9vn css-1pf8hut"
-            />
-          </div>
+            className="css-3nz9vn css-1pf8hut"
+          />
         </div>
-        <div
-          className="g--6"
+      </div>
+      <div
+        className="g--6"
+      >
+        <a
+          href="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <a
-            href="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="Submission"
-              className="css-70zt4q m-v300 br br-a150"
-              src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
-            />
-          </a>
-        </div>
+          <img
+            alt="Submission"
+            className="css-70zt4q m-v300 br br-a150"
+            src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+          />
+        </a>
       </div>
     </div>
   </div>

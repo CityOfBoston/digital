@@ -25,6 +25,11 @@ const DEFAULT_CENTER = {
   lng: -71.151948,
 };
 
+const DEFAULT_MOBILE_CENTER = {
+  lat: 42.34117523670304,
+  lng: -71.06319129467012,
+};
+
 const MAX_BOUNDS = [
   [42.53689200787317, -70.58029174804689],
   [42.115542659613865, -71.7235565185547],
@@ -37,6 +42,7 @@ type LWithMapbox = $Exports<'mapbox.js'>;
 export type Props = {|
   mode: MapMode,
   store: AppStore,
+  mobile: boolean,
 |};
 
 let L: ?LWithMapbox = null;
@@ -114,9 +120,13 @@ export default class LocationMap extends React.Component {
   }
 
   componentDidMount() {
-    const { store } = this.props;
+    const { store, mode } = this.props;
 
     this.attachMap();
+
+    if (mode === 'picker') {
+      this.initLocation();
+    }
 
     if (L) {
       this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
@@ -127,20 +137,12 @@ export default class LocationMap extends React.Component {
 
   @action
   componentDidUpdate(oldProps: Props) {
-    const { mode, store } = this.props;
+    const { mode } = this.props;
     if (oldProps.mode !== mode) {
       this.updateMapEventHandlers(mode);
 
       if (mode === 'picker') {
-        const currentLocation = store.browserLocation.location;
-
-        if (store.mapLocation.location) {
-          this.flyToLocation(store.mapLocation.location);
-        } else if (currentLocation) {
-          // go through chooseLocation so that we get geocoding
-          this.chooseLocation(currentLocation);
-          this.flyToLocation(currentLocation);
-        }
+        this.initLocation();
       }
     }
   }
@@ -218,6 +220,20 @@ export default class LocationMap extends React.Component {
     }
   }
 
+  @action
+  initLocation() {
+    const { store } = this.props;
+    const currentLocation = store.browserLocation.location;
+
+    if (store.mapLocation.location) {
+      this.flyToLocation(store.mapLocation.location);
+    } else if (currentLocation) {
+          // go through chooseLocation so that we get geocoding
+      this.chooseLocation(currentLocation);
+      this.flyToLocation(currentLocation);
+    }
+  }
+
   @action.bound
   chooseLocation(location: {lat: number, lng: number}) {
     const { store } = this.props;
@@ -243,7 +259,7 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   attachMap() {
-    const { store, mode } = this.props;
+    const { store, mode, mobile } = this.props;
     const { apiKeys, requestSearch } = store;
     const mapboxKeys = apiKeys.mapbox;
 
@@ -257,7 +273,7 @@ export default class LocationMap extends React.Component {
 
     const opts = {
       accessToken: mapboxKeys.accessToken,
-      center: requestSearch.mapCenter || DEFAULT_CENTER,
+      center: requestSearch.mapCenter || (mobile ? DEFAULT_MOBILE_CENTER : DEFAULT_CENTER),
       zoom: requestSearch.mapZoom,
       minZoom: 11,
       maxZoom: 18,

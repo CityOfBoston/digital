@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 import LocalStorageContactInfo from '../../../data/external/LocalStorageContactInfo';
 
 import SectionHeader from '../../common/SectionHeader';
+import { MEDIA_LARGE } from '../../style-constants';
 import type RequestForm from '../../../data/store/RequestForm';
 
 const FIELD_STYLE = {
@@ -16,6 +17,12 @@ const FIELD_STYLE = {
 
 const BOTTOM_ROW_STYLE = css({
   alignItems: 'center',
+});
+
+const RIGHT_ON_LARGE_STYLE = css({
+  [MEDIA_LARGE]: {
+    textAlign: 'right',
+  },
 });
 
 export type Props = {|
@@ -97,7 +104,7 @@ export default class ContactPane extends React.Component {
           report and to follow up with you if necessary.
         </p>
 
-          <p className="m-v300" style={{ fontStyle: 'italic' }}>
+          <p className="m-v300 t--subinfo">
           Your contact info will not be made public.{' '}
 
             { !contactInfoRequired && (
@@ -137,7 +144,7 @@ export default class ContactPane extends React.Component {
         </div>
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
-          <div className="g--8 t--info" style={{ textAlign: 'right' }}>
+          <div className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
             {!contactInfoRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
           <button className="btn g--4" onClick={this.continueWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>

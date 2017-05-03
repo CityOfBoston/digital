@@ -18,6 +18,7 @@ const loadRequest: JestMockFn = (require('../../data/dao/load-request'): any).de
 const MOCK_API_KEYS = {
   mapbox: {
     accessToken: 'fake-access-token',
+    stylePath: 'fake-style-path',
   },
 };
 

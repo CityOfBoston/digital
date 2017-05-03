@@ -164,6 +164,7 @@ export default class LookupLayout extends React.Component {
           <LocationMap
             store={store}
             mode={'requests'}
+            mobile={false}
           />
         </div>
 

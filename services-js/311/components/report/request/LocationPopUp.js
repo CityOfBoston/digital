@@ -112,9 +112,10 @@ export default class LocationPopUp extends React.Component {
   }
 
   render() {
-    const { requestForm, nextIsSubmit, store: { mapLocation } } = this.props;
+    const { requestForm, nextIsSubmit, store: { mapLocation, ui } } = this.props;
     const { locationRequirementsMet, locationRequired } = requestForm;
     const { notFound, address, location } = mapLocation;
+    const { belowMediaLarge } = ui;
 
     return (
       <div className={CONTENT_STYLE}>
@@ -126,7 +127,7 @@ export default class LocationPopUp extends React.Component {
               className="sf-i-f"
               onInput={this.whenSearchInput}
               value={this.addressQuery}
-              placeholder={'Search for a street address or intersection…'}
+              placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
               type="text"
             />
 
@@ -144,7 +145,7 @@ export default class LocationPopUp extends React.Component {
           }
 
         <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
-          <div className="g--7">
+          <div className="g--7 t--subinfo m-v200">
             { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
           </div>
           <button className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
@@ -163,7 +164,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMap store={store} mode="picker" />
+        <LocationMap store={store} mode="picker" mobile />
       </div>
     );
   }

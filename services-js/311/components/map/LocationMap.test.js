@@ -37,6 +37,7 @@ test('rendering active', () => {
     <LocationMap
       store={store}
       mode="picker"
+      mobile={false}
     />,
     { createNodeMock: () => document.createElement('div') },
   );
@@ -59,6 +60,7 @@ describe('mounted map', () => {
       <LocationMap
         store={store}
         mode="picker"
+        mobile={false}
       />,
     );
 

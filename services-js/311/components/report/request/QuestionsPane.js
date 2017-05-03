@@ -8,6 +8,7 @@ import Dropzone from 'react-dropzone';
 
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
+import { MEDIA_LARGE } from '../../style-constants';
 import AttributeField from './AttributeField';
 
 import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
@@ -41,6 +42,12 @@ const DRAG_RING_STYLE = css({
 
 const BOTTOM_ROW_STYLE = css({
   alignItems: 'center',
+});
+
+const RIGHT_ON_LARGE_STYLE = css({
+  [MEDIA_LARGE]: {
+    textAlign: 'right',
+  },
 });
 
 const PROGRESS_STYLE = css({
@@ -144,7 +151,7 @@ export default class QuestionsPane extends React.Component {
         </div>
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
-          <div className="g--9 t--info" style={{ textAlign: 'right' }}>
+          <div className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
             {!questionRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
           <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
