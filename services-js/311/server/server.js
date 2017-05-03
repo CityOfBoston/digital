@@ -3,6 +3,7 @@
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
+import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
@@ -24,7 +25,16 @@ export default async function startServer({ opbeat }: any) {
 
   await app.prepare();
 
-  server.connection({ port }, '0.0.0.0');
+  if (process.env.USE_SSL) {
+    const tls = {
+      key: fs.readFileSync('server.key'),
+      cert: fs.readFileSync('server.crt'),
+    };
+
+    server.connection({ port: '3443', tls }, '0.0.0.0');
+  } else {
+    server.connection({ port }, '0.0.0.0');
+  }
 
   server.register({
     register: Good,

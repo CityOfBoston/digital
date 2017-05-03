@@ -21,7 +21,7 @@ const BUTTON_ROW_STYLE = css({
 });
 
 const MAP_CONTAINER_STYLE = css({
-  height: '50vh',
+  height: '40vh',
 });
 
 export type Props = {|
@@ -36,6 +36,8 @@ export default class LocationPopUp extends React.Component {
   props: Props;
 
   @observable addressQuery: string = '';
+
+  searchField: ?HTMLInputElement;
 
   queryClearerDisposer: Function;
   updateFormFromMapDisposer: Function;
@@ -68,6 +70,9 @@ export default class LocationPopUp extends React.Component {
         // the existing search term so the user can fix it
         if (location) {
           this.addressQuery = '';
+          if (this.searchField) {
+            this.searchField.blur();
+          }
         }
       },
       {
@@ -79,6 +84,10 @@ export default class LocationPopUp extends React.Component {
   componentWillUnmount() {
     this.queryClearerDisposer();
     this.updateFormFromMapDisposer();
+  }
+
+  setSearchField = (searchField: ?HTMLInputElement) => {
+    this.searchField = searchField;
   }
 
   @action.bound
@@ -121,12 +130,13 @@ export default class LocationPopUp extends React.Component {
       <div className={CONTENT_STYLE}>
         { this.maybeRenderMap() }
 
-        <form className="sf sf--sm sf--y " onSubmit={this.whenSearchSubmit}>
+        <form className="sf sf--sm sf--y " onSubmit={this.whenSearchSubmit} action="#">
           <div className="sf-i">
             <input
               className="sf-i-f"
               onInput={this.whenSearchInput}
               value={this.addressQuery}
+              ref={this.setSearchField}
               placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
               type="text"
             />

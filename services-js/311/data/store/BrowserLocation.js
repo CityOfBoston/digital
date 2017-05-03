@@ -22,13 +22,13 @@ export default class BrowserLocation {
 
     navigator.geolocation.getCurrentPosition(this.handlePosition, this.handlePositionError, {
       enableHighAccuracy: false,
-      timeout: Infinity,
+      timeout: Number.MAX_SAFE_INTEGER,
       maximumAge: 60 * 60 * 1000,
     });
 
     navigator.geolocation.watchPosition(this.handlePosition, this.handlePositionError, {
       enableHighAccuracy: true,
-      timeout: Infinity,
+      timeout: Number.MAX_SAFE_INTEGER,
       maximumAge: 5 * 60 * 1000,
     });
   }

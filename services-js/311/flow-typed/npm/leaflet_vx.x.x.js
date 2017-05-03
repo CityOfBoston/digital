@@ -314,6 +314,7 @@ declare module 'leaflet' {
 
   declare export class Icon {
     options: IconOptions;
+    createIcon: (el: ?HTMLElement) => void,
   }
 
   declare export function icon(options: IconOptions): Icon;
@@ -328,6 +329,7 @@ declare module 'leaflet' {
 
   declare export class DivIcon {
     options: DivIconOptions,
+    createIcon: (el: ?HTMLElement) => void,
   }
 
   declare export function divIcon(options: DivIconOptions): DivIcon;

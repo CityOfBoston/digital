@@ -870,6 +870,7 @@ exports[`existing service page rendering phone location step 1`] = `
           }
         >
           <form
+            action="#"
             className="sf sf--sm sf--y "
             onSubmit={[Function]}
           >

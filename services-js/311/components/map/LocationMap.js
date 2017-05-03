@@ -20,6 +20,13 @@ const MAP_STYLE = css({
   transition: 'opacity 500ms',
 });
 
+const MOBILE_MARKER_STYLE = css({
+  position: 'absolute',
+  zIndex: 1,
+  top: '50%',
+  left: '50%',
+});
+
 const DEFAULT_CENTER = {
   lat: 42.326782,
   lng: -71.151948,
@@ -73,6 +80,7 @@ export default class LocationMap extends React.Component {
   props: Props;
 
   mapEl: ?HTMLElement = null;
+  mobileMarkerEl: ?HTMLElement = null;
 
   mapboxMap: ?MapboxMap = null;
   zoomControl: ?ControlZoom;
@@ -125,7 +133,7 @@ export default class LocationMap extends React.Component {
     this.attachMap();
 
     if (mode === 'picker') {
-      this.initLocation();
+      this.initLocation(false);
     }
 
     if (L) {
@@ -142,7 +150,7 @@ export default class LocationMap extends React.Component {
       this.updateMapEventHandlers(mode);
 
       if (mode === 'picker') {
-        this.initLocation();
+        this.initLocation(true);
       }
     }
   }
@@ -172,6 +180,7 @@ export default class LocationMap extends React.Component {
   })
 
   maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainMapLocationMarkerArgs) => {
+    const { mobile } = this.props;
     const { requestMarker } = this;
 
     if (!requestMarker) {
@@ -192,11 +201,24 @@ export default class LocationMap extends React.Component {
 
     if (markerLocation && showMarker) {
       requestMarker.setLatLng(markerLocation);
-      requestMarker.addTo(map);
 
-      // zoom to the location if it's not one that we picked by clicking
-      if (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng)) {
-        this.flyToLocation(markerLocation);
+      if (mobile) {
+        map.removeLayer(requestMarker);
+        map.flyTo(markerLocation);
+
+        if (requestMarker.options.icon) {
+          // This is a bit jank but lets us leverage the existing marker-
+          // changing code. Alternate plan would be to change the marker icon
+          // using React state.
+          requestMarker.options.icon.createIcon(this.mobileMarkerEl);
+        }
+      } else {
+        requestMarker.addTo(map);
+
+        // zoom to the location if it's not one that we picked by clicking
+        if (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng)) {
+          this.visitLocation(markerLocation, true);
+        }
       }
     } else {
       map.removeLayer(requestMarker);
@@ -221,40 +243,51 @@ export default class LocationMap extends React.Component {
   }
 
   @action
-  initLocation() {
+  initLocation(animated: boolean) {
     const { store } = this.props;
     const currentLocation = store.browserLocation.location;
 
     if (store.mapLocation.location) {
-      this.flyToLocation(store.mapLocation.location);
+      this.visitLocation(store.mapLocation.location, animated);
     } else if (currentLocation) {
           // go through chooseLocation so that we get geocoding
       this.chooseLocation(currentLocation);
-      this.flyToLocation(currentLocation);
+      this.visitLocation(currentLocation, animated);
     }
   }
 
   @action.bound
   chooseLocation(location: {lat: number, lng: number}) {
-    const { store } = this.props;
+    const { store: { mapLocation } } = this.props;
     this.lastPickedLocation = location;
-    store.mapLocation.geocodeLocation(location);
+    mapLocation.geocodeLocation(location);
   }
 
-  flyToLocation(location: {lat: number, lng: number}) {
+  visitLocation(location: {lat: number, lng: number}, animated: boolean) {
     const { store, mode } = this.props;
     const { mapboxMap: map } = this;
 
     if (map) {
-      map.flyToBounds([[location.lat, location.lng], [location.lat, location.lng]], {
+      const bounds = [[location.lat, location.lng], [location.lat, location.lng]];
+      const opts = {
         maxZoom: Math.max(17, map.getZoom()),
         paddingTopLeft: [mode === 'picker' ? 0 : store.requestSearch.resultsListWidth, 0],
-      });
+      };
+
+      if (animated) {
+        map.flyToBounds(bounds, opts);
+      } else {
+        map.fitBounds(bounds, opts);
+      }
     }
   }
 
   setMapEl = (mapEl: HTMLElement) => {
     this.mapEl = mapEl;
+  }
+
+  setMobileMarkerEl = (mobileMarkerEl: ?HTMLElement) => {
+    this.mobileMarkerEl = mobileMarkerEl;
   }
 
   @action.bound
@@ -376,7 +409,7 @@ export default class LocationMap extends React.Component {
       return;
     }
 
-    const { store: { requestSearch } } = this.props;
+    const { store: { requestSearch }, mobile } = this.props;
 
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
@@ -401,28 +434,43 @@ export default class LocationMap extends React.Component {
       lng: visibleCenter.lng,
     };
 
-    const center = map.getCenter();
-    requestSearch.mapCenter = {
-      lat: center.lat,
-      lng: center.lng,
+    const centerPoint = map.getCenter();
+    const centerStruct = {
+      lat: centerPoint.lat,
+      lng: centerPoint.lng,
     };
+    requestSearch.mapCenter = centerStruct;
     requestSearch.mapZoom = map.getZoom();
     requestSearch.radiusKm = visibleRadiusM / 1000;
+
+    if (mobile) {
+      this.chooseLocation(centerStruct);
+    }
   }), 500)
 
   @action.bound
   handleMapClick(ev: Object) {
-    const { mode } = this.props;
+    const { mode, mobile } = this.props;
     const latLng: LatLng = ev.latlng;
 
     if (mode !== 'picker') {
       return;
     }
 
-    this.chooseLocation({
-      lat: latLng.lat,
-      lng: latLng.lng,
-    });
+    if (mobile) {
+      if (this.mapboxMap) {
+        // recentering the map will choose the new location. We do it this way
+        // to avoid a double-geocode, first of the clicked location and then
+        // to the re-centered map location (they differ by a very fine floating
+        // point amount)
+        this.mapboxMap.flyTo(latLng);
+      }
+    } else {
+      this.chooseLocation({
+        lat: latLng.lat,
+        lng: latLng.lng,
+      });
+    }
   }
 
   @action.bound
@@ -431,7 +479,7 @@ export default class LocationMap extends React.Component {
     if (mode === 'picker') {
       this.handleMarkerClick(ev);
     } else if (mode === 'requests') {
-      this.flyToLocation(ev.target.getLatLng());
+      this.visitLocation(ev.target.getLatLng(), true);
     }
   }
 
@@ -484,12 +532,14 @@ export default class LocationMap extends React.Component {
   }
 
   render() {
-    const { mode } = this.props;
+    const { mode, mobile } = this.props;
 
     const opacity = mode !== 'inactive' ? 1 : 0.6;
 
     return (
-      <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl} />
+      <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl}>
+        { mobile && <div className={MOBILE_MARKER_STYLE}><div ref={this.setMobileMarkerEl} /></div> }
+      </div>
     );
   }
 }
