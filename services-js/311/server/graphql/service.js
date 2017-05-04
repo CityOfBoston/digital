@@ -174,12 +174,12 @@ type MetadataRequirement = 'REQUIRED' | 'VISIBLE' | 'HIDDEN';
 
 function resolveMetadataRequirement(metadata: ?ServiceMetadata, definitionKey: string, requiredKey: string): MetadataRequirement {
   if (!metadata) {
-    return 'VISIBLE';
+    return 'REQUIRED';
   }
 
   const { definitions } = metadata;
   if (!definitions) {
-    return 'VISIBLE';
+    return 'REQUIRED';
   }
 
   const definition: ?{ required: boolean, visible: boolean } = definitions[definitionKey];
