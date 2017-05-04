@@ -190,7 +190,7 @@ function renderSingleValueListAttribute(question, onChange) {
 
 export default observer(function AttributeField({ question }: Props) {
   const onChange = action('onChange', (ev: SyntheticInputEvent) => {
-    question.value = ev.target.value;
+    question.value = ev.target.value === '--no-answer-key--' ? '' : ev.target.value;
   });
 
   const onCheckbox = action('onCheckbox', (ev: SyntheticInputEvent) => {
