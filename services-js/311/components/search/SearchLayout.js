@@ -153,22 +153,24 @@ export default class LookupLayout extends React.Component {
     const { store } = this.props;
 
     return (
-      <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
+      <div>
         <Head>
           <title>BOS:311 — Public Cases</title>
         </Head>
 
         <Nav activeSection="search" />
 
-        <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
-          <LocationMap
-            store={store}
-            mode={'requests'}
-            mobile={false}
-          />
-        </div>
+        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
+          <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+            <LocationMap
+              store={store}
+              mode={'requests'}
+              mobile={false}
+            />
+          </div>
 
-        <RecentRequests store={store} />
+          <RecentRequests store={store} />
+        </div>
       </div>
 
     );

@@ -72,6 +72,8 @@ export default class extends Document {
           <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
           <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
 
+          <div className="a11y--h" aria-live="polite" id="ariaLive" />
+
           <Main />
 
           <footer className="ft" style={{ position: 'relative', zIndex: 1 }} dangerouslySetInnerHTML={{ __html: footerHtml }} />

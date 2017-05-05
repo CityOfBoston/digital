@@ -17,11 +17,13 @@ exports[`rendering results loaded 1`] = `
       className="sf sf--y sf--md"
       method="get"
       onSubmit={[Function]}
+      role="search"
     >
       <div
         className="sf-i"
       >
         <input
+          aria-label="Search field"
           className="sf-i-f"
           name="q"
           onChange={[Function]}
@@ -31,12 +33,18 @@ exports[`rendering results loaded 1`] = `
         />
         <button
           className="sf-i-b"
+          type="submit"
         >
           Search
         </button>
       </div>
     </form>
   </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
   <a
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"
@@ -142,11 +150,13 @@ exports[`rendering with request selected 1`] = `
       className="sf sf--y sf--md"
       method="get"
       onSubmit={[Function]}
+      role="search"
     >
       <div
         className="sf-i"
       >
         <input
+          aria-label="Search field"
           className="sf-i-f"
           name="q"
           onChange={[Function]}
@@ -156,12 +166,18 @@ exports[`rendering with request selected 1`] = `
         />
         <button
           className="sf-i-b"
+          type="submit"
         >
           Search
         </button>
       </div>
     </form>
   </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
   <a
     className="p-a300 css-hlpxua"
     data-request-id="17-000000001"

@@ -13,11 +13,11 @@ exports[`rendering loading 1`] = `
     <div
       className="sh sh--y"
     >
-      <h2
+      <h1
         className="sh-title"
       >
         BOS:311 — File a Report
-      </h2>
+      </h1>
     </div>
     <div
       className="m-v500 t--intro"
@@ -30,11 +30,11 @@ exports[`rendering loading 1`] = `
   <div
     className="b b--g p-a300 p-a800--xl"
   >
-    <h3
+    <h2
       className="stp"
     >
       How can we help?
-    </h3>
+    </h2>
     <div
       className="t--info m-v300"
     >
@@ -57,11 +57,11 @@ exports[`rendering no description 1`] = `
     <div
       className="sh sh--y"
     >
-      <h2
+      <h1
         className="sh-title"
       >
         BOS:311 — File a Report
-      </h2>
+      </h1>
     </div>
     <div
       className="m-v500 t--intro"
@@ -74,11 +74,11 @@ exports[`rendering no description 1`] = `
   <div
     className="b b--g p-a300 p-a800--xl"
   >
-    <h3
+    <h2
       className="stp"
     >
       How can we help?
-    </h3>
+    </h2>
     <div
       className="t--info m-v300"
     >
@@ -101,11 +101,11 @@ exports[`rendering no suggested summaries 1`] = `
     <div
       className="sh sh--y"
     >
-      <h2
+      <h1
         className="sh-title"
       >
         BOS:311 — File a Report
-      </h2>
+      </h1>
     </div>
     <div
       className="m-v500 t--intro"
@@ -118,11 +118,11 @@ exports[`rendering no suggested summaries 1`] = `
   <div
     className="b b--g p-a300 p-a800--xl"
   >
-    <h3
+    <h2
       className="stp"
     >
       How can we help?
-    </h3>
+    </h2>
     <div>
       <div
         className="t--info m-v300"
@@ -189,11 +189,11 @@ exports[`rendering some suggested summaries 1`] = `
     <div
       className="sh sh--y"
     >
-      <h2
+      <h1
         className="sh-title"
       >
         BOS:311 — File a Report
-      </h2>
+      </h1>
     </div>
     <div
       className="m-v500 t--intro"
@@ -206,11 +206,11 @@ exports[`rendering some suggested summaries 1`] = `
   <div
     className="b b--g p-a300 p-a800--xl"
   >
-    <h3
+    <h2
       className="stp"
     >
       How can we help?
-    </h3>
+    </h2>
     <div>
       <div
         className="t--info m-v300"

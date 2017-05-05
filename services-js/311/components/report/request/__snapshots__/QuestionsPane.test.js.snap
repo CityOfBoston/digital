@@ -5,11 +5,11 @@ exports[`blank request 1`] = `
   <div
     className="sh sh--y"
   >
-    <h2
+    <h1
       className="sh-title"
     >
       Cosmic Incursion
-    </h2>
+    </h1>
   </div>
   <div
     className="g g--top"
@@ -18,6 +18,7 @@ exports[`blank request 1`] = `
       className="g--7 m-v500"
     >
       <textarea
+        aria-label="Description of the problem"
         className={
           Object {
             "data-css-15q8vxe": "",
@@ -49,6 +50,7 @@ exports[`blank request 1`] = `
         >
           <img
             alt=""
+            aria-hidden={true}
             height="324"
             src="/static/img/image-upload.png"
             style={
@@ -80,18 +82,18 @@ exports[`blank request 1`] = `
             }
           }
         >
-          <a
+          <button
             className="btn btn--w btn--b"
-            href="javascript:void(0)"
             onClick={[Function]}
             style={
               Object {
                 "visibility": "visible",
+                "width": "100%",
               }
             }
           >
             Upload Photo
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -118,11 +120,11 @@ exports[`existing description 1`] = `
   <div
     className="sh sh--y"
   >
-    <h2
+    <h1
       className="sh-title"
     >
       Cosmic Incursion
-    </h2>
+    </h1>
   </div>
   <div
     className="g g--top"
@@ -131,6 +133,7 @@ exports[`existing description 1`] = `
       className="g--7 m-v500"
     >
       <textarea
+        aria-label="Description of the problem"
         className={
           Object {
             "data-css-fgw5c1": "",
@@ -162,6 +165,7 @@ exports[`existing description 1`] = `
         >
           <img
             alt=""
+            aria-hidden={true}
             height="324"
             src="/static/img/image-upload.png"
             style={
@@ -193,18 +197,18 @@ exports[`existing description 1`] = `
             }
           }
         >
-          <a
+          <button
             className="btn btn--w btn--b"
-            href="javascript:void(0)"
             onClick={[Function]}
             style={
               Object {
                 "visibility": "visible",
+                "width": "100%",
               }
             }
           >
             Upload Photo
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -231,11 +235,11 @@ exports[`service with metadata 1`] = `
   <div
     className="sh sh--y"
   >
-    <h2
+    <h1
       className="sh-title"
     >
       Cosmic Incursion
-    </h2>
+    </h1>
   </div>
   <div
     className="g g--top"
@@ -244,6 +248,7 @@ exports[`service with metadata 1`] = `
       className="g--7 m-v500"
     >
       <textarea
+        aria-label="Description of the problem"
         className={
           Object {
             "data-css-15q8vxe": "",
@@ -267,6 +272,8 @@ exports[`service with metadata 1`] = `
              
           </span>
           <textarea
+            aria-label="Please provide any other relevant information:"
+            aria-required={false}
             className="txt-f"
             name="ST-CMTS"
             onChange={[Function]}
@@ -294,6 +301,7 @@ exports[`service with metadata 1`] = `
         >
           <img
             alt=""
+            aria-hidden={true}
             height="324"
             src="/static/img/image-upload.png"
             style={
@@ -325,18 +333,18 @@ exports[`service with metadata 1`] = `
             }
           }
         >
-          <a
+          <button
             className="btn btn--w btn--b"
-            href="javascript:void(0)"
             onClick={[Function]}
             style={
               Object {
                 "visibility": "visible",
+                "width": "100%",
               }
             }
           >
             Upload Photo
-          </a>
+          </button>
         </div>
       </div>
     </div>

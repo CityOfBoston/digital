@@ -100,9 +100,9 @@ export default function ChooseServicePane({ description, suggestedServiceSummari
       </div>
 
       <div className="b b--g p-a300 p-a800--xl">
-        <h3 className="stp">
+        <h2 className="stp">
           How can we help?
-        </h3>
+        </h2>
 
         { !suggestedServiceSummaries && renderLoading() }
         { suggestedServiceSummaries && suggestedServiceSummaries.length > 0 && renderSuggestions(description, suggestedServiceSummaries) }

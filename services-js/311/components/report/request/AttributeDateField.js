@@ -258,6 +258,8 @@ export default class AttributeDateField extends React.Component {
             onChange={this.handleDateChange}
             onFocus={this.handleDateFocus}
             onBlur={this.handleDateBlur}
+            aria-required={question.required}
+            aria-label={`${question.description} date field`}
           />
 
           { this.showTime &&
@@ -269,6 +271,8 @@ export default class AttributeDateField extends React.Component {
               onChange={this.handleTimeChange}
               onFocus={this.handleTimeFocus}
               onBlur={this.handleTimeBlur}
+              aria-required={question.required}
+              aria-label={`${question.description} time field`}
             />
           }
 

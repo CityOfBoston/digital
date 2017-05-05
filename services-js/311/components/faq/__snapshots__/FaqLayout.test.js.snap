@@ -82,11 +82,11 @@ exports[`rendering 1`] = `
       <div
         className="sh sh--y"
       >
-        <h2
+        <h1
           className="sh-title"
         >
           How to 311
-        </h2>
+        </h1>
       </div>
       <div
         className="g m-v500"
@@ -171,11 +171,11 @@ exports[`rendering 1`] = `
       <div
         className="sh sh--y"
       >
-        <h2
+        <h1
           className="sh-title"
         >
           FAQ
-        </h2>
+        </h1>
       </div>
     </div>
   </div>

@@ -121,13 +121,15 @@ export default class RecentRequests extends React.Component {
     return (
       <div className={CONTAINER_STYLE} ref={this.setMainEl}>
         <div className="p-a300">
-          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
+          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit} role="search">
             <div className="sf-i">
-              <input type="text" name="q" placeholder="Search by case ID or keywords…" value={requestSearch.query} onChange={this.handleSearchInput} className="sf-i-f" />
-              <button className="sf-i-b">Search</button>
+              <input type="text" name="q" aria-label="Search field" placeholder="Search by case ID or keywords…" value={requestSearch.query} onChange={this.handleSearchInput} className="sf-i-f" />
+              <button type="submit" className="sf-i-b">Search</button>
             </div>
           </form>
         </div>
+
+        <h2 className="a11y--h">Search Results</h2>
 
         { results.length === 0 && query !== resultsQuery && (
           <div className={LOADING_CONTAINER_STYLE}>

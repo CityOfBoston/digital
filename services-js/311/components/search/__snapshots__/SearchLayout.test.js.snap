@@ -1,14 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search form rendering 1`] = `
-<div
-  className="mn mn--full mn--nv-s css-1pujyrn"
-  style={
-    Object {
-      "backgroundColor": "transparent",
-    }
-  }
->
+<div>
   <nav
     className="nv-s nv-s--y nv-s--sticky"
   >
@@ -79,96 +72,114 @@ exports[`search form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className={
+    className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
+    style={
       Object {
-        "data-css-pmaldw": "",
+        "backgroundColor": "transparent",
       }
     }
   >
     <div
       className={
         Object {
-          "data-css-wi5peg": "",
-        }
-      }
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    />
-  </div>
-  <div
-    className={
-      Object {
-        "data-css-1g3oppu": "",
-      }
-    }
-  >
-    <div
-      className="p-a300"
-    >
-      <form
-        acceptCharset="UTF-8"
-        action="/lookup"
-        className="sf sf--y sf--md"
-        method="get"
-        onSubmit={[Function]}
-      >
-        <div
-          className="sf-i"
-        >
-          <input
-            className="sf-i-f"
-            name="q"
-            onChange={[Function]}
-            placeholder="Search by case ID or keywords…"
-            type="text"
-            value="Alpha Flight"
-          />
-          <button
-            className="sf-i-b"
-          >
-            Search
-          </button>
-        </div>
-      </form>
-    </div>
-    <div
-      className={
-        Object {
-          "data-css-qtfk4q": "",
+          "data-css-pmaldw": "",
         }
       }
     >
       <div
         className={
           Object {
-            "data-css-z2og4g": "",
+            "data-css-wi5peg": "",
+          }
+        }
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      />
+    </div>
+    <div
+      className={
+        Object {
+          "data-css-1g3oppu": "",
+        }
+      }
+    >
+      <div
+        className="p-a300"
+      >
+        <form
+          acceptCharset="UTF-8"
+          action="/lookup"
+          className="sf sf--y sf--md"
+          method="get"
+          onSubmit={[Function]}
+          role="search"
+        >
+          <div
+            className="sf-i"
+          >
+            <input
+              aria-label="Search field"
+              className="sf-i-f"
+              name="q"
+              onChange={[Function]}
+              placeholder="Search by case ID or keywords…"
+              type="text"
+              value="Alpha Flight"
+            />
+            <button
+              className="sf-i-b"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <h2
+        className="a11y--h"
+      >
+        Search Results
+      </h2>
+      <div
+        className={
+          Object {
+            "data-css-qtfk4q": "",
           }
         }
       >
-        <span
+        <div
           className={
             Object {
-              "data-css-1vjs1z7": "",
+              "data-css-z2og4g": "",
             }
           }
         >
-          <svg
+          <span
             className={
               Object {
-                "data-css-mfy564": "",
+                "data-css-1vjs1z7": "",
               }
             }
-            role="img"
           >
-            <use
-              height="100%"
-              xlinkHref="/static/img/svg/loading-buildings.svg#east_boston"
-            />
-          </svg>
-        </span>
+            <svg
+              className={
+                Object {
+                  "data-css-mfy564": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/loading-buildings.svg#east_boston"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
   </div>

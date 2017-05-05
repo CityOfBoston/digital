@@ -126,7 +126,7 @@ export default class QuestionsPane extends React.Component {
       questionsEls.push(<div key={q.code}><AttributeField question={q} /></div>);
 
       if (i < questions.length - 1) {
-        questionsEls.push(<hr className="hr hr--dash m-v500" key={`${q.code}-HR`} />);
+        questionsEls.push(<hr className="hr hr--dash m-v500" aria-hidden key={`${q.code}-HR`} />);
       }
     });
 
@@ -186,8 +186,8 @@ export default class QuestionsPane extends React.Component {
             {({ isDragActive }) => {
               const out = [
                 displayUrl ?
-                  <img key="img" style={{ display: 'block', width: '100%' }} alt="" src={displayUrl} /> :
-                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} alt="" width="479" height="324" src="/static/img/image-upload.png" />,
+                  <img key="img" style={{ display: 'block', width: '100%' }} alt="" aria-hidden src={displayUrl} /> :
+                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} aria-hidden alt="" width="479" height="324" src="/static/img/image-upload.png" />,
               ];
 
               if (isDragActive) {
@@ -201,7 +201,7 @@ export default class QuestionsPane extends React.Component {
           { errorMessage && <div className="t--info br br-t200 p-a300">{errorMessage}</div> }
 
           <div className="br br-t200" style={{ position: 'relative' }}>
-            <a href="javascript:void(0)" className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden' }} onClick={buttonAction}>{buttonTitle}</a>
+            <button className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden', width: '100%' }} onClick={buttonAction}>{buttonTitle}</button>
             { uploading && <div className={PROGRESS_STYLE} style={{ width: `${100 * uploadingProgress}%` }} />}
           </div>
         </div>

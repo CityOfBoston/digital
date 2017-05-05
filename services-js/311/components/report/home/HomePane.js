@@ -169,9 +169,9 @@ export default class HomePane extends React.Component {
           <div className="g m-t500">
             <div className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}>
               <div>
-                <h3 className="stp m-v100">
+                <h2 className="stp m-v100">
                   Tell us your problem:
-                </h3>
+                </h2>
 
                 <DescriptionBox
                   minHeight={137}
@@ -197,6 +197,8 @@ export default class HomePane extends React.Component {
             </div>
 
             <div className="g--4">
+              <h2 className="a11y--h">Popular Services</h2>
+
               <div className="t--info">
                 You can also start a report by picking one of these
                 popular services:
@@ -215,12 +217,13 @@ export default class HomePane extends React.Component {
           </div>
         </div>
 
-        <div className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`} style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`} style={{ paddingTop: 0, paddingBottom: 0 }} role="search">
+          <h2 className="a11y--h">Public Reports</h2>
           <div className="g">
-            <form className="sf sf--y sf--md g--7 m-v400" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit} onFocus={this.handleSearchFocus}>
+            <form className="sf sf--y sf--md g--7 m-v400" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
               <div className="sf-i">
-                <input type="text" name="q" placeholder="Search by case ID or keywords…" value={this.searchValue} onChange={this.handleSearchInput} className="sf-i-f" />
-                <button className="sf-i-b">Search</button>
+                <input type="text" name="q" placeholder="Search by case ID or keywords…" aria-label="Search field" value={this.searchValue} onChange={this.handleSearchInput} onFocus={this.handleSearchFocus} className="sf-i-f" />
+                <button type="submit" className="sf-i-b">Search</button>
               </div>
             </form>
 

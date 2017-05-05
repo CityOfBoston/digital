@@ -23,6 +23,8 @@ exports[`rendering renders date 1`] = `
     }
   >
     <input
+      aria-label=" date field"
+      aria-required={true}
       className="txt-f css-1b2781b "
       name="DATE-SEEN"
       onBlur={[Function]}
@@ -61,6 +63,8 @@ exports[`rendering renders time 1`] = `
     }
   >
     <input
+      aria-label=" date field"
+      aria-required={true}
       className="txt-f css-1b2781b "
       name="DATE-SEEN"
       onBlur={[Function]}
@@ -70,6 +74,8 @@ exports[`rendering renders time 1`] = `
       value=""
     />
     <input
+      aria-label=" time field"
+      aria-required={true}
       className="txt-f css-1b2781b "
       name="DATE-SEEN time"
       onBlur={[Function]}

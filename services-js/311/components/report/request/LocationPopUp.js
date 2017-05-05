@@ -44,7 +44,7 @@ export default class LocationPopUp extends React.Component {
 
   @action
   componentWillMount() {
-    const { store: { mapLocation }, requestForm } = this.props;
+    const { store: { mapLocation, accessibility }, requestForm } = this.props;
 
     mapLocation.query = '';
     mapLocation.address = requestForm.address;
@@ -57,6 +57,11 @@ export default class LocationPopUp extends React.Component {
         requestForm.location = location;
         requestForm.address = address;
         requestForm.addressId = addressId;
+
+        if (requestForm.address) {
+          accessibility.message = `Selected address: ${requestForm.address}`;
+          accessibility.interrupt = true;
+        }
       }, {
         fireImmediately: true,
         name: 'update form from map',

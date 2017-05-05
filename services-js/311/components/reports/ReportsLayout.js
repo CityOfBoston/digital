@@ -51,14 +51,16 @@ export default class ReportsLayout extends React.Component {
     const { store, data } = this.props;
 
     return (
-      <div className="mn mn--full mn--nv-s">
+      <div>
         <Head>
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
         <Nav />
 
-        { data.request && <CaseView request={data.request} store={store} /> }
+        <div className="mn mn--full mn--nv-s" role="main">
+          { data.request && <CaseView request={data.request} store={store} /> }
+        </div>
       </div>
     );
   }

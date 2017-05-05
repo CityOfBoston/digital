@@ -82,7 +82,7 @@ function renderTextAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <textarea name={question.code} className="txt-f" value={question.value} onChange={onChange} rows="5" />
+      <textarea name={question.code} aria-label={question.description} className="txt-f" value={question.value} onChange={onChange} rows="5" aria-required={question.required} />
     </label>
   );
 }
@@ -91,7 +91,7 @@ function renderStringAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input type="text" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
+      <input type="text" aria-label={question.description} name={question.code} className="txt-f" value={question.value} onChange={onChange} aria-required={question.required} />
     </label>
   );
 }
@@ -100,7 +100,7 @@ function renderNumberAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input name={question.code} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} pattern="[0-9]*" />
+      <input name={question.code} aria-label={question.description} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} pattern="[0-9]*" aria-required={question.required} />
     </label>
   );
 }
@@ -109,10 +109,12 @@ function renderMultiValueListAttribute(question, onChange) {
   const values = currentValueAsArray(question.value);
   const lists = maybeSplitList(question.valueOptions, 5);
 
+  const labelId = `${question.code}-label`;
+
   return (
-    <div>
-      <div className="m-v300"><span className="txt-l">{ question.description } {maybeRenderRequired(question.required)}</span></div>
-      <div className="g">
+    <div role="group" aria-labelledby={labelId}>
+      <div className="m-v300"><span className="txt-l" id={labelId}>{ question.description } {maybeRenderRequired(question.required)}</span></div>
+      <div className="g" >
         {
         lists.map((list, i) => (
           <div className={lists.length === 1 ? 'g--12' : 'g--6'} key={`list-${i}`}>
@@ -140,10 +142,11 @@ function renderSingleValueListAttribute(question, onChange) {
   }
 
   const lists = maybeSplitList(options, 5);
+  const labelId = `${question.code}-label`;
 
   return (
-    <div>
-      <div className="m-v300"><span className="txt-l">{ question.description } {maybeRenderRequired(question.required)}</span></div>
+    <div role="radiogroup" aria-labelledby={labelId}>
+      <div className="m-v300"><span className="txt-l" id={labelId}>{ question.description } {maybeRenderRequired(question.required)}</span></div>
       <div className="g">
         {
         lists.map((list, i) => (

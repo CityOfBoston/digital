@@ -36,11 +36,11 @@ exports[`choose page rendering 1`] = `
             <div
               className="sh sh--y"
             >
-              <h2
+              <h1
                 className="sh-title"
               >
                 BOS:311 — File a Report
-              </h2>
+              </h1>
             </div>
             <div
               className="m-v500 t--intro"
@@ -53,11 +53,11 @@ exports[`choose page rendering 1`] = `
           <div
             className="b b--g p-a300 p-a800--xl"
           >
-            <h3
+            <h2
               className="stp"
             >
               How can we help?
-            </h3>
+            </h2>
             <div
               className="t--info m-v300"
             >
@@ -98,11 +98,11 @@ exports[`home page rendering 1`] = `
             <div
               className="sh sh--y"
             >
-              <h2
+              <h1
                 className="sh-title"
               >
                 BOS:311 — File a Report
-              </h2>
+              </h1>
             </div>
             <div
               className="t--info m-v300"
@@ -116,12 +116,13 @@ exports[`home page rendering 1`] = `
                 className="g--7 css-1vm2aiv"
               >
                 <div>
-                  <h3
+                  <h2
                     className="stp m-v100"
                   >
                     Tell us your problem:
-                  </h3>
+                  </h2>
                   <textarea
+                    aria-label="Description of the problem"
                     className={
                       Object {
                         "data-css-14mt46e": "",
@@ -170,6 +171,11 @@ exports[`home page rendering 1`] = `
               <div
                 className="g--4"
               >
+                <h2
+                  className="a11y--h"
+                >
+                  Popular Services
+                </h2>
                 <div
                   className="t--info"
                 >
@@ -205,6 +211,7 @@ exports[`home page rendering 1`] = `
           </div>
           <div
             className="b b--g p-a300 p-a800--xl css-17cwx2g"
+            role="search"
             style={
               Object {
                 "paddingBottom": 0,
@@ -212,6 +219,11 @@ exports[`home page rendering 1`] = `
               }
             }
           >
+            <h2
+              className="a11y--h"
+            >
+              Public Reports
+            </h2>
             <div
               className="g"
             >
@@ -220,22 +232,24 @@ exports[`home page rendering 1`] = `
                 action="/lookup"
                 className="sf sf--y sf--md g--7 m-v400"
                 method="get"
-                onFocus={[Function]}
                 onSubmit={[Function]}
               >
                 <div
                   className="sf-i"
                 >
                   <input
+                    aria-label="Search field"
                     className="sf-i-f"
                     name="q"
                     onChange={[Function]}
+                    onFocus={[Function]}
                     placeholder="Search by case ID or keywords…"
                     type="text"
                     value=""
                   />
                   <button
                     className="sf-i-b"
+                    type="submit"
                   >
                     Search
                   </button>

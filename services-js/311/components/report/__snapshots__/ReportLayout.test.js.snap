@@ -73,6 +73,7 @@ exports[`existing service page rendering 1`] = `
   </nav>
   <div
     className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -114,11 +115,11 @@ exports[`existing service page rendering 1`] = `
           <div
             className="sh sh--y"
           >
-            <h2
+            <h1
               className="sh-title"
             >
               Cosmic Incursion
-            </h2>
+            </h1>
           </div>
           <div
             className="g g--top"
@@ -127,6 +128,7 @@ exports[`existing service page rendering 1`] = `
               className="g--7 m-v500"
             >
               <textarea
+                aria-label="Description of the problem"
                 className={
                   Object {
                     "data-css-15q8vxe": "",
@@ -150,6 +152,8 @@ exports[`existing service page rendering 1`] = `
                      
                   </span>
                   <textarea
+                    aria-label="Please provide any other relevant information:"
+                    aria-required={false}
                     className="txt-f"
                     name="ST-CMTS"
                     onChange={[Function]}
@@ -159,6 +163,7 @@ exports[`existing service page rendering 1`] = `
                 </label>
               </div>
               <hr
+                aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
@@ -172,6 +177,8 @@ exports[`existing service page rendering 1`] = `
                      
                   </span>
                   <input
+                    aria-label="**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**"
+                    aria-required={false}
                     className="txt-f"
                     name="INFO-CSIRMV1"
                     onChange={[Function]}
@@ -181,15 +188,20 @@ exports[`existing service page rendering 1`] = `
                 </label>
               </div>
               <hr
+                aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
-                <div>
+                <div
+                  aria-labelledby="SR-CSIRMV1-label"
+                  role="radiogroup"
+                >
                   <div
                     className="m-v300"
                   >
                     <span
                       className="txt-l"
+                      id="SR-CSIRMV1-label"
                     >
                       How many dimensions have been breached?
                        
@@ -298,6 +310,7 @@ exports[`existing service page rendering 1`] = `
                 >
                   <img
                     alt=""
+                    aria-hidden={true}
                     height="324"
                     src="/static/img/image-upload.png"
                     style={
@@ -329,18 +342,18 @@ exports[`existing service page rendering 1`] = `
                     }
                   }
                 >
-                  <a
+                  <button
                     className="btn btn--w btn--b"
-                    href="javascript:void(0)"
                     onClick={[Function]}
                     style={
                       Object {
                         "visibility": "visible",
+                        "width": "100%",
                       }
                     }
                   >
                     Upload Photo
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -449,6 +462,7 @@ exports[`existing service page rendering phone 1`] = `
   </nav>
   <div
     className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -490,11 +504,11 @@ exports[`existing service page rendering phone 1`] = `
           <div
             className="sh sh--y"
           >
-            <h2
+            <h1
               className="sh-title"
             >
               Cosmic Incursion
-            </h2>
+            </h1>
           </div>
           <div
             className="g g--top"
@@ -503,6 +517,7 @@ exports[`existing service page rendering phone 1`] = `
               className="g--7 m-v500"
             >
               <textarea
+                aria-label="Description of the problem"
                 className={
                   Object {
                     "data-css-15q8vxe": "",
@@ -526,6 +541,8 @@ exports[`existing service page rendering phone 1`] = `
                      
                   </span>
                   <textarea
+                    aria-label="Please provide any other relevant information:"
+                    aria-required={false}
                     className="txt-f"
                     name="ST-CMTS"
                     onChange={[Function]}
@@ -535,6 +552,7 @@ exports[`existing service page rendering phone 1`] = `
                 </label>
               </div>
               <hr
+                aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
@@ -548,6 +566,8 @@ exports[`existing service page rendering phone 1`] = `
                      
                   </span>
                   <input
+                    aria-label="**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**"
+                    aria-required={false}
                     className="txt-f"
                     name="INFO-CSIRMV1"
                     onChange={[Function]}
@@ -557,15 +577,20 @@ exports[`existing service page rendering phone 1`] = `
                 </label>
               </div>
               <hr
+                aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
-                <div>
+                <div
+                  aria-labelledby="SR-CSIRMV1-label"
+                  role="radiogroup"
+                >
                   <div
                     className="m-v300"
                   >
                     <span
                       className="txt-l"
+                      id="SR-CSIRMV1-label"
                     >
                       How many dimensions have been breached?
                        
@@ -674,6 +699,7 @@ exports[`existing service page rendering phone 1`] = `
                 >
                   <img
                     alt=""
+                    aria-hidden={true}
                     height="324"
                     src="/static/img/image-upload.png"
                     style={
@@ -705,18 +731,18 @@ exports[`existing service page rendering phone 1`] = `
                     }
                   }
                 >
-                  <a
+                  <button
                     className="btn btn--w btn--b"
-                    href="javascript:void(0)"
                     onClick={[Function]}
                     style={
                       Object {
                         "visibility": "visible",
+                        "width": "100%",
                       }
                     }
                   >
                     Upload Photo
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -825,6 +851,7 @@ exports[`existing service page rendering phone location step 1`] = `
   </nav>
   <div
     className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -997,6 +1024,7 @@ exports[`missing service page rendering 1`] = `
   </nav>
   <div
     className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1037,11 +1065,11 @@ exports[`missing service page rendering 1`] = `
         <div
           className="sh sh--y"
         >
-          <h2
+          <h1
             className="sh-title"
           >
             Service not found
-          </h2>
+          </h1>
         </div>
       </div>
     </div>
@@ -1122,6 +1150,7 @@ exports[`report form rendering 1`] = `
   </nav>
   <div
     className="mn mn--full mn--nv-s css-1pujyrn"
+    role="main"
     style={
       Object {
         "backgroundColor": "transparent",
@@ -1174,11 +1203,11 @@ exports[`report form rendering 1`] = `
                 <div
                   className="sh sh--y"
                 >
-                  <h2
+                  <h1
                     className="sh-title"
                   >
                     BOS:311 — File a Report
-                  </h2>
+                  </h1>
                 </div>
                 <div
                   className="t--info m-v300"
@@ -1192,12 +1221,13 @@ exports[`report form rendering 1`] = `
                     className="g--7 css-1vm2aiv"
                   >
                     <div>
-                      <h3
+                      <h2
                         className="stp m-v100"
                       >
                         Tell us your problem:
-                      </h3>
+                      </h2>
                       <textarea
+                        aria-label="Description of the problem"
                         className={
                           Object {
                             "data-css-14mt46e": "",
@@ -1252,6 +1282,11 @@ exports[`report form rendering 1`] = `
                   <div
                     className="g--4"
                   >
+                    <h2
+                      className="a11y--h"
+                    >
+                      Popular Services
+                    </h2>
                     <div
                       className="t--info"
                     >
@@ -1287,6 +1322,7 @@ exports[`report form rendering 1`] = `
               </div>
               <div
                 className="b b--g p-a300 p-a800--xl css-17cwx2g"
+                role="search"
                 style={
                   Object {
                     "paddingBottom": 0,
@@ -1294,6 +1330,11 @@ exports[`report form rendering 1`] = `
                   }
                 }
               >
+                <h2
+                  className="a11y--h"
+                >
+                  Public Reports
+                </h2>
                 <div
                   className="g"
                 >
@@ -1302,22 +1343,24 @@ exports[`report form rendering 1`] = `
                     action="/lookup"
                     className="sf sf--y sf--md g--7 m-v400"
                     method="get"
-                    onFocus={[Function]}
                     onSubmit={[Function]}
                   >
                     <div
                       className="sf-i"
                     >
                       <input
+                        aria-label="Search field"
                         className="sf-i-f"
                         name="q"
                         onChange={[Function]}
+                        onFocus={[Function]}
                         placeholder="Search by case ID or keywords…"
                         type="text"
                         value=""
                       />
                       <button
                         className="sf-i-b"
+                        type="submit"
                       >
                         Search
                       </button>

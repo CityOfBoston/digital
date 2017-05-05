@@ -3,12 +3,15 @@
 /* eslint no-underscore-dangle: 0 */
 
 import { observable, useStrict, action } from 'mobx';
+import Router from 'next/router';
 
+import Accessibility from './Accessibility';
 import RequestSearch from './RequestSearch';
 import MapLocation from './MapLocation';
 import Ui from './Ui';
 import BrowserLocation from './BrowserLocation';
 import AllServices from './AllServices';
+import RouterListener from './RouterListener';
 
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
@@ -17,6 +20,7 @@ export class AppStore {
   // Initialization data from the server
   apiKeys: {[service: string]: any} = {};
 
+  accessibility: Accessibility = new Accessibility();
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
   browserLocation: BrowserLocation = new BrowserLocation();
@@ -77,8 +81,11 @@ export default function getStore(): AppStore {
 
   if (process.browser) {
     browserStore = store;
+    store.accessibility.attach();
     store.ui.attach();
     store.browserLocation.attach();
+
+    new RouterListener().attach(Router, store);
   }
 
   return store;

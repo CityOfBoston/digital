@@ -52,19 +52,21 @@ class ServicesLayoutGroup extends React.Component {
   render() {
     const { group, services } = this.props;
 
+    const regionId = `${group.id.replace(/\s/g, '-')}-region`;
+
     return (
       <div className={`dr ${group.open ? 'dr--open' : ''}`} key={group.id}>
-        <button className="dr-h" onClick={this.toggle}>
+        <button className="dr-h" onClick={this.toggle} aria-expanded={group.open} aria-controls={regionId}>
           <div className="dr-ic">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
               <path className="dr-i" d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z" />
             </svg>
           </div>
-          <div className="dr-t">{group.name}</div>
+          <h2 className="dr-t">{group.name}</h2>
           <div className="dr-st">{group.description}</div>
         </button>
 
-        <VelocityTransitionGroup enter={{ animation: 'slideDown', duration: 250 }} leave={{ animation: 'slideUp', duration: 250 }}>
+        <VelocityTransitionGroup enter={{ animation: 'slideDown', duration: 250 }} leave={{ animation: 'slideUp', duration: 250 }} role="region" id={regionId}>
           { group.open && <div className="dr-c" style={{ display: 'block' }} key="content">
             { services.map(({ name, code, description }) => (
               <div key={code}>

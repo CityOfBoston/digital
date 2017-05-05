@@ -154,7 +154,7 @@ export default class ReportLayout extends React.Component {
         {/* Outer box needs to take up at least the screen size on desktop, so
             that the content can center over the map and keep the footer from
             encroaching up. */}
-        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }}>
+        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
           { mediaLarge &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
               <LocationMap

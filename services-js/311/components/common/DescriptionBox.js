@@ -118,6 +118,7 @@ export default class DescriptionBox extends React.Component {
       <textarea
         className={css(TEXTAREA_STYLE, { height })}
         name="description"
+        aria-label="Description of the problem"
         placeholder={placeholder}
         defaultValue={text}
         onInput={this.onInput}
