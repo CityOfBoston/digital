@@ -7,6 +7,10 @@
 .env
 .next
 
+/server.key
+/server.crt
+/server.csr
+
 /build
 /node_modules
 /coverage

@@ -75,6 +75,7 @@ describe('rendering', () => {
   it('contact', () => {
     const component = renderer.create(
       <RequestDialog store={store} stage="contact" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
+    { createNodeMock: () => document.createElement('div') },
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

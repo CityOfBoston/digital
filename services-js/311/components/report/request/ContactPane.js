@@ -4,6 +4,7 @@ import React from 'react';
 import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
+import InputMask from 'react-input-mask';
 
 import LocalStorageContactInfo from '../../../data/external/LocalStorageContactInfo';
 
@@ -132,10 +133,10 @@ export default class ContactPane extends React.Component {
 
           <label className="txt">
             <span className="txt-l">Phone</span>
-            <input className="txt-f" type="tel" placeholder="Phone" name="phone" value={phone} onChange={this.handleChange} style={FIELD_STYLE} />
+            <InputMask className="txt-f" mask="(999) 999-9999" type="tel" placeholder="Phone" name="phone" value={phone} onChange={this.handleChange} style={FIELD_STYLE} />
           </label>
 
-          <div className="m-v500">
+          <div className="m-v500 g">
             <label className="cb">
               <input name="remember" type="checkbox" value="true" className="cb-f" checked={rememberInfo} onChange={this.handleChange} />
               <span className="cb-l">Remember contact info on this computer</span>

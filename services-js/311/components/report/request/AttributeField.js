@@ -4,7 +4,10 @@ import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
+
 import type Question from '../../../data/store/Question';
+
+import AttributeDateField from './AttributeDateField';
 
 export type Props = {|
   question: Question;
@@ -69,24 +72,6 @@ function renderCheckbox(question, onChange) {
   );
 }
 
-function renderDatetimeAttribute(question, onChange) {
-  return (
-    <label className="txt">
-      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input type="datetime-local" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
-    </label>
-  );
-}
-
-function renderDateAttribute(question, onChange) {
-  return (
-    <label className="txt">
-      <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input type="date" name={question.code} className="txt-f" value={question.value} onChange={onChange} />
-    </label>
-  );
-}
-
 function renderInformationalAttribute(question) {
   return (
     <p className="t--info">{question.description}</p>
@@ -115,7 +100,7 @@ function renderNumberAttribute(question, onChange) {
   return (
     <label className="txt">
       <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
-      <input type="number" name={question.code} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} />
+      <input name={question.code} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} pattern="[0-9]*" />
     </label>
   );
 }
@@ -188,16 +173,38 @@ function renderSingleValueListAttribute(question, onChange) {
   );
 }
 
-export default observer(function AttributeField({ question }: Props) {
-  const onChange = action('onChange', (ev: SyntheticInputEvent) => {
-    question.value = ev.target.value === '--no-answer-key--' ? '' : ev.target.value;
-  });
+@observer
+export default class AttributeField extends React.Component {
+  props: Props;
 
-  const onCheckbox = action('onCheckbox', (ev: SyntheticInputEvent) => {
+  @action.bound
+  onChange(ev: SyntheticInputEvent) {
+    const { question } = this.props;
+    const { value } = ev.target;
+
+    if (question.type === 'NUMBER') {
+      question.value = value.replace(/\D+/g, '');
+    } else if (question.type === 'DATE') {
+      if (value) {
+        const datePieces = value.split('/');
+        question.value = `${datePieces[2] || ''}-${datePieces[0] || ''}-${datePieces[1] || ''}`;
+      } else {
+        question.value = '';
+      }
+    } else {
+      question.value = value === '--no-answer-key--' ? '' : value;
+    }
+  }
+
+  @action.bound
+  onCheckbox(ev: SyntheticInputEvent) {
+    const { question } = this.props;
     question.value = (ev.target.checked || false).toString();
-  });
+  }
 
-  const onMultivalueList = action('onMultivalueList', (ev: SyntheticInputEvent) => {
+  @action.bound
+  onMultivalueList(ev: SyntheticInputEvent) {
+    const { question } = this.props;
     const values = currentValueAsArray(question.value);
 
     if (ev.target.checked) {
@@ -205,28 +212,32 @@ export default observer(function AttributeField({ question }: Props) {
     } else {
       question.value = values.filter((v) => v !== ev.target.value);
     }
-  });
-
-  switch (question.type) {
-    case 'BOOLEAN_CHECKBOX':
-      return renderCheckbox(question, onCheckbox);
-    case 'INFORMATIONAL':
-      return renderInformationalAttribute(question);
-    case 'DATETIME':
-      return renderDatetimeAttribute(question, onChange);
-    case 'DATE':
-      return renderDateAttribute(question, onChange);
-    case 'STRING':
-      return renderStringAttribute(question, onChange);
-    case 'NUMBER':
-      return renderNumberAttribute(question, onChange);
-    case 'TEXT':
-      return renderTextAttribute(question, onChange);
-    case 'SINGLEVALUELIST':
-      return renderSingleValueListAttribute(question, onChange);
-    case 'MULTIVALUELIST':
-      return renderMultiValueListAttribute(question, onMultivalueList);
-    default:
-      return null;
   }
-});
+
+  render() {
+    const { question } = this.props;
+
+    switch (question.type) {
+      case 'BOOLEAN_CHECKBOX':
+        return renderCheckbox(question, this.onCheckbox);
+      case 'INFORMATIONAL':
+        return renderInformationalAttribute(question);
+      case 'DATETIME':
+      case 'DATE':
+        return <AttributeDateField question={question} />;
+      case 'STRING':
+        return renderStringAttribute(question, this.onChange);
+      case 'NUMBER':
+        return renderNumberAttribute(question, this.onChange);
+      case 'TEXT':
+        return renderTextAttribute(question, this.onChange);
+      case 'SINGLEVALUELIST':
+        return renderSingleValueListAttribute(question, this.onChange);
+      case 'MULTIVALUELIST':
+        return renderMultiValueListAttribute(question, this.onMultivalueList);
+      default:
+        return null;
+    }
+  }
+
+}

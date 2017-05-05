@@ -73,6 +73,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.12.2",
+    "react-input-mask": "^0.8.0",
     "react-scoped-error-component": "^0.9.1",
     "rollbar": "^0.6.5",
     "swiftype": "^0.3.1",

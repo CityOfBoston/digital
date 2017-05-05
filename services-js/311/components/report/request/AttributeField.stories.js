@@ -69,7 +69,7 @@ storiesOf('AttributeField', module)
         type: 'DATETIME',
         code: 'INFO-NEDRMV1',
         description: 'What time is it where you are now?',
-      }, '1990-12-31T23:59:00')}
+      }, '1990-12-31T23:05:00')}
     />
   ))
   .add('Date', () => (
@@ -79,6 +79,15 @@ storiesOf('AttributeField', module)
         code: 'INFO-NEDRMV1',
         description: 'When are you currently in time?',
       }, '1965-12-31')}
+    />
+  ))
+  .add('Bad Date', () => (
+    <AttributeField
+      question={makeQuestion({
+        type: 'DATE',
+        code: 'INFO-NEDRMV1',
+        description: 'When are you currently in time?',
+      }, '5')}
     />
   ))
   .add('Number', () => (

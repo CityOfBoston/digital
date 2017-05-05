@@ -125,7 +125,12 @@ exports[`blank request 1`] = `
       <input
         className="txt-f"
         name="phone"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onPaste={[Function]}
         placeholder="Phone"
         style={
           Object {
@@ -137,7 +142,7 @@ exports[`blank request 1`] = `
       />
     </label>
     <div
-      className="m-v500"
+      className="m-v500 g"
     >
       <label
         className="cb"
@@ -310,7 +315,12 @@ exports[`filled request 1`] = `
       <input
         className="txt-f"
         name="phone"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onPaste={[Function]}
         placeholder="Phone"
         style={
           Object {
@@ -318,11 +328,11 @@ exports[`filled request 1`] = `
           }
         }
         type="tel"
-        value="6175551234"
+        value="(617) 555-1234"
       />
     </label>
     <div
-      className="m-v500"
+      className="m-v500 g"
     >
       <label
         className="cb"

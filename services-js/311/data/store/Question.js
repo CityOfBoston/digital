@@ -23,6 +23,7 @@ export default class Question {
   description: string;
   required: boolean;
   type: ServiceAttributeDatatype;
+  malformed: boolean;
   _values: ?ValuesArray;
   _conditionalValues: ?ConditionalValuesArray;
   _dependencies: ?ConditionGroup;
@@ -41,6 +42,7 @@ export default class Question {
     this.code = attribute.code;
     this.description = attribute.description;
     this.required = attribute.required;
+    this.malformed = false;
     this._values = attribute.values;
     this._conditionalValues = (attribute.conditionalValues || []).map(({ dependentOn, values }) => ({
       conditions: new ConditionGroup(dependentOn, questionMap),
@@ -71,6 +73,10 @@ export default class Question {
 
   @computed
   get requirementsMet(): boolean {
+    if (this.malformed) {
+      return false;
+    }
+
     const { validatedValue } = this;
     return Array.isArray(validatedValue) ? !!validatedValue.length : !!validatedValue;
   }

@@ -15,6 +15,7 @@ beforeEach(() => {
 test('blank request', () => {
   const component = renderer.create(
     <ContactPane serviceName="Cosmic Incursion" requestForm={requestForm} nextFunc={jest.fn()} />,
+    { createNodeMock: () => document.createElement('div') },
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -27,6 +28,7 @@ test('filled request', () => {
 
   const component = renderer.create(
     <ContactPane serviceName="Cosmic Incursion" requestForm={requestForm} nextFunc={jest.fn()} />,
+    { createNodeMock: () => document.createElement('div') },
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
