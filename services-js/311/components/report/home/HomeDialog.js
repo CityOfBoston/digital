@@ -18,6 +18,7 @@ import loadServiceSuggestions from '../../../data/dao/load-service-suggestions';
 import loadTopServiceSummaries from '../../../data/dao/load-top-service-summaries';
 
 import FormDialog from '../../common/FormDialog';
+import LoadingIcons from '../../common/LoadingIcons';
 import { HEADER_HEIGHT, MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
 import HomePane from './HomePane';
@@ -90,6 +91,8 @@ export default class HomeDialog extends React.Component {
         name: 'update service suggestions from description',
       },
     );
+
+    LoadingIcons.preload();
   }
 
   componentWillUnmount() {

@@ -78,10 +78,10 @@ export default class LoadingBuildings extends React.Component {
 
   @computed get neighborhood(): string {
     if (process.env.NODE_ENV === 'test') {
-      return 'east_boston';
+      return NEIGHBORHOODS[0];
     }
 
-    now(3000);
+    now(2500);
     return NEIGHBORHOODS[Math.floor(Math.random() * NEIGHBORHOODS.length)];
   }
 

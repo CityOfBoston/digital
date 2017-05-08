@@ -9,7 +9,7 @@ import { css } from 'glamor';
 import type { AppStore } from '../../data/store';
 import { HEADER_HEIGHT } from '../style-constants';
 
-import LoadingBuildings from '../common/LoadingBuildings';
+import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
 
 let Velocity;
@@ -38,7 +38,8 @@ const LOADING_CONTAINER_STYLE = css({
 
 const LOADING_WRAPPER_STYLE = css({
   display: 'flex',
-  height: 270,
+  height: 120,
+  marginBottom: 200,
 });
 
 export type Props = {|
@@ -134,7 +135,7 @@ export default class RecentRequests extends React.Component {
         { results.length === 0 && query !== resultsQuery && (
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
-              <LoadingBuildings />
+              <LoadingIcons initialDelay={0} serverCompatible />
             </div>
           </div>
         )}

@@ -82,6 +82,7 @@ describe('choose page', () => {
   test('rendering', () => {
     const component = renderer.create(
       <HomeDialog store={store} loopbackGraphql={loopbackGraphql} {...initialProps} />,
+      { createNodeMock: () => document.createElement('div') },
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

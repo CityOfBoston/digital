@@ -35,10 +35,91 @@ exports[`rendering loading 1`] = `
     >
       How can we help?
     </h2>
-    <div
-      className="t--info m-v300"
-    >
-      Matching your problem to BOS:311 services…
+    <div>
+      <div
+        className="t--info m-v300"
+      >
+        Matching your problem to BOS:311 services…
+      </div>
+      <div
+        className="p-a300 g css-rdsogp"
+      >
+        <div
+          className="g--4 css-19eoixt"
+        >
+          <span
+            className={
+              Object {
+                "data-css-17mox4x": "",
+              }
+            }
+          >
+            <svg
+              className={
+                Object {
+                  "data-css-1acy7qc": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          className="g--4 css-19eoixt"
+        >
+          <span
+            className={
+              Object {
+                "data-css-17mox4x": "",
+              }
+            }
+          >
+            <svg
+              className={
+                Object {
+                  "data-css-1acy7qc": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          className="g--4 css-19eoixt"
+        >
+          <span
+            className={
+              Object {
+                "data-css-17mox4x": "",
+              }
+            }
+          >
+            <svg
+              className={
+                Object {
+                  "data-css-1acy7qc": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

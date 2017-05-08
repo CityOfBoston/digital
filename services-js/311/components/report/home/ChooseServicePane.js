@@ -3,15 +3,27 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { css } from 'glamor';
 
 import type { ServiceSummary } from '../../../data/types';
 
 import SectionHeader from '../../common/SectionHeader';
+import LoadingIcons from '../../common/LoadingIcons';
 
 export type Props = {|
   description: string,
   suggestedServiceSummaries: ?ServiceSummary[],
 |};
+
+const LOADING_INDICATORS_STYLE = css({
+  overflow: 'hidden',
+});
+
+const LOADING_INDICATOR_WRAPPER_STYLE = css({
+  height: 120,
+  display: 'flex',
+  flexDirection: 'column',
+});
 
 function renderSummaryRow(problemDescription: string, { code, name, description }: { code: string, name: string, description: ?string }) {
   return (
@@ -36,8 +48,16 @@ function renderGeneralRequestRow(problemDescription: string) {
 
 function renderLoading() {
   return (
-    <div className="t--info m-v300">
-      Matching your problem to BOS:311 services…
+    <div>
+      <div className="t--info m-v300">
+        Matching your problem to BOS:311 services…
+      </div>
+
+      <div className={`p-a300 g ${LOADING_INDICATORS_STYLE.toString()}`}>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={0} /></div>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={100} /></div>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={200} /></div>
+      </div>
     </div>
   );
 }

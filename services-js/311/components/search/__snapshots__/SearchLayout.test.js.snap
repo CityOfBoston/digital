@@ -154,28 +154,28 @@ exports[`search form rendering 1`] = `
         <div
           className={
             Object {
-              "data-css-z2og4g": "",
+              "data-css-12dto9a": "",
             }
           }
         >
           <span
             className={
               Object {
-                "data-css-1vjs1z7": "",
+                "data-css-17mox4x": "",
               }
             }
           >
             <svg
               className={
                 Object {
-                  "data-css-mfy564": "",
+                  "data-css-1acy7qc": "",
                 }
               }
               role="img"
             >
               <use
                 height="100%"
-                xlinkHref="/static/img/svg/loading-buildings.svg#east_boston"
+                xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
               />
             </svg>
           </span>

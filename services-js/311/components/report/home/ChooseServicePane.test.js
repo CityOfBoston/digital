@@ -35,6 +35,7 @@ describe('rendering', () => {
   test('loading', () => {
     const component = renderer.create(
       <ChooseServicePane description="Thanos is attacking" suggestedServiceSummaries={null} />,
+      { createNodeMock: () => document.createElement('div') },
     );
 
     const json = component.toJSON();
