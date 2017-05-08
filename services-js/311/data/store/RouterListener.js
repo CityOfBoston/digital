@@ -1,8 +1,9 @@
 // @flow
 
 import { action } from 'mobx';
-
+import NProgress from 'nprogress';
 import type Router from 'next/router';
+
 import type { AppStore } from '.';
 
 export default class RouterListener {
@@ -16,6 +17,8 @@ export default class RouterListener {
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
     router.onRouteChangeError = this.routeChangeError;
+
+    NProgress.configure({ showSpinner: false });
   }
 
   detach() {
@@ -31,6 +34,8 @@ export default class RouterListener {
 
   @action.bound
   routeChangeStart() {
+    NProgress.start();
+
     if (!this.store) {
       return;
     }
@@ -43,6 +48,8 @@ export default class RouterListener {
 
   @action.bound
   routeChangeComplete() {
+    NProgress.done();
+
     if (!this.store) {
       return;
     }
@@ -59,6 +66,6 @@ export default class RouterListener {
 
   @action.bound
   routeChangeError() {
-
+    NProgress.done();
   }
 }
