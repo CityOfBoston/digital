@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`blank request 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <div>
     <div
       className="sh sh--y"
@@ -33,11 +35,12 @@ exports[`blank request 1`] = `
         .
       </span>
     </p>
-    <label
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-firstName"
       >
         First Name 
         <span
@@ -45,9 +48,11 @@ exports[`blank request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-firstName"
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
@@ -59,12 +64,13 @@ exports[`blank request 1`] = `
         type="text"
         value=""
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-lastName"
       >
         Last Name 
         <span
@@ -72,9 +78,11 @@ exports[`blank request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-lastName"
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
@@ -86,12 +94,13 @@ exports[`blank request 1`] = `
         type="text"
         value=""
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-email"
       >
         Email 
         <span
@@ -99,9 +108,11 @@ exports[`blank request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-email"
         name="email"
         onChange={[Function]}
         placeholder="Email"
@@ -113,17 +124,19 @@ exports[`blank request 1`] = `
         type="email"
         value=""
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-phone"
       >
         Phone
-      </span>
+      </label>
       <input
         className="txt-f"
+        id="ContactPane-phone"
         name="phone"
         onBlur={[Function]}
         onChange={[Function]}
@@ -140,27 +153,29 @@ exports[`blank request 1`] = `
         type="tel"
         value=""
       />
-    </label>
+    </div>
     <div
       className="m-v500 g"
     >
-      <label
+      <div
         className="cb"
       >
         <input
           checked={false}
           className="cb-f"
+          id="ContactPane-remember"
           name="remember"
           onChange={[Function]}
           type="checkbox"
           value="true"
         />
-        <span
+        <label
           className="cb-l"
+          htmlFor="ContactPane-remember"
         >
           Remember contact info on this computer
-        </span>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
@@ -187,11 +202,13 @@ exports[`blank request 1`] = `
       Submit Report
     </button>
   </div>
-</div>
+</form>
 `;
 
 exports[`filled request 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <div>
     <div
       className="sh sh--y"
@@ -223,11 +240,12 @@ exports[`filled request 1`] = `
         .
       </span>
     </p>
-    <label
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-firstName"
       >
         First Name 
         <span
@@ -235,9 +253,11 @@ exports[`filled request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-firstName"
         name="firstName"
         onChange={[Function]}
         placeholder="First Name"
@@ -249,12 +269,13 @@ exports[`filled request 1`] = `
         type="text"
         value="Carol"
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-lastName"
       >
         Last Name 
         <span
@@ -262,9 +283,11 @@ exports[`filled request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-lastName"
         name="lastName"
         onChange={[Function]}
         placeholder="Last Name"
@@ -276,12 +299,13 @@ exports[`filled request 1`] = `
         type="text"
         value="Danvers"
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-email"
       >
         Email 
         <span
@@ -289,9 +313,11 @@ exports[`filled request 1`] = `
         >
           Required
         </span>
-      </span>
+      </label>
       <input
+        aria-required={true}
         className="txt-f"
+        id="ContactPane-email"
         name="email"
         onChange={[Function]}
         placeholder="Email"
@@ -303,17 +329,19 @@ exports[`filled request 1`] = `
         type="email"
         value="marvel@alphaflight.gov"
       />
-    </label>
-    <label
+    </div>
+    <div
       className="txt"
     >
-      <span
+      <label
         className="txt-l"
+        htmlFor="ContactPane-phone"
       >
         Phone
-      </span>
+      </label>
       <input
         className="txt-f"
+        id="ContactPane-phone"
         name="phone"
         onBlur={[Function]}
         onChange={[Function]}
@@ -330,27 +358,29 @@ exports[`filled request 1`] = `
         type="tel"
         value="(617) 555-1234"
       />
-    </label>
+    </div>
     <div
       className="m-v500 g"
     >
-      <label
+      <div
         className="cb"
       >
         <input
           checked={false}
           className="cb-f"
+          id="ContactPane-remember"
           name="remember"
           onChange={[Function]}
           type="checkbox"
           value="true"
         />
-        <span
+        <label
           className="cb-l"
+          htmlFor="ContactPane-remember"
         >
           Remember contact info on this computer
-        </span>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
@@ -367,5 +397,5 @@ exports[`filled request 1`] = `
       Submit Report
     </button>
   </div>
-</div>
+</form>
 `;

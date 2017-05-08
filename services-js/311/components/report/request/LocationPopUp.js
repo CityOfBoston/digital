@@ -142,6 +142,7 @@ export default class LocationPopUp extends React.Component {
               onInput={this.whenSearchInput}
               value={this.addressQuery}
               ref={this.setSearchField}
+              aria-label="Address search field"
               placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
               type="text"
             />

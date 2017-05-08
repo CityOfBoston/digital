@@ -111,7 +111,9 @@ exports[`existing service page rendering 1`] = `
         className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
         style={Object {}}
       >
-        <div>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="sh sh--y"
           >
@@ -142,50 +144,52 @@ exports[`existing service page rendering 1`] = `
                 placeholder="How can we help?"
               />
               <div>
-                <label
+                <div
                   className="txt"
                 >
-                  <span
+                  <label
                     className="txt-l"
+                    htmlFor="ST-CMTS"
                   >
                     Please provide any other relevant information:
                      
-                  </span>
+                  </label>
                   <textarea
-                    aria-label="Please provide any other relevant information:"
                     aria-required={false}
                     className="txt-f"
+                    id="ST-CMTS"
                     name="ST-CMTS"
                     onChange={[Function]}
                     rows="5"
                     value=""
                   />
-                </label>
+                </div>
               </div>
               <hr
                 aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
-                <label
+                <div
                   className="txt"
                 >
-                  <span
+                  <label
                     className="txt-l"
+                    htmlFor="INFO-CSIRMV1"
                   >
                     **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
                      
-                  </span>
+                  </label>
                   <input
-                    aria-label="**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**"
                     aria-required={false}
                     className="txt-f"
+                    id="INFO-CSIRMV1"
                     name="INFO-CSIRMV1"
                     onChange={[Function]}
                     type="text"
                     value=""
                   />
-                </label>
+                </div>
               </div>
               <hr
                 aria-hidden={true}
@@ -199,7 +203,7 @@ exports[`existing service page rendering 1`] = `
                   <div
                     className="m-v300"
                   >
-                    <span
+                    <label
                       className="txt-l"
                       id="SR-CSIRMV1-label"
                     >
@@ -210,7 +214,7 @@ exports[`existing service page rendering 1`] = `
                       >
                         Required
                       </span>
-                    </span>
+                    </label>
                   </div>
                   <div
                     className="g"
@@ -218,74 +222,82 @@ exports[`existing service page rendering 1`] = `
                     <div
                       className="g--12"
                     >
-                      <label
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-One"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="One"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-One"
                         >
                           One
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-Two"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="Two"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-Two"
                         >
                           Two
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-Three"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="Three"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-Three"
                         >
                           Three
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-More than Three"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="More than Three"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-More than Three"
                         >
                           More than Three
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <span />
                     </div>
                   </div>
@@ -382,7 +394,7 @@ exports[`existing service page rendering 1`] = `
               Next
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -500,7 +512,9 @@ exports[`existing service page rendering phone 1`] = `
         className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
         style={Object {}}
       >
-        <div>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="sh sh--y"
           >
@@ -531,50 +545,52 @@ exports[`existing service page rendering phone 1`] = `
                 placeholder="How can we help?"
               />
               <div>
-                <label
+                <div
                   className="txt"
                 >
-                  <span
+                  <label
                     className="txt-l"
+                    htmlFor="ST-CMTS"
                   >
                     Please provide any other relevant information:
                      
-                  </span>
+                  </label>
                   <textarea
-                    aria-label="Please provide any other relevant information:"
                     aria-required={false}
                     className="txt-f"
+                    id="ST-CMTS"
                     name="ST-CMTS"
                     onChange={[Function]}
                     rows="5"
                     value=""
                   />
-                </label>
+                </div>
               </div>
               <hr
                 aria-hidden={true}
                 className="hr hr--dash m-v500"
               />
               <div>
-                <label
+                <div
                   className="txt"
                 >
-                  <span
+                  <label
                     className="txt-l"
+                    htmlFor="INFO-CSIRMV1"
                   >
                     **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
                      
-                  </span>
+                  </label>
                   <input
-                    aria-label="**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**"
                     aria-required={false}
                     className="txt-f"
+                    id="INFO-CSIRMV1"
                     name="INFO-CSIRMV1"
                     onChange={[Function]}
                     type="text"
                     value=""
                   />
-                </label>
+                </div>
               </div>
               <hr
                 aria-hidden={true}
@@ -588,7 +604,7 @@ exports[`existing service page rendering phone 1`] = `
                   <div
                     className="m-v300"
                   >
-                    <span
+                    <label
                       className="txt-l"
                       id="SR-CSIRMV1-label"
                     >
@@ -599,7 +615,7 @@ exports[`existing service page rendering phone 1`] = `
                       >
                         Required
                       </span>
-                    </span>
+                    </label>
                   </div>
                   <div
                     className="g"
@@ -607,74 +623,82 @@ exports[`existing service page rendering phone 1`] = `
                     <div
                       className="g--12"
                     >
-                      <label
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-One"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="One"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-One"
                         >
                           One
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-Two"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="Two"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-Two"
                         >
                           Two
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-Three"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="Three"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-Three"
                         >
                           Three
-                        </span>
-                      </label>
-                      <label
+                        </label>
+                      </div>
+                      <div
                         className="ra"
                       >
                         <input
                           checked={false}
                           className="ra-f"
+                          id="SR-CSIRMV1-More than Three"
                           name="SR-CSIRMV1"
                           onChange={[Function]}
                           type="radio"
                           value="More than Three"
                         />
-                        <span
+                        <label
                           className="ra-l"
+                          htmlFor="SR-CSIRMV1-More than Three"
                         >
                           More than Three
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <span />
                     </div>
                   </div>
@@ -771,7 +795,7 @@ exports[`existing service page rendering phone 1`] = `
               Next
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -905,6 +929,7 @@ exports[`existing service page rendering phone location step 1`] = `
               className="sf-i"
             >
               <input
+                aria-label="Address search field"
                 className="sf-i-f"
                 onInput={[Function]}
                 placeholder="Search for a street address or intersection…"

@@ -91,13 +91,17 @@ export default class ContactPane extends React.Component {
     }
   }
 
+  cancelSubmit = (ev: SyntheticInputEvent) => {
+    ev.preventDefault();
+  };
+
   render() {
     const { serviceName, requestForm } = this.props;
     const { firstName, lastName, email, phone, contactInfoRequired, contactInfoRequirementsMet } = requestForm;
     const { rememberInfo } = this.localStorageContactInfo;
 
     return (
-      <div>
+      <form onSubmit={this.cancelSubmit}>
         <div>
           <SectionHeader>{ serviceName }</SectionHeader>
           <p className="m-v300 t--info">
@@ -116,31 +120,31 @@ export default class ContactPane extends React.Component {
           )}
           </p>
 
-          <label className="txt">
-            <span className="txt-l">First Name {renderRequired()}</span>
-            <input type="text" className="txt-f" placeholder="First Name" name="firstName" value={firstName} onChange={this.handleChange} style={FIELD_STYLE} />
-          </label>
+          <div className="txt">
+            <label className="txt-l" htmlFor="ContactPane-firstName">First Name {renderRequired()}</label>
+            <input type="text" className="txt-f" id="ContactPane-firstName" placeholder="First Name" name="firstName" value={firstName} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+          </div>
 
-          <label className="txt">
-            <span className="txt-l">Last Name {renderRequired()}</span>
-            <input type="text" className="txt-f" placeholder="Last Name" name="lastName" value={lastName} onChange={this.handleChange} style={FIELD_STYLE} />
-          </label>
+          <div className="txt">
+            <label className="txt-l" htmlFor="ContactPane-lastName">Last Name {renderRequired()}</label>
+            <input type="text" className="txt-f" id="ContactPane-lastName" placeholder="Last Name" name="lastName" value={lastName} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+          </div>
 
-          <label className="txt">
-            <span className="txt-l">Email {renderRequired()}</span>
-            <input className="txt-f" type="email" placeholder="Email" name="email" value={email} onChange={this.handleChange} style={FIELD_STYLE} />
-          </label>
+          <div className="txt">
+            <label className="txt-l" htmlFor="ContactPane-email">Email {renderRequired()}</label>
+            <input className="txt-f" type="email" id="ContactPane-email" placeholder="Email" name="email" value={email} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+          </div>
 
-          <label className="txt">
-            <span className="txt-l">Phone</span>
-            <InputMask className="txt-f" mask="(999) 999-9999" type="tel" placeholder="Phone" name="phone" value={phone} onChange={this.handleChange} style={FIELD_STYLE} />
-          </label>
+          <div className="txt">
+            <label className="txt-l" htmlFor="ContactPane-phone">Phone</label>
+            <InputMask className="txt-f" mask="(999) 999-9999" id="ContactPane-phone" type="tel" placeholder="Phone" name="phone" value={phone} onChange={this.handleChange} style={FIELD_STYLE} />
+          </div>
 
           <div className="m-v500 g">
-            <label className="cb">
-              <input name="remember" type="checkbox" value="true" className="cb-f" checked={rememberInfo} onChange={this.handleChange} />
-              <span className="cb-l">Remember contact info on this computer</span>
-            </label>
+            <div className="cb">
+              <input name="remember" id="ContactPane-remember" type="checkbox" value="true" className="cb-f" checked={rememberInfo} onChange={this.handleChange} />
+              <label className="cb-l" htmlFor="ContactPane-remember">Remember contact info on this computer</label>
+            </div>
           </div>
         </div>
 
@@ -150,7 +154,7 @@ export default class ContactPane extends React.Component {
           </div>
           <button className="btn g--4" onClick={this.continueWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>
         </div>
-      </div>
+      </form>
     );
   }
 }

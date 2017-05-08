@@ -201,7 +201,9 @@ exports[`rendering contact 1`] = `
       }
     }
   >
-    <div>
+    <form
+      onSubmit={[Function]}
+    >
       <div>
         <div
           className="sh sh--y"
@@ -223,11 +225,12 @@ exports[`rendering contact 1`] = `
           Your contact info will not be made public.
            
         </p>
-        <label
+        <div
           className="txt"
         >
-          <span
+          <label
             className="txt-l"
+            htmlFor="ContactPane-firstName"
           >
             First Name 
             <span
@@ -235,9 +238,11 @@ exports[`rendering contact 1`] = `
             >
               Required
             </span>
-          </span>
+          </label>
           <input
+            aria-required={true}
             className="txt-f"
+            id="ContactPane-firstName"
             name="firstName"
             onChange={[Function]}
             placeholder="First Name"
@@ -249,12 +254,13 @@ exports[`rendering contact 1`] = `
             type="text"
             value=""
           />
-        </label>
-        <label
+        </div>
+        <div
           className="txt"
         >
-          <span
+          <label
             className="txt-l"
+            htmlFor="ContactPane-lastName"
           >
             Last Name 
             <span
@@ -262,9 +268,11 @@ exports[`rendering contact 1`] = `
             >
               Required
             </span>
-          </span>
+          </label>
           <input
+            aria-required={true}
             className="txt-f"
+            id="ContactPane-lastName"
             name="lastName"
             onChange={[Function]}
             placeholder="Last Name"
@@ -276,12 +284,13 @@ exports[`rendering contact 1`] = `
             type="text"
             value=""
           />
-        </label>
-        <label
+        </div>
+        <div
           className="txt"
         >
-          <span
+          <label
             className="txt-l"
+            htmlFor="ContactPane-email"
           >
             Email 
             <span
@@ -289,9 +298,11 @@ exports[`rendering contact 1`] = `
             >
               Required
             </span>
-          </span>
+          </label>
           <input
+            aria-required={true}
             className="txt-f"
+            id="ContactPane-email"
             name="email"
             onChange={[Function]}
             placeholder="Email"
@@ -303,17 +314,19 @@ exports[`rendering contact 1`] = `
             type="email"
             value=""
           />
-        </label>
-        <label
+        </div>
+        <div
           className="txt"
         >
-          <span
+          <label
             className="txt-l"
+            htmlFor="ContactPane-phone"
           >
             Phone
-          </span>
+          </label>
           <input
             className="txt-f"
+            id="ContactPane-phone"
             name="phone"
             onBlur={[Function]}
             onChange={[Function]}
@@ -330,27 +343,29 @@ exports[`rendering contact 1`] = `
             type="tel"
             value=""
           />
-        </label>
+        </div>
         <div
           className="m-v500 g"
         >
-          <label
+          <div
             className="cb"
           >
             <input
               checked={false}
               className="cb-f"
+              id="ContactPane-remember"
               name="remember"
               onChange={[Function]}
               type="checkbox"
               value="true"
             />
-            <span
+            <label
               className="cb-l"
+              htmlFor="ContactPane-remember"
             >
               Remember contact info on this computer
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
       </div>
       <div
@@ -377,7 +392,7 @@ exports[`rendering contact 1`] = `
           Submit Report
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 `;
@@ -410,6 +425,7 @@ exports[`rendering location 1`] = `
           className="sf-i"
         >
           <input
+            aria-label="Address search field"
             className="sf-i-f"
             onInput={[Function]}
             placeholder="Search for a street address or intersection…"
@@ -466,7 +482,9 @@ exports[`rendering questions 1`] = `
     className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
     style={Object {}}
   >
-    <div>
+    <form
+      onSubmit={[Function]}
+    >
       <div
         className="sh sh--y"
       >
@@ -497,50 +515,52 @@ exports[`rendering questions 1`] = `
             placeholder="How can we help?"
           />
           <div>
-            <label
+            <div
               className="txt"
             >
-              <span
+              <label
                 className="txt-l"
+                htmlFor="ST-CMTS"
               >
                 Please provide any other relevant information:
                  
-              </span>
+              </label>
               <textarea
-                aria-label="Please provide any other relevant information:"
                 aria-required={false}
                 className="txt-f"
+                id="ST-CMTS"
                 name="ST-CMTS"
                 onChange={[Function]}
                 rows="5"
                 value=""
               />
-            </label>
+            </div>
           </div>
           <hr
             aria-hidden={true}
             className="hr hr--dash m-v500"
           />
           <div>
-            <label
+            <div
               className="txt"
             >
-              <span
+              <label
                 className="txt-l"
+                htmlFor="INFO-CSIRMV1"
               >
                 **All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**
                  
-              </span>
+              </label>
               <input
-                aria-label="**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**"
                 aria-required={false}
                 className="txt-f"
+                id="INFO-CSIRMV1"
                 name="INFO-CSIRMV1"
                 onChange={[Function]}
                 type="text"
                 value=""
               />
-            </label>
+            </div>
           </div>
           <hr
             aria-hidden={true}
@@ -554,7 +574,7 @@ exports[`rendering questions 1`] = `
               <div
                 className="m-v300"
               >
-                <span
+                <label
                   className="txt-l"
                   id="SR-CSIRMV1-label"
                 >
@@ -565,7 +585,7 @@ exports[`rendering questions 1`] = `
                   >
                     Required
                   </span>
-                </span>
+                </label>
               </div>
               <div
                 className="g"
@@ -573,74 +593,82 @@ exports[`rendering questions 1`] = `
                 <div
                   className="g--12"
                 >
-                  <label
+                  <div
                     className="ra"
                   >
                     <input
                       checked={false}
                       className="ra-f"
+                      id="SR-CSIRMV1-One"
                       name="SR-CSIRMV1"
                       onChange={[Function]}
                       type="radio"
                       value="One"
                     />
-                    <span
+                    <label
                       className="ra-l"
+                      htmlFor="SR-CSIRMV1-One"
                     >
                       One
-                    </span>
-                  </label>
-                  <label
+                    </label>
+                  </div>
+                  <div
                     className="ra"
                   >
                     <input
                       checked={false}
                       className="ra-f"
+                      id="SR-CSIRMV1-Two"
                       name="SR-CSIRMV1"
                       onChange={[Function]}
                       type="radio"
                       value="Two"
                     />
-                    <span
+                    <label
                       className="ra-l"
+                      htmlFor="SR-CSIRMV1-Two"
                     >
                       Two
-                    </span>
-                  </label>
-                  <label
+                    </label>
+                  </div>
+                  <div
                     className="ra"
                   >
                     <input
                       checked={false}
                       className="ra-f"
+                      id="SR-CSIRMV1-Three"
                       name="SR-CSIRMV1"
                       onChange={[Function]}
                       type="radio"
                       value="Three"
                     />
-                    <span
+                    <label
                       className="ra-l"
+                      htmlFor="SR-CSIRMV1-Three"
                     >
                       Three
-                    </span>
-                  </label>
-                  <label
+                    </label>
+                  </div>
+                  <div
                     className="ra"
                   >
                     <input
                       checked={false}
                       className="ra-f"
+                      id="SR-CSIRMV1-More than Three"
                       name="SR-CSIRMV1"
                       onChange={[Function]}
                       type="radio"
                       value="More than Three"
                     />
-                    <span
+                    <label
                       className="ra-l"
+                      htmlFor="SR-CSIRMV1-More than Three"
                     >
                       More than Three
-                    </span>
-                  </label>
+                    </label>
+                  </div>
                   <span />
                 </div>
               </div>
@@ -737,7 +765,7 @@ exports[`rendering questions 1`] = `
           Next
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 `;

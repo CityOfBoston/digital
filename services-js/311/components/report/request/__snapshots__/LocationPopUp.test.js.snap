@@ -43,6 +43,7 @@ exports[`rendering renders a map on a small screen 1`] = `
       className="sf-i"
     >
       <input
+        aria-label="Address search field"
         className="sf-i-f"
         onInput={[Function]}
         placeholder="Search address or intersection…"
@@ -102,6 +103,7 @@ exports[`rendering renders with an address 1`] = `
       className="sf-i"
     >
       <input
+        aria-label="Address search field"
         className="sf-i-f"
         onInput={[Function]}
         placeholder="Search for a street address or intersection…"
@@ -173,6 +175,7 @@ exports[`rendering renders without an address 1`] = `
       className="sf-i"
     >
       <input
+        aria-label="Address search field"
         className="sf-i-f"
         onInput={[Function]}
         placeholder="Search for a street address or intersection…"

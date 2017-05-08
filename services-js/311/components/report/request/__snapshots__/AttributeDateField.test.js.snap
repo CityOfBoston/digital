@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering renders date 1`] = `
-<label
+<div
   className="txt"
 >
-  <span
+  <label
     className="txt-l"
+    htmlFor="DATE-SEEN"
   >
     
      
@@ -14,7 +15,7 @@ exports[`rendering renders date 1`] = `
     >
       Required
     </span>
-  </span>
+  </label>
   <div
     className={
       Object {
@@ -23,9 +24,9 @@ exports[`rendering renders date 1`] = `
     }
   >
     <input
-      aria-label=" date field"
       aria-required={true}
       className="txt-f css-1b2781b "
+      id="DATE-SEEN"
       name="DATE-SEEN"
       onBlur={[Function]}
       onChange={[Function]}
@@ -37,15 +38,16 @@ exports[`rendering renders date 1`] = `
       className="t--err p-a300"
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`rendering renders time 1`] = `
-<label
+<div
   className="txt"
 >
-  <span
+  <label
     className="txt-l"
+    htmlFor="DATE-SEEN"
   >
     
      
@@ -54,7 +56,7 @@ exports[`rendering renders time 1`] = `
     >
       Required
     </span>
-  </span>
+  </label>
   <div
     className={
       Object {
@@ -63,9 +65,9 @@ exports[`rendering renders time 1`] = `
     }
   >
     <input
-      aria-label=" date field"
       aria-required={true}
       className="txt-f css-1b2781b "
+      id="DATE-SEEN"
       name="DATE-SEEN"
       onBlur={[Function]}
       onChange={[Function]}
@@ -88,5 +90,5 @@ exports[`rendering renders time 1`] = `
       className="t--err p-a300"
     />
   </div>
-</label>
+</div>
 `;

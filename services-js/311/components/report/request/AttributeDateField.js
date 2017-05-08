@@ -246,20 +246,20 @@ export default class AttributeDateField extends React.Component {
     const { dateValue, timeValue } = this;
 
     return (
-      <label className="txt">
-        <span className="txt-l">{question.description} {maybeRenderRequired(question.required)}</span>
+      <div className="txt">
+        <label className="txt-l" htmlFor={question.code}>{question.description} {maybeRenderRequired(question.required)}</label>
 
         <div className={INPUT_MESSAGE_CONTAINER_STYLE}>
           <input
             placeholder="mm/dd/yyyy"
             name={question.code}
+            id={question.code}
             className={`txt-f ${INPUT_STYLE.toString()} ${this.isDateValid || this.dateFocus ? '' : 'txt-f--err'}`}
             value={dateValue}
             onChange={this.handleDateChange}
             onFocus={this.handleDateFocus}
             onBlur={this.handleDateBlur}
             aria-required={question.required}
-            aria-label={`${question.description} date field`}
           />
 
           { this.showTime &&
@@ -282,7 +282,7 @@ export default class AttributeDateField extends React.Component {
           </span>
 
         </div>
-      </label>
+      </div>
     );
   }
 }

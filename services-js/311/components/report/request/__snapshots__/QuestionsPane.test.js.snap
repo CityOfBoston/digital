@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`blank request 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <div
     className="sh sh--y"
   >
@@ -112,11 +114,13 @@ exports[`blank request 1`] = `
       Next
     </button>
   </div>
-</div>
+</form>
 `;
 
 exports[`existing description 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <div
     className="sh sh--y"
   >
@@ -227,11 +231,13 @@ exports[`existing description 1`] = `
       Next
     </button>
   </div>
-</div>
+</form>
 `;
 
 exports[`service with metadata 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <div
     className="sh sh--y"
   >
@@ -262,25 +268,26 @@ exports[`service with metadata 1`] = `
         placeholder="How can we help?"
       />
       <div>
-        <label
+        <div
           className="txt"
         >
-          <span
+          <label
             className="txt-l"
+            htmlFor="ST-CMTS"
           >
             Please provide any other relevant information:
              
-          </span>
+          </label>
           <textarea
-            aria-label="Please provide any other relevant information:"
             aria-required={false}
             className="txt-f"
+            id="ST-CMTS"
             name="ST-CMTS"
             onChange={[Function]}
             rows="5"
             value=""
           />
-        </label>
+        </div>
       </div>
     </div>
     <div
@@ -363,5 +370,5 @@ exports[`service with metadata 1`] = `
       Next
     </button>
   </div>
-</div>
+</form>
 `;

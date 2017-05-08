@@ -113,6 +113,10 @@ export default class QuestionsPane extends React.Component {
     this.dropEl = dropEl;
   }
 
+  cancelSubmit = (ev: SyntheticInputEvent) => {
+    ev.preventDefault();
+  };
+
   render() {
     const { requestForm, serviceName, nextFunc, nextIsSubmit } = this.props;
     const { description, questions, questionRequirementsMet } = requestForm;
@@ -131,7 +135,7 @@ export default class QuestionsPane extends React.Component {
     });
 
     return (
-      <div>
+      <form onSubmit={this.cancelSubmit}>
         <SectionHeader>{ serviceName }</SectionHeader>
 
         <div className="g g--top">
@@ -156,7 +160,7 @@ export default class QuestionsPane extends React.Component {
           </div>
           <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
         </div>
-      </div>
+      </form>
     );
   }
 
