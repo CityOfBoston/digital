@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Boston.gov
+  auth_token: asdfghjkl
+  email: feedback@boston.gov
+
+two:
+  name: Boston 311
+  auth_token: qwertyuiop
+  email: 311@boston.gov

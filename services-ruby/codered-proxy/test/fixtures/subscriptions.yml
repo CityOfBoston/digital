@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+elah:
+  email: test@example.com
+  phone_number: 5558675309
+  call: true
+  text: false
+  first_name: Elah
+  last_name: Abiah
+  zip: 02101
+  language: en
+  tdd: false
+
+nitzan:
+  email: test@example.com
+  phone_number: 5558675309
+  call: false
+  text: true
+  first_name: Nitzan
+  last_name: Fran
+  zip: 02101
+  language: en
+  tdd: true
