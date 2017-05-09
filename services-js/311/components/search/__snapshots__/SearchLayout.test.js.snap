@@ -72,7 +72,7 @@ exports[`search form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className="css-1d1pmz0"
     role="main"
     style={
       Object {

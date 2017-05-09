@@ -16,7 +16,7 @@ import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import Nav from '../common/Nav';
 import LocationMap from '../map/LocationMap';
-import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT } from '../style-constants';
 
 import RecentRequests from './RecentRequests';
 
@@ -39,12 +39,10 @@ export type Props = {|
 // This is the main container for content. We want to be at least full height on
 // large screens to push the footer down to where you need to scroll for it.
 const CONTAINER_STYLE = css({
-  minHeight: 0,
-  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'flex-start',
-  [MEDIA_LARGE]: {
-    minHeight: '100vh',
-  },
+  position: 'relative',
 });
 
 const BACKGROUND_MAP_CONTAINER_STYLE = css({
@@ -160,7 +158,7 @@ export default class LookupLayout extends React.Component {
 
         <Nav activeSection="search" />
 
-        <div className={`mn--full ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
+        <div className={CONTAINER_STYLE.toString()} style={{ backgroundColor: 'transparent' }} role="main">
           <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
             <LocationMap
               store={store}

@@ -44,6 +44,11 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
     $el.attr('href', href);
   });
 
+  const $translateItem = $('header>nav li.nv-h-l-i.tr');
+  $translateItem.removeClass('tr');
+  $translateItem.find('ul').remove();
+  $translateItem.find('a').attr('href', '/translate');
+
   ['header', 'footer'].forEach((tag) => {
     const html = $(tag).html();
     if (!html) {

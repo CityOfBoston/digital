@@ -16,8 +16,9 @@ import HomeDialog from './home/HomeDialog';
 import type { InitialProps as HomeDialogInitialProps } from './home/HomeDialog';
 import RequestDialog from './request/RequestDialog';
 import type { InitialProps as RequestDialogInitialProps } from './request/RequestDialog';
+import TranslateDialog from './translate/TranslateDialog';
 
-import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT } from '../style-constants';
 
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
@@ -34,8 +35,13 @@ type RequestData = {|
   props: RequestDialogInitialProps,
 |};
 
+type TranslateData = {|
+  view: 'translate',
+  props: {},
+|}
+
 export type InitialProps = {|
-  data: HomeData | RequestData,
+  data: HomeData | RequestData | TranslateData,
 |};
 
 export type Props = {|
@@ -50,12 +56,10 @@ type State = {|
 // This is the main container for content. We want to be at least full height on
 // large screens to push the footer down to where you need to scroll for it.
 const CONTAINER_STYLE = css({
-  minHeight: 0,
-  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'flex-start',
-  [MEDIA_LARGE]: {
-    minHeight: '100vh',
-  },
+  position: 'relative',
 });
 
 const BACKGROUND_MAP_CONTAINER_STYLE = css({
@@ -86,7 +90,12 @@ export default class ReportLayout extends React.Component {
 
     let data;
 
-    if (query.code) {
+    if (query.translate) {
+      data = {
+        view: 'translate',
+        props: {},
+      };
+    } else if (query.code) {
       data = {
         view: 'request',
         props: await RequestDialog.getInitialProps(ctx),
@@ -154,7 +163,7 @@ export default class ReportLayout extends React.Component {
         {/* Outer box needs to take up at least the screen size on desktop, so
             that the content can center over the map and keep the footer from
             encroaching up. */}
-        <div className={`mn--full ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
+        <div className={CONTAINER_STYLE} style={{ backgroundColor: 'transparent' }} role="main">
           { mediaLarge &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
               <LocationMap
@@ -184,6 +193,10 @@ export default class ReportLayout extends React.Component {
               setLocationMapActive={this.setLocationMapActive}
               {...data.props}
             />}
+
+          { data.view === 'translate' &&
+            <TranslateDialog />
+          }
         </div>
 
       </div>

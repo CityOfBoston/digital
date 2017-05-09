@@ -129,6 +129,12 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
+    path: '/translate',
+    handler: nextHandler(app, '/report', { translate: '1' }),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/services',
     handler: nextHandler(app, '/services'),
   });

@@ -72,7 +72,11 @@ exports[`existing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
     role="main"
     style={
       Object {
@@ -473,7 +477,11 @@ exports[`existing service page rendering phone 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
     role="main"
     style={
       Object {
@@ -874,7 +882,11 @@ exports[`existing service page rendering phone location step 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
     role="main"
     style={
       Object {
@@ -1048,7 +1060,11 @@ exports[`missing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
     role="main"
     style={
       Object {
@@ -1174,7 +1190,11 @@ exports[`report form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn--full css-1pujyrn"
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
     role="main"
     style={
       Object {
@@ -1407,6 +1427,200 @@ exports[`report form rendering 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`translate page rendering 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--y nv-s--sticky"
+  >
+    <input
+      aria-hidden={true}
+      className="nv-s-tr"
+      id="nv-s-tr"
+      type="checkbox"
+    />
+    <ul
+      className="nv-s-l"
+    >
+      <li
+        className="nv-s-l-i"
+      >
+        <label
+          className="nv-s-l-b"
+          htmlFor="nv-s-tr"
+          type="button"
+        >
+          Navigation
+        </label>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a nv-s-l-a--active"
+          href="/"
+          onClick={[Function]}
+        >
+          Report a problem
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/search"
+          onClick={[Function]}
+        >
+          Search cases
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/services"
+          onClick={[Function]}
+        >
+          All services
+        </a>
+      </li>
+      <li
+        className="nv-s-l-i"
+      >
+        <a
+          className="nv-s-l-a "
+          href="/faq"
+          onClick={[Function]}
+        >
+          FAQ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className={
+      Object {
+        "data-css-1d1pmz0": "",
+      }
+    }
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <div
+      className={
+        Object {
+          "data-css-pmaldw": "",
+        }
+      }
+    >
+      <div
+        className={
+          Object {
+            "data-css-wi5peg": "",
+          }
+        }
+        style={
+          Object {
+            "opacity": 0.6,
+          }
+        }
+      />
+    </div>
+    <div
+      className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
+      style={Object {}}
+    >
+      <div
+        className={
+          Object {
+            "data-css-4u7o5n": "",
+          }
+        }
+      >
+        <div
+          className="g"
+        >
+          <button
+            className="btn g--2 m-v100 "
+            onClick={[Function]}
+          >
+            Kreyòl Ayisyen
+          </button>
+          <button
+            className="btn g--2 m-v100 "
+            onClick={[Function]}
+          >
+            Português
+          </button>
+          <button
+            className="btn g--2 m-v100 btn--c"
+            onClick={[Function]}
+          >
+            Español
+          </button>
+          <button
+            className="btn g--2 m-v100 "
+            onClick={[Function]}
+          >
+            Tiếng Việt
+          </button>
+          <button
+            className="btn g--2 m-v100 "
+            onClick={[Function]}
+          >
+            简体中文
+          </button>
+          <button
+            className="btn g--2 m-v100 "
+            onClick={[Function]}
+          >
+            繁體中文
+          </button>
+        </div>
+        <div
+          className="g m-v500 p-a500"
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <div
+            className="g--1"
+          />
+          <div
+            className="g--2"
+          >
+            <div
+              className={
+                Object {
+                  "data-css-1y4p5hu": "",
+                }
+              }
+            />
+          </div>
+          <div
+            className="g--8 t--intro"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 617-635-4500.
           </div>
         </div>
       </div>

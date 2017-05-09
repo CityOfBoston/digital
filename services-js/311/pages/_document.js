@@ -71,7 +71,7 @@ export default class extends Document {
 
           <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-          <div className="mn mn--nv-s">
+          <div className="mn mn--full mn--nv-s">
             <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
             <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
 

@@ -58,7 +58,7 @@ export default class ReportsLayout extends React.Component {
 
         <Nav />
 
-        <div className="mn--full" role="main">
+        <div role="main">
           { data.request && <CaseView request={data.request} store={store} /> }
         </div>
       </div>

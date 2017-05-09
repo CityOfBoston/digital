@@ -93,6 +93,28 @@ describe('report form', () => {
   });
 });
 
+describe('translate page', () => {
+  let data;
+
+  beforeEach(async () => {
+    loadTopServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
+
+    const ctx = makeServerContext('/report', { translate: '1' });
+    data = (await ReportLayout.getInitialProps(ctx)).data;
+  });
+
+  test('getInitialProps', () => {
+    expect(data.view).toEqual('translate');
+  });
+
+  test('rendering', () => {
+    const component = renderer.create(
+      <ReportLayout store={store} data={data} />,
+    );
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
+
 describe('existing service page', () => {
   beforeEach(() => {
     loadService.mockReturnValue(MOCK_SERVICE);
