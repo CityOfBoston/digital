@@ -66,15 +66,17 @@ export default class extends Document {
         </Head>
 
         <body>
-          <nav className="nv-m" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
           <input type="checkbox" id="brg-tr" className="brg-tr" aria-hidden="true" />
-
-          <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
-          <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
+          <nav className="nv-m" dangerouslySetInnerHTML={{ __html: navigationHtml }} />
 
           <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-          <Main />
+          <div className="mn mn--nv-s">
+            <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
+            <header className="h" role="banner" dangerouslySetInnerHTML={{ __html: headerHtml }} />
+
+            <Main />
+          </div>
 
           <footer className="ft" style={{ position: 'relative', zIndex: 1 }} dangerouslySetInnerHTML={{ __html: footerHtml }} />
 

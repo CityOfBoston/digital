@@ -160,7 +160,7 @@ export default class LookupLayout extends React.Component {
 
         <Nav activeSection="search" />
 
-        <div className={`mn mn--full mn--nv-s ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
+        <div className={`mn--full ${CONTAINER_STYLE.toString()}`} style={{ backgroundColor: 'transparent' }} role="main">
           <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
             <LocationMap
               store={store}

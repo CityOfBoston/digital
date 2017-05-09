@@ -115,7 +115,7 @@ export default class ServicesLayout extends React.Component {
     });
 
     return (
-      <div className="mn mn--nv-s">
+      <div>
         <Head>
           <title>BOS:311 — All BOS:311 Services</title>
         </Head>

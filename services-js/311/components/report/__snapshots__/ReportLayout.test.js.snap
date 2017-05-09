@@ -72,7 +72,7 @@ exports[`existing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-1pujyrn"
+    className="mn--full css-1pujyrn"
     role="main"
     style={
       Object {
@@ -473,7 +473,7 @@ exports[`existing service page rendering phone 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-1pujyrn"
+    className="mn--full css-1pujyrn"
     role="main"
     style={
       Object {
@@ -874,7 +874,7 @@ exports[`existing service page rendering phone location step 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-1pujyrn"
+    className="mn--full css-1pujyrn"
     role="main"
     style={
       Object {
@@ -1048,7 +1048,7 @@ exports[`missing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-1pujyrn"
+    className="mn--full css-1pujyrn"
     role="main"
     style={
       Object {
@@ -1174,7 +1174,7 @@ exports[`report form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="mn mn--full mn--nv-s css-1pujyrn"
+    className="mn--full css-1pujyrn"
     role="main"
     style={
       Object {

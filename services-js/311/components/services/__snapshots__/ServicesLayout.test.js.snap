@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering 1`] = `
-<div
-  className="mn mn--nv-s"
->
+<div>
   <nav
     className="nv-s nv-s--y nv-s--sticky"
   >

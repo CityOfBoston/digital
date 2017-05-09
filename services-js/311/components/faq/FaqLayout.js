@@ -79,7 +79,7 @@ export default class FaqLayout extends React.Component {
     const { suppressQuestions } = this.props;
 
     return (
-      <div className="mn mn--nv-s">
+      <div>
         <Head>
           <title>BOS:311 — Frequently Asked Questions</title>
         </Head>
