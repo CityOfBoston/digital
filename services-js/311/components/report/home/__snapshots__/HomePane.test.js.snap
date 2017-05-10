@@ -31,20 +31,35 @@ exports[`rendering existing description 1`] = `
           >
             Tell us your problem:
           </h2>
-          <textarea
-            aria-label="Description of the problem"
-            className={
+          <div
+            className="br br-a100 css-1szg2lt"
+            style={
               Object {
-                "data-css-fgw5c1": "",
+                "maxHeight": 222,
+                "minHeight": 137,
               }
             }
-            defaultValue="Thanos is attacking"
-            name="description"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onInput={[Function]}
-            placeholder=""
-          />
+          >
+            <textarea
+              aria-label="Description of the problem"
+              className={
+                Object {
+                  "data-css-zkcm5e": "",
+                }
+              }
+              defaultValue="Thanos is attacking"
+              name="description"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              placeholder=""
+              style={
+                Object {
+                  "height": null,
+                }
+              }
+            />
+          </div>
         </div>
         <div
           className="m-t500"
@@ -54,13 +69,21 @@ exports[`rendering existing description 1`] = `
             }
           }
         >
-          <button
-            className="btn css-1q8b8td"
-            disabled={false}
-            onClick={[Function]}
+          <span
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
           >
-            Start a Report
-          </button>
+            <button
+              className="btn css-1q8b8td"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Start a Report
+            </button>
+          </span>
         </div>
       </div>
       <div

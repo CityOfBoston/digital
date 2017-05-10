@@ -7,7 +7,6 @@ import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
 import SectionHeader from '../../common/SectionHeader';
-import DescriptionBox from '../../common/DescriptionBox';
 import { MEDIA_LARGE } from '../../style-constants';
 import AttributeField from './AttributeField';
 
@@ -140,13 +139,10 @@ export default class QuestionsPane extends React.Component {
 
         <div className="g g--top">
           <div className="g--7 m-v500">
-            <DescriptionBox
-              text={description}
-              placeholder="How can we help?"
-              onInput={this.handleUpdateDescription}
-              minHeight={100}
-              maxHeight={360}
-            />
+            <div className="txt" >
+              <label className="txt-l" htmlFor="QuestionsPane-description" style={{ marginTop: 0 }}>Description</label>
+              <textarea name="description" id="QuestionsPane-description" className="txt-f" value={description} placeholder="Please describe your problem" onInput={this.handleUpdateDescription} rows="5" />
+            </div>
 
             { questionsEls }
           </div>

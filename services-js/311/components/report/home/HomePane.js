@@ -1,5 +1,6 @@
 // @flow
 /* global liveagent */
+/* eslint jsx-a11y/no-static-element-interactions: 0 */
 
 import React from 'react';
 import { css } from 'glamor';
@@ -98,6 +99,8 @@ export default class HomePane extends React.Component {
 
   @observable searchValue: string = '';
 
+  descriptionTextarea: ?HTMLElement = null;
+
   @action
   componentDidMount() {
     this.animationStartMs = +new Date();
@@ -131,6 +134,11 @@ export default class HomePane extends React.Component {
   }
 
   @action.bound
+  setTextarea(textarea: ?HTMLElement) {
+    this.descriptionTextarea = textarea;
+  }
+
+  @action.bound
   startChat() {
     const { store } = this.props;
     const { liveAgentButtonId } = store;
@@ -151,6 +159,15 @@ export default class HomePane extends React.Component {
     const timeInPlaceholder = msSinceStart % TIME_PER_PLACEHOLDER_MS;
 
     return EXAMPLE_PROBLEMS[placeholderIdx].substring(0, Math.floor(timeInPlaceholder / TIME_PER_CHARACTER_MS));
+  }
+
+  @action.bound
+  nextButtonWrapperClick(ev: SyntheticInputEvent) {
+    if (this.descriptionTextarea) {
+      this.descriptionTextarea.focus();
+      ev.preventDefault();
+      ev.stopPropagation();
+    }
   }
 
   render() {
@@ -183,12 +200,16 @@ export default class HomePane extends React.Component {
                   onInput={handleDescriptionChanged}
                   onFocus={this.handleDescriptionFocus}
                   onBlur={this.handleDescriptionBlur}
+                  setTextarea={this.setTextarea}
                 />
               </div>
 
               <div className="m-t500" style={{ textAlign: 'right' }}>
                 { store.liveAgentAvailable && <button className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
-                <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
+                <span style={{ position: 'relative' }}>
+                  <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Report</button>
+                  { description.length === 0 && <span style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }} onClick={this.nextButtonWrapperClick} role="presentation" /> }
+                </span>
               </div>
             </div>
 

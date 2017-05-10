@@ -133,20 +133,30 @@ exports[`existing service page rendering 1`] = `
             <div
               className="g--7 m-v500"
             >
-              <textarea
-                aria-label="Description of the problem"
-                className={
-                  Object {
-                    "data-css-15q8vxe": "",
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="QuestionsPane-description"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
                   }
-                }
-                defaultValue=""
-                name="description"
-                onBlur={[Function]}
-                onFocus={null}
-                onInput={[Function]}
-                placeholder="How can we help?"
-              />
+                >
+                  Description
+                </label>
+                <textarea
+                  className="txt-f"
+                  id="QuestionsPane-description"
+                  name="description"
+                  onInput={[Function]}
+                  placeholder="Please describe your problem"
+                  rows="5"
+                  value=""
+                />
+              </div>
               <div>
                 <div
                   className="txt"
@@ -538,20 +548,30 @@ exports[`existing service page rendering phone 1`] = `
             <div
               className="g--7 m-v500"
             >
-              <textarea
-                aria-label="Description of the problem"
-                className={
-                  Object {
-                    "data-css-15q8vxe": "",
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="QuestionsPane-description"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
                   }
-                }
-                defaultValue=""
-                name="description"
-                onBlur={[Function]}
-                onFocus={null}
-                onInput={[Function]}
-                placeholder="How can we help?"
-              />
+                >
+                  Description
+                </label>
+                <textarea
+                  className="txt-f"
+                  id="QuestionsPane-description"
+                  name="description"
+                  onInput={[Function]}
+                  placeholder="Please describe your problem"
+                  rows="5"
+                  value=""
+                />
+              </div>
               <div>
                 <div
                   className="txt"
@@ -1263,20 +1283,35 @@ exports[`report form rendering 1`] = `
                   >
                     Tell us your problem:
                   </h2>
-                  <textarea
-                    aria-label="Description of the problem"
-                    className={
+                  <div
+                    className="br br-a100 css-1szg2lt"
+                    style={
                       Object {
-                        "data-css-14mt46e": "",
+                        "maxHeight": 222,
+                        "minHeight": 137,
                       }
                     }
-                    defaultValue=""
-                    name="description"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                    onInput={[Function]}
-                    placeholder=""
-                  />
+                  >
+                    <textarea
+                      aria-label="Description of the problem"
+                      className={
+                        Object {
+                          "data-css-zkcm5e": "",
+                        }
+                      }
+                      defaultValue=""
+                      name="description"
+                      onBlur={[Function]}
+                      onFocus={[Function]}
+                      onInput={[Function]}
+                      placeholder=""
+                      style={
+                        Object {
+                          "height": 137,
+                        }
+                      }
+                    />
+                  </div>
                 </div>
                 <div
                   className="m-t500"
@@ -1292,13 +1327,34 @@ exports[`report form rendering 1`] = `
                   >
                     Start Live Chat
                   </button>
-                  <button
-                    className="btn css-1q8b8td"
-                    disabled={true}
-                    onClick={[Function]}
+                  <span
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    Start a Report
-                  </button>
+                    <button
+                      className="btn css-1q8b8td"
+                      disabled={true}
+                      onClick={[Function]}
+                    >
+                      Start a Report
+                    </button>
+                    <span
+                      onClick={[Function]}
+                      role="presentation"
+                      style={
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                        }
+                      }
+                    />
+                  </span>
                 </div>
               </div>
               <div

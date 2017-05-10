@@ -501,20 +501,30 @@ exports[`rendering questions 1`] = `
         <div
           className="g--7 m-v500"
         >
-          <textarea
-            aria-label="Description of the problem"
-            className={
-              Object {
-                "data-css-15q8vxe": "",
+          <div
+            className="txt"
+          >
+            <label
+              className="txt-l"
+              htmlFor="QuestionsPane-description"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
               }
-            }
-            defaultValue=""
-            name="description"
-            onBlur={[Function]}
-            onFocus={null}
-            onInput={[Function]}
-            placeholder="How can we help?"
-          />
+            >
+              Description
+            </label>
+            <textarea
+              className="txt-f"
+              id="QuestionsPane-description"
+              name="description"
+              onInput={[Function]}
+              placeholder="Please describe your problem"
+              rows="5"
+              value=""
+            />
+          </div>
           <div>
             <div
               className="txt"
