@@ -139,7 +139,9 @@ export default class HomePane extends React.Component {
   }
 
   @computed get placeholder(): string {
-    if (this.props.description || this.textareaFocus || !this.animationStartMs) {
+    const { description, store } = this.props;
+
+    if (description || !store.ui.visible || this.textareaFocus || !this.animationStartMs) {
       return '';
     }
 

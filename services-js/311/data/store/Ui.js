@@ -14,8 +14,11 @@ export default class Ui {
   @observable scrollY: number = 0;
   @observable debouncedScrollY: number = 0;
 
+  @observable visible: boolean = true;
+
   debouncedScrollDisposer: ?Function;
 
+  @action
   attach() {
     this.debouncedScrollDisposer = reaction(
       () => this.scrollY,
@@ -32,6 +35,9 @@ export default class Ui {
 
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
+
+    this.visible = !document.hidden;
+    document.addEventListener('visibilitychange', this.handleVisibility);
 
     this.handleScroll();
     // Do this after the first render so we match the server content
@@ -50,6 +56,8 @@ export default class Ui {
 
     window.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('resize', this.handleResize);
+
+    document.removeEventListener('visibilitychange', this.handleVisibility);
   }
 
   handleScroll = throttle(action('scroll handler', () => {
@@ -60,6 +68,11 @@ export default class Ui {
     this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
     this.visibleWidth = window.innerWidth;
   }), 100);
+
+  @action.bound
+  handleVisibility() {
+    this.visible = !document.hidden;
+  }
 
   @computed get mediaSmall(): boolean { return !!this.visibleWidth && this.visibleWidth > 480; }
   @computed get mediaMedium(): boolean { return !!this.visibleWidth && this.visibleWidth > 768; }
