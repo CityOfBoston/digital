@@ -3,6 +3,7 @@
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
+import Boom from 'boom';
 import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language';
@@ -36,6 +37,24 @@ export default async function startServer({ opbeat }: any) {
   } else {
     server.connection({ port }, '0.0.0.0');
   }
+
+  server.auth.scheme('headerKeys', (s, { keys, header }: { header: string, keys: string[]}) => ({
+    authenticate: (request, reply) => {
+      const key = request.headers[header.toLowerCase()];
+      if (!key) {
+        reply(Boom.unauthorized(`Missing ${header} header`));
+      } else if (keys.indexOf(key) === -1) {
+        reply(Boom.unauthorized(`Key ${key} is not a valid key`));
+      } else {
+        reply.continue({ credentials: key });
+      }
+    },
+  }));
+
+  server.auth.strategy('apiKey', 'headerKeys', {
+    header: 'X-API-KEY',
+    keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
+  });
 
   server.register({
     register: Good,
@@ -92,6 +111,7 @@ export default async function startServer({ opbeat }: any) {
       }),
       route: {
         cors: true,
+        auth: 'apiKey',
       },
     },
   });
@@ -102,6 +122,7 @@ export default async function startServer({ opbeat }: any) {
       path: '/graphiql',
       graphiqlOptions: {
         endpointURL: '/graphql',
+        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
       },
     },
   });

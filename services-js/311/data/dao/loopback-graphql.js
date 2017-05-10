@@ -48,6 +48,8 @@ async function clientGraphqlFetch(query, variables = null, options = {}) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      // eslint-disable-next-line no-underscore-dangle
+      'X-API-KEY': window.__NEXT_DATA__.webApiKey,
     },
     body: JSON.stringify({
       query,

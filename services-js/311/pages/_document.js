@@ -38,6 +38,8 @@ export default class extends Document {
     if (ids) {
       __NEXT_DATA__.ids = this.props.ids;
     }
+
+    __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY;
   }
 
   render() {

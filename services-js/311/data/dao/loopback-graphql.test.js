@@ -16,6 +16,8 @@ describe('client mode', () => {
 
   beforeEach(() => {
     inBrowser(() => {
+      // eslint-disable-next-line no-underscore-dangle
+      window.__NEXT_DATA__ = window.__NEXT_DATA__ || {};
       loopbackGraphql = makeLoopbackGraphql();
     });
   });
