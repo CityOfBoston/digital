@@ -298,7 +298,9 @@ export default class Open311 {
           args[key].map(({ code, value }) => params.append(`attribute[${code}]`, value));
           break;
         default:
-          params.append(key, args[key] || '');
+          if (args[key]) {
+            params.append(key, args[key]);
+          }
       }
     });
 
