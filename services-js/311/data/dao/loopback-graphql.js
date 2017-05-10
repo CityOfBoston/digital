@@ -75,6 +75,9 @@ async function serverGraphqlFetch(hapiInject, cache, query, variables = null, op
   const res = await hapiInject({
     url: '/graphql',
     method: 'post',
+    headers: {
+      'X-API-KEY': process.env.WEB_API_KEY || '',
+    },
     payload: {
       query,
       variables,

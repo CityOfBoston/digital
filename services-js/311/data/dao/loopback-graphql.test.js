@@ -110,6 +110,9 @@ describe('server getInitialProps mode', () => {
 
     expect(hapiInject).toHaveBeenCalledWith({
       method: 'post',
+      headers: {
+        'X-API-KEY': '',
+      },
       payload: { query: 'query', variables: { arg: 'value' } },
       url: '/graphql',
     });

@@ -9,6 +9,7 @@ declare class HapiResponse {
 
 type HapiInject = (options: {|
   url: string,
+  headers?: {[key: string]: string},
   method: string,
   payload: any,
 |}) => Promise<HapiResponse>;
