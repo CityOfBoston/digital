@@ -245,12 +245,12 @@ export default class LocationMap extends React.Component {
   @action
   initLocation(animated: boolean) {
     const { store } = this.props;
-    const currentLocation = store.browserLocation.location;
+    const { location: currentLocation, inBoston: currentLocationInBoston } = store.browserLocation;
 
     if (store.mapLocation.location) {
       this.visitLocation(store.mapLocation.location, animated);
-    } else if (currentLocation) {
-          // go through chooseLocation so that we get geocoding
+    } else if (currentLocation && currentLocationInBoston) {
+      // go through chooseLocation so that we get geocoding
       this.chooseLocation(currentLocation);
       this.visitLocation(currentLocation, animated);
     }

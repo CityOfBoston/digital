@@ -5,6 +5,8 @@
 import { observable, useStrict, action } from 'mobx';
 import Router from 'next/router';
 
+import type { LoopbackGraphql } from '../dao/loopback-graphql';
+
 import Accessibility from './Accessibility';
 import RequestSearch from './RequestSearch';
 import MapLocation from './MapLocation';
@@ -80,7 +82,7 @@ let browserStore: AppStore;
  * fresh store with the given initialState. On the browser, will always return
  * the same store and initialState is ignored after the first call.
  */
-export default function getStore(): AppStore {
+export default function getStore(loopbackGraphql: ?LoopbackGraphql): AppStore {
   if (process.browser && browserStore) {
     return browserStore;
   }
@@ -91,7 +93,7 @@ export default function getStore(): AppStore {
     browserStore = store;
     store.accessibility.attach();
     store.ui.attach();
-    store.browserLocation.attach();
+    store.browserLocation.attach(loopbackGraphql);
 
     new RouterListener().attach(Router, store);
   }

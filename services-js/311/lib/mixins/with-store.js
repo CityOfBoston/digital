@@ -8,7 +8,7 @@ import { runInAction } from 'mobx';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
-import { setClientCache } from '../../data/dao/loopback-graphql';
+import makeLoopbackGraphql, { setClientCache } from '../../data/dao/loopback-graphql';
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
 
@@ -48,7 +48,7 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
   constructor(props) {
     super(props);
 
-    this.store = getStore();
+    this.store = getStore(makeLoopbackGraphql());
 
     if (props.initialStoreState) {
       runInAction('withStore initialization', () => {
