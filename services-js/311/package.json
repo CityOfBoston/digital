@@ -58,6 +58,7 @@
     "graphql-server-hapi": "^0.7.2",
     "graphql-tools": "^0.10.0",
     "hapi": "^16.1.1",
+    "hapi-accept-language": "^1.0.1",
     "https-proxy-agent": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "leaflet": "1.0.2",

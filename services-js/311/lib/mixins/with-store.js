@@ -28,6 +28,7 @@ export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP
 
     const initialStoreState = req ? {
       apiKeys: req.apiKeys,
+      languages: req.languages,
       liveAgentButtonId: req.liveAgentButtonId,
     } : null;
 

@@ -6,11 +6,17 @@ import React from 'react';
 import { css } from 'glamor';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
+import Link from 'next/link';
+
+import type { LanguagePreference } from '../../../data/store';
 
 import FormDialog from '../../common/FormDialog';
-import { MEDIA_LARGE } from '../../style-constants';
+import { MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
 const DIALOG_CONTENTS_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
   minHeight: '40vh',
 });
 
@@ -25,9 +31,67 @@ const TELEPHONE_STYLE = css({
   },
 });
 
+const CONTINUE_LINK_STYLE = css({
+  fontStyle: 'normal',
+  flex: 1,
+  display: 'flex',
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+});
+
+export type DefaultProps = {
+  showContinueInEnglish: boolean,
+}
+
+export type Props = {|
+  languages: LanguagePreference[],
+  showContinueInEnglish?: boolean,
+|}
+
+const LANGUAGES = [
+  { code: 'ht', name: 'Kreyòl Ayisyen' },
+  { code: 'pt', name: 'Português' },
+  { code: 'es', name: 'Español' },
+  { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'zh-CN', name: '简体中文' },
+  { code: 'zh-TW', name: '繁體中文' },
+  { code: 'en', name: 'English' },
+];
+
 @observer
 export default class TranslateDialog extends React.Component {
-  @observable code: string = 'es';
+  props: Props;
+
+  static defaultProps: DefaultProps = {
+    showContinueInEnglish: false,
+  };
+
+  @observable code: string;
+
+  @action
+  componentWillMount() {
+    const { languages } = this.props;
+    this.code = TranslateDialog.findLanguage(languages) || 'es';
+  }
+
+  static findLanguage(languages: LanguagePreference[]): ?string {
+    for (let i = 0; i < languages.length; ++i) {
+      const lang = languages[i];
+
+      if (lang.region) {
+        const key = `${lang.code}-${lang.region}`;
+        if (LANGUAGES.find(({ code }) => (code === key))) {
+          return key;
+        }
+      }
+
+      if (LANGUAGES.find(({ code }) => (code === lang.code))) {
+        return lang.code;
+      }
+    }
+
+    return null;
+  }
 
   @action.bound
   setLanguageCode(code: string) {
@@ -35,37 +99,47 @@ export default class TranslateDialog extends React.Component {
   }
 
   render() {
+    const { showContinueInEnglish } = this.props;
+
     return (
-      <FormDialog>
-        <div className={DIALOG_CONTENTS_STYLE}>
-          <div className="g">
-            { this.renderButton('ht', 'Kreyòl Ayisyen') }
-            { this.renderButton('pt-BR', 'Português') }
-            { this.renderButton('es', 'Español') }
-            { this.renderButton('vi', 'Tiếng Việt') }
-            { this.renderButton('zh-CN', '简体中文') }
-            { this.renderButton('zh-TW', '繁體中文') }
-          </div>
-
-          <div className="g m-v500 p-a500" style={{ alignItems: 'center' }} >
-            <div className="g--1" />
-            <div className="g--2" >
-              <div className={TELEPHONE_STYLE} />
+      <div className={CENTERED_DIALOG_STYLE}>
+        <FormDialog>
+          <div className={DIALOG_CONTENTS_STYLE}>
+            <div className="g">
+              { LANGUAGES.map(({ code, name }) => this.renderButton(code, name)) }
             </div>
 
-            <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
-              If you need to report a non-emergency issue with the City of Boston, please call
-              BOS:311 at 311 or 617-635-4500.
+            <div className="g m-v500 p-a500" style={{ alignItems: 'center' }} >
+              <div className="g--1" />
+              <div className="g--2" >
+                <div className={TELEPHONE_STYLE} />
+              </div>
+
+              <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
+                If you need to report a non-emergency issue with the City of Boston, please call
+                BOS:311 at 311 or 617-635-4500.
+              </div>
+
             </div>
+
+            { showContinueInEnglish && (
+              <div className={`p-a500 t--info ${CONTINUE_LINK_STYLE.toString()}`}>
+                <Link href="/report?translate=0" as="/?translate=0"><a>Continue in English</a></Link>
+              </div>
+            )}
           </div>
-        </div>
-      </FormDialog>
+        </FormDialog>
+      </div>
     );
   }
 
   renderButton(code: string, title: string) {
+    if (code === 'en') {
+      return null;
+    }
+
     return (
-      <button className={`btn g--2 m-v100 ${(code === this.code) ? 'btn--c' : ''}`} onClick={this.setLanguageCode.bind(this, code)}>{title}</button>
+      <button key={code} className={`btn g--2 m-v100 ${(code === this.code) ? 'btn--c' : ''}`} onClick={this.setLanguageCode.bind(this, code)}>{title}</button>
     );
   }
 }

@@ -169,6 +169,7 @@ exports[`methods submitRequest success 2`] = `
           "browserLocation": BrowserLocation {
             "watchId": null,
           },
+          "languages": Array [],
           "mapLocation": MapLocation {},
           "requestSearch": RequestSearch {
             "searchDisposer": null,
@@ -401,7 +402,7 @@ exports[`rendering location 1`] = `
 <div
   className={
     Object {
-      "data-css-1xznh3v": "",
+      "data-css-5ju6dk": "",
     }
   }
 >

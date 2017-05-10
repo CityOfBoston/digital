@@ -5,6 +5,7 @@ import Good from 'good';
 import next from 'next';
 import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
+import acceptLanguagePlugin from 'hapi-accept-language';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import Open311 from './services/Open311';
@@ -59,6 +60,8 @@ export default async function startServer({ opbeat }: any) {
       },
     },
   });
+
+  server.register(acceptLanguagePlugin);
 
   server.register({
     register: graphqlHapi,

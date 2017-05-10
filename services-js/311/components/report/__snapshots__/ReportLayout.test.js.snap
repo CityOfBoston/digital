@@ -917,7 +917,7 @@ exports[`existing service page rendering phone location step 1`] = `
     <div
       className={
         Object {
-          "data-css-1xznh3v": "",
+          "data-css-5ju6dk": "",
         }
       }
     >
@@ -1222,209 +1222,199 @@ exports[`report form rendering 1`] = `
         }
       />
     </div>
-    <div>
-      <div
-        className={
-          Object {
-            "data-css-1rld2am": "",
-          }
+    <div
+      className={
+        Object {
+          "data-css-1d2khtc": "",
         }
+      }
+    >
+      <div
+        className=" br br-t400 br--y css-182uick"
+        style={Object {}}
       >
-        <div
-          className={
-            Object {
-              "data-css-1d2khtc": "",
-            }
-          }
-        >
+        <div>
           <div
-            className=" br br-t400 br--y css-182uick"
-            style={Object {}}
+            className="p-a300 p-a800--xl"
           >
-            <div>
-              <div
-                className="p-a300 p-a800--xl"
+            <div
+              className="sh sh--y"
+            >
+              <h1
+                className="sh-title"
               >
-                <div
-                  className="sh sh--y"
-                >
-                  <h1
-                    className="sh-title"
+                BOS:311 — File a Report
+              </h1>
+            </div>
+            <div
+              className="t--info m-v300"
+            >
+              Through BOS:311, you can report non-emergency issues with the City.
+            </div>
+            <div
+              className="g m-t500"
+            >
+              <div
+                className="g--7 css-1vm2aiv"
+              >
+                <div>
+                  <h2
+                    className="stp m-v100"
                   >
-                    BOS:311 — File a Report
-                  </h1>
-                </div>
-                <div
-                  className="t--info m-v300"
-                >
-                  Through BOS:311, you can report non-emergency issues with the City.
-                </div>
-                <div
-                  className="g m-t500"
-                >
-                  <div
-                    className="g--7 css-1vm2aiv"
-                  >
-                    <div>
-                      <h2
-                        className="stp m-v100"
-                      >
-                        Tell us your problem:
-                      </h2>
-                      <textarea
-                        aria-label="Description of the problem"
-                        className={
-                          Object {
-                            "data-css-14mt46e": "",
-                          }
-                        }
-                        defaultValue=""
-                        name="description"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        onInput={[Function]}
-                        placeholder=""
-                      />
-                    </div>
-                    <div
-                      className="m-t500"
-                      style={
-                        Object {
-                          "textAlign": "right",
-                        }
+                    Tell us your problem:
+                  </h2>
+                  <textarea
+                    aria-label="Description of the problem"
+                    className={
+                      Object {
+                        "data-css-14mt46e": "",
                       }
-                    >
-                      <button
-                        className="btn m-h100"
-                        onClick={[Function]}
-                      >
-                        Start Live Chat
-                      </button>
-                      <button
-                        className="btn css-1q8b8td"
-                        disabled={true}
-                        onClick={[Function]}
-                      >
-                        Start a Report
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    className="g--1 m-v300 css-1sliefw"
+                    }
+                    defaultValue=""
+                    name="description"
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    onInput={[Function]}
+                    placeholder=""
+                  />
+                </div>
+                <div
+                  className="m-t500"
+                  style={
+                    Object {
+                      "textAlign": "right",
+                    }
+                  }
+                >
+                  <button
+                    className="btn m-h100"
+                    onClick={[Function]}
                   >
-                    <div
-                      className="br br-a150 css-7mg7kt"
-                    />
-                    <div
-                      className="br br-a150 t--info css-u5arvv"
-                    >
-                      or
-                    </div>
-                    <div
-                      className="br br-a150 css-7mg7kt"
-                    />
-                  </div>
-                  <div
-                    className="g--4"
+                    Start Live Chat
+                  </button>
+                  <button
+                    className="btn css-1q8b8td"
+                    disabled={true}
+                    onClick={[Function]}
                   >
-                    <h2
-                      className="a11y--h"
-                    >
-                      Popular Services
-                    </h2>
-                    <div
-                      className="t--info"
-                    >
-                      You can also start a report by picking one of these popular services:
-                    </div>
-                    <ul
-                      className="ul m-v300"
-                    >
-                      <li
-                        className="t--info"
-                      >
-                        <a
-                          className="m-v100"
-                          href="/report/CSMCINC"
-                          onClick={[Function]}
-                        >
-                          Cosmic Incursion
-                        </a>
-                      </li>
-                    </ul>
-                    <div
-                      className="t--info"
-                    >
-                      <a
-                        href="/services"
-                        onClick={[Function]}
-                      >
-                        See all services…
-                      </a>
-                    </div>
-                  </div>
+                    Start a Report
+                  </button>
                 </div>
               </div>
               <div
-                className="b b--g p-a300 p-a800--xl css-17cwx2g"
-                role="search"
-                style={
-                  Object {
-                    "paddingBottom": 0,
-                    "paddingTop": 0,
-                  }
-                }
+                className="g--1 m-v300 css-1sliefw"
+              >
+                <div
+                  className="br br-a150 css-7mg7kt"
+                />
+                <div
+                  className="br br-a150 t--info css-u5arvv"
+                >
+                  or
+                </div>
+                <div
+                  className="br br-a150 css-7mg7kt"
+                />
+              </div>
+              <div
+                className="g--4"
               >
                 <h2
                   className="a11y--h"
                 >
-                  Public Reports
+                  Popular Services
                 </h2>
                 <div
-                  className="g"
+                  className="t--info"
                 >
-                  <form
-                    acceptCharset="UTF-8"
-                    action="/lookup"
-                    className="sf sf--y sf--md g--7 m-v400"
-                    method="get"
-                    onSubmit={[Function]}
-                  >
-                    <div
-                      className="sf-i"
-                    >
-                      <input
-                        aria-label="Search field"
-                        className="sf-i-f"
-                        name="q"
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        placeholder="Search by case ID or keywords…"
-                        type="text"
-                        value=""
-                      />
-                      <button
-                        className="sf-i-b"
-                        type="submit"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </form>
-                  <div
-                    className="g--1"
-                  />
-                  <div
-                    className="g--4 t--info css-12alag6"
+                  You can also start a report by picking one of these popular services:
+                </div>
+                <ul
+                  className="ul m-v300"
+                >
+                  <li
+                    className="t--info"
                   >
                     <a
-                      href="/search"
+                      className="m-v100"
+                      href="/report/CSMCINC"
                       onClick={[Function]}
                     >
-                      Browse public cases
+                      Cosmic Incursion
                     </a>
-                  </div>
+                  </li>
+                </ul>
+                <div
+                  className="t--info"
+                >
+                  <a
+                    href="/services"
+                    onClick={[Function]}
+                  >
+                    See all services…
+                  </a>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="b b--g p-a300 p-a800--xl css-17cwx2g"
+            role="search"
+            style={
+              Object {
+                "paddingBottom": 0,
+                "paddingTop": 0,
+              }
+            }
+          >
+            <h2
+              className="a11y--h"
+            >
+              Public Reports
+            </h2>
+            <div
+              className="g"
+            >
+              <form
+                acceptCharset="UTF-8"
+                action="/lookup"
+                className="sf sf--y sf--md g--7 m-v400"
+                method="get"
+                onSubmit={[Function]}
+              >
+                <div
+                  className="sf-i"
+                >
+                  <input
+                    aria-label="Search field"
+                    className="sf-i-f"
+                    name="q"
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Search by case ID or keywords…"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="sf-i-b"
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
+              <div
+                className="g--1"
+              />
+              <div
+                className="g--4 t--info css-12alag6"
+              >
+                <a
+                  href="/search"
+                  onClick={[Function]}
+                >
+                  Browse public cases
+                </a>
               </div>
             </div>
           </div>
@@ -1540,87 +1530,95 @@ exports[`translate page rendering 1`] = `
       />
     </div>
     <div
-      className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
-      style={Object {}}
+      className={
+        Object {
+          "data-css-1d2khtc": "",
+        }
+      }
     >
       <div
-        className={
-          Object {
-            "data-css-4u7o5n": "",
-          }
-        }
+        className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
+        style={Object {}}
       >
         <div
-          className="g"
-        >
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-          >
-            Kreyòl Ayisyen
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-          >
-            Português
-          </button>
-          <button
-            className="btn g--2 m-v100 btn--c"
-            onClick={[Function]}
-          >
-            Español
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-          >
-            Tiếng Việt
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-          >
-            简体中文
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-          >
-            繁體中文
-          </button>
-        </div>
-        <div
-          className="g m-v500 p-a500"
-          style={
+          className={
             Object {
-              "alignItems": "center",
+              "data-css-1lvs59o": "",
             }
           }
         >
           <div
-            className="g--1"
-          />
-          <div
-            className="g--2"
+            className="g"
           >
-            <div
-              className={
-                Object {
-                  "data-css-1y4p5hu": "",
-                }
-              }
-            />
+            <button
+              className="btn g--2 m-v100 "
+              onClick={[Function]}
+            >
+              Kreyòl Ayisyen
+            </button>
+            <button
+              className="btn g--2 m-v100 "
+              onClick={[Function]}
+            >
+              Português
+            </button>
+            <button
+              className="btn g--2 m-v100 btn--c"
+              onClick={[Function]}
+            >
+              Español
+            </button>
+            <button
+              className="btn g--2 m-v100 "
+              onClick={[Function]}
+            >
+              Tiếng Việt
+            </button>
+            <button
+              className="btn g--2 m-v100 "
+              onClick={[Function]}
+            >
+              简体中文
+            </button>
+            <button
+              className="btn g--2 m-v100 "
+              onClick={[Function]}
+            >
+              繁體中文
+            </button>
           </div>
           <div
-            className="g--8 t--intro"
+            className="g m-v500 p-a500"
             style={
               Object {
-                "fontStyle": "normal",
+                "alignItems": "center",
               }
             }
           >
-            If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 617-635-4500.
+            <div
+              className="g--1"
+            />
+            <div
+              className="g--2"
+            >
+              <div
+                className={
+                  Object {
+                    "data-css-1y4p5hu": "",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="g--8 t--intro"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 617-635-4500.
+            </div>
           </div>
         </div>
       </div>

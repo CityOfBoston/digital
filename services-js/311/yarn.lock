@@ -125,6 +125,10 @@ abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
 
+accept-language-parser@^1.0.2:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/accept-language-parser/-/accept-language-parser-1.4.0.tgz#45f242245ddb142e454f109ed6ac076e40b89de0"
+
 accept@2.x.x:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/accept/-/accept-2.1.3.tgz#ab0f5bda4c449bbe926aea607b3522562f5acf86"
@@ -3489,6 +3493,12 @@ handlebars@^4.0.3:
     source-map "^0.4.4"
   optionalDependencies:
     uglify-js "^2.6"
+
+hapi-accept-language@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hapi-accept-language/-/hapi-accept-language-1.0.1.tgz#faf30bf4ee0fbf8f7712672f025b89c6d48dcd01"
+  dependencies:
+    accept-language-parser "^1.0.2"
 
 hapi@^16.1.1:
   version "16.1.1"

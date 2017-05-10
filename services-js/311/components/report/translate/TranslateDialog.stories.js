@@ -6,5 +6,10 @@ import TranslateDialog from './TranslateDialog';
 
 storiesOf('TranslateDialog', module)
   .add('loading', () => (
-    <TranslateDialog />
+    <TranslateDialog
+      languages={[
+        { code: 'en', region: 'US', quality: 1 },
+        { code: 'en', region: undefined, quality: 0.8 },
+      ]}
+    />
   ));

@@ -1,148 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`choose page rendering 1`] = `
-<div>
+<div
+  className={
+    Object {
+      "data-css-1d2khtc": "",
+    }
+  }
+>
   <div
-    className={
+    className=" br br-t400 br--y css-182uick"
+    style={
       Object {
-        "data-css-1rld2am": "",
+        "maxWidth": 800,
       }
     }
   >
-    <div
-      className={
-        Object {
-          "data-css-1d2khtc": "",
-        }
-      }
-    >
+    <div>
       <div
-        className=" br br-t400 br--y css-182uick"
+        className="p-a300 p-a800--xl"
         style={
           Object {
-            "maxWidth": 800,
+            "paddingBottom": ".75rem",
           }
         }
       >
+        <div
+          className="sh sh--y"
+        >
+          <h1
+            className="sh-title"
+          >
+            BOS:311 — File a Report
+          </h1>
+        </div>
+        <div
+          className="m-v500 t--intro"
+        >
+          “
+          Thanos is attacking
+          ”
+        </div>
+      </div>
+      <div
+        className="b b--g p-a300 p-a800--xl"
+      >
+        <h2
+          className="stp"
+        >
+          How can we help?
+        </h2>
         <div>
           <div
-            className="p-a300 p-a800--xl"
-            style={
-              Object {
-                "paddingBottom": ".75rem",
-              }
-            }
+            className="t--info m-v300"
           >
-            <div
-              className="sh sh--y"
-            >
-              <h1
-                className="sh-title"
-              >
-                BOS:311 — File a Report
-              </h1>
-            </div>
-            <div
-              className="m-v500 t--intro"
-            >
-              “
-              Thanos is attacking
-              ”
-            </div>
+            Matching your problem to BOS:311 services…
           </div>
           <div
-            className="b b--g p-a300 p-a800--xl"
+            className="p-a300 g css-rdsogp"
           >
-            <h2
-              className="stp"
+            <div
+              className="g--4 css-19eoixt"
             >
-              How can we help?
-            </h2>
-            <div>
-              <div
-                className="t--info m-v300"
+              <span
+                className={
+                  Object {
+                    "data-css-17mox4x": "",
+                  }
+                }
               >
-                Matching your problem to BOS:311 services…
-              </div>
-              <div
-                className="p-a300 g css-rdsogp"
+                <svg
+                  className={
+                    Object {
+                      "data-css-1acy7qc": "",
+                    }
+                  }
+                  role="img"
+                >
+                  <use
+                    height="100%"
+                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              className="g--4 css-19eoixt"
+            >
+              <span
+                className={
+                  Object {
+                    "data-css-17mox4x": "",
+                  }
+                }
               >
-                <div
-                  className="g--4 css-19eoixt"
-                >
-                  <span
-                    className={
-                      Object {
-                        "data-css-17mox4x": "",
-                      }
+                <svg
+                  className={
+                    Object {
+                      "data-css-1acy7qc": "",
                     }
-                  >
-                    <svg
-                      className={
-                        Object {
-                          "data-css-1acy7qc": "",
-                        }
-                      }
-                      role="img"
-                    >
-                      <use
-                        height="100%"
-                        xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  className="g--4 css-19eoixt"
+                  }
+                  role="img"
                 >
-                  <span
-                    className={
-                      Object {
-                        "data-css-17mox4x": "",
-                      }
+                  <use
+                    height="100%"
+                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              className="g--4 css-19eoixt"
+            >
+              <span
+                className={
+                  Object {
+                    "data-css-17mox4x": "",
+                  }
+                }
+              >
+                <svg
+                  className={
+                    Object {
+                      "data-css-1acy7qc": "",
                     }
-                  >
-                    <svg
-                      className={
-                        Object {
-                          "data-css-1acy7qc": "",
-                        }
-                      }
-                      role="img"
-                    >
-                      <use
-                        height="100%"
-                        xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  className="g--4 css-19eoixt"
+                  }
+                  role="img"
                 >
-                  <span
-                    className={
-                      Object {
-                        "data-css-17mox4x": "",
-                      }
-                    }
-                  >
-                    <svg
-                      className={
-                        Object {
-                          "data-css-1acy7qc": "",
-                        }
-                      }
-                      role="img"
-                    >
-                      <use
-                        height="100%"
-                        xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+                  <use
+                    height="100%"
+                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </div>
@@ -153,203 +143,193 @@ exports[`choose page rendering 1`] = `
 `;
 
 exports[`home page rendering 1`] = `
-<div>
-  <div
-    className={
-      Object {
-        "data-css-1rld2am": "",
-      }
+<div
+  className={
+    Object {
+      "data-css-1d2khtc": "",
     }
+  }
+>
+  <div
+    className=" br br-t400 br--y css-182uick"
+    style={Object {}}
   >
-    <div
-      className={
-        Object {
-          "data-css-1d2khtc": "",
-        }
-      }
-    >
+    <div>
       <div
-        className=" br br-t400 br--y css-182uick"
-        style={Object {}}
+        className="p-a300 p-a800--xl"
       >
-        <div>
-          <div
-            className="p-a300 p-a800--xl"
+        <div
+          className="sh sh--y"
+        >
+          <h1
+            className="sh-title"
           >
-            <div
-              className="sh sh--y"
-            >
-              <h1
-                className="sh-title"
+            BOS:311 — File a Report
+          </h1>
+        </div>
+        <div
+          className="t--info m-v300"
+        >
+          Through BOS:311, you can report non-emergency issues with the City.
+        </div>
+        <div
+          className="g m-t500"
+        >
+          <div
+            className="g--7 css-1vm2aiv"
+          >
+            <div>
+              <h2
+                className="stp m-v100"
               >
-                BOS:311 — File a Report
-              </h1>
-            </div>
-            <div
-              className="t--info m-v300"
-            >
-              Through BOS:311, you can report non-emergency issues with the City.
-            </div>
-            <div
-              className="g m-t500"
-            >
-              <div
-                className="g--7 css-1vm2aiv"
-              >
-                <div>
-                  <h2
-                    className="stp m-v100"
-                  >
-                    Tell us your problem:
-                  </h2>
-                  <textarea
-                    aria-label="Description of the problem"
-                    className={
-                      Object {
-                        "data-css-14mt46e": "",
-                      }
-                    }
-                    defaultValue=""
-                    name="description"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                    onInput={[Function]}
-                    placeholder=""
-                  />
-                </div>
-                <div
-                  className="m-t500"
-                  style={
-                    Object {
-                      "textAlign": "right",
-                    }
+                Tell us your problem:
+              </h2>
+              <textarea
+                aria-label="Description of the problem"
+                className={
+                  Object {
+                    "data-css-14mt46e": "",
                   }
-                >
-                  <button
-                    className="btn css-1q8b8td"
-                    disabled={true}
-                    onClick={[Function]}
-                  >
-                    Start a Report
-                  </button>
-                </div>
-              </div>
-              <div
-                className="g--1 m-v300 css-1sliefw"
+                }
+                defaultValue=""
+                name="description"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                placeholder=""
+              />
+            </div>
+            <div
+              className="m-t500"
+              style={
+                Object {
+                  "textAlign": "right",
+                }
+              }
+            >
+              <button
+                className="btn css-1q8b8td"
+                disabled={true}
+                onClick={[Function]}
               >
-                <div
-                  className="br br-a150 css-7mg7kt"
-                />
-                <div
-                  className="br br-a150 t--info css-u5arvv"
-                >
-                  or
-                </div>
-                <div
-                  className="br br-a150 css-7mg7kt"
-                />
-              </div>
-              <div
-                className="g--4"
-              >
-                <h2
-                  className="a11y--h"
-                >
-                  Popular Services
-                </h2>
-                <div
-                  className="t--info"
-                >
-                  You can also start a report by picking one of these popular services:
-                </div>
-                <ul
-                  className="ul m-v300"
-                >
-                  <li
-                    className="t--info"
-                  >
-                    <a
-                      className="m-v100"
-                      href="/report/CSMCINC"
-                      onClick={[Function]}
-                    >
-                      Cosmic Incursion
-                    </a>
-                  </li>
-                </ul>
-                <div
-                  className="t--info"
-                >
-                  <a
-                    href="/services"
-                    onClick={[Function]}
-                  >
-                    See all services…
-                  </a>
-                </div>
-              </div>
+                Start a Report
+              </button>
             </div>
           </div>
           <div
-            className="b b--g p-a300 p-a800--xl css-17cwx2g"
-            role="search"
-            style={
-              Object {
-                "paddingBottom": 0,
-                "paddingTop": 0,
-              }
-            }
+            className="g--1 m-v300 css-1sliefw"
+          >
+            <div
+              className="br br-a150 css-7mg7kt"
+            />
+            <div
+              className="br br-a150 t--info css-u5arvv"
+            >
+              or
+            </div>
+            <div
+              className="br br-a150 css-7mg7kt"
+            />
+          </div>
+          <div
+            className="g--4"
           >
             <h2
               className="a11y--h"
             >
-              Public Reports
+              Popular Services
             </h2>
             <div
-              className="g"
+              className="t--info"
             >
-              <form
-                acceptCharset="UTF-8"
-                action="/lookup"
-                className="sf sf--y sf--md g--7 m-v400"
-                method="get"
-                onSubmit={[Function]}
-              >
-                <div
-                  className="sf-i"
-                >
-                  <input
-                    aria-label="Search field"
-                    className="sf-i-f"
-                    name="q"
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="Search by case ID or keywords…"
-                    type="text"
-                    value=""
-                  />
-                  <button
-                    className="sf-i-b"
-                    type="submit"
-                  >
-                    Search
-                  </button>
-                </div>
-              </form>
-              <div
-                className="g--1"
-              />
-              <div
-                className="g--4 t--info css-12alag6"
+              You can also start a report by picking one of these popular services:
+            </div>
+            <ul
+              className="ul m-v300"
+            >
+              <li
+                className="t--info"
               >
                 <a
-                  href="/search"
+                  className="m-v100"
+                  href="/report/CSMCINC"
                   onClick={[Function]}
                 >
-                  Browse public cases
+                  Cosmic Incursion
                 </a>
-              </div>
+              </li>
+            </ul>
+            <div
+              className="t--info"
+            >
+              <a
+                href="/services"
+                onClick={[Function]}
+              >
+                See all services…
+              </a>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="b b--g p-a300 p-a800--xl css-17cwx2g"
+        role="search"
+        style={
+          Object {
+            "paddingBottom": 0,
+            "paddingTop": 0,
+          }
+        }
+      >
+        <h2
+          className="a11y--h"
+        >
+          Public Reports
+        </h2>
+        <div
+          className="g"
+        >
+          <form
+            acceptCharset="UTF-8"
+            action="/lookup"
+            className="sf sf--y sf--md g--7 m-v400"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Search field"
+                className="sf-i-f"
+                name="q"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Search by case ID or keywords…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+          <div
+            className="g--1"
+          />
+          <div
+            className="g--4 t--info css-12alag6"
+          >
+            <a
+              href="/search"
+              onClick={[Function]}
+            >
+              Browse public cases
+            </a>
           </div>
         </div>
       </div>

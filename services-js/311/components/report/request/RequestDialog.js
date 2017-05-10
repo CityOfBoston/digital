@@ -54,7 +54,9 @@ const COMMON_DIALOG_STYLE = {
 const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
-    margin: '-0px 70% 0 40px',
+    // comedy bottom margin to push this up into the corner, otherwise it would
+    // get vertically centered.
+    margin: '-0px 70% 90vh 40px',
     minWidth: 450,
   },
 });

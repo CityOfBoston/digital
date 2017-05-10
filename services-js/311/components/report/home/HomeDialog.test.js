@@ -100,7 +100,7 @@ describe('integration', () => {
 
     loadServiceSuggestions.mockReturnValue(new Promise((resolve) => { resolveSuggestions = resolve; }));
 
-    wrapper = mount(<HomeDialog store={store} description="Thanos is attacking" loopbackGraphql={jest.fn()} stage="choose" topServiceSummaries={[]} />);
+    wrapper = mount(<HomeDialog store={store} description="Thanos is attacking" loopbackGraphql={jest.fn()} stage="choose" topServiceSummaries={[]} bypassTranslateDialog />);
   });
 
   afterEach(() => {

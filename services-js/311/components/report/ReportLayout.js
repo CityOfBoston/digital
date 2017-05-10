@@ -90,7 +90,7 @@ export default class ReportLayout extends React.Component {
 
     let data;
 
-    if (query.translate) {
+    if (query.translate === '1') {
       data = {
         view: 'translate',
         props: {},
@@ -195,7 +195,7 @@ export default class ReportLayout extends React.Component {
             />}
 
           { data.view === 'translate' &&
-            <TranslateDialog />
+            <TranslateDialog languages={store.languages} />
           }
         </div>
 

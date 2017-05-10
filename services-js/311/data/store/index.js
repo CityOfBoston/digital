@@ -16,6 +16,12 @@ import RouterListener from './RouterListener';
 // MobX will enforce that state changes only happen in action blocks.
 useStrict(true);
 
+export type LanguagePreference = {|
+  code: string,
+  region: ?string,
+  quality: number,
+|};
+
 export class AppStore {
   // Initialization data from the server
   apiKeys: {[service: string]: any} = {};
@@ -26,6 +32,8 @@ export class AppStore {
   browserLocation: BrowserLocation = new BrowserLocation();
   mapLocation: MapLocation = new MapLocation();
   allServices: AllServices = new AllServices();
+
+  languages: LanguagePreference[] = [];
 
   @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
 

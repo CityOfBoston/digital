@@ -13,19 +13,27 @@ type HapiInject = (options: {|
   payload: any,
 |}) => Promise<HapiResponse>;
 
+type Language = {|
+  code: string,
+  region: ?string,
+  quality: number,
+|};
+
 export type RequestAdditions = {|
   hapiInject: HapiInject,
+  languages: Language[],
   apiKeys: {|
     cloudinary: Object,
     mapbox: Object,
   |},
   liveAgentButtonId: string,
   loopbackGraphqlCache: {[key: string]: mixed},
-|}
+|};
 
-const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params }, reply) => {
+const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params, pre }, reply) => {
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
+    languages: pre.language,
     apiKeys: {
       cloudinary: {
         url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD || ''}`,

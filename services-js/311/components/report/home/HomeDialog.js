@@ -3,7 +3,6 @@
 import React from 'react';
 import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
-import { css } from 'glamor';
 import debounce from 'lodash/debounce';
 import type { Context } from 'next';
 import Router from 'next/router';
@@ -19,7 +18,8 @@ import loadTopServiceSummaries from '../../../data/dao/load-top-service-summarie
 
 import FormDialog from '../../common/FormDialog';
 import LoadingIcons from '../../common/LoadingIcons';
-import { HEADER_HEIGHT, MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
+import { CENTERED_DIALOG_STYLE } from '../../style-constants';
+import TranslateDialog from '../translate/TranslateDialog';
 
 import HomePane from './HomePane';
 import ChooseServicePane from './ChooseServicePane';
@@ -30,6 +30,7 @@ export type InitialProps = {|
   topServiceSummaries: ServiceSummary[],
   description: string,
   stage: Stage,
+  bypassTranslateDialog: boolean,
 |}
 
 export type Props = {|
@@ -37,17 +38,6 @@ export type Props = {|
   loopbackGraphql: LoopbackGraphql,
   /* :: ...InitialProps, */
 |};
-
-const SCREENFULL_CONTAINER = css({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  position: 'relative',
-  zIndex: 1,
-  [MEDIA_LARGE]: {
-    minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
-  },
-});
 
 @observer
 export default class HomeDialog extends React.Component {
@@ -60,13 +50,14 @@ export default class HomeDialog extends React.Component {
 
   // Called by ReportLayout
   static async getInitialProps({ query, req }: Context<RequestAdditions>): Promise<InitialProps> {
-    const { stage, description } = query;
+    const { stage, description, translate } = query;
     const loopbackGraphql = makeLoopbackGraphql(req);
 
     return {
       topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql, 5),
       stage: stage === 'choose' ? stage : 'home',
       description: description || '',
+      bypassTranslateDialog: translate === '0',
     };
   }
 
@@ -127,20 +118,23 @@ export default class HomeDialog extends React.Component {
   }
 
   render() {
-    const { stage } = this.props;
+    const { stage, store: { languages }, bypassTranslateDialog } = this.props;
+
+    const translateLanguage = TranslateDialog.findLanguage(languages);
+    const showTranslate = translateLanguage && translateLanguage !== 'en' && !bypassTranslateDialog && stage === 'home';
 
     const narrow = (stage === 'choose');
 
+    if (showTranslate) {
+      return <TranslateDialog languages={languages} showContinueInEnglish />;
+    }
+
     return (
-      <div>
-        <div className={SCREENFULL_CONTAINER}>
-          <div className={CENTERED_DIALOG_STYLE}>
-            <FormDialog narrow={narrow} noPadding>
-              { stage === 'home' && this.renderHome() }
-              { stage === 'choose' && this.renderServicePicker() }
-            </FormDialog>
-          </div>
-        </div>
+      <div className={CENTERED_DIALOG_STYLE}>
+        <FormDialog narrow={narrow} noPadding>
+          { stage === 'home' && this.renderHome() }
+          { stage === 'choose' && this.renderServicePicker() }
+        </FormDialog>
       </div>
     );
   }

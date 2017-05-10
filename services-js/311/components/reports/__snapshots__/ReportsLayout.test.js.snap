@@ -152,11 +152,7 @@ exports[`case rendering 1`] = `
     role="main"
   >
     <div
-      className={
-        Object {
-          "data-css-38wlrs": "",
-        }
-      }
+      className="p-a300 css-jy1f9a"
     >
       <div
         className="p-a500 css-pym862"

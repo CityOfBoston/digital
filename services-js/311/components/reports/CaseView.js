@@ -22,7 +22,7 @@ export type Props = {|
 
 const CONTAINER_STYLE = css({
   maxWidth: 960,
-  margin: '40px auto',
+  margin: '0 auto',
 });
 
 const HEADER_STYLE = css({
@@ -98,7 +98,7 @@ export default function CaseView({ request, store, submitted }: Props) {
   const waypointIcon = request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
   return (
-    <div className={CONTAINER_STYLE}>
+    <div className={`p-a300 ${CONTAINER_STYLE.toString()}`}>
       <div className={`p-a500 ${HEADER_STYLE.toString()}`}>
         <SectionHeader subtitle={`Case no: #${request.id}`}>{request.service.name}</SectionHeader>
 
