@@ -206,7 +206,7 @@ export default class AttributeDateField extends React.Component {
   }
 
   @computed get isTimeValid(): boolean {
-    return (this.timeValue === '' && !this.dateValue) || this.timePieces !== null;
+    return !this.showTime || (this.timeValue === '' && !this.dateValue) || this.timePieces !== null;
   }
 
   /* combines date and time if necessary into an ISO string to write to
