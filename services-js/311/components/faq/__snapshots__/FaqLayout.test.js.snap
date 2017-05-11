@@ -90,15 +90,27 @@ exports[`rendering 1`] = `
         className="g m-v500"
       >
         <a
-          className="lwi lwi--y g--3 m-v100 css-xqv99i"
+          className="lwi lwi--y g--3 m-v100"
           href="https://twitter.com/bos311"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="lwi-ic"
           >
-            <div
-              className="img lwi-i"
-            />
+            <svg
+              className={
+                Object {
+                  "data-css-1ng4zk0": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/faq-icons.svg#Twitter_off"
+              />
+            </svg>
           </div>
           <span
             className="lwi-t"
@@ -107,15 +119,27 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3 m-v100 css-s2pko5"
+          className="lwi lwi--y g--3 m-v100"
           href="tel:+311"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="lwi-ic"
           >
-            <div
-              className="img lwi-i"
-            />
+            <svg
+              className={
+                Object {
+                  "data-css-1ng4zk0": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/faq-icons.svg#Phone_off"
+              />
+            </svg>
           </div>
           <span
             className="lwi-t"
@@ -124,15 +148,27 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3 m-v100 css-1ptlamp"
+          className="lwi lwi--y g--3 m-v100"
           href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="lwi-ic"
           >
-            <div
-              className="img lwi-i"
-            />
+            <svg
+              className={
+                Object {
+                  "data-css-1ng4zk0": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/faq-icons.svg#App_store_off"
+              />
+            </svg>
           </div>
           <span
             className="lwi-t"
@@ -141,15 +177,27 @@ exports[`rendering 1`] = `
           </span>
         </a>
         <a
-          className="lwi lwi--y g--3 m-v100 css-jvor5j"
+          className="lwi lwi--y g--3 m-v100"
           href="/"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="lwi-ic"
           >
-            <div
-              className="img lwi-i"
-            />
+            <svg
+              className={
+                Object {
+                  "data-css-1ng4zk0": "",
+                }
+              }
+              role="img"
+            >
+              <use
+                height="100%"
+                xlinkHref="/static/img/svg/faq-icons.svg#Computer_off"
+              />
+            </svg>
           </div>
           <span
             className="lwi-t"

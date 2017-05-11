@@ -9,55 +9,17 @@ import { css } from 'glamor';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
-const BLOCK_BASE_STYLE = {
-  background: 'url(/static/img/faq-icons.png) no-repeat',
-};
+import { MEDIA_MEDIUM } from '../style-constants';
 
-const TWITTER_BLOCK_STYLE = css({
-  ' .img': {
-    ...BLOCK_BASE_STYLE,
-    width: 92,
-    height: 86,
-    backgroundPosition: '-450px -5px',
-  },
-  ':hover .img': {
-    backgroundPosition: '-450px -105px',
-  },
-});
+const SPRITE_URL = '/static/img/svg/faq-icons.svg';
 
-const TELEPHONE_BLOCK_STYLE = css({
-  ' .img': {
-    ...BLOCK_BASE_STYLE,
-    width: 99,
-    height: 93,
-    backgroundPosition: '-300px -5px',
-  },
-  ':hover .img': {
-    backgroundPosition: '-300px -105px',
-  },
-});
-
-const APP_BLOCK_STYLE = css({
-  ' .img': {
-    ...BLOCK_BASE_STYLE,
-    width: 144,
-    height: 100,
-    backgroundPosition: '0 -5px',
-  },
-  ':hover .img': {
-    backgroundPosition: '0 -105px',
-  },
-});
-
-const COMPUTER_BLOCK_STYLE = css({
-  ' .img': {
-    ...BLOCK_BASE_STYLE,
-    width: 103,
-    height: 90,
-    backgroundPosition: '-150px -5px',
-  },
-  ':hover .img': {
-    backgroundPosition: '-150px -105px',
+const ICON_STYLE = css({
+  width: '90%',
+  maxHeight: 72,
+  [MEDIA_MEDIUM]: {
+    width: '100%',
+    height: '100%',
+    maxHeight: 'auto',
   },
 });
 
@@ -72,7 +34,35 @@ function Question({ title, children }) {
   );
 }
 
+type State = {
+  hoveredIcon: 'twitter' | 'app' | 'phone' | 'computer' | null,
+};
+
 export default class FaqLayout extends React.Component {
+  state: State = {
+    hoveredIcon: null,
+  };
+
+  handleEnterTwitter = () => {
+    this.setState({ hoveredIcon: 'twitter' });
+  }
+
+  handleEnterPhone = () => {
+    this.setState({ hoveredIcon: 'phone' });
+  }
+
+  handleEnterApp = () => {
+    this.setState({ hoveredIcon: 'app' });
+  }
+
+  handleEnterComputer = () => {
+    this.setState({ hoveredIcon: 'computer' });
+  }
+
+  handleLeave = () => {
+    this.setState({ hoveredIcon: null });
+  }
+
   render() {
     // Used in test to keep the contents of the questions out of the
     // snapshot so that updating them is easier.
@@ -91,20 +81,20 @@ export default class FaqLayout extends React.Component {
             <SectionHeader>How to 311</SectionHeader>
 
             <div className="g m-v500">
-              <a href="https://twitter.com/bos311" className={`lwi lwi--y g--3 m-v100 ${TWITTER_BLOCK_STYLE.toString()}`}>
-                <div className="lwi-ic"><div className="img lwi-i" /></div>
+              <a href="https://twitter.com/bos311" className="lwi lwi--y g--3 m-v100" onMouseEnter={this.handleEnterTwitter} onMouseLeave={this.handleLeave}>
+                { this.renderIcon('Twitter', 'twitter') }
                 <span className="lwi-t">Tweet @bos311</span>
               </a>
-              <a href="tel:+311" className={`lwi lwi--y g--3 m-v100 ${TELEPHONE_BLOCK_STYLE.toString()}`}>
-                <div className="lwi-ic"><div className="img lwi-i" /></div>
+              <a href="tel:+311" className="lwi lwi--y g--3 m-v100" onMouseEnter={this.handleEnterPhone} onMouseLeave={this.handleLeave}>
+                { this.renderIcon('Phone', 'phone') }
                 <span className="lwi-t">Dial 311</span>
               </a>
-              <a href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311" className={`lwi lwi--y g--3 m-v100 ${APP_BLOCK_STYLE.toString()}`}>
-                <div className="lwi-ic"><div className="img lwi-i" /></div>
+              <a href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311" className="lwi lwi--y g--3 m-v100" onMouseEnter={this.handleEnterApp} onMouseLeave={this.handleLeave}>
+                { this.renderIcon('App_store', 'app') }
                 <span className="lwi-t">Download the App</span>
               </a>
-              <a href="/" className={`lwi lwi--y g--3 m-v100 ${COMPUTER_BLOCK_STYLE.toString()}`}>
-                <div className="lwi-ic"><div className="img lwi-i" /></div>
+              <a href="/" className="lwi lwi--y g--3 m-v100" onMouseEnter={this.handleEnterComputer} onMouseLeave={this.handleLeave}>
+                { this.renderIcon('Computer', 'computer') }
                 <span className="lwi-t">Use this site</span>
               </a>
             </div>
@@ -185,6 +175,18 @@ export default class FaqLayout extends React.Component {
 
           </div>
         </div>
+      </div>
+    );
+  }
+
+  renderIcon(svgName: string, stateName: string) {
+    const { hoveredIcon } = this.state;
+
+    return (
+      <div className="lwi-ic">
+        <svg role="img" className={ICON_STYLE}>
+          <use xlinkHref={`${SPRITE_URL}#${svgName}_${hoveredIcon === stateName ? 'on' : 'off'}`} height="100%" />
+        </svg>
       </div>
     );
   }

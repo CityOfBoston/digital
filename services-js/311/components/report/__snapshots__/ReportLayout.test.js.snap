@@ -1662,18 +1662,21 @@ exports[`translate page rendering 1`] = `
             }
           >
             <div
-              className="g--1"
-            />
-            <div
-              className="g--2"
+              className="g--3"
             >
-              <div
+              <svg
                 className={
                   Object {
-                    "data-css-1y4p5hu": "",
+                    "data-css-t6y51u": "",
                   }
                 }
-              />
+                role="img"
+              >
+                <use
+                  height="100%"
+                  xlinkHref="/static/img/svg/faq-icons.svg#Phone_off"
+                />
+              </svg>
             </div>
             <div
               className="g--8 t--intro"
@@ -1683,7 +1686,17 @@ exports[`translate page rendering 1`] = `
                 }
               }
             >
-              If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 617-635-4500.
+              If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                617-635-4500
+              </span>
+              .
             </div>
           </div>
         </div>

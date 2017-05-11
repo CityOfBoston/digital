@@ -13,6 +13,8 @@ import type { LanguagePreference } from '../../../data/store';
 import FormDialog from '../../common/FormDialog';
 import { MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
+const SPRITE_URL = '/static/img/svg/faq-icons.svg';
+
 const DIALOG_CONTENTS_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
@@ -21,11 +23,8 @@ const DIALOG_CONTENTS_STYLE = css({
 });
 
 const TELEPHONE_STYLE = css({
-  background: 'url(/static/img/faq-icons.png) no-repeat',
-  backgroundPosition: '-300px -5px',
-  width: 99,
-  height: 93,
   display: 'none',
+  width: '100%',
   [MEDIA_LARGE]: {
     display: 'block',
   },
@@ -110,14 +109,15 @@ export default class TranslateDialog extends React.Component {
             </div>
 
             <div className="g m-v500 p-a500" style={{ alignItems: 'center' }} >
-              <div className="g--1" />
-              <div className="g--2" >
-                <div className={TELEPHONE_STYLE} />
+              <div className="g--3" >
+                <svg role="img" className={TELEPHONE_STYLE}>
+                  <use xlinkHref={`${SPRITE_URL}#Phone_off`} height="100%" />
+                </svg>
               </div>
 
               <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
                 If you need to report a non-emergency issue with the City of Boston, please call
-                BOS:311 at 311 or 617-635-4500.
+                BOS:311 at 311 or <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
               </div>
 
             </div>
