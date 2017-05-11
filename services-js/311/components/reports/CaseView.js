@@ -20,20 +20,6 @@ export type Props = {|
   submitted?: boolean,
 |}
 
-const CONTAINER_STYLE = css({
-  maxWidth: 960,
-  margin: '0 auto',
-});
-
-const HEADER_STYLE = css({
-  paddingTop: 0,
-  paddingBottom: 0,
-  [MEDIA_LARGE]: {
-    paddingRight: 0,
-    paddingLeft: 0,
-  },
-});
-
 const IMG_STYLE = css({
   display: 'block',
   width: '100%',
@@ -100,9 +86,9 @@ export default function CaseView({ request, store, submitted }: Props) {
   const waypointIcon = request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
   return (
-    <div className={`p-a300 ${CONTAINER_STYLE.toString()}`}>
-      <div className={`p-a500 ${HEADER_STYLE.toString()}`}>
-        <SectionHeader subtitle={`Case no: #${request.id}`}>{request.service.name}</SectionHeader>
+    <div>
+      <div>
+        <SectionHeader subtitle={<span style={{ whiteSpace: 'nowrap' }}>{`Case no: #${request.id}`}</span>}>{request.service.name}</SectionHeader>
 
         <div className="m-v300 t--info">
           Submitted on {request.requestedAtString} {request.address && ` — ${request.address}`}
@@ -114,24 +100,24 @@ export default function CaseView({ request, store, submitted }: Props) {
       { renderStatus(request) }
 
       { request.description &&
-        <div className="p-a500" style={{ paddingTop: 0 }}>
+        <div className="m-v500">
           <div className="txt-l">Description</div>
           <div className="t--intro" style={{ fontStyle: 'normal' }}>{request.description}</div>
         </div>
       }
 
-      <div className="g p-a500" style={{ paddingTop: 0 }}>
+      <div className="g m-v500">
         { request.location &&
           <div className="g--6">
             <div className={MAP_WRAPPER_STYLE}>
-              <img className={`${IMG_STYLE.toString()} m-v300 br br-a150`} src={makeMapboxUrl(store, request, 440)} alt={`Map of ${request.address || ''}`} />
+              <img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} src={makeMapboxUrl(store, request, 440)} alt={`Map of ${request.address || ''}`} />
               <div className={`${WAYPOINT_STYLE.toString()} ${waypointIcon.className || ''}`} />
             </div>
           </div>
         }
 
         <div className="g--6">
-          { request.mediaUrl && <a href={request.mediaUrl} target="_blank" rel="noopener noreferrer"><img className={`${IMG_STYLE.toString()} m-v300 br br-a150`} alt="Submission" src={request.mediaUrl} /></a> }
+          { request.mediaUrl && <a href={request.mediaUrl} target="_blank" rel="noopener noreferrer"><img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} alt="Submission" src={request.mediaUrl} /></a> }
         </div>
       </div>
     </div>

@@ -56,9 +56,9 @@ export default class ReportsLayout extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <Nav />
+        <Nav activeSection="search" />
 
-        <div role="main">
+        <div className="b-c" role="main">
           { data.request && <CaseView request={data.request} store={store} /> }
         </div>
       </div>

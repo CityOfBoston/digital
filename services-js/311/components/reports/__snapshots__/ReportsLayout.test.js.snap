@@ -40,7 +40,7 @@ exports[`case not found rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
+          className="nv-s-l-a nv-s-l-a--active"
           href="/search"
           onClick={[Function]}
         >
@@ -72,6 +72,7 @@ exports[`case not found rendering 1`] = `
     </ul>
   </nav>
   <div
+    className="b-c"
     role="main"
   />
 </div>
@@ -117,7 +118,7 @@ exports[`case rendering 1`] = `
         className="nv-s-l-i"
       >
         <a
-          className="nv-s-l-a "
+          className="nv-s-l-a nv-s-l-a--active"
           href="/search"
           onClick={[Function]}
         >
@@ -149,14 +150,11 @@ exports[`case rendering 1`] = `
     </ul>
   </nav>
   <div
+    className="b-c"
     role="main"
   >
-    <div
-      className="p-a300 css-jy1f9a"
-    >
-      <div
-        className="p-a500 css-pym862"
-      >
+    <div>
+      <div>
         <div
           className="sh sh--y"
         >
@@ -168,7 +166,15 @@ exports[`case rendering 1`] = `
           <div
             className="sh-contact"
           >
-            Case no: #17-000000001
+            <span
+              style={
+                Object {
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Case no: #17-000000001
+            </span>
           </div>
         </div>
         <div
@@ -206,12 +212,7 @@ exports[`case rendering 1`] = `
         </div>
       </div>
       <div
-        className="p-a500"
-        style={
-          Object {
-            "paddingTop": 0,
-          }
-        }
+        className="m-v500"
       >
         <div
           className="txt-l"
@@ -230,12 +231,7 @@ exports[`case rendering 1`] = `
         </div>
       </div>
       <div
-        className="g p-a500"
-        style={
-          Object {
-            "paddingTop": 0,
-          }
-        }
+        className="g m-v500"
       >
         <div
           className="g--6"
@@ -249,7 +245,7 @@ exports[`case rendering 1`] = `
           >
             <img
               alt="Map of City Hall Plaza, Boston, MA 02131"
-              className="css-40jv71 m-v300 br br-a150"
+              className="css-40jv71 m-b500 br br-a150"
               src="https://api.mapbox.com/styles/v1/fake-style-path/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=fake-access-token"
             />
             <div
@@ -267,7 +263,7 @@ exports[`case rendering 1`] = `
           >
             <img
               alt="Submission"
-              className="css-40jv71 m-v300 br br-a150"
+              className="css-40jv71 m-b500 br br-a150"
               src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
             />
           </a>
