@@ -18,12 +18,15 @@
     "generate-graphql-types": "apollo-codegen generate data/dao/graphql/*.graphql --schema graphql/schema.json --target flow --output data/dao/graphql/types.js",
     "swiftype-load": "babel-node ./scripts/swiftype-load",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
-    "precommit": "eslint --quiet .",
-    "prepush": "flow check --quiet && jest --silent --no-cache --noStackTrace",
+    "precommit": "lint-staged",
+    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit",
     "fetch-templates": "babel-node ./scripts/fetch-templates",
     "build-faq-icons-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite faq-icons.svg --symbol-dest static/img/svg sprites/faq-icons/*.svg",
     "build-loading-buildings-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite loading-buildings.svg --symbol-dest static/img/svg sprites/loading-buildings/*.svg",
     "build-loading-icons-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite loading-icons.svg --symbol-dest static/img/svg sprites/loading-icons/*.svg"
+  },
+  "lint-staged": {
+    "*.js": "eslint --quiet"
   },
   "jest": {
     "resetMocks": true,
@@ -116,6 +119,7 @@
     "husky": "^0.13.1",
     "jest": "^20.0.0",
     "jsverify": "^0.8.0",
+    "lint-staged": "^3.4.1",
     "prompt": "^1.0.0",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
     "react-test-renderer": "^15.5.4",
