@@ -16,7 +16,7 @@ exports[`methods submitRequest graphql failure 1`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
-    popup={false}
+    noPadding={false}
   >
     <SubmitPane
       error={[Error: Error submitting]}
@@ -42,7 +42,7 @@ exports[`methods submitRequest success 1`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
-    popup={false}
+    noPadding={false}
   >
     <SubmitPane
       state="submitting"
@@ -73,7 +73,7 @@ exports[`methods submitRequest success 2`] = `
   </SideEffect(Head)>
   <FormDialog
     narrow={false}
-    popup={false}
+    noPadding={false}
   >
     <CaseView
       request={
@@ -201,7 +201,7 @@ exports[`rendering contact 1`] = `
   }
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
+    className="p-a300 p-a800--xl br br-t400 br--y css-1c1v7yi"
     style={
       Object {
         "maxWidth": 800,
@@ -415,64 +415,76 @@ exports[`rendering location 1`] = `
   }
 >
   <div
-    className="p-a300 p-a500 br br-t400 br--y css-182uick"
+    className=" br br-t400 br--y css-1c1v7yi"
     style={Object {}}
   >
     <div
       className={
         Object {
-          "data-css-1szwbq4": "",
+          "data-css-a1pmen": "",
         }
       }
     >
-      <form
-        action="#"
-        className="sf sf--sm sf--y "
-        onSubmit={[Function]}
+      <div
+        className="p-a300 css-wi4u21"
       >
-        <div
-          className="sf-i"
+        <form
+          action="#"
+          className="sf sf--sm sf--y"
+          onSubmit={[Function]}
         >
-          <input
-            aria-label="Address search field"
-            className="sf-i-f"
-            onInput={[Function]}
-            placeholder="Search for a street address or intersection…"
-            type="text"
-            value=""
-          />
-          <button
-            className="sf-i-b"
-            disabled={true}
-            type="submit"
+          <div
+            className="sf-i"
           >
-            Search
-          </button>
-        </div>
-      </form>
-      <div
-        className="m-v400"
-      />
-      <div
-        className="g css-1k8tu3j"
-      >
+            <input
+              aria-label="Address search field"
+              className="sf-i-f"
+              onInput={[Function]}
+              placeholder="Search for a street address or intersection…"
+              type="text"
+              value=""
+            />
+            <button
+              className="sf-i-b"
+              disabled={true}
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </form>
         <div
-          className="g--7 t--subinfo m-v200"
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
         >
-          <a
-            href="javascript:void(0)"
+          <div
+            className="m-v400"
+          />
+        </div>
+        <div
+          className="g css-1k8tu3j"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={true}
             onClick={[Function]}
           >
-            Continue without location
-          </a>
+            Next
+          </button>
         </div>
-        <button
-          className="btn g--5"
-          disabled={true}
-          onClick={[Function]}
-        >
-          Next
-        </button>
       </div>
     </div>
   </div>
@@ -488,7 +500,7 @@ exports[`rendering questions 1`] = `
   }
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-182uick"
+    className="p-a300 p-a800--xl br br-t400 br--y css-1c1v7yi"
     style={Object {}}
   >
     <form

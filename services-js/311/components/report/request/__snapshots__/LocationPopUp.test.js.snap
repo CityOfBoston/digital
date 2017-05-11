@@ -4,12 +4,12 @@ exports[`rendering renders a map on a small screen 1`] = `
 <div
   className={
     Object {
-      "data-css-1szwbq4": "",
+      "data-css-a1pmen": "",
     }
   }
 >
   <div
-    className="m-b300 css-1quve7l"
+    className="css-1quve7l"
   >
     <div
       className={
@@ -34,54 +34,66 @@ exports[`rendering renders a map on a small screen 1`] = `
       </div>
     </div>
   </div>
-  <form
-    action="#"
-    className="sf sf--sm sf--y "
-    onSubmit={[Function]}
+  <div
+    className="p-a300 css-wi4u21"
   >
-    <div
-      className="sf-i"
+    <form
+      action="#"
+      className="sf sf--sm sf--y"
+      onSubmit={[Function]}
     >
-      <input
-        aria-label="Address search field"
-        className="sf-i-f"
-        onInput={[Function]}
-        placeholder="Search address or intersection…"
-        type="text"
-        value=""
-      />
-      <button
-        className="sf-i-b"
-        disabled={true}
-        type="submit"
+      <div
+        className="sf-i"
       >
-        Search
-      </button>
-    </div>
-  </form>
-  <div
-    className="m-v400"
-  />
-  <div
-    className="g css-1k8tu3j"
-  >
+        <input
+          aria-label="Address search field"
+          className="sf-i-f"
+          onInput={[Function]}
+          placeholder="Search address or intersection…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          disabled={true}
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
     <div
-      className="g--7 t--subinfo m-v200"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
     >
-      <a
-        href="javascript:void(0)"
+      <div
+        className="m-v400"
+      />
+    </div>
+    <div
+      className="g css-1k8tu3j"
+    >
+      <div
+        className="g--7 t--subinfo m-v200"
+      >
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Continue without location
+        </a>
+      </div>
+      <button
+        className="btn g--5"
+        disabled={true}
         onClick={[Function]}
       >
-        Continue without location
-      </a>
+        Next
+      </button>
     </div>
-    <button
-      className="btn g--5"
-      disabled={true}
-      onClick={[Function]}
-    >
-      Next
-    </button>
   </div>
 </div>
 `;
@@ -90,70 +102,82 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-1szwbq4": "",
+      "data-css-a1pmen": "",
     }
   }
 >
-  <form
-    action="#"
-    className="sf sf--sm sf--y "
-    onSubmit={[Function]}
-  >
-    <div
-      className="sf-i"
-    >
-      <input
-        aria-label="Address search field"
-        className="sf-i-f"
-        onInput={[Function]}
-        placeholder="Search for a street address or intersection…"
-        type="text"
-        value=""
-      />
-      <button
-        className="sf-i-b"
-        disabled={true}
-        type="submit"
-      >
-        Search
-      </button>
-    </div>
-  </form>
   <div
-    className="m-v400"
+    className="p-a300 css-wi4u21"
   >
+    <form
+      action="#"
+      className="sf sf--sm sf--y"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Address search field"
+          className="sf-i-f"
+          onInput={[Function]}
+          placeholder="Search for a street address or intersection…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          disabled={true}
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
     <div
-      className="addr addr--s"
       style={
         Object {
-          "whiteSpace": "pre-line",
+          "flex": 1,
         }
       }
     >
-      City Hall Square
-      Boston, MA
+      <div
+        className="m-v400"
+      >
+        <div
+          className="addr addr--s"
+          style={
+            Object {
+              "whiteSpace": "pre-line",
+            }
+          }
+        >
+          City Hall Square
+          Boston, MA
+        </div>
+      </div>
     </div>
-  </div>
-  <div
-    className="g css-1k8tu3j"
-  >
     <div
-      className="g--7 t--subinfo m-v200"
+      className="g css-1k8tu3j"
     >
-      <a
-        href="javascript:void(0)"
+      <div
+        className="g--7 t--subinfo m-v200"
+      >
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Continue without location
+        </a>
+      </div>
+      <button
+        className="btn g--5"
+        disabled={false}
         onClick={[Function]}
       >
-        Continue without location
-      </a>
+        Next
+      </button>
     </div>
-    <button
-      className="btn g--5"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Next
-    </button>
   </div>
 </div>
 `;
@@ -162,58 +186,70 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-1szwbq4": "",
+      "data-css-a1pmen": "",
     }
   }
 >
-  <form
-    action="#"
-    className="sf sf--sm sf--y "
-    onSubmit={[Function]}
+  <div
+    className="p-a300 css-wi4u21"
   >
-    <div
-      className="sf-i"
+    <form
+      action="#"
+      className="sf sf--sm sf--y"
+      onSubmit={[Function]}
     >
-      <input
-        aria-label="Address search field"
-        className="sf-i-f"
-        onInput={[Function]}
-        placeholder="Search for a street address or intersection…"
-        type="text"
-        value=""
-      />
-      <button
-        className="sf-i-b"
-        disabled={true}
-        type="submit"
+      <div
+        className="sf-i"
       >
-        Search
-      </button>
-    </div>
-  </form>
-  <div
-    className="m-v400"
-  />
-  <div
-    className="g css-1k8tu3j"
-  >
+        <input
+          aria-label="Address search field"
+          className="sf-i-f"
+          onInput={[Function]}
+          placeholder="Search for a street address or intersection…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          disabled={true}
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
     <div
-      className="g--7 t--subinfo m-v200"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
     >
-      <a
-        href="javascript:void(0)"
+      <div
+        className="m-v400"
+      />
+    </div>
+    <div
+      className="g css-1k8tu3j"
+    >
+      <div
+        className="g--7 t--subinfo m-v200"
+      >
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Continue without location
+        </a>
+      </div>
+      <button
+        className="btn g--5"
+        disabled={true}
         onClick={[Function]}
       >
-        Continue without location
-      </a>
+        Next
+      </button>
     </div>
-    <button
-      className="btn g--5"
-      disabled={true}
-      onClick={[Function]}
-    >
-      Next
-    </button>
   </div>
 </div>
 `;

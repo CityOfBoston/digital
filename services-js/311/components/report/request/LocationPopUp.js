@@ -14,6 +14,13 @@ const CONTENT_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
+  flex: 1,
+});
+
+const FORM_WRAPPER_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
 });
 
 const BUTTON_ROW_STYLE = css({
@@ -135,36 +142,40 @@ export default class LocationPopUp extends React.Component {
       <div className={CONTENT_STYLE}>
         { this.maybeRenderMap() }
 
-        <form className="sf sf--sm sf--y " onSubmit={this.whenSearchSubmit} action="#">
-          <div className="sf-i">
-            <input
-              className="sf-i-f"
-              onInput={this.whenSearchInput}
-              value={this.addressQuery}
-              ref={this.setSearchField}
-              aria-label="Address search field"
-              placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
-              type="text"
-            />
+        <div className={`p-a300 ${FORM_WRAPPER_STYLE.toString()}`}>
+          <form className="sf sf--sm sf--y" onSubmit={this.whenSearchSubmit} action="#">
+            <div className="sf-i">
+              <input
+                className="sf-i-f"
+                onInput={this.whenSearchInput}
+                value={this.addressQuery}
+                ref={this.setSearchField}
+                aria-label="Address search field"
+                placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
+                type="text"
+              />
 
-            <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0}>Search</button>
-          </div>
-        </form>
+              <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0}>Search</button>
+            </div>
+          </form>
 
-        {notFound
-          ? <div className="t--info m-v300"><span className="t--err">{
-             location ? 'This address is not in Boston' : 'This address was not found in Boston'
-            }</span></div>
-          : <div className="m-v400">
-            {!!address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
+          <div style={{ flex: 1 }}>
+            {notFound
+            ? <div className="t--info m-v300"><span className="t--err">{
+               location ? 'Please pick a location within Boston' : `We could not find an address or intersection in Boston for “${this.addressQuery}”`
+              }</span></div>
+            : <div className="m-v400">
+              {!!address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
+            </div>
+            }
           </div>
-          }
 
-        <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
-          <div className="g--7 t--subinfo m-v200">
-            { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
+          <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
+            <div className="g--7 t--subinfo m-v200">
+              { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
+            </div>
+            <button className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
           </div>
-          <button className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
         </div>
       </div>
     );
@@ -179,7 +190,7 @@ export default class LocationPopUp extends React.Component {
     }
 
     return (
-      <div className={`m-b300 ${MAP_CONTAINER_STYLE.toString()}`}>
+      <div className={`${MAP_CONTAINER_STYLE.toString()}`}>
         <LocationMap store={store} mode="picker" mobile />
       </div>
     );
