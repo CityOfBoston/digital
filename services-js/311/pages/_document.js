@@ -48,7 +48,7 @@ export default class extends Document {
     return (
       <html lang="en" className="js flexbox">
         <Head>
-          <meta name="viewport" content="width=device-width" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
 
           <script
             type="text/javascript"

@@ -44,10 +44,12 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
     $el.attr('href', href);
   });
 
+  // Hand-restore the Translate link because we're not shipping the JS to
+  // do the auto-translate
   const $translateItem = $('header>nav li.nv-h-l-i.tr');
   $translateItem.removeClass('tr');
   $translateItem.find('ul').remove();
-  $translateItem.find('a').attr('href', '/translate');
+  $translateItem.find('a').attr('href', '/translate').removeClass('nv-h-l-a--k--s tr-link');
 
   ['header', 'footer'].forEach((tag) => {
     const html = $(tag).html();
