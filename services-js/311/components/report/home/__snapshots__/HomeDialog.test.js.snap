@@ -258,10 +258,10 @@ exports[`home page rendering 1`] = `
             </div>
           </div>
           <div
-            className="g--1 m-v300 css-1sliefw"
+            className="g--1 m-v300 css-18t5hgw"
           >
             <div
-              className="br br-a150 css-7mg7kt"
+              className="br br-a150 css-s4kbi"
             />
             <div
               className="br br-a150 t--info css-u5arvv"
@@ -269,7 +269,7 @@ exports[`home page rendering 1`] = `
               or
             </div>
             <div
-              className="br br-a150 css-7mg7kt"
+              className="br br-a150 css-s4kbi"
             />
           </div>
           <div

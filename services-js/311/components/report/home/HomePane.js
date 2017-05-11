@@ -33,9 +33,10 @@ const NEXT_BUTTON_STYLE = css({
 
 const OR_HOLDER_STYLE = css({
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
   alignItems: 'center',
   [MEDIA_LARGE]: {
+    flexDirection: 'column',
     margin: 0,
   },
 });
@@ -43,7 +44,6 @@ const OR_HOLDER_STYLE = css({
 const OR_RULE_STYLE = css({
   flex: 1,
   borderColor: '#828282',
-  borderTopWidth: 0,
   borderRightWidth: 0,
   borderBottomWidth: 0,
 });
