@@ -135,7 +135,7 @@ export default class RecentRequests extends React.Component {
         { results.length === 0 && query !== resultsQuery && (
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
-              <LoadingIcons initialDelay={0} serverCompatible />
+              <LoadingIcons initialDelay={0} serverCompatible reduceMotion={ui.reduceMotion} />
             </div>
           </div>
         )}

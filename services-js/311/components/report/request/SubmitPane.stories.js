@@ -5,6 +5,7 @@ import { storiesOf } from '@kadira/storybook';
 
 import SubmitPane from './SubmitPane';
 import FormDialog from '../../common/FormDialog';
+import Ui from '../../../data/store/Ui';
 
 const makeError = (message, errors) => {
   const error: Object = new Error(message);
@@ -17,7 +18,7 @@ storiesOf('SubmitPane', module)
   <FormDialog>{ story() }</FormDialog>
 ))
 .add('Submitting', () => (
-  <SubmitPane state="submitting" />
+  <SubmitPane state="submitting" ui={new Ui()} />
 ))
 .add('Network Error', () => (
   <SubmitPane state="error" error={new TypeError('Failed to fetch')} />

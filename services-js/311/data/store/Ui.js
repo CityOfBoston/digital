@@ -15,6 +15,7 @@ export default class Ui {
   @observable debouncedScrollY: number = 0;
 
   @observable visible: boolean = true;
+  @observable reduceMotion: boolean = false;
 
   debouncedScrollDisposer: ?Function;
 
@@ -31,6 +32,10 @@ export default class Ui {
 
     if (typeof window === 'undefined') {
       return;
+    }
+
+    if (window.matchMedia) {
+      this.reduceMotion = window.matchMedia('(prefers-reduced-motion)').matches;
     }
 
     window.addEventListener('scroll', this.handleScroll);

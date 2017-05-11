@@ -4,6 +4,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import ChooseServicePane from './ChooseServicePane';
 import FormDialog from '../../common/FormDialog';
+import Ui from '../../../data/store/Ui';
 
 const SERVICE_SUMMARIES = [
   {
@@ -53,14 +54,14 @@ storiesOf('ChooseServicePane', module)
     <FormDialog narrow noPadding>{story()}</FormDialog>
   ))
   .add('Loading matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={null} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={null} ui={new Ui()} />
   ))
   .add('Some matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={SERVICE_SUMMARIES} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={SERVICE_SUMMARIES} ui={new Ui()} />
   ))
   .add('No matches', () => (
-    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={[]} />
+    <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={[]} ui={new Ui()} />
   ))
   .add('No description', () => (
-    <ChooseServicePane description="" suggestedServiceSummaries={[]} />
+    <ChooseServicePane description="" suggestedServiceSummaries={[]} ui={new Ui()} />
   ));

@@ -306,7 +306,7 @@ export default class RequestDialog extends React.Component {
         }
 
         switch (requestSubmission.state) {
-          case 'pending': return <SubmitPane state="submitting" />;
+          case 'pending': return <SubmitPane state="submitting" ui={store.ui} />;
           case 'fulfilled': return <CaseView store={store} request={requestSubmission.value} submitted />;
           case 'rejected': return <SubmitPane state="error" error={requestSubmission.value} />;
           default: return '';

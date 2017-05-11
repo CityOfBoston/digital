@@ -9,4 +9,9 @@ storiesOf('LoadingBuildings', module)
     <div style={{ width: 400, height: 400 }}>
       <LoadingBuildings />
     </div>
+  ))
+  .add('reduced motion', () => (
+    <div style={{ width: 400, height: 400 }}>
+      <LoadingBuildings reduceMotion />
+    </div>
   ));

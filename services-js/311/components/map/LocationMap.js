@@ -180,7 +180,7 @@ export default class LocationMap extends React.Component {
   })
 
   maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainMapLocationMarkerArgs) => {
-    const { mobile } = this.props;
+    const { mobile, store: { ui } } = this.props;
     const { requestMarker } = this;
 
     if (!requestMarker) {
@@ -204,7 +204,11 @@ export default class LocationMap extends React.Component {
 
       if (mobile) {
         map.removeLayer(requestMarker);
-        map.flyTo(markerLocation);
+        if (ui.reduceMotion) {
+          map.setView(markerLocation, map.getZoom());
+        } else {
+          map.flyTo(markerLocation);
+        }
 
         if (requestMarker.options.icon) {
           // This is a bit jank but lets us leverage the existing marker-
@@ -274,7 +278,7 @@ export default class LocationMap extends React.Component {
         paddingTopLeft: [mode === 'picker' ? 0 : store.requestSearch.resultsListWidth, 0],
       };
 
-      if (animated) {
+      if (animated && !store.ui.reduceMotion) {
         map.flyToBounds(bounds, opts);
       } else {
         map.fitBounds(bounds, opts);
@@ -450,7 +454,7 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   handleMapClick(ev: Object) {
-    const { mode, mobile } = this.props;
+    const { mode, mobile, store: { ui } } = this.props;
     const latLng: LatLng = ev.latlng;
 
     if (mode !== 'picker') {
@@ -463,7 +467,11 @@ export default class LocationMap extends React.Component {
         // to avoid a double-geocode, first of the clicked location and then
         // to the re-centered map location (they differ by a very fine floating
         // point amount)
-        this.mapboxMap.flyTo(latLng);
+        if (ui.reduceMotion) {
+          this.mapboxMap.setView(latLng, this.mapboxMap.getZoom());
+        } else {
+          this.mapboxMap.flyTo(latLng);
+        }
       }
     } else {
       this.chooseLocation({

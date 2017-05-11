@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { css } from 'glamor';
 
 import type { ServiceSummary } from '../../../data/types';
+import type Ui from '../../../data/store/Ui';
 
 import SectionHeader from '../../common/SectionHeader';
 import LoadingIcons from '../../common/LoadingIcons';
@@ -13,6 +14,7 @@ import LoadingIcons from '../../common/LoadingIcons';
 export type Props = {|
   description: string,
   suggestedServiceSummaries: ?ServiceSummary[],
+  ui: Ui,
 |};
 
 const LOADING_INDICATORS_STYLE = css({
@@ -46,7 +48,7 @@ function renderGeneralRequestRow(problemDescription: string) {
   });
 }
 
-function renderLoading() {
+function renderLoading(ui: Ui) {
   return (
     <div>
       <div className="t--info m-v300">
@@ -54,9 +56,9 @@ function renderLoading() {
       </div>
 
       <div className={`p-a300 g ${LOADING_INDICATORS_STYLE.toString()}`}>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={0} /></div>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={100} /></div>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={200} /></div>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={0} reduceMotion={ui.reduceMotion} /></div>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={100} reduceMotion={ui.reduceMotion} /></div>
+        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}><LoadingIcons initialDelay={200} reduceMotion={ui.reduceMotion} /></div>
       </div>
     </div>
   );
@@ -103,7 +105,7 @@ function renderNoSuggestions(problemDescription: string) {
   );
 }
 
-export default function ChooseServicePane({ description, suggestedServiceSummaries }: Props) {
+export default function ChooseServicePane({ description, suggestedServiceSummaries, ui }: Props) {
   return (
     <div>
       <Head>
@@ -124,7 +126,7 @@ export default function ChooseServicePane({ description, suggestedServiceSummari
           How can we help?
         </h2>
 
-        { !suggestedServiceSummaries && renderLoading() }
+        { !suggestedServiceSummaries && renderLoading(ui) }
         { suggestedServiceSummaries && suggestedServiceSummaries.length > 0 && renderSuggestions(description, suggestedServiceSummaries) }
         { suggestedServiceSummaries && suggestedServiceSummaries.length === 0 && description.length === 0 && renderTypeDescription() }
         { suggestedServiceSummaries && suggestedServiceSummaries.length === 0 && description.length > 0 && renderNoSuggestions(description) }

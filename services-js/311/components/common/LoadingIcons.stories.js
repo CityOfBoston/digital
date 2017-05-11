@@ -7,7 +7,7 @@ import LoadingIcons from './LoadingIcons';
 storiesOf('LoadingIcons', module)
   .add('loading', () => (
     <div style={{ width: 200, height: 200 }}>
-      <LoadingIcons initialDelay={0} />
+      <LoadingIcons />
     </div>
   ))
   .add('3 up', () => (
@@ -20,6 +20,24 @@ storiesOf('LoadingIcons', module)
       </div>
       <div style={{ width: 200, height: 150 }}>
         <LoadingIcons initialDelay={200} />
+      </div>
+    </div>
+  ))
+  .add('reduceMotion', () => (
+    <div style={{ width: 200, height: 200 }}>
+      <LoadingIcons reduceMotion />
+    </div>
+  ))
+  .add('reduced Motion 3 up', () => (
+    <div style={{ display: 'flex', overflow: 'hidden', height: 150 }}>
+      <div style={{ width: 200, height: 150 }}>
+        <LoadingIcons initialDelay={0} reduceMotion />
+      </div>
+      <div style={{ width: 200, height: 150 }}>
+        <LoadingIcons initialDelay={100} reduceMotion />
+      </div>
+      <div style={{ width: 200, height: 150 }}>
+        <LoadingIcons initialDelay={200} reduceMotion />
       </div>
     </div>
   ));

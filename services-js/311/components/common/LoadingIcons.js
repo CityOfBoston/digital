@@ -42,7 +42,7 @@ const ICON_STYLE = css({
   transformOrigin: '50% 130%',
 });
 
-const ICON_ENTER_ANIMATION = {
+const ROTATE_IN_ANIMATION = {
   delay: 1000,
   duration: 400,
   animation: {
@@ -57,7 +57,7 @@ const ICON_ENTER_ANIMATION = {
   },
 };
 
-const ICON_LEAVE_ANIMATION = {
+const ROTATE_OUT_ANIMATION = {
   duration: 400,
   animation: {
     rotateZ: '-60deg',
@@ -65,15 +65,37 @@ const ICON_LEAVE_ANIMATION = {
   },
 };
 
-const DELAY = 2500;
+const FADE_IN_ANIMATION = {
+  delay: 1000,
+  duration: 400,
+  animation: {
+    opacity: 1,
+  },
+  style: {
+    display: 'none',
+  },
+  begin: (els) => {
+    els.forEach((el) => { el.style.display = 'block'; });
+  },
+};
+
+const FADE_OUT_ANIMATION = {
+  duration: 400,
+  animation: {
+    opacity: 0,
+  },
+};
 
 type Props = {
-  initialDelay: number,
+  initialDelay?: number,
   serverCompatible?: boolean,
+  reduceMotion?: boolean,
 }
 
 type DefaultProps = {
+  initialDelay: number,
   serverCompatible: boolean,
+  reduceMotion: boolean,
 }
 
 @observer
@@ -84,7 +106,9 @@ export default class LoadingBuildings extends React.Component {
   startMillis: number;
 
   static defaultProps: DefaultProps = {
+    initialDelay: 0,
     serverCompatible: false,
+    reduceMotion: false,
   }
 
   static preload() {
@@ -92,12 +116,18 @@ export default class LoadingBuildings extends React.Component {
     img.src = SPRITE_URL;
   }
 
+  get delay(): number {
+    const { reduceMotion } = this.props;
+
+    return reduceMotion ? 4000 : 2500;
+  }
+
   componentWillMount() {
-    const { initialDelay } = this.props;
+    const { initialDelay, reduceMotion } = this.props;
 
     this.icons = [...ICONS];
 
-    this.startMillis = ((+new Date()) + initialDelay) - (DELAY / 2);
+    this.startMillis = ((+new Date()) + (reduceMotion ? 0 : initialDelay)) - (this.delay / 2);
 
     if (process.env.NODE_ENV !== 'test') {
       this.shuffleIcons();
@@ -122,7 +152,7 @@ export default class LoadingBuildings extends React.Component {
   }
 
   @computed get index(): number {
-    return Math.max(0, Math.floor((now(50) - this.startMillis) / DELAY) % this.icons.length);
+    return Math.max(0, Math.floor((now(50) - this.startMillis) / this.delay) % this.icons.length);
   }
 
   @computed get icon(): string {
@@ -130,8 +160,13 @@ export default class LoadingBuildings extends React.Component {
   }
 
   render() {
+    const { reduceMotion } = this.props;
+
+    const enter = reduceMotion ? FADE_IN_ANIMATION : ROTATE_IN_ANIMATION;
+    const leave = reduceMotion ? FADE_OUT_ANIMATION : ROTATE_OUT_ANIMATION;
+
     return (
-      <VelocityTransitionGroup enter={ICON_ENTER_ANIMATION} leave={ICON_LEAVE_ANIMATION} className={CONTAINER_STYLE}>
+      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE}>
         <svg role="img" key={this.icon} className={ICON_STYLE}>
           <use xlinkHref={`${SPRITE_URL}#${this.icon}`} height="100%" />
         </svg>

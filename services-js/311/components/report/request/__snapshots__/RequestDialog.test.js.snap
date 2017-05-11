@@ -46,6 +46,12 @@ exports[`methods submitRequest success 1`] = `
   >
     <SubmitPane
       state="submitting"
+      ui={
+        Ui {
+          "handleResize": [Function],
+          "handleScroll": [Function],
+        }
+      }
     />
   </FormDialog>
 </div>

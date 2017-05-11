@@ -46,7 +46,7 @@ const BUILDING_STYLE = css({
   flex: 1,
 });
 
-const BUILDING_ENTER_ANIMATION = {
+const SLIDE_IN_ANIMATION = {
   delay: 510,
   duration: 500,
   animation: {
@@ -61,7 +61,7 @@ const BUILDING_ENTER_ANIMATION = {
   },
 };
 
-const BUILDING_LEAVE_ANIMATION = {
+const SLIDE_OUT_ANIMATION = {
   duration: 500,
   animation: {
     translateX: '-30%',
@@ -69,25 +69,67 @@ const BUILDING_LEAVE_ANIMATION = {
   },
 };
 
+const FADE_IN_ANIMATION = {
+  delay: 510,
+  duration: 500,
+  animation: {
+    opacity: 1,
+  },
+  style: {
+    display: 'none',
+  },
+  begin: (els) => {
+    els.forEach((el) => { el.style.display = 'block'; });
+  },
+};
+
+const FADE_OUT_ANIMATION = {
+  duration: 500,
+  animation: {
+    opacity: 0,
+  },
+};
+
+
+type DefaultProps = {
+  reduceMotion: boolean,
+}
+
+type Props = {
+  reduceMotion?: boolean,
+}
+
 @observer
 export default class LoadingBuildings extends React.Component {
+  props: Props;
+  static defaultProps: DefaultProps = {
+    reduceMotion: false,
+  }
+
   static preload() {
     const img = new Image();
     img.src = SPRITE_URL;
   }
 
   @computed get neighborhood(): string {
+    const { reduceMotion } = this.props;
+
     if (process.env.NODE_ENV === 'test') {
       return NEIGHBORHOODS[0];
     }
 
-    now(2500);
+    now(reduceMotion ? 4000 : 2500);
+
     return NEIGHBORHOODS[Math.floor(Math.random() * NEIGHBORHOODS.length)];
   }
 
   render() {
+    const { reduceMotion } = this.props;
+    const enter = reduceMotion ? FADE_IN_ANIMATION : SLIDE_IN_ANIMATION;
+    const leave = reduceMotion ? FADE_OUT_ANIMATION : SLIDE_OUT_ANIMATION;
+
     return (
-      <VelocityTransitionGroup enter={BUILDING_ENTER_ANIMATION} leave={BUILDING_LEAVE_ANIMATION} className={CONTAINER_STYLE} runOnMount>
+      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE} runOnMount>
         <svg role="img" key={this.neighborhood} className={BUILDING_STYLE}>
           <use xlinkHref={`${SPRITE_URL}#${this.neighborhood}`} height="100%" />
         </svg>

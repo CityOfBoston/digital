@@ -147,8 +147,9 @@ export default class HomeDialog extends React.Component {
   }
 
   renderServicePicker() {
+    const { store: { ui } } = this.props;
     return (
-      <ChooseServicePane description={this.description} suggestedServiceSummaries={this.suggestedServiceSummaries} />
+      <ChooseServicePane description={this.description} suggestedServiceSummaries={this.suggestedServiceSummaries} ui={ui} />
     );
   }
 }

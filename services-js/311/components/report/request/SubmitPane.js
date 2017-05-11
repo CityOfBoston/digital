@@ -4,9 +4,11 @@ import React from 'react';
 import { css } from 'glamor';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';
+import type Ui from '../../../data/store/Ui';
 
 export type Props = {|
   state: 'submitting',
+  ui: Ui,
 |} | {|
   state: 'error',
   error: Object,
@@ -28,7 +30,7 @@ export default function SubmitPane(props: Props) {
           <div className="t--intro m-v500">Please wait while we save your request.</div>
 
           <div className={`m-v500 p-a500 ${LOADING_CONTAINER_STYLE.toString()}`}>
-            <LoadingBuildings />
+            <LoadingBuildings reduceMotion={props.ui.reduceMotion} />
           </div>
         </div>
       );
