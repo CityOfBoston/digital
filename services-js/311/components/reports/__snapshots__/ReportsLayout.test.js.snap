@@ -174,6 +174,7 @@ exports[`case rendering 1`] = `
         <div
           className="m-v300 t--info"
         >
+          Submitted on 
           March 7, 2017, 12:59 PM
            
            — City Hall Plaza, Boston, MA 02131
@@ -195,6 +196,11 @@ exports[`case rendering 1`] = `
         </div>
         <div
           className="t--intro"
+          style={
+            Object {
+              "fontStyle": "normal",
+            }
+          }
         >
           Found Thanos. Smashed him into the floor with all of us standing around.
         </div>
@@ -214,6 +220,11 @@ exports[`case rendering 1`] = `
         </div>
         <div
           className="t--intro"
+          style={
+            Object {
+              "fontStyle": "normal",
+            }
+          }
         >
           I think that Thanos is here
         </div>
@@ -238,7 +249,7 @@ exports[`case rendering 1`] = `
           >
             <img
               alt="Map of City Hall Plaza, Boston, MA 02131"
-              className="css-70zt4q m-v300 br br-a150"
+              className="css-40jv71 m-v300 br br-a150"
               src="https://api.mapbox.com/styles/v1/fake-style-path/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=fake-access-token"
             />
             <div
@@ -256,7 +267,7 @@ exports[`case rendering 1`] = `
           >
             <img
               alt="Submission"
-              className="css-70zt4q m-v300 br br-a150"
+              className="css-40jv71 m-v300 br br-a150"
               src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
             />
           </a>

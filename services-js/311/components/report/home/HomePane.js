@@ -181,7 +181,7 @@ export default class HomePane extends React.Component {
         <div className="p-a300 p-a800--xl">
           <SectionHeader>BOS:311 — File a Report</SectionHeader>
 
-          <div className="t--info m-v300">
+          <div className="t--info m-v300" style={{ fontStyle: 'normal' }}>
             Through BOS:311, you can report non-emergency issues with the City.
           </div>
 
@@ -222,7 +222,7 @@ export default class HomePane extends React.Component {
             <div className="g--4">
               <h2 className="a11y--h">Popular Services</h2>
 
-              <div className="t--info">
+              <div className="t--info" style={{ fontStyle: 'normal' }}>
                 You can also start a report by picking one of these
                 popular services:
               </div>

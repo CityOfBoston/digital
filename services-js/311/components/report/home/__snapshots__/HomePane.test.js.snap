@@ -16,6 +16,11 @@ exports[`rendering existing description 1`] = `
     </div>
     <div
       className="t--info m-v300"
+      style={
+        Object {
+          "fontStyle": "normal",
+        }
+      }
     >
       Through BOS:311, you can report non-emergency issues with the City.
     </div>
@@ -111,6 +116,11 @@ exports[`rendering existing description 1`] = `
         </h2>
         <div
           className="t--info"
+          style={
+            Object {
+              "fontStyle": "normal",
+            }
+          }
         >
           You can also start a report by picking one of these popular services:
         </div>

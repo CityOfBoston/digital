@@ -37,7 +37,9 @@ const HEADER_STYLE = css({
 const IMG_STYLE = css({
   display: 'block',
   width: '100%',
-  minHeight: 300,
+  [MEDIA_LARGE]: {
+    minHeight: 300,
+  },
 });
 
 const MAP_WRAPPER_STYLE = css({
@@ -53,15 +55,15 @@ const WAYPOINT_STYLE = css({
   transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor.x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
 });
 
-function renderSubmitted({ id }: Request, submitted: boolean) {
+function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
   if (!submitted) {
     return null;
   }
 
   return (
     <div className="b b--g p-a500 m-v500">
-      <div className="txt-l" style={{ marginTop: 0 }}>Report submitted successfully</div>
-      <div className="t--intro">
+      <div className="txt-l" style={{ marginTop: 0 }}>Report submitted successfully — {updatedAtString}</div>
+      <div className="t--intro" style={{ fontStyle: 'normal' }}>
         Thank you for submitting. Your case number is #{id}.
         If you gave your email address, we’ll send you an email when it’s
         resolved. You can also bookmark this page to check back on it.
@@ -77,7 +79,7 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   return (
     <div className="b b--g p-a500 m-v500">
       <div className="txt-l" style={{ marginTop: 0 }}>Resolution — {updatedAtString}</div>
-      <div className="t--intro">{statusNotes}</div>
+      <div className="t--intro" style={{ fontStyle: 'normal' }}>{statusNotes}</div>
     </div>
   );
 }
@@ -103,7 +105,7 @@ export default function CaseView({ request, store, submitted }: Props) {
         <SectionHeader subtitle={`Case no: #${request.id}`}>{request.service.name}</SectionHeader>
 
         <div className="m-v300 t--info">
-          {request.requestedAtString} {request.address && ` — ${request.address}`}
+          Submitted on {request.requestedAtString} {request.address && ` — ${request.address}`}
         </div>
       </div>
 
@@ -114,7 +116,7 @@ export default function CaseView({ request, store, submitted }: Props) {
       { request.description &&
         <div className="p-a500" style={{ paddingTop: 0 }}>
           <div className="txt-l">Description</div>
-          <div className="t--intro">{request.description}</div>
+          <div className="t--intro" style={{ fontStyle: 'normal' }}>{request.description}</div>
         </div>
       }
 
