@@ -119,7 +119,7 @@ exports[`blank request 1`] = `
     <button
       className="btn g--3"
       disabled={false}
-      onClick={[Function]}
+      type="submit"
     >
       Next
     </button>
@@ -246,7 +246,7 @@ exports[`existing description 1`] = `
     <button
       className="btn g--3"
       disabled={false}
-      onClick={[Function]}
+      type="submit"
     >
       Next
     </button>
@@ -395,7 +395,7 @@ exports[`service with metadata 1`] = `
     <button
       className="btn g--3"
       disabled={false}
-      onClick={[Function]}
+      type="submit"
     >
       Next
     </button>

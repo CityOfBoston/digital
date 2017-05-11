@@ -52,8 +52,11 @@ export default class ContactPane extends React.Component {
   }
 
   @action.bound
-  continueWithContactInfo() {
+  continueWithContactInfo(ev: SyntheticInputEvent) {
     const { requestForm, nextFunc } = this.props;
+
+    ev.preventDefault();
+
     requestForm.sendContactInfo = true;
     nextFunc();
   }
@@ -101,13 +104,13 @@ export default class ContactPane extends React.Component {
     const { rememberInfo } = this.localStorageContactInfo;
 
     return (
-      <form onSubmit={this.cancelSubmit}>
+      <form onSubmit={this.continueWithContactInfo}>
         <div>
           <SectionHeader>{ serviceName }</SectionHeader>
           <p className="m-v300 t--info">
-          We’ll use your contact info to send you email about the status of your
-          report and to follow up with you if necessary.
-        </p>
+            We’ll use your contact info to send you email about the status of your
+            report and to follow up with you if necessary.
+          </p>
 
           <p className="m-v300 t--subinfo">
             <strong>Your contact info will not be made public.</strong>{' '}
@@ -152,7 +155,8 @@ export default class ContactPane extends React.Component {
           <div className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
             {!contactInfoRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
-          <button className="btn g--4" onClick={this.continueWithContactInfo} disabled={!contactInfoRequirementsMet}>Submit Report</button>
+
+          <button className="btn g--4" type="submit" disabled={!contactInfoRequirementsMet}>Submit Report</button>
         </div>
       </form>
     );

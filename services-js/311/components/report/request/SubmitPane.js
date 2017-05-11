@@ -24,6 +24,9 @@ export default function SubmitPane(props: Props) {
       return (
         <div>
           <SectionHeader>Submitting…</SectionHeader>
+
+          <div className="t--intro m-v500">Please wait while we save your request.</div>
+
           <div className={`m-v500 p-a500 ${LOADING_CONTAINER_STYLE.toString()}`}>
             <LoadingBuildings />
           </div>

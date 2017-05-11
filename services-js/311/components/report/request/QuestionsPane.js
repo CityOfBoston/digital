@@ -79,7 +79,7 @@ export default class QuestionsPane extends React.Component {
   }
 
   @action
-  componnetWillUnmount() {
+  componentWillUnmount() {
     this.imageUploader.adoptedUrlObservable = null;
   }
 
@@ -108,16 +108,21 @@ export default class QuestionsPane extends React.Component {
     requestForm.description = ev.target.value;
   }
 
+  @action.bound
+  handleSubmit(ev: SyntheticInputEvent) {
+    const { nextFunc } = this.props;
+
+    ev.preventDefault();
+
+    nextFunc();
+  }
+
   setDropEl = (dropEl: ?Dropzone) => {
     this.dropEl = dropEl;
   }
 
-  cancelSubmit = (ev: SyntheticInputEvent) => {
-    ev.preventDefault();
-  };
-
   render() {
-    const { requestForm, serviceName, nextFunc, nextIsSubmit } = this.props;
+    const { requestForm, serviceName, nextIsSubmit } = this.props;
     const { description, questions, questionRequirementsMet } = requestForm;
 
     const questionsEls = [];
@@ -134,7 +139,7 @@ export default class QuestionsPane extends React.Component {
     });
 
     return (
-      <form onSubmit={this.cancelSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <SectionHeader>{ serviceName }</SectionHeader>
 
         <div className="g g--top">
@@ -154,7 +159,7 @@ export default class QuestionsPane extends React.Component {
           <div className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
             {!questionRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
           </div>
-          <button className="btn g--3" onClick={nextFunc} disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
+          <button className="btn g--3" type="submit" disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
         </div>
       </form>
     );

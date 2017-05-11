@@ -199,7 +199,7 @@ exports[`blank request 1`] = `
     <button
       className="btn g--4"
       disabled={true}
-      onClick={[Function]}
+      type="submit"
     >
       Submit Report
     </button>
@@ -396,7 +396,7 @@ exports[`filled request 1`] = `
     <button
       className="btn g--4"
       disabled={false}
-      onClick={[Function]}
+      type="submit"
     >
       Submit Report
     </button>

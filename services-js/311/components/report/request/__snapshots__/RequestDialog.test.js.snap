@@ -390,7 +390,7 @@ exports[`rendering contact 1`] = `
         <button
           className="btn g--4"
           disabled={true}
-          onClick={[Function]}
+          type="submit"
         >
           Submit Report
         </button>
@@ -773,7 +773,7 @@ exports[`rendering questions 1`] = `
         <button
           className="btn g--3"
           disabled={true}
-          onClick={[Function]}
+          type="submit"
         >
           Next
         </button>

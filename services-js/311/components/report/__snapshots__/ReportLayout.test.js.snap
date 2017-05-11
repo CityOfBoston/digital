@@ -403,7 +403,7 @@ exports[`existing service page rendering 1`] = `
             <button
               className="btn g--3"
               disabled={true}
-              onClick={[Function]}
+              type="submit"
             >
               Next
             </button>
@@ -818,7 +818,7 @@ exports[`existing service page rendering phone 1`] = `
             <button
               className="btn g--3"
               disabled={true}
-              onClick={[Function]}
+              type="submit"
             >
               Next
             </button>
