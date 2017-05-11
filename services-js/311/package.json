@@ -111,7 +111,7 @@
     "eslint-plugin-react": "^6.10.0",
     "fake-xml-http-request": "^1.4.0",
     "fetch-mock": "^5.9.4",
-    "flow-bin": "^0.45.0",
+    "flow-bin": "^0.46.0",
     "husky": "^0.13.1",
     "jest": "^20.0.0",
     "jsverify": "^0.8.0",
