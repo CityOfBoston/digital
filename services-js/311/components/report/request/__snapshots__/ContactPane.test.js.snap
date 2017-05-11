@@ -22,7 +22,9 @@ exports[`blank request 1`] = `
     <p
       className="m-v300 t--subinfo"
     >
-      Your contact info will not be made public.
+      <strong>
+        Your contact info will not be made public.
+      </strong>
        
       <span>
         You can also 
@@ -227,7 +229,9 @@ exports[`filled request 1`] = `
     <p
       className="m-v300 t--subinfo"
     >
-      Your contact info will not be made public.
+      <strong>
+        Your contact info will not be made public.
+      </strong>
        
       <span>
         You can also 

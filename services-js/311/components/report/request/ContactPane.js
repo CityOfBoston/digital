@@ -110,7 +110,7 @@ export default class ContactPane extends React.Component {
         </p>
 
           <p className="m-v300 t--subinfo">
-          Your contact info will not be made public.{' '}
+            <strong>Your contact info will not be made public.</strong>{' '}
 
             { !contactInfoRequired && (
             <span>
