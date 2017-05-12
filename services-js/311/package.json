@@ -22,6 +22,7 @@
     "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit",
     "fetch-templates": "babel-node ./scripts/fetch-templates",
     "build-faq-icons-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite faq-icons.svg --symbol-dest static/img/svg sprites/faq-icons/*.svg",
+    "build-waypoints-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite waypoints.svg --symbol-dest static/img/svg sprites/waypoints/*.svg",
     "build-loading-buildings-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite loading-buildings.svg --symbol-dest static/img/svg sprites/loading-buildings/*.svg",
     "build-loading-icons-sprite": "yarn run svg-sprite -- --symbol -l verbose --symbol-sprite loading-icons.svg --symbol-dest static/img/svg sprites/loading-icons/*.svg"
   },

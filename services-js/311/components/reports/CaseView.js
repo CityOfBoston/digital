@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/no-danger: 0 */
 
 import React from 'react';
 import { css } from 'glamor';
@@ -111,7 +112,7 @@ export default function CaseView({ request, store, submitted }: Props) {
           <div className="g--6">
             <div className={MAP_WRAPPER_STYLE}>
               <img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} src={makeMapboxUrl(store, request, 440)} alt={`Map of ${request.address || ''}`} />
-              <div className={`${WAYPOINT_STYLE.toString()} ${waypointIcon.className || ''}`} />
+              <div className={`${WAYPOINT_STYLE.toString()}`} dangerouslySetInnerHTML={{ __html: waypointIcon.html }} />
             </div>
           </div>
         }

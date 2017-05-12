@@ -249,7 +249,16 @@ exports[`case rendering 1`] = `
               src="https://api.mapbox.com/styles/v1/fake-style-path/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=fake-access-token"
             />
             <div
-              className="css-3nz9vn css-1pf8hut"
+              className="css-3nz9vn"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+                    <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                      <use xlink:href=\\"/static/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                    </svg>
+                  ",
+                }
+              }
             />
           </div>
         </div>

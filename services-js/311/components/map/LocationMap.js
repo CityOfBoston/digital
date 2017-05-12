@@ -10,7 +10,7 @@ import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'map
 import type { AppStore } from '../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
-import waypointMarkers from './WaypointMarkers';
+import waypointMarkers, { preloadWaypointSprite } from './WaypointMarkers';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -129,6 +129,8 @@ export default class LocationMap extends React.Component {
 
   componentDidMount() {
     const { store, mode } = this.props;
+
+    preloadWaypointSprite();
 
     this.attachMap();
 
