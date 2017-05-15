@@ -16,7 +16,7 @@ import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import Nav from '../common/Nav';
 import LocationMap, { DEFAULT_MOBILE_CENTER } from '../map/LocationMap';
-import { HEADER_HEIGHT, MEDIA_LARGE } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, IPHONE_FOOTER_HEIGHT } from '../style-constants';
 
 import RecentRequests from './RecentRequests';
 import RecentRequestsSearchForm from './RecentRequestsSearchForm';
@@ -46,7 +46,7 @@ const CONTAINER_STYLE = css({
   flexDirection: 'column',
   justifyContent: 'flex-start',
   position: 'relative',
-  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+  minHeight: `calc(100vh - ${HEADER_HEIGHT}px - ${IPHONE_FOOTER_HEIGHT}px)`,
   paddingTop: SEARCH_HEIGHT,
 
   [MEDIA_LARGE]: {
