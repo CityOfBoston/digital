@@ -80,7 +80,7 @@ export default class extends Document {
             <Main />
           </div>
 
-          <footer className="ft" style={{ position: 'relative', zIndex: 1 }} dangerouslySetInnerHTML={{ __html: footerHtml }} />
+          <footer className="ft" style={{ position: 'relative', zIndex: 2 }} dangerouslySetInnerHTML={{ __html: footerHtml }} />
 
           <script
             src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"

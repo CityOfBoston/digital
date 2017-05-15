@@ -9,7 +9,7 @@ exports[`rendering results loaded 1`] = `
   }
 >
   <div
-    className="p-a300 css-17cwx2g"
+    className="p-a300 css-1p3t4uv"
   >
     <form
       acceptCharset="UTF-8"
@@ -46,7 +46,7 @@ exports[`rendering results loaded 1`] = `
     Search Results
   </h2>
   <a
-    className="p-a300 css-hlpxua"
+    className="p-a300 br css-1d0pha"
     data-request-id="17-000000001"
     href="/reports/17-000000001"
     onClick={[Function]}
@@ -142,7 +142,7 @@ exports[`rendering with request selected 1`] = `
   }
 >
   <div
-    className="p-a300 css-17cwx2g"
+    className="p-a300 css-1p3t4uv"
   >
     <form
       acceptCharset="UTF-8"
@@ -179,7 +179,7 @@ exports[`rendering with request selected 1`] = `
     Search Results
   </h2>
   <a
-    className="p-a300 css-hlpxua"
+    className="p-a300 br css-1d0pha"
     data-request-id="17-000000001"
     href="/reports/17-000000001"
     onClick={[Function]}

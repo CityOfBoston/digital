@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../data/store';
-import { HEADER_HEIGHT, MEDIA_LARGE } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, GRAY_100 } from '../style-constants';
 
 import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
@@ -35,6 +35,7 @@ const CONTAINER_STYLE = css({
 
 const SEARCH_CONTAINER_STYLE = css({
   display: 'none',
+  borderBottom: `1px dashed ${GRAY_100}`,
   [MEDIA_LARGE]: {
     display: 'block',
   },

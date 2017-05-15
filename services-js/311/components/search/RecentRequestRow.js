@@ -10,11 +10,15 @@ import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';
 import type { SearchRequest } from '../../data/types';
 
-import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW, GRAY_100 } from '../style-constants';
 
 const REQUEST_STYLE = css({
   display: 'flex',
   cursor: 'pointer',
+  borderBottom: `1px dashed ${GRAY_100}`,
+  ':last-child': {
+    borderBottom: 'none',
+  },
 });
 
 const THUMBNAIL_SYLE = css({
@@ -139,11 +143,11 @@ export default class RecentRequestRow extends React.Component {
         <a
           ref={this.setEl}
           data-request-id={request.id}
-          className={`p-a300 ${REQUEST_STYLE.toString()}`}
+          className={`p-a300 br ${REQUEST_STYLE.toString()}`}
           onMouseEnter={this.handleHover}
           onMouseLeave={this.handleUnhover}
           style={{
-            backgroundColor: this.selected ? '#e0e0e0' : 'transparent',
+            backgroundColor: this.selected ? GRAY_100 : 'transparent',
             color: 'inherit',
           }}
         >
