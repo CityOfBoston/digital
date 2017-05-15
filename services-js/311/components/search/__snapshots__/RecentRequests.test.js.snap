@@ -48,7 +48,7 @@ exports[`rendering results loaded 1`] = `
   <a
     className="p-a300 br css-1d0pha"
     data-request-id="17-000000001"
-    href="/reports/17-000000001"
+    href="/case/17-000000001"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -181,7 +181,7 @@ exports[`rendering with request selected 1`] = `
   <a
     className="p-a300 br css-1d0pha"
     data-request-id="17-000000001"
-    href="/reports/17-000000001"
+    href="/case/17-000000001"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}

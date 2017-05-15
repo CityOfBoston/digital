@@ -33,7 +33,7 @@ exports[`rendering 1`] = `
           href="/"
           onClick={[Function]}
         >
-          Report a problem
+          Make a request
         </a>
       </li>
       <li

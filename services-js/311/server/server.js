@@ -130,31 +130,31 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/',
-    handler: nextHandler(app, '/report'),
+    handler: nextHandler(app, '/request'),
   });
 
   server.route({
     method: 'GET',
-    path: '/report',
+    path: '/request',
     handler: (request, reply) => reply.redirect('/'),
   });
 
   server.route({
     method: 'GET',
-    path: '/report/{code}',
-    handler: nextHandler(app, '/report'),
+    path: '/request/{code}',
+    handler: nextHandler(app, '/request'),
   });
 
   server.route({
     method: 'GET',
-    path: '/report/{code}/{stage}',
-    handler: (request, reply) => reply.redirect(`/report/${request.params.code}`),
+    path: '/request/{code}/{stage}',
+    handler: (request, reply) => reply.redirect(`/request/${request.params.code}`),
   });
 
   server.route({
     method: 'GET',
     path: '/translate',
-    handler: nextHandler(app, '/report', { translate: '1' }),
+    handler: nextHandler(app, '/request', { translate: '1' }),
   });
 
   server.route({
@@ -171,8 +171,8 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
-    path: '/reports/{id}',
-    handler: nextHandler(app, '/reports'),
+    path: '/case/{id}',
+    handler: nextHandler(app, '/case'),
   });
 
   server.route({

@@ -73,7 +73,7 @@ export default function RequestPopup({ request }: Props) {
   }
 
   return (
-    <Link href={`/reports?id=${request.id}`} as={`/reports/${request.id}`}>
+    <Link href={`/case?id=${request.id}`} as={`/case/${request.id}`}>
       <a className={`p-a200 ${CONTAINER_STYLE.toString()}`}>
         { request.mediaUrl &&
           <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${request.mediaUrl})` }} />

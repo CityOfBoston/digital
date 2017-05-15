@@ -70,7 +70,7 @@ class ServicesLayoutGroup extends React.Component {
           { group.open && <div className="dr-c" style={{ display: 'block' }} key="content">
             { services.map(({ name, code, description }) => (
               <div key={code}>
-                <Link href={`/report?code=${code}`} as={`/report/${code}`}><a className={SERVICE_LINK_STYLE}>
+                <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className={SERVICE_LINK_STYLE}>
                   <div className="dr-t">{ name }</div>
                   <div className="dr-st">{ description }</div>
                 </a></Link>

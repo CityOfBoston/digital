@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export type Props = {|
-  activeSection?: 'report' | 'services' | 'search' | 'faq' | null,
+  activeSection?: 'request' | 'services' | 'search' | 'faq' | null,
 |}
 
 function renderNavItem({ href, as, title }, active) {
@@ -39,7 +39,7 @@ export default function Nav({ activeSection }: Props) {
           <label htmlFor="nv-s-tr" className="nv-s-l-b" type="button">Navigation</label>
         </li>
 
-        { renderNavItem({ href: '/report', as: '/', title: 'Report a problem' }, activeSection === 'report')}
+        { renderNavItem({ href: '/request', as: '/', title: 'Make a request' }, activeSection === 'request')}
         { renderNavItem({ href: '/search', as: null, title: 'Search cases' }, activeSection === 'search')}
         { renderNavItem({ href: '/services', as: null, title: 'All services' }, activeSection === 'services')}
         { renderNavItem({ href: '/faq', as: null, title: 'FAQ' }, activeSection === 'faq')}

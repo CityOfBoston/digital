@@ -71,7 +71,7 @@ export default class RequestSearch {
     }
   }
 
-  // Starting / stopping currently done in ReportLayout
+  // Starting / stopping currently done in SearchLayout
   start(loopbackGraphql: LoopbackGraphql) {
     // We use a reaction because the effect is debounced, which messes with
     // mobx's auto-detection of dependencies.
