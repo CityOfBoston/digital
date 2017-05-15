@@ -175,8 +175,9 @@ exports[`home page rendering 1`] = `
         <div
           className="g m-t500"
         >
-          <div
+          <form
             className="g--7 css-1vm2aiv"
+            onSubmit={[Function]}
           >
             <div>
               <h2
@@ -232,7 +233,7 @@ exports[`home page rendering 1`] = `
                 <button
                   className="btn css-1q8b8td"
                   disabled={true}
-                  onClick={[Function]}
+                  type="submit"
                 >
                   Start a Request
                 </button>
@@ -251,7 +252,7 @@ exports[`home page rendering 1`] = `
                 />
               </span>
             </div>
-          </div>
+          </form>
           <div
             className="g--1 m-v300 css-18t5hgw"
           >

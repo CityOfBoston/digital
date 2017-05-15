@@ -56,7 +56,7 @@ class ServicesLayoutGroup extends React.Component {
 
     return (
       <div className={`dr ${group.open ? 'dr--open' : ''}`} key={group.id}>
-        <button className="dr-h" onClick={this.toggle} aria-expanded={group.open} aria-controls={regionId}>
+        <button className="dr-h" type="button" onClick={this.toggle} aria-expanded={group.open} aria-controls={regionId}>
           <div className="dr-ic">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
               <path className="dr-i" d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z" />

@@ -340,12 +340,12 @@ export default class SearchLayout extends React.Component {
           {!mapView && <div className={RECENT_REQUESTS_CONTAINER_STYLE} ref={this.setContainer}><RecentRequests store={store} /></div> }
 
           { mapView && (
-            <div className="g p-a300"><button className="btn g--12" onClick={this.switchToListView}>List View</button></div>
+            <div className="g p-a300"><button type="button" className="btn g--12" onClick={this.switchToListView}>List View</button></div>
           )}
 
           { !mapView && mapScrolledOff && (
             <div className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${stickyMapViewButton ? STICKY_VIEW_BUTTON_STYLE.toString() : ''}`} ref={this.setMapViewButtonContainer}>
-              <button className="btn g--12" onClick={this.switchToMapView}>Map View</button>
+              <button type="button" className="btn g--12" onClick={this.switchToMapView}>Map View</button>
             </div>
           )}
         </div>

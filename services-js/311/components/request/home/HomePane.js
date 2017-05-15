@@ -162,6 +162,14 @@ export default class HomePane extends React.Component {
   }
 
   @action.bound
+  handleFormSubmit(ev: SyntheticInputEvent) {
+    const { nextFn } = this.props;
+    ev.preventDefault();
+
+    nextFn();
+  }
+
+  @action.bound
   nextButtonWrapperClick(ev: SyntheticInputEvent) {
     if (this.descriptionTextarea) {
       this.descriptionTextarea.focus();
@@ -171,7 +179,7 @@ export default class HomePane extends React.Component {
   }
 
   render() {
-    const { description, handleDescriptionChanged, nextFn, topServiceSummaries, store } = this.props;
+    const { description, handleDescriptionChanged, topServiceSummaries, store } = this.props;
     return (
       <div>
         <Head>
@@ -186,7 +194,7 @@ export default class HomePane extends React.Component {
           </div>
 
           <div className="g m-t500">
-            <div className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}>
+            <form className={`g--7 ${FORM_COLUMN_STYLE.toString()}`} onSubmit={this.handleFormSubmit}>
               <div>
                 <h2 className="stp m-v100">
                   What can we help with?
@@ -205,13 +213,13 @@ export default class HomePane extends React.Component {
               </div>
 
               <div className="m-t500" style={{ textAlign: 'right' }}>
-                { store.liveAgentAvailable && <button className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
+                { store.liveAgentAvailable && <button type="button" className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
                 <span style={{ position: 'relative' }}>
-                  <button disabled={description.length === 0} className={`btn ${NEXT_BUTTON_STYLE.toString()}`} onClick={nextFn}>Start a Request</button>
+                  <button disabled={description.length === 0} type="submit" className={`btn ${NEXT_BUTTON_STYLE.toString()}`}>Start a Request</button>
                   { description.length === 0 && <span style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }} onClick={this.nextButtonWrapperClick} role="presentation" /> }
                 </span>
               </div>
-            </div>
+            </form>
 
             <div className={`g--1 m-v300 ${OR_HOLDER_STYLE.toString()}`}>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />

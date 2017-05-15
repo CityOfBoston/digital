@@ -139,7 +139,7 @@ export default class TranslateDialog extends React.Component {
     }
 
     return (
-      <button key={code} className={`btn g--2 m-v100 ${(code === this.code) ? 'btn--c' : ''}`} onClick={this.setLanguageCode.bind(this, code)}>{title}</button>
+      <button type="button" key={code} className={`btn g--2 m-v100 ${(code === this.code) ? 'btn--c' : ''}`} onClick={this.setLanguageCode.bind(this, code)}>{title}</button>
     );
   }
 }

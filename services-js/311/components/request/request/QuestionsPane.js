@@ -206,7 +206,7 @@ export default class QuestionsPane extends React.Component {
           { errorMessage && <div className="t--info br br-t200 p-a300">{errorMessage}</div> }
 
           <div className="br br-t200" style={{ position: 'relative' }}>
-            <button className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden', width: '100%' }} onClick={buttonAction}>{buttonTitle}</button>
+            <button className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden', width: '100%' }} type="button" onClick={buttonAction}>{buttonTitle}</button>
             { uploading && <div className={PROGRESS_STYLE} style={{ width: `${100 * uploadingProgress}%` }} />}
           </div>
         </div>

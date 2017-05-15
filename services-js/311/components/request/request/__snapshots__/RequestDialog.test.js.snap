@@ -481,6 +481,7 @@ exports[`rendering location 1`] = `
             className="btn g--5"
             disabled={true}
             onClick={[Function]}
+            type="button"
           >
             Next
           </button>
@@ -765,6 +766,7 @@ exports[`rendering questions 1`] = `
                     "width": "100%",
                   }
                 }
+                type="button"
               >
                 Upload Photo
               </button>

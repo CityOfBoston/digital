@@ -174,7 +174,7 @@ export default class LocationPopUp extends React.Component {
             <div className="g--7 t--subinfo m-v200">
               { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
             </div>
-            <button className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
+            <button type="button" className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
           </div>
         </div>
       </div>

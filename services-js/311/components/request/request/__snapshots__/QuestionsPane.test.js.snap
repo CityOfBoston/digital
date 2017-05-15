@@ -103,6 +103,7 @@ exports[`blank request 1`] = `
                 "width": "100%",
               }
             }
+            type="button"
           >
             Upload Photo
           </button>
@@ -230,6 +231,7 @@ exports[`existing description 1`] = `
                 "width": "100%",
               }
             }
+            type="button"
           >
             Upload Photo
           </button>
@@ -379,6 +381,7 @@ exports[`service with metadata 1`] = `
                 "width": "100%",
               }
             }
+            type="button"
           >
             Upload Photo
           </button>

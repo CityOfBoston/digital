@@ -90,6 +90,7 @@ exports[`rendering renders a map on a small screen 1`] = `
         className="btn g--5"
         disabled={true}
         onClick={[Function]}
+        type="button"
       >
         Next
       </button>
@@ -174,6 +175,7 @@ exports[`rendering renders with an address 1`] = `
         className="btn g--5"
         disabled={false}
         onClick={[Function]}
+        type="button"
       >
         Next
       </button>
@@ -246,6 +248,7 @@ exports[`rendering renders without an address 1`] = `
         className="btn g--5"
         disabled={true}
         onClick={[Function]}
+        type="button"
       >
         Next
       </button>

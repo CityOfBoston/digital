@@ -95,6 +95,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -133,6 +134,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -171,6 +173,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -209,6 +212,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -247,6 +251,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -285,6 +290,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -323,6 +329,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -361,6 +368,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -399,6 +407,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -437,6 +446,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -475,6 +485,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
@@ -513,6 +524,7 @@ exports[`rendering 1`] = `
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
+            type="button"
           >
             <div
               className="dr-ic"
