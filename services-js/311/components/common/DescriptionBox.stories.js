@@ -5,7 +5,7 @@ import DescriptionBox from './DescriptionBox';
 
 storiesOf('DescriptionBox', module)
   .addDecorator((next) => (
-    <div style={{ width: 800, padding: 80 }}>{next()}</div>
+    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
   ))
   .add('Empty', () => (
     <DescriptionBox

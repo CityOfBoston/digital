@@ -5,6 +5,9 @@ import { storiesOf } from '@kadira/storybook';
 import LoadingIcons from './LoadingIcons';
 
 storiesOf('LoadingIcons', module)
+  .addDecorator((next) => (
+    <div className="b-c">{next()}</div>
+  ))
   .add('loading', () => (
     <div style={{ width: 200, height: 200 }}>
       <LoadingIcons />

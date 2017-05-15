@@ -5,6 +5,9 @@ import { storiesOf } from '@kadira/storybook';
 import TranslateDialog from './TranslateDialog';
 
 storiesOf('TranslateDialog', module)
+  .addDecorator((next) => (
+    <div className="b-c">{next()}</div>
+  ))
   .add('loading', () => (
     <TranslateDialog
       languages={[

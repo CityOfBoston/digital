@@ -5,6 +5,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import LocationPopUp from './LocationPopUp';
 import { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
+import { CORNER_DIALOG_STYLE } from './RequestDialog';
 import FormDialog from '../../common/FormDialog';
 
 const props = {
@@ -20,8 +21,8 @@ const makeRequestForm = (address: string) => {
 
 storiesOf('LocationPopUp', module)
   .addDecorator((story) => (
-    <div style={{ width: 450 }}>
-      <FormDialog popup>{story()}</FormDialog>
+    <div className={CORNER_DIALOG_STYLE}>
+      <FormDialog noPadding>{story()}</FormDialog>
     </div>
   ))
   .add('with address', () => (

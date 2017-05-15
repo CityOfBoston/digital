@@ -19,7 +19,9 @@ const makeRequestForm = (service: Service) => {
 
 storiesOf('QuestionsPane', module)
 .addDecorator((story) => (
-  <FormDialog>{ story() }</FormDialog>
+  <div className="b-c">
+    <FormDialog>{ story() }</FormDialog>
+  </div>
 ))
 .add('No Metadata', () => (
   <QuestionsPane

@@ -14,18 +14,21 @@ function makeStore() {
 }
 
 storiesOf('CaseView', module)
-.add('Submitted', () => (
-  <div style={{ backgroundColor: 'white' }}>
-    <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} submitted />
-  </div>
-))
-.add('Open', () => (
-  <div style={{ backgroundColor: 'white' }}>
-    <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} />
-  </div>
-))
-.add('Resolved', () => (
-  <div style={{ backgroundColor: 'white' }}>
-    <CaseView request={MOCK_REQUEST} store={makeStore()} />
-  </div>
-));
+  .addDecorator((next) => (
+    <div className="b-c" style={{ background: 'white' }}><div className="p-a500">{next()}</div></div>
+  ))
+  .add('Submitted', () => (
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} submitted />
+    </div>
+  ))
+  .add('Open', () => (
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} />
+    </div>
+  ))
+  .add('Resolved', () => (
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView request={MOCK_REQUEST} store={makeStore()} />
+    </div>
+  ));

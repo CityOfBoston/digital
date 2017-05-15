@@ -51,7 +51,7 @@ const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',
 };
 
-const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
+export const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
     // comedy bottom margin to push this up into the corner, otherwise it would
