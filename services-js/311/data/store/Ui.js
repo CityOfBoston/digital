@@ -45,8 +45,7 @@ export default class Ui {
     document.addEventListener('visibilitychange', this.handleVisibility);
 
     this.handleScroll();
-    // Do this after the first render so we match the server content
-    setTimeout(this.handleResize, 0);
+    this.handleResize();
   }
 
   detach() {

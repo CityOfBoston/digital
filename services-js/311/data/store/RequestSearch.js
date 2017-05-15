@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, action, reaction, computed } from 'mobx';
+import { observable, action, reaction, computed, runInAction } from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'leaflet';
 import uniqBy from 'lodash/uniqBy';
@@ -35,16 +35,19 @@ export default class RequestSearch {
   @observable resultsListWidth: number = 0;
 
   @observable mapBounds: ?LatLngBounds = null;
+  // true if the mobile search UI is showing just the map. We keep this in
+  // store state so that it's preserved if you tap on a case and then go back
+  @observable mapView: boolean = false;
 
   @observable.shallow _results: SearchRequest[] = [];
   @observable resultsQuery: ?string = null;
+  @observable loading: boolean = false;
 
   @observable.ref selectedRequest: ?SearchRequest = null;
   @observable selectedSource: ?string = null;
 
   searchDisposer: ?Function = null;
 
-  @action.bound
   updateRequestSearchResults({ requests, query }: SearchRequestsPage) {
     // In this method we want to bring in the new requests, but preserve any
     // existing ones that match the location / query. Without this, moving
@@ -93,12 +96,19 @@ export default class RequestSearch {
     }
   }
 
+  @action
   async search(loopbackGraphql: LoopbackGraphql, { searchCenter, radiusKm, query }: SearchArgs) {
     if (!searchCenter || !radiusKm) {
       return;
     }
 
+    this.loading = true;
+
     const results = await searchRequests(loopbackGraphql, query, searchCenter, radiusKm);
-    this.updateRequestSearchResults(results);
+
+    runInAction('request search results', () => {
+      this.loading = false;
+      this.updateRequestSearchResults(results);
+    });
   }
 }

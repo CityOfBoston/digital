@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/jsx-no-bind: 0 */
 
 import React from 'react';
 import { observable, action, autorun, untracked, reaction } from 'mobx';
@@ -7,10 +6,11 @@ import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../data/store';
-import { HEADER_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE } from '../style-constants';
 
 import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
+import RecentRequestsSearchForm from './RecentRequestsSearchForm';
 
 let Velocity;
 if (typeof window !== 'undefined') {
@@ -19,14 +19,25 @@ if (typeof window !== 'undefined') {
 
 const CONTAINER_STYLE = css({
   background: 'white',
-  // lets us scroll a full height without the footer coming up. There's actually
-  // a little slop because of the sticky header.
-  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
   position: 'relative',
-  width: '40%',
-  maxWidth: '35rem',
   display: 'flex',
   flexDirection: 'column',
+  flex: 1,
+
+  [MEDIA_LARGE]: {
+    width: '40%',
+    maxWidth: '35rem',
+    // lets us scroll a full height without the footer coming up. There's actually
+    // a little slop because of the sticky header.
+    minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+  },
+});
+
+const SEARCH_CONTAINER_STYLE = css({
+  display: 'none',
+  [MEDIA_LARGE]: {
+    display: 'block',
+  },
 });
 
 const LOADING_CONTAINER_STYLE = css({
@@ -39,7 +50,10 @@ const LOADING_CONTAINER_STYLE = css({
 const LOADING_WRAPPER_STYLE = css({
   display: 'flex',
   height: 120,
-  marginBottom: 200,
+  marginBottom: 30,
+  [MEDIA_LARGE]: {
+    marginBottom: 200,
+  },
 });
 
 export type Props = {|
@@ -85,18 +99,6 @@ export default class RecentRequests extends React.Component {
     }
   }
 
-  handleSearchSubmit = (ev: SyntheticInputEvent) => {
-    // nothing to do, because we are auto-searching
-    ev.preventDefault();
-  }
-
-  @action.bound
-  handleSearchInput(ev: SyntheticInputEvent) {
-    const { store } = this.props;
-
-    store.requestSearch.query = ev.target.value;
-  }
-
   @action.bound
   setMainEl(mainEl: ?HTMLElement) {
     this.mainEl = mainEl;
@@ -105,6 +107,13 @@ export default class RecentRequests extends React.Component {
   scrollSelectedIntoView = () => {
     // Keeps us from getting a dependency on props
     const { store } = untracked(() => Object.assign({}, this.props));
+    const { belowMediaLarge } = store.ui;
+
+    // don't scroll on mobile
+    if (belowMediaLarge) {
+      return;
+    }
+
     const { selectedRequest, selectedSource } = store.requestSearch;
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
@@ -117,22 +126,17 @@ export default class RecentRequests extends React.Component {
 
   render() {
     const { store: { requestSearch, ui } } = this.props;
-    const { results, query, resultsQuery } = requestSearch;
+    const { results, loading, resultsQuery, query } = requestSearch;
 
     return (
       <div className={CONTAINER_STYLE} ref={this.setMainEl}>
-        <div className="p-a300">
-          <form className="sf sf--y sf--md" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit} role="search">
-            <div className="sf-i">
-              <input type="text" name="q" aria-label="Search field" placeholder="Search by case ID or keywords…" value={requestSearch.query} onChange={this.handleSearchInput} className="sf-i-f" />
-              <button type="submit" className="sf-i-b">Search</button>
-            </div>
-          </form>
+        <div className={`p-a300 ${SEARCH_CONTAINER_STYLE.toString()}`}>
+          <RecentRequestsSearchForm requestSearch={requestSearch} />
         </div>
 
         <h2 className="a11y--h">Search Results</h2>
 
-        { results.length === 0 && query !== resultsQuery && (
+        { results.length === 0 && (loading || resultsQuery !== query) && (
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
               <LoadingIcons initialDelay={0} serverCompatible reduceMotion={ui.reduceMotion} />
@@ -141,7 +145,8 @@ export default class RecentRequests extends React.Component {
         )}
 
         { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
-        { results.length === 0 && query === resultsQuery && (
+
+        { results.length === 0 && !(loading || resultsQuery !== query) && (
           <div className="p-a300">
             <div className="t--intro">No results found</div>
             <div className="t--info">Try a different search term or move the map to search a different area.</div>

@@ -40,6 +40,7 @@ let opacityBox: IObservable<boolean>;
 let requestSearch;
 let searchMarkerPool: SearchMarkerPool;
 let createdMarkers;
+let outsideClickHandler;
 
 beforeEach(() => {
   createdMarkers = [];
@@ -53,10 +54,11 @@ beforeEach(() => {
 
   opacityBox = observable(1);
   const opacityComputed = computed(() => opacityBox.get());
+  outsideClickHandler = jest.fn();
 
   map = L.map(document.createElement('div'));
 
-  searchMarkerPool = new SearchMarkerPool(FAKE_MAPBOX_L, map, requestSearch, opacityComputed);
+  searchMarkerPool = new SearchMarkerPool(FAKE_MAPBOX_L, map, requestSearch, opacityComputed, true, outsideClickHandler);
 });
 
 afterEach(() => {
@@ -171,4 +173,5 @@ test('click handler', () => {
   marker.fire('click');
 
   expect(requestSearch.selectedRequest).toEqual(MOCK_REQUEST);
+  expect(outsideClickHandler).toHaveBeenCalled();
 });

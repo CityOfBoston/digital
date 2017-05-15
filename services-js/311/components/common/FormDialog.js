@@ -3,7 +3,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import { MEDIA_LARGE } from '../style-constants';
+import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
 
 export const MAX_WIDTH = 1300;
 
@@ -15,7 +15,7 @@ const DIALOG_STYLE = css({
   background: 'white',
   position: 'relative',
   transition: 'max-width 250ms',
-  minHeight: 'calc(100vh - 119px)',
+  minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
   [MEDIA_LARGE]: {
     margin: '2rem auto',
     minHeight: 'auto',

@@ -11,6 +11,12 @@ export const MEDIA_XX_LARGE = '@media screen and (min-width: 1280px)';
 
 export const HEADER_HEIGHT = 119;
 
+export const YELLOW = '#fcb61a';
+export const GREEN = '#62A744';
+export const GRAY_000 = '#f3f3f3';
+export const GRAY_100 = '#e0e0e0';
+export const GRAY_300 = '#828282';
+
 // Puts a little spacing around the dialog, which has auto left/right margins.
 // Lets the map show through on large screens.
 export const CENTERED_DIALOG_STYLE = css({

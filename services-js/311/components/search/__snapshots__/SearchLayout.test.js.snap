@@ -72,7 +72,7 @@ exports[`search form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="css-1d1pmz0"
+    className="css-1xhfri0"
     role="main"
     style={
       Object {
@@ -81,9 +81,41 @@ exports[`search form rendering 1`] = `
     }
   >
     <div
+      className="p-a300 css-5lgzpb"
+    >
+      <form
+        acceptCharset="UTF-8"
+        action="/lookup"
+        className="sf sf--y sf--md"
+        method="get"
+        onSubmit={[Function]}
+        role="search"
+      >
+        <div
+          className="sf-i"
+        >
+          <input
+            aria-label="Search field"
+            className="sf-i-f"
+            name="q"
+            onChange={[Function]}
+            placeholder="Search by case ID or keywords…"
+            type="text"
+            value="Alpha Flight"
+          />
+          <button
+            className="sf-i-b"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
       className={
         Object {
-          "data-css-pmaldw": "",
+          "data-css-1dm2r4k": "",
         }
       }
     >
@@ -103,82 +135,90 @@ exports[`search form rendering 1`] = `
     <div
       className={
         Object {
-          "data-css-1g3oppu": "",
+          "data-css-wi4u21": "",
         }
       }
     >
       <div
-        className="p-a300"
-      >
-        <form
-          acceptCharset="UTF-8"
-          action="/lookup"
-          className="sf sf--y sf--md"
-          method="get"
-          onSubmit={[Function]}
-          role="search"
-        >
-          <div
-            className="sf-i"
-          >
-            <input
-              aria-label="Search field"
-              className="sf-i-f"
-              name="q"
-              onChange={[Function]}
-              placeholder="Search by case ID or keywords…"
-              type="text"
-              value="Alpha Flight"
-            />
-            <button
-              className="sf-i-b"
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </form>
-      </div>
-      <h2
-        className="a11y--h"
-      >
-        Search Results
-      </h2>
-      <div
         className={
           Object {
-            "data-css-qtfk4q": "",
+            "data-css-1g83m8j": "",
           }
         }
       >
         <div
+          className="p-a300 css-17cwx2g"
+        >
+          <form
+            acceptCharset="UTF-8"
+            action="/lookup"
+            className="sf sf--y sf--md"
+            method="get"
+            onSubmit={[Function]}
+            role="search"
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Search field"
+                className="sf-i-f"
+                name="q"
+                onChange={[Function]}
+                placeholder="Search by case ID or keywords…"
+                type="text"
+                value="Alpha Flight"
+              />
+              <button
+                className="sf-i-b"
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <h2
+          className="a11y--h"
+        >
+          Search Results
+        </h2>
+        <div
           className={
             Object {
-              "data-css-12dto9a": "",
+              "data-css-qtfk4q": "",
             }
           }
         >
-          <span
+          <div
             className={
               Object {
-                "data-css-17mox4x": "",
+                "data-css-2jt8dn": "",
               }
             }
           >
-            <svg
+            <span
               className={
                 Object {
-                  "data-css-1acy7qc": "",
+                  "data-css-17mox4x": "",
                 }
               }
-              role="img"
             >
-              <use
-                height="100%"
-                xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-              />
-            </svg>
-          </span>
+              <svg
+                className={
+                  Object {
+                    "data-css-1acy7qc": "",
+                  }
+                }
+                role="img"
+              >
+                <use
+                  height="100%"
+                  xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
     </div>

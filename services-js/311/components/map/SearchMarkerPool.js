@@ -1,11 +1,16 @@
 // @flow
 
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';
-import type { Map as MapboxMap, Marker, DivIcon } from 'mapbox.js';
+import { css } from 'glamor';
+import type { Map as MapboxMap, Marker, DivIcon, Popup } from 'mapbox.js';
 import type RequestSearch from '../../data/store/RequestSearch';
 import type { SearchRequest } from '../../data/types';
-import waypointMarkers from './WaypointMarkers';
+import { YELLOW } from '../style-constants';
+import waypointMarkers, { WAYPOINT_BASE_OPTIONS } from './WaypointMarkers';
+import RequestPopup from './RequestPopup';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
 
@@ -16,10 +21,43 @@ type Icons = {
   closedSelectedWaypointIcon: DivIcon,
 };
 
+const POPUP_STYLE = css({
+  ' .leaflet-popup-content-wrapper': {
+    borderRadius: 0,
+    border: `2px solid ${YELLOW}`,
+    padding: 0,
+  },
+
+  ' .leaflet-popup-content': {
+    padding: 0,
+  },
+
+  ' .leaflet-popup-tip': {
+    marginTop: -2,
+    borderTopColor: YELLOW,
+
+    ':after': {
+      position: 'relative',
+      width: 0,
+      height: 0,
+      top: -11,
+      left: -8,
+      content: '""',
+      display: 'block',
+      borderLeft: '8px solid transparent',
+      borderRight: '8px solid transparent',
+      borderTop: '8px solid white',
+    },
+  },
+});
+
 // Reactive wrapper around a Marker that responds to visibility and
 // hover state.
 class SearchMarker {
+  L: LWithMapbox;
+  pool: SearchMarkerPool;
   marker: Marker;
+  popup: ?Popup;
   icons: Icons;
   map: MapboxMap;
   request: SearchRequest;
@@ -28,7 +66,9 @@ class SearchMarker {
   updateOpacityDisposer: Function;
   updateIconDisposer: Function;
 
-  constructor(L: LWithMapbox, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchRequest) {
+  constructor(L: LWithMapbox, pool: SearchMarkerPool, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchRequest) {
+    this.L = L;
+    this.pool = pool;
     this.request = request;
     this.icons = icons;
     this.map = map;
@@ -58,6 +98,10 @@ class SearchMarker {
   }
 
   @action.bound handleClick() {
+    if (this.pool.clickHandler) {
+      this.pool.clickHandler();
+    }
+
     this.requestSearch.selectedRequest = this.request;
     this.requestSearch.selectedSource = 'marker';
   }
@@ -80,6 +124,44 @@ class SearchMarker {
         icon = this.icons.closedSelectedWaypointIcon;
       } else {
         icon = this.icons.closedWaypointIcon;
+      }
+    }
+
+    if (this.selected && this.pool.showPopup) {
+      if (!this.marker.getPopup()) {
+        const popup = this.L.popup({
+          closeButton: false,
+          offset: [0, -WAYPOINT_BASE_OPTIONS.iconSize.y + 10],
+          className: POPUP_STYLE.toString(),
+        });
+
+        this.marker.bindPopup(popup);
+
+        const el = document.createElement('DIV');
+
+        if (this.requestSearch.selectedRequest) {
+          render(<RequestPopup request={this.requestSearch.selectedRequest} />, el, () => {
+            popup.setContent(el);
+
+            // Open after a tick for the case on mobile when you "Back" to this
+            // page, the popup's positioning is wrong, likely due to being
+            // positioned and then having the map's center / size moved out
+            // from under it.
+            window.setTimeout(() => {
+              this.marker.openPopup();
+            }, 0);
+          });
+        }
+      } else {
+        this.marker.openPopup();
+      }
+    } else {
+      const popup = this.marker.getPopup();
+      if (popup) {
+        unmountComponentAtNode(popup.getContent());
+
+        this.marker.closePopup();
+        this.marker.unbindPopup();
       }
     }
 
@@ -111,7 +193,10 @@ export default class SearchMarkerPool {
   maintainMarkersDisposer: Function;
   markers: {[id: string]: SearchMarker} = {};
 
-  constructor(L: LWithMapbox, map: ?MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>) {
+  showPopup: boolean = false;
+  clickHandler: ?Function = null;
+
+  constructor(L: LWithMapbox, map: ?MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, showPopup: boolean, clickHandler: ?Function) {
     if (!map) {
       throw new Error('SearchMarkerPool initialized without map');
     }
@@ -120,6 +205,8 @@ export default class SearchMarkerPool {
     this.map = map;
     this.requestSearch = requestSearch;
     this.opacityComputed = opacityComputed;
+    this.showPopup = showPopup;
+    this.clickHandler = clickHandler;
 
     this.icons = {
       openWaypointIcon: L.divIcon(waypointMarkers.greenEmpty),
@@ -139,6 +226,14 @@ export default class SearchMarkerPool {
     this.markers = {};
   }
 
+  setClickHandler(clickHandler: ?Function) {
+    this.clickHandler = clickHandler;
+  }
+
+  setShowPopup(showPopup: boolean) {
+    this.showPopup = showPopup;
+  }
+
   maintainMarkers = () => {
     const newMarkers = {};
 
@@ -151,7 +246,7 @@ export default class SearchMarkerPool {
         newMarkers[request.id] = this.markers[request.id];
         delete this.markers[request.id];
       } else {
-        newMarkers[request.id] = new SearchMarker(this.L, this.icons, this.map, this.requestSearch, this.opacityComputed, request);
+        newMarkers[request.id] = new SearchMarker(this.L, this, this.icons, this.map, this.requestSearch, this.opacityComputed, request);
       }
     });
 

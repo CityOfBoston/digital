@@ -10,7 +10,7 @@ import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';
 import type { SearchRequest } from '../../data/types';
 
-import { HEADER_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW } from '../style-constants';
 
 const REQUEST_STYLE = css({
   display: 'flex',
@@ -18,20 +18,27 @@ const REQUEST_STYLE = css({
 });
 
 const THUMBNAIL_SYLE = css({
-  width: '6rem',
-  height: '6rem',
+  width: '4rem',
+  height: '4rem',
   margin: '0 1rem 0 0',
   flexShrink: 0,
   backgroundSize: 'cover',
+  [MEDIA_LARGE]: {
+    width: '6rem',
+    height: '6rem',
+  },
 });
 
 const REQUEST_INFO_STYLE = css({
-  height: '6rem',
+  height: '4rem',
   display: 'flex',
   flex: '1 1 0',
   flexDirection: 'column',
   justifyContent: 'space-between',
   minWidth: 0,
+  [MEDIA_LARGE]: {
+    height: '6rem',
+  },
 });
 
 const REQUEST_SERVICE_NAME_STYLE = css({
@@ -41,7 +48,11 @@ const REQUEST_SERVICE_NAME_STYLE = css({
 
 const DESCRIPTION_STYLE = css({
   overflow: 'hidden',
-  height: '2.5em',
+  height: '1.5em',
+
+  [MEDIA_LARGE]: {
+    height: '2.5em',
+  },
 });
 
 const STATUS_COMMON_STYLE = css({
@@ -51,11 +62,11 @@ const STATUS_COMMON_STYLE = css({
 });
 
 const STATUS_OPEN_STYLE = css(STATUS_COMMON_STYLE, {
-  backgroundColor: '#62A744',
+  backgroundColor: GREEN,
 });
 
 const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
-  backgroundColor: '#F6A623',
+  backgroundColor: YELLOW,
 });
 
 export type Props = {|

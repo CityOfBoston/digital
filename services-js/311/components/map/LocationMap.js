@@ -32,7 +32,7 @@ const DEFAULT_CENTER = {
   lng: -71.151948,
 };
 
-const DEFAULT_MOBILE_CENTER = {
+export const DEFAULT_MOBILE_CENTER = {
   lat: 42.34117523670304,
   lng: -71.06319129467012,
 };
@@ -50,7 +50,12 @@ export type Props = {|
   mode: MapMode,
   store: AppStore,
   mobile: boolean,
+  onMapClick?: ?Function,
 |};
+
+export type DefaultProps = {|
+  onMapClick: ?Function,
+|}
 
 let L: ?LWithMapbox = null;
 if (process.browser) {
@@ -66,17 +71,12 @@ type MaintainMapLocationMarkerArgs = {
   showMarker: boolean,
 };
 
-/**
- * MOBX WARNING!!!!!
- * The props of this component can change regularly, since the opacity comes
- * from the outside.
- *
- * Because of this, it's recommended to use reaction rather than autorun to
- * keep from accidentally reacting to any changes to props.
- */
-
 @observer
 export default class LocationMap extends React.Component {
+  static defaultProps: DefaultProps = {
+    onMapClick: null,
+  };
+
   props: Props;
 
   mapEl: ?HTMLElement = null;
@@ -128,7 +128,7 @@ export default class LocationMap extends React.Component {
   }
 
   componentDidMount() {
-    const { store, mode } = this.props;
+    const { store, mode, mobile, onMapClick } = this.props;
 
     preloadWaypointSprite();
 
@@ -141,8 +141,12 @@ export default class LocationMap extends React.Component {
     if (L) {
       this.searchMarkerPool = new SearchMarkerPool(L, this.mapboxMap, store.requestSearch, computed(() => (
         this.props.mode === 'requests' ? 1 : 0
-      )));
+      )), mobile, onMapClick);
     }
+  }
+
+  componentWillReceiveProps(newProps: Props) {
+    this.updateSearchMarkerPool(newProps);
   }
 
   @action
@@ -173,6 +177,16 @@ export default class LocationMap extends React.Component {
     if (this.mapboxMap) {
       this.mapboxMap.remove();
     }
+  }
+
+  updateSearchMarkerPool({ mobile, onMapClick }: Props) {
+    const { searchMarkerPool } = this;
+    if (!searchMarkerPool) {
+      return;
+    }
+
+    searchMarkerPool.setClickHandler(onMapClick);
+    searchMarkerPool.setShowPopup(mobile);
   }
 
   maintainMapLocationMarkerData = (): MaintainMapLocationMarkerArgs => ({
@@ -270,14 +284,14 @@ export default class LocationMap extends React.Component {
   }
 
   visitLocation(location: {lat: number, lng: number}, animated: boolean) {
-    const { store, mode } = this.props;
+    const { store, mode, mobile } = this.props;
     const { mapboxMap: map } = this;
 
     if (map) {
       const bounds = [[location.lat, location.lng], [location.lat, location.lng]];
       const opts = {
         maxZoom: Math.max(17, map.getZoom()),
-        paddingTopLeft: [mode === 'picker' ? 0 : store.requestSearch.resultsListWidth, 0],
+        paddingTopLeft: [(mode === 'picker' || mobile) ? 0 : store.requestSearch.resultsListWidth, 0],
       };
 
       if (animated && !store.ui.reduceMotion) {
@@ -415,13 +429,13 @@ export default class LocationMap extends React.Component {
       return;
     }
 
-    const { store: { requestSearch }, mobile } = this.props;
+    const { store: { requestSearch }, mobile, mode } = this.props;
 
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
 
     const neContainerPoint = { x: containerWidth, y: 0 };
-    const swContainerPoint = { x: requestSearch.resultsListWidth, y: containerHeight };
+    const swContainerPoint = { x: mobile ? 0 : requestSearch.resultsListWidth, y: containerHeight };
 
     const visibleBounds = L.latLngBounds([]);
     visibleBounds.extend(map.containerPointToLatLng(neContainerPoint));
@@ -449,15 +463,20 @@ export default class LocationMap extends React.Component {
     requestSearch.mapZoom = map.getZoom();
     requestSearch.radiusKm = visibleRadiusM / 1000;
 
-    if (mobile) {
+    if (mode === 'picker' && mobile) {
       this.chooseLocation(centerStruct);
     }
   }), 500)
 
   @action.bound
   handleMapClick(ev: Object) {
-    const { mode, mobile, store: { ui } } = this.props;
+    const { mode, mobile, store: { ui }, onMapClick } = this.props;
     const latLng: LatLng = ev.latlng;
+
+    if (onMapClick) {
+      onMapClick();
+      return;
+    }
 
     if (mode !== 'picker') {
       return;
@@ -541,6 +560,14 @@ export default class LocationMap extends React.Component {
     }, 0);
   }
 
+  invalidateSize() {
+    const { store: { ui } } = this.props;
+
+    if (this.mapboxMap) {
+      this.mapboxMap.invalidateSize(!ui.reduceMotion);
+    }
+  }
+
   render() {
     const { mode, mobile } = this.props;
 
@@ -548,7 +575,7 @@ export default class LocationMap extends React.Component {
 
     return (
       <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl}>
-        { mobile && <div className={MOBILE_MARKER_STYLE}><div ref={this.setMobileMarkerEl} /></div> }
+        { mobile && (mode === 'picker') && <div className={MOBILE_MARKER_STYLE}><div ref={this.setMobileMarkerEl} /></div> }
       </div>
     );
   }

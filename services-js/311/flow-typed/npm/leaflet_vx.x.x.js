@@ -334,7 +334,55 @@ declare module 'leaflet' {
 
   declare export function divIcon(options: DivIconOptions): DivIcon;
 
-  declare export class Popup {}
+  declare export type LayerOptions = {|
+    attribution?: ?string,
+  |};
+
+  declare export class Layer {
+    addTo(map: Map): this,
+    remove(): this,
+    removeFrom(map: Map): this,
+    getPane(name?: string): HTMLElement,
+    getAttributon(): string,
+  }
+
+  declare export type DivOverlayOptions = {|
+    /* :: ...LayerOptions, */
+    offset?: ?PointLike,
+    className?: string,
+    pane?: string,
+  |};
+
+  declare export type PopupOptions = {|
+    /* :: ...DivOverlayOptions, */
+    maxWidth?: number,
+    minWidth?: number,
+    maxHeight?: ?number,
+    autoPan?: boolean,
+    autoPanPaddingTopLeft?: ?PointLike,
+    autoPanPaddingBottomRight?: ?PointLike,
+    autoPanPadding?: ?PointLike,
+    keepInView?: boolean,
+    closeButton?: boolean,
+    closeOnClick?: boolean,
+    autoClose?: boolean,
+    className?: string,
+  |};
+
+  declare export class Popup extends Layer {
+    getLatLng(): LatLng,
+    setLatLng(latLng: LatLngLike): this,
+    getContent(): string | HTMLElement,
+    setContent(htmlContent: string | HTMLElement | ((layer: Layer) => string | HTMLElement)): this,
+    getElement(): string | HTMLElement,
+    update(): null,
+    isOpen(): boolean,
+    bringToFront(): this,
+    bringToBack(): this,
+    openOn(map: Map): this,
+  }
+
+  declare export function popup(options?: PopupOptions, source?: Layer): Popup;
 
   declare export type MarkerOptions = {|
     icon?: Icon | DivIcon,
@@ -362,7 +410,7 @@ declare module 'leaflet' {
     bindPopup(htmlOrElOrPopup: string | HTMLElement | Popup, options?: Object): this,
     unbindPopup(): this;
     openPopup(): this;
-    getPopup(): Popup;
+    getPopup(): ?Popup;
     closePopup(): this;
     togglePopup(): this;
     setPopupContent(htmlOrEl: string | HTMLElement): this;
