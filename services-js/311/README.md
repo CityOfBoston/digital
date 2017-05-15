@@ -4,7 +4,6 @@ The source code for the future [311.boston.gov](https://311.boston.gov).
 
 [![Build Status](https://travis-ci.org/CityOfBoston/311.svg?branch=develop)](https://travis-ci.org/CityOfBoston/311)
 [![codecov](https://codecov.io/gh/CityOfBoston/311/branch/develop/graph/badge.svg)](https://codecov.io/gh/CityOfBoston/311)
-[![Greenkeeper badge](https://badges.greenkeeper.io/CityOfBoston/311.svg)](https://greenkeeper.io/)
 
 ## Developers
 
@@ -18,8 +17,6 @@ framework for server-side rendering.
  * **Tests**: `yarn test` or `yarn test -- --watch`
  * **Lint**: `yarn lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
  * **Typecheck**: `yarn flow`
- * **Update GraphQL schema.json**: `yarn generate-schema`
- * **Update GraphQL types.js**: `yarn generate-graphql-types`
 
 ### Getting started
 
