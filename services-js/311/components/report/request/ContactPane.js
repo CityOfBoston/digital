@@ -108,17 +108,16 @@ export default class ContactPane extends React.Component {
         <div>
           <SectionHeader>{ serviceName }</SectionHeader>
           <p className="m-v300 t--info">
-            We’ll use your contact info to send you email about the status of your
-            report and to follow up with you if necessary.
+            Why are we asking for your contact information? We’ll use it to
+            email you about the status of your report. We may also have to follow up with you.
           </p>
 
           <p className="m-v300 t--subinfo">
-            <strong>Your contact info will not be made public.</strong>{' '}
+            <strong>We won’t make your information public.</strong>{' '}
 
             { !contactInfoRequired && (
             <span>
-              You can also <a href="javascript:void(0)" onClick={this.continueWithoutContactInfo}>submit
-              without providing contact info</a>.
+              You can also <a href="javascript:void(0)" onClick={this.continueWithoutContactInfo}>send a report without giving us your information</a>.
             </span>
           )}
           </p>

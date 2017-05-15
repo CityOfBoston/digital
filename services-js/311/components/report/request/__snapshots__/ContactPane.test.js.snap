@@ -17,13 +17,13 @@ exports[`blank request 1`] = `
     <p
       className="m-v300 t--info"
     >
-      We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
+      Why are we asking for your contact information? We’ll use it to email you about the status of your report. We may also have to follow up with you.
     </p>
     <p
       className="m-v300 t--subinfo"
     >
       <strong>
-        Your contact info will not be made public.
+        We won’t make your information public.
       </strong>
        
       <span>
@@ -32,7 +32,7 @@ exports[`blank request 1`] = `
           href="javascript:void(0)"
           onClick={[Function]}
         >
-          submit without providing contact info
+          send a report without giving us your information
         </a>
         .
       </span>
@@ -224,13 +224,13 @@ exports[`filled request 1`] = `
     <p
       className="m-v300 t--info"
     >
-      We’ll use your contact info to send you email about the status of your report and to follow up with you if necessary.
+      Why are we asking for your contact information? We’ll use it to email you about the status of your report. We may also have to follow up with you.
     </p>
     <p
       className="m-v300 t--subinfo"
     >
       <strong>
-        Your contact info will not be made public.
+        We won’t make your information public.
       </strong>
        
       <span>
@@ -239,7 +239,7 @@ exports[`filled request 1`] = `
           href="javascript:void(0)"
           onClick={[Function]}
         >
-          submit without providing contact info
+          send a report without giving us your information
         </a>
         .
       </span>
