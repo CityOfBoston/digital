@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - "node"
+- node
 script:
-  - yarn jest -- --coverage --runInBand
-  - yarn codecov
+- yarn jest -- --coverage --runInBand
+- yarn codecov
+deploy:
+  provider: heroku
+  api_key:
+    secure: dcpuStSd9ehkCqFmNVXRGqqx+i1i2AUbVX8doRQ4VQ85ssANv3dbEvQyknTOIVp2LilLP64zmoVaKjYyu4uHm09jFcZIgLm8X4Z1Fx5D5cjryqIFo4ZnqCBSY2QmPwokYb5ylBbOR/rxP28QluC3bMmDh3R4VrHKAhaCjREpUCL2THeLy7aYhJgwoY2A5l3B/qMly3MK6LHnwBY2JsxNi4KN0FH0B5MgVGS0pU8ND2EZA/C80ufVeetdf6vMWCKnaLhFBTqme5XRdRbX9wIcYzGTOCM+a5UVPM3Kbg8ZI6oucOsXkLOKnRCJRDOKDumkivt1vhFRWRRZZRKDryZ15PkaK0pBmtT6InR0ErlX2zzWNpNlS42+S7cYprJkXKICF18xI4bP7XMj1fLAgwqvxmgumzF0Ee8ZIQABmztI0nBiDpkFYDywV2/zfQcYhFHozvIkfxHKUAJ7aFBLLdtxfUt2ShAJWW2tCngxPA1vom/10pT6icGKfSMmAfq2CtdFOfLyx28on3GW4PykCS2k9A20749mfNiVXAt8XG94SklKNOte8Em6NAjJvpvfvQspjwnmOEghuEAK7yCsz84/3wNs3HtPPsvG4fVp7rVp1Ipzf3iaxzZG1SvQhgSy38bbCIAB3G5g3QrOXU8YuWxUqPk/vTKyrMmTg4ltdmkfTH4=
+  app: cob-registry
+  on:
+    repo: CityOfBoston/registry-certs
