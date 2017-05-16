@@ -1,38 +1,50 @@
 class CodeRed
   include HTTParty
-  base_uri 'https://www.tripit.com'
+  base_uri ENV['API_BASE']
   debug_output
 
-  def initialize(email, password)
-    @email = email
-    get_response = self.class.get('/account/login')
-    get_response_cookie = parse_cookie(get_response.headers['Set-Cookie'])
-
+  def initialize
     post_response = self.class.post(
-      '/account/login',
+      '/api/login',
       body: {
-        login_email_address: email,
-        login_password: password
-      },
-      headers: {'Cookie' => get_response_cookie.to_cookie_string }
+        username: ENV['API_USER'],
+        password: ENV['API_PASS']
+      }
     )
 
-    @cookie = parse_cookie(post_response.headers['Set-Cookie'])
+    @cookie = post_response.header['Set-Cookie']
   end
 
-  def account_settings
-    self.class.get('/account/edit', headers: { 'Cookie' => @cookie.to_cookie_string })
-  end
+  def add_contact(contact)
+    contact_response = self.class.post(
+      '/api/contacts',
+      headers: {
+        'Cookie' => @cookie
+      },
+      body: create_contact_for_post(contact)
+    )
 
-  def logged_in?
-    account_settings.include? "You're logged in as #{@email}"
+    if contact_response.code == 201
+      return true
+    else
+      return false
+    end
   end
 
   private
 
-  def parse_cookie(resp)
-    cookie_hash = CookieHash.new
-    resp.get_fields('Set-Cookie').each { |c| cookie_hash.add_cookies(c) }
-    cookie_hash
-  end
+    def create_contact_for_post(contact)
+      created_contact = {
+        'CustomKey' => SecureRandom.hex,
+        'HomeEmail' => contact.email,
+        'FirstName' => contact.first_name,
+        'LastName' => contact.last_name,
+        'HomePhone' => contact.call ? contact.phone_number : '',
+        'TextNumber' => contact.text ? contact.phone_number : '',
+        'MobileProvider' => 'Sprint',
+        'Zip' => contact.zip
+      }
+
+      created_contact
+    end
 end
