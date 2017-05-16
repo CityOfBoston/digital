@@ -104,5 +104,6 @@ gulp.task('watch:graphql', () => [
   gulp.watch([GRAPHQL_QUERIES, GRAPHQL_SCHEMA], ['graphql:types']),
 ]);
 
-gulp.task('build', ['templates:fetch', 'babel:server', 'next:compile']);
+// TODO(finh): restore pulling templates at this step
+gulp.task('build', ['babel:server', 'next:compile']);
 gulp.task('watch', ['watch:graphql', 'watch:sprite']);
