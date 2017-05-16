@@ -1,0 +1,16 @@
+[libs]
+flow-typed/
+flow-decl/
+
+[ignore]
+<PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
+
+[options]
+module.file_ext=.graphql
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.html
+module.ignore_non_literal_requires=true
+esproposal.decorators=ignore
+unsafe.enable_getters_and_setters=true
