@@ -14,6 +14,7 @@ framework for server-side rendering.
 
  * **Development Server**: `yarn dev` <http://localhost:3000/>
  * **React Storybook**: `yarn storybook` <http://localhost:9001/>
+ * **Gulp**: `yarn gulp watch`
  * **Tests**: `yarn test` or `yarn test -- --watch`
  * **Lint**: `yarn lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
  * **Typecheck**: `yarn flow`
@@ -24,6 +25,7 @@ framework for server-side rendering.
  1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
  1. Get other API keys: Mapbox, Swiftype, &c. and put them in .env
  1. `yarn install`
+ 1. `yarn gulp watch`
  1. `yarn dev`
  1. Visit <http://localhost:3000/> in your browser
 
@@ -78,9 +80,9 @@ facilitate communication with the client code.
 Server-only code, including the GraphQL schema and resolvers, is in the
 `/server` directory.
 
-After modifying the schema, make sure to run `yarn generate-schema && yarn
-generate-graphql-flow` to update `schema.json` and the Flow types in
-`data/dao/graphql/types.js`.
+The Gulp `graphql:schema` and `graphql:types` tasks are automatically run by
+`gulp watch` to update the schema and type files when code in `server/graphql`
+changes.
 
 **Backend debugging with Charles:**
 `env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ yarn dev`
