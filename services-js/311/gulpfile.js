@@ -65,7 +65,7 @@ gulp.task('babel:server', ['clean:build'], () => (
 ));
 
 gulp.task('next:compile', ['clean:next'], (cb) => {
-  exec('next build', (err, stdout, stderr) => {
+  exec('node_modules/.bin/next build', (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
@@ -73,7 +73,7 @@ gulp.task('next:compile', ['clean:next'], (cb) => {
 });
 
 gulp.task('templates:fetch', (cb) => {
-  exec('babel-node ./scripts/fetch-templates', (err, stdout, stderr) => {
+  exec('node_modules/.bin/babel-node ./scripts/fetch-templates', (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
@@ -84,7 +84,7 @@ const GRAPHQL_QUERIES = 'data/dao/graphql/*.graphql';
 const GRAPHQL_SCHEMA = 'graphql/schema.json';
 
 gulp.task('graphql:schema', (cb) => {
-  exec('babel-node ./scripts/generate-schema', (err, stdout, stderr) => {
+  exec('node_modules/.bin/babel-node ./scripts/generate-schema', (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
@@ -92,7 +92,7 @@ gulp.task('graphql:schema', (cb) => {
 });
 
 gulp.task('graphql:types', ['graphql:schema'], (cb) => {
-  exec(`apollo-codegen generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js`, (err, stdout, stderr) => {
+  exec(`node_modules/.bin/apollo-codegen generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js`, (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
