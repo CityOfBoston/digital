@@ -31,7 +31,7 @@ export type RequestAdditions = {|
   loopbackGraphqlCache: {[key: string]: mixed},
 |};
 
-const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params, pre }, reply) => {
+export const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params, pre }, reply) => {
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
     languages: pre.language,
@@ -61,7 +61,7 @@ const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { 
   reply(html).code(res.statusCode);
 };
 
-const nextDefaultHandler = (app) => {
+export const nextDefaultHandler = (app, opts = {}) => {
   const compressionMiddleware = compression();
   const handler = app.getRequestHandler();
 
@@ -70,11 +70,11 @@ const nextDefaultHandler = (app) => {
     // gzipping or cache control.. So, we run an express middleware that
     // monkeypatches the raw response to gzip its output, and set our own
     // cache header.
-    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=600');
+    if (opts.cache) {
+      res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=600');
+    }
     await new Promise((resolve) => { compressionMiddleware(req, res, resolve); });
     await handler(req, res, url);
     hapiReply.close(false);
   };
 };
-
-export { nextHandler, nextDefaultHandler };

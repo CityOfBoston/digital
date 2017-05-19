@@ -190,7 +190,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/static/{p*}',
-    handler: nextDefaultHandler(app),
+    handler: nextDefaultHandler(app, { cache: true }),
   });
 
   await server.start();
