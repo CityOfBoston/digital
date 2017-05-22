@@ -10,5 +10,6 @@ import FetchDeathCertificatesGraphql from './FetchDeathCertificates.graphql';
 export default async function fetchDeathCertificates(loopbackGraphql: LoopbackGraphql, ids: string[]): Promise<Array<?DeathCertificate>> {
   const queryVariables: FetchDeathCertificatesQueryVariables = { ids };
   const response: FetchDeathCertificatesQuery = await loopbackGraphql(FetchDeathCertificatesGraphql, queryVariables);
-  return response.deathCertificates.certificates;
+  // Returning "any" until https://github.com/apollographql/apollo-codegen/issues/122 is fixed
+  return (response.deathCertificates.certificates: any);
 }

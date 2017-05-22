@@ -33,7 +33,8 @@
     ],
     "collectCoverageFrom": [
       "{client,lib,pages,server}/**/*\\.js",
-      "!**/*.stories.js"
+      "!**/*.stories.js",
+      "!lib/test/*.js"
     ],
     "coverageReporters": [
       "lcov",
