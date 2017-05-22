@@ -25,7 +25,7 @@ class CodeRed
     )
 
     if contact_response.code == 201
-      return true
+      return contact_response["CustomKey"]
     else
       return false
     end

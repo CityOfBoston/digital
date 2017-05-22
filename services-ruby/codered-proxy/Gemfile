@@ -14,6 +14,7 @@ gem 'httparty'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem 'faker'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
