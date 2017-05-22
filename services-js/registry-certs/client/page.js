@@ -58,7 +58,7 @@ export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Comp
       const { req } = ctx;
 
       const dependencies: InitialPropsDependencies = {
-        cart,
+        cart: cart || new Cart(),
         loopbackGraphql: makeLoopbackGraphql(req),
       };
 
@@ -71,7 +71,7 @@ export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Comp
 
     render() {
       const dependencies = {
-        cart,
+        cart: cart || new Cart(),
         loopbackGraphql: this.loopbackGraphql,
       };
 
