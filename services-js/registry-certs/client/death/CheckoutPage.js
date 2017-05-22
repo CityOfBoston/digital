@@ -42,7 +42,7 @@ export default class CheckoutPage extends React.Component {
         </div>
 
         <form className="" acceptCharset="UTF-8" method="get" action="/death" onSubmit={this.handleSubmit}>
-          { cart.items.map((item) => <CheckoutItem key={item.cert.id} item={item} cart={cart} />) }
+          { cart.items.map((item) => <CheckoutItem key={item.id} item={item} cart={cart} />) }
 
           <div className="p-a300 b--g">
             <button className="btn" type="submit">Pay and Finish</button>

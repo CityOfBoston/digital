@@ -70,22 +70,27 @@ export default class CheckoutItem extends React.Component {
     const value = ev.target.value;
 
     if (value === '') {
-      cart.setQuantity(item.cert.id, 0);
+      cart.setQuantity(item.id, 0);
     } else {
       const quantity = parseInt(value, 10);
       if (!isNaN(quantity)) {
-        cart.setQuantity(item.cert.id, quantity);
+        cart.setQuantity(item.id, quantity);
       }
     }
   }
 
   handleRemove = () => {
     const { cart, item } = this.props;
-    cart.remove(item.cert.id);
+    cart.remove(item.id);
   }
 
   render() {
     const { item: { cert } } = this.props;
+
+    if (!cert) {
+      return null;
+    }
+
     const { firstName, lastName, birthYear, deathYear, id } = cert;
 
     return (

@@ -27,13 +27,13 @@ beforeEach(() => {
 
 describe('get', () => {
   it('fetches the certificate with the given id', async () => {
-    fetchDeathCertificates.mockReturnValue([TEST_DEATH_CERTIFICATE]);
+    fetchDeathCertificates.mockReturnValue(Promise.resolve([TEST_DEATH_CERTIFICATE]));
 
     expect(await dao.get('000002')).toEqual(TEST_DEATH_CERTIFICATE);
   });
 
   it('caches the response for the next get', async () => {
-    fetchDeathCertificates.mockReturnValueOnce([TEST_DEATH_CERTIFICATE]);
+    fetchDeathCertificates.mockReturnValueOnce(Promise.resolve([TEST_DEATH_CERTIFICATE]));
 
     expect(await dao.get('000002')).toEqual(TEST_DEATH_CERTIFICATE);
     expect(await dao.get('000002')).toEqual(TEST_DEATH_CERTIFICATE);

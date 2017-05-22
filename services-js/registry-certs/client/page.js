@@ -9,7 +9,9 @@ import Router from 'next/router';
 import Cart from './store/Cart';
 import makeLoopbackGraphql from './loopback-graphql';
 import type { LoopbackGraphql } from './loopback-graphql';
+import type { RequestAdditions } from '../server/request-additions';
 
+import DeathCertificatesDao from './dao/DeathCertificatesDao';
 import RouterListener from './RouterListener';
 
 // Higher-order component for a Page in our app.
@@ -19,15 +21,16 @@ import RouterListener from './RouterListener';
 // beginning of files, and we need to rehydrate before any Glamor "css"
 // statements are processed.
 
-export type InitialPropsDependencies = {
+export type ClientDependencies = {
   cart: Cart,
+  deathCertificatesDao: DeathCertificatesDao,
   loopbackGraphql: LoopbackGraphql,
 }
 
 let browserInited = false;
-let cart: Cart;
+let browserDependencies: ClientDependencies;
 
-function maybeInitBrowser() {
+function maybeInitBrowserLibraries() {
   if (browserInited || !process.browser) {
     return;
   }
@@ -38,15 +41,40 @@ function maybeInitBrowser() {
   rehydrate(window.__NEXT_DATA__.glamorIds);
   useStrict(true);
 
-  cart = new Cart();
   const routerListener = new RouterListener();
   routerListener.attach(Router);
+}
+
+function makeDependencies(req: ?RequestAdditions): ClientDependencies {
+  if (process.browser && browserDependencies) {
+    return browserDependencies;
+  }
+
+  const loopbackGraphql = makeLoopbackGraphql(req);
+  const deathCertificatesDao = new DeathCertificatesDao(loopbackGraphql);
+
+  const cart = new Cart();
+  if (process.browser) {
+    cart.attach(window.localStorage, deathCertificatesDao);
+  }
+
+  const dependencies: ClientDependencies = {
+    cart,
+    deathCertificatesDao,
+    loopbackGraphql,
+  };
+
+  if (process.browser) {
+    browserDependencies = dependencies;
+  }
+
+  return dependencies;
 }
 
 export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => {
   // Needs to be called before componentFn so we can initialize Glamor before the
   // static "css" constants are evaluated.
-  maybeInitBrowser();
+  maybeInitBrowserLibraries();
 
   const Component = componentFn();
 
@@ -57,10 +85,7 @@ export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Comp
     static getInitialProps(ctx: Context<*>) {
       const { req } = ctx;
 
-      const dependencies: InitialPropsDependencies = {
-        cart: cart || new Cart(),
-        loopbackGraphql: makeLoopbackGraphql(req),
-      };
+      const dependencies = makeDependencies(req);
 
       if (typeof Component.getInitialProps === 'function') {
         return Component.getInitialProps(ctx, dependencies);
@@ -70,11 +95,7 @@ export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Comp
     }
 
     render() {
-      const dependencies = {
-        cart: cart || new Cart(),
-        loopbackGraphql: this.loopbackGraphql,
-      };
-
+      const dependencies = makeDependencies();
       return <Component {...dependencies} {...this.props} />;
     }
   };

@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders a hydrated cart 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death"
+        onClick={[Function]}
+      >
+        Back to Lookup
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        7
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0 m-v300"
+    >
+      <h1
+        className="sh-title"
+      >
+        Checkout
+      </h1>
+    </div>
+  </div>
+  <form
+    acceptCharset="UTF-8"
+    action="/death"
+    className=""
+    method="get"
+    onSubmit={[Function]}
+  >
+    <div
+      className="p-a300 css-vmtp4t"
+    >
+      <input
+        aria-label="Quantity"
+        className="br br-a150 css-12bqy1v"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        value="5"
+      />
+      <div
+        className="css-mfy564"
+      >
+        <div>
+          Logan
+           
+          Howlett
+        </div>
+        <div
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          1974
+           – 
+          2014
+          <span
+            style={
+              Object {
+                "color": "#828282",
+                "paddingLeft": "1em",
+              }
+            }
+          >
+            ID:
+          </span>
+           
+          000001
+        </div>
+      </div>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        X
+      </button>
+    </div>
+    <div
+      className="p-a300 css-vmtp4t"
+    >
+      <input
+        aria-label="Quantity"
+        className="br br-a150 css-12bqy1v"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        value="2"
+      />
+      <div
+        className="css-mfy564"
+      >
+        <div>
+          Bruce
+           
+          Banner
+        </div>
+        <div
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          1962
+           – 
+          2016
+          <span
+            style={
+              Object {
+                "color": "#828282",
+                "paddingLeft": "1em",
+              }
+            }
+          >
+            ID:
+          </span>
+           
+          000002
+        </div>
+      </div>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        X
+      </button>
+    </div>
+    <div
+      className="p-a300 b--g"
+    >
+      <button
+        className="btn"
+        type="submit"
+      >
+        Pay and Finish
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`rendering renders loading for unhydrated cart 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death"
+        onClick={[Function]}
+      >
+        Back to Lookup
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        8
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0 m-v300"
+    >
+      <h1
+        className="sh-title"
+      >
+        Checkout
+      </h1>
+    </div>
+  </div>
+  <form
+    acceptCharset="UTF-8"
+    action="/death"
+    className=""
+    method="get"
+    onSubmit={[Function]}
+  >
+    <div
+      className="p-a300 b--g"
+    >
+      <button
+        className="btn"
+        type="submit"
+      >
+        Pay and Finish
+      </button>
+    </div>
+  </form>
+</div>
+`;

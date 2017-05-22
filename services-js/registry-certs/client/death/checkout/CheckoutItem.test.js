@@ -25,6 +25,7 @@ describe('quantity field', () => {
 
   beforeEach(() => {
     item = new CartItem();
+    item.id = FAKE_CERTIFICATE.id;
     item.cert = FAKE_CERTIFICATE;
     item.quantity = 4;
 
