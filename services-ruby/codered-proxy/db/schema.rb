@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20170508164040) do
 
   create_table "subscriptions", force: :cascade do |t|
+    t.string "uuid"
     t.string "email"
     t.string "phone_number"
     t.boolean "call"
@@ -22,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170508164040) do
     t.string "zip"
     t.string "language"
     t.boolean "tdd"
-    t.string "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
