@@ -5,7 +5,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { renderStatic } from 'glamor/server';
 import mobxReact from 'mobx-react';
 
-import styleTags from '../components/common/style-tags';
+import styleTags from '../client/common/style-tags';
 
 import headerHtml from '../templates/header.html';
 import footerHtml from '../templates/footer.html';

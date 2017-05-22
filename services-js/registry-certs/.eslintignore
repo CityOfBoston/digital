@@ -1,5 +1,5 @@
 /flow-typed
-/data/dao/graphql
+/client/queries/graphql-types.js
 /graphql
 /build
 /coverage

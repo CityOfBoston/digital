@@ -6,7 +6,7 @@ import { configure, addDecorator } from '@kadira/storybook';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';
-import styleTags from '../components/common/style-tags';
+import styleTags from '../client/common/style-tags';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 const dotEnv = parseDotEnv(DOT_ENV);
@@ -55,7 +55,7 @@ global.beforeEach = () => {};
 global.afterEach = () => {};
 global.describe = () => {};
 
-const storiesContext = require.context('../components', true, /.stories.js$/);
+const storiesContext = require.context('../client', true, /.stories.js$/);
 
 function loadStories() {
   storiesContext.keys().forEach((filename) => storiesContext(filename));

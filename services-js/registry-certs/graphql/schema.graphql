@@ -1,3 +1,18 @@
+type DeathCertificate {
+  id: String!
+  firstName: String!
+  lastName: String!
+  birthYear: String!
+  deathYear: String!
+  causeOfDeath: String
+}
+
+type DeathCertificates {
+  search(query: String!): [DeathCertificate!]!
+  certificate(id: String!): DeathCertificate
+  certificates(ids: [String!]!): [DeathCertificate]!
+}
+
 type Query {
-  four: Int!
+  deathCertificates: DeathCertificates!
 }

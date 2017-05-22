@@ -1,0 +1,12 @@
+query FetchDeathCertificates($ids: [String!]!) {
+  deathCertificates {
+    certificates(ids: $ids) {
+      id
+      firstName
+      lastName
+      birthYear
+      deathYear
+      causeOfDeath
+    }
+  }
+}

@@ -32,7 +32,7 @@ gulp.task('babel:server', ['clean:build'], () => (
 ));
 
 gulp.task('next:compile', ['clean:next'], (cb) => {
-  exec('next build', (err, stdout, stderr) => {
+  exec('node_modules/.bin/next build', (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
@@ -47,7 +47,8 @@ gulp.task('templates:fetch', () => (
   .pipe(gulp.dest('templates'))
 ));
 
-const GRAPHQL_QUERIES = 'data/dao/graphql/*.graphql';
+const GRAPHQL_QUERIES = 'client/queries/*.graphql';
+const GRAPHQL_TYPES = 'client/queries/graphql-types.js';
 const GRAPHQL_SCHEMA = 'graphql/schema.json';
 
 gulp.task('graphql:schema', () => {
@@ -62,7 +63,7 @@ gulp.task('graphql:schema', () => {
 });
 
 gulp.task('graphql:types', ['graphql:schema'], (cb) => {
-  exec(`apollo-codegen generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js`, (err, stdout, stderr) => {
+  exec(`node_modules/.bin/apollo-codegen generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output ${GRAPHQL_TYPES}`, (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
     if (stderr) console.log(stderr);
     cb(err);
@@ -71,7 +72,7 @@ gulp.task('graphql:types', ['graphql:schema'], (cb) => {
 
 gulp.task('watch:graphql', () => [
   gulp.watch('server/graphql/*.js', ['graphql:schema']),
-  // gulp.watch([GRAPHQL_QUERIES, GRAPHQL_SCHEMA], ['graphql:types']),
+  gulp.watch([GRAPHQL_QUERIES, GRAPHQL_SCHEMA], ['graphql:types']),
 ]);
 
 // TODO(finh): restore pulling templates at this step

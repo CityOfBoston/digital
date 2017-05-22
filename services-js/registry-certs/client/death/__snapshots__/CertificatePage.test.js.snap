@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders a 404 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        Checkout
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        0
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0"
+    >
+      <h1
+        className="sh-title"
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }
+      >
+        Deceased Details
+      </h1>
+    </div>
+  </div>
+  <div
+    className="p-a300"
+  />
+</div>
+`;
+
+exports[`rendering renders a certificate 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        Checkout
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        0
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0"
+    >
+      <h1
+        className="sh-title"
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }
+      >
+        Deceased Details
+      </h1>
+    </div>
+  </div>
+  <div
+    className="p-a300"
+  />
+</div>
+`;

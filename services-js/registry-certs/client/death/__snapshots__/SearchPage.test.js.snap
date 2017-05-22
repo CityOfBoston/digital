@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering shows empty search box 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        Checkout
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        0
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0"
+    >
+      <h1
+        className="sh-title"
+      >
+        Death Certificates
+      </h1>
+    </div>
+    <form
+      acceptCharset="UTF-8"
+      action="/death"
+      className="sf sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <input
+        name="utf8"
+        type="hidden"
+        value="✓"
+      />
+      <div
+        className="sf-i"
+      >
+        <input
+          autoComplete="off"
+          className="sf-i-f"
+          id="q"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`rendering shows search results 1`] = `
+<div>
+  <nav
+    className="nv-s nv-s--sticky"
+  >
+    <div
+      className="nv-s-l css-1cqgl9p"
+    >
+      <a
+        className="nv-s-l-b css-1ltamt4"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        Checkout
+      </a>
+      <a
+        className="css-19v60r"
+        href="/death/checkout"
+        onClick={[Function]}
+      >
+        0
+      </a>
+    </div>
+  </nav>
+  <div
+    className="p-a300 b--g"
+  >
+    <div
+      className="sh sh--b0"
+    >
+      <h1
+        className="sh-title"
+      >
+        Death Certificates
+      </h1>
+    </div>
+    <form
+      acceptCharset="UTF-8"
+      action="/death"
+      className="sf sf--md"
+      method="get"
+      onSubmit={[Function]}
+    >
+      <input
+        name="utf8"
+        type="hidden"
+        value="✓"
+      />
+      <div
+        className="sf-i"
+      >
+        <input
+          autoComplete="off"
+          className="sf-i-f"
+          id="q"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search…"
+          type="text"
+          value="Monkey Joe"
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="t--sans tt-u"
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        Showing 
+        2
+         results for “
+        Monkey Joe
+        ”
+      </div>
+    </div>
+    <a
+      className="p-a300 br br-t100 css-1f15z1g"
+      href="/death/certificate/000001"
+      onClick={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Logan
+         
+        Howlett
+      </div>
+      <div>
+        Born: 
+        1974
+         – Died: 
+        2014
+      </div>
+      <div>
+        Cause of death: 
+        Known
+      </div>
+    </a>
+    <a
+      className="p-a300 br br-t100 css-1f15z1g"
+      href="/death/certificate/000002"
+      onClick={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Bruce
+         
+        Banner
+      </div>
+      <div>
+        Born: 
+        1962
+         – Died: 
+        2016
+      </div>
+      <div>
+        Cause of death: 
+        Known
+      </div>
+    </a>
+    <div
+      className="p-a300 b--g"
+    >
+      Not finding what you’re looking for? Try refining your search or 
+      <a
+        href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+        style={
+          Object {
+            "fontStyle": "italic",
+          }
+        }
+      >
+        request a death certificate
+      </a>
+      .
+    </div>
+  </div>
+  <div />
+</div>
+`;

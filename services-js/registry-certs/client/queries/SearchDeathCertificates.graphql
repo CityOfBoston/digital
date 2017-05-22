@@ -1,0 +1,12 @@
+query SearchDeathCertificates($query: String!) {
+  deathCertificates {
+    search(query: $query) {
+      id
+      firstName
+      lastName
+      birthYear
+      deathYear
+      causeOfDeath
+    }
+  }
+}

@@ -8,6 +8,7 @@ import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
+import addRequestAdditions from './request-additions';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -106,7 +107,19 @@ export default async function startServer() {
   server.route({
     method: 'GET',
     path: '/',
-    handler: nextHandler(app, '/'),
+    handler: (request, reply) => reply.redirect('/death'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/death/certificate/{id}',
+    handler: addRequestAdditions(nextHandler(app, '/death/certificate')),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/{p*}',
+    handler: addRequestAdditions(nextHandler(app)),
   });
 
   server.route({
@@ -118,7 +131,7 @@ export default async function startServer() {
   server.route({
     method: 'GET',
     path: '/static/{p*}',
-    handler: nextDefaultHandler(app),
+    handler: nextDefaultHandler(app, { cache: true }),
   });
 
   await server.start();

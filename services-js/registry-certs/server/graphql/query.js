@@ -1,14 +1,13 @@
 // @flow
-/* eslint camelcase: 0 */
 
 export const Schema = `
 type Query {
-  four: Int!
+  deathCertificates: DeathCertificates!
 }
 `;
 
 export const resolvers = {
   Query: {
-    four: () => 4,
+    deathCertificates: () => ({}),
   },
 };
