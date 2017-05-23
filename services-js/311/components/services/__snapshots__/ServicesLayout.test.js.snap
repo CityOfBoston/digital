@@ -91,7 +91,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Animal-Control-region"
+            aria-controls="Animals-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -122,7 +122,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Animal-Control-region"
+            id="Animals-region"
             role="region"
           />
         </div>
@@ -130,7 +130,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="business-region"
+            aria-controls="Health,-Safety,-and-Social-Services-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -152,163 +152,7 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Business
-            </h2>
-            <div
-              className="dr-st"
-            >
-              Certificates & Registrations, Licensing & Permitting, Complaints, Business with the City
-            </div>
-          </button>
-          <span
-            id="business-region"
-            role="region"
-          />
-        </div>
-        <div
-          className="dr "
-        >
-          <button
-            aria-controls="education-employment-region"
-            aria-expanded={false}
-            className="dr-h"
-            onClick={[Function]}
-            type="button"
-          >
-            <div
-              className="dr-ic"
-            >
-              <svg
-                viewBox="-2 8.5 18 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="dr-i"
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
-            <h2
-              className="dr-t"
-            >
-              Education & Employment
-            </h2>
-            <div
-              className="dr-st"
-            >
-              City Jobs, Schools, Library Resources, Internships & Volunteering
-            </div>
-          </button>
-          <span
-            id="education-employment-region"
-            role="region"
-          />
-        </div>
-        <div
-          className="dr "
-        >
-          <button
-            aria-controls="elections-records-region"
-            aria-expanded={false}
-            className="dr-h"
-            onClick={[Function]}
-            type="button"
-          >
-            <div
-              className="dr-ic"
-            >
-              <svg
-                viewBox="-2 8.5 18 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="dr-i"
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
-            <h2
-              className="dr-t"
-            >
-              Elections & Records
-            </h2>
-            <div
-              className="dr-st"
-            >
-              Voting, Contact Elected Officials, Personal Records (e.g., Births, Deaths & Marriages)
-            </div>
-          </button>
-          <span
-            id="elections-records-region"
-            role="region"
-          />
-        </div>
-        <div
-          className="dr "
-        >
-          <button
-            aria-controls="garbage-region"
-            aria-expanded={false}
-            className="dr-h"
-            onClick={[Function]}
-            type="button"
-          >
-            <div
-              className="dr-ic"
-            >
-              <svg
-                viewBox="-2 8.5 18 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="dr-i"
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
-            <h2
-              className="dr-t"
-            >
-              Garbage, Recycling & Graffiti
-            </h2>
-            <div
-              className="dr-st"
-            >
-              Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup
-            </div>
-          </button>
-          <span
-            id="garbage-region"
-            role="region"
-          />
-        </div>
-        <div
-          className="dr "
-        >
-          <button
-            aria-controls="Health---Safety-region"
-            aria-expanded={false}
-            className="dr-h"
-            onClick={[Function]}
-            type="button"
-          >
-            <div
-              className="dr-ic"
-            >
-              <svg
-                viewBox="-2 8.5 18 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="dr-i"
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
-            <h2
-              className="dr-t"
-            >
-              Health, Safety & Social Services
+              Health, Safety, and Social Services
             </h2>
             <div
               className="dr-st"
@@ -317,7 +161,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Health---Safety-region"
+            id="Health,-Safety,-and-Social-Services-region"
             role="region"
           />
         </div>
@@ -325,7 +169,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="housing-region"
+            aria-controls="Parks-and-Public-Space-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -347,46 +191,7 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Housing, Property & Construction
-            </h2>
-            <div
-              className="dr-st"
-            >
-              Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints
-            </div>
-          </button>
-          <span
-            id="housing-region"
-            role="region"
-          />
-        </div>
-        <div
-          className="dr "
-        >
-          <button
-            aria-controls="parks-region"
-            aria-expanded={false}
-            className="dr-h"
-            onClick={[Function]}
-            type="button"
-          >
-            <div
-              className="dr-ic"
-            >
-              <svg
-                viewBox="-2 8.5 18 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="dr-i"
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
-            <h2
-              className="dr-t"
-            >
-              Parks & Trees
+              Parks and Public Space
             </h2>
             <div
               className="dr-st"
@@ -395,7 +200,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="parks-region"
+            id="Parks-and-Public-Space-region"
             role="region"
           />
         </div>
@@ -403,7 +208,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="entertainment-region"
+            aria-controls="Property,-Housing-and-Construction-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -425,16 +230,16 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Recreation, Entertainment & Event Planning
+              Property, Housing and Construction
             </h2>
             <div
               className="dr-st"
             >
-              Calendar, Event Permitting, Facility Request, Youth, Arts
+              Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints
             </div>
           </button>
           <span
-            id="entertainment-region"
+            id="Property,-Housing-and-Construction-region"
             role="region"
           />
         </div>
@@ -442,7 +247,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="taxes-region"
+            aria-controls="Snow-or-Weather-Related-Concerns-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -464,16 +269,16 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Taxes & Payments
+              Snow or Weather Related Concerns
             </h2>
             <div
               className="dr-st"
             >
-              Real Estate Tax, Boat and Motor Vehicle Excise, Personal Property
+              Plowing, snow removal
             </div>
           </button>
           <span
-            id="taxes-region"
+            id="Snow-or-Weather-Related-Concerns-region"
             role="region"
           />
         </div>
@@ -481,7 +286,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="transportation-region"
+            aria-controls="Streets,-Sidewalks,-Traffic,-and-Vehicles-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -503,7 +308,7 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Transportation, Streets & Sidewalks
+              Streets, Sidewalks, Traffic, and Vehicles
             </h2>
             <div
               className="dr-st"
@@ -512,7 +317,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="transportation-region"
+            id="Streets,-Sidewalks,-Traffic,-and-Vehicles-region"
             role="region"
           />
         </div>
@@ -520,7 +325,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="utilities-region"
+            aria-controls="Trash,-Recycling,-and-Graffiti-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -542,16 +347,55 @@ exports[`rendering 1`] = `
             <h2
               className="dr-t"
             >
-              Utilities
+              Trash, Recycling, and Graffiti
             </h2>
             <div
               className="dr-st"
             >
-              Water & Sewer, Electric, Gas, Heat
+              Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup
             </div>
           </button>
           <span
-            id="utilities-region"
+            id="Trash,-Recycling,-and-Graffiti-region"
+            role="region"
+          />
+        </div>
+        <div
+          className="dr "
+        >
+          <button
+            aria-controls="Other-region"
+            aria-expanded={false}
+            className="dr-h"
+            onClick={[Function]}
+            type="button"
+          >
+            <div
+              className="dr-ic"
+            >
+              <svg
+                viewBox="-2 8.5 18 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="dr-i"
+                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                />
+              </svg>
+            </div>
+            <h2
+              className="dr-t"
+            >
+              Other Services
+            </h2>
+            <div
+              className="dr-st"
+            >
+              General service requests that don’t fit in another category
+            </div>
+          </button>
+          <span
+            id="Other-region"
             role="region"
           />
         </div>

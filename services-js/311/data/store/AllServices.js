@@ -5,63 +5,43 @@ import { observable } from 'mobx';
 const GROUPS = [
   {
     name: 'Animals',
-    id: 'Animal Control',
+    id: 'Animals',
     description: 'Pet Ownership, Problems with Animals, Rodents & Pests',
   },
   {
-    name: 'Business',
-    id: 'business',
-    description: 'Certificates & Registrations, Licensing & Permitting, Complaints, Business with the City',
-  },
-  {
-    name: 'Education & Employment',
-    id: 'education-employment',
-    description: 'City Jobs, Schools, Library Resources, Internships & Volunteering',
-  },
-  {
-    name: 'Elections & Records',
-    id: 'elections-records',
-    description: 'Voting, Contact Elected Officials, Personal Records (e.g., Births, Deaths & Marriages)',
-  },
-  {
-    name: 'Garbage, Recycling & Graffiti',
-    id: 'garbage',
-    description: 'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
-  },
-  {
-    name: 'Health, Safety & Social Services',
-    id: 'Health - Safety',
+    name: 'Health, Safety, and Social Services',
+    id: 'Health, Safety, and Social Services',
     description: 'Crime, Fire Prevention & Control, Healthy Living & Inspections',
   },
   {
-    name: 'Housing, Property & Construction',
-    id: 'housing',
-    description: 'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
-  },
-  {
-    name: 'Parks & Trees',
-    id: 'parks',
+    name: 'Parks and Public Space',
+    id: 'Parks and Public Space',
     description: 'Park Maintenance, Permits, Tree Planting, Donations',
   },
   {
-    name: 'Recreation, Entertainment & Event Planning',
-    id: 'entertainment',
-    description: 'Calendar, Event Permitting, Facility Request, Youth, Arts',
+    name: 'Property, Housing and Construction',
+    id: 'Property, Housing and Construction',
+    description: 'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
   },
   {
-    name: 'Taxes & Payments',
-    id: 'taxes',
-    description: 'Real Estate Tax, Boat and Motor Vehicle Excise, Personal Property',
+    name: 'Snow or Weather Related Concerns',
+    id: 'Snow or Weather Related Concerns',
+    description: 'Plowing, snow removal',
   },
   {
-    name: 'Transportation, Streets & Sidewalks',
-    id: 'transportation',
+    name: 'Streets, Sidewalks, Traffic, and Vehicles',
+    id: 'Streets, Sidewalks, Traffic, and Vehicles',
     description: 'Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance',
   },
   {
-    name: 'Utilities',
-    id: 'utilities',
-    description: 'Water & Sewer, Electric, Gas, Heat',
+    name: 'Trash, Recycling, and Graffiti',
+    id: 'Trash, Recycling, and Graffiti',
+    description: 'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
+  },
+  {
+    name: 'Other Services',
+    id: 'Other',
+    description: 'General service requests that don’t fit in another category',
   },
 ];
 
@@ -84,7 +64,7 @@ export class Group {
 export default class AllServices {
   groups: Group[] = GROUPS.map((g) => new Group(g));
   otherGroup: Group = new Group({
-    name: 'Other Services',
+    name: 'Uncategorized Services',
     id: '',
     description: 'These services have not yet been categorized',
   })

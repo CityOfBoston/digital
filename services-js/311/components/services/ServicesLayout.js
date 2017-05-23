@@ -20,6 +20,7 @@ import loadServiceSummaries from '../../data/dao/load-service-summaries';
 
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
+import { CHARLES_BLUE } from '../style-constants';
 
 type InitialProps = {
   services: ServiceSummary[],
@@ -35,8 +36,8 @@ type GroupProps = {
 }
 
 const SERVICE_LINK_STYLE = css({
-  display: 'block',
-  padding: '1.7222rem',
+  display: 'inline-block',
+  verticalAlign: 'middle',
 });
 
 @observer
@@ -67,16 +68,16 @@ class ServicesLayoutGroup extends React.Component {
         </button>
 
         <VelocityTransitionGroup enter={{ animation: 'slideDown', duration: 250 }} leave={{ animation: 'slideUp', duration: 250 }} role="region" id={regionId}>
-          { group.open && <div className="dr-c" style={{ display: 'block' }} key="content">
+          { group.open && <div className="dr-c"><ul className="ul" key="content">
             { services.map(({ name, code, description }) => (
-              <div key={code}>
-                <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className={SERVICE_LINK_STYLE}>
-                  <div className="dr-t">{ name }</div>
-                  <div className="dr-st">{ description }</div>
+              <li key={code}>
+                <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
+                  <div className="t--sans tt-u">{ name }</div>
+                  <div style={{ color: CHARLES_BLUE }}>{ description }</div>
                 </a></Link>
-              </div>
+              </li>
             ))}
-          </div>}
+          </ul></div>}
         </VelocityTransitionGroup>
       </div>
 
@@ -103,12 +104,12 @@ export default class ServicesLayout extends React.Component {
     const otherServices = [];
 
     store.allServices.groups.forEach((g) => {
-      servicesByGroup[g.id] = [];
+      servicesByGroup[g.id.toLowerCase()] = [];
     });
 
     this.props.services.forEach((s) => {
-      if (s.group && servicesByGroup[s.group]) {
-        servicesByGroup[s.group].push(s);
+      if (s.group && servicesByGroup[s.group.toLowerCase()]) {
+        servicesByGroup[s.group.toLowerCase()].push(s);
       } else {
         otherServices.push(s);
       }
@@ -127,7 +128,7 @@ export default class ServicesLayout extends React.Component {
             <SectionHeader>All BOS:311 Services</SectionHeader>
 
             <div>
-              { store.allServices.groups.map((g) => <ServicesLayoutGroup key={g.id} group={g} services={servicesByGroup[g.id]} />)}
+              { store.allServices.groups.map((g) => <ServicesLayoutGroup key={g.id} group={g} services={servicesByGroup[g.id.toLowerCase()]} />)}
 
               { otherServices.length > 0 && <ServicesLayoutGroup group={store.allServices.otherGroup} services={otherServices} /> }
             </div>
