@@ -19,6 +19,7 @@ export type Props = {|
   store: AppStore,
   requestForm: RequestForm,
   serviceName: string,
+  serviceDescription: ?string,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
 |};
@@ -122,7 +123,7 @@ export default class QuestionsPane extends React.Component {
   }
 
   render() {
-    const { requestForm, serviceName, nextIsSubmit } = this.props;
+    const { requestForm, serviceName, serviceDescription, nextIsSubmit } = this.props;
     const { description, questions, questionRequirementsMet } = requestForm;
 
     const questionsEls = [];
@@ -141,6 +142,8 @@ export default class QuestionsPane extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <SectionHeader>{ serviceName }</SectionHeader>
+
+        <div className="t--intro m-v300">{ serviceDescription }</div>
 
         <div className="g g--top">
           <div className="g--7 m-v500">

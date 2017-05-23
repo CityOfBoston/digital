@@ -32,6 +32,7 @@ const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',

@@ -15,6 +15,7 @@ const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): 
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',

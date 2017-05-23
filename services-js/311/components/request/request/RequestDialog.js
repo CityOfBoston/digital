@@ -289,7 +289,7 @@ export default class RequestDialog extends React.Component {
     switch (stage) {
       case 'questions': {
         const { fn, isSubmit } = this.makeNextAfterQuestions();
-        return <QuestionsPane store={store} requestForm={requestForm} serviceName={service.name} nextFunc={fn} nextIsSubmit={isSubmit} />;
+        return <QuestionsPane store={store} requestForm={requestForm} serviceName={service.name} serviceDescription={service.description} nextFunc={fn} nextIsSubmit={isSubmit} />;
       }
 
       case 'location': {

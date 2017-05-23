@@ -128,6 +128,11 @@ exports[`existing service page rendering 1`] = `
             </h1>
           </div>
           <div
+            className="t--intro m-v300"
+          >
+            Bad things getting in from other universes
+          </div>
+          <div
             className="g g--top"
           >
             <div
@@ -542,6 +547,11 @@ exports[`existing service page rendering phone 1`] = `
             >
               Cosmic Incursion
             </h1>
+          </div>
+          <div
+            className="t--intro m-v300"
+          >
+            Bad things getting in from other universes
           </div>
           <div
             className="g g--top"

@@ -10,6 +10,7 @@ import submitRequest from './submit-request';
 
 const COSMIC_SERVICE: Service = {
   name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',

@@ -187,7 +187,17 @@ exports[`rendering no description 1`] = `
             <div
               className="dr-st"
             >
-              
+              <span
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "textTransform": "none",
+                  }
+                }
+              >
+                
+              </span>
             </div>
           </a>
         </div>
@@ -270,7 +280,17 @@ exports[`rendering no suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              
+              <span
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "textTransform": "none",
+                  }
+                }
+              >
+                
+              </span>
             </div>
           </a>
         </div>
@@ -353,7 +373,17 @@ exports[`rendering some suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              Something is threatening the fabric of the universe
+              <span
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "textTransform": "none",
+                  }
+                }
+              >
+                Something is threatening the fabric of the universe
+              </span>
             </div>
           </a>
         </div>
@@ -400,7 +430,17 @@ exports[`rendering some suggested summaries 1`] = `
             <div
               className="dr-st"
             >
-              
+              <span
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "textTransform": "none",
+                  }
+                }
+              >
+                
+              </span>
             </div>
           </a>
         </div>

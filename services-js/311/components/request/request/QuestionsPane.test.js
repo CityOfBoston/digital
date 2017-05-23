@@ -11,6 +11,7 @@ import QuestionsPane from './QuestionsPane';
 
 export const DEFAULT_SERVICE: Service = {
   name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
   code: 'CSMCINC',
   attributes: [],
   contactRequirement: 'REQUIRED',
@@ -19,6 +20,7 @@ export const DEFAULT_SERVICE: Service = {
 
 export const SERVICE_WITH_METADATA: Service = {
   name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',
@@ -43,7 +45,7 @@ beforeEach(() => {
 
 test('blank request', () => {
   const component = renderer.create(
-    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} serviceDescription={DEFAULT_SERVICE.description} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
@@ -53,7 +55,7 @@ test('existing description', () => {
   requestForm.description = 'Please pick up my bulk items. ';
 
   const component = renderer.create(
-    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={DEFAULT_SERVICE.name} serviceDescription={DEFAULT_SERVICE.description} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();
@@ -63,7 +65,7 @@ test('service with metadata', () => {
   requestForm = new RequestForm(SERVICE_WITH_METADATA);
 
   const component = renderer.create(
-    <QuestionsPane store={store} requestForm={requestForm} serviceName={SERVICE_WITH_METADATA.name} nextFunc={jest.fn()} nextIsSubmit={false} />,
+    <QuestionsPane store={store} requestForm={requestForm} serviceName={SERVICE_WITH_METADATA.name} serviceDescription={SERVICE_WITH_METADATA.description} nextFunc={jest.fn()} nextIsSubmit={false} />,
   );
 
   expect(component.toJSON()).toMatchSnapshot();

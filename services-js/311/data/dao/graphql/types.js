@@ -81,6 +81,7 @@ export type LoadServiceQueryVariables = {
 export type LoadServiceQuery = {
   service: ? {
     name: string,
+    description: ?string,
     code: string,
     contactRequirement: MetadataRequirement,
     locationRequirement: MetadataRequirement,

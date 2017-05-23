@@ -33,7 +33,7 @@ function renderSummaryRow(problemDescription: string, { code, name, description 
       <Link href={`/request?code=${code}&description=${encodeURIComponent(problemDescription)}`} as={`/request/${code}`}><a className="dr-h">
         <div className="dr-ic" style={{ transform: 'translateY(-49%) rotateZ(-90deg)' }}><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25"><path className="dr-i" d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z" /></svg></div>
         <div className="dr-t">{name}</div>
-        <div className="dr-st">{description}</div>
+        <div className="dr-st"><span className="t--info" style={{ textTransform: 'none', fontStyle: 'normal' }}>{description}</span></div>
       </a></Link>
     </div>
   );

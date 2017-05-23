@@ -28,6 +28,7 @@ storiesOf('QuestionsPane', module)
     store={new AppStore()}
     requestForm={makeRequestForm(DEFAULT_SERVICE)}
     serviceName={'Cosmic Incursion'}
+    serviceDescription={'Bad things getting in from other universes'}
     nextFunc={action('Next Step')}
     nextIsSubmit
   />
@@ -37,6 +38,7 @@ storiesOf('QuestionsPane', module)
     store={new AppStore()}
     requestForm={makeRequestForm(SERVICE_WITH_METADATA)}
     serviceName={'Cosmic Incursion'}
+    serviceDescription={'Bad things getting in from other universes'}
     nextFunc={action('Next Step')}
     nextIsSubmit={false}
   />
