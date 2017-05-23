@@ -1,4 +1,21 @@
 {
+  "plugins": [
+    "babel-plugin-transform-decorators-legacy",
+    ["inline-import", {
+      "extensions": [
+        ".graphql",
+        ".env",
+        ".html"
+      ]
+    }],
+    "transform-class-properties"
+  ],
+
+  "presets": [
+    ["env", { "modules": "commonjs" }],
+    "next/babel"
+  ],
+
   "env": {
     "development": {
       "plugins": [
@@ -28,24 +45,6 @@
         "transform-class-properties"
       ],
       "presets": "next/babel"
-    },
-
-    "test": {
-      "plugins": [
-        "babel-plugin-transform-decorators-legacy",
-        ["inline-import", {
-          "extensions": [
-            ".graphql",
-            ".env",
-            ".html"
-          ]
-        }],
-        "transform-class-properties"
-      ],
-      "presets": [
-        ["env", { "modules": "commonjs" }],
-        "next/babel"
-      ]
     }
   }
 }
