@@ -1,6 +1,6 @@
 // @flow
 
 import page from '../../client/page';
+import CertificatePage from '../../client/death/CertificatePage';
 
-// eslint-disable-next-line global-require
-export default page(() => require('../../client/death/CertificatePage').default);
+export default page(CertificatePage);

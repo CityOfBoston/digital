@@ -4,7 +4,6 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
-import { css } from 'glamor';
 import type { Context } from 'next';
 
 import searchDeathCertificates from '../queries/search-death-certificates';
@@ -15,13 +14,6 @@ import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
 
 import { GRAY_100 } from '../common/style-constants';
-
-const RESULT_STYLE = css({
-  display: 'block',
-  color: 'inherit',
-  fontStyle: 'italic',
-  borderColor: GRAY_100,
-});
 
 export type InitialProps = {|
   query: string,
@@ -90,7 +82,7 @@ export default class IndexPage extends React.Component {
 
         <Nav cart={cart} link="checkout" />
 
-        <div className="p-a300 b--g">
+        <div className="p-a300">
           <div className="sh sh--b0">
             <h1 className="sh-title">Death Certificates</h1>
           </div>
@@ -107,6 +99,7 @@ export default class IndexPage extends React.Component {
 
         { results && this.renderResults(results) }
         <div />
+
       </div>
     );
   }
@@ -117,7 +110,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <div>
-        <div className="p-a300">
+        <div className="p-a300 b--w">
           <div className="t--sans tt-u" style={{ fontSize: 12 }}>
             Showing { results.length } results for “{query}”
           </div>
@@ -125,7 +118,7 @@ export default class IndexPage extends React.Component {
 
         { results.map(this.renderResult) }
 
-        <div className="p-a300 b--g">
+        <div className="p-a300">
           Not finding what you’re looking for? Try refining your search or <a href="https://www.boston.gov/departments/registry/how-get-death-certificate" style={{ fontStyle: 'italic' }}>request a death certificate</a>.
         </div>
       </div>
@@ -135,10 +128,18 @@ export default class IndexPage extends React.Component {
   renderResult({ firstName, lastName, birthYear, deathYear, id, causeOfDeath }: DeathCertificate) {
     return (
       <Link key={id} href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
-        <a className={`p-a300 br br-t100 ${RESULT_STYLE.toString()}`}>
+        <a className={'p-a300 br br-t100 b--w result'}>
           <div style={{ fontWeight: 'bold' }}>{firstName} {lastName}</div>
           <div>Born: {birthYear} – Died: {deathYear}</div>
           <div>Cause of death: {causeOfDeath ? 'Known' : 'Unknown'}</div>
+          <style jsx>{`
+            .result {
+              display: block;
+              color: inherit;
+              font-style: italic;
+              border-color: ${GRAY_100};
+            }
+          `}</style>
         </a>
       </Link>
     );

@@ -6,10 +6,8 @@ import renderer from 'react-test-renderer';
 
 import page from './page';
 
-jest.mock('glamor');
 jest.mock('next/router');
 
-const { rehydrate } = require('glamor');
 const Router = require('next/router').default;
 
 function runEachTestInBrowser() {
@@ -24,23 +22,12 @@ function runEachTestInBrowser() {
 }
 
 describe('creation', () => {
-  it('calls the module function', () => {
-    const requireComponent = jest.fn();
-    page(requireComponent);
-
-    expect(requireComponent).toHaveBeenCalled();
-  });
-
   describe('browser', () => {
     runEachTestInBrowser();
 
     it('does browser setup on the browser', () => {
-      const ids = ['abc', 'efg'];
-      window.__NEXT_DATA__.glamorIds = ids;
+      page(({}: any));
 
-      page(jest.fn());
-
-      expect(rehydrate).toHaveBeenCalledWith(ids);
       expect(Router.onRouteChangeStart).toBeDefined();
     });
   });
@@ -48,9 +35,9 @@ describe('creation', () => {
 
 describe('getInitialProps', () => {
   it('returns empty when the wrapped component has no getInitialProps', () => {
-    const Page: any = page(() => (
-      class extends React.Component {}
-    ));
+    const Page: any = page(
+      class extends React.Component {},
+    );
 
     expect(Page.getInitialProps({})).toEqual({});
   });
@@ -58,7 +45,7 @@ describe('getInitialProps', () => {
   it('passes dependencies to the wrapped component', () => {
     let passedDependencies;
 
-    const Page: any = page(() => (
+    const Page: any = page(
       class extends React.Component {
         static getInitialProps(context, dependencies) {
           passedDependencies = dependencies;
@@ -67,8 +54,8 @@ describe('getInitialProps', () => {
             innerClass: true,
           };
         }
-      }
-    ));
+      },
+    );
 
     expect(Page.getInitialProps({})).toEqual({ innerClass: true });
     expect(passedDependencies).toBeDefined();
@@ -79,13 +66,13 @@ describe('rendering', () => {
   let Page;
 
   beforeEach(() => {
-    Page = page(() => (
+    Page = page(
       class extends React.Component {
         render() {
           return <div data-cart={this.props.cart} />;
         }
-      }
-    ));
+      },
+    );
   });
 
   it('passes dependencies to the wrapped component', () => {

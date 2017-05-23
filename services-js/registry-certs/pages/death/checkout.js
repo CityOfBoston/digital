@@ -1,6 +1,6 @@
 // @flow
 
 import page from '../../client/page';
+import CheckoutPage from '../../client/death/CheckoutPage';
 
-// eslint-disable-next-line global-require
-export default page(() => require('../../client/death/CheckoutPage').default);
+export default page(CheckoutPage);

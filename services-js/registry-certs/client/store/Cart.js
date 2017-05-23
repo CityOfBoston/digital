@@ -5,6 +5,9 @@ import { observable, computed, action, autorun } from 'mobx';
 import type { DeathCertificate } from '../types';
 import type DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
+export const CERTIFICATE_COST = 14;
+export const PROCESSING_FEE = 0.0275;
+
 type LocalStorageItem = {|
   id: string,
   quantity: number,
@@ -64,6 +67,10 @@ export default class Cart {
 
   @computed get loading(): boolean {
     return this.pendingFetches > 0;
+  }
+
+  @computed get cost(): number {
+    return Math.ceil((this.size * CERTIFICATE_COST) * (1 + PROCESSING_FEE) * 100) / 100;
   }
 
   @action add(cert: DeathCertificate, quantity: number) {

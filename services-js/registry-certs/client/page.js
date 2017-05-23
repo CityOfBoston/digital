@@ -3,7 +3,6 @@
 import React from 'react';
 import type { Context } from 'next';
 import { useStrict } from 'mobx';
-import { rehydrate } from 'glamor';
 import Router from 'next/router';
 
 import Cart from './store/Cart';
@@ -37,8 +36,6 @@ function maybeInitBrowserLibraries() {
 
   browserInited = true;
 
-  // eslint-disable-next-line no-underscore-dangle
-  rehydrate(window.__NEXT_DATA__.glamorIds);
   useStrict(true);
 
   const routerListener = new RouterListener();
@@ -71,12 +68,8 @@ function makeDependencies(req: ?RequestAdditions): ClientDependencies {
   return dependencies;
 }
 
-export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => {
-  // Needs to be called before componentFn so we can initialize Glamor before the
-  // static "css" constants are evaluated.
+export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => {
   maybeInitBrowserLibraries();
-
-  const Component = componentFn();
 
   return class Page extends React.Component {
     props: P;

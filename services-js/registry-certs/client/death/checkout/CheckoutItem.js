@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
 import { computed, action, observable } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -9,29 +8,6 @@ import type Cart, { CartItem } from '../../store/Cart';
 
 import { GRAY_100, GRAY_300, OPTIMISTIC_BLUE } from '../../common/style-constants';
 
-const RESULT_STYLE = css({
-  background: 'white',
-  borderTop: `2px solid ${GRAY_100}`,
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const CERTIFICATE_INFO_STYLE = css({
-  flex: 1,
-});
-
-const QUANTITY_BOX_STYLE = css({
-  width: '2.5rem',
-  height: '2.5rem',
-  marginRight: '1rem',
-  fontFamily: 'inherit',
-  fontStyle: 'italic',
-  background: OPTIMISTIC_BLUE,
-  color: 'white',
-  fontSize: '1rem',
-  textAlign: 'right',
-  padding: '0.5rem',
-});
 
 export type Props = {
   cart: Cart,
@@ -54,15 +30,13 @@ export default class CheckoutItem extends React.Component {
     }
   }
 
-  @action.bound
-  handleQuanityFocus() {
+  handleQuanityFocus = action(() => {
     this.quantityHasFocus = true;
-  }
+  })
 
-  @action.bound
-  handleQuanityBlur() {
+  handleQuanityBlur = action(() => {
     this.quantityHasFocus = false;
-  }
+  })
 
   handleQuantityChange = (ev: SyntheticInputEvent) => {
     const { cart, item } = this.props;
@@ -94,25 +68,56 @@ export default class CheckoutItem extends React.Component {
     const { firstName, lastName, birthYear, deathYear, id } = cert;
 
     return (
-      <div className={`p-a300 ${RESULT_STYLE.toString()}`}>
+      <div className="p-a300 result">
         <input
           aria-label="Quantity"
           value={this.quantityValue}
           onChange={this.handleQuantityChange}
           onFocus={this.handleQuanityFocus}
           onBlur={this.handleQuanityBlur}
-          className={`br br-a150 ${QUANTITY_BOX_STYLE.toString()}`}
+          className="br br-a150 quantity-box"
         />
 
-        <div className={CERTIFICATE_INFO_STYLE.toString()}>
+        <div className="certificate-info">
           <div>{firstName} {lastName}</div>
           <div style={{ fontStyle: 'italic' }}>
             {birthYear} – {deathYear}
-            <span style={{ color: GRAY_300, paddingLeft: '1em' }}>ID:</span> {id}
+            <span className="id-label">ID:</span> {id}
           </div>
         </div>
 
         <button type="button" onClick={this.handleRemove}>X</button>
+
+        <style jsx>{`
+          .result {
+            background: white;
+            border-top: 2px solid ${GRAY_100};
+            display: flex;
+            alignItems: center;
+          }
+
+          .quantity-box {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 1rem;
+            font-family: inherit;
+            font-style: italic;
+            font-size: 1rem;
+            background: ${OPTIMISTIC_BLUE};
+            color: white;
+            text-align: right;
+            padding: 0.5rem;
+          }
+
+          .certificate-info {
+            flex: 1;
+          }
+
+          .id-label {
+            color: ${GRAY_300};
+            padding-left: 1em;
+          }
+        `}</style>
       </div>
     );
   }

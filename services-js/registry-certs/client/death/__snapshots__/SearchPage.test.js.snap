@@ -4,19 +4,23 @@ exports[`rendering shows empty search box 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
         Checkout
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -25,7 +29,7 @@ exports[`rendering shows empty search box 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0"
@@ -78,19 +82,23 @@ exports[`rendering shows search results 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
         Checkout
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -99,7 +107,7 @@ exports[`rendering shows search results 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0"
@@ -146,7 +154,7 @@ exports[`rendering shows search results 1`] = `
   </div>
   <div>
     <div
-      className="p-a300"
+      className="p-a300 b--w"
     >
       <div
         className="t--sans tt-u"
@@ -164,11 +172,13 @@ exports[`rendering shows search results 1`] = `
       </div>
     </div>
     <a
-      className="p-a300 br br-t100 css-1f15z1g"
+      className="p-a300 br br-t100 b--w result"
+      data-jsx={1723197323}
       href="/death/certificate/000001"
       onClick={[Function]}
     >
       <div
+        data-jsx={1723197323}
         style={
           Object {
             "fontWeight": "bold",
@@ -179,23 +189,29 @@ exports[`rendering shows search results 1`] = `
          
         Howlett
       </div>
-      <div>
+      <div
+        data-jsx={1723197323}
+      >
         Born: 
         1974
          – Died: 
         2014
       </div>
-      <div>
+      <div
+        data-jsx={1723197323}
+      >
         Cause of death: 
         Known
       </div>
     </a>
     <a
-      className="p-a300 br br-t100 css-1f15z1g"
+      className="p-a300 br br-t100 b--w result"
+      data-jsx={1723197323}
       href="/death/certificate/000002"
       onClick={[Function]}
     >
       <div
+        data-jsx={1723197323}
         style={
           Object {
             "fontWeight": "bold",
@@ -206,19 +222,23 @@ exports[`rendering shows search results 1`] = `
          
         Banner
       </div>
-      <div>
+      <div
+        data-jsx={1723197323}
+      >
         Born: 
         1962
          – Died: 
         2016
       </div>
-      <div>
+      <div
+        data-jsx={1723197323}
+      >
         Cause of death: 
         Known
       </div>
     </a>
     <div
-      className="p-a300 b--g"
+      className="p-a300"
     >
       Not finding what you’re looking for? Try refining your search or 
       <a

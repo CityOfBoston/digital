@@ -4,19 +4,23 @@ exports[`rendering renders a 404 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
         Checkout
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -25,7 +29,7 @@ exports[`rendering renders a 404 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0"
@@ -43,7 +47,7 @@ exports[`rendering renders a 404 1`] = `
     </div>
   </div>
   <div
-    className="p-a300"
+    className="p-a300 b--w"
   />
 </div>
 `;
@@ -52,19 +56,23 @@ exports[`rendering renders a certificate 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
         Checkout
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -73,7 +81,7 @@ exports[`rendering renders a certificate 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0"
@@ -91,7 +99,7 @@ exports[`rendering renders a certificate 1`] = `
     </div>
   </div>
   <div
-    className="p-a300"
+    className="p-a300 b--w"
   />
 </div>
 `;

@@ -4,19 +4,23 @@ exports[`rendering renders a hydrated cart 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death"
         onClick={[Function]}
       >
         Back to Lookup
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -25,7 +29,7 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0 m-v300"
@@ -45,25 +49,31 @@ exports[`rendering renders a hydrated cart 1`] = `
     onSubmit={[Function]}
   >
     <div
-      className="p-a300 css-vmtp4t"
+      className="p-a300 result"
+      data-jsx={1389666004}
     >
       <input
         aria-label="Quantity"
-        className="br br-a150 css-12bqy1v"
+        className="br br-a150 quantity-box"
+        data-jsx={1389666004}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         value="5"
       />
       <div
-        className="css-mfy564"
+        className="certificate-info"
+        data-jsx={1389666004}
       >
-        <div>
+        <div
+          data-jsx={1389666004}
+        >
           Logan
            
           Howlett
         </div>
         <div
+          data-jsx={1389666004}
           style={
             Object {
               "fontStyle": "italic",
@@ -74,12 +84,8 @@ exports[`rendering renders a hydrated cart 1`] = `
            – 
           2014
           <span
-            style={
-              Object {
-                "color": "#828282",
-                "paddingLeft": "1em",
-              }
-            }
+            className="id-label"
+            data-jsx={1389666004}
           >
             ID:
           </span>
@@ -88,6 +94,7 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
       </div>
       <button
+        data-jsx={1389666004}
         onClick={[Function]}
         type="button"
       >
@@ -95,25 +102,31 @@ exports[`rendering renders a hydrated cart 1`] = `
       </button>
     </div>
     <div
-      className="p-a300 css-vmtp4t"
+      className="p-a300 result"
+      data-jsx={1389666004}
     >
       <input
         aria-label="Quantity"
-        className="br br-a150 css-12bqy1v"
+        className="br br-a150 quantity-box"
+        data-jsx={1389666004}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         value="2"
       />
       <div
-        className="css-mfy564"
+        className="certificate-info"
+        data-jsx={1389666004}
       >
-        <div>
+        <div
+          data-jsx={1389666004}
+        >
           Bruce
            
           Banner
         </div>
         <div
+          data-jsx={1389666004}
           style={
             Object {
               "fontStyle": "italic",
@@ -124,12 +137,8 @@ exports[`rendering renders a hydrated cart 1`] = `
            – 
           2016
           <span
-            style={
-              Object {
-                "color": "#828282",
-                "paddingLeft": "1em",
-              }
-            }
+            className="id-label"
+            data-jsx={1389666004}
           >
             ID:
           </span>
@@ -138,6 +147,7 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
       </div>
       <button
+        data-jsx={1389666004}
         onClick={[Function]}
         type="button"
       >
@@ -145,10 +155,38 @@ exports[`rendering renders a hydrated cart 1`] = `
       </button>
     </div>
     <div
-      className="p-a300 b--g"
+      className="p-a300 g"
+      data-jsx={1434283171}
     >
+      <div
+        className="m-v500 g--9"
+      >
+        <div
+          className="t--info"
+        >
+          7
+           
+          certificates
+           × $
+          14
+           + 
+          2.75
+          % credit card fee
+        </div>
+        <div
+          className="sh sh--b0"
+        >
+          <span
+            className="sh-title"
+          >
+            Subtotal: $
+            100.70
+          </span>
+        </div>
+      </div>
       <button
-        className="btn"
+        className="btn g--3 m-v500"
+        data-jsx={1434283171}
         type="submit"
       >
         Pay and Finish
@@ -162,19 +200,23 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
+    data-jsx={3477795240}
   >
     <div
-      className="nv-s-l css-1cqgl9p"
+      className="nv-s-l bar"
+      data-jsx={3477795240}
     >
       <a
-        className="nv-s-l-b css-1ltamt4"
+        className="nv-s-l-b back-link"
+        data-jsx={3477795240}
         href="/death"
         onClick={[Function]}
       >
         Back to Lookup
       </a>
       <a
-        className="css-19v60r"
+        className="cart-link"
+        data-jsx={3477795240}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -183,7 +225,7 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     </div>
   </nav>
   <div
-    className="p-a300 b--g"
+    className="p-a300"
   >
     <div
       className="sh sh--b0 m-v300"
@@ -203,10 +245,38 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     onSubmit={[Function]}
   >
     <div
-      className="p-a300 b--g"
+      className="p-a300 g"
+      data-jsx={1434283171}
     >
+      <div
+        className="m-v500 g--9"
+      >
+        <div
+          className="t--info"
+        >
+          8
+           
+          certificates
+           × $
+          14
+           + 
+          2.75
+          % credit card fee
+        </div>
+        <div
+          className="sh sh--b0"
+        >
+          <span
+            className="sh-title"
+          >
+            Subtotal: $
+            115.09
+          </span>
+        </div>
+      </div>
       <button
-        className="btn"
+        className="btn g--3 m-v500"
+        data-jsx={1434283171}
         type="submit"
       >
         Pay and Finish

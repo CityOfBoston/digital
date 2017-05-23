@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
 import Head from 'next/head';
 import type { Context } from 'next';
 
@@ -11,20 +10,6 @@ import type { DeathCertificate } from '../types';
 
 import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
-
-const FORM_STYLE = css({
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const QUANTITY_STYLE = css({
-  minWidth: '5em',
-});
-
-const ADD_TO_CART_STYLE = css({
-  flex: 1,
-  marginLeft: '1em',
-});
 
 export type InitialProps = {|
   id: string,
@@ -86,13 +71,13 @@ export default class CertificatePage extends React.Component {
 
         <Nav cart={cart} link="checkout" />
 
-        <div className="p-a300 b--g">
+        <div className="p-a300">
           <div className="sh sh--b0">
             <h1 className="sh-title" style={{ marginBottom: 0 }}>Deceased Details</h1>
           </div>
         </div>
 
-        <div className="p-a300">
+        <div className="p-a300 b--w">
           { certificate && this.renderCertificate(certificate) }
         </div>
       </div>
@@ -123,8 +108,8 @@ export default class CertificatePage extends React.Component {
           </li>
         </ul>
 
-        <form onSubmit={this.handleAddToCart} className={`js-add-to-cart-form m-v300 ${FORM_STYLE.toString()}`}>
-          <select name="quantity" value={quantity} className={QUANTITY_STYLE} onChange={this.handleQuantityChange}>
+        <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form m-v300">
+          <select name="quantity" value={quantity} className="quantity" onChange={this.handleQuantityChange}>
             <option value="1">Qty: 1</option>
             <option value="2">Qty: 2</option>
             <option value="3">Qty: 3</option>
@@ -137,8 +122,24 @@ export default class CertificatePage extends React.Component {
             <option value="10">Qty: 10</option>
           </select>
 
-          <button type="submit" className={`btn ${ADD_TO_CART_STYLE.toString()}`}>Add to Cart</button>
+          <button type="submit" className="btn add-to-cart">Add to Cart</button>
         </form>
+
+        <style jsx>{`
+          form {
+            display: flex;
+            align-items: center;
+          }
+
+          .quantity {
+            min-width: 5em;
+          }
+
+          .add-to-cart {
+            flex: 1;
+            margin-left: 1em;
+          }
+        `}</style>
       </div>
     );
   }

@@ -1,26 +1,51 @@
 {
-  "presets": [
-    "next/babel",
-    "env"
-  ],
-
-  "plugins": [
-    "babel-plugin-transform-decorators-legacy",
-
-    ["inline-import", {
-      "extensions": [
-        ".graphql",
-        ".env",
-        ".html"
-      ]
-    }],
-
-    "transform-class-properties"
-  ],
-
   "env": {
+    "development": {
+      "plugins": [
+        "babel-plugin-transform-decorators-legacy",
+        ["inline-import", {
+          "extensions": [
+            ".graphql",
+            ".env",
+            ".html"
+          ]
+        }],
+        "transform-class-properties"
+      ],
+      "presets": "next/babel"
+    },
+
+    "production": {
+      "plugins": [
+        "babel-plugin-transform-decorators-legacy",
+        ["inline-import", {
+          "extensions": [
+            ".graphql",
+            ".env",
+            ".html"
+          ]
+        }],
+        "transform-class-properties"
+      ],
+      "presets": "next/babel"
+    },
+
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [
+        "babel-plugin-transform-decorators-legacy",
+        ["inline-import", {
+          "extensions": [
+            ".graphql",
+            ".env",
+            ".html"
+          ]
+        }],
+        "transform-class-properties"
+      ],
+      "presets": [
+        ["env", { "modules": "commonjs" }],
+        "next/babel"
+      ]
     }
   }
 }

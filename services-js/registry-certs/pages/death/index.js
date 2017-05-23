@@ -1,6 +1,6 @@
 // @flow
 
 import page from '../../client/page';
+import SearchPage from '../../client/death/SearchPage';
 
-// eslint-disable-next-line global-require
-export default page(() => require('../../client/death/SearchPage').default);
+export default page(SearchPage);
