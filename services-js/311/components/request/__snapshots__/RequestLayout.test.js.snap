@@ -90,20 +90,7 @@ exports[`existing service page rendering 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {
@@ -511,20 +498,7 @@ exports[`existing service page rendering phone 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {
@@ -932,20 +906,7 @@ exports[`existing service page rendering phone location step 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {
@@ -1123,20 +1084,7 @@ exports[`missing service page rendering 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {
@@ -1253,20 +1201,7 @@ exports[`request form rendering 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {
@@ -1608,20 +1543,7 @@ exports[`translate page rendering 1`] = `
           "data-css-pmaldw": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {

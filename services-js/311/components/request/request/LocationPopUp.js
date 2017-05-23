@@ -8,7 +8,7 @@ import { observer } from 'mobx-react';
 import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
 
-import LocationMap from '../../map/LocationMap';
+import { LocationMapWithLibrary } from '../../map/LocationMap';
 
 const CONTENT_STYLE = css({
   display: 'flex',
@@ -191,7 +191,7 @@ export default class LocationPopUp extends React.Component {
 
     return (
       <div className={`${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMap store={store} mode="picker" mobile />
+        <LocationMapWithLibrary store={store} mode="picker" mobile />
       </div>
     );
   }

@@ -10,30 +10,7 @@ exports[`rendering renders a map on a small screen 1`] = `
 >
   <div
     className="css-1quve7l"
-  >
-    <div
-      className={
-        Object {
-          "data-css-wi5peg": "",
-        }
-      }
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <div
-        className={
-          Object {
-            "data-css-1wmu8hv": "",
-          }
-        }
-      >
-        <div />
-      </div>
-    </div>
-  </div>
+  />
   <div
     className="p-a300 css-wi4u21"
   >

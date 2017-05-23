@@ -10,7 +10,7 @@ import { observer } from 'mobx-react';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
-import LocationMap from '../map/LocationMap';
+import { LocationMapWithLibrary } from '../map/LocationMap';
 import type { MapMode } from '../map/LocationMap';
 import HomeDialog from './home/HomeDialog';
 import type { InitialProps as HomeDialogInitialProps } from './home/HomeDialog';
@@ -166,7 +166,7 @@ export default class RequestLayout extends React.Component {
         <div className={CONTAINER_STYLE} style={{ backgroundColor: 'transparent' }} role="main">
           { (mediaLarge || !process.browser) &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
-              <LocationMap
+              <LocationMapWithLibrary
                 store={store}
                 mode={mapMode}
                 mobile={false}

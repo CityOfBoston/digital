@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/no-unused-prop-types: 0 */
 
 import React from 'react';
 import { css } from 'glamor';
@@ -46,21 +47,22 @@ export type MapMode = 'inactive' | 'requests' | 'picker';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
 
-export type Props = {|
+// eslint-disable-next-line no-unused-vars
+type CommonProps = {|
   mode: MapMode,
   store: AppStore,
   mobile: boolean,
   onMapClick?: ?Function,
+|}
+
+export type Props = {|
+  L: ?LWithMapbox,
+  /* :: ...CommonProps, */
 |};
 
 export type DefaultProps = {|
   onMapClick: ?Function,
 |}
-
-let L: ?LWithMapbox = null;
-if (process.browser) {
-  L = require('mapbox.js');
-}
 
 type MaintainMapLocationMarkerArgs = {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -99,6 +101,7 @@ export default class LocationMap extends React.Component {
   searchMarkerPool: ?SearchMarkerPool = null;
 
   componentWillMount() {
+    const { L } = this.props;
     if (L) {
       this.zoomControl = L.control.zoom({ position: 'bottomright' });
 
@@ -128,7 +131,7 @@ export default class LocationMap extends React.Component {
   }
 
   componentDidMount() {
-    const { store, mode, mobile, onMapClick } = this.props;
+    const { L, store, mode, mobile, onMapClick } = this.props;
 
     preloadWaypointSprite();
 
@@ -312,7 +315,7 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   attachMap() {
-    const { store, mode, mobile } = this.props;
+    const { L, store, mode, mobile } = this.props;
     const { apiKeys, requestSearch } = store;
     const mapboxKeys = apiKeys.mapbox;
 
@@ -424,6 +427,7 @@ export default class LocationMap extends React.Component {
   }
 
   updateMapCenter = debounce(action('updateMapCenter', () => {
+    const { L } = this.props;
     const { mapboxMap: map, mapEl } = this;
     if (!map || !mapEl || !L) {
       return;
@@ -578,5 +582,47 @@ export default class LocationMap extends React.Component {
         { mobile && (mode === 'picker') && <div className={MOBILE_MARKER_STYLE}><div ref={this.setMobileMarkerEl} /></div> }
       </div>
     );
+  }
+}
+
+type WithLibraryProps = {|
+  /* :: ...CommonProps, */
+  locationMapRef?: ?Function,
+|};
+
+type WithLibraryDefaultProps = {|
+  /* :: ...DefaultProps, */
+  locationMapRef: ?Function,
+|};
+
+export class LocationMapWithLibrary extends React.Component {
+  static defaultProps: WithLibraryDefaultProps = {
+    onMapClick: null,
+    locationMapRef: null,
+  };
+
+  props: WithLibraryProps;
+
+  state: {
+    L: ?LWithMapbox,
+  } = { L: null };
+
+  componentDidMount() {
+    if (process.browser) {
+      import('mapbox.js').then((L: any) => {
+        this.setState({ L });
+      });
+    }
+  }
+
+  render() {
+    const { locationMapRef } = this.props;
+    const { L } = this.state;
+
+    if (L) {
+      return <LocationMap ref={locationMapRef} L={L} {...(this.props: any)} />;
+    } else {
+      return null;
+    }
   }
 }

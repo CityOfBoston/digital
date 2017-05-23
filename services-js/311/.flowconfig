@@ -5,6 +5,8 @@ flow-decl/
 [ignore]
 <PROJECT_ROOT>/node_modules/jsverify/.*
 <PROJECT_ROOT>/node_modules/mapbox.js/docs/.*
+<PROJECT_ROOT>/node_modules/mapbox-gl/src/style-spec/node_modules/.*
+<PROJECT_ROOT>/node_modules/unflowify/test/.*
 
 [options]
 module.file_ext=.graphql

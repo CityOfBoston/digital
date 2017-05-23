@@ -118,20 +118,7 @@ exports[`search form rendering 1`] = `
           "data-css-1dm2r4k": "",
         }
       }
-    >
-      <div
-        className={
-          Object {
-            "data-css-wi5peg": "",
-          }
-        }
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      />
-    </div>
+    />
     <div
       className={
         Object {

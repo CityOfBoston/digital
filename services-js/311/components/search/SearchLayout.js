@@ -15,7 +15,8 @@ import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import Nav from '../common/Nav';
-import LocationMap, { DEFAULT_MOBILE_CENTER } from '../map/LocationMap';
+import { LocationMapWithLibrary, DEFAULT_MOBILE_CENTER } from '../map/LocationMap';
+import type LocationMap from '../map/LocationMap';
 import { HEADER_HEIGHT, MEDIA_LARGE, IPHONE_FOOTER_HEIGHT } from '../style-constants';
 
 import RecentRequests from './RecentRequests';
@@ -328,8 +329,8 @@ export default class SearchLayout extends React.Component {
           </div>
 
           <div className={mapView ? FULL_MAP_CONTAINER_STYLE : MAP_CONTAINER_STYLE} ref={this.setLocationMapContainer}>
-            <LocationMap
-              ref={this.setLocationMap}
+            <LocationMapWithLibrary
+              locationMapRef={this.setLocationMap}
               store={store}
               mode="requests"
               mobile={ui.belowMediaLarge}

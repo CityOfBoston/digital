@@ -35,6 +35,7 @@ test('rendering active', () => {
 
   const component = renderer.create(
     <LocationMap
+      L={require('mapbox.js')}
       store={store}
       mode="picker"
       mobile={false}
@@ -58,6 +59,7 @@ describe('mounted map', () => {
 
     wrapper = mount(
       <LocationMap
+        L={require('mapbox.js')}
         store={store}
         mode="picker"
         mobile={false}
