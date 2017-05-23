@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.0'
 
 gem 'rack-cors'
 gem 'httparty'
+gem 'staccato'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
