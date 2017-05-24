@@ -13,7 +13,7 @@ import isMapboxGlSupported from 'mapbox-gl-supported';
 import type { AppStore } from '../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
-import waypointMarkers, { preloadWaypointSprite, WAYPOINT_STYLE } from './WaypointMarkers';
+import waypointMarkers, { preloadWaypointSprite, WAYPOINT_STYLE, WAYPOINT_BASE_OPTIONS } from './WaypointMarkers';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -122,6 +122,7 @@ export default class LocationMap extends React.Component {
   requestMarker: ?Marker;
   requestMarkerGl: ?GLMarker;
   requestLocationMonitorDisposer: ?Function;
+  mouseToPointOffset: Object;
 
   currentLocationMarker: ?Marker;
   currentLocationMarkerGl: ?GLMarker;
@@ -161,9 +162,15 @@ export default class LocationMap extends React.Component {
     }
 
     if (mapboxgl) {
-      this.requestMarkerGl = new mapboxgl.Marker(makeMarkerGlElement(waypointMarkers.orangeFilled));
+      const requestMarkerDiv = makeMarkerGlElement(waypointMarkers.orangeFilled);
+      requestMarkerDiv.style.zIndex = '10';
+      requestMarkerDiv.onclick = (ev) => { ev.stopPropagation(); };
+      requestMarkerDiv.onmousedown = this.handleRequestMarkerGlMouseDown;
+      this.requestMarkerGl = new mapboxgl.Marker(requestMarkerDiv);
 
       const currentLocationDiv = makeMarkerGlElement(waypointMarkers.currentLocation);
+      currentLocationDiv.onclick = this.handleCurrentLocationMarkerGlClick;
+
       this.currentLocationMarkerGl = new mapboxgl.Marker(currentLocationDiv);
     }
   }
@@ -222,6 +229,9 @@ export default class LocationMap extends React.Component {
     if (this.mapboxGlMap) {
       this.mapboxGlMap.remove();
     }
+
+    window.removeEventListener('mousemove', this.handleRequestMarkerGlMouseMove);
+    window.removeEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
   }
 
   updateSearchMarkerPool({ mobile, onMapClick }: Props) {
@@ -645,16 +655,38 @@ export default class LocationMap extends React.Component {
     }
   }
 
+  currentLocationClicked(pos: {lat: number, lng: number}) {
+    const { mode } = this.props;
+    if (mode === 'picker') {
+      this.chooseLocation(pos);
+    } else if (mode === 'requests') {
+      this.visitLocation(pos, true);
+    }
+  }
+
   @action.bound
   handleCurrentLocationMarkerClick(ev: Object) {
     ev.stopPropagation();
+    this.currentLocationClicked(ev.target.getLatLng());
+  }
 
-    const { mode } = this.props;
-    if (mode === 'picker') {
-      this.handleMarkerClick(ev);
-    } else if (mode === 'requests') {
-      this.visitLocation(ev.target.getLatLng(), true);
+  @action.bound
+  handleCurrentLocationMarkerGlClick(ev: Object) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const { currentLocationMarkerGl } = this;
+
+    if (!currentLocationMarkerGl) {
+      return;
     }
+
+    const lngLat = currentLocationMarkerGl.getLngLat();
+    const pos = {
+      lat: lngLat.lat,
+      lng: lngLat.lng,
+    };
+    this.currentLocationClicked(pos);
   }
 
   @action.bound
@@ -670,6 +702,53 @@ export default class LocationMap extends React.Component {
       lat: latLng.lat,
       lng: latLng.lng,
     });
+  }
+
+
+  handleRequestMarkerGlMouseDown = (ev: Object) => {
+    ev.stopPropagation();
+    ev.preventDefault();
+
+    window.addEventListener('mousemove', this.handleRequestMarkerGlMouseMove);
+    window.addEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
+
+    this.mouseToPointOffset = {
+      x: WAYPOINT_BASE_OPTIONS.iconAnchor.x - ev.offsetX,
+      y: WAYPOINT_BASE_OPTIONS.iconAnchor.y - ev.offsetY,
+    };
+  }
+
+  handleRequestMarkerGlMouseUp = (ev: Object) => {
+    window.removeEventListener('mousemove', this.handleRequestMarkerGlMouseMove);
+    window.removeEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
+
+    ev.stopPropagation();
+    ev.preventDefault();
+
+    const { requestMarkerGl } = this;
+    if (!requestMarkerGl) {
+      return;
+    }
+
+    const lngLat = requestMarkerGl.getLngLat();
+
+    this.chooseLocation({
+      lat: lngLat.lat,
+      lng: lngLat.lng,
+    });
+  }
+
+  handleRequestMarkerGlMouseMove = (ev: MouseEvent) => {
+    const { mapEl, mapboxGlMap, requestMarkerGl } = this;
+    if (!mapEl || !mapboxGlMap || !requestMarkerGl) {
+      return;
+    }
+
+    const mapBounds = mapEl.getBoundingClientRect();
+    const markerTipPoint = [(ev.clientX - mapBounds.left) + this.mouseToPointOffset.x, (ev.clientY - mapBounds.top) + this.mouseToPointOffset.y];
+
+    const lngLat = mapboxGlMap.unproject(markerTipPoint);
+    requestMarkerGl.setLngLat(lngLat);
   }
 
   handleRequestMarkerDragStart = (ev: Object) => {
