@@ -16,6 +16,9 @@ module.exports = {
       })
     );
 
+    config.module.noParse = config.module.noParse || [];
+    config.module.noParse.push(/mapbox-gl/);
+
     // Important: return the modified config
     return config;
   },
