@@ -279,7 +279,7 @@ declare module 'mapbox-gl' {
     setPaintProperty(layer: string, name: string, value: mixed, klass?: string): this;
     getPaintProperty(layer: string, name: string, klass?: string): mixed;
     setLayoutProperty(layer: string, name: string, value: mixed): this;
-    getLayoutProperty(layer: string, name: string): mixued;
+    getLayoutProperty(layer: string, name: string): mixed;
 
     setLight(options: Object, lightOptions: mixed): this;
     getLight(): Object;
@@ -330,6 +330,9 @@ declare module 'mapbox-gl' {
     keyboard: KeyboardHandler;
     scrollZoom: ScrollZoomHandler;
     touchZoomRotate: TouchZoomRotateHandler;
+  }
+
+  declare export class Popup {
   }
 
   declare type MarkerOptions = {|

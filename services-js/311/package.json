@@ -73,7 +73,6 @@
     "next": "beta",
     "nprogress": "^0.2.0",
     "opbeat": "^4.13.1",
-    "proj4": "^2.4.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",

@@ -114,7 +114,7 @@ async function processResponse(res): Promise<any> {
   } else if (!res.ok) {
     let message;
 
-    if (res.headers.get('content-type').startsWith('application/json')) {
+    if ((res.headers.get('content-type') || '').startsWith('application/json')) {
       const firstError = (await res.json())[0];
       message = firstError.message || firstError.description || 'Open311 server error';
     } else {

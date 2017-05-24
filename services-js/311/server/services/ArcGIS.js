@@ -4,14 +4,6 @@ import 'isomorphic-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
-import proj4 from 'proj4';
-
-// Uses lat/long
-const WGS84_LAT_LNG = 'EPSG:4326';
-const MASSACHUSETTS_MAINLAND_PROJECTION = 'EPSG:6492';
-
-// taken from: https://github.com/OSGeo/proj.4/blob/master/nad/epsg
-proj4.defs(MASSACHUSETTS_MAINLAND_PROJECTION, '+proj=lcc +lat_1=42.68333333333333 +lat_2=41.71666666666667 +lat_0=41 +lon_0=-71.5 +x_0=200000.0001016002 +y_0=750000 +ellps=GRS80 +units=us-ft +no_defs');
 
 type SpatialReference = {
   wkid: number,
@@ -48,6 +40,7 @@ type FindAddressCandidate = {
   },
   score: number,
   attributes: {
+    Loc_name: string,
     Ref_ID: number,
   },
   extent: {
@@ -79,6 +72,7 @@ function formatAddress(address: string): string {
 
   // Intersections don't have a zip code
   const hasZip = !address.endsWith(', MA');
+  const hasMa = address.indexOf(', MA') !== -1;
 
   // Assume that the last two commas are for city and state. Not sure if this is
   // a good assumption, but we do see multiple commas in the first line.
@@ -86,7 +80,14 @@ function formatAddress(address: string): string {
   const parts = address.split(/, /);
 
   // -3 because we want 3 pieces: city, state, zip
-  const offset = hasZip ? -3 : -2;
+  let offset = -3;
+  if (!hasZip) {
+    offset += 1;
+  }
+  if (!hasMa) {
+    offset += 1;
+  }
+
   return `${parts.slice(0, offset).join(', ')}\n${parts.slice(offset).join(', ')}`;
 }
 
@@ -94,7 +95,6 @@ export default class ArcGIS {
   agent: any;
   endpoint: string
   opbeat: any
-  project: ([number, number]) => [number, number];
 
   constructor(endpoint: ?string, opbeat: any) {
     if (!endpoint) {
@@ -107,8 +107,6 @@ export default class ArcGIS {
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
     }
-
-    this.project = proj4(WGS84_LAT_LNG, MASSACHUSETTS_MAINLAND_PROJECTION);
   }
 
   url(path: string): string {
@@ -117,10 +115,17 @@ export default class ArcGIS {
 
   async reverseGeocode(lat: number, lng: number): Promise<?string> {
     const transaction = this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
-    const [x, y] = this.project.forward([lng, lat]);
+
+    const location = {
+      x: lng,
+      y: lat,
+      spatialReference: {
+        wkid: '4326',
+      },
+    };
 
     const params = new URLSearchParams();
-    params.append('location', `${x.toString()}, ${y.toString()}`);
+    params.append('location', JSON.stringify(location));
     params.append('outFields', '*');
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
@@ -154,6 +159,8 @@ export default class ArcGIS {
     params.append('SingleLine', query);
     params.append('outFields', '*');
     params.append('f', 'json');
+    // Makes the output in lat/lng
+    params.append('outSR', '4326');
 
     const response = await fetch(this.url(`findAddressCandidates?${params.toString()}`), {
       agent: this.agent,
@@ -169,11 +176,14 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    const candidate = findAddressResponse.candidates[0];
+    const candidates = findAddressResponse.candidates.filter((c) => c.attributes.Loc_name !== 'Points_SubAddr');
+    candidates.sort((a, b) => b.score - a.score);
+
+    const candidate = candidates[0];
     if (!candidate) {
       return null;
     } else {
-      const [lng, lat] = this.project.inverse([candidate.location.x, candidate.location.y]);
+      const { x: lng, y: lat } = candidate.location;
       return {
         location: { lat, lng },
         address: formatAddress(candidate.address),
