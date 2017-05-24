@@ -16,6 +16,16 @@ const SPRITE_STYLE = css({
   height: '100%',
 });
 
+export const WAYPOINT_STYLE = css({
+  position: 'absolute',
+  width: WAYPOINT_BASE_OPTIONS.iconSize.x,
+  height: WAYPOINT_BASE_OPTIONS.iconSize.y,
+  top: '50%',
+  left: '50%',
+  transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor.x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
+});
+
+
 const greenEmpty: DivIconOptions = {
   ...WAYPOINT_BASE_OPTIONS,
   className: '',

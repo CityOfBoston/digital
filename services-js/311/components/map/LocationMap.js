@@ -7,11 +7,13 @@ import { computed, action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
+import type { Map as MapboxGlMap, LngLat, Marker as GLMarker } from 'mapbox-gl';
+import isMapboxGlSupported from 'mapbox-gl-supported';
 
 import type { AppStore } from '../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
-import waypointMarkers, { preloadWaypointSprite } from './WaypointMarkers';
+import waypointMarkers, { preloadWaypointSprite, WAYPOINT_STYLE } from './WaypointMarkers';
 
 const MAP_STYLE = css({
   flex: 1,
@@ -38,6 +40,13 @@ export const DEFAULT_MOBILE_CENTER = {
   lng: -71.06319129467012,
 };
 
+export const WAYPOINT_MARKER_CONTAINER_STYLE = css({
+  position: 'relative',
+  width: 0,
+  height: 0,
+});
+
+// bounds as lat/lng.  Must convert to lng/lat for mapboxGL
 const MAX_BOUNDS = [
   [42.53689200787317, -70.58029174804689],
   [42.115542659613865, -71.7235565185547],
@@ -46,6 +55,7 @@ const MAX_BOUNDS = [
 export type MapMode = 'inactive' | 'requests' | 'picker';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
+type MapboxGL = $Exports<'mapbox-gl'>;
 
 // eslint-disable-next-line no-unused-vars
 type CommonProps = {|
@@ -57,6 +67,7 @@ type CommonProps = {|
 
 export type Props = {|
   L: ?LWithMapbox,
+  mapboxgl: ?MapboxGL,
   /* :: ...CommonProps, */
 |};
 
@@ -73,6 +84,23 @@ type MaintainMapLocationMarkerArgs = {
   showMarker: boolean,
 };
 
+function makeMarkerGlElement(waypointIcon: Object): HTMLDivElement {
+  const el = document.createElement('div');
+  el.innerHTML = `<div class="${WAYPOINT_STYLE.toString()}">${waypointIcon.html}</div>`;
+  el.className = WAYPOINT_MARKER_CONTAINER_STYLE.toString();
+  return el;
+}
+
+function setMarkerGlIcon(marker: GLMarker, waypointIcon: Object) {
+  const markerEl = marker.getElement();
+  if (markerEl && markerEl.firstChild) {
+    const childEl = markerEl.firstChild;
+    if (childEl instanceof HTMLElement) {
+      childEl.innerHTML = waypointIcon.html;
+    }
+  }
+}
+
 @observer
 export default class LocationMap extends React.Component {
   static defaultProps: DefaultProps = {
@@ -85,15 +113,18 @@ export default class LocationMap extends React.Component {
   mobileMarkerEl: ?HTMLElement = null;
 
   mapboxMap: ?MapboxMap = null;
+  mapboxGlMap: ?MapboxGlMap = null;
   zoomControl: ?ControlZoom;
 
   waypointActiveIcon: ?DivIcon;
   waypointInactiveIcon: ?DivIcon;
 
   requestMarker: ?Marker;
+  requestMarkerGl: ?GLMarker;
   requestLocationMonitorDisposer: ?Function;
 
   currentLocationMarker: ?Marker;
+  currentLocationMarkerGl: ?GLMarker;
   currentLocationMonitorDisposer: ?Function;
 
   lastPickedLocation: ?{lat: number, lng: number} = null;
@@ -101,7 +132,7 @@ export default class LocationMap extends React.Component {
   searchMarkerPool: ?SearchMarkerPool = null;
 
   componentWillMount() {
-    const { L } = this.props;
+    const { L, mapboxgl } = this.props;
     if (L) {
       this.zoomControl = L.control.zoom({ position: 'bottomright' });
 
@@ -127,6 +158,13 @@ export default class LocationMap extends React.Component {
       });
 
       currentLocationMarker.on('click', this.handleCurrentLocationMarkerClick);
+    }
+
+    if (mapboxgl) {
+      this.requestMarkerGl = new mapboxgl.Marker(makeMarkerGlElement(waypointMarkers.orangeFilled));
+
+      const currentLocationDiv = makeMarkerGlElement(waypointMarkers.currentLocation);
+      this.currentLocationMarkerGl = new mapboxgl.Marker(currentLocationDiv);
     }
   }
 
@@ -180,6 +218,10 @@ export default class LocationMap extends React.Component {
     if (this.mapboxMap) {
       this.mapboxMap.remove();
     }
+
+    if (this.mapboxGlMap) {
+      this.mapboxGlMap.remove();
+    }
   }
 
   updateSearchMarkerPool({ mobile, onMapClick }: Props) {
@@ -199,44 +241,62 @@ export default class LocationMap extends React.Component {
   })
 
   maintainRequestMarkerLocation = ({ isMarkerLocationValid, markerLocation, showMarker }: MaintainMapLocationMarkerArgs) => {
-    const { mobile, store: { ui } } = this.props;
-    const { requestMarker } = this;
+    const { mobile, store: { ui }, mapboxgl } = this.props;
+    const { requestMarker, requestMarkerGl } = this;
 
-    if (!requestMarker) {
-      return;
+    if (isMarkerLocationValid) {
+      if (requestMarker && this.waypointActiveIcon) {
+        requestMarker.setIcon(this.waypointActiveIcon);
+      }
+
+      if (requestMarkerGl) {
+        setMarkerGlIcon(requestMarkerGl, waypointMarkers.orangeFilled);
+      }
+    } else if (!isMarkerLocationValid) {
+      if (requestMarker && this.waypointInactiveIcon) {
+        requestMarker.setIcon(this.waypointInactiveIcon);
+      }
+
+      if (requestMarkerGl) {
+        setMarkerGlIcon(requestMarkerGl, waypointMarkers.grayFilled);
+      }
     }
 
-    if (isMarkerLocationValid && this.waypointActiveIcon) {
-      requestMarker.setIcon(this.waypointActiveIcon);
-    } else if (!isMarkerLocationValid && this.waypointInactiveIcon) {
-      requestMarker.setIcon(this.waypointInactiveIcon);
-    }
-
-    const { mapboxMap: map, lastPickedLocation } = this;
-
-    if (!map) {
-      return;
-    }
+    const { mapboxMap, mapboxGlMap, lastPickedLocation } = this;
 
     if (markerLocation && showMarker) {
-      requestMarker.setLatLng(markerLocation);
+      if (requestMarker) {
+        requestMarker.setLatLng(markerLocation);
+      }
+
+      if (requestMarkerGl && mapboxgl) {
+        requestMarkerGl.setLngLat(new mapboxgl.LngLat(markerLocation.lng, markerLocation.lat));
+      }
 
       if (mobile) {
-        map.removeLayer(requestMarker);
-        if (ui.reduceMotion) {
-          map.setView(markerLocation, map.getZoom());
-        } else {
-          map.flyTo(markerLocation);
-        }
+        if (mapboxMap && requestMarker) {
+          mapboxMap.removeLayer(requestMarker);
+          if (ui.reduceMotion) {
+            mapboxMap.setView(markerLocation, mapboxMap.getZoom());
+          } else {
+            mapboxMap.flyTo(markerLocation);
+          }
 
-        if (requestMarker.options.icon) {
-          // This is a bit jank but lets us leverage the existing marker-
-          // changing code. Alternate plan would be to change the marker icon
-          // using React state.
-          requestMarker.options.icon.createIcon(this.mobileMarkerEl);
+          if (requestMarker.options.icon) {
+            // This is a bit jank but lets us leverage the existing marker-
+            // changing code. Alternate plan would be to change the marker icon
+            // using React state.
+            requestMarker.options.icon.createIcon(this.mobileMarkerEl);
+          }
         }
       } else {
-        requestMarker.addTo(map);
+        if (mapboxMap && requestMarker) {
+          requestMarker.addTo(mapboxMap);
+        }
+
+        if (mapboxGlMap && requestMarkerGl) {
+          requestMarkerGl.addTo(mapboxGlMap);
+        }
 
         // zoom to the location if it's not one that we picked by clicking
         if (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng)) {
@@ -244,23 +304,35 @@ export default class LocationMap extends React.Component {
         }
       }
     } else {
-      map.removeLayer(requestMarker);
+      if (mapboxMap && requestMarker) {
+        mapboxMap.removeLayer(requestMarker);
+      }
+
+      if (requestMarkerGl) {
+        requestMarkerGl.remove();
+      }
     }
   }
 
   maintainCurrentLocationMarkerLocation = (currentLocation: ?{lat: number, lng: number}) => {
-    const { currentLocationMarker, mapboxMap: map } = this;
+    const { mapboxgl } = this.props;
+    const { currentLocationMarker, currentLocationMarkerGl, mapboxMap, mapboxGlMap } = this;
 
-    if (!currentLocationMarker) {
-      return;
-    }
-
-    if (map) {
+    if (mapboxMap && currentLocationMarker) {
       if (currentLocation) {
         currentLocationMarker.setLatLng(currentLocation);
-        currentLocationMarker.addTo(map);
+        currentLocationMarker.addTo(mapboxMap);
       } else {
-        map.removeLayer(currentLocationMarker);
+        mapboxMap.removeLayer(currentLocationMarker);
+      }
+    }
+
+    if (mapboxGlMap && currentLocationMarkerGl && mapboxgl) {
+      if (currentLocation) {
+        currentLocationMarkerGl.setLngLat(new mapboxgl.LngLat(currentLocation.lng, currentLocation.lat));
+        currentLocationMarkerGl.addTo(mapboxGlMap);
+      } else {
+        currentLocationMarkerGl.remove();
       }
     }
   }
@@ -288,13 +360,16 @@ export default class LocationMap extends React.Component {
 
   visitLocation(location: {lat: number, lng: number}, animated: boolean) {
     const { store, mode, mobile } = this.props;
-    const { mapboxMap: map } = this;
 
-    if (map) {
+    const leftPadding = (mode === 'picker' || mobile) ? 0 : store.requestSearch.resultsListWidth;
+
+    if (this.mapboxMap) {
+      const map = this.mapboxMap;
+      const maxZoom = Math.max(17, map.getZoom());
       const bounds = [[location.lat, location.lng], [location.lat, location.lng]];
       const opts = {
-        maxZoom: Math.max(17, map.getZoom()),
-        paddingTopLeft: [(mode === 'picker' || mobile) ? 0 : store.requestSearch.resultsListWidth, 0],
+        maxZoom,
+        paddingTopLeft: [leftPadding, 0],
       };
 
       if (animated && !store.ui.reduceMotion) {
@@ -302,6 +377,24 @@ export default class LocationMap extends React.Component {
       } else {
         map.fitBounds(bounds, opts);
       }
+    }
+
+    if (this.mapboxGlMap) {
+      const map = this.mapboxGlMap;
+      const maxZoom = Math.max(17, map.getZoom());
+      const bounds = [[location.lng, location.lat], [location.lng, location.lat]];
+      const opts = {
+        maxZoom,
+        padding: {
+          top: 0,
+          left: leftPadding,
+          bottom: 0,
+          right: 0,
+        },
+        animate: animated && !store.ui.reduceMotion,
+      };
+
+      map.fitBounds(bounds, opts);
     }
   }
 
@@ -315,11 +408,11 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   attachMap() {
-    const { L, store, mode, mobile } = this.props;
+    const { L, mapboxgl, store, mode, mobile } = this.props;
     const { apiKeys, requestSearch } = store;
     const mapboxKeys = apiKeys.mapbox;
 
-    if (!L) {
+    if (!L && !mapboxgl) {
       return;
     }
 
@@ -327,32 +420,57 @@ export default class LocationMap extends React.Component {
       throw new Error('mapEl not bound when attaching map');
     }
 
-    const opts = {
-      accessToken: mapboxKeys.accessToken,
-      center: requestSearch.mapCenter || (mobile ? DEFAULT_MOBILE_CENTER : DEFAULT_CENTER),
+    const style = `mapbox://styles/${mapboxKeys.stylePath}`;
+    const center = requestSearch.mapCenter || (mobile ? DEFAULT_MOBILE_CENTER : DEFAULT_CENTER);
+
+    const commonOpts = {
       zoom: requestSearch.mapZoom,
       minZoom: 11,
       maxZoom: 18,
       attributionControl: false,
-      maxBounds: MAX_BOUNDS,
-      zoomControl: false,
     };
 
+
     let map;
-    if (process.env.NODE_ENV === 'test') {
-      // In test mode we don't use Mapbox because it requires an API key and
-      // tries to load tile sets. We stick to a basic Leaflet map which should
-      // still do the things we want to.
 
-      map = L.map(this.mapEl, (opts: any));
-    } else {
-      map = L.mapbox.map(this.mapEl, null, opts);
-      L.mapbox.styleLayer(`mapbox://styles/${mapboxKeys.stylePath}`, {
+    if (L) {
+      const opts = {
+        ...commonOpts,
         accessToken: mapboxKeys.accessToken,
-      }).addTo(map);
-    }
+        center,
+        maxBounds: MAX_BOUNDS,
+        zoomControl: false,
+      };
 
-    this.mapboxMap = map;
+      if (process.env.NODE_ENV === 'test') {
+        // In test mode we don't use Mapbox because it requires an API key and
+        // tries to load tile sets. We stick to a basic Leaflet map which should
+        // still do the things we want to.
+
+        map = L.map(this.mapEl, (opts: any));
+      } else {
+        map = L.mapbox.map(this.mapEl, null, opts);
+
+        L.mapbox.styleLayer(style, {
+          accessToken: mapboxKeys.accessToken,
+        }).addTo(map);
+      }
+
+      this.mapboxMap = map;
+    } else if (mapboxgl) {
+      (mapboxgl: any).accessToken = mapboxKeys.accessToken;
+      map = new mapboxgl.Map({
+        container: this.mapEl,
+        style,
+        center: [center.lng, center.lat],
+        maxBounds: new mapboxgl.LngLatBounds([MAX_BOUNDS[1][1], MAX_BOUNDS[1][0]], [MAX_BOUNDS[0][1], MAX_BOUNDS[0][0]]),
+        ...commonOpts,
+      });
+
+      this.mapboxGlMap = map;
+    } else {
+      return;
+    }
 
     map.on('click', this.handleMapClick);
     map.on('resize', this.updateMapCenter);
@@ -375,20 +493,41 @@ export default class LocationMap extends React.Component {
   }
 
   updateMapEventHandlers(mode: MapMode) {
-    const map = this.mapboxMap;
+    let boxZoom;
+    let dragPan;
+    let doubleClickZoom;
+    let keyboard;
+    let scrollZoom;
+    let touchZoomRotate;
 
-    if (!map) {
+    if (this.mapboxGlMap) {
+      const map = this.mapboxGlMap;
+      boxZoom = map.boxZoom;
+      dragPan = map.dragPan;
+      doubleClickZoom = map.doubleClickZoom;
+      keyboard = map.keyboard;
+      scrollZoom = map.scrollZoom;
+      touchZoomRotate = map.touchZoomRotate;
+    } else if (this.mapboxMap) {
+      const map = this.mapboxMap;
+      boxZoom = map.boxZoom;
+      dragPan = map.dragging;
+      doubleClickZoom = map.doubleClickZoom;
+      keyboard = map.keyboard;
+      scrollZoom = map.scrollWheelZoom;
+      touchZoomRotate = map.touchZoom;
+    } else {
       return;
     }
 
     switch (mode) {
       case 'inactive':
-        map.boxZoom.disable();
-        map.dragging.disable();
-        map.doubleClickZoom.disable();
-        map.keyboard.disable();
-        map.scrollWheelZoom.disable();
-        map.touchZoom.disable();
+        boxZoom.disable();
+        dragPan.disable();
+        doubleClickZoom.disable();
+        keyboard.disable();
+        scrollZoom.disable();
+        touchZoomRotate.disable();
 
         if (this.zoomControl) {
           this.zoomControl.remove();
@@ -396,28 +535,28 @@ export default class LocationMap extends React.Component {
         break;
 
       case 'picker':
-        map.boxZoom.enable();
-        map.dragging.enable();
-        map.doubleClickZoom.enable();
-        map.keyboard.enable();
-        map.scrollWheelZoom.enable();
-        map.touchZoom.enable();
+        boxZoom.enable();
+        dragPan.enable();
+        doubleClickZoom.enable();
+        keyboard.enable();
+        scrollZoom.enable();
+        touchZoomRotate.enable();
 
-        if (this.zoomControl) {
-          this.zoomControl.addTo(map);
+        if (this.zoomControl && this.mapboxMap) {
+          this.zoomControl.addTo(this.mapboxMap);
         }
         break;
 
       case 'requests':
-        map.boxZoom.enable();
-        map.doubleClickZoom.enable();
-        map.dragging.enable();
-        map.keyboard.enable();
-        map.scrollWheelZoom.disable();
-        map.touchZoom.enable();
+        boxZoom.enable();
+        doubleClickZoom.enable();
+        dragPan.enable();
+        keyboard.enable();
+        scrollZoom.disable();
+        touchZoomRotate.enable();
 
-        if (this.zoomControl) {
-          this.zoomControl.addTo(map);
+        if (this.zoomControl && this.mapboxMap) {
+          this.zoomControl.addTo(this.mapboxMap);
         }
         break;
 
@@ -475,7 +614,7 @@ export default class LocationMap extends React.Component {
   @action.bound
   handleMapClick(ev: Object) {
     const { mode, mobile, store: { ui }, onMapClick } = this.props;
-    const latLng: LatLng = ev.latlng;
+    const latLng: LatLng | LngLat = ev.latlng || ev.lngLat;
 
     if (onMapClick) {
       onMapClick();
@@ -508,6 +647,8 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   handleCurrentLocationMarkerClick(ev: Object) {
+    ev.stopPropagation();
+
     const { mode } = this.props;
     if (mode === 'picker') {
       this.handleMarkerClick(ev);
@@ -605,22 +746,32 @@ export class LocationMapWithLibrary extends React.Component {
 
   state: {
     L: ?LWithMapbox,
-  } = { L: null };
+    mapboxgl: ?MapboxGL,
+  } = {
+    L: null,
+    mapboxgl: null,
+  };
 
   componentDidMount() {
     if (process.browser) {
-      import('mapbox.js').then((L: any) => {
-        this.setState({ L });
-      });
+      if (isMapboxGlSupported(true)) {
+        import('mapbox-gl').then((mapboxgl: any) => {
+          this.setState({ mapboxgl });
+        });
+      } else {
+        import('mapbox.js').then((L: any) => {
+          this.setState({ L });
+        });
+      }
     }
   }
 
   render() {
     const { locationMapRef } = this.props;
-    const { L } = this.state;
+    const { L, mapboxgl } = this.state;
 
-    if (L) {
-      return <LocationMap ref={locationMapRef} L={L} {...(this.props: any)} />;
+    if (L || mapboxgl) {
+      return <LocationMap ref={locationMapRef} L={L} mapboxgl={mapboxgl} {...(this.props: any)} />;
     } else {
       return null;
     }

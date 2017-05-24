@@ -8,7 +8,7 @@ import type { Request } from '../../data/types';
 import type { AppStore } from '../../data/store';
 
 import SectionHeader from '../common/SectionHeader';
-import waypoints, { WAYPOINT_BASE_OPTIONS } from '../map/WaypointMarkers';
+import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
 import { MEDIA_LARGE } from '../style-constants';
 
 export type DefaultProps = {|
@@ -31,15 +31,6 @@ const IMG_STYLE = css({
 
 const MAP_WRAPPER_STYLE = css({
   position: 'relative',
-});
-
-const WAYPOINT_STYLE = css({
-  position: 'absolute',
-  width: WAYPOINT_BASE_OPTIONS.iconSize.x,
-  height: WAYPOINT_BASE_OPTIONS.iconSize.y,
-  top: '50%',
-  left: '50%',
-  transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor.x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
 });
 
 function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
