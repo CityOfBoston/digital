@@ -130,7 +130,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Health,-Safety,-and-Social-Services-region"
+            aria-controls="Health-Safety-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -161,7 +161,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Health,-Safety,-and-Social-Services-region"
+            id="Health-Safety-region"
             role="region"
           />
         </div>
@@ -169,7 +169,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Parks-and-Public-Space-region"
+            aria-controls="Parks-Public-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -200,7 +200,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Parks-and-Public-Space-region"
+            id="Parks-Public-region"
             role="region"
           />
         </div>
@@ -208,7 +208,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Property,-Housing-and-Construction-region"
+            aria-controls="Property-Construction-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -239,7 +239,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Property,-Housing-and-Construction-region"
+            id="Property-Construction-region"
             role="region"
           />
         </div>
@@ -247,7 +247,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Snow-or-Weather-Related-Concerns-region"
+            aria-controls="Snow-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -278,7 +278,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Snow-or-Weather-Related-Concerns-region"
+            id="Snow-region"
             role="region"
           />
         </div>
@@ -286,7 +286,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Streets,-Sidewalks,-Traffic,-and-Vehicles-region"
+            aria-controls="Streets-Sidewalks-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -317,7 +317,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Streets,-Sidewalks,-Traffic,-and-Vehicles-region"
+            id="Streets-Sidewalks-region"
             role="region"
           />
         </div>
@@ -325,7 +325,7 @@ exports[`rendering 1`] = `
           className="dr "
         >
           <button
-            aria-controls="Trash,-Recycling,-and-Graffiti-region"
+            aria-controls="Trash-Graffiti-region"
             aria-expanded={false}
             className="dr-h"
             onClick={[Function]}
@@ -356,7 +356,7 @@ exports[`rendering 1`] = `
             </div>
           </button>
           <span
-            id="Trash,-Recycling,-and-Graffiti-region"
+            id="Trash-Graffiti-region"
             role="region"
           />
         </div>

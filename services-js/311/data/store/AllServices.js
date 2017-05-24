@@ -10,32 +10,32 @@ const GROUPS = [
   },
   {
     name: 'Health, Safety, and Social Services',
-    id: 'Health, Safety, and Social Services',
+    id: 'Health-Safety',
     description: 'Crime, Fire Prevention & Control, Healthy Living & Inspections',
   },
   {
     name: 'Parks and Public Space',
-    id: 'Parks and Public Space',
+    id: 'Parks-Public',
     description: 'Park Maintenance, Permits, Tree Planting, Donations',
   },
   {
     name: 'Property, Housing and Construction',
-    id: 'Property, Housing and Construction',
+    id: 'Property-Construction',
     description: 'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
   },
   {
     name: 'Snow or Weather Related Concerns',
-    id: 'Snow or Weather Related Concerns',
+    id: 'Snow',
     description: 'Plowing, snow removal',
   },
   {
     name: 'Streets, Sidewalks, Traffic, and Vehicles',
-    id: 'Streets, Sidewalks, Traffic, and Vehicles',
+    id: 'Streets-Sidewalks',
     description: 'Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance',
   },
   {
     name: 'Trash, Recycling, and Graffiti',
-    id: 'Trash, Recycling, and Graffiti',
+    id: 'Trash-Graffiti',
     description: 'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
   },
   {

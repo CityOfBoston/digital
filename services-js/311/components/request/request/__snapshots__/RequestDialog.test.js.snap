@@ -111,32 +111,32 @@ exports[`methods submitRequest success 2`] = `
               },
               Group {
                 "description": "Crime, Fire Prevention & Control, Healthy Living & Inspections",
-                "id": "Health, Safety, and Social Services",
+                "id": "Health-Safety",
                 "name": "Health, Safety, and Social Services",
               },
               Group {
                 "description": "Park Maintenance, Permits, Tree Planting, Donations",
-                "id": "Parks and Public Space",
+                "id": "Parks-Public",
                 "name": "Parks and Public Space",
               },
               Group {
                 "description": "Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints",
-                "id": "Property, Housing and Construction",
+                "id": "Property-Construction",
                 "name": "Property, Housing and Construction",
               },
               Group {
                 "description": "Plowing, snow removal",
-                "id": "Snow or Weather Related Concerns",
+                "id": "Snow",
                 "name": "Snow or Weather Related Concerns",
               },
               Group {
                 "description": "Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance",
-                "id": "Streets, Sidewalks, Traffic, and Vehicles",
+                "id": "Streets-Sidewalks",
                 "name": "Streets, Sidewalks, Traffic, and Vehicles",
               },
               Group {
                 "description": "Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup",
-                "id": "Trash, Recycling, and Graffiti",
+                "id": "Trash-Graffiti",
                 "name": "Trash, Recycling, and Graffiti",
               },
               Group {
