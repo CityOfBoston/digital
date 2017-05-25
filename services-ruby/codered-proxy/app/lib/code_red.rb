@@ -31,6 +31,21 @@ class CodeRed
     end
   end
 
+  def contacts()
+    contact_response = self.class.get(
+      '/api/contacts',
+      headers: {
+        'Cookie' => @cookie
+      }
+    )
+
+    if contact_response.code == 200
+      puts contact_response.to_yaml
+    else
+      return false
+    end
+  end
+
   private
 
     def create_contact_for_post(contact)
