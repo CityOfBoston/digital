@@ -13,6 +13,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscriber_params
-    params.require(:subscriber).permit(:email, :zip, :list)
+    params.require(:subscriber).permit(:email, :zip_code, :list)
   end
 end
