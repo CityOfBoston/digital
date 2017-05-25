@@ -9,6 +9,9 @@ end
 # Use email validator
 gem 'valid_email2'
 
+# Use zipcode validator
+gem 'validates_zipcode'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
 gem 'pg'

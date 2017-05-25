@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-  protect_from_forgery with: :exception
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
   before_action :require_login!
 
   def require_login!
@@ -10,7 +11,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_token
-    authenticate_with_http_token do |token, options|
+    authenticate_or_request_with_http_token do |token, options|
       User.find_by(auth_token: token)
     end
   end
