@@ -12,6 +12,7 @@ export default function makeCss(css: ?string) {
     )),
 
     <link key="mapbox" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />,
+    <link key="mapbox-gl" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css" rel="stylesheet" />,
 
     <style type="text/css" key="default">{`
       body {

@@ -49,7 +49,7 @@ declare module 'mapbox-gl' {
   declare export type LngLatLike = LngLat | [number, number];
 
   declare export class LngLatBounds {
-    constructor(sw: LngLatLike, ne: LngLatLike): this;
+    constructor(sw?: LngLatLike, ne?: LngLatLike): this;
 
     sw: LngLat;
     ne: LngLat;

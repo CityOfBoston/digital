@@ -3,6 +3,7 @@
 import { observable, action, reaction, computed, runInAction } from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'leaflet';
+import type { LngLatBounds } from 'mapbox-gl';
 import uniqBy from 'lodash/uniqBy';
 import debounce from 'lodash/debounce';
 import type { SearchRequest, SearchRequestsPage } from '../types';
@@ -35,6 +36,7 @@ export default class RequestSearch {
   @observable resultsListWidth: number = 0;
 
   @observable mapBounds: ?LatLngBounds = null;
+  @observable mapBoundsGl: ?LngLatBounds = null;
   // true if the mobile search UI is showing just the map. We keep this in
   // store state so that it's preserved if you tap on a case and then go back
   @observable mapView: boolean = false;
@@ -63,11 +65,26 @@ export default class RequestSearch {
   }
 
   @computed get results(): SearchRequest[] {
-    const { mapBounds } = this;
-    if (!mapBounds) {
+    const { mapBounds, mapBoundsGl } = this;
+    if (!mapBounds && !mapBoundsGl) {
       return this._results.slice(0, 50);
     } else {
-      return this._results.filter((r) => r.location && mapBounds.contains([r.location.lat, r.location.lng])).slice(0, 50);
+      return this._results.filter(({ location }) => {
+        if (!location) {
+          return false;
+        }
+
+        if (mapBounds) {
+          return mapBounds.contains([location.lat, location.lng]);
+        } else if (mapBoundsGl) {
+          return (location.lng >= mapBoundsGl.getWest() &&
+              location.lng <= mapBoundsGl.getEast() &&
+              location.lat <= mapBoundsGl.getNorth() &&
+              location.lat >= mapBoundsGl.getSouth());
+        } else {
+          return false;
+        }
+      }).slice(0, 50);
     }
   }
 

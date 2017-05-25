@@ -6,8 +6,8 @@ import { css } from 'glamor';
 import { computed, action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
-import type { Map as MapboxMap, ControlZoom, LatLng, DivIcon, Marker } from 'mapbox.js';
-import type { Map as MapboxGlMap, LngLat, Marker as GLMarker } from 'mapbox-gl';
+import type { Map as MapboxMap, ControlZoom, DivIcon, Marker } from 'mapbox.js';
+import type { Map as MapboxGlMap, Marker as GLMarker } from 'mapbox-gl';
 import isMapboxGlSupported from 'mapbox-gl-supported';
 
 import type { AppStore } from '../../data/store';
@@ -21,6 +21,7 @@ const MAP_STYLE = css({
   height: '100%',
   backgroundColor: '#9B9B9B',
   transition: 'opacity 500ms',
+  position: 'relative',
 });
 
 const MOBILE_MARKER_STYLE = css({
@@ -122,7 +123,7 @@ export default class LocationMap extends React.Component {
   requestMarker: ?Marker;
   requestMarkerGl: ?GLMarker;
   requestLocationMonitorDisposer: ?Function;
-  mouseToPointOffset: Object;
+  requestMarkerGlDragMouseToPointOffset: ?{x: number, y: number};
 
   currentLocationMarker: ?Marker;
   currentLocationMarkerGl: ?GLMarker;
@@ -272,7 +273,7 @@ export default class LocationMap extends React.Component {
       }
     }
 
-    const { mapboxMap, mapboxGlMap, lastPickedLocation } = this;
+    const { mapboxMap, mapboxGlMap, lastPickedLocation, mobileMarkerEl } = this;
 
     if (markerLocation && showMarker) {
       if (requestMarker) {
@@ -297,6 +298,22 @@ export default class LocationMap extends React.Component {
             // changing code. Alternate plan would be to change the marker icon
             // using React state.
             requestMarker.options.icon.createIcon(this.mobileMarkerEl);
+          }
+        }
+
+        if (mapboxGlMap && requestMarkerGl) {
+          requestMarkerGl.remove();
+
+          if (ui.reduceMotion) {
+            mapboxGlMap.panTo([markerLocation.lng, markerLocation.lat]);
+          } else {
+            mapboxGlMap.flyTo({
+              center: [markerLocation.lng, markerLocation.lat],
+            });
+          }
+
+          if (mobileMarkerEl) {
+            mobileMarkerEl.innerHTML = requestMarkerGl.getElement().innerHTML;
           }
         }
       } else {
@@ -440,7 +457,6 @@ export default class LocationMap extends React.Component {
       attributionControl: false,
     };
 
-
     let map;
 
     if (L) {
@@ -482,6 +498,7 @@ export default class LocationMap extends React.Component {
       return;
     }
 
+    // happily these event handlers are common between Leaflet and MapboxGL
     map.on('click', this.handleMapClick);
     map.on('resize', this.updateMapCenter);
     map.on('moveend', this.updateMapCenter);
@@ -576,13 +593,14 @@ export default class LocationMap extends React.Component {
   }
 
   updateMapCenter = debounce(action('updateMapCenter', () => {
-    const { L } = this.props;
-    const { mapboxMap: map, mapEl } = this;
-    if (!map || !mapEl || !L) {
-      return;
-    }
+    const { L, mapboxgl } = this.props;
+    const { mapboxMap, mapEl, mapboxGlMap } = this;
 
     const { store: { requestSearch }, mobile, mode } = this.props;
+
+    if (!mapEl) {
+      return;
+    }
 
     const containerWidth = mapEl.clientWidth;
     const containerHeight = mapEl.clientHeight;
@@ -590,30 +608,58 @@ export default class LocationMap extends React.Component {
     const neContainerPoint = { x: containerWidth, y: 0 };
     const swContainerPoint = { x: mobile ? 0 : requestSearch.resultsListWidth, y: containerHeight };
 
-    const visibleBounds = L.latLngBounds([]);
-    visibleBounds.extend(map.containerPointToLatLng(neContainerPoint));
-    visibleBounds.extend(map.containerPointToLatLng(swContainerPoint));
+    let visibleCenter;
+    let centerPoint;
+    let visibleRadiusM;
+    let mapZoom;
 
-    const visibleCenter = visibleBounds.getCenter();
-    const visibleEast = map.containerPointToLatLng({
-      x: containerWidth,
-      y: neContainerPoint.y + ((swContainerPoint.y - neContainerPoint.y) / 2),
-    });
-    const visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
+    if (mapboxMap && L) {
+      const visibleBounds = L.latLngBounds([]);
+      visibleBounds.extend(mapboxMap.containerPointToLatLng(neContainerPoint));
+      visibleBounds.extend(mapboxMap.containerPointToLatLng(swContainerPoint));
 
-    requestSearch.mapBounds = visibleBounds;
+      visibleCenter = visibleBounds.getCenter();
+
+      const visibleEast = mapboxMap.containerPointToLatLng({
+        x: containerWidth,
+        y: neContainerPoint.y + ((swContainerPoint.y - neContainerPoint.y) / 2),
+      });
+
+      visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
+      requestSearch.mapBounds = visibleBounds;
+
+      centerPoint = mapboxMap.getCenter();
+      mapZoom = mapboxMap.getZoom();
+    } else if (mapboxGlMap && mapboxgl) {
+      const visibleBounds = new mapboxgl.LngLatBounds();
+      visibleBounds.extend(mapboxGlMap.unproject([neContainerPoint.x, neContainerPoint.y]));
+      visibleBounds.extend(mapboxGlMap.unproject([swContainerPoint.x, swContainerPoint.y]));
+
+      visibleCenter = visibleBounds.getCenter();
+
+      requestSearch.mapBoundsGl = visibleBounds;
+
+      centerPoint = mapboxGlMap.getCenter();
+      mapZoom = mapboxGlMap.getZoom();
+
+      // todo(finh): Fix this by getting away from radius as a search parameter
+      visibleRadiusM = 1000;
+    } else {
+      return;
+    }
+
+    const centerStruct = {
+      lat: centerPoint.lat,
+      lng: centerPoint.lng,
+    };
+
     requestSearch.searchCenter = {
       lat: visibleCenter.lat,
       lng: visibleCenter.lng,
     };
 
-    const centerPoint = map.getCenter();
-    const centerStruct = {
-      lat: centerPoint.lat,
-      lng: centerPoint.lng,
-    };
     requestSearch.mapCenter = centerStruct;
-    requestSearch.mapZoom = map.getZoom();
+    requestSearch.mapZoom = mapZoom;
     requestSearch.radiusKm = visibleRadiusM / 1000;
 
     if (mode === 'picker' && mobile) {
@@ -624,7 +670,7 @@ export default class LocationMap extends React.Component {
   @action.bound
   handleMapClick(ev: Object) {
     const { mode, mobile, store: { ui }, onMapClick } = this.props;
-    const latLng: LatLng | LngLat = ev.latlng || ev.lngLat;
+    const { mapboxMap, mapboxGlMap } = this;
 
     if (onMapClick) {
       onMapClick();
@@ -635,23 +681,46 @@ export default class LocationMap extends React.Component {
       return;
     }
 
-    if (mobile) {
-      if (this.mapboxMap) {
+    if (mapboxMap) {
+      const latLng = ev.latlng;
+
+      if (mobile) {
         // recentering the map will choose the new location. We do it this way
         // to avoid a double-geocode, first of the clicked location and then
         // to the re-centered map location (they differ by a very fine floating
         // point amount)
         if (ui.reduceMotion) {
-          this.mapboxMap.setView(latLng, this.mapboxMap.getZoom());
+          mapboxMap.setView(latLng, mapboxMap.getZoom());
         } else {
-          this.mapboxMap.flyTo(latLng);
+          mapboxMap.flyTo(latLng);
         }
+      } else {
+        this.chooseLocation({
+          lat: latLng.lat,
+          lng: latLng.lng,
+        });
       }
-    } else {
-      this.chooseLocation({
-        lat: latLng.lat,
-        lng: latLng.lng,
-      });
+    }
+
+    if (mapboxGlMap) {
+      const lngLat = ev.lngLat;
+
+      if (mobile) {
+        if (ui.reduceMotion) {
+          mapboxGlMap.panTo(lngLat, {
+            animate: false,
+          });
+        } else {
+          mapboxGlMap.flyTo({
+            center: lngLat,
+          });
+        }
+      } else {
+        this.chooseLocation({
+          lat: lngLat.lat,
+          lng: lngLat.lng,
+        });
+      }
     }
   }
 
@@ -704,7 +773,8 @@ export default class LocationMap extends React.Component {
     });
   }
 
-
+  // MapboxGL doesn't have draggable marker support like Leaflet does, so we
+  // have to do it ourselves.
   handleRequestMarkerGlMouseDown = (ev: Object) => {
     ev.stopPropagation();
     ev.preventDefault();
@@ -712,7 +782,10 @@ export default class LocationMap extends React.Component {
     window.addEventListener('mousemove', this.handleRequestMarkerGlMouseMove);
     window.addEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
 
-    this.mouseToPointOffset = {
+    // We keep track of where the mouse is relative to what the marker is
+    // actually pointing at, because it's that point that needs to be the
+    // ultimate location.
+    this.requestMarkerGlDragMouseToPointOffset = {
       x: WAYPOINT_BASE_OPTIONS.iconAnchor.x - ev.offsetX,
       y: WAYPOINT_BASE_OPTIONS.iconAnchor.y - ev.offsetY,
     };
@@ -739,13 +812,16 @@ export default class LocationMap extends React.Component {
   }
 
   handleRequestMarkerGlMouseMove = (ev: MouseEvent) => {
-    const { mapEl, mapboxGlMap, requestMarkerGl } = this;
-    if (!mapEl || !mapboxGlMap || !requestMarkerGl) {
+    const { mapEl, mapboxGlMap, requestMarkerGl, requestMarkerGlDragMouseToPointOffset } = this;
+    if (!mapEl || !mapboxGlMap || !requestMarkerGl || !requestMarkerGlDragMouseToPointOffset) {
       return;
     }
 
     const mapBounds = mapEl.getBoundingClientRect();
-    const markerTipPoint = [(ev.clientX - mapBounds.left) + this.mouseToPointOffset.x, (ev.clientY - mapBounds.top) + this.mouseToPointOffset.y];
+    const markerTipPoint = [
+      (ev.clientX - mapBounds.left) + requestMarkerGlDragMouseToPointOffset.x,
+      (ev.clientY - mapBounds.top) + requestMarkerGlDragMouseToPointOffset.y,
+    ];
 
     const lngLat = mapboxGlMap.unproject(markerTipPoint);
     requestMarkerGl.setLngLat(lngLat);
