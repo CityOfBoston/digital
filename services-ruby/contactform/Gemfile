@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use sidekiq for background processing
+gem 'sidekiq'
 
 # Use email validator
 gem 'valid_email2'

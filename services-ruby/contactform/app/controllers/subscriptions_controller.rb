@@ -2,7 +2,8 @@ class SubscriptionsController < ApplicationController
   def create
     @subscriber = Subscriber.find_or_create_by(subscriber_params)
 
-    if @subscriber.save?
+    if @subscriber.save
+      SubscribeWorker.perform_async(@subscriber)
       render :json => {subscriber: @subscriber.profile_id, list: params[:list]}
     else
       render :json => {errors: @subscriber.errors}
