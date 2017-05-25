@@ -2,17 +2,19 @@
 /* eslint react/no-unused-prop-types: 0 */
 
 import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { css } from 'glamor';
-import { computed, action, reaction } from 'mobx';
+import { computed, action, reaction, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, DivIcon, Marker } from 'mapbox.js';
-import type { Map as MapboxGlMap, Marker as GLMarker } from 'mapbox-gl';
+import type { Map as MapboxGlMap, Marker as GLMarker, NavigationControl } from 'mapbox-gl';
 import isMapboxGlSupported from 'mapbox-gl-supported';
 
 import type { AppStore } from '../../data/store';
 
 import SearchMarkerPool from './SearchMarkerPool';
+import RequestPopup from './RequestPopup';
 import waypointMarkers, { preloadWaypointSprite, WAYPOINT_STYLE, WAYPOINT_BASE_OPTIONS } from './WaypointMarkers';
 
 const MAP_STYLE = css({
@@ -116,6 +118,7 @@ export default class LocationMap extends React.Component {
   mapboxMap: ?MapboxMap = null;
   mapboxGlMap: ?MapboxGlMap = null;
   zoomControl: ?ControlZoom;
+  zoomControlGl: ?NavigationControl;
 
   waypointActiveIcon: ?DivIcon;
   waypointInactiveIcon: ?DivIcon;
@@ -132,6 +135,7 @@ export default class LocationMap extends React.Component {
   lastPickedLocation: ?{lat: number, lng: number} = null;
 
   searchMarkerPool: ?SearchMarkerPool = null;
+  resultsUpdateDisposer: ?Function;
 
   componentWillMount() {
     const { L, mapboxgl } = this.props;
@@ -221,6 +225,10 @@ export default class LocationMap extends React.Component {
 
     if (this.currentLocationMonitorDisposer) {
       this.currentLocationMonitorDisposer();
+    }
+
+    if (this.resultsUpdateDisposer) {
+      this.resultsUpdateDisposer();
     }
 
     if (this.mapboxMap) {
@@ -414,7 +422,7 @@ export default class LocationMap extends React.Component {
         maxZoom,
         padding: {
           top: 0,
-          left: leftPadding,
+          left: leftPadding / 2,
           bottom: 0,
           right: 0,
         },
@@ -485,12 +493,44 @@ export default class LocationMap extends React.Component {
       this.mapboxMap = map;
     } else if (mapboxgl) {
       (mapboxgl: any).accessToken = mapboxKeys.accessToken;
-      map = new mapboxgl.Map({
+      const mapboxglMap = map = new mapboxgl.Map({
         container: this.mapEl,
         style,
         center: [center.lng, center.lat],
         maxBounds: new mapboxgl.LngLatBounds([MAX_BOUNDS[1][1], MAX_BOUNDS[1][0]], [MAX_BOUNDS[0][1], MAX_BOUNDS[0][0]]),
         ...commonOpts,
+      });
+
+      map.on('load', () => {
+        if (mode === 'requests') {
+          mapboxglMap.addSource('searchResultsPoints', {
+            type: 'geojson',
+            data: this.searchResultsGeoJsonData,
+          });
+
+          mapboxglMap.addLayer({
+            id: 'resultsSearch',
+            type: 'symbol',
+            source: 'searchResultsPoints',
+            layout: {
+              'icon-image': '{icon}-waypoint',
+              'icon-allow-overlap': true,
+              'icon-ignore-placement': true,
+              'icon-offset': [0, -WAYPOINT_BASE_OPTIONS.iconAnchor.y / 2],
+            },
+          });
+
+          mapboxglMap.on('click', 'resultsSearch', this.handleResultMarkerClick);
+
+          this.resultsUpdateDisposer = autorun('results update', () => {
+            const source = mapboxglMap.getSource('searchResultsPoints');
+            const data = this.searchResultsGeoJsonData;
+
+            if (source) {
+              source.setData(data);
+            }
+          });
+        }
       });
 
       this.mapboxGlMap = map;
@@ -519,7 +559,44 @@ export default class LocationMap extends React.Component {
     });
   }
 
+  @computed get searchResultsGeoJsonData(): Object {
+    const { store: { requestSearch } } = this.props;
+
+    const iconFn = (status, selected) => {
+      if (status === 'open') {
+        if (selected) {
+          return 'green-filled';
+        } else {
+          return 'green-empty';
+        }
+      } else {
+        if (selected) {
+          return 'orange-filled';
+        } else {
+          return 'orange-empty';
+        }
+      }
+    };
+
+    return {
+      type: 'FeatureCollection',
+      features: requestSearch.results.map((res) => ({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [(res.location || {}).lng, (res.location || {}).lat],
+        },
+        properties: {
+          icon: iconFn(res.status, res === requestSearch.selectedRequest),
+          requestId: res.id,
+        },
+      })),
+    };
+  }
+
   updateMapEventHandlers(mode: MapMode) {
+    const { mapboxgl } = this.props;
+
     let boxZoom;
     let dragPan;
     let doubleClickZoom;
@@ -559,6 +636,11 @@ export default class LocationMap extends React.Component {
         if (this.zoomControl) {
           this.zoomControl.remove();
         }
+
+        if (this.zoomControlGl && this.mapboxGlMap) {
+          this.mapboxGlMap.removeControl(this.zoomControlGl);
+          this.zoomControlGl = null;
+        }
         break;
 
       case 'picker':
@@ -572,6 +654,11 @@ export default class LocationMap extends React.Component {
         if (this.zoomControl && this.mapboxMap) {
           this.zoomControl.addTo(this.mapboxMap);
         }
+
+        if (mapboxgl && this.mapboxGlMap) {
+          this.zoomControlGl = new mapboxgl.NavigationControl();
+          this.mapboxGlMap.addControl(this.zoomControlGl, 'bottom-right');
+        }
         break;
 
       case 'requests':
@@ -584,6 +671,11 @@ export default class LocationMap extends React.Component {
 
         if (this.zoomControl && this.mapboxMap) {
           this.zoomControl.addTo(this.mapboxMap);
+        }
+
+        if (mapboxgl && this.mapboxGlMap) {
+          this.zoomControlGl = new mapboxgl.NavigationControl();
+          this.mapboxGlMap.addControl(this.zoomControlGl, 'bottom-right');
         }
         break;
 
@@ -860,11 +952,52 @@ export default class LocationMap extends React.Component {
     }, 0);
   }
 
+  @action handleResultMarkerClick = (ev: Object) => {
+    const { mapboxGlMap } = this;
+    const { mapboxgl, mobile, store: { requestSearch } } = this.props;
+
+    const selectedRequest = requestSearch.results.find((res) => res.id === ev.features[0].properties.requestId);
+    requestSearch.selectedRequest = selectedRequest;
+    requestSearch.selectedSource = 'marker';
+
+    if (mobile && mapboxgl && mapboxGlMap && selectedRequest) {
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        anchor: 'bottom',
+        offset: [0, -WAYPOINT_BASE_OPTIONS.iconSize.y - 5],
+      });
+
+      const el = document.createElement('DIV');
+
+      popup.on('close', () => {
+        unmountComponentAtNode(el);
+      });
+
+      popup.setLngLat([(selectedRequest.location || {}).lng, (selectedRequest.location || {}).lat]);
+      render(<RequestPopup request={selectedRequest} />, el, () => {
+        popup.setDOMContent(el);
+        popup.addTo(mapboxGlMap);
+
+        // Open after a tick for the case on mobile when you "Back" to this
+        // page, the popup's positioning is wrong, likely due to being
+        // positioned and then having the map's center / size moved out
+        // from under it.
+        window.setTimeout(() => {
+          // this.marker.openPopup();
+        }, 0);
+      });
+    }
+  }
+
   invalidateSize() {
     const { store: { ui } } = this.props;
 
     if (this.mapboxMap) {
       this.mapboxMap.invalidateSize(!ui.reduceMotion);
+    }
+
+    if (this.mapboxGlMap) {
+      this.mapboxGlMap.resize();
     }
   }
 

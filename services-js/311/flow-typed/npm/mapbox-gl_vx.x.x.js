@@ -332,7 +332,25 @@ declare module 'mapbox-gl' {
     touchZoomRotate: TouchZoomRotateHandler;
   }
 
+  declare type PopupOptions = {|
+    closeButton?: boolean,
+    closeOnClick?: boolean,
+    anchor?: string,
+    offset?: number | PointLike | Object,
+  |}
+
   declare export class Popup {
+    constructor(opts?: PopupOptions): this;
+    addTo(map: Map): this;
+    isOpen(): boolean;
+    remove(): this;
+    getLngLat(): LngLat;
+    setLngLat(lngLat: LngLatLike): this;
+    setText(text: string): this;
+    setHTML(html: string): this;
+    setDOMContent(node: HTMLElement): this;
+
+    on(event: string, handler: Function): mixed;
   }
 
   declare type MarkerOptions = {|
@@ -349,5 +367,9 @@ declare module 'mapbox-gl' {
     setPopup(popup?: ?Popup): this;
     getPopup(): ?Popup;
     togglePopup(): this;
+  }
+
+  declare export class NavigationControl {
+    constructor(): this;
   }
 }
