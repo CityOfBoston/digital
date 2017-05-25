@@ -1,0 +1,2 @@
+class SubscriptionController < ApplicationController
+end
