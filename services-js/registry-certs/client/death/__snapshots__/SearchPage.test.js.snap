@@ -166,6 +166,8 @@ exports[`rendering shows search results 1`] = `
       >
         Showing 
         2
+         of 
+        50
          results for “
         Monkey Joe
         ”
@@ -237,6 +239,43 @@ exports[`rendering shows search results 1`] = `
         Known
       </div>
     </a>
+    <ul
+      className="pg"
+    >
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=1"
+          onClick={[Function]}
+        >
+          1
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=2"
+          onClick={[Function]}
+        >
+          2
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link"
+          href="/death?q=Monkey Joe&page=1"
+          onClick={[Function]}
+        >
+          ≫
+        </a>
+      </li>
+    </ul>
     <div
       className="p-a300"
     >

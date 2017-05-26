@@ -1,5 +1,9 @@
 // @flow
 
-import type { SearchDeathCertificatesQuery } from './queries/graphql-types';
+import type {
+  FetchDeathCertificatesQuery,
+  SearchDeathCertificatesQuery,
+ } from './queries/graphql-types';
 
-export type DeathCertificate = $ArrayElement<$PropertyType<$PropertyType<SearchDeathCertificatesQuery, 'deathCertificates'>, 'search'>>
+export type DeathCertificate = $ArrayElement<$PropertyType<$PropertyType<FetchDeathCertificatesQuery, 'deathCertificates'>, 'certificates'>>
+export type DeathCertificateSearchResults = $PropertyType<$PropertyType<SearchDeathCertificatesQuery, 'deathCertificates'>, 'search'>;

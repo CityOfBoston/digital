@@ -14,15 +14,29 @@ type DeathCertificate {
   age: String,
 }
 
+# Pages are 1-indexed to make the UI look better
+type DeathCertificateSearch {
+  page: Int!,
+  pageSize: Int!,
+  pageCount: Int!,
+  results: [DeathCertificate!]!,
+  resultCount: Int!,
+}
+
 type DeathCertificates {
-  search(query: String!): [DeathCertificate!]!
+  search(query: String!, page: Int, pageSize: Int): DeathCertificateSearch!
   certificate(id: String!): DeathCertificate
   certificates(ids: [String!]!): [DeathCertificate]!
 }
 `;
 
+const DEFAULT_PAGE_SIZE = 20;
+const MAX_PAGE_SIZE = 50;
+
 type SearchArgs = {
   query: string,
+  page?: number,
+  pageSize?: number,
 };
 
 type CertificateArgs = {
@@ -42,6 +56,14 @@ type DeathCertificate = {
   causeOfDeath: ?string,
   age: ?string,
 };
+
+type DeathCertificateSearch = {
+  page: number,
+  pageSize: number,
+  pageCount: number,
+  results: DeathCertificate[],
+  resultCount: number,
+}
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   {
@@ -76,18 +98,30 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
 export const resolvers = {
   DeathCertificates: {
     // eslint-disable-next-line no-unused-vars
-    search: async (root: mixed, { query }: SearchArgs, { registry }: Context): Promise<Array<DeathCertificate>> => {
-      const results: Array<SearchResult> = await registry.search(query);
+    search: async (root: mixed, { query, pageSize, page }: SearchArgs, { registry }: Context): Promise<DeathCertificateSearch> => {
+      const queryPageSize = Math.min(pageSize || DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
+      const queryPage = (page || 1) - 1;
 
-      return results.map((res) => ({
-        id: res.CertificateID.toString(),
-        firstName: res['First Name'],
-        lastName: res['Last Name'],
-        birthYear: null,
-        deathYear: res['Date of Death'].split('/')[2],
-        causeOfDeath: null,
-        age: res.AgeOrDateOfBirth,
-      }));
+      const results: Array<SearchResult> = await registry.search(query, queryPage, queryPageSize);
+
+      const resultCount = results.length > 0 ? results[0].ResultCount : 0;
+      const pageCount = Math.ceil(resultCount / queryPageSize);
+
+      return {
+        page: queryPage + 1,
+        pageSize: queryPageSize,
+        pageCount,
+        resultCount,
+        results: results.map((res) => ({
+          id: res.CertificateID.toString(),
+          firstName: res['First Name'],
+          lastName: res['Last Name'],
+          birthYear: null,
+          deathYear: res['Date of Death'].split('/')[2],
+          causeOfDeath: null,
+          age: res.AgeOrDateOfBirth,
+        })),
+      };
     },
     certificate: (root: mixed, { id }: CertificateArgs) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id),
     certificates: (root: mixed, { ids }: CertificatesArgs) => ids.map((id) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id)),

@@ -11,12 +11,14 @@ import type { DeathCertificate } from '../types';
 
 import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
+import Pagination from '../common/Pagination';
+import type { DeathCertificateSearchResults } from '../types';
 
 import { GRAY_100 } from '../common/style-constants';
 
 export type InitialProps = {|
   query: string,
-  results: ?DeathCertificate[],
+  results: ?DeathCertificateSearchResults,
 |}
 
 export type Props = {
@@ -38,7 +40,7 @@ export default class IndexPage extends React.Component {
     let results = null;
 
     if (query.q) {
-      results = await deathCertificatesDao.search(query.q);
+      results = await deathCertificatesDao.search(query.q, parseInt(query.page, 10) || 1);
     }
 
     return {
@@ -102,7 +104,7 @@ export default class IndexPage extends React.Component {
     );
   }
 
-  renderResults(results: DeathCertificate[]) {
+  renderResults(results: DeathCertificateSearchResults) {
     // we want the query that was searched for
     const { query } = this.props;
 
@@ -110,11 +112,13 @@ export default class IndexPage extends React.Component {
       <div>
         <div className="p-a300 b--w">
           <div className="t--sans tt-u" style={{ fontSize: 12 }}>
-            Showing { results.length } results for “{query}”
+            Showing { results.results.length } of { results.resultCount.toLocaleString() } results for “{query}”
           </div>
         </div>
 
-        { results.map(this.renderResult) }
+        { results.results.map(this.renderResult) }
+
+        { results.resultCount > results.results.length && this.renderPagination(results) }
 
         <div className="p-a300">
           Not finding what you’re looking for? Try refining your search or <a href="https://www.boston.gov/departments/registry/how-get-death-certificate" style={{ fontStyle: 'italic' }}>request a death certificate</a>.
@@ -143,4 +147,10 @@ export default class IndexPage extends React.Component {
     );
   }
 
+  renderPagination({ page, pageCount }: DeathCertificateSearchResults) {
+    const { query } = this.props;
+    const makeHref = (p: number) => `/death?q=${query}&page=${p}`;
+
+    return <Pagination page={page} pageCount={pageCount} hrefFunc={makeHref} />;
+  }
 }

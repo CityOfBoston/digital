@@ -3,7 +3,7 @@
 import DeathCertificatesDao from './DeathCertificatesDao';
 
 import type { LoopbackGraphql } from '../loopback-graphql';
-import type { DeathCertificate } from '../types';
+import type { DeathCertificate, DeathCertificateSearchResults } from '../types';
 
 jest.mock('../queries/fetch-death-certificates');
 const fetchDeathCertificates: JestMockFn = (require('../queries/fetch-death-certificates'): any).default;
@@ -19,6 +19,14 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   deathYear: '2016',
   causeOfDeath: 'Hawkeye',
   age: '043',
+};
+
+const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
+  results: [TEST_DEATH_CERTIFICATE],
+  page: 0,
+  pageCount: 1,
+  pageSize: 10,
+  resultCount: 1,
 };
 
 let loopbackGraphql: LoopbackGraphql;
@@ -46,14 +54,14 @@ describe('get', () => {
 
 describe('search', () => {
   it('searches for the query string', async () => {
-    searchDeathCertificates.mockReturnValue(Promise.resolve([TEST_DEATH_CERTIFICATE]));
+    searchDeathCertificates.mockReturnValue(Promise.resolve(TEST_SEARCH_RESULTS));
 
-    expect(await dao.search('Banner')).toEqual([TEST_DEATH_CERTIFICATE]);
+    expect((await dao.search('Banner', 1)).results).toEqual([TEST_DEATH_CERTIFICATE]);
   });
 
   it('primes the id cache', async () => {
-    searchDeathCertificates.mockReturnValue(Promise.resolve([TEST_DEATH_CERTIFICATE]));
-    await dao.search('Banner');
+    searchDeathCertificates.mockReturnValue(Promise.resolve(TEST_SEARCH_RESULTS));
+    await dao.search('Banner', 1);
 
     expect(await dao.get(TEST_DEATH_CERTIFICATE.id)).toEqual(TEST_DEATH_CERTIFICATE);
   });

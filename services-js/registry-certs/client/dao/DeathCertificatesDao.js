@@ -6,6 +6,7 @@ import type { DeathCertificate } from '../types';
 
 import fetchDeathCertificates from '../queries/fetch-death-certificates';
 import searchDeathCertificates from '../queries/search-death-certificates';
+import type { DeathCertificateSearchResults } from '../types';
 
 export type DeathCertificateCache = {[id: string]: DeathCertificate};
 
@@ -24,10 +25,10 @@ export default class DeathCertificatesDao {
     return this.loader.load(id);
   }
 
-  async search(query: string): Promise<Array<DeathCertificate>> {
-    const results: DeathCertificate[] = await searchDeathCertificates(this.loopbackGraphql, query);
+  async search(query: string, page: number): Promise<DeathCertificateSearchResults> {
+    const results = await searchDeathCertificates(this.loopbackGraphql, query, page);
 
-    results.forEach((cert) => {
+    results.results.forEach((cert) => {
       this.loader.prime(cert.id, cert);
     });
 

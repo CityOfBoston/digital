@@ -21,18 +21,25 @@ export type FetchDeathCertificatesQuery = {|
 
 export type SearchDeathCertificatesQueryVariables = {|
   query: string,
+  page: number,
 |};
 
 export type SearchDeathCertificatesQuery = {|
   deathCertificates: {|
-    search: Array< {|
-      id: string,
-      firstName: string,
-      lastName: string,
-      birthYear: ?string,
-      deathYear: string,
-      causeOfDeath: ?string,
-      age: ?string,
-    |} >,
+    search: {|
+      page: number,
+      pageSize: number,
+      pageCount: number,
+      resultCount: number,
+      results: Array< {|
+        id: string,
+        firstName: string,
+        lastName: string,
+        birthYear: ?string,
+        deathYear: string,
+        causeOfDeath: ?string,
+        age: ?string,
+      |} >,
+    |},
   |},
 |};

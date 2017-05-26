@@ -1,13 +1,19 @@
-query SearchDeathCertificates($query: String!) {
+query SearchDeathCertificates($query: String!, $page: Int!) {
   deathCertificates {
-    search(query: $query) {
-      id
-      firstName
-      lastName
-      birthYear
-      deathYear
-      causeOfDeath
-      age
+    search(query: $query, page: $page) {
+      page
+      pageSize
+      pageCount
+      resultCount
+      results {
+        id
+        firstName
+        lastName
+        birthYear
+        deathYear
+        causeOfDeath
+        age
+      }
     }
   }
 }

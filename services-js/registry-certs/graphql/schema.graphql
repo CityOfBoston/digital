@@ -9,9 +9,18 @@ type DeathCertificate {
 }
 
 type DeathCertificates {
-  search(query: String!): [DeathCertificate!]!
+  search(query: String!, page: Int, pageSize: Int): DeathCertificateSearch!
   certificate(id: String!): DeathCertificate
   certificates(ids: [String!]!): [DeathCertificate]!
+}
+
+# Pages are 1-indexed to make the UI look better
+type DeathCertificateSearch {
+  page: Int!
+  pageSize: Int!
+  pageCount: Int!
+  results: [DeathCertificate!]!
+  resultCount: Int!
 }
 
 type Query {

@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Router from 'next/router';
 
-import type { DeathCertificate } from '../types';
+import type { DeathCertificate, DeathCertificateSearchResults } from '../types';
 import Cart from '../store/Cart';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
@@ -35,6 +35,14 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   },
 ];
 
+const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
+  results: TEST_DEATH_CERTIFICATES,
+  resultCount: 50,
+  page: 0,
+  pageSize: 5,
+  pageCount: 10,
+};
+
 const renderFromInitialProps = async (query: {[key: string]: string}, dependencies: Object) => {
   const cart = new Cart();
 
@@ -57,10 +65,10 @@ describe('rendering', () => {
   });
 
   it('shows search results', async () => {
-    deathCertificatesDao.search.mockReturnValue(TEST_DEATH_CERTIFICATES);
+    deathCertificatesDao.search.mockReturnValue(TEST_SEARCH_RESULTS);
 
     expect((await renderFromInitialProps({ q: 'Monkey Joe' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
-    expect(deathCertificatesDao.search).toHaveBeenCalledWith('Monkey Joe');
+    expect(deathCertificatesDao.search).toHaveBeenCalledWith('Monkey Joe', 1);
   });
 });
 
@@ -68,6 +76,7 @@ describe('searching', () => {
   it('redirects to search for a query', () => {
     const cart = new Cart();
     const wrapper = shallow(<SearchPage cart={cart} query="" results={null} />);
+
     wrapper.find('input[name="q"]').simulate('change', { target: { value: 'Monkey Joe' } });
     wrapper.find('form[action="/death"]').simulate('submit', { preventDefault: jest.fn() });
 

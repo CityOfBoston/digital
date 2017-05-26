@@ -22,9 +22,11 @@ export default class Registry {
     this.pool = pool;
   }
 
-  async search(name: string): Promise<Array<SearchResult>> {
+  async search(name: string, page: number, pageSize: number): Promise<Array<SearchResult>> {
     const resp = await this.pool.request()
       .input('searchFor', name)
+      .input('pageNumber', page)
+      .input('pageSize', pageSize)
       .execute('Registry.Death.sp_FindCertificatesWeb');
 
     const { recordset } = resp;
