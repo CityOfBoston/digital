@@ -57,7 +57,8 @@ class CodeRed
         'HomePhone' => contact.call ? contact.phone_number : '',
         'TextNumber' => contact.text ? contact.phone_number : '',
         'MobileProvider' => 'Sprint',
-        'Zip' => contact.zip
+        'Zip' => contact.zip,
+        'Groups' => ENV['API_GROUPS']
       }
 
       created_contact
