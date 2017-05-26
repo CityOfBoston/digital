@@ -10,7 +10,7 @@ import cleanup from 'node-cleanup';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import addRequestAdditions from './request-additions';
-import { makeRegistryFactory } from './services/Registry';
+import { makeRegistryFactory, makeFixtureRegistryFactory } from './services/Registry';
 import type { RegistryFactory } from './services/Registry';
 
 import schema from './graphql';
@@ -33,7 +33,7 @@ export default async function startServer() {
   };
 
   const [registryFactory: RegistryFactory] = await Promise.all([
-    makeRegistryFactory(registryFactoryOpts),
+    registryFactoryOpts.server ? makeRegistryFactory(registryFactoryOpts) : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
     app.prepare(),
   ]);
 

@@ -31,7 +31,7 @@ type DeathCertificates {
 `;
 
 const DEFAULT_PAGE_SIZE = 20;
-const MAX_PAGE_SIZE = 50;
+const MAX_PAGE_SIZE = 500;
 
 type SearchArgs = {
   query: string,

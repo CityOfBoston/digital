@@ -2,6 +2,8 @@
 
 import { ConnectionPool } from 'mssql';
 
+import fs from 'fs';
+
 export type SearchResult = {
   CertificateID: number,
   'Registered Number': string,
@@ -36,6 +38,11 @@ export default class Registry {
     }
 
     return recordset;
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  async lookup(id: string): Promise<?SearchResult> {
+    return null;
   }
 }
 
@@ -85,4 +92,46 @@ export async function makeRegistryFactory({ user, password, server, domain, data
   await pool.connect();
 
   return new RegistryFactory(pool);
+}
+
+export class FixtureRegistry {
+  data: Array<SearchResult>;
+
+  constructor(data: Array<SearchResult>) {
+    this.data = data;
+  }
+
+  async search(query: string, page: number, pageSize: number): Promise<Array<SearchResult>> {
+    return this.data.slice(page * pageSize, (page + 1) * pageSize);
+  }
+
+  async lookup(id: string): Promise<?SearchResult> {
+    return this.data.find((res) => res.CertificateID.toString() === id);
+  }
+}
+
+export function makeFixtureRegistryFactory(fixtureName: string): Promise<RegistryFactory> {
+  return new Promise((resolve, reject) => {
+    fs.readFile(fixtureName, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        try {
+          const json = JSON.parse(data.toString('utf-8'));
+
+          resolve(({
+            registry() {
+              return new FixtureRegistry(json);
+            },
+
+            cleanup() {
+              return Promise.resolve(null);
+            },
+          }: any));
+        } catch (e) {
+          reject(e);
+        }
+      }
+    });
+  });
 }
