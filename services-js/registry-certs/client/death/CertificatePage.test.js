@@ -17,7 +17,7 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   firstName: 'Bruce',
   lastName: 'Banner',
   birthYear: '1962',
-  deathYear: '2016',
+  deathDate: '3/4/2016',
   causeOfDeath: 'Hawkeye',
   age: '21 yrs.',
 };

@@ -13,8 +13,18 @@ export default function Pagination({ page, pageCount, hrefFunc }: Props) {
   const showPrev = page > 1;
   const showNext = page < pageCount;
 
-  const startNum = Math.max(page - 2, 1);
-  const endNum = Math.min(pageCount, page + 2);
+  let numberBoxCount = 7;
+
+  if (showPrev) {
+    numberBoxCount -= 1;
+  }
+
+  if (showNext) {
+    numberBoxCount -= 1;
+  }
+
+  const startNum = Math.max(1, page - Math.floor(numberBoxCount / 2));
+  const endNum = Math.min(pageCount, (startNum + numberBoxCount) - 1);
 
   const boxes = [];
   for (let p = startNum; p <= endNum; ++p) {

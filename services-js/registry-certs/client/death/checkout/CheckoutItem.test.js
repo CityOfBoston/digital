@@ -13,7 +13,7 @@ const FAKE_CERTIFICATE = {
   firstName: 'Bruce',
   lastName: 'Banner',
   birthYear: '1962',
-  deathYear: '2016',
+  deathDate: '2/1/2016',
   causeOfDeath: 'Hawkeye',
   age: '21 yrs.',
 };

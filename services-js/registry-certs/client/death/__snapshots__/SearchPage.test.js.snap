@@ -165,7 +165,9 @@ exports[`rendering shows search results 1`] = `
         }
       >
         Showing 
-        2
+        -4
+        –
+        0
          of 
         50
          results for “
@@ -180,10 +182,13 @@ exports[`rendering shows search results 1`] = `
       onClick={[Function]}
     >
       <div
+        className="t--sans"
         data-jsx={1723197323}
         style={
           Object {
+            "fontStyle": "normal",
             "fontWeight": "bold",
+            "letterSpacing": 1.4,
           }
         }
       >
@@ -195,15 +200,9 @@ exports[`rendering shows search results 1`] = `
         data-jsx={1723197323}
       >
         Died: 
-        2014
+        4/15/2014
          Age: 
         4 yrs. 2 mos. 10 dys
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Cause of death: 
-        Known
       </div>
     </a>
     <a
@@ -213,10 +212,13 @@ exports[`rendering shows search results 1`] = `
       onClick={[Function]}
     >
       <div
+        className="t--sans"
         data-jsx={1723197323}
         style={
           Object {
+            "fontStyle": "normal",
             "fontWeight": "bold",
+            "letterSpacing": 1.4,
           }
         }
       >
@@ -228,15 +230,9 @@ exports[`rendering shows search results 1`] = `
         data-jsx={1723197323}
       >
         Died: 
-        2016
+        5/31/2016
          Age: 
         4 yrs. 2 mos. 10 dys
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Cause of death: 
-        Known
       </div>
     </a>
     <ul
@@ -262,6 +258,50 @@ exports[`rendering shows search results 1`] = `
           onClick={[Function]}
         >
           2
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=3"
+          onClick={[Function]}
+        >
+          3
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=4"
+          onClick={[Function]}
+        >
+          4
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=5"
+          onClick={[Function]}
+        >
+          5
+        </a>
+      </li>
+      <li
+        className="pg-li"
+      >
+        <a
+          className="pg-li-i pg-li-i--link "
+          href="/death?q=Monkey Joe&page=6"
+          onClick={[Function]}
+        >
+          6
         </a>
       </li>
       <li

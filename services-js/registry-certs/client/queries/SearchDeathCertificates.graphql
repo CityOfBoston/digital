@@ -10,7 +10,7 @@ query SearchDeathCertificates($query: String!, $page: Int!) {
         firstName
         lastName
         birthYear
-        deathYear
+        deathDate
         causeOfDeath
         age
       }

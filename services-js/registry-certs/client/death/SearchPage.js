@@ -108,11 +108,14 @@ export default class IndexPage extends React.Component {
     // we want the query that was searched for
     const { query } = this.props;
 
+    const start = 1 + ((results.page - 1) * (results.pageSize));
+    const end = Math.min((start + results.pageSize) - 1, results.resultCount);
+
     return (
       <div>
         <div className="p-a300 b--w">
           <div className="t--sans tt-u" style={{ fontSize: 12 }}>
-            Showing { results.results.length } of { results.resultCount.toLocaleString() } results for “{query}”
+            Showing { start }–{ end } of { results.resultCount.toLocaleString() } results for “{query}”
           </div>
         </div>
 
@@ -127,13 +130,12 @@ export default class IndexPage extends React.Component {
     );
   }
 
-  renderResult({ firstName, lastName, age, deathYear, id, causeOfDeath }: DeathCertificate) {
+  renderResult({ firstName, lastName, age, deathDate, id }: DeathCertificate) {
     return (
       <Link key={id} href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
         <a className={'p-a300 br br-t100 b--w result'}>
-          <div style={{ fontWeight: 'bold' }}>{firstName} {lastName}</div>
-          <div>Died: {deathYear} Age: {age}</div>
-          <div>Cause of death: {causeOfDeath ? 'Known' : 'Unknown'}</div>
+          <div className="t--sans" style={{ fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 1.4 }}>{firstName} {lastName}</div>
+          <div>Died: {deathDate} Age: {age}</div>
           <style jsx>{`
             .result {
               display: block;

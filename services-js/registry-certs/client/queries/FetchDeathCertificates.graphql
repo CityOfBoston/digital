@@ -5,7 +5,7 @@ query FetchDeathCertificates($ids: [String!]!) {
       firstName
       lastName
       birthYear
-      deathYear
+      deathDate
       causeOfDeath
       age
     }

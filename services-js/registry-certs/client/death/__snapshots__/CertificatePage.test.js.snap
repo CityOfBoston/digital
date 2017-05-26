@@ -135,13 +135,13 @@ exports[`rendering renders a certificate 1`] = `
             className="dl-t"
             data-jsx={3681792122}
           >
-            Death Year
+            Date of Death
           </span>
           <span
             className="dl-d"
             data-jsx={3681792122}
           >
-            2016
+            3/4/2016
           </span>
         </li>
         <li

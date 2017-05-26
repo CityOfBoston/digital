@@ -80,7 +80,7 @@ exports[`rendering renders a hydrated cart 1`] = `
             }
           }
         >
-          2014
+          4/15/2014
           <span
             className="id-label"
             data-jsx={1389666004}
@@ -131,7 +131,7 @@ exports[`rendering renders a hydrated cart 1`] = `
             }
           }
         >
-          2016
+          6/1/2016
           <span
             className="id-label"
             data-jsx={1389666004}
