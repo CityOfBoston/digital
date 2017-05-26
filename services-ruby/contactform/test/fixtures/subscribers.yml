@@ -2,10 +2,10 @@
 
 one:
   email: MyString
-  zip: MyString
+  zip_code: MyString
   profile_id: MyString
 
 two:
   email: MyString
-  zip: MyString
+  zip_code: MyString
   profile_id: MyString
