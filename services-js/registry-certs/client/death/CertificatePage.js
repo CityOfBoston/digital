@@ -4,9 +4,8 @@ import React from 'react';
 import Head from 'next/head';
 import type { Context } from 'next';
 
-import fetchDeathCertificates from '../queries/fetch-death-certificates';
-import makeLoopbackGraphql from '../loopback-graphql';
 import type { DeathCertificate } from '../types';
+import type { ClientDependencies } from '../page';
 
 import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
@@ -31,11 +30,10 @@ export default class CertificatePage extends React.Component {
     quantity: 1,
   }
 
-  static async getInitialProps(ctx: Context<*>): Promise<InitialProps> {
-    const { query: { id }, req } = ctx;
+  static async getInitialProps(ctx: Context<*>, { deathCertificatesDao }: ClientDependencies): Promise<InitialProps> {
+    const { query: { id } } = ctx;
 
-    const loopbackGraphql = makeLoopbackGraphql(req);
-    const certificate = (await fetchDeathCertificates(loopbackGraphql, [id]))[0];
+    const certificate = await deathCertificatesDao.get(id);
 
     return {
       id,

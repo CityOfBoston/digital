@@ -6,14 +6,13 @@ import Router from 'next/router';
 
 import type { DeathCertificate } from '../types';
 import Cart from '../store/Cart';
+import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import SearchPage from './SearchPage';
 import type { InitialProps } from './SearchPage';
 
 jest.mock('next/router');
-
-jest.mock('../queries/search-death-certificates');
-const searchDeathCertificates: JestMockFn = (require('../queries/search-death-certificates'): any).default;
+jest.mock('../dao/DeathCertificatesDao');
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   {
@@ -36,26 +35,32 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   },
 ];
 
-
-const renderFromInitialProps = async (query: {[key: string]: string}) => {
+const renderFromInitialProps = async (query: {[key: string]: string}, dependencies: Object) => {
   const cart = new Cart();
+
   const initialProps: InitialProps = await SearchPage.getInitialProps((({
     query,
-  }): any));
+  }): any), dependencies);
 
   return renderer.create(<SearchPage cart={cart} {...initialProps} />);
 };
 
 describe('rendering', () => {
+  let deathCertificatesDao;
+
+  beforeEach(() => {
+    deathCertificatesDao = new DeathCertificatesDao((null: any));
+  });
+
   it('shows empty search box', async () => {
-    expect((await renderFromInitialProps({})).toJSON()).toMatchSnapshot();
+    expect((await renderFromInitialProps({}, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
   });
 
   it('shows search results', async () => {
-    searchDeathCertificates.mockReturnValue(TEST_DEATH_CERTIFICATES);
+    deathCertificatesDao.search.mockReturnValue(TEST_DEATH_CERTIFICATES);
 
-    expect((await renderFromInitialProps({ q: 'Monkey Joe' })).toJSON()).toMatchSnapshot();
-    expect(searchDeathCertificates).toHaveBeenCalledWith(expect.anything(), 'Monkey Joe');
+    expect((await renderFromInitialProps({ q: 'Monkey Joe' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
+    expect(deathCertificatesDao.search).toHaveBeenCalledWith('Monkey Joe');
   });
 });
 

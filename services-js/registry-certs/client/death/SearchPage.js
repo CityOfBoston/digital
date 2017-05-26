@@ -6,8 +6,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import type { Context } from 'next';
 
-import searchDeathCertificates from '../queries/search-death-certificates';
-import makeLoopbackGraphql from '../loopback-graphql';
+import type { ClientDependencies } from '../page';
 import type { DeathCertificate } from '../types';
 
 import type Cart from '../store/Cart';
@@ -33,14 +32,13 @@ export default class IndexPage extends React.Component {
   props: Props;
   state: State;
 
-  static async getInitialProps(ctx: Context<*>): Promise<InitialProps> {
-    const { query, req } = ctx;
+  static async getInitialProps(ctx: Context<*>, { deathCertificatesDao }: ClientDependencies): Promise<InitialProps> {
+    const { query } = ctx;
 
     let results = null;
 
     if (query.q) {
-      const loopbackGraphql = makeLoopbackGraphql(req);
-      results = await searchDeathCertificates(loopbackGraphql, query.q);
+      results = await deathCertificatesDao.search(query.q);
     }
 
     return {

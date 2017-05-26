@@ -5,12 +5,12 @@ import { shallow } from 'enzyme';
 
 import type { DeathCertificate } from '../types';
 import Cart from '../store/Cart';
+import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import CertificatePage from './CertificatePage';
 import type { InitialProps } from './CertificatePage';
 
-jest.mock('../queries/fetch-death-certificates');
-const fetchDeathCertificates: JestMockFn = (require('../queries/fetch-death-certificates'): any).default;
+jest.mock('../dao/DeathCertificatesDao');
 
 const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   id: '000002',
@@ -22,27 +22,33 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   age: '21 yrs.',
 };
 
-const renderFromInitialProps = async (query: {[key: string]: string}) => {
+const renderFromInitialProps = async (query: {[key: string]: string}, dependencies: Object) => {
   const cart = new Cart();
   const initialProps: InitialProps = await CertificatePage.getInitialProps((({
     query,
-  }): any));
+  }): any), dependencies);
 
   return renderer.create(<CertificatePage cart={cart} {...initialProps} />);
 };
 
 describe('rendering', () => {
+  let deathCertificatesDao;
+
+  beforeEach(() => {
+    deathCertificatesDao = new DeathCertificatesDao((null: any));
+  });
+
   it('renders a certificate', async () => {
-    fetchDeathCertificates.mockReturnValue(TEST_DEATH_CERTIFICATE);
-    expect((await renderFromInitialProps({ id: '000002' })).toJSON()).toMatchSnapshot();
-    expect(fetchDeathCertificates).toHaveBeenCalledWith(expect.anything(), ['000002']);
+    deathCertificatesDao.get.mockReturnValue(TEST_DEATH_CERTIFICATE);
+    expect((await renderFromInitialProps({ id: '000002' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
+    expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
   });
 
   it('renders a 404', async () => {
-    fetchDeathCertificates.mockReturnValue([null]);
+    deathCertificatesDao.get.mockReturnValue(null);
 
-    expect((await renderFromInitialProps({ id: '000002' })).toJSON()).toMatchSnapshot();
-    expect(fetchDeathCertificates).toHaveBeenCalledWith(expect.anything(), ['000002']);
+    expect((await renderFromInitialProps({ id: '000002' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
+    expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
   });
 });
 
