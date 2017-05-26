@@ -125,12 +125,12 @@ export default class IndexPage extends React.Component {
     );
   }
 
-  renderResult({ firstName, lastName, birthYear, deathYear, id, causeOfDeath }: DeathCertificate) {
+  renderResult({ firstName, lastName, age, deathYear, id, causeOfDeath }: DeathCertificate) {
     return (
       <Link key={id} href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
         <a className={'p-a300 br br-t100 b--w result'}>
           <div style={{ fontWeight: 'bold' }}>{firstName} {lastName}</div>
-          <div>Born: {birthYear} – Died: {deathYear}</div>
+          <div>Died: {deathYear} Age: {age}</div>
           <div>Cause of death: {causeOfDeath ? 'Known' : 'Unknown'}</div>
           <style jsx>{`
             .result {

@@ -2,10 +2,13 @@
 
 import { resolvers } from './death-certificates';
 
+import Registry from '../services/__mocks__/Registry';
+
 describe('DeathCertificates resolvers', () => {
   describe('search', () => {
-    it('returns search results', () => {
-      expect(resolvers.DeathCertificates.search({}, { query: 'Logan' }).length).toEqual(3);
+    it('returns search results', async () => {
+      const certs = await resolvers.DeathCertificates.search({}, { query: 'Logan' }, ({ registry: new Registry() }: any));
+      expect(certs.length).toEqual(3);
     });
   });
 

@@ -15,6 +15,7 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   birthYear: '1962',
   deathYear: '2016',
   causeOfDeath: 'Hawkeye',
+  age: '043',
 };
 
 let loopbackGraphql: LoopbackGraphql;

@@ -23,6 +23,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     birthYear: '1974',
     deathYear: '2014',
     causeOfDeath: 'Adamantium suffocation',
+    age: '4 yrs. 2 mos. 10 dys',
   },
   {
     id: '000002',
@@ -31,6 +32,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     birthYear: '1962',
     deathYear: '2016',
     causeOfDeath: 'Hawkeye',
+    age: '4 yrs. 2 mos. 10 dys',
   },
 ];
 

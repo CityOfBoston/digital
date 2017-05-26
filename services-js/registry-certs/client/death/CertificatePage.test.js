@@ -19,6 +19,7 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   birthYear: '1962',
   deathYear: '2016',
   causeOfDeath: 'Hawkeye',
+  age: '21 yrs.',
 };
 
 const renderFromInitialProps = async (query: {[key: string]: string}) => {

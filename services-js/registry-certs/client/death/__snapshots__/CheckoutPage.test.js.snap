@@ -80,8 +80,6 @@ exports[`rendering renders a hydrated cart 1`] = `
             }
           }
         >
-          1974
-           – 
           2014
           <span
             className="id-label"
@@ -133,8 +131,6 @@ exports[`rendering renders a hydrated cart 1`] = `
             }
           }
         >
-          1962
-           – 
           2016
           <span
             className="id-label"

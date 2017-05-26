@@ -11,9 +11,10 @@ export type FetchDeathCertificatesQuery = {|
       id: string,
       firstName: string,
       lastName: string,
-      birthYear: string,
+      birthYear: ?string,
       deathYear: string,
       causeOfDeath: ?string,
+      age: ?string,
     |} >,
   |},
 |};
@@ -28,9 +29,10 @@ export type SearchDeathCertificatesQuery = {|
       id: string,
       firstName: string,
       lastName: string,
-      birthYear: string,
+      birthYear: ?string,
       deathYear: string,
       causeOfDeath: ?string,
+      age: ?string,
     |} >,
   |},
 |};

@@ -1,13 +1,17 @@
 // @flow
 
+import type { Context } from './index';
+import type { SearchResult } from '../services/Registry';
+
 export const Schema = `
 type DeathCertificate {
   id: String!,
   firstName: String!,
   lastName: String!,
-  birthYear: String!,
+  birthYear: String,
   deathYear: String!,
   causeOfDeath: String,
+  age: String,
 }
 
 type DeathCertificates {
@@ -33,9 +37,10 @@ type DeathCertificate = {
   id: string,
   firstName: string,
   lastName: string,
-  birthYear: string,
+  birthYear: ?string,
   deathYear: string,
   causeOfDeath: ?string,
+  age: ?string,
 };
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
@@ -46,6 +51,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     birthYear: '1974',
     deathYear: '2014',
     causeOfDeath: 'Adamantium suffocation',
+    age: '058',
   },
   {
     id: '000002',
@@ -54,6 +60,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     birthYear: '1962',
     deathYear: '2016',
     causeOfDeath: 'Hawkeye',
+    age: '61',
   },
   {
     id: '000003',
@@ -62,13 +69,26 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     birthYear: '1991',
     deathYear: '2005',
     causeOfDeath: null,
+    age: '4 yrs. 2 mos. 10 dys',
   },
 ];
 
 export const resolvers = {
   DeathCertificates: {
     // eslint-disable-next-line no-unused-vars
-    search: (root: mixed, { query }: SearchArgs) => TEST_DEATH_CERTIFICATES,
+    search: async (root: mixed, { query }: SearchArgs, { registry }: Context): Promise<Array<DeathCertificate>> => {
+      const results: Array<SearchResult> = await registry.search(query);
+
+      return results.map((res) => ({
+        id: res.CertificateID.toString(),
+        firstName: res['First Name'],
+        lastName: res['Last Name'],
+        birthYear: null,
+        deathYear: res['Date of Death'].split('/')[2],
+        causeOfDeath: null,
+        age: res.AgeOrDateOfBirth,
+      }));
+    },
     certificate: (root: mixed, { id }: CertificateArgs) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id),
     certificates: (root: mixed, { ids }: CertificatesArgs) => ids.map((id) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id)),
   },

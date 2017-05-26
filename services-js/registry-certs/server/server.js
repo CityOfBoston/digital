@@ -6,9 +6,12 @@ import next from 'next';
 import Boom from 'boom';
 import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
+import cleanup from 'node-cleanup';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import addRequestAdditions from './request-additions';
+import { makeRegistryFactory } from './services/Registry';
+import type { RegistryFactory } from './services/Registry';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -21,7 +24,30 @@ export default async function startServer() {
     dev: process.env.NODE_ENV !== 'production',
   });
 
-  await app.prepare();
+  const registryFactoryOpts = {
+    user: process.env.REGISTRY_DB_USER,
+    password: process.env.REGISTRY_DB_PASSWORD,
+    domain: process.env.REGISTRY_DB_DOMAIN,
+    server: process.env.REGISTRY_DB_SERVER,
+    database: process.env.REGISTRY_DB_DATABASE,
+  };
+
+  const [registryFactory: RegistryFactory] = await Promise.all([
+    makeRegistryFactory(registryFactoryOpts),
+    app.prepare(),
+  ]);
+
+  cleanup((exitCode) => {
+    registryFactory.cleanup().then(() => {
+      process.exit(exitCode);
+    }, (err) => {
+      console.log('CLEAN EXIT FAILED', err);
+      process.exit(-1);
+    });
+
+    cleanup.uninstall();
+    return false;
+  });
 
   if (process.env.USE_SSL) {
     const tls = {
@@ -84,7 +110,9 @@ export default async function startServer() {
       // and can cache within the same query but not leak to others.
       graphqlOptions: () => ({
         schema,
-        context: ({}: Context),
+        context: ({
+          registry: registryFactory.registry(),
+        }: Context),
       }),
       route: {
         cors: true,

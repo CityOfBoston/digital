@@ -2,9 +2,10 @@ type DeathCertificate {
   id: String!
   firstName: String!
   lastName: String!
-  birthYear: String!
+  birthYear: String
   deathYear: String!
   causeOfDeath: String
+  age: String
 }
 
 type DeathCertificates {

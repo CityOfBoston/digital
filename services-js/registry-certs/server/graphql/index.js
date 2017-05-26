@@ -5,8 +5,11 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
 import { Schema as DeathSchema, resolvers as deathResolvers } from './death-certificates';
 
-export type Context = {
-};
+import type Registry from '../services/Registry';
+
+export type Context = {|
+  registry: Registry,
+|};
 
 const SchemaDefinition = `
 schema {

@@ -65,7 +65,7 @@ export default class CheckoutItem extends React.Component {
       return null;
     }
 
-    const { firstName, lastName, birthYear, deathYear, id } = cert;
+    const { firstName, lastName, deathYear, id } = cert;
 
     return (
       <div className="p-a300 result">
@@ -81,7 +81,7 @@ export default class CheckoutItem extends React.Component {
         <div className="certificate-info">
           <div>{firstName} {lastName}</div>
           <div style={{ fontStyle: 'italic' }}>
-            {birthYear} – {deathYear}
+            {deathYear}
             <span className="id-label">ID:</span> {id}
           </div>
         </div>

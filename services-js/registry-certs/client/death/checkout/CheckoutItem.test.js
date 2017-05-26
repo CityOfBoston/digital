@@ -15,6 +15,7 @@ const FAKE_CERTIFICATE = {
   birthYear: '1962',
   deathYear: '2016',
   causeOfDeath: 'Hawkeye',
+  age: '21 yrs.',
 };
 
 describe('quantity field', () => {

@@ -192,10 +192,10 @@ exports[`rendering shows search results 1`] = `
       <div
         data-jsx={1723197323}
       >
-        Born: 
-        1974
-         – Died: 
+        Died: 
         2014
+         Age: 
+        4 yrs. 2 mos. 10 dys
       </div>
       <div
         data-jsx={1723197323}
@@ -225,10 +225,10 @@ exports[`rendering shows search results 1`] = `
       <div
         data-jsx={1723197323}
       >
-        Born: 
-        1962
-         – Died: 
+        Died: 
         2016
+         Age: 
+        4 yrs. 2 mos. 10 dys
       </div>
       <div
         data-jsx={1723197323}
