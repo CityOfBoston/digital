@@ -59,6 +59,7 @@
     "hapi": "^16.1.1",
     "hapi-accept-language": "^1.0.1",
     "https-proxy-agent": "^1.0.0",
+    "inert": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
     "leaflet": "1.0.2",
     "lodash": "^4.17.4",

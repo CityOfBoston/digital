@@ -5,6 +5,7 @@ import Good from 'good';
 import next from 'next';
 import Boom from 'boom';
 import fs from 'fs';
+import Inert from 'inert';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language';
 
@@ -80,6 +81,7 @@ export default async function startServer({ opbeat }: any) {
     },
   });
 
+  server.register(Inert);
   server.register(acceptLanguagePlugin);
 
   server.register({
@@ -185,6 +187,12 @@ export default async function startServer({ opbeat }: any) {
     method: 'GET',
     path: '/_next/{p*}',
     handler: nextDefaultHandler(app),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/favicon.ico',
+    handler: (request, reply) => reply.file('static/favicon.ico'),
   });
 
   server.route({

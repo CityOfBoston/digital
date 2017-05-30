@@ -49,6 +49,17 @@ export default class extends Document {
       <html lang="en" className="js flexbox">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="apple-mobile-web-app-title" content="BOS:311" />
+          <link rel="shortcut icon" type="image/png" href="/static/icons/favicon-96x96.png" />
+
+          <link rel="apple-touch-icon" href="/static/icons/apple-icon-57x57.png" />
+          <link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-icon-114x114.png" />
+          <link rel="apple-touch-icon" sizes="120x120" href="/static/icons/apple-icon-120x120.png" />
+          <link rel="apple-touch-icon" sizes="152x152" href="/static/icons/apple-icon-152x152.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-icon-180x180.png" />
+
+          <link rel="icon" sizes="192x192" href="/static/icons/android-icon-192x192.png" />
+
           {makeCss(css)}
         </Head>
 
