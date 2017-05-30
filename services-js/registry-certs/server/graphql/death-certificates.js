@@ -65,39 +65,20 @@ type DeathCertificateSearch = {
   resultCount: number,
 }
 
-const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
-  {
-    id: '000001',
-    firstName: 'Logan',
-    lastName: 'Howlett',
-    birthYear: '1974',
-    deathDate: '2014',
-    causeOfDeath: 'Adamantium suffocation',
-    age: '058',
-  },
-  {
-    id: '000002',
-    firstName: 'Bruce',
-    lastName: 'Banner',
-    birthYear: '1962',
-    deathDate: '2016',
-    causeOfDeath: 'Hawkeye',
-    age: '61',
-  },
-  {
-    id: '000003',
-    firstName: 'Monkey',
-    lastName: 'Joe',
-    birthYear: '1991',
-    deathDate: '2005',
+function searchResultToDeathCertificate(res: SearchResult): DeathCertificate {
+  return {
+    id: res.CertificateID.toString(),
+    firstName: res['First Name'],
+    lastName: res['Last Name'],
+    birthYear: null,
+    deathDate: res['Date of Death'],
     causeOfDeath: null,
-    age: '4 yrs. 2 mos. 10 dys',
-  },
-];
+    age: res.AgeOrDateOfBirth.replace(/^0+/, '') || '0',
+  };
+}
 
 export const resolvers = {
   DeathCertificates: {
-    // eslint-disable-next-line no-unused-vars
     search: async (root: mixed, { query, pageSize, page }: SearchArgs, { registry }: Context): Promise<DeathCertificateSearch> => {
       const queryPageSize = Math.min(pageSize || DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
       const queryPage = (page || 1) - 1;
@@ -112,18 +93,27 @@ export const resolvers = {
         pageSize: queryPageSize,
         pageCount,
         resultCount,
-        results: results.map((res) => ({
-          id: res.CertificateID.toString(),
-          firstName: res['First Name'],
-          lastName: res['Last Name'],
-          birthYear: null,
-          deathDate: res['Date of Death'],
-          causeOfDeath: null,
-          age: res.AgeOrDateOfBirth.replace(/^0+/, '') || '0',
-        })),
+        results: results.map(searchResultToDeathCertificate),
       };
     },
-    certificate: (root: mixed, { id }: CertificateArgs) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id),
-    certificates: (root: mixed, { ids }: CertificatesArgs) => ids.map((id) => TEST_DEATH_CERTIFICATES.find((c) => c.id === id)),
+    certificate: async (root: mixed, { id }: CertificateArgs, { registry }: Context): Promise<?DeathCertificate> => {
+      const res = await registry.lookup(id);
+
+      if (res) {
+        return searchResultToDeathCertificate(res);
+      } else {
+        return null;
+      }
+    },
+    certificates: (root: mixed, { ids }: CertificatesArgs, { registry }: Context): Promise<Array<?DeathCertificate>> => (
+      Promise.all(ids.map(async (id) => {
+        const res = await registry.lookup(id);
+        if (res) {
+          return searchResultToDeathCertificate(res);
+        } else {
+          return null;
+        }
+      }))
+    ),
   },
 };
