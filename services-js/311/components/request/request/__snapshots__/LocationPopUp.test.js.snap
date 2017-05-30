@@ -121,19 +121,7 @@ exports[`rendering renders with an address 1`] = `
     >
       <div
         className="m-v400"
-      >
-        <div
-          className="addr addr--s"
-          style={
-            Object {
-              "whiteSpace": "pre-line",
-            }
-          }
-        >
-          City Hall Square
-          Boston, MA
-        </div>
-      </div>
+      />
     </div>
     <div
       className="g css-1k8tu3j"
@@ -150,7 +138,7 @@ exports[`rendering renders with an address 1`] = `
       </div>
       <button
         className="btn g--5"
-        disabled={false}
+        disabled={true}
         onClick={[Function]}
         type="button"
       >

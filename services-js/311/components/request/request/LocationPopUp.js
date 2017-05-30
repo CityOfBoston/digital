@@ -54,9 +54,8 @@ export default class LocationPopUp extends React.Component {
     const { store: { mapLocation, accessibility }, requestForm } = this.props;
 
     mapLocation.query = '';
-    mapLocation.address = requestForm.address;
-    mapLocation.location = requestForm.location;
-    mapLocation.addressId = requestForm.addressId;
+    // We let the rest of mapLocation's state stay the same so that it can
+    // cache e.g. units.
 
     this.updateFormFromMapDisposer = reaction(
       () => ({ location: mapLocation.location, address: mapLocation.address, addressId: mapLocation.addressId }),
@@ -111,6 +110,17 @@ export default class LocationPopUp extends React.Component {
   }
 
   @action.bound
+  whenUnitChange(ev: SyntheticInputEvent) {
+    const { store: { mapLocation } } = this.props;
+
+    const unit = mapLocation.units.find((u) => u.addressId === ev.target.value);
+    if (unit) {
+      mapLocation.addressId = unit.addressId;
+      mapLocation.address = unit.address;
+    }
+  }
+
+  @action.bound
   whenSearchSubmit(ev: SyntheticInputEvent) {
     ev.preventDefault();
 
@@ -135,7 +145,7 @@ export default class LocationPopUp extends React.Component {
   render() {
     const { requestForm, nextIsSubmit, store: { mapLocation, ui } } = this.props;
     const { locationRequirementsMet, locationRequired } = requestForm;
-    const { notFound, address, location } = mapLocation;
+    const { notFound, address, location, units } = mapLocation;
     const { belowMediaLarge } = ui;
 
     return (
@@ -168,6 +178,19 @@ export default class LocationPopUp extends React.Component {
               {!!address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
             </div>
             }
+
+            {units.length > 0 && (
+              <div className="sel m-v400">
+                <label className="sel-l" htmlFor="unit-menu" style={{ marginTop: 0 }}>Apartment or Unit Number</label>
+                <div className="sel-c sel-c--fw">
+                  <select id="unit-menu" className="sel-f" value={mapLocation.addressId || ''} onChange={this.whenUnitChange}>
+                    { units.map(({ addressId, unit, streetAddress }) => (
+                      <option value={addressId} key={addressId}>{unit ? `   ${unit}` : streetAddress}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>

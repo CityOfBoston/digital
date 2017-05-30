@@ -42,6 +42,8 @@ type FindAddressCandidate = {
   attributes: {
     Loc_name: string,
     Ref_ID: number,
+    User_fld: string,
+    Addr_type: string,
   },
   extent: {
    xmin: number,
@@ -56,14 +58,49 @@ type FindAddressResponse = {
   candidates: FindAddressCandidate[],
 };
 
-type SearchResult = {
+type LiveSamFeature = {
+  attributes: {
+    SAM_ADDRESS_ID: number,
+    BUILDING_ID: number,
+    FULL_ADDRESS: string,
+    STREET_NUMBER: string,
+    FULL_STREET_NAME: string,
+    MAILING_NEIGHBORHOOD: string,
+    ZIP_CODE: string,
+    UNIT: string,
+  },
+  geometry: {
+    x: number,
+    y: number,
+  }
+}
+
+type LiveSamResponse = {
+  features: LiveSamFeature[],
+};
+
+export type SearchResult = {
   location: {
     lat: number,
     lng: number,
   },
   address: string,
   addressId: ?string,
+  buildingId: ?string,
+  exact: boolean,
 }
+
+export type UnitResult = {
+  location: {
+    lat: number,
+    lng: number,
+  },
+  address: string,
+  addressId: string,
+  streetAddress: string,
+  unit: string,
+}
+
 
 function formatAddress(address: string): string {
   if (!address) {
@@ -109,8 +146,12 @@ export default class ArcGIS {
     }
   }
 
-  url(path: string): string {
-    return url.resolve(this.endpoint, path);
+  locatorUrl(path: string): string {
+    return url.resolve(this.endpoint, `Locators/BostonComposite/GeocodeServer/${path}`);
+  }
+
+  liveAddressUrl(path: string): string {
+    return url.resolve(this.endpoint, `311/LiveSAMAddresses/MapServer/0/${path}`);
   }
 
   async reverseGeocode(lat: number, lng: number): Promise<?string> {
@@ -130,7 +171,7 @@ export default class ArcGIS {
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
 
-    const response = await fetch(this.url(`reverseGeocode?${params.toString()}`), {
+    const response = await fetch(this.locatorUrl(`reverseGeocode?${params.toString()}`), {
       agent: this.agent,
     });
 
@@ -162,7 +203,7 @@ export default class ArcGIS {
     // Makes the output in lat/lng
     params.append('outSR', '4326');
 
-    const response = await fetch(this.url(`findAddressCandidates?${params.toString()}`), {
+    const response = await fetch(this.locatorUrl(`findAddressCandidates?${params.toString()}`), {
       agent: this.agent,
     });
 
@@ -176,7 +217,7 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    const candidates = findAddressResponse.candidates.filter((c) => c.attributes.Loc_name !== 'Points_SubAddr');
+    const candidates = findAddressResponse.candidates.filter((c) => c.attributes.Loc_name !== 'SAMAddressSubU');
     candidates.sort((a, b) => b.score - a.score);
 
     const candidate = candidates[0];
@@ -188,7 +229,43 @@ export default class ArcGIS {
         location: { lat, lng },
         address: formatAddress(candidate.address),
         addressId: (candidate.attributes.Ref_ID ? candidate.attributes.Ref_ID.toString() : null),
+        buildingId: candidate.attributes.User_fld || null,
+        exact: candidate.attributes.Addr_type === 'PointAddress',
       };
     }
+  }
+
+  async lookupUnits(buildingId: string): Promise<Array<UnitResult>> {
+    const transaction = this.opbeat && this.opbeat.startTransaction('LiveSAMAddresses', 'ArcGIS');
+
+    const params = new URLSearchParams();
+    params.append('where', `BUILDING_ID=${parseInt(buildingId, 10)}`);
+    params.append('outFields', '*');
+    params.append('f', 'json');
+    // Makes the output in lat/lng
+    params.append('outSR', '4326');
+
+    const response = await fetch(this.liveAddressUrl(`query?${params.toString()}`), {
+      agent: this.agent,
+    });
+
+    if (!response.ok) {
+      throw new Error('Got not-ok response from ArcGIS live address table');
+    }
+
+    const liveSamResponse: LiveSamResponse = await response.json();
+
+    if (transaction) {
+      transaction.end();
+    }
+
+    return liveSamResponse.features.map(({ attributes, geometry }) => ({
+      location: { lat: geometry.y, lng: geometry.x },
+      address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, MA, ${attributes.ZIP_CODE}`,
+      addressId: attributes.SAM_ADDRESS_ID.toString(),
+      streetAddress: attributes.FULL_ADDRESS,
+      unit: attributes.UNIT,
+      buildingId: attributes.BUILDING_ID.toString(),
+    }));
   }
 }

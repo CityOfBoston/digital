@@ -334,7 +334,7 @@ export default class LocationMap extends React.Component {
         }
 
         // zoom to the location if it's not one that we picked by clicking
-        if (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng)) {
+        if (!lastPickedLocation || (lastPickedLocation && (lastPickedLocation.lat !== markerLocation.lat || lastPickedLocation.lng !== markerLocation.lng))) {
           this.visitLocation(markerLocation, true);
         }
       }
@@ -389,6 +389,15 @@ export default class LocationMap extends React.Component {
   @action.bound
   chooseLocation(location: {lat: number, lng: number}) {
     const { store: { mapLocation } } = this.props;
+    const currentLocation = mapLocation.location;
+
+    // compare against epsilon to handle the case where we recenter the map in
+    // mobile because of forward address search, and the "map moved" fires and
+    // tries to re-geocode based on the newly center point.
+    if (currentLocation && (Math.abs(currentLocation.lat - location.lat) < 0.0000001) && (Math.abs(currentLocation.lng - location.lng) < 0.0000001)) {
+      return;
+    }
+
     this.lastPickedLocation = location;
     mapLocation.geocodeLocation(location);
   }

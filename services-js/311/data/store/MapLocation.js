@@ -5,6 +5,7 @@ import { observable, action, runInAction } from 'mobx';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
 import searchAddress from '../dao/search-address';
 import reverseGeocode from '../dao/reverse-geocode';
+import type { AddressUnit } from '../types';
 
 // This class co-ordinates location queries between the LocationPopUp pane
 // and the LocationMap map. LocationPopUp automatically updates the
@@ -15,6 +16,7 @@ export default class MapLocation {
   @observable query: string = '';
   @observable address: string = '';
   @observable addressId: ?string = null;
+  @observable units: Array<AddressUnit> = [];
   @observable notFound: boolean = false;
 
   loopbackGraphql: ?LoopbackGraphql;
@@ -44,10 +46,12 @@ export default class MapLocation {
         this.location = place.location;
         this.address = place.address;
         this.addressId = place.addressId;
+        this.units = place.units;
       } else {
         this.address = '';
         this.addressId = null;
         this.notFound = true;
+        this.units = [];
       }
     });
   }
@@ -69,8 +73,13 @@ export default class MapLocation {
 
     runInAction('reverse geocode result', () => {
       if (this.location && this.location.lat === location.lat && this.location.lng === location.lng) {
+        this.addressId = null;
+        this.units = [];
+
         if (place) {
           this.address = place.address;
+          this.addressId = null;
+          this.units = [];
         } else {
           this.address = '';
           this.notFound = true;

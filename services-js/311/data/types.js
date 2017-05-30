@@ -14,34 +14,7 @@ import type {
 } from './dao/graphql/types';
 
 export type ServiceSummary = $ArrayElement<$PropertyType<LoadServiceSummariesQuery, 'services'>>;
-// HACK(finh): The above type has been flaky in Flow as recent as 0.41. Here's
-// the definition in case it needs to be used instead.
-// export type ServiceSummary = {
-//   code: string,
-//   name: string,
-// }
-
 export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
-// HACK(finh): The above type has been flaky in Flow as recent as 0.40. Here's
-// the definition in case it needs to be used instead.
-// export type Service = {
-//   name: string,
-//   code: string,
-//   hasMetadata: boolean,
-//   metadata: ? {
-//     attributes: Array<{
-//       required: boolean,
-//       type: ServiceMetadataAttributeDatatype,
-//       code: string,
-//       description: string,
-//       values: ?Array<{
-//         key: string,
-//         name: string,
-//       }>,
-//     }>,
-//   },
-// };
-
 export type ServiceAttribute = $ArrayElement<$PropertyType<Service, 'attributes'>>;
 export type ServiceAttributeValuesConditionSet = $PropertyType<$ArrayElement<$NonMaybeType<$PropertyType<ServiceAttribute, 'conditionalValues'>>>, 'dependentOn'>;
 export type ServiceAttributeValuesCondition = $ArrayElement<$PropertyType<ServiceAttributeValuesConditionSet, 'conditions'>>;
@@ -64,3 +37,4 @@ export type SearchRequest = $ArrayElement<$PropertyType<SearchRequestsPage, 'req
 
 export type ReverseGeocodedPlace = $NonMaybeType<$PropertyType<$PropertyType<ReverseGeocodeQuery, 'geocoder'>, 'reverse'>>;
 export type SearchAddressPlace = $NonMaybeType<$PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>>;
+export type AddressUnit = $NonMaybeType<$ArrayElement<$PropertyType<SearchAddressPlace, 'units'>>>;

@@ -57,6 +57,7 @@ describe('searching', () => {
         lng: -71.05761000345488,
       },
       addressId: '12345',
+      units: [],
     });
 
     expect(mapLocation.address).toEqual('121 Devonshire Street, Boston, MA, 02108');

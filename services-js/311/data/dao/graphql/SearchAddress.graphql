@@ -7,6 +7,12 @@ query SearchAddress($query: String!) {
       }
 		  address
       addressId
+      units {
+        address
+        streetAddress
+        unit
+        addressId
+      }
 		}
   }
 }

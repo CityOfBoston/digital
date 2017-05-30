@@ -1,6 +1,7 @@
 // @flow
 
 import type { Context } from '.';
+import type { UnitResult } from '../services/ArcGIS';
 
 export const Schema = `
 type Geocoder {
@@ -12,6 +13,16 @@ type Place {
   location: LatLng!
   address: String!
   addressId: String
+  units: [Unit!]!
+  exact: Boolean!
+}
+
+type Unit {
+  location: LatLng!
+  address: String!
+  streetAddress: String!
+  unit: String!
+  addressId: String!
 }
 `;
 
@@ -34,18 +45,37 @@ type Place = {
   location: LatLng,
   address: string,
   addressId: ?string,
+  buildingId: ?string,
+  exact: boolean,
 };
+
+type Unit = {
+  location: LatLng,
+  address: string,
+  streetAddress: string,
+  unit: string,
+  addressId: ?string,
+}
 
 export const resolvers = {
   Geocoder: {
     reverse: async (s: Root, { location }: ReverseGeocodeArgs, { arcgis }: Context): Promise<?Place> => {
       const address = await arcgis.reverseGeocode(location.lat, location.lng);
       if (address) {
-        return { location, address, addressId: null };
+        return { location, address, addressId: null, buildingId: null, exact: false };
       } else {
         return null;
       }
     },
     search: async (s: Root, { query }: SearchArgs, { arcgis }: Context): Promise<?Place> => arcgis.search(query),
+  },
+
+  Place: {
+    units: async (p: Place, args: mixed, { arcgis }: Context): Promise<Array<Unit>> => {
+      const units: UnitResult[] = p.buildingId ? await arcgis.lookupUnits(p.buildingId) : [];
+      return units.map(({ address, location, unit, streetAddress, addressId }: UnitResult) => (
+        { address, location, unit, addressId, streetAddress }
+      ));
+    },
   },
 };

@@ -195,6 +195,12 @@ export type SearchAddressQuery = {
       },
       address: string,
       addressId: ?string,
+      units: Array< {
+        address: string,
+        streetAddress: string,
+        unit: string,
+        addressId: string,
+      } >,
     },
   },
 };

@@ -32,6 +32,8 @@ type Place {
   location: LatLng!
   address: String!
   addressId: String
+  units: [Unit!]!
+  exact: Boolean!
 }
 
 type Query {
@@ -149,4 +151,12 @@ enum ServiceAttributeDatatype {
 type ServiceAttributeValue {
   key: String!
   name: String!
+}
+
+type Unit {
+  location: LatLng!
+  address: String!
+  streetAddress: String!
+  unit: String!
+  addressId: String!
 }
