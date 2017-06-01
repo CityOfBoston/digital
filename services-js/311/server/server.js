@@ -85,9 +85,6 @@ export default async function startServer({ opbeat }: any) {
   server.register(Inert);
   server.register(acceptLanguagePlugin);
 
-  console.log('ENV VARS', process.env);
-
-
   server.register({
     register: graphqlHapi,
     options: {
@@ -97,7 +94,7 @@ export default async function startServer({ opbeat }: any) {
       graphqlOptions: (req) => ({
         schema,
         context: ({
-          open311: new Open311(process.env['311_ENDPOINT'], process.env['311_KEY'], opbeat),
+          open311: new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat),
           publicOpen311: new Open311(process.env.LEGACY_311_ENDPOINT, null, opbeat),
           swiftype: new Swiftype(process.env.SWIFTYPE_API_KEY, process.env.SWIFTYPE_ENGINE_SLUG, opbeat),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
