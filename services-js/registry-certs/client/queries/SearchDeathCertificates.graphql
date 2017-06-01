@@ -9,7 +9,7 @@ query SearchDeathCertificates($query: String!, $page: Int!) {
         id
         firstName
         lastName
-        birthYear
+        deathYear
         deathDate
         pending
         age

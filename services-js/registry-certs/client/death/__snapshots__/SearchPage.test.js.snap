@@ -178,6 +178,36 @@ exports[`rendering shows search results 1`] = `
     <a
       className="p-a300 br br-t100 b--w result"
       data-jsx={1723197323}
+      href="/death/certificate/000002"
+      onClick={[Function]}
+    >
+      <div
+        className="t--sans"
+        data-jsx={1723197323}
+        style={
+          Object {
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1.4,
+          }
+        }
+      >
+        Bruce
+         
+        Banner
+      </div>
+      <div
+        data-jsx={1723197323}
+      >
+        Died: 
+        3/4/2016
+         Age: 
+        21 yrs.
+      </div>
+    </a>
+    <a
+      className="p-a300 br br-t100 b--w result"
+      data-jsx={1723197323}
       href="/death/certificate/000001"
       onClick={[Function]}
     >
@@ -202,13 +232,18 @@ exports[`rendering shows search results 1`] = `
         Died: 
         4/15/2014
          Age: 
-        4 yrs. 2 mos. 10 dys
+        44 yrs. 2 mos. 10 dys
+      </div>
+      <div
+        data-jsx={1723197323}
+      >
+        Certificate Pending
       </div>
     </a>
     <a
       className="p-a300 br br-t100 b--w result"
       data-jsx={1723197323}
-      href="/death/certificate/000002"
+      href="/death/certificate/000003"
       onClick={[Function]}
     >
       <div
@@ -222,17 +257,17 @@ exports[`rendering shows search results 1`] = `
           }
         }
       >
-        Bruce
+        Monkey
          
-        Banner
+        Joe
       </div>
       <div
         data-jsx={1723197323}
       >
         Died: 
-        5/31/2016
+        2004
          Age: 
-        4 yrs. 2 mos. 10 dys
+        6
       </div>
     </a>
     <ul

@@ -4,31 +4,10 @@ import { runInAction } from 'mobx';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import type { DeathCertificate } from '../types';
 import Cart from '../store/Cart';
+import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 import CheckoutPage from './CheckoutPage';
-
-const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
-  {
-    id: '000001',
-    firstName: 'Logan',
-    lastName: 'Howlett',
-    birthYear: '1974',
-    deathDate: '4/15/2014',
-    pending: false,
-    age: '4 yrs. 2 mos. 10 dys',
-  },
-  {
-    id: '000002',
-    firstName: 'Bruce',
-    lastName: 'Banner',
-    birthYear: '1962',
-    deathDate: '6/1/2016',
-    pending: false,
-    age: '4 yrs. 2 mos. 10 dys',
-  },
-];
 
 describe('rendering', () => {
   let cart;
@@ -41,11 +20,11 @@ describe('rendering', () => {
     runInAction(() => {
       cart.pendingFetches = 2;
       cart.items = ([{
-        id: TEST_DEATH_CERTIFICATES[0].id,
+        id: TYPICAL_CERTIFICATE.id,
         cert: null,
         quantity: 5,
       }, {
-        id: TEST_DEATH_CERTIFICATES[1].id,
+        id: PENDING_CERTIFICATE.id,
         cert: null,
         quantity: 3,
       }]: any);
@@ -55,8 +34,8 @@ describe('rendering', () => {
   });
 
   it('renders a hydrated cart', () => {
-    cart.add(TEST_DEATH_CERTIFICATES[0], 5);
-    cart.add(TEST_DEATH_CERTIFICATES[1], 2);
+    cart.add(TYPICAL_CERTIFICATE, 5);
+    cart.add(PENDING_CERTIFICATE, 2);
 
     expect(renderer.create(<CheckoutPage cart={cart} />).toJSON()).toMatchSnapshot();
   });
@@ -68,8 +47,8 @@ describe('submit', () => {
 
   beforeEach(() => {
     cart = new Cart();
-    cart.add(TEST_DEATH_CERTIFICATES[0], 5);
-    cart.add(TEST_DEATH_CERTIFICATES[1], 2);
+    cart.add(TYPICAL_CERTIFICATE, 5);
+    cart.add(PENDING_CERTIFICATE, 2);
 
     wrapper = shallow(<CheckoutPage cart={cart} />);
   });

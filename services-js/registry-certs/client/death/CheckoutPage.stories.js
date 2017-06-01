@@ -5,36 +5,16 @@ import { storiesOf } from '@kadira/storybook';
 import fullPageDecorator from '../../storybook/full-page-decorator';
 import CheckoutPage from './CheckoutPage';
 
-import type { DeathCertificate } from '../types';
+import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 import Cart from '../store/Cart';
-
-const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
-  {
-    id: '000001',
-    firstName: 'Logan',
-    lastName: 'Howlett',
-    birthYear: '1974',
-    deathDate: '1/1/2014',
-    pending: false,
-    age: '21 yrs.',
-  },
-  {
-    id: '000002',
-    firstName: 'Bruce',
-    lastName: 'Banner',
-    birthYear: '1962',
-    deathDate: '8/15/2016',
-    pending: false,
-    age: '44 yrs. 2 mos. 10 dys',
-  },
-];
 
 function makeCart() {
   const cart = new Cart();
 
-  cart.add(TEST_DEATH_CERTIFICATES[0], 1);
-  cart.add(TEST_DEATH_CERTIFICATES[1], 3);
+  cart.add(TYPICAL_CERTIFICATE, 1);
+  cart.add(PENDING_CERTIFICATE, 3);
+  cart.add(NO_DATE_CERTIFICATE, 1);
 
   return cart;
 }

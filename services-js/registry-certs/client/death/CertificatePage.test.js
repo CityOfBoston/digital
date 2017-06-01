@@ -3,24 +3,15 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-import type { DeathCertificate } from '../types';
 import Cart from '../store/Cart';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import CertificatePage from './CertificatePage';
 import type { InitialProps } from './CertificatePage';
 
-jest.mock('../dao/DeathCertificatesDao');
+import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
-const TEST_DEATH_CERTIFICATE: DeathCertificate = {
-  id: '000002',
-  firstName: 'Bruce',
-  lastName: 'Banner',
-  birthYear: '1962',
-  deathDate: '3/4/2016',
-  pending: false,
-  age: '21 yrs.',
-};
+jest.mock('../dao/DeathCertificatesDao');
 
 const renderFromInitialProps = async (query: {[key: string]: string}, dependencies: Object) => {
   const cart = new Cart();
@@ -39,7 +30,7 @@ describe('rendering', () => {
   });
 
   it('renders a certificate', async () => {
-    deathCertificatesDao.get.mockReturnValue(TEST_DEATH_CERTIFICATE);
+    deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
     expect((await renderFromInitialProps({ id: '000002' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
   });
@@ -55,7 +46,7 @@ describe('rendering', () => {
 describe('searching', () => {
   it('redirects to search for a query', () => {
     const cart = new Cart();
-    const wrapper = shallow(<CertificatePage cart={cart} id="00002" certificate={TEST_DEATH_CERTIFICATE} />);
+    const wrapper = shallow(<CertificatePage cart={cart} id="00002" certificate={TYPICAL_CERTIFICATE} />);
 
     wrapper.find('select[name="quantity"]').simulate('change', { target: { value: '5' } });
     wrapper.find('form.js-add-to-cart-form').simulate('submit', { preventDefault: jest.fn() });

@@ -6,17 +6,7 @@ import { shallow } from 'enzyme';
 import { CartItem } from '../../store/Cart';
 
 import CheckoutItem from './CheckoutItem';
-
-
-const FAKE_CERTIFICATE = {
-  id: '000002',
-  firstName: 'Bruce',
-  lastName: 'Banner',
-  birthYear: '1962',
-  deathDate: '2/1/2016',
-  pending: false,
-  age: '21 yrs.',
-};
+import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
 describe('quantity field', () => {
   let item: CartItem;
@@ -26,8 +16,8 @@ describe('quantity field', () => {
 
   beforeEach(() => {
     item = new CartItem();
-    item.id = FAKE_CERTIFICATE.id;
-    item.cert = FAKE_CERTIFICATE;
+    item.id = TYPICAL_CERTIFICATE.id;
+    item.cert = TYPICAL_CERTIFICATE;
     item.quantity = 4;
 
     cart = {
@@ -45,7 +35,7 @@ describe('quantity field', () => {
 
   it('changes the quantity when a number is added', () => {
     quantityField.simulate('change', { target: { value: '5' } });
-    expect(cart.setQuantity).toHaveBeenCalledWith(FAKE_CERTIFICATE.id, 5);
+    expect(cart.setQuantity).toHaveBeenCalledWith(TYPICAL_CERTIFICATE.id, 5);
   });
 
   it('ignores non-numeric values', () => {
@@ -55,6 +45,6 @@ describe('quantity field', () => {
 
   it('turns the item to 0 on clearing out', () => {
     quantityField.simulate('change', { target: { value: '' } });
-    expect(cart.setQuantity).toHaveBeenCalledWith(FAKE_CERTIFICATE.id, 0);
+    expect(cart.setQuantity).toHaveBeenCalledWith(TYPICAL_CERTIFICATE.id, 0);
   });
 });

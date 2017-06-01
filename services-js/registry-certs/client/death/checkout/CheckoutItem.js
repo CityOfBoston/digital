@@ -8,7 +8,6 @@ import type Cart, { CartItem } from '../../store/Cart';
 
 import { GRAY_100, GRAY_300, OPTIMISTIC_BLUE } from '../../common/style-constants';
 
-
 export type Props = {
   cart: Cart,
   item: CartItem,
@@ -65,7 +64,7 @@ export default class CheckoutItem extends React.Component {
       return null;
     }
 
-    const { firstName, lastName, deathDate, id } = cert;
+    const { firstName, lastName, deathDate, deathYear, id } = cert;
 
     return (
       <div className="p-a300 result">
@@ -81,7 +80,7 @@ export default class CheckoutItem extends React.Component {
         <div className="certificate-info">
           <div>{firstName} {lastName}</div>
           <div style={{ fontStyle: 'italic' }}>
-            {deathDate}
+            {deathDate || deathYear}
             <span className="id-label">ID:</span> {id}
           </div>
         </div>

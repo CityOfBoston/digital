@@ -10,29 +10,15 @@ import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import SearchPage from './SearchPage';
 import type { InitialProps } from './SearchPage';
+import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 jest.mock('next/router');
 jest.mock('../dao/DeathCertificatesDao');
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
-  {
-    id: '000001',
-    firstName: 'Logan',
-    lastName: 'Howlett',
-    birthYear: '1974',
-    deathDate: '4/15/2014',
-    pending: false,
-    age: '4 yrs. 2 mos. 10 dys',
-  },
-  {
-    id: '000002',
-    firstName: 'Bruce',
-    lastName: 'Banner',
-    birthYear: '1962',
-    deathDate: '5/31/2016',
-    pending: false,
-    age: '4 yrs. 2 mos. 10 dys',
-  },
+  TYPICAL_CERTIFICATE,
+  PENDING_CERTIFICATE,
+  NO_DATE_CERTIFICATE,
 ];
 
 const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {

@@ -47,6 +47,10 @@ gulp.task('templates:fetch', () => (
   .pipe(gulp.dest('templates'))
 ));
 
+gulp.task('babel:clear-cache', () => (
+  del('node_modules/.cache/babel-loader')
+));
+
 const GRAPHQL_QUERIES = 'client/queries/*.graphql';
 const GRAPHQL_TYPES = 'client/queries/graphql-types.js';
 const GRAPHQL_SCHEMA = 'graphql/schema.json';
@@ -72,6 +76,7 @@ gulp.task('graphql:types', ['graphql:schema'], (cb) => {
 
 gulp.task('watch:graphql', () => [
   gulp.watch('server/graphql/*.js', ['graphql:schema']),
+  gulp.watch([GRAPHQL_QUERIES], ['babel:clear-cache']),
   gulp.watch([GRAPHQL_QUERIES, GRAPHQL_SCHEMA], ['graphql:types']),
 ]);
 

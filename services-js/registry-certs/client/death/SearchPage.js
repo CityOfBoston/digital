@@ -2,19 +2,17 @@
 
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Router from 'next/router';
 import type { Context } from 'next';
 
 import type { ClientDependencies } from '../page';
-import type { DeathCertificate } from '../types';
 
 import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
 import Pagination from '../common/Pagination';
 import type { DeathCertificateSearchResults } from '../types';
 
-import { GRAY_100 } from '../common/style-constants';
+import SearchResult from './SearchResult';
 
 export type InitialProps = {|
   query: string,
@@ -119,7 +117,7 @@ export default class IndexPage extends React.Component {
           </div>
         </div>
 
-        { results.results.map(this.renderResult) }
+        { results.results.map((certificate) => <SearchResult certificate={certificate} key={certificate.id} />) }
 
         { results.resultCount > results.results.length && this.renderPagination(results) }
 
@@ -130,25 +128,6 @@ export default class IndexPage extends React.Component {
     );
   }
 
-  renderResult({ firstName, lastName, age, deathDate, id, pending }: DeathCertificate) {
-    return (
-      <Link key={id} href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
-        <a className={'p-a300 br br-t100 b--w result'}>
-          <div className="t--sans" style={{ fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 1.4 }}>{firstName} {lastName}</div>
-          <div>Died: {deathDate} Age: {age}</div>
-          { pending && <div>Certificate Pending</div> }
-          <style jsx>{`
-            .result {
-              display: block;
-              color: inherit;
-              font-style: italic;
-              border-color: ${GRAY_100};
-            }
-          `}</style>
-        </a>
-      </Link>
-    );
-  }
 
   renderPagination({ page, pageCount }: DeathCertificateSearchResults) {
     const { query } = this.props;

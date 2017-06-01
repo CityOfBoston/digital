@@ -82,7 +82,7 @@ export default class CertificatePage extends React.Component {
     );
   }
 
-  renderCertificate({ firstName, lastName, age, deathDate }: DeathCertificate) {
+  renderCertificate({ firstName, lastName, age, deathDate, deathYear }: DeathCertificate) {
     const { quantity } = this.state;
 
     return (
@@ -94,7 +94,7 @@ export default class CertificatePage extends React.Component {
           </li>
           <li className="dl-i">
             <span className="dl-t">Date of Death</span>
-            <span className="dl-d">{deathDate}</span>
+            <span className="dl-d">{deathDate || deathYear}</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Age</span>
