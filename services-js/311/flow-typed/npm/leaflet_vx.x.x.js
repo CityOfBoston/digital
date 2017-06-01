@@ -30,7 +30,7 @@ declare module 'leaflet' {
     getSouthWest(): LatLng,
     getNorthEast(): LatLng,
     getNorthWest(): LatLng,
-    getSouthWest(): LatLng,
+    getSouthEast(): LatLng,
     getWest(): number,
     getSouth(): number,
     getEast(): number,

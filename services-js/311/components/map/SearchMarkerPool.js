@@ -7,7 +7,7 @@ import type { IComputedValue } from 'mobx';
 import { css } from 'glamor';
 import type { Map as MapboxMap, Marker, DivIcon, Popup } from 'mapbox.js';
 import type RequestSearch from '../../data/store/RequestSearch';
-import type { SearchRequest } from '../../data/types';
+import type { SearchCase } from '../../data/types';
 import { YELLOW } from '../style-constants';
 import waypointMarkers, { WAYPOINT_BASE_OPTIONS } from './WaypointMarkers';
 import RequestPopup from './RequestPopup';
@@ -60,13 +60,13 @@ class SearchMarker {
   popup: ?Popup;
   icons: Icons;
   map: MapboxMap;
-  request: SearchRequest;
+  request: SearchCase;
   requestSearch: RequestSearch;
   opacityComputed: IComputedValue<number>;
   updateOpacityDisposer: Function;
   updateIconDisposer: Function;
 
-  constructor(L: LWithMapbox, pool: SearchMarkerPool, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchRequest) {
+  constructor(L: LWithMapbox, pool: SearchMarkerPool, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchCase) {
     this.L = L;
     this.pool = pool;
     this.request = request;
@@ -140,7 +140,7 @@ class SearchMarker {
         const el = document.createElement('DIV');
 
         if (this.requestSearch.selectedRequest) {
-          render(<RequestPopup request={this.requestSearch.selectedRequest} />, el, () => {
+          render(<RequestPopup caseInfo={this.requestSearch.selectedRequest} />, el, () => {
             popup.setContent(el);
 
             // Open after a tick for the case on mobile when you "Back" to this

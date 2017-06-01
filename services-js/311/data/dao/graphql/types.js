@@ -55,7 +55,7 @@ export type LoadRequestQueryVariables = {
 };
 
 export type LoadRequestQuery = {
-  request: ? {
+  case: ? {
     id: string,
     service: {
       name: string,
@@ -205,23 +205,23 @@ export type SearchAddressQuery = {
   },
 };
 
-export type SearchRequestsQueryVariables = {
+export type SearchCasesQueryVariables = {
   query: ?string,
-  location: ?LatLngIn,
-  radiusKm: ?number,
+  topLeft: ?LatLngIn,
+  bottomRight: ?LatLngIn,
 };
 
-export type SearchRequestsQuery = {
-  requests: {
+export type SearchCasesQuery = {
+  searchCases: {
     query: string,
-    requests: Array< {
+    cases: Array< {
       id: string,
       status: string,
       description: ?string,
       address: ?string,
       mediaUrl: ?string,
-      updatedAt: number,
-      updatedAtRelativeString: string,
+      requestedAt: number,
+      requestedAtRelativeString: string,
       location: ? {
         lat: number,
         lng: number,

@@ -7,7 +7,7 @@ import type {
   LoadServiceQuery,
   LoadServiceSummariesQuery,
   SubmitRequestMutation,
-  SearchRequestsQuery,
+  SearchCasesQuery,
   ServiceAttributeDatatype,
   ReverseGeocodeQuery,
   SearchAddressQuery,
@@ -30,10 +30,10 @@ export type CalculatedAttribute = {
 };
 
 export type SubmittedRequest = $PropertyType<SubmitRequestMutation, 'createRequest'>;
-export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'request'>>;
+export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'case'>>;
 
-export type SearchRequestsPage = $PropertyType<SearchRequestsQuery, 'requests'>;
-export type SearchRequest = $ArrayElement<$PropertyType<SearchRequestsPage, 'requests'>>;
+export type SearchCasesResult = $PropertyType<SearchCasesQuery, 'searchCases'>;
+export type SearchCase = $ArrayElement<$PropertyType<SearchCasesResult, 'cases'>>;
 
 export type ReverseGeocodedPlace = $NonMaybeType<$PropertyType<$PropertyType<ReverseGeocodeQuery, 'geocoder'>, 'reverse'>>;
 export type SearchAddressPlace = $NonMaybeType<$PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>>;

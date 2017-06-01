@@ -4,11 +4,11 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 import { YELLOW } from '../style-constants';
-import type { SearchRequest } from '../../data/types';
+import type { SearchCase } from '../../data/types';
 
 import RequestPopup from './RequestPopup';
 
-const NO_IMAGE_REQUEST: SearchRequest = {
+const NO_IMAGE_REQUEST: SearchCase = {
   service: {
     name: 'Trash Pick Up',
   },
@@ -18,11 +18,11 @@ const NO_IMAGE_REQUEST: SearchRequest = {
   location: null,
   mediaUrl: null,
   status: 'open',
-  updatedAtRelativeString: '2 days ago',
-  updatedAt: 0,
+  requestedAtRelativeString: '2 days ago',
+  requestedAt: 0,
 };
 
-const IMAGE_REQUEST: SearchRequest = {
+const IMAGE_REQUEST: SearchCase = {
   ...NO_IMAGE_REQUEST,
   mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
 };
@@ -32,8 +32,8 @@ storiesOf('RequestPopup', module)
     <div style={{ width: 300, border: `2px solid ${YELLOW}` }}>{next()}</div>
   ))
   .add('image', () => (
-    <RequestPopup request={IMAGE_REQUEST} />
+    <RequestPopup caseInfo={IMAGE_REQUEST} />
   ))
   .add('no image', () => (
-    <RequestPopup request={NO_IMAGE_REQUEST} />
+    <RequestPopup caseInfo={NO_IMAGE_REQUEST} />
   ));

@@ -140,7 +140,7 @@ export default class LocationMap extends React.Component {
   componentWillMount() {
     const { L, mapboxgl } = this.props;
     if (L) {
-      this.zoomControl = L.control.zoom({ position: 'bottomright' });
+      this.zoomControl = L.control.zoom({ position: 'topright' });
 
       this.waypointActiveIcon = L.divIcon(waypointMarkers.orangeFilled);
       this.waypointInactiveIcon = L.divIcon(waypointMarkers.grayFilled);
@@ -666,7 +666,7 @@ export default class LocationMap extends React.Component {
 
         if (mapboxgl && this.mapboxGlMap) {
           this.zoomControlGl = new mapboxgl.NavigationControl();
-          this.mapboxGlMap.addControl(this.zoomControlGl, 'bottom-right');
+          this.mapboxGlMap.addControl(this.zoomControlGl, 'top-right');
         }
         break;
 
@@ -684,7 +684,7 @@ export default class LocationMap extends React.Component {
 
         if (mapboxgl && this.mapboxGlMap) {
           this.zoomControlGl = new mapboxgl.NavigationControl();
-          this.mapboxGlMap.addControl(this.zoomControlGl, 'bottom-right');
+          this.mapboxGlMap.addControl(this.zoomControlGl, 'top-right');
         }
         break;
 
@@ -709,9 +709,7 @@ export default class LocationMap extends React.Component {
     const neContainerPoint = { x: containerWidth, y: 0 };
     const swContainerPoint = { x: mobile ? 0 : requestSearch.resultsListWidth, y: containerHeight };
 
-    let visibleCenter;
     let centerPoint;
-    let visibleRadiusM;
     let mapZoom;
 
     if (mapboxMap && L) {
@@ -719,14 +717,6 @@ export default class LocationMap extends React.Component {
       visibleBounds.extend(mapboxMap.containerPointToLatLng(neContainerPoint));
       visibleBounds.extend(mapboxMap.containerPointToLatLng(swContainerPoint));
 
-      visibleCenter = visibleBounds.getCenter();
-
-      const visibleEast = mapboxMap.containerPointToLatLng({
-        x: containerWidth,
-        y: neContainerPoint.y + ((swContainerPoint.y - neContainerPoint.y) / 2),
-      });
-
-      visibleRadiusM = Math.abs(visibleCenter.distanceTo(visibleEast));
       requestSearch.mapBounds = visibleBounds;
 
       centerPoint = mapboxMap.getCenter();
@@ -736,15 +726,10 @@ export default class LocationMap extends React.Component {
       visibleBounds.extend(mapboxGlMap.unproject([neContainerPoint.x, neContainerPoint.y]));
       visibleBounds.extend(mapboxGlMap.unproject([swContainerPoint.x, swContainerPoint.y]));
 
-      visibleCenter = visibleBounds.getCenter();
-
       requestSearch.mapBoundsGl = visibleBounds;
 
       centerPoint = mapboxGlMap.getCenter();
       mapZoom = mapboxGlMap.getZoom();
-
-      // todo(finh): Fix this by getting away from radius as a search parameter
-      visibleRadiusM = 1000;
     } else {
       return;
     }
@@ -754,14 +739,8 @@ export default class LocationMap extends React.Component {
       lng: centerPoint.lng,
     };
 
-    requestSearch.searchCenter = {
-      lat: visibleCenter.lat,
-      lng: visibleCenter.lng,
-    };
-
     requestSearch.mapCenter = centerStruct;
     requestSearch.mapZoom = mapZoom;
-    requestSearch.radiusKm = visibleRadiusM / 1000;
 
     if (mode === 'picker' && mobile) {
       this.chooseLocation(centerStruct);
@@ -983,7 +962,7 @@ export default class LocationMap extends React.Component {
       });
 
       popup.setLngLat([(selectedRequest.location || {}).lng, (selectedRequest.location || {}).lat]);
-      render(<RequestPopup request={selectedRequest} />, el, () => {
+      render(<RequestPopup caseInfo={selectedRequest} />, el, () => {
         popup.setDOMContent(el);
         popup.addTo(mapboxGlMap);
 

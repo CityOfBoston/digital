@@ -1,3 +1,8 @@
+type CaseSearchResults {
+  cases: [Request!]!
+  query: String!
+}
+
 input CreateRequestAttribute {
   code: String!
   value: String!
@@ -41,8 +46,8 @@ type Query {
   topServices(first: Int): [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
-  request(id: String!): Request
-  requests(page: Int, query: String, location: LatLngIn, radiusKm: Float): RequestsPage!
+  case(id: String!): Request
+  searchCases(query: String, topLeft: LatLngIn, bottomRight: LatLngIn): CaseSearchResults!
   geocoder: Geocoder!
 }
 
@@ -61,13 +66,6 @@ type Request {
   updatedAtString(format: String): String!
   requestedAtRelativeString: String!
   updatedAtRelativeString: String!
-}
-
-type RequestsPage {
-  requests: [Request!]!
-  query: String!
-  currentPage: Int!
-  totalPages: Int!
 }
 
 type Service {

@@ -6,8 +6,8 @@ import type { LatLngBounds } from 'leaflet';
 import type { LngLatBounds } from 'mapbox-gl';
 import uniqBy from 'lodash/uniqBy';
 import debounce from 'lodash/debounce';
-import type { SearchRequest, SearchRequestsPage } from '../types';
-import searchRequests from '../dao/search-requests';
+import type { SearchCase, SearchCasesResult } from '../types';
+import searchCases from '../dao/search-cases';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
 
 type LatLng = {
@@ -17,16 +17,14 @@ type LatLng = {
 
 type SearchArgs = {
   query: string,
-  radiusKm: number,
-  searchCenter: ?LatLng,
+  topLeft: ?LatLng,
+  bottomRight: ?LatLng,
 };
 
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
   // search center is the center of the visible map
-  @observable.struct searchCenter: ?LatLng = null;
   @observable query: string = '';
-  @observable radiusKm: number = 0;
 
   // This is the center of the actual map element
   // TODO(finh): These probably should be somewhere more general
@@ -41,30 +39,30 @@ export default class RequestSearch {
   // store state so that it's preserved if you tap on a case and then go back
   @observable mapView: boolean = false;
 
-  @observable.shallow _results: SearchRequest[] = [];
+  @observable.shallow _results: SearchCase[] = [];
   @observable resultsQuery: ?string = null;
   @observable loading: boolean = false;
 
-  @observable.ref selectedRequest: ?SearchRequest = null;
+  @observable.ref selectedRequest: ?SearchCase = null;
   @observable selectedSource: ?string = null;
 
   searchDisposer: ?Function = null;
 
-  updateRequestSearchResults({ requests, query }: SearchRequestsPage) {
-    // In this method we want to bring in the new requests, but preserve any
+  updateCaseSearchResults({ cases, query }: SearchCasesResult) {
+    // In this method we want to bring in the new cases, but preserve any
     // existing ones that match the location / query. Without this, moving
-    // across the map could make requests disappear if they are not in the top
+    // across the map could make cases disappear if they are not in the top
     // 100 of the new map center.
     //
     // We use this.results so we filter by bounds automatically.
     const previousResults = (query === this.resultsQuery) ? this.results : [];
-    const newResults = uniqBy([...previousResults, ...requests], (r) => r.id);
-    newResults.sort((a, b) => b.updatedAt - a.updatedAt);
+    const newResults = uniqBy([...previousResults, ...cases], (r) => r.id);
+    newResults.sort((a, b) => b.requestedAt - a.requestedAt);
     this._results = newResults;
     this.resultsQuery = query;
   }
 
-  @computed get results(): SearchRequest[] {
+  @computed get results(): SearchCase[] {
     const { mapBounds, mapBoundsGl } = this;
     if (!mapBounds && !mapBoundsGl) {
       return this._results.slice(0, 50);
@@ -94,8 +92,8 @@ export default class RequestSearch {
     // mobx's auto-detection of dependencies.
     this.searchDisposer = reaction(
       (): SearchArgs => ({
-        searchCenter: this.searchCenter,
-        radiusKm: this.radiusKm,
+        topLeft: this.topLeft,
+        bottomRight: this.bottomRight,
         query: this.query,
       }),
       debounce(this.search.bind(this, loopbackGraphql), 500),
@@ -113,19 +111,51 @@ export default class RequestSearch {
     }
   }
 
+  @computed.struct get topLeft(): ?{ lat: number, lng: number } {
+    const { mapBounds, mapBoundsGl } = this;
+
+    if (mapBounds) {
+      const { lat, lng } = mapBounds.getNorthWest();
+      return { lat, lng };
+    }
+
+    if (mapBoundsGl) {
+      const { lat, lng } = mapBoundsGl.getNorthWest();
+      return { lat, lng };
+    }
+
+    return null;
+  }
+
+  @computed.struct get bottomRight(): ?{ lat: number, lng: number } {
+    const { mapBounds, mapBoundsGl } = this;
+
+    if (mapBounds) {
+      const { lat, lng } = mapBounds.getSouthEast();
+      return { lat, lng };
+    }
+
+    if (mapBoundsGl) {
+      const { lat, lng } = mapBoundsGl.getSouthEast();
+      return { lat, lng };
+    }
+
+    return null;
+  }
+
   @action
-  async search(loopbackGraphql: LoopbackGraphql, { searchCenter, radiusKm, query }: SearchArgs) {
-    if (!searchCenter || !radiusKm) {
+  async search(loopbackGraphql: LoopbackGraphql, { topLeft, bottomRight, query }: SearchArgs) {
+    if (!topLeft || !bottomRight) {
       return;
     }
 
     this.loading = true;
 
-    const results = await searchRequests(loopbackGraphql, query, searchCenter, radiusKm);
+    const results = await searchCases(loopbackGraphql, query, topLeft, bottomRight);
 
     runInAction('request search results', () => {
       this.loading = false;
-      this.updateRequestSearchResults(results);
+      this.updateCaseSearchResults(results);
     });
   }
 }

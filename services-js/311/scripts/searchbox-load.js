@@ -17,7 +17,7 @@ function loadRecords(): Promise<ServiceRequest[]> {
 }
 
 function upload(records: ServiceRequest[]): Promise<BulkResponse> {
-  const searchBox = new SearchBox(process.env.SEARCHBOX_URL);
+  const searchBox = new SearchBox(process.env.SEARCHBOX_URL, process.env.ELASTICSEARCH_INDEX);
   return searchBox.createCases(records);
 }
 
@@ -28,7 +28,7 @@ function upload(records: ServiceRequest[]): Promise<BulkResponse> {
 
   const result = await upload(records);
 
-  console.info(`UPLOADED ${result.took} CASES`);
+  console.info(`UPLOADED CASES ${result.errors ? 'WITH ERRORS' : ''}`);
 }()).catch((err) => {
   console.error(err);
   process.exit(1);

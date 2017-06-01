@@ -8,7 +8,7 @@ import { css } from 'glamor';
 
 import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';
-import type { SearchRequest } from '../../data/types';
+import type { SearchCase } from '../../data/types';
 
 import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW, GRAY_100 } from '../style-constants';
 
@@ -74,7 +74,7 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
 });
 
 export type Props = {|
-  request: SearchRequest,
+  request: SearchCase,
   requestSearch: RequestSearch,
   ui: Ui,
 |};
@@ -161,7 +161,7 @@ export default class RecentRequestRow extends React.Component {
             </div>
             <div style={{ paddingTop: 5 }}>
               <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
-              <span className="t--info" style={{ fontSize: 14 }}>{ request.updatedAtRelativeString }</span>
+              <span className="t--info" style={{ fontSize: 14 }}>{ request.requestedAtRelativeString }</span>
             </div>
           </div>
         </a>

@@ -11,5 +11,5 @@ import LoadRequestGraphql from './graphql/LoadRequest.graphql';
 export default async function loadRequest(loopbackGraphql: LoopbackGraphql, id: string): Promise<?Request> {
   const queryVariables: LoadRequestQueryVariables = { id };
   const response: LoadRequestQuery = await loopbackGraphql(LoadRequestGraphql, queryVariables);
-  return response.request;
+  return response.case;
 }

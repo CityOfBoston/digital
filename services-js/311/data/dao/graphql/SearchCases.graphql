@@ -1,0 +1,21 @@
+query SearchCases($query: String, $topLeft: LatLngIn, $bottomRight: LatLngIn) {
+  searchCases(query: $query, topLeft: $topLeft, bottomRight: $bottomRight) {
+    query
+    cases {
+      id
+      status
+      description
+      address
+      mediaUrl
+      requestedAt
+      requestedAtRelativeString
+      location {
+        lat
+        lng
+      }
+      service {
+        name
+      }
+    }
+  }
+}

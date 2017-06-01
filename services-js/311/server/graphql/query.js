@@ -16,11 +16,9 @@ input LatLngIn {
   lng: Float!
 }
 
-type RequestsPage {
-  requests: [Request!]!
+type CaseSearchResults {
+  cases: [Request!]!
   query: String!
-  currentPage: Int!
-  totalPages: Int!
 }
 
 type Query {
@@ -28,8 +26,8 @@ type Query {
   topServices(first: Int): [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
-  request(id: String!): Request
-  requests(page: Int, query: String, location: LatLngIn, radiusKm: Float): RequestsPage!
+  case(id: String!): Request
+  searchCases(query: String, topLeft: LatLngIn, bottomRight: LatLngIn): CaseSearchResults!
   geocoder: Geocoder!
 }
 `;
@@ -40,21 +38,21 @@ type SuggestionsArgs = {
   threshold: ?number,
 }
 
-type RequestsArgs = {
-  page: ?number,
+type SearchCasesArgs = {
   query: ?string,
-  location: ?{
+  topLeft: ?{
     lat: number,
     lng: number,
   },
-  radiusKm: ?number,
+  bottomRight: ?{
+    lat: number,
+    lng: number,
+  }
 };
 
-type RequestsPage = {
-  requests: Request[],
+type CaseSearchResults = {
+  cases: Request[],
   query: string,
-  currentPage: number,
-  totalPages: number,
 };
 
 const TOP_SERVICE_CODES = [
@@ -88,18 +86,16 @@ export const resolvers = {
     ),
     servicesForDescription: (root: mixed, args: SuggestionsArgs, context: Context): Promise<Service[]> => serviceSuggestions(context, args),
     service: (root: mixed, { code }: { code: string }, { open311 }: Context): Promise<?Service> => open311.service(code),
-    request: (root: mixed, { id }: { id: string }, { publicOpen311 }: Context): Promise<?Request> => publicOpen311.request(id),
-    requests: async (root: mixed, { page, query, location, radiusKm }: RequestsArgs, { swiftype, publicOpen311 }: Context): Promise<RequestsPage> => {
-      const { requests: searchResults, info } = await swiftype.searchCases({ page, query, location, radiusKm });
+    case: (root: mixed, { id }: { id: string }, { publicOpen311 }: Context): Promise<?Request> => publicOpen311.request(id),
+    searchCases: async (root: mixed, { query, topLeft, bottomRight }: SearchCasesArgs, { publicOpen311, searchBox }: Context): Promise<CaseSearchResults> => {
+      const ids = await searchBox.searchCases(query, topLeft, bottomRight);
 
       // cast to "any" because filter removed the null / undefineds from request
-      const requests = ((await Promise.all(searchResults.map((r) => publicOpen311.request(r.service_request_id)))).filter((r) => !!r): any);
+      const cases = ((await Promise.all(ids.map((id) => publicOpen311.request(id)))).filter((r) => !!r): any);
 
       return {
-        requests,
-        query: info.query,
-        currentPage: info.current_page,
-        totalPages: info.num_pages,
+        cases,
+        query: query || '',
       };
     },
     geocoder: () => ({}),

@@ -160,7 +160,7 @@
               "deprecationReason": null
             },
             {
-              "name": "request",
+              "name": "case",
               "description": "",
               "args": [
                 {
@@ -187,19 +187,9 @@
               "deprecationReason": null
             },
             {
-              "name": "requests",
+              "name": "searchCases",
               "description": "",
               "args": [
-                {
-                  "name": "page",
-                  "description": "",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
                 {
                   "name": "query",
                   "description": "",
@@ -211,7 +201,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "location",
+                  "name": "topLeft",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -221,11 +211,11 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "radiusKm",
+                  "name": "bottomRight",
                   "description": "",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Float",
+                    "kind": "INPUT_OBJECT",
+                    "name": "LatLngIn",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -236,7 +226,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "RequestsPage",
+                  "name": "CaseSearchResults",
                   "ofType": null
                 }
               },
@@ -1378,11 +1368,11 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RequestsPage",
+          "name": "CaseSearchResults",
           "description": "",
           "fields": [
             {
-              "name": "requests",
+              "name": "cases",
               "description": "",
               "args": [],
               "type": {
@@ -1415,38 +1405,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "currentPage",
-              "description": "",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "totalPages",
-              "description": "",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
                   "ofType": null
                 }
               },

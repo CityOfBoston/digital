@@ -12,6 +12,7 @@ import type Open311 from '../services/Open311';
 import type Swiftype from '../services/Swiftype';
 import type ArcGIS from '../services/ArcGIS';
 import type Prediction from '../services/Prediction';
+import type SearchBox from '../services/SearchBox';
 
 export type Context = {|
   open311: Open311,
@@ -19,6 +20,7 @@ export type Context = {|
   swiftype: Swiftype,
   arcgis: ArcGIS,
   prediction: Prediction,
+  searchBox: SearchBox,
 |};
 
 const SchemaDefinition = `

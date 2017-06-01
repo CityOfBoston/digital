@@ -16,6 +16,7 @@
     "lint": "eslint --fix .",
     "swiftype-load": "babel-node ./scripts/swiftype-load",
     "searchbox-load": "babel-node ./scripts/searchbox-load",
+    "create-elasticsearch-index": "babel-node ./scripts/create-elasticsearch-index",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "lint-staged",
     "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit"

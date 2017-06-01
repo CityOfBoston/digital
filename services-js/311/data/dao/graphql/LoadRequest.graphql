@@ -1,5 +1,5 @@
 query LoadRequest($id: String!) {
-  request(id: $id) {
+  case(id: $id) {
     id
     service {
       name

@@ -14,6 +14,7 @@ import Open311 from './services/Open311';
 import Swiftype from './services/Swiftype';
 import ArcGIS from './services/ArcGIS';
 import Prediction from './services/Prediction';
+import SearchBox from './services/SearchBox';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -98,6 +99,7 @@ export default async function startServer({ opbeat }: any) {
           swiftype: new Swiftype(process.env.SWIFTYPE_API_KEY, process.env.SWIFTYPE_ENGINE_SLUG, opbeat),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
+          searchBox: new SearchBox(process.env.SEARCHBOX_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
         }: Context),
         formatError: (e) => {
           opbeat.captureError(e, { request: req }, (err, url) => {

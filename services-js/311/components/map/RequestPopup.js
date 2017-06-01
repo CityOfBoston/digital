@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { css } from 'glamor';
 import { GRAY_300, GREEN, YELLOW } from '../style-constants';
-import type { SearchRequest } from '../../data/types';
+import type { SearchCase } from '../../data/types';
 
 const CONTAINER_STYLE = css({
   background: 'white',
@@ -57,14 +57,14 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
 });
 
 type Props = {|
-  request: SearchRequest,
+  caseInfo: SearchCase,
 |}
 
-export default function RequestPopup({ request }: Props) {
+export default function RequestPopup({ caseInfo }: Props) {
   let statusStyle;
   let statusText;
 
-  if (request.status === 'open') {
+  if (caseInfo.status === 'open') {
     statusStyle = STATUS_OPEN_STYLE;
     statusText = 'Opened';
   } else {
@@ -73,14 +73,14 @@ export default function RequestPopup({ request }: Props) {
   }
 
   return (
-    <Link href={`/case?id=${request.id}`} as={`/case/${request.id}`}>
+    <Link href={`/case?id=${caseInfo.id}`} as={`/case/${caseInfo.id}`}>
       <a className={`p-a200 ${CONTAINER_STYLE.toString()}`}>
-        { request.mediaUrl &&
-          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${request.mediaUrl})` }} />
+        { caseInfo.mediaUrl &&
+          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${caseInfo.mediaUrl})` }} />
         }
         <div className={INFO_CONTAINER_STYLE.toString()}>
-          <div className={`t--intro ${SERVICE_NAME_STYLE.toString()}`}>{ request.service.name }</div>
-          <div className={`t--ellipsis ${ADDRESS_STYLE.toString()}`}>{ request.address }</div>
+          <div className={`t--intro ${SERVICE_NAME_STYLE.toString()}`}>{ caseInfo.service.name }</div>
+          <div className={`t--ellipsis ${ADDRESS_STYLE.toString()}`}>{ caseInfo.address }</div>
           <div>
             <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
           </div>
