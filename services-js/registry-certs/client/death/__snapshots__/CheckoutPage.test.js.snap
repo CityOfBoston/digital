@@ -41,13 +41,7 @@ exports[`rendering renders a hydrated cart 1`] = `
       </h1>
     </div>
   </div>
-  <form
-    acceptCharset="UTF-8"
-    action="/death"
-    className=""
-    method="get"
-    onSubmit={[Function]}
-  >
+  <div>
     <div
       className="p-a300 result"
       data-jsx={1389666004}
@@ -152,7 +146,7 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
     <div
       className="p-a300 g"
-      data-jsx={1434283171}
+      data-jsx={2595578495}
     >
       <div
         className="m-v500 g--9"
@@ -180,15 +174,16 @@ exports[`rendering renders a hydrated cart 1`] = `
           </span>
         </div>
       </div>
-      <button
+      <a
         className="btn g--3 m-v500"
-        data-jsx={1434283171}
-        type="submit"
+        data-jsx={2595578495}
+        href="/death/payment"
+        onClick={[Function]}
       >
         Pay and Finish
-      </button>
+      </a>
     </div>
-  </form>
+  </div>
 </div>
 `;
 
@@ -233,16 +228,10 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
       </h1>
     </div>
   </div>
-  <form
-    acceptCharset="UTF-8"
-    action="/death"
-    className=""
-    method="get"
-    onSubmit={[Function]}
-  >
+  <div>
     <div
       className="p-a300 g"
-      data-jsx={1434283171}
+      data-jsx={2595578495}
     >
       <div
         className="m-v500 g--9"
@@ -270,14 +259,15 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
           </span>
         </div>
       </div>
-      <button
+      <a
         className="btn g--3 m-v500"
-        data-jsx={1434283171}
-        type="submit"
+        data-jsx={2595578495}
+        href="/death/payment"
+        onClick={[Function]}
       >
         Pay and Finish
-      </button>
+      </a>
     </div>
-  </form>
+  </div>
 </div>
 `;

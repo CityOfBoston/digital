@@ -1,12 +1,13 @@
 // @flow
 import React from 'react';
 import { runInAction } from 'mobx';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import Cart from '../store/Cart';
 import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
-import CheckoutPage from './CheckoutPage';
+import PaymentPage from './PaymentPage';
 
 describe('rendering', () => {
   let cart;
@@ -29,13 +30,38 @@ describe('rendering', () => {
       }]: any);
     });
 
-    expect(renderer.create(<CheckoutPage cart={cart} />).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<PaymentPage cart={cart} />).toJSON()).toMatchSnapshot();
   });
 
   it('renders a hydrated cart', () => {
     cart.add(TYPICAL_CERTIFICATE, 5);
     cart.add(PENDING_CERTIFICATE, 2);
 
-    expect(renderer.create(<CheckoutPage cart={cart} />).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<PaymentPage cart={cart} />).toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('submit', () => {
+  let cart;
+  let wrapper;
+
+  beforeEach(() => {
+    cart = new Cart();
+    cart.add(TYPICAL_CERTIFICATE, 5);
+    cart.add(PENDING_CERTIFICATE, 2);
+
+    wrapper = shallow(<PaymentPage cart={cart} />);
+  });
+
+  afterEach(() => {
+    wrapper.unmount();
+  });
+
+  it('submits', () => {
+    const form = wrapper.find('form');
+    const preventDefault = jest.fn();
+
+    form.simulate('submit', { preventDefault });
+    expect(preventDefault).toHaveBeenCalled();
   });
 });

@@ -3,6 +3,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { observer } from 'mobx-react';
+import Link from 'next/link';
 
 import { CERTIFICATE_COST, PROCESSING_FEE } from '../store/Cart';
 import type Cart from '../store/Cart';
@@ -21,10 +22,6 @@ export type Props = {
 export default class CheckoutPage extends React.Component {
   props: Props;
 
-  handleSubmit = (ev: SyntheticInputEvent) => {
-    ev.preventDefault();
-  }
-
   render() {
     const { cart } = this.props;
 
@@ -42,23 +39,24 @@ export default class CheckoutPage extends React.Component {
           </div>
         </div>
 
-        <form className="" acceptCharset="UTF-8" method="get" action="/death" onSubmit={this.handleSubmit}>
+        <div>
           { cart.items.map((item) => <CheckoutItem key={item.id} item={item} cart={cart} />) }
 
 
           <div className="p-a300 g">
             { this.renderCost() }
 
-            <button className="btn g--3 m-v500" type="submit">Pay and Finish</button>
+            <Link href="/death/payment"><a className="btn g--3 m-v500">Pay and Finish</a></Link>
 
             <style jsx>{`
-              button {
+              a.btn {
                 align-self: center;
+                text-align: center;
               }
             `}</style>
 
           </div>
-        </form>
+        </div>
       </div>
     );
   }
