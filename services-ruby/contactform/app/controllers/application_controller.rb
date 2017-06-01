@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  before_action :require_login!
+  # before_action :require_login!
 
   def require_login!
     return true if authenticate_token

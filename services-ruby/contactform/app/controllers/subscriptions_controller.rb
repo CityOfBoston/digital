@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
     @subscriber = Subscriber.find_or_create_by(subscriber_params)
 
     if @subscriber.save
-      SubscribeWorker.perform_async(@subscriber)
+      SubscribeWorker.perform_async(@subscriber.profile_id, params[:list])
       render :json => {subscriber: @subscriber.profile_id, list: params[:list]}
     else
       render :json => {errors: @subscriber.errors}
@@ -13,6 +13,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscriber_params
-    params.require(:subscriber).permit(:email, :zip_code, :list)
+    params.require(:subscriber).permit(:email, :zipcode)
   end
 end

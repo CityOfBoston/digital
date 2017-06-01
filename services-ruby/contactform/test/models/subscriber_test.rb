@@ -1,19 +1,19 @@
 require 'test_helper'
 
 class SubscriberTest < ActiveSupport::TestCase
-  test "Subscriber should have valid zip_code code" do
+  test "Subscriber should have valid zipcode code" do
     subscriber = Subscriber.new
     subscriber.email = "digital@boston.gov"
-    subscriber.zip_code = "00000000"
+    subscriber.zipcode = "00000000"
     assert_not subscriber.save
 
-    subscriber.zip_code = "adasd"
+    subscriber.zipcode = "adasd"
     assert_not subscriber.save
 
-    subscriber.zip_code = "02110"
+    subscriber.zipcode = "02110"
     assert subscriber.save
 
-    subscriber.zip_code = "02110-1449"
+    subscriber.zipcode = "02110-1449"
     assert subscriber.save
   end
 
