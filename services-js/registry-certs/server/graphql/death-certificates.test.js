@@ -32,7 +32,7 @@ describe('DeathCertificates resolvers', () => {
 
   describe('certificate', () => {
     it('returns a specific certificate', async () => {
-      expect(await resolvers.DeathCertificates.certificate({}, { id: '632127' }, { registry })).toBeTruthy();
+      expect(await resolvers.DeathCertificates.certificate({}, { id: fixtureData[0].CertificateID.toString() }, { registry })).toBeTruthy();
     });
 
     it('returns null if the certificate is not found', async () => {
@@ -42,7 +42,7 @@ describe('DeathCertificates resolvers', () => {
 
   describe('certificates', () => {
     it('returns certificates in order', async () => {
-      const certificates = await resolvers.DeathCertificates.certificates({}, { ids: ['1616', '999992', '632127'] }, { registry });
+      const certificates = await resolvers.DeathCertificates.certificates({}, { ids: [fixtureData[4].CertificateID.toString(), '999992', fixtureData[2].CertificateID.toString()] }, { registry });
       expect(certificates[0]).toBeTruthy();
       expect(certificates[1]).not.toBeTruthy();
       expect(certificates[2]).toBeTruthy();

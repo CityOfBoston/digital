@@ -18,7 +18,7 @@ const TEST_DEATH_CERTIFICATE: DeathCertificate = {
   lastName: 'Banner',
   birthYear: '1962',
   deathDate: '3/4/2016',
-  causeOfDeath: 'Hawkeye',
+  pending: false,
   age: '21 yrs.',
 };
 

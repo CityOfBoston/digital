@@ -14,7 +14,7 @@ const FAKE_CERTIFICATE = {
   lastName: 'Banner',
   birthYear: '1962',
   deathDate: '2/1/2016',
-  causeOfDeath: 'Hawkeye',
+  pending: false,
   age: '21 yrs.',
 };
 

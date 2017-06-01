@@ -1,7 +1,7 @@
 // @flow
 
 import type { Context } from './index';
-import type { SearchResult } from '../services/Registry';
+import type { DeathCertificateSearchResult, DeathCertificate as DbDeathCertificate } from '../services/Registry';
 
 export const Schema = `
 type DeathCertificate {
@@ -9,8 +9,8 @@ type DeathCertificate {
   firstName: String!,
   lastName: String!,
   birthYear: String,
-  deathDate: String!,
-  causeOfDeath: String,
+  deathDate: String,
+  pending: Boolean,
   age: String,
 }
 
@@ -52,8 +52,8 @@ type DeathCertificate = {
   firstName: string,
   lastName: string,
   birthYear: ?string,
-  deathDate: string,
-  causeOfDeath: ?string,
+  deathDate: ?string,
+  pending: boolean,
   age: ?string,
 };
 
@@ -65,14 +65,14 @@ type DeathCertificateSearch = {
   resultCount: number,
 }
 
-function searchResultToDeathCertificate(res: SearchResult): DeathCertificate {
+function searchResultToDeathCertificate(res: DeathCertificateSearchResult | DbDeathCertificate): DeathCertificate {
   return {
     id: res.CertificateID.toString(),
     firstName: res['First Name'],
     lastName: res['Last Name'],
     birthYear: null,
     deathDate: res['Date of Death'],
-    causeOfDeath: null,
+    pending: !!res.Pending,
     age: res.AgeOrDateOfBirth.replace(/^0+/, '') || '0',
   };
 }
@@ -83,7 +83,7 @@ export const resolvers = {
       const queryPageSize = Math.min(pageSize || DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
       const queryPage = (page || 1) - 1;
 
-      const results: Array<SearchResult> = await registry.search(query, queryPage, queryPageSize);
+      const results: Array<DeathCertificateSearchResult> = await registry.search(query, queryPage, queryPageSize);
 
       const resultCount = results.length > 0 ? results[0].ResultCount : 0;
       const pageCount = Math.ceil(resultCount / queryPageSize);

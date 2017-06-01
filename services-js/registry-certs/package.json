@@ -18,6 +18,7 @@
     "storybook": "start-storybook -p 9001 -s . -c storybook",
     "lint": "eslint --fix .",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
+    "generate-fixtures": "babel-node ./scripts/generate-fixtures",
     "precommit": "lint-staged",
     "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit"
   },

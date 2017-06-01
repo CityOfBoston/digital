@@ -3,8 +3,8 @@ type DeathCertificate {
   firstName: String!
   lastName: String!
   birthYear: String
-  deathDate: String!
-  causeOfDeath: String
+  deathDate: String
+  pending: Boolean
   age: String
 }
 

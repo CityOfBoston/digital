@@ -21,7 +21,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     lastName: 'Howlett',
     birthYear: '1974',
     deathDate: '4/15/2014',
-    causeOfDeath: 'Adamantium suffocation',
+    pending: false,
     age: '4 yrs. 2 mos. 10 dys',
   },
   {
@@ -30,7 +30,7 @@ const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
     lastName: 'Banner',
     birthYear: '1962',
     deathDate: '5/31/2016',
-    causeOfDeath: 'Hawkeye',
+    pending: false,
     age: '4 yrs. 2 mos. 10 dys',
   },
 ];

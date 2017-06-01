@@ -161,23 +161,6 @@ exports[`rendering renders a certificate 1`] = `
             21 yrs.
           </span>
         </li>
-        <li
-          className="dl-i"
-          data-jsx={3681792122}
-        >
-          <span
-            className="dl-t"
-            data-jsx={3681792122}
-          >
-            Cause of Death
-          </span>
-          <span
-            className="dl-d"
-            data-jsx={3681792122}
-          >
-            Hawkeye
-          </span>
-        </li>
       </ul>
       <form
         className="js-add-to-cart-form m-v300"
