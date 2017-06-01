@@ -85,6 +85,9 @@ export default async function startServer({ opbeat }: any) {
   server.register(Inert);
   server.register(acceptLanguagePlugin);
 
+  console.log('ENV VARS', process.env);
+
+
   server.register({
     register: graphqlHapi,
     options: {
