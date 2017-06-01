@@ -10,6 +10,7 @@ type DeathCertificate {
   lastName: String!,
   birthYear: String,
   deathDate: String,
+  deathYear: String!,
   pending: Boolean,
   age: String,
 }
@@ -53,6 +54,7 @@ type DeathCertificate = {
   lastName: string,
   birthYear: ?string,
   deathDate: ?string,
+  deathYear: string,
   pending: boolean,
   age: ?string,
 };
@@ -72,6 +74,7 @@ function searchResultToDeathCertificate(res: DeathCertificateSearchResult | DbDe
     lastName: res['Last Name'],
     birthYear: null,
     deathDate: res['Date of Death'],
+    deathYear: res.RegisteredYear,
     pending: !!res.Pending,
     age: res.AgeOrDateOfBirth.replace(/^0+/, '') || '0',
   };

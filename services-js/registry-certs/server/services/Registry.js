@@ -32,6 +32,32 @@ export type DeathCertificateSearchResult = {|
 
 const MAX_ID_LOOKUP_LENGTH = 1000;
 
+// Converts a list of key strings into an array of comma-separated strings,
+// each no longer than maxLength.
+//
+// E.g.: ["12345", "67890", "abcde"] => ["12345,67890", "abcde"]
+export function splitKeys(maxLength: number, keys: Array<string>): Array<string> {
+  const keyStrings: Array<string> = [];
+  let currentKeyString = '';
+
+  keys.forEach((key) => {
+    if (currentKeyString.length === 0) {
+      currentKeyString = key;
+    } else if (currentKeyString.length + key.length + 1 < maxLength) {
+      currentKeyString = `${currentKeyString},${key}`;
+    } else {
+      keyStrings.push(currentKeyString);
+      currentKeyString = key;
+    }
+  });
+
+  if (currentKeyString.length > 0) {
+    keyStrings.push(currentKeyString);
+  }
+
+  return keyStrings;
+}
+
 export default class Registry {
   pool: ConnectionPool;
   lookupLoader: DataLoader<string, ?DeathCertificate>;
@@ -46,6 +72,7 @@ export default class Registry {
       .input('searchFor', name)
       .input('pageNumber', page)
       .input('pageSize', pageSize)
+      .input('sortBy', 'dateOfDeath')
       .execute('Registry.Death.sp_FindCertificatesWeb')): any);
 
     const { recordset } = resp;
@@ -64,23 +91,7 @@ export default class Registry {
   async lookupLoaderFetch(keys: Array<string>): Promise<Array<?DeathCertificate | Error>> {
     // The api can only take 1000 characters of keys at once. We probably won't
     // run into that issue but just in case we split up and parallelize.
-    const keyStrings: Array<string> = [];
-    let currentKeyString = '';
-
-    keys.forEach((key) => {
-      if (currentKeyString.length === 0) {
-        currentKeyString = key;
-      } else if (currentKeyString.length + key.length + 1 < MAX_ID_LOOKUP_LENGTH) {
-        currentKeyString = `${currentKeyString},${key}`;
-      } else {
-        keyStrings.push(currentKeyString);
-        currentKeyString = key;
-      }
-    });
-
-    if (currentKeyString.length > 0) {
-      keyStrings.push(currentKeyString);
-    }
+    const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(keyStrings.map(async (keyString) => {
       const resp: DbResponse<DeathCertificate> = ((await this.pool.request()

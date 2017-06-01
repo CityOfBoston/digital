@@ -4,6 +4,7 @@ type DeathCertificate {
   lastName: String!
   birthYear: String
   deathDate: String
+  deathYear: String!
   pending: Boolean
   age: String
 }
