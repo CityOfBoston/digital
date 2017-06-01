@@ -146,7 +146,7 @@ export default class Open311 {
 
   constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
     if (!endpoint) {
-      throw new Error('Must specify an endpoint');
+      throw new Error('Must specify an Open311 endpoint');
     }
 
     this.endpoint = endpoint;
