@@ -12,7 +12,7 @@ import Nav from '../common/Nav';
 import Pagination from '../common/Pagination';
 import type { DeathCertificateSearchResults } from '../types';
 
-import SearchResult from './SearchResult';
+import SearchResult from './search/SearchResult';
 
 export type InitialProps = {|
   query: string,

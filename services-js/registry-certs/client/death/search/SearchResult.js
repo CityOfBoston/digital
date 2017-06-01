@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-import type { DeathCertificate } from '../types';
-import { GRAY_100 } from '../common/style-constants';
+import type { DeathCertificate } from '../../types';
+import { GRAY_100 } from '../../common/style-constants';
 
 export type Props = {|
   certificate: DeathCertificate,

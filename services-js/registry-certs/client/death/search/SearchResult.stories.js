@@ -4,7 +4,7 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import SearchResult from './SearchResult';
 
-import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
+import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
 storiesOf('SearchResult', module)
   .add('typical certificate', () => (

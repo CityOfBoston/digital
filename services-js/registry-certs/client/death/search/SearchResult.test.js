@@ -3,7 +3,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
+import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
 import SearchResult from './SearchResult';
 
