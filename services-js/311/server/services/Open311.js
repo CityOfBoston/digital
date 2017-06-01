@@ -177,8 +177,8 @@ export default class Open311 {
         }
 
         let additionalPath = '';
-        if (process.env['311_METADATA_PATH']) {
-          additionalPath = `${process.env['311_METADATA_PATH']}/`;
+        if (process.env.PROD_311_METADATA_PATH) {
+          additionalPath = `${process.env.PROD_311_METADATA_PATH}/`;
         }
 
         try {
