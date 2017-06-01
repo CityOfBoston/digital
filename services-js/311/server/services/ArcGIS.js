@@ -217,12 +217,6 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    if (!findAddressResponse.candidates) {
-      // eslint-disable-next-line no-console
-      console.log(findAddressResponse);
-      throw new Error(`Unexpected response: ${findAddressResponse}`);
-    }
-
     const candidates = findAddressResponse.candidates.filter((c) => c.attributes.Loc_name !== 'SAMAddressSubU');
     candidates.sort((a, b) => b.score - a.score);
 
