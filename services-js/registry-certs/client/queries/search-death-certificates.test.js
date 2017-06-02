@@ -12,11 +12,13 @@ test('searchDeathCertificates', async () => {
     },
   });
 
-  await searchDeathCertificates(loopbackGraphql, 'Monkey Joe', 1);
+  await searchDeathCertificates(loopbackGraphql, 'Monkey Joe', 1, '1988', null);
 
   const queryVariables: SearchDeathCertificatesQueryVariables = {
     query: 'Monkey Joe',
     page: 1,
+    startYear: '1988',
+    endYear: null,
   };
 
   expect(loopbackGraphql).toHaveBeenCalledWith(SearchDeathCertificatesGraphql, queryVariables);

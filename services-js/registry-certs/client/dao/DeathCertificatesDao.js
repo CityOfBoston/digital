@@ -25,13 +25,41 @@ export default class DeathCertificatesDao {
     return this.loader.load(id);
   }
 
-  async search(query: string, page: number): Promise<DeathCertificateSearchResults> {
-    const results = await searchDeathCertificates(this.loopbackGraphql, query, page);
+  async search(fullQuery: string, page: number): Promise<DeathCertificateSearchResults> {
+    const { query, startYear, endYear } = this.parseQuery(fullQuery);
+
+    const results = await searchDeathCertificates(this.loopbackGraphql, query, page, startYear, endYear);
 
     results.results.forEach((cert) => {
       this.loader.prime(cert.id, cert);
     });
 
     return results;
+  }
+
+  parseQuery(fullQuery: string): { query: string, startYear: ?string, endYear: ?string } {
+    // match a 4-digit year, and optionally a second 4-digit year with a hypen or en-dash
+    const yearRegexp = /(\d{4})\s*[-–]?\s*(\d{4})?/;
+
+    let query;
+    let startYear;
+    let endYear;
+
+    const match = fullQuery.match(yearRegexp);
+    if (match) {
+      query = fullQuery.replace(yearRegexp, '').trim();
+      startYear = match[1];
+      endYear = match[2] || match[1];
+    } else {
+      query = fullQuery;
+      startYear = null;
+      endYear = null;
+    }
+
+    return {
+      query,
+      startYear,
+      endYear,
+    };
   }
 }

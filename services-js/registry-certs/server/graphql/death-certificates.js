@@ -24,7 +24,7 @@ type DeathCertificateSearch {
 }
 
 type DeathCertificates {
-  search(query: String!, page: Int, pageSize: Int): DeathCertificateSearch!
+  search(query: String!, page: Int, pageSize: Int, startYear: String, endYear: String): DeathCertificateSearch!
   certificate(id: String!): DeathCertificate
   certificates(ids: [String!]!): [DeathCertificate]!
 }
@@ -37,6 +37,8 @@ type SearchArgs = {
   query: string,
   page?: number,
   pageSize?: number,
+  startYear?: string,
+  endYear?: string,
 };
 
 type CertificateArgs = {
@@ -79,11 +81,11 @@ function searchResultToDeathCertificate(res: DeathCertificateSearchResult | DbDe
 
 export const resolvers = {
   DeathCertificates: {
-    search: async (root: mixed, { query, pageSize, page }: SearchArgs, { registry }: Context): Promise<DeathCertificateSearch> => {
+    search: async (root: mixed, { query, pageSize, page, startYear, endYear }: SearchArgs, { registry }: Context): Promise<DeathCertificateSearch> => {
       const queryPageSize = Math.min(pageSize || DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
       const queryPage = (page || 1) - 1;
 
-      const results: Array<DeathCertificateSearchResult> = await registry.search(query, queryPage, queryPageSize);
+      const results: Array<DeathCertificateSearchResult> = await registry.search(query, queryPage, queryPageSize, startYear, endYear);
 
       const resultCount = results.length > 0 ? results[0].ResultCount : 0;
       const pageCount = Math.ceil(resultCount / queryPageSize);

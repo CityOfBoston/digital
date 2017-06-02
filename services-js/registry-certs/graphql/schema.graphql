@@ -9,7 +9,7 @@ type DeathCertificate {
 }
 
 type DeathCertificates {
-  search(query: String!, page: Int, pageSize: Int): DeathCertificateSearch!
+  search(query: String!, page: Int, pageSize: Int, startYear: String, endYear: String): DeathCertificateSearch!
   certificate(id: String!): DeathCertificate
   certificates(ids: [String!]!): [DeathCertificate]!
 }

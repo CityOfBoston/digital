@@ -8,8 +8,18 @@ import SearchDeathCertificatesGraphql from './SearchDeathCertificates.graphql';
 import type { DeathCertificateSearchResults } from '../types';
 
 // Search for death certificates with a simple query
-export default async function searchDeathCertificates(loopbackGraphql: LoopbackGraphql, query: string, page: number): Promise<DeathCertificateSearchResults> {
-  const queryVariables: SearchDeathCertificatesQueryVariables = { query, page };
+export default async function searchDeathCertificates(
+  loopbackGraphql: LoopbackGraphql,
+  query: string,
+  page: number,
+  startYear: ?string,
+  endYear: ?string): Promise<DeathCertificateSearchResults> {
+  const queryVariables: SearchDeathCertificatesQueryVariables = {
+    query,
+    page,
+    startYear,
+    endYear,
+  };
   const response: SearchDeathCertificatesQuery = await loopbackGraphql(SearchDeathCertificatesGraphql, queryVariables);
   return response.deathCertificates.search;
 }

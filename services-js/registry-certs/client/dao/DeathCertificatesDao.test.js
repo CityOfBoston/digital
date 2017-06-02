@@ -58,3 +58,29 @@ describe('search', () => {
     expect(await dao.get(TYPICAL_CERTIFICATE.id)).toEqual(TYPICAL_CERTIFICATE);
   });
 });
+
+describe('parseQuery', () => {
+  it('passes through query with no years', () => {
+    expect(dao.parseQuery('jane doe')).toEqual({
+      query: 'jane doe',
+      startYear: null,
+      endYear: null,
+    });
+  });
+
+  it('uses one year as start and end', () => {
+    expect(dao.parseQuery('jane doe 1966')).toEqual({
+      query: 'jane doe',
+      startYear: '1966',
+      endYear: '1966',
+    });
+  });
+
+  it('finds 2 years with an en-dash', () => {
+    expect(dao.parseQuery('1966–2011 jane doe ')).toEqual({
+      query: 'jane doe',
+      startYear: '1966',
+      endYear: '2011',
+    });
+  });
+});

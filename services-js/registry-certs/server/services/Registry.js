@@ -67,12 +67,14 @@ export default class Registry {
     this.lookupLoader = new DataLoader((keys: Array<string>) => this.lookupLoaderFetch(keys));
   }
 
-  async search(name: string, page: number, pageSize: number): Promise<Array<DeathCertificateSearchResult>> {
+  async search(name: string, page: number, pageSize: number, startYear: ?string, endYear: ?string): Promise<Array<DeathCertificateSearchResult>> {
     const resp: DbResponse<DeathCertificateSearchResult> = ((await this.pool.request()
       .input('searchFor', name)
       .input('pageNumber', page)
       .input('pageSize', pageSize)
       .input('sortBy', 'dateOfDeath')
+      .input('startYear', startYear)
+      .input('endYear', endYear)
       .execute('Registry.Death.sp_FindCertificatesWeb')): any);
 
     const { recordset } = resp;

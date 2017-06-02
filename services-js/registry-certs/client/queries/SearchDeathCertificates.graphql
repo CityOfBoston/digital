@@ -1,6 +1,6 @@
-query SearchDeathCertificates($query: String!, $page: Int!) {
+query SearchDeathCertificates($query: String!, $page: Int!, $startYear: String, $endYear: String) {
   deathCertificates {
-    search(query: $query, page: $page) {
+    search(query: $query, page: $page, startYear: $startYear, endYear: $endYear) {
       page
       pageSize
       pageCount
