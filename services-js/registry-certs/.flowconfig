@@ -4,6 +4,8 @@ flow-decl/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
+<PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/.*
+<PROJECT_ROOT>/node_modules/mitt/.*
 
 [options]
 module.file_ext=.graphql
