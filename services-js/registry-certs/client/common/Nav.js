@@ -6,7 +6,6 @@ import { observer } from 'mobx-react';
 
 import type Cart from '../store/Cart';
 
-
 type Props = {|
   cart: Cart,
   link: 'lookup' | 'checkout',
