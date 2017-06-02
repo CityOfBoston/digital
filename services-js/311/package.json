@@ -74,7 +74,7 @@
     "mobx-utils": "^2.0.1",
     "moment": "^2.17.1",
     "moment-timezone": "^0.5.11",
-    "next": "beta",
+    "next": "3.0.0-beta8",
     "nprogress": "^0.2.0",
     "opbeat": "^4.13.1",
     "react": "^15.5.4",
