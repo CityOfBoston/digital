@@ -18,36 +18,8 @@ import type { Context } from './graphql';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export default async function startServer() {
+export function makeServer() {
   const server = new Hapi.Server();
-  const app = next({
-    dev: process.env.NODE_ENV !== 'production',
-  });
-
-  const registryFactoryOpts = {
-    user: process.env.REGISTRY_DB_USER,
-    password: process.env.REGISTRY_DB_PASSWORD,
-    domain: process.env.REGISTRY_DB_DOMAIN,
-    server: process.env.REGISTRY_DB_SERVER,
-    database: process.env.REGISTRY_DB_DATABASE,
-  };
-
-  const [registryFactory: RegistryFactory] = await Promise.all([
-    registryFactoryOpts.server ? makeRegistryFactory(registryFactoryOpts) : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
-    app.prepare(),
-  ]);
-
-  cleanup((exitCode) => {
-    registryFactory.cleanup().then(() => {
-      process.exit(exitCode);
-    }, (err) => {
-      console.log('CLEAN EXIT FAILED', err);
-      process.exit(-1);
-    });
-
-    cleanup.uninstall();
-    return false;
-  });
 
   if (process.env.USE_SSL) {
     const tls = {
@@ -59,6 +31,34 @@ export default async function startServer() {
   } else {
     server.connection({ port }, '0.0.0.0');
   }
+
+  const app = next({
+    dev: process.env.NODE_ENV !== 'production',
+    quiet: process.env.NODE_ENV === 'test',
+  });
+
+  const registryFactoryOpts = {
+    user: process.env.REGISTRY_DB_USER,
+    password: process.env.REGISTRY_DB_PASSWORD,
+    domain: process.env.REGISTRY_DB_DOMAIN,
+    server: process.env.REGISTRY_DB_SERVER,
+    database: process.env.REGISTRY_DB_DATABASE,
+  };
+
+  let registryFactory: RegistryFactory;
+
+  const startup = async () => {
+    const services = await Promise.all([
+      registryFactoryOpts.server ? makeRegistryFactory(registryFactoryOpts) : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
+      app.prepare(),
+    ]);
+
+    registryFactory = services[0];
+
+    return async () => {
+      await Promise.all([registryFactory.cleanup(), app.close(), server.stop()]);
+    };
+  };
 
   server.auth.scheme('headerKeys', (s, { keys, header }: { header: string, keys: string[]}) => ({
     authenticate: (request, reply) => {
@@ -78,29 +78,31 @@ export default async function startServer() {
     keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
   });
 
-  server.register({
-    register: Good,
-    options: {
-      reporters: {
-        console: [
-          {
-            module: 'good-squeeze',
-            name: 'Squeeze',
-            args: [{
-              response: '*',
-              log: '*',
-            }],
-          }, {
-            module: 'good-console',
-            args: [{
-              color: process.env.NODE_ENV !== 'production',
-            }],
-          },
-          'stdout',
-        ],
+  if (process.env.NODE_ENV !== 'test') {
+    server.register({
+      register: Good,
+      options: {
+        reporters: {
+          console: [
+            {
+              module: 'good-squeeze',
+              name: 'Squeeze',
+              args: [{
+                response: '*',
+                log: '*',
+              }],
+            }, {
+              module: 'good-console',
+              args: [{
+                color: process.env.NODE_ENV !== 'production',
+              }],
+            },
+            'stdout',
+          ],
+        },
       },
-    },
-  });
+    });
+  }
 
   server.register({
     register: graphqlHapi,
@@ -162,6 +164,29 @@ export default async function startServer() {
     handler: nextDefaultHandler(app, { cache: true }),
   });
 
+  return {
+    server,
+    startup,
+  };
+}
+
+export default async function startServer() {
+  const { server, startup } = makeServer();
+
+  const shutdown = await startup();
+  cleanup((exitCode) => {
+    shutdown().then(() => {
+      process.exit(exitCode);
+    }, (err) => {
+      console.log('CLEAN EXIT FAILED', err);
+      process.exit(-1);
+    });
+
+    cleanup.uninstall();
+    return false;
+  });
+
   await server.start();
+
   console.log(`> Ready on http://localhost:${port}`);
 }

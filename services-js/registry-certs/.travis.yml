@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - node
 script:
-- yarn jest -- --coverage --runInBand
+- yarn jest -- --coverage --runInBand --forceExit
 - yarn codecov
 deploy:
   provider: heroku

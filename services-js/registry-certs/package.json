@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "babel-watch -D -w server server",
-    "test": "jest",
+    "test": "jest --forceExit",
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
     "start": "node build/server",
@@ -29,7 +29,7 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
-      "<rootDir>/.next/",
+      "<rootDir>/\\.next/",
       "<rootDir>/coverage/"
     ],
     "collectCoverageFrom": [
@@ -104,7 +104,8 @@
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.8",
     "husky": "^0.13.3",
-    "jest": "^20.0.1",
+    "jest": "^20.0.4",
+    "json-loader": "^0.5.4",
     "lint-staged": "^3.4.1",
     "react-test-renderer": "^15.5.4",
     "through2": "^2.0.3",

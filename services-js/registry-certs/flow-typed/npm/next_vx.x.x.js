@@ -12,6 +12,7 @@ declare module 'next' {
 
   declare class App {
     prepare: () => Promise<void>,
+    close: () => Promise<void>,
   }
 
   declare module.exports: ({
