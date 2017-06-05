@@ -9,10 +9,13 @@ import type { AppStore } from '.';
 export default class RouterListener {
   router: ?Router = null;
   store: ?AppStore = null;
+  ga: any = null;
+  routeStartMs: number;
 
-  attach(router: Router, store: AppStore) {
+  attach(router: Router, store: AppStore, ga: any) {
     this.store = store;
     this.router = router;
+    this.ga = ga;
 
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
@@ -33,39 +36,55 @@ export default class RouterListener {
   }
 
   @action.bound
-  routeChangeStart() {
+  routeChangeStart(url: string) {
     NProgress.start();
 
-    if (!this.store) {
-      return;
+    const { store, ga } = this;
+
+    if (store) {
+      const { accessibility } = store;
+      accessibility.message = 'Page loading';
+      accessibility.interrupt = true;
     }
 
-    const { accessibility } = this.store;
+    if (ga) {
+      ga('set', 'page', url);
+    }
 
-    accessibility.message = 'Page loading';
-    accessibility.interrupt = true;
+    this.routeStartMs = Date.now();
   }
 
   @action.bound
-  routeChangeComplete() {
+  routeChangeComplete(url: string) {
     NProgress.done();
 
-    if (!this.store) {
-      return;
-    }
-
-    const { accessibility } = this.store;
+    const { store, ga } = this;
 
     // we do a setTimeout so that the new title renders by the time we
     // want to see it
     setTimeout(action(() => {
-      accessibility.message = `${document.title} loaded`;
-      accessibility.interrupt = true;
+      if (ga) {
+        ga('send', 'pageview');
+        ga('send', 'timing', 'Router', 'routeChange', Date.now() - this.routeStartMs, url);
+      }
+
+      if (store) {
+        const { accessibility } = store;
+
+        accessibility.message = `${document.title} loaded`;
+        accessibility.interrupt = true;
+      }
     }), 0);
   }
 
   @action.bound
   routeChangeError() {
     NProgress.done();
+
+    const { ga } = this;
+
+    if (ga) {
+      ga('set', 'page', window.location.pathname + (window.location.search || ''));
+    }
   }
 }

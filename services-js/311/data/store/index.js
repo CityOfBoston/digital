@@ -95,7 +95,7 @@ export default function getStore(loopbackGraphql: ?LoopbackGraphql): AppStore {
     store.ui.attach();
     store.browserLocation.attach(loopbackGraphql);
 
-    new RouterListener().attach(Router, store);
+    new RouterListener().attach(Router, store, window.ga);
   }
 
   return store;
