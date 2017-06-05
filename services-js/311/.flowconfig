@@ -7,6 +7,8 @@ flow-decl/
 <PROJECT_ROOT>/node_modules/mapbox.js/docs/.*
 <PROJECT_ROOT>/node_modules/mapbox-gl/src/style-spec/node_modules/.*
 <PROJECT_ROOT>/node_modules/unflowify/test/.*
+<PROJECT_ROOT>/node_modules/mitt/.*
+<PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/graphql/.*
 
 [options]
 module.file_ext=.graphql

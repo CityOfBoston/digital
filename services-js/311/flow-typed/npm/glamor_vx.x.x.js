@@ -15,7 +15,7 @@
 
  declare module 'glamor' {
    declare module.exports: {
-     css: (Object) => {
+     css: (...styles: mixed[]) => {
        toString: () => string;
      },
      rehydrate: (string[]) => void,

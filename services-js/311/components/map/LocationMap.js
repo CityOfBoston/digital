@@ -962,7 +962,9 @@ export default class LocationMap extends React.Component {
       });
 
       popup.setLngLat([(selectedRequest.location || {}).lng, (selectedRequest.location || {}).lat]);
-      render(<RequestPopup caseInfo={selectedRequest} />, el, () => {
+      // hack fix for https://github.com/facebook/flow/issues/4061
+      const r: any = render;
+      r(<RequestPopup caseInfo={selectedRequest} />, el, () => {
         popup.setDOMContent(el);
         popup.addTo(mapboxGlMap);
 

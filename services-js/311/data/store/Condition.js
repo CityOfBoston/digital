@@ -79,7 +79,7 @@ export default class Condition {
     if (typeof value === 'string') {
       return currentValue === value;
     } else if (typeof value === 'number') {
-      return parseFloat(currentValue, 10) === value;
+      return parseFloat(currentValue) === value;
     } else if (Array.isArray(value)) {
       if (!Array.isArray(currentValue)) {
         return false;

@@ -140,7 +140,9 @@ class SearchMarker {
         const el = document.createElement('DIV');
 
         if (this.requestSearch.selectedRequest) {
-          render(<RequestPopup caseInfo={this.requestSearch.selectedRequest} />, el, () => {
+          // hack fix for https://github.com/facebook/flow/issues/4061
+          const r: any = render;
+          r(<RequestPopup caseInfo={this.requestSearch.selectedRequest} />, el, () => {
             popup.setContent(el);
 
             // Open after a tick for the case on mobile when you "Back" to this

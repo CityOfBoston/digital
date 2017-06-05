@@ -4,7 +4,10 @@ import 'isomorphic-fetch';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 type QueryVariables = { [key: string]: any };
-export type LoopbackGraphql = (query: string, variables: ?QueryVariables) => Promise<Object>;
+export type LoopbackGraphqlOptions = {
+  cacheKey?: string,
+};
+export type LoopbackGraphql = (query: string, variables: ?QueryVariables, options?: LoopbackGraphqlOptions) => Promise<Object>;
 
 const makeGraphQLError = (message, errors) => {
   if (!message) {
@@ -30,13 +33,13 @@ function handleGraphqlResponse(ok, json) {
   }
 }
 
-let clientCache = {};
+let clientCache: {[key: string]: Object} = {};
 
-export function setClientCache(cache: {[key: string]: mixed}) {
+export function setClientCache(cache: {[key: string]: Object}) {
   clientCache = cache;
 }
 
-async function clientGraphqlFetch(query, variables = null, options = {}) {
+async function clientGraphqlFetch(query: string, variables: ?Object = null, options: LoopbackGraphqlOptions = {}) {
   const { cacheKey } = options;
 
   if (cacheKey && clientCache[cacheKey]) {
