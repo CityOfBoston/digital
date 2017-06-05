@@ -10,6 +10,7 @@ import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
+import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 import Open311 from './services/Open311';
 import Swiftype from './services/Swiftype';
 import ArcGIS from './services/ArcGIS';
@@ -91,7 +92,7 @@ export default async function startServer({ opbeat }: any) {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: (req) => ({
+      graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
         schema,
         context: ({
           open311: new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat),
@@ -101,18 +102,7 @@ export default async function startServer({ opbeat }: any) {
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
           searchBox: new SearchBox(process.env.SEARCHBOX_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
         }: Context),
-        formatError: (e) => {
-          opbeat.captureError(e, { request: req }, (err, url) => {
-            if (err) {
-              console.error('Error sending exception to Opbeat', err);
-            } else if (url) {
-              console.info(`Error logged to Opbeat: ${url}`);
-            }
-          });
-
-          return e;
-        },
-      }),
+      })),
       route: {
         cors: true,
         auth: 'apiKey',

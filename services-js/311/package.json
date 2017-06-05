@@ -76,7 +76,7 @@
     "moment-timezone": "^0.5.11",
     "next": "3.0.0-beta8",
     "nprogress": "^0.2.0",
-    "opbeat": "^4.13.1",
+    "opbeat": "^4.14.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",
