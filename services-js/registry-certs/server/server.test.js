@@ -1,5 +1,7 @@
 /**
  * @jest-environment node
+ *
+ * no flow in this file because of the way we mess with console.log
  */
 
  /* eslint no-console: 0 */
@@ -23,9 +25,15 @@ const GRAPHQL_INTROSPECTION_PAYLOAD = {
     }`,
 };
 
+let opbeat;
+
+beforeEach(() => {
+  opbeat = {};
+});
+
 describe('server', () => {
   it('can be created', () => {
-    const { server } = makeServer();
+    const { server } = makeServer({ opbeat });
     expect(server).toBeDefined();
   });
 });
@@ -40,7 +48,7 @@ describe('running server', () => {
 
     process.env.API_KEYS = API_KEY;
 
-    const out = makeServer();
+    const out = makeServer({ opbeat });
     server = out.server;
     const startup = out.startup;
 

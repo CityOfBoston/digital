@@ -5,9 +5,10 @@
 // and set up error reporting before getting the main server.js file going.
 
 require('dotenv').config();
+const opbeat = require('opbeat/start');
 
 const start = require('./server.js').default;
 
-start().catch((err) => {
+start({ opbeat }).catch((err) => {
   console.error('Error starting server', err);
 });

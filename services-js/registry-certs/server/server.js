@@ -16,9 +16,17 @@ import type { RegistryFactory } from './services/Registry';
 import schema from './graphql';
 import type { Context } from './graphql';
 
+import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
+
+type Opbeat = $Exports<'opbeat'>
+
+type ServerArgs = {
+  opbeat: Opbeat,
+};
+
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export function makeServer() {
+export function makeServer({ opbeat }: ServerArgs) {
   const server = new Hapi.Server();
 
   if (process.env.USE_SSL) {
@@ -110,12 +118,12 @@ export function makeServer() {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: () => ({
+      graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
         schema,
         context: ({
           registry: registryFactory.registry(),
         }: Context),
-      }),
+      })),
       route: {
         cors: true,
         auth: 'apiKey',
@@ -170,8 +178,8 @@ export function makeServer() {
   };
 }
 
-export default async function startServer() {
-  const { server, startup } = makeServer();
+export default async function startServer(args: ServerArgs) {
+  const { server, startup } = makeServer(args);
 
   const shutdown = await startup();
   cleanup((exitCode) => {

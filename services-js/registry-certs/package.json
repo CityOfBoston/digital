@@ -66,7 +66,7 @@
     "next": "beta",
     "node-cleanup": "^2.1.2",
     "nprogress": "^0.2.0",
-    "opbeat": "^4.13.1",
+    "opbeat": "^4.14.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
