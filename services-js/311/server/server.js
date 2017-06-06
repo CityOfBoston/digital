@@ -19,6 +19,7 @@ import SearchBox from './services/SearchBox';
 
 import schema from './graphql';
 import type { Context } from './graphql';
+import sitemapHandler from './sitemap';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -177,6 +178,12 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
+    path: '/sitemap.xml',
+    handler: sitemapHandler(new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat)),
+  });
+
+  server.route({
+    method: 'GET',
     path: '/_next/{p*}',
     handler: nextDefaultHandler(app),
   });
@@ -185,6 +192,12 @@ export default async function startServer({ opbeat }: any) {
     method: 'GET',
     path: '/favicon.ico',
     handler: (request, reply) => reply.file('static/favicon.ico'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/robots.txt',
+    handler: (request, reply) => reply.file(process.env.HEROKU_PIPELINE === 'staging' ? 'static/robots-staging.txt' : 'static/robots-production.txt'),
   });
 
   server.route({
