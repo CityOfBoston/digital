@@ -9,7 +9,6 @@ import { Schema as ServiceSchema, resolvers as serviceResolvers } from './servic
 import { Schema as GeocoderSchema, resolvers as geocoderResolvers } from './geocoder';
 
 import type Open311 from '../services/Open311';
-import type Swiftype from '../services/Swiftype';
 import type ArcGIS from '../services/ArcGIS';
 import type Prediction from '../services/Prediction';
 import type SearchBox from '../services/SearchBox';
@@ -17,7 +16,6 @@ import type SearchBox from '../services/SearchBox';
 export type Context = {|
   open311: Open311,
   publicOpen311: Open311,
-  swiftype: Swiftype,
   arcgis: ArcGIS,
   prediction: Prediction,
   searchBox: SearchBox,

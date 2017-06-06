@@ -23,7 +23,7 @@ framework for server-side rendering.
 
  1. Get the Open311 api_key and URL from a friend
  1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
- 1. Get other API keys: Mapbox, Swiftype, &c. and put them in .env
+ 1. Get other API keys: Mapbox, Searchly, &c. and put them in .env
  1. `yarn install`
  1. `yarn gulp watch`
  1. `yarn dev`

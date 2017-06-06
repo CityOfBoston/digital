@@ -12,7 +12,6 @@ import acceptLanguagePlugin from 'hapi-accept-language';
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 import Open311 from './services/Open311';
-import Swiftype from './services/Swiftype';
 import ArcGIS from './services/ArcGIS';
 import Prediction from './services/Prediction';
 import SearchBox from './services/SearchBox';
@@ -98,7 +97,6 @@ export default async function startServer({ opbeat }: any) {
         context: ({
           open311: new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat),
           publicOpen311: new Open311(process.env.LEGACY_311_ENDPOINT, null, opbeat),
-          swiftype: new Swiftype(process.env.SWIFTYPE_API_KEY, process.env.SWIFTYPE_ENGINE_SLUG, opbeat),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
           searchBox: new SearchBox(process.env.SEARCHBOX_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
