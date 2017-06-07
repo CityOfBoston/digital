@@ -1,1 +1,2 @@
 web: puma -b 'ssl://127.0.0.1:3000?key=/Users/matthewcrist/.ssl/server.key&cert=/Users/matthewcrist/.ssl/server.crt'
+worker: bundle exec sidekiq
