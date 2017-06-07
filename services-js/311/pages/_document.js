@@ -48,6 +48,7 @@ export default class extends Document {
     return (
       <html lang="en" className="js flexbox">
         <Head>
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="apple-mobile-web-app-title" content="BOS:311" />
           <link rel="shortcut icon" type="image/png" href="/static/icons/favicon-96x96.png" />

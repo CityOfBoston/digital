@@ -1,5 +1,7 @@
 // @flow
 
+import 'url-search-params-polyfill';
+
 import React from 'react';
 import type { Context } from 'next';
 import Router from 'next/router';
@@ -43,9 +45,6 @@ const SEARCH_HEIGHT = 62;
 // This is the main container for content. We want to be at least full height on
 // large screens to push the footer down to where you need to scroll for it.
 const CONTAINER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
   position: 'relative',
   minHeight: `calc(100vh - ${HEADER_HEIGHT}px - ${IPHONE_FOOTER_HEIGHT}px)`,
   paddingTop: SEARCH_HEIGHT,
@@ -87,12 +86,6 @@ const MAP_CONTAINER_STYLE = css({
 
 const FULL_MAP_CONTAINER_STYLE = css(MAP_CONTAINER_STYLE, {
   height: 'auto',
-  flex: 1,
-});
-
-const RECENT_REQUESTS_CONTAINER_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
   flex: 1,
 });
 
@@ -338,7 +331,7 @@ export default class SearchLayout extends React.Component {
             />
           </div>
 
-          {!mapView && <div className={RECENT_REQUESTS_CONTAINER_STYLE} ref={this.setContainer}><RecentRequests store={store} /></div> }
+          {!mapView && <div ref={this.setContainer}><RecentRequests store={store} /></div> }
 
           { mapView && (
             <div className="g p-a300"><button type="button" className="btn g--12" onClick={this.switchToListView}>List View</button></div>

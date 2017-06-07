@@ -9,18 +9,42 @@ import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
 
 import { LocationMapWithLibrary } from '../../map/LocationMap';
+import { MEDIA_LARGE } from '../../style-constants';
+
+// On large screen sizes below, the location picker is in a little
+// dialog that floats over the map. We let it size itself automatically
+// from its content. On mobile devices, the picker has a fixed height
+// and we use flex: 1 to fill that height, so that the button at the
+// bottom has a consistent position.
+//
+// We have to disable the flex for desktop because of IE, which renders
+// the flexed children with 0 height, rather than letting their
+// intrinsic heights grow the flex container.
 
 const CONTENT_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
   flex: 1,
+  [MEDIA_LARGE]: {
+    flex: 'none',
+  },
 });
 
 const FORM_WRAPPER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   flex: 1,
+  [MEDIA_LARGE]: {
+    flex: 'none',
+  },
+});
+
+const ADDRESS_WRAPPER_STYLE = css({
+  flex: 1,
+  [MEDIA_LARGE]: {
+    flex: 'none',
+  },
 });
 
 const BUTTON_ROW_STYLE = css({
@@ -169,7 +193,7 @@ export default class LocationPopUp extends React.Component {
             </div>
           </form>
 
-          <div style={{ flex: 1 }}>
+          <div className={ADDRESS_WRAPPER_STYLE}>
             {notFound
             ? <div className="t--info m-v300"><span className="t--err">{
                location ? 'Please pick a location within Boston' : `We could not find an address or intersection in Boston for “${this.addressQuery}”`

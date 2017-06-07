@@ -4,7 +4,7 @@ exports[`rendering renders a map on a small screen 1`] = `
 <div
   className={
     Object {
-      "data-css-a1pmen": "",
+      "data-css-3tah3k": "",
     }
   }
 >
@@ -12,7 +12,7 @@ exports[`rendering renders a map on a small screen 1`] = `
     className="css-1quve7l"
   />
   <div
-    className="p-a300 css-wi4u21"
+    className="p-a300 css-jvj6qy"
   >
     <form
       action="#"
@@ -40,9 +40,9 @@ exports[`rendering renders a map on a small screen 1`] = `
       </div>
     </form>
     <div
-      style={
+      className={
         Object {
-          "flex": 1,
+          "data-css-129qykh": "",
         }
       }
     >
@@ -80,12 +80,12 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-a1pmen": "",
+      "data-css-3tah3k": "",
     }
   }
 >
   <div
-    className="p-a300 css-wi4u21"
+    className="p-a300 css-jvj6qy"
   >
     <form
       action="#"
@@ -113,9 +113,9 @@ exports[`rendering renders with an address 1`] = `
       </div>
     </form>
     <div
-      style={
+      className={
         Object {
-          "flex": 1,
+          "data-css-129qykh": "",
         }
       }
     >
@@ -153,12 +153,12 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-a1pmen": "",
+      "data-css-3tah3k": "",
     }
   }
 >
   <div
-    className="p-a300 css-wi4u21"
+    className="p-a300 css-jvj6qy"
   >
     <form
       action="#"
@@ -186,9 +186,9 @@ exports[`rendering renders without an address 1`] = `
       </div>
     </form>
     <div
-      style={
+      className={
         Object {
-          "flex": 1,
+          "data-css-129qykh": "",
         }
       }
     >

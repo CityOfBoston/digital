@@ -36,7 +36,7 @@ const THUMBNAIL_SYLE = css({
 const REQUEST_INFO_STYLE = css({
   height: '4rem',
   display: 'flex',
-  flex: '1 1 0',
+  flex: 1,
   flexDirection: 'column',
   justifyContent: 'space-between',
   minWidth: 0,

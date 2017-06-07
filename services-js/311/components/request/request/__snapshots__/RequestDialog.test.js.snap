@@ -401,12 +401,12 @@ exports[`rendering location 1`] = `
     <div
       className={
         Object {
-          "data-css-a1pmen": "",
+          "data-css-3tah3k": "",
         }
       }
     >
       <div
-        className="p-a300 css-wi4u21"
+        className="p-a300 css-jvj6qy"
       >
         <form
           action="#"
@@ -434,9 +434,9 @@ exports[`rendering location 1`] = `
           </div>
         </form>
         <div
-          style={
+          className={
             Object {
-              "flex": 1,
+              "data-css-129qykh": "",
             }
           }
         >

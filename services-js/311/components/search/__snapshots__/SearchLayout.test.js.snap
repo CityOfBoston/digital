@@ -72,7 +72,7 @@ exports[`search form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="css-1v9pmbv"
+    className="css-ikkxw1"
     role="main"
     style={
       Object {
@@ -119,13 +119,7 @@ exports[`search form rendering 1`] = `
         }
       }
     />
-    <div
-      className={
-        Object {
-          "data-css-wi4u21": "",
-        }
-      }
-    >
+    <div>
       <div
         className={
           Object {

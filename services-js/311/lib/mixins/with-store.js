@@ -1,6 +1,9 @@
 // @flow
 
 // Mixin to set up a store from initial values.
+import 'core-js/shim';
+
+import svg4everybody from 'svg4everybody';
 
 import React from 'react';
 import type { Context } from 'next';
@@ -11,6 +14,10 @@ import type { RequestAdditions } from '../../server/next-handlers';
 import makeLoopbackGraphql, { setClientCache } from '../../data/dao/loopback-graphql';
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
+
+if (process.browser) {
+  svg4everybody();
+}
 
 export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => class extends React.Component {
   props: P;
