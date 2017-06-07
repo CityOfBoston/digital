@@ -4,7 +4,7 @@ exports[`choose page rendering 1`] = `
 <div
   className={
     Object {
-      "data-css-1d2khtc": "",
+      "data-css-19tfmgz": "",
     }
   }
 >
@@ -141,7 +141,7 @@ exports[`home page rendering 1`] = `
 <div
   className={
     Object {
-      "data-css-1d2khtc": "",
+      "data-css-19tfmgz": "",
     }
   }
 >
