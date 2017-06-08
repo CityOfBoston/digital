@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525133804) do
+ActiveRecord::Schema.define(version: 20170607191944) do
+
+  create_table "emails", force: :cascade do |t|
+    t.string "name"
+    t.string "token"
+    t.string "from_address"
+    t.string "to_address"
+    t.string "subject"
+    t.text "message"
+    t.string "browser"
+    t.string "url"
+    t.string "ip"
+    t.time "sent"
+    t.time "replied"
+    t.time "response_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subscribers", force: :cascade do |t|
     t.string "email"
