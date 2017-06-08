@@ -1,13 +1,17 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
 script:
-  - yarn jest -- --coverage --runInBand
-  - yarn codecov
-
+- yarn jest -- --coverage --runInBand
+- yarn codecov
+after_script: greenkeeper-lockfile-upload
 deploy:
   provider: heroku
   app: cob-311
   api_key:
     secure: fEjoKeRP0MTvT5V8taQly1Wmfjg5nW3OtkflD+Q1ijzQnFMKOUqvaimBuRFHk+Aqtf08oHhfS8bQlaONVgU7NTa9LcR+GG6UWMMW9PSk0ig4JNpSZhfK/ViLzWN+0jEygG9CL8cojYUY3x5RwdtptdL2kWjTeu1oZ9t3Nw+97yZl64tWbSUkB1RIvizLYhTylaGCcWRfJmfG7bZqxHEsJEgOlxhBnKKIm67Bk8I3CoIesBF5MQ+xK42+yPUwurFr1ZA2o7rxs40GqxeOGikNeGbEcTeDSa9RbAoygoYWyIT2qP+BVTUYInOZ89tX3N7YfWr/f6aivMxejxrY5Wz2BaWypdzPOInY12qIoKRCSqVco0ekFoEPIJF9nBaBlQb8zGhsDeB0ywxnSs1Mxbrc3bcpAarXGyzOctHKVyaUWV1aFv3s0RBADHjk3ph7ZvfoPtKi0TjoR4mMZmhabLiDdTovcq51olERBGLHra2bu9smJhFM+CgJ4yf50LAl9LzFBjvTfcTAwHngWSwUfiUKnotr3liTaGRxqPtvY6nyYyKkxcXA2PyRGh2WDRW9HOXGvdFJS9qSbtLSKqUhsr2krsnemtPcIpcq1RGEZaJlRPlrpezL/utT5teere7vqXQUCG6Kxf7uNpWSS4Y0f+JRKkK2E6DFhKDIe7X5prcPiT4=
   on: master
+env:
+  secure: yLyFg4/Oh6FKPv+U7Mm5KKa0BmBO1/nJ5dH2k4ngDJAPC2TSaYS0ztdo/7qyXbKCfTHR+tgx3uwTQP8uUwPw8gyBwd+/tFlVNkrk6oApPjab8EH4k+dspDLdv0zzwGwEKZky+7M4+qRjfrRcnoDvLEIuKMZVu7bH/nmwS233RO67P94wbArE0BC/uA3oAjr+6TDdm2F462Uir93J6T+sqgP/V6HERHyDYhzytgLpjUyDDJ4nh0HmePKDiOk0qv1Bbguo9CcWR3SlwnM4//+Qvrl/lppM2pOktOZ+pT55QSvT+XV7Di6+AWXBDWSqRS2I34zraN9b00vNCmsRAiqyADZqmp61780nqS9hff6VLFq+cE8s9+HtNxDoGCcsetSKjfMTa/GF3+wkraqB2PyYsEQVncU2MQ3p0ixV/xOAg/DXYlnljqMZSFHR46jt7bckmjq76xHcLfwRJiyT8Bt4e3uL5TvhybZq/dfVdw4NrsbeSqbDtKbS1cMrWWGxl1XLIVVAwc6jYBr7mdMqDU9HzE2VJf/Dtz/LH4CWUlKemsQ5AV2OsMjl2lk0Vc+bxLToGaq+AczX7y8jcICo3R9nNWTUPzyEzJP3TrkErd+88PDusDHGODfbtGbzcFNlIkvIwT5QBD1FWszQc6FTgO17VebfzIO6TYm3amP4Z/A7lGg=
