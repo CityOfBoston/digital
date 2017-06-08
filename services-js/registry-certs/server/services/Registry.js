@@ -1,6 +1,7 @@
 // @flow
 
 import { ConnectionPool } from 'mssql';
+import type { ConnectionPoolConfig } from 'mssql';
 
 import fs from 'fs';
 import DataLoader from 'dataloader';
@@ -139,15 +140,14 @@ export type MakeRegistryOptions = {|
 |}
 
 export async function makeRegistryFactory({ user, password, server, domain, database }: MakeRegistryOptions): Promise<RegistryFactory> {
-  if (!(user && password && server && domain && database)) {
+  if (!(user && password && server && database)) {
     throw new Error('Missing some element of database configuration');
   }
 
-  const pool = new ConnectionPool({
+  const opts: ConnectionPoolConfig = {
     user,
     password,
     server,
-    domain,
     database,
     pool: {
       min: 1,
@@ -155,7 +155,13 @@ export async function makeRegistryFactory({ user, password, server, domain, data
     options: {
       encrypt: true,
     },
-  });
+  };
+
+  if (domain) {
+    opts.domain = domain;
+  }
+
+  const pool = new ConnectionPool(opts);
 
   await pool.connect();
 
