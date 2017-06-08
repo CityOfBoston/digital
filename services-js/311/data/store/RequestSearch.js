@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, action, reaction, computed, runInAction } from 'mobx';
+import { observable, action, reaction, computed, runInAction, autorun } from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'mapbox.js';
 import type { LngLatBounds } from 'mapbox-gl';
@@ -37,6 +37,11 @@ export default class RequestSearch {
   // store state so that it's preserved if you tap on a case and then go back
   @observable mapView: boolean = false;
 
+  // We keep track of the first time the bounds are set because going from
+  // null -> bounds shouldn't trigger that the map moved.
+  boundsSet: boolean = false;
+  mapMoved: boolean = false;
+
   @observable.shallow _results: SearchCase[] = [];
   @observable resultsQuery: ?string = null;
   @observable loading: boolean = false;
@@ -45,6 +50,7 @@ export default class RequestSearch {
   @observable selectedSource: ?string = null;
 
   searchDisposer: ?Function = null;
+  boundsSetDisposer: ?Function = null;
 
   updateCaseSearchResults({ cases, query }: SearchCasesResult) {
     // In this method we want to bring in the new cases, but preserve any
@@ -86,6 +92,9 @@ export default class RequestSearch {
 
   // Starting / stopping currently done in SearchLayout
   start(loopbackGraphql: LoopbackGraphql) {
+    this.boundsSet = false;
+    this.mapMoved = false;
+
     // We use a reaction because the effect is debounced, which messes with
     // mobx's auto-detection of dependencies.
     this.searchDisposer = reaction(
@@ -101,11 +110,23 @@ export default class RequestSearch {
         compareStructural: true,
       },
     );
+
+    this.boundsSetDisposer = autorun(() => {
+      if (this.boundsSet) {
+        this.mapMoved = true;
+      }
+
+      this.boundsSet = !!(this.mapBounds || this.mapBoundsGl);
+    });
   }
 
   stop() {
     if (this.searchDisposer) {
       this.searchDisposer();
+    }
+
+    if (this.boundsSetDisposer) {
+      this.boundsSetDisposer();
     }
   }
 

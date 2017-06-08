@@ -178,7 +178,7 @@ export default class SearchLayout extends React.Component {
           return;
         }
 
-        if (!mapCenter) {
+        if (!mapCenter || !store.requestSearch.mapMoved) {
           this.locationMap.visitLocation(browserLocation, true);
         }
       },

@@ -158,6 +158,9 @@ exports[`methods submitRequest success 2`] = `
           "languages": Array [],
           "mapLocation": MapLocation {},
           "requestSearch": RequestSearch {
+            "boundsSet": false,
+            "boundsSetDisposer": null,
+            "mapMoved": false,
             "searchDisposer": null,
           },
           "ui": Ui {
