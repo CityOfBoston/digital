@@ -179,6 +179,7 @@ export default class ElasticSearch {
         index: this.index,
         type: 'case',
         body: {
+          size: 50,
           sort: [{ requested_datetime: 'desc' }],
           query: {
             bool: {
