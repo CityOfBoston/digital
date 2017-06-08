@@ -2,7 +2,7 @@
 
 import { observable, action, reaction, computed, runInAction } from 'mobx';
 // eslint-disable-next-line
-import type { LatLngBounds } from 'leaflet';
+import type { LatLngBounds } from 'mapbox.js';
 import type { LngLatBounds } from 'mapbox-gl';
 import uniqBy from 'lodash/uniqBy';
 import debounce from 'lodash/debounce';

@@ -2,7 +2,7 @@
 
 import { css } from 'glamor';
 
-import type { DivIconOptions } from 'leaflet';
+import type { DivIconOptions } from 'mapbox.js';
 
 const SPRITE_URL = '/static/img/svg/waypoints.svg';
 
