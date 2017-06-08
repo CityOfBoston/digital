@@ -5,6 +5,7 @@ class EmailsController < ApplicationController
     @email.sent = DateTime.now.utc
 
     if @email.save
+      ContactMailer.city_email(@email).deliver_later 
       render :json => {email: @email.id}
     else
       render :json => {errors: @email.errors}

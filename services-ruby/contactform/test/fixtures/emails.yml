@@ -1,23 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email_address: MyString
-  subject: MyString
-  message: MyText
-  browser: MyString
-  url: MyString
-  ip: MyString
+joe:
+  name: Joe
+  from_address: test@example.com
+  to_address: test@example.com
+  subject: This is a test
+  message: This is a test
+  browser: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50'
+  url: 'https://www.boston.gov'
+  ip: 192.168.0.1
   sent: 2017-06-07 15:19:45
-  replied: 2017-06-07 15:19:45
-
-two:
-  name: MyString
-  email_address: MyString
-  subject: MyString
-  message: MyText
-  browser: MyString
-  url: MyString
-  ip: MyString
-  sent: 2017-06-07 15:19:45
-  replied: 2017-06-07 15:19:45
+  replied: 2017-06-10 15:19:45
