@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { observable, action, autorun, untracked, reaction } from 'mobx';
+import { observable, action, autorun, untracked } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
@@ -68,35 +68,14 @@ export default class RecentRequests extends React.Component {
   @observable.ref mainEl: ?HTMLElement = null;
 
   scrollSelectedIntoViewDisposer: ?Function;
-  updateWidthDisposer: ?Function;
 
   componentDidMount() {
-    const { store: { ui, requestSearch } } = this.props;
-
     this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
-    this.updateWidthDisposer = reaction(() => ({
-      mainEl: this.mainEl,
-      // means we'll get triggered on resizes, which is important
-      // for being % width.
-      visibleWidth: ui.visibleWidth,
-    }),
-    ({ mainEl }) => {
-      if (mainEl) {
-        requestSearch.resultsListWidth = mainEl.clientWidth;
-      }
-    }, {
-      fireImmediately: true,
-      name: 'update results list width',
-    });
   }
 
   componentWillUnmount() {
     if (this.scrollSelectedIntoViewDisposer) {
       this.scrollSelectedIntoViewDisposer();
-    }
-
-    if (this.updateWidthDisposer) {
-      this.updateWidthDisposer();
     }
   }
 

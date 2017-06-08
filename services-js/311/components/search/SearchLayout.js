@@ -17,7 +17,7 @@ import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import Nav from '../common/Nav';
-import { LocationMapWithLibrary, DEFAULT_MOBILE_CENTER } from '../map/LocationMap';
+import { LocationMapWithLibrary } from '../map/LocationMap';
 import type LocationMap from '../map/LocationMap';
 import { HEADER_HEIGHT, MEDIA_LARGE, IPHONE_FOOTER_HEIGHT } from '../style-constants';
 
@@ -77,7 +77,9 @@ const MAP_CONTAINER_STYLE = css({
 
   [MEDIA_LARGE]: {
     position: 'fixed',
-    width: '100%',
+    right: 0,
+    width: '60%',
+    minWidth: 'calc(100% - 35rem)',
     top: HEADER_HEIGHT,
     bottom: 0,
     height: 'auto',
@@ -176,7 +178,7 @@ export default class SearchLayout extends React.Component {
           return;
         }
 
-        if (!mapCenter || (mapCenter.lat === DEFAULT_MOBILE_CENTER.lat && mapCenter.lng === DEFAULT_MOBILE_CENTER.lng)) {
+        if (!mapCenter) {
           this.locationMap.visitLocation(browserLocation, true);
         }
       },

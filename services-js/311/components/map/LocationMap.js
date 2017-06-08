@@ -33,14 +33,14 @@ const MOBILE_MARKER_STYLE = css({
   left: '50%',
 });
 
-const DEFAULT_CENTER = {
-  lat: 42.326782,
-  lng: -71.151948,
+const DEFAULT_NORTH_EAST = {
+  lat: 42.2343096,
+  lng: -71.18572135,
 };
 
-export const DEFAULT_MOBILE_CENTER = {
-  lat: 42.34117523670304,
-  lng: -71.06319129467012,
+const DEFAULT_SOUTH_WEST = {
+  lat: 42.397721,
+  lng: -70.99250,
 };
 
 export const WAYPOINT_MARKER_CONTAINER_STYLE = css({
@@ -403,9 +403,7 @@ export default class LocationMap extends React.Component {
   }
 
   visitLocation(location: {lat: number, lng: number}, animated: boolean) {
-    const { store, mode, mobile } = this.props;
-
-    const leftPadding = (mode === 'picker' || mobile) ? 0 : store.requestSearch.resultsListWidth;
+    const { store } = this.props;
 
     if (this.mapboxMap) {
       const map = this.mapboxMap;
@@ -413,7 +411,6 @@ export default class LocationMap extends React.Component {
       const bounds = [[location.lat, location.lng], [location.lat, location.lng]];
       const opts = {
         maxZoom,
-        paddingTopLeft: [leftPadding, 0],
       };
 
       if (animated && !store.ui.reduceMotion) {
@@ -429,12 +426,6 @@ export default class LocationMap extends React.Component {
       const bounds = [[location.lng, location.lat], [location.lng, location.lat]];
       const opts = {
         maxZoom,
-        padding: {
-          top: 0,
-          left: leftPadding / 2,
-          bottom: 0,
-          right: 0,
-        },
         animate: animated && !store.ui.reduceMotion,
       };
 
@@ -452,7 +443,7 @@ export default class LocationMap extends React.Component {
 
   @action.bound
   attachMap() {
-    const { L, mapboxgl, store, mode, mobile } = this.props;
+    const { L, mapboxgl, store, mode } = this.props;
     const { apiKeys, requestSearch } = store;
     const mapboxKeys = apiKeys.mapbox;
 
@@ -465,13 +456,13 @@ export default class LocationMap extends React.Component {
     }
 
     const style = `mapbox://styles/${mapboxKeys.stylePath}`;
-    const center = requestSearch.mapCenter || (mobile ? DEFAULT_MOBILE_CENTER : DEFAULT_CENTER);
+    const center = requestSearch.mapCenter;
 
     const commonOpts = {
       zoom: requestSearch.mapZoom,
-      minZoom: 11,
+      minZoom: 9,
       maxZoom: 18,
-      attributionControl: false,
+      attributionControl: true,
     };
 
     let map;
@@ -480,10 +471,13 @@ export default class LocationMap extends React.Component {
       const opts = {
         ...commonOpts,
         accessToken: mapboxKeys.accessToken,
-        center,
         maxBounds: MAX_BOUNDS,
         zoomControl: false,
       };
+
+      if (center) {
+        opts.center = center;
+      }
 
       if (process.env.NODE_ENV === 'test') {
         // In test mode we don't use Mapbox because it requires an API key and
@@ -499,16 +493,39 @@ export default class LocationMap extends React.Component {
         }).addTo(map);
       }
 
+      if (!center) {
+        map.fitBounds([
+          [DEFAULT_NORTH_EAST.lat, DEFAULT_NORTH_EAST.lng],
+          [DEFAULT_SOUTH_WEST.lat, DEFAULT_SOUTH_WEST.lng],
+        ], {
+          animate: false,
+        });
+      }
+
       this.mapboxMap = map;
     } else if (mapboxgl) {
       (mapboxgl: any).accessToken = mapboxKeys.accessToken;
-      const mapboxglMap = map = new mapboxgl.Map({
+      const opts = {
         container: this.mapEl,
         style,
-        center: [center.lng, center.lat],
         maxBounds: new mapboxgl.LngLatBounds([MAX_BOUNDS[1][1], MAX_BOUNDS[1][0]], [MAX_BOUNDS[0][1], MAX_BOUNDS[0][0]]),
         ...commonOpts,
-      });
+      };
+
+      if (center) {
+        opts.center = [center.lng, center.lat];
+      }
+
+      const mapboxglMap = map = new mapboxgl.Map(opts);
+
+      if (!center) {
+        mapboxglMap.fitBounds([
+          [DEFAULT_NORTH_EAST.lng, DEFAULT_NORTH_EAST.lat],
+          [DEFAULT_SOUTH_WEST.lng, DEFAULT_SOUTH_WEST.lat],
+        ], {
+          animate: false,
+        });
+      }
 
       map.on('load', () => {
         if (mode === 'requests') {
@@ -707,7 +724,7 @@ export default class LocationMap extends React.Component {
     const containerHeight = mapEl.clientHeight;
 
     const neContainerPoint = { x: containerWidth, y: 0 };
-    const swContainerPoint = { x: mobile ? 0 : requestSearch.resultsListWidth, y: containerHeight };
+    const swContainerPoint = { x: 0, y: containerHeight };
 
     let centerPoint;
     let mapZoom;

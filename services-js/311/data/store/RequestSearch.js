@@ -31,8 +31,6 @@ export default class RequestSearch {
   @observable mapCenter: ?LatLng = null;
   @observable mapZoom: number = 12;
 
-  @observable resultsListWidth: number = 0;
-
   @observable mapBounds: ?LatLngBounds = null;
   @observable mapBoundsGl: ?LngLatBounds = null;
   // true if the mobile search UI is showing just the map. We keep this in
