@@ -99,7 +99,7 @@ export default async function startServer({ opbeat }: any) {
           publicOpen311: new Open311(process.env.LEGACY_311_ENDPOINT, null, opbeat),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
-          searchBox: new SearchBox(process.env.SEARCHBOX_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
+          searchBox: new SearchBox(process.env.SEARCHBOX_SSL_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
         }: Context),
       })),
       route: {
