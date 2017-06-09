@@ -22,10 +22,8 @@ const NO_IMAGE_REQUEST: SearchCase = {
   requestedAt: 0,
 };
 
-const IMAGE_REQUEST: SearchCase = {
-  ...NO_IMAGE_REQUEST,
-  mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
-};
+const IMAGE_REQUEST = Object.assign({}, NO_IMAGE_REQUEST);
+IMAGE_REQUEST.mediaUrl = 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg';
 
 storiesOf('RequestPopup', module)
   .addDecorator((next) => (

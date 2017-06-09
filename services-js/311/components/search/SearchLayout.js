@@ -27,7 +27,7 @@ import RecentRequestsSearchForm from './RecentRequestsSearchForm';
 type SearchData = {|
   view: 'search',
   query: string,
-  location: ?{lat: number, lng: number},
+  location: ?{| lat: number, lng: number |},
   zoom: ?number,
 |}
 

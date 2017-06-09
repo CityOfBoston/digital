@@ -9,7 +9,7 @@ export default class BrowserLocation {
   // false: not getting location
   // null: don't know location yet
   // lat/lng: browser location
-  @observable location: false | null | { lat: number, lng: number } = null;
+  @observable location: false | null | {| lat: number, lng: number |} = null;
   @observable inBoston: boolean = false;
 
   watchId: ?number = null;

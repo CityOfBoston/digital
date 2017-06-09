@@ -40,181 +40,181 @@ export type ServiceAttributeConditionValueType =
   "NUMBER";
 
 
-export type LatLngIn = {
+export type LatLngIn = {|
   lat: number,
   lng: number,
-};
+|};
 
-export type CreateRequestAttribute = {
+export type CreateRequestAttribute = {|
   code: string,
   value: string,
-};
+|};
 
-export type LoadRequestQueryVariables = {
+export type LoadRequestQueryVariables = {|
   id: string,
-};
+|};
 
-export type LoadRequestQuery = {
-  case: ? {
+export type LoadRequestQuery = {|
+  case: ? {|
     id: string,
-    service: {
+    service: {|
       name: string,
-    },
+    |},
     status: string,
     statusNotes: ?string,
     description: ?string,
     address: ?string,
-    location: ? {
+    location: ? {|
       lat: number,
       lng: number,
-    },
+    |},
     mediaUrl: ?string,
     requestedAtString: string,
     updatedAtString: string,
-  },
-};
+  |},
+|};
 
-export type LoadServiceQueryVariables = {
+export type LoadServiceQueryVariables = {|
   code: string,
-};
+|};
 
-export type LoadServiceQuery = {
-  service: ? {
+export type LoadServiceQuery = {|
+  service: ? {|
     name: string,
     description: ?string,
     code: string,
     contactRequirement: MetadataRequirement,
     locationRequirement: MetadataRequirement,
-    attributes: Array< {
+    attributes: Array< {|
       required: boolean,
       type: ServiceAttributeDatatype,
       code: string,
       description: string,
-      values: ?Array< {
+      values: ?Array< {|
         key: string,
         name: string,
-      } >,
-      conditionalValues: ?Array< {
-        dependentOn: {
+      |} >,
+      conditionalValues: ?Array< {|
+        dependentOn: {|
           clause: ServiceAttributeConditionalClause,
-          conditions: Array< {
+          conditions: Array< {|
             attribute: string,
             op: ServiceAttributeConditionalOp,
-            value: {
+            value: {|
               type: ?ServiceAttributeConditionValueType,
               string: ?string,
               array: ?Array< string >,
               number: ?number,
-            },
-          } >,
-        },
-        values: Array< {
+            |},
+          |} >,
+        |},
+        values: Array< {|
           key: string,
           name: string,
-        } >,
-      } >,
-      dependencies: ? {
+        |} >,
+      |} >,
+      dependencies: ? {|
         clause: ServiceAttributeConditionalClause,
-        conditions: Array< {
+        conditions: Array< {|
           attribute: string,
           op: ServiceAttributeConditionalOp,
-          value: {
+          value: {|
             type: ?ServiceAttributeConditionValueType,
             string: ?string,
             array: ?Array< string >,
             number: ?number,
-          },
-        } >,
-      },
-    } >,
-  },
-};
+          |},
+        |} >,
+      |},
+    |} >,
+  |},
+|};
 
-export type LoadServiceSuggestionsQueryVariables = {
+export type LoadServiceSuggestionsQueryVariables = {|
   text: string,
-};
+|};
 
-export type LoadServiceSuggestionsQuery = {
-  servicesForDescription: Array< {
+export type LoadServiceSuggestionsQuery = {|
+  servicesForDescription: Array< {|
     name: string,
     code: string,
     description: ?string,
     group: ?string,
-  } >,
-};
+  |} >,
+|};
 
-export type LoadServiceSummariesQuery = {
-  services: Array< {
+export type LoadServiceSummariesQuery = {|
+  services: Array< {|
     code: string,
     name: string,
     description: ?string,
     group: ?string,
-  } >,
-};
+  |} >,
+|};
 
-export type LoadTopServiceSummariesQueryVariables = {
+export type LoadTopServiceSummariesQueryVariables = {|
   first: number,
-};
+|};
 
-export type LoadTopServiceSummariesQuery = {
-  topServices: Array< {
+export type LoadTopServiceSummariesQuery = {|
+  topServices: Array< {|
     code: string,
     name: string,
     description: ?string,
     group: ?string,
-  } >,
-};
+  |} >,
+|};
 
-export type ReverseGeocodeQueryVariables = {
+export type ReverseGeocodeQueryVariables = {|
   location: LatLngIn,
-};
+|};
 
-export type ReverseGeocodeQuery = {
-  geocoder: {
-    reverse: ? {
-      location: {
+export type ReverseGeocodeQuery = {|
+  geocoder: {|
+    reverse: ? {|
+      location: {|
         lat: number,
         lng: number,
-      },
+      |},
       address: string,
       addressId: ?string,
-    },
-  },
-};
+    |},
+  |},
+|};
 
-export type SearchAddressQueryVariables = {
+export type SearchAddressQueryVariables = {|
   query: string,
-};
+|};
 
-export type SearchAddressQuery = {
-  geocoder: {
-    search: ? {
-      location: {
+export type SearchAddressQuery = {|
+  geocoder: {|
+    search: ? {|
+      location: {|
         lat: number,
         lng: number,
-      },
+      |},
       address: string,
       addressId: ?string,
-      units: Array< {
+      units: Array< {|
         address: string,
         streetAddress: string,
         unit: string,
         addressId: string,
-      } >,
-    },
-  },
-};
+      |} >,
+    |},
+  |},
+|};
 
-export type SearchCasesQueryVariables = {
+export type SearchCasesQueryVariables = {|
   query: ?string,
   topLeft: ?LatLngIn,
   bottomRight: ?LatLngIn,
-};
+|};
 
-export type SearchCasesQuery = {
-  searchCases: {
+export type SearchCasesQuery = {|
+  searchCases: {|
     query: string,
-    cases: Array< {
+    cases: Array< {|
       id: string,
       status: string,
       description: ?string,
@@ -222,18 +222,18 @@ export type SearchCasesQuery = {
       mediaUrl: ?string,
       requestedAt: number,
       requestedAtRelativeString: string,
-      location: ? {
+      location: ? {|
         lat: number,
         lng: number,
-      },
-      service: {
+      |},
+      service: {|
         name: string,
-      },
-    } >,
-  },
-};
+      |},
+    |} >,
+  |},
+|};
 
-export type SubmitRequestMutationVariables = {
+export type SubmitRequestMutationVariables = {|
   code: string,
   description: string,
   firstName: ?string,
@@ -245,24 +245,24 @@ export type SubmitRequestMutationVariables = {
   location: ?LatLngIn,
   mediaUrl: ?string,
   attributes: Array< CreateRequestAttribute >,
-};
+|};
 
-export type SubmitRequestMutation = {
-  createRequest: {
+export type SubmitRequestMutation = {|
+  createRequest: {|
     id: string,
-    service: {
+    service: {|
       name: string,
-    },
+    |},
     status: string,
     statusNotes: ?string,
     description: ?string,
     address: ?string,
-    location: ? {
+    location: ? {|
       lat: number,
       lng: number,
-    },
+    |},
     mediaUrl: ?string,
     requestedAtString: string,
     updatedAtString: string,
-  },
-};
+  |},
+|};

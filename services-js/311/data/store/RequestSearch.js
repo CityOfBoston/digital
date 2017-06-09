@@ -10,10 +10,10 @@ import type { SearchCase, SearchCasesResult } from '../types';
 import searchCases from '../dao/search-cases';
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
 
-type LatLng = {
+type LatLng = {|
   lat: number,
   lng: number,
-};
+|};
 
 type SearchArgs = {
   query: string,
@@ -130,7 +130,7 @@ export default class RequestSearch {
     }
   }
 
-  @computed.struct get topLeft(): ?{ lat: number, lng: number } {
+  @computed.struct get topLeft(): ?{| lat: number, lng: number |} {
     const { mapBounds, mapBoundsGl } = this;
 
     if (mapBounds) {
@@ -146,7 +146,7 @@ export default class RequestSearch {
     return null;
   }
 
-  @computed.struct get bottomRight(): ?{ lat: number, lng: number } {
+  @computed.struct get bottomRight(): ?{| lat: number, lng: number |} {
     const { mapBounds, mapBoundsGl } = this;
 
     if (mapBounds) {

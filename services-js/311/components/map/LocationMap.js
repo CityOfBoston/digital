@@ -387,7 +387,7 @@ export default class LocationMap extends React.Component {
   }
 
   @action.bound
-  chooseLocation(location: {lat: number, lng: number}) {
+  chooseLocation(location: {| lat: number, lng: number |}) {
     const { store: { mapLocation } } = this.props;
     const currentLocation = mapLocation.location;
 
@@ -821,7 +821,7 @@ export default class LocationMap extends React.Component {
     }
   }
 
-  currentLocationClicked(pos: {lat: number, lng: number}) {
+  currentLocationClicked(pos: {| lat: number, lng: number |}) {
     const { mode } = this.props;
     if (mode === 'picker') {
       this.chooseLocation(pos);

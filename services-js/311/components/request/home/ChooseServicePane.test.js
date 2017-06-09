@@ -10,8 +10,6 @@ const SERVICE_SUMMARIES = [{
   code: 'CSMCINC',
   description: 'Something is threatening the fabric of the universe',
   group: 'ultimate',
-  hasMetadata: true,
-  locationRequired: true,
 }];
 
 describe('rendering', () => {

@@ -9,7 +9,7 @@ import ReverseGeocodeGraphql from './graphql/ReverseGeocode.graphql';
 // Takes a lat/lng and looks up the address for it from ArcGIS
 export default async function reverseGeocode(
   loopbackGraphql: LoopbackGraphql,
-  location: {lat: number, lng: number}): Promise<?ReverseGeocodedPlace> {
+  location: {| lat: number, lng: number |}): Promise<?ReverseGeocodedPlace> {
   const args: ReverseGeocodeQueryVariables = {
     location,
   };

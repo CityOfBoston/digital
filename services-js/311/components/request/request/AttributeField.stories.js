@@ -7,7 +7,7 @@ import Question from '../../../data/store/Question';
 import AttributeField from './AttributeField';
 
 const makeQuestion = (attrs: Object, value: string | string[] = '') => {
-  const question = new Question({
+  const question = new Question(({
     code: '',
     conditionalValues: null,
     dependencies: null,
@@ -16,7 +16,7 @@ const makeQuestion = (attrs: Object, value: string | string[] = '') => {
     values: null,
     type: null,
     ...attrs,
-  });
+  }: any));
 
   question.value = value;
 

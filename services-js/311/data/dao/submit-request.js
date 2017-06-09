@@ -13,7 +13,7 @@ type Args = {|
   lastName: ?string,
   email: ?string,
   phone: ?string,
-  location: ?{ lat: number, lng: number },
+  location: ?{| lat: number, lng: number |},
   address: ?string,
   addressId: ?string,
   questions: Question[],

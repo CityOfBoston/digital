@@ -10,8 +10,8 @@ import SearchCasesGraphql from './graphql/SearchCases.graphql';
 export default async function searchCases(
   loopbackGraphql: LoopbackGraphql,
   query: ?string = null,
-  topLeft: ?{lat: number, lng: number},
-  bottomRight: ?{lat: number, lng: number},
+  topLeft: ?{|lat: number, lng: number|},
+  bottomRight: ?{|lat: number, lng: number|},
 ): Promise<SearchCasesResult> {
   const args: SearchCasesQueryVariables = {
     query,

@@ -8,10 +8,10 @@ import type { ServiceAttribute } from '../types';
 
 import ConditionGroup from './ConditionGroup';
 
-type ValuesArray = Array<{
+type ValuesArray = Array<{|
   key: string,
   name: string,
-}>;
+|}>;
 
 type ConditionalValuesArray = Array<{|
   conditions: ConditionGroup,

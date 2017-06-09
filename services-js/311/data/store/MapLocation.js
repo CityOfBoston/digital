@@ -57,7 +57,7 @@ export default class MapLocation {
   }
 
   @action
-  async geocodeLocation(location: {lat: number, lng: number}): Promise<void> {
+  async geocodeLocation(location: {| lat: number, lng: number |}): Promise<void> {
     if (this.location && this.location.lat === location.lat && this.location.lng === location.lng) {
       return;
     }

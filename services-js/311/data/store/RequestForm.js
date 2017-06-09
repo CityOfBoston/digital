@@ -18,7 +18,7 @@ export default class RequestForm {
   @observable mediaUrl: string = ''
 
   @observable address: string = '';
-  @observable.shallow location: ?{ lat: number, lng: number } = null;
+  @observable.shallow location: ?{| lat: number, lng: number |} = null;
   @observable addressId: ?string = null;
   @observable sendLocation: boolean = false;
 

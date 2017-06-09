@@ -7,7 +7,7 @@ type QueryVariables = { [key: string]: any };
 export type LoopbackGraphqlOptions = {
   cacheKey?: string,
 };
-export type LoopbackGraphql = (query: string, variables: ?QueryVariables, options?: LoopbackGraphqlOptions) => Promise<Object>;
+export type LoopbackGraphql = (query: string, variables: ?QueryVariables, options?: LoopbackGraphqlOptions) => Promise<any>;
 
 const makeGraphQLError = (message, errors) => {
   if (!message) {
