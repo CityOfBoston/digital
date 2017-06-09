@@ -72,7 +72,7 @@ exports[`search form rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="css-ikkxw1"
+    className="css-1u17gb7"
     role="main"
     style={
       Object {
@@ -119,7 +119,13 @@ exports[`search form rendering 1`] = `
         }
       }
     />
-    <div>
+    <div
+      className={
+        Object {
+          "data-css-mxwefu": "",
+        }
+      }
+    >
       <div
         className={
           Object {
@@ -167,7 +173,7 @@ exports[`search form rendering 1`] = `
         <div
           className={
             Object {
-              "data-css-qtfk4q": "",
+              "data-css-1124mnf": "",
             }
           }
         >
@@ -179,11 +185,7 @@ exports[`search form rendering 1`] = `
             }
           >
             <span
-              className={
-                Object {
-                  "data-css-17mox4x": "",
-                }
-              }
+              className="css-17mox4x"
             >
               <svg
                 className={
@@ -191,13 +193,13 @@ exports[`search form rendering 1`] = `
                     "data-css-1acy7qc": "",
                   }
                 }
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                  }
+                }
                 role="img"
-              >
-                <use
-                  height="100%"
-                  xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                />
-              </svg>
+              />
             </span>
           </div>
         </div>

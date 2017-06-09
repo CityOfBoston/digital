@@ -46,6 +46,12 @@ const LOADING_CONTAINER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
+  [MEDIA_LARGE]: {
+    // for IE, since the parent we're flexing to is only defined with
+    // min-height, IE won't grow to it.
+    flex: 'none',
+    marginTop: '30%',
+  },
 });
 
 const LOADING_WRAPPER_STYLE = css({

@@ -48,6 +48,8 @@ const CONTAINER_STYLE = css({
   position: 'relative',
   minHeight: `calc(100vh - ${HEADER_HEIGHT}px - ${IPHONE_FOOTER_HEIGHT}px)`,
   paddingTop: SEARCH_HEIGHT,
+  display: 'flex',
+  flexDirection: 'column',
 
   [MEDIA_LARGE]: {
     paddingTop: 0,
@@ -62,6 +64,7 @@ const SEARCH_CONTAINER_STYLE = css({
   top: HEADER_HEIGHT,
   zIndex: 2,
   background: 'white',
+
   [MEDIA_LARGE]: {
     display: 'none',
   },
@@ -84,6 +87,12 @@ const MAP_CONTAINER_STYLE = css({
     bottom: 0,
     height: 'auto',
   },
+});
+
+const RECENT_REQUESTS_CONTAINER_STYLE = css({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 const FULL_MAP_CONTAINER_STYLE = css(MAP_CONTAINER_STYLE, {
@@ -333,7 +342,7 @@ export default class SearchLayout extends React.Component {
             />
           </div>
 
-          {!mapView && <div ref={this.setContainer}><RecentRequests store={store} /></div> }
+          {!mapView && <div className={RECENT_REQUESTS_CONTAINER_STYLE} ref={this.setContainer}><RecentRequests store={store} /></div> }
 
           { mapView && (
             <div className="g p-a300"><button type="button" className="btn g--12" onClick={this.switchToListView}>List View</button></div>

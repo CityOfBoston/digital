@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@kadira/storybook';
+import svg4everybody from 'svg4everybody';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';
@@ -74,6 +75,8 @@ addDecorator((story) => {
     },
     cloudinary: {},
   };
+
+  svg4everybody();
 
   return (
     <Wrapper headManager={headManager}>

@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/no-danger: 0 */
 
 import React from 'react';
 import { computed } from 'mobx';
@@ -130,9 +131,15 @@ export default class LoadingBuildings extends React.Component {
 
     return (
       <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE} runOnMount>
-        <svg role="img" key={this.neighborhood} className={BUILDING_STYLE}>
-          <use xlinkHref={`${SPRITE_URL}#${this.neighborhood}`} height="100%" />
-        </svg>
+        {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
+        <svg
+          role="img"
+          key={this.neighborhood}
+          className={BUILDING_STYLE}
+          dangerouslySetInnerHTML={{
+            __html: `<use xlink:href="${SPRITE_URL}#${this.neighborhood}" height="100%"></use>`,
+          }}
+        />
       </VelocityTransitionGroup>
     );
   }

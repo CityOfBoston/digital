@@ -58,11 +58,7 @@ exports[`choose page rendering 1`] = `
               className="g--4 css-19eoixt"
             >
               <span
-                className={
-                  Object {
-                    "data-css-17mox4x": "",
-                  }
-                }
+                className="css-17mox4x"
               >
                 <svg
                   className={
@@ -70,24 +66,20 @@ exports[`choose page rendering 1`] = `
                       "data-css-1acy7qc": "",
                     }
                   }
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    }
+                  }
                   role="img"
-                >
-                  <use
-                    height="100%"
-                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                  />
-                </svg>
+                />
               </span>
             </div>
             <div
               className="g--4 css-19eoixt"
             >
               <span
-                className={
-                  Object {
-                    "data-css-17mox4x": "",
-                  }
-                }
+                className="css-17mox4x"
               >
                 <svg
                   className={
@@ -95,24 +87,20 @@ exports[`choose page rendering 1`] = `
                       "data-css-1acy7qc": "",
                     }
                   }
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    }
+                  }
                   role="img"
-                >
-                  <use
-                    height="100%"
-                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                  />
-                </svg>
+                />
               </span>
             </div>
             <div
               className="g--4 css-19eoixt"
             >
               <span
-                className={
-                  Object {
-                    "data-css-17mox4x": "",
-                  }
-                }
+                className="css-17mox4x"
               >
                 <svg
                   className={
@@ -120,13 +108,13 @@ exports[`choose page rendering 1`] = `
                       "data-css-1acy7qc": "",
                     }
                   }
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    }
+                  }
                   role="img"
-                >
-                  <use
-                    height="100%"
-                    xlinkHref="/static/img/svg/loading-icons.svg#311_icons_general_lighting_request"
-                  />
-                </svg>
+                />
               </span>
             </div>
           </div>

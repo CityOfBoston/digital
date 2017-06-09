@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/no-danger: 0 */
 
 import React from 'react';
 import { computed } from 'mobx';
@@ -166,10 +167,16 @@ export default class LoadingBuildings extends React.Component {
     const leave = reduceMotion ? FADE_OUT_ANIMATION : ROTATE_OUT_ANIMATION;
 
     return (
-      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE}>
-        <svg role="img" key={this.icon} className={ICON_STYLE}>
-          <use xlinkHref={`${SPRITE_URL}#${this.icon}`} height="100%" />
-        </svg>
+      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE.toString()}>
+        {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
+        <svg
+          role="img"
+          key={this.icon}
+          className={ICON_STYLE}
+          dangerouslySetInnerHTML={{
+            __html: `<use xlink:href="${SPRITE_URL}#${this.icon}" height="100%"></use>`,
+          }}
+        />
       </VelocityTransitionGroup>
     );
   }
