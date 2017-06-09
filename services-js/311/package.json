@@ -104,7 +104,7 @@
     "babel-watch": "^2.0.6",
     "cheerio": "^0.22.0",
     "codecov": "^2.1.0",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
