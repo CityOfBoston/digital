@@ -57,6 +57,7 @@
     "graphql-server-hapi": "^0.8.0",
     "graphql-tools": "^1.0.0",
     "hapi": "^16.1.1",
+    "http-status": "^1.0.1",
     "https-proxy-agent": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^3.1.9",
