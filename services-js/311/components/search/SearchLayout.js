@@ -89,12 +89,6 @@ const MAP_CONTAINER_STYLE = css({
   },
 });
 
-const RECENT_REQUESTS_CONTAINER_STYLE = css({
-  flex: 1,
-  display: 'flex',
-  flexDirection: 'column',
-});
-
 const FULL_MAP_CONTAINER_STYLE = css(MAP_CONTAINER_STYLE, {
   height: 'auto',
   flex: 1,
@@ -342,7 +336,7 @@ export default class SearchLayout extends React.Component {
             />
           </div>
 
-          {!mapView && <div className={RECENT_REQUESTS_CONTAINER_STYLE} ref={this.setContainer}><RecentRequests store={store} /></div> }
+          {!mapView && <div ref={this.setContainer}><RecentRequests store={store} /></div> }
 
           { mapView && (
             <div className="g p-a300"><button type="button" className="btn g--12" onClick={this.switchToListView}>List View</button></div>

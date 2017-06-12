@@ -20,9 +20,6 @@ if (typeof window !== 'undefined') {
 const CONTAINER_STYLE = css({
   background: 'white',
   position: 'relative',
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
 
   [MEDIA_LARGE]: {
     width: '40%',
@@ -41,15 +38,15 @@ const SEARCH_CONTAINER_STYLE = css({
   },
 });
 
+// While we would prefer to make this so that the loading spinner is vertically
+// centered in the height of the empty search results area, that runs afoul of
+// IE 10/11 flexbox behavior. To get the height of the empty area down to this
+// element we need to flex: 1 on the column, but those browsers won't let a
+// flex: 1 element grow its parent, so the column could never expand larger to
+// accommodate search results.
 const LOADING_CONTAINER_STYLE = css({
-  flex: 1,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-around',
+  marginTop: '10%',
   [MEDIA_LARGE]: {
-    // for IE, since the parent we're flexing to is only defined with
-    // min-height, IE won't grow to it.
-    flex: 'none',
     marginTop: '30%',
   },
 });
