@@ -7412,9 +7412,9 @@ react-hot-loader@3.0.0-beta.7:
     redbox-react "^1.3.6"
     source-map "^0.4.4"
 
-react-input-mask@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-0.8.0.tgz#c8243004f2a43a4b6d5add380f0a5d68d9be806f"
+react-input-mask@^0.9.0:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-0.9.1.tgz#13d72a667306c99a161399fc5e27a8c71945cb2a"
 
 react-inspector@^1.1.0:
   version "1.1.2"
