@@ -1,7 +1,7 @@
 class ConstituentMailer < ApplicationMailer
   def constituent_email(email)
     mail(
-      to: 'hi@hondo.co',
+      to: email[:to_address],
       from: email[:from_address],
       cc: email[:cc],
       bcc: email[:bcc],
