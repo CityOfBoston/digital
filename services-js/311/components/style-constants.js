@@ -30,3 +30,11 @@ export const CENTERED_DIALOG_STYLE = css({
     padding: '0 40px',
   },
 });
+
+export const CLEAR_FIX = {
+  '::after': {
+    content: '""',
+    display: 'table',
+    clear: 'both',
+  },
+};

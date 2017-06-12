@@ -10,23 +10,26 @@ import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';
 import type { SearchCase } from '../../data/types';
 
-import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW, GRAY_100 } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW, GRAY_100, CLEAR_FIX } from '../style-constants';
 
 const REQUEST_STYLE = css({
-  display: 'flex',
+  display: 'block',
   cursor: 'pointer',
   borderBottom: `1px dashed ${GRAY_100}`,
+  width: '100%',
+  float: 'left',
   ':last-child': {
     borderBottom: 'none',
   },
+  ...CLEAR_FIX,
 });
 
 const THUMBNAIL_SYLE = css({
   width: '4rem',
   height: '4rem',
   margin: '0 1rem 0 0',
-  flexShrink: 0,
   backgroundSize: 'cover',
+  float: 'left',
   [MEDIA_LARGE]: {
     width: '6rem',
     height: '6rem',
@@ -36,12 +39,13 @@ const THUMBNAIL_SYLE = css({
 const REQUEST_INFO_STYLE = css({
   height: '4rem',
   display: 'flex',
-  flex: 1,
+  marginLeft: '5rem',
   flexDirection: 'column',
   justifyContent: 'space-between',
   minWidth: 0,
   [MEDIA_LARGE]: {
     height: '6rem',
+    marginLeft: '7rem',
   },
 });
 

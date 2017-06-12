@@ -6,10 +6,27 @@ import React from 'react';
 import stylesheetHrefs from '../templates/stylesheets.json';
 
 export default function makeCss(css: ?string) {
+  const publicCssHref = stylesheetHrefs.find((href) => href.match(/public\.css/));
+  const otherCssHrefs = stylesheetHrefs.filter((href) => !href.match(/public\.css/));
+
   return [
-    ...stylesheetHrefs.map((href) => (
+    ...otherCssHrefs.map((href) => (
       <link href={href} key={href} type="text/css" rel="stylesheet" />
     )),
+
+    <head
+      key="conditional-style"
+      dangerouslySetInnerHTML={{
+        __html: `
+          <!--[if !IE]><!-->
+            <link href="${publicCssHref}" type="text/css" rel="stylesheet" />
+          <!--<![endif]-->
+          <!--[if lt IE 10]>
+            <script src="/static/vendor/ie9-polyfill.js"></script>
+            <link href="${publicCssHref.replace('public', 'ie')}" rel="stylesheet" type="text/css">
+          <![endif]-->`,
+      }}
+    />,
 
     <link key="mapbox" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />,
     <link key="mapbox-gl" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css" rel="stylesheet" />,

@@ -9,7 +9,7 @@ exports[`choose page rendering 1`] = `
   }
 >
   <div
-    className=" br br-t400 br--y css-1c1v7yi"
+    className=" br br-t400 br--y css-1aypqv0"
     style={
       Object {
         "maxWidth": 800,
@@ -134,7 +134,7 @@ exports[`home page rendering 1`] = `
   }
 >
   <div
-    className=" br br-t400 br--y css-1c1v7yi"
+    className=" br br-t400 br--y css-1aypqv0"
     style={Object {}}
   >
     <div>

@@ -5,11 +5,14 @@ const fs = require('fs');
 const gulp = require('gulp');
 const ignore = require('gulp-ignore');
 const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 const svgSprite = require('gulp-svg-sprite');
 const path = require('path');
 
 const del = require('del');
 const plumber = require('gulp-plumber');
+const pump = require('pump');
 const exec = require('child_process').exec;
 
 const IGNORED_JS_SOURCE = ['**/__mocks__', '**/*.test.js'];
@@ -73,6 +76,18 @@ gulp.task('next:compile', ['clean:next'], (cb) => {
   });
 });
 
+gulp.task('vendor', (cb) => {
+  pump([
+    gulp.src([
+      'node_modules/html5-history-api/history.js',
+      'node_modules/classlist-polyfill/src/index.js',
+    ]),
+    uglify(),
+    concat('ie9-polyfill.js'),
+    gulp.dest('static/vendor'),
+  ], cb);
+});
+
 gulp.task('templates:fetch', (cb) => {
   exec(`${path.join('node_modules', '.bin', 'babel-node')} ${path.join('.', 'scripts', 'fetch-templates')}`, (err, stdout, stderr) => {
     if (stdout) console.log(stdout);
@@ -106,5 +121,5 @@ gulp.task('watch:graphql', () => [
 ]);
 
 // TODO(finh): restore pulling templates at this step
-gulp.task('build', ['babel:server', 'next:compile']);
+gulp.task('build', ['babel:server', 'next:compile', 'vendor']);
 gulp.task('watch', ['watch:graphql', 'watch:sprite']);

@@ -1,0 +1,1 @@
+If you're getting 404s for things in this directory, run `gulp vendor`

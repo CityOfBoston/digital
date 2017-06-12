@@ -49,6 +49,8 @@ export type Props = {|
 
 const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',
+  position: 'relative',
+  zIndex: 2,
 };
 
 export const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {

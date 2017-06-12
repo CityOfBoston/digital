@@ -3,7 +3,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import { MEDIA_LARGE, HEADER_HEIGHT } from '../style-constants';
+import { MEDIA_LARGE, HEADER_HEIGHT, CLEAR_FIX } from '../style-constants';
 
 export const MAX_WIDTH = 1300;
 
@@ -20,6 +20,7 @@ const DIALOG_STYLE = css({
     margin: '2rem auto',
     minHeight: 'auto',
   },
+  ...CLEAR_FIX,
 });
 
 type Props = {|

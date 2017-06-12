@@ -4,7 +4,7 @@ exports[`rendering results loaded 1`] = `
 <div
   className={
     Object {
-      "data-css-hrpe2f": "",
+      "data-css-1q78t83": "",
     }
   }
 >
@@ -46,7 +46,7 @@ exports[`rendering results loaded 1`] = `
     Search Results
   </h2>
   <a
-    className="p-a300 br css-1d0pha"
+    className="p-a300 br css-1vruwkh"
     data-request-id="17-000000001"
     href="/case/17-000000001"
     onClick={[Function]}
@@ -62,7 +62,7 @@ exports[`rendering results loaded 1`] = `
     <div
       className={
         Object {
-          "data-css-1bo6x5a": "",
+          "data-css-1vs5gdh": "",
         }
       }
       style={
@@ -74,7 +74,7 @@ exports[`rendering results loaded 1`] = `
       <div
         className={
           Object {
-            "data-css-1bo6x5a": "",
+            "data-css-1vs5gdh": "",
           }
         }
         style={
@@ -87,7 +87,7 @@ exports[`rendering results loaded 1`] = `
     <div
       className={
         Object {
-          "data-css-10itrk": "",
+          "data-css-1abryh3": "",
         }
       }
     >
@@ -137,7 +137,7 @@ exports[`rendering with request selected 1`] = `
 <div
   className={
     Object {
-      "data-css-hrpe2f": "",
+      "data-css-1q78t83": "",
     }
   }
 >
@@ -179,7 +179,7 @@ exports[`rendering with request selected 1`] = `
     Search Results
   </h2>
   <a
-    className="p-a300 br css-1d0pha"
+    className="p-a300 br css-1vruwkh"
     data-request-id="17-000000001"
     href="/case/17-000000001"
     onClick={[Function]}
@@ -195,7 +195,7 @@ exports[`rendering with request selected 1`] = `
     <div
       className={
         Object {
-          "data-css-1bo6x5a": "",
+          "data-css-1vs5gdh": "",
         }
       }
       style={
@@ -207,7 +207,7 @@ exports[`rendering with request selected 1`] = `
       <div
         className={
           Object {
-            "data-css-1bo6x5a": "",
+            "data-css-1vs5gdh": "",
           }
         }
         style={
@@ -220,7 +220,7 @@ exports[`rendering with request selected 1`] = `
     <div
       className={
         Object {
-          "data-css-10itrk": "",
+          "data-css-1abryh3": "",
         }
       }
     >

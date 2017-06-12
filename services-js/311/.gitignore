@@ -12,6 +12,7 @@
 /server.csr
 
 /build
+/static/vendor
 /node_modules
 /coverage
 /newrelic_agent.log

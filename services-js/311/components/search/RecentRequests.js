@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../data/store';
-import { HEADER_HEIGHT, MEDIA_LARGE, GRAY_100 } from '../style-constants';
+import { HEADER_HEIGHT, MEDIA_LARGE, GRAY_100, CLEAR_FIX } from '../style-constants';
 
 import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
@@ -28,6 +28,8 @@ const CONTAINER_STYLE = css({
     // a little slop because of the sticky header.
     minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
   },
+
+  ...CLEAR_FIX,
 });
 
 const SEARCH_CONTAINER_STYLE = css({
