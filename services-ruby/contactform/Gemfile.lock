@@ -83,12 +83,22 @@ GEM
       thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    griddler (1.4.0)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-postmark (1.0.0)
+      griddler
+    htmlentities (4.3.4)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.8.1)
     jbuilder (2.6.4)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -225,8 +235,10 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   foreman
+  griddler-postmark
   httparty
   jbuilder (~> 2.5)
+  letter_opener
   listen (>= 3.0.5, < 3.2)
   pg
   pry-rails

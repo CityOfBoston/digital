@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :subscriptions
   resources :emails
 
+  mount_griddler('/inbound')
+
   require "sidekiq/web"
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV["SIDEKIQ_USERNAME"])) &
