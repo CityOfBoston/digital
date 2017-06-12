@@ -2546,7 +2546,7 @@ del@2.2.2, del@^2.0.2, del@^2.2.0:
     pinkie-promise "^2.0.0"
     rimraf "^2.2.8"
 
-del@3.0.0:
+del@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/del/-/del-3.0.0.tgz#53ecf699ffcbcb39637691ab13baf160819766e5"
   dependencies:
@@ -5765,9 +5765,9 @@ mapbox-gl-supported@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mapbox-gl-supported/-/mapbox-gl-supported-1.2.0.tgz#cbd34df894206cadda9a33c8d9a4609f26bb1989"
 
-mapbox-gl@^0.37.0:
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.37.0.tgz#20103b0ae73a0e77fe9405439749318b87c04f10"
+mapbox-gl@^0.38.0:
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.38.0.tgz#64731bb55eabdaa520270815175fcf31e5a3cd80"
   dependencies:
     "@mapbox/gl-matrix" "^0.0.1"
     "@mapbox/shelf-pack" "^3.0.0"
