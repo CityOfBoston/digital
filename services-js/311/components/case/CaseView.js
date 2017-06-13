@@ -108,9 +108,11 @@ export default function CaseView({ request, store, submitted }: Props) {
           </div>
         }
 
-        <div className="g--6">
-          { request.mediaUrl && <a href={request.mediaUrl} target="_blank" rel="noopener noreferrer"><img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} alt="Submission" src={request.mediaUrl} /></a> }
-        </div>
+        { request.mediaUrl &&
+          <div className="g--6">
+            <a href={request.mediaUrl} target="_blank" rel="noopener noreferrer"><img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} alt="Submission" src={request.mediaUrl} /></a>
+          </div>
+        }
       </div>
     </div>
   );

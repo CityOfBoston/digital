@@ -12,6 +12,7 @@ const CONTAINER_STYLE = css({
   alignItems: 'stretch',
   boxSizing: 'content-box',
   height: '4.5rem',
+  minWidth: '50vw',
   padding: '0.5rem',
 });
 

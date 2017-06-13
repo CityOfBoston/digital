@@ -9,7 +9,7 @@ import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
 
 import { LocationMapWithLibrary } from '../../map/LocationMap';
-import { MEDIA_LARGE } from '../../style-constants';
+import { MEDIA_LARGE, HEADER_HEIGHT } from '../../style-constants';
 
 // On large screen sizes below, the location picker is in a little
 // dialog that floats over the map. We let it size itself automatically
@@ -25,8 +25,11 @@ const CONTENT_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-  flex: 1,
+  // We can't flex: 1 to the min-height of the mobile FormDialog in IE
+  // 0.44rem is the border top of the dialog
+  height: `calc(100vh - ${HEADER_HEIGHT}px - 0.44rem)`,
   [MEDIA_LARGE]: {
+    height: 'auto',
     flex: 'none',
   },
 });
@@ -181,7 +184,7 @@ export default class LocationPopUp extends React.Component {
             <div className="sf-i">
               <input
                 className="sf-i-f"
-                onInput={this.whenSearchInput}
+                onChange={this.whenSearchInput}
                 value={this.addressQuery}
                 ref={this.setSearchField}
                 aria-label="Address search field"

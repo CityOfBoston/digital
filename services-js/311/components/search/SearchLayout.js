@@ -56,6 +56,10 @@ const CONTAINER_STYLE = css({
   },
 });
 
+const CONTAINER_FULL_MAP_STYLE = css(CONTAINER_STYLE, {
+  height: `calc(100vh - ${HEADER_HEIGHT}px - ${IPHONE_FOOTER_HEIGHT}px)`,
+});
+
 const SEARCH_CONTAINER_STYLE = css({
   display: 'block',
   height: SEARCH_HEIGHT,
@@ -321,7 +325,7 @@ export default class SearchLayout extends React.Component {
 
         <Nav activeSection="search" />
 
-        <div className={CONTAINER_STYLE.toString()} style={{ backgroundColor: 'transparent' }} role="main">
+        <div className={mapView ? CONTAINER_FULL_MAP_STYLE.toString() : CONTAINER_STYLE.toString()} style={{ backgroundColor: 'transparent' }} role="main">
           <div className={`p-a300 ${SEARCH_CONTAINER_STYLE.toString()}`}>
             <RecentRequestsSearchForm requestSearch={requestSearch} />
           </div>

@@ -921,7 +921,7 @@ exports[`existing service page rendering phone location step 1`] = `
         <div
           className={
             Object {
-              "data-css-3tah3k": "",
+              "data-css-1wu02iq": "",
             }
           }
         >
@@ -939,7 +939,7 @@ exports[`existing service page rendering phone location step 1`] = `
                 <input
                   aria-label="Address search field"
                   className="sf-i-f"
-                  onInput={[Function]}
+                  onChange={[Function]}
                   placeholder="Search for a street address or intersection…"
                   type="text"
                   value=""

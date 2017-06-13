@@ -4,7 +4,7 @@ exports[`rendering renders a map on a small screen 1`] = `
 <div
   className={
     Object {
-      "data-css-3tah3k": "",
+      "data-css-1wu02iq": "",
     }
   }
 >
@@ -25,7 +25,7 @@ exports[`rendering renders a map on a small screen 1`] = `
         <input
           aria-label="Address search field"
           className="sf-i-f"
-          onInput={[Function]}
+          onChange={[Function]}
           placeholder="Search address or intersection…"
           type="text"
           value=""
@@ -80,7 +80,7 @@ exports[`rendering renders with an address 1`] = `
 <div
   className={
     Object {
-      "data-css-3tah3k": "",
+      "data-css-1wu02iq": "",
     }
   }
 >
@@ -98,7 +98,7 @@ exports[`rendering renders with an address 1`] = `
         <input
           aria-label="Address search field"
           className="sf-i-f"
-          onInput={[Function]}
+          onChange={[Function]}
           placeholder="Search for a street address or intersection…"
           type="text"
           value=""
@@ -153,7 +153,7 @@ exports[`rendering renders without an address 1`] = `
 <div
   className={
     Object {
-      "data-css-3tah3k": "",
+      "data-css-1wu02iq": "",
     }
   }
 >
@@ -171,7 +171,7 @@ exports[`rendering renders without an address 1`] = `
         <input
           aria-label="Address search field"
           className="sf-i-f"
-          onInput={[Function]}
+          onChange={[Function]}
           placeholder="Search for a street address or intersection…"
           type="text"
           value=""
