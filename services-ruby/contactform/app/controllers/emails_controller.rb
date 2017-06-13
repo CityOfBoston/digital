@@ -5,7 +5,7 @@ class EmailsController < ApplicationController
     @email.sent = DateTime.now.utc
 
     if @email.save
-      ContactMailer.city_email(@email).deliver_later 
+      ContactMailer.city_email(@email).deliver_later
       render :json => {email: @email.id}
     else
       render :json => {errors: @email.errors}
@@ -15,6 +15,6 @@ class EmailsController < ApplicationController
   private
 
   def email_params
-    params.require(:email).permit(:email, :message, :subject, :browser, :url, :from_address, :to_address)
+    params.require(:email).permit(:name, :email, :message, :subject, :browser, :url, :from_address, :to_address)
   end
 end
