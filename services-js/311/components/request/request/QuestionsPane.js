@@ -149,7 +149,7 @@ export default class QuestionsPane extends React.Component {
           <div className="g--7 m-v500">
             <div className="txt" >
               <label className="txt-l" htmlFor="QuestionsPane-description" style={{ marginTop: 0 }}>Description</label>
-              <textarea name="description" id="QuestionsPane-description" className="txt-f" value={description} placeholder="Please describe your request" onInput={this.handleUpdateDescription} rows="5" />
+              <textarea name="description" id="QuestionsPane-description" className="txt-f" value={description} placeholder="Please describe your request" onChange={this.handleUpdateDescription} rows="5" />
             </div>
 
             { questionsEls }
