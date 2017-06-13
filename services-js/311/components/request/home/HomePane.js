@@ -14,7 +14,7 @@ import Router from 'next/router';
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
 
-import { MEDIA_LARGE } from '../../style-constants';
+import { MEDIA_LARGE, CLEAR_FIX } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 
@@ -46,6 +46,11 @@ const OR_RULE_STYLE = css({
   borderColor: '#828282',
   borderRightWidth: 0,
   borderBottomWidth: 0,
+  [MEDIA_LARGE]: {
+    width: 0,
+    minHeight: '6rem',
+    margin: '0 auto',
+  },
 });
 
 const OR_CIRCLE_SYTLE = css({
@@ -62,12 +67,15 @@ const SEARCH_CONTAINER_STYLE = css({
   display: 'none',
   [MEDIA_LARGE]: {
     display: 'block',
+    clear: 'both',
+    ...CLEAR_FIX,
   },
 });
 
 const BROWSE_CASES_STYLE = css({
   display: 'flex',
   alignItems: 'center',
+  margin: '1rem 0',
 });
 
 export type Props = {|
