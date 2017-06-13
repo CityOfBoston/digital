@@ -214,8 +214,20 @@ export default class RequestDialog extends React.Component {
       questions,
       mediaUrl,
     }).then((v) => {
+      // upload was successful, so clear out previous request state
       this.requestForm = new RequestForm(service);
       return v;
+    }, (err) => {
+      /* eslint-disable no-underscore-dangle */
+      if (window._opbeat) {
+        window._opbeat('captureException', err);
+        err._sentToOpbeat = true;
+      }
+      /* eslint-enable no-underscore-dangle */
+
+      // This exception is ultimately "caught" by the requestSubmission fromPromise
+      // mobx handler.
+      throw err;
     });
 
     this.requestSubmission = fromPromise(promise);

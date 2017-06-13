@@ -40,8 +40,10 @@ export default function SubmitPane(props: Props) {
       return (
         <div>
           <SectionHeader>Submission Error</SectionHeader>
-          { Array.isArray(error.errors) && error.errors.map((e, i) => <p key={i}>{e.message}</p>) }
-          { !Array.isArray(error.errors) && (error.message ? error.message : error.toString()) }
+          <div className="m-v500 t--info">
+            { Array.isArray(error.errors) && error.errors.map((e, i) => <p key={i}>{e.message}</p>) }
+            { !Array.isArray(error.errors) && (error.message ? error.message : error.toString()) }
+          </div>
         </div>
       );
     }
