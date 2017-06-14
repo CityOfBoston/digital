@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- '8.1.0'
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+script:
+- yarn test-ci
+- yarn codecov
+after_script: greenkeeper-lockfile-upload
