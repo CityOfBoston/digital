@@ -12,13 +12,6 @@ class ContactMailer < ApplicationMailer
   private
 
   def get_reply_to(email)
-    domain = Mail::Address.new(email.to_address).domain
-    allowed_hosts = ENV['ALLOWED_EMAIL_HOSTS'].split(/\s*,\s*/)
-
-    if allowed_hosts.include?(domain)
-      return "#{email.token}@#{ENV['EMAIL_HOST']}"
-    else
-      return email.to_address
-    end
+    return "#{email.token}@#{ENV['EMAIL_HOST']}"
   end
 end
