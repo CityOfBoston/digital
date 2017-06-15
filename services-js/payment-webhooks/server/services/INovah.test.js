@@ -20,6 +20,8 @@ const FAKE_SECURITY_KEY = '853bc748-e355-48b5-8e16-990ce2d62c80';
 // soap-stub assumes Sinon mocks
 const clientStub: INovahClient = {
   describe: sinon.stub(),
+  AddTransaction: sinon.stub(),
+  PerformInquiry: sinon.stub(),
   RegisterSecurityKey: sinon.stub(),
 };
 

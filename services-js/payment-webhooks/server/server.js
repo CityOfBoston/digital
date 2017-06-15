@@ -70,6 +70,17 @@ export function makeServer({opbeat}: ServerArgs) {
 
   server.route({
     method: 'GET',
+    path: '/describe',
+    handler: async (request, reply) => {
+      const iNovah = makeINovah();
+      const description = await iNovah.describe();
+
+      reply(JSON.stringify(description, null, 2)).type('text/plain');
+    },
+  });
+
+  server.route({
+    method: 'GET',
     path: '/login',
     handler: async (request, reply) => {
       const iNovah = makeINovah();
@@ -79,6 +90,27 @@ export function makeServer({opbeat}: ServerArgs) {
     },
   });
 
+  server.route({
+    method: 'GET',
+    path: '/payment',
+    handler: async (request, reply) => {
+      const iNovah = makeINovah();
+      const output = await iNovah.addTransaction('Cashier', 15);
+
+      reply(output).type('text/plain');
+    },
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/inquire/{origin}',
+    handler: async (request, reply) => {
+      const iNovah = makeINovah();
+      const output = await iNovah.inquire(request.params.origin);
+
+      reply(output).type('text/plain');
+    },
+  });
   return {server, startup};
 }
 

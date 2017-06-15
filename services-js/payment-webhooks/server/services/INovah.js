@@ -17,31 +17,75 @@ export type RegisterSecurityKeyInput = {|
   'strPassword': string,
 |};
 
-export type RegisterSecurtyKeyOutput = {|
-  RegisterSecurityKeyResult: {|
-    StandardResult: {|
-      Result:
-        | {|
-            ReturnCode: 'Failure',
-            ErrorType: string,
-            ShortErrorMessage: string,
-            LongErrorMessage: string,
-            StatusInfo: null,
-          |}
-        | {|
-            ReturnCode: 'Success',
-            ErrorType: string,
-            ShortErrorMessage: null,
-            LongErrorMessage: null,
-            StatusInfo: string,
-            SecurityKey: string,
-          |},
-    |},
+export type StandardResult<R> = {|
+  StandardResult: {|
+    Result: FailureResult | R,
   |},
+|};
+
+export type FailureResult = {|
+  ReturnCode: 'Failure',
+  ErrorType: string,
+  ShortErrorMessage: string,
+  LongErrorMessage: string,
+  StatusInfo: null,
+|};
+
+export type SuccessResult = {|
+  ReturnCode: 'Success',
+  ErrorType: string,
+  ShortErrorMessage: null,
+  LongErrorMessage: null,
+  StatusInfo: string,
+|};
+
+export type AddTransactionInput = {|
+  strSecurityKey: string,
+  strPaymentOrigin: string,
+  xmlTransaction: Object,
+|};
+
+export type AddTransactionResult = {|
+  ...SuccessResult,
+|};
+
+export type AddTransactionOutput = {|
+  AddTransactionResult: StandardResult<AddTransactionResult>,
+|};
+
+export type PerformInquiryInput = {|
+  strSecurityKey: string,
+  strPaymentOrigin: string,
+  xmlTransaction: Object,
+|};
+
+export type PerformInquiryResult = {|
+  ...SuccessResult,
+|};
+
+export type PerformInquiryOutput = {|
+  PerformInquiryResult: StandardResult<PerformInquiryResult>,
+|};
+
+export type RegisterSecurityKeyResult = {|
+  ...SuccessResult,
+  SecurityKey: string,
+|};
+
+export type RegisterSecurtyKeyOutput = {|
+  RegisterSecurityKeyResult: StandardResult<RegisterSecurityKeyResult>,
 |};
 
 export interface INovahClient {
   describe(): Object,
+  AddTransaction(
+    input: AddTransactionInput,
+    cb: SoapCallback<AddTransactionOutput>,
+  ): void,
+  PerformInquiry(
+    input: PerformInquiryInput,
+    cb: SoapCallback<PerformInquiryOutput>,
+  ): void,
   RegisterSecurityKey(
     input: RegisterSecurityKeyInput,
     cb: SoapCallback<RegisterSecurtyKeyOutput>,
@@ -81,7 +125,8 @@ export default class INovah {
   makeClient(): Promise<INovahClient> {
     const wsdlUrl = `${this.endpoint}?WSDL`;
     return new Promise((resolve, reject) => {
-      soap.createClient(wsdlUrl, {}, (err, client) => {
+      const options = {connection: 'keep-alive'};
+      soap.createClient(wsdlUrl, options, (err, client) => {
         if (err) {
           reject(err);
         } else {
@@ -91,9 +136,12 @@ export default class INovah {
     });
   }
 
-  async registerSecurityKey(): Promise<string> {
+  async describe(): Promise<Object> {
     const client = await this.makeClient();
+    return client.describe();
+  }
 
+  getSecurityKey(client: INovahClient): Promise<string> {
     return new Promise((resolve, reject) => {
       client.RegisterSecurityKey(
         {
@@ -116,6 +164,73 @@ export default class INovah {
                 resolve(result.SecurityKey);
                 break;
             }
+          }
+        },
+      );
+    });
+  }
+
+  async registerSecurityKey(): Promise<string> {
+    return this.getSecurityKey(await this.makeClient());
+  }
+
+  async inquire(paymentOrigin: string): Promise<string> {
+    const client = await this.makeClient();
+    const securityKey = await this.getSecurityKey(client);
+
+    return new Promise((resolve, reject) => {
+      client.PerformInquiry(
+        {
+          strSecurityKey: securityKey,
+          strPaymentOrigin: paymentOrigin,
+          xmlTransaction: {
+            Transaction: {
+              TransactionNum: '3',
+            },
+          },
+        },
+        (err, output: PerformInquiryOutput) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(JSON.stringify(output, null, 2));
+          }
+        },
+      );
+    });
+  }
+
+  async addTransaction(paymentOrigin: string, amount: number): Promise<string> {
+    const client = await this.makeClient();
+    const securityKey = await this.getSecurityKey(client);
+
+    return new Promise((resolve, reject) => {
+      client.AddTransaction(
+        {
+          strSecurityKey: securityKey,
+          strPaymentOrigin: paymentOrigin,
+          xmlTransaction: {
+            Transaction: {
+              Payment: {
+                PaymentCode: 'REG13',
+                AccountNumber: '111111111',
+                PaymentAllocation: {
+                  AllocationCode: 'REG13',
+                  Amount: amount,
+                },
+              },
+              Tender: {
+                TenderCode: 'CASH',
+                Amount: amount,
+              },
+            },
+          },
+        },
+        (err, output: AddTransactionOutput) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(JSON.stringify(output, null, 2));
           }
         },
       );
