@@ -44,7 +44,8 @@
     "good-squeeze": "^5.0.2",
     "hapi": "^16.4.3",
     "node-cleanup": "^2.1.2",
-    "opbeat": "^4.14.0"
+    "opbeat": "^4.14.0",
+    "soap": "^0.19.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -65,6 +66,7 @@
     "husky": "^0.13.4",
     "jest": "^20.0.4",
     "lint-staged": "^3.6.1",
-    "prettier": "^1.4.4"
+    "prettier": "^1.4.4",
+    "sinon": "^2.3.4"
   }
 }

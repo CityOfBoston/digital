@@ -5,6 +5,8 @@ import Hapi from 'hapi';
 import Good from 'good';
 import cleanup from 'node-cleanup';
 
+import INovah from './services/INovah';
+
 type Opbeat = $Exports<'opbeat'>;
 
 type ServerArgs = {
@@ -13,7 +15,6 @@ type ServerArgs = {
 
 const port = parseInt(process.env.PORT || '5000', 10);
 
-// eslint-disable-next-line no-unused-vars
 export function makeServer({opbeat}: ServerArgs) {
   const server = new Hapi.Server();
   server.connection({port}, '0.0.0.0');
@@ -53,10 +54,29 @@ export function makeServer({opbeat}: ServerArgs) {
     });
   }
 
+  const makeINovah = () =>
+    new INovah(
+      process.env.INOVAH_ENDPOINT,
+      process.env.INOVAH_USERNAME,
+      process.env.INOVAH_PASSWORD,
+      opbeat,
+    );
+
   server.route({
     method: 'GET',
     path: '/admin/ok',
     handler: (request, reply) => reply('ok'),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/login',
+    handler: async (request, reply) => {
+      const iNovah = makeINovah();
+      const key = await iNovah.registerSecurityKey();
+
+      reply(key);
+    },
   });
 
   return {server, startup};
