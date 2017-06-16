@@ -64,6 +64,14 @@ type PaymentAllocation = {|
 type PaymentIn = {|
   PaymentCode: string,
   PaymentAllocation: PaymentAllocationIn,
+  LastName?: string,
+  City?: string,
+  State?: string,
+  PaymentCustom?: {|
+    AddressLine1?: string,
+    AddressLine2?: string,
+    AddressLine3?: string,
+  |},
 |};
 
 type Payment = {|
@@ -358,6 +366,12 @@ export default class INovah {
                 PaymentAllocation: {
                   AllocationCode: 'REG13',
                   Amount: amount.toFixed(4),
+                },
+                LastName: 'DANVERS, CAROL',
+                City: 'Boston',
+                State: 'MA',
+                PaymentCustom: {
+                  AddressLine1: '123 Marvel St',
                 },
               },
               Tender: {
