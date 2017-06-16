@@ -13,7 +13,8 @@ class EmailProcessor
         :cc => get_emails(@email.cc),
         :bcc => get_emails(@email.bcc),
         :subject => @email.subject,
-        :body => @email.raw_body
+        :body => @email.raw_body,
+        :token => get_token(@email.to)
       }
 
       if is_allowed_host?
@@ -25,6 +26,18 @@ class EmailProcessor
   end
 
   private
+
+  def get_token(addresses)
+    token = nil
+
+    addresses.each do |address|
+      if address[:host] == ENV['EMAIL_HOST']
+        token = address[:token]
+      end
+    end
+
+    token
+  end
 
   def get_emails(addresses)
     address_array = []
