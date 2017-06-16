@@ -32,7 +32,7 @@ class EmailProcessor
     attachments = nil
 
     unless email.attachments.nil?
-      attachments.each do |attachment|
+      email.attachments.each do |attachment|
         attachments << {
           :name => attachment.name,
           :content_type => attachment.content_type,
