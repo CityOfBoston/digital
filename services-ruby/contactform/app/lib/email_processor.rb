@@ -13,7 +13,7 @@ class EmailProcessor
         :cc => get_emails(@email.cc),
         :bcc => get_emails(@email.bcc),
         :subject => @email.subject,
-        :body => @email.raw_body,
+        :body => @email.body,
         :token => get_token(@email.to)
       }
 
