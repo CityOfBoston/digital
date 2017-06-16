@@ -18,6 +18,6 @@ class ContactMailer < ApplicationMailer
   end
 
   def get_reply_to(email)
-    return "#{email.token}@#{ENV['EMAIL_HOST']}, #{@email.from_address}"
+    return "#{@email.from_address}; #{email.token}@#{ENV['EMAIL_HOST']}"
   end
 end
