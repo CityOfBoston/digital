@@ -28,22 +28,6 @@ class EmailProcessor
 
   private
 
-  def get_attachments(email)
-    attachments = nil
-
-    unless email.attachments.nil?
-      email.attachments.each do |attachment|
-        attachments << {
-          :name => attachment.name,
-          :content_type => attachment.content_type,
-          :content => attachment.content
-        }
-      end
-    end
-
-    attachments
-  end
-
   def get_token(addresses)
     token = nil
 

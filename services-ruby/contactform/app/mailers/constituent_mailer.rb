@@ -1,14 +1,5 @@
 class ConstituentMailer < ApplicationMailer
   def constituent_email(email)
-    unless email[:attachments].nil?
-      email[:attachments].each do |attachment|
-        attachments[attachment[:name]] = {
-          mime_type: attachment[:content_type],
-          content: attachment[:content]
-        }
-      end
-    end
-
     mail(
       to: email[:to_address],
       from: get_from(email),
