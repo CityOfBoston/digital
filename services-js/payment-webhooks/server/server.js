@@ -59,6 +59,7 @@ export function makeServer({opbeat}: ServerArgs) {
       process.env.INOVAH_ENDPOINT,
       process.env.INOVAH_USERNAME,
       process.env.INOVAH_PASSWORD,
+      process.env.INOVAH_PAYMENT_ORIGIN,
       opbeat,
     );
 
@@ -95,22 +96,12 @@ export function makeServer({opbeat}: ServerArgs) {
     path: '/payment',
     handler: async (request, reply) => {
       const iNovah = makeINovah();
-      const output = await iNovah.addTransaction('Cashier', 15);
+      const transactionId = await iNovah.addTransaction(15);
 
-      reply(output).type('text/plain');
+      reply(`Transaction ID: ${transactionId}`).type('text/plain');
     },
   });
 
-  server.route({
-    method: 'GET',
-    path: '/inquire/{origin}',
-    handler: async (request, reply) => {
-      const iNovah = makeINovah();
-      const output = await iNovah.inquire(request.params.origin);
-
-      reply(output).type('text/plain');
-    },
-  });
   return {server, startup};
 }
 
