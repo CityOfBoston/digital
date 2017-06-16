@@ -12,7 +12,7 @@ class CreateEmails < ActiveRecord::Migration[5.1]
       t.string :ip
       t.time :sent
       t.time :replied
-      t.time :response_time
+      t.float :response_time
 
       t.timestamps
     end
