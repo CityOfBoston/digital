@@ -14,7 +14,8 @@ class EmailProcessor
         :bcc => get_emails(@email.bcc),
         :subject => @email.subject,
         :body => @email.body,
-        :token => get_token(@email.to)
+        :token => get_token(@email.to),
+        :attachments => get_attachments(@email)
       }
 
       if is_allowed_host?
@@ -26,6 +27,22 @@ class EmailProcessor
   end
 
   private
+
+  def get_attachments(email)
+    attachments = nil
+
+    unless email.attachments.nil?
+      attachments.each do |attachment|
+        attachments << {
+          :name => attachment.name,
+          :content_type => attachment.content_type,
+          :content => attachment.content
+        }
+      end
+    end
+
+    attachments
+  end
 
   def get_token(addresses)
     token = nil
