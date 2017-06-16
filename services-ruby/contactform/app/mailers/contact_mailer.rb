@@ -1,11 +1,13 @@
 class ContactMailer < ApplicationMailer
   def city_email(email)
+    @email = email
+
     mail(
-      to: email.to_address,
-      from: get_reply_to(email),
-      reply_to: get_reply_to(email),
-      subject: email.subject,
-      body: email.message
+      to: @email.to_address,
+      from: get_reply_to(@email),
+      reply_to: get_reply_to(@email),
+      subject: @email.subject,
+      message: @email.message
     )
   end
 
