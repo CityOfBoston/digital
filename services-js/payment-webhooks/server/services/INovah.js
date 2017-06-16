@@ -12,11 +12,6 @@ export type SoapCallback<T> = (
   soapHeader: Object,
 ) => void;
 
-export type RegisterSecurityKeyInput = {|
-  'strSignOnUserName': string,
-  'strPassword': string,
-|};
-
 export type StandardResult<R> = {|
   StandardResult: {|
     Result: FailureResult | R,
@@ -204,6 +199,11 @@ export type AddTransactionOutput = {|
   AddTransactionResult: StandardResult<AddTransactionResult>,
 |};
 
+export type RegisterSecurityKeyInput = {|
+  'strSignOnUserName': string,
+  'strPassword': string,
+|};
+
 export type RegisterSecurityKeyResult = {|
   ...SuccessResult,
   SecurityKey: string,
@@ -211,6 +211,24 @@ export type RegisterSecurityKeyResult = {|
 
 export type RegisterSecurtyKeyOutput = {|
   RegisterSecurityKeyResult: StandardResult<RegisterSecurityKeyResult>,
+|};
+
+export type VoidTransactionInput = {|
+  strSecurityKey: string,
+  strTransactionID: string,
+  strAdjustmentReason: string,
+|};
+
+export type VoidTransactionResult = {|
+  ...SuccessResult,
+  TransactionData: null,
+  VoidTransactionData: null,
+  VoidingTransactionData: null,
+  UnvoidedCreditCards: 'true' | 'false',
+|};
+
+export type VoidTransactionOutput = {|
+  VoidTransactionResult: StandardResult<VoidTransactionResult>,
 |};
 
 export interface INovahClient {
@@ -222,6 +240,10 @@ export interface INovahClient {
   RegisterSecurityKey(
     input: RegisterSecurityKeyInput,
     cb: SoapCallback<RegisterSecurtyKeyOutput>,
+  ): void,
+  VoidTransaction(
+    input: VoidTransactionInput,
+    cb: SoapCallback<VoidTransactionOutput>,
   ): void,
 }
 
@@ -358,6 +380,38 @@ export default class INovah {
 
               case 'Success':
                 resolve(result.PaymentBatch.Transaction.TransactionID);
+                break;
+            }
+          }
+        },
+      );
+    });
+  }
+
+  async voidTransaction(transactionId: string): Promise<boolean> {
+    const client = await this.makeClient();
+    const securityKey = await this.getSecurityKey(client);
+
+    return new Promise((resolve, reject) => {
+      client.VoidTransaction(
+        {
+          strSecurityKey: securityKey,
+          strTransactionID: transactionId,
+          strAdjustmentReason: 'refund',
+        },
+        (err, output: VoidTransactionOutput) => {
+          if (err) {
+            reject(err);
+          } else {
+            const result = output.VoidTransactionResult.StandardResult.Result;
+
+            switch (result.ReturnCode) {
+              case 'Failure':
+                reject(Boom.badData(result.LongErrorMessage));
+                break;
+
+              case 'Success':
+                resolve(true);
                 break;
             }
           }

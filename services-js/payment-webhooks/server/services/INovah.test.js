@@ -8,6 +8,7 @@ import type {
   INovahClient,
   AddTransactionOutput,
   RegisterSecurtyKeyOutput,
+  VoidTransactionOutput,
 } from './INovah';
 
 jest.mock('soap', () => {
@@ -28,6 +29,7 @@ const clientStub: INovahClient = {
   describe: sinon.stub(),
   AddTransaction: sinon.stub(),
   RegisterSecurityKey: sinon.stub(),
+  VoidTransaction: sinon.stub(),
 };
 
 clientStub.AddTransaction.respondWithSuccess = soapStub.createRespondingStub(
@@ -165,6 +167,26 @@ clientStub.RegisterSecurityKey.respondWithFailure = soapStub.createRespondingStu
   }: RegisterSecurtyKeyOutput),
 );
 
+clientStub.VoidTransaction.respondWithSuccess = soapStub.createRespondingStub(
+  ({
+    VoidTransactionResult: {
+      StandardResult: {
+        Result: {
+          ReturnCode: 'Success',
+          ErrorType: 'None',
+          ShortErrorMessage: null,
+          LongErrorMessage: null,
+          StatusInfo: null,
+          TransactionData: null,
+          VoidTransactionData: null,
+          VoidingTransactionData: null,
+          UnvoidedCreditCards: 'false',
+        },
+      },
+    },
+  }: VoidTransactionOutput),
+);
+
 soapStub.registerClient('inovah', FAKE_ENDPOINT + '?WSDL', clientStub);
 
 let opbeat: any = null;
@@ -205,5 +227,17 @@ describe('addTransaction', () => {
     clientStub.AddTransaction.respondWithSuccess();
 
     await expect(transactionIdPromise).resolves.toEqual(FAKE_TRANSACTION_ID);
+  });
+});
+
+describe('voidTransaction', () => {
+  it('succeeds', async () => {
+    const responsePromise = iNovah.voidTransaction(FAKE_TRANSACTION_ID);
+
+    // need to register security key so we can log in
+    clientStub.RegisterSecurityKey.respondWithSuccess();
+    clientStub.VoidTransaction.respondWithSuccess();
+
+    await expect(responsePromise).resolves.toEqual(true);
   });
 });

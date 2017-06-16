@@ -102,6 +102,17 @@ export function makeServer({opbeat}: ServerArgs) {
     },
   });
 
+  server.route({
+    method: 'GET',
+    path: '/void/{transactionId}',
+    handler: async (request, reply) => {
+      const iNovah = makeINovah();
+      const output = await iNovah.voidTransaction(request.params.transactionId);
+
+      reply(output).type('text/plain');
+    },
+  });
+
   return {server, startup};
 }
 
