@@ -4,7 +4,7 @@ class EmailProcessor
   end
 
   def process
-    token = get_emails(@email.to)
+    token = get_email_token(@email.to)
 
     unless token.nil?
       email = Email.find_by(token: token)
