@@ -18,6 +18,6 @@ class ContactMailer < ApplicationMailer
   end
 
   def get_reply_to(email)
-    return "#{@email.name} <#{@email.from_address}>; Boston.gov Contact Form <#{email.token}@#{ENV['EMAIL_HOST']}>"
+    return ["#{@email.name} <#{@email.from_address}>", "Boston.gov Contact Form <#{email.token}@#{ENV['EMAIL_HOST']}>"]
   end
 end
