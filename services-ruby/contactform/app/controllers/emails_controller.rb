@@ -1,4 +1,6 @@
 class EmailsController < ApplicationController
+  before_action :require_login!
+  
   def create
     @email = Email.new(email_params)
     @email.ip = request.remote_ip
