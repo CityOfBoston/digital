@@ -14,6 +14,8 @@
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s . -c storybook",
     "lint": "eslint --fix .",
+    "test-ci": "jest --coverage --runInBand",
+    "snapshot": "build-storybook -c storybook && percy-storybook --widths=320,840,1280",
     "searchbox-load": "babel-node ./scripts/searchbox-load",
     "create-elasticsearch-index": "babel-node ./scripts/create-elasticsearch-index",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
@@ -93,7 +95,10 @@
     "velocity-react": "^1.3.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
+    "@percy-io/in-percy": "^0.1.2",
+    "@percy-io/react-percy-storybook": "^0.1.12",
+    "@storybook/addon-actions": "^3.1.5",
+    "@storybook/react": "3.1.5",
     "apollo-codegen": "^0.12.8",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.22.1",
@@ -102,6 +107,7 @@
     "babel-plugin-inline-import": "^2.0.4",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.1.1",
     "babel-preset-latest": "^6.22.0",
     "babel-watch": "^2.0.6",
     "cheerio": "^0.22.0",

@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import FormDialog from '../../common/FormDialog';
 import Question from '../../../data/store/Question';
 import AttributeField from './AttributeField';

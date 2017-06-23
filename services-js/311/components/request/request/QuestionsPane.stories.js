@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 
 import type { Service } from '../../../data/types';
 import { AppStore } from '../../../data/store';

@@ -6,6 +6,7 @@
 
   "plugins": [
     "babel-plugin-transform-decorators-legacy",
+    "transform-inline-environment-variables",
 
     ["inline-import", {
       "extensions": [

@@ -1,17 +1,40 @@
+/* eslint no-underscore-dangle: 0 */
+
 import React, { PropTypes } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
-import { configure, addDecorator } from '@kadira/storybook';
+import { configure, addDecorator } from '@storybook/react';
+import inPercy from '@percy-io/in-percy';
 import svg4everybody from 'svg4everybody';
+import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-// eslint-disable-next-line import/extensions
-import DOT_ENV from '../.env';
 import makeCss from '../lib/make-css';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
-const dotEnv = parseDotEnv(DOT_ENV);
+let env;
+
+// There's no .env on Travis, but we want to run the storybook for Percy
+// snapshot testing. So, we guard the require with a try/catch and then
+// just set the MAPBOX env variables in the Travis UI.
+try {
+  // eslint-disable-next-line import/no-unresolved
+  const DOT_ENV = require('../.env');
+  env = parseDotEnv(DOT_ENV);
+} catch (e) {
+  // the transform-inline-environment-variables babel plugin will insert
+  // these in
+  env = {
+    MAPBOX_ACCESS_TOKEN: process.env.MAPBOX_ACCESS_TOKEN,
+    MAPBOX_STYLE_PATH: process.env.MAPBOX_STYLE_PATH,
+  };
+}
+
 const headManager = new HeadManager();
+
+if (inPercy()) {
+  VelocityTransitionGroup.disabledForTest = true;
+}
 
 class Wrapper extends React.Component {
   static childContextTypes = {
@@ -30,7 +53,7 @@ class Wrapper extends React.Component {
     return (
       <div>
         <Head>
-          { makeCss() }
+          { makeCss('', false) }
           <style type="text/css">{`
             body, html {
               background-color: #eee;
@@ -70,8 +93,8 @@ addDecorator((story) => {
 
   window.API_KEYS = {
     mapbox: {
-      accessToken: dotEnv.MAPBOX_ACCESS_TOKEN,
-      stylePath: dotEnv.MAPBOX_STYLE_PATH,
+      accessToken: env.MAPBOX_ACCESS_TOKEN,
+      stylePath: env.MAPBOX_STYLE_PATH,
     },
     cloudinary: {},
   };
@@ -86,3 +109,5 @@ addDecorator((story) => {
 });
 
 configure(loadStories, module);
+
+if (typeof window === 'object') window.__storybook_stories__ = require('@storybook/react').getStorybook();

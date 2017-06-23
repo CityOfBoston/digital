@@ -1,7 +1,8 @@
 // @flow
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import inPercy from '@percy-io/in-percy';
 import LocationMap from './LocationMap';
 import { AppStore } from '../../data/store';
 
@@ -11,8 +12,16 @@ const makeStore = () => {
   return store;
 };
 
-storiesOf('LocationMap', module)
-  .add('inactive', () => (
+const stories = storiesOf('LocationMap', module)
+ .add('leaflet picker', () => (
+   <div style={{ width: '100vw', height: '100vh' }}>
+     <LocationMap L={require('mapbox.js')} mapboxgl={null} store={makeStore()} mode="picker" mobile={false} />
+   </div>
+  ));
+
+if (!inPercy()) {
+  // mapboxgl doesn't work on Percy
+  stories.add('inactive', () => (
     <div style={{ width: '100vw', height: '100vh' }}>
       <LocationMap L={null} mapboxgl={require('mapbox-gl')} store={makeStore()} mode="inactive" mobile={false} />
     </div>
@@ -21,9 +30,6 @@ storiesOf('LocationMap', module)
     <div style={{ width: '100vw', height: '100vh' }}>
       <LocationMap L={null} mapboxgl={require('mapbox-gl')} store={makeStore()} mode="picker" mobile={false} />
     </div>
-  ))
-  .add('leaflet picker', () => (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <LocationMap L={require('mapbox.js')} mapboxgl={null} store={makeStore()} mode="picker" mobile={false} />
-    </div>
   ));
+}
+
