@@ -8,7 +8,8 @@ class StatsController < ApplicationController
   def index
     @count_total = Email.count
     @count_replied = Email.where.not(replied: nil).count
-    @repsonse_time = Email.where.not(response_time: nil).average(:response_time) / 1.hour
+    @percentage = @count_replied / @count_total
+    @repsonse_time = Email.where.not(response_time: nil).average(:response_time)
   end
 
   private
