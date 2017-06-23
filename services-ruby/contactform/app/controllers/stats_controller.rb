@@ -9,7 +9,8 @@ class StatsController < ActionController::Base
   def index
     @count_total = Email.count
     @count_replied = Email.where.not(replied: nil).count
-    @percentage = @count_replied / @count_total
+    @percentage = (@count_replied.to_f / @count_total.to_f) * 100
+
     response_time = Email.where.not(response_time: nil).average(:response_time)
 
     unless response_time.nil?
