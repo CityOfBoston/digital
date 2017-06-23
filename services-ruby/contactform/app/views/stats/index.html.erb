@@ -1,4 +1,21 @@
-Emails: <%= @count_total %>
-Replies: <%= @count_replied %>
-Percentage: <%= @percentage %>
-Response Time: <%= @repsonse_time.round(2) %> hours
+<div>
+  <div class="b--w p-a500 m-b300">
+    <div class="t--info">Emails sent:</div>
+    <div class="h2"><%= @count_total %></div>
+  </div>
+
+  <div class="b--w p-a500 m-b300">
+    <div class="t--info">Emails replied to:</div>
+    <div class="h2"><%= @count_replied %></div>
+  </div>
+
+  <div class="b--w p-a500 m-b300">
+    <div class="t--info">Percentage of replies:</div>
+    <div class="h2"><%= @percentage %>%</div>
+  </div>
+
+  <div class="b--w p-a500 m-b300">
+    <div class="t--info">Average response time:</div>
+    <div class="h2"><%= @repsonse_time.round(2) %> hours</div>
+  </div>
+</div>

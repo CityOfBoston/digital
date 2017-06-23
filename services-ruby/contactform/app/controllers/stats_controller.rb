@@ -1,4 +1,5 @@
-class StatsController < ApplicationController
+class StatsController < ActionController::Base
+  layout "application"
   include ActionController::HttpAuthentication::Basic::ControllerMethods
 
   if Rails.env.production?
@@ -9,7 +10,11 @@ class StatsController < ApplicationController
     @count_total = Email.count
     @count_replied = Email.where.not(replied: nil).count
     @percentage = @count_replied / @count_total
-    @repsonse_time = Email.where.not(response_time: nil).average(:response_time)
+    response_time = Email.where.not(response_time: nil).average(:response_time)
+
+    unless response_time.nil?
+      @repsonse_time = response_time / 1.hour
+    end
   end
 
   private

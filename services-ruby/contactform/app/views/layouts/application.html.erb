@@ -4,8 +4,26 @@
     <title>CobContact</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Montserrat:400,700" rel="stylesheet">
+    <!--[if !IE]><!-->
+    <link rel="stylesheet" type="text/css" href="https://www.boston.gov/crispus/css/public.css" />
+    <!--<![endif]-->
+    <!--[if lt IE 10]>
+      <link media="all" rel="stylesheet" href="https://www.boston.gov/crispus/css/ie.css">
+    <![endif]-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        background-color: #efefef;
+      }
+    </style>
   </head>
 
   <body>
