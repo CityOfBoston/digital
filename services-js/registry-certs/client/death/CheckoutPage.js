@@ -10,13 +10,12 @@ import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
 import CheckoutItem from './checkout/CheckoutItem';
 
-export type InitialProps = {|
-|}
+export type InitialProps = {||};
 
 export type Props = {
   /* :: ...InitialProps, */
   cart: Cart,
-}
+};
 
 @observer
 export default class CheckoutPage extends React.Component {
@@ -40,13 +39,16 @@ export default class CheckoutPage extends React.Component {
         </div>
 
         <div>
-          { cart.items.map((item) => <CheckoutItem key={item.id} item={item} cart={cart} />) }
-
+          {cart.items.map(item =>
+            <CheckoutItem key={item.id} item={item} cart={cart} />,
+          )}
 
           <div className="p-a300 g">
-            { this.renderCost() }
+            {this.renderCost()}
 
-            <Link href="/death/payment"><a className="btn g--3 m-v500">Pay and Finish</a></Link>
+            <Link href="/death/payment">
+              <a className="btn g--3 m-v500">Pay and Finish</a>
+            </Link>
 
             <style jsx>{`
               a.btn {
@@ -67,7 +69,8 @@ export default class CheckoutPage extends React.Component {
     return (
       <div className="m-v500 g--9">
         <div className="t--info">
-          { cart.size } { cart.size === 1 ? 'certificate' : 'certificates' } × ${ CERTIFICATE_COST } + { (PROCESSING_FEE * 100).toFixed(2) }% credit card fee
+          {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}{' '}
+          + {(PROCESSING_FEE * 100).toFixed(2)}% credit card fee
         </div>
         <div className="sh sh--b0">
           <span className="sh-title">Subtotal: ${cart.cost.toFixed(2)}</span>

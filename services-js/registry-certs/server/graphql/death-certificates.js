@@ -1,7 +1,10 @@
 // @flow
 
 import type { Context } from './index';
-import type { DeathCertificateSearchResult, DeathCertificate as DbDeathCertificate } from '../services/Registry';
+import type {
+  DeathCertificateSearchResult,
+  DeathCertificate as DbDeathCertificate,
+} from '../services/Registry';
 
 export const Schema = `
 type DeathCertificate {
@@ -65,9 +68,11 @@ type DeathCertificateSearch = {
   pageCount: number,
   results: DeathCertificate[],
   resultCount: number,
-}
+};
 
-function searchResultToDeathCertificate(res: DeathCertificateSearchResult | DbDeathCertificate): DeathCertificate {
+function searchResultToDeathCertificate(
+  res: DeathCertificateSearchResult | DbDeathCertificate,
+): DeathCertificate {
   return {
     id: res.CertificateID.toString(),
     firstName: res['First Name'],
@@ -81,11 +86,26 @@ function searchResultToDeathCertificate(res: DeathCertificateSearchResult | DbDe
 
 export const resolvers = {
   DeathCertificates: {
-    search: async (root: mixed, { query, pageSize, page, startYear, endYear }: SearchArgs, { registry }: Context): Promise<DeathCertificateSearch> => {
-      const queryPageSize = Math.min(pageSize || DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
+    search: async (
+      root: mixed,
+      { query, pageSize, page, startYear, endYear }: SearchArgs,
+      { registry }: Context,
+    ): Promise<DeathCertificateSearch> => {
+      const queryPageSize = Math.min(
+        pageSize || DEFAULT_PAGE_SIZE,
+        MAX_PAGE_SIZE,
+      );
       const queryPage = (page || 1) - 1;
 
-      const results: Array<DeathCertificateSearchResult> = await registry.search(query, queryPage, queryPageSize, startYear, endYear);
+      const results: Array<
+        DeathCertificateSearchResult,
+      > = await registry.search(
+        query,
+        queryPage,
+        queryPageSize,
+        startYear,
+        endYear,
+      );
 
       const resultCount = results.length > 0 ? results[0].ResultCount : 0;
       const pageCount = Math.ceil(resultCount / queryPageSize);
@@ -98,7 +118,11 @@ export const resolvers = {
         results: results.map(searchResultToDeathCertificate),
       };
     },
-    certificate: async (root: mixed, { id }: CertificateArgs, { registry }: Context): Promise<?DeathCertificate> => {
+    certificate: async (
+      root: mixed,
+      { id }: CertificateArgs,
+      { registry }: Context,
+    ): Promise<?DeathCertificate> => {
       const res = await registry.lookup(id);
 
       if (res) {
@@ -107,15 +131,20 @@ export const resolvers = {
         return null;
       }
     },
-    certificates: (root: mixed, { ids }: CertificatesArgs, { registry }: Context): Promise<Array<?DeathCertificate>> => (
-      Promise.all(ids.map(async (id) => {
-        const res = await registry.lookup(id);
-        if (res) {
-          return searchResultToDeathCertificate(res);
-        } else {
-          return null;
-        }
-      }))
-    ),
+    certificates: (
+      root: mixed,
+      { ids }: CertificatesArgs,
+      { registry }: Context,
+    ): Promise<Array<?DeathCertificate>> =>
+      Promise.all(
+        ids.map(async id => {
+          const res = await registry.lookup(id);
+          if (res) {
+            return searchResultToDeathCertificate(res);
+          } else {
+            return null;
+          }
+        }),
+      ),
   },
 };

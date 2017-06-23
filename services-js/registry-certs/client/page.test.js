@@ -35,9 +35,7 @@ describe('creation', () => {
 
 describe('getInitialProps', () => {
   it('returns empty when the wrapped component has no getInitialProps', () => {
-    const Page: any = page(
-      class extends React.Component {},
-    );
+    const Page: any = page(class TestComponent extends React.Component {});
 
     expect(Page.getInitialProps({})).toEqual({});
   });
@@ -46,7 +44,7 @@ describe('getInitialProps', () => {
     let passedDependencies;
 
     const Page: any = page(
-      class extends React.Component {
+      class TestComponent extends React.Component {
         static getInitialProps(context, dependencies) {
           passedDependencies = dependencies;
 
@@ -67,7 +65,8 @@ describe('rendering', () => {
 
   beforeEach(() => {
     Page = page(
-      class extends React.Component {
+      class TestComponent extends React.Component {
+        props: any;
         render() {
           return <div data-cart={this.props.cart} />;
         }

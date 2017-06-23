@@ -2,7 +2,10 @@
 
 import compression from 'compression';
 
-export const nextHandler = (app, page = null, staticQuery = null) => async ({ path, raw: { req, res }, query, params }, reply) => {
+export const nextHandler = (app, page = null, staticQuery = null) => async (
+  { path, raw: { req, res }, query, params },
+  reply,
+) => {
   const pageQuery = {
     ...staticQuery,
     ...query,
@@ -26,7 +29,9 @@ export const nextDefaultHandler = (app, opts = {}) => {
       res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=600');
     }
 
-    await new Promise((resolve) => { compressionMiddleware(req, res, resolve); });
+    await new Promise(resolve => {
+      compressionMiddleware(req, res, resolve);
+    });
     await handler(req, res, url);
     hapiReply.close(false);
   };

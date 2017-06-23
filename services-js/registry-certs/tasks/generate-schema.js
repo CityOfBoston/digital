@@ -18,25 +18,33 @@ async function generateSchemaFiles(schema, push) {
   if (result.errors) {
     throw new Error(result.errors[0]);
   } else {
-    push(new gutil.File({
-      path: 'schema.json',
-      contents: new Buffer(JSON.stringify(result, null, 2)),
-    }));
+    push(
+      new gutil.File({
+        path: 'schema.json',
+        contents: new Buffer(JSON.stringify(result, null, 2)),
+      }),
+    );
   }
 
   // Save user readable type system shorthand of schema
-  push(new gutil.File({
-    path: 'schema.graphql',
-    contents: new Buffer(printSchema(schema)),
-  }));
+  push(
+    new gutil.File({
+      path: 'schema.graphql',
+      contents: new Buffer(printSchema(schema)),
+    }),
+  );
 }
 
 module.exports = ({ schema }: Options) => {
   const stream = through.obj();
 
-  generateSchemaFiles(schema, (f) => { stream.push(f); }).then(
-    () => { stream.emit('end'); },
-    (err) => {
+  generateSchemaFiles(schema, f => {
+    stream.push(f);
+  }).then(
+    () => {
+      stream.emit('end');
+    },
+    err => {
       process.nextTick(() => stream.emit('error', err));
     },
   );

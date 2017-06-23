@@ -17,12 +17,12 @@ import SearchResult from './search/SearchResult';
 export type InitialProps = {|
   query: string,
   results: ?DeathCertificateSearchResults,
-|}
+|};
 
 export type Props = {
   /* :: ...InitialProps, */
   cart: Cart,
-}
+};
 
 type State = {
   query: string,
@@ -32,13 +32,19 @@ export default class IndexPage extends React.Component {
   props: Props;
   state: State;
 
-  static async getInitialProps(ctx: Context<*>, { deathCertificatesDao }: ClientDependencies): Promise<InitialProps> {
+  static async getInitialProps(
+    ctx: Context<*>,
+    { deathCertificatesDao }: ClientDependencies,
+  ): Promise<InitialProps> {
     const { query } = ctx;
 
     let results = null;
 
     if (query.q) {
-      results = await deathCertificatesDao.search(query.q, parseInt(query.page, 10) || 1);
+      results = await deathCertificatesDao.search(
+        query.q,
+        parseInt(query.page, 10) || 1,
+      );
     }
 
     return {
@@ -66,7 +72,7 @@ export default class IndexPage extends React.Component {
 
     ev.preventDefault();
     Router.push(`/death?q=${encodeURIComponent(query)}`);
-  }
+  };
 
   render() {
     const { results, cart } = this.props;
@@ -85,17 +91,31 @@ export default class IndexPage extends React.Component {
             <h1 className="sh-title">Death Certificates</h1>
           </div>
 
-          <form className="sf sf--md" acceptCharset="UTF-8" method="get" action="/death" onSubmit={this.handleSubmit}>
+          <form
+            className="sf sf--md"
+            acceptCharset="UTF-8"
+            method="get"
+            action="/death"
+            onSubmit={this.handleSubmit}>
             <input name="utf8" type="hidden" value="✓" />
 
             <div className="sf-i">
-              <input type="text" name="q" id="q" value={query} onChange={this.handleQueryChange} placeholder="Search…" className="sf-i-f" autoComplete="off" />
+              <input
+                type="text"
+                name="q"
+                id="q"
+                value={query}
+                onChange={this.handleQueryChange}
+                placeholder="Search…"
+                className="sf-i-f"
+                autoComplete="off"
+              />
               <button className="sf-i-b" type="submit">Search</button>
             </div>
           </form>
         </div>
 
-        { results && this.renderResults(results) }
+        {results && this.renderResults(results)}
         <div />
 
       </div>
@@ -106,28 +126,36 @@ export default class IndexPage extends React.Component {
     // we want the query that was searched for
     const { query } = this.props;
 
-    const start = 1 + ((results.page - 1) * (results.pageSize));
-    const end = Math.min((start + results.pageSize) - 1, results.resultCount);
+    const start = 1 + (results.page - 1) * results.pageSize;
+    const end = Math.min(start + results.pageSize - 1, results.resultCount);
 
     return (
       <div>
         <div className="p-a300 b--w">
           <div className="t--sans tt-u" style={{ fontSize: 12 }}>
-            Showing { start }–{ end } of { results.resultCount.toLocaleString() } results for “{query}”
+            Showing {start}–{end} of {results.resultCount.toLocaleString()}{' '}
+            results for “{query}”
           </div>
         </div>
 
-        { results.results.map((certificate) => <SearchResult certificate={certificate} key={certificate.id} />) }
+        {results.results.map(certificate =>
+          <SearchResult certificate={certificate} key={certificate.id} />,
+        )}
 
-        { results.resultCount > results.results.length && this.renderPagination(results) }
+        {results.resultCount > results.results.length &&
+          this.renderPagination(results)}
 
         <div className="p-a300">
-          Not finding what you’re looking for? Try refining your search or <a href="https://www.boston.gov/departments/registry/how-get-death-certificate" style={{ fontStyle: 'italic' }}>request a death certificate</a>.
+          Not finding what you’re looking for? Try refining your search or{' '}
+          <a
+            href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+            style={{ fontStyle: 'italic' }}>
+            request a death certificate
+          </a>.
         </div>
       </div>
     );
   }
-
 
   renderPagination({ page, pageCount }: DeathCertificateSearchResults) {
     const { query } = this.props;

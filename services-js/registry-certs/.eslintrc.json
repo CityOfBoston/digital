@@ -1,53 +1,31 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "plugin:flowtype/recommended"
-  ],
   "env": {
     "browser": true,
-    "node": true,
-    "jest": true
+    "jest": true,
+    "es6": true,
+    "node": true
   },
   "plugins": [
     "flowtype",
+    "import",
     "react",
-    "jsx-a11y",
-    "import"
+    "prettier",
+    "jsx-a11y"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
   ],
   "rules": {
-    "no-else-return": 0,
-    "import/no-duplicates": 0,
-    "react/no-array-index-key": 0,
-    "jsx-a11y/label-has-for": 0,
-    "class-methods-use-this": 0,
-    "arrow-parens": [ "error", "always" ],
-    "import/prefer-default-export": 0,
-    "max-len": 0,
-    "react/no-multi-comp": 0,
-    "react/prop-types": 0,
-    "react/jsx-filename-extension": 0,
-    "no-multi-assign": 0,
-    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-param-reassign": 0,
-    "no-script-url": 0,
-    "global-require": 0,
-    "no-lonely-if": 0,
-    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {"devDependencies": ["storybook/**.js", "**/*.test.js", "**/*.stories.js", "tasks/*.js", "*.config.js", "lib/test/**.js", "gulpfile.babel.js"]}
-    ],
-    "react/sort-comp": [0, {
-      "order": [
-        "type-annotations",
-        "static-methods",
-        "lifecycle",
-        "everything-else",
-        "render",
-        "/^render.+$/"
-      ]
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all",
+      "jsxBracketSameLine": true
     }]
   }
 }

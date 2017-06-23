@@ -8,7 +8,10 @@ describe('split keys', () => {
   });
 
   it('divides keys up', () => {
-    expect(splitKeys(12, ['12345', '67890', 'abcde'])).toEqual(['12345,67890', 'abcde']);
+    expect(splitKeys(12, ['12345', '67890', 'abcde'])).toEqual([
+      '12345,67890',
+      'abcde',
+    ]);
   });
 
   it('handles no keys', () => {

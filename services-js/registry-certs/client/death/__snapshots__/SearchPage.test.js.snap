@@ -4,15 +4,15 @@ exports[`rendering shows empty search box 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -20,7 +20,7 @@ exports[`rendering shows empty search box 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -82,15 +82,15 @@ exports[`rendering shows search results 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -98,7 +98,7 @@ exports[`rendering shows search results 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -170,7 +170,8 @@ exports[`rendering shows search results 1`] = `
         0
          of 
         50
-         results for “
+         
+        results for “
         Monkey Joe
         ”
       </div>
@@ -354,7 +355,8 @@ exports[`rendering shows search results 1`] = `
     <div
       className="p-a300"
     >
-      Not finding what you’re looking for? Try refining your search or 
+      Not finding what you’re looking for? Try refining your search or
+       
       <a
         href="https://www.boston.gov/departments/registry/how-get-death-certificate"
         style={

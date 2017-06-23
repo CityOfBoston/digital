@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'react-prop-types';
 import Head from 'next/head';
 import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
@@ -19,10 +20,15 @@ const DEFAULT_STYLE = `
 `;
 
 class Wrapper extends React.Component {
+  static propTypes = {
+    headManager: PropTypes.any,
+    children: PropTypes.any,
+  };
+
   static childContextTypes = {
     headManager: PropTypes.object,
     router: PropTypes.object,
-  }
+  };
 
   getChildContext() {
     return {
@@ -35,10 +41,10 @@ class Wrapper extends React.Component {
     return (
       <div>
         <Head>
-          { styleTags(DEFAULT_STYLE) }
+          {styleTags(DEFAULT_STYLE)}
         </Head>
 
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }
@@ -58,20 +64,21 @@ global.describe = () => {};
 const storiesContext = require.context('../client', true, /.stories.js$/);
 
 function loadStories() {
-  storiesContext.keys().forEach((filename) => storiesContext(filename));
+  storiesContext.keys().forEach(filename => storiesContext(filename));
 }
 
-addDecorator((story) => {
+addDecorator(story => {
   if (window.parent) {
     // eslint-disable-next-line no-underscore-dangle
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =
+      window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
 
   window.DOT_ENV = dotEnv;
 
   return (
     <Wrapper headManager={headManager}>
-      { story() }
+      {story()}
     </Wrapper>
   );
 });

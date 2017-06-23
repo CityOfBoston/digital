@@ -3,15 +3,15 @@
 exports[`rendering renders checkout link 1`] = `
 <nav
   className="nv-s nv-s--sticky"
-  data-jsx={3477795240}
+  data-jsx={792433154}
 >
   <div
     className="nv-s-l bar"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <a
       className="nv-s-l-b back-link"
-      data-jsx={3477795240}
+      data-jsx={792433154}
       href="/death/checkout"
       onClick={[Function]}
     >
@@ -19,7 +19,7 @@ exports[`rendering renders checkout link 1`] = `
     </a>
     <a
       className="cart-link"
-      data-jsx={3477795240}
+      data-jsx={792433154}
       href="/death/checkout"
       onClick={[Function]}
     >
@@ -32,15 +32,15 @@ exports[`rendering renders checkout link 1`] = `
 exports[`rendering renders lookup link 1`] = `
 <nav
   className="nv-s nv-s--sticky"
-  data-jsx={3477795240}
+  data-jsx={792433154}
 >
   <div
     className="nv-s-l bar"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <a
       className="nv-s-l-b back-link"
-      data-jsx={3477795240}
+      data-jsx={792433154}
       href="/death"
       onClick={[Function]}
     >
@@ -48,7 +48,7 @@ exports[`rendering renders lookup link 1`] = `
     </a>
     <a
       className="cart-link"
-      data-jsx={3477795240}
+      data-jsx={792433154}
       href="/death/checkout"
       onClick={[Function]}
     >

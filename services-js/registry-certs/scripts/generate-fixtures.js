@@ -12,7 +12,7 @@ dotenv.config();
 
 const FIXTURE_SEARCHES = ['smith'];
 
-((async function generateFixtures() {
+(async function generateFixtures() {
   const registryFactoryOpts = {
     user: process.env.REGISTRY_DB_USER,
     password: process.env.REGISTRY_DB_PASSWORD,
@@ -24,13 +24,18 @@ const FIXTURE_SEARCHES = ['smith'];
   const registryFactory = await makeRegistryFactory(registryFactoryOpts);
   const registry = registryFactory.registry();
 
-  await Promise.all(FIXTURE_SEARCHES.map(async (search) => {
-    const records = await registry.search(search, 0, 500);
-    fs.writeFileSync(path.join(__dirname, `../fixtures/registry/${search}.json`), JSON.stringify(records, null, 2));
-  }));
+  await Promise.all(
+    FIXTURE_SEARCHES.map(async search => {
+      const records = await registry.search(search, 0, 500);
+      fs.writeFileSync(
+        path.join(__dirname, `../fixtures/registry/${search}.json`),
+        JSON.stringify(records, null, 2),
+      );
+    }),
+  );
 
   await registryFactory.cleanup();
-}()).catch((err) => {
+})().catch(err => {
   console.error(err);
   process.exit(1);
-}));
+});

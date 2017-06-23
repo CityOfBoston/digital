@@ -1,7 +1,7 @@
 /* eslint comma-dangle: 0, global-require: 0 */
 
 module.exports = {
-  webpack: (config) => {
+  webpack: config => {
     const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
     // Perform customizations to config
@@ -13,8 +13,8 @@ module.exports = {
           analyzerHost: '127.0.0.1',
           analyzerPort: 3001,
           openAnalyzer: false,
-          generateStatsFile: true
-        })
+          generateStatsFile: true,
+        }),
       );
     }
 

@@ -4,7 +4,7 @@
  * no flow in this file because of the way we mess with console.log
  */
 
- /* eslint no-console: 0 */
+/* eslint no-console: 0 */
 
 import { makeServer } from './server';
 

@@ -21,5 +21,8 @@ test('searchDeathCertificates', async () => {
     endYear: null,
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(SearchDeathCertificatesGraphql, queryVariables);
+  expect(loopbackGraphql).toHaveBeenCalledWith(
+    SearchDeathCertificatesGraphql,
+    queryVariables,
+  );
 });

@@ -4,15 +4,15 @@ exports[`rendering renders a hydrated cart 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death"
         onClick={[Function]}
       >
@@ -20,7 +20,7 @@ exports[`rendering renders a hydrated cart 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -30,37 +30,37 @@ exports[`rendering renders a hydrated cart 1`] = `
   </nav>
   <div
     className="p-a300"
-    data-jsx={3028440190}
+    data-jsx={1303275230}
   >
     <div
       className="sh sh--b0 m-v300"
-      data-jsx={3028440190}
+      data-jsx={1303275230}
     >
       <h1
         className="sh-title"
-        data-jsx={3028440190}
+        data-jsx={1303275230}
       >
         Pay and Finish
       </h1>
     </div>
     <button
       className="sel-c sel-c--fw"
-      data-jsx={3028440190}
+      data-jsx={1303275230}
       type="button"
     >
       <div
         className="sel-f"
-        data-jsx={3028440190}
+        data-jsx={1303275230}
       >
         <div
           className="t--sans tt-u lnk"
-          data-jsx={3028440190}
+          data-jsx={1303275230}
         >
           Order Details
         </div>
         <div
           className="t--info"
-          data-jsx={3028440190}
+          data-jsx={1303275230}
         >
           7
            
@@ -77,37 +77,37 @@ exports[`rendering renders a hydrated cart 1`] = `
     acceptCharset="UTF-8"
     action="/death/payment"
     className="m-v300"
-    data-jsx={2005206227}
+    data-jsx={3785310163}
     method="post"
     onSubmit={[Function]}
   >
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Contact
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="contact-email"
           >
             Email Address
           </label>
           <input
             className="txt-f txt-f--100"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="contact-email"
             name="email"
             placeholder="Email address"
@@ -116,18 +116,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="contact-phone"
           >
             Phone Number
           </label>
           <input
             className="txt-f txt-f--100"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="contact-phone"
             name="phone"
             placeholder="Phone number"
@@ -138,31 +138,31 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Credit Card Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-name"
           >
             Name on Card
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-name"
             name="card-name"
             placeholder="Name on card"
@@ -171,18 +171,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-number"
           >
             Credit Card Number
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-number"
             name="card-number"
             placeholder="Credit Card Number"
@@ -191,18 +191,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-date"
           >
             Expiration Date
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-date"
             name="card-date"
             placeholder="mm/yy"
@@ -212,31 +212,31 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Billing Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-address-1"
           >
             Address Line 1
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-address-1"
             name="billing-address-1"
             placeholder="Address Line 1"
@@ -245,18 +245,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-address-2"
           >
             Address Line 2
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-address-2"
             name="billing-address-2"
             placeholder="Address Line 2"
@@ -265,18 +265,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-city"
           >
             City
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-city"
             name="billing-city"
             placeholder="City"
@@ -285,18 +285,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-state"
           >
             State
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-state"
             name="billing-state"
             placeholder="State"
@@ -304,18 +304,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-zip"
           >
             ZIP Code
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-zip"
             name="billing-zip"
             placeholder="ZIP code"
@@ -325,31 +325,31 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Shipping Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-address-1"
           >
             Address Line 1
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-address-1"
             name="shipping-address-1"
             placeholder="Address Line 1"
@@ -358,18 +358,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-address-2"
           >
             Address Line 2
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-address-2"
             name="shipping-address-2"
             placeholder="Address Line 2"
@@ -378,18 +378,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-city"
           >
             City
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-city"
             name="shipping-city"
             placeholder="City"
@@ -398,18 +398,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-state"
           >
             State
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-state"
             name="shipping-state"
             placeholder="State"
@@ -417,18 +417,18 @@ exports[`rendering renders a hydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-zip"
           >
             ZIP Code
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-zip"
             name="shipping-zip"
             placeholder="ZIP code"
@@ -438,11 +438,11 @@ exports[`rendering renders a hydrated cart 1`] = `
     </div>
     <div
       className="g p-a500 b--w"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <button
         className="g--3 btn m-v500"
-        data-jsx={2005206227}
+        data-jsx={3785310163}
         type="submit"
       >
         Submit
@@ -456,15 +456,15 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death"
         onClick={[Function]}
       >
@@ -472,7 +472,7 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -482,37 +482,37 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
   </nav>
   <div
     className="p-a300"
-    data-jsx={3028440190}
+    data-jsx={1303275230}
   >
     <div
       className="sh sh--b0 m-v300"
-      data-jsx={3028440190}
+      data-jsx={1303275230}
     >
       <h1
         className="sh-title"
-        data-jsx={3028440190}
+        data-jsx={1303275230}
       >
         Pay and Finish
       </h1>
     </div>
     <button
       className="sel-c sel-c--fw"
-      data-jsx={3028440190}
+      data-jsx={1303275230}
       type="button"
     >
       <div
         className="sel-f"
-        data-jsx={3028440190}
+        data-jsx={1303275230}
       >
         <div
           className="t--sans tt-u lnk"
-          data-jsx={3028440190}
+          data-jsx={1303275230}
         >
           Order Details
         </div>
         <div
           className="t--info"
-          data-jsx={3028440190}
+          data-jsx={1303275230}
         >
           8
            
@@ -529,37 +529,37 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     acceptCharset="UTF-8"
     action="/death/payment"
     className="m-v300"
-    data-jsx={2005206227}
+    data-jsx={3785310163}
     method="post"
     onSubmit={[Function]}
   >
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Contact
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="contact-email"
           >
             Email Address
           </label>
           <input
             className="txt-f txt-f--100"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="contact-email"
             name="email"
             placeholder="Email address"
@@ -568,18 +568,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="contact-phone"
           >
             Phone Number
           </label>
           <input
             className="txt-f txt-f--100"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="contact-phone"
             name="phone"
             placeholder="Phone number"
@@ -590,31 +590,31 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Credit Card Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-name"
           >
             Name on Card
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-name"
             name="card-name"
             placeholder="Name on card"
@@ -623,18 +623,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-number"
           >
             Credit Card Number
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-number"
             name="card-number"
             placeholder="Credit Card Number"
@@ -643,18 +643,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="card-date"
           >
             Expiration Date
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="card-date"
             name="card-date"
             placeholder="mm/yy"
@@ -664,31 +664,31 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Billing Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-address-1"
           >
             Address Line 1
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-address-1"
             name="billing-address-1"
             placeholder="Address Line 1"
@@ -697,18 +697,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-address-2"
           >
             Address Line 2
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-address-2"
             name="billing-address-2"
             placeholder="Address Line 2"
@@ -717,18 +717,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-city"
           >
             City
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-city"
             name="billing-city"
             placeholder="City"
@@ -737,18 +737,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-state"
           >
             State
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-state"
             name="billing-state"
             placeholder="State"
@@ -756,18 +756,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="billing-zip"
           >
             ZIP Code
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="billing-zip"
             name="billing-zip"
             placeholder="ZIP code"
@@ -777,31 +777,31 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     </div>
     <div
       className="b--w p-a500 field-container"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <fieldset
-        data-jsx={2005206227}
+        data-jsx={3785310163}
       >
         <legend
           className="stp m-b300"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           Shipping Information
         </legend>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-address-1"
           >
             Address Line 1
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-address-1"
             name="shipping-address-1"
             placeholder="Address Line 1"
@@ -810,18 +810,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l txt-l--mt000"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-address-2"
           >
             Address Line 2
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-address-2"
             name="shipping-address-2"
             placeholder="Address Line 2"
@@ -830,18 +830,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-city"
           >
             City
           </label>
           <input
             className="txt-f"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-city"
             name="shipping-city"
             placeholder="City"
@@ -850,18 +850,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-state"
           >
             State
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-state"
             name="shipping-state"
             placeholder="State"
@@ -869,18 +869,18 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
         </div>
         <div
           className="txt"
-          data-jsx={2005206227}
+          data-jsx={3785310163}
         >
           <label
             className="txt-l"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             htmlFor="shipping-zip"
           >
             ZIP Code
           </label>
           <input
             className="txt-f txt-f--50"
-            data-jsx={2005206227}
+            data-jsx={3785310163}
             id="shipping-zip"
             name="shipping-zip"
             placeholder="ZIP code"
@@ -890,11 +890,11 @@ exports[`rendering renders loading for unhydrated cart 1`] = `
     </div>
     <div
       className="g p-a500 b--w"
-      data-jsx={2005206227}
+      data-jsx={3785310163}
     >
       <button
         className="g--3 btn m-v500"
-        data-jsx={2005206227}
+        data-jsx={3785310163}
         type="submit"
       >
         Submit

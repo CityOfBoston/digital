@@ -4,7 +4,10 @@ type Opbeat = $Exports<'opbeat'>;
 
 // wraps a GraphQL options function such that errors thrown during creation and
 // GraphQL processing get correctly sent to Opbeat.
-export const opbeatWrapGraphqlOptions = (opbeat: Opbeat, optsFn: (req: any) => Object) => async (req: any) => {
+export const opbeatWrapGraphqlOptions = (
+  opbeat: Opbeat,
+  optsFn: (req: any) => Object,
+) => async (req: any) => {
   try {
     const opts = await optsFn(req);
 

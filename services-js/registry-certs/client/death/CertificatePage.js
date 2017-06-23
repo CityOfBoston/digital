@@ -13,12 +13,12 @@ import Nav from '../common/Nav';
 export type InitialProps = {|
   id: string,
   certificate: ?DeathCertificate,
-|}
+|};
 
 export type Props = {
   /* :: ...InitialProps, */
   cart: Cart,
-}
+};
 
 type State = {
   quantity: number,
@@ -28,9 +28,12 @@ export default class CertificatePage extends React.Component {
   props: Props;
   state: State = {
     quantity: 1,
-  }
+  };
 
-  static async getInitialProps(ctx: Context<*>, { deathCertificatesDao }: ClientDependencies): Promise<InitialProps> {
+  static async getInitialProps(
+    ctx: Context<*>,
+    { deathCertificatesDao }: ClientDependencies,
+  ): Promise<InitialProps> {
     const { query: { id } } = ctx;
 
     const certificate = await deathCertificatesDao.get(id);
@@ -45,7 +48,7 @@ export default class CertificatePage extends React.Component {
     this.setState({
       quantity: parseInt(ev.target.value, 10),
     });
-  }
+  };
 
   handleAddToCart = (ev: SyntheticInputEvent) => {
     const { cart, certificate } = this.props;
@@ -56,7 +59,7 @@ export default class CertificatePage extends React.Component {
     if (certificate) {
       cart.add(certificate, quantity);
     }
-  }
+  };
 
   render() {
     const { id, certificate, cart } = this.props;
@@ -71,18 +74,26 @@ export default class CertificatePage extends React.Component {
 
         <div className="p-a300">
           <div className="sh sh--b0">
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>Deceased Details</h1>
+            <h1 className="sh-title" style={{ marginBottom: 0 }}>
+              Deceased Details
+            </h1>
           </div>
         </div>
 
         <div className="p-a300 b--w">
-          { certificate && this.renderCertificate(certificate) }
+          {certificate && this.renderCertificate(certificate)}
         </div>
       </div>
     );
   }
 
-  renderCertificate({ firstName, lastName, age, deathDate, deathYear }: DeathCertificate) {
+  renderCertificate({
+    firstName,
+    lastName,
+    age,
+    deathDate,
+    deathYear,
+  }: DeathCertificate) {
     const { quantity } = this.state;
 
     return (
@@ -102,8 +113,14 @@ export default class CertificatePage extends React.Component {
           </li>
         </ul>
 
-        <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form m-v300">
-          <select name="quantity" value={quantity} className="quantity" onChange={this.handleQuantityChange}>
+        <form
+          onSubmit={this.handleAddToCart}
+          className="js-add-to-cart-form m-v300">
+          <select
+            name="quantity"
+            value={quantity}
+            className="quantity"
+            onChange={this.handleQuantityChange}>
             <option value="1">Qty: 1</option>
             <option value="2">Qty: 2</option>
             <option value="3">Qty: 3</option>
@@ -124,11 +141,9 @@ export default class CertificatePage extends React.Component {
             display: flex;
             align-items: center;
           }
-
           .quantity {
             min-width: 5em;
           }
-
           .add-to-cart {
             flex: 1;
             margin-left: 1em;
@@ -137,5 +152,4 @@ export default class CertificatePage extends React.Component {
       </div>
     );
   }
-
 }

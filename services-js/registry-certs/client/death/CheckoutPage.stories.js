@@ -5,7 +5,11 @@ import { storiesOf } from '@kadira/storybook';
 import fullPageDecorator from '../../storybook/full-page-decorator';
 import CheckoutPage from './CheckoutPage';
 
-import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
+import {
+  TYPICAL_CERTIFICATE,
+  PENDING_CERTIFICATE,
+  NO_DATE_CERTIFICATE,
+} from '../../fixtures/client/death-certificates';
 
 import Cart from '../store/Cart';
 
@@ -21,6 +25,4 @@ function makeCart() {
 
 storiesOf('CheckoutPage', module)
   .addDecorator(fullPageDecorator)
-  .add('normal page', () => (
-    <CheckoutPage cart={makeCart()} />
-  ));
+  .add('normal page', () => <CheckoutPage cart={makeCart()} />);

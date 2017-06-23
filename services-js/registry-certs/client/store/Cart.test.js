@@ -116,9 +116,12 @@ describe('attach', () => {
 
     resolveGraphqls = [];
 
-    deathCertificatesDao.get.mockImplementation(() => new Promise((resolve) => {
-      resolveGraphqls.push(resolve);
-    }));
+    deathCertificatesDao.get.mockImplementation(
+      () =>
+        new Promise(resolve => {
+          resolveGraphqls.push(resolve);
+        }),
+    );
 
     cart = new Cart();
   });
@@ -128,7 +131,12 @@ describe('attach', () => {
   });
 
   it('hydrates items from local storage', async () => {
-    localStorage.getItem.mockReturnValue(JSON.stringify([{ id: '00001', quantity: 4 }, { id: '00002', quantity: 1 }]));
+    localStorage.getItem.mockReturnValue(
+      JSON.stringify([
+        { id: '00001', quantity: 4 },
+        { id: '00002', quantity: 1 },
+      ]),
+    );
 
     cart.attach(localStorage, deathCertificatesDao);
 
@@ -161,6 +169,9 @@ describe('attach', () => {
     cart.attach(localStorage, deathCertificatesDao);
 
     cart.add(CERT_1, 5);
-    expect(localStorage.setItem).toHaveBeenCalledWith('cart', JSON.stringify([{ id: CERT_1.id, quantity: 5 }]));
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      'cart',
+      JSON.stringify([{ id: CERT_1.id, quantity: 5 }]),
+    );
   });
 });

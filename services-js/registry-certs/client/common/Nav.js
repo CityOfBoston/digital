@@ -33,20 +33,22 @@ export default observer(function Nav({ cart, link }: Props) {
   return (
     <nav className="nv-s nv-s--sticky">
       <div className="nv-s-l bar">
-        <Link href={linkPath}><a className={'nv-s-l-b back-link'}>{linkTitle}</a></Link>
-        <Link href="/death/checkout"><a className="cart-link">{cart.size}</a></Link>
+        <Link href={linkPath}>
+          <a className={'nv-s-l-b back-link'}>{linkTitle}</a>
+        </Link>
+        <Link href="/death/checkout">
+          <a className="cart-link">{cart.size}</a>
+        </Link>
       </div>
 
       <style jsx>{`
         .bar {
           display: flex;
         }
-
         .back-link {
           display: block !important;
           flex: 1;
         }
-
         .back-link:after {
           display: none !important;
         }
@@ -62,7 +64,6 @@ export default observer(function Nav({ cart, link }: Props) {
           text-align: center;
           font-style: italic;
         }
-
         .cart-link:before {
           content: "";
           display: block;

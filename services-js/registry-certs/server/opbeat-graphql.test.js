@@ -28,7 +28,9 @@ describe('opbeatWrapGraphqlOptions', () => {
         res: {},
       },
     };
-    const opts = await opbeatWrapGraphqlOptions(opbeat, () => ({}))(hapiRequest);
+    const opts = await opbeatWrapGraphqlOptions(opbeat, () => ({}))(
+      hapiRequest,
+    );
 
     const err = new Error();
     const graphQlError: any = new Error();
@@ -37,6 +39,9 @@ describe('opbeatWrapGraphqlOptions', () => {
     const out = opts.formatError(graphQlError);
 
     expect(out).toBe(graphQlError);
-    expect(opbeat.captureError).toHaveBeenCalledWith(err, { extra: expect.anything(), request: hapiRequest.raw.req });
+    expect(opbeat.captureError).toHaveBeenCalledWith(err, {
+      extra: expect.anything(),
+      request: hapiRequest.raw.req,
+    });
   });
 });

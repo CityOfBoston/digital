@@ -11,7 +11,8 @@ const styles = {
   error: {
     color: '#000',
     background: '#fff',
-    fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif',
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif',
     height: '100vh',
     textAlign: 'center',
     display: 'flex',
@@ -48,6 +49,10 @@ const styles = {
 };
 
 export default class Error extends React.Component {
+  props: {
+    statusCode: ?number,
+  };
+
   static getInitialProps({ res, err }) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
@@ -66,17 +71,22 @@ export default class Error extends React.Component {
       ? 'This page could not be found'
       : HTTPStatus[statusCode] || 'An unexpected error has occurred';
 
-    return (<div style={styles.error}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <div>
-        <style dangerouslySetInnerHTML={{ __html: 'body { margin: 0 }' }} />
-        {statusCode ? <h1 style={styles.h1}>{statusCode}</h1> : null}
-        <div style={styles.desc}>
-          <h2 style={styles.h2}>{title}.</h2>
+    return (
+      <div style={styles.error}>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Head>
+        <div>
+          <style dangerouslySetInnerHTML={{ __html: 'body { margin: 0 }' }} />
+          {statusCode ? <h1 style={styles.h1}>{statusCode}</h1> : null}
+          <div style={styles.desc}>
+            <h2 style={styles.h2}>{title}.</h2>
+          </div>
         </div>
       </div>
-    </div>);
+    );
   }
 }

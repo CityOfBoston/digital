@@ -15,7 +15,11 @@ describe('DeathCertificates resolvers', () => {
 
   describe('search', () => {
     it('returns search results', async () => {
-      const search = await resolvers.DeathCertificates.search({}, { query: 'Logan' }, { registry });
+      const search = await resolvers.DeathCertificates.search(
+        {},
+        { query: 'Logan' },
+        { registry },
+      );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(20);
       expect(search.pageCount).toEqual(209);
@@ -23,7 +27,11 @@ describe('DeathCertificates resolvers', () => {
     });
 
     it('handles slightly more complicated pagination', async () => {
-      const search = await resolvers.DeathCertificates.search({}, { query: 'Logan', pageSize: 2, page: 1 }, { registry });
+      const search = await resolvers.DeathCertificates.search(
+        {},
+        { query: 'Logan', pageSize: 2, page: 1 },
+        { registry },
+      );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(2);
       expect(search.pageCount).toEqual(2089);
@@ -32,17 +40,39 @@ describe('DeathCertificates resolvers', () => {
 
   describe('certificate', () => {
     it('returns a specific certificate', async () => {
-      expect(await resolvers.DeathCertificates.certificate({}, { id: fixtureData[0].CertificateID.toString() }, { registry })).toBeTruthy();
+      expect(
+        await resolvers.DeathCertificates.certificate(
+          {},
+          { id: fixtureData[0].CertificateID.toString() },
+          { registry },
+        ),
+      ).toBeTruthy();
     });
 
     it('returns null if the certificate is not found', async () => {
-      expect(await resolvers.DeathCertificates.certificate({}, { id: '999992' }, { registry })).not.toBeTruthy();
+      expect(
+        await resolvers.DeathCertificates.certificate(
+          {},
+          { id: '999992' },
+          { registry },
+        ),
+      ).not.toBeTruthy();
     });
   });
 
   describe('certificates', () => {
     it('returns certificates in order', async () => {
-      const certificates = await resolvers.DeathCertificates.certificates({}, { ids: [fixtureData[4].CertificateID.toString(), '999992', fixtureData[2].CertificateID.toString()] }, { registry });
+      const certificates = await resolvers.DeathCertificates.certificates(
+        {},
+        {
+          ids: [
+            fixtureData[4].CertificateID.toString(),
+            '999992',
+            fixtureData[2].CertificateID.toString(),
+          ],
+        },
+        { registry },
+      );
       expect(certificates[0]).toBeTruthy();
       expect(certificates[1]).not.toBeTruthy();
       expect(certificates[2]).toBeTruthy();

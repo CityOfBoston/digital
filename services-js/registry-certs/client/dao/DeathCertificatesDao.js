@@ -8,7 +8,7 @@ import fetchDeathCertificates from '../queries/fetch-death-certificates';
 import searchDeathCertificates from '../queries/search-death-certificates';
 import type { DeathCertificateSearchResults } from '../types';
 
-export type DeathCertificateCache = {[id: string]: DeathCertificate};
+export type DeathCertificateCache = { [id: string]: DeathCertificate };
 
 export default class DeathCertificatesDao {
   loopbackGraphql: LoopbackGraphql;
@@ -18,26 +18,39 @@ export default class DeathCertificatesDao {
     this.loopbackGraphql = loopbackGraphql;
 
     // create new array shenanigans to get Flow to accept that we're not returning Errors
-    this.loader = new DataLoader((ids) => fetchDeathCertificates(loopbackGraphql, ids).then((a) => a.map((i) => i)));
+    this.loader = new DataLoader(ids =>
+      fetchDeathCertificates(loopbackGraphql, ids).then(a => a.map(i => i)),
+    );
   }
 
   get(id: string): Promise<?DeathCertificate> {
     return this.loader.load(id);
   }
 
-  async search(fullQuery: string, page: number): Promise<DeathCertificateSearchResults> {
+  async search(
+    fullQuery: string,
+    page: number,
+  ): Promise<DeathCertificateSearchResults> {
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
-    const results = await searchDeathCertificates(this.loopbackGraphql, query, page, startYear, endYear);
+    const results = await searchDeathCertificates(
+      this.loopbackGraphql,
+      query,
+      page,
+      startYear,
+      endYear,
+    );
 
-    results.results.forEach((cert) => {
+    results.results.forEach(cert => {
       this.loader.prime(cert.id, cert);
     });
 
     return results;
   }
 
-  parseQuery(fullQuery: string): { query: string, startYear: ?string, endYear: ?string } {
+  parseQuery(
+    fullQuery: string,
+  ): { query: string, startYear: ?string, endYear: ?string } {
     // match a 4-digit year, and optionally a second 4-digit year with a hypen or en-dash
     const yearRegexp = /(\d{4})\s*[-–]?\s*(\d{4})?/;
 

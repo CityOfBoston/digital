@@ -18,5 +18,8 @@ test('fetchDeathCertificates', async () => {
     ids: ['000001'],
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(FetchDeathCertificatesGraphql, queryVariables);
+  expect(loopbackGraphql).toHaveBeenCalledWith(
+    FetchDeathCertificatesGraphql,
+    queryVariables,
+  );
 });

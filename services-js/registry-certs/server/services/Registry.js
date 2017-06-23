@@ -37,11 +37,14 @@ const MAX_ID_LOOKUP_LENGTH = 1000;
 // each no longer than maxLength.
 //
 // E.g.: ["12345", "67890", "abcde"] => ["12345,67890", "abcde"]
-export function splitKeys(maxLength: number, keys: Array<string>): Array<string> {
+export function splitKeys(
+  maxLength: number,
+  keys: Array<string>,
+): Array<string> {
   const keyStrings: Array<string> = [];
   let currentKeyString = '';
 
-  keys.forEach((key) => {
+  keys.forEach(key => {
     if (currentKeyString.length === 0) {
       currentKeyString = key;
     } else if (currentKeyString.length + key.length + 1 < maxLength) {
@@ -65,18 +68,29 @@ export default class Registry {
 
   constructor(pool: ConnectionPool) {
     this.pool = pool;
-    this.lookupLoader = new DataLoader((keys: Array<string>) => this.lookupLoaderFetch(keys));
+    this.lookupLoader = new DataLoader((keys: Array<string>) =>
+      this.lookupLoaderFetch(keys),
+    );
   }
 
-  async search(name: string, page: number, pageSize: number, startYear: ?string, endYear: ?string): Promise<Array<DeathCertificateSearchResult>> {
-    const resp: DbResponse<DeathCertificateSearchResult> = ((await this.pool.request()
+  async search(
+    name: string,
+    page: number,
+    pageSize: number,
+    startYear: ?string,
+    endYear: ?string,
+  ): Promise<Array<DeathCertificateSearchResult>> {
+    const resp: DbResponse<
+      DeathCertificateSearchResult,
+    > = (await this.pool
+      .request()
       .input('searchFor', name)
       .input('pageNumber', page)
       .input('pageSize', pageSize)
       .input('sortBy', 'dateOfDeath')
       .input('startYear', startYear)
       .input('endYear', endYear)
-      .execute('Registry.Death.sp_FindCertificatesWeb')): any);
+      .execute('Registry.Death.sp_FindCertificatesWeb'): any);
 
     const { recordset } = resp;
 
@@ -91,27 +105,34 @@ export default class Registry {
     return this.lookupLoader.load(id);
   }
 
-  async lookupLoaderFetch(keys: Array<string>): Promise<Array<?DeathCertificate | Error>> {
+  async lookupLoaderFetch(
+    keys: Array<string>,
+  ): Promise<Array<?DeathCertificate | Error>> {
     // The api can only take 1000 characters of keys at once. We probably won't
     // run into that issue but just in case we split up and parallelize.
     const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
 
-    const allResults: Array<Array<DeathCertificate>> = await Promise.all(keyStrings.map(async (keyString) => {
-      const resp: DbResponse<DeathCertificate> = ((await this.pool.request()
-        .input('idList', keyString)
-        .execute('Registry.Death.sp_GetCertificatesWeb')): any);
+    const allResults: Array<Array<DeathCertificate>> = await Promise.all(
+      keyStrings.map(async keyString => {
+        const resp: DbResponse<
+          DeathCertificate,
+        > = (await this.pool
+          .request()
+          .input('idList', keyString)
+          .execute('Registry.Death.sp_GetCertificatesWeb'): any);
 
-      return resp.recordset;
-    }));
+        return resp.recordset;
+      }),
+    );
 
-    const idToCertificateMap: {[key: string]: DeathCertificate} = {};
-    allResults.forEach((results) => {
+    const idToCertificateMap: { [key: string]: DeathCertificate } = {};
+    allResults.forEach(results => {
       results.forEach((cert: DeathCertificate) => {
         idToCertificateMap[cert.CertificateID.toString()] = cert;
       });
     });
 
-    return keys.map((k) => idToCertificateMap[k]);
+    return keys.map(k => idToCertificateMap[k]);
   }
 }
 
@@ -137,9 +158,15 @@ export type MakeRegistryOptions = {|
   server: ?string,
   domain: ?string,
   database: ?string,
-|}
+|};
 
-export async function makeRegistryFactory({ user, password, server, domain, database }: MakeRegistryOptions): Promise<RegistryFactory> {
+export async function makeRegistryFactory({
+  user,
+  password,
+  server,
+  domain,
+  database,
+}: MakeRegistryOptions): Promise<RegistryFactory> {
   if (!(user && password && server && database)) {
     throw new Error('Missing some element of database configuration');
   }
@@ -175,16 +202,22 @@ export class FixtureRegistry {
     this.data = data;
   }
 
-  async search(query: string, page: number, pageSize: number): Promise<Array<DeathCertificateSearchResult>> {
+  async search(
+    query: string,
+    page: number,
+    pageSize: number,
+  ): Promise<Array<DeathCertificateSearchResult>> {
     return this.data.slice(page * pageSize, (page + 1) * pageSize);
   }
 
   async lookup(id: string): Promise<?DeathCertificateSearchResult> {
-    return this.data.find((res) => res.CertificateID.toString() === id);
+    return this.data.find(res => res.CertificateID.toString() === id);
   }
 }
 
-export function makeFixtureRegistryFactory(fixtureName: string): Promise<RegistryFactory> {
+export function makeFixtureRegistryFactory(
+  fixtureName: string,
+): Promise<RegistryFactory> {
   return new Promise((resolve, reject) => {
     fs.readFile(fixtureName, (err, data) => {
       if (err) {
@@ -193,15 +226,17 @@ export function makeFixtureRegistryFactory(fixtureName: string): Promise<Registr
         try {
           const json = JSON.parse(data.toString('utf-8'));
 
-          resolve(({
-            registry() {
-              return new FixtureRegistry(json);
-            },
+          resolve(
+            ({
+              registry() {
+                return new FixtureRegistry(json);
+              },
 
-            cleanup() {
-              return Promise.resolve(null);
-            },
-          }: any));
+              cleanup() {
+                return Promise.resolve(null);
+              },
+            }: any),
+          );
         } catch (e) {
           reject(e);
         }

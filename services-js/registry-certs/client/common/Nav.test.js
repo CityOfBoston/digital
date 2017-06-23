@@ -14,10 +14,14 @@ describe('rendering', () => {
   });
 
   it('renders checkout link', () => {
-    expect(renderer.create(<Nav cart={cart} link="checkout" />).toJSON()).toMatchSnapshot();
+    expect(
+      renderer.create(<Nav cart={cart} link="checkout" />).toJSON(),
+    ).toMatchSnapshot();
   });
 
   it('renders lookup link', () => {
-    expect(renderer.create(<Nav cart={cart} link="lookup" />).toJSON()).toMatchSnapshot();
+    expect(
+      renderer.create(<Nav cart={cart} link="lookup" />).toJSON(),
+    ).toMatchSnapshot();
   });
 });

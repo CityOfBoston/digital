@@ -52,40 +52,53 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
     const $translateItem = $('header>nav li.nv-h-l-i.tr');
     $translateItem.removeClass('tr');
     $translateItem.find('ul').remove();
-    $translateItem.find('a').attr('href', '/translate').removeClass('nv-h-l-a--k--s tr-link');
+    $translateItem
+      .find('a')
+      .attr('href', '/translate')
+      .removeClass('nv-h-l-a--k--s tr-link');
   }
 
-  ['header', 'footer'].forEach((tag) => {
+  ['header', 'footer'].forEach(tag => {
     const html = $(tag).html();
     if (!html) {
       throw new Error(`<${tag}> not found in html: ${templateHtml}`);
     }
 
-    push(new gutil.File({
-      path: `${tag}.html`,
-      contents: new Buffer(html),
-    }));
+    push(
+      new gutil.File({
+        path: `${tag}.html`,
+        contents: new Buffer(html),
+      }),
+    );
   });
 
   const navigationHtml = $('nav.nv-m').html();
-  push(new gutil.File({
-    path: 'navigation.html',
-    contents: new Buffer(navigationHtml),
-  }));
+  push(
+    new gutil.File({
+      path: 'navigation.html',
+      contents: new Buffer(navigationHtml),
+    }),
+  );
 
-  const stylesheetHrefs = $('link[rel=stylesheet]').map((i, el) => $(el).attr('href')).toArray();
-  push(new gutil.File({
-    path: 'stylesheets.json',
-    contents: new Buffer(JSON.stringify(stylesheetHrefs, null, 2)),
-  }));
+  const stylesheetHrefs = $('link[rel=stylesheet]')
+    .map((i, el) => $(el).attr('href'))
+    .toArray();
+  push(
+    new gutil.File({
+      path: 'stylesheets.json',
+      contents: new Buffer(JSON.stringify(stylesheetHrefs, null, 2)),
+    }),
+  );
 }
 
 module.exports = (opts: Options) => {
   const stream = through.obj();
 
-  fetchTemplates(opts, (f) => stream.push(f)).then(
-    () => { stream.emit('end'); },
-    (err) => {
+  fetchTemplates(opts, f => stream.push(f)).then(
+    () => {
+      stream.emit('end');
+    },
+    err => {
       process.nextTick(() => stream.emit('error', err));
     },
   );

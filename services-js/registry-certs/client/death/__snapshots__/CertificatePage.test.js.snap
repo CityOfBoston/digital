@@ -4,15 +4,15 @@ exports[`rendering renders a 404 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -20,7 +20,7 @@ exports[`rendering renders a 404 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -56,15 +56,15 @@ exports[`rendering renders a certificate 1`] = `
 <div>
   <nav
     className="nv-s nv-s--sticky"
-    data-jsx={3477795240}
+    data-jsx={792433154}
   >
     <div
       className="nv-s-l bar"
-      data-jsx={3477795240}
+      data-jsx={792433154}
     >
       <a
         className="nv-s-l-b back-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -72,7 +72,7 @@ exports[`rendering renders a certificate 1`] = `
       </a>
       <a
         className="cart-link"
-        data-jsx={3477795240}
+        data-jsx={792433154}
         href="/death/checkout"
         onClick={[Function]}
       >
@@ -102,25 +102,25 @@ exports[`rendering renders a certificate 1`] = `
     className="p-a300 b--w"
   >
     <div
-      data-jsx={3681792122}
+      data-jsx={3255886522}
     >
       <ul
         className="dl"
-        data-jsx={3681792122}
+        data-jsx={3255886522}
       >
         <li
           className="dl-i"
-          data-jsx={3681792122}
+          data-jsx={3255886522}
         >
           <span
             className="dl-t"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             Full Name
           </span>
           <span
             className="dl-d"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             Bruce
              
@@ -129,34 +129,34 @@ exports[`rendering renders a certificate 1`] = `
         </li>
         <li
           className="dl-i"
-          data-jsx={3681792122}
+          data-jsx={3255886522}
         >
           <span
             className="dl-t"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             Date of Death
           </span>
           <span
             className="dl-d"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             3/4/2016
           </span>
         </li>
         <li
           className="dl-i"
-          data-jsx={3681792122}
+          data-jsx={3255886522}
         >
           <span
             className="dl-t"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             Age
           </span>
           <span
             className="dl-d"
-            data-jsx={3681792122}
+            data-jsx={3255886522}
           >
             21 yrs.
           </span>
@@ -164,72 +164,72 @@ exports[`rendering renders a certificate 1`] = `
       </ul>
       <form
         className="js-add-to-cart-form m-v300"
-        data-jsx={3681792122}
+        data-jsx={3255886522}
         onSubmit={[Function]}
       >
         <select
           className="quantity"
-          data-jsx={3681792122}
+          data-jsx={3255886522}
           name="quantity"
           onChange={[Function]}
           value={1}
         >
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="1"
           >
             Qty: 1
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="2"
           >
             Qty: 2
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="3"
           >
             Qty: 3
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="4"
           >
             Qty: 4
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="5"
           >
             Qty: 5
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="6"
           >
             Qty: 6
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="7"
           >
             Qty: 7
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="8"
           >
             Qty: 8
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="9"
           >
             Qty: 9
           </option>
           <option
-            data-jsx={3681792122}
+            data-jsx={3255886522}
             value="10"
           >
             Qty: 10
@@ -237,7 +237,7 @@ exports[`rendering renders a certificate 1`] = `
         </select>
         <button
           className="btn add-to-cart"
-          data-jsx={3681792122}
+          data-jsx={3255886522}
           type="submit"
         >
           Add to Cart

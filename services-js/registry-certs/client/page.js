@@ -24,7 +24,7 @@ export type ClientDependencies = {
   cart: Cart,
   deathCertificatesDao: DeathCertificatesDao,
   loopbackGraphql: LoopbackGraphql,
-}
+};
 
 let browserInited = false;
 let browserDependencies: ClientDependencies;
@@ -68,7 +68,9 @@ function makeDependencies(req: ?RequestAdditions): ClientDependencies {
   return dependencies;
 }
 
-export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => {
+export default <OP, P: $Subtype<Object>, S>(
+  Component: Class<React.Component<OP, P, S>>,
+): Class<React.Component<void, P, void>> => {
   maybeInitBrowserLibraries();
 
   return class Page extends React.Component {

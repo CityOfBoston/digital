@@ -3,7 +3,10 @@
 import { makeExecutableSchema } from 'graphql-tools';
 
 import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
-import { Schema as DeathSchema, resolvers as deathResolvers } from './death-certificates';
+import {
+  Schema as DeathSchema,
+  resolvers as deathResolvers,
+} from './death-certificates';
 
 import type Registry from '../services/Registry';
 
@@ -18,11 +21,7 @@ schema {
 `;
 
 export default makeExecutableSchema({
-  typeDefs: [
-    SchemaDefinition,
-    QuerySchema,
-    DeathSchema,
-  ],
+  typeDefs: [SchemaDefinition, QuerySchema, DeathSchema],
   resolvers: {
     ...queryResolvers,
     ...deathResolvers,

@@ -10,7 +10,10 @@ import cleanup from 'node-cleanup';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import addRequestAdditions from './request-additions';
-import { makeRegistryFactory, makeFixtureRegistryFactory } from './services/Registry';
+import {
+  makeRegistryFactory,
+  makeFixtureRegistryFactory,
+} from './services/Registry';
 import type { RegistryFactory } from './services/Registry';
 
 import schema from './graphql';
@@ -18,7 +21,7 @@ import type { Context } from './graphql';
 
 import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 
-type Opbeat = $Exports<'opbeat'>
+type Opbeat = $Exports<'opbeat'>;
 
 type ServerArgs = {
   opbeat: Opbeat,
@@ -57,29 +60,38 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   const startup = async () => {
     const services = await Promise.all([
-      registryFactoryOpts.server ? makeRegistryFactory(registryFactoryOpts) : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
+      registryFactoryOpts.server
+        ? makeRegistryFactory(registryFactoryOpts)
+        : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
       app.prepare(),
     ]);
 
     registryFactory = services[0];
 
     return async () => {
-      await Promise.all([registryFactory.cleanup(), app.close(), server.stop()]);
+      await Promise.all([
+        registryFactory.cleanup(),
+        app.close(),
+        server.stop(),
+      ]);
     };
   };
 
-  server.auth.scheme('headerKeys', (s, { keys, header }: { header: string, keys: string[]}) => ({
-    authenticate: (request, reply) => {
-      const key = request.headers[header.toLowerCase()];
-      if (!key) {
-        reply(Boom.unauthorized(`Missing ${header} header`));
-      } else if (keys.indexOf(key) === -1) {
-        reply(Boom.unauthorized(`Key ${key} is not a valid key`));
-      } else {
-        reply.continue({ credentials: key });
-      }
-    },
-  }));
+  server.auth.scheme(
+    'headerKeys',
+    (s, { keys, header }: { header: string, keys: string[] }) => ({
+      authenticate: (request, reply) => {
+        const key = request.headers[header.toLowerCase()];
+        if (!key) {
+          reply(Boom.unauthorized(`Missing ${header} header`));
+        } else if (keys.indexOf(key) === -1) {
+          reply(Boom.unauthorized(`Key ${key} is not a valid key`));
+        } else {
+          reply.continue({ credentials: key });
+        }
+      },
+    }),
+  );
 
   server.auth.strategy('apiKey', 'headerKeys', {
     header: 'X-API-KEY',
@@ -95,15 +107,20 @@ export function makeServer({ opbeat }: ServerArgs) {
             {
               module: 'good-squeeze',
               name: 'Squeeze',
-              args: [{
-                response: '*',
-                log: '*',
-              }],
-            }, {
+              args: [
+                {
+                  response: '*',
+                  log: '*',
+                },
+              ],
+            },
+            {
               module: 'good-console',
-              args: [{
-                color: process.env.NODE_ENV !== 'production',
-              }],
+              args: [
+                {
+                  color: process.env.NODE_ENV !== 'production',
+                },
+              ],
             },
             'stdout',
           ],
@@ -182,13 +199,16 @@ export default async function startServer(args: ServerArgs) {
   const { server, startup } = makeServer(args);
 
   const shutdown = await startup();
-  cleanup((exitCode) => {
-    shutdown().then(() => {
-      process.exit(exitCode);
-    }, (err) => {
-      console.log('CLEAN EXIT FAILED', err);
-      process.exit(-1);
-    });
+  cleanup(exitCode => {
+    shutdown().then(
+      () => {
+        process.exit(exitCode);
+      },
+      err => {
+        console.log('CLEAN EXIT FAILED', err);
+        process.exit(-1);
+      },
+    );
 
     cleanup.uninstall();
     return false;

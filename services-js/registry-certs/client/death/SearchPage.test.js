@@ -10,7 +10,11 @@ import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import SearchPage from './SearchPage';
 import type { InitialProps } from './SearchPage';
-import { TYPICAL_CERTIFICATE, PENDING_CERTIFICATE, NO_DATE_CERTIFICATE } from '../../fixtures/client/death-certificates';
+import {
+  TYPICAL_CERTIFICATE,
+  PENDING_CERTIFICATE,
+  NO_DATE_CERTIFICATE,
+} from '../../fixtures/client/death-certificates';
 
 jest.mock('next/router');
 jest.mock('../dao/DeathCertificatesDao');
@@ -29,12 +33,18 @@ const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
   pageCount: 10,
 };
 
-const renderFromInitialProps = async (query: {[key: string]: string}, dependencies: Object) => {
+const renderFromInitialProps = async (
+  query: { [key: string]: string },
+  dependencies: Object,
+) => {
   const cart = new Cart();
 
-  const initialProps: InitialProps = await SearchPage.getInitialProps((({
-    query,
-  }): any), dependencies);
+  const initialProps: InitialProps = await SearchPage.getInitialProps(
+    ({
+      query,
+    }: any),
+    dependencies,
+  );
 
   return renderer.create(<SearchPage cart={cart} {...initialProps} />);
 };
@@ -47,13 +57,20 @@ describe('rendering', () => {
   });
 
   it('shows empty search box', async () => {
-    expect((await renderFromInitialProps({}, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
+    expect(
+      (await renderFromInitialProps({}, { deathCertificatesDao })).toJSON(),
+    ).toMatchSnapshot();
   });
 
   it('shows search results', async () => {
     deathCertificatesDao.search.mockReturnValue(TEST_SEARCH_RESULTS);
 
-    expect((await renderFromInitialProps({ q: 'Monkey Joe' }, { deathCertificatesDao })).toJSON()).toMatchSnapshot();
+    expect(
+      (await renderFromInitialProps(
+        { q: 'Monkey Joe' },
+        { deathCertificatesDao },
+      )).toJSON(),
+    ).toMatchSnapshot();
     expect(deathCertificatesDao.search).toHaveBeenCalledWith('Monkey Joe', 1);
   });
 });
@@ -63,8 +80,12 @@ describe('searching', () => {
     const cart = new Cart();
     const wrapper = shallow(<SearchPage cart={cart} query="" results={null} />);
 
-    wrapper.find('input[name="q"]').simulate('change', { target: { value: 'Monkey Joe' } });
-    wrapper.find('form[action="/death"]').simulate('submit', { preventDefault: jest.fn() });
+    wrapper
+      .find('input[name="q"]')
+      .simulate('change', { target: { value: 'Monkey Joe' } });
+    wrapper
+      .find('form[action="/death"]')
+      .simulate('submit', { preventDefault: jest.fn() });
 
     expect(Router.push).toHaveBeenCalledWith('/death?q=Monkey%20Joe');
   });

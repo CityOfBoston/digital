@@ -7,9 +7,9 @@ import stylesheetHrefs from '../../templates/stylesheets.json';
 
 export default function styleTags(css: ?string) {
   return [
-    ...stylesheetHrefs.map((href) => (
-      <link href={href} key={href} type="text/css" rel="stylesheet" />
-    )),
+    ...stylesheetHrefs.map(href =>
+      <link href={href} key={href} type="text/css" rel="stylesheet" />,
+    ),
 
     <style type="text/css" key="default">{`
       body {
@@ -29,6 +29,11 @@ export default function styleTags(css: ?string) {
       @keyframes nprogress-spinner{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
     `}</style>,
 
-    css && <style type="text/css" key="static" dangerouslySetInnerHTML={{ __html: css }} />,
+    css &&
+      <style
+        type="text/css"
+        key="static"
+        dangerouslySetInnerHTML={{ __html: css }}
+      />,
   ];
 }

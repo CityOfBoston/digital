@@ -70,6 +70,7 @@
     "opbeat": "^4.14.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-prop-types": "^0.4.0",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
     "url-search-params": "^0.9.0"
   },
@@ -91,10 +92,11 @@
     "del": "^3.0.0",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.2.0",
     "eslint-plugin-flowtype": "^2.33.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-react": "^7.0.1",
     "fetch-mock": "^5.10.0",
     "flow-bin": "^0.47.0",
@@ -108,6 +110,7 @@
     "jest": "^20.0.4",
     "json-loader": "^0.5.4",
     "lint-staged": "^4.0.0",
+    "prettier": "^1.4.4",
     "react-test-renderer": "^15.5.4",
     "through2": "^2.0.3",
     "webpack-bundle-analyzer": "^2.8.1"

@@ -10,13 +10,23 @@ export type Props = {|
   certificate: DeathCertificate,
 |};
 
-export default function SearchResult({ certificate: { firstName, lastName, age, deathDate, deathYear, id, pending } }: Props) {
+export default function SearchResult({
+  certificate: { firstName, lastName, age, deathDate, deathYear, id, pending },
+}: Props) {
   return (
     <Link href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
       <a className={'p-a300 br br-t100 b--w result'}>
-        <div className="t--sans" style={{ fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 1.4 }}>{firstName} {lastName}</div>
+        <div
+          className="t--sans"
+          style={{
+            fontStyle: 'normal',
+            fontWeight: 'bold',
+            letterSpacing: 1.4,
+          }}>
+          {firstName} {lastName}
+        </div>
         <div>Died: {deathDate || deathYear} Age: {age}</div>
-        { pending && <div>Certificate Pending</div> }
+        {pending && <div>Certificate Pending</div>}
         <style jsx>{`
             .result {
               display: block;
