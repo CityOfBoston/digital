@@ -17,9 +17,12 @@ let env;
 // There's no .env on Travis, but we want to run the storybook for Percy
 // snapshot testing. So, we guard the require with a try/catch and then
 // just set the MAPBOX env variables in the Travis UI.
+//
+// We have to use require so that we can catch the exception, but our
+// inline import plugin only works with import statements. So, we require
+// a JS module that has its own import of '../.env' to export.
 try {
-  // eslint-disable-next-line import/no-unresolved
-  const DOT_ENV = require('../.env');
+  const DOT_ENV = require('./dot-env-file').default;
   env = parseDotEnv(DOT_ENV);
 } catch (e) {
   // the transform-inline-environment-variables babel plugin will insert
