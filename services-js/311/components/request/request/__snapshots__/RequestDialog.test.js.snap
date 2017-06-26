@@ -76,6 +76,7 @@ exports[`methods submitRequest success 2`] = `
     noPadding={false}
   >
     <CaseView
+      noMap={false}
       request={
         Object {
           "address": "City Hall Plaza, Boston, MA 02131",

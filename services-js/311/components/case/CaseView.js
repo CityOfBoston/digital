@@ -13,12 +13,14 @@ import { MEDIA_LARGE } from '../style-constants';
 
 export type DefaultProps = {|
   submitted: boolean,
+  noMap: boolean,
 |}
 
 export type Props = {|
   request: Request,
   store: AppStore,
   submitted?: boolean,
+  noMap?: boolean,
 |}
 
 const IMG_STYLE = css({
@@ -49,6 +51,7 @@ function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
     </div>
   );
 }
+
 function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   if (status !== 'closed') {
     return null;
@@ -62,7 +65,6 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   );
 }
 
-
 function makeMapboxUrl(store: AppStore, request: Request, size: number): string {
   const { apiKeys: { mapbox } } = store;
   const { location } = request;
@@ -74,7 +76,7 @@ function makeMapboxUrl(store: AppStore, request: Request, size: number): string 
   return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(mapbox.accessToken)}`;
 }
 
-export default function CaseView({ request, store, submitted }: Props) {
+export default function CaseView({ request, store, submitted, noMap }: Props) {
   const waypointIcon = request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
   return (
@@ -99,7 +101,7 @@ export default function CaseView({ request, store, submitted }: Props) {
       }
 
       <div className="g m-v500">
-        { request.location &&
+        { request.location && !noMap &&
           <div className="g--6">
             <div className={MAP_WRAPPER_STYLE}>
               <img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} src={makeMapboxUrl(store, request, 440)} alt={`Map of ${request.address || ''}`} />
@@ -120,4 +122,5 @@ export default function CaseView({ request, store, submitted }: Props) {
 
 CaseView.defaultProps = {
   submitted: false,
+  noMap: false,
 };
