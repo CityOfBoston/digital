@@ -85,19 +85,19 @@ export type LoadServiceQuery = {|
     code: string,
     contactRequirement: MetadataRequirement,
     locationRequirement: MetadataRequirement,
-    attributes: Array< {|
+    attributes:  Array< {|
       required: boolean,
       type: ServiceAttributeDatatype,
       code: string,
       description: string,
-      values: ?Array< {|
+      values: ? Array< {|
         key: string,
         name: string,
       |} >,
-      conditionalValues: ?Array< {|
+      conditionalValues: ? Array< {|
         dependentOn: {|
           clause: ServiceAttributeConditionalClause,
-          conditions: Array< {|
+          conditions:  Array< {|
             attribute: string,
             op: ServiceAttributeConditionalOp,
             value: {|
@@ -108,14 +108,14 @@ export type LoadServiceQuery = {|
             |},
           |} >,
         |},
-        values: Array< {|
+        values:  Array< {|
           key: string,
           name: string,
         |} >,
       |} >,
       dependencies: ? {|
         clause: ServiceAttributeConditionalClause,
-        conditions: Array< {|
+        conditions:  Array< {|
           attribute: string,
           op: ServiceAttributeConditionalOp,
           value: {|
@@ -135,7 +135,7 @@ export type LoadServiceSuggestionsQueryVariables = {|
 |};
 
 export type LoadServiceSuggestionsQuery = {|
-  servicesForDescription: Array< {|
+  servicesForDescription:  Array< {|
     name: string,
     code: string,
     description: ?string,
@@ -144,7 +144,7 @@ export type LoadServiceSuggestionsQuery = {|
 |};
 
 export type LoadServiceSummariesQuery = {|
-  services: Array< {|
+  services:  Array< {|
     code: string,
     name: string,
     description: ?string,
@@ -157,7 +157,7 @@ export type LoadTopServiceSummariesQueryVariables = {|
 |};
 
 export type LoadTopServiceSummariesQuery = {|
-  topServices: Array< {|
+  topServices:  Array< {|
     code: string,
     name: string,
     description: ?string,
@@ -195,7 +195,7 @@ export type SearchAddressQuery = {|
       |},
       address: string,
       addressId: ?string,
-      units: Array< {|
+      units:  Array< {|
         address: string,
         streetAddress: string,
         unit: string,
@@ -214,7 +214,7 @@ export type SearchCasesQueryVariables = {|
 export type SearchCasesQuery = {|
   searchCases: {|
     query: string,
-    cases: Array< {|
+    cases:  Array< {|
       id: string,
       status: string,
       description: ?string,
