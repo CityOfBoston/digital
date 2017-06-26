@@ -38,6 +38,7 @@ export type InitialProps = {|
 export type Props = {|
   /* :: ...InitialProps, */
   store: AppStore,
+  noMap?: boolean,
 |}
 
 const SEARCH_HEIGHT = 62;
@@ -111,6 +112,9 @@ const STICKY_VIEW_BUTTON_STYLE = css({
 
 @observer
 export default class SearchLayout extends React.Component {
+  static defaultProps = {
+    noMap: false,
+  };
   props: Props;
   loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
 
@@ -312,7 +316,7 @@ export default class SearchLayout extends React.Component {
   }
 
   render() {
-    const { store } = this.props;
+    const { store, noMap } = this.props;
     const { ui, requestSearch } = store;
     const { mapScrolledOff, stickyMapViewButton } = this;
     const { mapView } = requestSearch;
@@ -331,13 +335,13 @@ export default class SearchLayout extends React.Component {
           </div>
 
           <div className={mapView ? FULL_MAP_CONTAINER_STYLE : MAP_CONTAINER_STYLE} ref={this.setLocationMapContainer}>
-            <LocationMapWithLibrary
+            {!noMap && <LocationMapWithLibrary
               locationMapRef={this.setLocationMap}
               store={store}
               mode="requests"
               mobile={ui.belowMediaLarge}
               onMapClick={ui.belowMediaLarge ? this.switchToMapView : null}
-            />
+            />}
           </div>
 
           {!mapView && <div ref={this.setContainer}><RecentRequests store={store} /></div> }

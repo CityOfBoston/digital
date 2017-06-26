@@ -1,9 +1,6 @@
 // @flow
 /* eslint no-fallthrough: 0 */
 
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import type { Request } from '../../data/types';
 import { AppStore } from '../../data/store';
 import { makeServerContext } from '../../lib/test/make-context';
@@ -22,7 +19,7 @@ const MOCK_API_KEYS = {
   },
 };
 
-export const MOCK_REQUEST: Request = {
+const MOCK_REQUEST: Request = {
   id: '17-000000001',
   service: {
     name: 'Cosmic Intervention',
@@ -53,26 +50,18 @@ describe('case', () => {
     data = (await CaseLayout.getInitialProps(ctx)).data;
   });
 
-  test('rendering', () => {
-    const component = renderer.create(
-      <CaseLayout data={data} store={store} />,
-    );
-    expect(component.toJSON()).toMatchSnapshot();
+  test('getInitialProps', () => {
+    expect(data).toBeDefined();
   });
 });
 
 describe('case not found', () => {
   let ctx;
-  let data;
-  let store;
 
   beforeEach(async () => {
-    store = new AppStore();
-    store.apiKeys = MOCK_API_KEYS;
-
     loadRequest.mockReturnValue(Promise.resolve(null));
     ctx = makeServerContext('/case', { id: 'not-a-real-id' });
-    data = (await CaseLayout.getInitialProps(ctx)).data;
+    await CaseLayout.getInitialProps(ctx);
   });
 
   test('getInitialProps', () => {
@@ -82,12 +71,5 @@ describe('case not found', () => {
     } else {
       expect(ctx.res).toBeDefined();
     }
-  });
-
-  test('rendering', () => {
-    const component = renderer.create(
-      <CaseLayout data={data} store={store} />,
-    );
-    expect(component.toJSON()).toMatchSnapshot();
   });
 });

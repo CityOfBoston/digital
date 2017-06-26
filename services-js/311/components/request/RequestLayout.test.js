@@ -85,13 +85,6 @@ describe('request form', () => {
   test('getInitialProps', () => {
     expect(data.view).toEqual('home');
   });
-
-  test('rendering', () => {
-    const component = renderer.create(
-      <RequestLayout store={store} data={data} />,
-    );
-    expect(component.toJSON()).toMatchSnapshot();
-  });
 });
 
 describe('translate page', () => {
@@ -107,13 +100,6 @@ describe('translate page', () => {
   test('getInitialProps', () => {
     expect(data.view).toEqual('translate');
   });
-
-  test('rendering', () => {
-    const component = renderer.create(
-      <RequestLayout store={store} data={data} />,
-    );
-    expect(component.toJSON()).toMatchSnapshot();
-  });
 });
 
 describe('existing service page', () => {
@@ -125,16 +111,6 @@ describe('existing service page', () => {
     const ctx = makeServerContext('/request', { code: 'CSMCINC' });
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     expect(data.view).toEqual('request');
-  });
-
-  test('rendering', async () => {
-    const ctx = makeServerContext('/request', { code: 'CSMCINC' });
-    const data = (await RequestLayout.getInitialProps(ctx)).data;
-    const component = renderer.create(
-      <RequestLayout data={data} store={store} />,
-    );
-
-    expect(component.toJSON()).toMatchSnapshot();
   });
 
   test('rendering phone', async () => {

@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import inPercy from '@percy-io/in-percy';
 
+import page from '../../storybook/page';
 import type { Request } from '../../data/types';
 import { AppStore } from '../../data/store';
-import CaseView from './CaseView';
+import CaseLayout from './CaseLayout';
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',
@@ -32,24 +32,11 @@ function makeStore() {
   return store;
 }
 
-const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
-
-storiesOf('CaseView', module)
-  .addDecorator((next) => (
-    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
+storiesOf('CaseLayout', module)
+  .addDecorator(page)
+  .add('Existing', () => (
+    <CaseLayout data={{ request: { ...MOCK_REQUEST, status: 'open', location: null } }} store={makeStore()} />
   ))
-  .add('Submitted', () => (
-    <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} submitted noMap={suppressMap} />
-    </div>
-  ))
-  .add('Open', () => (
-    <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} noMap={suppressMap} />
-    </div>
-  ))
-  .add('Resolved', () => (
-    <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={MOCK_REQUEST} store={makeStore()} noMap={suppressMap} />
-    </div>
+  .add('404', () => (
+    <CaseLayout data={{ request: null }} store={makeStore()} />
   ));

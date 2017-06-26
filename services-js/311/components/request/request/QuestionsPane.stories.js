@@ -8,13 +8,40 @@ import type { Service } from '../../../data/types';
 import { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
 
-import { DEFAULT_SERVICE, SERVICE_WITH_METADATA } from './QuestionsPane.test';
 import QuestionsPane from './QuestionsPane';
 import FormDialog from '../../common/FormDialog';
 
-const makeRequestForm = (service: Service) => {
+export const DEFAULT_SERVICE: Service = {
+  name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
+  code: 'CSMCINC',
+  attributes: [],
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
+};
+
+export const SERVICE_WITH_METADATA: Service = {
+  name: 'Cosmic Incursion',
+  description: 'Bad things getting in from other universes',
+  code: 'CSMCINC',
+  contactRequirement: 'REQUIRED',
+  locationRequirement: 'VISIBLE',
+  attributes: [{
+    required: false,
+    type: 'TEXT',
+    code: 'ST-CMTS',
+    description: 'Please provide any other relevant information:',
+    values: null,
+    conditionalValues: null,
+    dependencies: null,
+  }],
+};
+const makeRequestForm = (service: Service, description: boolean) => {
   const requestForm = new RequestForm(service);
-  requestForm.description = 'I could use some heroic supporti';
+  if (description) {
+    requestForm.description = 'I could use some heroic support';
+  }
+
   return requestForm;
 };
 
@@ -27,7 +54,17 @@ storiesOf('QuestionsPane', module)
 .add('No Metadata', () => (
   <QuestionsPane
     store={new AppStore()}
-    requestForm={makeRequestForm(DEFAULT_SERVICE)}
+    requestForm={makeRequestForm(DEFAULT_SERVICE, true)}
+    serviceName={'Cosmic Incursion'}
+    serviceDescription={'Bad things getting in from other universes'}
+    nextFunc={action('Next Step')}
+    nextIsSubmit
+  />
+))
+.add('No Description', () => (
+  <QuestionsPane
+    store={new AppStore()}
+    requestForm={makeRequestForm(DEFAULT_SERVICE, false)}
     serviceName={'Cosmic Incursion'}
     serviceDescription={'Bad things getting in from other universes'}
     nextFunc={action('Next Step')}
@@ -37,7 +74,7 @@ storiesOf('QuestionsPane', module)
 .add('With Metadata', () => (
   <QuestionsPane
     store={new AppStore()}
-    requestForm={makeRequestForm(SERVICE_WITH_METADATA)}
+    requestForm={makeRequestForm(SERVICE_WITH_METADATA, true)}
     serviceName={'Cosmic Incursion'}
     serviceDescription={'Bad things getting in from other universes'}
     nextFunc={action('Next Step')}

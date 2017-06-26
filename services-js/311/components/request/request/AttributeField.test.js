@@ -1,39 +1,11 @@
 // @flow
 
 import React from 'react';
-import renderer from 'react-test-renderer';
-import jsc from 'jsverify';
 import { mount } from 'enzyme';
 
 import Question from '../../../data/store/Question';
 
 import AttributeField from './AttributeField';
-
-const TYPES = [
-  'BOOLEAN_CHECKBOX',
-  'INFORMATIONAL',
-  'MULTIVALUELIST',
-  'NUMBER',
-  'SINGLEVALUELIST',
-  'STRING',
-  'TEXT',
-];
-
-jsc.property(
-  'renders',
-  jsc.record({
-    question: jsc.record({
-      required: jsc.bool,
-      type: jsc.elements(TYPES),
-      code: jsc.nestring,
-      description: jsc.string,
-      visible: jsc.bool,
-      value: jsc.oneof(jsc.constant(null), jsc.string, jsc.array(jsc.string)),
-      values: jsc.array(jsc.record({ key: jsc.nestring, value: jsc.string })),
-    }),
-  }),
-  (props) => renderer.create(<AttributeField {...props} />).toJSON() !== null || !props.visible,
-);
 
 test('string change event', () => {
   const question = new Question({

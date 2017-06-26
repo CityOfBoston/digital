@@ -45,6 +45,7 @@ export type InitialProps = {|
 
 export type Props = {|
   store: AppStore,
+  noMap?: boolean,
   /* :: ...InitialProps, */
 |};
 
@@ -78,6 +79,10 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
 // proceeds through the "questions" "location" and "contact" stages.
 @observer
 export default class RequestLayout extends React.Component {
+  static defaultProps = {
+    noMap: false,
+  };
+
   props: Props;
   state: State = {
     locationMapActive: false,
@@ -144,7 +149,7 @@ export default class RequestLayout extends React.Component {
   }
 
   render() {
-    const { data, store } = this.props;
+    const { data, store, noMap } = this.props;
     const { locationMapActive } = this.state;
     const { ui: { mediaLarge } } = store;
 
@@ -163,7 +168,7 @@ export default class RequestLayout extends React.Component {
             that the content can center over the map and keep the footer from
             encroaching up. */}
         <div className={CONTAINER_STYLE} style={{ backgroundColor: 'transparent' }} role="main">
-          { (mediaLarge || !process.browser) &&
+          { (mediaLarge || !process.browser) && !noMap &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
               <LocationMapWithLibrary
                 store={store}

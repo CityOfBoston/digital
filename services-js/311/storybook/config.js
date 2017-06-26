@@ -30,10 +30,6 @@ try {
   };
 }
 
-if (inPercy()) {
-  VelocityTransitionGroup.disabledForTest = true;
-}
-
 class Wrapper extends React.Component {
   static childContextTypes = {
     router: PropTypes.object,
@@ -46,6 +42,10 @@ class Wrapper extends React.Component {
   }
 
   render() {
+    if (inPercy() || process.env.NODE_ENV === 'test') {
+      VelocityTransitionGroup.disabledForTest = true;
+    }
+
     return this.props.children;
   }
 }
