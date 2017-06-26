@@ -96,7 +96,7 @@
   },
   "devDependencies": {
     "@percy-io/in-percy": "^0.1.2",
-    "@percy-io/react-percy-storybook": "^0.1.12",
+    "@percy-io/react-percy-storybook": "^1.0.0",
     "@storybook/addon-actions": "^3.1.5",
     "@storybook/react": "3.1.5",
     "apollo-codegen": "^0.12.8",
