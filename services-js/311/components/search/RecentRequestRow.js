@@ -128,7 +128,7 @@ export default class RecentRequestRow extends React.Component {
   render() {
     const { request } = this.props;
 
-    const defaultUrl = this.selected ? '/static/img/311-logo-grey-on-white.svg' : '/static/img/311-logo-white-on-grey.svg';
+    const defaultUrl = this.selected ? '/assets/img/311-logo-grey-on-white.svg' : '/assets/img/311-logo-white-on-grey.svg';
     const mediaUrl = (this.showImage && request.mediaUrl) || '';
 
     let statusStyle;

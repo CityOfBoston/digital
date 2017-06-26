@@ -68,7 +68,7 @@ class ServicesLayoutGroup extends React.Component {
         </button>
 
         <VelocityTransitionGroup enter={{ animation: 'slideDown', duration: 250 }} leave={{ animation: 'slideUp', duration: 250 }} role="region" id={regionId}>
-          { group.open && <div className="dr-c"><ul className="ul" key="content">
+          { group.open && <div className="dr-c" style={{ display: 'block' }}><ul className="ul" key="content">
             { services.map(({ name, code, description }) => (
               <li key={code}>
                 <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>

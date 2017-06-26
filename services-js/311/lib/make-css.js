@@ -22,7 +22,7 @@ export default function makeCss(css: ?string) {
             <link href="${publicCssHref}" type="text/css" rel="stylesheet" />
           <!--<![endif]-->
           <!--[if lt IE 10]>
-            <script src="/static/vendor/ie9-polyfill.js"></script>
+            <script src="/assets/vendor/ie9-polyfill.js"></script>
             <link href="${publicCssHref.replace('public', 'ie')}" rel="stylesheet" type="text/css">
           <![endif]-->`,
       }}

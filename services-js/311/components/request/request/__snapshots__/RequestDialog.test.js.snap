@@ -716,7 +716,7 @@ exports[`rendering questions 1`] = `
                 alt=""
                 aria-hidden={true}
                 height="324"
-                src="/static/img/image-upload.png"
+                src="/assets/img/image-upload.png"
                 style={
                   Object {
                     "display": "block",

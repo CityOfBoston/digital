@@ -13,7 +13,7 @@ import type { LanguagePreference } from '../../../data/store';
 import FormDialog from '../../common/FormDialog';
 import { MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
-const SPRITE_URL = '/static/img/svg/faq-icons.svg';
+const SPRITE_URL = '/assets/img/svg/faq-icons.svg';
 
 const DIALOG_CONTENTS_STYLE = css({
   display: 'flex',

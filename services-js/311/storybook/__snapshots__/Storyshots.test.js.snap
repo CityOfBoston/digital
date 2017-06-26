@@ -1805,7 +1805,7 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                 }
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
                 role="img"
@@ -1826,7 +1826,7 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                 }
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
                 role="img"
@@ -1847,7 +1847,7 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                 }
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                    "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
                 role="img"
@@ -2758,7 +2758,7 @@ exports[`Storyshots DescriptionBox Empty 1`] = `
       aria-label="Description of the problem"
       className={
         Object {
-          "data-css-zkcm5e": "",
+          "data-css-1mdtlto": "",
         }
       }
       defaultValue=""
@@ -2799,7 +2799,7 @@ exports[`Storyshots DescriptionBox Initial Text 1`] = `
       aria-label="Description of the problem"
       className={
         Object {
-          "data-css-zkcm5e": "",
+          "data-css-1mdtlto": "",
         }
       }
       defaultValue="We’re going to beat Galactus on the moon, Tippy. We’re going to punch that big ape on the moon until he goes down, and then I’m going to stand on top of him and take a selfie."
@@ -3178,7 +3178,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
                 >
                   <use
                     height="100%"
-                    xlinkHref="/static/img/svg/faq-icons.svg#Twitter_off"
+                    xlinkHref="/assets/img/svg/faq-icons.svg#Twitter_off"
                   />
                 </svg>
               </div>
@@ -3207,7 +3207,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
                 >
                   <use
                     height="100%"
-                    xlinkHref="/static/img/svg/faq-icons.svg#Phone_off"
+                    xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
                   />
                 </svg>
               </div>
@@ -3236,7 +3236,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
                 >
                   <use
                     height="100%"
-                    xlinkHref="/static/img/svg/faq-icons.svg#App_store_off"
+                    xlinkHref="/assets/img/svg/faq-icons.svg#App_store_off"
                   />
                 </svg>
               </div>
@@ -3265,7 +3265,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
                 >
                   <use
                     height="100%"
-                    xlinkHref="/static/img/svg/faq-icons.svg#Computer_off"
+                    xlinkHref="/assets/img/svg/faq-icons.svg#Computer_off"
                   />
                 </svg>
               </div>
@@ -3450,7 +3450,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   aria-label="Description of the problem"
                   className={
                     Object {
-                      "data-css-zkcm5e": "",
+                      "data-css-1mdtlto": "",
                     }
                   }
                   defaultValue="Dead raccoon on the sidewalk"
@@ -3690,7 +3690,7 @@ exports[`Storyshots LoadingBuildings loading 1`] = `
         }
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<use xlink:href=\\"/static/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+            "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
           }
         }
         role="img"
@@ -3727,7 +3727,7 @@ exports[`Storyshots LoadingBuildings reduced motion 1`] = `
         }
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<use xlink:href=\\"/static/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+            "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
           }
         }
         role="img"
@@ -3769,7 +3769,7 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -3795,7 +3795,7 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -3821,7 +3821,7 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -3855,7 +3855,7 @@ exports[`Storyshots LoadingIcons loading 1`] = `
         }
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+            "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
           }
         }
         role="img"
@@ -3888,7 +3888,7 @@ exports[`Storyshots LoadingIcons reduceMotion 1`] = `
         }
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+            "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
           }
         }
         role="img"
@@ -3930,7 +3930,7 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -3956,7 +3956,7 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -3982,7 +3982,7 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
           }
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
           role="img"
@@ -4417,7 +4417,7 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
                 alt=""
                 aria-hidden={true}
                 height="324"
-                src="/static/img/image-upload.png"
+                src="/assets/img/image-upload.png"
                 style={
                   Object {
                     "display": "block",
@@ -4559,7 +4559,7 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
                 alt=""
                 aria-hidden={true}
                 height="324"
-                src="/static/img/image-upload.png"
+                src="/assets/img/image-upload.png"
                 style={
                   Object {
                     "display": "block",
@@ -4723,7 +4723,7 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
                 alt=""
                 aria-hidden={true}
                 height="324"
-                src="/static/img/image-upload.png"
+                src="/assets/img/image-upload.png"
                 style={
                   Object {
                     "display": "block",
@@ -4857,7 +4857,7 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
         }
         style={
           Object {
-            "backgroundImage": "url(/static/img/311-logo-white-on-grey.svg)",
+            "backgroundImage": "url(/assets/img/311-logo-white-on-grey.svg)",
           }
         }
       >
@@ -4942,7 +4942,7 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
         }
         style={
           Object {
-            "backgroundImage": "url(/static/img/311-logo-white-on-grey.svg)",
+            "backgroundImage": "url(/assets/img/311-logo-white-on-grey.svg)",
           }
         }
       >
@@ -5077,7 +5077,7 @@ exports[`Storyshots RecentRequests with selection 1`] = `
         }
         style={
           Object {
-            "backgroundImage": "url(/static/img/311-logo-white-on-grey.svg)",
+            "backgroundImage": "url(/assets/img/311-logo-white-on-grey.svg)",
           }
         }
       >
@@ -5162,7 +5162,7 @@ exports[`Storyshots RecentRequests with selection 1`] = `
         }
         style={
           Object {
-            "backgroundImage": "url(/static/img/311-logo-grey-on-white.svg)",
+            "backgroundImage": "url(/assets/img/311-logo-grey-on-white.svg)",
           }
         }
       >
@@ -5625,7 +5625,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                           aria-label="Description of the problem"
                           className={
                             Object {
-                              "data-css-zkcm5e": "",
+                              "data-css-1mdtlto": "",
                             }
                           }
                           defaultValue=""
@@ -6419,7 +6419,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
                         alt=""
                         aria-hidden={true}
                         height="324"
-                        src="/static/img/image-upload.png"
+                        src="/assets/img/image-upload.png"
                         style={
                           Object {
                             "display": "block",
@@ -6946,7 +6946,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
                   >
                     <use
                       height="100%"
-                      xlinkHref="/static/img/svg/faq-icons.svg#Phone_off"
+                      xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
                     />
                   </svg>
                 </div>
@@ -7537,7 +7537,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
                     }
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                        "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                       }
                     }
                     role="img"
@@ -9096,6 +9096,11 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
               >
                 <div
                   className="dr-c"
+                  style={
+                    Object {
+                      "display": "block",
+                    }
+                  }
                 >
                   <ul
                     className="ul"
@@ -9496,7 +9501,7 @@ exports[`Storyshots SubmitPane Submitting 1`] = `
             }
             dangerouslySetInnerHTML={
               Object {
-                "__html": "<use xlink:href=\\"/static/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+                "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
               }
             }
             role="img"
@@ -9597,7 +9602,7 @@ exports[`Storyshots TranslateDialog dialog 1`] = `
             >
               <use
                 height="100%"
-                xlinkHref="/static/img/svg/faq-icons.svg#Phone_off"
+                xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
               />
             </svg>
           </div>

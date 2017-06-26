@@ -195,7 +195,7 @@ export default class QuestionsPane extends React.Component {
               const out = [
                 displayUrl ?
                   <img key="img" style={{ display: 'block', width: '100%' }} alt="" aria-hidden src={displayUrl} /> :
-                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} aria-hidden alt="" width="479" height="324" src="/static/img/image-upload.png" />,
+                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} aria-hidden alt="" width="479" height="324" src="/assets/img/image-upload.png" />,
               ];
 
               if (isDragActive) {

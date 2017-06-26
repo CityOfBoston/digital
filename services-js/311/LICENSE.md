@@ -8,8 +8,7 @@ Additionally, we waive copyright and related rights in the work worldwide throug
 
 - This project uses various copyrighted icons and design assets, which for convenience are versioned in this repository. Any files in the following directories are not included in the public domain and should not be reused without permission from the City of Boston:
 
-  * `sprites`
-  * `static/images`
+  * `static`
 
 ## CC0 1.0 Universal Summary
 

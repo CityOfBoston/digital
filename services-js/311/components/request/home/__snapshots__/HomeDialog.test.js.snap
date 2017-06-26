@@ -68,7 +68,7 @@ exports[`choose page rendering 1`] = `
                   }
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                      "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
                   role="img"
@@ -89,7 +89,7 @@ exports[`choose page rendering 1`] = `
                   }
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                      "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
                   role="img"
@@ -110,7 +110,7 @@ exports[`choose page rendering 1`] = `
                   }
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<use xlink:href=\\"/static/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+                      "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
                   role="img"
@@ -186,7 +186,7 @@ exports[`home page rendering 1`] = `
                   aria-label="Description of the problem"
                   className={
                     Object {
-                      "data-css-zkcm5e": "",
+                      "data-css-1mdtlto": "",
                     }
                   }
                   defaultValue=""

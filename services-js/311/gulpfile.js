@@ -17,7 +17,7 @@ const exec = require('child_process').exec;
 
 const IGNORED_JS_SOURCE = ['**/__mocks__', '**/*.test.js'];
 
-const spriteDirContents = fs.readdirSync('sprites');
+const spriteDirContents = fs.readdirSync(path.join('static', 'sprites'));
 const SPRITE_TASKS = [];
 const SPRITE_WATCH_TASKS = [];
 
@@ -31,7 +31,7 @@ spriteDirContents.forEach((p) => {
   SPRITE_WATCH_TASKS.push(`watch:${taskName}`);
 
   gulp.task(taskName, () => (
-    gulp.src(`sprites/${p}/*.svg`)
+    gulp.src(`static/sprites/${p}/*.svg`)
       .pipe(plumber())
       .pipe(svgSprite({
         mode: {
@@ -41,11 +41,11 @@ spriteDirContents.forEach((p) => {
           },
         },
       }))
-      .pipe(gulp.dest('static/img/svg'))
+      .pipe(gulp.dest('static/assets/img/svg'))
   ));
 
   gulp.task(`watch:${taskName}`, () => (
-    gulp.watch(`sprites/${p}/*.svg`, [taskName])
+    gulp.watch(`static/sprites/${p}/*.svg`, [taskName])
   ));
 });
 
@@ -92,7 +92,7 @@ gulp.task('vendor', (cb) => {
     ]),
     uglify(),
     concat('ie9-polyfill.js'),
-    gulp.dest('static/vendor'),
+    gulp.dest('static/assets/vendor'),
   ], cb);
 });
 

@@ -8,7 +8,7 @@ import { now } from 'mobx-utils';
 import { css } from 'glamor';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-const SPRITE_URL = '/static/img/svg/loading-icons.svg';
+const SPRITE_URL = '/assets/img/svg/loading-icons.svg';
 
 
 const ICONS = [

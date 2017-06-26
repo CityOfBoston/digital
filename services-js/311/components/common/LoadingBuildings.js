@@ -8,7 +8,7 @@ import { now } from 'mobx-utils';
 import { css } from 'glamor';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-const SPRITE_URL = '/static/img/svg/loading-buildings.svg';
+const SPRITE_URL = '/assets/img/svg/loading-buildings.svg';
 
 const NEIGHBORHOODS = [
   'allston',

@@ -13,7 +13,7 @@ const SERVICE_SUMMARIES: ServiceSummary[] = [{
   name: 'Cosmic Incursion',
   code: 'CSMCINC',
   description: 'Something is threatening the fabric of the universe',
-  group: 'Health-Safety',
+  group: 'health-safety',
 }];
 
 const makeStore = action((expanded: boolean) => {

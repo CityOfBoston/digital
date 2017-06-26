@@ -61,7 +61,7 @@ export const nextHandler = (app, page, staticQuery) => async ({ method, server, 
   reply(html).code(res.statusCode);
 };
 
-export const nextDefaultHandler = (app, opts = {}) => {
+export const nextDefaultHandler = (app) => {
   const compressionMiddleware = compression();
   const handler = app.getRequestHandler();
 
@@ -70,9 +70,6 @@ export const nextDefaultHandler = (app, opts = {}) => {
     // gzipping or cache control.. So, we run an express middleware that
     // monkeypatches the raw response to gzip its output, and set our own
     // cache header.
-    if (opts.cache) {
-      res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=600');
-    }
     await new Promise((resolve) => { compressionMiddleware(req, res, resolve); });
     await handler(req, res, url);
     hapiReply.close(false);

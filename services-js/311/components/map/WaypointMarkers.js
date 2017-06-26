@@ -4,7 +4,7 @@ import { css } from 'glamor';
 
 import type { DivIconOptions } from 'mapbox.js';
 
-const SPRITE_URL = '/static/img/svg/waypoints.svg';
+const SPRITE_URL = '/assets/img/svg/waypoints.svg';
 
 export const WAYPOINT_BASE_OPTIONS = {
   iconSize: { x: 30, y: 50 },
