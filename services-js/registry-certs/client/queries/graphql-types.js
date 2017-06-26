@@ -7,7 +7,7 @@ export type FetchDeathCertificatesQueryVariables = {|
 
 export type FetchDeathCertificatesQuery = {|
   deathCertificates: {|
-    certificates: Array< {|
+    certificates:  Array< {|
       id: string,
       firstName: string,
       lastName: string,
@@ -33,7 +33,7 @@ export type SearchDeathCertificatesQuery = {|
       pageSize: number,
       pageCount: number,
       resultCount: number,
-      results: Array< {|
+      results:  Array< {|
         id: string,
         firstName: string,
         lastName: string,

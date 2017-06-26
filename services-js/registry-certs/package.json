@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
-    "apollo-codegen": "^0.12.8",
+    "apollo-codegen": "^0.13.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
