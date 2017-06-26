@@ -1,37 +1,15 @@
-// @flow
-/* eslint react/no-danger: 0 */
-
-import React from 'react';
-
-import stylesheetHrefs from '../templates/stylesheets.json';
-
-export default function makeCss(css: ?string) {
-  const publicCssHref = stylesheetHrefs.find((href) => href.match(/public\.css/));
-  const otherCssHrefs = stylesheetHrefs.filter((href) => !href.match(/public\.css/));
-
-  return [
-    ...otherCssHrefs.map((href) => (
-      <link href={href} key={href} type="text/css" rel="stylesheet" />
-    )),
-
-    <head
-      key="conditional-style"
-      dangerouslySetInnerHTML={{
-        __html: `
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Montserrat:400,700" type="text/css" rel="stylesheet" data-reactroot="" data-reactid="1" data-react-checksum="-1938605290"/>
+<head data-reactroot="" data-reactid="1" data-react-checksum="1930268485">
           <!--[if !IE]><!-->
-            <link href="${publicCssHref}" type="text/css" rel="stylesheet" />
+            <link href="https://cob-patterns-staging.herokuapp.com/css/public.css?k=onnap2" type="text/css" rel="stylesheet" />
           <!--<![endif]-->
           <!--[if lt IE 10]>
             <script src="/static/vendor/ie9-polyfill.js"></script>
-            <link href="${publicCssHref.replace('public', 'ie')}" rel="stylesheet" type="text/css">
-          <![endif]-->`,
-      }}
-    />,
-
-    <link key="mapbox" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />,
-    <link key="mapbox-gl" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css" rel="stylesheet" />,
-
-    <style type="text/css" key="default">{`
+            <link href="https://cob-patterns-staging.herokuapp.com/css/ie.css?k=onnap2" rel="stylesheet" type="text/css">
+          <![endif]--></head>
+<link href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" data-reactroot="" data-reactid="1" data-react-checksum="1884170278"/>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css" rel="stylesheet" data-reactroot="" data-reactid="1" data-react-checksum="-1449055062"/>
+<style type="text/css" data-reactroot="" data-reactid="1" data-react-checksum="2076961347">
       body {
         color: #58585B;
         font-family: Lora, serif;
@@ -53,8 +31,9 @@ export default function makeCss(css: ?string) {
 
       @-webkit-keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);}}
       @keyframes nprogress-spinner{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-    `}</style>,
-
-    css && <style type="text/css" key="static" dangerouslySetInnerHTML={{ __html: css }} />,
-  ];
-}
+    </style>
+<style type="text/css" data-reactroot="" data-reactid="1" data-react-checksum="-1557715688">
+  body, html {
+    background-color: #eee;
+  }
+</style>

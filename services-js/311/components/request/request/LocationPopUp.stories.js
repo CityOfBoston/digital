@@ -1,7 +1,8 @@
 // @flow
 
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import LocationPopUp from './LocationPopUp';
 import { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
@@ -13,10 +14,12 @@ const props = {
   nextIsSubmit: false,
 };
 
-const makeRequestForm = (address: string) => {
-  const requestForm = new RequestForm();
-  requestForm.address = address;
-  return requestForm;
+const makeStore = (address: string, notFound: boolean) => {
+  const store = new AppStore();
+  store.mapLocation.notFound = notFound;
+  store.mapLocation.address = address;
+
+  return store;
 };
 
 storiesOf('LocationPopUp', module)
@@ -26,14 +29,9 @@ storiesOf('LocationPopUp', module)
     </div>
   ))
   .add('with address', () => (
-    <LocationPopUp {...props} requestForm={makeRequestForm('1 Franklin Park Rd\nBoston, MA 02121')} store={new AppStore()} />
+    <LocationPopUp {...props} store={makeStore('1 Franklin Park Rd\nBoston, MA 02121', false)} requestForm={new RequestForm()} />
   ))
   .add('without address', () => (
-    <LocationPopUp {...props} requestForm={makeRequestForm('')} store={new AppStore()} />
+    <LocationPopUp {...props} store={makeStore('', false)} requestForm={new RequestForm()} />
   ))
-  .add('address not found', () => {
-    const store = new AppStore();
-    store.mapLocation.notFound = true;
-
-    return <LocationPopUp {...props} requestForm={makeRequestForm('')} store={store} />;
-  });
+  .add('address not found', () => <LocationPopUp {...props} store={makeStore('', true)} requestForm={new RequestForm()} />);

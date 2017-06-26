@@ -17,4 +17,9 @@ storiesOf('FormDialog', module)
     <FormDialog narrow>
       <SectionHeader>311: Boston City Services</SectionHeader>
     </FormDialog>
+  ))
+  .add('No Padding', () => (
+    <FormDialog noPadding>
+      <SectionHeader>311: Boston City Services</SectionHeader>
+    </FormDialog>
   ));

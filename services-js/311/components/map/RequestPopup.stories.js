@@ -27,7 +27,7 @@ IMAGE_REQUEST.mediaUrl = 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg';
 
 storiesOf('RequestPopup', module)
   .addDecorator((next) => (
-    <div style={{ width: 300, border: `2px solid ${YELLOW}` }}>{next()}</div>
+    <div style={{ float: 'left', border: `2px solid ${YELLOW}` }}>{next()}</div>
   ))
   .add('image', () => (
     <RequestPopup caseInfo={IMAGE_REQUEST} />

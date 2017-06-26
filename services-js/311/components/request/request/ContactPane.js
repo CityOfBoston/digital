@@ -30,6 +30,7 @@ export type Props = {|
   requestForm: RequestForm,
   serviceName: string,
   nextFunc: () => mixed,
+  noLocalStorage?: boolean,
 |}
 
 function renderRequired() {
@@ -40,15 +41,19 @@ function renderRequired() {
 export default class ContactPane extends React.Component {
   props: Props;
 
-  localStorageContactInfo: LocalStorageContactInfo;
+  localStorageContactInfo: ?LocalStorageContactInfo;
 
   componentWillMount() {
-    const { requestForm } = this.props;
-    this.localStorageContactInfo = new LocalStorageContactInfo(requestForm);
+    const { requestForm, noLocalStorage } = this.props;
+    if (!noLocalStorage) {
+      this.localStorageContactInfo = new LocalStorageContactInfo(requestForm);
+    }
   }
 
   componentWillUnmount() {
-    this.localStorageContactInfo.dispose();
+    if (this.localStorageContactInfo) {
+      this.localStorageContactInfo.dispose();
+    }
   }
 
   @action.bound
@@ -87,7 +92,9 @@ export default class ContactPane extends React.Component {
         requestForm.phone = value;
         break;
       case 'remember':
-        this.localStorageContactInfo.rememberInfo = ev.target.checked;
+        if (this.localStorageContactInfo) {
+          this.localStorageContactInfo.rememberInfo = ev.target.checked;
+        }
         break;
       default:
         break;
@@ -101,7 +108,7 @@ export default class ContactPane extends React.Component {
   render() {
     const { serviceName, requestForm } = this.props;
     const { firstName, lastName, email, phone, contactInfoRequired, contactInfoRequirementsMet } = requestForm;
-    const { rememberInfo } = this.localStorageContactInfo;
+    const { rememberInfo } = this.localStorageContactInfo || { rememberInfo: false };
 
     return (
       <form onSubmit={this.continueWithContactInfo}>

@@ -76,6 +76,14 @@ gulp.task('next:compile', ['clean:next'], (cb) => {
   });
 });
 
+gulp.task('storybook:head', (cb) => {
+  exec(`${path.join('node_modules', '.bin', 'babel-node')} ${path.join('.', 'scripts', 'make-storybook-head')}`, (err, stdout, stderr) => {
+    if (stdout) console.log(stdout);
+    if (stderr) console.log(stderr);
+    cb(err);
+  });
+});
+
 gulp.task('vendor', (cb) => {
   pump([
     gulp.src([

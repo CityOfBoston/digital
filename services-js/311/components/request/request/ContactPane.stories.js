@@ -1,7 +1,8 @@
 // @flow
 
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import RequestForm from '../../../data/store/RequestForm';
 
@@ -29,15 +30,19 @@ storiesOf('ContactPane', module)
 ))
 .add('Empty', () => (
   <ContactPane
+    key="empty"
     serviceName="Cosmic Incursion"
     requestForm={makeRequestForm(false)}
     nextFunc={action('Next Step')}
+    noLocalStorage
   />
 ))
 .add('Filled Out', () => (
   <ContactPane
+    key="filled-in"
     serviceName="Cosmic Incursion"
     requestForm={makeRequestForm(true)}
     nextFunc={action('Next Step')}
+    noLocalStorage
   />
 ));

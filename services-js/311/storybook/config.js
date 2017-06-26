@@ -1,15 +1,12 @@
 /* eslint no-underscore-dangle: 0 */
 
 import React, { PropTypes } from 'react';
-import Head from 'next/head';
 import Router from 'next/router';
-import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
 import svg4everybody from 'svg4everybody';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-import makeCss from '../lib/make-css';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 let env;
@@ -33,40 +30,23 @@ try {
   };
 }
 
-const headManager = new HeadManager();
-
 if (inPercy()) {
   VelocityTransitionGroup.disabledForTest = true;
 }
 
 class Wrapper extends React.Component {
   static childContextTypes = {
-    headManager: PropTypes.object,
     router: PropTypes.object,
   }
 
   getChildContext() {
     return {
-      headManager: this.props.headManager,
       router: Router,
     };
   }
 
   render() {
-    return (
-      <div>
-        <Head>
-          { makeCss('', false) }
-          <style type="text/css">{`
-            body, html {
-              background-color: #eee;
-            }
-          `}</style>
-        </Head>
-
-        { this.props.children }
-      </div>
-    );
+    return this.props.children;
   }
 }
 
@@ -105,7 +85,7 @@ addDecorator((story) => {
   svg4everybody();
 
   return (
-    <Wrapper headManager={headManager}>
+    <Wrapper>
       { story() }
     </Wrapper>
   );

@@ -15,7 +15,7 @@ function makeStore() {
 
 storiesOf('CaseView', module)
   .addDecorator((next) => (
-    <div className="b-c" style={{ background: 'white' }}><div className="p-a500">{next()}</div></div>
+    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
   ))
   .add('Submitted', () => (
     <div style={{ backgroundColor: 'white' }}>

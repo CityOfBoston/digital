@@ -61,7 +61,7 @@ export default class extends Document {
 
           <link rel="icon" sizes="192x192" href="/static/icons/android-icon-192x192.png" />
 
-          {makeCss(css, true)}
+          {makeCss(css)}
 
           { process.env.GOOGLE_TRACKING_ID && <script
             type="text/javascript"

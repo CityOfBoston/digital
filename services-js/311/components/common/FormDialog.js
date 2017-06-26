@@ -25,7 +25,6 @@ const DIALOG_STYLE = css({
 
 type Props = {|
   narrow?: boolean,
-  popup?: boolean,
   noPadding?: boolean,
   children?: any
 |}

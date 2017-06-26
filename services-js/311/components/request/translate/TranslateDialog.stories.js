@@ -8,7 +8,7 @@ storiesOf('TranslateDialog', module)
   .addDecorator((next) => (
     <div className="b-c">{next()}</div>
   ))
-  .add('loading', () => (
+  .add('dialog', () => (
     <TranslateDialog
       languages={[
         { code: 'en', region: 'US', quality: 1 },

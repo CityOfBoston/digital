@@ -51,7 +51,4 @@ storiesOf('ChooseServicePane', module)
   ))
   .add('No matches', () => (
     <ChooseServicePane description="Dead raccoon on the sidewalk" suggestedServiceSummaries={[]} ui={new Ui()} />
-  ))
-  .add('No description', () => (
-    <ChooseServicePane description="" suggestedServiceSummaries={[]} ui={new Ui()} />
   ));
