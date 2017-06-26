@@ -7,6 +7,7 @@ import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';
 import { css } from 'glamor';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+import inPercy from '@percy-io/in-percy';
 
 const SPRITE_URL = '/assets/img/svg/loading-buildings.svg';
 
@@ -115,7 +116,7 @@ export default class LoadingBuildings extends React.Component {
   @computed get neighborhood(): string {
     const { reduceMotion } = this.props;
 
-    if (process.env.NODE_ENV === 'test') {
+    if (process.env.NODE_ENV === 'test' || inPercy()) {
       return NEIGHBORHOODS[0];
     }
 

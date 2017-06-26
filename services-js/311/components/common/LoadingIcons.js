@@ -7,9 +7,9 @@ import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';
 import { css } from 'glamor';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+import inPercy from '@percy-io/in-percy';
 
 const SPRITE_URL = '/assets/img/svg/loading-icons.svg';
-
 
 const ICONS = [
   '311_icons_general_lighting_request',
@@ -130,7 +130,7 @@ export default class LoadingBuildings extends React.Component {
 
     this.startMillis = ((+new Date()) + (reduceMotion ? 0 : initialDelay)) - (this.delay / 2);
 
-    if (process.env.NODE_ENV !== 'test') {
+    if (process.env.NODE_ENV !== 'test' && !inPercy()) {
       this.shuffleIcons();
     }
   }
