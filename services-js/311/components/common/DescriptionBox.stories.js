@@ -15,7 +15,7 @@ storiesOf('DescriptionBox', module)
       onInput={action('input')}
       minHeight={100}
       maxHeight={300}
-      setTextarea={action('setTextarea')}
+      setTextarea={() => {}}
     />
   ))
   .add('Initial Text', () => (
@@ -25,6 +25,6 @@ storiesOf('DescriptionBox', module)
       onInput={action('input')}
       minHeight={100}
       maxHeight={300}
-      setTextarea={action('setTextarea')}
+      setTextarea={() => {}}
     />
   ));
