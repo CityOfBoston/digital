@@ -1,375 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering shows empty search box 1`] = `
-<div>
-  <nav
-    className="nv-s nv-s--sticky"
-    data-jsx={792433154}
-  >
-    <div
-      className="nv-s-l bar"
-      data-jsx={792433154}
-    >
-      <a
-        className="nv-s-l-b back-link"
-        data-jsx={792433154}
-        href="/death/checkout"
-        onClick={[Function]}
-      >
-        Checkout
-      </a>
-      <a
-        className="cart-link"
-        data-jsx={792433154}
-        href="/death/checkout"
-        onClick={[Function]}
-      >
-        0
-      </a>
-    </div>
-  </nav>
-  <div
-    className="p-a300"
-  >
-    <div
-      className="sh sh--b0"
-    >
-      <h1
-        className="sh-title"
-      >
-        Death Certificates
-      </h1>
-    </div>
-    <form
-      acceptCharset="UTF-8"
-      action="/death"
-      className="sf sf--md"
-      method="get"
-      onSubmit={[Function]}
-    >
-      <input
-        name="utf8"
-        type="hidden"
-        value="✓"
-      />
-      <div
-        className="sf-i"
-      >
-        <input
-          autoComplete="off"
-          className="sf-i-f"
-          id="q"
-          name="q"
-          onChange={[Function]}
-          placeholder="Search…"
-          type="text"
-          value=""
-        />
-        <button
-          className="sf-i-b"
-          type="submit"
-        >
-          Search
-        </button>
-      </div>
-    </form>
-  </div>
-  <div />
-</div>
+exports[`getInitialProps searches when given a query 1`] = `
+Object {
+  "query": "Monkey Joe",
+  "results": Object {
+    "page": 0,
+    "pageCount": 10,
+    "pageSize": 5,
+    "resultCount": 50,
+    "results": Array [
+      Object {
+        "age": "21 yrs.",
+        "deathDate": "3/4/2016",
+        "deathYear": "2016",
+        "firstName": "Bruce",
+        "id": "000002",
+        "lastName": "Banner",
+        "pending": false,
+      },
+      Object {
+        "age": "44 yrs. 2 mos. 10 dys",
+        "deathDate": "4/15/2014",
+        "deathYear": "2014",
+        "firstName": "Logan",
+        "id": "000001",
+        "lastName": "Howlett",
+        "pending": true,
+      },
+      Object {
+        "age": "6",
+        "deathDate": null,
+        "deathYear": "2004",
+        "firstName": "Monkey",
+        "id": "000003",
+        "lastName": "Joe",
+        "pending": false,
+      },
+    ],
+  },
+}
 `;
 
-exports[`rendering shows search results 1`] = `
-<div>
-  <nav
-    className="nv-s nv-s--sticky"
-    data-jsx={792433154}
-  >
-    <div
-      className="nv-s-l bar"
-      data-jsx={792433154}
-    >
-      <a
-        className="nv-s-l-b back-link"
-        data-jsx={792433154}
-        href="/death/checkout"
-        onClick={[Function]}
-      >
-        Checkout
-      </a>
-      <a
-        className="cart-link"
-        data-jsx={792433154}
-        href="/death/checkout"
-        onClick={[Function]}
-      >
-        0
-      </a>
-    </div>
-  </nav>
-  <div
-    className="p-a300"
-  >
-    <div
-      className="sh sh--b0"
-    >
-      <h1
-        className="sh-title"
-      >
-        Death Certificates
-      </h1>
-    </div>
-    <form
-      acceptCharset="UTF-8"
-      action="/death"
-      className="sf sf--md"
-      method="get"
-      onSubmit={[Function]}
-    >
-      <input
-        name="utf8"
-        type="hidden"
-        value="✓"
-      />
-      <div
-        className="sf-i"
-      >
-        <input
-          autoComplete="off"
-          className="sf-i-f"
-          id="q"
-          name="q"
-          onChange={[Function]}
-          placeholder="Search…"
-          type="text"
-          value="Monkey Joe"
-        />
-        <button
-          className="sf-i-b"
-          type="submit"
-        >
-          Search
-        </button>
-      </div>
-    </form>
-  </div>
-  <div>
-    <div
-      className="p-a300 b--w"
-    >
-      <div
-        className="t--sans tt-u"
-        style={
-          Object {
-            "fontSize": 12,
-          }
-        }
-      >
-        Showing 
-        -4
-        –
-        0
-         of 
-        50
-         
-        results for “
-        Monkey Joe
-        ”
-      </div>
-    </div>
-    <a
-      className="p-a300 br br-t100 b--w result"
-      data-jsx={1723197323}
-      href="/death/certificate/000002"
-      onClick={[Function]}
-    >
-      <div
-        className="t--sans"
-        data-jsx={1723197323}
-        style={
-          Object {
-            "fontStyle": "normal",
-            "fontWeight": "bold",
-            "letterSpacing": 1.4,
-          }
-        }
-      >
-        Bruce
-         
-        Banner
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Died: 
-        3/4/2016
-         Age: 
-        21 yrs.
-      </div>
-    </a>
-    <a
-      className="p-a300 br br-t100 b--w result"
-      data-jsx={1723197323}
-      href="/death/certificate/000001"
-      onClick={[Function]}
-    >
-      <div
-        className="t--sans"
-        data-jsx={1723197323}
-        style={
-          Object {
-            "fontStyle": "normal",
-            "fontWeight": "bold",
-            "letterSpacing": 1.4,
-          }
-        }
-      >
-        Logan
-         
-        Howlett
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Died: 
-        4/15/2014
-         Age: 
-        44 yrs. 2 mos. 10 dys
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Certificate Pending
-      </div>
-    </a>
-    <a
-      className="p-a300 br br-t100 b--w result"
-      data-jsx={1723197323}
-      href="/death/certificate/000003"
-      onClick={[Function]}
-    >
-      <div
-        className="t--sans"
-        data-jsx={1723197323}
-        style={
-          Object {
-            "fontStyle": "normal",
-            "fontWeight": "bold",
-            "letterSpacing": 1.4,
-          }
-        }
-      >
-        Monkey
-         
-        Joe
-      </div>
-      <div
-        data-jsx={1723197323}
-      >
-        Died: 
-        2004
-         Age: 
-        6
-      </div>
-    </a>
-    <ul
-      className="pg"
-    >
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=1"
-          onClick={[Function]}
-        >
-          1
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=2"
-          onClick={[Function]}
-        >
-          2
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=3"
-          onClick={[Function]}
-        >
-          3
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=4"
-          onClick={[Function]}
-        >
-          4
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=5"
-          onClick={[Function]}
-        >
-          5
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link "
-          href="/death?q=Monkey Joe&page=6"
-          onClick={[Function]}
-        >
-          6
-        </a>
-      </li>
-      <li
-        className="pg-li"
-      >
-        <a
-          className="pg-li-i pg-li-i--link"
-          href="/death?q=Monkey Joe&page=1"
-          onClick={[Function]}
-        >
-          ≫
-        </a>
-      </li>
-    </ul>
-    <div
-      className="p-a300"
-    >
-      Not finding what you’re looking for? Try refining your search or
-       
-      <a
-        href="https://www.boston.gov/departments/registry/how-get-death-certificate"
-        style={
-          Object {
-            "fontStyle": "italic",
-          }
-        }
-      >
-        request a death certificate
-      </a>
-      .
-    </div>
-  </div>
-  <div />
-</div>
+exports[`getInitialProps works with no query 1`] = `
+Object {
+  "query": "",
+  "results": null,
+}
 `;

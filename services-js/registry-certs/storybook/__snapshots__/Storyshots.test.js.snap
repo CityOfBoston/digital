@@ -1,0 +1,3300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots CertificatePage missing certificate 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+          style={
+            Object {
+              "marginBottom": 0,
+            }
+          }
+        >
+          Deceased Details
+        </h1>
+      </div>
+    </div>
+    <div
+      className="p-a300 b--w"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots CertificatePage normal certificate 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+          style={
+            Object {
+              "marginBottom": 0,
+            }
+          }
+        >
+          Deceased Details
+        </h1>
+      </div>
+    </div>
+    <div
+      className="p-a300 b--w"
+    >
+      <div
+        data-jsx={3255886522}
+      >
+        <ul
+          className="dl"
+          data-jsx={3255886522}
+        >
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Full Name
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              Bruce
+               
+              Banner
+            </span>
+          </li>
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Date of Death
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              3/4/2016
+            </span>
+          </li>
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Age
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              21 yrs.
+            </span>
+          </li>
+        </ul>
+        <form
+          className="js-add-to-cart-form m-v300"
+          data-jsx={3255886522}
+          onSubmit={[Function]}
+        >
+          <select
+            className="quantity"
+            data-jsx={3255886522}
+            name="quantity"
+            onChange={[Function]}
+            value={1}
+          >
+            <option
+              data-jsx={3255886522}
+              value="1"
+            >
+              Qty: 1
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="2"
+            >
+              Qty: 2
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="3"
+            >
+              Qty: 3
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="4"
+            >
+              Qty: 4
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="5"
+            >
+              Qty: 5
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="6"
+            >
+              Qty: 6
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="7"
+            >
+              Qty: 7
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="8"
+            >
+              Qty: 8
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="9"
+            >
+              Qty: 9
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="10"
+            >
+              Qty: 10
+            </option>
+          </select>
+          <button
+            className="btn add-to-cart"
+            data-jsx={3255886522}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CertificatePage pending certificate 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+          style={
+            Object {
+              "marginBottom": 0,
+            }
+          }
+        >
+          Deceased Details
+        </h1>
+      </div>
+    </div>
+    <div
+      className="p-a300 b--w"
+    >
+      <div
+        data-jsx={3255886522}
+      >
+        <ul
+          className="dl"
+          data-jsx={3255886522}
+        >
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Full Name
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              Logan
+               
+              Howlett
+            </span>
+          </li>
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Date of Death
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              4/15/2014
+            </span>
+          </li>
+          <li
+            className="dl-i"
+            data-jsx={3255886522}
+          >
+            <span
+              className="dl-t"
+              data-jsx={3255886522}
+            >
+              Age
+            </span>
+            <span
+              className="dl-d"
+              data-jsx={3255886522}
+            >
+              44 yrs. 2 mos. 10 dys
+            </span>
+          </li>
+        </ul>
+        <form
+          className="js-add-to-cart-form m-v300"
+          data-jsx={3255886522}
+          onSubmit={[Function]}
+        >
+          <select
+            className="quantity"
+            data-jsx={3255886522}
+            name="quantity"
+            onChange={[Function]}
+            value={1}
+          >
+            <option
+              data-jsx={3255886522}
+              value="1"
+            >
+              Qty: 1
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="2"
+            >
+              Qty: 2
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="3"
+            >
+              Qty: 3
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="4"
+            >
+              Qty: 4
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="5"
+            >
+              Qty: 5
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="6"
+            >
+              Qty: 6
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="7"
+            >
+              Qty: 7
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="8"
+            >
+              Qty: 8
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="9"
+            >
+              Qty: 9
+            </option>
+            <option
+              data-jsx={3255886522}
+              value="10"
+            >
+              Qty: 10
+            </option>
+          </select>
+          <button
+            className="btn add-to-cart"
+            data-jsx={3255886522}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CheckoutItem certificate without death date 1`] = `
+<div
+  className="p-a300 result"
+  data-jsx={1389666004}
+>
+  <input
+    aria-label="Quantity"
+    className="br br-a150 quantity-box"
+    data-jsx={1389666004}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    value="1"
+  />
+  <div
+    className="certificate-info"
+    data-jsx={1389666004}
+  >
+    <div
+      data-jsx={1389666004}
+    >
+      Monkey
+       
+      Joe
+    </div>
+    <div
+      data-jsx={1389666004}
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      2004
+      <span
+        className="id-label"
+        data-jsx={1389666004}
+      >
+        ID:
+      </span>
+       
+      000003
+    </div>
+  </div>
+  <button
+    data-jsx={1389666004}
+    onClick={[Function]}
+    type="button"
+  >
+    X
+  </button>
+</div>
+`;
+
+exports[`Storyshots CheckoutItem pending certificate 1`] = `
+<div
+  className="p-a300 result"
+  data-jsx={1389666004}
+>
+  <input
+    aria-label="Quantity"
+    className="br br-a150 quantity-box"
+    data-jsx={1389666004}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    value="1"
+  />
+  <div
+    className="certificate-info"
+    data-jsx={1389666004}
+  >
+    <div
+      data-jsx={1389666004}
+    >
+      Logan
+       
+      Howlett
+    </div>
+    <div
+      data-jsx={1389666004}
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      4/15/2014
+      <span
+        className="id-label"
+        data-jsx={1389666004}
+      >
+        ID:
+      </span>
+       
+      000001
+    </div>
+  </div>
+  <button
+    data-jsx={1389666004}
+    onClick={[Function]}
+    type="button"
+  >
+    X
+  </button>
+</div>
+`;
+
+exports[`Storyshots CheckoutItem typical certificate 1`] = `
+<div
+  className="p-a300 result"
+  data-jsx={1389666004}
+>
+  <input
+    aria-label="Quantity"
+    className="br br-a150 quantity-box"
+    data-jsx={1389666004}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    value="1"
+  />
+  <div
+    className="certificate-info"
+    data-jsx={1389666004}
+  >
+    <div
+      data-jsx={1389666004}
+    >
+      Bruce
+       
+      Banner
+    </div>
+    <div
+      data-jsx={1389666004}
+      style={
+        Object {
+          "fontStyle": "italic",
+        }
+      }
+    >
+      3/4/2016
+      <span
+        className="id-label"
+        data-jsx={1389666004}
+      >
+        ID:
+      </span>
+       
+      000002
+    </div>
+  </div>
+  <button
+    data-jsx={1389666004}
+    onClick={[Function]}
+    type="button"
+  >
+    X
+  </button>
+</div>
+`;
+
+exports[`Storyshots CheckoutPage loading 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death"
+          onClick={[Function]}
+        >
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          8
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0 m-v300"
+      >
+        <h1
+          className="sh-title"
+        >
+          Checkout
+        </h1>
+      </div>
+    </div>
+    <div>
+      <div
+        className="p-a300 g"
+        data-jsx={2595578495}
+      >
+        <div
+          className="m-v500 g--9"
+        >
+          <div
+            className="t--info"
+          >
+            8
+             
+            certificates
+             × $
+            14
+             
+            + 
+            2.75
+            % credit card fee
+          </div>
+          <div
+            className="sh sh--b0"
+          >
+            <span
+              className="sh-title"
+            >
+              Subtotal: $
+              115.09
+            </span>
+          </div>
+        </div>
+        <a
+          className="btn g--3 m-v500"
+          data-jsx={2595578495}
+          href="/death/payment"
+          onClick={[Function]}
+        >
+          Pay and Finish
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CheckoutPage normal page 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death"
+          onClick={[Function]}
+        >
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          5
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0 m-v300"
+      >
+        <h1
+          className="sh-title"
+        >
+          Checkout
+        </h1>
+      </div>
+    </div>
+    <div>
+      <div
+        className="p-a300 result"
+        data-jsx={1389666004}
+      >
+        <input
+          aria-label="Quantity"
+          className="br br-a150 quantity-box"
+          data-jsx={1389666004}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          value="1"
+        />
+        <div
+          className="certificate-info"
+          data-jsx={1389666004}
+        >
+          <div
+            data-jsx={1389666004}
+          >
+            Bruce
+             
+            Banner
+          </div>
+          <div
+            data-jsx={1389666004}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            3/4/2016
+            <span
+              className="id-label"
+              data-jsx={1389666004}
+            >
+              ID:
+            </span>
+             
+            000002
+          </div>
+        </div>
+        <button
+          data-jsx={1389666004}
+          onClick={[Function]}
+          type="button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        className="p-a300 result"
+        data-jsx={1389666004}
+      >
+        <input
+          aria-label="Quantity"
+          className="br br-a150 quantity-box"
+          data-jsx={1389666004}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          value="3"
+        />
+        <div
+          className="certificate-info"
+          data-jsx={1389666004}
+        >
+          <div
+            data-jsx={1389666004}
+          >
+            Logan
+             
+            Howlett
+          </div>
+          <div
+            data-jsx={1389666004}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            4/15/2014
+            <span
+              className="id-label"
+              data-jsx={1389666004}
+            >
+              ID:
+            </span>
+             
+            000001
+          </div>
+        </div>
+        <button
+          data-jsx={1389666004}
+          onClick={[Function]}
+          type="button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        className="p-a300 result"
+        data-jsx={1389666004}
+      >
+        <input
+          aria-label="Quantity"
+          className="br br-a150 quantity-box"
+          data-jsx={1389666004}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          value="1"
+        />
+        <div
+          className="certificate-info"
+          data-jsx={1389666004}
+        >
+          <div
+            data-jsx={1389666004}
+          >
+            Monkey
+             
+            Joe
+          </div>
+          <div
+            data-jsx={1389666004}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            2004
+            <span
+              className="id-label"
+              data-jsx={1389666004}
+            >
+              ID:
+            </span>
+             
+            000003
+          </div>
+        </div>
+        <button
+          data-jsx={1389666004}
+          onClick={[Function]}
+          type="button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        className="p-a300 g"
+        data-jsx={2595578495}
+      >
+        <div
+          className="m-v500 g--9"
+        >
+          <div
+            className="t--info"
+          >
+            5
+             
+            certificates
+             × $
+            14
+             
+            + 
+            2.75
+            % credit card fee
+          </div>
+          <div
+            className="sh sh--b0"
+          >
+            <span
+              className="sh-title"
+            >
+              Subtotal: $
+              71.93
+            </span>
+          </div>
+        </div>
+        <a
+          className="btn g--3 m-v500"
+          data-jsx={2595578495}
+          href="/death/payment"
+          onClick={[Function]}
+        >
+          Pay and Finish
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Nav checkout page 1`] = `
+<nav
+  className="nv-s nv-s--sticky"
+  data-jsx={792433154}
+>
+  <div
+    className="nv-s-l bar"
+    data-jsx={792433154}
+  >
+    <a
+      className="nv-s-l-b back-link"
+      data-jsx={792433154}
+      href="/death"
+      onClick={[Function]}
+    >
+      Back to Lookup
+    </a>
+    <a
+      className="cart-link"
+      data-jsx={792433154}
+      href="/death/checkout"
+      onClick={[Function]}
+    >
+      0
+    </a>
+  </div>
+</nav>
+`;
+
+exports[`Storyshots Nav normal page 1`] = `
+<nav
+  className="nv-s nv-s--sticky"
+  data-jsx={792433154}
+>
+  <div
+    className="nv-s-l bar"
+    data-jsx={792433154}
+  >
+    <a
+      className="nv-s-l-b back-link"
+      data-jsx={792433154}
+      href="/death/checkout"
+      onClick={[Function]}
+    >
+      Checkout
+    </a>
+    <a
+      className="cart-link"
+      data-jsx={792433154}
+      href="/death/checkout"
+      onClick={[Function]}
+    >
+      0
+    </a>
+  </div>
+</nav>
+`;
+
+exports[`Storyshots Pagination 2 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Pagination 7 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+    >
+      ≪
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      3
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      4
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      5
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Pagination 20 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+    >
+      ≪
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      16
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      17
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+    >
+      18
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      19
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+    >
+      20
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots PaymentPage loading 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death"
+          onClick={[Function]}
+        >
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          8
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+      data-jsx={1303275230}
+    >
+      <div
+        className="sh sh--b0 m-v300"
+        data-jsx={1303275230}
+      >
+        <h1
+          className="sh-title"
+          data-jsx={1303275230}
+        >
+          Pay and Finish
+        </h1>
+      </div>
+      <button
+        className="sel-c sel-c--fw"
+        data-jsx={1303275230}
+        type="button"
+      >
+        <div
+          className="sel-f"
+          data-jsx={1303275230}
+        >
+          <div
+            className="t--sans tt-u lnk"
+            data-jsx={1303275230}
+          >
+            Order Details
+          </div>
+          <div
+            className="t--info"
+            data-jsx={1303275230}
+          >
+            8
+             
+            certificates
+             × $
+            14
+             + fee = $
+            115.09
+          </div>
+        </div>
+      </button>
+    </div>
+    <form
+      acceptCharset="UTF-8"
+      action="/death/payment"
+      className="m-v300"
+      data-jsx={3785310163}
+      method="post"
+      onSubmit={[Function]}
+    >
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Contact
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="contact-email"
+            >
+              Email Address
+            </label>
+            <input
+              className="txt-f txt-f--100"
+              data-jsx={3785310163}
+              id="contact-email"
+              name="email"
+              placeholder="Email address"
+              type="email"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="contact-phone"
+            >
+              Phone Number
+            </label>
+            <input
+              className="txt-f txt-f--100"
+              data-jsx={3785310163}
+              id="contact-phone"
+              name="phone"
+              placeholder="Phone number"
+              type="phone"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Credit Card Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="card-name"
+            >
+              Name on Card
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="card-name"
+              name="card-name"
+              placeholder="Name on card"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="card-number"
+            >
+              Credit Card Number
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="card-number"
+              name="card-number"
+              placeholder="Credit Card Number"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="card-date"
+            >
+              Expiration Date
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="card-date"
+              name="card-date"
+              placeholder="mm/yy"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Billing Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="billing-address-1"
+            >
+              Address Line 1
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-address-1"
+              name="billing-address-1"
+              placeholder="Address Line 1"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="billing-address-2"
+            >
+              Address Line 2
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-address-2"
+              name="billing-address-2"
+              placeholder="Address Line 2"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-city"
+            >
+              City
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-city"
+              name="billing-city"
+              placeholder="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-state"
+            >
+              State
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="billing-state"
+              name="billing-state"
+              placeholder="State"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-zip"
+            >
+              ZIP Code
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="billing-zip"
+              name="billing-zip"
+              placeholder="ZIP code"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Shipping Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="shipping-address-1"
+            >
+              Address Line 1
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-address-1"
+              name="shipping-address-1"
+              placeholder="Address Line 1"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="shipping-address-2"
+            >
+              Address Line 2
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-address-2"
+              name="shipping-address-2"
+              placeholder="Address Line 2"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-city"
+            >
+              City
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-city"
+              name="shipping-city"
+              placeholder="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-state"
+            >
+              State
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="shipping-state"
+              name="shipping-state"
+              placeholder="State"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-zip"
+            >
+              ZIP Code
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="shipping-zip"
+              name="shipping-zip"
+              placeholder="ZIP code"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="g p-a500 b--w"
+        data-jsx={3785310163}
+      >
+        <button
+          className="g--3 btn m-v500"
+          data-jsx={3785310163}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots PaymentPage normal page 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death"
+          onClick={[Function]}
+        >
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          5
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+      data-jsx={1303275230}
+    >
+      <div
+        className="sh sh--b0 m-v300"
+        data-jsx={1303275230}
+      >
+        <h1
+          className="sh-title"
+          data-jsx={1303275230}
+        >
+          Pay and Finish
+        </h1>
+      </div>
+      <button
+        className="sel-c sel-c--fw"
+        data-jsx={1303275230}
+        type="button"
+      >
+        <div
+          className="sel-f"
+          data-jsx={1303275230}
+        >
+          <div
+            className="t--sans tt-u lnk"
+            data-jsx={1303275230}
+          >
+            Order Details
+          </div>
+          <div
+            className="t--info"
+            data-jsx={1303275230}
+          >
+            5
+             
+            certificates
+             × $
+            14
+             + fee = $
+            71.93
+          </div>
+        </div>
+      </button>
+    </div>
+    <form
+      acceptCharset="UTF-8"
+      action="/death/payment"
+      className="m-v300"
+      data-jsx={3785310163}
+      method="post"
+      onSubmit={[Function]}
+    >
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Contact
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="contact-email"
+            >
+              Email Address
+            </label>
+            <input
+              className="txt-f txt-f--100"
+              data-jsx={3785310163}
+              id="contact-email"
+              name="email"
+              placeholder="Email address"
+              type="email"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="contact-phone"
+            >
+              Phone Number
+            </label>
+            <input
+              className="txt-f txt-f--100"
+              data-jsx={3785310163}
+              id="contact-phone"
+              name="phone"
+              placeholder="Phone number"
+              type="phone"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Credit Card Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="card-name"
+            >
+              Name on Card
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="card-name"
+              name="card-name"
+              placeholder="Name on card"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="card-number"
+            >
+              Credit Card Number
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="card-number"
+              name="card-number"
+              placeholder="Credit Card Number"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="card-date"
+            >
+              Expiration Date
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="card-date"
+              name="card-date"
+              placeholder="mm/yy"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Billing Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="billing-address-1"
+            >
+              Address Line 1
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-address-1"
+              name="billing-address-1"
+              placeholder="Address Line 1"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="billing-address-2"
+            >
+              Address Line 2
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-address-2"
+              name="billing-address-2"
+              placeholder="Address Line 2"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-city"
+            >
+              City
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="billing-city"
+              name="billing-city"
+              placeholder="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-state"
+            >
+              State
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="billing-state"
+              name="billing-state"
+              placeholder="State"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="billing-zip"
+            >
+              ZIP Code
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="billing-zip"
+              name="billing-zip"
+              placeholder="ZIP code"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="b--w p-a500 field-container"
+        data-jsx={3785310163}
+      >
+        <fieldset
+          data-jsx={3785310163}
+        >
+          <legend
+            className="stp m-b300"
+            data-jsx={3785310163}
+          >
+            Shipping Information
+          </legend>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="shipping-address-1"
+            >
+              Address Line 1
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-address-1"
+              name="shipping-address-1"
+              placeholder="Address Line 1"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l txt-l--mt000"
+              data-jsx={3785310163}
+              htmlFor="shipping-address-2"
+            >
+              Address Line 2
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-address-2"
+              name="shipping-address-2"
+              placeholder="Address Line 2"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-city"
+            >
+              City
+            </label>
+            <input
+              className="txt-f"
+              data-jsx={3785310163}
+              id="shipping-city"
+              name="shipping-city"
+              placeholder="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-state"
+            >
+              State
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="shipping-state"
+              name="shipping-state"
+              placeholder="State"
+            />
+          </div>
+          <div
+            className="txt"
+            data-jsx={3785310163}
+          >
+            <label
+              className="txt-l"
+              data-jsx={3785310163}
+              htmlFor="shipping-zip"
+            >
+              ZIP Code
+            </label>
+            <input
+              className="txt-f txt-f--50"
+              data-jsx={3785310163}
+              id="shipping-zip"
+              name="shipping-zip"
+              placeholder="ZIP code"
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div
+        className="g p-a500 b--w"
+        data-jsx={3785310163}
+      >
+        <button
+          className="g--3 btn m-v500"
+          data-jsx={3785310163}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SearchPage no results 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+        >
+          Death Certificates
+        </h1>
+      </div>
+      <form
+        acceptCharset="UTF-8"
+        action="/death"
+        className="sf sf--md"
+        method="get"
+        onSubmit={[Function]}
+      >
+        <input
+          name="utf8"
+          type="hidden"
+          value="✓"
+        />
+        <div
+          className="sf-i"
+        >
+          <input
+            autoComplete="off"
+            className="sf-i-f"
+            id="q"
+            name="q"
+            onChange={[Function]}
+            placeholder="Search…"
+            type="text"
+            value="Jayne Doe"
+          />
+          <button
+            className="sf-i-b"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <div
+        className="p-a300 b--w"
+      >
+        <div
+          className="t--sans tt-u"
+          style={
+            Object {
+              "fontSize": 12,
+            }
+          }
+        >
+          Showing 
+          1
+          –
+          0
+           of 
+          0
+           
+          results for “
+          Jayne Doe
+          ”
+        </div>
+      </div>
+      <div
+        className="p-a300"
+      >
+        Not finding what you’re looking for? Try refining your search or
+         
+        <a
+          href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          request a death certificate
+        </a>
+        .
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots SearchPage no search 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+        >
+          Death Certificates
+        </h1>
+      </div>
+      <form
+        acceptCharset="UTF-8"
+        action="/death"
+        className="sf sf--md"
+        method="get"
+        onSubmit={[Function]}
+      >
+        <input
+          name="utf8"
+          type="hidden"
+          value="✓"
+        />
+        <div
+          className="sf-i"
+        >
+          <input
+            autoComplete="off"
+            className="sf-i-f"
+            id="q"
+            name="q"
+            onChange={[Function]}
+            placeholder="Search…"
+            type="text"
+            value=""
+          />
+          <button
+            className="sf-i-b"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots SearchPage with results 1`] = `
+<div
+  className="mn mn--full mn--nv-s"
+>
+  <header
+    className="h"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+            <div class=\\"brg\\">
+              <span class=\\"brg-c\\">
+                <span class=\\"brg-c-i\\"></span>
+              </span>
+              <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+            </div>
+          </label>
+          <div class=\\"lo\\">
+            <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+              <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+            </a>
+          </div>
+          <nav class=\\"nv-h\\">
+            <ul class=\\"nv-h-l\\">
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                        <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                      <li class=\\"tr nv-h-l-i\\">
+                <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+                <ul class=\\"tr-dd\\">
+                    <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+                    <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+                </ul>
+              </li>
+              <li class=\\"nv-h-l-i\\">
+                <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                  <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class=\\"h-s\\">
+            <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+              <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+              <div class=\\"sf-i\\">
+                <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                <button class=\\"sf-i-b\\">Search</button>
+              </div>
+            </form>
+          </div>
+        ",
+      }
+    }
+    role="banner"
+  />
+  <div>
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={792433154}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={792433154}
+      >
+        <a
+          className="nv-s-l-b back-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={792433154}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div
+      className="p-a300"
+    >
+      <div
+        className="sh sh--b0"
+      >
+        <h1
+          className="sh-title"
+        >
+          Death Certificates
+        </h1>
+      </div>
+      <form
+        acceptCharset="UTF-8"
+        action="/death"
+        className="sf sf--md"
+        method="get"
+        onSubmit={[Function]}
+      >
+        <input
+          name="utf8"
+          type="hidden"
+          value="✓"
+        />
+        <div
+          className="sf-i"
+        >
+          <input
+            autoComplete="off"
+            className="sf-i-f"
+            id="q"
+            name="q"
+            onChange={[Function]}
+            placeholder="Search…"
+            type="text"
+            value="Jayne Doe"
+          />
+          <button
+            className="sf-i-b"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <div
+        className="p-a300 b--w"
+      >
+        <div
+          className="t--sans tt-u"
+          style={
+            Object {
+              "fontSize": 12,
+            }
+          }
+        >
+          Showing 
+          1
+          –
+          20
+           of 
+          600
+           
+          results for “
+          Jayne Doe
+          ”
+        </div>
+      </div>
+      <a
+        className="p-a300 br br-t100 b--w result"
+        data-jsx={1723197323}
+        href="/death/certificate/000002"
+        onClick={[Function]}
+      >
+        <div
+          className="t--sans"
+          data-jsx={1723197323}
+          style={
+            Object {
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.4,
+            }
+          }
+        >
+          Bruce
+           
+          Banner
+        </div>
+        <div
+          data-jsx={1723197323}
+        >
+          Died: 
+          3/4/2016
+           Age: 
+          21 yrs.
+        </div>
+      </a>
+      <a
+        className="p-a300 br br-t100 b--w result"
+        data-jsx={1723197323}
+        href="/death/certificate/000001"
+        onClick={[Function]}
+      >
+        <div
+          className="t--sans"
+          data-jsx={1723197323}
+          style={
+            Object {
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.4,
+            }
+          }
+        >
+          Logan
+           
+          Howlett
+        </div>
+        <div
+          data-jsx={1723197323}
+        >
+          Died: 
+          4/15/2014
+           Age: 
+          44 yrs. 2 mos. 10 dys
+        </div>
+        <div
+          data-jsx={1723197323}
+        >
+          Certificate Pending
+        </div>
+      </a>
+      <a
+        className="p-a300 br br-t100 b--w result"
+        data-jsx={1723197323}
+        href="/death/certificate/000003"
+        onClick={[Function]}
+      >
+        <div
+          className="t--sans"
+          data-jsx={1723197323}
+          style={
+            Object {
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.4,
+            }
+          }
+        >
+          Monkey
+           
+          Joe
+        </div>
+        <div
+          data-jsx={1723197323}
+        >
+          Died: 
+          2004
+           Age: 
+          6
+        </div>
+      </a>
+      <ul
+        className="pg"
+      >
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link pg-li-i--a"
+            href="/death?q=Jayne Doe&page=1"
+            onClick={[Function]}
+          >
+            1
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link "
+            href="/death?q=Jayne Doe&page=2"
+            onClick={[Function]}
+          >
+            2
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link "
+            href="/death?q=Jayne Doe&page=3"
+            onClick={[Function]}
+          >
+            3
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link "
+            href="/death?q=Jayne Doe&page=4"
+            onClick={[Function]}
+          >
+            4
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link "
+            href="/death?q=Jayne Doe&page=5"
+            onClick={[Function]}
+          >
+            5
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link "
+            href="/death?q=Jayne Doe&page=6"
+            onClick={[Function]}
+          >
+            6
+          </a>
+        </li>
+        <li
+          className="pg-li"
+        >
+          <a
+            className="pg-li-i pg-li-i--link"
+            href="/death?q=Jayne Doe&page=2"
+            onClick={[Function]}
+          >
+            ≫
+          </a>
+        </li>
+      </ul>
+      <div
+        className="p-a300"
+      >
+        Not finding what you’re looking for? Try refining your search or
+         
+        <a
+          href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          request a death certificate
+        </a>
+        .
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots SearchResult certificate without death date 1`] = `
+<a
+  className="p-a300 br br-t100 b--w result"
+  data-jsx={1723197323}
+  href="/death/certificate/000003"
+  onClick={[Function]}
+>
+  <div
+    className="t--sans"
+    data-jsx={1723197323}
+    style={
+      Object {
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "letterSpacing": 1.4,
+      }
+    }
+  >
+    Monkey
+     
+    Joe
+  </div>
+  <div
+    data-jsx={1723197323}
+  >
+    Died: 
+    2004
+     Age: 
+    6
+  </div>
+</a>
+`;
+
+exports[`Storyshots SearchResult pending certificate 1`] = `
+<a
+  className="p-a300 br br-t100 b--w result"
+  data-jsx={1723197323}
+  href="/death/certificate/000001"
+  onClick={[Function]}
+>
+  <div
+    className="t--sans"
+    data-jsx={1723197323}
+    style={
+      Object {
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "letterSpacing": 1.4,
+      }
+    }
+  >
+    Logan
+     
+    Howlett
+  </div>
+  <div
+    data-jsx={1723197323}
+  >
+    Died: 
+    4/15/2014
+     Age: 
+    44 yrs. 2 mos. 10 dys
+  </div>
+  <div
+    data-jsx={1723197323}
+  >
+    Certificate Pending
+  </div>
+</a>
+`;
+
+exports[`Storyshots SearchResult typical certificate 1`] = `
+<a
+  className="p-a300 br br-t100 b--w result"
+  data-jsx={1723197323}
+  href="/death/certificate/000002"
+  onClick={[Function]}
+>
+  <div
+    className="t--sans"
+    data-jsx={1723197323}
+    style={
+      Object {
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "letterSpacing": 1.4,
+      }
+    }
+  >
+    Bruce
+     
+    Banner
+  </div>
+  <div
+    data-jsx={1723197323}
+  >
+    Died: 
+    3/4/2016
+     Age: 
+    21 yrs.
+  </div>
+</a>
+`;

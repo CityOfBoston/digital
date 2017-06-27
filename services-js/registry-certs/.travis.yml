@@ -1,17 +1,24 @@
 language: node_js
 node_js:
-- '8.1.0'
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
+  - 8.1.0
+before_install:
+  - yarn global add greenkeeper-lockfile@1
+before_script:
+  - greenkeeper-lockfile-update
+  # Kick off Percy in the before_script so that the visual diff
+  # processing is in parallel on Percy.io with the Jest testing
+  # below.
+  - yarn snapshot
 script:
-- yarn snapshot
-- yarn jest -- --coverage --runInBand --forceExit
-- yarn codecov
-after_script: greenkeeper-lockfile-upload
-deploy:
-  provider: heroku
-  api_key:
-    secure: dcpuStSd9ehkCqFmNVXRGqqx+i1i2AUbVX8doRQ4VQ85ssANv3dbEvQyknTOIVp2LilLP64zmoVaKjYyu4uHm09jFcZIgLm8X4Z1Fx5D5cjryqIFo4ZnqCBSY2QmPwokYb5ylBbOR/rxP28QluC3bMmDh3R4VrHKAhaCjREpUCL2THeLy7aYhJgwoY2A5l3B/qMly3MK6LHnwBY2JsxNi4KN0FH0B5MgVGS0pU8ND2EZA/C80ufVeetdf6vMWCKnaLhFBTqme5XRdRbX9wIcYzGTOCM+a5UVPM3Kbg8ZI6oucOsXkLOKnRCJRDOKDumkivt1vhFRWRRZZRKDryZ15PkaK0pBmtT6InR0ErlX2zzWNpNlS42+S7cYprJkXKICF18xI4bP7XMj1fLAgwqvxmgumzF0Ee8ZIQABmztI0nBiDpkFYDywV2/zfQcYhFHozvIkfxHKUAJ7aFBLLdtxfUt2ShAJWW2tCngxPA1vom/10pT6icGKfSMmAfq2CtdFOfLyx28on3GW4PykCS2k9A20749mfNiVXAt8XG94SklKNOte8Em6NAjJvpvfvQspjwnmOEghuEAK7yCsz84/3wNs3HtPPsvG4fVp7rVp1Ipzf3iaxzZG1SvQhgSy38bbCIAB3G5g3QrOXU8YuWxUqPk/vTKyrMmTg4ltdmkfTH4=
-  app: cob-registry
-  on:
-    repo: CityOfBoston/registry-certs
+  - yarn test-ci
+after_script:
+  - yarn codecov
+  - greenkeeper-lockfile-upload
+branches:
+  # We generally just care about PRs, but it's good to run on
+  # the main branches so we know when the overall tree breaks.
+  only:
+    - master
+    - develop
+    # We need to run greenkeeper branches to get lockfile updates
+    - /^greenkeeper\/.*$/

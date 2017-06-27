@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "babel-watch -D -w server server",
     "test": "jest --forceExit",
+    "test-ci": "jest --coverage --runInBand --forceExit",
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
     "start": "node build/server",
@@ -77,6 +78,7 @@
   },
   "devDependencies": {
     "@percy-io/react-percy-storybook": "^1.0.0",
+    "@storybook/addon-storyshots": "^3.1.6",
     "@storybook/react": "3.1.6",
     "apollo-codegen": "^0.13.1",
     "babel-cli": "^6.24.1",

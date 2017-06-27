@@ -4,7 +4,7 @@ import React from 'react';
 import Head from 'next/head';
 import { observer } from 'mobx-react';
 
-import { CERTIFICATE_COST, PROCESSING_FEE } from '../store/Cart';
+import { CERTIFICATE_COST } from '../store/Cart';
 import type Cart from '../store/Cart';
 import Nav from '../common/Nav';
 
@@ -316,22 +316,6 @@ export default class PaymentPage extends React.Component {
           `}</style>
 
         </form>
-      </div>
-    );
-  }
-
-  renderCost() {
-    const { cart } = this.props;
-
-    return (
-      <div className="m-v500 g--9">
-        <div className="t--info">
-          {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}{' '}
-          + {(PROCESSING_FEE * 100).toFixed(2)}% credit card fee
-        </div>
-        <div className="sh sh--b0">
-          <span className="sh-title">Subtotal: ${cart.cost.toFixed(2)}</span>
-        </div>
       </div>
     );
   }

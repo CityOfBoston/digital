@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Router from 'next/router';
 
@@ -9,7 +8,6 @@ import Cart from '../store/Cart';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import SearchPage from './SearchPage';
-import type { InitialProps } from './SearchPage';
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
@@ -33,44 +31,34 @@ const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
   pageCount: 10,
 };
 
-const renderFromInitialProps = async (
-  query: { [key: string]: string },
-  dependencies: Object,
-) => {
-  const cart = new Cart();
-
-  const initialProps: InitialProps = await SearchPage.getInitialProps(
-    ({
-      query,
-    }: any),
-    dependencies,
-  );
-
-  return renderer.create(<SearchPage cart={cart} {...initialProps} />);
-};
-
-describe('rendering', () => {
+describe('getInitialProps', () => {
   let deathCertificatesDao;
 
   beforeEach(() => {
     deathCertificatesDao = new DeathCertificatesDao((null: any));
   });
 
-  it('shows empty search box', async () => {
-    expect(
-      (await renderFromInitialProps({}, { deathCertificatesDao })).toJSON(),
-    ).toMatchSnapshot();
+  it('works with no query', async () => {
+    const initialProps = await SearchPage.getInitialProps(
+      ({
+        query: {},
+      }: any),
+      ({ deathCertificatesDao }: any),
+    );
+
+    expect(initialProps).toMatchSnapshot();
   });
 
-  it('shows search results', async () => {
+  it('searches when given a query', async () => {
     deathCertificatesDao.search.mockReturnValue(TEST_SEARCH_RESULTS);
+    const initialProps = await SearchPage.getInitialProps(
+      ({
+        query: { q: 'Monkey Joe' },
+      }: any),
+      ({ deathCertificatesDao }: any),
+    );
 
-    expect(
-      (await renderFromInitialProps(
-        { q: 'Monkey Joe' },
-        { deathCertificatesDao },
-      )).toJSON(),
-    ).toMatchSnapshot();
+    expect(initialProps).toMatchSnapshot();
     expect(deathCertificatesDao.search).toHaveBeenCalledWith('Monkey Joe', 1);
   });
 });

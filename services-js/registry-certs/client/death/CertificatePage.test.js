@@ -1,61 +1,49 @@
 // @flow
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
 import Cart from '../store/Cart';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
 import CertificatePage from './CertificatePage';
-import type { InitialProps } from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 jest.mock('../dao/DeathCertificatesDao');
 
-const renderFromInitialProps = async (
-  query: { [key: string]: string },
-  dependencies: Object,
-) => {
-  const cart = new Cart();
-  const initialProps: InitialProps = await CertificatePage.getInitialProps(
-    ({
-      query,
-    }: any),
-    dependencies,
-  );
-
-  return renderer.create(<CertificatePage cart={cart} {...initialProps} />);
-};
-
-describe('rendering', () => {
+describe('getInitialProps', () => {
   let deathCertificatesDao;
 
   beforeEach(() => {
     deathCertificatesDao = new DeathCertificatesDao((null: any));
   });
 
-  it('renders a certificate', async () => {
+  it('loads the cert passed in query', async () => {
     deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
-    expect(
-      (await renderFromInitialProps(
-        { id: '000002' },
-        { deathCertificatesDao },
-      )).toJSON(),
-    ).toMatchSnapshot();
+
+    const initialProps = await CertificatePage.getInitialProps(
+      ({
+        query: { id: '000002' },
+      }: any),
+      ({ deathCertificatesDao }: any),
+    );
+
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
+    expect(initialProps).toMatchSnapshot();
   });
 
-  it('renders a 404', async () => {
+  it('handles a 404', async () => {
     deathCertificatesDao.get.mockReturnValue(null);
 
-    expect(
-      (await renderFromInitialProps(
-        { id: '000002' },
-        { deathCertificatesDao },
-      )).toJSON(),
-    ).toMatchSnapshot();
+    const initialProps = await CertificatePage.getInitialProps(
+      ({
+        query: { id: '000002' },
+      }: any),
+      ({ deathCertificatesDao }: any),
+    );
+
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
+    expect(initialProps).toMatchSnapshot();
   });
 });
 
