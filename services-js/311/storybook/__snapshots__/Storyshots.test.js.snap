@@ -4182,6 +4182,175 @@ exports[`Storyshots LocationPopUp with address 1`] = `
 </div>
 `;
 
+exports[`Storyshots LocationPopUp with units 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1msyv6a": "",
+    }
+  }
+>
+  <div
+    className=" br br-t400 br--y css-1aypqv0"
+    style={Object {}}
+  >
+    <div
+      className={
+        Object {
+          "data-css-1wu02iq": "",
+        }
+      }
+    >
+      <div
+        className="p-a300 css-jvj6qy"
+      >
+        <form
+          action="#"
+          className="sf sf--sm sf--y"
+          onSubmit={[Function]}
+        >
+          <div
+            className="sf-i"
+          >
+            <input
+              aria-label="Address search field"
+              className="sf-i-f"
+              onChange={[Function]}
+              placeholder="Search for a street address or intersection…"
+              type="text"
+              value=""
+            />
+            <button
+              className="sf-i-b"
+              disabled={true}
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+        <div
+          className={
+            Object {
+              "data-css-129qykh": "",
+            }
+          }
+        >
+          <div
+            className="m-v400"
+          >
+            <div
+              className="addr addr--s"
+              style={
+                Object {
+                  "whiteSpace": "pre-line",
+                }
+              }
+            >
+              1 Franklin Park Rd
+              Boston, MA 02121
+            </div>
+          </div>
+          <div
+            className="sel m-v400"
+          >
+            <label
+              className="sel-l"
+              htmlFor="unit-menu"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Apartment or Unit
+            </label>
+            <div
+              className="sel-c sel-c--fw"
+            >
+              <select
+                className="sel-f"
+                id="unit-menu"
+                onChange={[Function]}
+                value=""
+              >
+                <option
+                  value="95446"
+                >
+                  50 Milk St
+                </option>
+                <option
+                  value="275490"
+                >
+                  50 Milk St Ste 16
+                </option>
+                <option
+                  value="275491"
+                >
+                  50 Milk St Ste 17
+                </option>
+                <option
+                  value="275492"
+                >
+                  50 Milk St #20
+                </option>
+                <option
+                  value="275493"
+                >
+                  50 Milk St #2050
+                </option>
+                <option
+                  value="275494"
+                >
+                  50 Milk St Ste 21
+                </option>
+                <option
+                  value="275495"
+                >
+                  50 Milk St Lbby A
+                </option>
+                <option
+                  value="275496"
+                >
+                  50 Milk St Lbby C
+                </option>
+                <option
+                  value="419918"
+                >
+                  121 Devonshire St
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          className="g css-1k8tu3j"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots LocationPopUp without address 1`] = `
 <div
   className={

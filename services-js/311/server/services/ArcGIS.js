@@ -60,7 +60,7 @@ type FindAddressResponse = {
   candidates: FindAddressCandidate[],
 };
 
-type LiveSamFeature = {
+export type LiveSamFeature = {
   attributes: {
     SAM_ADDRESS_ID: number,
     BUILDING_ID: number,
@@ -70,6 +70,7 @@ type LiveSamFeature = {
     MAILING_NEIGHBORHOOD: string,
     ZIP_CODE: string,
     UNIT: string,
+    STREET_NUMBER_SORT: number,
   },
   geometry: {
     x: number,
@@ -129,6 +130,23 @@ function formatAddress(address: string): string {
   return `${parts.slice(0, offset).join(', ')}\n${parts
     .slice(offset)
     .join(', ')}`;
+}
+
+export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
+  const sortedUnits = [...units];
+  sortedUnits.sort((a, b) => {
+    return (
+      a.attributes.FULL_STREET_NAME.localeCompare(
+        b.attributes.FULL_STREET_NAME,
+      ) ||
+      a.attributes.STREET_NUMBER_SORT - b.attributes.STREET_NUMBER_SORT ||
+      // cast to "any" because Flow doesn't have the arguments
+      (a.attributes.UNIT.localeCompare: any)(b.attributes.UNIT, 'en', {
+        numeric: true,
+      })
+    );
+  });
+  return sortedUnits;
 }
 
 export default class ArcGIS {
@@ -284,7 +302,9 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    return liveSamResponse.features.map(({ attributes, geometry }) => ({
+    return sortUnits(
+      liveSamResponse.features,
+    ).map(({ attributes, geometry }) => ({
       location: { lat: geometry.y, lng: geometry.x },
       address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, MA, ${attributes.ZIP_CODE}`,
       addressId: attributes.SAM_ADDRESS_ID.toString(),

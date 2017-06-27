@@ -242,7 +242,7 @@ export default class LocationPopUp extends React.Component {
                   className="sel-l"
                   htmlFor="unit-menu"
                   style={{ marginTop: 0 }}>
-                  Apartment or Unit Number
+                  Apartment or Unit
                 </label>
                 <div className="sel-c sel-c--fw">
                   <select
@@ -250,9 +250,9 @@ export default class LocationPopUp extends React.Component {
                     className="sel-f"
                     value={mapLocation.addressId || ''}
                     onChange={this.whenUnitChange}>
-                    {units.map(({ addressId, unit, streetAddress }) =>
+                    {units.map(({ addressId, streetAddress }) =>
                       <option value={addressId} key={addressId}>
-                        {unit ? `   ${unit}` : streetAddress}
+                        {streetAddress}
                       </option>,
                     )}
                   </select>
