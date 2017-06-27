@@ -4,6 +4,7 @@ node_js:
 before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 script:
+- yarn snapshot
 - yarn jest -- --coverage --runInBand --forceExit
 - yarn codecov
 after_script: greenkeeper-lockfile-upload
@@ -14,5 +15,3 @@ deploy:
   app: cob-registry
   on:
     repo: CityOfBoston/registry-certs
-env:
-  secure: cjHP1b1WoeNey4GFJKNfsLIXyD4PTXOLY3DMbr8fkEHMl6IHacAI27KUnuG2F9YXGB6y0aKlX6eGvhluSXg/sy2ama+/O5PN+Q6nwOKWEMxifACz6LVmx/2rAl2au5YcBo2dH7UvsTzB8B0abKaXHEjOF7A34ml+SmZLN0V/FGuuzoWQ3VbphN6bemzaT2mK5yKGyOiL/oTGKy3Aq8SFc6IJyFT7Ityt+l1ieVm4Z/K8+zYiE5FaJq2HVPIEeuaFR0WiEz7q+AQh1258wbO9J+d073iPc7t/sDhno5KrNXefrfTyCMXxe/z+3kFIa7ZoNGiUfkE/7vqdIy8OAAUXM0yvTPUglpsXwcaix4J2gY2c9E5377lRti7knh1nam4FyEpX5MPlWnWjxatQksmXz/Tf8X/g/hKjtL0GyRLa8BRhUQ8wm81XHPnE60CuPl33U3VpUgYZBxiAWaMDt4j5lrwEDu/ufXDCWXYiE4haw2YLdvAzskzoMYrB+4WMylPPI2Us/xu0w8bldxuQ0trAMVJCAxC1uLORYJ776E0Jw60oyx68Z/o1Am3maQ+r1+bnBbUK8pUrZAv4s24xD1R4QvWdUsRiZSVXhXGvdAlhbEAEs1/QYDarhkrdRsdOvgVT+iGQsDxS6E0LMNgCYJU19+hae/h5vvdYuAN1Vn4HhLk=

@@ -5,12 +5,8 @@ import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@storybook/react';
 
-// eslint-disable-next-line import/extensions
-import DOT_ENV from '../.env';
 import styleTags from '../client/common/style-tags';
-import parseDotEnv from '../lib/test/parse-dot-env';
 
-const dotEnv = parseDotEnv(DOT_ENV);
 const headManager = new HeadManager();
 
 const DEFAULT_STYLE = `
@@ -74,8 +70,6 @@ addDecorator(story => {
       window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
 
-  window.DOT_ENV = dotEnv;
-
   return (
     <Wrapper headManager={headManager}>
       {story()}
@@ -84,3 +78,7 @@ addDecorator(story => {
 });
 
 configure(loadStories, module);
+
+if (typeof window === 'object') {
+  window.__storybook_stories__ = require('@storybook/react').getStorybook();
+}

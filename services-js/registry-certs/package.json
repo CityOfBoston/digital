@@ -16,6 +16,7 @@
     "heroku-postbuild": "gulp build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
+    "snapshot": "build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
     "lint": "eslint --fix .",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-fixtures": "babel-node ./scripts/generate-fixtures",
@@ -75,6 +76,7 @@
     "url-search-params": "^0.9.0"
   },
   "devDependencies": {
+    "@percy-io/react-percy-storybook": "^1.0.0",
     "@storybook/react": "3.1.6",
     "apollo-codegen": "^0.13.1",
     "babel-cli": "^6.24.1",
