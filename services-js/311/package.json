@@ -67,7 +67,7 @@
     "hapi-accept-language": "^1.0.1",
     "html5-history-api": "^4.2.8",
     "http-status": "^1.0.1",
-    "https-proxy-agent": "^1.0.0",
+    "https-proxy-agent": "^2.0.0",
     "inert": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
