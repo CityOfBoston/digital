@@ -15,7 +15,7 @@
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
     "start": "node build/server",
-    "storybook": "start-storybook -p 9001 -s . -c storybook",
+    "storybook": "start-storybook -p 9001 -s static -c storybook",
     "lint": "eslint --fix .",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-fixtures": "babel-node ./scripts/generate-fixtures",
@@ -59,6 +59,7 @@
     "hapi": "^16.1.1",
     "http-status": "^1.0.1",
     "https-proxy-agent": "^2.0.0",
+    "inert": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",
@@ -70,12 +71,11 @@
     "opbeat": "^4.14.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-prop-types": "^0.4.0",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
     "url-search-params": "^0.9.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
+    "@storybook/react": "3.1.6",
     "apollo-codegen": "^0.13.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -111,6 +111,7 @@
     "json-loader": "^0.5.4",
     "lint-staged": "^4.0.0",
     "prettier": "^1.4.4",
+    "prop-types": "^15.5.10",
     "react-test-renderer": "^15.5.4",
     "through2": "^2.0.3",
     "webpack-bundle-analyzer": "^2.8.1"

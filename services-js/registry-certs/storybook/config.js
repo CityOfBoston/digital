@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'react-prop-types';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Router from 'next/router';
 import HeadManager from 'next/dist/client/head-manager';
-import { configure, addDecorator } from '@kadira/storybook';
+import { configure, addDecorator } from '@storybook/react';
 
 // eslint-disable-next-line import/extensions
 import DOT_ENV from '../.env';

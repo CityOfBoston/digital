@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import Nav from './Nav';
 
 import Cart from '../store/Cart';

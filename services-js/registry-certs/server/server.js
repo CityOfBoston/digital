@@ -4,7 +4,9 @@ import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
 import Boom from 'boom';
+import Inert from 'inert';
 import fs from 'fs';
+import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 import cleanup from 'node-cleanup';
 
@@ -129,6 +131,8 @@ export function makeServer({ opbeat }: ServerArgs) {
     });
   }
 
+  server.register(Inert);
+
   server.register({
     register: graphqlHapi,
     options: {
@@ -185,8 +189,21 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   server.route({
     method: 'GET',
-    path: '/static/{p*}',
-    handler: nextDefaultHandler(app, { cache: true }),
+    path: '/assets/{path*}',
+    handler: (request, reply) => {
+      if (!request.params.path || request.params.path.indexOf('..') !== -1) {
+        return reply(Boom.forbidden());
+      }
+
+      const p = Path.join(
+        'static',
+        'assets',
+        ...request.params.path.split('/'),
+      );
+      return reply
+        .file(p)
+        .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
+    },
   });
 
   return {
