@@ -16,7 +16,7 @@ export type InitialProps = {|
 |};
 
 export type Props = {
-  /* :: ...InitialProps, */
+  ...InitialProps,
   cart: Cart,
 };
 
