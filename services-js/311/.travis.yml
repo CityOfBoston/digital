@@ -1,18 +1,24 @@
 language: node_js
 node_js:
-- 8.1.0
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
+  - 8.1.0
+before_install:
+  - yarn global add greenkeeper-lockfile@1
+before_script:
+  - greenkeeper-lockfile-update
+  # Kick of Percy in the before_script so that the visual diff
+  # processing is in parallel on Percy.io with the Jest testing
+  # below.
+  - yarn snapshot
 script:
-- yarn test-ci
-- yarn codecov
-- yarn snapshot
-after_script: greenkeeper-lockfile-upload
-deploy:
-  provider: heroku
-  app: cob-311
-  api_key:
-    secure: fEjoKeRP0MTvT5V8taQly1Wmfjg5nW3OtkflD+Q1ijzQnFMKOUqvaimBuRFHk+Aqtf08oHhfS8bQlaONVgU7NTa9LcR+GG6UWMMW9PSk0ig4JNpSZhfK/ViLzWN+0jEygG9CL8cojYUY3x5RwdtptdL2kWjTeu1oZ9t3Nw+97yZl64tWbSUkB1RIvizLYhTylaGCcWRfJmfG7bZqxHEsJEgOlxhBnKKIm67Bk8I3CoIesBF5MQ+xK42+yPUwurFr1ZA2o7rxs40GqxeOGikNeGbEcTeDSa9RbAoygoYWyIT2qP+BVTUYInOZ89tX3N7YfWr/f6aivMxejxrY5Wz2BaWypdzPOInY12qIoKRCSqVco0ekFoEPIJF9nBaBlQb8zGhsDeB0ywxnSs1Mxbrc3bcpAarXGyzOctHKVyaUWV1aFv3s0RBADHjk3ph7ZvfoPtKi0TjoR4mMZmhabLiDdTovcq51olERBGLHra2bu9smJhFM+CgJ4yf50LAl9LzFBjvTfcTAwHngWSwUfiUKnotr3liTaGRxqPtvY6nyYyKkxcXA2PyRGh2WDRW9HOXGvdFJS9qSbtLSKqUhsr2krsnemtPcIpcq1RGEZaJlRPlrpezL/utT5teere7vqXQUCG6Kxf7uNpWSS4Y0f+JRKkK2E6DFhKDIe7X5prcPiT4=
-  on: master
-env:
-  secure: Reto4ldTLdINcATs1NJM37KQW7HzsthviuJsWwJ1+T4wlfiqHVtGVuO1F76B5fBoTclnUFsB1g1I3TQuh0MD8V2Tvtsw7GiIhTc48OQbiajR/rewz1N206JjeS0GZ8ZOIRQepLQRHNGZEOp2ACMLSf8tG6+pIPCVKitvj8gwX3Kl4zRBwUdKn+pcJSWNpSagpTxMY2T0fftRvRE9SJsKsyqA+B1xX+03h6UHEmlY7rqQ9UaQHYk0LERhrSuWT/GOZADveFLz9kDgwMrS9FvwQdB7aucFST4C7tP96faUrSTgT2vL1kZD/4XMTsvWibRyRoz5l1V34VbiOPMgV4NYM9xJiSujoxzzASEj9nZWfuGgh7AVqaiCOAFWuA2LJfaOKeGEy0YGPCGMr/rBa7hnUnFUc01fNBTeSw0o5CZVJ4zXxnkfQR1HMvXgmUH7AbF1eldbCV7QmTKgZMHUoc5ZGjshhAV2z+7noQDz4e1jNJCjTnq0LgQAYagrWr5aVf4oY9vDxfb0ooJRpnYKklqq6GCmBe3FONwf6n3Qnr0vsS2yB5U7wrq1P3sTdU2My8+U4yTuxmo7fc9GFKTFMhLeGXJ4tT9iMRLKKD7rKAE+dg42efWE/PVtlTQJ1lgszuLJug+Yfo8T1vWx6tZGfQ09YPj5f89NUj6xwsywwsTmO6g=
+  - yarn test-ci
+after_script:
+  - yarn codecov
+  - greenkeeper-lockfile-upload
+branches:
+  # We generally just care about PRs, but it's good to run on
+  # the main branches so we know when the overall tree breaks.
+  only:
+    - master
+    - develop
+    # We need to run greenkeeper branches to get lockfile updates
+    - /^greenkeeper\/.*$/

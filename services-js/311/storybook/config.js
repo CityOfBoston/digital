@@ -100,5 +100,6 @@ addDecorator((story: () => React.Element<*>) => {
 
 configure(loadStories, module);
 
-if (typeof window === 'object')
+if (typeof window === 'object') {
   window.__storybook_stories__ = require('@storybook/react').getStorybook();
+}
