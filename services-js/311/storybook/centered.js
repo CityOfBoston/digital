@@ -12,14 +12,18 @@ const CENTERED_STYLE = css({
   height: '100%',
 });
 
-function Centered({ children }) {
-  return <div className={CENTERED_STYLE}>{ children }</div>;
+type Props = {|
+  children: React.Element<*> | Array<React.Element<*>>,
+|};
+
+function Centered({ children }: Props) {
+  return <div className={CENTERED_STYLE}>{children}</div>;
 }
 
-export default function centered(stories: () => mixed) {
+export default function centered(stories: () => React.Element<*>) {
   return (
     <Centered>
-      { stories() }
+      {stories()}
     </Centered>
   );
 }

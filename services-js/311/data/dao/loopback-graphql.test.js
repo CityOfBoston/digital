@@ -22,7 +22,6 @@ describe('client mode', () => {
     });
   });
 
-
   test('success case', async () => {
     fetchMock.post('/graphql', {
       body: {
@@ -33,7 +32,9 @@ describe('client mode', () => {
     });
 
     const queryPromise = loopbackGraphql('query', { arg: 'value' });
-    expect(fetchMock.lastOptions().body).toEqual('{"query":"query","variables":{"arg":"value"}}');
+    expect(fetchMock.lastOptions().body).toEqual(
+      '{"query":"query","variables":{"arg":"value"}}',
+    );
     expect(await queryPromise).toEqual({ key: 'value' });
   });
 
@@ -96,10 +97,12 @@ describe('server getInitialProps mode', () => {
   let rejectHapiInject;
 
   beforeEach(() => {
-    hapiInject = jest.fn().mockReturnValue(new Promise((resolve, reject) => {
-      resolveHapiInject = resolve;
-      rejectHapiInject = reject;
-    }));
+    hapiInject = jest.fn().mockReturnValue(
+      new Promise((resolve, reject) => {
+        resolveHapiInject = resolve;
+        rejectHapiInject = reject;
+      }),
+    );
 
     const req: any = { hapiInject };
     loopbackGraphql = makeLoopbackGraphql(req);
@@ -117,7 +120,10 @@ describe('server getInitialProps mode', () => {
       url: '/graphql',
     });
 
-    resolveHapiInject({ statusCode: 200, result: '{"data": {"key": "value"}}' });
+    resolveHapiInject({
+      statusCode: 200,
+      result: '{"data": {"key": "value"}}',
+    });
 
     expect(await queryPromise).toEqual({ key: 'value' });
   });
@@ -142,6 +148,6 @@ describe('server getInitialProps mode', () => {
 describe('server render mode', () => {
   it('errors out if used during server render', () => {
     const loopbackGraphql = makeLoopbackGraphql();
-    expect(() => (loopbackGraphql('query'))).toThrowErrorMatchingSnapshot();
+    expect(() => loopbackGraphql('query')).toThrowErrorMatchingSnapshot();
   });
 });

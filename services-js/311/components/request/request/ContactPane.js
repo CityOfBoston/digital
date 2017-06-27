@@ -31,7 +31,7 @@ export type Props = {|
   serviceName: string,
   nextFunc: () => mixed,
   noLocalStorage?: boolean,
-|}
+|};
 
 function renderRequired() {
   return <span className="t--req">Required</span>;
@@ -107,62 +107,142 @@ export default class ContactPane extends React.Component {
 
   render() {
     const { serviceName, requestForm } = this.props;
-    const { firstName, lastName, email, phone, contactInfoRequired, contactInfoRequirementsMet } = requestForm;
-    const { rememberInfo } = this.localStorageContactInfo || { rememberInfo: false };
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      contactInfoRequired,
+      contactInfoRequirementsMet,
+    } = requestForm;
+    const { rememberInfo } = this.localStorageContactInfo || {
+      rememberInfo: false,
+    };
 
     return (
       <form onSubmit={this.continueWithContactInfo}>
         <div>
-          <SectionHeader>{ serviceName }</SectionHeader>
+          <SectionHeader>{serviceName}</SectionHeader>
           <p className="m-v300 t--info">
             Why are we asking for your contact information? We’ll use it to
-            email you about the status of your report. We may also have to follow up with you.
+            email you about the status of your report. We may also have to
+            follow up with you.
           </p>
 
           <p className="m-v300 t--subinfo">
             <strong>We won’t make your information public.</strong>{' '}
 
-            { !contactInfoRequired && (
-            <span>
-              You can also <a href="javascript:void(0)" onClick={this.continueWithoutContactInfo}>send a report without giving us your information</a>.
-            </span>
-          )}
+            {!contactInfoRequired &&
+              <span>
+                You can also{' '}
+                <a
+                  href="javascript:void(0)"
+                  onClick={this.continueWithoutContactInfo}>
+                  send a report without giving us your information
+                </a>.
+              </span>}
           </p>
 
           <div className="txt">
-            <label className="txt-l" htmlFor="ContactPane-firstName">First Name {renderRequired()}</label>
-            <input type="text" className="txt-f" id="ContactPane-firstName" placeholder="First Name" name="firstName" value={firstName} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+            <label className="txt-l" htmlFor="ContactPane-firstName">
+              First Name {renderRequired()}
+            </label>
+            <input
+              type="text"
+              className="txt-f"
+              id="ContactPane-firstName"
+              placeholder="First Name"
+              name="firstName"
+              value={firstName}
+              onChange={this.handleChange}
+              style={FIELD_STYLE}
+              aria-required
+            />
           </div>
 
           <div className="txt">
-            <label className="txt-l" htmlFor="ContactPane-lastName">Last Name {renderRequired()}</label>
-            <input type="text" className="txt-f" id="ContactPane-lastName" placeholder="Last Name" name="lastName" value={lastName} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+            <label className="txt-l" htmlFor="ContactPane-lastName">
+              Last Name {renderRequired()}
+            </label>
+            <input
+              type="text"
+              className="txt-f"
+              id="ContactPane-lastName"
+              placeholder="Last Name"
+              name="lastName"
+              value={lastName}
+              onChange={this.handleChange}
+              style={FIELD_STYLE}
+              aria-required
+            />
           </div>
 
           <div className="txt">
-            <label className="txt-l" htmlFor="ContactPane-email">Email {renderRequired()}</label>
-            <input className="txt-f" type="email" id="ContactPane-email" placeholder="Email" name="email" value={email} onChange={this.handleChange} style={FIELD_STYLE} aria-required />
+            <label className="txt-l" htmlFor="ContactPane-email">
+              Email {renderRequired()}
+            </label>
+            <input
+              className="txt-f"
+              type="email"
+              id="ContactPane-email"
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              style={FIELD_STYLE}
+              aria-required
+            />
           </div>
 
           <div className="txt">
             <label className="txt-l" htmlFor="ContactPane-phone">Phone</label>
-            <InputMask className="txt-f" mask="(999) 999-9999" id="ContactPane-phone" type="tel" placeholder="Phone" name="phone" value={phone} onChange={this.handleChange} style={FIELD_STYLE} />
+            <InputMask
+              className="txt-f"
+              mask="(999) 999-9999"
+              id="ContactPane-phone"
+              type="tel"
+              placeholder="Phone"
+              name="phone"
+              value={phone}
+              onChange={this.handleChange}
+              style={FIELD_STYLE}
+            />
           </div>
 
           <div className="m-v500 g">
             <div className="cb">
-              <input name="remember" id="ContactPane-remember" type="checkbox" value="true" className="cb-f" checked={rememberInfo} onChange={this.handleChange} />
-              <label className="cb-l" htmlFor="ContactPane-remember">Remember contact info on this computer</label>
+              <input
+                name="remember"
+                id="ContactPane-remember"
+                type="checkbox"
+                value="true"
+                className="cb-f"
+                checked={rememberInfo}
+                onChange={this.handleChange}
+              />
+              <label className="cb-l" htmlFor="ContactPane-remember">
+                Remember contact info on this computer
+              </label>
             </div>
           </div>
         </div>
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
-          <div className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
-            {!contactInfoRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+          <div
+            className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
+            {!contactInfoRequirementsMet &&
+              <span>
+                Please fill out <span className="t--req">required</span> fields
+                to continue
+              </span>}
           </div>
 
-          <button className="btn g--4" type="submit" disabled={!contactInfoRequirementsMet}>Submit Request</button>
+          <button
+            className="btn g--4"
+            type="submit"
+            disabled={!contactInfoRequirementsMet}>
+            Submit Request
+          </button>
         </div>
       </form>
     );

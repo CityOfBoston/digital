@@ -16,21 +16,25 @@ import loadRequest from '../../data/dao/load-request';
 
 type CaseData = {|
   request: ?Request,
-|}
+|};
 
 export type InitialProps = {|
   data: CaseData,
 |};
 
 export type Props = {|
-  /* :: ...InitialProps, */
+  ...InitialProps,
   store: AppStore,
-|}
+|};
 
 export default class CaseLayout extends React.Component {
   props: Props;
 
-  static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps({
+    query,
+    req,
+    res,
+  }: Context<RequestAdditions>): Promise<InitialProps> {
     const { id } = query;
 
     const loopbackGraphql = makeLoopbackGraphql(req);
@@ -59,7 +63,7 @@ export default class CaseLayout extends React.Component {
         <Nav activeSection="search" />
 
         <div className="b-c" role="main">
-          { data.request && <CaseView request={data.request} store={store} /> }
+          {data.request && <CaseView request={data.request} store={store} />}
         </div>
       </div>
     );

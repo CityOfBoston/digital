@@ -14,14 +14,14 @@ import { MEDIA_LARGE } from '../style-constants';
 export type DefaultProps = {|
   submitted: boolean,
   noMap: boolean,
-|}
+|};
 
 export type Props = {|
   request: Request,
   store: AppStore,
   submitted?: boolean,
   noMap?: boolean,
-|}
+|};
 
 const IMG_STYLE = css({
   display: 'block',
@@ -42,7 +42,9 @@ function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
 
   return (
     <div className="b b--g p-a500 m-v500">
-      <div className="txt-l" style={{ marginTop: 0 }}>Request submitted successfully — {updatedAtString}</div>
+      <div className="txt-l" style={{ marginTop: 0 }}>
+        Request submitted successfully — {updatedAtString}
+      </div>
       <div className="t--intro" style={{ fontStyle: 'normal' }}>
         Thank you for submitting. Your case reference number is #{id}.
         If you gave your email address, we’ll send you an email when it’s
@@ -59,13 +61,21 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
 
   return (
     <div className="b b--g p-a500 m-v500">
-      <div className="txt-l" style={{ marginTop: 0 }}>Resolution — {updatedAtString}</div>
-      <div className="t--intro" style={{ fontStyle: 'normal' }}>{statusNotes}</div>
+      <div className="txt-l" style={{ marginTop: 0 }}>
+        Resolution — {updatedAtString}
+      </div>
+      <div className="t--intro" style={{ fontStyle: 'normal' }}>
+        {statusNotes}
+      </div>
     </div>
   );
 }
 
-function makeMapboxUrl(store: AppStore, request: Request, size: number): string {
+function makeMapboxUrl(
+  store: AppStore,
+  request: Request,
+  size: number,
+): string {
   const { apiKeys: { mapbox } } = store;
   const { location } = request;
 
@@ -73,48 +83,77 @@ function makeMapboxUrl(store: AppStore, request: Request, size: number): string 
     return '';
   }
 
-  return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(mapbox.accessToken)}`;
+  return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
+    mapbox.accessToken,
+  )}`;
 }
 
 export default function CaseView({ request, store, submitted, noMap }: Props) {
-  const waypointIcon = request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
+  const waypointIcon = request.status === 'open'
+    ? waypoints.greenFilled
+    : waypoints.orangeFilled;
 
   return (
     <div>
       <div>
-        <SectionHeader subtitle={<span style={{ whiteSpace: 'nowrap' }}>{`Case ref: #${request.id}`}</span>}>{request.service.name}</SectionHeader>
+        <SectionHeader
+          subtitle={
+            <span
+              style={{
+                whiteSpace: 'nowrap',
+              }}>{`Case ref: #${request.id}`}</span>
+          }>
+          {request.service.name}
+        </SectionHeader>
 
         <div className="m-v300 t--info">
-          Submitted on {request.requestedAtString} {request.address && ` — ${request.address}`}
+          Submitted on {request.requestedAtString}{' '}
+          {request.address && ` — ${request.address}`}
         </div>
       </div>
 
-      { renderSubmitted(request, submitted || false) }
+      {renderSubmitted(request, submitted || false)}
 
-      { renderStatus(request) }
+      {renderStatus(request)}
 
-      { request.description &&
+      {request.description &&
         <div className="m-v500">
           <div className="txt-l">Description</div>
-          <div className="t--intro" style={{ fontStyle: 'normal' }}>{request.description}</div>
-        </div>
-      }
+          <div className="t--intro" style={{ fontStyle: 'normal' }}>
+            {request.description}
+          </div>
+        </div>}
 
       <div className="g m-v500">
-        { request.location && !noMap &&
+        {request.location &&
+          !noMap &&
           <div className="g--6">
             <div className={MAP_WRAPPER_STYLE}>
-              <img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} src={makeMapboxUrl(store, request, 440)} alt={`Map of ${request.address || ''}`} />
-              <div className={`${WAYPOINT_STYLE.toString()}`} dangerouslySetInnerHTML={{ __html: waypointIcon.html }} />
+              <img
+                className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
+                src={makeMapboxUrl(store, request, 440)}
+                alt={`Map of ${request.address || ''}`}
+              />
+              <div
+                className={`${WAYPOINT_STYLE.toString()}`}
+                dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+              />
             </div>
-          </div>
-        }
+          </div>}
 
-        { request.mediaUrl &&
+        {request.mediaUrl &&
           <div className="g--6">
-            <a href={request.mediaUrl} target="_blank" rel="noopener noreferrer"><img className={`${IMG_STYLE.toString()} m-b500 br br-a150`} alt="Submission" src={request.mediaUrl} /></a>
-          </div>
-        }
+            <a
+              href={request.mediaUrl}
+              target="_blank"
+              rel="noopener noreferrer">
+              <img
+                className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
+                alt="Submission"
+                src={request.mediaUrl}
+              />
+            </a>
+          </div>}
       </div>
     </div>
   );

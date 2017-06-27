@@ -69,14 +69,20 @@ export default class QuestionsPane extends React.Component {
   componentWillMount() {
     const { store, requestForm } = this.props;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(requestForm, 'mediaUrl');
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(
+      requestForm,
+      'mediaUrl',
+    );
   }
 
   @action
   componentWillReceiveProps(newProps: Props) {
     const { store, requestForm } = newProps;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(requestForm, 'mediaUrl');
+    this.imageUploader.adoptedUrlObservable = extras.getAtom(
+      requestForm,
+      'mediaUrl',
+    );
   }
 
   @action
@@ -120,10 +126,15 @@ export default class QuestionsPane extends React.Component {
 
   setDropEl = (dropEl: ?Dropzone) => {
     this.dropEl = dropEl;
-  }
+  };
 
   render() {
-    const { requestForm, serviceName, serviceDescription, nextIsSubmit } = this.props;
+    const {
+      requestForm,
+      serviceName,
+      serviceDescription,
+      nextIsSubmit,
+    } = this.props;
     const { description, questions, questionRequirementsMet } = requestForm;
 
     const questionsEls = [];
@@ -132,44 +143,81 @@ export default class QuestionsPane extends React.Component {
         return;
       }
 
-      questionsEls.push(<div key={q.code}><AttributeField question={q} /></div>);
+      questionsEls.push(
+        <div key={q.code}><AttributeField question={q} /></div>,
+      );
 
       if (i < questions.length - 1) {
-        questionsEls.push(<hr className="hr hr--dash m-v500" aria-hidden key={`${q.code}-HR`} />);
+        questionsEls.push(
+          <hr
+            className="hr hr--dash m-v500"
+            aria-hidden
+            key={`${q.code}-HR`}
+          />,
+        );
       }
     });
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <SectionHeader>{ serviceName }</SectionHeader>
+        <SectionHeader>{serviceName}</SectionHeader>
 
-        <div className="t--intro m-v300">{ serviceDescription }</div>
+        <div className="t--intro m-v300">{serviceDescription}</div>
 
         <div className="g g--top">
           <div className="g--7 m-v500">
-            <div className="txt" >
-              <label className="txt-l" htmlFor="QuestionsPane-description" style={{ marginTop: 0 }}>Description</label>
-              <textarea name="description" id="QuestionsPane-description" className="txt-f" value={description} placeholder="Please describe your request" onChange={this.handleUpdateDescription} rows="5" />
+            <div className="txt">
+              <label
+                className="txt-l"
+                htmlFor="QuestionsPane-description"
+                style={{ marginTop: 0 }}>
+                Description
+              </label>
+              <textarea
+                name="description"
+                id="QuestionsPane-description"
+                className="txt-f"
+                value={description}
+                placeholder="Please describe your request"
+                onChange={this.handleUpdateDescription}
+                rows="5"
+              />
             </div>
 
-            { questionsEls }
+            {questionsEls}
           </div>
 
-          { this.renderImageUpload() }
+          {this.renderImageUpload()}
         </div>
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
-          <div className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
-            {!questionRequirementsMet && <span>Please fill out <span className="t--req">required</span> fields to continue</span>}
+          <div
+            className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
+            {!questionRequirementsMet &&
+              <span>
+                Please fill out <span className="t--req">required</span> fields
+                to continue
+              </span>}
           </div>
-          <button className="btn g--3" type="submit" disabled={!questionRequirementsMet}>{nextIsSubmit ? 'Submit Request' : 'Next'}</button>
+          <button
+            className="btn g--3"
+            type="submit"
+            disabled={!questionRequirementsMet}>
+            {nextIsSubmit ? 'Submit Request' : 'Next'}
+          </button>
         </div>
       </form>
     );
   }
 
   renderImageUpload() {
-    const { errorMessage, displayUrl, uploading, uploadingProgress, canRemove } = this.imageUploader;
+    const {
+      errorMessage,
+      displayUrl,
+      uploading,
+      uploadingProgress,
+      canRemove,
+    } = this.imageUploader;
 
     let buttonAction = null;
     let buttonTitle = null;
@@ -190,31 +238,72 @@ export default class QuestionsPane extends React.Component {
     return (
       <div className="g--5 m-v500">
         <div className="br br-a200">
-          <Dropzone className={DROPZONE_STYLE.toString()} ref={this.setDropEl} onDrop={this.handleDrop} multiple={false} accept="image/*">
+          <Dropzone
+            className={DROPZONE_STYLE.toString()}
+            ref={this.setDropEl}
+            onDrop={this.handleDrop}
+            multiple={false}
+            accept="image/*">
             {({ isDragActive }) => {
               const out = [
-                displayUrl ?
-                  <img key="img" style={{ display: 'block', width: '100%' }} alt="" aria-hidden src={displayUrl} /> :
-                  <img key="img" style={{ display: 'block', width: '100%', height: 'auto' }} aria-hidden alt="" width="479" height="324" src="/assets/img/image-upload.png" />,
+                displayUrl
+                  ? <img
+                      key="img"
+                      style={{ display: 'block', width: '100%' }}
+                      alt=""
+                      aria-hidden
+                      src={displayUrl}
+                    />
+                  : <img
+                      key="img"
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                      aria-hidden
+                      alt=""
+                      width="479"
+                      height="324"
+                      src="/assets/img/image-upload.png"
+                    />,
               ];
 
               if (isDragActive) {
-                out.push(<div key="ring" className={`br-a300 ${DRAG_RING_STYLE.toString()}`} />);
+                out.push(
+                  <div
+                    key="ring"
+                    className={`br-a300 ${DRAG_RING_STYLE.toString()}`}
+                  />,
+                );
               }
 
               return out;
             }}
           </Dropzone>
 
-          { errorMessage && <div className="t--info br br-t200 p-a300">{errorMessage}</div> }
+          {errorMessage &&
+            <div className="t--info br br-t200 p-a300">{errorMessage}</div>}
 
           <div className="br br-t200" style={{ position: 'relative' }}>
-            <button className={buttonClasses} style={{ visibility: buttonAction ? 'visible' : 'hidden', width: '100%' }} type="button" onClick={buttonAction}>{buttonTitle}</button>
-            { uploading && <div className={PROGRESS_STYLE} style={{ width: `${100 * uploadingProgress}%` }} />}
+            <button
+              className={buttonClasses}
+              style={{
+                visibility: buttonAction ? 'visible' : 'hidden',
+                width: '100%',
+              }}
+              type="button"
+              onClick={buttonAction}>
+              {buttonTitle}
+            </button>
+            {uploading &&
+              <div
+                className={PROGRESS_STYLE}
+                style={{ width: `${100 * uploadingProgress}%` }}
+              />}
           </div>
         </div>
       </div>
-
     );
   }
 }

@@ -1,6 +1,13 @@
 // @flow
 
-import { observable, action, reaction, computed, runInAction, autorun } from 'mobx';
+import {
+  observable,
+  action,
+  reaction,
+  computed,
+  runInAction,
+  autorun,
+} from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'mapbox.js';
 import type { LngLatBounds } from 'mapbox-gl';
@@ -59,34 +66,39 @@ export default class RequestSearch {
     // 100 of the new map center.
     //
     // We use this.results so we filter by bounds automatically.
-    const previousResults = (query === this.resultsQuery) ? this.results : [];
-    const newResults = uniqBy([...previousResults, ...cases], (r) => r.id);
+    const previousResults = query === this.resultsQuery ? this.results : [];
+    const newResults = uniqBy([...previousResults, ...cases], r => r.id);
     newResults.sort((a, b) => b.requestedAt - a.requestedAt);
     this._results = newResults;
     this.resultsQuery = query;
   }
 
-  @computed get results(): SearchCase[] {
+  @computed
+  get results(): SearchCase[] {
     const { mapBounds, mapBoundsGl } = this;
     if (!mapBounds && !mapBoundsGl) {
       return this._results.slice(0, 50);
     } else {
-      return this._results.filter(({ location }) => {
-        if (!location) {
-          return false;
-        }
+      return this._results
+        .filter(({ location }) => {
+          if (!location) {
+            return false;
+          }
 
-        if (mapBounds) {
-          return mapBounds.contains([location.lat, location.lng]);
-        } else if (mapBoundsGl) {
-          return (location.lng >= mapBoundsGl.getWest() &&
+          if (mapBounds) {
+            return mapBounds.contains([location.lat, location.lng]);
+          } else if (mapBoundsGl) {
+            return (
+              location.lng >= mapBoundsGl.getWest() &&
               location.lng <= mapBoundsGl.getEast() &&
               location.lat <= mapBoundsGl.getNorth() &&
-              location.lat >= mapBoundsGl.getSouth());
-        } else {
-          return false;
-        }
-      }).slice(0, 50);
+              location.lat >= mapBoundsGl.getSouth()
+            );
+          } else {
+            return false;
+          }
+        })
+        .slice(0, 50);
     }
   }
 
@@ -130,7 +142,8 @@ export default class RequestSearch {
     }
   }
 
-  @computed.struct get topLeft(): ?{| lat: number, lng: number |} {
+  @computed.struct
+  get topLeft(): ?{| lat: number, lng: number |} {
     const { mapBounds, mapBoundsGl } = this;
 
     if (mapBounds) {
@@ -146,7 +159,8 @@ export default class RequestSearch {
     return null;
   }
 
-  @computed.struct get bottomRight(): ?{| lat: number, lng: number |} {
+  @computed.struct
+  get bottomRight(): ?{| lat: number, lng: number |} {
     const { mapBounds, mapBoundsGl } = this;
 
     if (mapBounds) {
@@ -163,14 +177,22 @@ export default class RequestSearch {
   }
 
   @action
-  async search(loopbackGraphql: LoopbackGraphql, { topLeft, bottomRight, query }: SearchArgs) {
+  async search(
+    loopbackGraphql: LoopbackGraphql,
+    { topLeft, bottomRight, query }: SearchArgs,
+  ) {
     if (!topLeft || !bottomRight) {
       return;
     }
 
     this.loading = true;
 
-    const results = await searchCases(loopbackGraphql, query, topLeft, bottomRight);
+    const results = await searchCases(
+      loopbackGraphql,
+      query,
+      topLeft,
+      bottomRight,
+    );
 
     runInAction('request search results', () => {
       this.loading = false;

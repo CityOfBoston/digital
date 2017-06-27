@@ -11,7 +11,8 @@ import type { Service, SubmittedRequest } from '../../../data/types';
 import { AppStore } from '../../../data/store';
 
 jest.mock('../../../data/dao/submit-request');
-const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): any).default;
+const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): any)
+  .default;
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -19,31 +20,41 @@ const MOCK_SERVICE: Service = {
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',
-  attributes: [{
-    required: false,
-    type: 'TEXT',
-    code: 'ST-CMTS',
-    description: 'Please provide any other relevant information:',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: false,
-    type: 'STRING',
-    code: 'INFO-CSIRMV1',
-    description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: true,
-    type: 'SINGLEVALUELIST',
-    code: 'SR-CSIRMV1',
-    description: 'How many dimensions have been breached?',
-    values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
-    conditionalValues: [],
-    dependencies: null,
-  }],
+  attributes: [
+    {
+      required: false,
+      type: 'TEXT',
+      code: 'ST-CMTS',
+      description: 'Please provide any other relevant information:',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: false,
+      type: 'STRING',
+      code: 'INFO-CSIRMV1',
+      description:
+        '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: true,
+      type: 'SINGLEVALUELIST',
+      code: 'SR-CSIRMV1',
+      description: 'How many dimensions have been breached?',
+      values: [
+        { key: 'One', name: 'One' },
+        { key: 'Two', name: 'Two' },
+        { key: 'Three', name: 'Three' },
+        { key: 'More than Three', name: 'More than Three' },
+      ],
+      conditionalValues: [],
+      dependencies: null,
+    },
+  ],
 };
 
 const MOCK_ACTIONS = {
@@ -61,22 +72,40 @@ describe('rendering', () => {
 
   test('questions', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="questions" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
+      <RequestDialog
+        store={store}
+        stage="questions"
+        service={MOCK_SERVICE}
+        description=""
+        {...MOCK_ACTIONS}
+      />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   test('location', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="location" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
+      <RequestDialog
+        store={store}
+        stage="location"
+        service={MOCK_SERVICE}
+        description=""
+        {...MOCK_ACTIONS}
+      />,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('contact', () => {
     const component = renderer.create(
-      <RequestDialog store={store} stage="contact" service={MOCK_SERVICE} description="" {...MOCK_ACTIONS} />,
-    { createNodeMock: () => document.createElement('div') },
+      <RequestDialog
+        store={store}
+        stage="contact"
+        service={MOCK_SERVICE}
+        description=""
+        {...MOCK_ACTIONS}
+      />,
+      { createNodeMock: () => document.createElement('div') },
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -103,7 +132,8 @@ describe('methods', () => {
         loopbackGraphql={loopbackGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
-      />);
+      />,
+    );
 
     requestDialog = wrapper.instance();
 
@@ -116,12 +146,18 @@ describe('methods', () => {
   describe('navigation', () => {
     test('nextAfterQuestions', () => {
       requestDialog.routeToLocation();
-      expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'location');
+      expect(routeToServiceForm).toHaveBeenCalledWith(
+        MOCK_SERVICE.code,
+        'location',
+      );
     });
 
     test('nextAfterLocation', () => {
       requestDialog.routeToContact();
-      expect(routeToServiceForm).toHaveBeenCalledWith(MOCK_SERVICE.code, 'contact');
+      expect(routeToServiceForm).toHaveBeenCalledWith(
+        MOCK_SERVICE.code,
+        'contact',
+      );
     });
   });
 
@@ -152,7 +188,8 @@ describe('methods', () => {
         },
         description: 'I think that Thanos is here',
         status: 'closed',
-        statusNotes: 'Found Thanos. Smashed him into the floor with all of us standing around.',
+        statusNotes:
+          'Found Thanos. Smashed him into the floor with all of us standing around.',
         location: {
           lat: 42.359927299999995,
           lng: -71.0576853,
@@ -163,10 +200,13 @@ describe('methods', () => {
         updatedAtString: 'April 8, 2017, 12:59 PM',
       };
 
-      expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
-        firstName: null,
-        address: null,
-      }));
+      expect(submitRequest).toHaveBeenCalledWith(
+        loopbackGraphql,
+        expect.objectContaining({
+          firstName: null,
+          address: null,
+        }),
+      );
 
       resolveGraphql(result);
 
@@ -185,10 +225,13 @@ describe('methods', () => {
 
       requestDialog.submitRequest();
 
-      expect(submitRequest).toHaveBeenCalledWith(loopbackGraphql, expect.objectContaining({
-        firstName: 'Carol',
-        address: 'City Hall Plaza, Boston, MA',
-      }));
+      expect(submitRequest).toHaveBeenCalledWith(
+        loopbackGraphql,
+        expect.objectContaining({
+          firstName: 'Carol',
+          address: 'City Hall Plaza, Boston, MA',
+        }),
+      );
     });
 
     test('graphql failure', async () => {

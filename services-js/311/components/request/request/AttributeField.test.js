@@ -70,15 +70,27 @@ test('multivaluelist', () => {
   const wrapper = mount(<AttributeField question={question} />);
 
   const inputs = wrapper.find('input');
-  const herculesInput = inputs.findWhere((i) => i.getDOMNode().value === 'hercules');
-  const msMarvelInput = inputs.findWhere((i) => i.getDOMNode().value === 'ms-marvel');
+  const herculesInput = inputs.findWhere(
+    i => i.getDOMNode().value === 'hercules',
+  );
+  const msMarvelInput = inputs.findWhere(
+    i => i.getDOMNode().value === 'ms-marvel',
+  );
 
   expect(herculesInput.getDOMNode().checked).toEqual(true);
   expect(msMarvelInput.getDOMNode().checked).toEqual(false);
 
-  msMarvelInput.simulate('change', { target: { checked: true, value: 'ms-marvel' } });
-  expect((question.value || []).slice()).toEqual(['hercules', 'vision', 'ms-marvel']);
+  msMarvelInput.simulate('change', {
+    target: { checked: true, value: 'ms-marvel' },
+  });
+  expect((question.value || []).slice()).toEqual([
+    'hercules',
+    'vision',
+    'ms-marvel',
+  ]);
 
-  herculesInput.simulate('change', { target: { checked: false, value: 'hercules' } });
+  herculesInput.simulate('change', {
+    target: { checked: false, value: 'hercules' },
+  });
   expect((question.value || []).slice()).toEqual(['vision', 'ms-marvel']);
 });

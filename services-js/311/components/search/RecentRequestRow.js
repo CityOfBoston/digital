@@ -10,7 +10,14 @@ import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';
 import type { SearchCase } from '../../data/types';
 
-import { HEADER_HEIGHT, MEDIA_LARGE, GREEN, YELLOW, GRAY_100, CLEAR_FIX } from '../style-constants';
+import {
+  HEADER_HEIGHT,
+  MEDIA_LARGE,
+  GREEN,
+  YELLOW,
+  GRAY_100,
+  CLEAR_FIX,
+} from '../style-constants';
 
 const REQUEST_STYLE = css({
   display: 'block',
@@ -93,12 +100,17 @@ export default class RecentRequestRow extends React.Component {
     this.el = el;
   }
 
-  @computed get selected(): boolean {
+  @computed
+  get selected(): boolean {
     const { request, requestSearch } = this.props;
-    return !!requestSearch.selectedRequest && requestSearch.selectedRequest.id === request.id;
+    return (
+      !!requestSearch.selectedRequest &&
+      requestSearch.selectedRequest.id === request.id
+    );
   }
 
-  @computed get showImage(): boolean {
+  @computed
+  get showImage(): boolean {
     if (!this.el) {
       return false;
     }
@@ -108,7 +120,11 @@ export default class RecentRequestRow extends React.Component {
     const rect = this.el.getBoundingClientRect();
     const buffer = ui.visibleHeight / 2;
     // Referencing scrollY so we get updated on scroll
-    return ui.debouncedScrollY >= 0 && rect.bottom > (HEADER_HEIGHT - buffer) && rect.top - HEADER_HEIGHT < (ui.visibleHeight + buffer);
+    return (
+      ui.debouncedScrollY >= 0 &&
+      rect.bottom > HEADER_HEIGHT - buffer &&
+      rect.top - HEADER_HEIGHT < ui.visibleHeight + buffer
+    );
   }
 
   @action.bound
@@ -128,7 +144,9 @@ export default class RecentRequestRow extends React.Component {
   render() {
     const { request } = this.props;
 
-    const defaultUrl = this.selected ? '/assets/img/311-logo-grey-on-white.svg' : '/assets/img/311-logo-white-on-grey.svg';
+    const defaultUrl = this.selected
+      ? '/assets/img/311-logo-grey-on-white.svg'
+      : '/assets/img/311-logo-white-on-grey.svg';
     const mediaUrl = (this.showImage && request.mediaUrl) || '';
 
     let statusStyle;
@@ -153,19 +171,30 @@ export default class RecentRequestRow extends React.Component {
           style={{
             backgroundColor: this.selected ? GRAY_100 : 'transparent',
             color: 'inherit',
-          }}
-        >
-          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${defaultUrl})` }}>
-            <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${mediaUrl})` }} />
+          }}>
+          <div
+            className={THUMBNAIL_SYLE}
+            style={{ backgroundImage: `url(${defaultUrl})` }}>
+            <div
+              className={THUMBNAIL_SYLE}
+              style={{ backgroundImage: `url(${mediaUrl})` }}
+            />
           </div>
           <div className={REQUEST_INFO_STYLE}>
-            <h4 className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>{request.service.name}</h4>
+            <h4
+              className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>
+              {request.service.name}
+            </h4>
             <div className={DESCRIPTION_STYLE}>
-              { request.description}
+              {request.description}
             </div>
             <div style={{ paddingTop: 5 }}>
-              <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
-              <span className="t--info" style={{ fontSize: 14 }}>{ request.requestedAtRelativeString }</span>
+              <span className={`t--upper t--sans ${statusStyle.toString()}`}>
+                {statusText}
+              </span>
+              <span className="t--info" style={{ fontSize: 14 }}>
+                {request.requestedAtRelativeString}
+              </span>
             </div>
           </div>
         </a>

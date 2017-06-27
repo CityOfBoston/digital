@@ -10,7 +10,9 @@
 import React from 'react';
 import { rehydrate } from 'glamor';
 
-export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => {
+export default <OP, P: $Subtype<Object>, S>(
+  componentFn: () => Class<React.Component<OP, P, S>>,
+): Class<React.Component<void, P, void>> => {
   if (process.browser) {
     // eslint-disable-next-line no-underscore-dangle
     rehydrate(window.__NEXT_DATA__.ids);
@@ -18,7 +20,7 @@ export default <OP, P: $Subtype<Object>, S> (componentFn: () => Class<React.Comp
 
   const Component = componentFn();
 
-  return class extends React.Component {
+  return class WithGlamor extends React.Component {
     props: P;
 
     static getInitialProps(...args) {

@@ -9,12 +9,14 @@ import type { Service, ServiceSummary } from '../../data/types';
 import page from '../../storybook/page';
 import RequestLayout from './RequestLayout';
 
-const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
-  name: 'Cosmic Incursion',
-  code: 'CSMCINC',
-  description: 'Something is threatening the fabric of the universe',
-  group: 'ultimate',
-}];
+const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [
+  {
+    name: 'Cosmic Incursion',
+    code: 'CSMCINC',
+    description: 'Something is threatening the fabric of the universe',
+    group: 'ultimate',
+  },
+];
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -22,31 +24,41 @@ const MOCK_SERVICE: Service = {
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',
-  attributes: [{
-    required: false,
-    type: 'TEXT',
-    code: 'ST-CMTS',
-    description: 'Please provide any other relevant information:',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: false,
-    type: 'STRING',
-    code: 'INFO-CSIRMV1',
-    description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: true,
-    type: 'SINGLEVALUELIST',
-    code: 'SR-CSIRMV1',
-    description: 'How many dimensions have been breached?',
-    values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
-    conditionalValues: [],
-    dependencies: null,
-  }],
+  attributes: [
+    {
+      required: false,
+      type: 'TEXT',
+      code: 'ST-CMTS',
+      description: 'Please provide any other relevant information:',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: false,
+      type: 'STRING',
+      code: 'INFO-CSIRMV1',
+      description:
+        '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: true,
+      type: 'SINGLEVALUELIST',
+      code: 'SR-CSIRMV1',
+      description: 'How many dimensions have been breached?',
+      values: [
+        { key: 'One', name: 'One' },
+        { key: 'Two', name: 'Two' },
+        { key: 'Three', name: 'Three' },
+        { key: 'More than Three', name: 'More than Three' },
+      ],
+      conditionalValues: [],
+      dependencies: null,
+    },
+  ],
 };
 
 const makeStore = action(() => {
@@ -58,7 +70,7 @@ const makeStore = action(() => {
 
 storiesOf('RequestLayout', module)
   .addDecorator(page)
-  .add('Request Form', () => (
+  .add('Request Form', () =>
     <RequestLayout
       store={makeStore()}
       data={{
@@ -71,9 +83,9 @@ storiesOf('RequestLayout', module)
         },
       }}
       noMap
-    />
-  ))
-  .add('Request Page', () => (
+    />,
+  )
+  .add('Request Page', () =>
     <RequestLayout
       store={makeStore()}
       data={{
@@ -85,16 +97,15 @@ storiesOf('RequestLayout', module)
         },
       }}
       noMap
-    />
-  ))
-  .add('Translate Page', () => (
+    />,
+  )
+  .add('Translate Page', () =>
     <RequestLayout
       store={makeStore()}
       data={{
         view: 'translate',
-        props: { },
+        props: {},
       }}
       noMap
-    />
-  ));
-
+    />,
+  );

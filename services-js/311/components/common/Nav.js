@@ -6,9 +6,15 @@ import Link from 'next/link';
 
 export type Props = {|
   activeSection?: 'request' | 'services' | 'search' | 'faq' | null,
-|}
+|};
 
-function renderNavItem({ href, as, title }, active) {
+type NavItemAttributes = {|
+  href: string,
+  as: ?string,
+  title: string,
+|};
+
+function renderNavItem({ href, as, title }: NavItemAttributes, active) {
   return (
     <li className="nv-s-l-i">
       <Link href={href} as={as}>
@@ -36,13 +42,27 @@ export default function Nav({ activeSection }: Props) {
 
       <ul className="nv-s-l">
         <li className="nv-s-l-i">
-          <label htmlFor="nv-s-tr" className="nv-s-l-b" type="button">Navigation</label>
+          <label htmlFor="nv-s-tr" className="nv-s-l-b">
+            Navigation
+          </label>
         </li>
 
-        { renderNavItem({ href: '/request', as: '/', title: 'Make a request' }, activeSection === 'request')}
-        { renderNavItem({ href: '/search', as: null, title: 'Search cases' }, activeSection === 'search')}
-        { renderNavItem({ href: '/services', as: null, title: 'All services' }, activeSection === 'services')}
-        { renderNavItem({ href: '/faq', as: null, title: 'FAQ' }, activeSection === 'faq')}
+        {renderNavItem(
+          { href: '/request', as: '/', title: 'Make a request' },
+          activeSection === 'request',
+        )}
+        {renderNavItem(
+          { href: '/search', as: null, title: 'Search cases' },
+          activeSection === 'search',
+        )}
+        {renderNavItem(
+          { href: '/services', as: null, title: 'All services' },
+          activeSection === 'services',
+        )}
+        {renderNavItem(
+          { href: '/faq', as: null, title: 'FAQ' },
+          activeSection === 'faq',
+        )}
       </ul>
     </nav>
   );

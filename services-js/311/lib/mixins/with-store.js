@@ -19,56 +19,61 @@ if (process.browser) {
   svg4everybody();
 }
 
-export default <OP, P: $Subtype<Object>, S> (Component: Class<React.Component<OP, P, S>>): Class<React.Component<void, P, void>> => class extends React.Component {
-  props: P;
-  store: AppStore;
+export default <OP, P: $Subtype<Object>, S>(
+  Component: Class<React.Component<OP, P, S>>,
+): Class<React.Component<void, P, void>> =>
+  class WithStore extends React.Component {
+    props: P;
+    store: AppStore;
 
-  static async getInitialProps(ctx: Context<RequestAdditions>, ...rest) {
-    const { req } = ctx;
+    static async getInitialProps(ctx: Context<RequestAdditions>, ...rest) {
+      const { req } = ctx;
 
-    let initialProps;
-    if (typeof Component.getInitialProps === 'function') {
-      initialProps = await Component.getInitialProps(ctx, ...rest);
-    } else {
-      initialProps = {};
+      let initialProps;
+      if (typeof Component.getInitialProps === 'function') {
+        initialProps = await Component.getInitialProps(ctx, ...rest);
+      } else {
+        initialProps = {};
+      }
+
+      const initialStoreState = req
+        ? {
+            apiKeys: req.apiKeys,
+            languages: req.languages,
+            liveAgentButtonId: req.liveAgentButtonId,
+          }
+        : null;
+
+      const loopbackGraphqlCache = req ? req.loopbackGraphqlCache : null;
+
+      // TODO(finh): If we really needed to, we could try and find the cached
+      // graphQL values in the initialProps and replace them with cache keys, and
+      // then do a lookup into the cache ond the other side in render().
+
+      return {
+        ...initialProps,
+        initialStoreState,
+        loopbackGraphqlCache,
+      };
     }
 
-    const initialStoreState = req ? {
-      apiKeys: req.apiKeys,
-      languages: req.languages,
-      liveAgentButtonId: req.liveAgentButtonId,
-    } : null;
+    constructor(props) {
+      super(props);
 
-    const loopbackGraphqlCache = req ? req.loopbackGraphqlCache : null;
+      this.store = getStore(makeLoopbackGraphql());
 
-    // TODO(finh): If we really needed to, we could try and find the cached
-    // graphQL values in the initialProps and replace them with cache keys, and
-    // then do a lookup into the cache ond the other side in render().
+      if (props.initialStoreState) {
+        runInAction('withStore initialization', () => {
+          Object.assign(this.store, props.initialStoreState);
+        });
+      }
 
-    return {
-      ...initialProps,
-      initialStoreState,
-      loopbackGraphqlCache,
-    };
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.store = getStore(makeLoopbackGraphql());
-
-    if (props.initialStoreState) {
-      runInAction('withStore initialization', () => {
-        Object.assign(this.store, props.initialStoreState);
-      });
+      if (props.loopbackGraphqlCache) {
+        setClientCache(props.loopbackGraphqlCache);
+      }
     }
 
-    if (props.loopbackGraphqlCache) {
-      setClientCache(props.loopbackGraphqlCache);
+    render() {
+      return <Component store={this.store} {...this.props} />;
     }
-  }
-
-  render() {
-    return <Component store={this.store} {...this.props} />;
-  }
-};
+  };

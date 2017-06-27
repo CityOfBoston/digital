@@ -41,11 +41,15 @@ const SERVICE_SUMMARIES = [
 ];
 
 storiesOf('HomePane', module)
-  .addDecorator((next) => (
-    <div className="b-c">{next()}</div>
-  ))
-  .add('Home', () => (
+  .addDecorator(next => <div className="b-c">{next()}</div>)
+  .add('Home', () =>
     <FormDialog noPadding>
-      <HomePane store={new AppStore()} description="Dead raccoon on the sidewalk" topServiceSummaries={SERVICE_SUMMARIES} nextFn={action('Next')} handleDescriptionChanged={action('Description changed')} />
-    </FormDialog>
-  ));
+      <HomePane
+        store={new AppStore()}
+        description="Dead raccoon on the sidewalk"
+        topServiceSummaries={SERVICE_SUMMARIES}
+        nextFn={action('Next')}
+        handleDescriptionChanged={action('Description changed')}
+      />
+    </FormDialog>,
+  );

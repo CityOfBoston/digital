@@ -23,26 +23,26 @@ const makeRequestForm = (fillIn: boolean) => {
 };
 
 storiesOf('ContactPane', module)
-.addDecorator((story) => (
-  <div className="b-c">
-    <FormDialog>{ story() }</FormDialog>
-  </div>
-))
-.add('Empty', () => (
-  <ContactPane
-    key="empty"
-    serviceName="Cosmic Incursion"
-    requestForm={makeRequestForm(false)}
-    nextFunc={action('Next Step')}
-    noLocalStorage
-  />
-))
-.add('Filled Out', () => (
-  <ContactPane
-    key="filled-in"
-    serviceName="Cosmic Incursion"
-    requestForm={makeRequestForm(true)}
-    nextFunc={action('Next Step')}
-    noLocalStorage
-  />
-));
+  .addDecorator(story =>
+    <div className="b-c">
+      <FormDialog>{story()}</FormDialog>
+    </div>,
+  )
+  .add('Empty', () =>
+    <ContactPane
+      key="empty"
+      serviceName="Cosmic Incursion"
+      requestForm={makeRequestForm(false)}
+      nextFunc={action('Next Step')}
+      noLocalStorage
+    />,
+  )
+  .add('Filled Out', () =>
+    <ContactPane
+      key="filled-in"
+      serviceName="Cosmic Incursion"
+      requestForm={makeRequestForm(true)}
+      nextFunc={action('Next Step')}
+      noLocalStorage
+    />,
+  );

@@ -10,7 +10,8 @@ import CaseLayout from './CaseLayout';
 jest.mock('next/router');
 jest.mock('../../data/dao/load-request');
 
-const loadRequest: JestMockFn = (require('../../data/dao/load-request'): any).default;
+const loadRequest: JestMockFn = (require('../../data/dao/load-request'): any)
+  .default;
 
 const MOCK_API_KEYS = {
   mapbox: {
@@ -26,7 +27,8 @@ const MOCK_REQUEST: Request = {
   },
   description: 'I think that Thanos is here',
   status: 'closed',
-  statusNotes: 'Found Thanos. Smashed him into the floor with all of us standing around.',
+  statusNotes:
+    'Found Thanos. Smashed him into the floor with all of us standing around.',
   location: {
     lat: 42.359927299999995,
     lng: -71.0576853,

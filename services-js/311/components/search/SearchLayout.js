@@ -19,7 +19,11 @@ import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 import Nav from '../common/Nav';
 import { LocationMapWithLibrary } from '../map/LocationMap';
 import type LocationMap from '../map/LocationMap';
-import { HEADER_HEIGHT, MEDIA_LARGE, IPHONE_FOOTER_HEIGHT } from '../style-constants';
+import {
+  HEADER_HEIGHT,
+  MEDIA_LARGE,
+  IPHONE_FOOTER_HEIGHT,
+} from '../style-constants';
 
 import RecentRequests from './RecentRequests';
 import RecentRequestsSearchForm from './RecentRequestsSearchForm';
@@ -29,17 +33,17 @@ type SearchData = {|
   query: string,
   location: ?{| lat: number, lng: number |},
   zoom: ?number,
-|}
+|};
 
 export type InitialProps = {|
   data: SearchData,
 |};
 
 export type Props = {|
-  /* :: ...InitialProps, */
+  ...InitialProps,
   store: AppStore,
   noMap?: boolean,
-|}
+|};
 
 const SEARCH_HEIGHT = 62;
 
@@ -126,7 +130,9 @@ export default class SearchLayout extends React.Component {
   locationMapContainer: ?HTMLElement;
   @observable mapViewButtonContainer: ?HTMLElement;
 
-  static async getInitialProps({ query }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps({
+    query,
+  }: Context<RequestAdditions>): Promise<InitialProps> {
     const { lat, lng, zoom } = query;
     let location;
 
@@ -134,7 +140,6 @@ export default class SearchLayout extends React.Component {
       location = {
         lat: parseFloat(query.lat),
         lng: parseFloat(query.lng),
-
       };
     } else {
       location = null;
@@ -241,15 +246,15 @@ export default class SearchLayout extends React.Component {
 
   setContainer = (container: ?HTMLElement) => {
     this.container = container;
-  }
+  };
 
   setLocationMap = (locationMap: ?LocationMap) => {
     this.locationMap = locationMap;
-  }
+  };
 
   setLocationMapContainer = (locationMapContainer: ?HTMLElement) => {
     this.locationMapContainer = locationMapContainer;
-  }
+  };
 
   @action.bound
   setMapViewButtonContainer(mapViewButtonContainer: ?HTMLElement) {
@@ -267,7 +272,9 @@ export default class SearchLayout extends React.Component {
       requestSearch.selectedRequest = null;
       requestSearch.selectedSource = null;
 
-      setTimeout(() => { locationMap.invalidateSize(); }, 0);
+      setTimeout(() => {
+        locationMap.invalidateSize();
+      }, 0);
     }
   }
 
@@ -282,14 +289,17 @@ export default class SearchLayout extends React.Component {
     window.scrollTo(0, 0);
 
     if (locationMap) {
-      setTimeout(() => { locationMap.invalidateSize(); }, 0);
+      setTimeout(() => {
+        locationMap.invalidateSize();
+      }, 0);
     }
   }
 
   // Returns true if the visitor has scrolled down enough in the list view that
   // the map is hidden. Signal that we should show the "Switch to map view"
   // button.
-  @computed get mapScrolledOff(): boolean {
+  @computed
+  get mapScrolledOff(): boolean {
     const { store: { ui } } = this.props;
     const { locationMapContainer } = this;
 
@@ -297,14 +307,19 @@ export default class SearchLayout extends React.Component {
       return false;
     }
 
-    return ui.scrollY > -1 && locationMapContainer.getBoundingClientRect().bottom < (HEADER_HEIGHT + SEARCH_HEIGHT);
+    return (
+      ui.scrollY > -1 &&
+      locationMapContainer.getBoundingClientRect().bottom <
+        HEADER_HEIGHT + SEARCH_HEIGHT
+    );
   }
 
   // Returns true if the map view button should be sticky. Logic here is that
   // we've scrolled down far enough that the map is visible, but not down to
   // see the bottom of the list, where the statically-positioned button would
   // appear.
-  @computed get stickyMapViewButton(): boolean {
+  @computed
+  get stickyMapViewButton(): boolean {
     const { store: { ui } } = this.props;
     const { container, mapViewButtonContainer } = this;
 
@@ -312,7 +327,12 @@ export default class SearchLayout extends React.Component {
       return false;
     }
 
-    return ui.scrollY > -1 && (container.getBoundingClientRect().bottom + mapViewButtonContainer.clientHeight) > (ui.visibleHeight + HEADER_HEIGHT);
+    return (
+      ui.scrollY > -1 &&
+      container.getBoundingClientRect().bottom +
+        mapViewButtonContainer.clientHeight >
+        ui.visibleHeight + HEADER_HEIGHT
+    );
   }
 
   render() {
@@ -329,36 +349,60 @@ export default class SearchLayout extends React.Component {
 
         <Nav activeSection="search" />
 
-        <div className={mapView ? CONTAINER_FULL_MAP_STYLE.toString() : CONTAINER_STYLE.toString()} style={{ backgroundColor: 'transparent' }} role="main">
+        <div
+          className={
+            mapView
+              ? CONTAINER_FULL_MAP_STYLE.toString()
+              : CONTAINER_STYLE.toString()
+          }
+          style={{ backgroundColor: 'transparent' }}
+          role="main">
           <div className={`p-a300 ${SEARCH_CONTAINER_STYLE.toString()}`}>
             <RecentRequestsSearchForm requestSearch={requestSearch} />
           </div>
 
-          <div className={mapView ? FULL_MAP_CONTAINER_STYLE : MAP_CONTAINER_STYLE} ref={this.setLocationMapContainer}>
-            {!noMap && <LocationMapWithLibrary
-              locationMapRef={this.setLocationMap}
-              store={store}
-              mode="requests"
-              mobile={ui.belowMediaLarge}
-              onMapClick={ui.belowMediaLarge ? this.switchToMapView : null}
-            />}
+          <div
+            className={mapView ? FULL_MAP_CONTAINER_STYLE : MAP_CONTAINER_STYLE}
+            ref={this.setLocationMapContainer}>
+            {!noMap &&
+              <LocationMapWithLibrary
+                locationMapRef={this.setLocationMap}
+                store={store}
+                mode="requests"
+                mobile={ui.belowMediaLarge}
+                onMapClick={ui.belowMediaLarge ? this.switchToMapView : null}
+              />}
           </div>
 
-          {!mapView && <div ref={this.setContainer}><RecentRequests store={store} /></div> }
+          {!mapView &&
+            <div ref={this.setContainer}><RecentRequests store={store} /></div>}
 
-          { mapView && (
-            <div className="g p-a300"><button type="button" className="btn g--12" onClick={this.switchToListView}>List View</button></div>
-          )}
+          {mapView &&
+            <div className="g p-a300">
+              <button
+                type="button"
+                className="btn g--12"
+                onClick={this.switchToListView}>
+                List View
+              </button>
+            </div>}
 
-          { !mapView && mapScrolledOff && (
-            <div className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${stickyMapViewButton ? STICKY_VIEW_BUTTON_STYLE.toString() : ''}`} ref={this.setMapViewButtonContainer}>
-              <button type="button" className="btn g--12" onClick={this.switchToMapView}>Map View</button>
-            </div>
-          )}
+          {!mapView &&
+            mapScrolledOff &&
+            <div
+              className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${stickyMapViewButton
+                ? STICKY_VIEW_BUTTON_STYLE.toString()
+                : ''}`}
+              ref={this.setMapViewButtonContainer}>
+              <button
+                type="button"
+                className="btn g--12"
+                onClick={this.switchToMapView}>
+                Map View
+              </button>
+            </div>}
         </div>
       </div>
-
     );
   }
-
 }

@@ -37,7 +37,7 @@ type RequestData = {|
 type TranslateData = {|
   view: 'translate',
   props: {},
-|}
+|};
 
 export type InitialProps = {|
   data: HomeData | RequestData | TranslateData,
@@ -46,7 +46,7 @@ export type InitialProps = {|
 export type Props = {|
   store: AppStore,
   noMap?: boolean,
-  /* :: ...InitialProps, */
+  ...InitialProps,
 |};
 
 type State = {|
@@ -89,7 +89,9 @@ export default class RequestLayout extends React.Component {
   };
   loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
 
-  static async getInitialProps(ctx: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps(
+    ctx: Context<RequestAdditions>,
+  ): Promise<InitialProps> {
     const { query } = ctx;
 
     let data;
@@ -134,11 +136,14 @@ export default class RequestLayout extends React.Component {
     if (stage === 'questions') {
       await Router.push(`/request?code=${code}`, `/request/${code}`);
     } else {
-      await Router.push(`/request?code=${code}&stage=${stage}`, `/request/${code}/${stage}`);
+      await Router.push(
+        `/request?code=${code}&stage=${stage}`,
+        `/request/${code}/${stage}`,
+      );
     }
 
     window.scrollTo(0, 0);
-  }
+  };
 
   setLocationMapActive = (active: boolean) => {
     const { locationMapActive } = this.state;
@@ -146,7 +151,7 @@ export default class RequestLayout extends React.Component {
     if (locationMapActive !== active) {
       this.setState({ locationMapActive: active });
     }
-  }
+  };
 
   render() {
     const { data, store, noMap } = this.props;
@@ -167,29 +172,32 @@ export default class RequestLayout extends React.Component {
         {/* Outer box needs to take up at least the screen size on desktop, so
             that the content can center over the map and keep the footer from
             encroaching up. */}
-        <div className={CONTAINER_STYLE} style={{ backgroundColor: 'transparent' }} role="main">
-          { (mediaLarge || !process.browser) && !noMap &&
+        <div
+          className={CONTAINER_STYLE}
+          style={{ backgroundColor: 'transparent' }}
+          role="main">
+          {(mediaLarge || !process.browser) &&
+            !noMap &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
               <LocationMapWithLibrary
                 store={store}
                 mode={mapMode}
                 mobile={false}
               />
-            </div>
-          }
+            </div>}
 
-          { /* We can't put any wrappers around the dialogs below because in the
+          {/* We can't put any wrappers around the dialogs below because in the
                case of RequestDialog's location picker, it needs to make sure nothing
                is overlapping the map so it can get clicks. */}
 
-          { data.view === 'home' &&
+          {data.view === 'home' &&
             <HomeDialog
               store={store}
               loopbackGraphql={this.loopbackGraphql}
               {...data.props}
-            /> }
+            />}
 
-          { data.view === 'request' &&
+          {data.view === 'request' &&
             <RequestDialog
               store={store}
               loopbackGraphql={this.loopbackGraphql}
@@ -198,9 +206,8 @@ export default class RequestLayout extends React.Component {
               {...data.props}
             />}
 
-          { data.view === 'translate' &&
-            <TranslateDialog languages={store.languages} />
-          }
+          {data.view === 'translate' &&
+            <TranslateDialog languages={store.languages} />}
         </div>
 
       </div>

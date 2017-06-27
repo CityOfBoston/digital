@@ -85,7 +85,7 @@ export type Props = {|
   handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
   nextFn: () => mixed,
   topServiceSummaries: ServiceSummary[],
-|}
+|};
 
 const EXAMPLE_PROBLEMS = [
   'My street hasn’t been plowed',
@@ -155,19 +155,32 @@ export default class HomePane extends React.Component {
     liveagent.startChat(liveAgentButtonId);
   }
 
-  @computed get placeholder(): string {
+  @computed
+  get placeholder(): string {
     const { description, store } = this.props;
 
-    if (description || !store.ui.visible || this.textareaFocus || !this.animationStartMs) {
+    if (
+      description ||
+      !store.ui.visible ||
+      this.textareaFocus ||
+      !this.animationStartMs
+    ) {
       return '';
     }
 
-    const msSinceStart = inPercy() ? TIME_PER_PLACEHOLDER_MS - 1 : Math.max(0, now(100) - this.animationStartMs);
+    const msSinceStart = inPercy()
+      ? TIME_PER_PLACEHOLDER_MS - 1
+      : Math.max(0, now(100) - this.animationStartMs);
 
-    const placeholderIdx = Math.floor(msSinceStart / TIME_PER_PLACEHOLDER_MS) % EXAMPLE_PROBLEMS.length;
+    const placeholderIdx =
+      Math.floor(msSinceStart / TIME_PER_PLACEHOLDER_MS) %
+      EXAMPLE_PROBLEMS.length;
     const timeInPlaceholder = msSinceStart % TIME_PER_PLACEHOLDER_MS;
 
-    return EXAMPLE_PROBLEMS[placeholderIdx].substring(0, Math.floor(timeInPlaceholder / TIME_PER_CHARACTER_MS));
+    return EXAMPLE_PROBLEMS[placeholderIdx].substring(
+      0,
+      Math.floor(timeInPlaceholder / TIME_PER_CHARACTER_MS),
+    );
   }
 
   @action.bound
@@ -188,7 +201,12 @@ export default class HomePane extends React.Component {
   }
 
   render() {
-    const { description, handleDescriptionChanged, topServiceSummaries, store } = this.props;
+    const {
+      description,
+      handleDescriptionChanged,
+      topServiceSummaries,
+      store,
+    } = this.props;
     return (
       <div>
         <Head>
@@ -199,11 +217,14 @@ export default class HomePane extends React.Component {
           <SectionHeader>BOS:311 — Request City Services</SectionHeader>
 
           <div className="t--info m-v300" style={{ fontStyle: 'normal' }}>
-            Through BOS:311, you can request non-emergency services from the City.
+            Through BOS:311, you can request non-emergency services from the
+            City.
           </div>
 
           <div className="g m-t500">
-            <form className={`g--7 ${FORM_COLUMN_STYLE.toString()}`} onSubmit={this.handleFormSubmit}>
+            <form
+              className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}
+              onSubmit={this.handleFormSubmit}>
               <div>
                 <h2 className="stp m-v100">
                   What can we help with?
@@ -222,17 +243,43 @@ export default class HomePane extends React.Component {
               </div>
 
               <div className="m-t500" style={{ textAlign: 'right' }}>
-                { store.liveAgentAvailable && <button type="button" className="btn m-h100" onClick={this.startChat}>Start Live Chat</button> }
+                {store.liveAgentAvailable &&
+                  <button
+                    type="button"
+                    className="btn m-h100"
+                    onClick={this.startChat}>
+                    Start Live Chat
+                  </button>}
                 <span style={{ position: 'relative' }}>
-                  <button disabled={description.length === 0} type="submit" className={`btn ${NEXT_BUTTON_STYLE.toString()}`}>Start a Request</button>
-                  { description.length === 0 && <span style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }} onClick={this.nextButtonWrapperClick} role="presentation" /> }
+                  <button
+                    disabled={description.length === 0}
+                    type="submit"
+                    className={`btn ${NEXT_BUTTON_STYLE.toString()}`}>
+                    Start a Request
+                  </button>
+                  {description.length === 0 &&
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                      }}
+                      onClick={this.nextButtonWrapperClick}
+                      onKeyDown={() => {}}
+                      role="presentation"
+                    />}
                 </span>
               </div>
             </form>
 
             <div className={`g--1 m-v300 ${OR_HOLDER_STYLE.toString()}`}>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
-              <div className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}>or</div>
+              <div
+                className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}>
+                or
+              </div>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
             </div>
 
@@ -244,11 +291,17 @@ export default class HomePane extends React.Component {
                 popular services:
               </div>
 
-              <ul className="ul m-v300">{ topServiceSummaries.map(({ code, name }) => (
-                <li key={code} className="t--info">
-                  <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className="m-v100">{name}</a></Link>
-                </li>
-            )) }</ul>
+              <ul className="ul m-v300">
+                {topServiceSummaries.map(({ code, name }) =>
+                  <li key={code} className="t--info">
+                    <Link
+                      href={`/request?code=${code}`}
+                      as={`/request/${code}`}>
+                      <a className="m-v100">{name}</a>
+                    </Link>
+                  </li>,
+                )}
+              </ul>
 
               <div className="t--info">
                 <Link href="/services"><a>See all services…</a></Link>
@@ -257,12 +310,29 @@ export default class HomePane extends React.Component {
           </div>
         </div>
 
-        <div className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`} style={{ paddingTop: 0, paddingBottom: 0 }} role="search">
+        <div
+          className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`}
+          style={{ paddingTop: 0, paddingBottom: 0 }}
+          role="search">
           <h2 className="a11y--h">Public Cases</h2>
           <div className="g">
-            <form className="sf sf--y sf--md g--7 m-v400" acceptCharset="UTF-8" method="get" action="/lookup" onSubmit={this.handleSearchSubmit}>
+            <form
+              className="sf sf--y sf--md g--7 m-v400"
+              acceptCharset="UTF-8"
+              method="get"
+              action="/lookup"
+              onSubmit={this.handleSearchSubmit}>
               <div className="sf-i">
-                <input type="text" name="q" placeholder="Search by case reference # or keywords…" aria-label="Search field" value={this.searchValue} onChange={this.handleSearchInput} onFocus={this.handleSearchFocus} className="sf-i-f" />
+                <input
+                  type="text"
+                  name="q"
+                  placeholder="Search by case reference # or keywords…"
+                  aria-label="Search field"
+                  value={this.searchValue}
+                  onChange={this.handleSearchInput}
+                  onFocus={this.handleSearchFocus}
+                  className="sf-i-f"
+                />
                 <button type="submit" className="sf-i-b">Search</button>
               </div>
             </form>

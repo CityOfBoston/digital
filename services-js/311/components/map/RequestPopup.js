@@ -59,7 +59,7 @@ const STATUS_CLOSE_STYLE = css(STATUS_COMMON_STYLE, {
 
 type Props = {|
   caseInfo: SearchCase,
-|}
+|};
 
 export default function RequestPopup({ caseInfo }: Props) {
   let statusStyle;
@@ -76,14 +76,22 @@ export default function RequestPopup({ caseInfo }: Props) {
   return (
     <Link href={`/case?id=${caseInfo.id}`} as={`/case/${caseInfo.id}`}>
       <a className={`p-a200 ${CONTAINER_STYLE.toString()}`}>
-        { caseInfo.mediaUrl &&
-          <div className={THUMBNAIL_SYLE} style={{ backgroundImage: `url(${caseInfo.mediaUrl})` }} />
-        }
+        {caseInfo.mediaUrl &&
+          <div
+            className={THUMBNAIL_SYLE}
+            style={{ backgroundImage: `url(${caseInfo.mediaUrl})` }}
+          />}
         <div className={INFO_CONTAINER_STYLE.toString()}>
-          <div className={`t--intro ${SERVICE_NAME_STYLE.toString()}`}>{ caseInfo.service.name }</div>
-          <div className={`t--ellipsis ${ADDRESS_STYLE.toString()}`}>{ caseInfo.address }</div>
+          <div className={`t--intro ${SERVICE_NAME_STYLE.toString()}`}>
+            {caseInfo.service.name}
+          </div>
+          <div className={`t--ellipsis ${ADDRESS_STYLE.toString()}`}>
+            {caseInfo.address}
+          </div>
           <div>
-            <span className={`t--upper t--sans ${statusStyle.toString()}`}>{statusText}</span>
+            <span className={`t--upper t--sans ${statusStyle.toString()}`}>
+              {statusText}
+            </span>
           </div>
         </div>
       </a>

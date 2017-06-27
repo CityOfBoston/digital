@@ -26,12 +26,10 @@ const IMAGE_REQUEST = Object.assign({}, NO_IMAGE_REQUEST);
 IMAGE_REQUEST.mediaUrl = 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg';
 
 storiesOf('RequestPopup', module)
-  .addDecorator((next) => (
-    <div style={{ float: 'left', border: `2px solid ${YELLOW}` }}>{next()}</div>
-  ))
-  .add('image', () => (
-    <RequestPopup caseInfo={IMAGE_REQUEST} />
-  ))
-  .add('no image', () => (
-    <RequestPopup caseInfo={NO_IMAGE_REQUEST} />
-  ));
+  .addDecorator(next =>
+    <div style={{ float: 'left', border: `2px solid ${YELLOW}` }}>
+      {next()}
+    </div>,
+  )
+  .add('image', () => <RequestPopup caseInfo={IMAGE_REQUEST} />)
+  .add('no image', () => <RequestPopup caseInfo={NO_IMAGE_REQUEST} />);

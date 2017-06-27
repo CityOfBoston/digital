@@ -49,9 +49,12 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
   const $translateItem = $('header>nav li.nv-h-l-i.tr');
   $translateItem.removeClass('tr');
   $translateItem.find('ul').remove();
-  $translateItem.find('a').attr('href', '/translate').removeClass('nv-h-l-a--k--s tr-link');
+  $translateItem
+    .find('a')
+    .attr('href', '/translate')
+    .removeClass('nv-h-l-a--k--s tr-link');
 
-  ['header', 'footer'].forEach((tag) => {
+  ['header', 'footer'].forEach(tag => {
     const html = $(tag).html();
     if (!html) {
       throw new Error(`<${tag}> not found in html: ${templateHtml}`);
@@ -62,10 +65,14 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
   const navigationHtml = $('nav.nv-m').html();
   fs.writeFileSync(path.join(templatesPath, 'navigation.html'), navigationHtml);
 
-  const stylesheetHrefs = $('link[rel=stylesheet]').map((i, el) => $(el).attr('href')).toArray();
-  fs.writeFileSync(path.join(templatesPath, 'stylesheets.json'), JSON.stringify(stylesheetHrefs, null, 2));
-}())
-  .catch((e) => {
-    console.error('ERROR GETTING TEMPLATES', e);
-    process.exit(1);
-  });
+  const stylesheetHrefs = $('link[rel=stylesheet]')
+    .map((i, el) => $(el).attr('href'))
+    .toArray();
+  fs.writeFileSync(
+    path.join(templatesPath, 'stylesheets.json'),
+    JSON.stringify(stylesheetHrefs, null, 2),
+  );
+})().catch(e => {
+  console.error('ERROR GETTING TEMPLATES', e);
+  process.exit(1);
+});

@@ -55,27 +55,59 @@ type Unit = {
   streetAddress: string,
   unit: string,
   addressId: ?string,
-}
+};
 
 export const resolvers = {
   Geocoder: {
-    reverse: async (s: Root, { location }: ReverseGeocodeArgs, { arcgis }: Context): Promise<?Place> => {
+    reverse: async (
+      s: Root,
+      { location }: ReverseGeocodeArgs,
+      { arcgis }: Context,
+    ): Promise<?Place> => {
       const address = await arcgis.reverseGeocode(location.lat, location.lng);
       if (address) {
-        return { location, address, addressId: null, buildingId: null, exact: false };
+        return {
+          location,
+          address,
+          addressId: null,
+          buildingId: null,
+          exact: false,
+        };
       } else {
         return null;
       }
     },
-    search: async (s: Root, { query }: SearchArgs, { arcgis }: Context): Promise<?Place> => arcgis.search(query),
+    search: async (
+      s: Root,
+      { query }: SearchArgs,
+      { arcgis }: Context,
+    ): Promise<?Place> => arcgis.search(query),
   },
 
   Place: {
-    units: async (p: Place, args: mixed, { arcgis }: Context): Promise<Array<Unit>> => {
-      const units: UnitResult[] = p.buildingId ? await arcgis.lookupUnits(p.buildingId) : [];
-      return units.map(({ address, location, unit, streetAddress, addressId }: UnitResult) => (
-        { address, location, unit, addressId, streetAddress }
-      ));
+    units: async (
+      p: Place,
+      args: mixed,
+      { arcgis }: Context,
+    ): Promise<Array<Unit>> => {
+      const units: UnitResult[] = p.buildingId
+        ? await arcgis.lookupUnits(p.buildingId)
+        : [];
+      return units.map(
+        ({
+          address,
+          location,
+          unit,
+          streetAddress,
+          addressId,
+        }: UnitResult) => ({
+          address,
+          location,
+          unit,
+          addressId,
+          streetAddress,
+        }),
+      );
     },
   },
 };

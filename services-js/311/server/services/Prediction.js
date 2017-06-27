@@ -10,7 +10,7 @@ export type CaseTypePrediction = {
 };
 
 type CaseTypePredictionResponse = {
-  types: ?CaseTypePrediction[],
+  types: ?(CaseTypePrediction[]),
   // ISO 8601 date/time
   created: ?string,
   message: ?string,
@@ -18,8 +18,8 @@ type CaseTypePredictionResponse = {
 
 export default class Prediction {
   agent: any;
-  endpoint: string
-  opbeat: any
+  endpoint: string;
+  opbeat: any;
 
   constructor(endpoint: ?string, opbeat: any) {
     if (!endpoint) {
@@ -40,12 +40,17 @@ export default class Prediction {
 
   // returns case types in order of most likely to least likely, filtering
   // out any with a too-low probability.
-  async caseTypes(text: string, threshold: number): Promise<CaseTypePrediction[]> {
-    const transaction = this.opbeat && this.opbeat.startTransaction('case_type_prediction', 'Prediction');
+  async caseTypes(
+    text: string,
+    threshold: number,
+  ): Promise<CaseTypePrediction[]> {
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('case_type_prediction', 'Prediction');
 
     const requestJson = {
       text,
-      time: (new Date()).toISOString(),
+      time: new Date().toISOString(),
     };
 
     const response = await fetch(this.url('case_type_prediction'), {

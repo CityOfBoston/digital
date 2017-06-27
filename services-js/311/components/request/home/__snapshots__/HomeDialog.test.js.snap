@@ -227,6 +227,7 @@ exports[`home page rendering 1`] = `
                 </button>
                 <span
                   onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="presentation"
                   style={
                     Object {

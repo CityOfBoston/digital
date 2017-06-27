@@ -31,12 +31,12 @@ export type InitialProps = {|
   description: string,
   stage: Stage,
   bypassTranslateDialog: boolean,
-|}
+|};
 
 export type Props = {|
   store: AppStore,
   loopbackGraphql: LoopbackGraphql,
-  /* :: ...InitialProps, */
+  ...InitialProps,
 |};
 
 @observer
@@ -45,11 +45,14 @@ export default class HomeDialog extends React.Component {
 
   @observable description: string;
 
-  @observable.shallow suggestedServiceSummaries: ?ServiceSummary[] = null;
-  serviceSuggestionsDisposer: ?Function
+  @observable.shallow suggestedServiceSummaries: ?(ServiceSummary[]) = null;
+  serviceSuggestionsDisposer: ?Function;
 
   // Called by RequestLayout
-  static async getInitialProps({ query, req }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps({
+    query,
+    req,
+  }: Context<RequestAdditions>): Promise<InitialProps> {
     const { stage, description, translate } = query;
     const loopbackGraphql = makeLoopbackGraphql(req);
 
@@ -94,7 +97,10 @@ export default class HomeDialog extends React.Component {
 
   suggestServices = debounce(async (description: string) => {
     try {
-      const suggestedServiceSummaries = await loadServiceSuggestions(this.props.loopbackGraphql, description);
+      const suggestedServiceSummaries = await loadServiceSuggestions(
+        this.props.loopbackGraphql,
+        description,
+      );
 
       runInAction('suggestServices result', () => {
         this.suggestedServiceSummaries = suggestedServiceSummaries;
@@ -105,7 +111,7 @@ export default class HomeDialog extends React.Component {
       });
       throw e;
     }
-  }, 500)
+  }, 500);
 
   @action.bound
   handleDescriptionChanged(ev: SyntheticInputEvent) {
@@ -114,16 +120,25 @@ export default class HomeDialog extends React.Component {
 
   @action.bound
   routeToChoose() {
-    Router.push(`/request?stage=choose&description=${encodeURIComponent(this.description)}`, '/request');
+    Router.push(
+      `/request?stage=choose&description=${encodeURIComponent(
+        this.description,
+      )}`,
+      '/request',
+    );
   }
 
   render() {
     const { stage, store: { languages }, bypassTranslateDialog } = this.props;
 
     const translateLanguage = TranslateDialog.findLanguage(languages);
-    const showTranslate = translateLanguage && translateLanguage !== 'en' && !bypassTranslateDialog && stage === 'home';
+    const showTranslate =
+      translateLanguage &&
+      translateLanguage !== 'en' &&
+      !bypassTranslateDialog &&
+      stage === 'home';
 
-    const narrow = (stage === 'choose');
+    const narrow = stage === 'choose';
 
     if (showTranslate) {
       return <TranslateDialog languages={languages} showContinueInEnglish />;
@@ -132,8 +147,8 @@ export default class HomeDialog extends React.Component {
     return (
       <div className={CENTERED_DIALOG_STYLE}>
         <FormDialog narrow={narrow} noPadding>
-          { stage === 'home' && this.renderHome() }
-          { stage === 'choose' && this.renderServicePicker() }
+          {stage === 'home' && this.renderHome()}
+          {stage === 'choose' && this.renderServicePicker()}
         </FormDialog>
       </div>
     );
@@ -142,14 +157,24 @@ export default class HomeDialog extends React.Component {
   renderHome() {
     const { topServiceSummaries, store } = this.props;
     return (
-      <HomePane store={store} description={this.description} handleDescriptionChanged={this.handleDescriptionChanged} nextFn={this.routeToChoose} topServiceSummaries={topServiceSummaries} />
+      <HomePane
+        store={store}
+        description={this.description}
+        handleDescriptionChanged={this.handleDescriptionChanged}
+        nextFn={this.routeToChoose}
+        topServiceSummaries={topServiceSummaries}
+      />
     );
   }
 
   renderServicePicker() {
     const { store: { ui } } = this.props;
     return (
-      <ChooseServicePane description={this.description} suggestedServiceSummaries={this.suggestedServiceSummaries} ui={ui} />
+      <ChooseServicePane
+        description={this.description}
+        suggestedServiceSummaries={this.suggestedServiceSummaries}
+        ui={ui}
+      />
     );
   }
 }

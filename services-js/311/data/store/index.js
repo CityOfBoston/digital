@@ -26,7 +26,7 @@ export type LanguagePreference = {|
 
 export class AppStore {
   // Initialization data from the server
-  apiKeys: {[service: string]: any} = {};
+  apiKeys: { [service: string]: any } = {};
 
   accessibility: Accessibility = new Accessibility();
   requestSearch: RequestSearch = new RequestSearch();
@@ -37,7 +37,10 @@ export class AppStore {
 
   languages: LanguagePreference[] = [];
 
-  @observable liveAgentAvailable: boolean = (typeof window !== 'undefined' && window.LIVE_AGENT_AVAILABLE) || false;
+  @observable
+  liveAgentAvailable: boolean = (typeof window !== 'undefined' &&
+    window.LIVE_AGENT_AVAILABLE) ||
+    false;
 
   _liveAgentButtonId: string = '';
 
@@ -56,21 +59,31 @@ export class AppStore {
           window._laq = [];
         }
 
-        window._laq.push(() => this.listenForLiveAgentEvents(liveAgentButtonId));
+        window._laq.push(() =>
+          this.listenForLiveAgentEvents(liveAgentButtonId),
+        );
       }
     }
   }
 
   listenForLiveAgentEvents(liveAgentButtonId: string) {
-    window.liveagent.addButtonEventHandler(liveAgentButtonId, this.liveAgentEventHandler);
+    window.liveagent.addButtonEventHandler(
+      liveAgentButtonId,
+      this.liveAgentEventHandler,
+    );
   }
 
   @action.bound
   liveAgentEventHandler(event: string) {
     switch (event) {
-      case 'BUTTON_AVAILABLE': this.liveAgentAvailable = true; break;
-      case 'BUTTON_UNAVAILABLE': this.liveAgentAvailable = false; break;
-      default: break;
+      case 'BUTTON_AVAILABLE':
+        this.liveAgentAvailable = true;
+        break;
+      case 'BUTTON_UNAVAILABLE':
+        this.liveAgentAvailable = false;
+        break;
+      default:
+        break;
     }
   }
 }

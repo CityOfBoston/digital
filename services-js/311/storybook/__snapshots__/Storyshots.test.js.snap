@@ -899,7 +899,6 @@ exports[`Storyshots CaseLayout 404 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -1257,7 +1256,6 @@ exports[`Storyshots CaseLayout Existing 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -2348,7 +2346,8 @@ exports[`Storyshots ContactPane Empty 1`] = `
           </strong>
            
           <span>
-            You can also 
+            You can also
+             
             <a
               href="javascript:void(0)"
               onClick={[Function]}
@@ -2564,7 +2563,8 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
           </strong>
            
           <span>
-            You can also 
+            You can also
+             
             <a
               href="javascript:void(0)"
               onClick={[Function]}
@@ -3090,7 +3090,6 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -4288,7 +4287,6 @@ exports[`Storyshots Nav request selected 1`] = `
       <label
         className="nv-s-l-b"
         htmlFor="nv-s-tr"
-        type="button"
       >
         Navigation
       </label>
@@ -5501,7 +5499,6 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -5673,6 +5670,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                         </button>
                         <span
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           role="presentation"
                           style={
                             Object {
@@ -6116,7 +6114,6 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -6797,7 +6794,6 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -6958,7 +6954,8 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
                     }
                   }
                 >
-                  If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 
+                  If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or
+                   
                   <span
                     style={
                       Object {
@@ -7368,7 +7365,6 @@ exports[`Storyshots SearchLayout List View 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -7851,7 +7847,6 @@ exports[`Storyshots SearchLayout Map View 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -8265,7 +8260,6 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -8950,7 +8944,6 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
             <label
               className="nv-s-l-b"
               htmlFor="nv-s-tr"
-              type="button"
             >
               Navigation
             </label>
@@ -9614,7 +9607,8 @@ exports[`Storyshots TranslateDialog dialog 1`] = `
               }
             }
           >
-            If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or 
+            If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or
+             
             <span
               style={
                 Object {

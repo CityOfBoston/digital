@@ -63,7 +63,7 @@ export type Props = {|
   requestForm: RequestForm,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
-|}
+|};
 
 @observer
 export default class LocationPopUp extends React.Component {
@@ -85,7 +85,11 @@ export default class LocationPopUp extends React.Component {
     // cache e.g. units.
 
     this.updateFormFromMapDisposer = reaction(
-      () => ({ location: mapLocation.location, address: mapLocation.address, addressId: mapLocation.addressId }),
+      () => ({
+        location: mapLocation.location,
+        address: mapLocation.address,
+        addressId: mapLocation.addressId,
+      }),
       ({ location, address, addressId }) => {
         requestForm.location = location;
         requestForm.address = address;
@@ -95,7 +99,8 @@ export default class LocationPopUp extends React.Component {
           accessibility.message = `Selected address: ${requestForm.address}`;
           accessibility.interrupt = true;
         }
-      }, {
+      },
+      {
         fireImmediately: true,
         name: 'update form from map',
       },
@@ -103,7 +108,7 @@ export default class LocationPopUp extends React.Component {
 
     this.queryClearerDisposer = reaction(
       () => requestForm.location,
-      (location) => {
+      location => {
         // only clear if there's a new address. Otherwise we want to keep
         // the existing search term so the user can fix it
         if (location) {
@@ -126,7 +131,7 @@ export default class LocationPopUp extends React.Component {
 
   setSearchField = (searchField: ?HTMLInputElement) => {
     this.searchField = searchField;
-  }
+  };
 
   @action.bound
   whenSearchInput(ev: SyntheticInputEvent) {
@@ -140,7 +145,7 @@ export default class LocationPopUp extends React.Component {
   whenUnitChange(ev: SyntheticInputEvent) {
     const { store: { mapLocation } } = this.props;
 
-    const unit = mapLocation.units.find((u) => u.addressId === ev.target.value);
+    const unit = mapLocation.units.find(u => u.addressId === ev.target.value);
     if (unit) {
       mapLocation.addressId = unit.addressId;
       mapLocation.address = unit.address;
@@ -170,17 +175,24 @@ export default class LocationPopUp extends React.Component {
   }
 
   render() {
-    const { requestForm, nextIsSubmit, store: { mapLocation, ui } } = this.props;
+    const {
+      requestForm,
+      nextIsSubmit,
+      store: { mapLocation, ui },
+    } = this.props;
     const { locationRequirementsMet, locationRequired } = requestForm;
     const { notFound, address, location, units } = mapLocation;
     const { belowMediaLarge } = ui;
 
     return (
       <div className={CONTENT_STYLE}>
-        { this.maybeRenderMap() }
+        {this.maybeRenderMap()}
 
         <div className={`p-a300 ${FORM_WRAPPER_STYLE.toString()}`}>
-          <form className="sf sf--sm sf--y" onSubmit={this.whenSearchSubmit} action="#">
+          <form
+            className="sf sf--sm sf--y"
+            onSubmit={this.whenSearchSubmit}
+            action="#">
             <div className="sf-i">
               <input
                 className="sf-i-f"
@@ -188,43 +200,82 @@ export default class LocationPopUp extends React.Component {
                 value={this.addressQuery}
                 ref={this.setSearchField}
                 aria-label="Address search field"
-                placeholder={belowMediaLarge ? 'Search address or intersection…' : 'Search for a street address or intersection…'}
+                placeholder={
+                  belowMediaLarge
+                    ? 'Search address or intersection…'
+                    : 'Search for a street address or intersection…'
+                }
                 type="text"
               />
 
-              <button className="sf-i-b" type="submit" disabled={this.addressQuery.length === 0}>Search</button>
+              <button
+                className="sf-i-b"
+                type="submit"
+                disabled={this.addressQuery.length === 0}>
+                Search
+              </button>
             </div>
           </form>
 
           <div className={ADDRESS_WRAPPER_STYLE}>
             {notFound
-            ? <div className="t--info m-v300"><span className="t--err">{
-               location ? 'Please pick a location within Boston' : `We could not find an address or intersection in Boston for “${this.addressQuery}”`
-              }</span></div>
-            : <div className="m-v400">
-              {!!address && <div className="addr addr--s" style={{ whiteSpace: 'pre-line' }}>{ address }</div> }
-            </div>
-            }
+              ? <div className="t--info m-v300">
+                  <span className="t--err">
+                    {location
+                      ? 'Please pick a location within Boston'
+                      : `We could not find an address or intersection in Boston for “${this
+                          .addressQuery}”`}
+                  </span>
+                </div>
+              : <div className="m-v400">
+                  {!!address &&
+                    <div
+                      className="addr addr--s"
+                      style={{ whiteSpace: 'pre-line' }}>
+                      {address}
+                    </div>}
+                </div>}
 
-            {units.length > 0 && (
+            {units.length > 0 &&
               <div className="sel m-v400">
-                <label className="sel-l" htmlFor="unit-menu" style={{ marginTop: 0 }}>Apartment or Unit Number</label>
+                <label
+                  className="sel-l"
+                  htmlFor="unit-menu"
+                  style={{ marginTop: 0 }}>
+                  Apartment or Unit Number
+                </label>
                 <div className="sel-c sel-c--fw">
-                  <select id="unit-menu" className="sel-f" value={mapLocation.addressId || ''} onChange={this.whenUnitChange}>
-                    { units.map(({ addressId, unit, streetAddress }) => (
-                      <option value={addressId} key={addressId}>{unit ? `   ${unit}` : streetAddress}</option>
-                    ))}
+                  <select
+                    id="unit-menu"
+                    className="sel-f"
+                    value={mapLocation.addressId || ''}
+                    onChange={this.whenUnitChange}>
+                    {units.map(({ addressId, unit, streetAddress }) =>
+                      <option value={addressId} key={addressId}>
+                        {unit ? `   ${unit}` : streetAddress}
+                      </option>,
+                    )}
                   </select>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
 
           <div className={`g ${BUTTON_ROW_STYLE.toString()}`}>
             <div className="g--7 t--subinfo m-v200">
-              { !locationRequired && <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>Continue without location</a> }
+              {!locationRequired &&
+                <a
+                  href="javascript:void(0)"
+                  onClick={this.continueWithoutLocation}>
+                  Continue without location
+                </a>}
             </div>
-            <button type="button" className="btn g--5" disabled={!locationRequirementsMet} onClick={this.continueWithLocation}>{ nextIsSubmit ? 'Submit' : 'Next' }</button>
+            <button
+              type="button"
+              className="btn g--5"
+              disabled={!locationRequirementsMet}
+              onClick={this.continueWithLocation}>
+              {nextIsSubmit ? 'Submit' : 'Next'}
+            </button>
           </div>
         </div>
       </div>

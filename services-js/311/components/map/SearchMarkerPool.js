@@ -66,7 +66,15 @@ class SearchMarker {
   updateOpacityDisposer: Function;
   updateIconDisposer: Function;
 
-  constructor(L: LWithMapbox, pool: SearchMarkerPool, icons: Icons, map: MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, request: SearchCase) {
+  constructor(
+    L: LWithMapbox,
+    pool: SearchMarkerPool,
+    icons: Icons,
+    map: MapboxMap,
+    requestSearch: RequestSearch,
+    opacityComputed: IComputedValue<number>,
+    request: SearchCase,
+  ) {
     this.L = L;
     this.pool = pool;
     this.request = request;
@@ -79,12 +87,15 @@ class SearchMarker {
       throw new Error(`Request ${request.id} did not have a location`);
     }
 
-    this.marker = L.marker({
-      lat: request.location.lat,
-      lng: request.location.lng,
-    }, {
-      keyboard: false,
-    });
+    this.marker = L.marker(
+      {
+        lat: request.location.lat,
+        lng: request.location.lng,
+      },
+      {
+        keyboard: false,
+      },
+    );
 
     this.marker.on('click', this.handleClick);
     this.updateOpacityDisposer = autorun('updateOpacity', this.updateOpacity);
@@ -97,7 +108,8 @@ class SearchMarker {
     this.map.removeLayer(this.marker);
   }
 
-  @action.bound handleClick() {
+  @action.bound
+  handleClick() {
     if (this.pool.clickHandler) {
       this.pool.clickHandler();
     }
@@ -106,8 +118,12 @@ class SearchMarker {
     this.requestSearch.selectedSource = 'marker';
   }
 
-  @computed get selected(): boolean {
-    return !!this.requestSearch.selectedRequest && this.requestSearch.selectedRequest.id === this.request.id;
+  @computed
+  get selected(): boolean {
+    return (
+      !!this.requestSearch.selectedRequest &&
+      this.requestSearch.selectedRequest.id === this.request.id
+    );
   }
 
   updateIcon = () => {
@@ -142,17 +158,21 @@ class SearchMarker {
         if (this.requestSearch.selectedRequest) {
           // hack fix for https://github.com/facebook/flow/issues/4061
           const r: any = render;
-          r(<RequestPopup caseInfo={this.requestSearch.selectedRequest} />, el, () => {
-            popup.setContent(el);
+          r(
+            <RequestPopup caseInfo={this.requestSearch.selectedRequest} />,
+            el,
+            () => {
+              popup.setContent(el);
 
-            // Open after a tick for the case on mobile when you "Back" to this
-            // page, the popup's positioning is wrong, likely due to being
-            // positioned and then having the map's center / size moved out
-            // from under it.
-            window.setTimeout(() => {
-              this.marker.openPopup();
-            }, 0);
-          });
+              // Open after a tick for the case on mobile when you "Back" to this
+              // page, the popup's positioning is wrong, likely due to being
+              // positioned and then having the map's center / size moved out
+              // from under it.
+              window.setTimeout(() => {
+                this.marker.openPopup();
+              }, 0);
+            },
+          );
         }
       } else {
         this.marker.openPopup();
@@ -169,7 +189,7 @@ class SearchMarker {
 
     this.marker.setIcon(icon);
     this.marker.setZIndexOffset(this.selected ? 1000 : 0);
-  }
+  };
 
   updateOpacity = () => {
     const opacity = this.opacityComputed.get();
@@ -182,7 +202,7 @@ class SearchMarker {
     } else if (opacity === 0 && this.map.hasLayer(this.marker)) {
       this.map.removeLayer(this.marker);
     }
-  }
+  };
 }
 
 export default class SearchMarkerPool {
@@ -193,12 +213,19 @@ export default class SearchMarkerPool {
   icons: Icons;
 
   maintainMarkersDisposer: Function;
-  markers: {[id: string]: SearchMarker} = {};
+  markers: { [id: string]: SearchMarker } = {};
 
   showPopup: boolean = false;
   clickHandler: ?Function = null;
 
-  constructor(L: LWithMapbox, map: ?MapboxMap, requestSearch: RequestSearch, opacityComputed: IComputedValue<number>, showPopup: boolean, clickHandler: ?Function) {
+  constructor(
+    L: LWithMapbox,
+    map: ?MapboxMap,
+    requestSearch: RequestSearch,
+    opacityComputed: IComputedValue<number>,
+    showPopup: boolean,
+    clickHandler: ?Function,
+  ) {
     if (!map) {
       throw new Error('SearchMarkerPool initialized without map');
     }
@@ -217,12 +244,15 @@ export default class SearchMarkerPool {
       closedSelectedWaypointIcon: L.divIcon(waypointMarkers.orangeFilled),
     };
 
-    this.maintainMarkersDisposer = autorun('maintainMarkers', this.maintainMarkers);
+    this.maintainMarkersDisposer = autorun(
+      'maintainMarkers',
+      this.maintainMarkers,
+    );
   }
 
   dispose() {
     this.maintainMarkersDisposer();
-    Object.keys(this.markers).forEach((id) => {
+    Object.keys(this.markers).forEach(id => {
       this.markers[id].dispose();
     });
     this.markers = {};
@@ -239,7 +269,7 @@ export default class SearchMarkerPool {
   maintainMarkers = () => {
     const newMarkers = {};
 
-    this.requestSearch.results.forEach((request) => {
+    this.requestSearch.results.forEach(request => {
       if (!request.location) {
         return;
       }
@@ -248,17 +278,24 @@ export default class SearchMarkerPool {
         newMarkers[request.id] = this.markers[request.id];
         delete this.markers[request.id];
       } else {
-        newMarkers[request.id] = new SearchMarker(this.L, this, this.icons, this.map, this.requestSearch, this.opacityComputed, request);
+        newMarkers[request.id] = new SearchMarker(
+          this.L,
+          this,
+          this.icons,
+          this.map,
+          this.requestSearch,
+          this.opacityComputed,
+          request,
+        );
       }
     });
 
     // Anything left in markers is no longer in the search results, so we dispose
     // to pull it from the map and remove watching.
-    Object.keys(this.markers).forEach((id) => {
+    Object.keys(this.markers).forEach(id => {
       this.markers[id].dispose();
     });
 
     this.markers = newMarkers;
-  }
-
+  };
 }

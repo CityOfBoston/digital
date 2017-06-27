@@ -10,7 +10,7 @@ import type Question from '../../../data/store/Question';
 import AttributeDateField from './AttributeDateField';
 
 export type Props = {|
-  question: Question;
+  question: Question,
 |};
 
 const NUMERIC_FIELD_STYLE = css({
@@ -66,23 +66,41 @@ function maybeRenderRequired(required: boolean) {
 function renderCheckbox(question, onChange) {
   return (
     <div className="cb">
-      <input name={question.code} id={question.code} type="checkbox" value="true" className="cb-f" checked={question.value === 'true'} onChange={onChange} />
-      <label className="cb-l" htmlFor={question.code}>{question.description}</label>
+      <input
+        name={question.code}
+        id={question.code}
+        type="checkbox"
+        value="true"
+        className="cb-f"
+        checked={question.value === 'true'}
+        onChange={onChange}
+      />
+      <label className="cb-l" htmlFor={question.code}>
+        {question.description}
+      </label>
     </div>
   );
 }
 
 function renderInformationalAttribute(question) {
-  return (
-    <p className="t--info">{question.description}</p>
-  );
+  return <p className="t--info">{question.description}</p>;
 }
 
 function renderTextAttribute(question, onChange) {
   return (
     <div className="txt">
-      <label className="txt-l" htmlFor={question.code}>{question.description} {maybeRenderRequired(question.required)}</label>
-      <textarea name={question.code} id={question.code} className="txt-f" value={question.value} onChange={onChange} rows="5" aria-required={question.required} />
+      <label className="txt-l" htmlFor={question.code}>
+        {question.description} {maybeRenderRequired(question.required)}
+      </label>
+      <textarea
+        name={question.code}
+        id={question.code}
+        className="txt-f"
+        value={question.value}
+        onChange={onChange}
+        rows="5"
+        aria-required={question.required}
+      />
     </div>
   );
 }
@@ -90,8 +108,18 @@ function renderTextAttribute(question, onChange) {
 function renderStringAttribute(question, onChange) {
   return (
     <div className="txt">
-      <label className="txt-l" htmlFor={question.code}>{question.description} {maybeRenderRequired(question.required)}</label>
-      <input type="text" name={question.code} id={question.code} className="txt-f" value={question.value} onChange={onChange} aria-required={question.required} />
+      <label className="txt-l" htmlFor={question.code}>
+        {question.description} {maybeRenderRequired(question.required)}
+      </label>
+      <input
+        type="text"
+        name={question.code}
+        id={question.code}
+        className="txt-f"
+        value={question.value}
+        onChange={onChange}
+        aria-required={question.required}
+      />
     </div>
   );
 }
@@ -99,8 +127,18 @@ function renderStringAttribute(question, onChange) {
 function renderNumberAttribute(question, onChange) {
   return (
     <div className="txt">
-      <label className="txt-l">{question.description} {maybeRenderRequired(question.required)}</label>
-      <input name={question.code} id={question.code} className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`} value={question.value} onChange={onChange} pattern="[0-9]*" aria-required={question.required} />
+      <label className="txt-l">
+        {question.description} {maybeRenderRequired(question.required)}
+      </label>
+      <input
+        name={question.code}
+        id={question.code}
+        className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`}
+        value={question.value}
+        onChange={onChange}
+        pattern="[0-9]*"
+        aria-required={question.required}
+      />
     </div>
   );
 }
@@ -113,29 +151,41 @@ function renderMultiValueListAttribute(question, onChange) {
 
   return (
     <div role="group" aria-labelledby={labelId}>
-      <div className="m-v300"><label className="txt-l" id={labelId}>{ question.description } {maybeRenderRequired(question.required)}</label></div>
-      <div className="g" >
-        {
-        lists.map((list, i) => (
-          <div className={lists.length === 1 ? 'g--12' : 'g--6'} key={`list-${i}`}>
-            {
-              list.map(({ key, name }) => (
-                <div className="cb" key={key}>
-                  <input name={question.code} id={`${question.code}-${key}`} type="checkbox" value={key} className="cb-f" checked={values.indexOf(key) !== -1} onChange={onChange} />
-                  <label className="cb-l" htmlFor={`${question.code}-${key}`}>{name}</label>
-                </div>
-              ))
-            }
-          </div>
-        ))
-      }
+      <div className="m-v300">
+        <label className="txt-l" id={labelId}>
+          {question.description} {maybeRenderRequired(question.required)}
+        </label>
+      </div>
+      <div className="g">
+        {lists.map((list, i) =>
+          <div
+            className={lists.length === 1 ? 'g--12' : 'g--6'}
+            key={`list-${i}`}>
+            {list.map(({ key, name }) =>
+              <div className="cb" key={key}>
+                <input
+                  name={question.code}
+                  id={`${question.code}-${key}`}
+                  type="checkbox"
+                  value={key}
+                  className="cb-f"
+                  checked={values.indexOf(key) !== -1}
+                  onChange={onChange}
+                />
+                <label className="cb-l" htmlFor={`${question.code}-${key}`}>
+                  {name}
+                </label>
+              </div>,
+            )}
+          </div>,
+        )}
       </div>
     </div>
   );
 }
 
 function renderSingleValueListAttribute(question, onChange) {
-  const options = [...question.valueOptions || []];
+  const options = [...(question.valueOptions || [])];
 
   if (!question.required) {
     options.push({ key: '', name: 'No Answer' });
@@ -146,32 +196,40 @@ function renderSingleValueListAttribute(question, onChange) {
 
   return (
     <div role="radiogroup" aria-labelledby={labelId}>
-      <div className="m-v300"><label className="txt-l" id={labelId}>{ question.description } {maybeRenderRequired(question.required)}</label></div>
+      <div className="m-v300">
+        <label className="txt-l" id={labelId}>
+          {question.description} {maybeRenderRequired(question.required)}
+        </label>
+      </div>
       <div className="g">
-        {
-        lists.map((list, i) => (
-          <div className={lists.length === 1 ? 'g--12' : 'g--6'} key={`list-${i}`}>
-            {
-              list.map(({ key, name }) => (
-                <div className="ra" key={key}>
-                  <input
-                    name={question.code}
-                    id={`${question.code}-${key}`}
-                    type="radio"
-                    value={key || '--no-answer-key--'}
-                    className="ra-f"
-                    checked={question.value === key || (key === '' && question.value === null)}
-                    onChange={onChange}
-                  />
-                  <label className="ra-l" htmlFor={`${question.code}-${key}`}>{name}</label>
-                </div>
-              ))
-              // blank span below to be the :last-child so that all the labels have a bottom margin
+        {lists.map((list, i) =>
+          <div
+            className={lists.length === 1 ? 'g--12' : 'g--6'}
+            key={`list-${i}`}>
+            {list.map(({ key, name }) =>
+              <div className="ra" key={key}>
+                <input
+                  name={question.code}
+                  id={`${question.code}-${key}`}
+                  type="radio"
+                  value={key || '--no-answer-key--'}
+                  className="ra-f"
+                  checked={
+                    question.value === key ||
+                    (key === '' && question.value === null)
+                  }
+                  onChange={onChange}
+                />
+                <label className="ra-l" htmlFor={`${question.code}-${key}`}>
+                  {name}
+                </label>
+              </div>,
+            )
+            // blank span below to be the :last-child so that all the labels have a bottom margin
             }
             <span />
-          </div>
-        ))
-      }
+          </div>,
+        )}
       </div>
     </div>
   );
@@ -191,7 +249,8 @@ export default class AttributeField extends React.Component {
     } else if (question.type === 'DATE') {
       if (value) {
         const datePieces = value.split('/');
-        question.value = `${datePieces[2] || ''}-${datePieces[0] || ''}-${datePieces[1] || ''}`;
+        question.value = `${datePieces[2] || ''}-${datePieces[0] ||
+          ''}-${datePieces[1] || ''}`;
       } else {
         question.value = '';
       }
@@ -214,7 +273,7 @@ export default class AttributeField extends React.Component {
     if (ev.target.checked) {
       question.value = [...values, ev.target.value];
     } else {
-      question.value = values.filter((v) => v !== ev.target.value);
+      question.value = values.filter(v => v !== ev.target.value);
     }
   }
 
@@ -243,5 +302,4 @@ export default class AttributeField extends React.Component {
         return null;
     }
   }
-
 }

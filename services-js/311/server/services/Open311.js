@@ -15,7 +15,7 @@ export type Service = {|
   type: 'realtime' | 'batch' | 'blackbox',
   keywords: string,
   group: string,
-|}
+|};
 
 export type PlainValue = {|
   key: string,
@@ -32,8 +32,8 @@ export type DependentCondition = {|
 |};
 
 export type DependentConditions = {|
-    clause: 'OR' | 'AND',
-    conditions: DependentCondition[],
+  clause: 'OR' | 'AND',
+  conditions: DependentCondition[],
 |};
 
 export type ConditionalValues = {|
@@ -69,8 +69,8 @@ export type ServiceMetadata = {|
       required: boolean,
       visible: boolean,
     |},
-  |}
-|}
+  |},
+|};
 
 export type ServiceRequest = {|
   service_request_id: string,
@@ -105,7 +105,7 @@ export type CreateServiceRequestArgs = {|
   phone: ?string,
   description: string,
   media_url: ?string,
-  attributes: {code: string, value: string}[],
+  attributes: { code: string, value: string }[],
 |};
 
 async function processResponse(res): Promise<any> {
@@ -114,9 +114,12 @@ async function processResponse(res): Promise<any> {
   } else if (!res.ok) {
     let message;
 
-    if ((res.headers.get('content-type') || '').startsWith('application/json')) {
+    if (
+      (res.headers.get('content-type') || '').startsWith('application/json')
+    ) {
       const firstError = (await res.json())[0];
-      message = firstError.message || firstError.description || 'Open311 server error';
+      message =
+        firstError.message || firstError.description || 'Open311 server error';
     } else {
       message = await res.text();
     }
@@ -164,33 +167,45 @@ export default class Open311 {
     // requests for service lookup to a single API call.
     this.serviceLoader = new DataLoader(async (codes: string[]) => {
       const servicesByCode = {};
-      (await this.services()).forEach((s) => { servicesByCode[s.service_code] = s; });
-      return codes.map((code) => servicesByCode[code] || null);
+      (await this.services()).forEach(s => {
+        servicesByCode[s.service_code] = s;
+      });
+      return codes.map(code => servicesByCode[code] || null);
     });
 
     this.serviceMetadataLoader = new DataLoader(async (codes: string[]) => {
-      const transaction = opbeat && opbeat.startTransaction('serviceMetadata', 'Open311');
-      const out = await Promise.all(codes.map(async (code) => {
-        const params = new URLSearchParams();
-        if (this.apiKey) {
-          params.append('api_key', this.apiKey);
-        }
+      const transaction =
+        opbeat && opbeat.startTransaction('serviceMetadata', 'Open311');
+      const out = await Promise.all(
+        codes.map(async code => {
+          const params = new URLSearchParams();
+          if (this.apiKey) {
+            params.append('api_key', this.apiKey);
+          }
 
-        let additionalPath = '';
-        if (process.env.PROD_311_METADATA_PATH) {
-          additionalPath = `${process.env.PROD_311_METADATA_PATH}/`;
-        }
+          let additionalPath = '';
+          if (process.env.PROD_311_METADATA_PATH) {
+            additionalPath = `${process.env.PROD_311_METADATA_PATH}/`;
+          }
 
-        try {
-          const response = await fetch(this.url(`services/${additionalPath}${code}.json?${params.toString()}`), {
-            agent: this.agent,
-          });
+          try {
+            const response = await fetch(
+              this.url(
+                `services/${additionalPath}${code}.json?${params.toString()}`,
+              ),
+              {
+                agent: this.agent,
+              },
+            );
 
-          return await processResponse(response);
-        } catch (e) {
-          throw new Error(`Error loading metadata for ${code}: ${e.toString()}`);
-        }
-      }));
+            return await processResponse(response);
+          } catch (e) {
+            throw new Error(
+              `Error loading metadata for ${code}: ${e.toString()}`,
+            );
+          }
+        }),
+      );
 
       if (transaction) {
         transaction.end();
@@ -199,16 +214,20 @@ export default class Open311 {
     });
 
     this.requestLoader = new DataLoader(async (ids: string[]) => {
-      const transaction = opbeat && opbeat.startTransaction('request', 'Open311');
+      const transaction =
+        opbeat && opbeat.startTransaction('request', 'Open311');
       const params = new URLSearchParams();
       if (this.apiKey) {
         params.append('api_key', this.apiKey);
       }
       params.append('service_request_id', ids.join(','));
 
-      const response = await fetch(this.url(`requests.json?${params.toString()}`), {
-        agent: this.agent,
-      });
+      const response = await fetch(
+        this.url(`requests.json?${params.toString()}`),
+        {
+          agent: this.agent,
+        },
+      );
 
       // the endpoint returns the request in an array
       const requestArr: ServiceRequest[] = await processResponse(response);
@@ -217,13 +236,13 @@ export default class Open311 {
         transaction.end();
       }
 
-      const requestMap: {[id: string]: ServiceRequest} = {};
+      const requestMap: { [id: string]: ServiceRequest } = {};
 
-      requestArr.forEach((r) => {
+      requestArr.forEach(r => {
         requestMap[r.service_request_id] = r;
       });
 
-      return ids.map((id) => requestMap[id]);
+      return ids.map(id => requestMap[id]);
     });
   }
 
@@ -232,17 +251,21 @@ export default class Open311 {
   }
 
   services = async (): Promise<Service[]> => {
-    const transaction = this.opbeat && this.opbeat.startTransaction('services', 'Open311');
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);
     }
 
-    const response = await fetch(this.url(`services.json?${params.toString()}`), {
-      agent: this.agent,
-    });
+    const response = await fetch(
+      this.url(`services.json?${params.toString()}`),
+      {
+        agent: this.agent,
+      },
+    );
 
-    const out = await processResponse(response) || [];
+    const out = (await processResponse(response)) || [];
     if (transaction) {
       transaction.end();
     }
@@ -262,23 +285,26 @@ export default class Open311 {
   }
 
   requests = async () => {
-    const transaction = this.opbeat && this.opbeat.startTransaction('requests', 'Open311');
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('requests', 'Open311');
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);
     }
 
-    const response = await fetch(this.url(`requests.json?${params.toString()}`), {
-      agent: this.agent,
-    });
+    const response = await fetch(
+      this.url(`requests.json?${params.toString()}`),
+      {
+        agent: this.agent,
+      },
+    );
 
-    const out = await processResponse(response) || [];
+    const out = (await processResponse(response)) || [];
     if (transaction) {
       transaction.end();
     }
     return out;
   };
-
 
   async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest> {
     const params = new URLSearchParams();
@@ -286,7 +312,7 @@ export default class Open311 {
       params.append('api_key', this.apiKey);
     }
 
-    Object.keys(args).forEach((key) => {
+    Object.keys(args).forEach(key => {
       switch (key) {
         case 'lat':
         case 'long':
@@ -295,7 +321,9 @@ export default class Open311 {
           }
           break;
         case 'attributes':
-          args[key].map(({ code, value }) => params.append(`attribute[${code}]`, value));
+          args[key].map(({ code, value }) =>
+            params.append(`attribute[${code}]`, value),
+          );
           break;
         default:
           if (args[key]) {

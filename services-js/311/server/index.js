@@ -6,7 +6,7 @@
 require('dotenv').config();
 const opbeat = require('opbeat/start');
 
-require('./server').default({ opbeat }).catch((err) => {
+require('./server').default({ opbeat }).catch(err => {
   opbeat.captureError(err, (e, url) => {
     if (e) {
       console.error('Error sending exception to Opbeat', e);

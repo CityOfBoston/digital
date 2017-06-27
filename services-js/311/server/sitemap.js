@@ -14,7 +14,7 @@ export default (open311: Open311) => async (request: any, reply: any) => {
   sitemap.add({ url: '/services ' });
   sitemap.add({ url: '/search ' });
 
-  services.forEach((service) => {
+  services.forEach(service => {
     sitemap.add({ url: `/request/${service.service_code}` });
   });
 

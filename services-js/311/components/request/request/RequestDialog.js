@@ -37,15 +37,15 @@ export type InitialProps = {|
   stage: 'questions' | 'location' | 'contact' | 'submit',
   service: ?Service,
   description: string,
-|}
+|};
 
 export type Props = {|
   store: AppStore,
   loopbackGraphql: LoopbackGraphql,
   routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
-  /* :: ...InitialProps, */
-|}
+  ...InitialProps,
+|};
 
 const COMMON_DIALOG_STYLE = {
   transition: 'margin 400ms',
@@ -68,12 +68,17 @@ export default class RequestDialog extends React.Component {
   props: Props;
 
   requestForm: RequestForm;
-  @observable requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
+  @observable
+  requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;
 
   caseLookupOnSubmitDisposer: Function;
 
   // Called by RequestLayout
-  static async getInitialProps({ query, req, res }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps({
+    query,
+    req,
+    res,
+  }: Context<RequestAdditions>): Promise<InitialProps> {
     const { code, description } = query;
     let stage = query.stage;
 
@@ -116,7 +121,10 @@ export default class RequestDialog extends React.Component {
     LoadingBuildings.preload();
 
     this.caseLookupOnSubmitDisposer = autorun('route on case submit', () => {
-      if (this.requestSubmission && this.requestSubmission.state === 'fulfilled') {
+      if (
+        this.requestSubmission &&
+        this.requestSubmission.state === 'fulfilled'
+      ) {
         const href = `/case/${this.requestSubmission.value.id}`;
         Router.replace('/request', href, { shallow: true });
       }
@@ -178,20 +186,33 @@ export default class RequestDialog extends React.Component {
     if (service) {
       routeToServiceForm(service.code, 'location');
     }
-  }
+  };
 
   routeToContact = () => {
     const { service, routeToServiceForm } = this.props;
     if (service) {
       routeToServiceForm(service.code, 'contact');
     }
-  }
+  };
 
   @action.bound
   submitRequest(): Promise<mixed> {
     const { requestForm } = this;
     const { service, loopbackGraphql, routeToServiceForm } = this.props;
-    const { description, firstName, lastName, email, phone, location, address, addressId, questions, mediaUrl, sendLocation, sendContactInfo } = requestForm;
+    const {
+      description,
+      firstName,
+      lastName,
+      email,
+      phone,
+      location,
+      address,
+      addressId,
+      questions,
+      mediaUrl,
+      sendLocation,
+      sendContactInfo,
+    } = requestForm;
 
     if (!service) {
       throw new Error('service is null in submitRequest');
@@ -213,22 +234,25 @@ export default class RequestDialog extends React.Component {
       addressId: sendLocation ? addressId : null,
       questions,
       mediaUrl,
-    }).then((v) => {
-      // upload was successful, so clear out previous request state
-      this.requestForm = new RequestForm(service);
-      return v;
-    }, (err) => {
-      /* eslint-disable no-underscore-dangle */
-      if (window._opbeat) {
-        window._opbeat('captureException', err);
-        err._sentToOpbeat = true;
-      }
-      /* eslint-enable no-underscore-dangle */
+    }).then(
+      v => {
+        // upload was successful, so clear out previous request state
+        this.requestForm = new RequestForm(service);
+        return v;
+      },
+      err => {
+        /* eslint-disable no-underscore-dangle */
+        if (window._opbeat) {
+          window._opbeat('captureException', err);
+          err._sentToOpbeat = true;
+        }
+        /* eslint-enable no-underscore-dangle */
 
-      // This exception is ultimately "caught" by the requestSubmission fromPromise
-      // mobx handler.
-      throw err;
-    });
+        // This exception is ultimately "caught" by the requestSubmission fromPromise
+        // mobx handler.
+        throw err;
+      },
+    );
 
     this.requestSubmission = fromPromise(promise);
 
@@ -239,7 +263,9 @@ export default class RequestDialog extends React.Component {
 
   render() {
     const { stage } = this.props;
-    const dialogContainerStyle = stage === 'location' ? CORNER_DIALOG_STYLE : css(COMMON_DIALOG_STYLE, CENTERED_DIALOG_STYLE);
+    const dialogContainerStyle = stage === 'location'
+      ? CORNER_DIALOG_STYLE
+      : css(COMMON_DIALOG_STYLE, CENTERED_DIALOG_STYLE);
 
     return (
       <div className={dialogContainerStyle}>
@@ -247,8 +273,10 @@ export default class RequestDialog extends React.Component {
           <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
-        <FormDialog narrow={stage === 'contact'} noPadding={stage === 'location'}>
-          { this.renderContent() }
+        <FormDialog
+          narrow={stage === 'contact'}
+          noPadding={stage === 'location'}>
+          {this.renderContent()}
         </FormDialog>
       </div>
     );
@@ -263,22 +291,30 @@ export default class RequestDialog extends React.Component {
     }
 
     switch (stage) {
-      case 'questions': return service.name;
-      case 'location': return 'Choose location';
-      case 'contact': return 'Contact information';
+      case 'questions':
+        return service.name;
+      case 'location':
+        return 'Choose location';
+      case 'contact':
+        return 'Contact information';
       case 'submit':
         if (!requestSubmission) {
           return '';
         }
 
         switch (requestSubmission.state) {
-          case 'pending': return 'Submitting…';
-          case 'fulfilled': return `Success: Case ${requestSubmission.value.id}`;
-          case 'rejected': return 'Submission error';
-          default: return '';
+          case 'pending':
+            return 'Submitting…';
+          case 'fulfilled':
+            return `Success: Case ${requestSubmission.value.id}`;
+          case 'rejected':
+            return 'Submission error';
+          default:
+            return '';
         }
 
-      default: return '';
+      default:
+        return '';
     }
   }
 
@@ -303,16 +339,38 @@ export default class RequestDialog extends React.Component {
     switch (stage) {
       case 'questions': {
         const { fn, isSubmit } = this.makeNextAfterQuestions();
-        return <QuestionsPane store={store} requestForm={requestForm} serviceName={service.name} serviceDescription={service.description} nextFunc={fn} nextIsSubmit={isSubmit} />;
+        return (
+          <QuestionsPane
+            store={store}
+            requestForm={requestForm}
+            serviceName={service.name}
+            serviceDescription={service.description}
+            nextFunc={fn}
+            nextIsSubmit={isSubmit}
+          />
+        );
       }
 
       case 'location': {
         const { fn, isSubmit } = this.makeNextAfterLocation();
-        return <LocationPopUp store={store} requestForm={requestForm} nextFunc={fn} nextIsSubmit={isSubmit} />;
+        return (
+          <LocationPopUp
+            store={store}
+            requestForm={requestForm}
+            nextFunc={fn}
+            nextIsSubmit={isSubmit}
+          />
+        );
       }
 
       case 'contact':
-        return <ContactPane requestForm={requestForm} serviceName={service.name} nextFunc={this.submitRequest} />;
+        return (
+          <ContactPane
+            requestForm={requestForm}
+            serviceName={service.name}
+            nextFunc={this.submitRequest}
+          />
+        );
 
       case 'submit':
         if (!requestSubmission) {
@@ -320,13 +378,24 @@ export default class RequestDialog extends React.Component {
         }
 
         switch (requestSubmission.state) {
-          case 'pending': return <SubmitPane state="submitting" ui={store.ui} />;
-          case 'fulfilled': return <CaseView store={store} request={requestSubmission.value} submitted />;
-          case 'rejected': return <SubmitPane state="error" error={requestSubmission.value} />;
-          default: return '';
+          case 'pending':
+            return <SubmitPane state="submitting" ui={store.ui} />;
+          case 'fulfilled':
+            return (
+              <CaseView
+                store={store}
+                request={requestSubmission.value}
+                submitted
+              />
+            );
+          case 'rejected':
+            return <SubmitPane state="error" error={requestSubmission.value} />;
+          default:
+            return '';
         }
 
-      default: return null;
+      default:
+        return null;
     }
   }
 }

@@ -23,7 +23,9 @@ export default class Ui {
   attach() {
     this.debouncedScrollDisposer = reaction(
       () => this.scrollY,
-      (scrollY) => { this.debouncedScrollY = scrollY; },
+      scrollY => {
+        this.debouncedScrollY = scrollY;
+      },
       {
         name: 'debounced scroll',
         delay: 250,
@@ -64,26 +66,53 @@ export default class Ui {
     document.removeEventListener('visibilitychange', this.handleVisibility);
   }
 
-  handleScroll = throttle(action('scroll handler', () => {
-    this.scrollY = window.scrollY || (document.documentElement && document.documentElement.scrollTop) || 0;
-  }), 100);
+  handleScroll = throttle(
+    action('scroll handler', () => {
+      this.scrollY =
+        window.scrollY ||
+        (document.documentElement && document.documentElement.scrollTop) ||
+        0;
+    }),
+    100,
+  );
 
-  handleResize = throttle(action('resize handler', () => {
-    this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
-    this.visibleWidth = window.innerWidth;
-  }), 100);
+  handleResize = throttle(
+    action('resize handler', () => {
+      this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
+      this.visibleWidth = window.innerWidth;
+    }),
+    100,
+  );
 
   @action.bound
   handleVisibility() {
     this.visible = !document.hidden;
   }
 
-  @computed get mediaSmall(): boolean { return !!this.visibleWidth && this.visibleWidth > 480; }
-  @computed get mediaMedium(): boolean { return !!this.visibleWidth && this.visibleWidth > 768; }
-  @computed get mediaLarge(): boolean { return !!this.visibleWidth && this.visibleWidth > 840; }
-  @computed get mediaXLarge(): boolean { return !!this.visibleWidth && this.visibleWidth > 980; }
-  @computed get mediaXXLarge(): boolean { return !!this.visibleWidth && this.visibleWidth > 1280; }
+  @computed
+  get mediaSmall(): boolean {
+    return !!this.visibleWidth && this.visibleWidth > 480;
+  }
+  @computed
+  get mediaMedium(): boolean {
+    return !!this.visibleWidth && this.visibleWidth > 768;
+  }
+  @computed
+  get mediaLarge(): boolean {
+    return !!this.visibleWidth && this.visibleWidth > 840;
+  }
+  @computed
+  get mediaXLarge(): boolean {
+    return !!this.visibleWidth && this.visibleWidth > 980;
+  }
+  @computed
+  get mediaXXLarge(): boolean {
+    return !!this.visibleWidth && this.visibleWidth > 1280;
+  }
 
   // true if less that mediaLarge, but false if we haven't determined the screen size yet
-  @computed get belowMediaLarge(): boolean { return !!this.visibleWidth && !this.mediaLarge; }
+  @computed
+  get belowMediaLarge(): boolean {
+    return !!this.visibleWidth && !this.mediaLarge;
+  }
 }

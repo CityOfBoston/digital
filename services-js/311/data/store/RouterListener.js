@@ -62,19 +62,29 @@ export default class RouterListener {
 
     // we do a setTimeout so that the new title renders by the time we
     // want to see it
-    setTimeout(action(() => {
-      if (ga) {
-        ga('send', 'pageview');
-        ga('send', 'timing', 'Router', 'routeChange', Date.now() - this.routeStartMs, url);
-      }
+    setTimeout(
+      action(() => {
+        if (ga) {
+          ga('send', 'pageview');
+          ga(
+            'send',
+            'timing',
+            'Router',
+            'routeChange',
+            Date.now() - this.routeStartMs,
+            url,
+          );
+        }
 
-      if (store) {
-        const { accessibility } = store;
+        if (store) {
+          const { accessibility } = store;
 
-        accessibility.message = `${document.title} loaded`;
-        accessibility.interrupt = true;
-      }
-    }), 0);
+          accessibility.message = `${document.title} loaded`;
+          accessibility.interrupt = true;
+        }
+      }),
+      0,
+    );
   }
 
   @action.bound
@@ -84,7 +94,11 @@ export default class RouterListener {
     const { ga } = this;
 
     if (ga) {
-      ga('set', 'page', window.location.pathname + (window.location.search || ''));
+      ga(
+        'set',
+        'page',
+        window.location.pathname + (window.location.search || ''),
+      );
     }
   }
 }

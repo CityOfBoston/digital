@@ -11,7 +11,8 @@ const GROUPS = [
   {
     name: 'Health, Safety, and Social Services',
     id: 'Health-Safety',
-    description: 'Crime, Fire Prevention & Control, Healthy Living & Inspections',
+    description:
+      'Crime, Fire Prevention & Control, Healthy Living & Inspections',
   },
   {
     name: 'Parks and Public Space',
@@ -21,7 +22,8 @@ const GROUPS = [
   {
     name: 'Property, Housing and Construction',
     id: 'Property-Construction',
-    description: 'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
+    description:
+      'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
   },
   {
     name: 'Snow or Weather Related Concerns',
@@ -31,12 +33,14 @@ const GROUPS = [
   {
     name: 'Streets, Sidewalks, Traffic, and Vehicles',
     id: 'Streets-Sidewalks',
-    description: 'Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance',
+    description:
+      'Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance',
   },
   {
     name: 'Trash, Recycling, and Graffiti',
     id: 'Trash-Graffiti',
-    description: 'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
+    description:
+      'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
   },
   {
     name: 'Other Services',
@@ -52,7 +56,15 @@ export class Group {
 
   @observable open: boolean = false;
 
-  constructor({ name, id, description }: { name: string, id: string, description: string}) {
+  constructor({
+    name,
+    id,
+    description,
+  }: {
+    name: string,
+    id: string,
+    description: string,
+  }) {
     this.name = name;
     this.id = id;
     this.description = description;
@@ -62,10 +74,10 @@ export class Group {
 /* This is kept in the store so that clicking "back" to the page keeps the
    categories open. */
 export default class AllServices {
-  groups: Group[] = GROUPS.map((g) => new Group(g));
+  groups: Group[] = GROUPS.map(g => new Group(g));
   otherGroup: Group = new Group({
     name: 'Uncategorized Services',
     id: '',
     description: 'These services have not yet been categorized',
-  })
+  });
 }

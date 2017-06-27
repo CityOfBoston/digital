@@ -1,6 +1,8 @@
+// @flow
 /* eslint no-underscore-dangle: 0 */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { configure, addDecorator } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
@@ -33,7 +35,11 @@ try {
 class Wrapper extends React.Component {
   static childContextTypes = {
     router: PropTypes.object,
-  }
+  };
+
+  props: {
+    children: React.Element<*>,
+  };
 
   getChildContext() {
     return {
@@ -65,13 +71,14 @@ global.describe = () => {};
 const storiesContext = require.context('../components', true, /.stories.js$/);
 
 function loadStories() {
-  storiesContext.keys().forEach((filename) => storiesContext(filename));
+  storiesContext.keys().forEach(filename => storiesContext(filename));
 }
 
-addDecorator((story) => {
+addDecorator((story: () => React.Element<*>) => {
   if (window.parent) {
     // eslint-disable-next-line no-underscore-dangle
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =
+      window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
 
   window.API_KEYS = {
@@ -86,11 +93,12 @@ addDecorator((story) => {
 
   return (
     <Wrapper>
-      { story() }
+      {story()}
     </Wrapper>
   );
 });
 
 configure(loadStories, module);
 
-if (typeof window === 'object') window.__storybook_stories__ = require('@storybook/react').getStorybook();
+if (typeof window === 'object')
+  window.__storybook_stories__ = require('@storybook/react').getStorybook();

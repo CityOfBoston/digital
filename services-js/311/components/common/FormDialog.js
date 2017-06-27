@@ -26,10 +26,16 @@ const DIALOG_STYLE = css({
 type Props = {|
   narrow?: boolean,
   noPadding?: boolean,
-  children?: any
-|}
+  children?: any,
+|};
 
-export default function FormDialog({ narrow, noPadding, children }: Props = { narrow: false, noPadding: false, children: null }) {
+export default function FormDialog(
+  { narrow, noPadding, children }: Props = {
+    narrow: false,
+    noPadding: false,
+    children: null,
+  },
+) {
   const style = {};
 
   if (narrow) {
@@ -39,7 +45,9 @@ export default function FormDialog({ narrow, noPadding, children }: Props = { na
   const paddingClasses = noPadding ? '' : 'p-a300 p-a800--xl';
 
   return (
-    <div className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`} style={style}>
+    <div
+      className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`}
+      style={style}>
       {children}
     </div>
   );

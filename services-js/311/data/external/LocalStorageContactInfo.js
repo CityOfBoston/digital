@@ -11,26 +11,36 @@ export default class LocalStorageContactInfo {
   constructor(requestForm: RequestForm) {
     if (this.canRememberInfo) {
       runInAction('LocalStorageContactInfo constructor', () => {
-        this.rememberInfo = localStorage.getItem('ContactInfo.firstName') != null;
-        requestForm.firstName = localStorage.getItem('ContactInfo.firstName') || '';
-        requestForm.lastName = localStorage.getItem('ContactInfo.lastName') || '';
+        this.rememberInfo =
+          localStorage.getItem('ContactInfo.firstName') != null;
+        requestForm.firstName =
+          localStorage.getItem('ContactInfo.firstName') || '';
+        requestForm.lastName =
+          localStorage.getItem('ContactInfo.lastName') || '';
         requestForm.email = localStorage.getItem('ContactInfo.email') || '';
         requestForm.phone = localStorage.getItem('ContactInfo.phone') || '';
       });
 
-      this.rememberInfoDisposer = autorunAsync('remember contact info', () => {
-        if (this.rememberInfo) {
-          localStorage.setItem('ContactInfo.firstName', requestForm.firstName);
-          localStorage.setItem('ContactInfo.lastName', requestForm.lastName);
-          localStorage.setItem('ContactInfo.email', requestForm.email);
-          localStorage.setItem('ContactInfo.phone', requestForm.phone);
-        } else {
-          localStorage.removeItem('ContactInfo.firstName');
-          localStorage.removeItem('ContactInfo.lastName');
-          localStorage.removeItem('ContactInfo.email');
-          localStorage.removeItem('ContactInfo.phone');
-        }
-      }, 250);
+      this.rememberInfoDisposer = autorunAsync(
+        'remember contact info',
+        () => {
+          if (this.rememberInfo) {
+            localStorage.setItem(
+              'ContactInfo.firstName',
+              requestForm.firstName,
+            );
+            localStorage.setItem('ContactInfo.lastName', requestForm.lastName);
+            localStorage.setItem('ContactInfo.email', requestForm.email);
+            localStorage.setItem('ContactInfo.phone', requestForm.phone);
+          } else {
+            localStorage.removeItem('ContactInfo.firstName');
+            localStorage.removeItem('ContactInfo.lastName');
+            localStorage.removeItem('ContactInfo.email');
+            localStorage.removeItem('ContactInfo.phone');
+          }
+        },
+        250,
+      );
     }
   }
 
@@ -38,7 +48,8 @@ export default class LocalStorageContactInfo {
     this.rememberInfoDisposer();
   }
 
-  @computed get canRememberInfo(): boolean {
+  @computed
+  get canRememberInfo(): boolean {
     return typeof localStorage !== 'undefined';
   }
 }

@@ -10,12 +10,13 @@ import Question from './Question';
 export default class RequestForm {
   _service: ?Service;
 
-  @computed get code(): string {
+  @computed
+  get code(): string {
     return this._service ? this._service.code : '';
   }
 
   @observable description: string = '';
-  @observable mediaUrl: string = ''
+  @observable mediaUrl: string = '';
 
   @observable address: string = '';
   @observable.shallow location: ?{| lat: number, lng: number |} = null;
@@ -30,34 +31,44 @@ export default class RequestForm {
 
   @observable questions: Question[] = [];
 
-  @computed get showContactInfoForm(): boolean {
+  @computed
+  get showContactInfoForm(): boolean {
     return !!this._service && this._service.contactRequirement !== 'HIDDEN';
   }
 
-  @computed get contactInfoRequired(): boolean {
+  @computed
+  get contactInfoRequired(): boolean {
     return !!this._service && this._service.contactRequirement === 'REQUIRED';
   }
 
   // can be false even when required is false to differentiate between submitting
   // and skipping
-  @computed get contactInfoRequirementsMet(): boolean {
+  @computed
+  get contactInfoRequirementsMet(): boolean {
     return !!(this.firstName && this.lastName && this.email);
   }
 
-  @computed get showLocationPicker(): boolean {
+  @computed
+  get showLocationPicker(): boolean {
     return !!this._service && this._service.locationRequirement !== 'HIDDEN';
   }
 
-  @computed get locationRequired(): boolean {
+  @computed
+  get locationRequired(): boolean {
     return !!this._service && this._service.locationRequirement === 'REQUIRED';
   }
 
-  @computed get locationRequirementsMet(): boolean {
+  @computed
+  get locationRequirementsMet(): boolean {
     return this.address.length > 0;
   }
 
-  @computed get questionRequirementsMet(): boolean {
-    return this.questions.filter((q) => !q.required || !q.visible || q.requirementsMet).length === this.questions.length;
+  @computed
+  get questionRequirementsMet(): boolean {
+    return (
+      this.questions.filter(q => !q.required || !q.visible || q.requirementsMet)
+        .length === this.questions.length
+    );
   }
 
   constructor(service: ?Service) {

@@ -21,7 +21,10 @@ export default class Condition {
   operator: ServiceAttributeConditionalOp;
   value: string | string[] | number;
 
-  constructor({ attribute, op, value }: ServiceAttributeValuesCondition, questionMap: {[code: string]: Question}) {
+  constructor(
+    { attribute, op, value }: ServiceAttributeValuesCondition,
+    questionMap: { [code: string]: Question },
+  ) {
     const question = questionMap[attribute];
     if (!question) {
       throw new Error(`Question not found for code: ${attribute}`);
@@ -33,14 +36,18 @@ export default class Condition {
     switch (value.type) {
       case 'NUMBER':
         if (value.number == null) {
-          throw new Error(`Missing number from value: ${JSON.stringify(value)}`);
+          throw new Error(
+            `Missing number from value: ${JSON.stringify(value)}`,
+          );
         }
         this.value = value.number;
         break;
 
       case 'STRING':
         if (value.string == null) {
-          throw new Error(`Missing string from value: ${JSON.stringify(value)}`);
+          throw new Error(
+            `Missing string from value: ${JSON.stringify(value)}`,
+          );
         }
         this.value = value.string;
         break;
@@ -60,13 +67,20 @@ export default class Condition {
   @computed
   get holds(): boolean {
     switch (this.operator) {
-      case 'eq': return this.conditionEq();
-      case 'neq': return !this.conditionEq();
-      case 'in': return this.conditionIn();
-      case 'gt': return this.conditionNumericOp((a, b) => a > b);
-      case 'gte': return this.conditionNumericOp((a, b) => a >= b);
-      case 'lt': return this.conditionNumericOp((a, b) => a < b);
-      case 'lte': return this.conditionNumericOp((a, b) => a <= b);
+      case 'eq':
+        return this.conditionEq();
+      case 'neq':
+        return !this.conditionEq();
+      case 'in':
+        return this.conditionIn();
+      case 'gt':
+        return this.conditionNumericOp((a, b) => a > b);
+      case 'gte':
+        return this.conditionNumericOp((a, b) => a >= b);
+      case 'lt':
+        return this.conditionNumericOp((a, b) => a < b);
+      case 'lte':
+        return this.conditionNumericOp((a, b) => a <= b);
       default:
         return false;
     }
@@ -89,8 +103,11 @@ export default class Condition {
         const expectedValueArr = [...value].sort();
 
         // array equality!
-        return currentValueArr.length === expectedValueArr.length &&
-          currentValueArr.filter((el, i) => el === expectedValueArr[i]).length === currentValueArr.length;
+        return (
+          currentValueArr.length === expectedValueArr.length &&
+          currentValueArr.filter((el, i) => el === expectedValueArr[i])
+            .length === currentValueArr.length
+        );
       }
     } else {
       return false;

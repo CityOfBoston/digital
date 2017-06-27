@@ -106,20 +106,22 @@ enum ServiceAttributeConditionValueType {
 export type ServiceStub = {|
   service_name: string,
   service_code: string,
-|}
+|};
 
 export type Root = Service | ServiceStub;
 
 // Here we filter the disjoint union type of {key/value} vs. {dependendOn/values}
 // down to just key/value pairs. A bit odd because of Flow.
-export function filterPlainValues(mixedValues: ?ServiceMetadataAttributeValue[]) {
+export function filterPlainValues(
+  mixedValues: ?(ServiceMetadataAttributeValue[]),
+) {
   if (!mixedValues) {
     return null;
   }
 
   const plainValues: {| key: string, name: string |}[] = [];
 
-  mixedValues.forEach((value) => {
+  mixedValues.forEach(value => {
     let key: ?string;
     let name: ?string;
 
@@ -139,14 +141,16 @@ export function filterPlainValues(mixedValues: ?ServiceMetadataAttributeValue[])
   return plainValues;
 }
 
-export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeValue[]) {
+export function filterConditionalValues(
+  mixedValues: ?(ServiceMetadataAttributeValue[]),
+) {
   if (!mixedValues) {
     return null;
   }
 
   const conditionalValues: ConditionalValues[] = [];
 
-  mixedValues.forEach((value) => {
+  mixedValues.forEach(value => {
     let dependentOn;
     let values: PlainValue[];
 
@@ -166,13 +170,20 @@ export function filterConditionalValues(mixedValues: ?ServiceMetadataAttributeVa
   return conditionalValues;
 }
 
-const makeMetadataResolver = (cb: (metadata: ?ServiceMetadata) => mixed) => async (s: Root, args: mixed, { open311 }: Context) => (
-  cb(s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null)
-);
+const makeMetadataResolver = (
+  cb: (metadata: ?ServiceMetadata) => mixed,
+) => async (s: Root, args: mixed, { open311 }: Context) =>
+  cb(
+    s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null,
+  );
 
 type MetadataRequirement = 'REQUIRED' | 'VISIBLE' | 'HIDDEN';
 
-function resolveMetadataRequirement(metadata: ?ServiceMetadata, definitionKey: string, requiredKey: string): MetadataRequirement {
+function resolveMetadataRequirement(
+  metadata: ?ServiceMetadata,
+  definitionKey: string,
+  requiredKey: string,
+): MetadataRequirement {
   if (!metadata) {
     return 'REQUIRED';
   }
@@ -182,7 +193,8 @@ function resolveMetadataRequirement(metadata: ?ServiceMetadata, definitionKey: s
     return 'REQUIRED';
   }
 
-  const definition: ?{ required: boolean, visible: boolean } = definitions[definitionKey];
+  const definition: ?{ required: boolean, visible: boolean } =
+    definitions[definitionKey];
   const required: ?boolean = definitions[requiredKey];
 
   if (definition) {
@@ -204,18 +216,40 @@ export const resolvers = {
   Service: {
     code: (s: Root) => s.service_code,
     name: (s: Root) => s.service_name || '',
-    attributes: makeMetadataResolver((metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])),
-    locationRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'location', 'location_required') === 'REQUIRED'),
-    locationRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'location', 'location_required')),
-    contactRequired: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'reporter', 'contact_required') === 'REQUIRED'),
-    contactRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) => resolveMetadataRequirement(metadata, 'reporter', 'contact_required')),
+    attributes: makeMetadataResolver(
+      (metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : []),
+    ),
+    locationRequired: makeMetadataResolver(
+      (metadata: ?ServiceMetadata) =>
+        resolveMetadataRequirement(
+          metadata,
+          'location',
+          'location_required',
+        ) === 'REQUIRED',
+    ),
+    locationRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) =>
+      resolveMetadataRequirement(metadata, 'location', 'location_required'),
+    ),
+    contactRequired: makeMetadataResolver(
+      (metadata: ?ServiceMetadata) =>
+        resolveMetadataRequirement(metadata, 'reporter', 'contact_required') ===
+        'REQUIRED',
+    ),
+    contactRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) =>
+      resolveMetadataRequirement(metadata, 'reporter', 'contact_required'),
+    ),
   },
 
   ServiceAttribute: {
-    type: (a: ServiceMetadataAttribute) => a.datatype.toUpperCase().replace(' ', '_').replace(/[()]/g, ''),
-    values: (a: ServiceMetadataAttribute): null | PlainValue[] => filterPlainValues(a.values),
-    conditionalValues: (a: ServiceMetadataAttribute): null | ConditionalValues[] => filterConditionalValues(a.values),
-    dependencies: (a: ServiceMetadataAttribute): null | DependentConditions => a.dependencies || null,
+    type: (a: ServiceMetadataAttribute) =>
+      a.datatype.toUpperCase().replace(' ', '_').replace(/[()]/g, ''),
+    values: (a: ServiceMetadataAttribute): null | PlainValue[] =>
+      filterPlainValues(a.values),
+    conditionalValues: (
+      a: ServiceMetadataAttribute,
+    ): null | ConditionalValues[] => filterConditionalValues(a.values),
+    dependencies: (a: ServiceMetadataAttribute): null | DependentConditions =>
+      a.dependencies || null,
   },
 
   ServiceAttributeCondition: {

@@ -42,18 +42,21 @@ export default async function startServer({ opbeat }: any) {
     server.connection({ port }, '0.0.0.0');
   }
 
-  server.auth.scheme('headerKeys', (s, { keys, header }: { header: string, keys: string[]}) => ({
-    authenticate: (request, reply) => {
-      const key = request.headers[header.toLowerCase()];
-      if (!key) {
-        reply(Boom.unauthorized(`Missing ${header} header`));
-      } else if (keys.indexOf(key) === -1) {
-        reply(Boom.unauthorized(`Key ${key} is not a valid key`));
-      } else {
-        reply.continue({ credentials: key });
-      }
-    },
-  }));
+  server.auth.scheme(
+    'headerKeys',
+    (s, { keys, header }: { header: string, keys: string[] }) => ({
+      authenticate: (request, reply) => {
+        const key = request.headers[header.toLowerCase()];
+        if (!key) {
+          reply(Boom.unauthorized(`Missing ${header} header`));
+        } else if (keys.indexOf(key) === -1) {
+          reply(Boom.unauthorized(`Key ${key} is not a valid key`));
+        } else {
+          reply.continue({ credentials: key });
+        }
+      },
+    }),
+  );
 
   server.auth.strategy('apiKey', 'headerKeys', {
     header: 'X-API-KEY',
@@ -68,15 +71,20 @@ export default async function startServer({ opbeat }: any) {
           {
             module: 'good-squeeze',
             name: 'Squeeze',
-            args: [{
-              response: '*',
-              log: '*',
-            }],
-          }, {
+            args: [
+              {
+                response: '*',
+                log: '*',
+              },
+            ],
+          },
+          {
             module: 'good-console',
-            args: [{
-              color: process.env.NODE_ENV !== 'production',
-            }],
+            args: [
+              {
+                color: process.env.NODE_ENV !== 'production',
+              },
+            ],
           },
           'stdout',
         ],
@@ -96,11 +104,23 @@ export default async function startServer({ opbeat }: any) {
       graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
         schema,
         context: ({
-          open311: new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat),
-          publicOpen311: new Open311(process.env.LEGACY_311_ENDPOINT, null, opbeat),
+          open311: new Open311(
+            process.env.PROD_311_ENDPOINT,
+            process.env.PROD_311_KEY,
+            opbeat,
+          ),
+          publicOpen311: new Open311(
+            process.env.LEGACY_311_ENDPOINT,
+            null,
+            opbeat,
+          ),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
-          searchBox: new SearchBox(process.env.SEARCHBOX_SSL_URL, process.env.ELASTICSEARCH_INDEX, opbeat),
+          searchBox: new SearchBox(
+            process.env.SEARCHBOX_SSL_URL,
+            process.env.ELASTICSEARCH_INDEX,
+            opbeat,
+          ),
         }: Context),
       })),
       route: {
@@ -142,7 +162,8 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/request/{code}/{stage}',
-    handler: (request, reply) => reply.redirect(`/request/${request.params.code}`),
+    handler: (request, reply) =>
+      reply.redirect(`/request/${request.params.code}`),
   });
 
   server.route({
@@ -178,7 +199,13 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/sitemap.xml',
-    handler: sitemapHandler(new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, opbeat)),
+    handler: sitemapHandler(
+      new Open311(
+        process.env.PROD_311_ENDPOINT,
+        process.env.PROD_311_KEY,
+        opbeat,
+      ),
+    ),
   });
 
   server.route({
@@ -196,7 +223,12 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/robots.txt',
-    handler: (request, reply) => reply.file(process.env.HEROKU_PIPELINE === 'staging' ? 'static/robots-staging.txt' : 'static/robots-production.txt'),
+    handler: (request, reply) =>
+      reply.file(
+        process.env.HEROKU_PIPELINE === 'staging'
+          ? 'static/robots-staging.txt'
+          : 'static/robots-production.txt',
+      ),
   });
 
   server.route({
@@ -207,8 +239,14 @@ export default async function startServer({ opbeat }: any) {
         return reply(Boom.forbidden());
       }
 
-      const p = Path.join('static', 'assets', ...request.params.path.split('/'));
-      return reply.file(p).header('Cache-Control', 'public, max-age=3600, s-maxage=600');
+      const p = Path.join(
+        'static',
+        'assets',
+        ...request.params.path.split('/'),
+      );
+      return reply
+        .file(p)
+        .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
     },
   });
 

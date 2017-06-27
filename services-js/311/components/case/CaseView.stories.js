@@ -15,7 +15,8 @@ const MOCK_REQUEST: Request = {
   },
   description: 'I think that Thanos is here',
   status: 'closed',
-  statusNotes: 'Found Thanos. Smashed him into the floor with all of us standing around.',
+  statusNotes:
+    'Found Thanos. Smashed him into the floor with all of us standing around.',
   location: {
     lat: 42.359927299999995,
     lng: -71.0576853,
@@ -35,21 +36,34 @@ function makeStore() {
 const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
 
 storiesOf('CaseView', module)
-  .addDecorator((next) => (
-    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
-  ))
-  .add('Submitted', () => (
+  .addDecorator(next =>
+    <div className="b-c" style={{ background: 'white' }}>{next()}</div>,
+  )
+  .add('Submitted', () =>
     <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} submitted noMap={suppressMap} />
-    </div>
-  ))
-  .add('Open', () => (
+      <CaseView
+        request={{ ...MOCK_REQUEST, status: 'open' }}
+        store={makeStore()}
+        submitted
+        noMap={suppressMap}
+      />
+    </div>,
+  )
+  .add('Open', () =>
     <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={{ ...MOCK_REQUEST, status: 'open' }} store={makeStore()} noMap={suppressMap} />
-    </div>
-  ))
-  .add('Resolved', () => (
+      <CaseView
+        request={{ ...MOCK_REQUEST, status: 'open' }}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>,
+  )
+  .add('Resolved', () =>
     <div style={{ backgroundColor: 'white' }}>
-      <CaseView request={MOCK_REQUEST} store={makeStore()} noMap={suppressMap} />
-    </div>
-  ));
+      <CaseView
+        request={MOCK_REQUEST}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>,
+  );

@@ -19,16 +19,21 @@ jest.mock('../../data/dao/load-top-service-summaries');
 jest.mock('../../data/dao/load-service');
 jest.mock('../../data/dao/search-cases');
 
-const loadTopServiceSummaries: JestMockFn = (require('../../data/dao/load-top-service-summaries'): any).default;
-const loadService: JestMockFn = (require('../../data/dao/load-service'): any).default;
-const searchCases: JestMockFn = (require('../../data/dao/search-cases'): any).default;
+const loadTopServiceSummaries: JestMockFn = (require('../../data/dao/load-top-service-summaries'): any)
+  .default;
+const loadService: JestMockFn = (require('../../data/dao/load-service'): any)
+  .default;
+const searchCases: JestMockFn = (require('../../data/dao/search-cases'): any)
+  .default;
 
-const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [{
-  name: 'Cosmic Incursion',
-  code: 'CSMCINC',
-  description: 'Something is threatening the fabric of the universe',
-  group: 'ultimate',
-}];
+const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [
+  {
+    name: 'Cosmic Incursion',
+    code: 'CSMCINC',
+    description: 'Something is threatening the fabric of the universe',
+    group: 'ultimate',
+  },
+];
 
 const MOCK_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -36,31 +41,41 @@ const MOCK_SERVICE: Service = {
   code: 'CSMCINC',
   contactRequirement: 'REQUIRED',
   locationRequirement: 'VISIBLE',
-  attributes: [{
-    required: false,
-    type: 'TEXT',
-    code: 'ST-CMTS',
-    description: 'Please provide any other relevant information:',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: false,
-    type: 'STRING',
-    code: 'INFO-CSIRMV1',
-    description: '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
-    values: null,
-    conditionalValues: null,
-    dependencies: null,
-  }, {
-    required: true,
-    type: 'SINGLEVALUELIST',
-    code: 'SR-CSIRMV1',
-    description: 'How many dimensions have been breached?',
-    values: [{ key: 'One', name: 'One' }, { key: 'Two', name: 'Two' }, { key: 'Three', name: 'Three' }, { key: 'More than Three', name: 'More than Three' }],
-    conditionalValues: [],
-    dependencies: null,
-  }],
+  attributes: [
+    {
+      required: false,
+      type: 'TEXT',
+      code: 'ST-CMTS',
+      description: 'Please provide any other relevant information:',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: false,
+      type: 'STRING',
+      code: 'INFO-CSIRMV1',
+      description:
+        '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
+      values: null,
+      conditionalValues: null,
+      dependencies: null,
+    },
+    {
+      required: true,
+      type: 'SINGLEVALUELIST',
+      code: 'SR-CSIRMV1',
+      description: 'How many dimensions have been breached?',
+      values: [
+        { key: 'One', name: 'One' },
+        { key: 'Two', name: 'Two' },
+        { key: 'Three', name: 'Three' },
+        { key: 'More than Three', name: 'More than Three' },
+      ],
+      conditionalValues: [],
+      dependencies: null,
+    },
+  ],
 };
 
 let store;
@@ -114,7 +129,11 @@ describe('existing service page', () => {
   });
 
   test('rendering phone', async () => {
-    const ctx = makeServerContext('/request', { code: 'CSMCINC' }, { isPhone: true });
+    const ctx = makeServerContext(
+      '/request',
+      { code: 'CSMCINC' },
+      { isPhone: true },
+    );
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
       <RequestLayout data={data} store={store} />,
@@ -124,7 +143,11 @@ describe('existing service page', () => {
   });
 
   test('rendering phone location step', async () => {
-    const ctx = makeServerContext('/request', { code: 'CSMCINC', stage: 'location' }, { isPhone: true });
+    const ctx = makeServerContext(
+      '/request',
+      { code: 'CSMCINC', stage: 'location' },
+      { isPhone: true },
+    );
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
       <RequestLayout data={data} store={store} />,
@@ -183,11 +206,17 @@ describe('routeToServiceForm', () => {
 
   it('defaults to questions', () => {
     requestLayout.routeToServiceForm('CSMCINC');
-    expect(Router.push).toHaveBeenCalledWith('/request?code=CSMCINC', '/request/CSMCINC');
+    expect(Router.push).toHaveBeenCalledWith(
+      '/request?code=CSMCINC',
+      '/request/CSMCINC',
+    );
   });
 
   it('includes the stage', () => {
     requestLayout.routeToServiceForm('CSMCINC', 'contact');
-    expect(Router.push).toHaveBeenCalledWith('/request?code=CSMCINC&stage=contact', '/request/CSMCINC/contact');
+    expect(Router.push).toHaveBeenCalledWith(
+      '/request?code=CSMCINC&stage=contact',
+      '/request/CSMCINC/contact',
+    );
   });
 });

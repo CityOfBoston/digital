@@ -23,15 +23,29 @@ const makeStore = (address: string, notFound: boolean) => {
 };
 
 storiesOf('LocationPopUp', module)
-  .addDecorator((story) => (
+  .addDecorator(story =>
     <div className={CORNER_DIALOG_STYLE}>
       <FormDialog noPadding>{story()}</FormDialog>
-    </div>
-  ))
-  .add('with address', () => (
-    <LocationPopUp {...props} store={makeStore('1 Franklin Park Rd\nBoston, MA 02121', false)} requestForm={new RequestForm()} />
-  ))
-  .add('without address', () => (
-    <LocationPopUp {...props} store={makeStore('', false)} requestForm={new RequestForm()} />
-  ))
-  .add('address not found', () => <LocationPopUp {...props} store={makeStore('', true)} requestForm={new RequestForm()} />);
+    </div>,
+  )
+  .add('with address', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore('1 Franklin Park Rd\nBoston, MA 02121', false)}
+      requestForm={new RequestForm()}
+    />,
+  )
+  .add('without address', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore('', false)}
+      requestForm={new RequestForm()}
+    />,
+  )
+  .add('address not found', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore('', true)}
+      requestForm={new RequestForm()}
+    />,
+  );

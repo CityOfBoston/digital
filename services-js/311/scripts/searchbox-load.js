@@ -17,11 +17,14 @@ function loadRecords(): Promise<ServiceRequest[]> {
 }
 
 function upload(records: ServiceRequest[]): Promise<BulkResponse> {
-  const searchBox = new SearchBox(process.env.SEARCHBOX_SSL_URL, process.env.ELASTICSEARCH_INDEX);
+  const searchBox = new SearchBox(
+    process.env.SEARCHBOX_SSL_URL,
+    process.env.ELASTICSEARCH_INDEX,
+  );
   return searchBox.createCases(records);
 }
 
-((async function searchBoxLoad() {
+(async function searchBoxLoad() {
   const records = await loadRecords();
 
   console.info(`DOWNLOADED ${records.length} CASES`);
@@ -29,7 +32,7 @@ function upload(records: ServiceRequest[]): Promise<BulkResponse> {
   const result = await upload(records);
 
   console.info(`UPLOADED CASES ${result.errors ? 'WITH ERRORS' : ''}`);
-}()).catch((err) => {
+})().catch(err => {
   console.error(err);
   process.exit(1);
-}));
+});

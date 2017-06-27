@@ -40,12 +40,12 @@ const CONTINUE_LINK_STYLE = css({
 
 export type DefaultProps = {
   showContinueInEnglish: boolean,
-}
+};
 
 export type Props = {|
   languages: LanguagePreference[],
   showContinueInEnglish?: boolean,
-|}
+|};
 
 const LANGUAGES = [
   { code: 'ht', name: 'Kreyòl Ayisyen' },
@@ -79,12 +79,12 @@ export default class TranslateDialog extends React.Component {
 
       if (lang.region) {
         const key = `${lang.code}-${lang.region}`;
-        if (LANGUAGES.find(({ code }) => (code === key))) {
+        if (LANGUAGES.find(({ code }) => code === key)) {
           return key;
         }
       }
 
-      if (LANGUAGES.find(({ code }) => (code === lang.code))) {
+      if (LANGUAGES.find(({ code }) => code === lang.code)) {
         return lang.code;
       }
     }
@@ -105,28 +105,32 @@ export default class TranslateDialog extends React.Component {
         <FormDialog>
           <div className={DIALOG_CONTENTS_STYLE}>
             <div className="g">
-              { LANGUAGES.map(({ code, name }) => this.renderButton(code, name)) }
+              {LANGUAGES.map(({ code, name }) => this.renderButton(code, name))}
             </div>
 
-            <div className="g m-v500 p-a500" style={{ alignItems: 'center' }} >
-              <div className="g--3" >
+            <div className="g m-v500 p-a500" style={{ alignItems: 'center' }}>
+              <div className="g--3">
                 <svg role="img" className={TELEPHONE_STYLE}>
                   <use xlinkHref={`${SPRITE_URL}#Phone_off`} height="100%" />
                 </svg>
               </div>
 
               <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
-                If you need to report a non-emergency issue with the City of Boston, please call
-                BOS:311 at 311 or <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+                If you need to report a non-emergency issue with the City of
+                Boston, please call
+                BOS:311 at 311 or{' '}
+                <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
               </div>
 
             </div>
 
-            { showContinueInEnglish && (
-              <div className={`p-a500 t--info ${CONTINUE_LINK_STYLE.toString()}`}>
-                <Link href="/request?translate=0" as="/?translate=0"><a>Continue in English</a></Link>
-              </div>
-            )}
+            {showContinueInEnglish &&
+              <div
+                className={`p-a500 t--info ${CONTINUE_LINK_STYLE.toString()}`}>
+                <Link href="/request?translate=0" as="/?translate=0">
+                  <a>Continue in English</a>
+                </Link>
+              </div>}
           </div>
         </FormDialog>
       </div>
@@ -139,7 +143,13 @@ export default class TranslateDialog extends React.Component {
     }
 
     return (
-      <button type="button" key={code} className={`btn g--2 m-v100 ${(code === this.code) ? 'btn--c' : ''}`} onClick={this.setLanguageCode.bind(this, code)}>{title}</button>
+      <button
+        type="button"
+        key={code}
+        className={`btn g--2 m-v100 ${code === this.code ? 'btn--c' : ''}`}
+        onClick={this.setLanguageCode.bind(this, code)}>
+        {title}
+      </button>
     );
   }
 }

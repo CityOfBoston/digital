@@ -8,7 +8,7 @@ import { observer } from 'mobx-react';
 import type Question from '../../../data/store/Question';
 
 export type Props = {|
-  question: Question;
+  question: Question,
 |};
 
 const INPUT_STYLE = css({
@@ -50,7 +50,8 @@ export default class AttributeDateField extends React.Component {
       () => this.questionDate,
       (date: ?Date) => {
         if (date) {
-          this.dateValue = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+          this.dateValue = `${date.getMonth() +
+            1}/${date.getDate()}/${date.getFullYear()}`;
 
           const hours = date.getHours();
           const minutes = date.getMinutes();
@@ -106,7 +107,7 @@ export default class AttributeDateField extends React.Component {
       } else {
         // In this case we have a date value but no time. We want to convert
         // it into a Date value for that day in the current timezone.
-        const [year, month, day] = value.split('-').map((v) => parseInt(v, 10));
+        const [year, month, day] = value.split('-').map(v => parseInt(v, 10));
         return new Date(year, month - 1, day);
       }
     } else {
@@ -144,11 +145,13 @@ export default class AttributeDateField extends React.Component {
     this.timeFocus = false;
   }
 
-  @computed get showTime(): boolean {
+  @computed
+  get showTime(): boolean {
     return this.props.question.type === 'DATETIME';
   }
 
-  @computed get datePieces(): ?Object {
+  @computed
+  get datePieces(): ?Object {
     const datePieces = (this.dateValue || '').split('/');
     if (datePieces.length !== 3) {
       return null;
@@ -174,8 +177,10 @@ export default class AttributeDateField extends React.Component {
     return { month, day, year };
   }
 
-  @computed get timePieces(): ?Object {
-    const timeMatch = (this.timeValue || '').match(/(\d+):(\d\d)\s*([aApP][mM])/);
+  @computed
+  get timePieces(): ?Object {
+    const timeMatch = (this.timeValue || '')
+      .match(/(\d+):(\d\d)\s*([aApP][mM])/);
     if (!timeMatch) {
       return null;
     }
@@ -201,19 +206,28 @@ export default class AttributeDateField extends React.Component {
     return { hours, minutes };
   }
 
-  @computed get isDateValid(): boolean {
-    return (this.dateValue === '' && !this.timeValue) || this.datePieces !== null;
+  @computed
+  get isDateValid(): boolean {
+    return (
+      (this.dateValue === '' && !this.timeValue) || this.datePieces !== null
+    );
   }
 
-  @computed get isTimeValid(): boolean {
-    return !this.showTime || (this.timeValue === '' && !this.dateValue) || this.timePieces !== null;
+  @computed
+  get isTimeValid(): boolean {
+    return (
+      !this.showTime ||
+      (this.timeValue === '' && !this.dateValue) ||
+      this.timePieces !== null
+    );
   }
 
   /* combines date and time if necessary into an ISO string to write to
      the store. Returns null if the current values are not parsable, and '' if
      they're both empty.
   */
-  @computed get validValue(): ?string {
+  @computed
+  get validValue(): ?string {
     if (!this.dateValue && !this.timeValue) {
       return '';
     }
@@ -237,7 +251,9 @@ export default class AttributeDateField extends React.Component {
       const date = new Date(year, month - 1, day, hours, minutes);
       return date.toISOString();
     } else {
-      return `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
+      return `${year}-${month < 10 ? `0${month}` : month}-${day < 10
+        ? `0${day}`
+        : day}`;
     }
   }
 
@@ -247,14 +263,19 @@ export default class AttributeDateField extends React.Component {
 
     return (
       <div className="txt">
-        <label className="txt-l" htmlFor={question.code}>{question.description} {maybeRenderRequired(question.required)}</label>
+        <label className="txt-l" htmlFor={question.code}>
+          {question.description} {maybeRenderRequired(question.required)}
+        </label>
 
         <div className={INPUT_MESSAGE_CONTAINER_STYLE}>
           <input
             placeholder="mm/dd/yyyy"
             name={question.code}
             id={question.code}
-            className={`txt-f ${INPUT_STYLE.toString()} ${this.isDateValid || this.dateFocus ? '' : 'txt-f--err'}`}
+            className={`txt-f ${INPUT_STYLE.toString()} ${this.isDateValid ||
+              this.dateFocus
+              ? ''
+              : 'txt-f--err'}`}
             value={dateValue}
             onChange={this.handleDateChange}
             onFocus={this.handleDateFocus}
@@ -262,23 +283,29 @@ export default class AttributeDateField extends React.Component {
             aria-required={question.required}
           />
 
-          { this.showTime &&
+          {this.showTime &&
             <input
               placeholder="hh:mm am/pm"
               name={`${question.code} time`}
-              className={`txt-f ${INPUT_STYLE.toString()} ${this.isTimeValid || this.timeFocus ? '' : 'txt-f--err'}`}
+              className={`txt-f ${INPUT_STYLE.toString()} ${this.isTimeValid ||
+                this.timeFocus
+                ? ''
+                : 'txt-f--err'}`}
               value={timeValue}
               onChange={this.handleTimeChange}
               onFocus={this.handleTimeFocus}
               onBlur={this.handleTimeBlur}
               aria-required={question.required}
               aria-label={`${question.description} time field`}
-            />
-          }
+            />}
 
           <span className="t--err p-a300">
-            { !this.isDateValid && !this.dateFocus && 'Please use mm/dd/yyyy to format your date. '}
-            { !this.isTimeValid && !this.timeFocus && 'Please use hh:mm am/pm to format your time. '}
+            {!this.isDateValid &&
+              !this.dateFocus &&
+              'Please use mm/dd/yyyy to format your date. '}
+            {!this.isTimeValid &&
+              !this.timeFocus &&
+              'Please use hh:mm am/pm to format your time. '}
           </span>
 
         </div>

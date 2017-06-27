@@ -16,7 +16,10 @@ export default class Accessibility {
     this.messageListenerDisposer = autorun('a11y message listener', () => {
       if (this.el) {
         this.el.innerText = this.message;
-        this.el.setAttribute('aria-live', this.interrupt ? 'assertive' : 'polite');
+        this.el.setAttribute(
+          'aria-live',
+          this.interrupt ? 'assertive' : 'polite',
+        );
       }
     });
   }

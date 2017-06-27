@@ -22,9 +22,9 @@ export const WAYPOINT_STYLE = css({
   height: WAYPOINT_BASE_OPTIONS.iconSize.y,
   top: '50%',
   left: '50%',
-  transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor.x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
+  transform: `translate(${-WAYPOINT_BASE_OPTIONS.iconAnchor
+    .x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
 });
-
 
 const greenEmpty: DivIconOptions = {
   ...WAYPOINT_BASE_OPTIONS,

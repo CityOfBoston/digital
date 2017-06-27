@@ -58,7 +58,14 @@ beforeEach(() => {
 
   map = L.map(document.createElement('div'));
 
-  searchMarkerPool = new SearchMarkerPool(FAKE_MAPBOX_L, map, requestSearch, opacityComputed, true, outsideClickHandler);
+  searchMarkerPool = new SearchMarkerPool(
+    FAKE_MAPBOX_L,
+    map,
+    requestSearch,
+    opacityComputed,
+    true,
+    outsideClickHandler,
+  );
 });
 
 afterEach(() => {
@@ -78,7 +85,10 @@ describe('generation', () => {
   });
 
   test('request without location', () => {
-    requestSearch.updateCaseSearchResults({ cases: [{ ...MOCK_REQUEST, location: null }], query: '' });
+    requestSearch.updateCaseSearchResults({
+      cases: [{ ...MOCK_REQUEST, location: null }],
+      query: '',
+    });
     expect(createdMarkers.length).toEqual(0);
   });
 
@@ -86,7 +96,10 @@ describe('generation', () => {
     requestSearch.updateCaseSearchResults({ cases: [MOCK_REQUEST], query: '' });
     expect(createdMarkers.length).toEqual(1);
 
-    requestSearch.updateCaseSearchResults({ cases: [{ ...MOCK_REQUEST }], query: '' });
+    requestSearch.updateCaseSearchResults({
+      cases: [{ ...MOCK_REQUEST }],
+      query: '',
+    });
     // new Marker was not created
     expect(createdMarkers.length).toEqual(1);
   });
@@ -95,7 +108,10 @@ describe('generation', () => {
     requestSearch.updateCaseSearchResults({ cases: [MOCK_REQUEST], query: '' });
     const marker = createdMarkers[0];
 
-    requestSearch.updateCaseSearchResults({ cases: [{ ...MOCK_REQUEST, id: 'new-request-id' }], query: 'new query' });
+    requestSearch.updateCaseSearchResults({
+      cases: [{ ...MOCK_REQUEST, id: 'new-request-id' }],
+      query: 'new query',
+    });
     // new Marker was created
     expect(createdMarkers.length).toEqual(2);
     expect(map.hasLayer(marker)).toEqual(false);
@@ -130,7 +146,10 @@ describe('icon update', () => {
   });
 
   it('sets a closed icon', () => {
-    requestSearch.updateCaseSearchResults({ cases: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
+    requestSearch.updateCaseSearchResults({
+      cases: [{ ...MOCK_REQUEST, status: 'closed' }],
+      query: '',
+    });
     const marker = createdMarkers[0];
     if (!marker.options.icon) {
       expect(marker.options.icon).toBeDefined();
@@ -152,7 +171,10 @@ describe('icon update', () => {
   });
 
   it('updates to hover when selected', () => {
-    requestSearch.updateCaseSearchResults({ cases: [{ ...MOCK_REQUEST, status: 'closed' }], query: '' });
+    requestSearch.updateCaseSearchResults({
+      cases: [{ ...MOCK_REQUEST, status: 'closed' }],
+      query: '',
+    });
     const marker = createdMarkers[0];
 
     requestSearch.selectedRequest = MOCK_REQUEST;

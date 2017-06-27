@@ -43,13 +43,15 @@ export type SearchResponse = {
     hits: Array<SearchHit>,
     took: 5,
     timed_out: boolean,
-  }
+  },
 };
 
 function convertRequestToDocument(request: ServiceRequest): IndexedCase {
   return {
     status: request.status,
-    location: (request.lat && request.long) ? { lat: request.lat, lon: request.long } : null,
+    location: request.lat && request.long
+      ? { lat: request.lat, lon: request.long }
+      : null,
     address: request.address || '',
     description: request.description || '',
     service_name: request.service_name || '',
@@ -73,7 +75,6 @@ export default class ElasticSearch {
       throw new Error('Missing Elasticsearch index name');
     }
 
-
     this.client = new elasticsearch.Client({
       host: url,
     });
@@ -84,30 +85,34 @@ export default class ElasticSearch {
 
   initIndex(): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.client.indices.create({
-        index: this.index,
-        body: {
-          mappings: {
-            case: {
-              properties: {
-                location: { type: 'geo_point' },
+      this.client.indices.create(
+        {
+          index: this.index,
+          body: {
+            mappings: {
+              case: {
+                properties: {
+                  location: { type: 'geo_point' },
+                },
               },
             },
           },
         },
-      }, (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
+        err => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        },
+      );
     });
   }
 
   createCases(requests: ServiceRequest[]): Promise<BulkResponse> {
     return new Promise((resolve, reject) => {
-      const transaction = this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
+      const transaction =
+        this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
 
       const actions = [];
 
@@ -142,9 +147,14 @@ export default class ElasticSearch {
     });
   }
 
-  searchCases(query: ?string, topLeft: ?{lat: number, lng: number}, bottomRight: ?{lat: number, lng: number}): Promise<Array<string>> {
+  searchCases(
+    query: ?string,
+    topLeft: ?{ lat: number, lng: number },
+    bottomRight: ?{ lat: number, lng: number },
+  ): Promise<Array<string>> {
     return new Promise((resolve, reject) => {
-      const transaction = this.opbeat && this.opbeat.startTransaction('search', 'SearchBox');
+      const transaction =
+        this.opbeat && this.opbeat.startTransaction('search', 'SearchBox');
 
       const must = [];
       const filter = [];
@@ -175,30 +185,33 @@ export default class ElasticSearch {
         });
       }
 
-      this.client.search({
-        index: this.index,
-        type: 'case',
-        body: {
-          size: 50,
-          sort: [{ requested_datetime: 'desc' }],
-          query: {
-            bool: {
-              must,
-              filter,
+      this.client.search(
+        {
+          index: this.index,
+          type: 'case',
+          body: {
+            size: 50,
+            sort: [{ requested_datetime: 'desc' }],
+            query: {
+              bool: {
+                must,
+                filter,
+              },
             },
           },
         },
-      }, (err: ?Error, res: SearchResponse) => {
-        if (transaction) {
-          transaction.end();
-        }
+        (err: ?Error, res: SearchResponse) => {
+          if (transaction) {
+            transaction.end();
+          }
 
-        if (err) {
-          reject(err);
-        } else {
-          resolve(res.hits.hits.map(({ _id }) => _id));
-        }
-      });
+          if (err) {
+            reject(err);
+          } else {
+            resolve(res.hits.hits.map(({ _id }) => _id));
+          }
+        },
+      );
     });
   }
 }

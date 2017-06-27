@@ -58,8 +58,10 @@ const SLIDE_IN_ANIMATION = {
   style: {
     display: 'none',
   },
-  begin: (els) => {
-    els.forEach((el) => { el.style.display = 'block'; });
+  begin: els => {
+    els.forEach(el => {
+      el.style.display = 'block';
+    });
   },
 };
 
@@ -80,8 +82,10 @@ const FADE_IN_ANIMATION = {
   style: {
     display: 'none',
   },
-  begin: (els) => {
-    els.forEach((el) => { el.style.display = 'block'; });
+  begin: els => {
+    els.forEach(el => {
+      el.style.display = 'block';
+    });
   },
 };
 
@@ -92,28 +96,28 @@ const FADE_OUT_ANIMATION = {
   },
 };
 
-
 type DefaultProps = {
   reduceMotion: boolean,
-}
+};
 
 type Props = {
   reduceMotion?: boolean,
-}
+};
 
 @observer
 export default class LoadingBuildings extends React.Component {
   props: Props;
   static defaultProps: DefaultProps = {
     reduceMotion: false,
-  }
+  };
 
   static preload() {
     const img = new Image();
     img.src = SPRITE_URL;
   }
 
-  @computed get neighborhood(): string {
+  @computed
+  get neighborhood(): string {
     const { reduceMotion } = this.props;
 
     if (process.env.NODE_ENV === 'test' || inPercy()) {
@@ -131,14 +135,19 @@ export default class LoadingBuildings extends React.Component {
     const leave = reduceMotion ? FADE_OUT_ANIMATION : SLIDE_OUT_ANIMATION;
 
     return (
-      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE} runOnMount>
+      <VelocityTransitionGroup
+        enter={enter}
+        leave={leave}
+        className={CONTAINER_STYLE}
+        runOnMount>
         {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
         <svg
           role="img"
           key={this.neighborhood}
           className={BUILDING_STYLE}
           dangerouslySetInnerHTML={{
-            __html: `<use xlink:href="${SPRITE_URL}#${this.neighborhood}" height="100%"></use>`,
+            __html: `<use xlink:href="${SPRITE_URL}#${this
+              .neighborhood}" height="100%"></use>`,
           }}
         />
       </VelocityTransitionGroup>

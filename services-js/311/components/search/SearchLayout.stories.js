@@ -16,7 +16,7 @@ const makeStore = action((mapView: boolean) => {
 
 storiesOf('SearchLayout', module)
   .addDecorator(page)
-  .add('List View', () => (
+  .add('List View', () =>
     <SearchLayout
       store={makeStore(false)}
       data={{
@@ -29,9 +29,9 @@ storiesOf('SearchLayout', module)
         },
       }}
       noMap
-    />
-  ))
-  .add('Map View', () => (
+    />,
+  )
+  .add('Map View', () =>
     <SearchLayout
       store={makeStore(true)}
       data={{
@@ -44,6 +44,5 @@ storiesOf('SearchLayout', module)
         },
       }}
       noMap
-    />
-  ))
-;
+    />,
+  );

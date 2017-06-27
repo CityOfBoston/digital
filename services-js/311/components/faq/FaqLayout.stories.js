@@ -8,6 +8,6 @@ import FaqLayout from './FaqLayout';
 
 storiesOf('FaqLayout', module)
   .addDecorator(page)
-  .add('FAQ', () => (
-    <FaqLayout suppressQuestions={process.env.NODE_ENV === 'test'} />
-  ));
+  .add('FAQ', () =>
+    <FaqLayout suppressQuestions={process.env.NODE_ENV === 'test'} />,
+  );

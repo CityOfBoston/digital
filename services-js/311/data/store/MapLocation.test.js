@@ -5,8 +5,10 @@ import MapLocation from './MapLocation';
 
 jest.mock('../dao/search-address');
 jest.mock('../dao/reverse-geocode');
-const searchAddress: JestMockFn = (require('../dao/search-address'): any).default;
-const reverseGeocode: JestMockFn = (require('../dao/reverse-geocode'): any).default;
+const searchAddress: JestMockFn = (require('../dao/search-address'): any)
+  .default;
+const reverseGeocode: JestMockFn = (require('../dao/reverse-geocode'): any)
+  .default;
 
 describe('searching', () => {
   let mapLocation;
@@ -14,9 +16,11 @@ describe('searching', () => {
   let resolveGraphql: (place: ?SearchAddressPlace) => void;
 
   beforeEach(() => {
-    searchAddress.mockReturnValue(new Promise((resolve) => {
-      resolveGraphql = resolve;
-    }));
+    searchAddress.mockReturnValue(
+      new Promise(resolve => {
+        resolveGraphql = resolve;
+      }),
+    );
 
     loopbackGraphql = jest.fn();
 
@@ -40,7 +44,9 @@ describe('searching', () => {
 
     // We keep the address so that the search box doesn't jump around, but we
     // clear out the location so that the pin disappears
-    expect(mapLocation.address).toEqual('121 Devonshire Street, Boston, MA, 02108');
+    expect(mapLocation.address).toEqual(
+      '121 Devonshire Street, Boston, MA, 02108',
+    );
     expect(mapLocation.location).toEqual(null);
     expect(mapLocation.addressId).toEqual(null);
   });
@@ -48,7 +54,10 @@ describe('searching', () => {
   it('updates address and location on success', async () => {
     mapLocation.search('121 devonshire');
 
-    expect(searchAddress).toHaveBeenCalledWith(loopbackGraphql, '121 devonshire');
+    expect(searchAddress).toHaveBeenCalledWith(
+      loopbackGraphql,
+      '121 devonshire',
+    );
 
     await resolveGraphql({
       address: '121 Devonshire Street, Boston, MA, 02108',
@@ -60,7 +69,9 @@ describe('searching', () => {
       units: [],
     });
 
-    expect(mapLocation.address).toEqual('121 Devonshire Street, Boston, MA, 02108');
+    expect(mapLocation.address).toEqual(
+      '121 Devonshire Street, Boston, MA, 02108',
+    );
     expect(mapLocation.location).toEqual({
       lat: 42.35700999905103,
       lng: -71.05761000345488,
@@ -93,9 +104,11 @@ describe('reverse geocoding', () => {
   let resolveGraphql: (place: ?ReverseGeocodedPlace) => void;
 
   beforeEach(() => {
-    reverseGeocode.mockReturnValue(new Promise((resolve) => {
-      resolveGraphql = resolve;
-    }));
+    reverseGeocode.mockReturnValue(
+      new Promise(resolve => {
+        resolveGraphql = resolve;
+      }),
+    );
 
     loopbackGraphql = jest.fn();
 

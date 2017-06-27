@@ -53,8 +53,10 @@ const ROTATE_IN_ANIMATION = {
   style: {
     display: 'none',
   },
-  begin: (els) => {
-    els.forEach((el) => { el.style.display = 'block'; });
+  begin: els => {
+    els.forEach(el => {
+      el.style.display = 'block';
+    });
   },
 };
 
@@ -75,8 +77,10 @@ const FADE_IN_ANIMATION = {
   style: {
     display: 'none',
   },
-  begin: (els) => {
-    els.forEach((el) => { el.style.display = 'block'; });
+  begin: els => {
+    els.forEach(el => {
+      el.style.display = 'block';
+    });
   },
 };
 
@@ -91,13 +95,13 @@ type Props = {
   initialDelay?: number,
   serverCompatible?: boolean,
   reduceMotion?: boolean,
-}
+};
 
 type DefaultProps = {
   initialDelay: number,
   serverCompatible: boolean,
   reduceMotion: boolean,
-}
+};
 
 @observer
 export default class LoadingBuildings extends React.Component {
@@ -110,7 +114,7 @@ export default class LoadingBuildings extends React.Component {
     initialDelay: 0,
     serverCompatible: false,
     reduceMotion: false,
-  }
+  };
 
   static preload() {
     const img = new Image();
@@ -128,7 +132,8 @@ export default class LoadingBuildings extends React.Component {
 
     this.icons = [...ICONS];
 
-    this.startMillis = ((+new Date()) + (reduceMotion ? 0 : initialDelay)) - (this.delay / 2);
+    this.startMillis =
+      +new Date() + (reduceMotion ? 0 : initialDelay) - this.delay / 2;
 
     if (process.env.NODE_ENV !== 'test' && !inPercy()) {
       this.shuffleIcons();
@@ -152,11 +157,16 @@ export default class LoadingBuildings extends React.Component {
     }
   }
 
-  @computed get index(): number {
-    return Math.max(0, Math.floor((now(50) - this.startMillis) / this.delay) % this.icons.length);
+  @computed
+  get index(): number {
+    return Math.max(
+      0,
+      Math.floor((now(50) - this.startMillis) / this.delay) % this.icons.length,
+    );
   }
 
-  @computed get icon(): string {
+  @computed
+  get icon(): string {
     return this.icons[this.index];
   }
 
@@ -167,14 +177,18 @@ export default class LoadingBuildings extends React.Component {
     const leave = reduceMotion ? FADE_OUT_ANIMATION : ROTATE_OUT_ANIMATION;
 
     return (
-      <VelocityTransitionGroup enter={enter} leave={leave} className={CONTAINER_STYLE.toString()}>
+      <VelocityTransitionGroup
+        enter={enter}
+        leave={leave}
+        className={CONTAINER_STYLE.toString()}>
         {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
         <svg
           role="img"
           key={this.icon}
           className={ICON_STYLE}
           dangerouslySetInnerHTML={{
-            __html: `<use xlink:href="${SPRITE_URL}#${this.icon}" height="100%"></use>`,
+            __html: `<use xlink:href="${SPRITE_URL}#${this
+              .icon}" height="100%"></use>`,
           }}
         />
       </VelocityTransitionGroup>

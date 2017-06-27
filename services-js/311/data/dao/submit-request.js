@@ -3,7 +3,10 @@
 import type { Service, SubmittedRequest } from '../types';
 import type Question from '../store/Question';
 import type { LoopbackGraphql } from './loopback-graphql';
-import type { SubmitRequestMutationVariables, SubmitRequestMutation } from './graphql/types';
+import type {
+  SubmitRequestMutationVariables,
+  SubmitRequestMutation,
+} from './graphql/types';
 import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
 
 type Args = {|
@@ -24,19 +27,22 @@ type Args = {|
 // are taken from Store but are split out to clarify what values are necessary.
 //
 // Only submits valid values for the questions.
-export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
-  service,
-  description,
-  mediaUrl,
-  firstName,
-  lastName,
-  email,
-  phone,
-  address,
-  addressId,
-  location,
-  questions,
-}: Args): Promise<SubmittedRequest> {
+export default async function submitRequest(
+  loopbackGraphql: LoopbackGraphql,
+  {
+    service,
+    description,
+    mediaUrl,
+    firstName,
+    lastName,
+    email,
+    phone,
+    address,
+    addressId,
+    location,
+    questions,
+  }: Args,
+): Promise<SubmittedRequest> {
   const attributes = [];
 
   questions.forEach(({ code, validatedValue }) => {
@@ -48,7 +54,9 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
     if (Array.isArray(validatedValue)) {
       // Format for MULTIVALUELIST questions is to repeat the key in several
       // key/value pairs.
-      validatedValue.forEach((v) => { attributes.push({ code, value: v }); });
+      validatedValue.forEach(v => {
+        attributes.push({ code, value: v });
+      });
     } else {
       attributes.push({ code, value: validatedValue });
     }
@@ -68,6 +76,9 @@ export default async function submitRequest(loopbackGraphql: LoopbackGraphql, {
     attributes,
   };
 
-  const mutation: SubmitRequestMutation = await loopbackGraphql(SubmitRequestGraphql, vars);
+  const mutation: SubmitRequestMutation = await loopbackGraphql(
+    SubmitRequestGraphql,
+    vars,
+  );
   return mutation.createRequest;
 }

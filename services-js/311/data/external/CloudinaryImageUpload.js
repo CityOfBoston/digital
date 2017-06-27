@@ -7,7 +7,7 @@ import type { IObservable } from 'mobx';
 export type Config = {
   url: string,
   uploadPreset: string,
-}
+};
 
 export type UploadResponse = {
   bytes: number,
@@ -52,7 +52,7 @@ export default class CloudinaryImageUpload {
     // reaction to update our observed mediaURL when we get a new uploadedUrl
     reaction(
       () => this.uploadedUrl,
-      (uploadedUrl) => {
+      uploadedUrl => {
         if (this.adoptedUrlObservable) {
           this.adoptedUrlObservable.set(uploadedUrl);
         }
@@ -106,7 +106,9 @@ export default class CloudinaryImageUpload {
     // (i.e. we wouldn't fail a "remove" if the API call didn't work)
     if (this.uploadResponse) {
       if (!config) {
-        throw new Error('Trying to remove a file without configuring Cloudinary');
+        throw new Error(
+          'Trying to remove a file without configuring Cloudinary',
+        );
       }
 
       const formData = new FormData();
@@ -134,11 +136,13 @@ export default class CloudinaryImageUpload {
     }
   }
 
-  @computed get uploading(): boolean {
+  @computed
+  get uploading(): boolean {
     return !!this.uploadRequest;
   }
 
-  @computed get loaded(): boolean {
+  @computed
+  get loaded(): boolean {
     return !!this.uploadResponse;
   }
 
@@ -195,7 +199,8 @@ export default class CloudinaryImageUpload {
     this.uploadRequest = null;
   }
 
-  @computed get previewUrl(): ?string {
+  @computed
+  get previewUrl(): ?string {
     if (this.file && typeof this.file.preview === 'string') {
       return this.file.preview;
     } else {
@@ -203,15 +208,24 @@ export default class CloudinaryImageUpload {
     }
   }
 
-  @computed get uploadedUrl(): ?string {
+  @computed
+  get uploadedUrl(): ?string {
     return this.uploadResponse ? this.uploadResponse.secure_url : null;
   }
 
-  @computed get displayUrl(): ?string {
-    return this.previewUrl || (this.adoptedUrlObservable && this.adoptedUrlObservable.get());
+  @computed
+  get displayUrl(): ?string {
+    return (
+      this.previewUrl ||
+      (this.adoptedUrlObservable && this.adoptedUrlObservable.get())
+    );
   }
 
-  @computed get canRemove(): boolean {
-    return this.loaded || !!(this.adoptedUrlObservable && this.adoptedUrlObservable.get());
+  @computed
+  get canRemove(): boolean {
+    return (
+      this.loaded ||
+      !!(this.adoptedUrlObservable && this.adoptedUrlObservable.get())
+    );
   }
 }

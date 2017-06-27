@@ -6,13 +6,15 @@ import React from 'react';
 import stylesheetHrefs from '../templates/stylesheets.json';
 
 export default function makeCss(css: ?string) {
-  const publicCssHref = stylesheetHrefs.find((href) => href.match(/public\.css/));
-  const otherCssHrefs = stylesheetHrefs.filter((href) => !href.match(/public\.css/));
+  const publicCssHref = stylesheetHrefs.find(href => href.match(/public\.css/));
+  const otherCssHrefs = stylesheetHrefs.filter(
+    href => !href.match(/public\.css/),
+  );
 
   return [
-    ...otherCssHrefs.map((href) => (
-      <link href={href} key={href} type="text/css" rel="stylesheet" />
-    )),
+    ...otherCssHrefs.map(href =>
+      <link href={href} key={href} type="text/css" rel="stylesheet" />,
+    ),
 
     <head
       key="conditional-style"
@@ -23,13 +25,24 @@ export default function makeCss(css: ?string) {
           <!--<![endif]-->
           <!--[if lt IE 10]>
             <script src="/assets/vendor/ie9-polyfill.js"></script>
-            <link href="${publicCssHref.replace('public', 'ie')}" rel="stylesheet" type="text/css">
+            <link href="${publicCssHref.replace(
+              'public',
+              'ie',
+            )}" rel="stylesheet" type="text/css">
           <![endif]-->`,
       }}
     />,
 
-    <link key="mapbox" href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />,
-    <link key="mapbox-gl" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css" rel="stylesheet" />,
+    <link
+      key="mapbox"
+      href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css"
+      rel="stylesheet"
+    />,
+    <link
+      key="mapbox-gl"
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css"
+      rel="stylesheet"
+    />,
 
     <style type="text/css" key="default">{`
       body {
@@ -55,6 +68,11 @@ export default function makeCss(css: ?string) {
       @keyframes nprogress-spinner{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
     `}</style>,
 
-    css && <style type="text/css" key="static" dangerouslySetInnerHTML={{ __html: css }} />,
+    css &&
+      <style
+        type="text/css"
+        key="static"
+        dangerouslySetInnerHTML={{ __html: css }}
+      />,
   ];
 }

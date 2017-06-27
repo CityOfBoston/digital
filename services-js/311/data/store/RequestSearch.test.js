@@ -32,7 +32,7 @@ const MOCK_SEARCH_CASES_RESULT = {
 
 beforeEach(() => {
   requestSearch = new RequestSearch();
-  debounce.mockImplementation((fn) => fn);
+  debounce.mockImplementation(fn => fn);
 });
 
 describe('update', () => {
@@ -43,7 +43,10 @@ describe('update', () => {
 
   it('re-uses existing IDs', () => {
     requestSearch.updateCaseSearchResults(MOCK_SEARCH_CASES_RESULT);
-    requestSearch.updateCaseSearchResults({ ...MOCK_SEARCH_CASES_RESULT, requests: [{ ...MOCK_CASE }] });
+    requestSearch.updateCaseSearchResults({
+      ...MOCK_SEARCH_CASES_RESULT,
+      requests: [{ ...MOCK_CASE }],
+    });
 
     expect(requestSearch.results[0]).toEqual(MOCK_CASE);
     expect(requestSearch.results.length).toEqual(1);

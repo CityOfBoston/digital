@@ -14,5 +14,8 @@ test('loadRequest', async () => {
     id: '17-0000001',
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(LoadRequestGraphql, queryVariables);
+  expect(loopbackGraphql).toHaveBeenCalledWith(
+    LoadRequestGraphql,
+    queryVariables,
+  );
 });

@@ -45,7 +45,11 @@ type CreateRequestArgs = {|
 
 export const resolvers = {
   Mutation: {
-    createRequest: (root: mixed, args: CreateRequestArgs, { open311 }: Context) => {
+    createRequest: (
+      root: mixed,
+      args: CreateRequestArgs,
+      { open311 }: Context,
+    ) => {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
         description: args.description,
@@ -70,7 +74,7 @@ export const resolvers = {
         createArgs.long = args.location.lng;
       }
 
-      return open311.createRequest(createArgs).then((arr) => arr[0]);
+      return open311.createRequest(createArgs).then(arr => arr[0]);
     },
   },
 };

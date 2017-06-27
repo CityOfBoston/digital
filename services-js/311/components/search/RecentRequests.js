@@ -6,7 +6,12 @@ import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
 import type { AppStore } from '../../data/store';
-import { HEADER_HEIGHT, MEDIA_LARGE, GRAY_100, CLEAR_FIX } from '../style-constants';
+import {
+  HEADER_HEIGHT,
+  MEDIA_LARGE,
+  GRAY_100,
+  CLEAR_FIX,
+} from '../style-constants';
 
 import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
@@ -64,7 +69,7 @@ const LOADING_WRAPPER_STYLE = css({
 
 export type Props = {|
   store: AppStore,
-|}
+|};
 
 @observer
 export default class RecentRequests extends React.Component {
@@ -102,12 +107,14 @@ export default class RecentRequests extends React.Component {
     const { selectedRequest, selectedSource } = store.requestSearch;
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
-      const requestEl = this.mainEl.querySelector(`[data-request-id="${selectedRequest.id}"]`);
+      const requestEl = this.mainEl.querySelector(
+        `[data-request-id="${selectedRequest.id}"]`,
+      );
       if (Velocity && requestEl) {
         Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT });
       }
     }
-  }
+  };
 
   render() {
     const { store: { requestSearch, ui } } = this.props;
@@ -121,22 +128,36 @@ export default class RecentRequests extends React.Component {
 
         <h2 className="a11y--h">Search Results</h2>
 
-        { results.length === 0 && (loading || resultsQuery !== query) && (
+        {results.length === 0 &&
+          (loading || resultsQuery !== query) &&
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
-              <LoadingIcons initialDelay={0} serverCompatible reduceMotion={ui.reduceMotion} />
+              <LoadingIcons
+                initialDelay={0}
+                serverCompatible
+                reduceMotion={ui.reduceMotion}
+              />
             </div>
-          </div>
+          </div>}
+
+        {results.map(request =>
+          <RecentRequestRow
+            key={request.id}
+            request={request}
+            requestSearch={requestSearch}
+            ui={ui}
+          />,
         )}
 
-        { results.map((request) => <RecentRequestRow key={request.id} request={request} requestSearch={requestSearch} ui={ui} />) }
-
-        { results.length === 0 && !(loading || resultsQuery !== query) && (
+        {results.length === 0 &&
+          !(loading || resultsQuery !== query) &&
           <div className="p-a300">
             <div className="t--intro">No results found</div>
-            <div className="t--info">Try a different search term or move the map to search a different area.</div>
-          </div>
-        )}
+            <div className="t--info">
+              Try a different search term or move the map to search a different
+              area.
+            </div>
+          </div>}
       </div>
     );
   }

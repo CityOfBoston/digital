@@ -29,23 +29,31 @@ export default class BrowserLocation {
 
     this.loopbackGraphql = loopbackGraphql;
 
-    navigator.geolocation.getCurrentPosition(this.handlePosition, this.handlePositionError, {
-      enableHighAccuracy: false,
-      timeout: Number.MAX_SAFE_INTEGER,
-      maximumAge: 60 * 60 * 1000,
-    });
+    navigator.geolocation.getCurrentPosition(
+      this.handlePosition,
+      this.handlePositionError,
+      {
+        enableHighAccuracy: false,
+        timeout: Number.MAX_SAFE_INTEGER,
+        maximumAge: 60 * 60 * 1000,
+      },
+    );
 
-    navigator.geolocation.watchPosition(this.handlePosition, this.handlePositionError, {
-      enableHighAccuracy: true,
-      timeout: Number.MAX_SAFE_INTEGER,
-      maximumAge: 5 * 60 * 1000,
-    });
+    navigator.geolocation.watchPosition(
+      this.handlePosition,
+      this.handlePositionError,
+      {
+        enableHighAccuracy: true,
+        timeout: Number.MAX_SAFE_INTEGER,
+        maximumAge: 5 * 60 * 1000,
+      },
+    );
 
     // Use a reaction to do the geocode so we get free structural comparison
     // when location stays the same
     this.geocodeLocationDisposer = reaction(
       () => this.location,
-      async (location) => {
+      async location => {
         if (location && this.loopbackGraphql) {
           const res = await reverseGeocode(this.loopbackGraphql, location);
           runInAction('browser location geocode result', () => {

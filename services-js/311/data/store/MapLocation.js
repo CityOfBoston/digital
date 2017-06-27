@@ -57,8 +57,15 @@ export default class MapLocation {
   }
 
   @action
-  async geocodeLocation(location: {| lat: number, lng: number |}): Promise<void> {
-    if (this.location && this.location.lat === location.lat && this.location.lng === location.lng) {
+  async geocodeLocation(location: {|
+    lat: number,
+    lng: number,
+  |}): Promise<void> {
+    if (
+      this.location &&
+      this.location.lat === location.lat &&
+      this.location.lng === location.lng
+    ) {
       return;
     }
 
@@ -72,7 +79,11 @@ export default class MapLocation {
     const place = await reverseGeocode(this.loopbackGraphql, location);
 
     runInAction('reverse geocode result', () => {
-      if (this.location && this.location.lat === location.lat && this.location.lng === location.lng) {
+      if (
+        this.location &&
+        this.location.lat === location.lat &&
+        this.location.lng === location.lng
+      ) {
         this.addressId = null;
         this.units = [];
 

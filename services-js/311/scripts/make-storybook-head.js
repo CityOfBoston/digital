@@ -18,5 +18,10 @@ const css = `
   }
 `;
 
-const headElements = makeCss(css).filter((el) => !!el).map((el) => ReactDOMServer.renderToString(el));
-fs.writeFileSync(path.join(__dirname, '..', 'storybook', 'preview-head.html'), headElements.join('\n'));
+const headElements = makeCss(css)
+  .filter(el => !!el)
+  .map(el => ReactDOMServer.renderToString(el));
+fs.writeFileSync(
+  path.join(__dirname, '..', 'storybook', 'preview-head.html'),
+  headElements.join('\n'),
+);

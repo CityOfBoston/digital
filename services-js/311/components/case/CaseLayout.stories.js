@@ -15,7 +15,8 @@ const MOCK_REQUEST: Request = {
   },
   description: 'I think that Thanos is here',
   status: 'closed',
-  statusNotes: 'Found Thanos. Smashed him into the floor with all of us standing around.',
+  statusNotes:
+    'Found Thanos. Smashed him into the floor with all of us standing around.',
   location: {
     lat: 42.359927299999995,
     lng: -71.0576853,
@@ -34,9 +35,12 @@ function makeStore() {
 
 storiesOf('CaseLayout', module)
   .addDecorator(page)
-  .add('Existing', () => (
-    <CaseLayout data={{ request: { ...MOCK_REQUEST, status: 'open', location: null } }} store={makeStore()} />
-  ))
-  .add('404', () => (
-    <CaseLayout data={{ request: null }} store={makeStore()} />
-  ));
+  .add('Existing', () =>
+    <CaseLayout
+      data={{ request: { ...MOCK_REQUEST, status: 'open', location: null } }}
+      store={makeStore()}
+    />,
+  )
+  .add('404', () =>
+    <CaseLayout data={{ request: null }} store={makeStore()} />,
+  );

@@ -8,51 +8,71 @@ describe('filterPlainValues', () => {
   });
 
   it('returns values', () => {
-    expect(filterPlainValues([{
-      key: 'Dog',
-      name: 'Dog',
-    }, {
-      key: 'Bat',
-      name: 'Bat',
-    }, {
-      key: 'Bear',
-      name: 'Bear',
-    }])).toEqual([{
-      key: 'Dog',
-      name: 'Dog',
-    }, {
-      key: 'Bat',
-      name: 'Bat',
-    }, {
-      key: 'Bear',
-      name: 'Bear',
-    }]);
+    expect(
+      filterPlainValues([
+        {
+          key: 'Dog',
+          name: 'Dog',
+        },
+        {
+          key: 'Bat',
+          name: 'Bat',
+        },
+        {
+          key: 'Bear',
+          name: 'Bear',
+        },
+      ]),
+    ).toEqual([
+      {
+        key: 'Dog',
+        name: 'Dog',
+      },
+      {
+        key: 'Bat',
+        name: 'Bat',
+      },
+      {
+        key: 'Bear',
+        name: 'Bear',
+      },
+    ]);
   });
 
   it('removes dependentOn', () => {
-    expect(filterPlainValues([{
-      dependentOn: {
-        clause: 'OR',
-        conditions: [{
-          attribute: 'SR-ANMLGEN1',
-          op: 'eq',
-          value: 'Vicious/Aggressive',
-        }],
-      },
-      values: [{
-        key: 'Dog',
-        name: 'Dog',
-        img: '',
-      }, {
-        key: 'Bat',
-        name: 'Bat',
-        img: '',
-      }, {
-        key: 'Bear',
-        name: 'Bear',
-        img: '',
-      }],
-    }])).toEqual([]);
+    expect(
+      filterPlainValues([
+        {
+          dependentOn: {
+            clause: 'OR',
+            conditions: [
+              {
+                attribute: 'SR-ANMLGEN1',
+                op: 'eq',
+                value: 'Vicious/Aggressive',
+              },
+            ],
+          },
+          values: [
+            {
+              key: 'Dog',
+              name: 'Dog',
+              img: '',
+            },
+            {
+              key: 'Bat',
+              name: 'Bat',
+              img: '',
+            },
+            {
+              key: 'Bear',
+              name: 'Bear',
+              img: '',
+            },
+          ],
+        },
+      ]),
+    ).toEqual([]);
   });
 });
 
@@ -62,63 +82,87 @@ describe('filterConditionalValues', () => {
   });
 
   it('removes plain values', () => {
-    expect(filterConditionalValues([{
-      key: 'Dog',
-      name: 'Dog',
-    }, {
-      key: 'Bat',
-      name: 'Bat',
-    }, {
-      key: 'Bear',
-      name: 'Bear',
-    }])).toEqual([]);
+    expect(
+      filterConditionalValues([
+        {
+          key: 'Dog',
+          name: 'Dog',
+        },
+        {
+          key: 'Bat',
+          name: 'Bat',
+        },
+        {
+          key: 'Bear',
+          name: 'Bear',
+        },
+      ]),
+    ).toEqual([]);
   });
 
   it('returns dependentOn', () => {
-    expect(filterConditionalValues([{
-      dependentOn: {
-        clause: 'OR',
-        conditions: [{
-          attribute: 'SR-ANMLGEN1',
-          op: 'eq',
-          value: 'Vicious/Aggressive',
-        }],
+    expect(
+      filterConditionalValues([
+        {
+          dependentOn: {
+            clause: 'OR',
+            conditions: [
+              {
+                attribute: 'SR-ANMLGEN1',
+                op: 'eq',
+                value: 'Vicious/Aggressive',
+              },
+            ],
+          },
+          values: [
+            {
+              key: 'Dog',
+              name: 'Dog',
+              img: '',
+            },
+            {
+              key: 'Bat',
+              name: 'Bat',
+              img: '',
+            },
+            {
+              key: 'Bear',
+              name: 'Bear',
+              img: '',
+            },
+          ],
+        },
+      ]),
+    ).toEqual([
+      {
+        dependentOn: {
+          clause: 'OR',
+          conditions: [
+            {
+              attribute: 'SR-ANMLGEN1',
+              op: 'eq',
+              value: 'Vicious/Aggressive',
+            },
+          ],
+        },
+        values: [
+          {
+            key: 'Dog',
+            name: 'Dog',
+            img: '',
+          },
+          {
+            key: 'Bat',
+            name: 'Bat',
+            img: '',
+          },
+          {
+            key: 'Bear',
+            name: 'Bear',
+            img: '',
+          },
+        ],
       },
-      values: [{
-        key: 'Dog',
-        name: 'Dog',
-        img: '',
-      }, {
-        key: 'Bat',
-        name: 'Bat',
-        img: '',
-      }, {
-        key: 'Bear',
-        name: 'Bear',
-        img: '',
-      }],
-    }])).toEqual([{
-      dependentOn: {
-        clause: 'OR',
-        conditions: [{
-          attribute: 'SR-ANMLGEN1',
-          op: 'eq',
-          value: 'Vicious/Aggressive',
-        }],
-      },
-      values: [{
-        key: 'Dog',
-        name: 'Dog',
-        img: '',
-      }, {
-        key: 'Bat',
-        name: 'Bat',
-        img: '',
-      }, {
-        key: 'Bear',
-        name: 'Bear',
-        img: '',
-      }],
-    }]);
+    ]);
   });
 });

@@ -9,7 +9,7 @@ declare class HapiResponse {
 
 type HapiInject = (options: {|
   url: string,
-  headers?: {[key: string]: string},
+  headers?: { [key: string]: string },
   method: string,
   payload: any,
 |}) => Promise<HapiResponse>;
@@ -28,16 +28,20 @@ export type RequestAdditions = {|
     mapbox: Object,
   |},
   liveAgentButtonId: string,
-  loopbackGraphqlCache: {[key: string]: mixed},
+  loopbackGraphqlCache: { [key: string]: mixed },
 |};
 
-export const nextHandler = (app, page, staticQuery) => async ({ method, server, raw: { req, res }, query, params, pre }, reply) => {
+export const nextHandler = (app, page, staticQuery) => async (
+  { server, raw: { req, res }, query, params, pre },
+  reply,
+) => {
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
     languages: pre.language,
     apiKeys: {
       cloudinary: {
-        url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD || ''}`,
+        url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD ||
+          ''}`,
         uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET || '',
       },
       mapbox: {
@@ -61,7 +65,7 @@ export const nextHandler = (app, page, staticQuery) => async ({ method, server, 
   reply(html).code(res.statusCode);
 };
 
-export const nextDefaultHandler = (app) => {
+export const nextDefaultHandler = app => {
   const compressionMiddleware = compression();
   const handler = app.getRequestHandler();
 
@@ -70,7 +74,9 @@ export const nextDefaultHandler = (app) => {
     // gzipping or cache control.. So, we run an express middleware that
     // monkeypatches the raw response to gzip its output, and set our own
     // cache header.
-    await new Promise((resolve) => { compressionMiddleware(req, res, resolve); });
+    await new Promise(resolve => {
+      compressionMiddleware(req, res, resolve);
+    });
     await handler(req, res, url);
     hapiReply.close(false);
   };

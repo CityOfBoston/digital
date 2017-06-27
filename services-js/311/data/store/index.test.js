@@ -30,12 +30,12 @@ describe('Live Agent', () => {
 
   describe('liveAgentAvailable', () => {
     it('is false if not set on the window', () => {
-      expect((new AppStore()).liveAgentAvailable).toBe(false);
+      expect(new AppStore().liveAgentAvailable).toBe(false);
     });
 
     it('is true if already set on the window', () => {
       window.LIVE_AGENT_AVAILABLE = true;
-      expect((new AppStore()).liveAgentAvailable).toBe(true);
+      expect(new AppStore().liveAgentAvailable).toBe(true);
     });
   });
 
@@ -60,9 +60,13 @@ describe('Live Agent', () => {
       const store = new AppStore();
       store.liveAgentButtonId = 'buttonId';
 
-      expect(window.liveagent.addButtonEventHandler).toHaveBeenCalledWith('buttonId', expect.any(Function));
+      expect(window.liveagent.addButtonEventHandler).toHaveBeenCalledWith(
+        'buttonId',
+        expect.any(Function),
+      );
 
-      const eventHandler = window.liveagent.addButtonEventHandler.mock.calls[0][1];
+      const eventHandler =
+        window.liveagent.addButtonEventHandler.mock.calls[0][1];
 
       eventHandler('BUTTON_AVAILABLE');
       expect(store.liveAgentAvailable).toEqual(true);

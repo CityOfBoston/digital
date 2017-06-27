@@ -3,7 +3,12 @@
 import Question from './Question';
 import ConditionGroup from './ConditionGroup';
 
-const makeString = (string) => ({ type: 'STRING', string, array: null, number: null });
+const makeString = string => ({
+  type: 'STRING',
+  string,
+  array: null,
+  number: null,
+});
 
 describe('holds', () => {
   let question1;
@@ -41,69 +46,89 @@ describe('holds', () => {
     question1.value = 'value-1';
     question2.value = 'value-2';
 
-    expect(new ConditionGroup(
-      {
-        clause: 'AND',
-        conditions: [
-          { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
-          { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
-        ],
-      }, questionMap).holds).toEqual(true);
+    expect(
+      new ConditionGroup(
+        {
+          clause: 'AND',
+          conditions: [
+            { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
+            { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
+          ],
+        },
+        questionMap,
+      ).holds,
+    ).toEqual(true);
   });
 
   test('and condition failure', () => {
     question1.value = 'value-1';
     question2.value = 'not-value-2';
 
-    expect(new ConditionGroup(
-      {
-        clause: 'AND',
-        conditions: [
+    expect(
+      new ConditionGroup(
+        {
+          clause: 'AND',
+          conditions: [
             { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
-        ],
-      }, questionMap).holds).toEqual(false);
+          ],
+        },
+        questionMap,
+      ).holds,
+    ).toEqual(false);
   });
 
   test('or condition all true', () => {
     question1.value = 'value-1';
     question2.value = 'value-2';
 
-    expect(new ConditionGroup(
-      {
-        clause: 'OR',
-        conditions: [
+    expect(
+      new ConditionGroup(
+        {
+          clause: 'OR',
+          conditions: [
             { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
-        ],
-      }, questionMap).holds).toEqual(true);
+          ],
+        },
+        questionMap,
+      ).holds,
+    ).toEqual(true);
   });
 
   test('or condition one true', () => {
     question1.value = 'value-1';
     question2.value = 'not-value-2';
 
-    expect(new ConditionGroup(
-      {
-        clause: 'OR',
-        conditions: [
+    expect(
+      new ConditionGroup(
+        {
+          clause: 'OR',
+          conditions: [
             { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
-        ],
-      }, questionMap).holds).toEqual(true);
+          ],
+        },
+        questionMap,
+      ).holds,
+    ).toEqual(true);
   });
 
   test('or condition none true', () => {
     question1.value = 'not-value-1';
     question2.value = 'not-value-2';
 
-    expect(new ConditionGroup(
-      {
-        clause: 'OR',
-        conditions: [
+    expect(
+      new ConditionGroup(
+        {
+          clause: 'OR',
+          conditions: [
             { attribute: 'question-1', op: 'eq', value: makeString('value-1') },
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
-        ],
-      }, questionMap).holds).toEqual(false);
+          ],
+        },
+        questionMap,
+      ).holds,
+    ).toEqual(false);
   });
 });

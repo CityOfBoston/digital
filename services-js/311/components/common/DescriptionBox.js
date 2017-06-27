@@ -8,15 +8,15 @@ export type DefaultProps = {|
   maxHeight: number,
   onFocus: ?(ev: SyntheticInputEvent) => mixed,
   onBlur: ?(ev: SyntheticInputEvent) => mixed,
-|}
+|};
 
 export type Props = {|
-  /* :: ...DefaultProps, */
+  ...DefaultProps,
   text: string,
   placeholder: string,
   setTextarea: (el: ?HTMLElement) => mixed,
   onInput: (ev: SyntheticInputEvent) => mixed,
-|}
+|};
 
 const WRAPPER_STYLE = css({
   overflowY: 'auto',
@@ -86,7 +86,10 @@ export default class DescriptionBox extends React.Component {
       // We’re ok with the tiny layout thrash here to recalculate the right height
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
-        height: Math.min(maxHeight, Math.max(minHeight, this.textarea.scrollHeight)),
+        height: Math.min(
+          maxHeight,
+          Math.max(minHeight, this.textarea.scrollHeight),
+        ),
       });
     }
   }
@@ -96,7 +99,7 @@ export default class DescriptionBox extends React.Component {
 
     this.textarea = textarea;
     setTextarea(textarea);
-  }
+  };
 
   updateHeight(el: HTMLElement) {
     this.setState({
@@ -110,7 +113,7 @@ export default class DescriptionBox extends React.Component {
     this.updateHeight(ev.target);
 
     return onInput(ev);
-  }
+  };
 
   onFocus = (ev: SyntheticInputEvent) => {
     const { onFocus } = this.props;
@@ -120,7 +123,7 @@ export default class DescriptionBox extends React.Component {
     if (onFocus) {
       onFocus(ev);
     }
-  }
+  };
 
   onBlur = (ev: SyntheticInputEvent) => {
     const { minHeight, maxHeight, onBlur } = this.props;
@@ -132,14 +135,16 @@ export default class DescriptionBox extends React.Component {
     if (onBlur) {
       onBlur(ev);
     }
-  }
+  };
 
   render() {
     const { text, placeholder, minHeight, maxHeight } = this.props;
     const { height } = this.state;
 
     return (
-      <div className={`br br-a100 ${WRAPPER_STYLE.toString()}`} style={{ minHeight, maxHeight }}>
+      <div
+        className={`br br-a100 ${WRAPPER_STYLE.toString()}`}
+        style={{ minHeight, maxHeight }}>
         <textarea
           className={TEXTAREA_STYLE}
           style={{ height }}

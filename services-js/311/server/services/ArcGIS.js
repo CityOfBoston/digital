@@ -8,35 +8,37 @@ import HttpsProxyAgent from 'https-proxy-agent';
 type SpatialReference = {
   wkid: number,
   latestWkid: number,
-}
+};
 
-type ReverseGeocodeResponse = {
-  address: {
-    Street: string,
-    City: string,
-    State: string,
-    ZIP: string,
-    Match_addr: string,
-    Loc_name: string,
-  },
-  location: {
-    x: number,
-    y: number,
-    spatialReference: SpatialReference,
-  }
-} | {
-  error: {
-    code: number,
-    message: string,
-    details: string[],
-  }
-}
+type ReverseGeocodeResponse =
+  | {
+      address: {
+        Street: string,
+        City: string,
+        State: string,
+        ZIP: string,
+        Match_addr: string,
+        Loc_name: string,
+      },
+      location: {
+        x: number,
+        y: number,
+        spatialReference: SpatialReference,
+      },
+    }
+  | {
+      error: {
+        code: number,
+        message: string,
+        details: string[],
+      },
+    };
 
 type FindAddressCandidate = {
   address: string,
   location: {
-   x: number,
-   y: number,
+    x: number,
+    y: number,
   },
   score: number,
   attributes: {
@@ -46,11 +48,11 @@ type FindAddressCandidate = {
     Addr_type: string,
   },
   extent: {
-   xmin: number,
-   ymin: number,
-   xmax: number,
-   ymax: number,
-  }
+    xmin: number,
+    ymin: number,
+    xmax: number,
+    ymax: number,
+  },
 };
 
 type FindAddressResponse = {
@@ -72,8 +74,8 @@ type LiveSamFeature = {
   geometry: {
     x: number,
     y: number,
-  }
-}
+  },
+};
 
 type LiveSamResponse = {
   features: LiveSamFeature[],
@@ -88,7 +90,7 @@ export type SearchResult = {
   addressId: ?string,
   buildingId: ?string,
   exact: boolean,
-}
+};
 
 export type UnitResult = {
   location: {
@@ -99,8 +101,7 @@ export type UnitResult = {
   addressId: string,
   streetAddress: string,
   unit: string,
-}
-
+};
 
 function formatAddress(address: string): string {
   if (!address) {
@@ -125,13 +126,15 @@ function formatAddress(address: string): string {
     offset += 1;
   }
 
-  return `${parts.slice(0, offset).join(', ')}\n${parts.slice(offset).join(', ')}`;
+  return `${parts.slice(0, offset).join(', ')}\n${parts
+    .slice(offset)
+    .join(', ')}`;
 }
 
 export default class ArcGIS {
   agent: any;
-  endpoint: string
-  opbeat: any
+  endpoint: string;
+  opbeat: any;
 
   constructor(endpoint: ?string, opbeat: any) {
     if (!endpoint) {
@@ -147,15 +150,22 @@ export default class ArcGIS {
   }
 
   locatorUrl(path: string): string {
-    return url.resolve(this.endpoint, `Locators/BostonComposite/GeocodeServer/${path}`);
+    return url.resolve(
+      this.endpoint,
+      `Locators/BostonComposite/GeocodeServer/${path}`,
+    );
   }
 
   liveAddressUrl(path: string): string {
-    return url.resolve(this.endpoint, `311/LiveSAMAddresses/MapServer/0/${path}`);
+    return url.resolve(
+      this.endpoint,
+      `311/LiveSAMAddresses/MapServer/0/${path}`,
+    );
   }
 
   async reverseGeocode(lat: number, lng: number): Promise<?string> {
-    const transaction = this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
 
     const location = {
       x: lng,
@@ -171,9 +181,12 @@ export default class ArcGIS {
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
 
-    const response = await fetch(this.locatorUrl(`reverseGeocode?${params.toString()}`), {
-      agent: this.agent,
-    });
+    const response = await fetch(
+      this.locatorUrl(`reverseGeocode?${params.toString()}`),
+      {
+        agent: this.agent,
+      },
+    );
 
     if (!response.ok) {
       throw new Error('Got not-ok response from ArcGIS geocoder');
@@ -192,9 +205,10 @@ export default class ArcGIS {
     }
   }
 
-
   async search(query: string): Promise<?SearchResult> {
-    const transaction = this.opbeat && this.opbeat.startTransaction('findAddressCandidates', 'ArcGIS');
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('findAddressCandidates', 'ArcGIS');
 
     const params = new URLSearchParams();
     params.append('SingleLine', query);
@@ -203,9 +217,12 @@ export default class ArcGIS {
     // Makes the output in lat/lng
     params.append('outSR', '4326');
 
-    const response = await fetch(this.locatorUrl(`findAddressCandidates?${params.toString()}`), {
-      agent: this.agent,
-    });
+    const response = await fetch(
+      this.locatorUrl(`findAddressCandidates?${params.toString()}`),
+      {
+        agent: this.agent,
+      },
+    );
 
     if (!response.ok) {
       throw new Error('Got not-ok response from ArcGIS find address');
@@ -217,7 +234,9 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    const candidates = findAddressResponse.candidates.filter((c) => c.attributes.Loc_name !== 'SAMAddressSubU');
+    const candidates = findAddressResponse.candidates.filter(
+      c => c.attributes.Loc_name !== 'SAMAddressSubU',
+    );
     candidates.sort((a, b) => b.score - a.score);
 
     const candidate = candidates[0];
@@ -228,7 +247,9 @@ export default class ArcGIS {
       return {
         location: { lat, lng },
         address: formatAddress(candidate.address),
-        addressId: (candidate.attributes.Ref_ID ? candidate.attributes.Ref_ID.toString() : null),
+        addressId: candidate.attributes.Ref_ID
+          ? candidate.attributes.Ref_ID.toString()
+          : null,
         buildingId: candidate.attributes.User_fld || null,
         exact: candidate.attributes.Addr_type === 'PointAddress',
       };
@@ -236,7 +257,8 @@ export default class ArcGIS {
   }
 
   async lookupUnits(buildingId: string): Promise<Array<UnitResult>> {
-    const transaction = this.opbeat && this.opbeat.startTransaction('LiveSAMAddresses', 'ArcGIS');
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('LiveSAMAddresses', 'ArcGIS');
 
     const params = new URLSearchParams();
     params.append('where', `BUILDING_ID=${parseInt(buildingId, 10)}`);
@@ -245,9 +267,12 @@ export default class ArcGIS {
     // Makes the output in lat/lng
     params.append('outSR', '4326');
 
-    const response = await fetch(this.liveAddressUrl(`query?${params.toString()}`), {
-      agent: this.agent,
-    });
+    const response = await fetch(
+      this.liveAddressUrl(`query?${params.toString()}`),
+      {
+        agent: this.agent,
+      },
+    );
 
     if (!response.ok) {
       throw new Error('Got not-ok response from ArcGIS live address table');

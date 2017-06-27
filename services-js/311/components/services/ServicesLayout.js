@@ -33,7 +33,7 @@ type Props = InitialProps & {
 type GroupProps = {
   group: Group,
   services: ServiceSummary[],
-}
+};
 
 const SERVICE_LINK_STYLE = css({
   display: 'inline-block',
@@ -57,30 +57,48 @@ class ServicesLayoutGroup extends React.Component {
 
     return (
       <div className={`dr ${group.open ? 'dr--open' : ''}`} key={group.id}>
-        <button className="dr-h" type="button" onClick={this.toggle} aria-expanded={group.open} aria-controls={regionId}>
+        <button
+          className="dr-h"
+          type="button"
+          onClick={this.toggle}
+          aria-expanded={group.open}
+          aria-controls={regionId}>
           <div className="dr-ic">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
-              <path className="dr-i" d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z" />
+              <path
+                className="dr-i"
+                d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+              />
             </svg>
           </div>
           <h2 className="dr-t">{group.name}</h2>
           <div className="dr-st">{group.description}</div>
         </button>
 
-        <VelocityTransitionGroup enter={{ animation: 'slideDown', duration: 250 }} leave={{ animation: 'slideUp', duration: 250 }} role="region" id={regionId}>
-          { group.open && <div className="dr-c" style={{ display: 'block' }}><ul className="ul" key="content">
-            { services.map(({ name, code, description }) => (
-              <li key={code}>
-                <Link href={`/request?code=${code}`} as={`/request/${code}`}><a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
-                  <div className="t--sans tt-u">{ name }</div>
-                  <div style={{ color: CHARLES_BLUE }}>{ description }</div>
-                </a></Link>
-              </li>
-            ))}
-          </ul></div>}
+        <VelocityTransitionGroup
+          enter={{ animation: 'slideDown', duration: 250 }}
+          leave={{ animation: 'slideUp', duration: 250 }}
+          role="region"
+          id={regionId}>
+          {group.open &&
+            <div className="dr-c" style={{ display: 'block' }}>
+              <ul className="ul" key="content">
+                {services.map(({ name, code, description }) =>
+                  <li key={code}>
+                    <Link
+                      href={`/request?code=${code}`}
+                      as={`/request/${code}`}>
+                      <a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
+                        <div className="t--sans tt-u">{name}</div>
+                        <div style={{ color: CHARLES_BLUE }}>{description}</div>
+                      </a>
+                    </Link>
+                  </li>,
+                )}
+              </ul>
+            </div>}
         </VelocityTransitionGroup>
       </div>
-
     );
   }
 }
@@ -88,7 +106,9 @@ class ServicesLayoutGroup extends React.Component {
 export default class ServicesLayout extends React.Component {
   props: Props;
 
-  static async getInitialProps({ req }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps({
+    req,
+  }: Context<RequestAdditions>): Promise<InitialProps> {
     const loopbackGraphql = makeLoopbackGraphql(req);
     const services = await loadServiceSummaries(loopbackGraphql);
 
@@ -103,11 +123,11 @@ export default class ServicesLayout extends React.Component {
     const servicesByGroup = {};
     const otherServices = [];
 
-    store.allServices.groups.forEach((g) => {
+    store.allServices.groups.forEach(g => {
       servicesByGroup[g.id.toLowerCase()] = [];
     });
 
-    this.props.services.forEach((s) => {
+    this.props.services.forEach(s => {
       if (s.group && servicesByGroup[s.group.toLowerCase()]) {
         servicesByGroup[s.group.toLowerCase()].push(s);
       } else {
@@ -128,9 +148,19 @@ export default class ServicesLayout extends React.Component {
             <SectionHeader>All BOS:311 Services</SectionHeader>
 
             <div>
-              { store.allServices.groups.map((g) => <ServicesLayoutGroup key={g.id} group={g} services={servicesByGroup[g.id.toLowerCase()]} />)}
+              {store.allServices.groups.map(g =>
+                <ServicesLayoutGroup
+                  key={g.id}
+                  group={g}
+                  services={servicesByGroup[g.id.toLowerCase()]}
+                />,
+              )}
 
-              { otherServices.length > 0 && <ServicesLayoutGroup group={store.allServices.otherGroup} services={otherServices} /> }
+              {otherServices.length > 0 &&
+                <ServicesLayoutGroup
+                  group={store.allServices.otherGroup}
+                  services={otherServices}
+                />}
             </div>
           </div>
         </div>

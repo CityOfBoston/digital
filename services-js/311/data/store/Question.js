@@ -31,24 +31,30 @@ export default class Question {
 
   static buildQuestions(attributes: ServiceAttribute[]): Question[] {
     const questionMap = {};
-    return attributes.map((attr) => {
+    return attributes.map(attr => {
       const question = new Question(attr, questionMap);
       questionMap[question.code] = question;
       return question;
     });
   }
 
-  constructor(attribute: ServiceAttribute, questionMap: {[code: string]: Question} = {}) {
+  constructor(
+    attribute: ServiceAttribute,
+    questionMap: { [code: string]: Question } = {},
+  ) {
     this.code = attribute.code;
     this.description = attribute.description;
     this.required = attribute.required;
     this.malformed = false;
     this._values = attribute.values;
-    this._conditionalValues = (attribute.conditionalValues || []).map(({ dependentOn, values }) => ({
-      conditions: new ConditionGroup(dependentOn, questionMap),
-      values,
-    }));
-    this._dependencies = attribute.dependencies ? new ConditionGroup(attribute.dependencies, questionMap) : null;
+    this._conditionalValues = (attribute.conditionalValues || [])
+      .map(({ dependentOn, values }) => ({
+        conditions: new ConditionGroup(dependentOn, questionMap),
+        values,
+      }));
+    this._dependencies = attribute.dependencies
+      ? new ConditionGroup(attribute.dependencies, questionMap)
+      : null;
     this.type = attribute.type;
 
     switch (this.type) {
@@ -78,7 +84,9 @@ export default class Question {
     }
 
     const { validatedValue } = this;
-    return Array.isArray(validatedValue) ? !!validatedValue.length : !!validatedValue;
+    return Array.isArray(validatedValue)
+      ? !!validatedValue.length
+      : !!validatedValue;
   }
 
   @computed
@@ -92,7 +100,7 @@ export default class Question {
     const activeValuesArr = conditionalValues
       .filter(({ conditions }) => conditions.holds)
       .map(({ values: activeValues }) => activeValues);
-    return [...values, ...([].concat(...activeValuesArr))];
+    return [...values, ...[].concat(...activeValuesArr)];
   }
 
   @computed
@@ -107,7 +115,7 @@ export default class Question {
     if (!valueOptions) {
       return value;
     } else if (Array.isArray(value)) {
-      return value.filter((v) => !!valueOptions.find(({ key }) => key === v));
+      return value.filter(v => !!valueOptions.find(({ key }) => key === v));
     } else {
       return valueOptions.find(({ key }) => key === value) ? value : null;
     }

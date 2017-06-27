@@ -21,7 +21,7 @@ const spriteDirContents = fs.readdirSync(path.join('static', 'sprites'));
 const SPRITE_TASKS = [];
 const SPRITE_WATCH_TASKS = [];
 
-spriteDirContents.forEach((p) => {
+spriteDirContents.forEach(p => {
   if (p.startsWith('.')) {
     return;
   }
@@ -30,102 +30,139 @@ spriteDirContents.forEach((p) => {
   SPRITE_TASKS.push(taskName);
   SPRITE_WATCH_TASKS.push(`watch:${taskName}`);
 
-  gulp.task(taskName, () => (
-    gulp.src(`static/sprites/${p}/*.svg`)
+  gulp.task(taskName, () =>
+    gulp
+      .src(`static/sprites/${p}/*.svg`)
       .pipe(plumber())
-      .pipe(svgSprite({
-        mode: {
-          symbol: {
-            sprite: `${p}.svg`,
-            dest: '',
+      .pipe(
+        svgSprite({
+          mode: {
+            symbol: {
+              sprite: `${p}.svg`,
+              dest: '',
+            },
           },
-        },
-      }))
-      .pipe(gulp.dest('static/assets/img/svg'))
-  ));
+        }),
+      )
+      .pipe(gulp.dest('static/assets/img/svg')),
+  );
 
-  gulp.task(`watch:${taskName}`, () => (
-    gulp.watch(`static/sprites/${p}/*.svg`, [taskName])
-  ));
+  gulp.task(`watch:${taskName}`, () =>
+    gulp.watch(`static/sprites/${p}/*.svg`, [taskName]),
+  );
 });
 
 gulp.task('sprite', SPRITE_TASKS);
 gulp.task('watch:sprite', SPRITE_WATCH_TASKS);
 
-gulp.task('clean:build', () => (
-  del('build')
-));
+gulp.task('clean:build', () => del('build'));
 
-gulp.task('clean:next', () => (
-  del('.next')
-));
+gulp.task('clean:next', () => del('.next'));
 
-gulp.task('babel:server', ['clean:build'], () => (
-  gulp.src('server/**/*.js')
+gulp.task('babel:server', ['clean:build'], () =>
+  gulp
+    .src('server/**/*.js')
     .pipe(plumber())
     .pipe(ignore.exclude(IGNORED_JS_SOURCE))
     .pipe(babel())
-    .pipe(gulp.dest('build/server'))
-));
+    .pipe(gulp.dest('build/server')),
+);
 
-gulp.task('next:compile', ['clean:next'], (cb) => {
-  exec(`${path.join('node_modules', '.bin', 'next')} build`, (err, stdout, stderr) => {
-    if (stdout) console.log(stdout);
-    if (stderr) console.log(stderr);
-    cb(err);
-  });
+gulp.task('next:compile', ['clean:next'], cb => {
+  exec(
+    `${path.join('node_modules', '.bin', 'next')} build`,
+    (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.log(stderr);
+      cb(err);
+    },
+  );
 });
 
-gulp.task('storybook:head', (cb) => {
-  exec(`${path.join('node_modules', '.bin', 'babel-node')} ${path.join('.', 'scripts', 'make-storybook-head')}`, (err, stdout, stderr) => {
-    if (stdout) console.log(stdout);
-    if (stderr) console.log(stderr);
-    cb(err);
-  });
+gulp.task('storybook:head', cb => {
+  exec(
+    `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
+      '.',
+      'scripts',
+      'make-storybook-head',
+    )}`,
+    (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.log(stderr);
+      cb(err);
+    },
+  );
 });
 
-gulp.task('vendor', (cb) => {
-  pump([
-    gulp.src([
-      'node_modules/html5-history-api/history.js',
-      'node_modules/classlist-polyfill/src/index.js',
-    ]),
-    uglify(),
-    concat('ie9-polyfill.js'),
-    gulp.dest('static/assets/vendor'),
-  ], cb);
+gulp.task('vendor', cb => {
+  pump(
+    [
+      gulp.src([
+        'node_modules/html5-history-api/history.js',
+        'node_modules/classlist-polyfill/src/index.js',
+      ]),
+      uglify(),
+      concat('ie9-polyfill.js'),
+      gulp.dest('static/assets/vendor'),
+    ],
+    cb,
+  );
 });
 
-gulp.task('templates:fetch', (cb) => {
-  exec(`${path.join('node_modules', '.bin', 'babel-node')} ${path.join('.', 'scripts', 'fetch-templates')}`, (err, stdout, stderr) => {
-    if (stdout) console.log(stdout);
-    if (stderr) console.log(stderr);
-    cb(err);
-  });
+gulp.task('templates:fetch', cb => {
+  exec(
+    `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
+      '.',
+      'scripts',
+      'fetch-templates',
+    )}`,
+    (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.log(stderr);
+      cb(err);
+    },
+  );
 });
 
 const GRAPHQL_QUERIES = path.join('data', 'dao', 'graphql', '*.graphql');
 const GRAPHQL_SCHEMA = path.join('graphql', 'schema.json');
 
-gulp.task('graphql:schema', (cb) => {
-  exec(`${path.join('node_modules', '.bin', 'babel-node')} ${path.join('.', 'scripts', 'generate-schema')}`, (err, stdout, stderr) => {
-    if (stdout) console.log(stdout);
-    if (stderr) console.log(stderr);
-    cb(err);
-  });
+gulp.task('graphql:schema', cb => {
+  exec(
+    `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
+      '.',
+      'scripts',
+      'generate-schema',
+    )}`,
+    (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.log(stderr);
+      cb(err);
+    },
+  );
 });
 
-gulp.task('graphql:types', ['graphql:schema'], (cb) => {
-  exec(`${path.join('node_modules', '.bin', 'apollo-codegen')} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js --no-add-typename`, (err, stdout, stderr) => {
-    if (stdout) console.log(stdout);
-    if (stderr) console.log(stderr);
-    cb(err);
-  });
+gulp.task('graphql:types', ['graphql:schema'], cb => {
+  exec(
+    `${path.join(
+      'node_modules',
+      '.bin',
+      'apollo-codegen',
+    )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js --no-add-typename`,
+    (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.log(stderr);
+      cb(err);
+    },
+  );
 });
 
 gulp.task('watch:graphql', () => [
   gulp.watch('server/graphql/*.js', ['graphql:schema']),
-  gulp.watch([GRAPHQL_QUERIES.replace(/\\/g, '/'), GRAPHQL_SCHEMA.replace(/\\/g, '/')], ['graphql:types']),
+  gulp.watch(
+    [GRAPHQL_QUERIES.replace(/\\/g, '/'), GRAPHQL_SCHEMA.replace(/\\/g, '/')],
+    ['graphql:types'],
+  ),
 ]);
 
 // TODO(finh): restore pulling templates at this step
