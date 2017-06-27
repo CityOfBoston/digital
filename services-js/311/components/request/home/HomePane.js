@@ -10,6 +10,7 @@ import { now } from 'mobx-utils';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
+import inPercy from '@percy-io/in-percy';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
@@ -161,7 +162,7 @@ export default class HomePane extends React.Component {
       return '';
     }
 
-    const msSinceStart = Math.max(0, now(100) - this.animationStartMs);
+    const msSinceStart = inPercy() ? TIME_PER_PLACEHOLDER_MS - 1 : Math.max(0, now(100) - this.animationStartMs);
 
     const placeholderIdx = Math.floor(msSinceStart / TIME_PER_PLACEHOLDER_MS) % EXAMPLE_PROBLEMS.length;
     const timeInPlaceholder = msSinceStart % TIME_PER_PLACEHOLDER_MS;
