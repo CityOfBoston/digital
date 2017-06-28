@@ -17,7 +17,7 @@
     "report-coverage": "codecov",
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
-    "bundle-deploy": "gulp build && git archive -o deploy.zip HEAD && zip -r deploy.zip build .next",
+    "bundle-deploy": "./scripts/bundle-deploy.sh",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
     "snapshot": "build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
