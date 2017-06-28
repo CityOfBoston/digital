@@ -18,6 +18,7 @@
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
     "bundle-deploy": "./scripts/bundle-deploy.sh",
+    "report-deploy": "./scripts/report-deploy.sh",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
     "snapshot": "build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",

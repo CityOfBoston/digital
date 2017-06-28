@@ -33,3 +33,5 @@ deploy:
     repo: CityOfBoston/registry-certs
     branch: develop
   zip_file: deploy.zip
+after_deploy:
+- npm run report-deploy
