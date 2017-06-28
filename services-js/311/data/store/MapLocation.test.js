@@ -1,6 +1,6 @@
 // @flow
 
-import type { ReverseGeocodedPlace, SearchAddressPlace } from '../types';
+import type { SearchAddressPlace } from '../types';
 import MapLocation from './MapLocation';
 
 jest.mock('../dao/search-address');
@@ -101,7 +101,7 @@ describe('searching', () => {
 describe('reverse geocoding', () => {
   let mapLocation;
   let loopbackGraphql;
-  let resolveGraphql: (place: ?ReverseGeocodedPlace) => void;
+  let resolveGraphql: (place: ?SearchAddressPlace) => void;
 
   beforeEach(() => {
     reverseGeocode.mockReturnValue(
@@ -145,6 +145,7 @@ describe('reverse geocoding', () => {
         lng: -71.05802536010744,
       },
       addressId: '12345',
+      units: [],
     });
 
     // after reverse geocode

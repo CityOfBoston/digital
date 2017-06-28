@@ -1,11 +1,11 @@
 // @flow
 
-import { observable, action, runInAction } from 'mobx';
+import { observable, action } from 'mobx';
 
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
 import searchAddress from '../dao/search-address';
 import reverseGeocode from '../dao/reverse-geocode';
-import type { AddressUnit } from '../types';
+import type { AddressUnit, SearchAddressPlace } from '../types';
 
 // This class co-ordinates location queries between the LocationPopUp pane
 // and the LocationMap map. LocationPopUp automatically updates the
@@ -41,19 +41,7 @@ export default class MapLocation {
 
     const place = await searchAddress(this.loopbackGraphql, query);
 
-    runInAction('address search result', () => {
-      if (place) {
-        this.location = place.location;
-        this.address = place.address;
-        this.addressId = place.addressId;
-        this.units = place.units;
-      } else {
-        this.address = '';
-        this.addressId = null;
-        this.notFound = true;
-        this.units = [];
-      }
-    });
+    this.handleSearchResult(place);
   }
 
   @action
@@ -77,25 +65,21 @@ export default class MapLocation {
     }
 
     const place = await reverseGeocode(this.loopbackGraphql, location);
+    this.handleSearchResult(place);
+  }
 
-    runInAction('reverse geocode result', () => {
-      if (
-        this.location &&
-        this.location.lat === location.lat &&
-        this.location.lng === location.lng
-      ) {
-        this.addressId = null;
-        this.units = [];
-
-        if (place) {
-          this.address = place.address;
-          this.addressId = null;
-          this.units = [];
-        } else {
-          this.address = '';
-          this.notFound = true;
-        }
-      }
-    });
+  @action
+  handleSearchResult(place: ?SearchAddressPlace) {
+    if (place) {
+      this.location = place.location;
+      this.address = place.address;
+      this.addressId = place.addressId;
+      this.units = place.units;
+    } else {
+      this.address = '';
+      this.addressId = null;
+      this.notFound = true;
+      this.units = [];
+    }
   }
 }

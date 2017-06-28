@@ -9,7 +9,6 @@ import type {
   SubmitRequestMutation,
   SearchCasesQuery,
   ServiceAttributeDatatype,
-  ReverseGeocodeQuery,
   SearchAddressQuery,
 } from './dao/graphql/types';
 
@@ -51,9 +50,6 @@ export type SearchCase = $ArrayElement<
   $PropertyType<SearchCasesResult, 'cases'>,
 >;
 
-export type ReverseGeocodedPlace = $NonMaybeType<
-  $PropertyType<$PropertyType<ReverseGeocodeQuery, 'geocoder'>, 'reverse'>,
->;
 export type SearchAddressPlace = $NonMaybeType<
   $PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>,
 >;

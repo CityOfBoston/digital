@@ -59,25 +59,12 @@ type Unit = {
 
 export const resolvers = {
   Geocoder: {
-    reverse: async (
+    reverse: (
       s: Root,
       { location }: ReverseGeocodeArgs,
       { arcgis }: Context,
-    ): Promise<?Place> => {
-      const address = await arcgis.reverseGeocode(location.lat, location.lng);
-      if (address) {
-        return {
-          location,
-          address,
-          addressId: null,
-          buildingId: null,
-          exact: false,
-        };
-      } else {
-        return null;
-      }
-    },
-    search: async (
+    ): Promise<?Place> => arcgis.reverseGeocode(location.lat, location.lng),
+    search: (
       s: Root,
       { query }: SearchArgs,
       { arcgis }: Context,

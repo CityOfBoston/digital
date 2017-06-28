@@ -174,6 +174,13 @@ export default class ArcGIS {
     );
   }
 
+  samAddressOnlyLocatorUrl(path: string): string {
+    return url.resolve(
+      this.endpoint,
+      `Locators/SAM_Address_FH/GeocodeServer/${path}`,
+    );
+  }
+
   liveAddressUrl(path: string): string {
     return url.resolve(
       this.endpoint,
@@ -181,7 +188,7 @@ export default class ArcGIS {
     );
   }
 
-  async reverseGeocode(lat: number, lng: number): Promise<?string> {
+  async reverseGeocode(lat: number, lng: number): Promise<?SearchResult> {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
 
@@ -199,8 +206,10 @@ export default class ArcGIS {
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
 
+    // This done though a particular locator that we have high confidence will
+    // return addresses that we can look up through search.
     const response = await fetch(
-      this.locatorUrl(`reverseGeocode?${params.toString()}`),
+      this.samAddressOnlyLocatorUrl(`reverseGeocode?${params.toString()}`),
       {
         agent: this.agent,
       },
@@ -219,7 +228,22 @@ export default class ArcGIS {
     if (geocode.error) {
       return null;
     } else {
-      return formatAddress(geocode.address.Match_addr);
+      // We take the address from the locator and send it over to
+      // search so we can get the building ID and SAM id, which are
+      // not sent in the reverse geocode response.
+      const place = await this.search(geocode.address.Match_addr);
+      if (place) {
+        return place;
+      } else {
+        // Just in case we still want to return something
+        return {
+          location: { lat, lng },
+          address: formatAddress(geocode.address.Match_addr),
+          addressId: null,
+          buildingId: null,
+          exact: false,
+        };
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 // @flow
 
-import type { ReverseGeocodedPlace } from '../types';
+import type { SearchAddressPlace } from '../types';
 import type { LoopbackGraphql } from './loopback-graphql';
 
 import type {
@@ -13,7 +13,7 @@ import ReverseGeocodeGraphql from './graphql/ReverseGeocode.graphql';
 export default async function reverseGeocode(
   loopbackGraphql: LoopbackGraphql,
   location: {| lat: number, lng: number |},
-): Promise<?ReverseGeocodedPlace> {
+): Promise<?SearchAddressPlace> {
   const args: ReverseGeocodeQueryVariables = {
     location,
   };

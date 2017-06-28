@@ -7,6 +7,12 @@ query ReverseGeocode($location: LatLngIn!) {
       }
 		  address
       addressId
+      units {
+        address
+        streetAddress
+        unit
+        addressId
+      }
 		}
   }
 }
