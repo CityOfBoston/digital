@@ -21,7 +21,7 @@ export default class extends Document {
 
     const { __NEXT_DATA__ } = props;
 
-    __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY;
+    __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY || 'test-api-key';
   }
 
   render() {

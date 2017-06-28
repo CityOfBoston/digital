@@ -1,11 +1,8 @@
-/* eslint comma-dangle: 0, global-require: 0 */
-
 module.exports = {
   webpack: config => {
-    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
     // Perform customizations to config
-    if (process.env.NODE_ENV !== 'test') {
+    if (process.env.NODE_ENV === 'development') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
         new BundleAnalyzerPlugin({
           // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
@@ -14,7 +11,7 @@ module.exports = {
           analyzerPort: 3001,
           openAnalyzer: false,
           generateStatsFile: true,
-        }),
+        })
       );
     }
 

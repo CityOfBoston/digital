@@ -39,9 +39,6 @@ describe('client mode', () => {
   });
 
   test('GraphQL failure case', async () => {
-    // to be sure that `await` throws error and `expect` has been called once
-    expect.assertions(1);
-
     fetchMock.post('/graphql', {
       body: {
         data: {
@@ -51,42 +48,32 @@ describe('client mode', () => {
       },
     });
 
-    try {
-      await loopbackGraphql('query', { arg: 'value' });
-    } catch (e) {
-      expect(e).toMatchSnapshot();
-    }
+    await expect(
+      loopbackGraphql('query', { arg: 'value' }),
+    ).rejects.toMatchSnapshot();
   });
 
   test('server failure case', async () => {
-    // to be sure that `await` throws error and `expect` has been called once
-    expect.assertions(1);
-
     fetchMock.post('/graphql', {
       status: 500,
       body: 'Everything is broken',
     });
 
-    try {
-      await loopbackGraphql('query', { arg: 'value' });
-    } catch (e) {
-      expect(e).toMatchSnapshot();
-    }
+    await expect(
+      loopbackGraphql('query', { arg: 'value' }),
+    ).rejects.toMatchSnapshot();
   });
 
   test('network failure case', async () => {
-    // to be sure that `await` throws error and `expect` has been called once
-    expect.assertions(1);
-
+    // in Node 6 we see this print an unhandled promise rejection error, but the rest of
+    // the test proceeds as expected
     fetchMock.post('/graphql', {
       throws: new TypeError('connecting blew up'),
     });
 
-    try {
-      await loopbackGraphql('query', { arg: 'value' });
-    } catch (e) {
-      expect(e).toMatchSnapshot();
-    }
+    await expect(
+      loopbackGraphql('query', { arg: 'value' }),
+    ).rejects.toMatchSnapshot();
   });
 });
 
@@ -129,19 +116,13 @@ describe('server getInitialProps mode', () => {
   });
 
   test('failure case', async () => {
-    // to be sure that `await` throws error and `expect` has been called once
-    expect.assertions(1);
-
     const error: Object = new Error('GraphQL error');
     error.errors = [{ message: 'There was an error' }];
 
     rejectHapiInject(error);
-
-    try {
-      await loopbackGraphql('query', { arg: 'value' });
-    } catch (e) {
-      expect(e).toMatchSnapshot();
-    }
+    await expect(
+      loopbackGraphql('query', { arg: 'value' }),
+    ).rejects.toMatchSnapshot();
   });
 });
 

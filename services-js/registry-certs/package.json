@@ -7,14 +7,17 @@
   },
   "license": "CC0-1.0",
   "engines": {
-    "node": "8.1.0"
+    "node": "6.10.0",
+    "npm": "^5.0.0"
   },
   "scripts": {
     "dev": "babel-watch -D -w server server",
     "test": "jest --forceExit",
     "test-ci": "jest --coverage --runInBand --forceExit",
+    "report-coverage": "codecov",
     "build": "gulp build",
     "heroku-postbuild": "gulp build",
+    "bundle-deploy": "gulp build && git archive -o deploy.zip HEAD && zip -r deploy.zip build .next",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
     "snapshot": "build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
@@ -67,7 +70,7 @@
     "mobx-react": "^4.1.8",
     "mobx-utils": "^2.0.1",
     "mssql": "^4.0.4",
-    "next": "^3.0.1.beta.1",
+    "next": "^3.0.1-beta.2",
     "node-cleanup": "^2.1.2",
     "nprogress": "^0.2.0",
     "opbeat": "^4.14.0",

@@ -3,3 +3,6 @@
 /graphql
 /build
 /coverage
+
+# Needs to be compatible with Node 7.6, so no dangling commas
+/next.config.js

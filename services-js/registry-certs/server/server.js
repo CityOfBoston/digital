@@ -97,7 +97,9 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   server.auth.strategy('apiKey', 'headerKeys', {
     header: 'X-API-KEY',
-    keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
+    keys: process.env.API_KEYS
+      ? process.env.API_KEYS.split(',')
+      : ['test-api-key'],
   });
 
   if (process.env.NODE_ENV !== 'test') {
@@ -158,7 +160,8 @@ export function makeServer({ opbeat }: ServerArgs) {
       path: '/graphiql',
       graphiqlOptions: {
         endpointURL: '/graphql',
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
+        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY ||
+          'test-api-key'}'`,
       },
     },
   });
