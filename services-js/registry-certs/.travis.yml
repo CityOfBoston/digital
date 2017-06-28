@@ -17,6 +17,8 @@ branches:
   - master
   - develop
   - "/^greenkeeper\\/.*$/"
+before_deploy:
+- npm run bundle-deploy
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAJ5H4OXWZCQEZ75JA
@@ -25,9 +27,8 @@ deploy:
   region: us-east-2
   app: Registry Certs
   env: Staging
+  bucket_name: cob-registry-certs-develop
   on:
     repo: CityOfBoston/registry-certs
     branch: develop
-  before_deploy:
-    npm run bundle-deploy
   zip_file: deploy.zip
