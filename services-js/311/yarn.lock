@@ -7706,9 +7706,9 @@ react-html-attributes@^1.3.0:
   dependencies:
     html-element-attributes "^1.0.0"
 
-react-input-mask@^0.9.0:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-0.9.1.tgz#13d72a667306c99a161399fc5e27a8c71945cb2a"
+react-input-mask@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-1.0.1.tgz#5855eecb7c6c99679c42a2d2a80d7901cefc839d"
 
 react-inspector@^2.0.0:
   version "2.0.0"
