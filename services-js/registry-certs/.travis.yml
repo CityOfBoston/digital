@@ -28,6 +28,7 @@ deploy:
   app: Registry Certs
   env: Staging
   bucket_name: cob-registry-certs-develop
+  skip_cleanup: true
   on:
     repo: CityOfBoston/registry-certs
     branch: develop
