@@ -92,7 +92,7 @@ export function makeServer({ opbeat }: ServerArgs) {
           reply.continue({ credentials: key });
         }
       },
-    }),
+    })
   );
 
   server.auth.strategy('apiKey', 'headerKeys', {
@@ -201,7 +201,7 @@ export function makeServer({ opbeat }: ServerArgs) {
       const p = Path.join(
         'static',
         'assets',
-        ...request.params.path.split('/'),
+        ...request.params.path.split('/')
       );
       return reply
         .file(p)
@@ -227,7 +227,7 @@ export default async function startServer(args: ServerArgs) {
       err => {
         console.log('CLEAN EXIT FAILED', err);
         process.exit(-1);
-      },
+      }
     );
 
     cleanup.uninstall();

@@ -19,7 +19,7 @@ export default class DeathCertificatesDao {
 
     // create new array shenanigans to get Flow to accept that we're not returning Errors
     this.loader = new DataLoader(ids =>
-      fetchDeathCertificates(loopbackGraphql, ids).then(a => a.map(i => i)),
+      fetchDeathCertificates(loopbackGraphql, ids).then(a => a.map(i => i))
     );
   }
 
@@ -29,7 +29,7 @@ export default class DeathCertificatesDao {
 
   async search(
     fullQuery: string,
-    page: number,
+    page: number
   ): Promise<DeathCertificateSearchResults> {
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
@@ -38,7 +38,7 @@ export default class DeathCertificatesDao {
       query,
       page,
       startYear,
-      endYear,
+      endYear
     );
 
     results.results.forEach(cert => {
@@ -49,7 +49,7 @@ export default class DeathCertificatesDao {
   }
 
   parseQuery(
-    fullQuery: string,
+    fullQuery: string
   ): { query: string, startYear: ?string, endYear: ?string } {
     // match a 4-digit year, and optionally a second 4-digit year with a hypen or en-dash
     const yearRegexp = /(\d{4})\s*[-–]?\s*(\d{4})?/;

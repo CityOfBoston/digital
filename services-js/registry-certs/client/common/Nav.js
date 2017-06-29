@@ -34,10 +34,14 @@ export default observer(function Nav({ cart, link }: Props) {
     <nav className="nv-s nv-s--sticky">
       <div className="nv-s-l bar">
         <Link href={linkPath}>
-          <a className={'nv-s-l-b back-link'}>{linkTitle}</a>
+          <a className={'nv-s-l-b back-link'}>
+            {linkTitle}
+          </a>
         </Link>
         <Link href="/death/checkout">
-          <a className="cart-link">{cart.size}</a>
+          <a className="cart-link">
+            {cart.size}
+          </a>
         </Link>
       </div>
 

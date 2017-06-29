@@ -120,7 +120,7 @@ describe('attach', () => {
       () =>
         new Promise(resolve => {
           resolveGraphqls.push(resolve);
-        }),
+        })
     );
 
     cart = new Cart();
@@ -135,7 +135,7 @@ describe('attach', () => {
       JSON.stringify([
         { id: '00001', quantity: 4 },
         { id: '00002', quantity: 1 },
-      ]),
+      ])
     );
 
     cart.attach(localStorage, deathCertificatesDao);
@@ -171,7 +171,7 @@ describe('attach', () => {
     cart.add(CERT_1, 5);
     expect(localStorage.setItem).toHaveBeenCalledWith(
       'cart',
-      JSON.stringify([{ id: CERT_1.id, quantity: 5 }]),
+      JSON.stringify([{ id: CERT_1.id, quantity: 5 }])
     );
   });
 });

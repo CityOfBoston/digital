@@ -25,7 +25,7 @@ describe('getInitialProps', () => {
       ({
         query: { id: '000002' },
       }: any),
-      ({ deathCertificatesDao }: any),
+      ({ deathCertificatesDao }: any)
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -39,7 +39,7 @@ describe('getInitialProps', () => {
       ({
         query: { id: '000002' },
       }: any),
-      ({ deathCertificatesDao }: any),
+      ({ deathCertificatesDao }: any)
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -55,7 +55,7 @@ describe('searching', () => {
         cart={cart}
         id="00002"
         certificate={TYPICAL_CERTIFICATE}
-      />,
+      />
     );
 
     wrapper

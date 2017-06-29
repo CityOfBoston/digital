@@ -4,7 +4,7 @@ import compression from 'compression';
 
 export const nextHandler = (app, page = null, staticQuery = null) => async (
   { path, raw: { req, res }, query, params },
-  reply,
+  reply
 ) => {
   const pageQuery = {
     ...staticQuery,

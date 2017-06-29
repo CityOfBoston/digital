@@ -22,7 +22,7 @@ async function generateSchemaFiles(schema, push) {
       new gutil.File({
         path: 'schema.json',
         contents: new Buffer(JSON.stringify(result, null, 2)),
-      }),
+      })
     );
   }
 
@@ -31,7 +31,7 @@ async function generateSchemaFiles(schema, push) {
     new gutil.File({
       path: 'schema.graphql',
       contents: new Buffer(printSchema(schema)),
-    }),
+    })
   );
 }
 
@@ -46,7 +46,7 @@ module.exports = ({ schema }: Options) => {
     },
     err => {
       process.nextTick(() => stream.emit('error', err));
-    },
+    }
   );
 
   return stream;

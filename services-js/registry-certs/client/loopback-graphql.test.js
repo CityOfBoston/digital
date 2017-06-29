@@ -33,7 +33,7 @@ describe('client mode', () => {
 
     const queryPromise = loopbackGraphql('query', { arg: 'value' });
     expect(fetchMock.lastOptions().body).toEqual(
-      '{"query":"query","variables":{"arg":"value"}}',
+      '{"query":"query","variables":{"arg":"value"}}'
     );
     expect(await queryPromise).toEqual({ key: 'value' });
   });
@@ -49,7 +49,7 @@ describe('client mode', () => {
     });
 
     await expect(
-      loopbackGraphql('query', { arg: 'value' }),
+      loopbackGraphql('query', { arg: 'value' })
     ).rejects.toMatchSnapshot();
   });
 
@@ -60,7 +60,7 @@ describe('client mode', () => {
     });
 
     await expect(
-      loopbackGraphql('query', { arg: 'value' }),
+      loopbackGraphql('query', { arg: 'value' })
     ).rejects.toMatchSnapshot();
   });
 
@@ -72,7 +72,7 @@ describe('client mode', () => {
     });
 
     await expect(
-      loopbackGraphql('query', { arg: 'value' }),
+      loopbackGraphql('query', { arg: 'value' })
     ).rejects.toMatchSnapshot();
   });
 });
@@ -88,7 +88,7 @@ describe('server getInitialProps mode', () => {
       new Promise((resolve, reject) => {
         resolveHapiInject = resolve;
         rejectHapiInject = reject;
-      }),
+      })
     );
 
     const req: any = { hapiInject };
@@ -121,7 +121,7 @@ describe('server getInitialProps mode', () => {
 
     rejectHapiInject(error);
     await expect(
-      loopbackGraphql('query', { arg: 'value' }),
+      loopbackGraphql('query', { arg: 'value' })
     ).rejects.toMatchSnapshot();
   });
 });

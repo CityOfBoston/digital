@@ -29,7 +29,7 @@ export default class Cart {
     if (localStorage) {
       try {
         const savedCart: Array<LocalStorageItem> = JSON.parse(
-          localStorage.getItem('cart') || '[]',
+          localStorage.getItem('cart') || '[]'
         );
         this.items = savedCart.map(
           action(
@@ -48,13 +48,13 @@ export default class Cart {
                   (cert: ?DeathCertificate) => {
                     item.cert = cert;
                     this.pendingFetches -= 1;
-                  },
-                ),
+                  }
+                )
               );
 
               return item;
-            },
-          ),
+            }
+          )
         );
       } catch (e) {
         localStorage.removeItem('cart');
@@ -67,8 +67,8 @@ export default class Cart {
             this.items.map(({ id, quantity }): LocalStorageItem => ({
               id,
               quantity,
-            })),
-          ),
+            }))
+          )
         );
       });
     }

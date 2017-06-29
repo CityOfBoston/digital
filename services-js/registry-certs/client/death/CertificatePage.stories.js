@@ -23,15 +23,15 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       cart={makeCart()}
-    />,
+    />
   )
   .add('pending certificate', () =>
     <CertificatePage
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       cart={makeCart()}
-    />,
+    />
   )
   .add('missing certificate', () =>
-    <CertificatePage id="200001" certificate={null} cart={makeCart()} />,
+    <CertificatePage id="200001" certificate={null} cart={makeCart()} />
   );

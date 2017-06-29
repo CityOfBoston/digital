@@ -6,7 +6,7 @@ type Opbeat = $Exports<'opbeat'>;
 // GraphQL processing get correctly sent to Opbeat.
 export const opbeatWrapGraphqlOptions = (
   opbeat: Opbeat,
-  optsFn: (req: any) => Object,
+  optsFn: (req: any) => Object
 ) => async (req: any) => {
   try {
     const opts = await optsFn(req);

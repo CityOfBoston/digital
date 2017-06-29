@@ -26,11 +26,11 @@ function makeProps(certificate) {
 
 storiesOf('CheckoutItem', module)
   .add('typical certificate', () =>
-    <CheckoutItem {...makeProps(TYPICAL_CERTIFICATE)} />,
+    <CheckoutItem {...makeProps(TYPICAL_CERTIFICATE)} />
   )
   .add('pending certificate', () =>
-    <CheckoutItem {...makeProps(PENDING_CERTIFICATE)} />,
+    <CheckoutItem {...makeProps(PENDING_CERTIFICATE)} />
   )
   .add('certificate without death date', () =>
-    <CheckoutItem {...makeProps(NO_DATE_CERTIFICATE)} />,
+    <CheckoutItem {...makeProps(NO_DATE_CERTIFICATE)} />
   );

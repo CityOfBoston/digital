@@ -68,7 +68,7 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
       new gutil.File({
         path: `${tag}.html`,
         contents: new Buffer(html),
-      }),
+      })
     );
   });
 
@@ -77,7 +77,7 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
     new gutil.File({
       path: 'navigation.html',
       contents: new Buffer(navigationHtml),
-    }),
+    })
   );
 
   const stylesheetHrefs = $('link[rel=stylesheet]')
@@ -87,7 +87,7 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
     new gutil.File({
       path: 'stylesheets.json',
       contents: new Buffer(JSON.stringify(stylesheetHrefs, null, 2)),
-    }),
+    })
   );
 }
 
@@ -100,7 +100,7 @@ module.exports = (opts: Options) => {
     },
     err => {
       process.nextTick(() => stream.emit('error', err));
-    },
+    }
   );
 
   return stream;

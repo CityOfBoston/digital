@@ -52,7 +52,7 @@ describe('getInitialProps', () => {
             innerClass: true,
           };
         }
-      },
+      }
     );
 
     expect(Page.getInitialProps({})).toEqual({ innerClass: true });
@@ -70,7 +70,7 @@ describe('rendering', () => {
         render() {
           return <div data-cart={this.props.cart} />;
         }
-      },
+      }
     );
   });
 

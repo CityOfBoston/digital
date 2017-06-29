@@ -67,9 +67,10 @@ export default class Error extends React.Component {
 
   render() {
     const { statusCode } = this.props;
-    const title = statusCode === 404
-      ? 'This page could not be found'
-      : HTTPStatus[statusCode] || 'An unexpected error has occurred';
+    const title =
+      statusCode === 404
+        ? 'This page could not be found'
+        : HTTPStatus[statusCode] || 'An unexpected error has occurred';
 
     return (
       <div style={styles.error}>
@@ -81,9 +82,15 @@ export default class Error extends React.Component {
         </Head>
         <div>
           <style dangerouslySetInnerHTML={{ __html: 'body { margin: 0 }' }} />
-          {statusCode ? <h1 style={styles.h1}>{statusCode}</h1> : null}
+          {statusCode
+            ? <h1 style={styles.h1}>
+                {statusCode}
+              </h1>
+            : null}
           <div style={styles.desc}>
-            <h2 style={styles.h2}>{title}.</h2>
+            <h2 style={styles.h2}>
+              {title}.
+            </h2>
           </div>
         </div>
       </div>

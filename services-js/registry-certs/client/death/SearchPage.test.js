@@ -43,7 +43,7 @@ describe('getInitialProps', () => {
       ({
         query: {},
       }: any),
-      ({ deathCertificatesDao }: any),
+      ({ deathCertificatesDao }: any)
     );
 
     expect(initialProps).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe('getInitialProps', () => {
       ({
         query: { q: 'Monkey Joe' },
       }: any),
-      ({ deathCertificatesDao }: any),
+      ({ deathCertificatesDao }: any)
     );
 
     expect(initialProps).toMatchSnapshot();

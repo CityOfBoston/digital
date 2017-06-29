@@ -39,7 +39,7 @@ const MAX_ID_LOOKUP_LENGTH = 1000;
 // E.g.: ["12345", "67890", "abcde"] => ["12345,67890", "abcde"]
 export function splitKeys(
   maxLength: number,
-  keys: Array<string>,
+  keys: Array<string>
 ): Array<string> {
   const keyStrings: Array<string> = [];
   let currentKeyString = '';
@@ -69,7 +69,7 @@ export default class Registry {
   constructor(pool: ConnectionPool) {
     this.pool = pool;
     this.lookupLoader = new DataLoader((keys: Array<string>) =>
-      this.lookupLoaderFetch(keys),
+      this.lookupLoaderFetch(keys)
     );
   }
 
@@ -78,10 +78,10 @@ export default class Registry {
     page: number,
     pageSize: number,
     startYear: ?string,
-    endYear: ?string,
+    endYear: ?string
   ): Promise<Array<DeathCertificateSearchResult>> {
     const resp: DbResponse<
-      DeathCertificateSearchResult,
+      DeathCertificateSearchResult
     > = (await this.pool
       .request()
       .input('searchFor', name)
@@ -106,7 +106,7 @@ export default class Registry {
   }
 
   async lookupLoaderFetch(
-    keys: Array<string>,
+    keys: Array<string>
   ): Promise<Array<?DeathCertificate | Error>> {
     // The api can only take 1000 characters of keys at once. We probably won't
     // run into that issue but just in case we split up and parallelize.
@@ -115,14 +115,14 @@ export default class Registry {
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
         const resp: DbResponse<
-          DeathCertificate,
+          DeathCertificate
         > = (await this.pool
           .request()
           .input('idList', keyString)
           .execute('Registry.Death.sp_GetCertificatesWeb'): any);
 
         return resp.recordset;
-      }),
+      })
     );
 
     const idToCertificateMap: { [key: string]: DeathCertificate } = {};
@@ -205,7 +205,7 @@ export class FixtureRegistry {
   async search(
     query: string,
     page: number,
-    pageSize: number,
+    pageSize: number
   ): Promise<Array<DeathCertificateSearchResult>> {
     return this.data.slice(page * pageSize, (page + 1) * pageSize);
   }
@@ -216,7 +216,7 @@ export class FixtureRegistry {
 }
 
 export function makeFixtureRegistryFactory(
-  fixtureName: string,
+  fixtureName: string
 ): Promise<RegistryFactory> {
   return new Promise((resolve, reject) => {
     fs.readFile(fixtureName, (err, data) => {
@@ -235,7 +235,7 @@ export function makeFixtureRegistryFactory(
               cleanup() {
                 return Promise.resolve(null);
               },
-            }: any),
+            }: any)
           );
         } catch (e) {
           reject(e);

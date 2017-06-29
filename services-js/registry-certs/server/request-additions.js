@@ -19,7 +19,7 @@ export type RequestAdditions = {|
 
 export default (handler: (request: mixed, reply: mixed) => mixed) => (
   request: any,
-  reply: mixed,
+  reply: mixed
 ) => {
   const { server, raw: { req } } = request;
 

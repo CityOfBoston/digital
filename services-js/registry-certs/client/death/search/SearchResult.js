@@ -22,19 +22,22 @@ export default function SearchResult({
             fontStyle: 'normal',
             fontWeight: 'bold',
             letterSpacing: 1.4,
-          }}>
+          }}
+        >
           {firstName} {lastName}
         </div>
-        <div>Died: {deathDate || deathYear} Age: {age}</div>
+        <div>
+          Died: {deathDate || deathYear} Age: {age}
+        </div>
         {pending && <div>Certificate Pending</div>}
         <style jsx>{`
-            .result {
-              display: block;
-              color: inherit;
-              font-style: italic;
-              border-color: ${GRAY_100};
-            }
-          `}</style>
+          .result {
+            display: block;
+            color: inherit;
+            font-style: italic;
+            border-color: ${GRAY_100};
+          }
+        `}</style>
       </a>
     </Link>
   );

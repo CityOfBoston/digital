@@ -29,9 +29,9 @@ const FIXTURE_SEARCHES = ['smith'];
       const records = await registry.search(search, 0, 500);
       fs.writeFileSync(
         path.join(__dirname, `../fixtures/registry/${search}.json`),
-        JSON.stringify(records, null, 2),
+        JSON.stringify(records, null, 2)
       );
-    }),
+    })
   );
 
   await registryFactory.cleanup();

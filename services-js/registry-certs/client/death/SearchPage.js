@@ -34,7 +34,7 @@ export default class IndexPage extends React.Component {
 
   static async getInitialProps(
     ctx: Context<*>,
-    { deathCertificatesDao }: ClientDependencies,
+    { deathCertificatesDao }: ClientDependencies
   ): Promise<InitialProps> {
     const { query } = ctx;
 
@@ -43,7 +43,7 @@ export default class IndexPage extends React.Component {
     if (query.q) {
       results = await deathCertificatesDao.search(
         query.q,
-        parseInt(query.page, 10) || 1,
+        parseInt(query.page, 10) || 1
       );
     }
 
@@ -96,7 +96,8 @@ export default class IndexPage extends React.Component {
             acceptCharset="UTF-8"
             method="get"
             action="/death"
-            onSubmit={this.handleSubmit}>
+            onSubmit={this.handleSubmit}
+          >
             <input name="utf8" type="hidden" value="✓" />
 
             <div className="sf-i">
@@ -110,14 +111,15 @@ export default class IndexPage extends React.Component {
                 className="sf-i-f"
                 autoComplete="off"
               />
-              <button className="sf-i-b" type="submit">Search</button>
+              <button className="sf-i-b" type="submit">
+                Search
+              </button>
             </div>
           </form>
         </div>
 
         {results && this.renderResults(results)}
         <div />
-
       </div>
     );
   }
@@ -139,7 +141,7 @@ export default class IndexPage extends React.Component {
         </div>
 
         {results.results.map(certificate =>
-          <SearchResult certificate={certificate} key={certificate.id} />,
+          <SearchResult certificate={certificate} key={certificate.id} />
         )}
 
         {results.resultCount > results.results.length &&
@@ -149,7 +151,8 @@ export default class IndexPage extends React.Component {
           Not finding what you’re looking for? Try refining your search or{' '}
           <a
             href="https://www.boston.gov/departments/registry/how-get-death-certificate"
-            style={{ fontStyle: 'italic' }}>
+            style={{ fontStyle: 'italic' }}
+          >
             request a death certificate
           </a>.
         </div>

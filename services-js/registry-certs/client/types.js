@@ -8,10 +8,10 @@ import type {
 export type DeathCertificate = $ArrayElement<
   $PropertyType<
     $PropertyType<FetchDeathCertificatesQuery, 'deathCertificates'>,
-    'certificates',
-  >,
+    'certificates'
+  >
 >;
 export type DeathCertificateSearchResults = $PropertyType<
   $PropertyType<SearchDeathCertificatesQuery, 'deathCertificates'>,
-  'search',
+  'search'
 >;

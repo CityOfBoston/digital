@@ -2998,13 +2998,13 @@ exports[`Storyshots SearchPage with results 1`] = `
       </div>
       <a
         className="p-a300 br br-t100 b--w result"
-        data-jsx={1723197323}
+        data-jsx={1058049035}
         href="/death/certificate/000002"
         onClick={[Function]}
       >
         <div
           className="t--sans"
-          data-jsx={1723197323}
+          data-jsx={1058049035}
           style={
             Object {
               "fontStyle": "normal",
@@ -3018,7 +3018,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           Banner
         </div>
         <div
-          data-jsx={1723197323}
+          data-jsx={1058049035}
         >
           Died: 
           3/4/2016
@@ -3028,13 +3028,13 @@ exports[`Storyshots SearchPage with results 1`] = `
       </a>
       <a
         className="p-a300 br br-t100 b--w result"
-        data-jsx={1723197323}
+        data-jsx={1058049035}
         href="/death/certificate/000001"
         onClick={[Function]}
       >
         <div
           className="t--sans"
-          data-jsx={1723197323}
+          data-jsx={1058049035}
           style={
             Object {
               "fontStyle": "normal",
@@ -3048,7 +3048,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           Howlett
         </div>
         <div
-          data-jsx={1723197323}
+          data-jsx={1058049035}
         >
           Died: 
           4/15/2014
@@ -3056,20 +3056,20 @@ exports[`Storyshots SearchPage with results 1`] = `
           44 yrs. 2 mos. 10 dys
         </div>
         <div
-          data-jsx={1723197323}
+          data-jsx={1058049035}
         >
           Certificate Pending
         </div>
       </a>
       <a
         className="p-a300 br br-t100 b--w result"
-        data-jsx={1723197323}
+        data-jsx={1058049035}
         href="/death/certificate/000003"
         onClick={[Function]}
       >
         <div
           className="t--sans"
-          data-jsx={1723197323}
+          data-jsx={1058049035}
           style={
             Object {
               "fontStyle": "normal",
@@ -3083,7 +3083,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           Joe
         </div>
         <div
-          data-jsx={1723197323}
+          data-jsx={1058049035}
         >
           Died: 
           2004
@@ -3198,13 +3198,13 @@ exports[`Storyshots SearchPage with results 1`] = `
 exports[`Storyshots SearchResult certificate without death date 1`] = `
 <a
   className="p-a300 br br-t100 b--w result"
-  data-jsx={1723197323}
+  data-jsx={1058049035}
   href="/death/certificate/000003"
   onClick={[Function]}
 >
   <div
     className="t--sans"
-    data-jsx={1723197323}
+    data-jsx={1058049035}
     style={
       Object {
         "fontStyle": "normal",
@@ -3218,7 +3218,7 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
     Joe
   </div>
   <div
-    data-jsx={1723197323}
+    data-jsx={1058049035}
   >
     Died: 
     2004
@@ -3231,13 +3231,13 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
 exports[`Storyshots SearchResult pending certificate 1`] = `
 <a
   className="p-a300 br br-t100 b--w result"
-  data-jsx={1723197323}
+  data-jsx={1058049035}
   href="/death/certificate/000001"
   onClick={[Function]}
 >
   <div
     className="t--sans"
-    data-jsx={1723197323}
+    data-jsx={1058049035}
     style={
       Object {
         "fontStyle": "normal",
@@ -3251,7 +3251,7 @@ exports[`Storyshots SearchResult pending certificate 1`] = `
     Howlett
   </div>
   <div
-    data-jsx={1723197323}
+    data-jsx={1058049035}
   >
     Died: 
     4/15/2014
@@ -3259,7 +3259,7 @@ exports[`Storyshots SearchResult pending certificate 1`] = `
     44 yrs. 2 mos. 10 dys
   </div>
   <div
-    data-jsx={1723197323}
+    data-jsx={1058049035}
   >
     Certificate Pending
   </div>
@@ -3269,13 +3269,13 @@ exports[`Storyshots SearchResult pending certificate 1`] = `
 exports[`Storyshots SearchResult typical certificate 1`] = `
 <a
   className="p-a300 br br-t100 b--w result"
-  data-jsx={1723197323}
+  data-jsx={1058049035}
   href="/death/certificate/000002"
   onClick={[Function]}
 >
   <div
     className="t--sans"
-    data-jsx={1723197323}
+    data-jsx={1058049035}
     style={
       Object {
         "fontStyle": "normal",
@@ -3289,7 +3289,7 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
     Banner
   </div>
   <div
-    data-jsx={1723197323}
+    data-jsx={1058049035}
   >
     Died: 
     3/4/2016

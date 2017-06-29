@@ -29,7 +29,7 @@ describe('opbeatWrapGraphqlOptions', () => {
       },
     };
     const opts = await opbeatWrapGraphqlOptions(opbeat, () => ({}))(
-      hapiRequest,
+      hapiRequest
     );
 
     const err = new Error();

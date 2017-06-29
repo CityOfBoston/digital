@@ -16,7 +16,7 @@ export default async function searchDeathCertificates(
   query: string,
   page: number,
   startYear: ?string,
-  endYear: ?string,
+  endYear: ?string
 ): Promise<DeathCertificateSearchResults> {
   const queryVariables: SearchDeathCertificatesQueryVariables = {
     query,
@@ -26,7 +26,7 @@ export default async function searchDeathCertificates(
   };
   const response: SearchDeathCertificatesQuery = await loopbackGraphql(
     SearchDeathCertificatesGraphql,
-    queryVariables,
+    queryVariables
   );
   return response.deathCertificates.search;
 }

@@ -71,7 +71,8 @@ export default class PaymentPage extends React.Component {
           acceptCharset="UTF-8"
           method="post"
           action="/death/payment"
-          onSubmit={this.handleSubmit}>
+          onSubmit={this.handleSubmit}
+        >
           <div className="b--w p-a500 field-container">
             <fieldset>
               <legend className="stp m-b300">Contact</legend>
@@ -155,7 +156,8 @@ export default class PaymentPage extends React.Component {
               <div className="txt">
                 <label
                   htmlFor="billing-address-1"
-                  className="txt-l txt-l--mt000">
+                  className="txt-l txt-l--mt000"
+                >
                   Address Line 1
                 </label>
                 <input
@@ -170,7 +172,8 @@ export default class PaymentPage extends React.Component {
               <div className="txt">
                 <label
                   htmlFor="billing-address-2"
-                  className="txt-l txt-l--mt000">
+                  className="txt-l txt-l--mt000"
+                >
                   Address Line 2
                 </label>
                 <input
@@ -183,7 +186,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="billing-city" className="txt-l">City</label>
+                <label htmlFor="billing-city" className="txt-l">
+                  City
+                </label>
                 <input
                   id="billing-city"
                   name="billing-city"
@@ -194,7 +199,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="billing-state" className="txt-l">State</label>
+                <label htmlFor="billing-state" className="txt-l">
+                  State
+                </label>
                 <input
                   id="billing-state"
                   name="billing-state"
@@ -204,7 +211,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="billing-zip" className="txt-l">ZIP Code</label>
+                <label htmlFor="billing-zip" className="txt-l">
+                  ZIP Code
+                </label>
                 <input
                   id="billing-zip"
                   name="billing-zip"
@@ -222,7 +231,8 @@ export default class PaymentPage extends React.Component {
               <div className="txt">
                 <label
                   htmlFor="shipping-address-1"
-                  className="txt-l txt-l--mt000">
+                  className="txt-l txt-l--mt000"
+                >
                   Address Line 1
                 </label>
                 <input
@@ -237,7 +247,8 @@ export default class PaymentPage extends React.Component {
               <div className="txt">
                 <label
                   htmlFor="shipping-address-2"
-                  className="txt-l txt-l--mt000">
+                  className="txt-l txt-l--mt000"
+                >
                   Address Line 2
                 </label>
                 <input
@@ -250,7 +261,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="shipping-city" className="txt-l">City</label>
+                <label htmlFor="shipping-city" className="txt-l">
+                  City
+                </label>
                 <input
                   id="shipping-city"
                   name="shipping-city"
@@ -261,7 +274,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="shipping-state" className="txt-l">State</label>
+                <label htmlFor="shipping-state" className="txt-l">
+                  State
+                </label>
                 <input
                   id="shipping-state"
                   name="shipping-state"
@@ -271,7 +286,9 @@ export default class PaymentPage extends React.Component {
               </div>
 
               <div className="txt">
-                <label htmlFor="shipping-zip" className="txt-l">ZIP Code</label>
+                <label htmlFor="shipping-zip" className="txt-l">
+                  ZIP Code
+                </label>
                 <input
                   id="shipping-zip"
                   name="shipping-zip"
@@ -283,7 +300,9 @@ export default class PaymentPage extends React.Component {
           </div>
 
           <div className="g p-a500 b--w">
-            <button className="g--3 btn m-v500" type="submit">Submit</button>
+            <button className="g--3 btn m-v500" type="submit">
+              Submit
+            </button>
           </div>
 
           <style jsx>{`
@@ -314,7 +333,6 @@ export default class PaymentPage extends React.Component {
               margin-bottom: 2px;
             }
           `}</style>
-
         </form>
       </div>
     );

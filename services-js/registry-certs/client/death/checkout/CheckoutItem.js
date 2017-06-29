@@ -83,14 +83,18 @@ export default class CheckoutItem extends React.Component {
         />
 
         <div className="certificate-info">
-          <div>{firstName} {lastName}</div>
+          <div>
+            {firstName} {lastName}
+          </div>
           <div style={{ fontStyle: 'italic' }}>
             {deathDate || deathYear}
             <span className="id-label">ID:</span> {id}
           </div>
         </div>
 
-        <button type="button" onClick={this.handleRemove}>X</button>
+        <button type="button" onClick={this.handleRemove}>
+          X
+        </button>
 
         <style jsx>{`
           .result {

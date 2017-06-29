@@ -34,11 +34,12 @@ export default function Pagination({ page, pageCount, hrefFunc }: Props) {
           <a
             className={`pg-li-i pg-li-i--link ${p === page
               ? 'pg-li-i--a'
-              : ''}`}>
+              : ''}`}
+          >
             {p}
           </a>
         </Link>
-      </li>,
+      </li>
     );
   }
 

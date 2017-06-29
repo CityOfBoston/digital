@@ -26,7 +26,7 @@ gulp.task('babel:server', ['clean:build'], () =>
     .pipe(plumber())
     .pipe(ignore.exclude(IGNORED_JS_SOURCE))
     .pipe(babel())
-    .pipe(gulp.dest('build/server')),
+    .pipe(gulp.dest('build/server'))
 );
 
 gulp.task('next:compile', ['clean:next'], cb => {
@@ -36,7 +36,7 @@ gulp.task('next:compile', ['clean:next'], cb => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -45,13 +45,13 @@ gulp.task('templates:fetch', () =>
     .pipe(
       fetchTemplates({
         url: 'https://edit-dev.boston.gov/api/v1/layouts/app',
-      }),
+      })
     )
-    .pipe(gulp.dest('templates')),
+    .pipe(gulp.dest('templates'))
 );
 
 gulp.task('babel:clear-cache', () =>
-  del(path.join('node_modules', '.cache', 'babel-loader')),
+  del(path.join('node_modules', '.cache', 'babel-loader'))
 );
 
 const GRAPHQL_QUERIES = path.join('client', 'queries', '*.graphql');
@@ -66,7 +66,7 @@ gulp.task('graphql:schema', () => {
     .pipe(
       generateSchema({
         schema: require('./server/graphql').default,
-      }),
+      })
     )
     .pipe(gulp.dest('graphql'));
 });
@@ -76,13 +76,13 @@ gulp.task('graphql:types', ['graphql:schema'], cb => {
     `${path.join(
       'node_modules',
       '.bin',
-      'apollo-codegen',
+      'apollo-codegen'
     )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output ${GRAPHQL_TYPES} --no-add-typename`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -91,7 +91,7 @@ gulp.task('watch:graphql', () => [
   gulp.watch([GRAPHQL_QUERIES.replace(/\\/g, '/')], ['babel:clear-cache']),
   gulp.watch(
     [GRAPHQL_QUERIES.replace(/\\/g, '/'), GRAPHQL_SCHEMA.replace(/\\/g, '/')],
-    ['graphql:types'],
+    ['graphql:types']
   ),
 ]);
 

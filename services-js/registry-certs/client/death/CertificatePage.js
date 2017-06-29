@@ -32,7 +32,7 @@ export default class CertificatePage extends React.Component {
 
   static async getInitialProps(
     ctx: Context<*>,
-    { deathCertificatesDao }: ClientDependencies,
+    { deathCertificatesDao }: ClientDependencies
   ): Promise<InitialProps> {
     const { query: { id } } = ctx;
 
@@ -67,7 +67,9 @@ export default class CertificatePage extends React.Component {
     return (
       <div>
         <Head>
-          <title>Boston.gov — Death Certificate #{id}</title>
+          <title>
+            Boston.gov — Death Certificate #{id}
+          </title>
         </Head>
 
         <Nav cart={cart} link="checkout" />
@@ -101,26 +103,34 @@ export default class CertificatePage extends React.Component {
         <ul className="dl">
           <li className="dl-i">
             <span className="dl-t">Full Name</span>
-            <span className="dl-d">{firstName} {lastName}</span>
+            <span className="dl-d">
+              {firstName} {lastName}
+            </span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Date of Death</span>
-            <span className="dl-d">{deathDate || deathYear}</span>
+            <span className="dl-d">
+              {deathDate || deathYear}
+            </span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Age</span>
-            <span className="dl-d">{age}</span>
+            <span className="dl-d">
+              {age}
+            </span>
           </li>
         </ul>
 
         <form
           onSubmit={this.handleAddToCart}
-          className="js-add-to-cart-form m-v300">
+          className="js-add-to-cart-form m-v300"
+        >
           <select
             name="quantity"
             value={quantity}
             className="quantity"
-            onChange={this.handleQuantityChange}>
+            onChange={this.handleQuantityChange}
+          >
             <option value="1">Qty: 1</option>
             <option value="2">Qty: 2</option>
             <option value="3">Qty: 3</option>
@@ -133,7 +143,9 @@ export default class CertificatePage extends React.Component {
             <option value="10">Qty: 10</option>
           </select>
 
-          <button type="submit" className="btn add-to-cart">Add to Cart</button>
+          <button type="submit" className="btn add-to-cart">
+            Add to Cart
+          </button>
         </form>
 
         <style jsx>{`

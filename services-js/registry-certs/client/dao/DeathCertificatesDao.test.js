@@ -34,7 +34,7 @@ beforeEach(() => {
 describe('get', () => {
   it('fetches the certificate with the given id', async () => {
     fetchDeathCertificates.mockReturnValue(
-      Promise.resolve([TYPICAL_CERTIFICATE]),
+      Promise.resolve([TYPICAL_CERTIFICATE])
     );
 
     expect(await dao.get('000002')).toEqual(TYPICAL_CERTIFICATE);
@@ -42,7 +42,7 @@ describe('get', () => {
 
   it('caches the response for the next get', async () => {
     fetchDeathCertificates.mockReturnValueOnce(
-      Promise.resolve([TYPICAL_CERTIFICATE]),
+      Promise.resolve([TYPICAL_CERTIFICATE])
     );
 
     expect(await dao.get('000002')).toEqual(TYPICAL_CERTIFICATE);
@@ -53,7 +53,7 @@ describe('get', () => {
 describe('search', () => {
   it('searches for the query string', async () => {
     searchDeathCertificates.mockReturnValue(
-      Promise.resolve(TEST_SEARCH_RESULTS),
+      Promise.resolve(TEST_SEARCH_RESULTS)
     );
 
     expect((await dao.search('Banner', 1)).results).toEqual([
@@ -63,7 +63,7 @@ describe('search', () => {
 
   it('primes the id cache', async () => {
     searchDeathCertificates.mockReturnValue(
-      Promise.resolve(TEST_SEARCH_RESULTS),
+      Promise.resolve(TEST_SEARCH_RESULTS)
     );
     await dao.search('Banner', 1);
 

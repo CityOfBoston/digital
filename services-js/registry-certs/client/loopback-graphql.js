@@ -6,7 +6,7 @@ import type { RequestAdditions } from '../server/request-additions';
 type QueryVariables = { [key: string]: any };
 export type LoopbackGraphql = (
   query: string,
-  variables: ?QueryVariables,
+  variables: ?QueryVariables
 ) => Promise<any>;
 
 const makeGraphQLError = (message, errors) => {
@@ -77,7 +77,7 @@ async function serverGraphqlFetch(
   cache,
   query,
   variables = null,
-  options = {},
+  options = {}
 ) {
   const { cacheKey } = options;
 
@@ -93,9 +93,8 @@ async function serverGraphqlFetch(
     },
   });
 
-  const json = typeof res.result === 'string'
-    ? JSON.parse(res.result)
-    : res.result;
+  const json =
+    typeof res.result === 'string' ? JSON.parse(res.result) : res.result;
   const value = handleGraphqlResponse(res.statusCode === 200, json);
   if (cacheKey) {
     cache[cacheKey] = value;
@@ -105,7 +104,7 @@ async function serverGraphqlFetch(
 
 function serverRenderGraphqlFetch() {
   throw new Error(
-    'loopbackGraphql not defined for server render. Fetch your data in getInitialProps() methods.',
+    'loopbackGraphql not defined for server render. Fetch your data in getInitialProps() methods.'
   );
 }
 
@@ -118,7 +117,7 @@ function serverRenderGraphqlFetch() {
  * to the response data from the local GraphQL server.
  */
 export default function makeLoopbackGraphql(
-  req: ?RequestAdditions,
+  req: ?RequestAdditions
 ): LoopbackGraphql {
   if (process.browser) {
     return clientGraphqlFetch;
@@ -126,7 +125,7 @@ export default function makeLoopbackGraphql(
     return serverGraphqlFetch.bind(
       null,
       req.hapiInject,
-      req.loopbackGraphqlCache,
+      req.loopbackGraphqlCache
     );
   } else {
     // This case comes up when components make a loopbackGraphql outside of

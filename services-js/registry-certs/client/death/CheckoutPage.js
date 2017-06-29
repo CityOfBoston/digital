@@ -40,7 +40,7 @@ export default class CheckoutPage extends React.Component {
 
         <div>
           {cart.items.map(item =>
-            <CheckoutItem key={item.id} item={item} cart={cart} />,
+            <CheckoutItem key={item.id} item={item} cart={cart} />
           )}
 
           <div className="p-a300 g">
@@ -56,7 +56,6 @@ export default class CheckoutPage extends React.Component {
                 text-align: center;
               }
             `}</style>
-
           </div>
         </div>
       </div>
@@ -73,7 +72,9 @@ export default class CheckoutPage extends React.Component {
           + {(PROCESSING_FEE * 100).toFixed(2)}% credit card fee
         </div>
         <div className="sh sh--b0">
-          <span className="sh-title">Subtotal: ${cart.cost.toFixed(2)}</span>
+          <span className="sh-title">
+            Subtotal: ${cart.cost.toFixed(2)}
+          </span>
         </div>
       </div>
     );
