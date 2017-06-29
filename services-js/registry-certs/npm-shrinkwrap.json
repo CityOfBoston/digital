@@ -3979,20 +3979,22 @@
       "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.10.3.tgz",
       "integrity": "sha1-wxOv1VGOZzNRvuGPtj4qDkh0B6s="
     },
-    "graphql-server-core": {
-      "version": "0.9.0",
-      "resolved": "https://registry.npmjs.org/graphql-server-core/-/graphql-server-core-0.9.0.tgz",
-      "integrity": "sha1-NNrC2Q4LnF8sTGZvCNq3TBW4oyc="
-    },
     "graphql-server-hapi": {
-      "version": "0.9.0",
-      "resolved": "https://registry.npmjs.org/graphql-server-hapi/-/graphql-server-hapi-0.9.0.tgz",
-      "integrity": "sha1-bQbrQLthJy0q8aQig6jot7TQ+Kw="
-    },
-    "graphql-server-module-graphiql": {
-      "version": "0.9.0",
-      "resolved": "https://registry.npmjs.org/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.9.0.tgz",
-      "integrity": "sha1-3+h3BmBS+Uo/9X/0eQswI+nvK0o="
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/graphql-server-hapi/-/graphql-server-hapi-1.0.0.tgz",
+      "integrity": "sha1-qJS3uenPTTK9Qnyc3kfkClrM02Y=",
+      "dependencies": {
+        "graphql-server-core": {
+          "version": "1.0.0",
+          "resolved": "https://registry.npmjs.org/graphql-server-core/-/graphql-server-core-1.0.0.tgz",
+          "integrity": "sha1-JdkrYnmoEmPwcUE2Y2pUkQwfr+A="
+        },
+        "graphql-server-module-graphiql": {
+          "version": "1.0.0",
+          "resolved": "https://registry.npmjs.org/graphql-server-module-graphiql/-/graphql-server-module-graphiql-1.0.0.tgz",
+          "integrity": "sha1-GzAkgUI/g7PA9DyzC/3DC/49CoI="
+        }
+      }
     },
     "graphql-tools": {
       "version": "1.0.0",
