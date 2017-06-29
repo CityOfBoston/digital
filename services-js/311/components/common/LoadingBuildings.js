@@ -139,7 +139,8 @@ export default class LoadingBuildings extends React.Component {
         enter={enter}
         leave={leave}
         className={CONTAINER_STYLE}
-        runOnMount>
+        runOnMount
+      >
         {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
         <svg
           role="img"

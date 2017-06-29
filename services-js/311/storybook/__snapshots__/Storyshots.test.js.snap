@@ -168,7 +168,7 @@ exports[`Storyshots AttributeField Date/Time 1`] = `
           onChange={[Function]}
           onFocus={[Function]}
           placeholder="hh:mm am/pm"
-          value="11:05 pm"
+          value="6:05 pm"
         />
         <span
           className="t--err p-a300"

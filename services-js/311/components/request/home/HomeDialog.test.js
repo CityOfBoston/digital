@@ -33,7 +33,7 @@ const SERVICE_SUMMARIES = [
 beforeEach(() => {
   // mock implementation always fires, but after a delay
   debounce.mockImplementation(fn => (...args) =>
-    Promise.resolve().then(fn.bind(null, ...args)),
+    Promise.resolve().then(fn.bind(null, ...args))
   );
 });
 
@@ -63,7 +63,7 @@ describe('home page', () => {
         store={store}
         loopbackGraphql={loopbackGraphql}
         {...initialProps}
-      />,
+      />
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -99,7 +99,7 @@ describe('choose page', () => {
         loopbackGraphql={loopbackGraphql}
         {...initialProps}
       />,
-      { createNodeMock: () => document.createElement('div') },
+      { createNodeMock: () => document.createElement('div') }
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -117,7 +117,7 @@ describe('integration', () => {
     loadServiceSuggestions.mockReturnValue(
       new Promise(resolve => {
         resolveSuggestions = resolve;
-      }),
+      })
     );
 
     wrapper = mount(
@@ -128,7 +128,7 @@ describe('integration', () => {
         stage="choose"
         topServiceSummaries={[]}
         bypassTranslateDialog
-      />,
+      />
     );
   });
 
@@ -142,7 +142,7 @@ describe('integration', () => {
 
     expect(loadServiceSuggestions).toHaveBeenCalledWith(
       expect.anything(),
-      'Thanos is attacking',
+      'Thanos is attacking'
     );
 
     await resolveSuggestions(SERVICE_SUMMARIES);
@@ -154,7 +154,7 @@ describe('integration', () => {
     expect(serviceLink.length).toEqual(1);
     // We look to the parent, which is a Next Link component.
     expect(serviceLink.first().parent().props().href).toEqual(
-      '/request?code=CSMCINC&description=Thanos%20is%20attacking',
+      '/request?code=CSMCINC&description=Thanos%20is%20attacking'
     );
   });
 });

@@ -71,10 +71,10 @@ test('multivaluelist', () => {
 
   const inputs = wrapper.find('input');
   const herculesInput = inputs.findWhere(
-    i => i.getDOMNode().value === 'hercules',
+    i => i.getDOMNode().value === 'hercules'
   );
   const msMarvelInput = inputs.findWhere(
-    i => i.getDOMNode().value === 'ms-marvel',
+    i => i.getDOMNode().value === 'ms-marvel'
   );
 
   expect(herculesInput.getDOMNode().checked).toEqual(true);

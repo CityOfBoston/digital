@@ -56,7 +56,7 @@ export default class CloudinaryImageUpload {
         if (this.adoptedUrlObservable) {
           this.adoptedUrlObservable.set(uploadedUrl);
         }
-      },
+      }
     );
   }
 
@@ -107,7 +107,7 @@ export default class CloudinaryImageUpload {
     if (this.uploadResponse) {
       if (!config) {
         throw new Error(
-          'Trying to remove a file without configuring Cloudinary',
+          'Trying to remove a file without configuring Cloudinary'
         );
       }
 

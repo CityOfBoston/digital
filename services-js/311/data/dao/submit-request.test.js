@@ -210,6 +210,6 @@ test('submitRequest', async () => {
 
   expect(loopbackGraphql).toHaveBeenCalledWith(
     SubmitRequestGraphql,
-    mutationVariables,
+    mutationVariables
   );
 });

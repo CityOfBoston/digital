@@ -16,6 +16,6 @@ test('loadRequest', async () => {
 
   expect(loopbackGraphql).toHaveBeenCalledWith(
     LoadRequestGraphql,
-    queryVariables,
+    queryVariables
   );
 });

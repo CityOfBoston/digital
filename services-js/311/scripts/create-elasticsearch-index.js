@@ -10,7 +10,7 @@ dotenv.config();
 (async function initializeIndex() {
   const searchBox = new SearchBox(
     process.env.SEARCHBOX_URL,
-    process.env.ELASTICSEARCH_INDEX,
+    process.env.ELASTICSEARCH_INDEX
   );
   await searchBox.initIndex();
 })().catch(err => {

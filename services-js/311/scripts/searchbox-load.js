@@ -19,7 +19,7 @@ function loadRecords(): Promise<ServiceRequest[]> {
 function upload(records: ServiceRequest[]): Promise<BulkResponse> {
   const searchBox = new SearchBox(
     process.env.SEARCHBOX_SSL_URL,
-    process.env.ELASTICSEARCH_INDEX,
+    process.env.ELASTICSEARCH_INDEX
   );
   return searchBox.createCases(records);
 }

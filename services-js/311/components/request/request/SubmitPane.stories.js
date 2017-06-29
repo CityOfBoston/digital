@@ -17,11 +17,11 @@ storiesOf('SubmitPane', module)
   .addDecorator(story =>
     <div className="b-c">
       <FormDialog>{story()}</FormDialog>
-    </div>,
+    </div>
   )
   .add('Submitting', () => <SubmitPane state="submitting" ui={new Ui()} />)
   .add('Network Error', () =>
-    <SubmitPane state="error" error={new TypeError('Failed to fetch')} />,
+    <SubmitPane state="error" error={new TypeError('Failed to fetch')} />
   )
   .add('GraphQL Error', () =>
     <SubmitPane
@@ -30,5 +30,5 @@ storiesOf('SubmitPane', module)
         { message: 'firstName is a required field' },
         { message: 'lastName is a required field' },
       ])}
-    />,
+    />
   );

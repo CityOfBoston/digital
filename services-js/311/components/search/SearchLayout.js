@@ -197,7 +197,7 @@ export default class SearchLayout extends React.Component {
         if (!mapCenter || !store.requestSearch.mapMoved) {
           this.locationMap.visitLocation(browserLocation, true);
         }
-      },
+      }
     );
 
     this.locationUpdateDisposer = reaction(
@@ -225,7 +225,7 @@ export default class SearchLayout extends React.Component {
       },
       {
         name: 'location query updater',
-      },
+      }
     );
   }
 
@@ -356,14 +356,16 @@ export default class SearchLayout extends React.Component {
               : CONTAINER_STYLE.toString()
           }
           style={{ backgroundColor: 'transparent' }}
-          role="main">
+          role="main"
+        >
           <div className={`p-a300 ${SEARCH_CONTAINER_STYLE.toString()}`}>
             <RecentRequestsSearchForm requestSearch={requestSearch} />
           </div>
 
           <div
             className={mapView ? FULL_MAP_CONTAINER_STYLE : MAP_CONTAINER_STYLE}
-            ref={this.setLocationMapContainer}>
+            ref={this.setLocationMapContainer}
+          >
             {!noMap &&
               <LocationMapWithLibrary
                 locationMapRef={this.setLocationMap}
@@ -382,7 +384,8 @@ export default class SearchLayout extends React.Component {
               <button
                 type="button"
                 className="btn g--12"
-                onClick={this.switchToListView}>
+                onClick={this.switchToListView}
+              >
                 List View
               </button>
             </div>}
@@ -393,11 +396,13 @@ export default class SearchLayout extends React.Component {
               className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${stickyMapViewButton
                 ? STICKY_VIEW_BUTTON_STYLE.toString()
                 : ''}`}
-              ref={this.setMapViewButtonContainer}>
+              ref={this.setMapViewButtonContainer}
+            >
               <button
                 type="button"
                 className="btn g--12"
-                onClick={this.switchToMapView}>
+                onClick={this.switchToMapView}
+              >
                 Map View
               </button>
             </div>}

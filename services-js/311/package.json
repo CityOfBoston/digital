@@ -4,7 +4,7 @@
   "repository": "https://github.com/CityOfBoston/311.git",
   "license": "CC0-1.0",
   "engines": {
-    "node": "8.1.0"
+    "node": "6.10.0"
   },
   "scripts": {
     "dev": "babel-watch -D -w server server",

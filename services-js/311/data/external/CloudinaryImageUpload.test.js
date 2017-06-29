@@ -121,7 +121,7 @@ describe('upload', () => {
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(
       200,
       { 'Content-Type': 'application/json' },
-      JSON.stringify(FAKE_UPLOAD_RESPONSE),
+      JSON.stringify(FAKE_UPLOAD_RESPONSE)
     );
 
     expect(imageUpload.loaded).toEqual(true);
@@ -143,10 +143,10 @@ describe('upload', () => {
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(
       401,
       { 'Content-Type': 'application/json' },
-      JSON.stringify(FAKE_UPLOAD_ERROR),
+      JSON.stringify(FAKE_UPLOAD_ERROR)
     );
     expect(imageUpload.errorMessage).toEqual(
-      'Upload preset must be whitelisted for unsigned uploads',
+      'Upload preset must be whitelisted for unsigned uploads'
     );
   });
 });
@@ -175,12 +175,12 @@ describe('remove', () => {
     (imageUpload.uploadRequest: FakeXMLHttpRequest).respond(
       200,
       { 'Content-Type': 'application/json' },
-      JSON.stringify(FAKE_UPLOAD_RESPONSE),
+      JSON.stringify(FAKE_UPLOAD_RESPONSE)
     );
 
     imageUpload.remove();
     expect(fetchMock.called('https://cloudinary/delete_by_token')).toEqual(
-      true,
+      true
     );
     expect(imageUpload.loaded).toEqual(false);
     expect(imageUpload.canRemove).toEqual(false);

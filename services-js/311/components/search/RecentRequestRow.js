@@ -171,10 +171,12 @@ export default class RecentRequestRow extends React.Component {
           style={{
             backgroundColor: this.selected ? GRAY_100 : 'transparent',
             color: 'inherit',
-          }}>
+          }}
+        >
           <div
             className={THUMBNAIL_SYLE}
-            style={{ backgroundImage: `url(${defaultUrl})` }}>
+            style={{ backgroundImage: `url(${defaultUrl})` }}
+          >
             <div
               className={THUMBNAIL_SYLE}
               style={{ backgroundImage: `url(${mediaUrl})` }}
@@ -182,7 +184,8 @@ export default class RecentRequestRow extends React.Component {
           </div>
           <div className={REQUEST_INFO_STYLE}>
             <h4
-              className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}>
+              className={`t--intro t--ellipsis ${REQUEST_SERVICE_NAME_STYLE.toString()}`}
+            >
               {request.service.name}
             </h4>
             <div className={DESCRIPTION_STYLE}>

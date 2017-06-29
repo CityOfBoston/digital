@@ -251,7 +251,7 @@ export default class RequestDialog extends React.Component {
         // This exception is ultimately "caught" by the requestSubmission fromPromise
         // mobx handler.
         throw err;
-      },
+      }
     );
 
     this.requestSubmission = fromPromise(promise);
@@ -275,7 +275,8 @@ export default class RequestDialog extends React.Component {
 
         <FormDialog
           narrow={stage === 'contact'}
-          noPadding={stage === 'location'}>
+          noPadding={stage === 'location'}
+        >
           {this.renderContent()}
         </FormDialog>
       </div>

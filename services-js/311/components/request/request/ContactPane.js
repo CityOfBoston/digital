@@ -137,7 +137,8 @@ export default class ContactPane extends React.Component {
                 You can also{' '}
                 <a
                   href="javascript:void(0)"
-                  onClick={this.continueWithoutContactInfo}>
+                  onClick={this.continueWithoutContactInfo}
+                >
                   send a report without giving us your information
                 </a>.
               </span>}
@@ -229,7 +230,8 @@ export default class ContactPane extends React.Component {
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
           <div
-            className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
+            className={`g--8 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}
+          >
             {!contactInfoRequirementsMet &&
               <span>
                 Please fill out <span className="t--req">required</span> fields
@@ -240,7 +242,8 @@ export default class ContactPane extends React.Component {
           <button
             className="btn g--4"
             type="submit"
-            disabled={!contactInfoRequirementsMet}>
+            disabled={!contactInfoRequirementsMet}
+          >
             Submit Request
           </button>
         </div>

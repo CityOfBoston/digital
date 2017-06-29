@@ -10,6 +10,6 @@ test('loadTopServiceSummaries', async () => {
   expect(loopbackGraphql).toHaveBeenCalledWith(
     LoadTopServiceSummariesGraphql,
     { first: 10 },
-    { cacheKey: 'loadTopServiceSummaries:10' },
+    { cacheKey: 'loadTopServiceSummaries:10' }
   );
 });

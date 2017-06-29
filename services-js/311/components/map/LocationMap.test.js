@@ -41,7 +41,7 @@ test('rendering active', () => {
       mode="picker"
       mobile={false}
     />,
-    { createNodeMock: () => document.createElement('div') },
+    { createNodeMock: () => document.createElement('div') }
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -65,7 +65,7 @@ describe('mounted map', () => {
         store={store}
         mode="picker"
         mobile={false}
-      />,
+      />
     );
 
     locationMap = wrapper.instance();

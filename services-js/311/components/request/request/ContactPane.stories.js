@@ -26,7 +26,7 @@ storiesOf('ContactPane', module)
   .addDecorator(story =>
     <div className="b-c">
       <FormDialog>{story()}</FormDialog>
-    </div>,
+    </div>
   )
   .add('Empty', () =>
     <ContactPane
@@ -35,7 +35,7 @@ storiesOf('ContactPane', module)
       requestForm={makeRequestForm(false)}
       nextFunc={action('Next Step')}
       noLocalStorage
-    />,
+    />
   )
   .add('Filled Out', () =>
     <ContactPane
@@ -44,5 +44,5 @@ storiesOf('ContactPane', module)
       requestForm={makeRequestForm(true)}
       nextFunc={action('Next Step')}
       noLocalStorage
-    />,
+    />
   );

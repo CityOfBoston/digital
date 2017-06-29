@@ -12,13 +12,13 @@ import SearchAddressGraphql from './graphql/SearchAddress.graphql';
 // Takes a partial address string and searches for it
 export default async function searchAddress(
   loopbackGraphql: LoopbackGraphql,
-  query: string,
+  query: string
 ): Promise<?SearchAddressPlace> {
   const args: SearchAddressQueryVariables = { query };
 
   const response: SearchAddressQuery = await loopbackGraphql(
     SearchAddressGraphql,
-    args,
+    args
   );
   return response.geocoder.search;
 }

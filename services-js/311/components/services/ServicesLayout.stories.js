@@ -28,8 +28,8 @@ const makeStore = action((expanded: boolean) => {
 storiesOf('ServicesLayout', module)
   .addDecorator(page)
   .add('Collapsed', () =>
-    <ServicesLayout store={makeStore(false)} services={SERVICE_SUMMARIES} />,
+    <ServicesLayout store={makeStore(false)} services={SERVICE_SUMMARIES} />
   )
   .add('Expanded', () =>
-    <ServicesLayout store={makeStore(true)} services={SERVICE_SUMMARIES} />,
+    <ServicesLayout store={makeStore(true)} services={SERVICE_SUMMARIES} />
   );

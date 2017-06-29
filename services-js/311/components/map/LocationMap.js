@@ -174,7 +174,7 @@ export default class LocationMap extends React.Component {
           draggable: false,
           keyboard: false,
           zIndexOffset: 2000,
-        },
+        }
       ));
 
       currentLocationMarker.on('click', this.handleCurrentLocationMarkerClick);
@@ -182,7 +182,7 @@ export default class LocationMap extends React.Component {
 
     if (mapboxgl) {
       const requestMarkerDiv = makeMarkerGlElement(
-        waypointMarkers.orangeFilled,
+        waypointMarkers.orangeFilled
       );
       requestMarkerDiv.style.zIndex = '10';
       requestMarkerDiv.onclick = ev => {
@@ -192,7 +192,7 @@ export default class LocationMap extends React.Component {
       this.requestMarkerGl = new mapboxgl.Marker(requestMarkerDiv);
 
       const currentLocationDiv = makeMarkerGlElement(
-        waypointMarkers.currentLocation,
+        waypointMarkers.currentLocation
       );
       currentLocationDiv.onclick = this.handleCurrentLocationMarkerGlClick;
 
@@ -218,7 +218,7 @@ export default class LocationMap extends React.Component {
         store.requestSearch,
         computed(() => (this.props.mode === 'requests' ? 1 : 0)),
         mobile,
-        onMapClick,
+        onMapClick
       );
     }
   }
@@ -266,7 +266,7 @@ export default class LocationMap extends React.Component {
 
     window.removeEventListener(
       'mousemove',
-      this.handleRequestMarkerGlMouseMove,
+      this.handleRequestMarkerGlMouseMove
     );
     window.removeEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
   }
@@ -322,7 +322,7 @@ export default class LocationMap extends React.Component {
 
       if (requestMarkerGl && mapboxgl) {
         requestMarkerGl.setLngLat(
-          new mapboxgl.LngLat(markerLocation.lng, markerLocation.lat),
+          new mapboxgl.LngLat(markerLocation.lng, markerLocation.lat)
         );
       }
 
@@ -389,7 +389,7 @@ export default class LocationMap extends React.Component {
   };
 
   maintainCurrentLocationMarkerLocation = (
-    currentLocation: ?{ lat: number, lng: number },
+    currentLocation: ?{ lat: number, lng: number }
   ) => {
     const { mapboxgl } = this.props;
     const {
@@ -411,7 +411,7 @@ export default class LocationMap extends React.Component {
     if (mapboxGlMap && currentLocationMarkerGl && mapboxgl) {
       if (currentLocation) {
         currentLocationMarkerGl.setLngLat(
-          new mapboxgl.LngLat(currentLocation.lng, currentLocation.lat),
+          new mapboxgl.LngLat(currentLocation.lng, currentLocation.lat)
         );
         currentLocationMarkerGl.addTo(mapboxGlMap);
       } else {
@@ -564,7 +564,7 @@ export default class LocationMap extends React.Component {
           ],
           {
             animate: false,
-          },
+          }
         );
       }
 
@@ -576,7 +576,7 @@ export default class LocationMap extends React.Component {
         style,
         maxBounds: new mapboxgl.LngLatBounds(
           [MAX_BOUNDS[1][1], MAX_BOUNDS[1][0]],
-          [MAX_BOUNDS[0][1], MAX_BOUNDS[0][0]],
+          [MAX_BOUNDS[0][1], MAX_BOUNDS[0][0]]
         ),
         ...commonOpts,
       };
@@ -595,7 +595,7 @@ export default class LocationMap extends React.Component {
           ],
           {
             animate: false,
-          },
+          }
         );
       }
 
@@ -621,7 +621,7 @@ export default class LocationMap extends React.Component {
           mapboxglMap.on(
             'click',
             'resultsSearch',
-            this.handleResultMarkerClick,
+            this.handleResultMarkerClick
           );
 
           this.resultsUpdateDisposer = autorun('results update', () => {
@@ -656,7 +656,7 @@ export default class LocationMap extends React.Component {
         name: 'maintainRequestMarkerLocation',
         fireImmediately: true,
         compareStructural: true,
-      },
+      }
     );
 
     this.currentLocationMonitorDisposer = reaction(
@@ -665,7 +665,7 @@ export default class LocationMap extends React.Component {
       {
         name: 'maintainCurrentLocationMarkerLocation',
         fireImmediately: true,
-      },
+      }
     );
   }
 
@@ -818,10 +818,10 @@ export default class LocationMap extends React.Component {
       if (mapboxMap && L) {
         const visibleBounds = L.latLngBounds([]);
         visibleBounds.extend(
-          mapboxMap.containerPointToLatLng(neContainerPoint),
+          mapboxMap.containerPointToLatLng(neContainerPoint)
         );
         visibleBounds.extend(
-          mapboxMap.containerPointToLatLng(swContainerPoint),
+          mapboxMap.containerPointToLatLng(swContainerPoint)
         );
 
         requestSearch.mapBounds = visibleBounds;
@@ -831,10 +831,10 @@ export default class LocationMap extends React.Component {
       } else if (mapboxGlMap && mapboxgl) {
         const visibleBounds = new mapboxgl.LngLatBounds();
         visibleBounds.extend(
-          mapboxGlMap.unproject([neContainerPoint.x, neContainerPoint.y]),
+          mapboxGlMap.unproject([neContainerPoint.x, neContainerPoint.y])
         );
         visibleBounds.extend(
-          mapboxGlMap.unproject([swContainerPoint.x, swContainerPoint.y]),
+          mapboxGlMap.unproject([swContainerPoint.x, swContainerPoint.y])
         );
 
         requestSearch.mapBoundsGl = visibleBounds;
@@ -857,7 +857,7 @@ export default class LocationMap extends React.Component {
         this.chooseLocation(centerStruct);
       }
     }),
-    500,
+    500
   );
 
   @action.bound
@@ -987,7 +987,7 @@ export default class LocationMap extends React.Component {
   handleRequestMarkerGlMouseUp = (ev: Object) => {
     window.removeEventListener(
       'mousemove',
-      this.handleRequestMarkerGlMouseMove,
+      this.handleRequestMarkerGlMouseMove
     );
     window.removeEventListener('mouseup', this.handleRequestMarkerGlMouseUp);
 
@@ -1072,7 +1072,7 @@ export default class LocationMap extends React.Component {
     const { mapboxgl, mobile, store: { requestSearch } } = this.props;
 
     const selectedRequest = requestSearch.results.find(
-      res => res.id === ev.features[0].properties.requestId,
+      res => res.id === ev.features[0].properties.requestId
     );
     requestSearch.selectedRequest = selectedRequest;
     requestSearch.selectedSource = 'marker';

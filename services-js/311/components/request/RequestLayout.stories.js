@@ -83,7 +83,7 @@ storiesOf('RequestLayout', module)
         },
       }}
       noMap
-    />,
+    />
   )
   .add('Request Page', () =>
     <RequestLayout
@@ -97,7 +97,7 @@ storiesOf('RequestLayout', module)
         },
       }}
       noMap
-    />,
+    />
   )
   .add('Translate Page', () =>
     <RequestLayout
@@ -107,5 +107,5 @@ storiesOf('RequestLayout', module)
         props: {},
       }}
       noMap
-    />,
+    />
   );

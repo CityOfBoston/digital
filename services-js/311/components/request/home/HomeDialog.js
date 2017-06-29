@@ -83,7 +83,7 @@ export default class HomeDialog extends React.Component {
       {
         fireImmediately: true,
         name: 'update service suggestions from description',
-      },
+      }
     );
 
     LoadingIcons.preload();
@@ -99,7 +99,7 @@ export default class HomeDialog extends React.Component {
     try {
       const suggestedServiceSummaries = await loadServiceSuggestions(
         this.props.loopbackGraphql,
-        description,
+        description
       );
 
       runInAction('suggestServices result', () => {
@@ -122,9 +122,9 @@ export default class HomeDialog extends React.Component {
   routeToChoose() {
     Router.push(
       `/request?stage=choose&description=${encodeURIComponent(
-        this.description,
+        this.description
       )}`,
-      '/request',
+      '/request'
     );
   }
 

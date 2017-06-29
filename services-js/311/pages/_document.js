@@ -125,7 +125,8 @@ export default class extends Document {
 
           <div
             className="mn mn--full mn--full-vc mn--nv-s"
-            style={{ zIndex: 2 }}>
+            style={{ zIndex: 2 }}
+          >
             <input
               type="checkbox"
               id="s-tr"

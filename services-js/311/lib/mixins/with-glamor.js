@@ -11,7 +11,7 @@ import React from 'react';
 import { rehydrate } from 'glamor';
 
 export default <OP, P: $Subtype<Object>, S>(
-  componentFn: () => Class<React.Component<OP, P, S>>,
+  componentFn: () => Class<React.Component<OP, P, S>>
 ): Class<React.Component<void, P, void>> => {
   if (process.browser) {
     // eslint-disable-next-line no-underscore-dangle

@@ -160,7 +160,8 @@ function renderMultiValueListAttribute(question, onChange) {
         {lists.map((list, i) =>
           <div
             className={lists.length === 1 ? 'g--12' : 'g--6'}
-            key={`list-${i}`}>
+            key={`list-${i}`}
+          >
             {list.map(({ key, name }) =>
               <div className="cb" key={key}>
                 <input
@@ -175,9 +176,9 @@ function renderMultiValueListAttribute(question, onChange) {
                 <label className="cb-l" htmlFor={`${question.code}-${key}`}>
                   {name}
                 </label>
-              </div>,
+              </div>
             )}
-          </div>,
+          </div>
         )}
       </div>
     </div>
@@ -205,7 +206,8 @@ function renderSingleValueListAttribute(question, onChange) {
         {lists.map((list, i) =>
           <div
             className={lists.length === 1 ? 'g--12' : 'g--6'}
-            key={`list-${i}`}>
+            key={`list-${i}`}
+          >
             {list.map(({ key, name }) =>
               <div className="ra" key={key}>
                 <input
@@ -223,12 +225,12 @@ function renderSingleValueListAttribute(question, onChange) {
                 <label className="ra-l" htmlFor={`${question.code}-${key}`}>
                   {name}
                 </label>
-              </div>,
+              </div>
             )
             // blank span below to be the :last-child so that all the labels have a bottom margin
             }
             <span />
-          </div>,
+          </div>
         )}
       </div>
     </div>

@@ -26,7 +26,7 @@ if (!inPercy() && process.env.NODE_ENV !== 'test') {
           mode="picker"
           mobile={false}
         />
-      </div>,
+      </div>
     )
     .add('inactive', () =>
       <div style={{ width: '100vw', height: '100vh' }}>
@@ -37,7 +37,7 @@ if (!inPercy() && process.env.NODE_ENV !== 'test') {
           mode="inactive"
           mobile={false}
         />
-      </div>,
+      </div>
     )
     .add('picker', () =>
       <div style={{ width: '100vw', height: '100vh' }}>
@@ -48,6 +48,6 @@ if (!inPercy() && process.env.NODE_ENV !== 'test') {
           mode="picker"
           mobile={false}
         />
-      </div>,
+      </div>
     );
 }

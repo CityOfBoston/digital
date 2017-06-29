@@ -55,8 +55,8 @@ describe('holds', () => {
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
           ],
         },
-        questionMap,
-      ).holds,
+        questionMap
+      ).holds
     ).toEqual(true);
   });
 
@@ -73,8 +73,8 @@ describe('holds', () => {
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
           ],
         },
-        questionMap,
-      ).holds,
+        questionMap
+      ).holds
     ).toEqual(false);
   });
 
@@ -91,8 +91,8 @@ describe('holds', () => {
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
           ],
         },
-        questionMap,
-      ).holds,
+        questionMap
+      ).holds
     ).toEqual(true);
   });
 
@@ -109,8 +109,8 @@ describe('holds', () => {
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
           ],
         },
-        questionMap,
-      ).holds,
+        questionMap
+      ).holds
     ).toEqual(true);
   });
 
@@ -127,8 +127,8 @@ describe('holds', () => {
             { attribute: 'question-2', op: 'eq', value: makeString('value-2') },
           ],
         },
-        questionMap,
-      ).holds,
+        questionMap
+      ).holds
     ).toEqual(false);
   });
 });

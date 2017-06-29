@@ -120,7 +120,7 @@ export default class RequestSearch {
         name: 'RequestSearch auto-search',
         fireImmediately: true,
         compareStructural: true,
-      },
+      }
     );
 
     this.boundsSetDisposer = autorun(() => {
@@ -179,7 +179,7 @@ export default class RequestSearch {
   @action
   async search(
     loopbackGraphql: LoopbackGraphql,
-    { topLeft, bottomRight, query }: SearchArgs,
+    { topLeft, bottomRight, query }: SearchArgs
   ) {
     if (!topLeft || !bottomRight) {
       return;
@@ -191,7 +191,7 @@ export default class RequestSearch {
       loopbackGraphql,
       query,
       topLeft,
-      bottomRight,
+      bottomRight
     );
 
     runInAction('request search results', () => {

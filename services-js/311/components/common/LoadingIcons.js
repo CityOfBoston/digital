@@ -161,7 +161,7 @@ export default class LoadingBuildings extends React.Component {
   get index(): number {
     return Math.max(
       0,
-      Math.floor((now(50) - this.startMillis) / this.delay) % this.icons.length,
+      Math.floor((now(50) - this.startMillis) / this.delay) % this.icons.length
     );
   }
 
@@ -180,7 +180,8 @@ export default class LoadingBuildings extends React.Component {
       <VelocityTransitionGroup
         enter={enter}
         leave={leave}
-        className={CONTAINER_STYLE.toString()}>
+        className={CONTAINER_STYLE.toString()}
+      >
         {/* Use inner HTML to avoid bad interaction between svg4everyone and React in IE */}
         <svg
           role="img"

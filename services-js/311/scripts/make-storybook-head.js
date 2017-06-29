@@ -23,5 +23,5 @@ const headElements = makeCss(css)
   .map(el => ReactDOMServer.renderToString(el));
 fs.writeFileSync(
   path.join(__dirname, '..', 'storybook', 'preview-head.html'),
-  headElements.join('\n'),
+  headElements.join('\n')
 );

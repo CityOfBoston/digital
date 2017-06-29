@@ -6,7 +6,7 @@ declare var liveagent: {
   // Only works on buttonId that has also been registered with showWhenOnline/showWhenOffline
   addButtonEventHandler: (
     buttonId: string,
-    callback: (eventType: string) => void,
+    callback: (eventType: string) => void
   ) => void,
 
   // These two must be called before init

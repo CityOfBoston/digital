@@ -58,7 +58,7 @@ storiesOf('RecentRequests', module)
   .addDecorator(story =>
     <div>
       {story()}
-    </div>,
+    </div>
   )
   .add('results loaded', () => <RecentRequests store={makeStore(false)} />)
   .add('with selection', () => <RecentRequests store={makeStore(true)} />);

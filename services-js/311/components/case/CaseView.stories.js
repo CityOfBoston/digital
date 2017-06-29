@@ -37,7 +37,7 @@ const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
 
 storiesOf('CaseView', module)
   .addDecorator(next =>
-    <div className="b-c" style={{ background: 'white' }}>{next()}</div>,
+    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
   )
   .add('Submitted', () =>
     <div style={{ backgroundColor: 'white' }}>
@@ -47,7 +47,7 @@ storiesOf('CaseView', module)
         submitted
         noMap={suppressMap}
       />
-    </div>,
+    </div>
   )
   .add('Open', () =>
     <div style={{ backgroundColor: 'white' }}>
@@ -56,7 +56,7 @@ storiesOf('CaseView', module)
         store={makeStore()}
         noMap={suppressMap}
       />
-    </div>,
+    </div>
   )
   .add('Resolved', () =>
     <div style={{ backgroundColor: 'white' }}>
@@ -65,5 +65,5 @@ storiesOf('CaseView', module)
         store={makeStore()}
         noMap={suppressMap}
       />
-    </div>,
+    </div>
   );

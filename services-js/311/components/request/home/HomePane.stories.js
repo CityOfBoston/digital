@@ -51,5 +51,5 @@ storiesOf('HomePane', module)
         nextFn={action('Next')}
         handleDescriptionChanged={action('Description changed')}
       />
-    </FormDialog>,
+    </FormDialog>
   );

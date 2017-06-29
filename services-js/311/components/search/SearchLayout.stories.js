@@ -29,7 +29,7 @@ storiesOf('SearchLayout', module)
         },
       }}
       noMap
-    />,
+    />
   )
   .add('Map View', () =>
     <SearchLayout
@@ -44,5 +44,5 @@ storiesOf('SearchLayout', module)
         },
       }}
       noMap
-    />,
+    />
   );

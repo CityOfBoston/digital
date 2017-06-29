@@ -95,7 +95,8 @@ export default class FaqLayout extends React.Component {
                 href="https://twitter.com/bos311"
                 className="lwi lwi--y g--3 m-v100"
                 onMouseEnter={this.handleEnterTwitter}
-                onMouseLeave={this.handleLeave}>
+                onMouseLeave={this.handleLeave}
+              >
                 {this.renderIcon('Twitter', 'twitter')}
                 <span className="lwi-t">Tweet @bos311</span>
               </a>
@@ -103,7 +104,8 @@ export default class FaqLayout extends React.Component {
                 href="tel:+311"
                 className="lwi lwi--y g--3 m-v100"
                 onMouseEnter={this.handleEnterPhone}
-                onMouseLeave={this.handleLeave}>
+                onMouseLeave={this.handleLeave}
+              >
                 {this.renderIcon('Phone', 'phone')}
                 <span className="lwi-t">Dial 311</span>
               </a>
@@ -111,7 +113,8 @@ export default class FaqLayout extends React.Component {
                 href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311"
                 className="lwi lwi--y g--3 m-v100"
                 onMouseEnter={this.handleEnterApp}
-                onMouseLeave={this.handleLeave}>
+                onMouseLeave={this.handleLeave}
+              >
                 {this.renderIcon('App_store', 'app')}
                 <span className="lwi-t">Download the App</span>
               </a>
@@ -119,7 +122,8 @@ export default class FaqLayout extends React.Component {
                 href="/"
                 className="lwi lwi--y g--3 m-v100"
                 onMouseEnter={this.handleEnterComputer}
-                onMouseLeave={this.handleLeave}>
+                onMouseLeave={this.handleLeave}
+              >
                 {this.renderIcon('Computer', 'computer')}
                 <span className="lwi-t">Use this site</span>
               </a>

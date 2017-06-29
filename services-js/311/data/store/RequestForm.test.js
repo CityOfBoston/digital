@@ -171,7 +171,7 @@ describe('questionRequirementsMet', () => {
 
   it('is true if required questions have valid values', () => {
     const avengersQuestion = requestForm.questions.find(
-      ({ code }) => code === 'SR-AVENG',
+      ({ code }) => code === 'SR-AVENG'
     );
     if (!avengersQuestion) {
       throw new Error('missing');
@@ -184,7 +184,7 @@ describe('questionRequirementsMet', () => {
 
   it('is false if required questions have invalid values', () => {
     const avengersQuestion = requestForm.questions.find(
-      ({ code }) => code === 'SR-AVENG',
+      ({ code }) => code === 'SR-AVENG'
     );
     if (!avengersQuestion) {
       throw new Error('missing');
@@ -197,21 +197,21 @@ describe('questionRequirementsMet', () => {
 
   test('visibility of required question', () => {
     const avengersQuestion = requestForm.questions.find(
-      ({ code }) => code === 'SR-AVENG',
+      ({ code }) => code === 'SR-AVENG'
     );
     if (!avengersQuestion) {
       throw new Error('missing');
     }
 
     const whoQuestion = requestForm.questions.find(
-      ({ code }) => code === 'MR-WHO',
+      ({ code }) => code === 'MR-WHO'
     );
     if (!whoQuestion) {
       throw new Error('missing');
     }
 
     const capQuestion = requestForm.questions.find(
-      ({ code }) => code === 'SR-CAP',
+      ({ code }) => code === 'SR-CAP'
     );
     if (!capQuestion) {
       throw new Error('missing');

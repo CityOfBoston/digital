@@ -73,7 +73,7 @@ class SearchMarker {
     map: MapboxMap,
     requestSearch: RequestSearch,
     opacityComputed: IComputedValue<number>,
-    request: SearchCase,
+    request: SearchCase
   ) {
     this.L = L;
     this.pool = pool;
@@ -94,7 +94,7 @@ class SearchMarker {
       },
       {
         keyboard: false,
-      },
+      }
     );
 
     this.marker.on('click', this.handleClick);
@@ -171,7 +171,7 @@ class SearchMarker {
               window.setTimeout(() => {
                 this.marker.openPopup();
               }, 0);
-            },
+            }
           );
         }
       } else {
@@ -224,7 +224,7 @@ export default class SearchMarkerPool {
     requestSearch: RequestSearch,
     opacityComputed: IComputedValue<number>,
     showPopup: boolean,
-    clickHandler: ?Function,
+    clickHandler: ?Function
   ) {
     if (!map) {
       throw new Error('SearchMarkerPool initialized without map');
@@ -246,7 +246,7 @@ export default class SearchMarkerPool {
 
     this.maintainMarkersDisposer = autorun(
       'maintainMarkers',
-      this.maintainMarkers,
+      this.maintainMarkers
     );
   }
 
@@ -285,7 +285,7 @@ export default class SearchMarkerPool {
           this.map,
           this.requestSearch,
           this.opacityComputed,
-          request,
+          request
         );
       }
     });

@@ -5,7 +5,7 @@
 // GraphQL processing get correctly sent to Opbeat.
 export const opbeatWrapGraphqlOptions = (
   opbeat: any,
-  optsFn: (req: any) => Object,
+  optsFn: (req: any) => Object
 ) => async (req: any) => {
   try {
     const opts = await optsFn(req);

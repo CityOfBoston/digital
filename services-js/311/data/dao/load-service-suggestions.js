@@ -11,14 +11,14 @@ import LoadServiceSuggestionsGraphql from './graphql/LoadServiceSuggestions.grap
 
 export default async function loadServiceSuggestions(
   loopbackGraphql: LoopbackGraphql,
-  text: string,
+  text: string
 ): Promise<ServiceSummary[]> {
   const queryVariables: LoadServiceSuggestionsQueryVariables = {
     text,
   };
   const response: LoadServiceSuggestionsQuery = await loopbackGraphql(
     LoadServiceSuggestionsGraphql,
-    queryVariables,
+    queryVariables
   );
   return response.servicesForDescription;
 }

@@ -1149,7 +1149,7 @@ const EIGHT_MILK_ST_UNITS: LiveSamFeature[] = [
 describe('sortUnits', () => {
   it('sorts by street and number', () => {
     expect(
-      sortUnits(EIGHT_MILK_ST_UNITS).map(u => u.attributes.FULL_ADDRESS),
+      sortUnits(EIGHT_MILK_ST_UNITS).map(u => u.attributes.FULL_ADDRESS)
     ).toMatchSnapshot();
   });
 });

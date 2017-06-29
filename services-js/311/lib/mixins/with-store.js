@@ -20,7 +20,7 @@ if (process.browser) {
 }
 
 export default <OP, P: $Subtype<Object>, S>(
-  Component: Class<React.Component<OP, P, S>>,
+  Component: Class<React.Component<OP, P, S>>
 ): Class<React.Component<void, P, void>> =>
   class WithStore extends React.Component {
     props: P;

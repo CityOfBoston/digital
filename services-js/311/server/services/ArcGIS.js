@@ -137,7 +137,7 @@ export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
   sortedUnits.sort((a, b) => {
     return (
       a.attributes.FULL_STREET_NAME.localeCompare(
-        b.attributes.FULL_STREET_NAME,
+        b.attributes.FULL_STREET_NAME
       ) ||
       a.attributes.STREET_NUMBER_SORT - b.attributes.STREET_NUMBER_SORT ||
       // cast to "any" because Flow doesn't have the arguments
@@ -170,21 +170,21 @@ export default class ArcGIS {
   locatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `Locators/BostonComposite/GeocodeServer/${path}`,
+      `Locators/BostonComposite/GeocodeServer/${path}`
     );
   }
 
   samAddressOnlyLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `Locators/SAM_Address_FH/GeocodeServer/${path}`,
+      `Locators/SAM_Address_FH/GeocodeServer/${path}`
     );
   }
 
   liveAddressUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `311/LiveSAMAddresses/MapServer/0/${path}`,
+      `311/LiveSAMAddresses/MapServer/0/${path}`
     );
   }
 
@@ -212,7 +212,7 @@ export default class ArcGIS {
       this.samAddressOnlyLocatorUrl(`reverseGeocode?${params.toString()}`),
       {
         agent: this.agent,
-      },
+      }
     );
 
     if (!response.ok) {
@@ -263,7 +263,7 @@ export default class ArcGIS {
       this.locatorUrl(`findAddressCandidates?${params.toString()}`),
       {
         agent: this.agent,
-      },
+      }
     );
 
     if (!response.ok) {
@@ -277,7 +277,7 @@ export default class ArcGIS {
     }
 
     const candidates = findAddressResponse.candidates.filter(
-      c => c.attributes.Loc_name !== 'SAMAddressSubU',
+      c => c.attributes.Loc_name !== 'SAMAddressSubU'
     );
     candidates.sort((a, b) => b.score - a.score);
 
@@ -313,7 +313,7 @@ export default class ArcGIS {
       this.liveAddressUrl(`query?${params.toString()}`),
       {
         agent: this.agent,
-      },
+      }
     );
 
     if (!response.ok) {
@@ -327,7 +327,7 @@ export default class ArcGIS {
     }
 
     return sortUnits(
-      liveSamResponse.features,
+      liveSamResponse.features
     ).map(({ attributes, geometry }) => ({
       location: { lat: geometry.y, lng: geometry.x },
       address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, MA, ${attributes.ZIP_CODE}`,

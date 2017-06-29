@@ -10,7 +10,7 @@ import type { RequestAdditions } from '../../server/next-handlers';
 export function makeServerContext(
   pathname: string,
   query: { [key: string]: string } = {},
-  requestAdditions: Object = {},
+  requestAdditions: Object = {}
 ): Context<RequestAdditions> {
   const req: Object = {
     hapiInject: () => {
@@ -38,7 +38,7 @@ export function makeServerContext(
  */
 export function makeBrowserContext(
   pathname: string,
-  query: { [key: string]: string } = {},
+  query: { [key: string]: string } = {}
 ): Context<RequestAdditions> {
   // TODO(finh): could include xhr if anyone needs it
   return {

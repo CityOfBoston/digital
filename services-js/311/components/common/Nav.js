@@ -49,19 +49,19 @@ export default function Nav({ activeSection }: Props) {
 
         {renderNavItem(
           { href: '/request', as: '/', title: 'Make a request' },
-          activeSection === 'request',
+          activeSection === 'request'
         )}
         {renderNavItem(
           { href: '/search', as: null, title: 'Search cases' },
-          activeSection === 'search',
+          activeSection === 'search'
         )}
         {renderNavItem(
           { href: '/services', as: null, title: 'All services' },
-          activeSection === 'services',
+          activeSection === 'services'
         )}
         {renderNavItem(
           { href: '/faq', as: null, title: 'FAQ' },
-          activeSection === 'faq',
+          activeSection === 'faq'
         )}
       </ul>
     </nav>

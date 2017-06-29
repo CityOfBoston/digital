@@ -126,7 +126,8 @@ export default class TranslateDialog extends React.Component {
 
             {showContinueInEnglish &&
               <div
-                className={`p-a500 t--info ${CONTINUE_LINK_STYLE.toString()}`}>
+                className={`p-a500 t--info ${CONTINUE_LINK_STYLE.toString()}`}
+              >
                 <Link href="/request?translate=0" as="/?translate=0">
                   <a>Continue in English</a>
                 </Link>
@@ -147,7 +148,8 @@ export default class TranslateDialog extends React.Component {
         type="button"
         key={code}
         className={`btn g--2 m-v100 ${code === this.code ? 'btn--c' : ''}`}
-        onClick={this.setLanguageCode.bind(this, code)}>
+        onClick={this.setLanguageCode.bind(this, code)}
+      >
         {title}
       </button>
     );

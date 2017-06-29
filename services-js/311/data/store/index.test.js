@@ -62,7 +62,7 @@ describe('Live Agent', () => {
 
       expect(window.liveagent.addButtonEventHandler).toHaveBeenCalledWith(
         'buttonId',
-        expect.any(Function),
+        expect.any(Function)
       );
 
       const eventHandler =

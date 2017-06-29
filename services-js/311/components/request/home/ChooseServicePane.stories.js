@@ -46,19 +46,19 @@ storiesOf('ChooseServicePane', module)
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={null}
       ui={new Ui()}
-    />,
+    />
   )
   .add('Some matches', () =>
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={SERVICE_SUMMARIES}
       ui={new Ui()}
-    />,
+    />
   )
   .add('No matches', () =>
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={[]}
       ui={new Ui()}
-    />,
+    />
   );

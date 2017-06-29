@@ -12,5 +12,5 @@ storiesOf('TranslateDialog', module)
         { code: 'en', region: 'US', quality: 1 },
         { code: 'en', region: undefined, quality: 0.8 },
       ]}
-    />,
+    />
   );

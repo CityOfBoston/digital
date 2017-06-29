@@ -13,20 +13,20 @@ import type {
 } from './dao/graphql/types';
 
 export type ServiceSummary = $ArrayElement<
-  $PropertyType<LoadServiceSummariesQuery, 'services'>,
+  $PropertyType<LoadServiceSummariesQuery, 'services'>
 >;
 export type Service = $NonMaybeType<$PropertyType<LoadServiceQuery, 'service'>>;
 export type ServiceAttribute = $ArrayElement<
-  $PropertyType<Service, 'attributes'>,
+  $PropertyType<Service, 'attributes'>
 >;
 export type ServiceAttributeValuesConditionSet = $PropertyType<
   $ArrayElement<
-    $NonMaybeType<$PropertyType<ServiceAttribute, 'conditionalValues'>>,
+    $NonMaybeType<$PropertyType<ServiceAttribute, 'conditionalValues'>>
   >,
-  'dependentOn',
+  'dependentOn'
 >;
 export type ServiceAttributeValuesCondition = $ArrayElement<
-  $PropertyType<ServiceAttributeValuesConditionSet, 'conditions'>,
+  $PropertyType<ServiceAttributeValuesConditionSet, 'conditions'>
 >;
 export type CalculatedAttribute = {
   required: boolean,
@@ -41,18 +41,18 @@ export type CalculatedAttribute = {
 
 export type SubmittedRequest = $PropertyType<
   SubmitRequestMutation,
-  'createRequest',
+  'createRequest'
 >;
 export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'case'>>;
 
 export type SearchCasesResult = $PropertyType<SearchCasesQuery, 'searchCases'>;
 export type SearchCase = $ArrayElement<
-  $PropertyType<SearchCasesResult, 'cases'>,
+  $PropertyType<SearchCasesResult, 'cases'>
 >;
 
 export type SearchAddressPlace = $NonMaybeType<
-  $PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>,
+  $PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>
 >;
 export type AddressUnit = $NonMaybeType<
-  $ArrayElement<$PropertyType<SearchAddressPlace, 'units'>>,
+  $ArrayElement<$PropertyType<SearchAddressPlace, 'units'>>
 >;

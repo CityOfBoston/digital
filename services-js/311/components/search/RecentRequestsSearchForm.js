@@ -37,7 +37,8 @@ export default class RecentRequestsSearchForm extends React.Component {
         method="get"
         action="/lookup"
         onSubmit={this.handleSearchSubmit}
-        role="search">
+        role="search"
+      >
         <div className="sf-i">
           <input
             type="text"

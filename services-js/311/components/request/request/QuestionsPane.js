@@ -71,7 +71,7 @@ export default class QuestionsPane extends React.Component {
     this.imageUploader.config = store.apiKeys.cloudinary;
     this.imageUploader.adoptedUrlObservable = extras.getAtom(
       requestForm,
-      'mediaUrl',
+      'mediaUrl'
     );
   }
 
@@ -81,7 +81,7 @@ export default class QuestionsPane extends React.Component {
     this.imageUploader.config = store.apiKeys.cloudinary;
     this.imageUploader.adoptedUrlObservable = extras.getAtom(
       requestForm,
-      'mediaUrl',
+      'mediaUrl'
     );
   }
 
@@ -144,16 +144,12 @@ export default class QuestionsPane extends React.Component {
       }
 
       questionsEls.push(
-        <div key={q.code}><AttributeField question={q} /></div>,
+        <div key={q.code}><AttributeField question={q} /></div>
       );
 
       if (i < questions.length - 1) {
         questionsEls.push(
-          <hr
-            className="hr hr--dash m-v500"
-            aria-hidden
-            key={`${q.code}-HR`}
-          />,
+          <hr className="hr hr--dash m-v500" aria-hidden key={`${q.code}-HR`} />
         );
       }
     });
@@ -170,7 +166,8 @@ export default class QuestionsPane extends React.Component {
               <label
                 className="txt-l"
                 htmlFor="QuestionsPane-description"
-                style={{ marginTop: 0 }}>
+                style={{ marginTop: 0 }}
+              >
                 Description
               </label>
               <textarea
@@ -192,7 +189,8 @@ export default class QuestionsPane extends React.Component {
 
         <div className={`g m-v500 ${BOTTOM_ROW_STYLE.toString()}`}>
           <div
-            className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}>
+            className={`g--9 t--info m-v200 ${RIGHT_ON_LARGE_STYLE.toString()}`}
+          >
             {!questionRequirementsMet &&
               <span>
                 Please fill out <span className="t--req">required</span> fields
@@ -202,7 +200,8 @@ export default class QuestionsPane extends React.Component {
           <button
             className="btn g--3"
             type="submit"
-            disabled={!questionRequirementsMet}>
+            disabled={!questionRequirementsMet}
+          >
             {nextIsSubmit ? 'Submit Request' : 'Next'}
           </button>
         </div>
@@ -243,7 +242,8 @@ export default class QuestionsPane extends React.Component {
             ref={this.setDropEl}
             onDrop={this.handleDrop}
             multiple={false}
-            accept="image/*">
+            accept="image/*"
+          >
             {({ isDragActive }) => {
               const out = [
                 displayUrl
@@ -274,7 +274,7 @@ export default class QuestionsPane extends React.Component {
                   <div
                     key="ring"
                     className={`br-a300 ${DRAG_RING_STYLE.toString()}`}
-                  />,
+                  />
                 );
               }
 
@@ -293,7 +293,8 @@ export default class QuestionsPane extends React.Component {
                 width: '100%',
               }}
               type="button"
-              onClick={buttonAction}>
+              onClick={buttonAction}
+            >
               {buttonTitle}
             </button>
             {uploading &&

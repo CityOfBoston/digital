@@ -17,7 +17,7 @@ const makeQuestion = (attrs: Object, value: string | string[] = '') => {
       values: null,
       type: null,
       ...attrs,
-    }: any),
+    }: any)
   );
 
   question.value = value;
@@ -29,7 +29,7 @@ storiesOf('AttributeField', module)
   .addDecorator(story =>
     <div className="b-c">
       <FormDialog>{story()}</FormDialog>
-    </div>,
+    </div>
   )
   .add('Boolean Checkbox', () =>
     <AttributeField
@@ -39,9 +39,9 @@ storiesOf('AttributeField', module)
           code: 'ST-CMTS',
           description: 'I solemnly swear that I am up to no good',
         },
-        'false',
+        'false'
       )}
-    />,
+    />
   )
   .add('Text', () =>
     <AttributeField
@@ -51,9 +51,9 @@ storiesOf('AttributeField', module)
           code: 'ST-CMTS',
           description: 'Please provide any other relevant information:',
         },
-        'Things got bad after Thanos showed up.\n\nPlease send immediate assistance.',
+        'Things got bad after Thanos showed up.\n\nPlease send immediate assistance.'
       )}
-    />,
+    />
   )
   .add('Informational', () =>
     <AttributeField
@@ -63,7 +63,7 @@ storiesOf('AttributeField', module)
         description:
           '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       })}
-    />,
+    />
   )
   .add('String', () =>
     <AttributeField
@@ -73,11 +73,13 @@ storiesOf('AttributeField', module)
           code: 'INFO-NEDRMV1',
           description: 'What Earth timeline does this problem appear in?',
         },
-        'Post–Zero Day',
+        'Post–Zero Day'
       )}
-    />,
+    />
   )
   .add('Date/Time', () =>
+    // This Storyshot assumes Eastern time zone. If it fails, set your TZ
+    // environment variable to America/New_York
     <AttributeField
       question={makeQuestion(
         {
@@ -85,9 +87,9 @@ storiesOf('AttributeField', module)
           code: 'INFO-NEDRMV1',
           description: 'What time is it where you are now?',
         },
-        '1990-12-31T23:05:00',
+        '1990-12-31T23:05:00Z'
       )}
-    />,
+    />
   )
   .add('Date', () =>
     <AttributeField
@@ -97,9 +99,9 @@ storiesOf('AttributeField', module)
           code: 'INFO-NEDRMV1',
           description: 'When are you currently in time?',
         },
-        '1965-12-31',
+        '1965-12-31'
       )}
-    />,
+    />
   )
   .add('Bad Date', () =>
     <AttributeField
@@ -109,9 +111,9 @@ storiesOf('AttributeField', module)
           code: 'INFO-NEDRMV1',
           description: 'When are you currently in time?',
         },
-        '5',
+        '5'
       )}
-    />,
+    />
   )
   .add('Number', () =>
     <AttributeField
@@ -121,9 +123,9 @@ storiesOf('AttributeField', module)
           code: 'INFO-NEDRMV1',
           description: 'How many Doombots are at your present location?',
         },
-        '15',
+        '15'
       )}
-    />,
+    />
   )
   .add('Single Value List', () =>
     <AttributeField
@@ -138,7 +140,7 @@ storiesOf('AttributeField', module)
           { key: 'More than Three', name: 'More than Three' },
         ],
       })}
-    />,
+    />
   )
   .add('Multi Value List', () =>
     <AttributeField
@@ -159,7 +161,7 @@ storiesOf('AttributeField', module)
             { key: 'captain-marvel', name: 'Captain Marvel' },
           ],
         },
-        ['wasp', 'spider-man', 'captain-marvel'],
+        ['wasp', 'spider-man', 'captain-marvel']
       )}
-    />,
+    />
   );

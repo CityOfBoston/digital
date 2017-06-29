@@ -18,7 +18,7 @@ export default class Accessibility {
         this.el.innerText = this.message;
         this.el.setAttribute(
           'aria-live',
-          this.interrupt ? 'assertive' : 'polite',
+          this.interrupt ? 'assertive' : 'polite'
         );
       }
     });

@@ -85,14 +85,14 @@ storiesOf('LocationPopUp', module)
   .addDecorator(story =>
     <div className={CORNER_DIALOG_STYLE}>
       <FormDialog noPadding>{story()}</FormDialog>
-    </div>,
+    </div>
   )
   .add('with address', () =>
     <LocationPopUp
       {...props}
       store={makeStore('1 Franklin Park Rd\nBoston, MA 02121', [], false)}
       requestForm={new RequestForm()}
-    />,
+    />
   )
   .add('with units', () =>
     <LocationPopUp
@@ -100,22 +100,22 @@ storiesOf('LocationPopUp', module)
       store={makeStore(
         '1 Franklin Park Rd\nBoston, MA 02121',
         MOCK_UNITS,
-        false,
+        false
       )}
       requestForm={new RequestForm()}
-    />,
+    />
   )
   .add('without address', () =>
     <LocationPopUp
       {...props}
       store={makeStore('', [], false)}
       requestForm={new RequestForm()}
-    />,
+    />
   )
   .add('address not found', () =>
     <LocationPopUp
       {...props}
       store={makeStore('', [], true)}
       requestForm={new RequestForm()}
-    />,
+    />
   );

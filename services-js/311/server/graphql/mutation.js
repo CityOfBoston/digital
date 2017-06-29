@@ -48,7 +48,7 @@ export const resolvers = {
     createRequest: (
       root: mixed,
       args: CreateRequestArgs,
-      { open311 }: Context,
+      { open311 }: Context
     ) => {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,

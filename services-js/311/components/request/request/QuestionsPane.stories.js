@@ -51,7 +51,7 @@ storiesOf('QuestionsPane', module)
   .addDecorator(story =>
     <div className="b-c">
       <FormDialog>{story()}</FormDialog>
-    </div>,
+    </div>
   )
   .add('No Metadata', () =>
     <QuestionsPane
@@ -61,7 +61,7 @@ storiesOf('QuestionsPane', module)
       serviceDescription={'Bad things getting in from other universes'}
       nextFunc={action('Next Step')}
       nextIsSubmit
-    />,
+    />
   )
   .add('No Description', () =>
     <QuestionsPane
@@ -71,7 +71,7 @@ storiesOf('QuestionsPane', module)
       serviceDescription={'Bad things getting in from other universes'}
       nextFunc={action('Next Step')}
       nextIsSubmit
-    />,
+    />
   )
   .add('With Metadata', () =>
     <QuestionsPane
@@ -81,5 +81,5 @@ storiesOf('QuestionsPane', module)
       serviceDescription={'Bad things getting in from other universes'}
       nextFunc={action('Next Step')}
       nextIsSubmit={false}
-    />,
+    />
   );

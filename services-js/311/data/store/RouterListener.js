@@ -72,7 +72,7 @@ export default class RouterListener {
             'Router',
             'routeChange',
             Date.now() - this.routeStartMs,
-            url,
+            url
           );
         }
 
@@ -83,7 +83,7 @@ export default class RouterListener {
           accessibility.interrupt = true;
         }
       }),
-      0,
+      0
     );
   }
 
@@ -97,7 +97,7 @@ export default class RouterListener {
       ga(
         'set',
         'page',
-        window.location.pathname + (window.location.search || ''),
+        window.location.pathname + (window.location.search || '')
       );
     }
   }

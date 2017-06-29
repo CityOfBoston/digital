@@ -33,7 +33,7 @@ describe('client mode', () => {
 
     const queryPromise = loopbackGraphql('query', { arg: 'value' });
     expect(fetchMock.lastOptions().body).toEqual(
-      '{"query":"query","variables":{"arg":"value"}}',
+      '{"query":"query","variables":{"arg":"value"}}'
     );
     expect(await queryPromise).toEqual({ key: 'value' });
   });
@@ -101,7 +101,7 @@ describe('server getInitialProps mode', () => {
       new Promise((resolve, reject) => {
         resolveHapiInject = resolve;
         rejectHapiInject = reject;
-      }),
+      })
     );
 
     const req: any = { hapiInject };

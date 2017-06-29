@@ -60,7 +60,7 @@ export class AppStore {
         }
 
         window._laq.push(() =>
-          this.listenForLiveAgentEvents(liveAgentButtonId),
+          this.listenForLiveAgentEvents(liveAgentButtonId)
         );
       }
     }
@@ -69,7 +69,7 @@ export class AppStore {
   listenForLiveAgentEvents(liveAgentButtonId: string) {
     window.liveagent.addButtonEventHandler(
       liveAgentButtonId,
-      this.liveAgentEventHandler,
+      this.liveAgentEventHandler
     );
   }
 

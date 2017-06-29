@@ -113,7 +113,7 @@ export type Root = Service | ServiceStub;
 // Here we filter the disjoint union type of {key/value} vs. {dependendOn/values}
 // down to just key/value pairs. A bit odd because of Flow.
 export function filterPlainValues(
-  mixedValues: ?(ServiceMetadataAttributeValue[]),
+  mixedValues: ?(ServiceMetadataAttributeValue[])
 ) {
   if (!mixedValues) {
     return null;
@@ -142,7 +142,7 @@ export function filterPlainValues(
 }
 
 export function filterConditionalValues(
-  mixedValues: ?(ServiceMetadataAttributeValue[]),
+  mixedValues: ?(ServiceMetadataAttributeValue[])
 ) {
   if (!mixedValues) {
     return null;
@@ -171,10 +171,10 @@ export function filterConditionalValues(
 }
 
 const makeMetadataResolver = (
-  cb: (metadata: ?ServiceMetadata) => mixed,
+  cb: (metadata: ?ServiceMetadata) => mixed
 ) => async (s: Root, args: mixed, { open311 }: Context) =>
   cb(
-    s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null,
+    s.metadata !== false ? await open311.serviceMetadata(s.service_code) : null
   );
 
 type MetadataRequirement = 'REQUIRED' | 'VISIBLE' | 'HIDDEN';
@@ -182,7 +182,7 @@ type MetadataRequirement = 'REQUIRED' | 'VISIBLE' | 'HIDDEN';
 function resolveMetadataRequirement(
   metadata: ?ServiceMetadata,
   definitionKey: string,
-  requiredKey: string,
+  requiredKey: string
 ): MetadataRequirement {
   if (!metadata) {
     return 'REQUIRED';
@@ -217,26 +217,26 @@ export const resolvers = {
     code: (s: Root) => s.service_code,
     name: (s: Root) => s.service_name || '',
     attributes: makeMetadataResolver(
-      (metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : []),
+      (metadata: ?ServiceMetadata) => (metadata ? metadata.attributes : [])
     ),
     locationRequired: makeMetadataResolver(
       (metadata: ?ServiceMetadata) =>
         resolveMetadataRequirement(
           metadata,
           'location',
-          'location_required',
-        ) === 'REQUIRED',
+          'location_required'
+        ) === 'REQUIRED'
     ),
     locationRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) =>
-      resolveMetadataRequirement(metadata, 'location', 'location_required'),
+      resolveMetadataRequirement(metadata, 'location', 'location_required')
     ),
     contactRequired: makeMetadataResolver(
       (metadata: ?ServiceMetadata) =>
         resolveMetadataRequirement(metadata, 'reporter', 'contact_required') ===
-        'REQUIRED',
+        'REQUIRED'
     ),
     contactRequirement: makeMetadataResolver((metadata: ?ServiceMetadata) =>
-      resolveMetadataRequirement(metadata, 'reporter', 'contact_required'),
+      resolveMetadataRequirement(metadata, 'reporter', 'contact_required')
     ),
   },
 
@@ -246,7 +246,7 @@ export const resolvers = {
     values: (a: ServiceMetadataAttribute): null | PlainValue[] =>
       filterPlainValues(a.values),
     conditionalValues: (
-      a: ServiceMetadataAttribute,
+      a: ServiceMetadataAttribute
     ): null | ConditionalValues[] => filterConditionalValues(a.values),
     dependencies: (a: ServiceMetadataAttribute): null | DependentConditions =>
       a.dependencies || null,

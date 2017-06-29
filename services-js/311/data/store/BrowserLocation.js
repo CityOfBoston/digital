@@ -36,7 +36,7 @@ export default class BrowserLocation {
         enableHighAccuracy: false,
         timeout: Number.MAX_SAFE_INTEGER,
         maximumAge: 60 * 60 * 1000,
-      },
+      }
     );
 
     navigator.geolocation.watchPosition(
@@ -46,7 +46,7 @@ export default class BrowserLocation {
         enableHighAccuracy: true,
         timeout: Number.MAX_SAFE_INTEGER,
         maximumAge: 5 * 60 * 1000,
-      },
+      }
     );
 
     // Use a reaction to do the geocode so we get free structural comparison
@@ -65,7 +65,7 @@ export default class BrowserLocation {
         name: 'browser location geocode',
         compareStructural: true,
         fireImmediately: true,
-      },
+      }
     );
   }
 

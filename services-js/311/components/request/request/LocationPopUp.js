@@ -103,7 +103,7 @@ export default class LocationPopUp extends React.Component {
       {
         fireImmediately: true,
         name: 'update form from map',
-      },
+      }
     );
 
     this.queryClearerDisposer = reaction(
@@ -120,7 +120,7 @@ export default class LocationPopUp extends React.Component {
       },
       {
         name: 'location query clearer',
-      },
+      }
     );
   }
 
@@ -192,7 +192,8 @@ export default class LocationPopUp extends React.Component {
           <form
             className="sf sf--sm sf--y"
             onSubmit={this.whenSearchSubmit}
-            action="#">
+            action="#"
+          >
             <div className="sf-i">
               <input
                 className="sf-i-f"
@@ -211,7 +212,8 @@ export default class LocationPopUp extends React.Component {
               <button
                 className="sf-i-b"
                 type="submit"
-                disabled={this.addressQuery.length === 0}>
+                disabled={this.addressQuery.length === 0}
+              >
                 Search
               </button>
             </div>
@@ -231,7 +233,8 @@ export default class LocationPopUp extends React.Component {
                   {!!address &&
                     <div
                       className="addr addr--s"
-                      style={{ whiteSpace: 'pre-line' }}>
+                      style={{ whiteSpace: 'pre-line' }}
+                    >
                       {address}
                     </div>}
                 </div>}
@@ -241,7 +244,8 @@ export default class LocationPopUp extends React.Component {
                 <label
                   className="sel-l"
                   htmlFor="unit-menu"
-                  style={{ marginTop: 0 }}>
+                  style={{ marginTop: 0 }}
+                >
                   Apartment or Unit
                 </label>
                 <div className="sel-c sel-c--fw">
@@ -249,11 +253,12 @@ export default class LocationPopUp extends React.Component {
                     id="unit-menu"
                     className="sel-f"
                     value={mapLocation.addressId || ''}
-                    onChange={this.whenUnitChange}>
+                    onChange={this.whenUnitChange}
+                  >
                     {units.map(({ addressId, streetAddress }) =>
                       <option value={addressId} key={addressId}>
                         {streetAddress}
-                      </option>,
+                      </option>
                     )}
                   </select>
                 </div>
@@ -265,7 +270,8 @@ export default class LocationPopUp extends React.Component {
               {!locationRequired &&
                 <a
                   href="javascript:void(0)"
-                  onClick={this.continueWithoutLocation}>
+                  onClick={this.continueWithoutLocation}
+                >
                   Continue without location
                 </a>}
             </div>
@@ -273,7 +279,8 @@ export default class LocationPopUp extends React.Component {
               type="button"
               className="btn g--5"
               disabled={!locationRequirementsMet}
-              onClick={this.continueWithLocation}>
+              onClick={this.continueWithLocation}
+            >
               {nextIsSubmit ? 'Submit' : 'Next'}
             </button>
           </div>

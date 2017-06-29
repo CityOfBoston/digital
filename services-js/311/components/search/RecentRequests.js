@@ -108,7 +108,7 @@ export default class RecentRequests extends React.Component {
 
     if (selectedRequest && this.mainEl && selectedSource !== 'list') {
       const requestEl = this.mainEl.querySelector(
-        `[data-request-id="${selectedRequest.id}"]`,
+        `[data-request-id="${selectedRequest.id}"]`
       );
       if (Velocity && requestEl) {
         Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT });
@@ -146,7 +146,7 @@ export default class RecentRequests extends React.Component {
             request={request}
             requestSearch={requestSearch}
             ui={ui}
-          />,
+          />
         )}
 
         {results.length === 0 &&

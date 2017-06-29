@@ -90,7 +90,7 @@ export default class RequestLayout extends React.Component {
   loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
 
   static async getInitialProps(
-    ctx: Context<RequestAdditions>,
+    ctx: Context<RequestAdditions>
   ): Promise<InitialProps> {
     const { query } = ctx;
 
@@ -138,7 +138,7 @@ export default class RequestLayout extends React.Component {
     } else {
       await Router.push(
         `/request?code=${code}&stage=${stage}`,
-        `/request/${code}/${stage}`,
+        `/request/${code}/${stage}`
       );
     }
 
@@ -175,7 +175,8 @@ export default class RequestLayout extends React.Component {
         <div
           className={CONTAINER_STYLE}
           style={{ backgroundColor: 'transparent' }}
-          role="main">
+          role="main"
+        >
           {(mediaLarge || !process.browser) &&
             !noMap &&
             <div className={BACKGROUND_MAP_CONTAINER_STYLE}>

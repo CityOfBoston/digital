@@ -19,7 +19,7 @@ describe('searching', () => {
     searchAddress.mockReturnValue(
       new Promise(resolve => {
         resolveGraphql = resolve;
-      }),
+      })
     );
 
     loopbackGraphql = jest.fn();
@@ -45,7 +45,7 @@ describe('searching', () => {
     // We keep the address so that the search box doesn't jump around, but we
     // clear out the location so that the pin disappears
     expect(mapLocation.address).toEqual(
-      '121 Devonshire Street, Boston, MA, 02108',
+      '121 Devonshire Street, Boston, MA, 02108'
     );
     expect(mapLocation.location).toEqual(null);
     expect(mapLocation.addressId).toEqual(null);
@@ -56,7 +56,7 @@ describe('searching', () => {
 
     expect(searchAddress).toHaveBeenCalledWith(
       loopbackGraphql,
-      '121 devonshire',
+      '121 devonshire'
     );
 
     await resolveGraphql({
@@ -70,7 +70,7 @@ describe('searching', () => {
     });
 
     expect(mapLocation.address).toEqual(
-      '121 Devonshire Street, Boston, MA, 02108',
+      '121 Devonshire Street, Boston, MA, 02108'
     );
     expect(mapLocation.location).toEqual({
       lat: 42.35700999905103,
@@ -107,7 +107,7 @@ describe('reverse geocoding', () => {
     reverseGeocode.mockReturnValue(
       new Promise(resolve => {
         resolveGraphql = resolve;
-      }),
+      })
     );
 
     loopbackGraphql = jest.fn();

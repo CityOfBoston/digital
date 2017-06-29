@@ -179,7 +179,7 @@ export default class HomePane extends React.Component {
 
     return EXAMPLE_PROBLEMS[placeholderIdx].substring(
       0,
-      Math.floor(timeInPlaceholder / TIME_PER_CHARACTER_MS),
+      Math.floor(timeInPlaceholder / TIME_PER_CHARACTER_MS)
     );
   }
 
@@ -224,7 +224,8 @@ export default class HomePane extends React.Component {
           <div className="g m-t500">
             <form
               className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}
-              onSubmit={this.handleFormSubmit}>
+              onSubmit={this.handleFormSubmit}
+            >
               <div>
                 <h2 className="stp m-v100">
                   What can we help with?
@@ -247,14 +248,16 @@ export default class HomePane extends React.Component {
                   <button
                     type="button"
                     className="btn m-h100"
-                    onClick={this.startChat}>
+                    onClick={this.startChat}
+                  >
                     Start Live Chat
                   </button>}
                 <span style={{ position: 'relative' }}>
                   <button
                     disabled={description.length === 0}
                     type="submit"
-                    className={`btn ${NEXT_BUTTON_STYLE.toString()}`}>
+                    className={`btn ${NEXT_BUTTON_STYLE.toString()}`}
+                  >
                     Start a Request
                   </button>
                   {description.length === 0 &&
@@ -277,7 +280,8 @@ export default class HomePane extends React.Component {
             <div className={`g--1 m-v300 ${OR_HOLDER_STYLE.toString()}`}>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
               <div
-                className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}>
+                className={`br br-a150 t--info ${OR_CIRCLE_SYTLE.toString()}`}
+              >
                 or
               </div>
               <div className={`br br-a150 ${OR_RULE_STYLE.toString()}`} />
@@ -296,10 +300,11 @@ export default class HomePane extends React.Component {
                   <li key={code} className="t--info">
                     <Link
                       href={`/request?code=${code}`}
-                      as={`/request/${code}`}>
+                      as={`/request/${code}`}
+                    >
                       <a className="m-v100">{name}</a>
                     </Link>
-                  </li>,
+                  </li>
                 )}
               </ul>
 
@@ -313,7 +318,8 @@ export default class HomePane extends React.Component {
         <div
           className={`b b--g p-a300 p-a800--xl ${SEARCH_CONTAINER_STYLE.toString()}`}
           style={{ paddingTop: 0, paddingBottom: 0 }}
-          role="search">
+          role="search"
+        >
           <h2 className="a11y--h">Public Cases</h2>
           <div className="g">
             <form
@@ -321,7 +327,8 @@ export default class HomePane extends React.Component {
               acceptCharset="UTF-8"
               method="get"
               action="/lookup"
-              onSubmit={this.handleSearchSubmit}>
+              onSubmit={this.handleSearchSubmit}
+            >
               <div className="sf-i">
                 <input
                   type="text"

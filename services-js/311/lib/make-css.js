@@ -8,12 +8,12 @@ import stylesheetHrefs from '../templates/stylesheets.json';
 export default function makeCss(css: ?string) {
   const publicCssHref = stylesheetHrefs.find(href => href.match(/public\.css/));
   const otherCssHrefs = stylesheetHrefs.filter(
-    href => !href.match(/public\.css/),
+    href => !href.match(/public\.css/)
   );
 
   return [
     ...otherCssHrefs.map(href =>
-      <link href={href} key={href} type="text/css" rel="stylesheet" />,
+      <link href={href} key={href} type="text/css" rel="stylesheet" />
     ),
 
     <head
@@ -27,7 +27,7 @@ export default function makeCss(css: ?string) {
             <script src="/assets/vendor/ie9-polyfill.js"></script>
             <link href="${publicCssHref.replace(
               'public',
-              'ie',
+              'ie'
             )}" rel="stylesheet" type="text/css">
           <![endif]-->`,
       }}

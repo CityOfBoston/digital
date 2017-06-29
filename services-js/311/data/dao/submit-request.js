@@ -41,7 +41,7 @@ export default async function submitRequest(
     addressId,
     location,
     questions,
-  }: Args,
+  }: Args
 ): Promise<SubmittedRequest> {
   const attributes = [];
 
@@ -78,7 +78,7 @@ export default async function submitRequest(
 
   const mutation: SubmitRequestMutation = await loopbackGraphql(
     SubmitRequestGraphql,
-    vars,
+    vars
   );
   return mutation.createRequest;
 }

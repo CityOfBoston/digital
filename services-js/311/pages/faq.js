@@ -5,5 +5,5 @@ import withStore from '../lib/mixins/with-store';
 
 // eslint-disable-next-line global-require
 export default withStore(
-  withGlamor(() => require('../components/faq/FaqLayout').default),
+  withGlamor(() => require('../components/faq/FaqLayout').default)
 );

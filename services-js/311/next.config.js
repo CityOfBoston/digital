@@ -13,7 +13,7 @@ module.exports = {
         analyzerPort: 3001,
         openAnalyzer: false,
         generateStatsFile: true,
-      }),
+      })
     );
 
     config.module.noParse = config.module.noParse || [];

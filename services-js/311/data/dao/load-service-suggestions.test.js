@@ -16,6 +16,6 @@ test('loadServiceSuggestions', async () => {
 
   expect(loopbackGraphql).toHaveBeenCalledWith(
     LoadServiceSuggestionsGraphql,
-    queryVariables,
+    queryVariables
   );
 });

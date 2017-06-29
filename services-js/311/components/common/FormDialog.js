@@ -34,7 +34,7 @@ export default function FormDialog(
     narrow: false,
     noPadding: false,
     children: null,
-  },
+  }
 ) {
   const style = {};
 
@@ -47,7 +47,8 @@ export default function FormDialog(
   return (
     <div
       className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`}
-      style={style}>
+      style={style}
+    >
       {children}
     </div>
   );

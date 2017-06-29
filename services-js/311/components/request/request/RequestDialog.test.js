@@ -78,7 +78,7 @@ describe('rendering', () => {
         service={MOCK_SERVICE}
         description=""
         {...MOCK_ACTIONS}
-      />,
+      />
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -91,7 +91,7 @@ describe('rendering', () => {
         service={MOCK_SERVICE}
         description=""
         {...MOCK_ACTIONS}
-      />,
+      />
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -105,7 +105,7 @@ describe('rendering', () => {
         description=""
         {...MOCK_ACTIONS}
       />,
-      { createNodeMock: () => document.createElement('div') },
+      { createNodeMock: () => document.createElement('div') }
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -132,7 +132,7 @@ describe('methods', () => {
         loopbackGraphql={loopbackGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
-      />,
+      />
     );
 
     requestDialog = wrapper.instance();
@@ -148,7 +148,7 @@ describe('methods', () => {
       requestDialog.routeToLocation();
       expect(routeToServiceForm).toHaveBeenCalledWith(
         MOCK_SERVICE.code,
-        'location',
+        'location'
       );
     });
 
@@ -156,7 +156,7 @@ describe('methods', () => {
       requestDialog.routeToContact();
       expect(routeToServiceForm).toHaveBeenCalledWith(
         MOCK_SERVICE.code,
-        'contact',
+        'contact'
       );
     });
   });
@@ -205,7 +205,7 @@ describe('methods', () => {
         expect.objectContaining({
           firstName: null,
           address: null,
-        }),
+        })
       );
 
       resolveGraphql(result);
@@ -230,7 +230,7 @@ describe('methods', () => {
         expect.objectContaining({
           firstName: 'Carol',
           address: 'City Hall Plaza, Boston, MA',
-        }),
+        })
       );
     });
 

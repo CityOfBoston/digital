@@ -104,7 +104,7 @@ export default class ElasticSearch {
           } else {
             resolve();
           }
-        },
+        }
       );
     });
   }
@@ -150,7 +150,7 @@ export default class ElasticSearch {
   searchCases(
     query: ?string,
     topLeft: ?{ lat: number, lng: number },
-    bottomRight: ?{ lat: number, lng: number },
+    bottomRight: ?{ lat: number, lng: number }
   ): Promise<Array<string>> {
     return new Promise((resolve, reject) => {
       const transaction =
@@ -210,7 +210,7 @@ export default class ElasticSearch {
           } else {
             resolve(res.hits.hits.map(({ _id }) => _id));
           }
-        },
+        }
       );
     });
   }

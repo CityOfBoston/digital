@@ -34,7 +34,8 @@ export default function SubmitPane(props: Props) {
           </div>
 
           <div
-            className={`m-v500 p-a500 ${LOADING_CONTAINER_STYLE.toString()}`}>
+            className={`m-v500 p-a500 ${LOADING_CONTAINER_STYLE.toString()}`}
+          >
             <LoadingBuildings reduceMotion={props.ui.reduceMotion} />
           </div>
         </div>

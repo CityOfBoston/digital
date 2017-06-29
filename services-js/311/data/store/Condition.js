@@ -23,7 +23,7 @@ export default class Condition {
 
   constructor(
     { attribute, op, value }: ServiceAttributeValuesCondition,
-    questionMap: { [code: string]: Question },
+    questionMap: { [code: string]: Question }
   ) {
     const question = questionMap[attribute];
     if (!question) {
@@ -37,7 +37,7 @@ export default class Condition {
       case 'NUMBER':
         if (value.number == null) {
           throw new Error(
-            `Missing number from value: ${JSON.stringify(value)}`,
+            `Missing number from value: ${JSON.stringify(value)}`
           );
         }
         this.value = value.number;
@@ -46,7 +46,7 @@ export default class Condition {
       case 'STRING':
         if (value.string == null) {
           throw new Error(
-            `Missing string from value: ${JSON.stringify(value)}`,
+            `Missing string from value: ${JSON.stringify(value)}`
           );
         }
         this.value = value.string;

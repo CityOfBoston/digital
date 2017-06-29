@@ -31,8 +31,7 @@ module.exports = {
     "jsx-a11y/no-onchange": 0,
     "prettier/prettier": ["error", {
       "singleQuote": true,
-      "trailingComma": "all",
-      "jsxBracketSameLine": true
+      "trailingComma": "es5"
     }]
   }
 };

@@ -9,7 +9,7 @@ storiesOf('LoadingIcons', module)
   .add('loading', () =>
     <div style={{ width: 200, height: 200 }}>
       <LoadingIcons />
-    </div>,
+    </div>
   )
   .add('3 up', () =>
     <div style={{ display: 'flex', overflow: 'hidden', height: 150 }}>
@@ -22,12 +22,12 @@ storiesOf('LoadingIcons', module)
       <div style={{ width: 200, height: 150 }}>
         <LoadingIcons initialDelay={200} />
       </div>
-    </div>,
+    </div>
   )
   .add('reduceMotion', () =>
     <div style={{ width: 200, height: 200 }}>
       <LoadingIcons reduceMotion />
-    </div>,
+    </div>
   )
   .add('reduced Motion 3 up', () =>
     <div style={{ display: 'flex', overflow: 'hidden', height: 150 }}>
@@ -40,5 +40,5 @@ storiesOf('LoadingIcons', module)
       <div style={{ width: 200, height: 150 }}>
         <LoadingIcons initialDelay={200} reduceMotion />
       </div>
-    </div>,
+    </div>
   );

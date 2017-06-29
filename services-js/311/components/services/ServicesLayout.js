@@ -62,7 +62,8 @@ class ServicesLayoutGroup extends React.Component {
           type="button"
           onClick={this.toggle}
           aria-expanded={group.open}
-          aria-controls={regionId}>
+          aria-controls={regionId}
+        >
           <div className="dr-ic">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
               <path
@@ -79,7 +80,8 @@ class ServicesLayoutGroup extends React.Component {
           enter={{ animation: 'slideDown', duration: 250 }}
           leave={{ animation: 'slideUp', duration: 250 }}
           role="region"
-          id={regionId}>
+          id={regionId}
+        >
           {group.open &&
             <div className="dr-c" style={{ display: 'block' }}>
               <ul className="ul" key="content">
@@ -87,13 +89,14 @@ class ServicesLayoutGroup extends React.Component {
                   <li key={code}>
                     <Link
                       href={`/request?code=${code}`}
-                      as={`/request/${code}`}>
+                      as={`/request/${code}`}
+                    >
                       <a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
                         <div className="t--sans tt-u">{name}</div>
                         <div style={{ color: CHARLES_BLUE }}>{description}</div>
                       </a>
                     </Link>
-                  </li>,
+                  </li>
                 )}
               </ul>
             </div>}
@@ -153,7 +156,7 @@ export default class ServicesLayout extends React.Component {
                   key={g.id}
                   group={g}
                   services={servicesByGroup[g.id.toLowerCase()]}
-                />,
+                />
               )}
 
               {otherServices.length > 0 &&

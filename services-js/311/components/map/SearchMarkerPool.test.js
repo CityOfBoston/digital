@@ -64,7 +64,7 @@ beforeEach(() => {
     requestSearch,
     opacityComputed,
     true,
-    outsideClickHandler,
+    outsideClickHandler
   );
 });
 

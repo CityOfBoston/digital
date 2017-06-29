@@ -42,7 +42,7 @@ export default class Prediction {
   // out any with a too-low probability.
   async caseTypes(
     text: string,
-    threshold: number,
+    threshold: number
   ): Promise<CaseTypePrediction[]> {
     const transaction =
       this.opbeat &&

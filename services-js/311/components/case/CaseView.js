@@ -74,7 +74,7 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
 function makeMapboxUrl(
   store: AppStore,
   request: Request,
-  size: number,
+  size: number
 ): string {
   const { apiKeys: { mapbox } } = store;
   const { location } = request;
@@ -84,7 +84,7 @@ function makeMapboxUrl(
   }
 
   return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
-    mapbox.accessToken,
+    mapbox.accessToken
   )}`;
 }
 
@@ -101,8 +101,10 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
             <span
               style={{
                 whiteSpace: 'nowrap',
-              }}>{`Case ref: #${request.id}`}</span>
-          }>
+              }}
+            >{`Case ref: #${request.id}`}</span>
+          }
+        >
           {request.service.name}
         </SectionHeader>
 
@@ -146,7 +148,8 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
             <a
               href={request.mediaUrl}
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <img
                 className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
                 alt="Submission"

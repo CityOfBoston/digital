@@ -14,7 +14,7 @@ export default async function searchCases(
   loopbackGraphql: LoopbackGraphql,
   query: ?string = null,
   topLeft: ?{| lat: number, lng: number |},
-  bottomRight: ?{| lat: number, lng: number |},
+  bottomRight: ?{| lat: number, lng: number |}
 ): Promise<SearchCasesResult> {
   const args: SearchCasesQueryVariables = {
     query,
@@ -24,7 +24,7 @@ export default async function searchCases(
 
   const response: SearchCasesQuery = await loopbackGraphql(
     SearchCasesGraphql,
-    args,
+    args
   );
   return response.searchCases;
 }

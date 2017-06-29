@@ -42,13 +42,13 @@ spriteDirContents.forEach(p => {
               dest: '',
             },
           },
-        }),
+        })
       )
-      .pipe(gulp.dest('static/assets/img/svg')),
+      .pipe(gulp.dest('static/assets/img/svg'))
   );
 
   gulp.task(`watch:${taskName}`, () =>
-    gulp.watch(`static/sprites/${p}/*.svg`, [taskName]),
+    gulp.watch(`static/sprites/${p}/*.svg`, [taskName])
   );
 });
 
@@ -65,8 +65,10 @@ gulp.task('babel:server', ['clean:build'], () =>
     .pipe(plumber())
     .pipe(ignore.exclude(IGNORED_JS_SOURCE))
     .pipe(babel())
-    .pipe(gulp.dest('build/server')),
+    .pipe(gulp.dest('build/server'))
 );
+
+gulp.task('babel:clean', () => del('node_modules/.cache/babel-loader'));
 
 gulp.task('next:compile', ['clean:next'], cb => {
   exec(
@@ -75,7 +77,7 @@ gulp.task('next:compile', ['clean:next'], cb => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -84,13 +86,13 @@ gulp.task('storybook:head', cb => {
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
       'scripts',
-      'make-storybook-head',
+      'make-storybook-head'
     )}`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -105,7 +107,7 @@ gulp.task('vendor', cb => {
       concat('ie9-polyfill.js'),
       gulp.dest('static/assets/vendor'),
     ],
-    cb,
+    cb
   );
 });
 
@@ -114,13 +116,13 @@ gulp.task('templates:fetch', cb => {
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
       'scripts',
-      'fetch-templates',
+      'fetch-templates'
     )}`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -132,13 +134,13 @@ gulp.task('graphql:schema', cb => {
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
       'scripts',
-      'generate-schema',
+      'generate-schema'
     )}`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -147,13 +149,13 @@ gulp.task('graphql:types', ['graphql:schema'], cb => {
     `${path.join(
       'node_modules',
       '.bin',
-      'apollo-codegen',
+      'apollo-codegen'
     )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js --no-add-typename`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);
       cb(err);
-    },
+    }
   );
 });
 
@@ -161,7 +163,7 @@ gulp.task('watch:graphql', () => [
   gulp.watch('server/graphql/*.js', ['graphql:schema']),
   gulp.watch(
     [GRAPHQL_QUERIES.replace(/\\/g, '/'), GRAPHQL_SCHEMA.replace(/\\/g, '/')],
-    ['graphql:types'],
+    ['graphql:types']
   ),
 ]);
 

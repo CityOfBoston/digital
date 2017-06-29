@@ -9,15 +9,15 @@ storiesOf('FormDialog', module)
   .add('Dialog', () =>
     <FormDialog>
       <SectionHeader>311: Boston City Services</SectionHeader>
-    </FormDialog>,
+    </FormDialog>
   )
   .add('Narrow Dialog', () =>
     <FormDialog narrow>
       <SectionHeader>311: Boston City Services</SectionHeader>
-    </FormDialog>,
+    </FormDialog>
   )
   .add('No Padding', () =>
     <FormDialog noPadding>
       <SectionHeader>311: Boston City Services</SectionHeader>
-    </FormDialog>,
+    </FormDialog>
   );

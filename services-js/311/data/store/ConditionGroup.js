@@ -14,7 +14,7 @@ export default class ConditionGroup {
 
   constructor(
     { clause, conditions }: ServiceAttributeValuesConditionSet,
-    questionMap: { [code: string]: Question },
+    questionMap: { [code: string]: Question }
   ) {
     this.clause = clause;
     this.conditions = conditions.map(c => new Condition(c, questionMap));

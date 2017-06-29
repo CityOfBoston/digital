@@ -27,7 +27,7 @@ export default class LocalStorageContactInfo {
           if (this.rememberInfo) {
             localStorage.setItem(
               'ContactInfo.firstName',
-              requestForm.firstName,
+              requestForm.firstName
             );
             localStorage.setItem('ContactInfo.lastName', requestForm.lastName);
             localStorage.setItem('ContactInfo.email', requestForm.email);
@@ -39,7 +39,7 @@ export default class LocalStorageContactInfo {
             localStorage.removeItem('ContactInfo.phone');
           }
         },
-        250,
+        250
       );
     }
   }

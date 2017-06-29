@@ -39,8 +39,8 @@ storiesOf('CaseLayout', module)
     <CaseLayout
       data={{ request: { ...MOCK_REQUEST, status: 'open', location: null } }}
       store={makeStore()}
-    />,
+    />
   )
   .add('404', () =>
-    <CaseLayout data={{ request: null }} store={makeStore()} />,
+    <CaseLayout data={{ request: null }} store={makeStore()} />
   );

@@ -70,7 +70,7 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
     .toArray();
   fs.writeFileSync(
     path.join(templatesPath, 'stylesheets.json'),
-    JSON.stringify(stylesheetHrefs, null, 2),
+    JSON.stringify(stylesheetHrefs, null, 2)
   );
 })().catch(e => {
   console.error('ERROR GETTING TEMPLATES', e);

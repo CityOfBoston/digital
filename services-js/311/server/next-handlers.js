@@ -33,7 +33,7 @@ export type RequestAdditions = {|
 
 export const nextHandler = (app, page, staticQuery) => async (
   { server, raw: { req, res }, query, params, pre },
-  reply,
+  reply
 ) => {
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),

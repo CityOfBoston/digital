@@ -55,7 +55,7 @@ export default async function startServer({ opbeat }: any) {
           reply.continue({ credentials: key });
         }
       },
-    }),
+    })
   );
 
   server.auth.strategy('apiKey', 'headerKeys', {
@@ -107,19 +107,19 @@ export default async function startServer({ opbeat }: any) {
           open311: new Open311(
             process.env.PROD_311_ENDPOINT,
             process.env.PROD_311_KEY,
-            opbeat,
+            opbeat
           ),
           publicOpen311: new Open311(
             process.env.LEGACY_311_ENDPOINT,
             null,
-            opbeat,
+            opbeat
           ),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
           searchBox: new SearchBox(
             process.env.SEARCHBOX_SSL_URL,
             process.env.ELASTICSEARCH_INDEX,
-            opbeat,
+            opbeat
           ),
         }: Context),
       })),
@@ -203,8 +203,8 @@ export default async function startServer({ opbeat }: any) {
       new Open311(
         process.env.PROD_311_ENDPOINT,
         process.env.PROD_311_KEY,
-        opbeat,
-      ),
+        opbeat
+      )
     ),
   });
 
@@ -227,7 +227,7 @@ export default async function startServer({ opbeat }: any) {
       reply.file(
         process.env.HEROKU_PIPELINE === 'staging'
           ? 'static/robots-staging.txt'
-          : 'static/robots-production.txt',
+          : 'static/robots-production.txt'
       ),
   });
 
@@ -242,7 +242,7 @@ export default async function startServer({ opbeat }: any) {
       const p = Path.join(
         'static',
         'assets',
-        ...request.params.path.split('/'),
+        ...request.params.path.split('/')
       );
       return reply
         .file(p)

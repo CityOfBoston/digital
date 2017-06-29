@@ -29,7 +29,7 @@ export default class Ui {
       {
         name: 'debounced scroll',
         delay: 250,
-      },
+      }
     );
 
     if (typeof window === 'undefined') {
@@ -73,7 +73,7 @@ export default class Ui {
         (document.documentElement && document.documentElement.scrollTop) ||
         0;
     }),
-    100,
+    100
   );
 
   handleResize = throttle(
@@ -81,7 +81,7 @@ export default class Ui {
       this.visibleHeight = window.innerHeight - HEADER_HEIGHT;
       this.visibleWidth = window.innerWidth;
     }),
-    100,
+    100
   );
 
   @action.bound

@@ -62,12 +62,12 @@ export const resolvers = {
     reverse: (
       s: Root,
       { location }: ReverseGeocodeArgs,
-      { arcgis }: Context,
+      { arcgis }: Context
     ): Promise<?Place> => arcgis.reverseGeocode(location.lat, location.lng),
     search: (
       s: Root,
       { query }: SearchArgs,
-      { arcgis }: Context,
+      { arcgis }: Context
     ): Promise<?Place> => arcgis.search(query),
   },
 
@@ -75,7 +75,7 @@ export const resolvers = {
     units: async (
       p: Place,
       args: mixed,
-      { arcgis }: Context,
+      { arcgis }: Context
     ): Promise<Array<Unit>> => {
       const units: UnitResult[] = p.buildingId
         ? await arcgis.lookupUnits(p.buildingId)
@@ -93,7 +93,7 @@ export const resolvers = {
           unit,
           addressId,
           streetAddress,
-        }),
+        })
       );
     },
   },

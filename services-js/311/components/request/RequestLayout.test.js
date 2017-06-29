@@ -132,11 +132,11 @@ describe('existing service page', () => {
     const ctx = makeServerContext(
       '/request',
       { code: 'CSMCINC' },
-      { isPhone: true },
+      { isPhone: true }
     );
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />,
+      <RequestLayout data={data} store={store} />
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -146,11 +146,11 @@ describe('existing service page', () => {
     const ctx = makeServerContext(
       '/request',
       { code: 'CSMCINC', stage: 'location' },
-      { isPhone: true },
+      { isPhone: true }
     );
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />,
+      <RequestLayout data={data} store={store} />
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -186,7 +186,7 @@ describe('missing service page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />,
+      <RequestLayout data={data} store={store} />
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -208,7 +208,7 @@ describe('routeToServiceForm', () => {
     requestLayout.routeToServiceForm('CSMCINC');
     expect(Router.push).toHaveBeenCalledWith(
       '/request?code=CSMCINC',
-      '/request/CSMCINC',
+      '/request/CSMCINC'
     );
   });
 
@@ -216,7 +216,7 @@ describe('routeToServiceForm', () => {
     requestLayout.routeToServiceForm('CSMCINC', 'contact');
     expect(Router.push).toHaveBeenCalledWith(
       '/request?code=CSMCINC&stage=contact',
-      '/request/CSMCINC/contact',
+      '/request/CSMCINC/contact'
     );
   });
 });

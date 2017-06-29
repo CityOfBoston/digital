@@ -88,7 +88,7 @@ export default class DescriptionBox extends React.Component {
       this.setState({
         height: Math.min(
           maxHeight,
-          Math.max(minHeight, this.textarea.scrollHeight),
+          Math.max(minHeight, this.textarea.scrollHeight)
         ),
       });
     }
@@ -144,7 +144,8 @@ export default class DescriptionBox extends React.Component {
     return (
       <div
         className={`br br-a100 ${WRAPPER_STYLE.toString()}`}
-        style={{ minHeight, maxHeight }}>
+        style={{ minHeight, maxHeight }}
+      >
         <textarea
           className={TEXTAREA_STYLE}
           style={{ height }}

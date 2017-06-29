@@ -21,7 +21,7 @@ fs.mkdirsSync(graphqlPath);
   if (result.errors) {
     console.error(
       'ERROR introspecting schema: ',
-      JSON.stringify(result.errors, null, 2),
+      JSON.stringify(result.errors, null, 2)
     );
   } else {
     fs.writeFileSync(schemaJsonPath, JSON.stringify(result, null, 2));

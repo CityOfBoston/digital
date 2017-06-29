@@ -33,19 +33,21 @@ function renderSummaryRow(
     code,
     name,
     description,
-  }: { code: string, name: string, description: ?string },
+  }: { code: string, name: string, description: ?string }
 ) {
   return (
     <div className="dr" key={code}>
       <Link
         href={`/request?code=${code}&description=${encodeURIComponent(
-          problemDescription,
+          problemDescription
         )}`}
-        as={`/request/${code}`}>
+        as={`/request/${code}`}
+      >
         <a className="dr-h">
           <div
             className="dr-ic"
-            style={{ transform: 'translateY(-49%) rotateZ(-90deg)' }}>
+            style={{ transform: 'translateY(-49%) rotateZ(-90deg)' }}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
               <path
                 className="dr-i"
@@ -57,7 +59,8 @@ function renderSummaryRow(
           <div className="dr-st">
             <span
               className="t--info"
-              style={{ textTransform: 'none', fontStyle: 'normal' }}>
+              style={{ textTransform: 'none', fontStyle: 'normal' }}
+            >
               {description}
             </span>
           </div>
@@ -100,7 +103,7 @@ function renderLoading(ui: Ui) {
 
 function renderSuggestions(
   problemDescription: string,
-  suggestedServiceSummaries: ServiceSummary[],
+  suggestedServiceSummaries: ServiceSummary[]
 ) {
   return (
     <div>
@@ -110,7 +113,7 @@ function renderSuggestions(
 
       <div className="m-v500">
         {suggestedServiceSummaries.map(s =>
-          renderSummaryRow(problemDescription, s),
+          renderSummaryRow(problemDescription, s)
         )}
       </div>
 

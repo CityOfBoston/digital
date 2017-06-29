@@ -191,20 +191,20 @@ export default class Open311 {
           try {
             const response = await fetch(
               this.url(
-                `services/${additionalPath}${code}.json?${params.toString()}`,
+                `services/${additionalPath}${code}.json?${params.toString()}`
               ),
               {
                 agent: this.agent,
-              },
+              }
             );
 
             return await processResponse(response);
           } catch (e) {
             throw new Error(
-              `Error loading metadata for ${code}: ${e.toString()}`,
+              `Error loading metadata for ${code}: ${e.toString()}`
             );
           }
-        }),
+        })
       );
 
       if (transaction) {
@@ -226,7 +226,7 @@ export default class Open311 {
         this.url(`requests.json?${params.toString()}`),
         {
           agent: this.agent,
-        },
+        }
       );
 
       // the endpoint returns the request in an array
@@ -262,7 +262,7 @@ export default class Open311 {
       this.url(`services.json?${params.toString()}`),
       {
         agent: this.agent,
-      },
+      }
     );
 
     const out = (await processResponse(response)) || [];
@@ -296,7 +296,7 @@ export default class Open311 {
       this.url(`requests.json?${params.toString()}`),
       {
         agent: this.agent,
-      },
+      }
     );
 
     const out = (await processResponse(response)) || [];
@@ -322,7 +322,7 @@ export default class Open311 {
           break;
         case 'attributes':
           args[key].map(({ code, value }) =>
-            params.append(`attribute[${code}]`, value),
+            params.append(`attribute[${code}]`, value)
           );
           break;
         default:

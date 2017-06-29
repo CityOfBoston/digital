@@ -40,7 +40,7 @@ export default class Question {
 
   constructor(
     attribute: ServiceAttribute,
-    questionMap: { [code: string]: Question } = {},
+    questionMap: { [code: string]: Question } = {}
   ) {
     this.code = attribute.code;
     this.description = attribute.description;

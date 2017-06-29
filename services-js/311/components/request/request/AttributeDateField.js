@@ -69,7 +69,7 @@ export default class AttributeDateField extends React.Component {
       {
         fireImmediately: true,
         name: 'date form updater',
-      },
+      }
     );
 
     // when the valid form value changes, writes it back to the question. should
@@ -88,7 +88,7 @@ export default class AttributeDateField extends React.Component {
       },
       {
         name: 'date value writeback',
-      },
+      }
     );
   }
 

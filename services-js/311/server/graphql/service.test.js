@@ -22,7 +22,7 @@ describe('filterPlainValues', () => {
           key: 'Bear',
           name: 'Bear',
         },
-      ]),
+      ])
     ).toEqual([
       {
         key: 'Dog',
@@ -71,7 +71,7 @@ describe('filterPlainValues', () => {
             },
           ],
         },
-      ]),
+      ])
     ).toEqual([]);
   });
 });
@@ -96,7 +96,7 @@ describe('filterConditionalValues', () => {
           key: 'Bear',
           name: 'Bear',
         },
-      ]),
+      ])
     ).toEqual([]);
   });
 
@@ -132,7 +132,7 @@ describe('filterConditionalValues', () => {
             },
           ],
         },
-      ]),
+      ])
     ).toEqual([
       {
         dependentOn: {
