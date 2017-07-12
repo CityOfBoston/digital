@@ -212,9 +212,9 @@ export type SearchAddressQuery = {|
 |};
 
 export type SearchCasesQueryVariables = {|
-  query: ?string,
-  topLeft: ?LatLngIn,
-  bottomRight: ?LatLngIn,
+  query?: ?string,
+  topLeft?: ?LatLngIn,
+  bottomRight?: ?LatLngIn,
 |};
 
 export type SearchCasesQuery = {|
@@ -242,14 +242,14 @@ export type SearchCasesQuery = {|
 export type SubmitRequestMutationVariables = {|
   code: string,
   description: string,
-  firstName: ?string,
-  lastName: ?string,
-  email: ?string,
-  phone: ?string,
-  address: ?string,
-  addressId: ?string,
-  location: ?LatLngIn,
-  mediaUrl: ?string,
+  firstName?: ?string,
+  lastName?: ?string,
+  email?: ?string,
+  phone?: ?string,
+  address?: ?string,
+  addressId?: ?string,
+  location?: ?LatLngIn,
+  mediaUrl?: ?string,
   attributes: Array< CreateRequestAttribute >,
 |};
 

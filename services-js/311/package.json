@@ -100,7 +100,7 @@
     "@storybook/addon-actions": "^3.1.5",
     "@storybook/addon-storyshots": "^3.1.6",
     "@storybook/react": "^3.1.7",
-    "apollo-codegen": "^0.13.0",
+    "apollo-codegen": "^0.15.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.2.3",
