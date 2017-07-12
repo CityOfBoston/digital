@@ -4165,26 +4165,26 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-server-core@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/graphql-server-core/-/graphql-server-core-0.9.0.tgz#34dac2d90e0b9c5f2c4c666f08dab74c15b8a327"
+graphql-server-core@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-core/-/graphql-server-core-1.0.0.tgz#25d92b6279a81263f0714136636a54910c1fafe0"
   optionalDependencies:
     "@types/graphql" "^0.9.0"
 
-graphql-server-hapi@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/graphql-server-hapi/-/graphql-server-hapi-0.9.0.tgz#6d06eb40bb61272d2af1a42283a8e8b7b4d0f8ac"
+graphql-server-hapi@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-hapi/-/graphql-server-hapi-1.0.0.tgz#a894b7b9e9cf4d32bd427c9cde47e40a5accd366"
   dependencies:
     boom "^5.1.0"
-    graphql-server-core "^0.9.0"
-    graphql-server-module-graphiql "^0.9.0"
+    graphql-server-core "^1.0.0"
+    graphql-server-module-graphiql "^1.0.0"
   optionalDependencies:
     "@types/graphql" "^0.9.1"
     "@types/hapi" "^16.1.2"
 
-graphql-server-module-graphiql@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.9.0.tgz#dfe877066052f94a3ff57ff4790b3023e9ef2b4a"
+graphql-server-module-graphiql@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-1.0.0.tgz#1b302481423f83b3c0f43cb30bfdc30bfe3d0a82"
 
 graphql-tools@^1.0.0:
   version "1.0.0"
