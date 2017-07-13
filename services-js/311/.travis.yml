@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 6.10.0
+- 6.11.1
 env:
 - TZ=America/New_York
 before_install:
