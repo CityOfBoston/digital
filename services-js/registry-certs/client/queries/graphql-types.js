@@ -22,8 +22,8 @@ export type FetchDeathCertificatesQuery = {|
 export type SearchDeathCertificatesQueryVariables = {|
   query: string,
   page: number,
-  startYear: ?string,
-  endYear: ?string,
+  startYear?: ?string,
+  endYear?: ?string,
 |};
 
 export type SearchDeathCertificatesQuery = {|

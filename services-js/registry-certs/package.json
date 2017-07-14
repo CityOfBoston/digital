@@ -84,7 +84,7 @@
     "@percy-io/react-percy-storybook": "^1.0.0",
     "@storybook/addon-storyshots": "^3.1.6",
     "@storybook/react": "^3.1.7",
-    "apollo-codegen": "^0.13.1",
+    "apollo-codegen": "^0.15.2",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
