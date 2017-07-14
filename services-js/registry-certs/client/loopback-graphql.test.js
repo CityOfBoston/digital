@@ -68,7 +68,9 @@ describe('client mode', () => {
     // in Node 6 we see this print an unhandled promise rejection error, but the rest of
     // the test proceeds as expected
     fetchMock.post('/graphql', {
-      throws: new TypeError('connecting blew up'),
+      throws: new TypeError(
+        'connecting blew up - this error is expected in Jest logs'
+      ),
     });
 
     await expect(

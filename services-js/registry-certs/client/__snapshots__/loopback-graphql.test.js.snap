@@ -2,7 +2,7 @@
 
 exports[`client mode GraphQL failure case 1`] = `[Error: [Server] Unexpected error]`;
 
-exports[`client mode network failure case 1`] = `[TypeError: connecting blew up]`;
+exports[`client mode network failure case 1`] = `[TypeError: connecting blew up - this error is expected in Jest logs]`;
 
 exports[`client mode server failure case 1`] = `[Error: Everything is broken]`;
 
