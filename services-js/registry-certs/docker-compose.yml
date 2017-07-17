@@ -5,6 +5,8 @@ services:
     environment:
       PORT: 3000
       NODE_ENV: production
+      # Used by script/entrypoint.sh to download our .env configuration
+      AWS_S3_CONFIG_URL: "${AWS_S3_CONFIG_URL}"
     # We expose the server port to an unspecified destination port so that
     # multiple app servers can be on the same container host. The ALB
     # "target group" registration handles directing traffic to the right

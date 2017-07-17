@@ -71,6 +71,10 @@ function deployService(name) {
       throw new Error('AWS_ECS_TARGET_GROUP_ARN not set');
     }
 
+    if (!process.env['AWS_S3_CONFIG_URL']) {
+      throw new Error('AWS_S3_CONFIG_URL not set');
+    }
+
     const child = spawn(
       'ecs-cli',
       [
@@ -94,7 +98,8 @@ function deployService(name) {
         env: Object.assign({}, process.env, {
           // Used by docker-compose.yml
           APP_SERVER_IMAGE: name,
-          // copying this in to be clear about what env vars are required
+          // copying these in to be clear about what env vars are required
+          AWS_S3_CONFIG_URL: process.env['AWS_S3_CONFIG_URL'],
           AWS_CLOUDWATCH_LOGS_GROUP: process.env['AWS_CLOUDWATCH_LOGS_GROUP'],
           AWS_CLOUDWATCH_LOGS_PREFIX: 'containers',
         }),
