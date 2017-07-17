@@ -1,9 +1,19 @@
+dist: trusty
+services:
+  - docker
 language: node_js
 node_js:
-- 6.11.1
+- 8.1.4
+
+branches:
+  only:
+  - master
+  - develop
+  - "/^greenkeeper\\/.*$/"
+
 before_install:
-- npm i -g npm@^5.0.0
 - npm i -g greenkeeper-lockfile@1
+
 before_script:
 - greenkeeper-lockfile-update
 - npm run snapshot
@@ -12,26 +22,13 @@ script:
 after_script:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
-branches:
-  only:
-  - master
-  - develop
-  - "/^greenkeeper\\/.*$/"
+
 before_deploy:
-- npm run bundle-deploy
+- ./scripts/install-ecs-cli.sh
 deploy:
-  provider: elasticbeanstalk
-  access_key_id: AKIAJ5H4OXWZCQEZ75JA
-  secret_access_key:
-    secure: ChN5HQEX5ssQ53FZXHWBjHCRWjKAVpQ5TdblyqfsNX5Pstjg24l3qHpUGqnNe/VFlvOsnlXBkCgL4wC+2g6IYLIDZhrQlRWA6qrWaUziVZkI5mzLsbrJcOz8uobKxscsPBQzx1nJD+AxcB+QrgRFvBtEACSmFdkNxpb0Xi27305AgN2X22AV3r9EjGn45D6xwDCFz3DPk5jYQhDWbyLyDlVJwasqo02T6fYv9uoRqt1h/E8afZnDGQ/1SN3T/ScTZB7fbTtR9IG5VZK/8UhZlJaiIxHOPSl+hS2FGS/LabqIXSq2e+lx6AEzsZ40Cnzp42uixPdrhgT/ntdMhUak5YKYrY/p4FTCZpSfdBkGiG1r0PLor5gY7Ts0w4LLplbM161Tss/uFJwSFVN/9YbtSV9aNshF0FuHNYhNyJkoScPNup+mxzewdiqheA2hpW77tYT3IJKTSvJ6wO7+Tq5ruxy77S2zutx7EMdHb+w+3vDadx2Yun1prHu80rPEklGXV/UOc6rI9qIfFZ9DtNkPQCSUNmjxuiJLgBVk86dnHdlH8CFzoLLPjKC29dI0oleajwH2MZLIQ1dAI1nbAA7yCS7IQGb3xtrPDlOzrC8uKdG5ScbIgbxBIM6aQ7PTcweaHpO6ESbMnhteIzjYVfCkvuiR69K0SCLdL26n1vSm1Z4=
-  region: us-east-2
-  app: Registry Certs
-  env: Staging
-  bucket_name: cob-registry-certs-develop
-  skip_cleanup: true
+  provider: script
+  script: node ./scripts/ecs-deploy.js
   on:
-    repo: CityOfBoston/registry-certs
     branch: develop
-  zip_file: deploy.zip
 after_deploy:
 - npm run report-deploy

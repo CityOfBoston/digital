@@ -6877,7 +6877,10 @@
     },
     "react-proxy": {
       "version": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
-      "integrity": "sha1-kQZnJrakdnkbK4pc83mRn56EMdo="
+      "integrity": "sha1-kQZnJrakdnkbK4pc83mRn56EMdo=",
+      "requires": {
+        "lodash": "4.17.4"
+      }
     },
     "react-simple-di": {
       "version": "1.2.0",

@@ -1,0 +1,6 @@
+.next
+.git
+.env*
+build
+node_modules
+storybook-static
