@@ -1,4 +1,5 @@
 module.exports = {
+  assetPrefix: process.env.NEXT_ASSET_PREFIX || '',
   webpack: config => {
     // Perform customizations to config
     if (process.env.NODE_ENV === 'development') {
