@@ -7,21 +7,26 @@
 
 const { spawn } = require('child_process');
 
-function containerImageName() {
-  const registryName = process.env['APP_SERVER_CONTAINER_REGISTRY'] || 'local';
-  const repostoryName =
-    process.env['APP_SERVER_CONTAINER_REPOSITORY'] || 'app-server';
+function containerImage(serviceName) {
+  const repositoryPieces = [
+    process.env['AWS_ECS_REGISTRY'],
+    process.env['AWS_ECS_REPOSITORY_NAMESPACE'],
+    serviceName,
+  ];
+
+  // We tag the images with the Travis build number, so we can trace that back (and because it’s nicely
+  // incrementing for sort) and the current Git commit so we know what version of the code it is.
   const containerTag =
     process.env['TRAVIS_BUILD_NUMBER'] && process.env['TRAVIS_COMMIT']
       ? `${process.env['TRAVIS_BUILD_NUMBER']}-${process.env['TRAVIS_COMMIT']}`
       : 'dev';
 
-  return `${registryName}/${repostoryName}:${containerTag}`;
+  return `${repositoryPieces.filter(p => !!p).join('/')}:${containerTag}`;
 }
 
-function buildContainer(name) {
+function buildContainer(image) {
   return new Promise((resolve, reject) => {
-    const child = spawn('docker', ['build', '-t', name, '.'], {
+    const child = spawn('docker', ['build', '-t', image, '.'], {
       stdio: 'inherit',
     });
 
@@ -36,9 +41,9 @@ function buildContainer(name) {
   });
 }
 
-function pushContainer(name) {
+function pushContainer(image) {
   return new Promise((resolve, reject) => {
-    const child = spawn('ecs-cli', ['push', name], {
+    const child = spawn('ecs-cli', ['push', image], {
       stdio: 'inherit',
     });
 
@@ -53,10 +58,14 @@ function pushContainer(name) {
   });
 }
 
-function deployService(name) {
+function deployService(serviceName, image) {
   return new Promise((resolve, reject) => {
-    if (!process.env['AWS_ECS_TASK_ROLE_ARN']) {
-      throw new Error('AWS_ECS_TASK_ROLE_ARN not set');
+    if (!process.env['AWS_ECS_SERVICE_ROLE']) {
+      throw new Error('AWS_ECS_SERVICE_ROLE not set');
+    }
+
+    if (!process.env['AWS_ECS_TASK_ROLE']) {
+      throw new Error('AWS_ECS_TASK_ROLE not set');
     }
 
     if (!process.env['AWS_ECS_CLUSTER']) {
@@ -67,41 +76,44 @@ function deployService(name) {
       throw new Error('AWS_CLOUDWATCH_LOGS_GROUP not set');
     }
 
-    if (!process.env['AWS_ECS_TARGET_GROUP_ARN']) {
-      throw new Error('AWS_ECS_TARGET_GROUP_ARN not set');
+    if (!process.env['AWS_EC2_TARGET_GROUP_ARN']) {
+      throw new Error('AWS_EC2_TARGET_GROUP_ARN not set');
     }
 
-    if (!process.env['AWS_S3_CONFIG_URL']) {
-      throw new Error('AWS_S3_CONFIG_URL not set');
+    if (!process.env['AWS_S3_CONFIG_BUCKET']) {
+      throw new Error('AWS_S3_CONFIG_BUCKET not set');
     }
 
     const child = spawn(
       'ecs-cli',
       [
         'compose',
+        '--project-name',
+        serviceName,
+        '--cluster',
+        process.env.AWS_ECS_CLUSTER,
         '--task-role-arn',
-        process.env['AWS_ECS_TASK_ROLE_ARN'],
+        process.env.AWS_ECS_TASK_ROLE,
         'service',
         'up',
-        '--cluster',
-        process.env['AWS_ECS_CLUSTER'],
         '--role',
-        'ecsServiceRole',
+        process.env.AWS_ECS_SERVICE_ROLE,
+        '--target-group-arn',
+        process.env.AWS_EC2_TARGET_GROUP_ARN,
+        // these must match docker-compose.yml
         '--container-name',
         'app-server',
         '--container-port',
         '3000',
-        '--target-group-arn',
-        process.env['AWS_ECS_TARGET_GROUP_ARN'],
       ],
       {
         env: Object.assign({}, process.env, {
           // Used by docker-compose.yml
-          APP_SERVER_IMAGE: name,
-          // copying these in to be clear about what env vars are required
-          AWS_S3_CONFIG_URL: process.env['AWS_S3_CONFIG_URL'],
-          AWS_CLOUDWATCH_LOGS_GROUP: process.env['AWS_CLOUDWATCH_LOGS_GROUP'],
-          AWS_CLOUDWATCH_LOGS_PREFIX: 'containers',
+          APP_SERVER_IMAGE: image,
+          AWS_S3_CONFIG_URL: `s3://${process.env
+            .AWS_S3_CONFIG_BUCKET}/${serviceName}`,
+          AWS_CLOUDWATCH_LOGS_GROUP: process.env.AWS_CLOUDWATCH_LOGS_GROUP,
+          AWS_CLOUDWATCH_LOGS_PREFIX: serviceName,
         }),
         stdio: 'inherit',
       }
@@ -119,12 +131,18 @@ function deployService(name) {
 }
 
 (function() {
-  const name = containerImageName();
+  if (!process.env['AWS_ECS_SERVICE_NAME']) {
+    throw new Error(`Missing $AWS_ECS_SERVICE_NAME`);
+  }
+
+  const serviceName = process.env['AWS_ECS_SERVICE_NAME'];
+
+  const image = containerImage(serviceName);
 
   Promise.resolve(true)
-    .then(() => buildContainer(name))
-    .then(() => pushContainer(name))
-    .then(() => deployService(name))
+    .then(() => buildContainer(image))
+    .then(() => pushContainer(image))
+    .then(() => deployService(serviceName, image))
     .then(() => {
       // eslint-disable-next-line no-console
       console.log('Deploy successful.');
