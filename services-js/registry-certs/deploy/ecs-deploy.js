@@ -8,6 +8,7 @@
 // so that Travis can execute it from a clean environment.
 
 const { spawn } = require('child_process');
+const path = require('path');
 
 // This must match the container name in docker-compose.yml that should be
 // attached to the ALB Target Group.
@@ -79,13 +80,15 @@ function buildContainer(repository, buildTag) {
     // warm the cache
     [
       'build',
+      '--file',
+      path.resolve(__dirname, 'Dockerfile'),
       // --cache-from drastically speeds up builds when package.json doesn't
       // change, since it can re-use all of the npm install results.
       '--cache-from',
       `${repository}:latest`,
-      '-t',
+      '--tag',
       `${repository}:${buildTag}`,
-      '-t',
+      '--tag',
       `${repository}:latest`,
       '.',
     ]
@@ -127,6 +130,8 @@ function deployService(serviceName, repository, buildTag) {
     'ecs-cli',
     [
       'compose',
+      '--file',
+      path.resolve(__dirname, 'docker-compose.yml'),
       '--project-name',
       serviceName,
       '--cluster',

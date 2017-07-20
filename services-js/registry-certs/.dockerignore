@@ -6,4 +6,4 @@ node_modules
 storybook-static
 
 # Makes it easier to iterate on this script without invalidating the container image cache
-scripts/ecs-deploy.js
+deploy

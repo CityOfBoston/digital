@@ -19,16 +19,16 @@ before_script:
 - npm run snapshot
 script:
 - npm run test-ci
-after_script:
+after_success:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
 
 before_deploy:
-- ./scripts/install-ecs-cli.sh
+- ./deploy/ecs-install-cli.sh
 deploy:
   provider: script
-  script: node ./scripts/ecs-deploy.js
+  script: node ./deploy/ecs-deploy.js
   on:
     branch: develop
 after_deploy:
-- npm run report-deploy
+- ./deploy/opbeat-report-deploy.sh
