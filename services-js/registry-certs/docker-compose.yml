@@ -3,7 +3,7 @@ services:
   app-server:
     image: "${APP_SERVER_IMAGE}"
     environment:
-      PORT: 3000
+      PORT: "${APP_SERVER_PORT}"
       NODE_ENV: production
       # Used by script/entrypoint.sh to download our .env configuration
       AWS_S3_CONFIG_URL: "${AWS_S3_CONFIG_URL}"
@@ -12,9 +12,9 @@ services:
     # "target group" registration handles directing traffic to the right
     # container.
     ports:
-     - "3000"
-    # 200mb in bytes
-    mem_reservation: 209715200
+     - "${APP_SERVER_PORT}"
+    mem_reservation: 209715200 # 200mb in bytes
+    mem_limit: 524288000 # 500mb in bytes
     logging:
       driver: awslogs
       options:

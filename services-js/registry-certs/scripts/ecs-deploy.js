@@ -9,8 +9,17 @@
 
 const { spawn } = require('child_process');
 
-// these must match docker-compose.yml
+// This must match the container name in docker-compose.yml that should be
+// attached to the ALB Target Group.
 const APP_SERVER_CONTAINER_NAME = 'app-server';
+
+// This value is arbitary. We just need to be consistent about what port in the
+// container that the server starts on, which port is exposed out, and which
+// port the Target Group should find to bind on.
+//
+// Note that the container will bind its port to an auto-chosen port on the
+// container instance to avoid collisions, but the Target Group is able to
+// resolve which auto-chosen port corresponds to this one.
 const APP_SERVER_CONTAINER_PORT = 3000;
 
 function spawnPromise(bin, args, opts = {}) {
@@ -139,6 +148,7 @@ function deployService(serviceName, repository, buildTag) {
       env: Object.assign({}, process.env, {
         // Used by docker-compose.yml
         APP_SERVER_IMAGE: `${repository}:${buildTag}`,
+        APP_SERVER_PORT: APP_SERVER_CONTAINER_PORT,
         AWS_S3_CONFIG_URL: `s3://${process.env
           .AWS_S3_CONFIG_BUCKET}/${serviceName}`,
         AWS_CLOUDWATCH_LOGS_GROUP: process.env.AWS_CLOUDWATCH_LOGS_GROUP,
