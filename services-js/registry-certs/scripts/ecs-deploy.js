@@ -60,12 +60,12 @@ function pushContainer(image) {
 
 function deployService(serviceName, image) {
   return new Promise((resolve, reject) => {
-    if (!process.env['AWS_ECS_SERVICE_ROLE']) {
-      throw new Error('AWS_ECS_SERVICE_ROLE not set');
+    if (!process.env['AWS_ECS_SERVICE_ROLE_ARN']) {
+      throw new Error('AWS_ECS_SERVICE_ROLE_ARN not set');
     }
 
-    if (!process.env['AWS_ECS_TASK_ROLE']) {
-      throw new Error('AWS_ECS_TASK_ROLE not set');
+    if (!process.env['AWS_ECS_TASK_ROLE_ARN']) {
+      throw new Error('AWS_ECS_TASK_ROLE_ARN not set');
     }
 
     if (!process.env['AWS_ECS_CLUSTER']) {
@@ -93,11 +93,11 @@ function deployService(serviceName, image) {
         '--cluster',
         process.env.AWS_ECS_CLUSTER,
         '--task-role-arn',
-        process.env.AWS_ECS_TASK_ROLE,
+        process.env.AWS_ECS_TASK_ROLE_ARN,
         'service',
         'up',
         '--role',
-        process.env.AWS_ECS_SERVICE_ROLE,
+        process.env.AWS_ECS_SERVICE_ROLE_ARN,
         '--target-group-arn',
         process.env.AWS_EC2_TARGET_GROUP_ARN,
         // these must match docker-compose.yml
