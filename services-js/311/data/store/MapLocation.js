@@ -65,7 +65,19 @@ export default class MapLocation {
     }
 
     const place = await reverseGeocode(this.loopbackGraphql, location);
-    this.handleSearchResult(place);
+
+    if (place) {
+      // We overwrite the location in the place to stay with the one picked so
+      // that the map marker doesn’t move.
+      this.handleSearchResult({
+        location,
+        address: place.address,
+        addressId: place.addressId,
+        units: place.units,
+      });
+    } else {
+      this.handleSearchResult(null);
+    }
   }
 
   @action
