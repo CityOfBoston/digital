@@ -11,6 +11,12 @@ Pulls 311 updates from Salesforce and indexes them in Elasticsearch
 
 ## Developers
 
+### Setup
+
+Copy `.env.default` to `.env` and modify any necessary values.
+
+### Scripts
+
  * **Development Server**: `npm run-script dev`
 
 ### Code Policies
@@ -18,3 +24,10 @@ Pulls 311 updates from Salesforce and indexes them in Elasticsearch
  * ESLint / Prettier styling enforced on commit. Use `npm run-script lint` to
    auto-fix style when possible.
  * Tests (Jest) and types (Flow) are enforced on push.
+
+### Elasticsearch
+
+ 1. Install [Docker](https://www.docker.io/)
+ 1. Run `npm run-script elasticsearch-start`
+ 1. Run `npm run-script elasticsearch-init`
+

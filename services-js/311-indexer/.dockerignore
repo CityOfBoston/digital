@@ -1,0 +1,7 @@
+.git
+.env*
+build
+node_modules
+
+# Makes it easier to iterate on this script without invalidating the container image cache
+deploy

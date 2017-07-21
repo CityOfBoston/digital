@@ -22,12 +22,12 @@ after_success:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
 
-# before_deploy:
-# - ./deploy/ecs-install-cli.sh
-# deploy:
-#   provider: script
-#   script: node ./deploy/ecs-deploy.js
-#   on:
-#     branch: develop
-# after_deploy:
-# - ./deploy/opbeat-report-deploy.sh
+before_deploy:
+- ./deploy/ecs-install-cli.sh
+deploy:
+  provider: script
+  script: node ./deploy/ecs-deploy.js
+  on:
+    branch: develop
+after_deploy:
+- ./deploy/opbeat-report-deploy.sh

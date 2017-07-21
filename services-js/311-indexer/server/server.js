@@ -2,6 +2,7 @@
 /* eslint no-console: 0 */
 
 import cleanup from 'node-cleanup';
+import Elasticsearch from './services/Elasticsearch';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -10,7 +11,17 @@ type ServerArgs = {
 };
 
 export default async function startServer(args: ServerArgs) {
-  console.log('Server starting!', args);
+  Elasticsearch.configureAws(process.env.AWS_REGION);
+
+  const elasticsearch = new Elasticsearch(
+    process.env.ELASTICSEARCH_URL,
+    process.env.ELASTICSEARCH_INDEX,
+    args.opbeat
+  );
+
+  const info = await elasticsearch.info();
+  console.log('Cluster info', info);
+
   const shutdown = () => Promise.resolve();
 
   cleanup(exitCode => {
@@ -27,6 +38,4 @@ export default async function startServer(args: ServerArgs) {
     cleanup.uninstall();
     return false;
   });
-
-  console.log('> Ready');
 }

@@ -10,7 +10,9 @@
     "start": "node build/server",
     "lint": "eslint --fix .",
     "precommit": "lint-staged",
-    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace"
+    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace",
+    "elasticsearch-start": "docker run --rm -p 9200:9200 -e \"http.host=0.0.0.0\" -e \"transport.host=127.0.0.1\" -e \"xpack.security.enabled=false\" docker.elastic.co/elasticsearch/elasticsearch:5.5.0",
+    "elasticsearch-init": "babel-node ./scripts/elasticsearch-init.js"
   },
   "repository": {
     "type": "git",
@@ -40,8 +42,11 @@
     ]
   },
   "dependencies": {
+    "aws-sdk": "^2.88.0",
     "babel-runtime": "^6.23.0",
     "dotenv": "^4.0.0",
+    "elasticsearch": "^13.2.0",
+    "http-aws-es": "^2.0.4",
     "node-cleanup": "^2.1.2",
     "opbeat": "^4.14.2"
   },
