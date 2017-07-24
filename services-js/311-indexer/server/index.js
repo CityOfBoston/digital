@@ -7,6 +7,10 @@
 require('dotenv').config();
 const opbeat = require('opbeat/start');
 
+// This monkeypatches the environment to add window and an XMLHttpRequest
+// implementation.
+require('cometd-nodejs-client').adapt();
+
 const start = require('./server.js').default;
 
 start({ opbeat }).catch(err => {
