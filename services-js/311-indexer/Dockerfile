@@ -18,6 +18,7 @@ RUN npm install --loglevel warn
 
 ADD . /app
 RUN npm run-script build
+RUN chmod a+x entrypoint.sh
 
-ENTRYPOINT ["scripts/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["npm", "start"]
