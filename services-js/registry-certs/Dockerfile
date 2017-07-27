@@ -1,4 +1,4 @@
-FROM node:8.1.4
+FROM node:8.2.0
 
 WORKDIR /app
 
@@ -18,8 +18,9 @@ RUN npm install --loglevel warn
 
 ADD . /app
 RUN npm run-script build
+RUN chmod a+x entrypoint.sh
 
 EXPOSE 3000
 
-ENTRYPOINT ["scripts/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 CMD ["npm", "start"]

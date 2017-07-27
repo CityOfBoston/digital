@@ -1,9 +1,7 @@
 dist: trusty
-services:
-  - docker
 language: node_js
 node_js:
-- 8.1.4
+- 8.2.0
 
 branches:
   only:
@@ -22,13 +20,3 @@ script:
 after_success:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
-
-before_deploy:
-- ./deploy/ecs-install-cli.sh
-deploy:
-  provider: script
-  script: node ./deploy/ecs-deploy.js
-  on:
-    branch: develop
-after_deploy:
-- ./deploy/opbeat-report-deploy.sh
