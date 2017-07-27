@@ -19,6 +19,12 @@ Parameters:
     Type: String
   TaskRoleArn:
     Type: String
+  ServiceRoleArn:
+    Type: String
+    Description: Ignored
+  TargetGroupArn:
+    Type: String
+    Description: Ignored
 
 Resources:
   # Separate logs for each app
