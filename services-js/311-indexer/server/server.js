@@ -45,7 +45,7 @@ export default async function startServer(args: ServerArgs) {
   salesforce.on('error', (err: Error) => {
     // This may happen if your session expires. Rather than try to re-auth, just exit
     // and let the container agent restart us.
-    console.error('Error in Salesforce connecction. Exiting.', err);
+    console.error('Error in Salesforce connection. Exiting.', err);
     process.exit(1);
   });
 
