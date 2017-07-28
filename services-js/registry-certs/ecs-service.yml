@@ -1,0 +1,72 @@
+Description: Webapp for Registry certificate purchasing (e.g. Death Certificates)
+
+Parameters:
+  Repository:
+    Type: String
+  Tag:
+    Type: String
+    Default: latest
+  Cluster:
+    Type: String
+  DesiredCount:
+    Type: Number
+    Default: 0
+    Description: Update this to change the number of instances of the service
+  TaskRoleArn:
+    Type: String
+  ServiceRoleArn:
+    Type: String
+  TargetGroupArn:
+    Type: String
+  ConfigBucketPath:
+    Type: String
+    Description: Bucket + path for this service’s configuration. (E.g. digital-apps-config/311-indexer)
+
+Resources:
+  # Separate logs for each app
+  LogGroup:
+    Type: 'AWS::Logs::LogGroup'
+    Properties:
+      LogGroupName: !Sub '/${AWS::StackName}'
+      RetentionInDays: 90
+
+  TaskDefinition:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties:
+      Family: !Ref 'AWS::StackName'
+      TaskRoleArn: !Ref TaskRoleArn
+      ContainerDefinitions:
+        - Name: service
+          Image: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${Repository}:${Tag}'
+          Essential: true
+          PortMappings:
+            - ContainerPort: 3000
+          Memory: 500
+          MemoryReservation: 200
+          Environment:
+            - Name: NODE_ENV
+              Value: production
+            - Name: AWS_S3_CONFIG_URL
+              Value: !Sub 's3://${ConfigBucketPath}'
+            - Name: AWS_REGION
+              Value: !Ref 'AWS::Region'
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-region: !Ref 'AWS::Region'
+              awslogs-group: !Ref LogGroup
+              awslogs-stream-prefix: ecs
+
+  Service:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      ServiceName: !Ref 'AWS::StackName'
+      Cluster: !Ref Cluster
+      DesiredCount: !Ref DesiredCount
+      TaskDefinition: !Ref TaskDefinition
+      Role: !Ref ServiceRoleArn
+      LoadBalancers:
+        # Must match a ContainerDefinition above
+        - ContainerName: service
+          ContainerPort: 3000
+          TargetGroupArn: !Ref TargetGroupArn
