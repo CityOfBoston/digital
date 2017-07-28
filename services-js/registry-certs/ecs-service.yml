@@ -19,6 +19,9 @@ Parameters:
   ConfigBucketPath:
     Type: String
     Description: Bucket + path for this service’s configuration. (E.g. digital-apps-config/311-indexer)
+  CloudFrontHost:
+    Type: String
+    Description: Host name for our CloudFront reverse proxy for this service
 
 Resources:
   # Separate logs for each app
@@ -48,6 +51,8 @@ Resources:
               Value: !Sub 's3://${ConfigBucketPath}'
             - Name: AWS_REGION
               Value: !Ref 'AWS::Region'
+            - Name: CLOUDFRONT_HOST
+              Value: !Ref CloudFrontHost
           LogConfiguration:
             LogDriver: awslogs
             Options:

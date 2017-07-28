@@ -1,5 +1,7 @@
 module.exports = {
-  assetPrefix: process.env.NEXT_ASSET_PREFIX || '',
+  assetPrefix: process.env.CLOUDFRONT_HOST
+    ? `https://${process.env.CLOUDFRONT_HOST}`
+    : '',
   webpack: config => {
     // Perform customizations to config
     if (process.env.NODE_ENV === 'development') {
