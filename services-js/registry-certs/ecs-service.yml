@@ -8,10 +8,8 @@ Parameters:
     Default: latest
   Cluster:
     Type: String
-  DesiredCount:
+  ServiceDesiredCount:
     Type: Number
-    Default: 0
-    Description: Update this to change the number of instances of the service
   TaskRoleArn:
     Type: String
   ServiceRoleArn:
@@ -62,7 +60,7 @@ Resources:
     Properties:
       ServiceName: !Ref 'AWS::StackName'
       Cluster: !Ref Cluster
-      DesiredCount: !Ref DesiredCount
+      DesiredCount: !Ref ServiceDesiredCount
       TaskDefinition: !Ref TaskDefinition
       Role: !Ref ServiceRoleArn
       LoadBalancers:
