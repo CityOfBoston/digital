@@ -1,24 +1,20 @@
 Description: Indexer worker to get cases from Salesforce and add them to Elasticsearch
 
 Parameters:
-  ShortName:
-    Type: String
-  Namespace:
-    Type: String
-  ConfigBucket:
+  Repository:
     Type: String
   Tag:
     Type: String
     Default: latest
-  DesiredCount:
-    Type: Number
-    Default: 0
   Cluster:
     Type: String
-  Repository:
-    Type: String
+  ServiceDesiredCount:
+    Type: Number
   TaskRoleArn:
     Type: String
+  ConfigBucketPath:
+    Type: String
+    Description: Bucket + path for this service’s configuration. (E.g. digital-apps-config/311-indexer)
 
 Resources:
   # Separate logs for each app
@@ -43,7 +39,7 @@ Resources:
             - Name: NODE_ENV
               Value: production
             - Name: AWS_S3_CONFIG_URL
-              Value: !Sub 's3://${ConfigBucket}/${ShortName}'
+              Value: !Sub 's3://${ConfigBucketPath}'
             - Name: AWS_REGION
               Value: !Ref 'AWS::Region'
           LogConfiguration:
@@ -58,5 +54,5 @@ Resources:
     Properties:
       ServiceName: !Ref 'AWS::StackName'
       Cluster: !Ref Cluster
-      DesiredCount: !Ref DesiredCount
+      DesiredCount: !Ref ServiceDesiredCount
       TaskDefinition: !Ref TaskDefinition
