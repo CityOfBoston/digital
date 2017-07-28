@@ -19,19 +19,13 @@ Parameters:
     Type: String
   TaskRoleArn:
     Type: String
-  ServiceRoleArn:
-    Type: String
-    Description: Ignored
-  TargetGroupArn:
-    Type: String
-    Description: Ignored
 
 Resources:
   # Separate logs for each app
   LogGroup:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      LogGroupName: !Sub '/${Namespace}/${ShortName}'
+      LogGroupName: !Sub '/${Cluster}/${AWS::StackName}'
       RetentionInDays: 90
 
   TaskDefinition:
