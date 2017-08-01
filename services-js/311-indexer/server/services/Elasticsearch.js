@@ -78,7 +78,7 @@ export default class Elasticsearch {
 
     this.client = new elasticsearch.Client({
       host: url,
-      connectionClass: HttpAwsEs,
+      connectionClass: url.endsWith('.amazonaws.com') ? HttpAwsEs : undefined,
     });
 
     this.index = index;

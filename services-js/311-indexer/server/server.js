@@ -19,7 +19,12 @@ type Invoice = {|
 |};
 
 export default async function startServer(args: ServerArgs) {
-  Elasticsearch.configureAws(process.env.AWS_REGION);
+  if (
+    process.env.ELASTICSEARCH_URL &&
+    process.env.ELASTICSEARCH_URL.endsWith('.amazonaws.com')
+  ) {
+    Elasticsearch.configureAws(process.env.AWS_REGION);
+  }
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
@@ -27,8 +32,12 @@ export default async function startServer(args: ServerArgs) {
     args.opbeat
   );
 
-  const info = await elasticsearch.info();
-  console.log('Elasticsearch connected', info);
+  try {
+    const info = await elasticsearch.info();
+    console.log('Elasticsearch connected', info);
+  } catch (err) {
+    console.error('ERROR GETTING ELASTICSEARCH INFO', err);
+  }
 
   const salesforce: Salesforce<Invoice> = new Salesforce(
     process.env.SALESFORCE_COMETD_URL,
@@ -52,7 +61,8 @@ export default async function startServer(args: ServerArgs) {
   await salesforce.connect(
     process.env.SALESFORCE_OAUTH_URL,
     process.env.SALESFORCE_API_USERNAME,
-    process.env.SALESFORCE_API_PASSWORD
+    process.env.SALESFORCE_API_PASSWORD,
+    process.env.SALESFORCE_API_SECURITY_TOKEN
   );
 
   const shutdown = async () => {

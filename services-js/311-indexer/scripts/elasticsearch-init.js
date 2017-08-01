@@ -8,7 +8,12 @@ import Elasticsearch from '../server/services/Elasticsearch';
 dotenv.config();
 
 (async function initializeIndex() {
-  Elasticsearch.configureAws(process.env.AWS_REGION);
+  if (
+    process.env.ELASTICSEARCH_URL &&
+    process.env.ELASTICSEARCH_URL.endsWith('.amazonaws.com')
+  ) {
+    Elasticsearch.configureAws(process.env.AWS_REGION);
+  }
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
