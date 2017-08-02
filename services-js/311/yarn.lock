@@ -415,9 +415,9 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-apollo-codegen@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/apollo-codegen/-/apollo-codegen-0.15.0.tgz#12a7fd650f24f9896e1c37c87caca51d6111bd1f"
+apollo-codegen@0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/apollo-codegen/-/apollo-codegen-0.16.2.tgz#c93632dd5a2ddffe63c80db4e26c90b9a95a3552"
   dependencies:
     change-case "^3.0.0"
     core-js "^2.4.1"
@@ -4001,7 +4001,7 @@ glob2base@^0.0.12:
   dependencies:
     find-index "^0.1.1"
 
-glob@7.1.1, glob@^7.0.0, glob@^7.0.5:
+glob@7.1.1, glob@^7.0.0:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
@@ -4031,7 +4031,7 @@ glob@^6.0.1:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.3, glob@^7.1.1, glob@^7.1.2:
+glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
