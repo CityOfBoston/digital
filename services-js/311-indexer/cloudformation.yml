@@ -1,0 +1,118 @@
+Description: Search indexer for 311 cases
+
+Parameters:
+  ClusterStack:
+    Type: String
+    Description: Our main stack. Expected to have Cluster, ConfigBucket, Namespace, and ServiceRoleArn outputs
+    Default: DigitalAppsCluster
+
+  ShortName:
+    Type: String
+    Default: 311-indexer
+
+  CloudFormationTemplatesBucket:
+    Type: String
+    Description: Bucket for our CloudFormationTemplates
+    Default: test-cob-cloudformation-templates
+
+  DeployTemplate:
+    Type: String
+    Description: Template in the deploy.zip for our service
+    Default: default-worker-service.yml
+
+  ServiceDesiredCount:
+    Type: Number
+    Description: Update this and redeploy to change the number of instances of the service
+    Default: 0
+
+  GitHubRepo:
+    Type: String
+    Description: Repo name for the code. E.g. CityOfBoston/registry-certs
+    Default: CityOfBoston/311-indexer
+
+  GitHubBranch:
+    Type: String
+    Description: Branch name to check for updates and deploy from
+    Default: develop
+
+  GitHubToken:
+    Type: String
+    Description: Access token for a user who has read access to the repos
+
+  ElasticsearchPolicyArn:
+    Type: String 
+    Description: ARN for the managed policy that gives us Elasticsearch access
+
+Resources:
+  CommonResources:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        ClusterStack: !Ref ClusterStack
+        AppStack: !Ref AWS::StackName
+        ShortName: !Ref ShortName
+        TaskPolicyArnsString: !Join [',', [!Ref ElasticsearchPolicyArn]]
+      TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
+
+  DeployPipeline:
+    Type: "AWS::CloudFormation::Stack"
+    # CommonResources needs to populate some exports
+    DependsOn: CommonResources
+    Properties:
+      Parameters:
+        ClusterStack: !Ref ClusterStack
+        AppStack: !Ref AWS::StackName
+        ShortName: !Ref ShortName
+        GitHubRepo: !Ref GitHubRepo
+        GitHubBranch: !Ref GitHubBranch
+        GitHubToken: !Ref GitHubToken
+        DeployTemplatesBucket: !Ref CloudFormationTemplatesBucket
+        DeployTemplate: !Ref DeployTemplate
+        ServiceDesiredCount: !Ref ServiceDesiredCount
+      TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/deploy-pipeline.yml'
+
+
+  ###### CUSTOM RESOURCES TO THIS APP ######
+
+  # Sets up a metric based on the successful "connect" messages printed into the
+  # logs when the hand-over-hand streaming library reconnects. We can make a
+  # metric from these log lines and then make an alert if it drops below a
+  # threshold, which means the connection to Salesforce has failed.
+  SalesforceConnectSuccessfulFilter:
+    Type: "AWS::Logs::MetricFilter"
+    Properties: 
+      FilterPattern: '{($.channel = "/meta/connect") && ($.successful IS TRUE )}'
+      LogGroupName: !GetAtt CommonResources.Outputs.LogGroupName
+      MetricTransformations:
+        - MetricName: SalesforceConnectSuccessful
+          MetricNamespace: !Ref AWS::StackName
+          MetricValue: 1
+
+  # Alert for the above metric. The reconnects happen every 110 seconds, so we
+  # smooth things out to want to see at least 1 in a 5 minute period. (The
+  # frequency is less important than whether they're happening at all.)
+  LowSalesforceConnectSuccessfulAlarm:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmName: !Sub '${AWS::StackName} low successful reconnects to Salesforce'
+      AlarmDescription: The reconnect metric is too low
+      MetricName: SalesforceConnectSuccessful
+      Namespace: !Ref AWS::StackName
+      Dimensions: []
+      Statistic: SampleCount
+      ComparisonOperator: LessThanThreshold
+      Threshold: 1
+      Period: 300
+      EvaluationPeriods: 1
+      TreatMissingData: breaching
+      ActionsEnabled: true
+      AlarmActions:
+        Fn::Split:
+          - ','
+          - Fn::ImportValue:
+              !Sub '${ClusterStack}:AlarmSnsTopicsString'
+      OKActions:
+        Fn::Split:
+          - ','
+          - Fn::ImportValue:
+              !Sub '${ClusterStack}:AlarmSnsTopicsString'
