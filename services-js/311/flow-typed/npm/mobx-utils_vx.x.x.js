@@ -14,21 +14,41 @@
  */
 
 declare module 'mobx-utils' {
-  declare type IPromiseBasedObservable<V> = {
+  declare type PromiseLike<R> = {|
+    then: <U> (
+      onFulfill?: (value: R) => PromiseLike<U> | U,
+      onReject?: (error: any) => PromiseLike<U> | U
+    ) => PromiseLike<U>,
+
+    catch: <U> (
+      onReject?: (error: any) => PromiseLike<U> | U
+    ) => PromiseLike<R | U>,
+  |}
+
+  declare type IBasePromiseBasedObservable<T> = {|
+    ...PromiseLike<T>,
+    isPromiseBasedObservable: true,
+    case: <U> (handlers: {pending?: () => U, fulfilled?: (t: T) => U, rejected?: (e: any) => U}) => U;
+  |};
+
+  declare type IPromiseBasedObservableStates<T> = ({|
     state: 'pending',
-    promise: Promise<V>,
-  } | {
+    value: typeof undefined,
+  |} | {|
     state: 'fulfilled',
-    promise: Promise<V>,
-    value: V,
-  } | {
+    value: T,
+  |} | {|
     state: 'rejected',
-    promise: Promise<V>,
     value: any,
-  };
+  |});
+
+  declare type IPromiseBasedObservable<T> = {|
+    ...IBasePromiseBasedObservable<T>,
+    ...IPromiseBasedObservableStates<T>,
+  |};
 
   declare module.exports: {
-    fromPromise: <V> (promise: Promise<V>) => IPromiseBasedObservable<V>,
+    fromPromise: <T> (promise: Promise<T>) => IPromiseBasedObservable<V>,
     now: (interval: ?number) => number,
   };
 }

@@ -415,7 +415,7 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-apollo-codegen@0.16.2:
+apollo-codegen@^0.16.2:
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/apollo-codegen/-/apollo-codegen-0.16.2.tgz#c93632dd5a2ddffe63c80db4e26c90b9a95a3552"
   dependencies:
@@ -6287,9 +6287,9 @@ mobx-react@^4.2.2:
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx-utils@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/mobx-utils/-/mobx-utils-2.0.2.tgz#c12c9cc69be8020e30c7b6417f14b4ea38ba9723"
+mobx-utils@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mobx-utils/-/mobx-utils-3.0.0.tgz#80944d2a931c140209930403df545c6938f04e64"
 
 mobx@^2.3.4:
   version "2.7.0"
