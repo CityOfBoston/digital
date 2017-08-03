@@ -4,6 +4,8 @@
 // Entrypoint for our server. Uses require so we can control import order
 // and set up error reporting before getting the main server.js file going.
 
+console.log('----- SERVER STARTUP -----');
+
 require('dotenv').config();
 const opbeat = require('opbeat/start');
 
