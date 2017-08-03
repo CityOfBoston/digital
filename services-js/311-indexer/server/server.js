@@ -19,6 +19,43 @@ type Invoice = {|
 |};
 
 export default async function startServer(args: ServerArgs) {
+  let salesforce: ?Salesforce<Invoice>;
+
+  const shutdown = async () => {
+    if (salesforce) {
+      await salesforce.disconnect();
+    }
+  };
+
+  cleanup((exitCode, signal) => {
+    if (exitCode) {
+      console.log(
+        `----- FORCE EXITING WITH CODE ${exitCode}! NO CLEANUP! -----`
+      );
+      return true;
+    } else {
+      // keeps us from recursively cleaning up
+      cleanup.uninstall();
+
+      console.log('----- CLEAN SHUTDOWN START -----');
+
+      shutdown().then(
+        () => {
+          console.log('----- CLEAN SHUTDOWN COMPLETE -----');
+          process.kill(process.pid, signal);
+        },
+        err => {
+          console.log('----- CLEAN SHUTDOWN FAILURE -----');
+          console.error(err);
+          process.exit(-1);
+        }
+      );
+
+      // allows our clean shutdown to proceed
+      return false;
+    }
+  });
+
   if (
     process.env.ELASTICSEARCH_URL &&
     process.env.ELASTICSEARCH_URL.endsWith('.amazonaws.com')
@@ -39,7 +76,7 @@ export default async function startServer(args: ServerArgs) {
     console.error('ERROR GETTING ELASTICSEARCH INFO', err);
   }
 
-  const salesforce: Salesforce<Invoice> = new Salesforce(
+  salesforce = new Salesforce(
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
     process.env.SALESFORCE_CONSUMER_KEY,
@@ -54,8 +91,10 @@ export default async function startServer(args: ServerArgs) {
   salesforce.on('error', (err: Error) => {
     // This may happen if your session expires. Rather than try to re-auth, just exit
     // and let the container agent restart us.
-    console.error('Error in Salesforce connection. Exiting.', err);
-    process.exit(1);
+    console.log('----- SALESFORCE CONNECTION ERROR -----');
+    console.error(err);
+
+    process.kill(process.pid, 'SIGHUP');
   });
 
   await salesforce.connect(
@@ -64,23 +103,4 @@ export default async function startServer(args: ServerArgs) {
     process.env.SALESFORCE_API_PASSWORD,
     process.env.SALESFORCE_API_SECURITY_TOKEN
   );
-
-  const shutdown = async () => {
-    await salesforce.disconnect();
-  };
-
-  cleanup(exitCode => {
-    shutdown().then(
-      () => {
-        process.exit(exitCode || 0);
-      },
-      err => {
-        console.log('CLEAN EXIT FAILED', err);
-        process.exit(-1);
-      }
-    );
-
-    cleanup.uninstall();
-    return false;
-  });
 }

@@ -99,7 +99,7 @@ Resources:
       MetricName: SalesforceConnectSuccessful
       Namespace: !Ref AWS::StackName
       Dimensions: []
-      Statistic: SampleCount
+      Statistic: Sum
       ComparisonOperator: LessThanThreshold
       Threshold: 1
       Period: 300

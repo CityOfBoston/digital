@@ -21,4 +21,7 @@ RUN npm run-script build
 RUN chmod a+x entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["npm", "start"]
+
+# We run node manually rather than go through npm because npm eats signals and
+# exit codes in a not-useful way.
+CMD ["node", "./build/server"]

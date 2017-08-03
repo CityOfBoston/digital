@@ -136,13 +136,19 @@ export default class Salesforce<T> extends EventEmitter {
 
   disconnect(): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.cometd.disconnect((msg: MetaMessage) => {
-        if (msg.successful) {
-          resolve();
-        } else {
-          reject(new Error(msg.error));
-        }
-      });
+      // We need ths check because otherwise disconnect exits without ever
+      // calling its handler, so the Promise wouldn’t resolve.
+      if (this.cometd.isDisconnected()) {
+        resolve();
+      } else {
+        this.cometd.disconnect((msg: MetaMessage) => {
+          if (msg.successful) {
+            resolve();
+          } else {
+            reject(new Error(msg.error));
+          }
+        });
+      }
     });
   }
 

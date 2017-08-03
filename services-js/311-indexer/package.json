@@ -7,7 +7,6 @@
     "test-ci": "jest --coverage --runInBand --forceExit",
     "report-coverage": "codecov",
     "build": "gulp build",
-    "start": "node build/server",
     "lint": "eslint --fix .",
     "precommit": "lint-staged",
     "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace",
