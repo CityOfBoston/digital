@@ -183,7 +183,7 @@ export default class Salesforce<T> extends EventEmitter {
   };
 
   handleEvent = (msg: DataMessage<T>) => {
-    this.emit('event', msg.data);
+    this.emit('event', msg);
     this.lastReplayId = msg.data.event.replayId;
   };
 }

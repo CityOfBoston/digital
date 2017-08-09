@@ -88,6 +88,10 @@ export default async function startServer(args: ServerArgs) {
     console.info(JSON.stringify(msg));
   });
 
+  salesforce.on('event', (msg: Object) => {
+    console.info(JSON.stringify(msg));
+  });
+
   salesforce.on('error', (err: Error) => {
     // This may happen if your session expires. Rather than try to re-auth, just exit
     // and let the container agent restart us.
