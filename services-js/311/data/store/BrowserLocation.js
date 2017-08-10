@@ -88,7 +88,7 @@ export default class BrowserLocation {
   }
 
   @action.bound
-  handlePosition(pos: Position) {
+  handlePosition(pos: any) {
     this.location = {
       lat: pos.coords.latitude,
       lng: pos.coords.longitude,

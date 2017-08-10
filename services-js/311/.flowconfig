@@ -1,6 +1,7 @@
 [libs]
 flow-typed/
 flow-decl/
+node_modules/mapbox-gl/flow-typed/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/jsverify/.*
@@ -9,6 +10,7 @@ flow-decl/
 <PROJECT_ROOT>/node_modules/unflowify/test/.*
 <PROJECT_ROOT>/node_modules/mitt/.*
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/graphql/.*
+<PROJECT_ROOT>/node_modules/jsonlint-lines-primitives/test/fails/.*
 <PROJECT_ROOT>/storybook-static/.*
 
 [options]

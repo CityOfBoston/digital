@@ -12,6 +12,9 @@ import type {
   Map as MapboxGlMap,
   Marker as GLMarker,
   NavigationControl,
+  Popup,
+  LngLat,
+  LngLatBounds,
 } from 'mapbox-gl';
 import isMapboxGlSupported from 'mapbox-gl-supported';
 
@@ -66,7 +69,14 @@ const MAX_BOUNDS = [
 export type MapMode = 'inactive' | 'requests' | 'picker';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
-type MapboxGL = $Exports<'mapbox-gl'>;
+type MapboxGL = {
+  Marker: GLMarker,
+  Map: MapboxGlMap,
+  NavigationControl: NavigationControl,
+  Popup: Popup,
+  LngLat: LngLat,
+  LngLatBounds: LngLatBounds,
+};
 
 type CommonProps = {|
   mode: MapMode,
@@ -1168,7 +1178,7 @@ export class LocationMapWithLibrary extends React.Component {
 
   componentDidMount() {
     if (process.browser) {
-      if (isMapboxGlSupported(true)) {
+      if (isMapboxGlSupported()) {
         import('mapbox-gl').then((mapboxgl: any) => {
           this.setState({ mapboxgl });
         });
