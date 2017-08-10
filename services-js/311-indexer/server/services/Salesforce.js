@@ -5,7 +5,7 @@ import cometd from 'cometd';
 import fetch from 'node-fetch';
 import FormData from 'form-data';
 
-type MetaMessage = {|
+export type MetaMessage = {|
   ext?: { [key: string]: string },
   advice?: Object,
   channel: string,
@@ -14,7 +14,7 @@ type MetaMessage = {|
   successful: boolean,
 |};
 
-type DataMessage<T> = {|
+export type DataMessage<T> = {|
   channel: string,
   data: {
     event: {
@@ -26,7 +26,7 @@ type DataMessage<T> = {|
   },
 |};
 
-export default class Salesforce<T> extends EventEmitter {
+export default class Salesforce extends EventEmitter {
   opbeat: any;
   url: string;
   pushTopic: string;
@@ -182,7 +182,7 @@ export default class Salesforce<T> extends EventEmitter {
     }
   };
 
-  handleEvent = (msg: DataMessage<T>) => {
+  handleEvent = (msg: DataMessage<*>) => {
     this.emit('event', msg);
     this.lastReplayId = msg.data.event.replayId;
   };

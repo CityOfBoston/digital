@@ -55,6 +55,14 @@
       "resolved": "https://registry.npmjs.org/after-all-results/-/after-all-results-2.0.0.tgz",
       "integrity": "sha1-asL8ICtQD4jaj09VMM+hAPTGotA="
     },
+    "agent-base": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/agent-base/-/agent-base-4.1.1.tgz",
+      "integrity": "sha512-yWGUUmCZD/33IRjG2It94PzixT8lX+47Uq8fjmd0cgQWITCMrJuXFaVIMnGDmDnZGGKAGdwTx8UGeU8lMR2urA==",
+      "requires": {
+        "es6-promisify": "5.0.0"
+      }
+    },
     "agentkeepalive": {
       "version": "2.2.0",
       "resolved": "https://registry.npmjs.org/agentkeepalive/-/agentkeepalive-2.2.0.tgz",
@@ -1832,6 +1840,19 @@
       "dev": true,
       "requires": {
         "is-arrayish": "0.2.1"
+      }
+    },
+    "es6-promise": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/es6-promise/-/es6-promise-4.1.1.tgz",
+      "integrity": "sha512-OaU1hHjgJf+b0NzsxCg7NdIYERD6Hy/PEmFLTjw+b65scuisG3Kt4QoTvJ66BBkPZ581gr0kpoVzKnxniM8nng=="
+    },
+    "es6-promisify": {
+      "version": "5.0.0",
+      "resolved": "https://registry.npmjs.org/es6-promisify/-/es6-promisify-5.0.0.tgz",
+      "integrity": "sha1-UQnWLz5W6pZ8S2NQWu8IKRyKUgM=",
+      "requires": {
+        "es6-promise": "4.1.1"
       }
     },
     "escape-string-regexp": {
@@ -3913,6 +3934,15 @@
         "assert-plus": "0.2.0",
         "jsprim": "1.4.0",
         "sshpk": "1.13.1"
+      }
+    },
+    "https-proxy-agent": {
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-2.1.0.tgz",
+      "integrity": "sha512-/DTVSUCbRc6AiyOV4DBRvPDpKKCJh4qQJNaCgypX0T41quD9hp/PB5iUyx/60XobuMPQa9ce1jNV9UOUq6PnTg==",
+      "requires": {
+        "agent-base": "4.1.1",
+        "debug": "2.6.8"
       }
     },
     "husky": {
@@ -6663,7 +6693,6 @@
       "version": "5.4.2",
       "resolved": "https://registry.npmjs.org/rxjs/-/rxjs-5.4.2.tgz",
       "integrity": "sha1-KjI2/L8D31e64G/Wly/ZnlwI/Pc=",
-      "dev": true,
       "requires": {
         "symbol-observable": "1.0.4"
       }
@@ -7028,8 +7057,7 @@
     "symbol-observable": {
       "version": "1.0.4",
       "resolved": "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.0.4.tgz",
-      "integrity": "sha1-Kb9hXUqnEhvdiYsi1LP5vE4qoD0=",
-      "dev": true
+      "integrity": "sha1-Kb9hXUqnEhvdiYsi1LP5vE4qoD0="
     },
     "symbol-tree": {
       "version": "3.2.2",
@@ -7315,6 +7343,11 @@
           "integrity": "sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0="
         }
       }
+    },
+    "url-search-params": {
+      "version": "0.10.0",
+      "resolved": "https://registry.npmjs.org/url-search-params/-/url-search-params-0.10.0.tgz",
+      "integrity": "sha512-oFPzmbPAbdthStgffGq8alULe47skPDt1X3KW6NOQnKkcLHP4IS1NfdfHG/CBP5lGsr2gDzNp87pfWLx/eIxjw=="
     },
     "urlgrey": {
       "version": "0.4.4",

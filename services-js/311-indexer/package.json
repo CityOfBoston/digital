@@ -50,9 +50,13 @@
     "elasticsearch": "^13.2.0",
     "form-data": "^2.2.0",
     "http-aws-es": "^2.0.4",
+    "https-proxy-agent": "^2.1.0",
+    "lodash": "^4.17.4",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^1.7.1",
-    "opbeat": "^4.14.2"
+    "opbeat": "^4.14.2",
+    "rxjs": "^5.4.2",
+    "url-search-params": "^0.10.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
