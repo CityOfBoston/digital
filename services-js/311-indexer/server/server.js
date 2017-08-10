@@ -196,7 +196,9 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .let(processingStage(opbeat, 'open311', ids => open311.loadCases(ids)))
     .subscribe(cases => {
       console.log('----- LOADED CASES -----');
-      console.info(JSON.stringify(cases, null, 2));
+      cases.forEach(c => {
+        console.info(JSON.stringify(c));
+      });
     });
 
   salesforce.on('error', (err: Error) => {
