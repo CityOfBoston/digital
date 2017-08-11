@@ -79,7 +79,7 @@ export type LiveSamFeature = {
 };
 
 type LiveSamResponse = {
-  features: LiveSamFeature[],
+  features?: LiveSamFeature[],
 };
 
 export type SearchResult = {
@@ -326,8 +326,16 @@ export default class ArcGIS {
       transaction.end();
     }
 
+    if (!liveSamResponse.features) {
+      // eslint-disable-next-line no-console
+      console.log(
+        `LIVE SAM RESPONSE FOR ${buildingId} HAS NO FEATURES `,
+        liveSamResponse
+      );
+    }
+
     return sortUnits(
-      liveSamResponse.features
+      liveSamResponse.features || []
     ).map(({ attributes, geometry }) => ({
       location: { lat: geometry.y, lng: geometry.x },
       address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, MA, ${attributes.ZIP_CODE}`,
