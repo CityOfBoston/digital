@@ -51,7 +51,8 @@ export type ServiceMetadataAttribute = {|
   description: string,
   code: string,
   variable: boolean,
-  values?: ServiceMetadataAttributeValue[],
+  // currently a bug where sometimes this is a number!?!
+  values?: ServiceMetadataAttributeValue[] | number,
   dependencies?: DependentConditions,
 |};
 

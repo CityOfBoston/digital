@@ -113,9 +113,9 @@ export type Root = Service | ServiceStub;
 // Here we filter the disjoint union type of {key/value} vs. {dependendOn/values}
 // down to just key/value pairs. A bit odd because of Flow.
 export function filterPlainValues(
-  mixedValues: ?(ServiceMetadataAttributeValue[])
+  mixedValues: ?(ServiceMetadataAttributeValue[] | number)
 ) {
-  if (!mixedValues) {
+  if (!mixedValues || typeof mixedValues === 'number') {
     return null;
   }
 
@@ -142,9 +142,9 @@ export function filterPlainValues(
 }
 
 export function filterConditionalValues(
-  mixedValues: ?(ServiceMetadataAttributeValue[])
+  mixedValues: ?(ServiceMetadataAttributeValue[] | number)
 ) {
-  if (!mixedValues) {
+  if (!mixedValues || typeof mixedValues === 'number') {
     return null;
   }
 
