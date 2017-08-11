@@ -136,7 +136,8 @@ describe('existing service page', () => {
     );
     const data = (await RequestLayout.getInitialProps(ctx)).data;
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />
+      <RequestLayout data={data} store={store} />,
+      { createNodeMock: () => document.createElement('div') }
     );
 
     expect(component.toJSON()).toMatchSnapshot();

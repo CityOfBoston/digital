@@ -84,7 +84,7 @@
     "opbeat": "^4.14.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-dropzone": "^3.13.1",
+    "react-dropzone": "^4.0.0",
     "react-input-mask": "^1.0.1",
     "react-scoped-error-component": "^0.9.1",
     "redbox-react": "^1.3.6",
