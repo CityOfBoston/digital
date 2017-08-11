@@ -5,7 +5,7 @@ import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 
-type Case = {|
+export type Case = {|
   service_request_id: string,
   status: string,
   status_notes: ?string,

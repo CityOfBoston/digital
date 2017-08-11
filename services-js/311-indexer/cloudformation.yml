@@ -119,7 +119,7 @@ Resources:
                   "type": "metric",
                   "x": 0,
                   "y": 9,
-                  "width": 24,
+                  "width": 12,
                   "height": 6,
                   "properties": {
                     "title": "Salesforce Messages",
@@ -146,7 +146,33 @@ Resources:
                       "left": { "min": 0 }
                     }
                   }
+                },
+                {
+                  "type": "metric",
+                  "x": 12,
+                  "y": 9,
+                  "width": 12,
+                  "height": 6,
+                  "properties": {
+                    "title": "Queue Lengths",
+                    "view": "timeSeries",
+                    "stacked": false,
+                    "metrics": [
+                      [ 
+                        "${AWS::StackName}", "LoadCasesQueueLength",
+                        {
+                          "stat": "Average",
+                          "label": "load cases"
+                        }
+                      ]
+                    ],
+                    "region": "${AWS::Region}",
+                    "yAxis": {
+                      "left": { "min": 0 }
+                    }
+                  }
                 }
+
               ]
             }
           - Markdown:
@@ -221,3 +247,13 @@ Resources:
       OKActions:
         - Fn::ImportValue:
             !Sub '${ClusterStack}:AlarmTopicArn'
+
+  LoadCasesQueueLengthFilter:
+    Type: "AWS::Logs::MetricFilter"
+    Properties: 
+      FilterPattern: '{($.type = "queue length") && ($.stage = "load-cases")}'
+      LogGroupName: !GetAtt CommonResources.Outputs.LogGroupName
+      MetricTransformations:
+        - MetricName: LoadCasesQueueLength
+          MetricNamespace: !Ref AWS::StackName
+          MetricValue: "$.length"

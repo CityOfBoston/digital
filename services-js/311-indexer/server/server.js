@@ -10,10 +10,7 @@ import Salesforce from './services/Salesforce';
 import Open311 from './services/Open311';
 import type { DataMessage } from './services/Salesforce';
 
-import {
-  observableFromPromiseFunc,
-  retryWithExponentialFallback,
-} from './util/rxjs';
+import loadCases from './stages/load-cases';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -28,85 +25,15 @@ type CaseUpdate = {|
   'Incap311__Service_Type_Version_Code__c': string,
 |};
 
-// Use this function with "let" on an observer to insert our queueing behavior
-// into the stream.
-function processingStage<T, U>(
-  opbeat: Opbeat,
-  stage: string,
-  fn: T => Promise<U>
-): (Rx.Observable<T>) => Rx.Observable<U> {
-  let queueLength = 0;
-
-  const logQueueLength = () => {
-    console.log(
-      JSON.stringify({
-        type: 'queue length',
-        stage,
-        length: queueLength,
-      })
-    );
-  };
-
-  return observable =>
-    observable
-      // This handler will get called on every observed value as fast as they
-      // come in, so we use it to keep track of the current queue length in
-      // concatMap.
-      .do(() => {
-        queueLength++;
-        logQueueLength();
-      })
-      // concatMap queues values until each observable completes, so we use it to make sure that our
-      // network requests are sequential.
-      .concatMap(val =>
-        observableFromPromiseFunc(() => fn(val))
-          .let(
-            retryWithExponentialFallback(3, 1000, error => {
-              opbeat.captureError(error);
-
-              console.log(
-                JSON.stringify({
-                  type: 'error',
-                  stage,
-                  error: `${error.toString()}`,
-                })
-              );
-            })
-          )
-          // Report errors that caused a complete failure, but also in all cases
-          // updates the queue length.
-          .do({
-            error: (error: Error) => {
-              opbeat.captureError(error);
-
-              console.log(
-                JSON.stringify({
-                  type: 'failure',
-                  stage,
-                  value: val,
-                  error: `${error.toString()}`,
-                })
-              );
-
-              queueLength--;
-              logQueueLength();
-            },
-            complete: () => {
-              queueLength--;
-              logQueueLength();
-            },
-          })
-          // We always catch at the end of this chain so that we don't kill the
-          // original subscription. Returning empty will stop processing,
-          // however, so we don't try to do any indexing.
-          .catch(() => Rx.Observable.empty())
-      );
-}
-
 export default async function startServer({ opbeat }: ServerArgs) {
   let salesforce: ?Salesforce;
+  let pipelineSubscription: ?Rx.Subscription;
 
   const shutdown = async () => {
+    if (pipelineSubscription) {
+      pipelineSubscription.unsubscribe();
+    }
+
     if (salesforce) {
       await salesforce.disconnect();
     }
@@ -179,7 +106,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     console.info(JSON.stringify(msg));
   });
 
-  Rx.Observable
+  pipelineSubscription = Rx.Observable
     .fromEvent(salesforce, 'event')
     .do((msg: DataMessage<CaseUpdate>) => console.info(JSON.stringify(msg)))
     // We buffer updates because we may get the same one back-to-back due to
@@ -193,7 +120,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .map((msgs: Array<DataMessage<CaseUpdate>>) =>
       _.uniq(msgs.map(msg => msg.data.sobject.CaseNumber))
     )
-    .let(processingStage(opbeat, 'open311', ids => open311.loadCases(ids)))
+    .let(loadCases({ opbeat, open311 }))
     .subscribe(cases => {
       console.log('----- LOADED CASES -----');
       cases.forEach(c => {
