@@ -3,7 +3,7 @@
 
 import dotenv from 'dotenv';
 
-import Elasticsearch from '../server/services/Elasticsearch';
+import Elasticsearch from '../services/Elasticsearch';
 
 dotenv.config();
 

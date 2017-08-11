@@ -257,3 +257,13 @@ Resources:
         - MetricName: LoadCasesQueueLength
           MetricNamespace: !Ref AWS::StackName
           MetricValue: "$.length"
+
+  IndexCasesQueueLengthFilter:
+    Type: "AWS::Logs::MetricFilter"
+    Properties: 
+      FilterPattern: '{($.type = "queue length") && ($.stage = "index-cases")}'
+      LogGroupName: !GetAtt CommonResources.Outputs.LogGroupName
+      MetricTransformations:
+        - MetricName: IndexCasesQueueLength
+          MetricNamespace: !Ref AWS::StackName
+          MetricValue: "$.length"

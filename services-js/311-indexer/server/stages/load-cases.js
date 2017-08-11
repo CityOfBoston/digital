@@ -20,13 +20,31 @@ type Deps = {
   opbeat: Opbeat,
 };
 
+export type Input = Array<{
+  id: string,
+  replayId: number,
+}>;
+
+export type Output = Array<{
+  id: string,
+  replayId: number,
+  case: ?Case,
+}>;
+
 export default function({
   open311,
   opbeat,
-}: Deps): (Rx.Observable<Array<string>>) => Rx.Observable<Array<Case>> {
-  const loadCases = (observable: Rx.Observable<Array<string>>) =>
+}: Deps): (Rx.Observable<Input>) => Rx.Observable<Output> {
+  const loadCases = observable =>
     observable
-      .map((ids: string[]) => open311.loadCases(ids))
+      .map(async (inputs: Input) => {
+        const cases = await open311.loadCases(inputs.map(({ id }) => id));
+        return inputs.map((input, i) => ({
+          id: input.id,
+          replayId: input.replayId,
+          case: cases[i],
+        }));
+      })
       .let(awaitPromise)
       .let(
         retryWithFallback(5, 2000, {

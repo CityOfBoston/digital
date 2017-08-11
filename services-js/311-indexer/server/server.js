@@ -3,7 +3,6 @@
 
 import Rx from 'rxjs';
 import cleanup from 'node-cleanup';
-import _ from 'lodash';
 
 import Elasticsearch from './services/Elasticsearch';
 import Salesforce from './services/Salesforce';
@@ -11,6 +10,9 @@ import Open311 from './services/Open311';
 import type { DataMessage } from './services/Salesforce';
 
 import loadCases from './stages/load-cases';
+import type { Input as LoadCasesInput } from './stages/load-cases';
+
+import indexCases from './stages/index-cases';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -117,16 +119,24 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .filter(b => b.length > 0)
     // Convert the updates down to an array of uniq'd case numbers. Sometimes
     // the same case will have several updates in a row.
-    .map((msgs: Array<DataMessage<CaseUpdate>>) =>
-      _.uniq(msgs.map(msg => msg.data.sobject.CaseNumber))
-    )
-    .let(loadCases({ opbeat, open311 }))
-    .subscribe(cases => {
-      console.log('----- LOADED CASES -----');
-      cases.forEach(c => {
-        console.info(JSON.stringify(c));
+    .map((msgs: Array<DataMessage<CaseUpdate>>): LoadCasesInput => {
+      const replayIdsByCaseId = {};
+
+      msgs.forEach(msg => {
+        replayIdsByCaseId[msg.data.sobject.CaseNumber] = Math.max(
+          replayIdsByCaseId[msg.data.sobject.CaseNumber],
+          msg.data.event.replayId
+        );
       });
-    });
+
+      return Object.keys(replayIdsByCaseId).map(id => ({
+        id,
+        replayId: replayIdsByCaseId[id],
+      }));
+    })
+    .let(loadCases({ opbeat, open311 }))
+    .let(indexCases({ opbeat, elasticsearch }))
+    .subscribe();
 
   salesforce.on('error', (err: Error) => {
     // This may happen if your session expires. Rather than try to re-auth, just exit

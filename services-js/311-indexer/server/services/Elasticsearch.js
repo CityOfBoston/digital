@@ -4,6 +4,8 @@ import AWS from 'aws-sdk';
 import elasticsearch from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
 
+import type { Case } from './Open311';
+
 export type IndexedCase = {
   status: string,
   location: ?{
@@ -16,6 +18,10 @@ export type IndexedCase = {
   status_notes: string,
   requested_datetime: string,
   updated_datetime: string,
+  // We store the Salesforce replay_id in the record so we can pull the latest
+  // replay_id when we start up, to avoid always processing everything from the
+  // past 24 hours.
+  replay_id: number,
 };
 
 export type BulkResponse = {
@@ -47,20 +53,19 @@ export type SearchResponse = {
   },
 };
 
-// function convertRequestToDocument(request: ServiceRequest): IndexedCase {
-//   return {
-//     status: request.status,
-//     location: request.lat && request.long
-//       ? { lat: request.lat, lon: request.long }
-//       : null,
-//     address: request.address || '',
-//     description: request.description || '',
-//     service_name: request.service_name || '',
-//     status_notes: request.status_notes || '',
-//     requested_datetime: request.requested_datetime,
-//     updated_datetime: request.updated_datetime,
-//   };
-// }
+function convertCaseToDocument(c: Case, replayId: number): IndexedCase {
+  return {
+    status: c.status,
+    location: c.lat && c.long ? { lat: c.lat, lon: c.long } : null,
+    address: c.address || '',
+    description: c.description || '',
+    service_name: c.service_name || '',
+    status_notes: c.status_notes || '',
+    requested_datetime: c.requested_datetime,
+    updated_datetime: c.updated_datetime,
+    replay_id: replayId,
+  };
+}
 
 export default class Elasticsearch {
   opbeat: any;
@@ -131,41 +136,43 @@ export default class Elasticsearch {
     });
   }
 
-  // createCases(requests: ServiceRequest[]): Promise<BulkResponse> {
-  //   return new Promise((resolve, reject) => {
-  //     const transaction =
-  //       this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
+  createCases(
+    cases: Array<{ case: Case, replayId: number }>
+  ): Promise<BulkResponse> {
+    return new Promise((resolve, reject) => {
+      const transaction =
+        this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
 
-  //     const actions = [];
+      const actions = [];
 
-  //     requests.forEach((request: ServiceRequest) => {
-  //       const doc = convertRequestToDocument(request);
+      cases.forEach(({ case: c, replayId }) => {
+        const doc = convertCaseToDocument(c, replayId);
 
-  //       actions.push({
-  //         update: {
-  //           _index: this.index,
-  //           _type: 'case',
-  //           _id: request.service_request_id,
-  //         },
-  //       });
+        actions.push({
+          update: {
+            _index: this.index,
+            _type: 'case',
+            _id: c.service_request_id,
+          },
+        });
 
-  //       actions.push({
-  //         doc,
-  //         doc_as_upsert: true,
-  //       });
-  //     });
+        actions.push({
+          doc,
+          doc_as_upsert: true,
+        });
+      });
 
-  //     this.client.bulk({ body: actions }, (err: ?Error, res: BulkResponse) => {
-  //       if (transaction) {
-  //         transaction.end();
-  //       }
+      this.client.bulk({ body: actions }, (err: ?Error, res: BulkResponse) => {
+        if (transaction) {
+          transaction.end();
+        }
 
-  //       if (err || !res) {
-  //         reject(err || 'unknown error: no response');
-  //       } else {
-  //         resolve(res);
-  //       }
-  //     });
-  //   });
-  // }
+        if (err || !res) {
+          reject(err || 'unknown error: no response');
+        } else {
+          resolve(res);
+        }
+      });
+    });
+  }
 }

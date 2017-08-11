@@ -81,7 +81,7 @@ export default class Open311 {
     return url.resolve(this.endpoint, path);
   }
 
-  async loadCases(ids: Array<string>): Promise<Array<Case>> {
+  async loadCases(ids: Array<string>): Promise<Array<?Case>> {
     const transaction = this.opbeat.startTransaction('request', 'Open311');
 
     const params = new URLSearchParams();
@@ -99,12 +99,18 @@ export default class Open311 {
     );
 
     // the endpoint returns the request in an array
-    const requestArr: Case[] = await processResponse(response);
+    const caseArr: Case[] = await processResponse(response);
 
     if (transaction) {
       transaction.end();
     }
 
-    return requestArr;
+    const casesById = {};
+
+    caseArr.forEach(c => {
+      casesById[c.service_request_id] = c;
+    });
+
+    return ids.map(id => casesById[id]);
   }
 }
