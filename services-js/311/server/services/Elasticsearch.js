@@ -1,8 +1,10 @@
 // @flow
 
+import AWS from 'aws-sdk';
 import elasticsearch from 'elasticsearch';
-import type { ServiceRequest } from './Open311';
+import HttpAwsEs from 'http-aws-es';
 
+// This needs to be kept up-to-date with the 311-indexer
 export type IndexedCase = {
   status: string,
   location: ?{
@@ -15,6 +17,7 @@ export type IndexedCase = {
   status_notes: string,
   requested_datetime: string,
   updated_datetime: string,
+  replay_id: number,
 };
 
 export type BulkResponse = {
@@ -46,29 +49,14 @@ export type SearchResponse = {
   },
 };
 
-function convertRequestToDocument(request: ServiceRequest): IndexedCase {
-  return {
-    status: request.status,
-    location: request.lat && request.long
-      ? { lat: request.lat, lon: request.long }
-      : null,
-    address: request.address || '',
-    description: request.description || '',
-    service_name: request.service_name || '',
-    status_notes: request.status_notes || '',
-    requested_datetime: request.requested_datetime,
-    updated_datetime: request.updated_datetime,
-  };
-}
-
-export default class ElasticSearch {
+export default class Elasticsearch {
   opbeat: any;
   client: elasticsearch.Client;
   index: string;
 
   constructor(url: ?string, index: ?string, opbeat: any) {
     if (!url) {
-      throw new Error('Missing SearchBox url');
+      throw new Error('Missing Elasticsearch url');
     }
 
     if (!index) {
@@ -77,74 +65,19 @@ export default class ElasticSearch {
 
     this.client = new elasticsearch.Client({
       host: url,
+      connectionClass: url.endsWith('.amazonaws.com') ? HttpAwsEs : undefined,
     });
 
     this.index = index;
     this.opbeat = opbeat;
   }
 
-  initIndex(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.client.indices.create(
-        {
-          index: this.index,
-          body: {
-            mappings: {
-              case: {
-                properties: {
-                  location: { type: 'geo_point' },
-                },
-              },
-            },
-          },
-        },
-        err => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve();
-          }
-        }
-      );
-    });
-  }
+  static configureAws(region: ?string) {
+    if (!region) {
+      throw new Error('Missing AWS region');
+    }
 
-  createCases(requests: ServiceRequest[]): Promise<BulkResponse> {
-    return new Promise((resolve, reject) => {
-      const transaction =
-        this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
-
-      const actions = [];
-
-      requests.forEach((request: ServiceRequest) => {
-        const doc = convertRequestToDocument(request);
-
-        actions.push({
-          update: {
-            _index: this.index,
-            _type: 'case',
-            _id: request.service_request_id,
-          },
-        });
-
-        actions.push({
-          doc,
-          doc_as_upsert: true,
-        });
-      });
-
-      this.client.bulk({ body: actions }, (err: ?Error, res: BulkResponse) => {
-        if (transaction) {
-          transaction.end();
-        }
-
-        if (err || !res) {
-          reject(err || 'unknown error: no response');
-        } else {
-          resolve(res);
-        }
-      });
-    });
+    AWS.config.update({ region });
   }
 
   searchCases(

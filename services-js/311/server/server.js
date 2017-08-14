@@ -15,7 +15,7 @@ import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 import Open311 from './services/Open311';
 import ArcGIS from './services/ArcGIS';
 import Prediction from './services/Prediction';
-import SearchBox from './services/SearchBox';
+import Elasticsearch from './services/Elasticsearch';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -29,7 +29,20 @@ export default async function startServer({ opbeat }: any) {
     dev: process.env.NODE_ENV !== 'production',
   });
 
-  await app.prepare();
+  const nextAppPreparation = app.prepare();
+
+  if (
+    process.env.ELASTICSEARCH_URL &&
+    process.env.ELASTICSEARCH_URL.endsWith('.amazonaws.com')
+  ) {
+    Elasticsearch.configureAws(process.env.AWS_REGION);
+  }
+
+  const elasticsearch = new Elasticsearch(
+    process.env.ELASTICSEARCH_URL,
+    process.env.ELASTICSEARCH_INDEX,
+    opbeat
+  );
 
   if (process.env.USE_SSL) {
     const tls = {
@@ -109,18 +122,11 @@ export default async function startServer({ opbeat }: any) {
             process.env.PROD_311_KEY,
             opbeat
           ),
-          publicOpen311: new Open311(
-            process.env.LEGACY_311_ENDPOINT,
-            null,
-            opbeat
-          ),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
-          searchBox: new SearchBox(
-            process.env.SEARCHBOX_SSL_URL,
-            process.env.ELASTICSEARCH_INDEX,
-            opbeat
-          ),
+          // Elasticsearch maintains a persistent connection, so we re-use it
+          // across requests.
+          elasticsearch,
         }: Context),
       })),
       route: {
@@ -249,6 +255,8 @@ export default async function startServer({ opbeat }: any) {
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
     },
   });
+
+  await nextAppPreparation;
 
   await server.start();
   console.log(`> Ready on http://localhost:${port}`);

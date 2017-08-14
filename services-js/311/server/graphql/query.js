@@ -116,18 +116,18 @@ export const resolvers = {
     case: (
       root: mixed,
       { id }: { id: string },
-      { publicOpen311 }: Context
-    ): Promise<?Request> => publicOpen311.request(id),
+      { open311 }: Context
+    ): Promise<?Request> => open311.request(id),
     searchCases: async (
       root: mixed,
       { query, topLeft, bottomRight }: SearchCasesArgs,
-      { publicOpen311, searchBox }: Context
+      { open311, elasticsearch }: Context
     ): Promise<CaseSearchResults> => {
-      const ids = await searchBox.searchCases(query, topLeft, bottomRight);
+      const ids = await elasticsearch.searchCases(query, topLeft, bottomRight);
 
       // cast to "any" because filter removed the null / undefineds from request
       const cases = ((await Promise.all(
-        ids.map(id => publicOpen311.request(id))
+        ids.map(id => open311.request(id))
       )).filter(r => !!r): any);
 
       return {

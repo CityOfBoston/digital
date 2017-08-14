@@ -23,14 +23,13 @@ import {
 import type Open311 from '../services/Open311';
 import type ArcGIS from '../services/ArcGIS';
 import type Prediction from '../services/Prediction';
-import type SearchBox from '../services/SearchBox';
+import type Elasticsearch from '../services/Elasticsearch';
 
 export type Context = {|
   open311: Open311,
-  publicOpen311: Open311,
   arcgis: ArcGIS,
   prediction: Prediction,
-  searchBox: SearchBox,
+  elasticsearch: Elasticsearch,
 |};
 
 const SchemaDefinition = `
