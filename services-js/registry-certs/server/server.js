@@ -40,7 +40,7 @@ export function makeServer({ opbeat }: ServerArgs) {
       cert: fs.readFileSync('server.crt'),
     };
 
-    server.connection({ port: '3443', tls }, '0.0.0.0');
+    server.connection({ port, tls }, '0.0.0.0');
   } else {
     server.connection({ port }, '0.0.0.0');
   }
