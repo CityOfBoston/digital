@@ -1,0 +1,92 @@
+Description: '- registry-certs service deployment'
+
+# We have few parameters and mostly pull off of ClusterStack and AppStack so
+# that we don't have to pass values through Travis.
+Parameters:
+  ClusterStack:
+    Type: String
+    Description: Name of our main stack. Expected to have Cluster and ServiceRoleArn outputs.
+  AppStack:
+    Type: String
+    Description: Name of our app-specific stack. Expected to have TaskRoleArn, ServiceDesiredCount, ConfigBucketS3Url, LogGroupName outputs.
+  RepositoryName:
+    Type: String
+    Description: Name of our repository, can be passed to Docker along with a tag to identify an image
+  Tag:
+    Type: String
+    Description: Tag of the container image that we should deploy.
+    Default: latest
+  GitBranch:
+    Type: String
+    Description: Branch the code was deployed from
+  GitRevision:
+    Type: String
+    Description: Full Git SHA for the deployed code
+
+Resources:
+  TaskDefinition:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties:
+      Family: !Ref AppStack
+      TaskRoleArn:
+        Fn::ImportValue:
+          !Sub '${AppStack}:TaskRoleArn'
+      ContainerDefinitions:
+        - Name: service
+          Image: !Sub '${RepositoryName}:${Tag}'
+          Essential: true
+          Memory: 500
+          MemoryReservation: 200
+          PortMappings:
+            - ContainerPort:
+                Fn::ImportValue:
+                  !Sub '${AppStack}:ContainerPort'
+          Environment:
+            - Name: GIT_BRANCH
+              Value: !Ref GitBranch
+            - Name: GIT_REVISION
+              Value: !Ref GitRevision
+            - Name: NODE_ENV
+              Value: production
+            - Name: AWS_S3_CONFIG_URL
+              Value:
+                Fn::ImportValue:
+                  !Sub '${AppStack}:ConfigBucketS3Url'
+            - Name: AWS_REGION
+              Value: !Ref 'AWS::Region'
+            - Name: CLOUDFRONT_HOST
+              Value:
+                Fn::ImportValue:
+                  !Sub '${AppStack}:CloudFrontDomainName'
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-region: !Ref 'AWS::Region'
+              awslogs-group:
+                Fn::ImportValue:
+                  !Sub '${AppStack}:LogGroupName'
+              awslogs-stream-prefix: ecs
+
+  Service:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      ServiceName: !Ref AppStack
+      Cluster: 
+        Fn::ImportValue:
+          !Sub '${ClusterStack}:Cluster'
+      DesiredCount:
+        Fn::ImportValue:
+          !Sub '${AppStack}:ServiceDesiredCount'
+      TaskDefinition: !Ref TaskDefinition
+      Role: 
+        Fn::ImportValue:
+          !Sub '${ClusterStack}:ServiceRoleArn'
+      LoadBalancers:
+        # Must match a ContainerDefinition above
+        - ContainerName: service
+          ContainerPort:
+            Fn::ImportValue:
+              !Sub '${AppStack}:ContainerPort'
+          TargetGroupArn:
+            Fn::ImportValue:
+              !Sub '${AppStack}:TargetGroupArn'
