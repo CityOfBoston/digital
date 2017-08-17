@@ -4,7 +4,6 @@ Parameters:
   ClusterStack:
     Type: String
     Description: Our main stack. Expected to have Cluster, ConfigBucket, Namespace, and ServiceRoleArn outputs
-    Default: DigitalAppsCluster
 
   LoadBalancerStack:
     Type: String
