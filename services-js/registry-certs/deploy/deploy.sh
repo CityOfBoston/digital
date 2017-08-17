@@ -2,6 +2,12 @@
 
 set -e
 
+# USAGE: ClusterStack, AppStack, RepositoryName
+
+CLUSTER_STACK=$1
+APP_STACK=$2
+REPOSITORY_NAME=$3
+
 `aws ecr get-login --no-include-email`
 
 # We use the Travis build number to make something that increments, and then a
@@ -15,28 +21,28 @@ docker pull $FROM_IMAGE
 
 # We get the last latest to possibly allow caching of the expensive layers (like
 # npm install)
-docker pull $DEPLOY_REPOSITORY_NAME:latest || echo "No latest image to use as cache. Continuing without."
+docker pull $REPOSITORY_NAME:latest || echo "No latest image to use as cache. Continuing without."
 
 
 docker build \
-  --tag "$DEPLOY_REPOSITORY_NAME:latest" \
-  --tag "$DEPLOY_REPOSITORY_NAME:$TAG" \
-  --cache-from "${DEPLOY_REPOSITORY_NAME}:latest" \
+  --tag "$REPOSITORY_NAME:latest" \
+  --tag "$REPOSITORY_NAME:$TAG" \
+  --cache-from "${REPOSITORY_NAME}:latest" \
   .
 
-docker push $DEPLOY_REPOSITORY_NAME:latest
-docker push $DEPLOY_REPOSITORY_NAME:$TAG
+docker push $REPOSITORY_NAME:latest
+docker push $REPOSITORY_NAME:$TAG
 
 # Add this to prevent execution
 # --no-execute-changeset \
 
 aws cloudformation deploy \
   --template-file deploy/service.yml \
-  --stack-name "${DEPLOY_APP_STACK}-Deploy" \
+  --stack-name "${APP_STACK}-Deploy" \
   --parameter-overrides \
-    ClusterStack=$DEPLOY_CLUSTER_STACK \
-    AppStack=$DEPLOY_APP_STACK \
-    RepositoryName=$DEPLOY_REPOSITORY_NAME \
+    ClusterStack=$CLUSTER_STACK \
+    AppStack=$APP_STACK \
+    RepositoryName=$REPOSITORY_NAME \
     Tag=$TAG \
     GitBranch=$TRAVIS_BRANCH \
     GitRevision=$TRAVIS_COMMIT 
