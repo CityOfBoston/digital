@@ -4,7 +4,6 @@ Parameters:
   ClusterStack:
     Type: String
     Description: Our main stack. Expected to have Cluster, ConfigBucket, Namespace, and ServiceRoleArn outputs
-    Default: DigitalAppsCluster
 
   ShortName:
     Type: String
@@ -13,32 +12,11 @@ Parameters:
   CloudFormationTemplatesBucket:
     Type: String
     Description: Bucket for our CloudFormationTemplates
-    Default: test-cob-cloudformation-templates
-
-  DeployTemplate:
-    Type: String
-    Description: Template in the deploy.zip for our service
-    Default: default-worker-service.yml
 
   ServiceDesiredCount:
     Type: Number
     Description: Update this and redeploy to change the number of instances of the service
     Default: 0
-
-  GitHubRepo:
-    Type: String
-    Description: Repo name for the code. E.g. CityOfBoston/registry-certs
-    Default: CityOfBoston/311-indexer
-
-  GitHubBranch:
-    Type: String
-    Description: Branch name to check for updates and deploy from
-    Default: develop
-
-  GitHubToken:
-    Type: String
-    Description: Access token for a user who has read access to the repos
-    NoEcho: true
 
   ElasticsearchPolicyArn:
     Type: String 
@@ -52,25 +30,9 @@ Resources:
         ClusterStack: !Ref ClusterStack
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
+        ServiceDesiredCount: !Ref ServiceDesiredCount
         TaskPolicyArnsString: !Join [',', [!Ref ElasticsearchPolicyArn]]
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
-
-  DeployPipeline:
-    Type: "AWS::CloudFormation::Stack"
-    # CommonResources needs to populate some exports
-    DependsOn: CommonResources
-    Properties:
-      Parameters:
-        ClusterStack: !Ref ClusterStack
-        AppStack: !Ref AWS::StackName
-        ShortName: !Ref ShortName
-        GitHubRepo: !Ref GitHubRepo
-        GitHubBranch: !Ref GitHubBranch
-        GitHubToken: !Ref GitHubToken
-        DeployTemplatesBucket: !Ref CloudFormationTemplatesBucket
-        DeployTemplate: !Ref DeployTemplate
-        ServiceDesiredCount: !Ref ServiceDesiredCount
-      TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/deploy-pipeline.yml'
 
   Dashboard:
     Type: "AWS::CloudWatch::Dashboard"

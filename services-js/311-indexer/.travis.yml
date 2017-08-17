@@ -19,3 +19,10 @@ script:
 after_success:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
+before_deploy:
+- pip install --upgrade --user awscli
+deploy:
+  provider: script
+  script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME"
+  on:
+    branch: develop
