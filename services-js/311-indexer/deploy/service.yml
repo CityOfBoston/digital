@@ -34,7 +34,7 @@ Resources:
           !Sub '${AppStack}:TaskRoleArn'
       ContainerDefinitions:
         - Name: service
-          Image: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${Repository}:${Tag}'
+          Image: !Sub '${RepositoryName}:${Tag}'
           Essential: true
           Memory: 500
           MemoryReservation: 200
