@@ -1,21 +1,16 @@
 dist: trusty
-
 services:
-  - docker
-  
+- docker
 language: node_js
 node_js:
 - 8.2.1
-
 branches:
   only:
   - master
   - develop
   - "/^greenkeeper\\/.*$/"
-
 before_install:
 - npm i -g greenkeeper-lockfile@1
-
 before_script:
 - greenkeeper-lockfile-update
 - npm run snapshot
@@ -24,11 +19,14 @@ script:
 after_success:
 - npm run report-coverage
 - greenkeeper-lockfile-upload
-
 before_deploy:
 - pip install --upgrade --user awscli
 deploy:
   provider: script
-  script: ./scripts/deploy.sh
+  script: "./scripts/deploy.sh"
   on:
     branch: develop
+notifications:
+  slack:
+    rooms:
+      secure: CSFaghYjnLyMnaQuwPP/R7jTTWklRSHLb8Tcu/EEFWjuZu/BDvFcrD+ir8rmcrZSI2wFAcSoiJ+/HGb2Lxd2ce+ENdcMdc+zZcrsw4x308SGvzxRYXUQ0/4y3wd8ffQlPst0iQSbwZdWdc7iZ5LJxusHXpSSG4WQ+qK9qMNKTZ9WJq1PXiutFRk45neVePA89iQJgBwUfXEEeVH4zXpmMuaDMtSixINeFQ+eXpKC0jK4zPJgxYoQRyvcr8wrXsRy8FsVHP2tQaTvnrJm1qfQv1SiYOtOIdHYjfb4ea/FTQKuXWShyB1hO4caAB8X2eqw8O14DARhPEc48wpKbPFNAnnSMEEyLWqQXAwlUx2aPL3xuZk1Pg+jORdwsTlztEqV5KeTo2kMRPDAoCv4iWQJut/xvjUWD67k/Jd/kf5ueC9F4vAN9lT2mK7jl75baNdF6EIfdrFuCeuZvkXFVD0cf0HNbEhMPt7q8AgXYUkJhE051rBszkbylb1pUq/wNsbId8Wh/PQwCqA1NUt7brZv66Grg7iElMimJAG1o/t0Gvz2PVEmM++jFypkna6af+prX0Lv8wVj9A1vBcWUx8uxD72R3gVswg+xlWOrFd5A+fYt5uikr+zIwXngp79zg2hNxKjx0Ki7v56hMwq7LxgsZ2Cdyf18RzaZsD0vyel05Sc=
