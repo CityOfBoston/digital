@@ -176,7 +176,9 @@ export function makeServer({ opbeat }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/admin/ok',
-    handler: (request, reply) => reply('ok'),
+    handler: () => {
+      throw 'WE ARE NOT OK';
+    },
     config: {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
