@@ -23,7 +23,7 @@ before_deploy:
 - pip install --upgrade --user awscli
 deploy:
   provider: script
-  script: "./scripts/deploy.sh"
+  script: "./deploy/deploy.sh"
   on:
     branch: develop
 notifications:

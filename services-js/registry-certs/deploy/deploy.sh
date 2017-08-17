@@ -28,7 +28,8 @@ docker push $DEPLOY_REPOSITORY_NAME:latest
 docker push $DEPLOY_REPOSITORY_NAME:$TAG
 
 aws cloudformation deploy \
-  --template-file cloudformation/deploy.yml \
+  --template-file deploy/service.yml \
+  # --no-execute-changeset \
   --stack-name "${DEPLOY_APP_STACK}-Deploy" \
   --parameter-overrides \
     ClusterStack=$DEPLOY_CLUSTER_STACK \
