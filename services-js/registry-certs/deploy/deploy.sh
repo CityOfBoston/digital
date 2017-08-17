@@ -27,9 +27,11 @@ docker build \
 docker push $DEPLOY_REPOSITORY_NAME:latest
 docker push $DEPLOY_REPOSITORY_NAME:$TAG
 
+# Add this to prevent execution
+# --no-execute-changeset \
+
 aws cloudformation deploy \
   --template-file deploy/service.yml \
-  # --no-execute-changeset \
   --stack-name "${DEPLOY_APP_STACK}-Deploy" \
   --parameter-overrides \
     ClusterStack=$DEPLOY_CLUSTER_STACK \
