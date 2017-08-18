@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Entrypoint downloads our configuration from S3. Our task role is
 # authorized to download from this bucket.
