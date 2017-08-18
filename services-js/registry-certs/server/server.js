@@ -35,7 +35,8 @@ const port = parseInt(process.env.PORT || '3000', 10);
 
 // Decrypts any vars that start with "KMS_ENCRYPTED_"
 function decryptConfig(): Promise<void> {
-  if (!process.env.AWS_ACCESS_KEY_ID) {
+  if (!process.env.AWS_REGION) {
+    console.log('AWS region not set, not decrypting environment variables');
     return Promise.resolve();
   }
 
@@ -267,6 +268,7 @@ export function makeServer({ opbeat }: ServerArgs) {
 
 export default async function startServer(args: ServerArgs) {
   await decryptConfig();
+
   console.log('DECRYPTED TEST PASSWORD', process.env.TEST_PASSWORD);
 
   const { server, startup } = makeServer(args);
