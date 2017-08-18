@@ -3,7 +3,7 @@ services:
 - docker
 language: node_js
 node_js:
-- 8.2.1
+- 8.4
 branches:
   only:
   - master
