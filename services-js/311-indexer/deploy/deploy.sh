@@ -23,7 +23,6 @@ docker pull $FROM_IMAGE
 # npm install)
 docker pull $REPOSITORY_NAME:latest || echo "No latest image to use as cache. Continuing without."
 
-
 docker build \
   --tag "$REPOSITORY_NAME:latest" \
   --tag "$REPOSITORY_NAME:$TAG" \
@@ -33,11 +32,13 @@ docker build \
 docker push $REPOSITORY_NAME:latest
 docker push $REPOSITORY_NAME:$TAG
 
+aws s3 cp $DEPLOY_TEMPLATE_S3_URI deploy.yml
+
 # Add this to prevent execution
 # --no-execute-changeset \
 
 aws cloudformation deploy \
-  --template-file deploy/service.yml \
+  --template-file deploy.yml \
   --stack-name "${APP_STACK}-Deploy" \
   --parameter-overrides \
     ClusterStack=$CLUSTER_STACK \

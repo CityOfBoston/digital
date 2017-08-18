@@ -32,6 +32,7 @@ Resources:
         ShortName: !Ref ShortName
         ServiceDesiredCount: !Ref ServiceDesiredCount
         TaskPolicyArnsString: !Join [',', [!Ref ElasticsearchPolicyArn]]
+        CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   Dashboard:
