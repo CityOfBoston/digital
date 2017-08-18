@@ -104,6 +104,14 @@ Resources:
                   "width": 12,
                   "height": 3,
                   "properties": ${MemoryDashboardMetricJson}
+                },
+                {
+                  "type": "metric",
+                  "x": 0,
+                  "y": 9,
+                  "width": 24,
+                  "height": 4,
+                  "properties": ${ResponseCodeDashboardMetricJson}
                 }
               ]
             }
@@ -125,5 +133,6 @@ Resources:
             InstancesDashboardMetricJson: !GetAtt CommonResources.Outputs.InstancesDashboardMetricJson
             CpuDashboardMetricJson: !GetAtt CommonResources.Outputs.CpuDashboardMetricJson
             MemoryDashboardMetricJson: !GetAtt CommonResources.Outputs.MemoryDashboardMetricJson
+            ResponseCodeDashboardMetricJson: !GetAtt WebappResources.Outputs.ResponseCodeDashboardMetricJson
 
   ###### CUSTOM RESOURCES TO THIS APP ######
