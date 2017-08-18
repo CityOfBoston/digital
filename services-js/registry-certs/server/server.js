@@ -269,8 +269,6 @@ export function makeServer({ opbeat }: ServerArgs) {
 export default async function startServer(args: ServerArgs) {
   await decryptConfig();
 
-  console.log('DECRYPTED TEST PASSWORD', process.env.TEST_PASSWORD);
-
   const { server, startup } = makeServer(args);
 
   const shutdown = await startup();
