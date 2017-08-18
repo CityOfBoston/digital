@@ -1,5 +1,7 @@
 // @flow
 /* eslint no-console: 0 */
+import AWS from 'aws-sdk';
+
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
@@ -30,6 +32,43 @@ type ServerArgs = {
 };
 
 const port = parseInt(process.env.PORT || '3000', 10);
+
+// Decrypts any vars that start with "KMS_ENCRYPTED_"
+function decryptConfig(): Promise<void> {
+  if (!process.env.AWS_ACCESS_KEY_ID) {
+    return Promise.resolve();
+  }
+
+  AWS.config.update({ region: process.env.AWS_REGION });
+  const kms = new AWS.KMS();
+
+  return Promise.all(
+    Object.keys((process.env: any)).map(envKey => {
+      const match = envKey.match(/KMS_ENCRYPTED_(.*)/);
+
+      if (!match) {
+        return Promise.resolve();
+      }
+
+      const decryptedEnvKey = match[1];
+
+      const decryptParams = {
+        CiphertextBlob: Buffer.from(process.env[envKey] || '', 'base64'),
+      };
+
+      return new Promise((resolve, reject) => {
+        kms.decrypt(decryptParams, (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            process.env[decryptedEnvKey] = data.Plaintext.toString();
+            resolve();
+          }
+        });
+      });
+    })
+  ).then(() => {});
+}
 
 export function makeServer({ opbeat }: ServerArgs) {
   const server = new Hapi.Server();
@@ -227,6 +266,9 @@ export function makeServer({ opbeat }: ServerArgs) {
 }
 
 export default async function startServer(args: ServerArgs) {
+  await decryptConfig();
+  console.log('DECRYPTED TEST PASSWORD', process.env.TEST_PASSWORD);
+
   const { server, startup } = makeServer(args);
 
   const shutdown = await startup();
