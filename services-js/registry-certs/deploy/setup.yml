@@ -44,6 +44,7 @@ Resources:
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
         ServiceDesiredCount: !Ref ServiceDesiredCount
+        CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   WebappResources:
