@@ -75,6 +75,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   const server = new Hapi.Server();
 
   if (process.env.USE_SSL) {
+    console.log('USING SSL');
     const tls = {
       key: fs.readFileSync('server.key'),
       cert: fs.readFileSync('server.crt'),
@@ -219,7 +220,7 @@ export function makeServer({ opbeat }: ServerArgs) {
     handler: (request, reply) => reply('ok'),
     config: {
       // mark this as a health check so that it doesn’t get logged
-      tags: ['health'],
+      // tags: ['health'],
     },
   });
 
