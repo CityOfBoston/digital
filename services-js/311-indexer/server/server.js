@@ -58,7 +58,6 @@ function decryptConfig(): Promise<void> {
             reject(err);
           } else {
             process.env[decryptedEnvKey] = data.Plaintext.toString();
-            console.log(decryptedEnvKey, data.Plaintext.toString());
             resolve();
           }
         });
