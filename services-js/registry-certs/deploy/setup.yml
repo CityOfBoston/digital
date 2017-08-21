@@ -35,6 +35,11 @@ Parameters:
     Description: Port that the service container listens to traffic on. Must match Dockerfile's expose and .env's $PORT
     Default: 3000
 
+  Environment:
+    Type: String
+    Description: Either 'production' or 'staging'
+    Default: staging
+
 Resources:
   CommonResources:
     Type: "AWS::CloudFormation::Stack"
@@ -43,6 +48,7 @@ Resources:
         ClusterStack: !Ref ClusterStack
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
+        Environment: !Ref Environment
         ServiceDesiredCount: !Ref ServiceDesiredCount
         CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
@@ -55,6 +61,7 @@ Resources:
         LoadBalancerStack: !Ref LoadBalancerStack
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
+        Environment: !Ref Environment
         PublicDnsName: !Ref PublicDnsName
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
