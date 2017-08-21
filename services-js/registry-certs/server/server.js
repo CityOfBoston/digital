@@ -33,7 +33,7 @@ type ServerArgs = {
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-// Decrypts any vars that start with "KMS_ENCRYPTED_"
+// Decrypts any vars that end with "_KMS_ENCRYPTED"
 function decryptConfig(): Promise<void> {
   if (!process.env.AWS_REGION) {
     console.log('AWS region not set, not decrypting environment variables');
@@ -45,7 +45,7 @@ function decryptConfig(): Promise<void> {
 
   return Promise.all(
     Object.keys((process.env: any)).map(envKey => {
-      const match = envKey.match(/KMS_ENCRYPTED_(.*)/);
+      const match = envKey.match(/(.*)_KMS_ENCRYPTED$/);
 
       if (!match) {
         return Promise.resolve();
