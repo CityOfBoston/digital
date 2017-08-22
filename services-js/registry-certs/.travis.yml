@@ -23,7 +23,7 @@ before_deploy:
 - pip install --upgrade --user awscli
 deploy:
   provider: script
-  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME"
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME  $STAGING_DESIRED_COUNT"
   on:
     branch: develop
 notifications:

@@ -1,12 +1,13 @@
 #!/bin/bash
 
-set -e
-
-# USAGE: ClusterStack, AppStack, RepositoryName
+# USAGE: ClusterStack, AppStack, RepositoryName, DesiredCount
 
 CLUSTER_STACK=$1
 APP_STACK=$2
 REPOSITORY_NAME=$3
+DESIRED_COUNT=$4
+
+set -e
 
 `aws ecr get-login --no-include-email`
 
@@ -44,6 +45,7 @@ aws cloudformation deploy \
     ClusterStack=$CLUSTER_STACK \
     AppStack=$APP_STACK \
     RepositoryName=$REPOSITORY_NAME \
+    DesiredCount=$DESIRED_COUNT \
     Tag=$TAG \
     GitBranch=$TRAVIS_BRANCH \
     GitRevision=$TRAVIS_COMMIT 
