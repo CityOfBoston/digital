@@ -29,5 +29,5 @@ Copy `.env.default` to `.env` and modify any necessary values.
 
  1. Install [Docker](https://www.docker.io/)
  1. Run `npm run-script elasticsearch-start`
- 1. Run `npm run-script elasticsearch-init`
+ 1. Run `npx babel-node server/scripts/elasticsearch-init.js`
 

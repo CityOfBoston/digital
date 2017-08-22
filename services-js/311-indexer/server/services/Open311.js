@@ -81,8 +81,39 @@ export default class Open311 {
     return url.resolve(this.endpoint, path);
   }
 
+  async searchCases(startDate?: Date, endDate?: Date): Promise<Array<Case>> {
+    const transaction = this.opbeat.startTransaction('searchCases', 'Open311');
+
+    const params = new URLSearchParams();
+
+    if (startDate && endDate) {
+      params.append('start_date', startDate.toISOString());
+      params.append('end_date', endDate.toISOString());
+    }
+
+    if (this.apiKey) {
+      params.append('api_key', this.apiKey);
+    }
+
+    const response = await fetch(
+      this.url(`requests.json?${params.toString()}`),
+      {
+        agent: this.agent,
+      }
+    );
+
+    // the endpoint returns the request in an array
+    const caseArr: Case[] = await processResponse(response);
+
+    if (transaction) {
+      transaction.end();
+    }
+
+    return caseArr;
+  }
+
   async loadCases(ids: Array<string>): Promise<Array<?Case>> {
-    const transaction = this.opbeat.startTransaction('request', 'Open311');
+    const transaction = this.opbeat.startTransaction('loadCases', 'Open311');
 
     const params = new URLSearchParams();
     params.append('service_request_id', ids.join(','));

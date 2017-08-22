@@ -149,6 +149,11 @@ declare class rxjs$Observable<+T> {
     f: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>
   ): rxjs$Observable<U>;
 
+  concatMap<U, V>(
+    f: (value: T) => rxjs$Observable<V> | Promise<V> | Iterable<V>,
+    s: (outerValue: T, innerValue: V, outerIndex: number, innerIndex: number) => U
+  ): rxjs$Observable<U>;
+
   debounceTime(dueTime: number, scheduler?: rxjs$SchedulerClass): rxjs$Observable<T>;
 
   delay(dueTime: number, scheduler?: rxjs$SchedulerClass): rxjs$Observable<T>;

@@ -46,6 +46,8 @@ export default function({
         }));
       })
       .let(awaitPromise)
+      // We can use retryWithFallback because the queue below is creating a new
+      // observable based on queued values, so the retrying bubbles up to there.
       .let(
         retryWithFallback(5, 2000, {
           error: err => {

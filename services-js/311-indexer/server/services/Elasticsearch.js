@@ -21,7 +21,9 @@ export type IndexedCase = {
   // We store the Salesforce replay_id in the record so we can pull the latest
   // replay_id when we start up, to avoid always processing everything from the
   // past 24 hours.
-  replay_id: number,
+  //
+  // This will be null for bulk-imported cases.
+  replay_id: ?number,
 };
 
 export type BulkResponse = {
@@ -53,7 +55,7 @@ export type SearchResponse = {
   },
 };
 
-function convertCaseToDocument(c: Case, replayId: number): IndexedCase {
+function convertCaseToDocument(c: Case, replayId: ?number): IndexedCase {
   return {
     status: c.status,
     location: c.lat && c.long ? { lat: c.lat, lon: c.long } : null,
@@ -137,7 +139,7 @@ export default class Elasticsearch {
   }
 
   createCases(
-    cases: Array<{ case: Case, replayId: number }>
+    cases: Array<{ case: Case, replayId: ?number }>
   ): Promise<BulkResponse> {
     return new Promise((resolve, reject) => {
       const transaction =
