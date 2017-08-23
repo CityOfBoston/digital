@@ -14,6 +14,7 @@ import inPercy from '@percy-io/in-percy';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
+import RequestSearch from '../../../data/store/RequestSearch';
 
 import { MEDIA_LARGE, CLEAR_FIX } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
@@ -138,8 +139,14 @@ export default class HomePane extends React.Component {
   @action.bound
   handleSearchSubmit(ev: SyntheticInputEvent) {
     ev.preventDefault();
-    const encodedSearch = encodeURIComponent(this.searchValue);
-    Router.push(`/search?q=${encodedSearch}`);
+
+    if (RequestSearch.isCaseId(this.searchValue)) {
+      const id = this.searchValue.trim();
+      Router.push(`/reports?id=${id}`, `/reports/${id}`);
+    } else {
+      const encodedSearch = encodeURIComponent(this.searchValue);
+      Router.push(`/search?q=${encodedSearch}`);
+    }
   }
 
   @action.bound

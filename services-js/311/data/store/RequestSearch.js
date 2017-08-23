@@ -59,6 +59,10 @@ export default class RequestSearch {
   searchDisposer: ?Function = null;
   boundsSetDisposer: ?Function = null;
 
+  static isCaseId(str: ?string): boolean {
+    return !!str && !!str.trim().match(/(1010\d{8})|(\d\d-\d{8})$/);
+  }
+
   updateCaseSearchResults({ cases, query }: SearchCasesResult) {
     // In this method we want to bring in the new cases, but preserve any
     // existing ones that match the location / query. Without this, moving
@@ -182,6 +186,12 @@ export default class RequestSearch {
     { topLeft, bottomRight, query }: SearchArgs
   ) {
     if (!topLeft || !bottomRight) {
+      return;
+    }
+
+    if (RequestSearch.isCaseId(query)) {
+      // The search UI will automatically route to case IDs, so we don't want to
+      // do a search and show "no results" while that's loading.
       return;
     }
 

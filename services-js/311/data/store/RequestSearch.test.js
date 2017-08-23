@@ -63,3 +63,21 @@ describe('results', () => {
     expect(requestSearch.results).toEqual([]);
   });
 });
+
+describe('isCaseId', () => {
+  it('is true for a Lagan case', () => {
+    expect(RequestSearch.isCaseId('101002184571')).toEqual(true);
+  });
+
+  it('is true for a new case', () => {
+    expect(RequestSearch.isCaseId('17-00001162')).toEqual(true);
+  });
+
+  it('is false for another number', () => {
+    expect(RequestSearch.isCaseId('1989')).toEqual(false);
+  });
+
+  it('is false in general', () => {
+    expect(RequestSearch.isCaseId('sidewalk')).toEqual(false);
+  });
+});

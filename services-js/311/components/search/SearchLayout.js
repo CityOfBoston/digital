@@ -12,6 +12,7 @@ import Head from 'next/head';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 import type { AppStore } from '../../data/store';
+import RequestSearch from '../../data/store/RequestSearch';
 
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
@@ -202,26 +203,32 @@ export default class SearchLayout extends React.Component {
 
     this.locationUpdateDisposer = reaction(
       () => ({
+        query: store.requestSearch.query,
         resultsQuery: store.requestSearch.resultsQuery,
         location: store.requestSearch.mapCenter,
         zoom: store.requestSearch.mapZoom,
       }),
-      ({ resultsQuery, location, zoom }) => {
+      ({ query, resultsQuery, location, zoom }) => {
         const params = new URLSearchParams();
 
-        if (resultsQuery) {
-          params.append('q', resultsQuery);
+        if (RequestSearch.isCaseId(query)) {
+          const id = query.trim();
+          Router.push(`/reports?id=${id}`, `/reports/${id}`);
+        } else {
+          if (resultsQuery) {
+            params.append('q', resultsQuery);
+          }
+
+          if (location) {
+            params.append('lat', location.lat);
+            params.append('lng', location.lng);
+          }
+
+          params.append('zoom', zoom);
+
+          const href = `/search?${params.toString()}`;
+          Router.push(href, href, { shallow: true });
         }
-
-        if (location) {
-          params.append('lat', location.lat);
-          params.append('lng', location.lng);
-        }
-
-        params.append('zoom', zoom);
-
-        const href = `/search?${params.toString()}`;
-        Router.push(href, href, { shallow: true });
       },
       {
         name: 'location query updater',
