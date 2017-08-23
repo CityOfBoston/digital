@@ -5003,7 +5003,7 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000001"
-      href="/case/17-000000001"
+      href="/reports/17-000000001"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -5088,7 +5088,7 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000002"
-      href="/case/17-000000002"
+      href="/reports/17-000000002"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -5223,7 +5223,7 @@ exports[`Storyshots RecentRequests with selection 1`] = `
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000001"
-      href="/case/17-000000001"
+      href="/reports/17-000000001"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -5308,7 +5308,7 @@ exports[`Storyshots RecentRequests with selection 1`] = `
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000002"
-      href="/case/17-000000002"
+      href="/reports/17-000000002"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -7181,7 +7181,7 @@ exports[`Storyshots RequestPopup image 1`] = `
 >
   <a
     className="p-a200 css-1rk9bct"
-    href="/case/17-0000001"
+    href="/reports/17-0000001"
     onClick={[Function]}
   >
     <div
@@ -7232,7 +7232,7 @@ exports[`Storyshots RequestPopup no image 1`] = `
 >
   <a
     className="p-a200 css-1rk9bct"
-    href="/case/17-0000001"
+    href="/reports/17-0000001"
     onClick={[Function]}
   >
     <div

@@ -125,8 +125,12 @@ export default class RequestDialog extends React.Component {
         this.requestSubmission &&
         this.requestSubmission.state === 'fulfilled'
       ) {
-        const href = `/case/${this.requestSubmission.value.id}`;
-        Router.replace('/request', href, { shallow: true });
+        const { id } = this.requestSubmission.value;
+        // We keep the first URL the same to avoid a page load, but change the
+        // "as" to match the URL for the case permalink.
+        Router.replace('/request', `/reports/${id}`, {
+          shallow: true,
+        });
       }
     });
   }

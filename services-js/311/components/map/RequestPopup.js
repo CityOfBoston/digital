@@ -74,7 +74,7 @@ export default function RequestPopup({ caseInfo }: Props) {
   }
 
   return (
-    <Link href={`/case?id=${caseInfo.id}`} as={`/case/${caseInfo.id}`}>
+    <Link href={`/reports?id=${caseInfo.id}`} as={`/reports/${caseInfo.id}`}>
       <a className={`p-a200 ${CONTAINER_STYLE.toString()}`}>
         {caseInfo.mediaUrl &&
           <div

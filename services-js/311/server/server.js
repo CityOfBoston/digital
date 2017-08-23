@@ -192,8 +192,9 @@ export default async function startServer({ opbeat }: any) {
 
   server.route({
     method: 'GET',
-    path: '/case/{id}',
-    handler: nextHandler(app, '/case'),
+    // This domain is chosen to match the existing 311.boston.gov URLs
+    path: '/reports/{id}',
+    handler: nextHandler(app, '/reports'),
   });
 
   server.route({

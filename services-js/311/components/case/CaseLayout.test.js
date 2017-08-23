@@ -48,7 +48,7 @@ describe('case', () => {
     store.apiKeys = MOCK_API_KEYS;
 
     loadRequest.mockReturnValue(Promise.resolve(MOCK_REQUEST));
-    const ctx = makeServerContext('/case', { id: 'case-id' });
+    const ctx = makeServerContext('/reports', { id: 'case-id' });
     data = (await CaseLayout.getInitialProps(ctx)).data;
   });
 
@@ -62,7 +62,7 @@ describe('case not found', () => {
 
   beforeEach(async () => {
     loadRequest.mockReturnValue(Promise.resolve(null));
-    ctx = makeServerContext('/case', { id: 'not-a-real-id' });
+    ctx = makeServerContext('/reports', { id: 'not-a-real-id' });
     await CaseLayout.getInitialProps(ctx);
   });
 

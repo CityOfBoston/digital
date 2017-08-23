@@ -161,7 +161,7 @@ export default class RecentRequestRow extends React.Component {
     }
 
     return (
-      <Link href={`/case?id=${request.id}`} as={`/case/${request.id}`}>
+      <Link href={`/reports?id=${request.id}`} as={`/reports/${request.id}`}>
         <a
           ref={this.setEl}
           data-request-id={request.id}
