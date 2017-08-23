@@ -33,7 +33,7 @@ export default class Salesforce extends EventEmitter {
   consumerKey: string;
   consumerSecret: string;
 
-  lastReplayId: number;
+  lastReplayId: ?number;
 
   cometd: cometd.CometD;
 
@@ -67,8 +67,7 @@ export default class Salesforce extends EventEmitter {
     this.pushTopic = pushTopic;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
-    // Get all new events sent after subscription and all past events within the last 24 hours
-    this.lastReplayId = -2;
+    this.lastReplayId = null;
 
     this.cometd = new cometd.CometD();
   }
@@ -102,7 +101,8 @@ export default class Salesforce extends EventEmitter {
     oauthUrl: ?string,
     username: ?string,
     password: ?string,
-    securityToken: ?string
+    securityToken: ?string,
+    lastReplayId: ?number
   ): Promise<void> {
     if (!oauthUrl) {
       throw new Error('Missing Salesforce OAuth endpoint URL');
@@ -118,6 +118,8 @@ export default class Salesforce extends EventEmitter {
       password,
       securityToken
     );
+
+    this.lastReplayId = lastReplayId;
 
     this.cometd.configure({
       url: this.url,
@@ -160,7 +162,9 @@ export default class Salesforce extends EventEmitter {
         channel,
         this.handleEvent,
         {
-          ext: { replay: { [channel]: this.lastReplayId } },
+          // If not specified, get all new events sent after subscription and
+          // all past events within the last 24 hours
+          ext: { replay: { [channel]: this.lastReplayId || -2 } },
         },
         (msg: MetaMessage) => {
           if (msg.successful) {

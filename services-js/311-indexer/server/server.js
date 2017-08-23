@@ -90,7 +90,17 @@ export default async function startServer({ opbeat }: ServerArgs) {
     const info = await elasticsearch.info();
     console.log('Elasticsearch connected', info);
   } catch (err) {
-    console.error('ERROR GETTING ELASTICSEARCH INFO', err);
+    console.error('ERROR GETTING ELASTICSEARCH INFO');
+    opbeat.captureError(err);
+  }
+
+  let lastReplayId = null;
+  try {
+    lastReplayId = await elasticsearch.findLatestReplayId();
+    console.log(`STARTING FROM REPLAY_ID: ${lastReplayId || 'null'}`);
+  } catch (err) {
+    console.log('ERROR GETTING LATEST REPLAY_ID');
+    opbeat.captureError(err);
   }
 
   const open311 = new Open311(
@@ -125,9 +135,13 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .map((msgs: Array<DataMessage<CaseUpdate>>): LoadCasesInput => {
       const replayIdsByCaseId = {};
 
+      // We store a replayId with the case so we can find the latest when we
+      // start up. We max over all the replay IDs for a given case id in the
+      // update so that we store the latest, even if the case was updated
+      // several times.
       msgs.forEach(msg => {
         replayIdsByCaseId[msg.data.sobject.CaseNumber] = Math.max(
-          replayIdsByCaseId[msg.data.sobject.CaseNumber],
+          replayIdsByCaseId[msg.data.sobject.CaseNumber] || 0,
           msg.data.event.replayId
         );
       });
@@ -156,6 +170,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     process.env.SALESFORCE_OAUTH_URL,
     process.env.SALESFORCE_API_USERNAME,
     process.env.SALESFORCE_API_PASSWORD,
-    process.env.SALESFORCE_API_SECURITY_TOKEN
+    process.env.SALESFORCE_API_SECURITY_TOKEN,
+    lastReplayId
   );
 }

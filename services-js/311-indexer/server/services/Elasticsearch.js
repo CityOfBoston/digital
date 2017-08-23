@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import type { Case } from './Open311';
 
-export type IndexedCase = {
+type IndexedCase = {
   status: string,
   location: ?{
     lat: number,
@@ -27,7 +27,7 @@ export type IndexedCase = {
   replay_id: ?number,
 };
 
-export type BulkResponse = {
+type BulkResponse = {
   took: number,
   items: Array<{
     [action: string]: {
@@ -42,15 +42,7 @@ export type BulkResponse = {
   errors: boolean,
 };
 
-export type SearchHit = {
-  _index: string,
-  _type: string,
-  _id: string,
-  _score: number,
-  _source: IndexedCase,
-};
-
-export type SearchResponse = {
+type SearchResponse<H, A> = {
   _shards: {
     total: number,
     successful: number,
@@ -59,9 +51,16 @@ export type SearchResponse = {
   hits: {
     total: number,
     max_score: number,
-    hits: Array<SearchHit>,
-    took: 5,
+    hits: Array<H>,
+    took: number,
     timed_out: boolean,
+  },
+  aggregations?: A,
+};
+
+type MaxReplayAggregations = {
+  max_replay_id: {
+    value: ?number,
   },
 };
 
@@ -148,55 +147,80 @@ export default class Elasticsearch {
     });
   }
 
-  createCases(
+  async findLatestReplayId(): Promise<?number> {
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('search-replay-id', 'Elasticsearch');
+
+    try {
+      const res: SearchResponse<
+        *,
+        MaxReplayAggregations
+      > = await this.client.search({
+        index: this.index,
+        type: 'case',
+        body: {
+          size: 0,
+          aggregations: {
+            max_replay_id: { max: { field: 'replay_id' } },
+          },
+        },
+      });
+
+      return res.aggregations && res.aggregations.max_replay_id.value;
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
+  }
+
+  async createCases(
     cases: Array<{ case: Case, replayId: ?number }>
   ): Promise<BulkResponse> {
-    return new Promise((resolve, reject) => {
-      const transaction =
-        this.opbeat && this.opbeat.startTransaction('bulk', 'SearchBox');
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('bulk', 'Elasticsearch');
 
-      const actions = [];
+    const actions = [];
 
-      cases.forEach(({ case: c, replayId }) => {
-        const doc = convertCaseToDocument(c, replayId);
+    cases.forEach(({ case: c, replayId }) => {
+      const doc = convertCaseToDocument(c, replayId);
 
-        actions.push({
-          update: {
-            _index: this.index,
-            _type: 'case',
-            _id: c.service_request_id,
-          },
-        });
-
-        actions.push({
-          doc,
-          doc_as_upsert: true,
-        });
+      actions.push({
+        update: {
+          _index: this.index,
+          _type: 'case',
+          _id: c.service_request_id,
+        },
       });
 
-      this.client.bulk({ body: actions }, (err: ?Error, res: BulkResponse) => {
-        if (transaction) {
-          transaction.end();
-        }
-
-        if (err || !res) {
-          reject(err || 'unknown error: no response');
-        } else if (res.errors) {
-          reject(
-            new Error(
-              'Errors indexing cases: \n' +
-                _(res.items)
-                  // action is 'update' from above
-                  .map(item => (item.update ? item.update.error : null))
-                  .compact()
-                  .uniq()
-                  .join('\n')
-            )
-          );
-        } else {
-          resolve(res);
-        }
+      actions.push({
+        doc,
+        doc_as_upsert: true,
       });
     });
+
+    try {
+      const res: BulkResponse = await this.client.bulk({ body: actions });
+      if (!res) {
+        throw new Error('unknown error: no response');
+      } else if (res.errors) {
+        throw new Error(
+          'Errors indexing cases: \n' +
+            _(res.items)
+              // action is 'update' from above
+              .map(item => (item.update ? item.update.error : null))
+              .compact()
+              .uniq()
+              .join('\n')
+        );
+      } else {
+        return res;
+      }
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
   }
 }
