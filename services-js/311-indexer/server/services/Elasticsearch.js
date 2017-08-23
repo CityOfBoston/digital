@@ -3,6 +3,7 @@
 import AWS from 'aws-sdk';
 import elasticsearch from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
+import _ from 'lodash';
 
 import type { Case } from './Open311';
 
@@ -28,7 +29,16 @@ export type IndexedCase = {
 
 export type BulkResponse = {
   took: number,
-  items: Array<Object>,
+  items: Array<{
+    [action: string]: {
+      _index: string,
+      _type: string,
+      _id: string,
+      _version?: number,
+      status: number,
+      error?: string,
+    },
+  }>,
   errors: boolean,
 };
 
@@ -171,6 +181,18 @@ export default class Elasticsearch {
 
         if (err || !res) {
           reject(err || 'unknown error: no response');
+        } else if (res.errors) {
+          reject(
+            new Error(
+              'Errors indexing cases: \n' +
+                _(res.items)
+                  // action is 'update' from above
+                  .map(item => (item.update ? item.update.error : null))
+                  .compact()
+                  .uniq()
+                  .join('\n')
+            )
+          );
         } else {
           resolve(res);
         }

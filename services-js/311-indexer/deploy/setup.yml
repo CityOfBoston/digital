@@ -127,6 +127,13 @@ Resources:
                           "stat": "Average",
                           "label": "load cases"
                         }
+                      ],
+                      [ 
+                        "${AWS::StackName}", "IndexCasesQueueLength",
+                        {
+                          "stat": "Average",
+                          "label": "index cases"
+                        }
                       ]
                     ],
                     "region": "${AWS::Region}",
