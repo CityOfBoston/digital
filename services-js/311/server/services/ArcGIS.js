@@ -78,9 +78,17 @@ export type LiveSamFeature = {
   },
 };
 
-type LiveSamResponse = {
-  features?: LiveSamFeature[],
-};
+type LiveSamResponse =
+  | {|
+      features: LiveSamFeature[],
+    |}
+  | {|
+      error: {|
+        code: number,
+        message: string,
+        details: Array<string>,
+      |},
+    |};
 
 export type SearchResult = {
   location: {
@@ -326,11 +334,11 @@ export default class ArcGIS {
       transaction.end();
     }
 
-    if (!liveSamResponse.features) {
-      // eslint-disable-next-line no-console
-      console.log(
-        `LIVE SAM RESPONSE FOR ${buildingId} HAS NO FEATURES `,
-        liveSamResponse
+    if (liveSamResponse.error) {
+      throw new Error(
+        liveSamResponse.error.message +
+          '\n' +
+          liveSamResponse.error.details.join('\n')
       );
     }
 
