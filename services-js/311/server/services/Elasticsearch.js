@@ -3,6 +3,7 @@
 import AWS from 'aws-sdk';
 import elasticsearch from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
+import HttpsProxyAgent from 'https-proxy-agent';
 
 // This needs to be kept up-to-date with the 311-indexer
 type IndexedCase = {
@@ -71,7 +72,17 @@ export default class Elasticsearch {
       throw new Error('Missing AWS region');
     }
 
-    AWS.config.update({ region });
+    const httpProxyUrl = process.env.http_proxy;
+    // Unfortunately, these options are not currently respected by http-aws-es
+    // https://github.com/TheDeveloper/http-aws-es/pull/8
+    const httpOptions = {
+      agent: httpProxyUrl ? new HttpsProxyAgent(httpProxyUrl) : undefined,
+    };
+
+    AWS.config.update({
+      region,
+      httpOptions,
+    });
   }
 
   // Returns an array of IDs for matching cases
