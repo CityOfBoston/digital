@@ -65,9 +65,12 @@ export const resolvers = {
         createArgs.address_string = args.address;
       }
 
-      if (args.addressId) {
-        createArgs.address_id = args.addressId;
-      }
+      // TODO(finh): Re-enable when
+      // https://github.com/CityOfBoston/311/issues/599 is fixed
+      //
+      // if (args.addressId) {
+      //   createArgs.address_id = args.addressId;
+      // }
 
       if (args.location) {
         createArgs.lat = args.location.lat;
