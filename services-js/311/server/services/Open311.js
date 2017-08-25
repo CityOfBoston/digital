@@ -73,6 +73,7 @@ export type ServiceMetadata = {|
   |},
 |};
 
+// Returned by the bulk endpoint and posting the submission.
 export type ServiceRequest = {|
   service_request_id: string,
   status: string,
@@ -92,6 +93,72 @@ export type ServiceRequest = {|
   lat: ?number,
   long: ?number,
   media_url: ?string,
+|};
+
+// Returned by the single-request endpoint and posting the submission.
+export type DetailedServiceRequest = {|
+  service_request_id: string,
+  status: string,
+  long: ?number,
+  lat: ?number,
+  media_url: ?Array<{|
+    url: string,
+    tags: string[],
+  |}>,
+  service_name: ?string,
+  service_code: string,
+  description: ?string,
+  // 2017-08-16T14:24:02.000Z
+  requested_datetime: string,
+  expected_datetime: string,
+  updated_datetime: ?string,
+  address: ?string,
+  zipcode: ?string,
+  address_id: ?string,
+  agency_responsible: ?string,
+  service_notice: ?string,
+  status_notes: ?string,
+  contact: {
+    first_name: ?string,
+    last_name: ?string,
+    phone: ?string,
+    email: ?string,
+  },
+  activities: Array<Object>,
+  // [
+  //   {
+  //     code: 'NEEDRMVL-PICKUP',
+  //     order: null,
+  //     description: null,
+  //     status: 'Not Started',
+  //     completion_date: null,
+  //   },
+  // ],
+  attributes: Array<Object>,
+  // [
+  //   {
+  //     code: 'SR-NEDRMV1',
+  //     description: 'How many needles are at the location?',
+  //     order: 1,
+  //     values: [
+  //       {
+  //         answer: 'One',
+  //         answer_value: 'One',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     code: 'ST-PROPLOC',
+  //     description: 'Property location type',
+  //     order: 2,
+  //     values: [
+  //       {
+  //         answer: 'Public',
+  //         answer_value: 'Public',
+  //       },
+  //     ],
+  //   },
+  // ],
 |};
 
 export type CreateServiceRequestArgs = {|
@@ -146,7 +213,7 @@ export default class Open311 {
   apiKey: ?string;
   serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
-  requestLoader: DataLoader<string, ?ServiceRequest>;
+  requestLoader: DataLoader<string, ?ServiceRequest | ?DetailedServiceRequest>;
 
   constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
     if (!endpoint) {
@@ -215,35 +282,63 @@ export default class Open311 {
     });
 
     this.requestLoader = new DataLoader(async (ids: string[]) => {
-      const transaction =
-        opbeat && opbeat.startTransaction('request', 'Open311');
+      let transaction;
+
       const params = new URLSearchParams();
       if (this.apiKey) {
         params.append('api_key', this.apiKey);
       }
-      params.append('service_request_id', ids.join(','));
 
-      const response = await fetch(
-        this.url(`requests.json?${params.toString()}`),
-        {
-          agent: this.agent,
+      try {
+        if (ids.length === 1) {
+          // The <case_id>.json endpoint is currently significantly faster than
+          // the bulk endpoint, even for a single case, so we optimize by using
+          // it when there's only one thing to look up.
+          transaction = opbeat && opbeat.startTransaction('request', 'Open311');
+          const response = await fetch(
+            this.url(`request/${ids[0]}.json?${params.toString()}`),
+            {
+              agent: this.agent,
+            }
+          );
+
+          // For whatever reason, looking up a single request ID still returns
+          // an array.
+          const requestArr: Array<?DetailedServiceRequest> = await processResponse(
+            response
+          );
+
+          return [requestArr[0]];
+        } else {
+          transaction =
+            opbeat && opbeat.startTransaction('bulk-request', 'Open311');
+
+          params.append('service_request_id', ids.join(','));
+
+          const response = await fetch(
+            this.url(`requests.json?${params.toString()}`),
+            {
+              agent: this.agent,
+            }
+          );
+
+          const requestArr: ServiceRequest[] = await processResponse(response);
+
+          // We need to guarantee that we're returning an array with results in
+          // the same order as the IDs that came in, which we don't want to rely
+          // on Open311 to ensure.
+          const requestMap: { [id: string]: ServiceRequest } = {};
+          requestArr.forEach(r => {
+            requestMap[r.service_request_id] = r;
+          });
+
+          return ids.map(id => requestMap[id]);
         }
-      );
-
-      // the endpoint returns the request in an array
-      const requestArr: ServiceRequest[] = await processResponse(response);
-
-      if (transaction) {
-        transaction.end();
+      } finally {
+        if (transaction) {
+          transaction.end();
+        }
       }
-
-      const requestMap: { [id: string]: ServiceRequest } = {};
-
-      requestArr.forEach(r => {
-        requestMap[r.service_request_id] = r;
-      });
-
-      return ids.map(id => requestMap[id]);
     });
   }
 
@@ -281,7 +376,7 @@ export default class Open311 {
     return this.serviceMetadataLoader.load(code);
   }
 
-  request(id: string): Promise<?ServiceRequest> {
+  request(id: string): Promise<?ServiceRequest | ?DetailedServiceRequest> {
     return this.requestLoader.load(id);
   }
 
@@ -307,7 +402,9 @@ export default class Open311 {
     return out;
   };
 
-  async createRequest(args: CreateServiceRequestArgs): Promise<ServiceRequest> {
+  async createRequest(
+    args: CreateServiceRequestArgs
+  ): Promise<DetailedServiceRequest> {
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);

@@ -3,9 +3,12 @@
 import moment from 'moment-timezone';
 
 import type { ServiceStub } from './service';
-import type { ServiceRequest } from '../services/Open311';
+import type {
+  ServiceRequest,
+  DetailedServiceRequest,
+} from '../services/Open311';
 
-export type Root = ServiceRequest;
+export type Root = ServiceRequest | DetailedServiceRequest;
 
 export const Schema = `
 type Request {
@@ -30,6 +33,15 @@ type DateStringArguments = {
   format?: string,
 };
 
+function cleanMediaUrl(mediaUrl: string): string {
+  return (mediaUrl || '')
+    .trim()
+    .replace(
+      'http://boston.spot.show/',
+      'https://spot-boston-res.cloudinary.com/'
+    );
+}
+
 export const resolvers = {
   Request: {
     id: (r: Root) => r.service_request_id,
@@ -41,7 +53,17 @@ export const resolvers = {
     status: (r: Root) => r.status,
     statusNotes: (r: Root) => r.status_notes || null,
     address: (r: Root) => r.address,
-    mediaUrl: (r: Root) => (r.media_url || '').trim(),
+    mediaUrl: (r: Root) => {
+      if (!r.media_url) {
+        return '';
+      } else if (Array.isArray(r.media_url)) {
+        if (r.media_url.length) {
+          return cleanMediaUrl(r.media_url[0].url);
+        }
+      } else {
+        return cleanMediaUrl(r.media_url);
+      }
+    },
     location: (r: Root) =>
       r.lat != null && r.long != null ? { lat: r.lat, lng: r.long } : null,
     requestedAt: (r: Root) => moment(r.requested_datetime).unix(),
