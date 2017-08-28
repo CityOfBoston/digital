@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/no-danger: 0 */
 
-import React from 'react';
+import * as React from 'react';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';
@@ -105,8 +105,7 @@ type Props = {
 };
 
 @observer
-export default class LoadingBuildings extends React.Component {
-  props: Props;
+export default class LoadingBuildings extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     reduceMotion: false,
   };

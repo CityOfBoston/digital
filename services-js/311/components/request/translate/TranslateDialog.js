@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/jsx-no-bind: 0 */
 
-import React from 'react';
+import * as React from 'react';
 
 import { css } from 'glamor';
 import { observable, action } from 'mobx';
@@ -38,13 +38,13 @@ const CONTINUE_LINK_STYLE = css({
   justifyContent: 'flex-end',
 });
 
-export type DefaultProps = {
+export type DefaultProps = {|
   showContinueInEnglish: boolean,
-};
+|};
 
 export type Props = {|
   languages: LanguagePreference[],
-  showContinueInEnglish?: boolean,
+  showContinueInEnglish: boolean,
 |};
 
 const LANGUAGES = [
@@ -58,9 +58,7 @@ const LANGUAGES = [
 ];
 
 @observer
-export default class TranslateDialog extends React.Component {
-  props: Props;
-
+export default class TranslateDialog extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     showContinueInEnglish: false,
   };

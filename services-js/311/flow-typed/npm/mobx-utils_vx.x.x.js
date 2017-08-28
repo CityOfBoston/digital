@@ -48,7 +48,7 @@ declare module 'mobx-utils' {
   |};
 
   declare module.exports: {
-    fromPromise: <T> (promise: Promise<T>) => IPromiseBasedObservable<V>,
+    fromPromise: <T> (promise: Promise<T>) => IPromiseBasedObservable<T>,
     now: (interval: ?number) => number,
   };
 }

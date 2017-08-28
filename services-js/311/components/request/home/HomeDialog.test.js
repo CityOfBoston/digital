@@ -1,13 +1,12 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
 import { makeServerContext } from '../../../lib/test/make-context';
 import { AppStore } from '../../../data/store';
-import HomeDialog from './HomeDialog';
-import type { InitialProps } from './HomeDialog';
+import HomeDialog, { type InitialProps } from './HomeDialog';
 
 jest.mock('../../../data/dao/load-top-service-summaries');
 jest.mock('../../../data/dao/load-service-suggestions');
@@ -59,11 +58,14 @@ describe('home page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <HomeDialog
-        store={store}
-        loopbackGraphql={loopbackGraphql}
-        {...initialProps}
-      />
+      React.createElement(HomeDialog, {
+        store,
+        loopbackGraphql,
+        topServiceSummaries: initialProps.topServiceSummaries,
+        description: initialProps.description,
+        stage: initialProps.stage,
+        bypassTranslateDialog: initialProps.bypassTranslateDialog,
+      })
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -94,11 +96,14 @@ describe('choose page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <HomeDialog
-        store={store}
-        loopbackGraphql={loopbackGraphql}
-        {...initialProps}
-      />,
+      React.createElement(HomeDialog, {
+        store,
+        loopbackGraphql,
+        topServiceSummaries: initialProps.topServiceSummaries,
+        description: initialProps.description,
+        stage: initialProps.stage,
+        bypassTranslateDialog: initialProps.bypassTranslateDialog,
+      }),
       { createNodeMock: () => document.createElement('div') }
     );
     expect(component.toJSON()).toMatchSnapshot();

@@ -2,7 +2,7 @@
 
 import 'url-search-params-polyfill';
 
-import React from 'react';
+import * as React from 'react';
 import type { Context } from 'next';
 import Router from 'next/router';
 import { css } from 'glamor';
@@ -116,11 +116,10 @@ const STICKY_VIEW_BUTTON_STYLE = css({
 });
 
 @observer
-export default class SearchLayout extends React.Component {
+export default class SearchLayout extends React.Component<Props> {
   static defaultProps = {
     noMap: false,
   };
-  props: Props;
   loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
 
   locationUpdateDisposer: ?Function;

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import { observable, action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
@@ -66,9 +66,7 @@ export type Props = {|
 |};
 
 @observer
-export default class LocationPopUp extends React.Component {
-  props: Props;
-
+export default class LocationPopUp extends React.Component<Props> {
   @observable addressQuery: string = '';
 
   searchField: ?HTMLInputElement;
@@ -134,7 +132,7 @@ export default class LocationPopUp extends React.Component {
   };
 
   @action.bound
-  whenSearchInput(ev: SyntheticInputEvent) {
+  whenSearchInput(ev: SyntheticInputEvent<>) {
     const { store: { mapLocation } } = this.props;
 
     this.addressQuery = ev.target.value;
@@ -142,7 +140,7 @@ export default class LocationPopUp extends React.Component {
   }
 
   @action.bound
-  whenUnitChange(ev: SyntheticInputEvent) {
+  whenUnitChange(ev: SyntheticInputEvent<>) {
     const { store: { mapLocation } } = this.props;
 
     const unit = mapLocation.units.find(u => u.addressId === ev.target.value);
@@ -153,7 +151,7 @@ export default class LocationPopUp extends React.Component {
   }
 
   @action.bound
-  whenSearchSubmit(ev: SyntheticInputEvent) {
+  whenSearchSubmit(ev: SyntheticInputEvent<>) {
     ev.preventDefault();
 
     const { store: { mapLocation } } = this.props;

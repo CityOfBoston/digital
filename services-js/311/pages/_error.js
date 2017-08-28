@@ -3,7 +3,7 @@
 
 // Forked from next.js to add Opbeat error sending
 
-import React from 'react';
+import * as React from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
 
@@ -52,9 +52,7 @@ type Props = {|
   statusCode: number,
 |};
 
-export default class Error extends React.Component {
-  props: Props;
-
+export default class Error extends React.Component<Props> {
   static getInitialProps({ res, err }) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -11,17 +11,15 @@ export type Props = {|
 |};
 
 @observer
-export default class RecentRequestsSearchForm extends React.Component {
-  props: Props;
-
+export default class RecentRequestsSearchForm extends React.Component<Props> {
   @action.bound
-  handleSearchSubmit(ev: SyntheticInputEvent) {
+  handleSearchSubmit(ev: SyntheticInputEvent<>) {
     // nothing to do, because we are auto-searching
     ev.preventDefault();
   }
 
   @action.bound
-  handleSearchInput(ev: SyntheticInputEvent) {
+  handleSearchInput(ev: SyntheticInputEvent<>) {
     const { requestSearch } = this.props;
 
     requestSearch.query = ev.target.value;

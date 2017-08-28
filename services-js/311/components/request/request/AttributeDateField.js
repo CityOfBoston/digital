@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import { action, observable, reaction, computed } from 'mobx';
 import { observer } from 'mobx-react';
@@ -32,9 +32,7 @@ function maybeRenderRequired(required: boolean) {
 }
 
 @observer
-export default class AttributeDateField extends React.Component {
-  props: Props;
-
+export default class AttributeDateField extends React.Component<Props> {
   @observable dateValue: string = '';
   @observable timeValue: string = '';
 
@@ -116,12 +114,12 @@ export default class AttributeDateField extends React.Component {
   }
 
   @action.bound
-  handleDateChange(ev: SyntheticInputEvent) {
+  handleDateChange(ev: SyntheticInputEvent<>) {
     this.dateValue = ev.target.value;
   }
 
   @action.bound
-  handleTimeChange(ev: SyntheticInputEvent) {
+  handleTimeChange(ev: SyntheticInputEvent<>) {
     this.timeValue = ev.target.value;
   }
 

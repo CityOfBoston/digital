@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/prefer-stateless-function: 0 */
 
-import React from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'glamor';
@@ -9,6 +9,7 @@ import { css } from 'glamor';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
+import type { AppStore } from '../../data/store';
 import { MEDIA_MEDIUM } from '../style-constants';
 
 const SPRITE_URL = '/assets/img/svg/faq-icons.svg';
@@ -25,7 +26,7 @@ const ICON_STYLE = css({
 
 type QuestionProps = {|
   title: string,
-  children: React.Element<*> | Array<React.Element<*>>,
+  children: React.Node,
 |};
 
 function Question({ title, children }: QuestionProps) {
@@ -44,6 +45,7 @@ function Question({ title, children }: QuestionProps) {
 }
 
 type Props = {|
+  store: AppStore,
   suppressQuestions?: boolean,
 |};
 
@@ -51,8 +53,7 @@ type State = {|
   hoveredIcon: 'twitter' | 'app' | 'phone' | 'computer' | null,
 |};
 
-export default class FaqLayout extends React.Component {
-  props: Props;
+export default class FaqLayout extends React.Component<Props, State> {
   state: State = {
     hoveredIcon: null,
   };

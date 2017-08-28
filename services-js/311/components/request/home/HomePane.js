@@ -2,7 +2,7 @@
 /* global liveagent */
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
@@ -83,7 +83,7 @@ const BROWSE_CASES_STYLE = css({
 export type Props = {|
   store: AppStore,
   description: string,
-  handleDescriptionChanged: (ev: SyntheticInputEvent) => mixed,
+  handleDescriptionChanged: (ev: SyntheticInputEvent<>) => mixed,
   nextFn: () => mixed,
   topServiceSummaries: ServiceSummary[],
 |};
@@ -101,9 +101,7 @@ const TIME_PER_PLACEHOLDER_MS = 5 * 1000;
 const TIME_PER_CHARACTER_MS = 100;
 
 @observer
-export default class HomePane extends React.Component {
-  props: Props;
-
+export default class HomePane extends React.Component<Props> {
   @observable textareaFocus: boolean = false;
   @observable animationStartMs: number = 0;
 
@@ -132,12 +130,12 @@ export default class HomePane extends React.Component {
   }
 
   @action.bound
-  handleSearchInput(ev: SyntheticInputEvent) {
+  handleSearchInput(ev: SyntheticInputEvent<>) {
     this.searchValue = ev.target.value;
   }
 
   @action.bound
-  handleSearchSubmit(ev: SyntheticInputEvent) {
+  handleSearchSubmit(ev: SyntheticInputEvent<>) {
     ev.preventDefault();
 
     if (RequestSearch.isCaseId(this.searchValue)) {
@@ -191,7 +189,7 @@ export default class HomePane extends React.Component {
   }
 
   @action.bound
-  handleFormSubmit(ev: SyntheticInputEvent) {
+  handleFormSubmit(ev: SyntheticInputEvent<>) {
     const { nextFn } = this.props;
     ev.preventDefault();
 
@@ -199,7 +197,7 @@ export default class HomePane extends React.Component {
   }
 
   @action.bound
-  nextButtonWrapperClick(ev: SyntheticInputEvent) {
+  nextButtonWrapperClick(ev: SyntheticInputEvent<>) {
     if (this.descriptionTextarea) {
       this.descriptionTextarea.focus();
       ev.preventDefault();

@@ -1,13 +1,13 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 
 export type DefaultProps = {|
   minHeight: number,
   maxHeight: number,
-  onFocus: ?(ev: SyntheticInputEvent) => mixed,
-  onBlur: ?(ev: SyntheticInputEvent) => mixed,
+  onFocus: ?(ev: SyntheticInputEvent<>) => mixed,
+  onBlur: ?(ev: SyntheticInputEvent<>) => mixed,
 |};
 
 export type Props = {|
@@ -15,7 +15,7 @@ export type Props = {|
   text: string,
   placeholder: string,
   setTextarea: (el: ?HTMLElement) => mixed,
-  onInput: (ev: SyntheticInputEvent) => mixed,
+  onInput: (ev: SyntheticInputEvent<>) => mixed,
 |};
 
 const WRAPPER_STYLE = css({
@@ -39,12 +39,12 @@ const TEXTAREA_STYLE = css({
   overflow: 'hidden',
 });
 
-export default class DescriptionBox extends React.Component {
-  props: Props;
-  state: {
+export default class DescriptionBox extends React.Component<
+  Props,
+  {
     height: ?number,
-  };
-
+  }
+> {
   static defaultProps: DefaultProps = {
     minHeight: 222,
     maxHeight: 500,
@@ -107,7 +107,7 @@ export default class DescriptionBox extends React.Component {
     });
   }
 
-  onInput = (ev: SyntheticInputEvent) => {
+  onInput = (ev: SyntheticInputEvent<>) => {
     const { onInput } = this.props;
 
     this.updateHeight(ev.target);
@@ -115,7 +115,7 @@ export default class DescriptionBox extends React.Component {
     return onInput(ev);
   };
 
-  onFocus = (ev: SyntheticInputEvent) => {
+  onFocus = (ev: SyntheticInputEvent<>) => {
     const { onFocus } = this.props;
 
     this.updateHeight(ev.target);
@@ -125,7 +125,7 @@ export default class DescriptionBox extends React.Component {
     }
   };
 
-  onBlur = (ev: SyntheticInputEvent) => {
+  onBlur = (ev: SyntheticInputEvent<>) => {
     const { minHeight, maxHeight, onBlur } = this.props;
 
     if (minHeight !== maxHeight) {

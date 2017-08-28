@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
@@ -10,7 +10,7 @@ import Router from 'next/router';
 import type { RequestAdditions } from '../../../server/next-handlers';
 
 import type { ServiceSummary } from '../../../data/types';
-import type { AppStore } from '../../../data/store';
+import type { AppStore, LanguagePreference } from '../../../data/store';
 import makeLoopbackGraphql from '../../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
 import loadServiceSuggestions from '../../../data/dao/load-service-suggestions';
@@ -40,9 +40,7 @@ export type Props = {|
 |};
 
 @observer
-export default class HomeDialog extends React.Component {
-  props: Props;
-
+export default class HomeDialog extends React.Component<Props> {
   @observable description: string;
 
   @observable.shallow suggestedServiceSummaries: ?(ServiceSummary[]) = null;
@@ -114,7 +112,7 @@ export default class HomeDialog extends React.Component {
   }, 500);
 
   @action.bound
-  handleDescriptionChanged(ev: SyntheticInputEvent) {
+  handleDescriptionChanged(ev: SyntheticInputEvent<>) {
     this.description = ev.target.value;
   }
 
@@ -129,7 +127,8 @@ export default class HomeDialog extends React.Component {
   }
 
   render() {
-    const { stage, store: { languages }, bypassTranslateDialog } = this.props;
+    const { stage, store, bypassTranslateDialog } = this.props;
+    const languages: LanguagePreference[] = store.languages;
 
     const translateLanguage = TranslateDialog.findLanguage(languages);
     const showTranslate =

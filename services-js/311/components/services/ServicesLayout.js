@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/prefer-stateless-function: 0 react/no-unused-prop-types: 0 */
 
-import React from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { action } from 'mobx';
@@ -41,9 +41,7 @@ const SERVICE_LINK_STYLE = css({
 });
 
 @observer
-class ServicesLayoutGroup extends React.Component {
-  props: GroupProps;
-
+class ServicesLayoutGroup extends React.Component<GroupProps> {
   @action.bound
   toggle() {
     const { group } = this.props;
@@ -114,9 +112,7 @@ class ServicesLayoutGroup extends React.Component {
   }
 }
 
-export default class ServicesLayout extends React.Component {
-  props: Props;
-
+export default class ServicesLayout extends React.Component<Props> {
   static async getInitialProps({
     req,
   }: Context<RequestAdditions>): Promise<InitialProps> {

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import { action, observable, autorun } from 'mobx';
@@ -64,9 +64,7 @@ export const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
 });
 
 @observer
-export default class RequestDialog extends React.Component {
-  props: Props;
-
+export default class RequestDialog extends React.Component<Props> {
   requestForm: RequestForm;
   @observable
   requestSubmission: ?IPromiseBasedObservable<SubmittedRequest> = null;

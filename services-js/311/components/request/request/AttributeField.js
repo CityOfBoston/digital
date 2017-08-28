@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
@@ -242,11 +242,9 @@ function renderSingleValueListAttribute(question, onChange) {
 }
 
 @observer
-export default class AttributeField extends React.Component {
-  props: Props;
-
+export default class AttributeField extends React.Component<Props> {
   @action.bound
-  onChange(ev: SyntheticInputEvent) {
+  onChange(ev: SyntheticInputEvent<>) {
     const { question } = this.props;
     const { value } = ev.target;
 
@@ -266,13 +264,13 @@ export default class AttributeField extends React.Component {
   }
 
   @action.bound
-  onCheckbox(ev: SyntheticInputEvent) {
+  onCheckbox(ev: SyntheticInputEvent<>) {
     const { question } = this.props;
     question.value = (ev.target.checked || false).toString();
   }
 
   @action.bound
-  onMultivalueList(ev: SyntheticInputEvent) {
+  onMultivalueList(ev: SyntheticInputEvent<>) {
     const { question } = this.props;
     const values = currentValueAsArray(question.value);
 

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import Link from 'next/link';
 import { css } from 'glamor';
 import { GRAY_300, GREEN, YELLOW } from '../style-constants';

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 
 const CENTERED_STYLE = css({
@@ -13,7 +13,7 @@ const CENTERED_STYLE = css({
 });
 
 type Props = {|
-  children: React.Element<*> | Array<React.Element<*>>,
+  children: React.Element<any> | Array<React.Element<any>>,
 |};
 
 function Centered({ children }: Props) {
@@ -24,7 +24,7 @@ function Centered({ children }: Props) {
   );
 }
 
-export default function centered(stories: () => React.Element<*>) {
+export default function centered(stories: () => React.Element<any>) {
   return (
     <Centered>
       {stories()}

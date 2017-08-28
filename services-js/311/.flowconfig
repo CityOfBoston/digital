@@ -1,7 +1,8 @@
 [libs]
 flow-typed/
 flow-decl/
-node_modules/mapbox-gl/flow-typed/
+# Does not work as well as it should
+# node_modules/mapbox-gl/flow-typed/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/jsverify/.*
@@ -13,6 +14,9 @@ node_modules/mapbox-gl/flow-typed/
 <PROJECT_ROOT>/node_modules/jsonlint-lines-primitives/test/fails/.*
 <PROJECT_ROOT>/storybook-static/.*
 <PROJECT_ROOT>/node_modules/graphql/subscription/mapAsyncIterator.js.flow
+
+# Doesn't support 0.53
+<PROJECT_ROOT>/node_modules/radium/.*
 
 [options]
 module.file_ext=.graphql

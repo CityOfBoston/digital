@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import type { Context } from 'next';
 import Head from 'next/head';
 
@@ -27,9 +27,7 @@ export type Props = {|
   store: AppStore,
 |};
 
-export default class CaseLayout extends React.Component {
-  props: Props;
-
+export default class CaseLayout extends React.Component<Props> {
   static async getInitialProps({
     query,
     req,

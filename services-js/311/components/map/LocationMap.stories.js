@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
 import LocationMap from './LocationMap';

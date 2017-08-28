@@ -7,12 +7,12 @@
 // beginning of files, and we need to rehydrate before any Glamor "css"
 // statements are processed.
 
-import React from 'react';
+import * as React from 'react';
 import { rehydrate } from 'glamor';
 
-export default <OP, P: $Subtype<Object>, S>(
-  componentFn: () => Class<React.Component<OP, P, S>>
-): Class<React.Component<void, P, void>> => {
+export default <Props: {}>(
+  componentFn: () => React.ComponentType<Props>
+): React.ComponentType<Props> => {
   if (process.browser) {
     // eslint-disable-next-line no-underscore-dangle
     rehydrate(window.__NEXT_DATA__.ids);
@@ -20,9 +20,8 @@ export default <OP, P: $Subtype<Object>, S>(
 
   const Component = componentFn();
 
-  return class WithGlamor extends React.Component {
-    props: P;
-
+  return class WithGlamor extends React.Component<Props> {
+    // Need to pass this through for Next
     static getInitialProps(...args) {
       if (typeof Component.getInitialProps === 'function') {
         return Component.getInitialProps(...args);

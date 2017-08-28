@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
@@ -38,9 +38,7 @@ function renderRequired() {
 }
 
 @observer
-export default class ContactPane extends React.Component {
-  props: Props;
-
+export default class ContactPane extends React.Component<Props> {
   localStorageContactInfo: ?LocalStorageContactInfo;
 
   componentWillMount() {
@@ -57,7 +55,7 @@ export default class ContactPane extends React.Component {
   }
 
   @action.bound
-  continueWithContactInfo(ev: SyntheticInputEvent) {
+  continueWithContactInfo(ev: SyntheticInputEvent<>) {
     const { requestForm, nextFunc } = this.props;
 
     ev.preventDefault();
@@ -74,7 +72,7 @@ export default class ContactPane extends React.Component {
   }
 
   @action.bound
-  handleChange(ev: SyntheticInputEvent) {
+  handleChange(ev: SyntheticInputEvent<>) {
     const { requestForm } = this.props;
 
     const value = ev.target.value;
@@ -101,7 +99,7 @@ export default class ContactPane extends React.Component {
     }
   }
 
-  cancelSubmit = (ev: SyntheticInputEvent) => {
+  cancelSubmit = (ev: SyntheticInputEvent<>) => {
     ev.preventDefault();
   };
 

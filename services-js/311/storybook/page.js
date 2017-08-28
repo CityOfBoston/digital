@@ -1,17 +1,13 @@
 // @flow
 /* eslint react/no-danger: 0 */
 
-import React from 'react';
+import * as React from 'react';
 
 import headerHtml from '../templates/header.html';
 import footerHtml from '../templates/footer.html';
 import navigationHtml from '../templates/navigation.html';
 
-function Page({
-  children,
-}: {
-  children: React.Element<*> | Array<React.Element<*>>,
-}) {
+function Page({ children }: { children: React.Node }) {
   return (
     <div>
       <input
@@ -47,7 +43,7 @@ function Page({
   );
 }
 
-export default function page(stories: () => mixed) {
+export default function page(stories: () => React.Node) {
   return (
     <Page>
       {stories()}

@@ -5,7 +5,7 @@ import 'core-js/shim';
 
 import svg4everybody from 'svg4everybody';
 
-import React from 'react';
+import * as React from 'react';
 import type { Context } from 'next';
 import { runInAction } from 'mobx';
 
@@ -14,21 +14,31 @@ import type { RequestAdditions } from '../../server/next-handlers';
 import makeLoopbackGraphql, {
   setClientCache,
 } from '../../data/dao/loopback-graphql';
-import getStore from '../../data/store';
-import type { AppStore } from '../../data/store';
+import getStore, { type AppStore } from '../../data/store';
 
 if (process.browser) {
   svg4everybody();
 }
 
-export default <OP, P: $Subtype<Object>, S>(
-  Component: Class<React.Component<OP, P, S>>
-): Class<React.Component<void, P, void>> =>
-  class WithStore extends React.Component {
-    props: P;
+type InitialPropsExtension = {
+  initialStoreState: ?{ [key: string]: mixed },
+  loopbackGraphqlCache: ?{ [key: string]: Object },
+};
+
+type PropsExtension = {
+  store: AppStore,
+};
+
+export default <Props: {}>(
+  Component: React.ComponentType<Props & PropsExtension>
+): React.ComponentType<Props> =>
+  class WithStore extends React.Component<Props> {
     store: AppStore;
 
-    static async getInitialProps(ctx: Context<RequestAdditions>, ...rest) {
+    static async getInitialProps(
+      ctx: Context<RequestAdditions>,
+      ...rest
+    ): Promise<InitialPropsExtension> {
       const { req } = ctx;
 
       let initialProps;
@@ -64,14 +74,18 @@ export default <OP, P: $Subtype<Object>, S>(
 
       this.store = getStore(makeLoopbackGraphql());
 
-      if (props.initialStoreState) {
+      // Hack to get the data we added with getInitialProps w/o trying to make
+      // it a Prop on all child components.
+      const initialProps: InitialPropsExtension = (props: any);
+
+      if (initialProps.initialStoreState) {
         runInAction('withStore initialization', () => {
-          Object.assign(this.store, props.initialStoreState);
+          Object.assign(this.store, initialProps.initialStoreState);
         });
       }
 
-      if (props.loopbackGraphqlCache) {
-        setClientCache(props.loopbackGraphqlCache);
+      if (initialProps.loopbackGraphqlCache) {
+        setClientCache(initialProps.loopbackGraphqlCache);
       }
     }
 

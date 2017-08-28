@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { runInAction } from 'mobx';
@@ -77,7 +77,9 @@ describe('rendering', () => {
         stage="questions"
         service={MOCK_SERVICE}
         description=""
-        {...MOCK_ACTIONS}
+        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
+        setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />,
       { createNodeMock: () => document.createElement('div') }
     );
@@ -91,7 +93,9 @@ describe('rendering', () => {
         stage="location"
         service={MOCK_SERVICE}
         description=""
-        {...MOCK_ACTIONS}
+        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
+        setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />
     );
     expect(component.toJSON()).toMatchSnapshot();
@@ -104,7 +108,9 @@ describe('rendering', () => {
         stage="contact"
         service={MOCK_SERVICE}
         description=""
-        {...MOCK_ACTIONS}
+        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
+        setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />,
       { createNodeMock: () => document.createElement('div') }
     );

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import LocationPopUp from './LocationPopUp';
@@ -10,7 +10,7 @@ import RequestForm from '../../../data/store/RequestForm';
 import { CORNER_DIALOG_STYLE } from './RequestDialog';
 import FormDialog from '../../common/FormDialog';
 
-const props = {
+const props: any = {
   nextFunc: action('Next'),
   nextIsSubmit: false,
 };

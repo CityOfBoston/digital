@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import { action, extras } from 'mobx';
 import { observer } from 'mobx-react';
@@ -59,9 +59,7 @@ const PROGRESS_STYLE = css({
 });
 
 @observer
-export default class QuestionsPane extends React.Component {
-  props: Props;
-
+export default class QuestionsPane extends React.Component<Props> {
   imageUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
   dropEl: ?Dropzone;
 
@@ -110,13 +108,13 @@ export default class QuestionsPane extends React.Component {
   }
 
   @action.bound
-  handleUpdateDescription(ev: SyntheticInputEvent) {
+  handleUpdateDescription(ev: SyntheticInputEvent<>) {
     const { requestForm } = this.props;
     requestForm.description = ev.target.value;
   }
 
   @action.bound
-  handleSubmit(ev: SyntheticInputEvent) {
+  handleSubmit(ev: SyntheticInputEvent<>) {
     const { nextFunc } = this.props;
 
     ev.preventDefault();

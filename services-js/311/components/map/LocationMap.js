@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/no-unused-prop-types: 0 */
 
-import React from 'react';
+import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { css } from 'glamor';
 import { computed, action, reaction, autorun } from 'mobx';
@@ -126,12 +126,10 @@ function setMarkerGlIcon(marker: GLMarker, waypointIcon: Object) {
 }
 
 @observer
-export default class LocationMap extends React.Component {
+export default class LocationMap extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     onMapClick: null,
   };
-
-  props: Props;
 
   mapEl: ?HTMLElement = null;
   mobileMarkerEl: ?HTMLElement = null;
@@ -504,7 +502,7 @@ export default class LocationMap extends React.Component {
     }
   }
 
-  setMapEl = (mapEl: HTMLElement) => {
+  setMapEl = (mapEl: ?HTMLElement) => {
     this.mapEl = mapEl;
   };
 
@@ -1160,13 +1158,17 @@ type WithLibraryDefaultProps = {|
   locationMapRef: ?Function,
 |};
 
-export class LocationMapWithLibrary extends React.Component {
+export class LocationMapWithLibrary extends React.Component<
+  WithLibraryProps,
+  {
+    L: ?LWithMapbox,
+    mapboxgl: ?MapboxGL,
+  }
+> {
   static defaultProps: WithLibraryDefaultProps = {
     onMapClick: null,
     locationMapRef: null,
   };
-
-  props: WithLibraryProps;
 
   state: {
     L: ?LWithMapbox,

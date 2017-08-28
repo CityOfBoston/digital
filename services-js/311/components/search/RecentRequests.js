@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { observable, action, autorun, untracked } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
@@ -72,9 +72,7 @@ export type Props = {|
 |};
 
 @observer
-export default class RecentRequests extends React.Component {
-  props: Props;
-
+export default class RecentRequests extends React.Component<Props> {
   @observable.ref mainEl: ?HTMLElement = null;
 
   scrollSelectedIntoViewDisposer: ?Function;

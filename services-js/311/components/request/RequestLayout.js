@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';
@@ -78,12 +78,11 @@ const BACKGROUND_MAP_CONTAINER_STYLE = css({
 // service request, and the "service" view for the request flow. That flow
 // proceeds through the "questions" "location" and "contact" stages.
 @observer
-export default class RequestLayout extends React.Component {
+export default class RequestLayout extends React.Component<Props, State> {
   static defaultProps = {
     noMap: false,
   };
 
-  props: Props;
   state: State = {
     locationMapActive: false,
   };
@@ -195,7 +194,10 @@ export default class RequestLayout extends React.Component {
             <HomeDialog
               store={store}
               loopbackGraphql={this.loopbackGraphql}
-              {...data.props}
+              bypassTranslateDialog={data.props.bypassTranslateDialog}
+              description={data.props.description}
+              stage={data.props.stage}
+              topServiceSummaries={data.props.topServiceSummaries}
             />}
 
           {data.view === 'request' &&
@@ -204,7 +206,9 @@ export default class RequestLayout extends React.Component {
               loopbackGraphql={this.loopbackGraphql}
               routeToServiceForm={this.routeToServiceForm}
               setLocationMapActive={this.setLocationMapActive}
-              {...data.props}
+              description={data.props.description}
+              service={data.props.service}
+              stage={data.props.stage}
             />}
 
           {data.view === 'translate' &&

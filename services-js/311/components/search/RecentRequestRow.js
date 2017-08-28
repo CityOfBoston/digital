@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import Link from 'next/link';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
@@ -91,8 +91,7 @@ export type Props = {|
 |};
 
 @observer
-export default class RecentRequestRow extends React.Component {
-  props: Props;
+export default class RecentRequestRow extends React.Component<Props> {
   @observable el: ?HTMLElement;
 
   @action.bound
