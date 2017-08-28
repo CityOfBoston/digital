@@ -55,7 +55,9 @@ function renderSummaryRow(
               />
             </svg>
           </div>
-          <div className="dr-t">{name}</div>
+          <div className="dr-t">
+            {name}
+          </div>
           <div className="dr-st">
             <span
               className="t--info"
@@ -82,9 +84,7 @@ function renderGeneralRequestRow(problemDescription: string) {
 function renderLoading(ui: Ui) {
   return (
     <div>
-      <div className="t--info">
-        Matching your request to BOS:311 services…
-      </div>
+      <div className="t--info">Matching your request to BOS:311 services…</div>
 
       <div className={`p-a300 g ${LOADING_INDICATORS_STYLE.toString()}`}>
         <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
@@ -132,8 +132,8 @@ function renderNoSuggestions(problemDescription: string) {
   return (
     <div>
       <div className="t--info m-v300">
-        We weren’t able to automatically match your request with a service.
-        File a General Request and someone will help you out.
+        We weren’t able to automatically match your request with a service. File
+        a General Request and someone will help you out.
       </div>
 
       <div className="m-v500">
@@ -155,7 +155,6 @@ export default function ChooseServicePane({
       </Head>
 
       <div className="p-a300 p-a800--xl" style={{ paddingBottom: '.75rem' }}>
-
         <SectionHeader>BOS:311 — Choose a Service</SectionHeader>
 
         {description &&

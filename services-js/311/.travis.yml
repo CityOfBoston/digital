@@ -1,21 +1,19 @@
 language: node_js
 node_js:
-- 6.11.1
+- 8.4.0
 env:
 - TZ=America/New_York
-before_install:
-- yarn global add greenkeeper-lockfile@1
 before_script:
-- greenkeeper-lockfile-update
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-update
 # Kick of Percy in the before_script so that the visual diff
 # processing is in parallel on Percy.io with the Jest testing
 # below.
-- yarn snapshot
+- npm run-script snapshot
 script:
-- yarn test-ci
+- npm run-script test-ci
 after_script:
-- yarn codecov
-- greenkeeper-lockfile-upload
+- npx codecov
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-upload
 branches:
   # We generally just care about PRs, but it's good to run on
   # the main branches so we know when the overall tree breaks.

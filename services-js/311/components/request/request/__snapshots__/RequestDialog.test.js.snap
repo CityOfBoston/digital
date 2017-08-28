@@ -702,6 +702,7 @@ exports[`rendering questions 1`] = `
             className="br br-a200"
           >
             <div
+              aria-disabled={false}
               className="css-19ub58"
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -727,6 +728,8 @@ exports[`rendering questions 1`] = `
               />
               <input
                 accept="image/*"
+                autoComplete="off"
+                disabled={false}
                 multiple={false}
                 onChange={[Function]}
                 style={

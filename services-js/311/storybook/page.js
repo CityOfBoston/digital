@@ -43,7 +43,6 @@ function Page({
         style={{ position: 'relative', zIndex: 2 }}
         dangerouslySetInnerHTML={{ __html: footerHtml }}
       />
-
     </div>
   );
 }

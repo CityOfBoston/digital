@@ -72,8 +72,12 @@ class ServicesLayoutGroup extends React.Component {
               />
             </svg>
           </div>
-          <h2 className="dr-t">{group.name}</h2>
-          <div className="dr-st">{group.description}</div>
+          <h2 className="dr-t">
+            {group.name}
+          </h2>
+          <div className="dr-st">
+            {group.description}
+          </div>
         </button>
 
         <VelocityTransitionGroup
@@ -92,8 +96,12 @@ class ServicesLayoutGroup extends React.Component {
                       as={`/request/${code}`}
                     >
                       <a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
-                        <div className="t--sans tt-u">{name}</div>
-                        <div style={{ color: CHARLES_BLUE }}>{description}</div>
+                        <div className="t--sans tt-u">
+                          {name}
+                        </div>
+                        <div style={{ color: CHARLES_BLUE }}>
+                          {description}
+                        </div>
                       </a>
                     </Link>
                   </li>

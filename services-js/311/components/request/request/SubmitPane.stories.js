@@ -16,7 +16,9 @@ const makeError = (message, errors) => {
 storiesOf('SubmitPane', module)
   .addDecorator(story =>
     <div className="b-c">
-      <FormDialog>{story()}</FormDialog>
+      <FormDialog>
+        {story()}
+      </FormDialog>
     </div>
   )
   .add('Submitting', () => <SubmitPane state="submitting" ui={new Ui()} />)

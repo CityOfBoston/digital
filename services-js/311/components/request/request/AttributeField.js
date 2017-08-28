@@ -83,7 +83,11 @@ function renderCheckbox(question, onChange) {
 }
 
 function renderInformationalAttribute(question) {
-  return <p className="t--info">{question.description}</p>;
+  return (
+    <p className="t--info">
+      {question.description}
+    </p>
+  );
 }
 
 function renderTextAttribute(question, onChange) {

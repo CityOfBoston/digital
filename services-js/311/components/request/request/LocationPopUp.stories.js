@@ -84,7 +84,9 @@ const MOCK_UNITS: Array<AddressUnit> = [
 storiesOf('LocationPopUp', module)
   .addDecorator(story =>
     <div className={CORNER_DIALOG_STYLE}>
-      <FormDialog noPadding>{story()}</FormDialog>
+      <FormDialog noPadding>
+        {story()}
+      </FormDialog>
     </div>
   )
   .add('with address', () =>

@@ -267,14 +267,17 @@ export default class RequestDialog extends React.Component {
 
   render() {
     const { stage } = this.props;
-    const dialogContainerStyle = stage === 'location'
-      ? CORNER_DIALOG_STYLE
-      : css(COMMON_DIALOG_STYLE, CENTERED_DIALOG_STYLE);
+    const dialogContainerStyle =
+      stage === 'location'
+        ? CORNER_DIALOG_STYLE
+        : css(COMMON_DIALOG_STYLE, CENTERED_DIALOG_STYLE);
 
     return (
       <div className={dialogContainerStyle}>
         <Head>
-          <title>BOS:311 — {this.renderTitle()}</title>
+          <title>
+            BOS:311 — {this.renderTitle()}
+          </title>
         </Head>
 
         <FormDialog

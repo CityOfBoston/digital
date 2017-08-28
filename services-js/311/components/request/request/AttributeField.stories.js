@@ -28,7 +28,9 @@ const makeQuestion = (attrs: Object, value: string | string[] = '') => {
 storiesOf('AttributeField', module)
   .addDecorator(story =>
     <div className="b-c">
-      <FormDialog>{story()}</FormDialog>
+      <FormDialog>
+        {story()}
+      </FormDialog>
     </div>
   )
   .add('Boolean Checkbox', () =>

@@ -210,7 +210,6 @@ export default class RequestLayout extends React.Component {
           {data.view === 'translate' &&
             <TranslateDialog languages={store.languages} />}
         </div>
-
       </div>
     );
   }

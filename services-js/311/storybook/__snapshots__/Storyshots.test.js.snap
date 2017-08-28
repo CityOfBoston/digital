@@ -4569,6 +4569,7 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
             className="br br-a200"
           >
             <div
+              aria-disabled={false}
               className="css-19ub58"
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -4594,6 +4595,8 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
               />
               <input
                 accept="image/*"
+                autoComplete="off"
+                disabled={false}
                 multiple={false}
                 onChange={[Function]}
                 style={
@@ -4711,6 +4714,7 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
             className="br br-a200"
           >
             <div
+              aria-disabled={false}
               className="css-19ub58"
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -4736,6 +4740,8 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
               />
               <input
                 accept="image/*"
+                autoComplete="off"
+                disabled={false}
                 multiple={false}
                 onChange={[Function]}
                 style={
@@ -4875,6 +4881,7 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
             className="br br-a200"
           >
             <div
+              aria-disabled={false}
               className="css-19ub58"
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -4900,6 +4907,8 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
               />
               <input
                 accept="image/*"
+                autoComplete="off"
+                disabled={false}
                 multiple={false}
                 onChange={[Function]}
                 style={
@@ -6570,6 +6579,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
                     className="br br-a200"
                   >
                     <div
+                      aria-disabled={false}
                       className="css-19ub58"
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -6595,6 +6605,8 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
                       />
                       <input
                         accept="image/*"
+                        autoComplete="off"
+                        disabled={false}
                         multiple={false}
                         onChange={[Function]}
                         style={

@@ -384,7 +384,9 @@ export default class SearchLayout extends React.Component {
           </div>
 
           {!mapView &&
-            <div ref={this.setContainer}><RecentRequests store={store} /></div>}
+            <div ref={this.setContainer}>
+              <RecentRequests store={store} />
+            </div>}
 
           {mapView &&
             <div className="g p-a300">

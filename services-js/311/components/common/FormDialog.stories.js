@@ -5,7 +5,11 @@ import FormDialog from './FormDialog';
 import SectionHeader from './SectionHeader';
 
 storiesOf('FormDialog', module)
-  .addDecorator(next => <div className="b-c">{next()}</div>)
+  .addDecorator(next =>
+    <div className="b-c">
+      {next()}
+    </div>
+  )
   .add('Dialog', () =>
     <FormDialog>
       <SectionHeader>311: Boston City Services</SectionHeader>

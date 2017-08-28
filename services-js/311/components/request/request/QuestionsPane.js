@@ -144,7 +144,9 @@ export default class QuestionsPane extends React.Component {
       }
 
       questionsEls.push(
-        <div key={q.code}><AttributeField question={q} /></div>
+        <div key={q.code}>
+          <AttributeField question={q} />
+        </div>
       );
 
       if (i < questions.length - 1) {
@@ -156,9 +158,13 @@ export default class QuestionsPane extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <SectionHeader>{serviceName}</SectionHeader>
+        <SectionHeader>
+          {serviceName}
+        </SectionHeader>
 
-        <div className="t--intro m-v300">{serviceDescription}</div>
+        <div className="t--intro m-v300">
+          {serviceDescription}
+        </div>
 
         <div className="g g--top">
           <div className="g--7 m-v500">
@@ -283,7 +289,9 @@ export default class QuestionsPane extends React.Component {
           </Dropzone>
 
           {errorMessage &&
-            <div className="t--info br br-t200 p-a300">{errorMessage}</div>}
+            <div className="t--info br br-t200 p-a300">
+              {errorMessage}
+            </div>}
 
           <div className="br br-t200" style={{ position: 'relative' }}>
             <button

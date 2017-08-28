@@ -101,9 +101,8 @@ async function serverGraphqlFetch(
     },
   });
 
-  const json = typeof res.result === 'string'
-    ? JSON.parse(res.result)
-    : res.result;
+  const json =
+    typeof res.result === 'string' ? JSON.parse(res.result) : res.result;
   const value = handleGraphqlResponse(res.statusCode === 200, json);
   if (cacheKey) {
     cache[cacheKey] = value;

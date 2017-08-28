@@ -117,11 +117,9 @@ export default class TranslateDialog extends React.Component {
 
               <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
                 If you need to report a non-emergency issue with the City of
-                Boston, please call
-                BOS:311 at 311 or{' '}
+                Boston, please call BOS:311 at 311 or{' '}
                 <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
               </div>
-
             </div>
 
             {showContinueInEnglish &&

@@ -122,7 +122,9 @@ export default class ContactPane extends React.Component {
     return (
       <form onSubmit={this.continueWithContactInfo}>
         <div>
-          <SectionHeader>{serviceName}</SectionHeader>
+          <SectionHeader>
+            {serviceName}
+          </SectionHeader>
           <p className="m-v300 t--info">
             Why are we asking for your contact information? We’ll use it to
             email you about the status of your report. We may also have to
@@ -131,7 +133,6 @@ export default class ContactPane extends React.Component {
 
           <p className="m-v300 t--subinfo">
             <strong>We won’t make your information public.</strong>{' '}
-
             {!contactInfoRequired &&
               <span>
                 You can also{' '}
@@ -196,7 +197,9 @@ export default class ContactPane extends React.Component {
           </div>
 
           <div className="txt">
-            <label className="txt-l" htmlFor="ContactPane-phone">Phone</label>
+            <label className="txt-l" htmlFor="ContactPane-phone">
+              Phone
+            </label>
             <InputMask
               className="txt-f"
               mask="(999) 999-9999"

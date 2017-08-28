@@ -40,7 +40,11 @@ const SERVICE_SUMMARIES = [
 ];
 
 storiesOf('ChooseServicePane', module)
-  .addDecorator(story => <FormDialog narrow noPadding>{story()}</FormDialog>)
+  .addDecorator(story =>
+    <FormDialog narrow noPadding>
+      {story()}
+    </FormDialog>
+  )
   .add('Loading matches', () =>
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"

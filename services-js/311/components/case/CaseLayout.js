@@ -57,7 +57,9 @@ export default class CaseLayout extends React.Component {
     return (
       <div>
         <Head>
-          <title>BOS:311 — {this.renderTitle()}</title>
+          <title>
+            BOS:311 — {this.renderTitle()}
+          </title>
         </Head>
 
         <Nav activeSection="search" />

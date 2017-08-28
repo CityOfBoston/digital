@@ -5,7 +5,11 @@ import { storiesOf } from '@storybook/react';
 import TranslateDialog from './TranslateDialog';
 
 storiesOf('TranslateDialog', module)
-  .addDecorator(next => <div className="b-c">{next()}</div>)
+  .addDecorator(next =>
+    <div className="b-c">
+      {next()}
+    </div>
+  )
   .add('dialog', () =>
     <TranslateDialog
       languages={[

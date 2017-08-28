@@ -11,23 +11,25 @@ The source code for the future [311.boston.gov](https://311.boston.gov).
 This is a Node project using the [Next.js](https://github.com/zeit/next.js/)
 framework for server-side rendering.
 
-[Yarn](https://yarnpkg.com/) is recommended.
-
- * **Development Server**: `yarn dev` <http://localhost:3000/>
- * **React Storybook**: `yarn storybook` <http://localhost:9001/>
- * **Gulp**: `yarn gulp watch`
- * **Tests**: `yarn test` or `yarn test -- --watch`
- * **Lint**: `yarn lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
- * **Typecheck**: `yarn flow`
+ * **Development Server**: `npm run dev` <http://localhost:3000/>
+ * **React Storybook**: `npm run storybook` <http://localhost:9001/>
+ * **Gulp**: `npx gulp watch`
+ * **Tests**: `npm test` or `npm test -- --watch`
+ * **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
+ * **Typecheck**: `npx flow`
 
 ### Getting started
+
+__Make sure you have at least Node 8.2 installed, preferrably with `nvm` or
+equivalent so you automatically pick up our `.nvmrc` file. Also, `npm` >= 5.3
+(installed by default with Node 8.2 and up) and `gulp-cli`.__
 
  1. Get the Open311 api_key and URL from a friend
  1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
  1. Get other API keys: Mapbox, Searchly, &c. and put them in .env
- 1. `yarn install`
- 1. `yarn gulp watch`
- 1. `yarn dev`
+ 1. `npm install`
+ 1. `npx gulp watch`
+ 1. `npm run dev`
  1. Visit <http://localhost:3000/> in your browser
 
 ### JavaScript
@@ -45,7 +47,7 @@ Please make full use of:
  * [Class properties](https://babeljs.io/docs/plugins/transform-class-properties/): `class MyComponent { onClick = () => { this.setState({ clicked: true })} }`
 
 Code style is enforced by ESLint, which can be run (in `--fix` mode) with
-`yarn lint`. Committed code must contain no errors or warnings. On a per-file
+`npm run lint`. Committed code must contain no errors or warnings. On a per-file
 basis, certain errors may be turned off. For example, to keep a class-based
 component:
 
@@ -68,7 +70,7 @@ generate Flow types for the `*.graphql` queries and mutations in
 `/store/modules/graphql/schema.flow.js` and should be used when possible to
 establish types for GraphQL arguments and responses.
 
-Run `yarn flow` to check types.
+Run `npx flow` to check types.
 
 ### Backend
 
@@ -86,7 +88,7 @@ The Gulp `graphql:schema` and `graphql:types` tasks are automatically run by
 changes.
 
 **Backend debugging with Charles:**
-`env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ yarn dev`
+`env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ npm run dev`
 
 ### Frontend
 
@@ -100,7 +102,7 @@ GraphQL backend is mediated through the function modules in `/data/dao`.
 Components and containers are organized under `/components` by page.
 
 For UI-focused development, use [React Storybook](https://getstorybook.io/) by
-running `yarn storybook` and visiting <http://localhost:9001>
+running `npm run storybook` and visiting <http://localhost:9001>
 
 ## Public domain
 

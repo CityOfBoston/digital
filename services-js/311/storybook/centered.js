@@ -17,7 +17,11 @@ type Props = {|
 |};
 
 function Centered({ children }: Props) {
-  return <div className={CENTERED_STYLE}>{children}</div>;
+  return (
+    <div className={CENTERED_STYLE}>
+      {children}
+    </div>
+  );
 }
 
 export default function centered(stories: () => React.Element<*>) {

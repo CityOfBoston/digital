@@ -11,7 +11,9 @@ import { runInAction } from 'mobx';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
-import makeLoopbackGraphql, { setClientCache } from '../../data/dao/loopback-graphql';
+import makeLoopbackGraphql, {
+  setClientCache,
+} from '../../data/dao/loopback-graphql';
 import getStore from '../../data/store';
 import type { AppStore } from '../../data/store';
 

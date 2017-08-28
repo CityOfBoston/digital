@@ -25,7 +25,9 @@ const makeRequestForm = (fillIn: boolean) => {
 storiesOf('ContactPane', module)
   .addDecorator(story =>
     <div className="b-c">
-      <FormDialog>{story()}</FormDialog>
+      <FormDialog>
+        {story()}
+      </FormDialog>
     </div>
   )
   .add('Empty', () =>

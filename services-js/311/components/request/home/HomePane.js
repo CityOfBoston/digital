@@ -234,9 +234,7 @@ export default class HomePane extends React.Component {
               onSubmit={this.handleFormSubmit}
             >
               <div>
-                <h2 className="stp m-v100">
-                  What can we help with?
-                </h2>
+                <h2 className="stp m-v100">What can we help with?</h2>
 
                 <DescriptionBox
                   minHeight={137}
@@ -298,8 +296,7 @@ export default class HomePane extends React.Component {
               <h2 className="a11y--h">Popular Services</h2>
 
               <div className="t--info" style={{ fontStyle: 'normal' }}>
-                You can also make a request for one of these
-                popular services:
+                You can also make a request for one of these popular services:
               </div>
 
               <ul className="ul m-v300">
@@ -309,14 +306,18 @@ export default class HomePane extends React.Component {
                       href={`/request?code=${code}`}
                       as={`/request/${code}`}
                     >
-                      <a className="m-v100">{name}</a>
+                      <a className="m-v100">
+                        {name}
+                      </a>
                     </Link>
                   </li>
                 )}
               </ul>
 
               <div className="t--info">
-                <Link href="/services"><a>See all services…</a></Link>
+                <Link href="/services">
+                  <a>See all services…</a>
+                </Link>
               </div>
             </div>
           </div>
@@ -347,14 +348,18 @@ export default class HomePane extends React.Component {
                   onFocus={this.handleSearchFocus}
                   className="sf-i-f"
                 />
-                <button type="submit" className="sf-i-b">Search</button>
+                <button type="submit" className="sf-i-b">
+                  Search
+                </button>
               </div>
             </form>
 
             <div className="g--1" />
 
             <div className={`g--4 t--info ${BROWSE_CASES_STYLE.toString()}`}>
-              <Link href="/search"><a>Browse public cases</a></Link>
+              <Link href="/search">
+                <a>Browse public cases</a>
+              </Link>
             </div>
           </div>
         </div>

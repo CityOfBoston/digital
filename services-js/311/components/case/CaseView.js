@@ -46,9 +46,9 @@ function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
         Request submitted successfully — {updatedAtString}
       </div>
       <div className="t--intro" style={{ fontStyle: 'normal' }}>
-        Thank you for submitting. Your case reference number is #{id}.
-        If you gave your email address, we’ll send you an email when it’s
-        resolved. You can also bookmark this page to check back on it.
+        Thank you for submitting. Your case reference number is #{id}. If you
+        gave your email address, we’ll send you an email when it’s resolved. You
+        can also bookmark this page to check back on it.
       </div>
     </div>
   );
@@ -89,9 +89,8 @@ function makeMapboxUrl(
 }
 
 export default function CaseView({ request, store, submitted, noMap }: Props) {
-  const waypointIcon = request.status === 'open'
-    ? waypoints.greenFilled
-    : waypoints.orangeFilled;
+  const waypointIcon =
+    request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
   return (
     <div>

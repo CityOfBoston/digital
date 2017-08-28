@@ -273,7 +273,7 @@ export default class AttributeDateField extends React.Component {
             name={question.code}
             id={question.code}
             className={`txt-f ${INPUT_STYLE.toString()} ${this.isDateValid ||
-              this.dateFocus
+            this.dateFocus
               ? ''
               : 'txt-f--err'}`}
             value={dateValue}
@@ -288,7 +288,7 @@ export default class AttributeDateField extends React.Component {
               placeholder="hh:mm am/pm"
               name={`${question.code} time`}
               className={`txt-f ${INPUT_STYLE.toString()} ${this.isTimeValid ||
-                this.timeFocus
+              this.timeFocus
                 ? ''
                 : 'txt-f--err'}`}
               value={timeValue}
@@ -307,7 +307,6 @@ export default class AttributeDateField extends React.Component {
               !this.timeFocus &&
               'Please use hh:mm am/pm to format your time. '}
           </span>
-
         </div>
       </div>
     );

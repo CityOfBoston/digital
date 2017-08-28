@@ -37,7 +37,9 @@ const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
 
 storiesOf('CaseView', module)
   .addDecorator(next =>
-    <div className="b-c" style={{ background: 'white' }}>{next()}</div>
+    <div className="b-c" style={{ background: 'white' }}>
+      {next()}
+    </div>
   )
   .add('Submitted', () =>
     <div style={{ backgroundColor: 'white' }}>

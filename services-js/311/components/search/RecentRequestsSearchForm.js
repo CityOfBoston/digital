@@ -49,7 +49,9 @@ export default class RecentRequestsSearchForm extends React.Component {
             onChange={this.handleSearchInput}
             className="sf-i-f"
           />
-          <button type="submit" className="sf-i-b">Search</button>
+          <button type="submit" className="sf-i-b">
+            Search
+          </button>
         </div>
       </form>
     );

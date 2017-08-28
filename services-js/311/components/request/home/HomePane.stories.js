@@ -41,7 +41,11 @@ const SERVICE_SUMMARIES = [
 ];
 
 storiesOf('HomePane', module)
-  .addDecorator(next => <div className="b-c">{next()}</div>)
+  .addDecorator(next =>
+    <div className="b-c">
+      {next()}
+    </div>
+  )
   .add('Home', () =>
     <FormDialog noPadding>
       <HomePane
