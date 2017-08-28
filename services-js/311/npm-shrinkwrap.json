@@ -664,6 +664,15 @@
             }
           }
         },
+        "graphql": {
+          "version": "0.10.5",
+          "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.10.5.tgz",
+          "integrity": "sha512-Q7cx22DiLhwHsEfUnUip1Ww/Vfx7FS0w6+iHItNuN61+XpegHSa3k5U0+6M5BcpavQImBwFiy0z3uYwY7cXMLQ==",
+          "dev": true,
+          "requires": {
+            "iterall": "1.1.1"
+          }
+        },
         "load-json-file": {
           "version": "2.0.0",
           "resolved": "https://registry.npmjs.org/load-json-file/-/load-json-file-2.0.0.tgz",
@@ -6982,19 +6991,11 @@
       "integrity": "sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg="
     },
     "graphql": {
-      "version": "0.10.5",
-      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.10.5.tgz",
-      "integrity": "sha512-Q7cx22DiLhwHsEfUnUip1Ww/Vfx7FS0w6+iHItNuN61+XpegHSa3k5U0+6M5BcpavQImBwFiy0z3uYwY7cXMLQ==",
+      "version": "0.11.1",
+      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.11.1.tgz",
+      "integrity": "sha512-6jucrsK21OSRmFgQz5cHtGuLEGbQE/hH6UEcDITzwua62PgwfsGdDJuvbt166kbw0jMijh92N+dG9/GiaP9U+g==",
       "requires": {
         "iterall": "1.1.1"
-      }
-    },
-    "graphql-server-hapi": {
-      "version": "1.1.2",
-      "resolved": "https://registry.npmjs.org/graphql-server-hapi/-/graphql-server-hapi-1.1.2.tgz",
-      "integrity": "sha1-7Or70uMp7H1T1CtJg1/X9cI4EW4=",
-      "requires": {
-        "apollo-server-hapi": "1.1.2"
       }
     },
     "graphql-tools": {

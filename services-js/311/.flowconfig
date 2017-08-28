@@ -12,6 +12,7 @@ node_modules/mapbox-gl/flow-typed/
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/graphql/.*
 <PROJECT_ROOT>/node_modules/jsonlint-lines-primitives/test/fails/.*
 <PROJECT_ROOT>/storybook-static/.*
+<PROJECT_ROOT>/node_modules/graphql/subscription/mapAsyncIterator.js.flow
 
 [options]
 module.file_ext=.graphql

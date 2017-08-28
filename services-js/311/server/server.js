@@ -7,7 +7,7 @@ import next from 'next';
 import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';
-import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
+import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
