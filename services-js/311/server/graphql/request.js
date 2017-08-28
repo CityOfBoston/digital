@@ -67,7 +67,8 @@ export const resolvers = {
     location: (r: Root) =>
       r.lat != null && r.long != null ? { lat: r.lat, lng: r.long } : null,
     requestedAt: (r: Root) => moment(r.requested_datetime).unix(),
-    updatedAt: (r: Root) => moment(r.updated_datetime).unix(),
+    updatedAt: (r: Root) =>
+      moment(r.updated_datetime || r.requested_datetime).unix(),
     // We format timezones on the server to avoid having to ship moment to the client
     requestedAtString: (r: Root, { format = '' }: DateStringArguments) =>
       moment(r.requested_datetime).tz('America/New_York').format(format),
