@@ -65,7 +65,7 @@
     "hapi": "^16.1.1",
     "hapi-accept-language": "^1.0.1",
     "html5-history-api": "^4.2.8",
-    "http-aws-es": "^2.0.5",
+    "http-aws-es": "^3.1.0",
     "http-status": "^1.0.1",
     "https-proxy-agent": "^2.0.0",
     "inert": "^4.2.0",

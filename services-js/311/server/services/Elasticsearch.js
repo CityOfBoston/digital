@@ -73,8 +73,6 @@ export default class Elasticsearch {
     }
 
     const httpProxyUrl = process.env.http_proxy;
-    // Unfortunately, these options are not currently respected by http-aws-es
-    // https://github.com/TheDeveloper/http-aws-es/pull/8
     const httpOptions = {
       agent: httpProxyUrl ? new HttpsProxyAgent(httpProxyUrl) : undefined,
     };

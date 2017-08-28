@@ -7590,9 +7590,9 @@
       }
     },
     "http-aws-es": {
-      "version": "2.0.5",
-      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-2.0.5.tgz",
-      "integrity": "sha512-Pid896Oo2QwgCHkwXEf/cANU+74/YniOp93Ac0qUyddTVnzkQK5LBy/3HQpKST/rcumHSJyN9ldZN9pDORDCNw==",
+      "version": "3.1.0",
+      "resolved": "https://registry.npmjs.org/http-aws-es/-/http-aws-es-3.1.0.tgz",
+      "integrity": "sha1-7Dp4A/IAE/0fEEQ63JM4oP9aSzk=",
       "requires": {
         "babel-runtime": "6.26.0"
       }
