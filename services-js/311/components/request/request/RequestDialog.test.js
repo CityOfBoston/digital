@@ -201,7 +201,13 @@ describe('methods', () => {
           lat: 42.359927299999995,
           lng: -71.0576853,
         },
-        mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+        images: [
+          {
+            tags: [],
+            originalUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+            squarePreviewUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+          },
+        ],
         address: 'City Hall Plaza, Boston, MA 02131',
         requestedAtString: 'March 7, 2017, 12:59 PM',
         updatedAtString: 'April 8, 2017, 12:59 PM',

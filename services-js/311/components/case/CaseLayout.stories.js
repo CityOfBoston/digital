@@ -17,11 +17,16 @@ const MOCK_REQUEST: Request = {
   status: 'closed',
   statusNotes:
     'Found Thanos. Smashed him into the floor with all of us standing around.',
-  location: {
-    lat: 42.359927299999995,
-    lng: -71.0576853,
-  },
-  mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+  location: null,
+  images: [
+    {
+      tags: [],
+      originalUrl:
+        'http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
+      squarePreviewUrl:
+        'http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
+    },
+  ],
   address: 'City Hall Plaza, Boston, MA 02131',
   requestedAtString: 'March 7, 2017, 12:59 PM',
   updatedAtString: 'April 8, 2017, 12:59 PM',
@@ -37,7 +42,12 @@ storiesOf('CaseLayout', module)
   .addDecorator(page)
   .add('Existing', () =>
     <CaseLayout
-      data={{ request: { ...MOCK_REQUEST, status: 'open', location: null } }}
+      data={{
+        request: {
+          ...MOCK_REQUEST,
+          status: 'open',
+        },
+      }}
       store={makeStore()}
     />
   )

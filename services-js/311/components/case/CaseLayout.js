@@ -12,7 +12,7 @@ import CaseView from './CaseView';
 import type { Request } from '../../data/types';
 import type { AppStore } from '../../data/store';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
-import loadRequest from '../../data/dao/load-request';
+import loadCase from '../../data/dao/load-case';
 
 type CaseData = {|
   request: ?Request,
@@ -36,7 +36,7 @@ export default class CaseLayout extends React.Component<Props> {
     const { id } = query;
 
     const loopbackGraphql = makeLoopbackGraphql(req);
-    const request = await loadRequest(loopbackGraphql, id);
+    const request = await loadCase(loopbackGraphql, id);
 
     if (res && !request) {
       res.statusCode = 404;

@@ -16,14 +16,18 @@ const NO_IMAGE_REQUEST: SearchCase = {
   address: '1 City Hall Plaza, Boston, MA',
   description: 'Thanos has fallen out of the sky onto the ground.',
   location: null,
-  mediaUrl: null,
+  images: [],
   status: 'open',
   requestedAtRelativeString: '2 days ago',
   requestedAt: 0,
 };
 
 const IMAGE_REQUEST = Object.assign({}, NO_IMAGE_REQUEST);
-IMAGE_REQUEST.mediaUrl = 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg';
+IMAGE_REQUEST.images = [
+  {
+    squareThumbnailUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+  },
+];
 
 storiesOf('RequestPopup', module)
   .addDecorator(next =>

@@ -4,13 +4,13 @@ import type { Context } from '.';
 import type { CreateServiceRequestArgs } from '../services/Open311';
 
 export const Schema = `
-input CreateRequestAttribute {
+input CreateCaseAttribute {
   code: String!
   value: String!
 }
 
 type Mutation {
-  createRequest (
+  createCase (
     code: String!
     description: String!
     firstName: String
@@ -21,12 +21,12 @@ type Mutation {
     addressId: String
     mediaUrl: String
     location: LatLngIn
-    attributes: [CreateRequestAttribute!]!
-  ): Request!
+    attributes: [CreateCaseAttribute!]!
+  ): Case!
 }
 `;
 
-type CreateRequestArgs = {|
+type CreateCaseArgs = {|
   code: string,
   description: string,
   firstName: ?string,
@@ -45,11 +45,7 @@ type CreateRequestArgs = {|
 
 export const resolvers = {
   Mutation: {
-    createRequest: (
-      root: mixed,
-      args: CreateRequestArgs,
-      { open311 }: Context
-    ) => {
+    createCase: (root: mixed, args: CreateCaseArgs, { open311 }: Context) => {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
         description: args.description,

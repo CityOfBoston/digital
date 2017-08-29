@@ -1,4 +1,4 @@
-query LoadRequest($id: String!) {
+query LoadCase($id: String!) {
   case(id: $id) {
     id
     service {
@@ -12,7 +12,11 @@ query LoadRequest($id: String!) {
       lat
       lng
     }
-    mediaUrl
+    images {
+      tags
+      originalUrl,
+      squarePreviewUrl,
+    }
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     updatedAtString(format: "MMMM D, YYYY, h:mm A")
   }

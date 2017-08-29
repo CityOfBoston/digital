@@ -7,10 +7,7 @@ import {
   Schema as MutationSchema,
   resolvers as mutationResolvers,
 } from './mutation';
-import {
-  Schema as RequestSchema,
-  resolvers as requestResolvers,
-} from './request';
+import { Schema as CaseSchema, resolvers as caseResolvers } from './case';
 import {
   Schema as ServiceSchema,
   resolvers as serviceResolvers,
@@ -44,14 +41,14 @@ export default makeExecutableSchema({
     SchemaDefinition,
     QuerySchema,
     MutationSchema,
-    RequestSchema,
+    CaseSchema,
     ServiceSchema,
     GeocoderSchema,
   ],
   resolvers: {
     ...queryResolvers,
     ...mutationResolvers,
-    ...requestResolvers,
+    ...caseResolvers,
     ...serviceResolvers,
     ...geocoderResolvers,
   },

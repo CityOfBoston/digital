@@ -180,7 +180,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "Request",
+                "name": "Case",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1049,7 +1049,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Request",
+          "name": "Case",
           "description": "",
           "fields": [
             {
@@ -1137,13 +1137,25 @@
               "deprecationReason": null
             },
             {
-              "name": "mediaUrl",
+              "name": "images",
               "description": "",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CaseImage",
+                      "ofType": null
+                    }
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1286,6 +1298,89 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CaseImage",
+          "description": "",
+          "fields": [
+            {
+              "name": "tags",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "squareThumbnailUrl",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "squarePreviewUrl",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "originalUrl",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "LatLng",
           "description": "",
           "fields": [
@@ -1386,7 +1481,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "Request",
+                      "name": "Case",
                       "ofType": null
                     }
                   }
@@ -1674,7 +1769,7 @@
           "description": "",
           "fields": [
             {
-              "name": "createRequest",
+              "name": "createCase",
               "description": "",
               "args": [
                 {
@@ -1799,7 +1894,7 @@
                         "name": null,
                         "ofType": {
                           "kind": "INPUT_OBJECT",
-                          "name": "CreateRequestAttribute",
+                          "name": "CreateCaseAttribute",
                           "ofType": null
                         }
                       }
@@ -1813,7 +1908,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "Request",
+                  "name": "Case",
                   "ofType": null
                 }
               },
@@ -1828,7 +1923,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateRequestAttribute",
+          "name": "CreateCaseAttribute",
           "description": "",
           "fields": null,
           "inputFields": [

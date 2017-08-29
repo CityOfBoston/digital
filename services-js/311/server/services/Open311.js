@@ -101,10 +101,14 @@ export type DetailedServiceRequest = {|
   status: string,
   long: ?number,
   lat: ?number,
-  media_url: ?Array<{|
-    url: string,
-    tags: string[],
-  |}>,
+  // Yes this can be an array or a string, depending on whether or not the case
+  // was imported.
+  media_url:
+    | ?Array<{|
+        url: string,
+        tags: string[],
+      |}>
+    | ?string,
   service_name: ?string,
   service_code: string,
   description: ?string,
@@ -308,7 +312,12 @@ export default class Open311 {
             response
           );
 
-          return [requestArr[0]];
+          // processResponse turns 404s into nulls
+          if (requestArr) {
+            return [requestArr[0]];
+          } else {
+            return [null];
+          }
         } else {
           transaction =
             opbeat && opbeat.startTransaction('bulk-request', 'Open311');

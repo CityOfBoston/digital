@@ -3,10 +3,10 @@
 // Friendlier versions of the auto-created GraphQL types
 
 import type {
-  LoadRequestQuery,
+  LoadCaseQuery,
   LoadServiceQuery,
   LoadServiceSummariesQuery,
-  SubmitRequestMutation,
+  SubmitCaseMutation,
   SearchCasesQuery,
   ServiceAttributeDatatype,
   SearchAddressQuery,
@@ -39,11 +39,8 @@ export type CalculatedAttribute = {
   }>,
 };
 
-export type SubmittedRequest = $PropertyType<
-  SubmitRequestMutation,
-  'createRequest'
->;
-export type Request = $NonMaybeType<$PropertyType<LoadRequestQuery, 'case'>>;
+export type SubmittedRequest = $PropertyType<SubmitCaseMutation, 'createCase'>;
+export type Request = $NonMaybeType<$PropertyType<LoadCaseQuery, 'case'>>;
 
 export type SearchCasesResult = $PropertyType<SearchCasesQuery, 'searchCases'>;
 export type SearchCase = $ArrayElement<

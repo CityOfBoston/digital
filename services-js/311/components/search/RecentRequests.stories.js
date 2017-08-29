@@ -22,7 +22,11 @@ export const MOCK_CASES: SearchCase[] = [
     },
     requestedAt: 1490804343,
     requestedAtRelativeString: '4 minutes ago',
-    mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+    images: [
+      {
+        squareThumbnailUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+      },
+    ],
   },
   {
     id: '17-000000002',
@@ -39,7 +43,7 @@ export const MOCK_CASES: SearchCase[] = [
     },
     requestedAt: 1490804343,
     requestedAtRelativeString: '8 months ago',
-    mediaUrl: null,
+    images: [],
   },
 ];
 

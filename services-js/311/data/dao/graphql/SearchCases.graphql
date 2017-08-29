@@ -6,7 +6,9 @@ query SearchCases($query: String, $topLeft: LatLngIn, $bottomRight: LatLngIn) {
       status
       description
       address
-      mediaUrl
+      images {
+        squareThumbnailUrl
+      }
       requestedAt
       requestedAtRelativeString
       location {

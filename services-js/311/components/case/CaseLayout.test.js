@@ -8,10 +8,9 @@ import { makeServerContext } from '../../lib/test/make-context';
 import CaseLayout from './CaseLayout';
 
 jest.mock('next/router');
-jest.mock('../../data/dao/load-request');
+jest.mock('../../data/dao/load-case');
 
-const loadRequest: JestMockFn = (require('../../data/dao/load-request'): any)
-  .default;
+const loadCase: JestMockFn = (require('../../data/dao/load-case'): any).default;
 
 const MOCK_API_KEYS = {
   mapbox: {
@@ -33,7 +32,13 @@ const MOCK_REQUEST: Request = {
     lat: 42.359927299999995,
     lng: -71.0576853,
   },
-  mediaUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+  images: [
+    {
+      tags: [],
+      originalUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+      squarePreviewUrl: 'https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg',
+    },
+  ],
   address: 'City Hall Plaza, Boston, MA 02131',
   requestedAtString: 'March 7, 2017, 12:59 PM',
   updatedAtString: 'April 8, 2017, 12:59 PM',
@@ -47,7 +52,7 @@ describe('case', () => {
     store = new AppStore();
     store.apiKeys = MOCK_API_KEYS;
 
-    loadRequest.mockReturnValue(Promise.resolve(MOCK_REQUEST));
+    loadCase.mockReturnValue(Promise.resolve(MOCK_REQUEST));
     const ctx = makeServerContext('/reports', { id: 'case-id' });
     data = (await CaseLayout.getInitialProps(ctx)).data;
   });
@@ -61,7 +66,7 @@ describe('case not found', () => {
   let ctx;
 
   beforeEach(async () => {
-    loadRequest.mockReturnValue(Promise.resolve(null));
+    loadCase.mockReturnValue(Promise.resolve(null));
     ctx = makeServerContext('/reports', { id: 'not-a-real-id' });
     await CaseLayout.getInitialProps(ctx);
   });

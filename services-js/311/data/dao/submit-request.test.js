@@ -1,12 +1,12 @@
 // @flow
 
 import type { Service } from '../types';
-import type { SubmitRequestMutationVariables } from './graphql/types';
-import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
+import type { SubmitCaseMutationVariables } from './graphql/types';
+import SubmitCaseGraphql from './graphql/SubmitCase.graphql';
 
 import RequestForm from '../store/RequestForm';
 
-import submitRequest from './submit-request';
+import submitCase from './submit-request';
 
 const COSMIC_SERVICE: Service = {
   name: 'Cosmic Incursion',
@@ -157,7 +157,7 @@ const COSMIC_SERVICE: Service = {
   ],
 };
 
-test('submitRequest', async () => {
+test('SubmitCase', async () => {
   const requestForm = new RequestForm(COSMIC_SERVICE);
   requestForm.description = 'Things are bad';
   requestForm.firstName = 'Carol';
@@ -175,7 +175,7 @@ test('submitRequest', async () => {
 
   const loopbackGraphql = jest.fn().mockReturnValue({});
 
-  await submitRequest(loopbackGraphql, {
+  await submitCase(loopbackGraphql, {
     service: COSMIC_SERVICE,
     description: requestForm.description,
     firstName: requestForm.firstName,
@@ -189,7 +189,7 @@ test('submitRequest', async () => {
     mediaUrl: requestForm.mediaUrl,
   });
 
-  const mutationVariables: SubmitRequestMutationVariables = {
+  const mutationVariables: SubmitCaseMutationVariables = {
     code: 'CSMCINC',
     description: 'Things are bad',
     firstName: 'Carol',
@@ -209,7 +209,7 @@ test('submitRequest', async () => {
   };
 
   expect(loopbackGraphql).toHaveBeenCalledWith(
-    SubmitRequestGraphql,
+    SubmitCaseGraphql,
     mutationVariables
   );
 });

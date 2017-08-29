@@ -3,7 +3,7 @@
 
 import type { Context } from '.';
 import type { Service } from '../services/Open311';
-import type { Root as Request } from './request';
+import type { Root as CaseRoot } from './case';
 
 export const Schema = `
 type LatLng {
@@ -17,7 +17,7 @@ input LatLngIn {
 }
 
 type CaseSearchResults {
-  cases: [Request!]!
+  cases: [Case!]!
   query: String!
 }
 
@@ -26,7 +26,7 @@ type Query {
   topServices(first: Int): [Service!]!
   servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
   service(code: String!): Service
-  case(id: String!): Request
+  case(id: String!): Case
   searchCases(query: String, topLeft: LatLngIn, bottomRight: LatLngIn): CaseSearchResults!
   geocoder: Geocoder!
 }
@@ -51,7 +51,7 @@ type SearchCasesArgs = {
 };
 
 type CaseSearchResults = {
-  cases: Request[],
+  cases: CaseRoot[],
   query: string,
 };
 
@@ -93,6 +93,7 @@ export const resolvers = {
       args: mixed,
       { open311 }: Context
     ): Promise<Service[]> => open311.services(),
+
     topServices: async (
       root: mixed,
       { first }: { first: ?number },
@@ -103,21 +104,25 @@ export const resolvers = {
           ({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1
         )
         .slice(0, first || TOP_SERVICE_CODES.length),
+
     servicesForDescription: (
       root: mixed,
       args: SuggestionsArgs,
       context: Context
     ): Promise<Service[]> => serviceSuggestions(context, args),
+
     service: (
       root: mixed,
       { code }: { code: string },
       { open311 }: Context
     ): Promise<?Service> => open311.service(code),
+
     case: (
       root: mixed,
       { id }: { id: string },
       { open311 }: Context
-    ): Promise<?Request> => open311.request(id),
+    ): Promise<?CaseRoot> => open311.request(id),
+
     searchCases: async (
       root: mixed,
       { query, topLeft, bottomRight }: SearchCasesArgs,

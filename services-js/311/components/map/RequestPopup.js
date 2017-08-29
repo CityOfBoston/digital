@@ -76,10 +76,12 @@ export default function RequestPopup({ caseInfo }: Props) {
   return (
     <Link href={`/reports?id=${caseInfo.id}`} as={`/reports/${caseInfo.id}`}>
       <a className={`p-a200 ${CONTAINER_STYLE.toString()}`}>
-        {caseInfo.mediaUrl &&
+        {caseInfo.images.length > 0 &&
           <div
             className={THUMBNAIL_SYLE}
-            style={{ backgroundImage: `url(${caseInfo.mediaUrl})` }}
+            style={{
+              backgroundImage: `url(${caseInfo.images[0].squareThumbnailUrl})`,
+            }}
           />}
         <div className={INFO_CONTAINER_STYLE.toString()}>
           <div className={`t--intro ${SERVICE_NAME_STYLE.toString()}`}>

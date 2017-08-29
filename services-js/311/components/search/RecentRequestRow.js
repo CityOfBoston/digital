@@ -146,7 +146,11 @@ export default class RecentRequestRow extends React.Component<Props> {
     const defaultUrl = this.selected
       ? '/assets/img/311-logo-grey-on-white.svg'
       : '/assets/img/311-logo-white-on-grey.svg';
-    const mediaUrl = (this.showImage && request.mediaUrl) || '';
+    const thumbnailUrl =
+      (this.showImage &&
+        request.images.length &&
+        request.images[0].squareThumbnailUrl) ||
+      '';
 
     let statusStyle;
     let statusText;
@@ -178,7 +182,7 @@ export default class RecentRequestRow extends React.Component<Props> {
           >
             <div
               className={THUMBNAIL_SYLE}
-              style={{ backgroundImage: `url(${mediaUrl})` }}
+              style={{ backgroundImage: `url(${thumbnailUrl})` }}
             />
           </div>
           <div className={REQUEST_INFO_STYLE}>

@@ -32,7 +32,7 @@ export const MOCK_REQUEST = {
   },
   requestedAt: 1490804343,
   requestedAtRelativeString: '4 minutes ago',
-  mediaUrl: null,
+  images: [],
 };
 
 let map;

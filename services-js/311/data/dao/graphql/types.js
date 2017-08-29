@@ -45,16 +45,16 @@ export type LatLngIn = {|
   lng: number,
 |};
 
-export type CreateRequestAttribute = {|
+export type CreateCaseAttribute = {|
   code: string,
   value: string,
 |};
 
-export type LoadRequestQueryVariables = {|
+export type LoadCaseQueryVariables = {|
   id: string,
 |};
 
-export type LoadRequestQuery = {|
+export type LoadCaseQuery = {|
   case: ? {|
     id: string,
     service: {|
@@ -68,7 +68,11 @@ export type LoadRequestQuery = {|
       lat: number,
       lng: number,
     |},
-    mediaUrl: ?string,
+    images:  Array< {|
+      tags: Array< string >,
+      originalUrl: string,
+      squarePreviewUrl: string,
+    |} >,
     requestedAtString: string,
     updatedAtString: string,
   |},
@@ -225,7 +229,9 @@ export type SearchCasesQuery = {|
       status: string,
       description: ?string,
       address: ?string,
-      mediaUrl: ?string,
+      images:  Array< {|
+        squareThumbnailUrl: string,
+      |} >,
       requestedAt: number,
       requestedAtRelativeString: string,
       location: ? {|
@@ -239,7 +245,7 @@ export type SearchCasesQuery = {|
   |},
 |};
 
-export type SubmitRequestMutationVariables = {|
+export type SubmitCaseMutationVariables = {|
   code: string,
   description: string,
   firstName?: ?string,
@@ -250,11 +256,11 @@ export type SubmitRequestMutationVariables = {|
   addressId?: ?string,
   location?: ?LatLngIn,
   mediaUrl?: ?string,
-  attributes: Array< CreateRequestAttribute >,
+  attributes: Array< CreateCaseAttribute >,
 |};
 
-export type SubmitRequestMutation = {|
-  createRequest: {|
+export type SubmitCaseMutation = {|
+  createCase: {|
     id: string,
     service: {|
       name: string,
@@ -267,7 +273,11 @@ export type SubmitRequestMutation = {|
       lat: number,
       lng: number,
     |},
-    mediaUrl: ?string,
+    images:  Array< {|
+      tags: Array< string >,
+      originalUrl: string,
+      squarePreviewUrl: string,
+    |} >,
     requestedAtString: string,
     updatedAtString: string,
   |},

@@ -9,7 +9,7 @@ import type { AppStore } from '../../data/store';
 
 import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
-import { MEDIA_LARGE } from '../style-constants';
+import { MEDIA_LARGE, CHARLES_BLUE } from '../style-constants';
 
 export type DefaultProps = {|
   submitted: boolean,
@@ -27,8 +27,22 @@ const IMG_STYLE = css({
   display: 'block',
   width: '100%',
   [MEDIA_LARGE]: {
-    minHeight: 300,
+    minHeight: 220,
   },
+});
+
+const IMG_WRAPPER_STYLE = css({
+  display: 'block',
+  position: 'relative',
+});
+
+const IMG_LABEL_STYLE = css({
+  position: 'absolute',
+  color: CHARLES_BLUE,
+  width: '100%',
+  bottom: 0,
+  background: 'rgba(255, 255, 255, .8)',
+  fontWeight: 'bold',
 });
 
 const MAP_WRAPPER_STYLE = css({
@@ -65,7 +79,7 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
         Resolution — {updatedAtString}
       </div>
       <div className="t--intro" style={{ fontStyle: 'normal' }}>
-        {statusNotes}
+        {statusNotes || 'Case closed.'}
       </div>
     </div>
   );
@@ -74,7 +88,8 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
 function makeMapboxUrl(
   store: AppStore,
   request: Request,
-  size: number
+  width: number,
+  height: number
 ): string {
   const { apiKeys: { mapbox } } = store;
   const { location } = request;
@@ -83,7 +98,7 @@ function makeMapboxUrl(
     return '';
   }
 
-  return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${size}x${size}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
+  return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${width}x${height}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
     mapbox.accessToken
   )}`;
 }
@@ -91,6 +106,8 @@ function makeMapboxUrl(
 export default function CaseView({ request, store, submitted, noMap }: Props) {
   const waypointIcon =
     request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
+
+  const longMap = request.images.length >= 2;
 
   return (
     <div>
@@ -125,14 +142,30 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
           </div>
         </div>}
 
-      <div className="g m-v500">
+      {request.location &&
+        !noMap &&
+        longMap &&
+        <div className={MAP_WRAPPER_STYLE}>
+          <img
+            className={`br br-a150`}
+            src={makeMapboxUrl(store, request, 1000, 220)}
+            alt={`Map of ${request.address || ''}`}
+          />
+          <div
+            className={`${WAYPOINT_STYLE.toString()}`}
+            dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+          />
+        </div>}
+
+      <div className="g m-v400">
         {request.location &&
           !noMap &&
+          !longMap &&
           <div className="g--6">
             <div className={MAP_WRAPPER_STYLE}>
               <img
                 className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
-                src={makeMapboxUrl(store, request, 440)}
+                src={makeMapboxUrl(store, request, 440, 440)}
                 alt={`Map of ${request.address || ''}`}
               />
               <div
@@ -142,20 +175,36 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
             </div>
           </div>}
 
-        {request.mediaUrl &&
-          <div className="g--6">
-            <a
-              href={request.mediaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+        {request.images.length > 0 &&
+          request.images.map(img =>
+            <div
+              className={request.images.length < 3 ? 'g--6' : 'g--4'}
+              key={img.originalUrl}
             >
-              <img
-                className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
-                alt="Submission"
-                src={request.mediaUrl}
-              />
-            </a>
-          </div>}
+              <a
+                href={img.originalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${IMG_WRAPPER_STYLE.toString()} br br-a150 m-b500`}
+              >
+                <img
+                  className={`${IMG_STYLE.toString()}`}
+                  alt={
+                    img.tags.join(', ') ||
+                    'Photo describing request or resolution'
+                  }
+                  src={img.squarePreviewUrl}
+                />
+
+                {img.tags.length > 0 &&
+                  <div
+                    className={`${IMG_LABEL_STYLE.toString()} p-a300 t--subtitle tt-u`}
+                  >
+                    {img.tags.join(', ')}
+                  </div>}
+              </a>
+            </div>
+          )}
       </div>
     </div>
   );

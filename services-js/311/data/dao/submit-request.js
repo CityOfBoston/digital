@@ -4,10 +4,10 @@ import type { Service, SubmittedRequest } from '../types';
 import type Question from '../store/Question';
 import type { LoopbackGraphql } from './loopback-graphql';
 import type {
-  SubmitRequestMutationVariables,
-  SubmitRequestMutation,
+  SubmitCaseMutationVariables,
+  SubmitCaseMutation,
 } from './graphql/types';
-import SubmitRequestGraphql from './graphql/SubmitRequest.graphql';
+import SubmitCaseGraphql from './graphql/SubmitCase.graphql';
 
 type Args = {|
   service: Service,
@@ -27,7 +27,7 @@ type Args = {|
 // are taken from Store but are split out to clarify what values are necessary.
 //
 // Only submits valid values for the questions.
-export default async function submitRequest(
+export default async function submitCase(
   loopbackGraphql: LoopbackGraphql,
   {
     service,
@@ -62,7 +62,7 @@ export default async function submitRequest(
     }
   });
 
-  const vars: SubmitRequestMutationVariables = {
+  const vars: SubmitCaseMutationVariables = {
     code: service.code,
     description,
     firstName,
@@ -76,9 +76,9 @@ export default async function submitRequest(
     attributes,
   };
 
-  const mutation: SubmitRequestMutation = await loopbackGraphql(
-    SubmitRequestGraphql,
+  const mutation: SubmitCaseMutation = await loopbackGraphql(
+    SubmitCaseGraphql,
     vars
   );
-  return mutation.createRequest;
+  return mutation.createCase;
 }

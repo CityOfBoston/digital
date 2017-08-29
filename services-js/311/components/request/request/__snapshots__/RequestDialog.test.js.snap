@@ -82,11 +82,17 @@ exports[`methods submitRequest success 2`] = `
           "address": "City Hall Plaza, Boston, MA 02131",
           "description": "I think that Thanos is here",
           "id": "17-000000001",
+          "images": Array [
+            Object {
+              "originalUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
+              "squarePreviewUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
+              "tags": Array [],
+            },
+          ],
           "location": Object {
             "lat": 42.359927299999995,
             "lng": -71.0576853,
           },
-          "mediaUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
           "requestedAtString": "March 7, 2017, 12:59 PM",
           "service": Object {
             "name": "Cosmic Intervention",

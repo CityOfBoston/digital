@@ -1,4 +1,4 @@
-mutation SubmitRequest(
+mutation SubmitCase(
   $code: String!,
   $description: String!,
   $firstName: String,
@@ -9,8 +9,8 @@ mutation SubmitRequest(
   $addressId: String,
   $location: LatLngIn,
   $mediaUrl: String,
-  $attributes: [CreateRequestAttribute!]!) {
-  createRequest(
+  $attributes: [CreateCaseAttribute!]!) {
+  createCase(
     code: $code,
     description: $description,
     firstName: $firstName,
@@ -35,7 +35,11 @@ mutation SubmitRequest(
       lat
       lng
     }
-    mediaUrl
+    images {
+      tags
+      originalUrl
+      squarePreviewUrl
+    }
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     updatedAtString(format: "MMMM D, YYYY, h:mm A")
   }

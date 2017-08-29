@@ -22,7 +22,7 @@ export const MOCK_CASE: SearchCase = {
   },
   requestedAt: 1490804343,
   requestedAtRelativeString: '4 minutes ago',
-  mediaUrl: null,
+  images: [],
 };
 
 const MOCK_SEARCH_CASES_RESULT = {
