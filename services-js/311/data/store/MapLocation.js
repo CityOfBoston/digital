@@ -39,9 +39,10 @@ export default class MapLocation {
       return;
     }
 
-    const place = await searchAddress(this.loopbackGraphql, query);
+    const places = await searchAddress(this.loopbackGraphql, query);
 
-    this.handleSearchResult(place);
+    // TODO(finh): Multiple places
+    this.handleSearchResult(places[0]);
   }
 
   @action

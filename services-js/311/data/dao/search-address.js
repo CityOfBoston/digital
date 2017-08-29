@@ -13,7 +13,7 @@ import SearchAddressGraphql from './graphql/SearchAddress.graphql';
 export default async function searchAddress(
   loopbackGraphql: LoopbackGraphql,
   query: string
-): Promise<?SearchAddressPlace> {
+): Promise<Array<SearchAddressPlace>> {
   const args: SearchAddressQueryVariables = { query };
 
   const response: SearchAddressQuery = await loopbackGraphql(

@@ -5,6 +5,9 @@ import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 
+// Later is higher-priority so that index -1 is worst
+const ADDR_TYPE_PRIORITY = ['StreetName', 'StreetAddress', 'PointAddress'];
+
 type SpatialReference = {
   wkid: number,
   latestWkid: number,
@@ -43,6 +46,7 @@ type FindAddressCandidate = {
   score: number,
   attributes: {
     Loc_name: string,
+    Match_addr: string,
     Ref_ID: number,
     User_fld: string,
     Addr_type: string,
@@ -148,8 +152,7 @@ export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
         b.attributes.FULL_STREET_NAME
       ) ||
       a.attributes.STREET_NUMBER_SORT - b.attributes.STREET_NUMBER_SORT ||
-      // cast to "any" because Flow doesn't have the arguments
-      (a.attributes.UNIT.localeCompare: any)(b.attributes.UNIT, 'en', {
+      a.attributes.UNIT.localeCompare(b.attributes.UNIT, 'en', {
         numeric: true,
       })
     );
@@ -239,9 +242,9 @@ export default class ArcGIS {
       // We take the address from the locator and send it over to
       // search so we can get the building ID and SAM id, which are
       // not sent in the reverse geocode response.
-      const place = await this.search(geocode.address.Match_addr);
-      if (place) {
-        return place;
+      const places = await this.search(geocode.address.Match_addr);
+      if (places.length) {
+        return places[0];
       } else {
         // Just in case we still want to return something
         return {
@@ -255,7 +258,7 @@ export default class ArcGIS {
     }
   }
 
-  async search(query: string): Promise<?SearchResult> {
+  async search(query: string): Promise<Array<SearchResult>> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('findAddressCandidates', 'ArcGIS');
@@ -287,12 +290,16 @@ export default class ArcGIS {
     const candidates = findAddressResponse.candidates.filter(
       c => c.attributes.Loc_name !== 'SAMAddressSubU'
     );
-    candidates.sort((a, b) => b.score - a.score);
 
-    const candidate = candidates[0];
-    if (!candidate) {
-      return null;
-    } else {
+    candidates.sort(
+      (a, b) =>
+        b.score - a.score ||
+        ADDR_TYPE_PRIORITY.indexOf(b.attributes.Addr_type) -
+          ADDR_TYPE_PRIORITY.indexOf(a.attributes.Addr_type) ||
+        a.attributes.Match_addr.localeCompare(b.attributes.Match_addr)
+    );
+
+    return candidates.map(candidate => {
       const { x: lng, y: lat } = candidate.location;
       return {
         location: { lat, lng },
@@ -303,7 +310,7 @@ export default class ArcGIS {
         buildingId: candidate.attributes.User_fld || null,
         exact: candidate.attributes.Addr_type === 'PointAddress',
       };
-    }
+    });
   }
 
   async lookupUnits(buildingId: string): Promise<Array<UnitResult>> {

@@ -47,7 +47,7 @@ export type SearchCase = $ArrayElement<
   $PropertyType<SearchCasesResult, 'cases'>
 >;
 
-export type SearchAddressPlace = $NonMaybeType<
+export type SearchAddressPlace = $ArrayElement<
   $PropertyType<$PropertyType<SearchAddressQuery, 'geocoder'>, 'search'>
 >;
 export type AddressUnit = $NonMaybeType<

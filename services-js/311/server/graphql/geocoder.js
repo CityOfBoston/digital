@@ -6,7 +6,7 @@ import type { UnitResult } from '../services/ArcGIS';
 export const Schema = `
 type Geocoder {
   reverse(location: LatLngIn!): Place
-  search(query: String!): Place
+  search(query: String!): [Place!]!
 }
 
 type Place {
@@ -68,7 +68,7 @@ export const resolvers = {
       s: Root,
       { query }: SearchArgs,
       { arcgis }: Context
-    ): Promise<?Place> => arcgis.search(query),
+    ): Promise<Array<Place>> => arcgis.search(query),
   },
 
   Place: {

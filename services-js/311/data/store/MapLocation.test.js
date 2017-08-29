@@ -13,7 +13,7 @@ const reverseGeocode: JestMockFn = (require('../dao/reverse-geocode'): any)
 describe('searching', () => {
   let mapLocation;
   let loopbackGraphql;
-  let resolveGraphql: (place: ?SearchAddressPlace) => void;
+  let resolveGraphql: (places: Array<SearchAddressPlace>) => void;
 
   beforeEach(() => {
     searchAddress.mockReturnValue(
@@ -59,15 +59,17 @@ describe('searching', () => {
       '121 devonshire'
     );
 
-    await resolveGraphql({
-      address: '121 Devonshire Street, Boston, MA, 02108',
-      location: {
-        lat: 42.35700999905103,
-        lng: -71.05761000345488,
+    await resolveGraphql([
+      {
+        address: '121 Devonshire Street, Boston, MA, 02108',
+        location: {
+          lat: 42.35700999905103,
+          lng: -71.05761000345488,
+        },
+        addressId: '12345',
+        units: [],
       },
-      addressId: '12345',
-      units: [],
-    });
+    ]);
 
     expect(mapLocation.address).toEqual(
       '121 Devonshire Street, Boston, MA, 02108'
@@ -90,7 +92,7 @@ describe('searching', () => {
 
     expect(searchAddress).toHaveBeenCalledWith(loopbackGraphql, '8888 milk st');
 
-    await resolveGraphql(null);
+    await resolveGraphql([]);
 
     expect(mapLocation.address).toEqual('');
     expect(mapLocation.location).toEqual(null);

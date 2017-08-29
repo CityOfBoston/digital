@@ -34,7 +34,7 @@ input CreateCaseAttribute {
 
 type Geocoder {
   reverse(location: LatLngIn!): Place
-  search(query: String!): Place
+  search(query: String!): [Place!]!
 }
 
 type LatLng {

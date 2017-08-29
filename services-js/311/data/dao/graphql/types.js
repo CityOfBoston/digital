@@ -198,7 +198,7 @@ export type SearchAddressQueryVariables = {|
 
 export type SearchAddressQuery = {|
   geocoder: {|
-    search: ? {|
+    search:  Array< {|
       location: {|
         lat: number,
         lng: number,
@@ -211,7 +211,7 @@ export type SearchAddressQuery = {|
         unit: string,
         addressId: string,
       |} >,
-    |},
+    |} >,
   |},
 |};
 
