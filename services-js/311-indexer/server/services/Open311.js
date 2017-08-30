@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
+import moment from 'moment';
 
 export type Case = {|
   service_request_id: string,
@@ -87,6 +88,15 @@ export default class Open311 {
     const params = new URLSearchParams();
 
     if (startDate && endDate) {
+      // We need a range of <= 90 days. Since the results are sorted from the
+      // endDate, we just move up the startDate. This will generally be ok for
+      // bulk import, since it shouldn't be the case where there's a 90 day gap
+      // in cases.
+      const ninetyDaysBefore = moment(endDate).subtract(90, 'days');
+      if (moment(startDate).isBefore(ninetyDaysBefore)) {
+        startDate = ninetyDaysBefore.toDate();
+      }
+
       params.append('start_date', startDate.toISOString());
       params.append('end_date', endDate.toISOString());
     }
