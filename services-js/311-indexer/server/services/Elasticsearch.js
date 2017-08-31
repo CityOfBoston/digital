@@ -19,6 +19,7 @@ type IndexedCase = {
   status_notes: string,
   requested_datetime: string,
   updated_datetime: string,
+  media_url: ?string,
   // We store the Salesforce replay_id in the record so we can pull the latest
   // replay_id when we start up, to avoid always processing everything from the
   // past 24 hours.
@@ -74,6 +75,7 @@ function convertCaseToDocument(c: Case, replayId: ?number): IndexedCase {
     status_notes: c.status_notes || '',
     requested_datetime: c.requested_datetime,
     updated_datetime: c.updated_datetime,
+    media_url: c.media_url,
     replay_id: replayId,
   };
 }
