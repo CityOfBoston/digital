@@ -26,7 +26,7 @@ exports[`choose page rendering 1`] = `
         }
       >
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"
@@ -142,7 +142,7 @@ exports[`home page rendering 1`] = `
         className="p-a300 p-a800--xl"
       >
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"

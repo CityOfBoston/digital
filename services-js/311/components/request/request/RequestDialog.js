@@ -36,6 +36,7 @@ import CaseView from '../../case/CaseView';
 export type InitialProps = {|
   stage: 'questions' | 'location' | 'contact' | 'submit',
   service: ?Service,
+  serviceCode: string,
   description: string,
 |};
 
@@ -96,6 +97,7 @@ export default class RequestDialog extends React.Component<Props> {
       case 'contact':
       case 'submit':
         return {
+          serviceCode: code,
           service,
           stage,
           description: description || '',
@@ -326,21 +328,24 @@ export default class RequestDialog extends React.Component<Props> {
 
   renderContent() {
     const { requestSubmission, requestForm } = this;
-    const { store, stage, service } = this.props;
+    const { store, stage, service, serviceCode } = this.props;
 
     if (!service) {
-      return <SectionHeader>Service not found</SectionHeader>;
-    }
+      return (
+        <div style={{ minHeight: '50vh' }}>
+          <SectionHeader>Service not found</SectionHeader>
 
-    // TODO(finh): Bring back service errors
-    // if (currentServiceError) {
-    //   return (
-    //     <div>
-    //       <SectionHeader>Error loading service</SectionHeader>
-    //       <ScopedError error={currentServiceError} />
-    //     </div>
-    //   );
-    // }
+          <div className="m-v400 t--intro">
+            We couldn’t load a service for code <strong>{serviceCode}</strong>.
+          </div>
+
+          <div className="m-v400 t--info">
+            The link you followed may be outdated, or this service is not
+            available at the moment.
+          </div>
+        </div>
+      );
+    }
 
     switch (stage) {
       case 'questions': {

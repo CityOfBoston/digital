@@ -105,7 +105,7 @@ exports[`existing service page rendering phone 1`] = `
           onSubmit={[Function]}
         >
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -689,13 +689,35 @@ exports[`missing service page rendering 1`] = `
         style={Object {}}
       >
         <div
-          className="sh sh--y"
+          style={
+            Object {
+              "minHeight": "50vh",
+            }
+          }
         >
-          <h1
-            className="sh-title"
+          <div
+            className=" sh sh--y "
           >
-            Service not found
-          </h1>
+            <h1
+              className="sh-title"
+            >
+              Service not found
+            </h1>
+          </div>
+          <div
+            className="m-v400 t--intro"
+          >
+            We couldn’t load a service for code 
+            <strong>
+              CSMCINC
+            </strong>
+            .
+          </div>
+          <div
+            className="m-v400 t--info"
+          >
+            The link you followed may be outdated, or this service is not available at the moment.
+          </div>
         </div>
       </div>
     </div>

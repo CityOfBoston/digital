@@ -27,19 +27,21 @@ type Props = {|
   narrow?: boolean,
   noPadding?: boolean,
   children?: any,
+  style?: { [key: string]: string },
 |};
 
 export default function FormDialog(
-  { narrow, noPadding, children }: Props = {
+  { narrow, noPadding, children, style }: Props = {
     narrow: false,
     noPadding: false,
     children: null,
+    style: {},
   }
 ) {
-  const style = {};
+  const combinedStyle = { ...style };
 
   if (narrow) {
-    style.maxWidth = 800;
+    combinedStyle.maxWidth = 800;
   }
 
   const paddingClasses = noPadding ? '' : 'p-a300 p-a800--xl';
@@ -47,7 +49,7 @@ export default function FormDialog(
   return (
     <div
       className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`}
-      style={style}
+      style={combinedStyle}
     >
       {children}
     </div>

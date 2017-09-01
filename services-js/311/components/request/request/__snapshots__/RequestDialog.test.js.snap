@@ -205,7 +205,7 @@ exports[`rendering contact 1`] = `
     >
       <div>
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"
@@ -499,7 +499,7 @@ exports[`rendering questions 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"

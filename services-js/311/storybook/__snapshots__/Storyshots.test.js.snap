@@ -952,7 +952,62 @@ exports[`Storyshots CaseLayout 404 1`] = `
       <div
         className="b-c"
         role="main"
-      />
+      >
+        <div
+          style={
+            Object {
+              "minHeight": "50vh",
+            }
+          }
+        >
+          <div
+            className=" sh sh--y "
+          >
+            <h1
+              className="sh-title"
+            >
+              Case not found
+            </h1>
+          </div>
+          <div
+            className="m-v400 t--intro"
+          >
+            We couldn’t find case number 
+            <strong>
+              17-000000001
+            </strong>
+            .
+          </div>
+          <div
+            className="m-v400 t--info"
+          >
+            Please double-check the case number and try again.
+          </div>
+          <div
+            className="m-v400 t--info"
+          >
+            Some cases are not available on this website because they contain sensitive or private information.
+          </div>
+          <div
+            className="m-v400 t--info"
+          >
+            If you need help finding the status of your case, please call our operators at 
+            <a
+              href="tel:311"
+            >
+              311
+            </a>
+             (outside of Boston, dial
+             
+            <a
+              href="tel:+16176354501"
+            >
+              617-635-4500
+            </a>
+            ).
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <footer
@@ -1313,7 +1368,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
         <div>
           <div>
             <div
-              className="sh sh--y"
+              className=" sh sh--y "
             >
               <h1
                 className="sh-title"
@@ -1437,7 +1492,7 @@ exports[`Storyshots CaseView Open - 1 Image 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -1539,7 +1594,7 @@ exports[`Storyshots CaseView Open - 2 images 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -1662,7 +1717,7 @@ exports[`Storyshots CaseView Open - 3 images 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -1801,7 +1856,7 @@ exports[`Storyshots CaseView Open - 4 images 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -1956,7 +2011,7 @@ exports[`Storyshots CaseView Open - Just location 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -2036,7 +2091,7 @@ exports[`Storyshots CaseView Open - No info 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -2116,7 +2171,7 @@ exports[`Storyshots CaseView Resolved 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -2243,7 +2298,7 @@ exports[`Storyshots CaseView Submitted 1`] = `
       <div>
         <div>
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -2369,7 +2424,7 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
       }
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -2486,7 +2541,7 @@ exports[`Storyshots ChooseServicePane No matches 1`] = `
       }
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -2588,7 +2643,7 @@ exports[`Storyshots ChooseServicePane Some matches 1`] = `
       }
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -2933,7 +2988,7 @@ exports[`Storyshots ContactPane Empty 1`] = `
     >
       <div>
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"
@@ -3149,7 +3204,7 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
     >
       <div>
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"
@@ -3421,6 +3476,786 @@ exports[`Storyshots DescriptionBox Initial Text 1`] = `
       }
     />
   </div>
+</div>
+`;
+
+exports[`Storyshots ErrorLayout 404 1`] = `
+<div>
+  <input
+    aria-hidden="true"
+    className="brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+        <div class=\\"nv-m-h\\">
+            <div class=\\"nv-m-h-ic\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+            </div>
+            <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+        </div>
+        <div class=\\"nv-m-c\\">
+          
+      
+      <ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-184936\\"><a href=\\"https://www.boston.gov/programs-initiatives\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Programs and Initiatives</a></li>
+      <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/elections\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/cabinet-directory\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cabinet Directory</a></li>
+      </ul></li>
+      <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-183211\\"><a href=\\"https://www.boston.gov/neighborhoods\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171786\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community Centers</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171791\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-171811\\"><a href=\\"https://www.boston.gov/cemeteries\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+      </ul></li>
+      <li class=\\"nv-m-c-l-i is-l last leaf menu-mlid-212956\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+      </ul>  </div>
+        <script>
+        'use strict'
+      
+        var BostonMenu = (function () {
+          // Set height
+          var secondaryNavs;
+          var secondaryTriggers;
+          var listItems;
+          var secondaryNavItems;
+          var backTriggers;
+          var burger;
+          var placeholder;
+      
+          function handleBurgerChange(ev) {
+            document.body.classList.toggle('no-s');
+          }
+      
+          function handleTrigger(ev, method) {
+            var backTrigger;
+            var secondaryNav;
+            var trigger = ev.target;
+            var parentItem = method === 'reset' ? trigger.parentNode.parentNode.parentNode : trigger.parentNode;
+            var title = document.getElementById('nv-m-h-t');
+      
+            // Find the secondary nav and trigger
+            for (var i = 0; i < parentItem.childNodes.length; i++) {
+              if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-l-l')) {
+                secondaryNav = parentItem.childNodes[i];
+              }
+      
+              if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-a')) {
+                trigger = parentItem.childNodes[i];
+              }
+            }
+      
+            // Find the backTrigger
+            for (var i = 0; i < secondaryNav.childNodes.length; i++) {
+              if (secondaryNav.childNodes[i].classList && secondaryNav.childNodes[i].classList.contains('nv-m-c-bc')) {
+                backTrigger = secondaryNav.childNodes[i];
+              }
+            }
+      
+            if (method === 'nav') {
+              for (var i = 0; i < listItems.length; i++) {
+                if (parentItem != listItems[i]) {
+                  listItems[i].classList.add('nv-m-c-l-i--h');
+                }
+              }
+      
+              // Hide the trigger
+              trigger.classList.add('nv-m-c-a--h');
+      
+              // Show the secondary nav
+              secondaryNav.classList.remove('nv-m-c-l-l--h');
+      
+              // Show the back button
+              backTrigger.classList.remove('nv-m-c-b--h');
+      
+              // Update the title
+              title.innerHTML = trigger.innerHTML;
+            } else {
+              for (var i = 0; i < listItems.length; i++) {
+                if (parentItem != listItems[i]) {
+                  listItems[i].classList.remove('nv-m-c-l-i--h');
+                }
+              }
+      
+              // Hide the trigger
+              trigger.classList.remove('nv-m-c-a--h');
+      
+              // Show the secondary nav
+              secondaryNav.classList.add('nv-m-c-l-l--h');
+      
+              // Show the back button
+              backTrigger.classList.add('nv-m-c-b--h');
+      
+              // Update the title
+              title.innerHTML = placeholder;
+            }
+          }
+      
+          function start() {
+            burger = document.getElementById('brg-tr');
+            listItems = document.querySelectorAll('.nv-m-c-l-i');
+            backTriggers = document.querySelectorAll('.nv-m-c-b');
+            secondaryTriggers = document.querySelectorAll('.nolink');
+            secondaryNavs = document.querySelectorAll('.nv-m-c-l-l');
+            secondaryNavItems = document.querySelectorAll('.nv-m-c-a--s');
+      
+            placeholder = document.getElementById('nv-m-h-t').innerHTML;
+      
+            // Set the secondary navigation menus to hidden
+            for (var i = 0; i < secondaryNavs.length; i++) {
+              secondaryNavs[i].classList.add('nv-m-c-l-l--h');
+            }
+      
+            // Get the secondary navigation triggers ready
+            for (var i = 0; i < secondaryTriggers.length; i++) {
+              // Set to active
+              secondaryTriggers[i].classList.add('nolink--a');
+      
+              // Handle clicks
+              secondaryTriggers[i].addEventListener('click', function(ev) {
+                ev.preventDefault();
+      
+                handleTrigger(ev, 'nav');
+              });
+            }
+      
+            // Get the secondary navigation triggers ready
+            for (var i = 0; i < backTriggers.length; i++) {
+              backTriggers[i].addEventListener('click', function(ev) {
+                ev.preventDefault();
+      
+                handleTrigger(ev, 'reset');
+              });
+            }
+      
+            // Set the secondary navigation menus to hidden
+            for (var i = 0; i < secondaryNavItems.length; i++) {
+              secondaryNavItems[i].classList.remove('nv-m-c-a--s');
+              secondaryNavItems[i].classList.add('nv-m-c-a--p');
+            }
+      
+            if (burger) {
+              burger.addEventListener('change', handleBurgerChange);
+            }
+          }
+      
+          return {
+            start: start
+          }
+        })()
+      
+        BostonMenu.start()
+      </script>
+      ",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="mn mn--full mn--full-vc mn--nv-s"
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+            <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+              <div class=\\"brg\\">
+                <span class=\\"brg-c\\">
+                  <span class=\\"brg-c-i\\"></span>
+                </span>
+                <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+              </div>
+            </label>
+            <div class=\\"lo\\">
+              <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+                <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+                <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+              </a>
+            </div>
+            <nav class=\\"nv-h\\">
+              <ul class=\\"nv-h-l\\">
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                        <li class=\\"nv-h-l-i\\">
+                  <a href=\\"/translate\\" title=\\"Translate\\" class=\\"nv-h-l-a\\">Translate</a>
+                  
+                </li>
+                <li class=\\"nv-h-l-i\\">
+                  <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                    <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                  </label>
+                </li>
+              </ul>
+            </nav>
+            <div class=\\"h-s\\">
+              <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+                <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+                <div class=\\"sf-i\\">
+                  <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                  <button class=\\"sf-i-b\\">Search</button>
+                </div>
+              </form>
+            </div>
+          ",
+        }
+      }
+      role="banner"
+    />
+    <div>
+      <nav
+        className="nv-s nv-s--y nv-s--sticky"
+      >
+        <input
+          aria-hidden={true}
+          className="nv-s-tr"
+          id="nv-s-tr"
+          type="checkbox"
+        />
+        <ul
+          className="nv-s-l"
+        >
+          <li
+            className="nv-s-l-i"
+          >
+            <label
+              className="nv-s-l-b"
+              htmlFor="nv-s-tr"
+            >
+              Navigation
+            </label>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/"
+              onClick={[Function]}
+            >
+              Make a request
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/search"
+              onClick={[Function]}
+            >
+              Search cases
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/services"
+              onClick={[Function]}
+            >
+              All services
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/faq"
+              onClick={[Function]}
+            >
+              FAQ
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="css-pynppz"
+      >
+        <div
+          className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "maxWidth": 800,
+            }
+          }
+        >
+          <div
+            className=" sh sh--y css-1aawwkt"
+          >
+            <h1
+              className="sh-title"
+            >
+              404
+               EEEK
+            </h1>
+          </div>
+          <div
+            className="t--info m-v400"
+          >
+            That link seems to have scurried away.
+          </div>
+          <img
+            alt=""
+            className="css-pbbtaz"
+            height="280"
+            src="/assets/img/404-cropped.png"
+            width="700"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <div class=\\"ft-c\\">
+            <ul class=\\"ft-ll ft-ll--r\\">
+              <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+            </ul>
+            
+      
+      <ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/copyright/privacyandsecurity.asp\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" title=\\"\\" class=\\"ft-ll-a\\">Careers</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+      </ul>    </div>
+        ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots ErrorLayout 500 1`] = `
+<div>
+  <input
+    aria-hidden="true"
+    className="brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+        <div class=\\"nv-m-h\\">
+            <div class=\\"nv-m-h-ic\\">
+              <img src=\\"https://cob-patterns-staging.herokuapp.com/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+            </div>
+            <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+        </div>
+        <div class=\\"nv-m-c\\">
+          
+      
+      <ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+      <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-184936\\"><a href=\\"https://www.boston.gov/programs-initiatives\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Programs and Initiatives</a></li>
+      <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/elections\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/cabinet-directory\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cabinet Directory</a></li>
+      </ul></li>
+      <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-183211\\"><a href=\\"https://www.boston.gov/neighborhoods\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171786\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community Centers</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171791\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+      <li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-171811\\"><a href=\\"https://www.boston.gov/cemeteries\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+      </ul></li>
+      <li class=\\"nv-m-c-l-i is-l last leaf menu-mlid-212956\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+      </ul>  </div>
+        <script>
+        'use strict'
+      
+        var BostonMenu = (function () {
+          // Set height
+          var secondaryNavs;
+          var secondaryTriggers;
+          var listItems;
+          var secondaryNavItems;
+          var backTriggers;
+          var burger;
+          var placeholder;
+      
+          function handleBurgerChange(ev) {
+            document.body.classList.toggle('no-s');
+          }
+      
+          function handleTrigger(ev, method) {
+            var backTrigger;
+            var secondaryNav;
+            var trigger = ev.target;
+            var parentItem = method === 'reset' ? trigger.parentNode.parentNode.parentNode : trigger.parentNode;
+            var title = document.getElementById('nv-m-h-t');
+      
+            // Find the secondary nav and trigger
+            for (var i = 0; i < parentItem.childNodes.length; i++) {
+              if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-l-l')) {
+                secondaryNav = parentItem.childNodes[i];
+              }
+      
+              if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-a')) {
+                trigger = parentItem.childNodes[i];
+              }
+            }
+      
+            // Find the backTrigger
+            for (var i = 0; i < secondaryNav.childNodes.length; i++) {
+              if (secondaryNav.childNodes[i].classList && secondaryNav.childNodes[i].classList.contains('nv-m-c-bc')) {
+                backTrigger = secondaryNav.childNodes[i];
+              }
+            }
+      
+            if (method === 'nav') {
+              for (var i = 0; i < listItems.length; i++) {
+                if (parentItem != listItems[i]) {
+                  listItems[i].classList.add('nv-m-c-l-i--h');
+                }
+              }
+      
+              // Hide the trigger
+              trigger.classList.add('nv-m-c-a--h');
+      
+              // Show the secondary nav
+              secondaryNav.classList.remove('nv-m-c-l-l--h');
+      
+              // Show the back button
+              backTrigger.classList.remove('nv-m-c-b--h');
+      
+              // Update the title
+              title.innerHTML = trigger.innerHTML;
+            } else {
+              for (var i = 0; i < listItems.length; i++) {
+                if (parentItem != listItems[i]) {
+                  listItems[i].classList.remove('nv-m-c-l-i--h');
+                }
+              }
+      
+              // Hide the trigger
+              trigger.classList.remove('nv-m-c-a--h');
+      
+              // Show the secondary nav
+              secondaryNav.classList.add('nv-m-c-l-l--h');
+      
+              // Show the back button
+              backTrigger.classList.add('nv-m-c-b--h');
+      
+              // Update the title
+              title.innerHTML = placeholder;
+            }
+          }
+      
+          function start() {
+            burger = document.getElementById('brg-tr');
+            listItems = document.querySelectorAll('.nv-m-c-l-i');
+            backTriggers = document.querySelectorAll('.nv-m-c-b');
+            secondaryTriggers = document.querySelectorAll('.nolink');
+            secondaryNavs = document.querySelectorAll('.nv-m-c-l-l');
+            secondaryNavItems = document.querySelectorAll('.nv-m-c-a--s');
+      
+            placeholder = document.getElementById('nv-m-h-t').innerHTML;
+      
+            // Set the secondary navigation menus to hidden
+            for (var i = 0; i < secondaryNavs.length; i++) {
+              secondaryNavs[i].classList.add('nv-m-c-l-l--h');
+            }
+      
+            // Get the secondary navigation triggers ready
+            for (var i = 0; i < secondaryTriggers.length; i++) {
+              // Set to active
+              secondaryTriggers[i].classList.add('nolink--a');
+      
+              // Handle clicks
+              secondaryTriggers[i].addEventListener('click', function(ev) {
+                ev.preventDefault();
+      
+                handleTrigger(ev, 'nav');
+              });
+            }
+      
+            // Get the secondary navigation triggers ready
+            for (var i = 0; i < backTriggers.length; i++) {
+              backTriggers[i].addEventListener('click', function(ev) {
+                ev.preventDefault();
+      
+                handleTrigger(ev, 'reset');
+              });
+            }
+      
+            // Set the secondary navigation menus to hidden
+            for (var i = 0; i < secondaryNavItems.length; i++) {
+              secondaryNavItems[i].classList.remove('nv-m-c-a--s');
+              secondaryNavItems[i].classList.add('nv-m-c-a--p');
+            }
+      
+            if (burger) {
+              burger.addEventListener('change', handleBurgerChange);
+            }
+          }
+      
+          return {
+            start: start
+          }
+        })()
+      
+        BostonMenu.start()
+      </script>
+      ",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="mn mn--full mn--full-vc mn--nv-s"
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+            <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+              <div class=\\"brg\\">
+                <span class=\\"brg-c\\">
+                  <span class=\\"brg-c-i\\"></span>
+                </span>
+                <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+              </div>
+            </label>
+            <div class=\\"lo\\">
+              <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+                <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+                <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+              </a>
+            </div>
+            <nav class=\\"nv-h\\">
+              <ul class=\\"nv-h-l\\">
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                        <li class=\\"nv-h-l-i\\">
+                  <a href=\\"/translate\\" title=\\"Translate\\" class=\\"nv-h-l-a\\">Translate</a>
+                  
+                </li>
+                <li class=\\"nv-h-l-i\\">
+                  <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+                    <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+                  </label>
+                </li>
+              </ul>
+            </nav>
+            <div class=\\"h-s\\">
+              <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+                <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+                <div class=\\"sf-i\\">
+                  <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+                  <button class=\\"sf-i-b\\">Search</button>
+                </div>
+              </form>
+            </div>
+          ",
+        }
+      }
+      role="banner"
+    />
+    <div>
+      <nav
+        className="nv-s nv-s--y nv-s--sticky"
+      >
+        <input
+          aria-hidden={true}
+          className="nv-s-tr"
+          id="nv-s-tr"
+          type="checkbox"
+        />
+        <ul
+          className="nv-s-l"
+        >
+          <li
+            className="nv-s-l-i"
+          >
+            <label
+              className="nv-s-l-b"
+              htmlFor="nv-s-tr"
+            >
+              Navigation
+            </label>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/"
+              onClick={[Function]}
+            >
+              Make a request
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/search"
+              onClick={[Function]}
+            >
+              Search cases
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/services"
+              onClick={[Function]}
+            >
+              All services
+            </a>
+          </li>
+          <li
+            className="nv-s-l-i"
+          >
+            <a
+              className="nv-s-l-a "
+              href="/faq"
+              onClick={[Function]}
+            >
+              FAQ
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="css-pynppz"
+      >
+        <div
+          className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "maxWidth": 800,
+            }
+          }
+        >
+          <div
+            className=" sh sh--y css-1aawwkt"
+          >
+            <h1
+              className="sh-title"
+            >
+              500
+               EEEK
+            </h1>
+          </div>
+          <div
+            className="t--info m-v400"
+          >
+            Looks like that link is playing dead. Please try again later.
+          </div>
+          <img
+            alt=""
+            className="css-pbbtaz"
+            height="280"
+            src="/assets/img/404-cropped.png"
+            width="700"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+          <div class=\\"ft-c\\">
+            <ul class=\\"ft-ll ft-ll--r\\">
+              <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+            </ul>
+            
+      
+      <ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/copyright/privacyandsecurity.asp\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" title=\\"\\" class=\\"ft-ll-a\\">Careers</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+      <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+      </ul>    </div>
+        ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
 </div>
 `;
 
@@ -3753,7 +4588,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
           className="b-c"
         >
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -3890,7 +4725,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
           className="b-c"
         >
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -3940,7 +4775,7 @@ exports[`Storyshots FormDialog Dialog 1`] = `
     style={Object {}}
   >
     <div
-      className="sh sh--y"
+      className=" sh sh--y "
     >
       <h1
         className="sh-title"
@@ -3965,7 +4800,7 @@ exports[`Storyshots FormDialog Narrow Dialog 1`] = `
     }
   >
     <div
-      className="sh sh--y"
+      className=" sh sh--y "
     >
       <h1
         className="sh-title"
@@ -3986,7 +4821,7 @@ exports[`Storyshots FormDialog No Padding 1`] = `
     style={Object {}}
   >
     <div
-      className="sh sh--y"
+      className=" sh sh--y "
     >
       <h1
         className="sh-title"
@@ -4011,7 +4846,7 @@ exports[`Storyshots HomePane Home 1`] = `
         className="p-a300 p-a800--xl"
       >
         <div
-          className="sh sh--y"
+          className=" sh sh--y "
         >
           <h1
             className="sh-title"
@@ -5997,7 +6832,7 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -6142,7 +6977,7 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -6287,7 +7122,7 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -6882,6 +7717,53 @@ exports[`Storyshots RecentRequests with selection 1`] = `
 </div>
 `;
 
+exports[`Storyshots RequestDialog 404 - Service Not Found 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1prrpm3": "",
+    }
+  }
+>
+  <div
+    className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+    style={Object {}}
+  >
+    <div
+      style={
+        Object {
+          "minHeight": "50vh",
+        }
+      }
+    >
+      <div
+        className=" sh sh--y "
+      >
+        <h1
+          className="sh-title"
+        >
+          Service not found
+        </h1>
+      </div>
+      <div
+        className="m-v400 t--intro"
+      >
+        We couldn’t load a service for code 
+        <strong>
+          NOTHERE
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v400 t--info"
+      >
+        The link you followed may be outdated, or this service is not available at the moment.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots RequestLayout Request Form 1`] = `
 <div>
   <input
@@ -7233,7 +8115,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                 className="p-a300 p-a800--xl"
               >
                 <div
-                  className="sh sh--y"
+                  className=" sh sh--y "
                 >
                   <h1
                     className="sh-title"
@@ -7847,7 +8729,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
               onSubmit={[Function]}
             >
               <div
-                className="sh sh--y"
+                className=" sh sh--y "
               >
                 <h1
                   className="sh-title"
@@ -9975,7 +10857,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
           className="b-c"
         >
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -10659,7 +11541,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
           className="b-c"
         >
           <div
-            className="sh sh--y"
+            className=" sh sh--y "
           >
             <h1
               className="sh-title"
@@ -11060,7 +11942,7 @@ exports[`Storyshots SubmitPane GraphQL Error 1`] = `
   >
     <div>
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -11093,7 +11975,7 @@ exports[`Storyshots SubmitPane Network Error 1`] = `
   >
     <div>
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"
@@ -11121,7 +12003,7 @@ exports[`Storyshots SubmitPane Submitting 1`] = `
   >
     <div>
       <div
-        className="sh sh--y"
+        className=" sh sh--y "
       >
         <h1
           className="sh-title"

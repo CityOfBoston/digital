@@ -8,11 +8,16 @@ import React, {
 type Props = {|
   subtitle?: string | ReactElement<*>,
   children: ReactNode,
+  className?: string,
 |};
 
-export default function SectionHeader({ subtitle, children }: Props) {
+export default function SectionHeader({
+  subtitle,
+  children,
+  className,
+}: Props) {
   return (
-    <div className="sh sh--y">
+    <div className={` sh sh--y ${className || ''}`}>
       <h1 className="sh-title">
         {children}
       </h1>

@@ -7,6 +7,7 @@ import Head from 'next/head';
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import Nav from '../common/Nav';
+import SectionHeader from '../common/SectionHeader';
 import CaseView from './CaseView';
 
 import type { Request } from '../../data/types';
@@ -19,6 +20,7 @@ type CaseData = {|
 |};
 
 export type InitialProps = {|
+  id: string,
   data: CaseData,
 |};
 
@@ -46,7 +48,7 @@ export default class CaseLayout extends React.Component<Props> {
       request,
     };
 
-    return { data };
+    return { data, id };
   }
 
   render() {
@@ -64,6 +66,7 @@ export default class CaseLayout extends React.Component<Props> {
 
         <div className="b-c" role="main">
           {data.request && <CaseView request={data.request} store={store} />}
+          {!data.request && this.renderNotFound()}
         </div>
       </div>
     );
@@ -77,5 +80,34 @@ export default class CaseLayout extends React.Component<Props> {
     } else {
       return 'Case not found';
     }
+  }
+
+  renderNotFound() {
+    const { id } = this.props;
+
+    return (
+      <div style={{ minHeight: '50vh' }}>
+        <SectionHeader>Case not found</SectionHeader>
+
+        <div className="m-v400 t--intro">
+          We couldn’t find case number <strong>{id}</strong>.
+        </div>
+
+        <div className="m-v400 t--info">
+          Please double-check the case number and try again.
+        </div>
+
+        <div className="m-v400 t--info">
+          Some cases are not available on this website because they contain
+          sensitive or private information.
+        </div>
+
+        <div className="m-v400 t--info">
+          If you need help finding the status of your case, please call our
+          operators at <a href="tel:311">311</a> (outside of Boston, dial{' '}
+          <a href="tel:+16176354501">617-635-4500</a>).
+        </div>
+      </div>
+    );
   }
 }

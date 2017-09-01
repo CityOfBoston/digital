@@ -42,15 +42,15 @@ storiesOf('CaseLayout', module)
   .addDecorator(page)
   .add('Existing', () =>
     <CaseLayout
-      data={{
-        request: {
-          ...MOCK_REQUEST,
-          status: 'open',
-        },
-      }}
+      id={MOCK_REQUEST.id}
+      data={{ request: { ...MOCK_REQUEST, status: 'open' } }}
       store={makeStore()}
     />
   )
   .add('404', () =>
-    <CaseLayout data={{ request: null }} store={makeStore()} />
+    <CaseLayout
+      id={MOCK_REQUEST.id}
+      data={{ request: null }}
+      store={makeStore()}
+    />
   );

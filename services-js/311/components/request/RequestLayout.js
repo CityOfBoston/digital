@@ -208,6 +208,7 @@ export default class RequestLayout extends React.Component<Props, State> {
               setLocationMapActive={this.setLocationMapActive}
               description={data.props.description}
               service={data.props.service}
+              serviceCode={data.props.serviceCode}
               stage={data.props.stage}
             />}
 

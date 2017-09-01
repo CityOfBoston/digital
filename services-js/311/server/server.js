@@ -203,6 +203,19 @@ export default async function startServer({ opbeat }: any) {
     handler: nextHandler(app, '/faq'),
   });
 
+  // 404 page
+  server.route({
+    method: '*',
+    path: '/{p*}',
+    handler: (h => (...args) => {
+      const { raw: { res } } = args[0];
+
+      res.statusCode = 404;
+
+      return h(...args);
+    })(nextHandler(app, '/_error')),
+  });
+
   server.route({
     method: 'GET',
     path: '/sitemap.xml',

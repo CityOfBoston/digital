@@ -93,6 +93,7 @@ storiesOf('RequestLayout', module)
         props: {
           stage: 'questions',
           service: MOCK_SERVICE,
+          serviceCode: MOCK_SERVICE.code,
           description: '',
         },
       }}
