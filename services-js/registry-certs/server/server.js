@@ -1,6 +1,8 @@
 // @flow
 /* eslint no-console: 0 */
 import AWS from 'aws-sdk';
+import os from 'os';
+import fetch from 'node-fetch';
 
 import Hapi from 'hapi';
 import Good from 'good';
@@ -69,6 +71,48 @@ function decryptConfig(): Promise<void> {
       });
     })
   ).then(() => {});
+}
+
+// https://opbeat.com/docs/api/intake/v1/#release-tracking
+async function reportDeployToOpbeat(opbeat, appId) {
+  if (
+    appId &&
+    process.env.OPBEAT_ORGANIZATION_ID &&
+    process.env.OPBEAT_SECRET_TOKEN &&
+    process.env.GIT_BRANCH &&
+    process.env.GIT_REVISION
+  ) {
+    try {
+      const res = await fetch(
+        `https://opbeat.com/api/v1/organizations/${process.env
+          .OPBEAT_ORGANIZATION_ID}/apps/${appId}/releases/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Bearer ${process.env.OPBEAT_SECRET_TOKEN}`,
+          },
+          body: [
+            `rev=${process.env.GIT_REVISION}`,
+            `branch=${encodeURIComponent(process.env.GIT_BRANCH)}`,
+            `machine=${encodeURIComponent(os.hostname())}`,
+            `status=machine-completed`,
+          ].join('&'),
+        }
+      );
+      console.log(
+        `Reported ${appId} deploy to Opbeat:`,
+        JSON.stringify(await res.json())
+      );
+    } catch (err) {
+      // We swallow the error because we won't interrupt startup because we
+      // couldn't report the release.
+      console.error(`Error reporting ${appId} deploy to Opbeat`);
+
+      // bwaaaaaa
+      opbeat.captureError(err);
+    }
+  }
 }
 
 export function makeServer({ opbeat }: ServerArgs) {
@@ -268,6 +312,9 @@ export function makeServer({ opbeat }: ServerArgs) {
 
 export default async function startServer(args: ServerArgs) {
   await decryptConfig();
+
+  reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_APP_ID);
+  reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_FRONTEND_APP_ID);
 
   const { server, startup } = makeServer(args);
 
