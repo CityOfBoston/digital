@@ -104,7 +104,7 @@ type DefaultProps = {
 };
 
 @observer
-export default class LoadingBuildings extends React.Component<Props> {
+export default class LoadingIcons extends React.Component<Props> {
   icons: string[];
 
   startMillis: number;

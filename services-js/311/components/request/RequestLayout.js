@@ -119,7 +119,7 @@ export default class RequestLayout extends React.Component<Props, State> {
 
   componentDidMount() {
     const { store } = this.props;
-    store.mapLocation.start(this.loopbackGraphql);
+    store.addressSearch.start(this.loopbackGraphql);
   }
 
   componentWillReceiveProps() {
@@ -128,7 +128,7 @@ export default class RequestLayout extends React.Component<Props, State> {
 
   componentWillUnmount() {
     const { store } = this.props;
-    store.mapLocation.stop();
+    store.addressSearch.stop();
   }
 
   routeToServiceForm = async (code: string, stage: string = 'questions') => {

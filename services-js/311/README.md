@@ -104,6 +104,10 @@ Components and containers are organized under `/components` by page.
 For UI-focused development, use [React Storybook](https://getstorybook.io/) by
 running `npm run storybook` and visiting <http://localhost:9001>
 
+**Local use of patterns library:** After running `gulp` and `npx fractal
+start -- --watch` in the patterns directory, change `stylesheets.json` to
+reference `https://localhost:3001` instead of `cob-patterns-staging`.
+
 ## Public domain
 
 This project is in the worldwide [public domain](LICENSE.md). As stated in [LICENSE](LICENSE.md):

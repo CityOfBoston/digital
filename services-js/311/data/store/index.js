@@ -9,7 +9,7 @@ import type { LoopbackGraphql } from '../dao/loopback-graphql';
 
 import Accessibility from './Accessibility';
 import RequestSearch from './RequestSearch';
-import MapLocation from './MapLocation';
+import AddressSearch from './AddressSearch';
 import Ui from './Ui';
 import BrowserLocation from './BrowserLocation';
 import AllServices from './AllServices';
@@ -32,7 +32,7 @@ export class AppStore {
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();
   browserLocation: BrowserLocation = new BrowserLocation();
-  mapLocation: MapLocation = new MapLocation();
+  addressSearch: AddressSearch = new AddressSearch();
   allServices: AllServices = new AllServices();
 
   languages: LanguagePreference[] = [];

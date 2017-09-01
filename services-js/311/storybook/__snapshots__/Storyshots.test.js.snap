@@ -4602,7 +4602,7 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
 <div
   className={
     Object {
-      "data-css-1msyv6a": "",
+      "data-css-k71z4": "",
     }
   }
 >
@@ -4618,33 +4618,37 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
       }
     >
       <div
-        className="p-a300 css-jvj6qy"
+        className="css-dh8302"
       >
-        <form
-          action="#"
-          className="sf sf--sm sf--y"
-          onSubmit={[Function]}
+        <div
+          className="p-a300"
         >
-          <div
-            className="sf-i"
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
           >
-            <input
-              aria-label="Address search field"
-              className="sf-i-f"
-              onChange={[Function]}
-              placeholder="Search for a street address or intersection…"
-              type="text"
-              value=""
-            />
-            <button
-              className="sf-i-b"
-              disabled={true}
-              type="submit"
+            <div
+              className="sf-i"
             >
-              Search
-            </button>
-          </div>
-        </form>
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
         <div
           className={
             Object {
@@ -4653,7 +4657,7 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
           }
         >
           <div
-            className="t--info m-v300"
+            className="p-a300 t--info"
           >
             <span
               className="t--err"
@@ -4663,7 +4667,119 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
           </div>
         </div>
         <div
-          className="g css-1k8tu3j"
+          className="g p-a300 css-1k8tu3j"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LocationPopUp searching 1`] = `
+<div
+  className={
+    Object {
+      "data-css-k71z4": "",
+    }
+  }
+>
+  <div
+    className=" br br-t400 br--y css-1aypqv0"
+    style={Object {}}
+  >
+    <div
+      className={
+        Object {
+          "data-css-1wu02iq": "",
+        }
+      }
+    >
+      <div
+        className="css-dh8302"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className={
+            Object {
+              "data-css-129qykh": "",
+            }
+          }
+        >
+          <div
+            className="css-5r15uq"
+          >
+            <span
+              className={
+                Object {
+                  "data-css-1vjs1z7": "",
+                }
+              }
+            >
+              <svg
+                className={
+                  Object {
+                    "data-css-mfy564": "",
+                  }
+                }
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+                  }
+                }
+                role="img"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-1k8tu3j"
         >
           <div
             className="g--7 t--subinfo m-v200"
@@ -4694,7 +4810,7 @@ exports[`Storyshots LocationPopUp with address 1`] = `
 <div
   className={
     Object {
-      "data-css-1msyv6a": "",
+      "data-css-k71z4": "",
     }
   }
 >
@@ -4710,33 +4826,37 @@ exports[`Storyshots LocationPopUp with address 1`] = `
       }
     >
       <div
-        className="p-a300 css-jvj6qy"
+        className="css-dh8302"
       >
-        <form
-          action="#"
-          className="sf sf--sm sf--y"
-          onSubmit={[Function]}
+        <div
+          className="p-a300"
         >
-          <div
-            className="sf-i"
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
           >
-            <input
-              aria-label="Address search field"
-              className="sf-i-f"
-              onChange={[Function]}
-              placeholder="Search for a street address or intersection…"
-              type="text"
-              value=""
-            />
-            <button
-              className="sf-i-b"
-              disabled={true}
-              type="submit"
+            <div
+              className="sf-i"
             >
-              Search
-            </button>
-          </div>
-        </form>
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
         <div
           className={
             Object {
@@ -4745,23 +4865,732 @@ exports[`Storyshots LocationPopUp with address 1`] = `
           }
         >
           <div
-            className="m-v400"
+            className=""
           >
             <div
-              className="addr addr--s"
               style={
                 Object {
-                  "whiteSpace": "pre-line",
+                  "maxHeight": 220,
+                  "overflowY": "auto",
                 }
               }
             >
-              1 Franklin Park Rd
-              Boston, MA 02121
+              <a
+                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Dorchester, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
             </div>
           </div>
         </div>
         <div
-          className="g css-1k8tu3j"
+          className="g p-a300 css-1k8tu3j"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
+<div
+  className={
+    Object {
+      "data-css-k71z4": "",
+    }
+  }
+>
+  <div
+    className=" br br-t400 br--y css-1aypqv0"
+    style={Object {}}
+  >
+    <div
+      className={
+        Object {
+          "data-css-1wu02iq": "",
+        }
+      }
+    >
+      <div
+        className="css-dh8302"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className={
+            Object {
+              "data-css-129qykh": "",
+            }
+          }
+        >
+          <div
+            className=""
+          >
+            <div
+              style={
+                Object {
+                  "maxHeight": 220,
+                  "overflowY": "auto",
+                }
+              }
+            >
+              <a
+                className="css-138tr8 p-a300  css-8l1ya5 css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    1
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Dorchester, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    2
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Roslindate, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300  css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    3
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Charlestown, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300  css-8l1ya5 css-1o41lfq"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    4
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Boston, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-1k8tu3j"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
+<div
+  className={
+    Object {
+      "data-css-k71z4": "",
+    }
+  }
+>
+  <div
+    className=" br br-t400 br--y css-1aypqv0"
+    style={Object {}}
+  >
+    <div
+      className={
+        Object {
+          "data-css-1wu02iq": "",
+        }
+      }
+    >
+      <div
+        className="css-dh8302"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className={
+            Object {
+              "data-css-129qykh": "",
+            }
+          }
+        >
+          <div
+            className=""
+          >
+            <div
+              style={
+                Object {
+                  "maxHeight": 220,
+                  "overflowY": "auto",
+                }
+              }
+            >
+              <a
+                className="css-138tr8 p-a300  css-8l1ya5 css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    1
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Dorchester, 02125
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    2
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Boston, MA, 02108
+                </div>
+                <div
+                  className="css-pthn9b sel"
+                >
+                  <label
+                    className="sel-l sel-l--sq"
+                    htmlFor="unit-menu"
+                  >
+                    Apartment or Unit
+                  </label>
+                  <div
+                    className="sel-c sel-c--sq"
+                  >
+                    <select
+                      className="sel-f sel-f--sq"
+                      id="unit-menu"
+                      onChange={[Function]}
+                      value={0}
+                    >
+                      <option
+                        value={0}
+                      >
+                        123 Fake St.
+                      </option>
+                      <option
+                        value={1}
+                      >
+                        123 Fake St. Ste 16
+                      </option>
+                      <option
+                        value={2}
+                      >
+                        123 Fake St. Ste 17
+                      </option>
+                      <option
+                        value={3}
+                      >
+                        123 Fake St. #20
+                      </option>
+                      <option
+                        value={4}
+                      >
+                        123 Fake St. #2050
+                      </option>
+                      <option
+                        value={5}
+                      >
+                        123 Fake St. Ste 21
+                      </option>
+                      <option
+                        value={6}
+                      >
+                        123 Fake St. Lbby A
+                      </option>
+                      <option
+                        value={7}
+                      >
+                        123 Fake St. Lbby C
+                      </option>
+                      <option
+                        value={8}
+                      >
+                        121 Other St
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300  css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    3
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Boston, MA, 02108
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="css-138tr8 p-a300  css-8l1ya5 css-1o41lfq"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="css-1skfp86"
+                >
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                  <div
+                    className="t--sans css-1npl01i"
+                  >
+                    4
+                  </div>
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
+                >
+                  123 Fake St.
+                  Boston, MA, 02108
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-1k8tu3j"
         >
           <div
             className="g--7 t--subinfo m-v200"
@@ -4792,7 +5621,7 @@ exports[`Storyshots LocationPopUp with units 1`] = `
 <div
   className={
     Object {
-      "data-css-1msyv6a": "",
+      "data-css-k71z4": "",
     }
   }
 >
@@ -4808,33 +5637,37 @@ exports[`Storyshots LocationPopUp with units 1`] = `
       }
     >
       <div
-        className="p-a300 css-jvj6qy"
+        className="css-dh8302"
       >
-        <form
-          action="#"
-          className="sf sf--sm sf--y"
-          onSubmit={[Function]}
+        <div
+          className="p-a300"
         >
-          <div
-            className="sf-i"
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
           >
-            <input
-              aria-label="Address search field"
-              className="sf-i-f"
-              onChange={[Function]}
-              placeholder="Search for a street address or intersection…"
-              type="text"
-              value=""
-            />
-            <button
-              className="sf-i-b"
-              disabled={true}
-              type="submit"
+            <div
+              className="sf-i"
             >
-              Search
-            </button>
-          </div>
-        </form>
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
         <div
           className={
             Object {
@@ -4843,94 +5676,132 @@ exports[`Storyshots LocationPopUp with units 1`] = `
           }
         >
           <div
-            className="m-v400"
+            className=""
           >
             <div
-              className="addr addr--s"
               style={
                 Object {
-                  "whiteSpace": "pre-line",
+                  "maxHeight": 220,
+                  "overflowY": "auto",
                 }
               }
             >
-              1 Franklin Park Rd
-              Boston, MA 02121
-            </div>
-          </div>
-          <div
-            className="sel m-v400"
-          >
-            <label
-              className="sel-l"
-              htmlFor="unit-menu"
-              style={
-                Object {
-                  "marginTop": 0,
-                }
-              }
-            >
-              Apartment or Unit
-            </label>
-            <div
-              className="sel-c sel-c--fw"
-            >
-              <select
-                className="sel-f"
-                id="unit-menu"
-                onChange={[Function]}
-                value=""
+              <a
+                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                href="javascript:void(0)"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
-                <option
-                  value="95446"
+                <div
+                  className="css-1skfp86"
                 >
-                  50 Milk St
-                </option>
-                <option
-                  value="275490"
+                  <div
+                    className="css-g3nn3m"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                          </svg>
+                        ",
+                      }
+                    }
+                  />
+                </div>
+                <div
+                  className="addr addr--s"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "lineHeight": 1.4,
+                      "verticalAlign": "middle",
+                      "whiteSpace": "pre-line",
+                    }
+                  }
                 >
-                  50 Milk St Ste 16
-                </option>
-                <option
-                  value="275491"
+                  123 Fake St.
+                  Boston, MA, 02108
+                </div>
+                <div
+                  className="css-pthn9b sel"
                 >
-                  50 Milk St Ste 17
-                </option>
-                <option
-                  value="275492"
-                >
-                  50 Milk St #20
-                </option>
-                <option
-                  value="275493"
-                >
-                  50 Milk St #2050
-                </option>
-                <option
-                  value="275494"
-                >
-                  50 Milk St Ste 21
-                </option>
-                <option
-                  value="275495"
-                >
-                  50 Milk St Lbby A
-                </option>
-                <option
-                  value="275496"
-                >
-                  50 Milk St Lbby C
-                </option>
-                <option
-                  value="419918"
-                >
-                  121 Devonshire St
-                </option>
-              </select>
+                  <label
+                    className="sel-l sel-l--sq"
+                    htmlFor="unit-menu"
+                  >
+                    Apartment or Unit
+                  </label>
+                  <div
+                    className="sel-c sel-c--sq"
+                  >
+                    <select
+                      className="sel-f sel-f--sq"
+                      id="unit-menu"
+                      onChange={[Function]}
+                      value={0}
+                    >
+                      <option
+                        value={0}
+                      >
+                        123 Fake St.
+                      </option>
+                      <option
+                        value={1}
+                      >
+                        123 Fake St. Ste 16
+                      </option>
+                      <option
+                        value={2}
+                      >
+                        123 Fake St. Ste 17
+                      </option>
+                      <option
+                        value={3}
+                      >
+                        123 Fake St. #20
+                      </option>
+                      <option
+                        value={4}
+                      >
+                        123 Fake St. #2050
+                      </option>
+                      <option
+                        value={5}
+                      >
+                        123 Fake St. Ste 21
+                      </option>
+                      <option
+                        value={6}
+                      >
+                        123 Fake St. Lbby A
+                      </option>
+                      <option
+                        value={7}
+                      >
+                        123 Fake St. Lbby C
+                      </option>
+                      <option
+                        value={8}
+                      >
+                        121 Other St
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "clear": "both",
+                    }
+                  }
+                />
+              </a>
             </div>
           </div>
         </div>
         <div
-          className="g css-1k8tu3j"
+          className="g p-a300 css-1k8tu3j"
         >
           <div
             className="g--7 t--subinfo m-v200"
@@ -4961,7 +5832,7 @@ exports[`Storyshots LocationPopUp without address 1`] = `
 <div
   className={
     Object {
-      "data-css-1msyv6a": "",
+      "data-css-k71z4": "",
     }
   }
 >
@@ -4977,46 +5848,46 @@ exports[`Storyshots LocationPopUp without address 1`] = `
       }
     >
       <div
-        className="p-a300 css-jvj6qy"
+        className="css-dh8302"
       >
-        <form
-          action="#"
-          className="sf sf--sm sf--y"
-          onSubmit={[Function]}
+        <div
+          className="p-a300"
         >
-          <div
-            className="sf-i"
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
           >
-            <input
-              aria-label="Address search field"
-              className="sf-i-f"
-              onChange={[Function]}
-              placeholder="Search for a street address or intersection…"
-              type="text"
-              value=""
-            />
-            <button
-              className="sf-i-b"
-              disabled={true}
-              type="submit"
+            <div
+              className="sf-i"
             >
-              Search
-            </button>
-          </div>
-        </form>
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
         <div
           className={
             Object {
               "data-css-129qykh": "",
             }
           }
-        >
-          <div
-            className="m-v400"
-          />
-        </div>
+        />
         <div
-          className="g css-1k8tu3j"
+          className="g p-a300 css-1k8tu3j"
         >
           <div
             className="g--7 t--subinfo m-v200"

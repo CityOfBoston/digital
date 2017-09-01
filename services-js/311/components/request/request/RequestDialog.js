@@ -59,7 +59,7 @@ export const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
     // comedy bottom margin to push this up into the corner, otherwise it would
     // get vertically centered.
     margin: '-0px 70% 90vh 40px',
-    minWidth: 450,
+    minWidth: 370,
   },
 });
 

@@ -1,0 +1,149 @@
+// @flow
+
+import type { SearchAddressPlace } from '../types';
+import AddressSearch from './AddressSearch';
+
+jest.mock('../dao/search-address');
+jest.mock('../dao/reverse-geocode');
+const searchAddress: JestMockFn = (require('../dao/search-address'): any)
+  .default;
+const reverseGeocode: JestMockFn = (require('../dao/reverse-geocode'): any)
+  .default;
+
+const PLACE: SearchAddressPlace = {
+  address: '1 City Hall Plaza',
+  addressId: '12345',
+  units: [],
+  location: {
+    lat: 42.36035940296916,
+    lng: -71.05802536010744,
+  },
+};
+
+describe('searching', () => {
+  let addressSearch;
+  let loopbackGraphql;
+  let resolveGraphql: (places: Array<SearchAddressPlace>) => void;
+
+  beforeEach(() => {
+    searchAddress.mockReturnValue(
+      new Promise(resolve => {
+        resolveGraphql = resolve;
+      })
+    );
+
+    loopbackGraphql = jest.fn();
+
+    addressSearch = new AddressSearch();
+    addressSearch.start(loopbackGraphql);
+  });
+
+  afterEach(() => {
+    addressSearch.stop();
+  });
+
+  it('updates address and location on success', async () => {
+    addressSearch.query = '1 City Hall Plaza';
+    addressSearch.search();
+
+    expect(searchAddress).toHaveBeenCalledWith(
+      loopbackGraphql,
+      '1 City Hall Plaza'
+    );
+
+    await resolveGraphql([PLACE]);
+
+    expect(addressSearch.address).toEqual('1 City Hall Plaza');
+    expect(addressSearch.location).toEqual({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+    expect(addressSearch.addressId).toEqual('12345');
+  });
+
+  it('clears things when search returns nothing', async () => {
+    addressSearch.places = [PLACE];
+    addressSearch.currentPlaceIndex = 0;
+
+    addressSearch.query = '8888 milk st';
+    addressSearch.search();
+
+    expect(searchAddress).toHaveBeenCalledWith(loopbackGraphql, '8888 milk st');
+
+    await resolveGraphql([]);
+
+    expect(addressSearch.address).toEqual('');
+    expect(addressSearch.location).toEqual(null);
+    expect(addressSearch.addressId).toEqual(null);
+  });
+});
+
+describe('reverse geocoding', () => {
+  let addressSearch;
+  let loopbackGraphql;
+  let resolveGraphql: (place: ?SearchAddressPlace) => void;
+
+  beforeEach(() => {
+    reverseGeocode.mockReturnValue(
+      new Promise(resolve => {
+        resolveGraphql = resolve;
+      })
+    );
+
+    loopbackGraphql = jest.fn();
+
+    addressSearch = new AddressSearch();
+    addressSearch.start(loopbackGraphql);
+  });
+
+  afterEach(() => {
+    addressSearch.stop();
+  });
+
+  it('reverse geocodes', async () => {
+    addressSearch.geocodeLocation({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+
+    // before reverse geocode happens, location is updated immediately
+    expect(addressSearch.location).toEqual({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+    expect(addressSearch.address).toEqual('');
+
+    expect(reverseGeocode).toHaveBeenCalledWith(loopbackGraphql, {
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+
+    await resolveGraphql({
+      address: '1 City Hall Plaza',
+      location: {
+        lat: 42.36035940296916,
+        lng: -71.05802536010744,
+      },
+      addressId: '12345',
+      units: [],
+    });
+
+    // after reverse geocode
+    expect(addressSearch.location).toEqual({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+    expect(addressSearch.address).toEqual('1 City Hall Plaza');
+  });
+
+  it('clears any existing query', () => {
+    addressSearch.query = '8888 milk st';
+
+    addressSearch.geocodeLocation({
+      lat: 42.36035940296916,
+      lng: -71.05802536010744,
+    });
+
+    expect(addressSearch.query).toEqual('');
+  });
+});

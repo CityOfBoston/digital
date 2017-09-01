@@ -503,7 +503,7 @@ exports[`existing service page rendering phone location step 1`] = `
     <div
       className={
         Object {
-          "data-css-1msyv6a": "",
+          "data-css-k71z4": "",
         }
       }
     >
@@ -519,46 +519,46 @@ exports[`existing service page rendering phone location step 1`] = `
           }
         >
           <div
-            className="p-a300 css-jvj6qy"
+            className="css-dh8302"
           >
-            <form
-              action="#"
-              className="sf sf--sm sf--y"
-              onSubmit={[Function]}
+            <div
+              className="p-a300"
             >
-              <div
-                className="sf-i"
+              <form
+                action="#"
+                className="sf sf--md sf--y"
+                onSubmit={[Function]}
               >
-                <input
-                  aria-label="Address search field"
-                  className="sf-i-f"
-                  onChange={[Function]}
-                  placeholder="Search for a street address or intersection…"
-                  type="text"
-                  value=""
-                />
-                <button
-                  className="sf-i-b"
-                  disabled={true}
-                  type="submit"
+                <div
+                  className="sf-i"
                 >
-                  Search
-                </button>
-              </div>
-            </form>
+                  <input
+                    aria-label="Address search field"
+                    className="sf-i-f"
+                    onChange={[Function]}
+                    placeholder="Search address…"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="sf-i-b"
+                    disabled={true}
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
             <div
               className={
                 Object {
                   "data-css-129qykh": "",
                 }
               }
-            >
-              <div
-                className="m-v400"
-              />
-            </div>
+            />
             <div
-              className="g css-1k8tu3j"
+              className="g p-a300 css-1k8tu3j"
             >
               <div
                 className="g--7 t--subinfo m-v200"

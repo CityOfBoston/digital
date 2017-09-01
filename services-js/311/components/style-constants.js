@@ -17,6 +17,7 @@ export const GREEN = '#62A744';
 export const CHARLES_BLUE = '#091f2f';
 export const GRAY_000 = '#f3f3f3';
 export const GRAY_100 = '#e0e0e0';
+export const GRAY_200 = '#aaa';
 export const GRAY_300 = '#828282';
 
 // Puts a little spacing around the dialog, which has auto left/right margins.

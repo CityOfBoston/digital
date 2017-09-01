@@ -77,21 +77,39 @@ describe('mounted map', () => {
 
   it('positions a marker based on the form location', () => {
     runInAction(() => {
-      store.mapLocation.address = '1 City Hall Plaza';
-      store.mapLocation.location = {
-        lat: 42.36035940296916,
-        lng: -71.05802536010744,
-      };
+      store.addressSearch.places = [
+        {
+          address: '1 City Hall Plaza',
+          addressId: '12345',
+          units: [],
+          location: {
+            lat: 42,
+            lng: -71,
+          },
+        },
+        {
+          address: '2 City Hall Plaza',
+          addressId: '12346',
+          units: [],
+          location: {
+            lat: 43,
+            lng: -70,
+          },
+        },
+      ];
+      store.addressSearch.currentPlaceIndex = 0;
     });
 
-    const { requestMarker } = locationMap;
-    if (!requestMarker) {
-      expect(locationMap.requestMarker).toBeDefined();
+    const { locationSearchMarkers } = locationMap;
+    const locationSearchMarker = locationSearchMarkers[0];
+
+    if (!locationSearchMarker) {
+      expect(locationSearchMarker).toBeDefined();
       return;
     }
 
-    const markerLatLng = requestMarker.getLatLng();
-    expect(markerLatLng.lat).toEqual(42.36035940296916);
-    expect(markerLatLng.lng).toEqual(-71.05802536010744);
+    const markerLatLng = locationSearchMarker.getLatLng();
+    expect(markerLatLng.lat).toEqual(42);
+    expect(markerLatLng.lng).toEqual(-71);
   });
 });

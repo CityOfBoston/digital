@@ -26,6 +26,14 @@ export const WAYPOINT_STYLE = css({
     .x}px, ${-WAYPOINT_BASE_OPTIONS.iconAnchor.y}px)`,
 });
 
+export const WAYPOINT_NUMBER_STYLE = css({
+  position: 'absolute',
+  width: '100%',
+  textAlign: 'center',
+  top: 7,
+  fontSize: 16,
+});
+
 const greenEmpty: DivIconOptions = {
   ...WAYPOINT_BASE_OPTIONS,
   className: '',

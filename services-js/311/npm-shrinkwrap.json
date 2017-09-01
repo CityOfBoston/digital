@@ -13039,19 +13039,11 @@
         "babel-template": "6.25.0",
         "global": "4.3.2",
         "react-deep-force-update": "2.1.1",
-        "react-proxy": "3.0.0-alpha.1",
+        "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
         "redbox-react": "1.5.0",
         "source-map": "0.4.4"
       },
       "dependencies": {
-        "react-proxy": {
-          "version": "3.0.0-alpha.1",
-          "resolved": "https://registry.npmjs.org/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz",
-          "integrity": "sha1-RABCa8+oDKpnJMd1VpUxUgn6Swc=",
-          "requires": {
-            "lodash": "4.17.4"
-          }
-        },
         "source-map": {
           "version": "0.4.4",
           "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.4.4.tgz",
@@ -13142,7 +13134,6 @@
     "react-proxy": {
       "version": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
       "integrity": "sha1-kQZnJrakdnkbK4pc83mRn56EMdo=",
-      "dev": true,
       "requires": {
         "lodash": "4.17.4"
       }
