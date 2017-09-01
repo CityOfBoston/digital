@@ -5020,19 +5020,19 @@
       }
     },
     "eslint-plugin-react": {
-      "version": "github:yannickcr/eslint-plugin-react#e2f6460a63bd0cd0dca0c8308e35ff831d5161ed",
+      "version": "github:yannickcr/eslint-plugin-react#94fbe6f3cf8a21a6d3c70146bdca6c3dd16a911b",
       "dev": true,
       "requires": {
         "doctrine": "2.0.0",
         "has": "1.0.1",
-        "jsx-ast-utils": "2.0.0",
+        "jsx-ast-utils": "2.0.1",
         "prop-types": "15.5.10"
       },
       "dependencies": {
         "jsx-ast-utils": {
-          "version": "2.0.0",
-          "resolved": "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.0.0.tgz",
-          "integrity": "sha1-7Aaj1gzzB+XhGdrHutgeifCW8Pg=",
+          "version": "2.0.1",
+          "resolved": "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.0.1.tgz",
+          "integrity": "sha1-6AGxs5mF4g//yHtA43SAgOLcrH8=",
           "dev": true,
           "requires": {
             "array-includes": "3.0.3"
