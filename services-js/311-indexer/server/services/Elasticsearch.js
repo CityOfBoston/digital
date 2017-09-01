@@ -180,6 +180,14 @@ export default class Elasticsearch {
   async createCases(
     cases: Array<{ case: Case, replayId: ?number }>
   ): Promise<BulkResponse> {
+    if (cases.length === 0) {
+      return {
+        took: 0,
+        items: [],
+        errors: false,
+      };
+    }
+
     const transaction =
       this.opbeat && this.opbeat.startTransaction('bulk', 'Elasticsearch');
 
