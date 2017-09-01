@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import { action, observable, autorun } from 'mobx';

@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';

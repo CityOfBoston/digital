@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FormDialog from '../../common/FormDialog';
 import Question from '../../../data/store/Question';

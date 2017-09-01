@@ -1,13 +1,13 @@
 // @flow
 /* eslint react/no-danger: 0 */
 
-import * as React from 'react';
+import React, { type Node as ReactNode } from 'react';
 
 import headerHtml from '../templates/header.html';
 import footerHtml from '../templates/footer.html';
 import navigationHtml from '../templates/navigation.html';
 
-function Page({ children }: { children: React.Node }) {
+function Page({ children }: { children: ReactNode }) {
   return (
     <div>
       <input
@@ -43,7 +43,7 @@ function Page({ children }: { children: React.Node }) {
   );
 }
 
-export default function page(stories: () => React.Node) {
+export default function page(stories: () => ReactNode) {
   return (
     <Page>
       {stories()}

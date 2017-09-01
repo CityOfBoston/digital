@@ -1,6 +1,6 @@
 // @flow
 /* eslint react/no-danger: 0 */
-import * as React from 'react';
+import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { renderStatic } from 'glamor/server';
 import mobxReact from 'mobx-react';

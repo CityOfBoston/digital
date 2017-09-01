@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';

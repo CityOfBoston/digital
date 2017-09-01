@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { css } from 'glamor';
 import Router from 'next/router';
 import type { Context } from 'next';

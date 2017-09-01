@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';

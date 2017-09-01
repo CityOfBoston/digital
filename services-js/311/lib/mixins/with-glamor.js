@@ -7,12 +7,12 @@
 // beginning of files, and we need to rehydrate before any Glamor "css"
 // statements are processed.
 
-import * as React from 'react';
+import React, { type ComponentType as ReactComponentType } from 'react';
 import { rehydrate } from 'glamor';
 
 export default <Props: {}>(
-  componentFn: () => React.ComponentType<Props>
-): React.ComponentType<Props> => {
+  componentFn: () => ReactComponentType<Props>
+): ReactComponentType<Props> => {
   if (process.browser) {
     // eslint-disable-next-line no-underscore-dangle
     rehydrate(window.__NEXT_DATA__.ids);

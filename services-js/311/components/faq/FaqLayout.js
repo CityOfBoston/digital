@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/prefer-stateless-function: 0 */
 
-import * as React from 'react';
+import React, { type Node as ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'glamor';
@@ -26,7 +26,7 @@ const ICON_STYLE = css({
 
 type QuestionProps = {|
   title: string,
-  children: React.Node,
+  children: ReactNode,
 |};
 
 function Question({ title, children }: QuestionProps) {

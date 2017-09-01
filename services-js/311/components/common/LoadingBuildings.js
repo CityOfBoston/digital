@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/no-danger: 0 */
 
-import * as React from 'react';
+import React from 'react';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';

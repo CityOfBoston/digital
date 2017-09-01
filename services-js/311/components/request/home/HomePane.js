@@ -2,7 +2,7 @@
 /* global liveagent */
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
 
-import * as React from 'react';
+import React from 'react';
 import { css } from 'glamor';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';

@@ -3,7 +3,7 @@
 
 // Forked from next.js to add Opbeat error sending
 
-import * as React from 'react';
+import React from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
 

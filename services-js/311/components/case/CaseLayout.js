@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import type { Context } from 'next';
 import Head from 'next/head';
 

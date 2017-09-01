@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/jsx-no-bind: 0 */
 
-import * as React from 'react';
+import React from 'react';
 
 import { css } from 'glamor';
 import { observable, action } from 'mobx';

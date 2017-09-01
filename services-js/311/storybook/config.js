@@ -1,7 +1,7 @@
 // @flow
 /* eslint no-underscore-dangle: 0 */
 
-import * as React from 'react';
+import React, { type Element as ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { configure, addDecorator } from '@storybook/react';
@@ -33,7 +33,7 @@ try {
 }
 
 class Wrapper extends React.Component<{
-  children: React.Element<any>,
+  children: ReactElement<any>,
 }> {
   static childContextTypes = {
     router: PropTypes.object,
@@ -72,7 +72,7 @@ function loadStories() {
   storiesContext.keys().forEach(filename => storiesContext(filename));
 }
 
-addDecorator((story: () => React.Element<any>) => {
+addDecorator((story: () => ReactElement<any>) => {
   if (window.parent) {
     // eslint-disable-next-line no-underscore-dangle
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =

@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { css } from 'glamor';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';

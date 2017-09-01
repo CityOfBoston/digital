@@ -5,7 +5,7 @@ import 'core-js/shim';
 
 import svg4everybody from 'svg4everybody';
 
-import * as React from 'react';
+import React, { type ComponentType as ReactComponentType } from 'react';
 import type { Context } from 'next';
 import { runInAction } from 'mobx';
 
@@ -30,8 +30,8 @@ type PropsExtension = {
 };
 
 export default <Props: {}>(
-  Component: React.ComponentType<Props & PropsExtension>
-): React.ComponentType<Props> =>
+  Component: ReactComponentType<Props & PropsExtension>
+): ReactComponentType<Props> =>
   class WithStore extends React.Component<Props> {
     store: AppStore;
 

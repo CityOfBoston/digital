@@ -1,10 +1,13 @@
 // @flow
 
-import * as React from 'react';
+import React, {
+  type Element as ReactElement,
+  type Node as ReactNode,
+} from 'react';
 
 type Props = {|
-  subtitle?: string | React.Element<*>,
-  children: React.Node,
+  subtitle?: string | ReactElement<*>,
+  children: ReactNode,
 |};
 
 export default function SectionHeader({ subtitle, children }: Props) {

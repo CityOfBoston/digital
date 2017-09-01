@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/no-danger: 0 */
 
-import * as React from 'react';
+import React from 'react';
 import { css } from 'glamor';
 
 import type { Request } from '../../data/types';

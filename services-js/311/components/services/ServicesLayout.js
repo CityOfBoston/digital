@@ -1,7 +1,7 @@
 // @flow
 /* eslint react/prefer-stateless-function: 0 react/no-unused-prop-types: 0 */
 
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { action } from 'mobx';

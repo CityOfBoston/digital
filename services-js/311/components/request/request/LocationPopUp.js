@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { css } from 'glamor';
 import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';

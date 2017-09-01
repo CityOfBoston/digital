@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 
 import Question from '../../../data/store/Question';

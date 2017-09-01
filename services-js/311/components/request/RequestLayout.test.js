@@ -1,7 +1,7 @@
 // @flow
 /* eslint no-fallthrough: 0 */
 
-import * as React from 'react';
+import React from 'react';
 import renderer from 'react-test-renderer';
 import Router from 'next/router';
 

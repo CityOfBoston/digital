@@ -2,7 +2,7 @@
 
 import 'url-search-params-polyfill';
 
-import * as React from 'react';
+import React from 'react';
 import type { Context } from 'next';
 import Router from 'next/router';
 import { css } from 'glamor';
