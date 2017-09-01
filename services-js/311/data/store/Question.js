@@ -23,7 +23,7 @@ export default class Question {
   description: string;
   required: boolean;
   type: ServiceAttributeDatatype;
-  malformed: boolean;
+  @observable malformed: boolean;
   _values: ?ValuesArray;
   _conditionalValues: ?ConditionalValuesArray;
   _dependencies: ?ConditionGroup;

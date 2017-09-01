@@ -58,7 +58,7 @@ export default class AttributeDateField extends React.Component<Props> {
           const m = minutes < 10 ? `0${minutes}` : minutes;
 
           const ampm = hours >= 12 && hours < 24 ? 'pm' : 'am';
-          this.timeValue = `${h}:${m} ${ampm}`;
+          this.timeValue = `${h === 0 ? 12 : h}:${m} ${ampm}`;
         } else {
           this.dateValue = '';
           this.timeValue = '';
@@ -186,9 +186,14 @@ export default class AttributeDateField extends React.Component<Props> {
     let hours = parseInt(timeMatch[1], 10);
     const minutes = parseInt(timeMatch[2], 10);
 
-    if (timeMatch[3] && timeMatch[3][0].toLowerCase() === 'p') {
+    if (timeMatch[3] && timeMatch[3][0].toLowerCase() === 'p' && hours !== 12) {
       hours += 12;
     }
+
+    if (timeMatch[3] && timeMatch[3][0].toLowerCase() === 'a' && hours === 12) {
+      hours -= 12;
+    }
+
     if (hours === 24) {
       hours = 0;
     }
@@ -297,11 +302,12 @@ export default class AttributeDateField extends React.Component<Props> {
               aria-label={`${question.description} time field`}
             />}
 
-          <span className="t--err p-a300">
+          <span className="t--err">
             {!this.isDateValid &&
               !this.dateFocus &&
               'Please use mm/dd/yyyy to format your date. '}
             {!this.isTimeValid &&
+              !this.dateFocus &&
               !this.timeFocus &&
               'Please use hh:mm am/pm to format your time. '}
           </span>

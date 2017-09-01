@@ -37,7 +37,7 @@ exports[`Storyshots AttributeField Bad Date 1`] = `
           value="NaN/NaN/NaN"
         />
         <span
-          className="t--err p-a300"
+          className="t--err"
         >
           Please use mm/dd/yyyy to format your date. 
         </span>
@@ -115,7 +115,7 @@ exports[`Storyshots AttributeField Date 1`] = `
           value="12/31/1965"
         />
         <span
-          className="t--err p-a300"
+          className="t--err"
         />
       </div>
     </div>
@@ -171,7 +171,7 @@ exports[`Storyshots AttributeField Date/Time 1`] = `
           value="6:05 pm"
         />
         <span
-          className="t--err p-a300"
+          className="t--err"
         />
       </div>
     </div>
