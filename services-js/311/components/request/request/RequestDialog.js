@@ -258,11 +258,13 @@ export default class RequestDialog extends React.Component<Props> {
       }
     );
 
-    this.requestSubmission = fromPromise(promise);
+    const mobxWrappedPromise = fromPromise(promise);
+    this.requestSubmission = mobxWrappedPromise;
 
     routeToServiceForm(service.code, 'submit');
 
-    return promise;
+    // fromPromise returns a promise
+    return (mobxWrappedPromise: any);
   }
 
   render() {
