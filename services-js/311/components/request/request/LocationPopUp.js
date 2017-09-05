@@ -73,8 +73,15 @@ const MAP_CONTAINER_STYLE = css({
 });
 
 const ADDRESS_ROW_STYLE = css({
+  textAlign: 'left',
+  fontSize: 'inherit',
+  width: '100%',
+  borderLeft: 'none',
+  borderRight: 'none',
   display: 'block',
   position: 'relative',
+  outlineOffset: -3,
+  outlineWidth: 3,
   color: CHARLES_BLUE,
   ':hover': {
     color: CHARLES_BLUE,
@@ -85,6 +92,7 @@ const ADDRESS_ROW_STYLE = css({
 
 const UNIT_PICKER_STYLE = css({
   position: 'absolute',
+  zIndex: 2,
   right: 10,
   top: 10,
   ' .sel-c:after': {
@@ -111,6 +119,11 @@ const NO_BORDER_BOTTOM_ADDRESS_STYLE = css({
 const SELECTED_ADDRESS_STYLE = css(NO_BORDER_TOP_ADDRESS_STYLE, {
   borderColor: 'transparent',
   backgroundColor: GRAY_000,
+});
+
+// Needed to reset <button> default styles
+const NOT_SELECTED_ADDRESS_STYLE = css({
+  background: 'transparent',
 });
 
 const WAYPOINT_WRAPPER_STYLE = css({
@@ -433,7 +446,7 @@ class AddressRow extends React.Component<AddressRowProps> {
     const classes = [
       ADDRESS_ROW_STYLE,
       'p-a300',
-      current ? SELECTED_ADDRESS_STYLE : '',
+      current ? SELECTED_ADDRESS_STYLE : NOT_SELECTED_ADDRESS_STYLE,
       current || index === currentPlaceIndex + 1
         ? NO_BORDER_TOP_ADDRESS_STYLE
         : BORDER_TOP_ADDRESS_STYLE,
@@ -443,49 +456,51 @@ class AddressRow extends React.Component<AddressRowProps> {
     ];
 
     return (
-      <a
-        className={classes.join(' ')}
-        key={place.addressId}
-        href="javascript:void(0)"
-        onClick={this.selectAddress}
-        onMouseEnter={this.highlightAddress}
-        onMouseLeave={this.highlightAddress}
-      >
-        <div className={`${WAYPOINT_WRAPPER_STYLE.toString()}`}>
-          <div
-            className={`${WAYPOINT_STYLE.toString()}`}
-            dangerouslySetInnerHTML={{
-              __html:
-                waypointMarkers[highlighted ? 'greenFilled' : 'orangeFilled']
-                  .html,
-            }}
-          />
-          {placeCount > 1 &&
-            <div className={`t--sans ${WAYPOINT_NUMBER_STYLE.toString()}`}>
-              {index + 1}
-            </div>}
-        </div>
-        <div
-          className="addr addr--s"
-          style={{
-            whiteSpace: 'pre-line',
-            display: 'inline-block',
-            verticalAlign: 'middle',
-            lineHeight: 1.4,
-          }}
+      <div style={{ position: 'relative' }} key={place.addressId}>
+        <button
+          type="button"
+          className={classes.join(' ')}
+          onClick={this.selectAddress}
+          onMouseEnter={this.highlightAddress}
+          onMouseLeave={this.highlightAddress}
         >
-          {(current
-            ? address
-            : place.units && place.units.length
-              ? place.units[0].address
-              : place.address).trim()}
-        </div>
+          <div className={`${WAYPOINT_WRAPPER_STYLE.toString()}`}>
+            <div
+              className={`${WAYPOINT_STYLE.toString()}`}
+              dangerouslySetInnerHTML={{
+                __html:
+                  waypointMarkers[highlighted ? 'greenFilled' : 'orangeFilled']
+                    .html,
+              }}
+            />
+            {placeCount > 1 &&
+              <div className={`t--sans ${WAYPOINT_NUMBER_STYLE.toString()}`}>
+                {index + 1}
+              </div>}
+          </div>
+          <div
+            className="addr addr--s"
+            style={{
+              whiteSpace: 'pre-line',
+              display: 'inline-block',
+              verticalAlign: 'middle',
+              lineHeight: 1.4,
+            }}
+          >
+            {(current
+              ? address
+              : place.units && place.units.length
+                ? place.units[0].address
+                : place.address).trim()}
+          </div>
+
+          <div style={{ clear: 'both' }} />
+        </button>
 
         {current &&
           place.units.length > 1 &&
           this.renderUnitSelector(place.units)}
-        <div style={{ clear: 'both' }} />
-      </a>
+      </div>
     );
   }
 

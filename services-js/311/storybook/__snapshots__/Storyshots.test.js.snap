@@ -5710,51 +5710,59 @@ exports[`Storyshots LocationPopUp with address 1`] = `
                 }
               }
             >
-              <a
-                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+              <div
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Dorchester, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
-                  }
-                >
-                  123 Fake St.
-                  Dorchester, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -5855,206 +5863,238 @@ exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
                 }
               }
             >
-              <a
-                className="css-138tr8 p-a300  css-8l1ya5 css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+              <div
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-8l1ya5 css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      1
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Dorchester, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    1
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
+                </button>
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                >
-                  123 Fake St.
-                  Dorchester, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      2
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Roslindate, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    2
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
+                </button>
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                >
-                  123 Fake St.
-                  Roslindate, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300  css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      3
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Charlestown, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    3
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
+                </button>
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                >
-                  123 Fake St.
-                  Charlestown, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300  css-8l1ya5 css-1o41lfq"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-8l1ya5 css-1o41lfq"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      4
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Boston, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    4
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
-                  }
-                >
-                  123 Fake St.
-                  Boston, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -6155,100 +6195,123 @@ exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
                 }
               }
             >
-              <a
-                className="css-138tr8 p-a300  css-8l1ya5 css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+              <div
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-8l1ya5 css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      1
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Dorchester, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    1
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
+                </button>
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                >
-                  123 Fake St.
-                  Dorchester, 02125
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      2
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Boston, MA, 02108
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    2
-                  </div>
-                </div>
+                </button>
                 <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
-                  }
-                >
-                  123 Fake St.
-                  Boston, MA, 02108
-                </div>
-                <div
-                  className="css-pthn9b sel"
+                  className="css-1sdxxw1 sel"
                 >
                   <label
                     className="sel-l sel-l--sq"
@@ -6313,114 +6376,123 @@ exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
                     </select>
                   </div>
                 </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300  css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      3
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Boston, MA, 02108
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    3
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
+                </button>
+              </div>
+              <div
+                style={
+                  Object {
+                    "position": "relative",
                   }
-                >
-                  123 Fake St.
-                  Boston, MA, 02108
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
-              <a
-                className="css-138tr8 p-a300  css-8l1ya5 css-1o41lfq"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-znbo4h css-8l1ya5 css-1o41lfq"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                    <div
+                      className="t--sans css-1npl01i"
+                    >
+                      4
+                    </div>
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Boston, MA, 02108
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                  <div
-                    className="t--sans css-1npl01i"
-                  >
-                    4
-                  </div>
-                </div>
-                <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
-                  }
-                >
-                  123 Fake St.
-                  Boston, MA, 02108
-                </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -6521,45 +6593,60 @@ exports[`Storyshots LocationPopUp with units 1`] = `
                 }
               }
             >
-              <a
-                className="css-138tr8 p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
-                href="javascript:void(0)"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+              <div
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
               >
-                <div
-                  className="css-1skfp86"
+                <button
+                  className="css-ir4efw p-a300 css-1ycnink css-1c9qtpx css-1mci2lh"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
                 >
                   <div
-                    className="css-g3nn3m"
-                    dangerouslySetInnerHTML={
+                    className="css-1skfp86"
+                  >
+                    <div
+                      className="css-g3nn3m"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+                            <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+                              <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+                            </svg>
+                          ",
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
                       Object {
-                        "__html": "
-                          <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
-                            <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
-                          </svg>
-                        ",
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    123 Fake St.
+                    Boston, MA, 02108
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
                       }
                     }
                   />
-                </div>
+                </button>
                 <div
-                  className="addr addr--s"
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "lineHeight": 1.4,
-                      "verticalAlign": "middle",
-                      "whiteSpace": "pre-line",
-                    }
-                  }
-                >
-                  123 Fake St.
-                  Boston, MA, 02108
-                </div>
-                <div
-                  className="css-pthn9b sel"
+                  className="css-1sdxxw1 sel"
                 >
                   <label
                     className="sel-l sel-l--sq"
@@ -6624,14 +6711,7 @@ exports[`Storyshots LocationPopUp with units 1`] = `
                     </select>
                   </div>
                 </div>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
