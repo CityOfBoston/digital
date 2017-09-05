@@ -120,6 +120,11 @@ exports[`methods submitRequest success 2`] = `
                 "name": "Animals",
               },
               Group {
+                "description": "NEEDS DESCRIPTION",
+                "id": "Fees-Pricing",
+                "name": "Fees and Pricing",
+              },
+              Group {
                 "description": "Crime, Fire Prevention & Control, Healthy Living & Inspections",
                 "id": "Health-Safety",
                 "name": "Health, Safety, and Social Services",
@@ -135,6 +140,11 @@ exports[`methods submitRequest success 2`] = `
                 "name": "Property, Housing and Construction",
               },
               Group {
+                "description": "NEEDS DESCRIPTION",
+                "id": "Schools",
+                "name": "Schools",
+              },
+              Group {
                 "description": "Plowing, snow removal",
                 "id": "Snow",
                 "name": "Snow or Weather Related Concerns",
@@ -148,6 +158,11 @@ exports[`methods submitRequest success 2`] = `
                 "description": "Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup",
                 "id": "Trash-Graffiti",
                 "name": "Trash, Recycling, and Graffiti",
+              },
+              Group {
+                "description": "NEEDS DESCRIPTION",
+                "id": "Utilities",
+                "name": "Utilities",
               },
               Group {
                 "description": "General service requests that don’t fit in another category",

@@ -9,6 +9,11 @@ const GROUPS = [
     description: 'Pet Ownership, Problems with Animals, Rodents & Pests',
   },
   {
+    name: 'Fees and Pricing',
+    id: 'Fees-Pricing',
+    description: 'NEEDS DESCRIPTION',
+  },
+  {
     name: 'Health, Safety, and Social Services',
     id: 'Health-Safety',
     description:
@@ -26,6 +31,11 @@ const GROUPS = [
       'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
   },
   {
+    name: 'Schools',
+    id: 'Schools',
+    description: 'NEEDS DESCRIPTION',
+  },
+  {
     name: 'Snow or Weather Related Concerns',
     id: 'Snow',
     description: 'Plowing, snow removal',
@@ -41,6 +51,11 @@ const GROUPS = [
     id: 'Trash-Graffiti',
     description:
       'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
+  },
+  {
+    name: 'Utilities',
+    id: 'Utilities',
+    description: 'NEEDS DESCRIPTION',
   },
   {
     name: 'Other Services',
