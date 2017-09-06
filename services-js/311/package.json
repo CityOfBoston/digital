@@ -125,7 +125,7 @@
     "eslint-plugin-react": "github:yannickcr/eslint-plugin-react",
     "fake-xml-http-request": "^1.4.0",
     "fetch-mock": "^5.9.4",
-    "flow-bin": "^0.54.0",
+    "flow-bin": "^0.54.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-concat": "^2.6.1",
