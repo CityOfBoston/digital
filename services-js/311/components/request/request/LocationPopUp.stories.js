@@ -124,6 +124,7 @@ storiesOf('LocationPopUp', module)
         ],
         {
           query: '123 fake street dorchester ma',
+          lastQuery: '123 fake street dorchester ma',
         }
       )}
       requestForm={new RequestForm()}
@@ -143,6 +144,7 @@ storiesOf('LocationPopUp', module)
         ],
         {
           query: '123 fake street dorchester ma',
+          lastQuery: '123 fake street dorchester ma',
         }
       )}
       requestForm={new RequestForm()}
@@ -180,6 +182,7 @@ storiesOf('LocationPopUp', module)
         ],
         {
           query: '123 fake street',
+          lastQuery: '123 fake street',
         }
       )}
       requestForm={new RequestForm()}
@@ -217,6 +220,7 @@ storiesOf('LocationPopUp', module)
         ],
         {
           query: '123 fake street',
+          lastQuery: '123 fake street',
         }
       )}
       requestForm={new RequestForm()}
@@ -227,6 +231,7 @@ storiesOf('LocationPopUp', module)
       {...props}
       store={makeStore([], {
         query: '123 fake street',
+        lastQuery: '123 fake street',
       })}
       requestForm={new RequestForm()}
     />

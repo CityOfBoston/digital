@@ -14,9 +14,10 @@ import type { AddressUnit, SearchAddressPlace } from '../types';
 export default class AddressSearch {
   @observable query: string = '';
   @observable searching: boolean = false;
+  @observable lastQuery: string = '';
   @observable.ref lastSearchError: ?Error = null;
 
-  @observable.shallow places: ?Array<SearchAddressPlace>;
+  @observable.shallow places: ?Array<SearchAddressPlace> = null;
   @observable currentPlaceIndex: number = -1;
   @observable highlightedPlaceIndex: number = -1;
   @observable currentUnitIndex: number = 0;
@@ -40,12 +41,13 @@ export default class AddressSearch {
   }
 
   @action
-  async search(): Promise<void> {
+  async search(selectFirst: boolean): Promise<void> {
     if (!this.loopbackGraphql) {
       return;
     }
 
     this.places = null;
+    this.lastQuery = this.query;
     this.lastSearchError = null;
     this.currentReverseGeocodeLocation = null;
     this.mode = 'search';
@@ -61,8 +63,8 @@ export default class AddressSearch {
       runInAction('search - searchAddress success', () => {
         this.searching = false;
         this.places = places;
-        this.currentPlaceIndex = places.length === 1 ? 0 : -1;
-        this.highlightedPlaceIndex = -1;
+        this.currentPlaceIndex = places.length === 1 || selectFirst ? 0 : -1;
+        this.highlightedPlaceIndex = this.currentPlaceIndex;
         this.currentUnitIndex = 0;
       });
     } catch (err) {
@@ -74,11 +76,15 @@ export default class AddressSearch {
     }
   }
 
-  @action
-  async geocodeLocation(location: {|
-    lat: number,
-    lng: number,
-  |}): Promise<void> {
+  @computed
+  get location(): ?{ lat: number, lng: number } {
+    return (
+      this.currentReverseGeocodeLocation ||
+      (this.currentPlace ? this.currentPlace.location : null)
+    );
+  }
+
+  set location(location: {| lat: number, lng: number |}) {
     this.query = '';
 
     if (
@@ -93,15 +99,15 @@ export default class AddressSearch {
       return;
     }
 
-    try {
-      this.currentReverseGeocodeLocation = location;
-      this.places = null;
-      this.mode = 'geocode';
+    this.currentReverseGeocodeLocation = location;
+    this.places = null;
+    this.mode = 'geocode';
+    this.lastQuery = '';
+    this.lastSearchError = null;
 
-      this.searching = true;
-      const place = await reverseGeocode(this.loopbackGraphql, location);
-
-      runInAction('geocodeLocation - reverseGeocode success', () => {
+    this.searching = true;
+    reverseGeocode(this.loopbackGraphql, location).then(
+      action('reverseGeocode success', place => {
         this.searching = false;
 
         if (place) {
@@ -126,14 +132,13 @@ export default class AddressSearch {
           this.currentUnitIndex = 0;
           this.currentReverseGeocodeLocationIsValid = false;
         }
-      });
-    } catch (err) {
-      runInAction('geocodeLocation - reverseGeocode error', () => {
+      }),
+      action('reverseGeocode error', err => {
         this.searching = false;
         this.lastSearchError = err;
         window._opbeat && window._opbeat('captureException', err);
-      });
-    }
+      })
+    );
   }
 
   @computed
@@ -159,14 +164,6 @@ export default class AddressSearch {
   @computed
   get notFound(): boolean {
     return !!this.places && this.places.length === 0;
-  }
-
-  @computed
-  get location(): ?{ lat: number, lng: number } {
-    return (
-      this.currentReverseGeocodeLocation ||
-      (this.currentPlace ? this.currentPlace.location : null)
-    );
   }
 
   @computed

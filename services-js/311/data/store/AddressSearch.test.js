@@ -20,6 +20,16 @@ const PLACE: SearchAddressPlace = {
   },
 };
 
+const PLACE_2: SearchAddressPlace = {
+  address: '2 City Hall Plaza',
+  addressId: '12346',
+  units: [],
+  location: {
+    lat: 42.37,
+    lng: -71.06,
+  },
+};
+
 describe('searching', () => {
   let addressSearch;
   let loopbackGraphql;
@@ -44,7 +54,7 @@ describe('searching', () => {
 
   it('updates address and location on success', async () => {
     addressSearch.query = '1 City Hall Plaza';
-    addressSearch.search();
+    addressSearch.search(false);
 
     expect(searchAddress).toHaveBeenCalledWith(
       loopbackGraphql,
@@ -66,11 +76,27 @@ describe('searching', () => {
     addressSearch.currentPlaceIndex = 0;
 
     addressSearch.query = '8888 milk st';
-    addressSearch.search();
+    addressSearch.search(false);
 
     expect(searchAddress).toHaveBeenCalledWith(loopbackGraphql, '8888 milk st');
 
     await resolveGraphql([]);
+
+    expect(addressSearch.address).toEqual('');
+    expect(addressSearch.location).toEqual(null);
+    expect(addressSearch.addressId).toEqual(null);
+  });
+
+  it('has no selection when search returns multilpe things', async () => {
+    addressSearch.query = '1 City Hall Plaza';
+    addressSearch.search(false);
+
+    expect(searchAddress).toHaveBeenCalledWith(
+      loopbackGraphql,
+      '1 City Hall Plaza'
+    );
+
+    await resolveGraphql([PLACE, PLACE_2]);
 
     expect(addressSearch.address).toEqual('');
     expect(addressSearch.location).toEqual(null);
@@ -101,10 +127,10 @@ describe('reverse geocoding', () => {
   });
 
   it('reverse geocodes', async () => {
-    addressSearch.geocodeLocation({
+    addressSearch.location = {
       lat: 42.36035940296916,
       lng: -71.05802536010744,
-    });
+    };
 
     // before reverse geocode happens, location is updated immediately
     expect(addressSearch.location).toEqual({
@@ -138,12 +164,14 @@ describe('reverse geocoding', () => {
 
   it('clears any existing query', () => {
     addressSearch.query = '8888 milk st';
+    addressSearch.lastQuery = '8888 milk st';
 
-    addressSearch.geocodeLocation({
+    addressSearch.location = {
       lat: 42.36035940296916,
       lng: -71.05802536010744,
-    });
+    };
 
     expect(addressSearch.query).toEqual('');
+    expect(addressSearch.lastQuery).toEqual('');
   });
 });

@@ -40,9 +40,9 @@ const CONTENT_STYLE = css({
   alignItems: 'stretch',
   // We can't flex: 1 to the min-height of the mobile FormDialog in IE
   // 0.44rem is the border top of the dialog
-  height: `calc(100vh - ${HEADER_HEIGHT}px - 0.44rem)`,
+  minHeight: `calc(100vh - ${HEADER_HEIGHT}px - 0.44rem)`,
   [MEDIA_LARGE]: {
-    height: 'auto',
+    minHeight: 'auto',
     flex: 'none',
   },
 });
@@ -50,10 +50,14 @@ const CONTENT_STYLE = css({
 const FORM_WRAPPER_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
-  flex: 1,
+  flexGrow: 1,
+  flexShrink: 0,
+  overflowY: 'auto',
+
   [MEDIA_LARGE]: {
     flex: 'none',
     marginTop: '0.25em',
+    overflowY: 'visible',
   },
 });
 
@@ -69,7 +73,21 @@ const BUTTON_ROW_STYLE = css({
 });
 
 const MAP_CONTAINER_STYLE = css({
-  height: '40vh',
+  height: '38vh',
+  transition: 'height 200ms',
+});
+
+const SMALL_MAP_CONTAINER_STYLE = css({
+  height: '15vh',
+  minHeight: 130,
+  transition: 'height 200ms',
+});
+
+const ADDRESS_LIST_STYLE = css({
+  [MEDIA_LARGE]: {
+    maxHeight: 220,
+    overflowY: 'auto',
+  },
 });
 
 const ADDRESS_ROW_STYLE = css({
@@ -211,16 +229,20 @@ export default class LocationPopUp extends React.Component<Props> {
   @action.bound
   whenSearchInput(ev: SyntheticInputEvent<>) {
     const { store: { addressSearch } } = this.props;
+    const query = ev.target.value;
 
-    addressSearch.query = ev.target.value;
-    addressSearch.places = null;
+    addressSearch.query = query;
+
+    if (query === '') {
+      addressSearch.places = null;
+    }
   }
 
   @action.bound
   whenSearchSubmit(ev: SyntheticInputEvent<>) {
     ev.preventDefault();
 
-    const { store: { addressSearch } } = this.props;
+    const { store: { ui: { belowMediaLarge }, addressSearch } } = this.props;
 
     if (this.containerEl) {
       // we update this on search because when the component is mounted it's
@@ -228,7 +250,8 @@ export default class LocationPopUp extends React.Component<Props> {
       addressSearch.searchPopupWidth = this.containerEl.getBoundingClientRect().right;
     }
 
-    addressSearch.search();
+    // on mobile, select the first result by default
+    addressSearch.search(belowMediaLarge);
   }
 
   @action.bound
@@ -246,8 +269,13 @@ export default class LocationPopUp extends React.Component<Props> {
   }
 
   render() {
-    const { requestForm, nextIsSubmit, store: { addressSearch } } = this.props;
-    const { locationRequirementsMet, locationRequired } = requestForm;
+    const {
+      requestForm,
+      nextIsSubmit,
+      store: { addressSearch, ui },
+    } = this.props;
+    const { belowMediaLarge } = ui;
+    const { locationRequirementsMet } = requestForm;
     const { places, lastSearchError, searching, query } = addressSearch;
 
     return (
@@ -297,15 +325,7 @@ export default class LocationPopUp extends React.Component<Props> {
           </div>
 
           <div className={`g p-a300 ${BUTTON_ROW_STYLE.toString()}`}>
-            <div className="g--7 t--subinfo m-v200">
-              {!locationRequired &&
-                <a
-                  href="javascript:void(0)"
-                  onClick={this.continueWithoutLocation}
-                >
-                  Continue without location
-                </a>}
-            </div>
+            {!belowMediaLarge && this.renderContinueWithoutLocation()}
             <button
               type="button"
               className="btn g--5"
@@ -314,8 +334,22 @@ export default class LocationPopUp extends React.Component<Props> {
             >
               {nextIsSubmit ? 'Submit' : 'Next'}
             </button>
+            {belowMediaLarge && this.renderContinueWithoutLocation()}
           </div>
         </div>
+      </div>
+    );
+  }
+
+  renderContinueWithoutLocation() {
+    const { requestForm: { locationRequired } } = this.props;
+
+    return (
+      <div className="g--7 t--subinfo m-v200">
+        {!locationRequired &&
+          <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>
+            Continue without location
+          </a>}
       </div>
     );
   }
@@ -323,14 +357,26 @@ export default class LocationPopUp extends React.Component<Props> {
   maybeRenderMap() {
     const { store } = this.props;
     const { belowMediaLarge } = store.ui;
+    const { places } = store.addressSearch;
 
     if (!belowMediaLarge) {
       return null;
     }
 
+    const smallPicker = places && places.length > 1;
+
     return (
-      <div className={`${MAP_CONTAINER_STYLE.toString()}`}>
-        <LocationMapWithLibrary store={store} mode="picker" mobile />
+      <div
+        className={`${smallPicker
+          ? SMALL_MAP_CONTAINER_STYLE.toString()
+          : MAP_CONTAINER_STYLE.toString()}`}
+      >
+        <LocationMapWithLibrary
+          store={store}
+          mode="picker"
+          mobile
+          smallPicker={!!smallPicker}
+        />
       </div>
     );
   }
@@ -369,20 +415,19 @@ export default class LocationPopUp extends React.Component<Props> {
 
   renderAddressList(places: Array<SearchAddressPlace>) {
     const { addressSearch } = this.props.store;
-    const { query } = addressSearch;
+    const { lastQuery } = addressSearch;
 
     return (
       <div className="" key="places">
-        {!!query &&
+        {!!lastQuery &&
+          places.length !== 1 &&
           <div
             className={`t--sans t--upper t--g300 p-a300 t--ellipsis ${SEARCH_RESULTS_HEADER_STYLE.toString()}`}
           >
-            {places.length === 1
-              ? `${places.length} result for ${query}`
-              : `${places.length} results for ${query}`}
+            {places.length} results for {lastQuery}
           </div>}
 
-        <div style={{ maxHeight: 220, overflowY: 'auto' }}>
+        <div className={`${ADDRESS_LIST_STYLE.toString()}`}>
           {places.map((place, idx) =>
             <AddressRow
               place={place}

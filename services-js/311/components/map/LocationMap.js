@@ -83,6 +83,7 @@ type CommonProps = {|
   mode: MapMode,
   store: AppStore,
   mobile: boolean,
+  smallPicker?: boolean,
   onMapClick?: ?Function,
 |};
 
@@ -91,6 +92,7 @@ type Props = {|
   mode: MapMode,
   store: AppStore,
   mobile: boolean,
+  smallPicker?: boolean,
   onMapClick?: ?Function,
   L: ?LWithMapbox,
   mapboxgl: ?MapboxGL,
@@ -154,8 +156,6 @@ export default class LocationMap extends React.Component<Props> {
 
   currentLocationMarker: ?Marker;
   currentLocationMarkerGl: ?GLMarker;
-
-  lastPickedLocation: ?{ lat: number, lng: number } = null;
 
   searchMarkerPool: ?SearchMarkerPool = null;
 
@@ -285,13 +285,19 @@ export default class LocationMap extends React.Component<Props> {
 
   @action
   componentDidUpdate(oldProps: Props) {
-    const { mode } = this.props;
+    const { mode, smallPicker } = this.props;
+
     if (oldProps.mode !== mode) {
       this.updateMapEventHandlers(mode);
 
       if (mode === 'picker') {
         this.initLocation(true);
       }
+    } else if (oldProps.smallPicker !== smallPicker) {
+      this.updateMapEventHandlers(mode);
+      // we need this to be long enough for the LocationPopUp height transition
+      // to run.
+      window.setTimeout(() => this.invalidateSize(), 220);
     }
   }
 
@@ -341,34 +347,20 @@ export default class LocationMap extends React.Component<Props> {
     if (store.addressSearch.location) {
       this.visitLocation(store.addressSearch.location, animated);
     } else if (currentLocation && currentLocationInBoston) {
-      // go through chooseLocation so that we get geocoding
-      this.chooseLocation(currentLocation);
+      // go through selectAddressFromLocation so that we get geocoding
+      this.selectAddressFromLocation(currentLocation);
       this.visitLocation(currentLocation, animated);
     }
   }
 
-  @action.bound
-  chooseLocation(location: {| lat: number, lng: number |}) {
+  @action
+  selectAddressFromLocation(location: {| lat: number, lng: number |}) {
     const { store: { addressSearch } } = this.props;
-    const currentLocation = addressSearch.location;
-
-    // compare against epsilon to handle the case where we recenter the map in
-    // mobile because of forward address search, and the "map moved" fires and
-    // tries to re-geocode based on the newly center point.
-    if (
-      currentLocation &&
-      Math.abs(currentLocation.lat - location.lat) < 0.0000001 &&
-      Math.abs(currentLocation.lng - location.lng) < 0.0000001
-    ) {
-      return;
-    }
-
-    this.lastPickedLocation = location;
-    addressSearch.geocodeLocation(location);
+    addressSearch.location = location;
   }
 
   visitLocation(location: { lat: number, lng: number }, animated: boolean) {
-    const { store: { ui, addressSearch } } = this.props;
+    const { mobile, store: { ui, addressSearch } } = this.props;
 
     if (this.mapboxMap) {
       const map = this.mapboxMap;
@@ -398,13 +390,15 @@ export default class LocationMap extends React.Component<Props> {
       const opts = {
         maxZoom,
         animate: animated && !ui.reduceMotion,
-        padding: {
-          top: 60,
-          bottom: 40,
-          left: (addressSearch.searchPopupWidth || 0) / 3 + 40,
-          // Need to leave some room for zoom controls
-          right: 60,
-        },
+        padding: mobile
+          ? 40
+          : {
+              top: 60,
+              bottom: 40,
+              left: (addressSearch.searchPopupWidth || 0) / 3 + 40,
+              // Need to leave some room for zoom controls
+              right: 60,
+            },
       };
 
       map.fitBounds(bounds, opts);
@@ -707,73 +701,44 @@ export default class LocationMap extends React.Component<Props> {
     const { mobile, store: { ui, addressSearch } } = this.props;
     const { mapboxMap, mapboxGlMap } = this;
 
-    if (mobile) {
-      // TODO(finh): MOBILE
-      // if (mapboxMap && requestMarker) {
-      //   mapboxMap.removeLayer(requestMarker);
-      //   if (ui.reduceMotion) {
-      //     mapboxMap.setView(markerLocation, mapboxMap.getZoom());
-      //   } else {
-      //     mapboxMap.flyTo(markerLocation);
-      //   }
-      //   if (requestMarker.options.icon) {
-      //     // This is a bit jank but lets us leverage the existing marker-
-      //     // changing code. Alternate plan would be to change the marker icon
-      //     // using React state.
-      //     requestMarker.options.icon.createIcon(this.mobileMarkerEl);
-      //   }
-      // }
-      // if (mapboxGlMap && requestMarkerGl) {
-      //   requestMarkerGl.remove();
-      //   if (ui.reduceMotion) {
-      //     mapboxGlMap.panTo([markerLocation.lng, markerLocation.lat]);
-      //   } else {
-      //     mapboxGlMap.flyTo({
-      //       center: [markerLocation.lng, markerLocation.lat],
-      //     });
-      //   }
-      //   if (mobileMarkerEl) {
-      //     mobileMarkerEl.innerHTML = requestMarkerGl.getElement().innerHTML;
-      //   }
-      // }
-    } else {
-      // Only zoom-to-fit if there is more than one location. Note that this
-      // check also prevents colliding with the zoom for when a single result is
-      // auto-selected, as well as clicking on the map.
-      if (locations.length > 1) {
-        const lngs = locations.map(l => l.lng);
-        const lats = locations.map(l => l.lat);
+    // Only zoom-to-fit if there is more than one location. Note that this
+    // check also prevents colliding with the zoom for when a single result is
+    // auto-selected, as well as clicking on the map.
+    if (locations.length > 1 && addressSearch.currentPlaceIndex === -1) {
+      const lngs = locations.map(l => l.lng);
+      const lats = locations.map(l => l.lat);
 
-        if (mapboxMap) {
-          mapboxMap.fitBounds(
-            [
-              [Math.min(...lats), Math.min(...lngs)],
-              [Math.max(...lats), Math.max(...lngs)],
-            ],
-            {
-              animate: !ui.reduceMotion,
-            }
-          );
-        }
+      if (mapboxMap) {
+        mapboxMap.fitBounds(
+          [
+            [Math.min(...lats), Math.min(...lngs)],
+            [Math.max(...lats), Math.max(...lngs)],
+          ],
+          {
+            animate: !ui.reduceMotion,
+          }
+        );
+      }
 
-        if (mapboxGlMap) {
-          mapboxGlMap.fitBounds(
-            [
-              [Math.min(...lngs), Math.min(...lats)],
-              [Math.max(...lngs), Math.max(...lats)],
-            ],
-            {
-              animate: !ui.reduceMotion,
-              padding: {
-                top: 60,
-                bottom: 40,
-                left: addressSearch.searchPopupWidth || 0 + 40,
-                // Need to leave some room for zoom controls
-                right: 60,
-              },
-            }
-          );
-        }
+      if (mapboxGlMap) {
+        mapboxGlMap.fitBounds(
+          [
+            [Math.min(...lngs), Math.min(...lats)],
+            [Math.max(...lngs), Math.max(...lats)],
+          ],
+          {
+            animate: !ui.reduceMotion,
+            padding: mobile
+              ? 0
+              : {
+                  top: 60,
+                  bottom: 40,
+                  left: addressSearch.searchPopupWidth || 0 + 40,
+                  // Need to leave some room for zoom controls
+                  right: 60,
+                },
+          }
+        );
       }
     }
   };
@@ -895,7 +860,7 @@ export default class LocationMap extends React.Component<Props> {
   }
 
   updateMapEventHandlers(mode: MapMode) {
-    const { mapboxgl } = this.props;
+    const { mapboxgl, smallPicker } = this.props;
 
     let boxZoom;
     let dragPan;
@@ -952,12 +917,25 @@ export default class LocationMap extends React.Component<Props> {
         touchZoomRotate.enable();
 
         if (this.zoomControl && this.mapboxMap) {
-          this.zoomControl.addTo(this.mapboxMap);
+          if (smallPicker) {
+            this.zoomControl.remove();
+          } else {
+            this.zoomControl.addTo(this.mapboxMap);
+          }
         }
 
         if (mapboxgl && this.mapboxGlMap) {
-          this.zoomControlGl = new mapboxgl.NavigationControl();
-          this.mapboxGlMap.addControl(this.zoomControlGl, 'top-right');
+          if (smallPicker) {
+            if (this.zoomControlGl) {
+              this.mapboxGlMap.removeControl(this.zoomControlGl);
+              this.zoomControlGl = null;
+            }
+          } else {
+            if (!this.zoomControlGl) {
+              this.zoomControlGl = new mapboxgl.NavigationControl();
+              this.mapboxGlMap.addControl(this.zoomControlGl, 'top-right');
+            }
+          }
         }
         break;
 
@@ -989,7 +967,7 @@ export default class LocationMap extends React.Component<Props> {
       const { L, mapboxgl } = this.props;
       const { mapboxMap, mapEl, mapboxGlMap } = this;
 
-      const { store: { requestSearch }, mobile, mode } = this.props;
+      const { store: { requestSearch } } = this.props;
 
       if (!mapEl) {
         return;
@@ -1041,17 +1019,13 @@ export default class LocationMap extends React.Component<Props> {
 
       requestSearch.mapCenter = centerStruct;
       requestSearch.mapZoom = mapZoom;
-
-      if (mode === 'picker' && mobile) {
-        this.chooseLocation(centerStruct);
-      }
     }),
     500
   );
 
   @action.bound
   handleMapClick(ev: Object) {
-    const { mode, mobile, store: { ui }, onMapClick } = this.props;
+    const { mode, onMapClick } = this.props;
     const { mapboxMap, mapboxGlMap } = this;
 
     if (onMapClick) {
@@ -1066,50 +1040,26 @@ export default class LocationMap extends React.Component<Props> {
     if (mapboxMap) {
       const latLng = ev.latlng;
 
-      if (mobile) {
-        // recentering the map will choose the new location. We do it this way
-        // to avoid a double-geocode, first of the clicked location and then
-        // to the re-centered map location (they differ by a very fine floating
-        // point amount)
-        if (ui.reduceMotion) {
-          mapboxMap.setView(latLng, mapboxMap.getZoom());
-        } else {
-          mapboxMap.flyTo(latLng);
-        }
-      } else {
-        this.chooseLocation({
-          lat: latLng.lat,
-          lng: latLng.lng,
-        });
-      }
+      this.selectAddressFromLocation({
+        lat: latLng.lat,
+        lng: latLng.lng,
+      });
     }
 
     if (mapboxGlMap) {
       const lngLat = ev.lngLat;
 
-      if (mobile) {
-        if (ui.reduceMotion) {
-          mapboxGlMap.panTo(lngLat, {
-            animate: false,
-          });
-        } else {
-          mapboxGlMap.flyTo({
-            center: lngLat,
-          });
-        }
-      } else {
-        this.chooseLocation({
-          lat: lngLat.lat,
-          lng: lngLat.lng,
-        });
-      }
+      this.selectAddressFromLocation({
+        lat: lngLat.lat,
+        lng: lngLat.lng,
+      });
     }
   }
 
   currentLocationClicked(pos: {| lat: number, lng: number |}) {
     const { mode } = this.props;
     if (mode === 'picker') {
-      this.chooseLocation(pos);
+      this.selectAddressFromLocation(pos);
     } else if (mode === 'requests') {
       this.visitLocation(pos, true);
     }
@@ -1149,7 +1099,7 @@ export default class LocationMap extends React.Component<Props> {
     const marker: Marker = ev.target;
     const latLng = marker.getLatLng();
 
-    this.chooseLocation({
+    this.selectAddressFromLocation({
       lat: latLng.lat,
       lng: latLng.lng,
     });
@@ -1210,7 +1160,7 @@ export default class LocationMap extends React.Component<Props> {
       addressSearch.currentPlaceIndex = draggingMarkerGl.placeIndex;
       addressSearch.highlightedPlaceIndex = draggingMarkerGl.placeIndex;
     } else {
-      this.chooseLocation({
+      this.selectAddressFromLocation({
         lat: lngLat.lat,
         lng: lngLat.lng,
       });
@@ -1264,7 +1214,7 @@ export default class LocationMap extends React.Component<Props> {
     const marker: Marker = ev.target;
     const latLng = marker.getLatLng();
 
-    this.chooseLocation({
+    this.selectAddressFromLocation({
       lat: latLng.lat,
       lng: latLng.lng,
     });

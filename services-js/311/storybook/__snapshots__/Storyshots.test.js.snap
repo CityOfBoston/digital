@@ -5448,12 +5448,12 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -5544,12 +5544,12 @@ exports[`Storyshots LocationPopUp searching 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -5656,12 +5656,12 @@ exports[`Storyshots LocationPopUp with address 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -5703,12 +5703,7 @@ exports[`Storyshots LocationPopUp with address 1`] = `
             className=""
           >
             <div
-              style={
-                Object {
-                  "maxHeight": 220,
-                  "overflowY": "auto",
-                }
-              }
+              className="css-1b7mvpq"
             >
               <div
                 style={
@@ -5809,12 +5804,12 @@ exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -5856,12 +5851,14 @@ exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
             className=""
           >
             <div
-              style={
-                Object {
-                  "maxHeight": 220,
-                  "overflowY": "auto",
-                }
-              }
+              className="t--sans t--upper t--g300 p-a300 t--ellipsis css-1ax283a"
+            >
+              4
+               results for 
+              123 fake street
+            </div>
+            <div
+              className="css-1b7mvpq"
             >
               <div
                 style={
@@ -6141,12 +6138,12 @@ exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -6188,12 +6185,14 @@ exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
             className=""
           >
             <div
-              style={
-                Object {
-                  "maxHeight": 220,
-                  "overflowY": "auto",
-                }
-              }
+              className="t--sans t--upper t--g300 p-a300 t--ellipsis css-1ax283a"
+            >
+              4
+               results for 
+              123 fake street
+            </div>
+            <div
+              className="css-1b7mvpq"
             >
               <div
                 style={
@@ -6539,12 +6538,12 @@ exports[`Storyshots LocationPopUp with units 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
@@ -6586,12 +6585,7 @@ exports[`Storyshots LocationPopUp with units 1`] = `
             className=""
           >
             <div
-              style={
-                Object {
-                  "maxHeight": 220,
-                  "overflowY": "auto",
-                }
-              }
+              className="css-1b7mvpq"
             >
               <div
                 style={
@@ -6758,12 +6752,12 @@ exports[`Storyshots LocationPopUp without address 1`] = `
     <div
       className={
         Object {
-          "data-css-1wu02iq": "",
+          "data-css-xmixgj": "",
         }
       }
     >
       <div
-        className="css-dh8302"
+        className="css-m89tpz"
       >
         <div
           className="p-a300"
