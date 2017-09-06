@@ -7095,9 +7095,9 @@
       "integrity": "sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg="
     },
     "graphql": {
-      "version": "0.11.1",
-      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.11.1.tgz",
-      "integrity": "sha512-6jucrsK21OSRmFgQz5cHtGuLEGbQE/hH6UEcDITzwua62PgwfsGdDJuvbt166kbw0jMijh92N+dG9/GiaP9U+g==",
+      "version": "0.11.3",
+      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.11.3.tgz",
+      "integrity": "sha512-/WGU673BlQaCw3gDECmqL5+l8kg4Sm3XHvuzPtZLiI/y8Xm7fKq+C0mtJmAImuHJvTBsMtCuX/R9BUQqPm4tzw==",
       "requires": {
         "iterall": "1.1.1"
       }
