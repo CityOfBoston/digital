@@ -37,7 +37,7 @@ declare type TileSourceSpecification = {
 
 declare type GeojsonSourceSpecification = {|
     "type": "geojson",
-    "data"?: mixed,
+    "data": any,
     "maxzoom"?: number,
     "buffer"?: number,
     "tolerance"?: number,
