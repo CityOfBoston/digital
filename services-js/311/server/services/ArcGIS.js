@@ -178,7 +178,7 @@ export function sortAddressCandidates(
           // Finally, be in alphabetical order
           a.attributes.Match_addr.localeCompare(b.attributes.Match_addr)
       )
-      .toArray()
+      .value()
   );
 }
 
@@ -210,7 +210,7 @@ export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
         })
       );
     })
-    .toArray();
+    .value();
 }
 
 export function samFeatureToUnit({
