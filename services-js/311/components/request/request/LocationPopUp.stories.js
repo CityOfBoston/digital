@@ -235,4 +235,15 @@ storiesOf('LocationPopUp', module)
       })}
       requestForm={new RequestForm()}
     />
+  )
+  .add('search error', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore(null, {
+        query: '123 fake street',
+        lastQuery: '123 fake street',
+        lastSearchError: new Error('SERVER ERROR THINGS ARE BROKEN'),
+      })}
+      requestForm={new RequestForm()}
+    />
   );

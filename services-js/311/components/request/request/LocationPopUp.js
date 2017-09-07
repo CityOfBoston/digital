@@ -10,7 +10,7 @@ import type AddressSearch from '../../../data/store/AddressSearch';
 import type { SearchAddressPlace, AddressUnit } from '../../../data/types';
 import type RequestForm from '../../../data/store/RequestForm';
 
-import LoadingBuildings from '../../common/LoadingBuildings';
+import LoadingIcons from '../../common/LoadingIcons';
 import { LocationMapWithLibrary } from '../../map/LocationMap';
 import {
   MEDIA_LARGE,
@@ -316,7 +316,7 @@ export default class LocationPopUp extends React.Component<Props> {
 
           <div className={ADDRESS_WRAPPER_STYLE}>
             {searching && this.renderLoading()}
-            {lastSearchError && this.renderSearchError(lastSearchError)}
+            {lastSearchError && this.renderSearchError()}
 
             {places &&
               (places.length > 0
@@ -384,16 +384,17 @@ export default class LocationPopUp extends React.Component<Props> {
   renderLoading() {
     return (
       <div className={`${LOADING_CONTAINER_STYLE.toString()}`} key="loading">
-        <LoadingBuildings />
+        <LoadingIcons />
       </div>
     );
   }
 
-  renderSearchError(error: Error) {
+  renderSearchError() {
     return (
       <div className="p-a300 t--info" key="error">
         <span className="t--err">
-          Error searching for address: {error.toString()}
+          We couldn’t find that address because of a server problem. Please try
+          again later.
         </span>
       </div>
     );
