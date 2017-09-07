@@ -843,19 +843,33 @@ export default class LocationMap extends React.Component<Props> {
       }
     };
 
+    const features = requestSearch.results.map(res => ({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [(res.location || {}).lng, (res.location || {}).lat],
+      },
+      properties: {
+        icon: iconFn(res.status, res === requestSearch.selectedRequest),
+        requestId: res.id,
+        selected: res === requestSearch.selectedRequest,
+      },
+    }));
+
+    // puts the selected feature first so that it renders on top
+    features.sort((a, b) => {
+      if (a.properties.selected) {
+        return -1;
+      } else if (b.properties.selected) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
     return {
       type: 'FeatureCollection',
-      features: requestSearch.results.map(res => ({
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [(res.location || {}).lng, (res.location || {}).lat],
-        },
-        properties: {
-          icon: iconFn(res.status, res === requestSearch.selectedRequest),
-          requestId: res.id,
-        },
-      })),
+      features,
     };
   }
 

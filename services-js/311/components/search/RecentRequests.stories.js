@@ -47,22 +47,44 @@ export const MOCK_CASES: SearchCase[] = [
   },
 ];
 
-const makeStore = (selected: boolean) => {
+const makeStore = (
+  cases: ?(SearchCase[]),
+  selectedIndex: number,
+  opts: ?Object
+) => {
   const store = new AppStore();
-  store.requestSearch.updateCaseSearchResults({ cases: MOCK_CASES, query: '' });
+  const { requestSearch } = store;
 
-  if (selected) {
-    store.requestSearch.selectedRequest = MOCK_CASES[1];
+  if (cases) {
+    requestSearch.updateCaseSearchResults({ cases, query: '' });
+    requestSearch.selectedRequest = cases[selectedIndex];
+  }
+
+  if (opts) {
+    Object.assign(requestSearch, opts);
   }
 
   return store;
 };
 
 storiesOf('RecentRequests', module)
-  .addDecorator(story =>
-    <div>
-      {story()}
-    </div>
+  .add('loading without results', () =>
+    <RecentRequests store={makeStore(null, 0, { loading: true })} />
   )
-  .add('results loaded', () => <RecentRequests store={makeStore(false)} />)
-  .add('with selection', () => <RecentRequests store={makeStore(true)} />);
+  .add('no results', () => <RecentRequests store={makeStore([], 0)} />)
+  .add('results loaded', () =>
+    <RecentRequests store={makeStore(MOCK_CASES, -1)} />
+  )
+  .add('results loaded and loading more', () =>
+    <RecentRequests store={makeStore(MOCK_CASES, -1, { loading: true })} />
+  )
+  .add('with selection', () =>
+    <RecentRequests store={makeStore(MOCK_CASES, 1)} />
+  )
+  .add('with error', () =>
+    <RecentRequests
+      store={makeStore([], -1, {
+        resultsError: new Error('EVERYTHING IS BROKEN'),
+      })}
+    />
+  );

@@ -184,6 +184,7 @@ exports[`methods submitRequest success 2`] = `
           "requestSearch": RequestSearch {
             "boundsSet": false,
             "boundsSetDisposer": null,
+            "debouncedSearch": [Function],
             "mapMoved": false,
             "searchDisposer": null,
           },

@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { observable, action, autorun, untracked } from 'mobx';
+import { action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
 
@@ -10,6 +10,7 @@ import {
   HEADER_HEIGHT,
   MEDIA_LARGE,
   GRAY_100,
+  GRAY_200,
   CLEAR_FIX,
 } from '../style-constants';
 
@@ -45,6 +46,14 @@ const SEARCH_CONTAINER_STYLE = css({
   },
 });
 
+const SEARCH_RESULTS_HEADER_STYLE = css({
+  fontSize: 14,
+  color: GRAY_200,
+  letterSpacing: '1px',
+  paddingTop: '.475rem',
+  paddingBottom: 0,
+});
+
 // While we would prefer to make this so that the loading spinner is vertically
 // centered in the height of the empty search results area, that runs afoul of
 // IE 10/11 flexbox behavior. To get the height of the empty area down to this
@@ -53,6 +62,9 @@ const SEARCH_CONTAINER_STYLE = css({
 // accommodate search results.
 const LOADING_CONTAINER_STYLE = css({
   marginTop: '10%',
+  position: 'absolute',
+  zIndex: 2,
+  width: '100%',
   [MEDIA_LARGE]: {
     marginTop: '30%',
   },
@@ -67,34 +79,47 @@ const LOADING_WRAPPER_STYLE = css({
   },
 });
 
+const REQUEST_LIST_STYLE = css({
+  transition: 'opacity 200ms',
+});
+
+const LOADING_REQUEST_LIST_STYLE = css({
+  pointerEvents: 'none',
+  opacity: 0.2,
+});
+
 export type Props = {|
   store: AppStore,
 |};
 
 @observer
 export default class RecentRequests extends React.Component<Props> {
-  @observable.ref mainEl: ?HTMLElement = null;
+  mainEl: ?HTMLElement = null;
 
-  scrollSelectedIntoViewDisposer: ?Function;
+  mobxDisposers: Array<Function> = [];
 
   componentDidMount() {
-    this.scrollSelectedIntoViewDisposer = autorun(this.scrollSelectedIntoView);
+    this.mobxDisposers.push(
+      autorun(this.scrollSelectedIntoView),
+      autorun(this.scrollOnResultsChange)
+    );
   }
 
   componentWillUnmount() {
-    if (this.scrollSelectedIntoViewDisposer) {
-      this.scrollSelectedIntoViewDisposer();
-    }
+    this.mobxDisposers.forEach(d => d());
   }
 
-  @action.bound
-  setMainEl(mainEl: ?HTMLElement) {
+  setMainEl = (mainEl: ?HTMLElement) => {
     this.mainEl = mainEl;
+  };
+
+  @action.bound
+  clearSearch() {
+    this.props.store.requestSearch.query = '';
   }
 
   scrollSelectedIntoView = () => {
-    // Keeps us from getting a dependency on props
-    const { store } = untracked(() => Object.assign({}, this.props));
+    const { store } = this.props;
     const { belowMediaLarge } = store.ui;
 
     // don't scroll on mobile
@@ -102,21 +127,44 @@ export default class RecentRequests extends React.Component<Props> {
       return;
     }
 
+    const { mainEl } = this;
     const { selectedRequest, selectedSource } = store.requestSearch;
 
-    if (selectedRequest && this.mainEl && selectedSource !== 'list') {
-      const requestEl = this.mainEl.querySelector(
+    if (selectedRequest && mainEl && selectedSource !== 'list') {
+      const requestEl = mainEl.querySelector(
         `[data-request-id="${selectedRequest.id}"]`
       );
+
       if (Velocity && requestEl) {
         Velocity(requestEl, 'scroll', { offset: -HEADER_HEIGHT });
       }
     }
   };
 
+  scrollOnResultsChange = () => {
+    const { store } = this.props;
+    const { belowMediaLarge } = store.ui;
+
+    // don't scroll on mobile
+    if (belowMediaLarge) {
+      return;
+    }
+
+    const { mainEl } = this;
+    const { results } = store.requestSearch;
+
+    if (results) {
+      if (Velocity && mainEl) {
+        Velocity(document.documentElement, 'scroll', {
+          offset: 0,
+        });
+      }
+    }
+  };
+
   render() {
     const { store: { requestSearch, ui } } = this.props;
-    const { results, loading, resultsQuery, query } = requestSearch;
+    const { results, loading, resultsQuery, resultsError } = requestSearch;
 
     return (
       <div className={CONTAINER_STYLE} ref={this.setMainEl}>
@@ -126,8 +174,7 @@ export default class RecentRequests extends React.Component<Props> {
 
         <h2 className="a11y--h">Search Results</h2>
 
-        {results.length === 0 &&
-          (loading || resultsQuery !== query) &&
+        {loading &&
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
               <LoadingIcons
@@ -138,24 +185,72 @@ export default class RecentRequests extends React.Component<Props> {
             </div>
           </div>}
 
-        {results.map(request =>
-          <RecentRequestRow
-            key={request.id}
-            request={request}
-            requestSearch={requestSearch}
-            ui={ui}
-          />
-        )}
+        {resultsError &&
+          <div className="p-a300">
+            <div className="t--intro">
+              <span className="t--err">Uh-oh!</span>
+            </div>
+
+            <div className="t--info m-v200">
+              <span className="t--err">
+                Search results aren’t loading right now because of a server
+                problem.
+              </span>
+            </div>
+
+            <div className="t--info m-v200">
+              <span className="t--err">Please try again later.</span>
+            </div>
+          </div>}
 
         {results.length === 0 &&
-          !(loading || resultsQuery !== query) &&
+          !loading &&
+          !resultsError &&
           <div className="p-a300">
             <div className="t--intro">No results found</div>
             <div className="t--info">
               Try a different search term or move the map to search a different
-              area.
+              area.{' '}
+              {resultsQuery &&
+                <a href="javascript:void(0)" onClick={this.clearSearch}>
+                  Clear search
+                </a>}
             </div>
           </div>}
+
+        <div
+          className={`${REQUEST_LIST_STYLE.toString()} ${loading
+            ? LOADING_REQUEST_LIST_STYLE.toString()
+            : ''}`}
+        >
+          {results.length > 0 &&
+            <div
+              className={`t--sans t--upper t--g300 p-a300 m-v200 t--ellipsis ${SEARCH_RESULTS_HEADER_STYLE.toString()}`}
+            >
+              {resultsQuery && `Latest ${resultsQuery} cases in this area`}
+              {!resultsQuery && `Latest cases in this area`}
+
+              {resultsQuery &&
+                <span>
+                  {' — '}
+                  <a
+                    href="javascript:void()"
+                    onClick={this.clearSearch}
+                    title="Clear search"
+                  >
+                    Clear search
+                  </a>
+                </span>}
+            </div>}
+          {results.map(request =>
+            <RecentRequestRow
+              key={request.id}
+              request={request}
+              requestSearch={requestSearch}
+              ui={ui}
+            />
+          )}
+        </div>
       </div>
     );
   }

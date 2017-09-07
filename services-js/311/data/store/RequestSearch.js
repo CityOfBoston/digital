@@ -1,13 +1,6 @@
 // @flow
 
-import {
-  observable,
-  action,
-  reaction,
-  computed,
-  runInAction,
-  autorun,
-} from 'mobx';
+import { observable, action, reaction, computed, autorun } from 'mobx';
 // eslint-disable-next-line
 import type { LatLngBounds } from 'mapbox.js';
 import type { LngLatBounds } from 'mapbox-gl';
@@ -51,6 +44,7 @@ export default class RequestSearch {
 
   @observable.shallow _results: SearchCase[] = [];
   @observable resultsQuery: ?string = null;
+  @observable resultsError: ?Error = null;
   @observable loading: boolean = false;
 
   @observable.ref selectedRequest: ?SearchCase = null;
@@ -119,7 +113,7 @@ export default class RequestSearch {
         bottomRight: this.bottomRight,
         query: this.query,
       }),
-      debounce(this.search.bind(this, loopbackGraphql), 500),
+      this.search.bind(this, loopbackGraphql),
       {
         name: 'RequestSearch auto-search',
         fireImmediately: true,
@@ -181,10 +175,9 @@ export default class RequestSearch {
   }
 
   @action
-  async search(
-    loopbackGraphql: LoopbackGraphql,
-    { topLeft, bottomRight, query }: SearchArgs
-  ) {
+  search(loopbackGraphql: LoopbackGraphql, args: SearchArgs) {
+    const { topLeft, bottomRight, query } = args;
+
     if (!topLeft || !bottomRight) {
       return;
     }
@@ -196,17 +189,27 @@ export default class RequestSearch {
     }
 
     this.loading = true;
+    this.resultsError = null;
 
-    const results = await searchCases(
-      loopbackGraphql,
-      query,
-      topLeft,
-      bottomRight
+    this.debouncedSearch(loopbackGraphql, args);
+  }
+
+  debouncedSearch = debounce(this.internalSearch.bind(this), 500);
+
+  internalSearch(
+    loopbackGraphql: LoopbackGraphql,
+    { topLeft, bottomRight, query }: SearchArgs
+  ) {
+    searchCases(loopbackGraphql, query, topLeft, bottomRight).then(
+      action('searchCases success', results => {
+        this.loading = false;
+        this.updateCaseSearchResults(results);
+      }),
+      action('searchCases failure', err => {
+        this.loading = false;
+        this.resultsError = err;
+        window._opbeat && window._opbeat('captureException', err);
+      })
     );
-
-    runInAction('request search results', () => {
-      this.loading = false;
-      this.updateCaseSearchResults(results);
-    });
   }
 }

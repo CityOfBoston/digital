@@ -7443,52 +7443,212 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
 </div>
 `;
 
-exports[`Storyshots RecentRequests results loaded 1`] = `
-<div>
+exports[`Storyshots RecentRequests loading without results 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
   <div
     className={
       Object {
-        "data-css-1q78t83": "",
+        "data-css-16r640x": "",
       }
     }
   >
     <div
-      className="p-a300 css-1p3t4uv"
+      className={
+        Object {
+          "data-css-2jt8dn": "",
+        }
+      }
     >
-      <form
-        acceptCharset="UTF-8"
-        action="/lookup"
-        className="sf sf--y sf--md"
-        method="get"
-        onSubmit={[Function]}
-        role="search"
+      <span
+        className="css-17mox4x"
       >
-        <div
-          className="sf-i"
-        >
-          <input
-            aria-label="Search field"
-            className="sf-i-f"
-            name="q"
-            onChange={[Function]}
-            placeholder="Search by case ID or keywords…"
-            type="text"
-            value=""
-          />
-          <button
-            className="sf-i-b"
-            type="submit"
-          >
-            Search
-          </button>
-        </div>
-      </form>
+        <svg
+          className={
+            Object {
+              "data-css-1acy7qc": "",
+            }
+          }
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+            }
+          }
+          role="img"
+        />
+      </span>
     </div>
-    <h2
-      className="a11y--h"
+  </div>
+  <div
+    className="css-14coyl4 css-1pra3yf"
+  />
+</div>
+`;
+
+exports[`Storyshots RecentRequests no results 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
     >
-      Search Results
-    </h2>
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
+  <div
+    className="p-a300"
+  >
+    <div
+      className="t--intro"
+    >
+      No results found
+    </div>
+    <div
+      className="t--info"
+    >
+      Try a different search term or move the map to search a different area.
+       
+      
+    </div>
+  </div>
+  <div
+    className="css-14coyl4 "
+  />
+</div>
+`;
+
+exports[`Storyshots RecentRequests results loaded 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
+  <div
+    className="css-14coyl4 "
+  >
+    <div
+      className="t--sans t--upper t--g300 p-a300 m-v200 t--ellipsis css-1s43mis"
+    >
+      
+      Latest cases in this area
+      
+    </div>
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000001"
@@ -7663,52 +7823,405 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
 </div>
 `;
 
-exports[`Storyshots RecentRequests with selection 1`] = `
-<div>
+exports[`Storyshots RecentRequests results loaded and loading more 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
   <div
     className={
       Object {
-        "data-css-1q78t83": "",
+        "data-css-16r640x": "",
       }
     }
   >
     <div
-      className="p-a300 css-1p3t4uv"
+      className={
+        Object {
+          "data-css-2jt8dn": "",
+        }
+      }
     >
-      <form
-        acceptCharset="UTF-8"
-        action="/lookup"
-        className="sf sf--y sf--md"
-        method="get"
-        onSubmit={[Function]}
-        role="search"
+      <span
+        className="css-17mox4x"
+      >
+        <svg
+          className={
+            Object {
+              "data-css-1acy7qc": "",
+            }
+          }
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
+            }
+          }
+          role="img"
+        />
+      </span>
+    </div>
+  </div>
+  <div
+    className="css-14coyl4 css-1pra3yf"
+  >
+    <div
+      className="t--sans t--upper t--g300 p-a300 m-v200 t--ellipsis css-1s43mis"
+    >
+      
+      Latest cases in this area
+      
+    </div>
+    <a
+      className="p-a300 br css-1vruwkh"
+      data-request-id="17-000000001"
+      href="/reports/17-000000001"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "inherit",
+        }
+      }
+    >
+      <div
+        className={
+          Object {
+            "data-css-1vs5gdh": "",
+          }
+        }
+        style={
+          Object {
+            "backgroundImage": "url(/assets/img/311-logo-white-on-grey.svg)",
+          }
+        }
       >
         <div
-          className="sf-i"
+          className={
+            Object {
+              "data-css-1vs5gdh": "",
+            }
+          }
+          style={
+            Object {
+              "backgroundImage": "url(https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg)",
+            }
+          }
+        />
+      </div>
+      <div
+        className={
+          Object {
+            "data-css-1abryh3": "",
+          }
+        }
+      >
+        <h4
+          className="t--intro t--ellipsis css-1fzcvxa"
         >
-          <input
-            aria-label="Search field"
-            className="sf-i-f"
-            name="q"
-            onChange={[Function]}
-            placeholder="Search by case ID or keywords…"
-            type="text"
-            value=""
-          />
-          <button
-            className="sf-i-b"
-            type="submit"
-          >
-            Search
-          </button>
+          Cosmic Intervention
+        </h4>
+        <div
+          className={
+            Object {
+              "data-css-1p1d70l": "",
+            }
+          }
+        >
+          I think that Thanos is here
         </div>
-      </form>
-    </div>
-    <h2
-      className="a11y--h"
+        <div
+          style={
+            Object {
+              "paddingTop": 5,
+            }
+          }
+        >
+          <span
+            className="t--upper t--sans css-14tkn0p"
+          >
+            Opened
+          </span>
+          <span
+            className="t--info"
+            style={
+              Object {
+                "fontSize": 14,
+              }
+            }
+          >
+            4 minutes ago
+          </span>
+        </div>
+      </div>
+    </a>
+    <a
+      className="p-a300 br css-1vruwkh"
+      data-request-id="17-000000002"
+      href="/reports/17-000000002"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "inherit",
+        }
+      }
     >
-      Search Results
-    </h2>
+      <div
+        className={
+          Object {
+            "data-css-1vs5gdh": "",
+          }
+        }
+        style={
+          Object {
+            "backgroundImage": "url(/assets/img/311-logo-white-on-grey.svg)",
+          }
+        }
+      >
+        <div
+          className={
+            Object {
+              "data-css-1vs5gdh": "",
+            }
+          }
+          style={
+            Object {
+              "backgroundImage": "url()",
+            }
+          }
+        />
+      </div>
+      <div
+        className={
+          Object {
+            "data-css-1abryh3": "",
+          }
+        }
+      >
+        <h4
+          className="t--intro t--ellipsis css-1fzcvxa"
+        >
+          Travesties
+        </h4>
+        <div
+          className={
+            Object {
+              "data-css-1p1d70l": "",
+            }
+          }
+        >
+          Patsy Walker got cancelled. It was a really good book with interesting, diverse characters and a light-hearted sense of humor.
+        </div>
+        <div
+          style={
+            Object {
+              "paddingTop": 5,
+            }
+          }
+        >
+          <span
+            className="t--upper t--sans css-5onp4e"
+          >
+            Closed
+          </span>
+          <span
+            className="t--info"
+            style={
+              Object {
+                "fontSize": 14,
+              }
+            }
+          >
+            8 months ago
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RecentRequests with error 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
+  <div
+    className="p-a300"
+  >
+    <div
+      className="t--intro"
+    >
+      <span
+        className="t--err"
+      >
+        Uh-oh!
+      </span>
+    </div>
+    <div
+      className="t--info m-v200"
+    >
+      <span
+        className="t--err"
+      >
+        Search results aren’t loading right now because of a server problem.
+      </span>
+    </div>
+    <div
+      className="t--info m-v200"
+    >
+      <span
+        className="t--err"
+      >
+        Please try again later.
+      </span>
+    </div>
+  </div>
+  <div
+    className="css-14coyl4 "
+  />
+</div>
+`;
+
+exports[`Storyshots RecentRequests with selection 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value=""
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
+  <div
+    className="css-14coyl4 "
+  >
+    <div
+      className="t--sans t--upper t--g300 p-a300 m-v200 t--ellipsis css-1s43mis"
+    >
+      
+      Latest cases in this area
+      
+    </div>
     <a
       className="p-a300 br css-1vruwkh"
       data-request-id="17-000000001"
@@ -10215,38 +10728,23 @@ exports[`Storyshots SearchLayout List View 1`] = `
               Search Results
             </h2>
             <div
-              className={
-                Object {
-                  "data-css-1ctqqrj": "",
-                }
-              }
+              className="p-a300"
             >
               <div
-                className={
-                  Object {
-                    "data-css-2jt8dn": "",
-                  }
-                }
+                className="t--intro"
               >
-                <span
-                  className="css-17mox4x"
-                >
-                  <svg
-                    className={
-                      Object {
-                        "data-css-1acy7qc": "",
-                      }
-                    }
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
-                      }
-                    }
-                    role="img"
-                  />
-                </span>
+                No results found
+              </div>
+              <div
+                className="t--info"
+              >
+                Try a different search term or move the map to search a different area.
+                 
               </div>
             </div>
+            <div
+              className="css-14coyl4 "
+            />
           </div>
         </div>
       </div>

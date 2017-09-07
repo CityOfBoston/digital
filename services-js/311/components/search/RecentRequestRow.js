@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'glamor';
@@ -164,7 +165,11 @@ export default class RecentRequestRow extends React.Component<Props> {
     }
 
     return (
-      <Link href={`/reports?id=${request.id}`} as={`/reports/${request.id}`}>
+      <Link
+        prefetch={!!Router.router}
+        href={`/reports?id=${request.id}`}
+        as={`/reports/${request.id}`}
+      >
         <a
           ref={this.setEl}
           data-request-id={request.id}
