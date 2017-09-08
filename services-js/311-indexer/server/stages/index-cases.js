@@ -3,14 +3,14 @@
 import Rx from 'rxjs';
 
 import type Elasticsearch from '../services/Elasticsearch';
-import type { Output as LoadCasesOutput } from './index-cases';
+import type { LoadedCaseBatch } from './load-cases';
 
 import {
   queue,
   awaitPromise,
   retryWithFallback,
   logQueueLength,
-  logError,
+  logNonfatalError,
   logMessage,
 } from './stage-helpers';
 
@@ -21,31 +21,28 @@ type Deps = {
   opbeat: Opbeat,
 };
 
-export type Input = LoadCasesOutput;
-export type Output = any;
-
-export default function({
+export default function queuingRetryingIndexCasesOp({
   elasticsearch,
   opbeat,
-}: Deps): (Rx.Observable<Input>) => Rx.Observable<Output> {
-  const indexCases = observable =>
-    observable
-      .map((inputs: Input) => {
-        const cases = [];
-        inputs.forEach(i => {
-          if (i.case) {
-            cases.push({ case: i.case, replayId: i.replayId });
-          }
-        });
-
-        return elasticsearch.createCases(cases);
+}: Deps): (Rx.Observable<LoadedCaseBatch>) => Rx.Observable<mixed> {
+  const retryingIndexCasesOp = caseBatchStream =>
+    caseBatchStream
+      .map((batch: LoadedCaseBatch): Promise<mixed> => {
+        // Reduce batch records array down to only those whose cases loaded
+        return elasticsearch.createCases(
+          batch.reduce(
+            (arr, r) =>
+              r.case ? [...arr, { case: r.case, replayId: r.replayId }] : arr,
+            []
+          )
+        );
       })
       .let(awaitPromise)
       .let(
         retryWithFallback(5, 2000, {
           error: err => {
             opbeat.captureError(err);
-            logError('index-cases', err);
+            logNonfatalError('index-cases', err);
           },
         })
       )
@@ -53,13 +50,13 @@ export default function({
         logMessage('index-cases', 'Indexing complete', { response });
       });
 
-  return observable =>
-    observable.let(
-      queue(indexCases, {
+  return caseBatchStream =>
+    caseBatchStream.let(
+      queue(retryingIndexCasesOp, {
         length: length => logQueueLength('index-cases', length),
-        error: (err, val: Input) => {
-          logMessage('index-cases', 'Permanent failure loading cases', {
-            ids: val.map(v => v.id),
+        error: (err, batch: LoadedCaseBatch) => {
+          logMessage('index-cases', 'Permanent failure indexing cases', {
+            ids: batch.map(v => v.id),
           });
         },
       })

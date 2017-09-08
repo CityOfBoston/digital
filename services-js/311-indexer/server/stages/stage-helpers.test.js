@@ -146,6 +146,7 @@ describe('queue', () => {
 
     Rx.Observable.of('ok').let(queue(o => o, { length: lengthFn })).subscribe({
       complete: () => {
+        expect(lengthFn.mock.calls.length).toBe(2);
         expect(lengthFn).toHaveBeenCalledWith(1);
         expect(lengthFn).toHaveBeenCalledWith(0);
         done();
@@ -169,6 +170,7 @@ describe('queue', () => {
       )
       .subscribe({
         complete: () => {
+          expect(lengthFn.mock.calls.length).toBe(2);
           expect(lengthFn).toHaveBeenCalledWith(1);
           expect(lengthFn).toHaveBeenCalledWith(0);
           done();

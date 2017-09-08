@@ -24,12 +24,14 @@ export function logQueueLength(stage: string, length: number) {
   );
 }
 
-export function logError(stage: string, err: Error) {
+export function logNonfatalError(stage: string, err: Error, data?: mixed) {
   console.log(
     JSON.stringify({
       type: 'error',
+      fatal: false,
       stage,
       error: `${err.toString()}`,
+      data,
     })
   );
 }
@@ -55,21 +57,29 @@ export function awaitPromise<T>(
   });
 }
 
-// Use with let to insert an fallback retry in an observable chain.
+type ErrorStreamSummary = {|
+  errorCount: number,
+  lastError: ?Error,
+|};
+
+// Use with let to insert an fallback retry in an observable chain. The
+// observable must run its operation when it's subscribed to for the retry to
+// have any effect.
 export function retryWithFallback<T>(
   maxRetries: number,
   retryDelay: number,
   callbacks: { error?: (error: Error) => mixed } = {}
 ): (Rx.Observable<T>) => Rx.Observable<T> {
-  return observable =>
-    observable.retryWhen(errorObservable =>
-      errorObservable
+  // retryWhen will re-subscribe to the observable we've been attached to.
+  return retryableStream =>
+    retryableStream.retryWhen(errorStream =>
+      errorStream
         // We use scan to maintain a count of how many errors have already
         // happened, since retryWhen gives an observable stream of all errors
         // the original observable threw. We save the lastError so we can report
         // and throw it.
         .scan(
-          ({ errorCount }, error) => ({
+          ({ errorCount }: ErrorStreamSummary, error) => ({
             errorCount: errorCount + 1,
             lastError: error,
           }),
@@ -78,14 +88,22 @@ export function retryWithFallback<T>(
             lastError: null,
           }
         )
-        .switchMap(({ errorCount, lastError }) => {
+        .switchMap(({ errorCount, lastError }: ErrorStreamSummary) => {
           if (errorCount > maxRetries) {
+            // Sending an error down the errorStream will terminate retryWhen's
+            // retrying.
             return Rx.Observable.throw(lastError);
           } else {
+            // Lets us report transient errors to the stage, even though they're
+            // being retried.
             if (callbacks.error && lastError) {
               callbacks.error(lastError);
             }
-            return Rx.Observable.timer(errorCount * retryDelay);
+
+            // We delay sending a value to errorStream so that retryWhen waits
+            // with a backoff before re-subscribing. Squaring the errorCount
+            // causes an exponential backoff: e.g. 5s, 10s, 20s.
+            return Rx.Observable.timer(retryDelay * (2 ^ (errorCount - 1)));
           }
         })
     );
@@ -120,24 +138,23 @@ export function queue<T, U>(
           callbacks.length(queueLength);
         }
       })
-      // concatMap handles pipelining the operator.
+      // concatMap queues values (WARNING: it has no limit to its queue, so we
+      // have no backpressure) and waits for each observable to complete before
+      // running the next one, which effectively pipelines our input operator.
       .concatMap((val: T) =>
+        // We make a new observable for the value off the queue,
         Rx.Observable
           .of(val)
           .let(operator)
-          // We always catch at the end of this chain so that we don't kill the
-          // original subscription, since concatMap will pass an error back.
+          // We always catch at the end of this chain because errors will bubble
+          // back into concatMap, cancelling any values currently in its queue.
           .catch((error: Error) => {
-            queueLength--;
-
-            if (callbacks.length) {
-              callbacks.length(queueLength);
-            }
-
             if (callbacks.error) {
               callbacks.error(error, val);
             }
 
+            // This allows the complete operator below to run, decrementing our
+            // queue length.
             return Rx.Observable.empty();
           })
           .do({
