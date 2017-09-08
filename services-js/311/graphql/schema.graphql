@@ -54,7 +54,7 @@ enum MetadataRequirement {
 }
 
 type Mutation {
-  createCase(code: String!, description: String!, firstName: String, lastName: String, email: String, phone: String, address: String, addressId: String, mediaUrl: String, location: LatLngIn, attributes: [CreateCaseAttribute!]!): Case!
+  createCase(code: String!, description: String!, descriptionForClassifier: String!, firstName: String, lastName: String, email: String, phone: String, address: String, addressId: String, mediaUrl: String, location: LatLngIn, attributes: [CreateCaseAttribute!]!): Case!
 }
 
 type Place {

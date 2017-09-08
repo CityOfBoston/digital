@@ -12,6 +12,7 @@ import SubmitCaseGraphql from './graphql/SubmitCase.graphql';
 type Args = {|
   service: Service,
   description: string,
+  descriptionForClassifier: string,
   firstName: ?string,
   lastName: ?string,
   email: ?string,
@@ -32,6 +33,7 @@ export default async function submitCase(
   {
     service,
     description,
+    descriptionForClassifier,
     mediaUrl,
     firstName,
     lastName,
@@ -65,6 +67,7 @@ export default async function submitCase(
   const vars: SubmitCaseMutationVariables = {
     code: service.code,
     description,
+    descriptionForClassifier,
     firstName,
     lastName,
     email,

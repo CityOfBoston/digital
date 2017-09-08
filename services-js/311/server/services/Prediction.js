@@ -3,6 +3,8 @@ import 'isomorphic-fetch';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 
+import type { DetailedServiceRequest } from './Open311';
+
 export type CaseTypePrediction = {
   type: string,
   probability: number,
@@ -73,5 +75,38 @@ export default class Prediction {
     caseTypes.sort((a, b) => b.probability - a.probability);
 
     return caseTypes.filter(({ probability }) => probability > threshold);
+  }
+
+  async caseCreated(
+    c: DetailedServiceRequest,
+    description: string
+  ): Promise<void> {
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('create_case_request', 'Prediction');
+
+    const requestJson = {
+      case_id: c.service_request_id,
+      case_type: c.service_code,
+      opened_dttm: c.requested_datetime,
+      updated_dttm: c.updated_datetime || c.requested_datetime,
+      user_description: description,
+      status: c.status,
+    };
+
+    try {
+      const response = await fetch(this.url('create_case_request'), {
+        method: 'POST',
+        body: JSON.stringify(requestJson),
+        agent: this.agent,
+      });
+
+      // TODO(finh): what's the error case here? (alternately, do we care?)
+      await response.json();
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
   }
 }

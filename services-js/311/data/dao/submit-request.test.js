@@ -178,6 +178,7 @@ test('SubmitCase', async () => {
   await submitCase(loopbackGraphql, {
     service: COSMIC_SERVICE,
     description: requestForm.description,
+    descriptionForClassifier: 'cosmic problem',
     firstName: requestForm.firstName,
     lastName: requestForm.lastName,
     email: requestForm.email,
@@ -192,6 +193,7 @@ test('SubmitCase', async () => {
   const mutationVariables: SubmitCaseMutationVariables = {
     code: 'CSMCINC',
     description: 'Things are bad',
+    descriptionForClassifier: 'cosmic problem',
     firstName: 'Carol',
     lastName: 'Danvers',
     email: 'marvel@alphaflight.gov',

@@ -15,6 +15,9 @@ export default class RequestForm {
     return this._service ? this._service.code : '';
   }
 
+  // This is the description originally typed into the home page. We keep track
+  // of it to help train the classifier.
+  descriptionForClassifier: string = '';
   @observable description: string = '';
   @observable mediaUrl: string = '';
 

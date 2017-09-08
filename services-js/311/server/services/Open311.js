@@ -452,6 +452,6 @@ export default class Open311 {
       body,
     });
 
-    return processResponse(response);
+    return (await processResponse(response))[0];
   }
 }

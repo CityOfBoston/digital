@@ -2,6 +2,7 @@
 
 import type { Context } from '.';
 import type { CreateServiceRequestArgs } from '../services/Open311';
+import type { Root as Case } from './case';
 
 export const Schema = `
 input CreateCaseAttribute {
@@ -13,6 +14,7 @@ type Mutation {
   createCase (
     code: String!
     description: String!
+    descriptionForClassifier: String!
     firstName: String
     lastName: String
     email: String
@@ -29,6 +31,7 @@ type Mutation {
 type CreateCaseArgs = {|
   code: string,
   description: string,
+  descriptionForClassifier: string,
   firstName: ?string,
   lastName: ?string,
   email: ?string,
@@ -45,7 +48,11 @@ type CreateCaseArgs = {|
 
 export const resolvers = {
   Mutation: {
-    createCase: (root: mixed, args: CreateCaseArgs, { open311 }: Context) => {
+    async createCase(
+      root: mixed,
+      args: CreateCaseArgs,
+      { open311, prediction, opbeat }: Context
+    ): Promise<Case> {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
         description: args.description,
@@ -73,7 +80,17 @@ export const resolvers = {
         createArgs.long = args.location.lng;
       }
 
-      return open311.createRequest(createArgs).then(arr => arr[0]);
+      const c = await open311.createRequest(createArgs);
+
+      // We send this asynchronously because it's success or failure shouldn't
+      // affect whether we return the new case to the client.
+      if (args.descriptionForClassifier) {
+        prediction
+          .caseCreated(c, args.descriptionForClassifier)
+          .catch(err => opbeat.captureError(err));
+      }
+
+      return c;
     },
   },
 };

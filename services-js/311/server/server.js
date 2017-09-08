@@ -127,6 +127,7 @@ export default async function startServer({ opbeat }: any) {
           // Elasticsearch maintains a persistent connection, so we re-use it
           // across requests.
           elasticsearch,
+          opbeat,
         }: Context),
       })),
       route: {

@@ -27,6 +27,7 @@ export type Context = {|
   arcgis: ArcGIS,
   prediction: Prediction,
   elasticsearch: Elasticsearch,
+  opbeat: any,
 |};
 
 const SchemaDefinition = `

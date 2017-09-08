@@ -113,6 +113,7 @@ export default class RequestDialog extends React.Component<Props> {
 
     this.requestForm = new RequestForm(service);
     this.requestForm.description = description;
+    this.requestForm.descriptionForClassifier = description;
 
     setLocationMapActive(stage === 'location');
   }
@@ -205,6 +206,7 @@ export default class RequestDialog extends React.Component<Props> {
     const { service, loopbackGraphql, routeToServiceForm } = this.props;
     const {
       description,
+      descriptionForClassifier,
       firstName,
       lastName,
       email,
@@ -225,6 +227,7 @@ export default class RequestDialog extends React.Component<Props> {
     const promise = submitRequest(loopbackGraphql, {
       service,
       description,
+      descriptionForClassifier,
       // We only send contact info with an affirmative boolean that's set by
       // the ContactPane form's submit button. That way contact info that was
       // loaded by localStorage won't be pushed to the server if the user didn't

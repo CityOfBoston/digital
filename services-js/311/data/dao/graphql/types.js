@@ -248,6 +248,7 @@ export type SearchCasesQuery = {|
 export type SubmitCaseMutationVariables = {|
   code: string,
   description: string,
+  descriptionForClassifier: string,
   firstName?: ?string,
   lastName?: ?string,
   email?: ?string,
