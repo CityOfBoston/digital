@@ -97,11 +97,12 @@ export function retryWithFallback<T>(
 // would terminate any persistent loops going on, but instead calls its error
 // callback and pushes an Empty to stop the observable stream.
 export function queue<T, U>(
-  operator: (Rx.Observable<T>) => Rx.Observable<U>,
+  project: T => Rx.Observable<U> | Promise<U>,
   callbacks: {
     length?: number => mixed,
     error?: (Error, T) => mixed,
-  } = {}
+  } = {},
+  concurrent?: number = 1
 ): (Rx.Observable<T>) => Rx.Observable<U> {
   let queueLength = 0;
 
@@ -120,30 +121,31 @@ export function queue<T, U>(
       // concatMap queues values (WARNING: it has no limit to its queue, so we
       // have no backpressure) and waits for each observable to complete before
       // running the next one, which effectively pipelines our input operator.
-      .concatMap((val: T) =>
-        // We make a new observable for the value off the queue,
-        Rx.Observable
-          .of(val)
-          .let(operator)
-          // We always catch at the end of this chain because errors will bubble
-          // back into concatMap, cancelling any values currently in its queue.
-          .catch((error: Error) => {
-            if (callbacks.error) {
-              callbacks.error(error, val);
-            }
-
-            // This allows the complete operator below to run, decrementing our
-            // queue length.
-            return Rx.Observable.empty();
-          })
-          .do({
-            complete: () => {
-              queueLength--;
-
-              if (callbacks.length) {
-                callbacks.length(queueLength);
+      .mergeMap(
+        (val: T) =>
+          // We make a new observable for the value off the queue,
+          Rx.Observable
+            .defer(() => project(val))
+            // We always catch at the end of this chain because errors will bubble
+            // back into mergeMap, cancelling any values currently in its queue.
+            .catch((error: Error) => {
+              if (callbacks.error) {
+                callbacks.error(error, val);
               }
-            },
-          })
+
+              // Complete the stream after the error so that we can cleanly
+              // decrement the queueLength.
+              return Rx.Observable.empty();
+            })
+            .do({
+              complete: () => {
+                queueLength--;
+
+                if (callbacks.length) {
+                  callbacks.length(queueLength);
+                }
+              },
+            }),
+        concurrent
       );
 }

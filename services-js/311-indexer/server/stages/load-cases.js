@@ -30,6 +30,15 @@ export type LoadedCaseBatch = Array<{
   case: ?Case,
 }>;
 
+const hydrateIdBatch = (idBatch: CaseIdBatch) => (
+  cases: Array<?Case>
+): LoadedCaseBatch =>
+  idBatch.map(({ id, replayId }, i) => ({
+    id,
+    replayId,
+    case: cases[i],
+  }));
+
 // rxjs operation (use with "let") that converts a stream of CaseIdBatches (an
 // array of caseIds and the associated Salesforce CometD replayId values) into a
 // stream of hydrated batches suitable for indexing in Elasticsearch.
@@ -40,39 +49,26 @@ export type LoadedCaseBatch = Array<{
 //
 // This op catches and logs / reports all errors so that the source observable
 // isn't terminated.
-export default function queuingRetryingLoadCaseIdBatchOp({
-  open311,
-  opbeat,
-}: Deps): (Rx.Observable<CaseIdBatch>) => Rx.Observable<LoadedCaseBatch> {
-  const retryingLoadCaseIdBatchOp = caseIdBatchStream =>
-    caseIdBatchStream
-      .mergeMap(
-        caseIdBatch => open311.loadCases(caseIdBatch.map(({ id }) => id)),
-        (caseIdBatch, cases) =>
-          caseIdBatch.map(({ id, replayId }, i) => ({
-            id,
-            replayId,
-            case: cases[i],
-          }))
-      )
-      // retryWithFallback re-subscribes to an observable to cause the retry.
-      // Since queue (used below) creates a new, single-value observable for
-      // each value that comes out of the queue, the re-subscription will bubble
-      // up to thet observable rather than all the way to our Salesforce event
-      // source observable.
-      //
-      // This also means that permanent failures will only error that
-      // single-value observable rather than the Salesforce event source
-      // observable.
-      .let(
-        retryWithFallback(5, 2000, {
-          error: err => logNonfatalError('load-cases', err),
-        })
-      );
-
-  return caseIdBatchStream =>
-    caseIdBatchStream.let(
-      queue(retryingLoadCaseIdBatchOp, {
+export default ({ open311, opbeat }: Deps) => (
+  batch$: Rx.Observable<CaseIdBatch>
+): Rx.Observable<LoadedCaseBatch> =>
+  batch$.let(
+    queue(
+      idBatch =>
+        Rx.Observable
+          .defer(() => open311.loadCases(idBatch.map(({ id }) => id)))
+          .let(
+            retryWithFallback(5, 2000, {
+              error: err => logNonfatalError('load-cases', err),
+            })
+          )
+          .map(hydrateIdBatch(idBatch))
+          .do(caseBatch => {
+            logMessage('load-cases', 'Loading complete', {
+              ids: caseBatch.map(b => b.id),
+            });
+          }),
+      {
         length: length => logQueueLength('load-cases', length),
         error: (err, batch) => {
           opbeat.captureError(err);
@@ -80,6 +76,6 @@ export default function queuingRetryingLoadCaseIdBatchOp({
             batch,
           });
         },
-      })
-    );
-}
+      }
+    )
+  );

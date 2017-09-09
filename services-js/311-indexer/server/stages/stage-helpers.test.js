@@ -77,7 +77,7 @@ describe('queue', () => {
   it('runs the operator on the input', done => {
     expect.assertions(1);
 
-    Rx.Observable.of('in').let(queue(o => o.map(() => 'out'))).subscribe({
+    Rx.Observable.of('in').let(queue(() => Rx.Observable.of('out'))).subscribe({
       next: val => {
         expect(val).toEqual('out');
       },
@@ -88,14 +88,17 @@ describe('queue', () => {
   it('increments and decrements a length', done => {
     const lengthFn = jest.fn();
 
-    Rx.Observable.of('ok').let(queue(o => o, { length: lengthFn })).subscribe({
-      complete: () => {
-        expect(lengthFn.mock.calls.length).toBe(2);
-        expect(lengthFn).toHaveBeenCalledWith(1);
-        expect(lengthFn).toHaveBeenCalledWith(0);
-        done();
-      },
-    });
+    Rx.Observable
+      .of('ok')
+      .let(queue(val => Rx.Observable.of(val), { length: lengthFn }))
+      .subscribe({
+        complete: () => {
+          expect(lengthFn.mock.calls.length).toBe(2);
+          expect(lengthFn).toHaveBeenCalledWith(1);
+          expect(lengthFn).toHaveBeenCalledWith(0);
+          done();
+        },
+      });
   });
 
   it('decrements the length even on error', done => {
@@ -103,15 +106,7 @@ describe('queue', () => {
 
     Rx.Observable
       .of('ok')
-      .let(
-        queue(
-          o =>
-            o.map(() => {
-              throw 'err';
-            }),
-          { length: lengthFn }
-        )
-      )
+      .let(queue(() => Rx.Observable.throw('err'), { length: lengthFn }))
       .subscribe({
         complete: () => {
           expect(lengthFn.mock.calls.length).toBe(2);
@@ -128,15 +123,9 @@ describe('queue', () => {
     Rx.Observable
       .of('ok')
       .let(
-        queue(
-          o =>
-            o.map(() => {
-              throw 'err';
-            }),
-          {
-            error: errorFn,
-          }
-        )
+        queue(() => Rx.Observable.throw('err'), {
+          error: errorFn,
+        })
       )
       .subscribe({
         complete: () => {
@@ -152,14 +141,9 @@ describe('queue', () => {
     Rx.Observable
       .of('first', 'second')
       .let(
-        queue(o =>
-          o.map(val => {
-            if (val === 'first') {
-              throw 'err';
-            } else {
-              return val;
-            }
-          })
+        queue(
+          val =>
+            val === 'first' ? Rx.Observable.throw('err') : Rx.Observable.of(val)
         )
       )
       .subscribe({

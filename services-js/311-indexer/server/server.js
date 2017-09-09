@@ -70,13 +70,13 @@ export default async function startServer({ opbeat }: ServerArgs) {
   reportDeployToOpbeat(opbeat);
 
   let salesforce: ?Salesforce;
-  let pipelineSubscription: ?Rx.Subscription;
+  let rxjsSubscription: ?Rx.Subscription;
 
   await decryptEnv();
 
   const shutdown = async () => {
-    if (pipelineSubscription) {
-      pipelineSubscription.unsubscribe();
+    if (rxjsSubscription) {
+      rxjsSubscription.unsubscribe();
     }
 
     if (salesforce) {
@@ -171,12 +171,20 @@ export default async function startServer({ opbeat }: ServerArgs) {
     process.kill(process.pid, 'SIGHUP');
   });
 
-  pipelineSubscription = Rx.Observable
+  const loadedBatch$ = Rx.Observable
     .fromEvent(salesforce, 'event')
     .let(batchSalesforceEvents())
     .let(loadCases({ opbeat, open311 }))
-    .let(updateClassifier({ opbeat, prediction }))
-    .let(indexCases({ opbeat, elasticsearch }))
+    .share();
+
+  // We merge two streams off of the loaded cases so that indexing and
+  // classification happen in parallel. The merging is just so we can control
+  // this through a single subscription.
+  rxjsSubscription = Rx.Observable
+    .merge(
+      loadedBatch$.let(updateClassifier({ opbeat, prediction })),
+      loadedBatch$.let(indexCases({ opbeat, elasticsearch }))
+    )
     // The above stages are supposed to capture and report all errors without
     // ever terminating. If we do accidentally error or complete, report that
     // and kill the process so we restart, rather than dangling without further
