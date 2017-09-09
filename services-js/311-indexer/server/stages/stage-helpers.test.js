@@ -2,63 +2,7 @@
 
 import Rx from 'rxjs';
 
-import { awaitPromise, retryWithFallback, queue } from './stage-helpers';
-
-describe('awaitPromise', () => {
-  it('observes the promise value', done => {
-    Rx.Observable.of(Promise.resolve('ok')).let(awaitPromise).subscribe({
-      next: val => {
-        expect(val).toEqual('ok');
-        done();
-      },
-    });
-  });
-
-  it('completes after a resolution', done => {
-    Rx.Observable.of(Promise.resolve('ok')).let(awaitPromise).subscribe({
-      complete: () => {
-        done();
-      },
-    });
-  });
-
-  it('errors with a promise rejection', done => {
-    Rx.Observable.of(Promise.reject('error')).let(awaitPromise).subscribe({
-      error: err => {
-        expect(err).toEqual('error');
-        done();
-      },
-    });
-  });
-
-  it('can be retried', done => {
-    let count = 0;
-    let observedErrors = 0;
-
-    Rx.Observable
-      .create(out => {
-        count++;
-
-        if (count > 4) {
-          out.next(Promise.resolve('ok'));
-        } else {
-          out.next(Promise.reject('error'));
-        }
-      })
-      .let(awaitPromise)
-      .do({
-        error: () => observedErrors++,
-      })
-      .retry()
-      .subscribe({
-        next: val => {
-          expect(val).toEqual('ok');
-          expect(observedErrors).toEqual(4);
-          done();
-        },
-      });
-  });
-});
+import { retryWithFallback, queue } from './stage-helpers';
 
 describe('retryWithFallback', () => {
   it('passes through a success', done => {

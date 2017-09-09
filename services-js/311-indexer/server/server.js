@@ -9,12 +9,14 @@ import fetch from 'node-fetch';
 import Elasticsearch from './services/Elasticsearch';
 import Salesforce from './services/Salesforce';
 import Open311 from './services/Open311';
+import Prediction from './services/Prediction';
 
 import decryptEnv from './lib/decrypt-env';
 
-import batchSalesforceEventsOp from './stages/batch-salesforce-events';
-import loadCasesOp from './stages/load-cases';
-import indexCasesOp from './stages/index-cases';
+import batchSalesforceEvents from './stages/batch-salesforce-events';
+import loadCases from './stages/load-cases';
+import indexCases from './stages/index-cases';
+import updateClassifier from './stages/update-classifier';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -147,6 +149,8 @@ export default async function startServer({ opbeat }: ServerArgs) {
     opbeat
   );
 
+  const prediction = new Prediction(process.env.PREDICTION_ENDPOINT, opbeat);
+
   salesforce = new Salesforce(
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
@@ -169,9 +173,10 @@ export default async function startServer({ opbeat }: ServerArgs) {
 
   pipelineSubscription = Rx.Observable
     .fromEvent(salesforce, 'event')
-    .let(batchSalesforceEventsOp())
-    .let(loadCasesOp({ opbeat, open311 }))
-    .let(indexCasesOp({ opbeat, elasticsearch }))
+    .let(batchSalesforceEvents())
+    .let(loadCases({ opbeat, open311 }))
+    .let(updateClassifier({ opbeat, prediction }))
+    .let(indexCases({ opbeat, elasticsearch }))
     // The above stages are supposed to capture and report all errors without
     // ever terminating. If we do accidentally error or complete, report that
     // and kill the process so we restart, rather than dangling without further

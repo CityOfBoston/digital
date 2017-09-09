@@ -6,7 +6,6 @@ import type Open311, { Case } from '../services/Open311';
 
 import {
   queue,
-  awaitPromise,
   retryWithFallback,
   logQueueLength,
   logNonfatalError,
@@ -47,16 +46,15 @@ export default function queuingRetryingLoadCaseIdBatchOp({
 }: Deps): (Rx.Observable<CaseIdBatch>) => Rx.Observable<LoadedCaseBatch> {
   const retryingLoadCaseIdBatchOp = caseIdBatchStream =>
     caseIdBatchStream
-      .map(async (caseIdBatch: CaseIdBatch): Promise<LoadedCaseBatch> => {
-        const cases = await open311.loadCases(caseIdBatch.map(({ id }) => id));
-
-        return caseIdBatch.map(({ id, replayId }, i) => ({
-          id,
-          replayId,
-          case: cases[i],
-        }));
-      })
-      .let(awaitPromise)
+      .mergeMap(
+        caseIdBatch => open311.loadCases(caseIdBatch.map(({ id }) => id)),
+        (caseIdBatch, cases) =>
+          caseIdBatch.map(({ id, replayId }, i) => ({
+            id,
+            replayId,
+            case: cases[i],
+          }))
+      )
       // retryWithFallback re-subscribes to an observable to cause the retry.
       // Since queue (used below) creates a new, single-value observable for
       // each value that comes out of the queue, the re-subscription will bubble
@@ -68,10 +66,7 @@ export default function queuingRetryingLoadCaseIdBatchOp({
       // observable.
       .let(
         retryWithFallback(5, 2000, {
-          error: err => {
-            opbeat.captureError(err);
-            logNonfatalError('load-cases', err);
-          },
+          error: err => logNonfatalError('load-cases', err),
         })
       );
 
@@ -80,6 +75,7 @@ export default function queuingRetryingLoadCaseIdBatchOp({
       queue(retryingLoadCaseIdBatchOp, {
         length: length => logQueueLength('load-cases', length),
         error: (err, batch) => {
+          opbeat.captureError(err);
           logMessage('load-cases', 'Permanent failure loading cases', {
             batch,
           });

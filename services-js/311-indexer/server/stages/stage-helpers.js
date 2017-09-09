@@ -36,27 +36,6 @@ export function logNonfatalError(stage: string, err: Error, data?: mixed) {
   );
 }
 
-// Operator that waits for a promise to resolve or reject before continuing.
-// Uses concatMap to keep strict ordering of Promises. Will push an error if a
-// Promise rejects.
-export function awaitPromise<T>(
-  obs: Rx.Observable<Promise<T>>
-): Rx.Observable<T> {
-  return obs.concatMap((p: Promise<T>) => {
-    return Rx.Observable.create(out => {
-      p.then(
-        v => {
-          out.next(v);
-          out.complete();
-        },
-        err => {
-          out.error(err);
-        }
-      );
-    });
-  });
-}
-
 type ErrorStreamSummary = {|
   errorCount: number,
   lastError: ?Error,

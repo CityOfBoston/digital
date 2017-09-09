@@ -231,8 +231,14 @@ declare class rxjs$Observable<+T> {
 
   mergeAll<U>(): rxjs$Observable<U>;
 
-  mergeMap<U>(
+  mergeMap<T, U>(
     project: (value: T, index?: number) => rxjs$Observable<U> | Promise<U> | Iterable<U>,
+    index?: number,
+  ): rxjs$Observable<U>;
+
+  mergeMap<T, I, U>(
+    project: (value: T, index?: number) => rxjs$Observable<I> | Promise<I> | Iterable<I>,
+    s: (outerValue: T, innerValue: I, outerIndex: number, innerIndex: number) => U,
     index?: number,
   ): rxjs$Observable<U>;
 

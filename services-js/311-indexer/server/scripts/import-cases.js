@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import moment from 'moment';
 
 import decryptEnv from '../lib/decrypt-env';
-import { awaitPromise, retryWithFallback } from '../stages/stage-helpers';
+import { retryWithFallback } from '../stages/stage-helpers';
 
 import Elasticsearch from '../services/Elasticsearch';
 import Open311 from '../services/Open311';
@@ -52,8 +52,9 @@ const opbeat = require('opbeat/start');
     .do(endDate => console.log(`Fetching cases through ${endDate}…`))
     .concatMap(endDate =>
       Observable.of(endDate)
-        .map(endDate => open311.searchCases(startDateMoment.toDate(), endDate))
-        .let(awaitPromise)
+        .mergeMap(endDate =>
+          open311.searchCases(startDateMoment.toDate(), endDate)
+        )
         .let(
           retryWithFallback(5, 2000, {
             error: err => {
@@ -69,8 +70,7 @@ const opbeat = require('opbeat/start');
       cases =>
         Observable.of(cases)
           .map(cases => cases.map(c => ({ case: c, replayId: null })))
-          .map(caseList => elasticsearch.createCases(caseList))
-          .let(awaitPromise)
+          .mergeMap(caseList => elasticsearch.createCases(caseList))
           .let(
             retryWithFallback(5, 2000, {
               error: err => {
