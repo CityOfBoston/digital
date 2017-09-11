@@ -175,6 +175,8 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .fromEvent(salesforce, 'event')
     .let(batchSalesforceEvents())
     .let(loadCases({ opbeat, open311 }))
+    // shared so that we only load cases from Open311 once for every event,
+    // regardless of how many subscribers we have.
     .share();
 
   // We merge two streams off of the loaded cases so that indexing and

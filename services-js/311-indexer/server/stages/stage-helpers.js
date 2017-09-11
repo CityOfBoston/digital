@@ -41,52 +41,53 @@ type ErrorStreamSummary = {|
   lastError: ?Error,
 |};
 
-// Use with let to insert an fallback retry in an observable chain. The
-// observable must run its operation when it's subscribed to for the retry to
-// have any effect.
-export function retryWithFallback<T>(
+// Use with let to insert an fallback retry in an observable chain.
+//
+// Your stream should do its retryable work on subscription (such as with
+// `defer`), so that `retry`’s re-subscription behavior triggers it.
+//
+// Errors on the stream are caught up to `maxRetries` times before being pushed
+// on to the source. Successful values are just passed through as normal.
+export const retryWithFallback = (
   maxRetries: number,
   retryDelay: number,
   callbacks: { error?: (error: Error) => mixed } = {}
-): (Rx.Observable<T>) => Rx.Observable<T> {
-  // retryWhen will re-subscribe to the observable we've been attached to.
-  return retryableStream =>
-    retryableStream.retryWhen(errorStream =>
-      errorStream
-        // We use scan to maintain a count of how many errors have already
-        // happened, since retryWhen gives an observable stream of all errors
-        // the original observable threw. We save the lastError so we can report
-        // and throw it.
-        .scan(
-          ({ errorCount }: ErrorStreamSummary, error) => ({
-            errorCount: errorCount + 1,
-            lastError: error,
-          }),
-          {
-            errorCount: 0,
-            lastError: null,
+) => (retryable$: Rx.Observable<*>) =>
+  retryable$.retryWhen(error$ =>
+    error$
+      // We use scan to maintain a count of how many errors have already
+      // happened, since retryWhen gives an observable stream of all errors
+      // the original observable threw. We save the lastError so we can report
+      // and throw it.
+      .scan(
+        ({ errorCount }: ErrorStreamSummary, error) => ({
+          errorCount: errorCount + 1,
+          lastError: error,
+        }),
+        {
+          errorCount: 0,
+          lastError: null,
+        }
+      )
+      .switchMap(({ errorCount, lastError }: ErrorStreamSummary) => {
+        if (errorCount > maxRetries) {
+          // Sending an error down the errorStream will terminate retryWhen's
+          // retrying.
+          return Rx.Observable.throw(lastError);
+        } else {
+          // Lets us report transient errors to the stage, even though they're
+          // being retried.
+          if (callbacks.error && lastError) {
+            callbacks.error(lastError);
           }
-        )
-        .switchMap(({ errorCount, lastError }: ErrorStreamSummary) => {
-          if (errorCount > maxRetries) {
-            // Sending an error down the errorStream will terminate retryWhen's
-            // retrying.
-            return Rx.Observable.throw(lastError);
-          } else {
-            // Lets us report transient errors to the stage, even though they're
-            // being retried.
-            if (callbacks.error && lastError) {
-              callbacks.error(lastError);
-            }
 
-            // We delay sending a value to errorStream so that retryWhen waits
-            // with a backoff before re-subscribing. Squaring the errorCount
-            // causes an exponential backoff: e.g. 5s, 10s, 20s.
-            return Rx.Observable.timer(retryDelay * (2 ^ (errorCount - 1)));
-          }
-        })
-    );
-}
+          // We delay sending a value to errorStream so that retryWhen waits
+          // with a backoff before re-subscribing. Squaring the errorCount
+          // causes an exponential backoff: e.g. 5s, 10s, 20s.
+          return Rx.Observable.timer(retryDelay * (2 ^ (errorCount - 1)));
+        }
+      })
+  );
 
 // Operator that institutes a one-at-a-time queue into the observable stream.
 // Pass it an operator to apply to
