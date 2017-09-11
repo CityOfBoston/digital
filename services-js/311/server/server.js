@@ -16,6 +16,7 @@ import Open311 from './services/Open311';
 import ArcGIS from './services/ArcGIS';
 import Prediction from './services/Prediction';
 import Elasticsearch from './services/Elasticsearch';
+import Salesforce from './services/Salesforce';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -43,6 +44,24 @@ export default async function startServer({ opbeat }: any) {
     process.env.ELASTICSEARCH_INDEX,
     opbeat
   );
+
+  const salesforce = process.env.SALESFORCE_OAUTH_URL
+    ? new Salesforce(
+        process.env.SALESFORCE_OAUTH_URL,
+        process.env.SALESFORCE_CONSUMER_KEY,
+        process.env.SALESFORCE_CONSUMER_SECRET,
+        process.env.SALESFORCE_API_USERNAME,
+        process.env.SALESFORCE_API_PASSWORD,
+        process.env.SALESFORCE_API_SECURITY_TOKEN,
+        opbeat
+      )
+    : null;
+
+  if (salesforce) {
+    // We block startup on making sure we can authenticate to Salesforce.
+    await salesforce.reauthorize();
+    console.log('Successfully authenticated to Salesforce');
+  }
 
   if (process.env.USE_SSL) {
     const tls = {
@@ -120,6 +139,7 @@ export default async function startServer({ opbeat }: any) {
           open311: new Open311(
             process.env.PROD_311_ENDPOINT,
             process.env.PROD_311_KEY,
+            salesforce,
             opbeat
           ),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),

@@ -5,6 +5,7 @@ import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
+import type Salesforce from './Salesforce';
 
 // types taken from Open311
 export type Service = {|
@@ -220,13 +221,19 @@ async function processResponse(res): Promise<any> {
 export default class Open311 {
   agent: any;
   opbeat: any;
+  salesforce: ?Salesforce;
   endpoint: string;
   apiKey: ?string;
   serviceLoader: DataLoader<string, ?Service>;
   serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
   requestLoader: DataLoader<string, ?ServiceRequest | ?DetailedServiceRequest>;
 
-  constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
+  constructor(
+    endpoint: ?string,
+    apiKey: ?string,
+    salesforce: ?Salesforce,
+    opbeat: any
+  ) {
     if (!endpoint) {
       throw new Error('Must specify an Open311 endpoint');
     }
@@ -234,6 +241,7 @@ export default class Open311 {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
 
+    this.salesforce = salesforce;
     this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
@@ -331,7 +339,7 @@ export default class Open311 {
 
           params.append('service_request_id', ids.join(','));
 
-          const response = await fetch(
+          const response = await this.fetch(
             this.url(`requests.json?${params.toString()}`),
             {
               agent: this.agent,
@@ -358,6 +366,14 @@ export default class Open311 {
     });
   }
 
+  fetch(url: string, opts?: Object) {
+    if (this.salesforce) {
+      return this.salesforce.authenticatedFetch(url, opts);
+    } else {
+      return fetch(url, opts);
+    }
+  }
+
   url(path: string) {
     return url.resolve(this.endpoint, path);
   }
@@ -370,7 +386,7 @@ export default class Open311 {
       params.append('api_key', this.apiKey);
     }
 
-    const response = await fetch(
+    const response = await this.fetch(
       this.url(`services.json?${params.toString()}`),
       {
         agent: this.agent,
@@ -404,7 +420,7 @@ export default class Open311 {
       params.append('api_key', this.apiKey);
     }
 
-    const response = await fetch(
+    const response = await this.fetch(
       this.url(`requests.json?${params.toString()}`),
       {
         agent: this.agent,
@@ -449,7 +465,7 @@ export default class Open311 {
     const body = params.toString();
     const bodyBuf = Buffer.from(body, 'utf-8');
 
-    const response = await fetch(this.url('requests.json'), {
+    const response = await this.fetch(this.url('requests.json'), {
       agent: this.agent,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
