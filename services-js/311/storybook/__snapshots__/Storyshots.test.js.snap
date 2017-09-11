@@ -7620,7 +7620,7 @@ exports[`Storyshots RecentRequests loading without results 1`] = `
 </div>
 `;
 
-exports[`Storyshots RecentRequests no results 1`] = `
+exports[`Storyshots RecentRequests no results (no query) 1`] = `
 <div
   className={
     Object {
@@ -7674,11 +7674,79 @@ exports[`Storyshots RecentRequests no results 1`] = `
       No results found
     </div>
     <div
-      className="t--info"
+      className="t--info m-v300"
     >
-      Try a different search term or move the map to search a different area.
-       
-      
+      There are no recent requests in this area. Try moving the map or zooming it out. You’ll see cases in the area the map is showing.
+    </div>
+  </div>
+  <div
+    className="css-14coyl4 "
+  />
+</div>
+`;
+
+exports[`Storyshots RecentRequests no results (query) 1`] = `
+<div
+  className={
+    Object {
+      "data-css-1q78t83": "",
+    }
+  }
+>
+  <div
+    className="p-a300 css-1p3t4uv"
+  >
+    <form
+      acceptCharset="UTF-8"
+      action="/lookup"
+      className="sf sf--y sf--md"
+      method="get"
+      onSubmit={[Function]}
+      role="search"
+    >
+      <div
+        className="sf-i"
+      >
+        <input
+          aria-label="Search field"
+          className="sf-i-f"
+          name="q"
+          onChange={[Function]}
+          placeholder="Search by case ID or keywords…"
+          type="text"
+          value="borken sidewalk"
+        />
+        <button
+          className="sf-i-b"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2
+    className="a11y--h"
+  >
+    Search Results
+  </h2>
+  <div
+    className="p-a300"
+  >
+    <div
+      className="t--intro"
+    >
+      No results found
+    </div>
+    <div
+      className="t--info m-v300"
+    >
+      Your search didn’t return any results. Please first make sure you spelled everything correctly. You can also use different words, more general words, or fewer words.
+    </div>
+    <div
+      className="t--info m-v300"
+    >
+      If you still can’t find what you’re looking for, try moving the map or zooming it out. You’ll see cases in the area the map is showing.
     </div>
   </div>
   <div
@@ -10829,10 +10897,9 @@ exports[`Storyshots SearchLayout List View 1`] = `
                 No results found
               </div>
               <div
-                className="t--info"
+                className="t--info m-v300"
               >
-                Try a different search term or move the map to search a different area.
-                 
+                There are no recent requests in this area. Try moving the map or zooming it out. You’ll see cases in the area the map is showing.
               </div>
             </div>
             <div

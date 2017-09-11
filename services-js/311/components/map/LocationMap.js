@@ -67,7 +67,7 @@ const MAX_BOUNDS = [
   [42.115542659613865, -71.7235565185547],
 ];
 
-export type MapMode = 'inactive' | 'requests' | 'picker';
+export type MapMode = 'inactive' | 'search' | 'picker';
 
 type LWithMapbox = $Exports<'mapbox.js'>;
 type MapboxGL = {
@@ -160,6 +160,8 @@ export default class LocationMap extends React.Component<Props> {
   searchMarkerPool: ?SearchMarkerPool = null;
 
   mobxDisposers: Array<Function> = [];
+
+  markerClicked: boolean = false;
 
   makeLocationSearchMarker(
     L: any,
@@ -272,7 +274,7 @@ export default class LocationMap extends React.Component<Props> {
         L,
         this.mapboxMap,
         store.requestSearch,
-        computed(() => (this.props.mode === 'requests' ? 1 : 0)),
+        computed(() => (this.props.mode === 'search' ? 1 : 0)),
         mobile,
         onMapClick
       );
@@ -511,7 +513,7 @@ export default class LocationMap extends React.Component<Props> {
       }
 
       map.on('load', () => {
-        if (mode === 'requests') {
+        if (mode === 'search') {
           mapboxglMap.addSource('searchResultsPoints', {
             type: 'geojson',
             data: this.searchResultsGeoJsonData,
@@ -953,7 +955,7 @@ export default class LocationMap extends React.Component<Props> {
         }
         break;
 
-      case 'requests':
+      case 'search':
         boxZoom.enable();
         doubleClickZoom.enable();
         dragPan.enable();
@@ -1047,26 +1049,31 @@ export default class LocationMap extends React.Component<Props> {
       return;
     }
 
-    if (mode !== 'picker') {
-      return;
-    }
+    if (mode === 'picker') {
+      if (mapboxMap) {
+        const latLng = ev.latlng;
 
-    if (mapboxMap) {
-      const latLng = ev.latlng;
+        this.selectAddressFromLocation({
+          lat: latLng.lat,
+          lng: latLng.lng,
+        });
+      }
 
-      this.selectAddressFromLocation({
-        lat: latLng.lat,
-        lng: latLng.lng,
-      });
-    }
+      if (mapboxGlMap) {
+        const lngLat = ev.lngLat;
 
-    if (mapboxGlMap) {
-      const lngLat = ev.lngLat;
-
-      this.selectAddressFromLocation({
-        lat: lngLat.lat,
-        lng: lngLat.lng,
-      });
+        this.selectAddressFromLocation({
+          lat: lngLat.lat,
+          lng: lngLat.lng,
+        });
+      }
+    } else if (mode === 'search') {
+      this.markerClicked = false;
+      setTimeout(() => {
+        if (!this.markerClicked) {
+          this.visitLocation(ev.latlng || ev.lngLat, true);
+        }
+      }, 0);
     }
   }
 
@@ -1074,7 +1081,7 @@ export default class LocationMap extends React.Component<Props> {
     const { mode } = this.props;
     if (mode === 'picker') {
       this.selectAddressFromLocation(pos);
-    } else if (mode === 'requests') {
+    } else if (mode === 'search') {
       this.visitLocation(pos, true);
     }
   }
@@ -1248,6 +1255,14 @@ export default class LocationMap extends React.Component<Props> {
   handleResultMarkerClick = (ev: Object) => {
     const { mapboxGlMap } = this;
     const { mapboxgl, mobile, store: { requestSearch } } = this.props;
+
+    // MapboxGL doesn't have a way to prevent marker clicks from keeping map
+    // clicks from happening.
+    this.markerClicked = true;
+
+    if (ev.originalEvent && ev.originalEvent.stopPropagation) {
+      ev.originalEvent.stopPropagation();
+    }
 
     const selectedRequest = requestSearch.results.find(
       res => res.id === ev.features[0].properties.requestId

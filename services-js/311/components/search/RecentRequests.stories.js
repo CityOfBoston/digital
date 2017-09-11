@@ -71,7 +71,17 @@ storiesOf('RecentRequests', module)
   .add('loading without results', () =>
     <RecentRequests store={makeStore(null, 0, { loading: true })} />
   )
-  .add('no results', () => <RecentRequests store={makeStore([], 0)} />)
+  .add('no results (no query)', () =>
+    <RecentRequests store={makeStore([], 0)} />
+  )
+  .add('no results (query)', () =>
+    <RecentRequests
+      store={makeStore([], 0, {
+        query: 'borken sidewalk',
+        resultsQuery: 'borken sidewalk',
+      })}
+    />
+  )
   .add('results loaded', () =>
     <RecentRequests store={makeStore(MOCK_CASES, -1)} />
   )

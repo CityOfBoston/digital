@@ -376,7 +376,7 @@ export default class SearchLayout extends React.Component<Props> {
               <LocationMapWithLibrary
                 locationMapRef={this.setLocationMap}
                 store={store}
-                mode="requests"
+                mode="search"
                 mobile={ui.belowMediaLarge}
                 onMapClick={ui.belowMediaLarge ? this.switchToMapView : null}
               />}
