@@ -24,6 +24,7 @@ describe('holds', () => {
       dependencies: null,
       values: null,
       conditionalValues: null,
+      validations: [],
     });
 
     question2 = new Question({
@@ -34,6 +35,7 @@ describe('holds', () => {
       dependencies: null,
       values: null,
       conditionalValues: null,
+      validations: [],
     });
 
     questionMap = {

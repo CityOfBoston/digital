@@ -47,20 +47,20 @@ export default async function submitCase(
 ): Promise<SubmittedRequest> {
   const attributes = [];
 
-  questions.forEach(({ code, validatedValue }) => {
+  questions.forEach(({ code, safeValue }) => {
     // null takes into account question visibility
-    if (validatedValue == null) {
+    if (safeValue == null) {
       return;
     }
 
-    if (Array.isArray(validatedValue)) {
+    if (Array.isArray(safeValue)) {
       // Format for MULTIVALUELIST questions is to repeat the key in several
       // key/value pairs.
-      validatedValue.forEach(v => {
+      safeValue.forEach(v => {
         attributes.push({ code, value: v });
       });
     } else {
-      attributes.push({ code, value: validatedValue });
+      attributes.push({ code, value: safeValue });
     }
   });
 

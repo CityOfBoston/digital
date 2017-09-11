@@ -14,6 +14,23 @@ query LoadService($code: String!) {
         key
         name
       }
+      validations {
+        dependentOn {
+          clause
+          conditions {
+            attribute
+            op
+            value {
+              type
+              string
+              array
+              number
+            }
+          }
+        }
+        message
+        reportOnly
+      }
       conditionalValues {
         dependentOn {
           clause

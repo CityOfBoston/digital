@@ -27,6 +27,7 @@ const MOCK_SERVICE: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      validations: [],
       conditionalValues: null,
       dependencies: null,
     },
@@ -37,6 +38,7 @@ const MOCK_SERVICE: Service = {
       description:
         '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
+      validations: [],
       conditionalValues: null,
       dependencies: null,
     },
@@ -51,6 +53,7 @@ const MOCK_SERVICE: Service = {
         { key: 'Three', name: 'Three' },
         { key: 'More than Three', name: 'More than Three' },
       ],
+      validations: [],
       conditionalValues: [],
       dependencies: null,
     },

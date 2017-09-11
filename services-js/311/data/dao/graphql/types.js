@@ -98,6 +98,23 @@ export type LoadServiceQuery = {|
         key: string,
         name: string,
       |} >,
+      validations:  Array< {|
+        dependentOn: {|
+          clause: ServiceAttributeConditionalClause,
+          conditions:  Array< {|
+            attribute: string,
+            op: ServiceAttributeConditionalOp,
+            value: {|
+              type: ?ServiceAttributeConditionValueType,
+              string: ?string,
+              array: ?Array< string >,
+              number: ?number,
+            |},
+          |} >,
+        |},
+        message: string,
+        reportOnly: boolean,
+      |} >,
       conditionalValues: ? Array< {|
         dependentOn: {|
           clause: ServiceAttributeConditionalClause,

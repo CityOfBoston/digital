@@ -47,7 +47,7 @@ export default class AttributeDateField extends React.Component<Props> {
     this.formUpdaterDisposer = reaction(
       () => this.questionDate,
       (date: ?Date) => {
-        if (date) {
+        if (date && !isNaN(date.getTime())) {
           this.dateValue = `${date.getMonth() +
             1}/${date.getDate()}/${date.getFullYear()}`;
 
@@ -312,6 +312,18 @@ export default class AttributeDateField extends React.Component<Props> {
               'Please use hh:mm am/pm to format your time. '}
           </span>
         </div>
+
+        {question.validationErrorMessages.map((m, i) =>
+          <div className="t--subinfo t--err m-t100" key={`err-${i}`}>
+            {m}
+          </div>
+        )}
+
+        {question.validationInfoMessages.map((m, i) =>
+          <div className="t--subinfo m-t100" key={`err-${i}`}>
+            {m}
+          </div>
+        )}
       </div>
     );
   }

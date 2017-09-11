@@ -56,11 +56,11 @@ type CaseSearchResults = {
 };
 
 const TOP_SERVICE_CODES = [
+  'RECCRTREQ',
   'PUDEADANML',
   'ILGLDUMP',
   'NEEDRMVL',
   'ILGLPRKING',
-  'STCKRREQ',
 ];
 
 async function serviceSuggestions(

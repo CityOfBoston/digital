@@ -93,6 +93,7 @@ type ServiceAttribute {
   description: String!
   code: String!
   dependencies: ServiceAttributeConditional
+  validations: [ServiceAttributeValidation!]!
   values: [ServiceAttributeValue!]
   conditionalValues: [ServiceAttributeConditionalValues!]
 }
@@ -151,6 +152,12 @@ enum ServiceAttributeDatatype {
   SINGLEVALUELIST
   STRING
   TEXT
+}
+
+type ServiceAttributeValidation {
+  dependentOn: ServiceAttributeConditional!
+  message: String!
+  reportOnly: Boolean!
 }
 
 type ServiceAttributeValue {

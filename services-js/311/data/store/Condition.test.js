@@ -42,6 +42,7 @@ const makeCondition = ({ value, op, currentValue }) => {
     dependencies: null,
     values: null,
     conditionalValues: null,
+    validations: [],
   });
 
   question.value = currentValue;

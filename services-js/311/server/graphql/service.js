@@ -7,6 +7,7 @@ import type {
   ServiceMetadataAttributeValue,
   PlainValue,
   ConditionalValues,
+  Validation,
   DependentConditions,
   DependentCondition,
 } from '../services/Open311';
@@ -37,6 +38,7 @@ type ServiceAttribute {
   description: String!
   code: String!
   dependencies: ServiceAttributeConditional
+  validations: [ServiceAttributeValidation!]!
   values: [ServiceAttributeValue!]
   conditionalValues: [ServiceAttributeConditionalValues!]
 }
@@ -67,6 +69,12 @@ type ServiceAttributeCondition {
   attribute: String!
   op: ServiceAttributeConditionalOp!
   value: ServiceAttributeConditionValue!
+}
+
+type ServiceAttributeValidation {
+  dependentOn: ServiceAttributeConditional!
+  message: String!
+  reportOnly: Boolean!
 }
 
 enum ServiceAttributeDatatype {
@@ -248,6 +256,9 @@ export const resolvers = {
     conditionalValues: (
       a: ServiceMetadataAttribute
     ): null | ConditionalValues[] => filterConditionalValues(a.values),
+    validations: (a: ServiceMetadataAttribute): Array<Validation> =>
+      // Safety to make sure we always have a dependentOn value.
+      (a.validations || []).filter(({ dependentOn }) => !!dependentOn),
     dependencies: (a: ServiceMetadataAttribute): null | DependentConditions =>
       a.dependencies || null,
   },
@@ -284,4 +295,9 @@ export const resolvers = {
 
   // Just using the default key / value resolvers
   ServiceAttributeValue: {},
+
+  ServiceAttributeValidation: {
+    message: (v: Validation): string => v.message || '',
+    reportOnly: (v: Validation): boolean => !!v.reportOnly,
+  },
 };

@@ -19,6 +19,7 @@ const COSMIC_SERVICE: Service = {
       values: null,
       conditionalValues: null,
       dependencies: null,
+      validations: [],
     },
     {
       required: false,
@@ -29,6 +30,7 @@ const COSMIC_SERVICE: Service = {
       values: null,
       conditionalValues: null,
       dependencies: null,
+      validations: [],
     },
     {
       required: true,
@@ -42,6 +44,7 @@ const COSMIC_SERVICE: Service = {
       ],
       conditionalValues: [],
       dependencies: null,
+      validations: [],
     },
     {
       required: false,
@@ -49,6 +52,7 @@ const COSMIC_SERVICE: Service = {
       code: 'MR-WHO',
       description: 'Who would you like?',
       values: [{ key: 'anyone', name: 'Anyone' }],
+      validations: [],
       conditionalValues: [
         {
           dependentOn: {
@@ -132,6 +136,7 @@ const COSMIC_SERVICE: Service = {
       type: 'STRING',
       code: 'SR-CAP',
       description: 'Which Captain America are you looking for?',
+      validations: [],
       dependencies: {
         clause: 'AND',
         conditions: [

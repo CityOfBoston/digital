@@ -87,7 +87,7 @@ export default class Condition {
   }
 
   conditionEq(): boolean {
-    const currentValue = this.question.validatedValue;
+    const currentValue = this.question.safeValue;
     const { value } = this;
 
     if (typeof value === 'string') {
@@ -115,7 +115,7 @@ export default class Condition {
   }
 
   conditionIn(): boolean {
-    const currentValue = this.question.validatedValue;
+    const currentValue = this.question.safeValue;
     const { value } = this;
 
     if (!Array.isArray(currentValue) || Array.isArray(value)) {
@@ -126,7 +126,7 @@ export default class Condition {
   }
 
   conditionNumericOp(op: (a: number, b: number) => boolean): boolean {
-    const currentValue = this.question.validatedValue;
+    const currentValue = this.question.safeValue;
     const { value } = this;
 
     if (typeof value !== 'number' || typeof currentValue !== 'string') {

@@ -63,6 +63,25 @@ function maybeRenderRequired(required: boolean) {
   }
 }
 
+function renderValidationMessages({
+  validationErrorMessages,
+  validationInfoMessages,
+}: Question) {
+  return [
+    validationErrorMessages.map((m, i) =>
+      <div className="t--subinfo t--err m-t100" key={`err-${i}`}>
+        {m}
+      </div>
+    ),
+
+    validationInfoMessages.map((m, i) =>
+      <div className="t--subinfo m-t100" key={`err-${i}`}>
+        {m}
+      </div>
+    ),
+  ];
+}
+
 function renderCheckbox(question, onChange) {
   return (
     <div className="cb">
@@ -78,6 +97,8 @@ function renderCheckbox(question, onChange) {
       <label className="cb-l" htmlFor={question.code}>
         {question.description}
       </label>
+
+      {renderValidationMessages(question)}
     </div>
   );
 }
@@ -105,79 +126,115 @@ function renderTextAttribute(question, onChange) {
         rows="5"
         aria-required={question.required}
       />
+
+      {renderValidationMessages(question)}
     </div>
   );
 }
 
 function renderStringAttribute(question, onChange) {
+  const {
+    description,
+    required,
+    code,
+    hasSafeValue,
+    requirementsMet,
+    value,
+  } = question;
+
+  const errHighlight = hasSafeValue && !requirementsMet;
+
   return (
     <div className="txt">
-      <label className="txt-l" htmlFor={question.code}>
-        {question.description} {maybeRenderRequired(question.required)}
+      <label className="txt-l" htmlFor={code}>
+        {description} {maybeRenderRequired(required)}
       </label>
+
       <input
         type="text"
-        name={question.code}
-        id={question.code}
-        className="txt-f"
-        value={question.value}
+        name={code}
+        id={code}
+        className={`txt-f ${errHighlight ? 'txt-f--err' : ''}`}
+        value={value}
         onChange={onChange}
-        aria-required={question.required}
+        aria-required={required}
       />
+
+      {renderValidationMessages(question)}
     </div>
   );
 }
 
 function renderNumberAttribute(question, onChange) {
+  const {
+    description,
+    required,
+    code,
+    hasSafeValue,
+    requirementsMet,
+    value,
+  } = question;
+
+  const errHighlight = hasSafeValue && !requirementsMet;
+
   return (
     <div className="txt">
       <label className="txt-l">
-        {question.description} {maybeRenderRequired(question.required)}
+        {description} {maybeRenderRequired(required)}
       </label>
+
       <input
-        name={question.code}
-        id={question.code}
-        className={`txt-f ${NUMERIC_FIELD_STYLE.toString()}`}
-        value={question.value}
+        name={code}
+        id={code}
+        className={`txt-f
+          ${NUMERIC_FIELD_STYLE.toString()}
+          ${errHighlight ? 'txt-f--err' : ''}`}
+        value={value}
         onChange={onChange}
         pattern="[0-9]*"
-        aria-required={question.required}
+        aria-required={required}
       />
+
+      {renderValidationMessages(question)}
     </div>
   );
 }
 
 function renderMultiValueListAttribute(question, onChange) {
-  const values = currentValueAsArray(question.value);
-  const lists = maybeSplitList(question.valueOptions, 5);
+  const { description, required, code, value, valueOptions } = question;
 
-  const labelId = `${question.code}-label`;
+  const values = currentValueAsArray(value);
+  const lists = maybeSplitList(valueOptions, 5);
+
+  const labelId = `${code}-label`;
 
   return (
     <div role="group" aria-labelledby={labelId}>
       <div className="m-v300">
         <label className="txt-l" id={labelId}>
-          {question.description} {maybeRenderRequired(question.required)}
+          {description} {maybeRenderRequired(required)}
         </label>
       </div>
+
       <div className="g">
         {lists.map((list, i) =>
           <div
             className={lists.length === 1 ? 'g--12' : 'g--6'}
             key={`list-${i}`}
+            style={{ marginTop: '-.5rem' }}
           >
             {list.map(({ key, name }) =>
-              <div className="cb" key={key}>
+              <div className="cb" key={key} style={{ marginTop: '.5rem' }}>
                 <input
-                  name={question.code}
-                  id={`${question.code}-${key}`}
+                  name={code}
+                  id={`${code}-${key}`}
                   type="checkbox"
                   value={key}
                   className="cb-f"
                   checked={values.indexOf(key) !== -1}
                   onChange={onChange}
                 />
-                <label className="cb-l" htmlFor={`${question.code}-${key}`}>
+                <label className="cb-l" htmlFor={`${code}-${key}`}>
                   {name}
                 </label>
               </div>
@@ -185,25 +242,29 @@ function renderMultiValueListAttribute(question, onChange) {
           </div>
         )}
       </div>
+
+      {renderValidationMessages(question)}
     </div>
   );
 }
 
 function renderSingleValueListAttribute(question, onChange) {
-  const options = [...(question.valueOptions || [])];
+  const { description, required, code, value, valueOptions } = question;
 
-  if (!question.required) {
+  const options = [...(valueOptions || [])];
+
+  if (!required) {
     options.push({ key: '', name: 'No Answer' });
   }
 
   const lists = maybeSplitList(options, 5);
-  const labelId = `${question.code}-label`;
+  const labelId = `${code}-label`;
 
   return (
     <div role="radiogroup" aria-labelledby={labelId}>
       <div className="m-v300">
         <label className="txt-l" id={labelId}>
-          {question.description} {maybeRenderRequired(question.required)}
+          {description} {maybeRenderRequired(required)}
         </label>
       </div>
       <div className="g">
@@ -215,18 +276,15 @@ function renderSingleValueListAttribute(question, onChange) {
             {list.map(({ key, name }) =>
               <div className="ra" key={key}>
                 <input
-                  name={question.code}
-                  id={`${question.code}-${key}`}
+                  name={code}
+                  id={`${code}-${key}`}
                   type="radio"
                   value={key || '--no-answer-key--'}
                   className="ra-f"
-                  checked={
-                    question.value === key ||
-                    (key === '' && question.value === null)
-                  }
+                  checked={value === key || (key === '' && value === null)}
                   onChange={onChange}
                 />
-                <label className="ra-l" htmlFor={`${question.code}-${key}`}>
+                <label className="ra-l" htmlFor={`${code}-${key}`}>
                   {name}
                 </label>
               </div>
@@ -237,6 +295,8 @@ function renderSingleValueListAttribute(question, onChange) {
           </div>
         )}
       </div>
+
+      {renderValidationMessages(question)}
     </div>
   );
 }

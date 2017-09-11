@@ -13,6 +13,12 @@ type ValuesArray = Array<{|
   name: string,
 |}>;
 
+type ConditionGroupValidation = {|
+  conditions: ConditionGroup,
+  message: string,
+  reportOnly: boolean,
+|};
+
 type ConditionalValuesArray = Array<{|
   conditions: ConditionGroup,
   values: ValuesArray,
@@ -25,6 +31,7 @@ export default class Question {
   type: ServiceAttributeDatatype;
   @observable malformed: boolean;
   _values: ?ValuesArray;
+  _validations: Array<ConditionGroupValidation>;
   _conditionalValues: ?ConditionalValuesArray;
   _dependencies: ?ConditionGroup;
   @observable value: ?string | ObservableArray<string>;
@@ -42,10 +49,24 @@ export default class Question {
     attribute: ServiceAttribute,
     questionMap: { [code: string]: Question } = {}
   ) {
+    // Used for validation, where questions need to refer to themselves.
+    // Allowing this for conditions or dependencies could cause infinite loops.
+    const selfReferencingQuestionMap = {
+      ...questionMap,
+      [attribute.code]: this,
+    };
+
     this.code = attribute.code;
     this.description = attribute.description;
     this.required = attribute.required;
     this.malformed = false;
+    this._validations = attribute.validations.map(
+      ({ dependentOn, message, reportOnly }) => ({
+        conditions: new ConditionGroup(dependentOn, selfReferencingQuestionMap),
+        message,
+        reportOnly,
+      })
+    );
     this._values = attribute.values;
     this._conditionalValues = (attribute.conditionalValues || [])
       .map(({ dependentOn, values }) => ({
@@ -83,10 +104,28 @@ export default class Question {
       return false;
     }
 
-    const { validatedValue } = this;
-    return Array.isArray(validatedValue)
-      ? !!validatedValue.length
-      : !!validatedValue;
+    if (
+      this.failingValidations.filter(({ reportOnly }) => !reportOnly).length > 0
+    ) {
+      return false;
+    }
+
+    const { safeValue } = this;
+    return Array.isArray(safeValue) ? !!safeValue.length : !!safeValue;
+  }
+
+  @computed
+  get validationErrorMessages(): Array<string> {
+    return this.failingValidations
+      .filter(({ reportOnly }) => !reportOnly)
+      .map(({ message }) => message);
+  }
+
+  @computed
+  get validationInfoMessages(): Array<string> {
+    return this.failingValidations
+      .filter(({ reportOnly }) => reportOnly)
+      .map(({ message }) => message);
   }
 
   @computed
@@ -103,8 +142,12 @@ export default class Question {
     return [...values, ...[].concat(...activeValuesArr)];
   }
 
+  // Filters value down to the string or array that matches the values allowed
+  // in the options for single/multi pick lists.
+  //
+  // Result still may not be legal according to the validations, however.
   @computed
-  get validatedValue(): ?string | string[] {
+  get safeValue(): ?string | string[] {
     if (!this.visible) {
       return null;
     }
@@ -119,5 +162,24 @@ export default class Question {
     } else {
       return valueOptions.find(({ key }) => key === value) ? value : null;
     }
+  }
+
+  @computed
+  get hasSafeValue(): boolean {
+    const { safeValue } = this;
+    if (Array.isArray(safeValue)) {
+      return safeValue.length > 0;
+    } else {
+      return !!safeValue;
+    }
+  }
+
+  @computed
+  get failingValidations(): Array<ConditionGroupValidation> {
+    if (!this.hasSafeValue) {
+      return [];
+    }
+
+    return this._validations.filter(({ conditions }) => !conditions.holds);
   }
 }

@@ -14,6 +14,7 @@ const makeQuestion = (attrs: Object, value: string | string[] = '') => {
       dependencies: null,
       description: '',
       required: false,
+      validations: [],
       values: null,
       type: null,
       ...attrs,
@@ -126,6 +127,63 @@ storiesOf('AttributeField', module)
           description: 'How many Doombots are at your present location?',
         },
         '15'
+      )}
+    />
+  )
+  .add('Number with validations', () =>
+    <AttributeField
+      question={makeQuestion(
+        {
+          required: true,
+          type: 'NUMBER',
+          code: 'INT-FF',
+          description: 'How many Fantastic Four do you need?',
+          validations: [
+            {
+              dependentOn: {
+                clause: 'OR',
+                conditions: [
+                  {
+                    attribute: 'INT-FF',
+                    op: 'gt',
+                    value: {
+                      type: 'NUMBER',
+                      string: null,
+                      array: null,
+                      number: 0,
+                    },
+                  },
+                ],
+              },
+              message: 'Must need at least 1 member',
+              reportOnly: false,
+            },
+            {
+              dependentOn: {
+                clause: 'OR',
+                conditions: [
+                  {
+                    attribute: 'INT-FF',
+                    op: 'lte',
+                    value: {
+                      type: 'NUMBER',
+                      string: null,
+                      array: null,
+                      number: 4,
+                    },
+                  },
+                ],
+              },
+              message:
+                'Beyond 4 Fantastic Four we will need to dig into some AUs',
+              reportOnly: true,
+            },
+          ],
+          dependencies: null,
+          values: null,
+          conditionalValues: null,
+        },
+        '0'
       )}
     />
   )

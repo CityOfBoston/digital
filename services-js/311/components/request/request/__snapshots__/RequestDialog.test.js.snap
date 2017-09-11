@@ -597,7 +597,7 @@ exports[`rendering questions 1`] = `
               </label>
               <input
                 aria-required={false}
-                className="txt-f"
+                className="txt-f "
                 id="INFO-CSIRMV1"
                 name="INFO-CSIRMV1"
                 onChange={[Function]}

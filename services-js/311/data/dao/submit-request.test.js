@@ -21,6 +21,7 @@ const COSMIC_SERVICE: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      validations: [],
       conditionalValues: null,
       dependencies: null,
     },
@@ -31,6 +32,7 @@ const COSMIC_SERVICE: Service = {
       description:
         '**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**',
       values: null,
+      validations: [],
       conditionalValues: null,
       dependencies: null,
     },
@@ -44,6 +46,7 @@ const COSMIC_SERVICE: Service = {
         { key: 'great-lakes', name: 'Great Lakes' },
         { key: 'us-avengers', name: 'US Avengers' },
       ],
+      validations: [],
       conditionalValues: [],
       dependencies: null,
     },
@@ -53,6 +56,7 @@ const COSMIC_SERVICE: Service = {
       code: 'MR-WHO',
       description: 'Who would you like?',
       values: [{ key: 'anyone', name: 'Anyone' }],
+      validations: [],
       conditionalValues: [
         {
           dependentOn: {
@@ -136,6 +140,7 @@ const COSMIC_SERVICE: Service = {
       type: 'STRING',
       code: 'SR-CAP',
       description: 'Which Captain America are you looking for?',
+      validations: [],
       dependencies: {
         clause: 'AND',
         conditions: [

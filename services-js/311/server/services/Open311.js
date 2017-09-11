@@ -41,6 +41,12 @@ export type ConditionalValues = {|
   values: PlainValue[],
 |};
 
+export type Validation = {|
+  dependentOn: DependentConditions,
+  message?: string,
+  reportOnly?: boolean,
+|};
+
 export type ServiceMetadataAttributeValue = PlainValue | ConditionalValues;
 
 export type ServiceMetadataAttribute = {|
@@ -54,6 +60,7 @@ export type ServiceMetadataAttribute = {|
   // currently a bug where sometimes this is a number!?!
   values?: ServiceMetadataAttributeValue[] | number,
   dependencies?: DependentConditions,
+  validations?: Array<Validation>,
 |};
 
 export type ServiceMetadata = {|

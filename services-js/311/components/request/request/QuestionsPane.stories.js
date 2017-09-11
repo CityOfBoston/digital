@@ -33,6 +33,7 @@ export const SERVICE_WITH_METADATA: Service = {
       code: 'ST-CMTS',
       description: 'Please provide any other relevant information:',
       values: null,
+      validations: [],
       conditionalValues: null,
       dependencies: null,
     },

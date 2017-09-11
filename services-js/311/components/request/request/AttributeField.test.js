@@ -14,6 +14,7 @@ test('string change event', () => {
     description: '',
     required: true,
     values: null,
+    validations: [],
     conditionalValues: null,
     dependencies: null,
   });
@@ -31,6 +32,7 @@ test('checkbox click event', () => {
     description: '',
     required: true,
     values: null,
+    validations: [],
     conditionalValues: null,
     dependencies: null,
   });
@@ -61,6 +63,7 @@ test('multivaluelist', () => {
       { key: 'spider-man', name: 'Spider-Man' },
       { key: 'captain-marvel', name: 'Captain Marvel' },
     ],
+    validations: [],
     conditionalValues: [],
     dependencies: null,
   });

@@ -10,6 +10,7 @@ const TEXT_FIELD = {
   values: null,
   conditionalValues: null,
   dependencies: null,
+  validations: [],
 };
 
 const SIMPLE_LIST = {
@@ -24,6 +25,7 @@ const SIMPLE_LIST = {
   ],
   conditionalValues: [],
   dependencies: null,
+  validations: [],
 };
 
 const DEPENDENT_VALUES_LIST = {
@@ -32,6 +34,7 @@ const DEPENDENT_VALUES_LIST = {
   code: 'MR-WHO',
   description: 'Who would you like?',
   values: [{ key: 'anyone', name: 'Anyone' }],
+  validations: [],
   conditionalValues: [
     {
       dependentOn: {
@@ -111,6 +114,7 @@ const DEPENDENT_TEXT = {
   type: 'STRING',
   code: 'SR-CAP',
   description: 'Which Captain America are you looking for?',
+  validations: [],
   dependencies: {
     clause: 'AND',
     conditions: [
@@ -130,10 +134,93 @@ const DEPENDENT_TEXT = {
   conditionalValues: null,
 };
 
-let textFieldQuestion;
-let simpleListQuestion;
-let dependentValuesQuestion;
-let dependentTextQuestion;
+const ERROR_VALIDATION = {
+  required: true,
+  type: 'NUMBER',
+  code: 'INT-AVG',
+  description: 'How many Avengers do you need?',
+  validations: [
+    {
+      dependentOn: {
+        clause: 'OR',
+        conditions: [
+          {
+            attribute: 'INT-AVG',
+            op: 'gt',
+            value: {
+              type: 'NUMBER',
+              string: null,
+              array: null,
+              number: 0,
+            },
+          },
+        ],
+      },
+      message: 'Must have at least 1 Avenger',
+      reportOnly: false,
+    },
+  ],
+  dependencies: null,
+  values: null,
+  conditionalValues: null,
+};
+
+const REPORT_VALIDATION = {
+  required: true,
+  type: 'NUMBER',
+  code: 'INT-FF',
+  description: 'How many Fantastic Four do you need?',
+  validations: [
+    {
+      dependentOn: {
+        clause: 'OR',
+        conditions: [
+          {
+            attribute: 'INT-FF',
+            op: 'gt',
+            value: {
+              type: 'NUMBER',
+              string: null,
+              array: null,
+              number: 0,
+            },
+          },
+        ],
+      },
+      message: 'Must have at least 1 member',
+      reportOnly: false,
+    },
+    {
+      dependentOn: {
+        clause: 'OR',
+        conditions: [
+          {
+            attribute: 'INT-FF',
+            op: 'lte',
+            value: {
+              type: 'NUMBER',
+              string: null,
+              array: null,
+              number: 4,
+            },
+          },
+        ],
+      },
+      message: 'Beyond 4 Fantastic Four we will need to dig into some AUs',
+      reportOnly: true,
+    },
+  ],
+  dependencies: null,
+  values: null,
+  conditionalValues: null,
+};
+
+let textFieldQuestion: Question;
+let simpleListQuestion: Question;
+let dependentValuesQuestion: Question;
+let dependentTextQuestion: Question;
+let errorValidationQuestion: Question;
+let reportValidationQuestion: Question;
 
 beforeEach(() => {
   const questionsMap = {};
@@ -149,6 +236,12 @@ beforeEach(() => {
 
   dependentTextQuestion = new Question(DEPENDENT_TEXT, questionsMap);
   questionsMap[dependentTextQuestion.code] = dependentTextQuestion;
+
+  errorValidationQuestion = new Question(ERROR_VALIDATION, questionsMap);
+  questionsMap[errorValidationQuestion.code] = errorValidationQuestion;
+
+  reportValidationQuestion = new Question(REPORT_VALIDATION, questionsMap);
+  questionsMap[reportValidationQuestion.code] = reportValidationQuestion;
 });
 
 describe('valueOptions', () => {
@@ -161,14 +254,16 @@ describe('valueOptions', () => {
   });
 
   test('conditional values are static when other question is not answered', () => {
-    expect(dependentValuesQuestion.valueOptions.map(({ key }) => key)).toEqual([
-      'anyone',
-    ]);
+    expect(
+      (dependentValuesQuestion.valueOptions || []).map(({ key }) => key)
+    ).toEqual(['anyone']);
   });
 
   test('adds in conditional values', () => {
     simpleListQuestion.value = 'great-lakes';
-    expect(dependentValuesQuestion.valueOptions.map(({ key }) => key)).toEqual([
+    expect(
+      (dependentValuesQuestion.valueOptions || []).map(({ key }) => key)
+    ).toEqual([
       'anyone',
       'flatman',
       'big-bertha',
@@ -201,31 +296,31 @@ describe('visible', () => {
   });
 });
 
-describe('validatedValue', () => {
+describe('safeValue', () => {
   it('returns the value when no valueOptions are set', () => {
     textFieldQuestion.value = 'Everything’s ok';
-    expect(textFieldQuestion.validatedValue).toEqual('Everything’s ok');
+    expect(textFieldQuestion.safeValue).toEqual('Everything’s ok');
   });
 
   it('returns a raw array, not an observable, so isArray works', () => {
     textFieldQuestion.value = ['chipmunk-hunk', 'koi-boi'];
-    expect(Array.isArray(textFieldQuestion.validatedValue)).toEqual(true);
+    expect(Array.isArray(textFieldQuestion.safeValue)).toEqual(true);
   });
 
   it('preserves the value if it’s in valueOptions', () => {
     simpleListQuestion.value = 'us-avengers';
-    expect(simpleListQuestion.validatedValue).toEqual('us-avengers');
+    expect(simpleListQuestion.safeValue).toEqual('us-avengers');
   });
 
   it('returns null if the value’s not in valueOptions', () => {
     simpleListQuestion.value = 'uncanny-avengers';
-    expect(simpleListQuestion.validatedValue).toEqual(null);
+    expect(simpleListQuestion.safeValue).toEqual(null);
   });
 
   it('returns values valid by the dependency', () => {
     simpleListQuestion.value = 'great-lakes';
     dependentValuesQuestion.value = ['anyone', 'good-boy', 'big-bertha'];
-    expect(dependentValuesQuestion.validatedValue).toEqual([
+    expect(dependentValuesQuestion.safeValue).toEqual([
       'anyone',
       'good-boy',
       'big-bertha',
@@ -240,12 +335,12 @@ describe('validatedValue', () => {
       'big-bertha',
       'thor',
     ];
-    expect(dependentValuesQuestion.validatedValue).toEqual(['anyone', 'thor']);
+    expect(dependentValuesQuestion.safeValue).toEqual(['anyone', 'thor']);
   });
 
   it('returns null for not visible questions', () => {
     dependentTextQuestion.value = 'Danielle Cage';
-    expect(dependentTextQuestion.validatedValue).toEqual(null);
+    expect(dependentTextQuestion.safeValue).toEqual(null);
   });
 });
 
@@ -271,5 +366,43 @@ describe('requirementsMet', () => {
       textFieldQuestion.value = ['value'];
       expect(textFieldQuestion.requirementsMet).toEqual(true);
     });
+  });
+
+  describe('with validations', () => {
+    it('is false if the question fails the validation', () => {
+      errorValidationQuestion.value = '0';
+      expect(errorValidationQuestion.requirementsMet).toBe(false);
+    });
+
+    it('is true if the question meets the validations', () => {
+      errorValidationQuestion.value = '4';
+      expect(errorValidationQuestion.requirementsMet).toBe(true);
+    });
+
+    it('is true if the question fails a report-only validation', () => {
+      reportValidationQuestion.value = '8';
+      expect(reportValidationQuestion.requirementsMet).toBe(true);
+    });
+  });
+});
+
+describe('failing validations', () => {
+  it('is empty for no validations', () => {
+    expect(textFieldQuestion.failingValidations).toEqual([]);
+  });
+
+  it('returns failing validations when failing', () => {
+    errorValidationQuestion.value = '0';
+    expect(errorValidationQuestion.failingValidations.length).toEqual(1);
+  });
+
+  it('returns no validations when successful', () => {
+    errorValidationQuestion.value = '3';
+    expect(errorValidationQuestion.failingValidations).toEqual([]);
+  });
+
+  it('reportOnly validations are returned', () => {
+    reportValidationQuestion.value = '8';
+    expect(reportValidationQuestion.failingValidations.length).toEqual(1);
   });
 });
