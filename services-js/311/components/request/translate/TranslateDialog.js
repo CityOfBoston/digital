@@ -2,6 +2,7 @@
 /* eslint react/jsx-no-bind: 0 */
 
 import React from 'react';
+import Head from 'next/head';
 
 import { css } from 'glamor';
 import { observable, action } from 'mobx';
@@ -48,14 +49,72 @@ export type Props = {|
 |};
 
 const LANGUAGES = [
-  { code: 'ht', name: 'Kreyòl Ayisyen' },
-  { code: 'pt', name: 'Português' },
-  { code: 'es', name: 'Español' },
-  { code: 'vi', name: 'Tiếng Việt' },
-  { code: 'zh-CN', name: '简体中文' },
-  { code: 'zh-TW', name: '繁體中文' },
   { code: 'en', name: 'English' },
+  { code: 'es', name: 'Español' },
+  { code: 'zh-TW', name: '繁體中文' },
+  { code: 'zh-CN', name: '简体中文' },
+  { code: 'ht', name: 'Kreyòl Ayisyen' },
+  { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'kea', name: 'Kabuverdianu' },
+  { code: 'pt', name: 'Português' },
 ];
+
+const MESSAGES = {
+  en: (
+    <span>
+      If you need to report a non-emergency issue with the City of Boston,
+      please call BOS:311 at 311 or{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  es: (
+    <span>
+      Si necesita reportar un problema que no sea de emergencia a la Ciudad de
+      Boston, por favor llame a BOS:311 al 3-1-1 o al{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  'zh-TW': (
+    <span>
+      向波士頓市府舉報非緊急事項, 請致電 BOS:311辦公室,撥 3-1-1或{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  'zh-CN': (
+    <span>
+      向波士顿市府举报非紧急事项,请致电BOS:311办公室, 拨 3-1-1 或
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  ht: (
+    <span>
+      Si’w ta vle repòte yon pwoblem ki pa yon ijans pou Vil Boston an, souple
+      rele BOS:311 nan 3-1-1 oswa{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  vi: (
+    <span>
+      Nếu cần báo cáo vấn đề không khẩn cấp đến thành phố Boston, xin gọi
+      BOS:311 tại 3-1-1 hoạc{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+  kea: (
+    <span>
+      Si bu prisiza di kumunika un asuntu ki ê ka di imerjênsia pa Cidadi di
+      Boston, pur favor telifona pa BOS:311 pa númeru 3-1-1 ô pa{' '}
+      <span style={{ whiteSpace: 'nowrap' }}>617 635-4500</span>.
+    </span>
+  ),
+  pt: (
+    <span>
+      Se você precisa de comunicar algum assunto que não é de emergência à
+      Cidade de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou
+      para <span style={{ whitespace: 'nowrap' }}>617-635-4500</span>.
+    </span>
+  ),
+};
 
 @observer
 export default class TranslateDialog extends React.Component<Props> {
@@ -100,6 +159,9 @@ export default class TranslateDialog extends React.Component<Props> {
 
     return (
       <div className={CENTERED_DIALOG_STYLE}>
+        <Head>
+          <title>BOS:311 — Translate</title>
+        </Head>
         <FormDialog>
           <div className={DIALOG_CONTENTS_STYLE}>
             <div className="g">
@@ -114,9 +176,7 @@ export default class TranslateDialog extends React.Component<Props> {
               </div>
 
               <div className="g--8 t--intro" style={{ fontStyle: 'normal' }}>
-                If you need to report a non-emergency issue with the City of
-                Boston, please call BOS:311 at 311 or{' '}
-                <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+                {MESSAGES[this.code]}
               </div>
             </div>
 
@@ -135,19 +195,17 @@ export default class TranslateDialog extends React.Component<Props> {
   }
 
   renderButton(code: string, title: string) {
-    if (code === 'en') {
-      return null;
-    }
-
     return (
-      <button
-        type="button"
-        key={code}
-        className={`btn g--2 m-v100 ${code === this.code ? 'btn--c' : ''}`}
-        onClick={this.setLanguageCode.bind(this, code)}
-      >
-        {title}
-      </button>
+      <div className="g--3 m-v200" key={code}>
+        <button
+          type="button"
+          className={`btn ${code === this.code ? 'btn--c' : ''}`}
+          style={{ width: '100%' }}
+          onClick={this.setLanguageCode.bind(this, code)}
+        >
+          {title}
+        </button>
+      </div>
     );
   }
 }

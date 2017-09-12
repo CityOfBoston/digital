@@ -10258,48 +10258,134 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
               <div
                 className="g"
               >
-                <button
-                  className="btn g--2 m-v100 "
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="g--3 m-v200"
                 >
-                  Kreyòl Ayisyen
-                </button>
-                <button
-                  className="btn g--2 m-v100 "
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    English
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
                 >
-                  Português
-                </button>
-                <button
-                  className="btn g--2 m-v100 btn--c"
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="btn btn--c"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    Español
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
                 >
-                  Español
-                </button>
-                <button
-                  className="btn g--2 m-v100 "
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    繁體中文
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
                 >
-                  Tiếng Việt
-                </button>
-                <button
-                  className="btn g--2 m-v100 "
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    简体中文
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
                 >
-                  简体中文
-                </button>
-                <button
-                  className="btn g--2 m-v100 "
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    Kreyòl Ayisyen
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
                 >
-                  繁體中文
-                </button>
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    Tiếng Việt
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
+                >
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    Kabuverdianu
+                  </button>
+                </div>
+                <div
+                  className="g--3 m-v200"
+                >
+                  <button
+                    className="btn "
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    type="button"
+                  >
+                    Português
+                  </button>
+                </div>
               </div>
               <div
                 className="g m-v500 p-a500"
@@ -10334,18 +10420,20 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
                     }
                   }
                 >
-                  If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or
-                   
-                  <span
-                    style={
-                      Object {
-                        "whiteSpace": "nowrap",
+                  <span>
+                    Si necesita reportar un problema que no sea de emergencia a la Ciudad de Boston, por favor llame a BOS:311 al 3-1-1 o al
+                     
+                    <span
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
                       }
-                    }
-                  >
-                    617-635-4500
+                    >
+                      617-635-4500
+                    </span>
+                    .
                   </span>
-                  .
                 </div>
               </div>
             </div>
@@ -13129,48 +13217,134 @@ exports[`Storyshots TranslateDialog dialog 1`] = `
         <div
           className="g"
         >
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+          <div
+            className="g--3 m-v200"
           >
-            Kreyòl Ayisyen
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+            <button
+              className="btn btn--c"
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              English
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
           >
-            Português
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Español
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
           >
-            Español
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              繁體中文
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
           >
-            Tiếng Việt
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              简体中文
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
           >
-            简体中文
-          </button>
-          <button
-            className="btn g--2 m-v100 "
-            onClick={[Function]}
-            type="button"
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Kreyòl Ayisyen
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
           >
-            繁體中文
-          </button>
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Tiếng Việt
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
+          >
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Kabuverdianu
+            </button>
+          </div>
+          <div
+            className="g--3 m-v200"
+          >
+            <button
+              className="btn "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Português
+            </button>
+          </div>
         </div>
         <div
           className="g m-v500 p-a500"
@@ -13205,18 +13379,20 @@ exports[`Storyshots TranslateDialog dialog 1`] = `
               }
             }
           >
-            If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or
-             
-            <span
-              style={
-                Object {
-                  "whiteSpace": "nowrap",
+            <span>
+              If you need to report a non-emergency issue with the City of Boston, please call BOS:311 at 311 or
+               
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
                 }
-              }
-            >
-              617-635-4500
+              >
+                617-635-4500
+              </span>
+              .
             </span>
-            .
           </div>
         </div>
       </div>
