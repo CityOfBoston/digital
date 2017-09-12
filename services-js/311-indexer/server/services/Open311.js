@@ -62,6 +62,7 @@ export default class Open311 {
   opbeat: any;
   endpoint: string;
   apiKey: ?string;
+  oauthSessionId: ?string;
 
   constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
     if (!endpoint) {
@@ -73,6 +74,8 @@ export default class Open311 {
 
     this.opbeat = opbeat;
 
+    this.oauthSessionId = null;
+
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
     }
@@ -80,6 +83,19 @@ export default class Open311 {
 
   url(path: string) {
     return url.resolve(this.endpoint, path);
+  }
+
+  requestHeaders() {
+    const headers = {};
+
+    if (this.oauthSessionId) {
+      // We don't bother tracking if this 401s and we fail, since we assume that
+      // the Salesforce event stream will error out before this does, or at
+      // least shortly thereafter (which triggers a process restart).
+      headers.Authorization = `Bearer ${this.oauthSessionId}`;
+    }
+
+    return headers;
   }
 
   async searchCases(startDate?: Date, endDate?: Date): Promise<Array<Case>> {
@@ -109,6 +125,7 @@ export default class Open311 {
       this.url(`requests.json?${params.toString()}`),
       {
         agent: this.agent,
+        headers: this.requestHeaders(),
       }
     );
 
@@ -136,6 +153,7 @@ export default class Open311 {
       this.url(`requests.json?${params.toString()}`),
       {
         agent: this.agent,
+        headers: this.requestHeaders(),
       }
     );
 

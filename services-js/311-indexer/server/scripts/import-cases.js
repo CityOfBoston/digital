@@ -9,6 +9,7 @@ import { retryWithFallback } from '../stages/stage-helpers';
 
 import Elasticsearch from '../services/Elasticsearch';
 import Open311 from '../services/Open311';
+import Salesforce from '../services/Salesforce';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -31,11 +32,28 @@ const opbeat = require('opbeat/start');
     console.error('ERROR GETTING ELASTICSEARCH INFO', err);
   }
 
+  const salesforce = new Salesforce(
+    process.env.SALESFORCE_COMETD_URL,
+    process.env.SALESFORCE_PUSH_TOPIC,
+    process.env.SALESFORCE_CONSUMER_KEY,
+    process.env.SALESFORCE_CONSUMER_SECRET,
+    opbeat
+  );
+
+  const oauthSessionId = await salesforce.authenticate(
+    process.env.SALESFORCE_OAUTH_URL,
+    process.env.SALESFORCE_API_USERNAME,
+    process.env.SALESFORCE_API_PASSWORD,
+    process.env.SALESFORCE_API_SECURITY_TOKEN
+  );
+
   const open311 = new Open311(
     process.env.PROD_311_ENDPOINT,
     process.env.PROD_311_KEY,
     opbeat
   );
+
+  open311.oauthSessionId = oauthSessionId;
 
   const startDateMoment = moment(process.argv[2], 'YYYYMMDD');
   const endDateMoment = moment(process.argv[3], 'YYYYMMDD').endOf('day');

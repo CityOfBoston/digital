@@ -207,11 +207,14 @@ export default async function startServer({ opbeat }: ServerArgs) {
       },
     });
 
-  await salesforce.connect(
+  const oauthSessionId = await salesforce.connect(
     process.env.SALESFORCE_OAUTH_URL,
     process.env.SALESFORCE_API_USERNAME,
     process.env.SALESFORCE_API_PASSWORD,
     process.env.SALESFORCE_API_SECURITY_TOKEN,
     lastReplayId
   );
+
+  // OK this is a little hacky. We had to add OAuth later.
+  open311.oauthSessionId = oauthSessionId;
 }

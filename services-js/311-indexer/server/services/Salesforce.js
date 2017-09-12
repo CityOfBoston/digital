@@ -73,11 +73,19 @@ export default class Salesforce extends EventEmitter {
   }
 
   async authenticate(
-    oauthUrl: string,
-    username: string,
-    password: string,
+    oauthUrl: ?string,
+    username: ?string,
+    password: ?string,
     securityToken: ?string
   ): Promise<string> {
+    if (!oauthUrl) {
+      throw new Error('Missing Salesforce OAuth endpoint URL');
+    }
+
+    if (!username || !password) {
+      throw new Error('Missing username and/or secret for Salesforce API user');
+    }
+
     const body = new FormData();
     body.append('grant_type', 'password');
     body.append('client_id', this.consumerKey);
@@ -103,15 +111,7 @@ export default class Salesforce extends EventEmitter {
     password: ?string,
     securityToken: ?string,
     lastReplayId: ?number
-  ): Promise<void> {
-    if (!oauthUrl) {
-      throw new Error('Missing Salesforce OAuth endpoint URL');
-    }
-
-    if (!username || !password) {
-      throw new Error('Missing username and/or secret for Salesforce API user');
-    }
-
+  ): Promise<string> {
     const sessionId = await this.authenticate(
       oauthUrl,
       username,
@@ -134,6 +134,8 @@ export default class Salesforce extends EventEmitter {
     });
 
     this.cometd.handshake(this.handleHandshake);
+
+    return sessionId;
   }
 
   disconnect(): Promise<void> {
