@@ -5,33 +5,65 @@ import 'isomorphic-fetch';
 import os from 'os';
 
 export default async function reportDeployToOpbeat(opbeat: any) {
+  const {
+    OPBEAT_APP_ID,
+    OPBEAT_ORGANIZATION_ID,
+    OPBEAT_FRONTEND_APP_ID,
+    OPBEAT_FRONTEND_ORGANIZATION_ID,
+    OPBEAT_SECRET_TOKEN,
+    GIT_BRANCH,
+    GIT_REVISION,
+  } = process.env;
+
   if (
-    process.env.OPBEAT_APP_ID &&
-    process.env.OPBEAT_ORGANIZATION_ID &&
-    process.env.OPBEAT_SECRET_TOKEN &&
-    process.env.GIT_BRANCH &&
-    process.env.GIT_REVISION
+    OPBEAT_APP_ID &&
+    OPBEAT_ORGANIZATION_ID &&
+    OPBEAT_SECRET_TOKEN &&
+    OPBEAT_FRONTEND_APP_ID &&
+    OPBEAT_FRONTEND_ORGANIZATION_ID &&
+    GIT_BRANCH &&
+    GIT_REVISION
   ) {
     try {
-      const res = await fetch(
-        `https://opbeat.com/api/v1/organizations/${process.env
-          .OPBEAT_ORGANIZATION_ID}/apps/${process.env.OPBEAT_APP_ID}/releases/`,
+      let res = await fetch(
+        `https://opbeat.com/api/v1/organizations/${OPBEAT_ORGANIZATION_ID}/apps/${OPBEAT_APP_ID}/releases/`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Bearer ${process.env.OPBEAT_SECRET_TOKEN}`,
+            Authorization: `Bearer ${OPBEAT_SECRET_TOKEN}`,
           },
           body: [
-            `rev=${process.env.GIT_REVISION}`,
-            `branch=${encodeURIComponent(process.env.GIT_BRANCH)}`,
+            `rev=${GIT_REVISION}`,
+            `branch=${encodeURIComponent(GIT_BRANCH)}`,
             `machine=${encodeURIComponent(os.hostname())}`,
             `status=machine-completed`,
           ].join('&'),
         }
       );
       console.log(
-        'Reported deploy to Opbeat:',
+        'Reported server deploy to Opbeat:',
+        JSON.stringify(await res.json())
+      );
+
+      res = await fetch(
+        `https://opbeat.com/api/v1/organizations/${OPBEAT_FRONTEND_ORGANIZATION_ID}/apps/${OPBEAT_FRONTEND_APP_ID}/releases/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Bearer ${OPBEAT_SECRET_TOKEN}`,
+          },
+          body: [
+            `rev=${GIT_REVISION}`,
+            `branch=${encodeURIComponent(GIT_BRANCH)}`,
+            `machine=${encodeURIComponent(os.hostname())}`,
+            `status=machine-completed`,
+          ].join('&'),
+        }
+      );
+      console.log(
+        'Reported frontend deploy to Opbeat:',
         JSON.stringify(await res.json())
       );
     } catch (err) {
