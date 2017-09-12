@@ -10,6 +10,8 @@ import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language';
 
+import decryptEnv from './lib/decrypt-env';
+import reportDeployToOpbeat from './lib/report-deploy-to-opbeat';
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 import Open311 from './services/Open311';
@@ -25,6 +27,9 @@ import sitemapHandler from './sitemap';
 const port = parseInt(process.env.PORT || '3000', 10);
 
 export default async function startServer({ opbeat }: any) {
+  reportDeployToOpbeat(opbeat);
+  await decryptEnv();
+
   const server = new Hapi.Server();
   const app = next({
     dev: process.env.NODE_ENV !== 'production',
@@ -69,7 +74,7 @@ export default async function startServer({ opbeat }: any) {
       cert: fs.readFileSync('server.crt'),
     };
 
-    server.connection({ port: '3443', tls }, '0.0.0.0');
+    server.connection({ port, tls }, '0.0.0.0');
   } else {
     server.connection({ port }, '0.0.0.0');
   }
@@ -105,7 +110,8 @@ export default async function startServer({ opbeat }: any) {
             name: 'Squeeze',
             args: [
               {
-                response: '*',
+                // Keep our health checks from appearing in logs
+                response: { exclude: 'health' },
                 log: '*',
               },
             ],
@@ -288,6 +294,16 @@ export default async function startServer({ opbeat }: any) {
       return reply
         .file(p)
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
+    },
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/admin/ok',
+    handler: (request, reply) => reply('ok'),
+    config: {
+      // mark this as a health check so that it doesn’t get logged
+      tags: ['health'],
     },
   });
 

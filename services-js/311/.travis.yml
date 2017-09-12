@@ -1,3 +1,6 @@
+dist: trusty
+services:
+- docker
 language: node_js
 node_js:
 - 8.4.0
@@ -22,3 +25,10 @@ branches:
   - develop
   # We need to run greenkeeper branches to get lockfile updates
   - /^greenkeeper\/.*$/
+before_deploy:
+- pip install --upgrade --user awscli
+deploy:
+  provider: script
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
+  on:
+    branch: develop
