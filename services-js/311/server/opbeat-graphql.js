@@ -9,18 +9,40 @@ export const opbeatWrapGraphqlOptions = (
 ) => async (req: any) => {
   try {
     const opts = await optsFn(req);
-
     const oldFormatError = opts.formatError;
-    opts.formatError = (e: Error) => {
-      const payload = {
+
+    opts.formatError = (e: any) => {
+      // This allows internal exceptions to pass data to Opbeat by setting an
+      // "extra" object.
+      const extra = Object.assign({}, e.extra);
+
+      let reqPayload = req.payload;
+
+      // Typically req.payload has been parsed to a JSON object but we want to
+      // just be sure.
+      if (typeof reqPayload === 'string') {
+        try {
+          reqPayload = JSON.parse(reqPayload);
+        } catch (e) {
+          // We want to be defensive and not throw errors in our error
+          // reporting.
+          console.error(`Could not parse JSON payload: ${reqPayload}`);
+          extra.payload = reqPayload;
+          reqPayload = null;
+        }
+      }
+
+      if (typeof reqPayload === 'object') {
+        Object.assign(extra, reqPayload);
+      }
+
+      const errorPayload = {
         request: req.raw && req.raw.req,
-        extra: {
-          graphql: req.payload,
-        },
+        extra,
       };
 
       // graphql wraps the original exception
-      opbeat.captureError(e.originalError || e, payload);
+      opbeat.captureError(e.originalError || e, errorPayload);
 
       return oldFormatError ? oldFormatError(e) : e;
     };

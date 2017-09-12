@@ -93,9 +93,11 @@ export default class Salesforce {
     const json = await res.json();
 
     if (!res.ok) {
-      throw new Error(
+      const err: any = new Error(
         json.error_description || 'Error authenticating to Salesforce'
       );
+      err.extra = { responseText: await res.text() };
+      throw err;
     } else {
       return json.access_token;
     }
@@ -115,8 +117,10 @@ export default class Salesforce {
   // until a request fails. When that happens, we try to reauthorize and then
   // try again.
   async authenticatedFetch(url: string, opts?: Object = {}): Promise<Response> {
+    let resp = null;
+
     for (let i = 0; i <= AUTH_RETRIES; ++i) {
-      const resp = await this.internalFetch(url, opts);
+      resp = await this.internalFetch(url, opts);
       if (resp.status === 401) {
         // Calling this will set up a new tokenPromise, which the next time
         // through internalFetch will wait on.
@@ -126,8 +130,10 @@ export default class Salesforce {
       }
     }
 
-    throw new Error(
+    const err: any = new Error(
       `Fetch failed after trying reauthorization ${AUTH_RETRIES} times`
     );
+    err.extra = { responseText: resp ? await resp.text() : '' };
+    throw err;
   }
 }
