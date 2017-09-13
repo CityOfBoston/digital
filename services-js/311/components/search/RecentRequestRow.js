@@ -18,6 +18,7 @@ import {
   YELLOW,
   GRAY_100,
   CLEAR_FIX,
+  assetUrl,
 } from '../style-constants';
 
 const REQUEST_STYLE = css({
@@ -145,8 +146,8 @@ export default class RecentRequestRow extends React.Component<Props> {
     const { request } = this.props;
 
     const defaultUrl = this.selected
-      ? '/assets/img/311-logo-grey-on-white.svg'
-      : '/assets/img/311-logo-white-on-grey.svg';
+      ? assetUrl('img/311-logo-grey-on-white.svg')
+      : assetUrl('img/311-logo-white-on-grey.svg');
     const thumbnailUrl =
       (this.showImage &&
         request.images.length &&

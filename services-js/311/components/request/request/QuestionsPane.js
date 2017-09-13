@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
 import SectionHeader from '../../common/SectionHeader';
-import { MEDIA_LARGE } from '../../style-constants';
+import { MEDIA_LARGE, assetUrl } from '../../style-constants';
 import AttributeField from './AttributeField';
 
 import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
@@ -269,7 +269,7 @@ export default class QuestionsPane extends React.Component<Props> {
                       alt=""
                       width="479"
                       height="324"
-                      src="/assets/img/image-upload.png"
+                      src={assetUrl('img/image-upload.png')}
                     />,
               ];
 

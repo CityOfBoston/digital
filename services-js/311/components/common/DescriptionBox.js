@@ -3,6 +3,8 @@
 import React from 'react';
 import { css } from 'glamor';
 
+import { assetUrl } from '../style-constants';
+
 export type DefaultProps = {|
   minHeight: number,
   maxHeight: number,
@@ -32,7 +34,7 @@ const TEXTAREA_STYLE = css({
   fontSize: 28,
   fontStyle: 'italic',
   border: 'none',
-  backgroundImage: 'url(/assets/img/textbox-bg.png)',
+  backgroundImage: `url(${assetUrl('img/textbox-bg.png')})`,
   backgroundSize: '38px 45px',
   backgroundAttachment: 'local',
   lineHeight: '45px',

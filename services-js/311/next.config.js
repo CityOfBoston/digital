@@ -1,6 +1,11 @@
 /* eslint comma-dangle: 0, global-require: 0 */
 
 module.exports = {
+  assetPrefix:
+    process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
+      ? `https://${process.env.ASSET_HOST}`
+      : '',
+
   webpack: config => {
     const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 

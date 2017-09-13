@@ -8,7 +8,7 @@ import HTTPStatus from 'http-status';
 import Head from 'next/head';
 import { css } from 'glamor';
 
-import { HEADER_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT, assetUrl } from '../style-constants';
 
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
@@ -88,7 +88,7 @@ export default class ErrorLayout extends React.Component<Props> {
 
             <img
               className={IMAGE_STYLE.toString()}
-              src="/assets/img/404-cropped.png"
+              src={assetUrl('img/404-cropped.png')}
               width="700"
               height="280"
               alt=""

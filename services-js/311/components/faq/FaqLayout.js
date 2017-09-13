@@ -10,9 +10,9 @@ import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
 import type { AppStore } from '../../data/store';
-import { MEDIA_MEDIUM } from '../style-constants';
+import { MEDIA_MEDIUM, assetUrl } from '../style-constants';
 
-const SPRITE_URL = '/assets/img/svg/faq-icons.svg';
+const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
 
 const ICON_STYLE = css({
   width: '90%',

@@ -39,3 +39,12 @@ export const CLEAR_FIX = {
     clear: 'both',
   },
 };
+
+export function assetUrl(path: string): string {
+  const assetPrefix =
+    (typeof window !== 'undefined' &&
+      window.__NEXT_DATA__ &&
+      window.__NEXT_DATA__.assetPrefix) ||
+    '';
+  return `${assetPrefix}/assets/${path}`;
+}

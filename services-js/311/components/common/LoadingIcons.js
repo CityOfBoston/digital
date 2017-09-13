@@ -9,7 +9,9 @@ import { css } from 'glamor';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import inPercy from '@percy-io/in-percy';
 
-const SPRITE_URL = '/assets/img/svg/loading-icons.svg';
+import { assetUrl } from '../style-constants';
+
+const SPRITE_URL = assetUrl('img/svg/loading-icons.svg');
 
 const ICONS = [
   '311_icons_general_lighting_request',

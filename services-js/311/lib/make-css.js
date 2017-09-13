@@ -4,6 +4,7 @@
 import * as React from 'react';
 
 import stylesheetHrefs from '../templates/stylesheets.json';
+import { assetUrl } from '../components/style-constants';
 
 export default function makeCss(css: ?string) {
   const publicCssHref = stylesheetHrefs.find(href => href.match(/public\.css/));
@@ -24,7 +25,7 @@ export default function makeCss(css: ?string) {
             <link href="${publicCssHref}" type="text/css" rel="stylesheet" />
           <!--<![endif]-->
           <!--[if lt IE 10]>
-            <script src="/assets/vendor/ie9-polyfill.js"></script>
+            <script src="${assetUrl('vendor/ie9-polyfill.js')}"></script>
             <link href="${publicCssHref.replace(
               'public',
               'ie'
