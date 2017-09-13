@@ -1,7 +1,7 @@
 module.exports = {
   assetPrefix:
-    process.env.CLOUDFRONT_HOST && process.env.CLOUDFRONT_HOST !== '.'
-      ? `https://${process.env.CLOUDFRONT_HOST}`
+    process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
+      ? `https://${process.env.ASSET_HOST}`
       : '',
   webpack: config => {
     // Perform customizations to config
