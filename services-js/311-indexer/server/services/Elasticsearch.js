@@ -8,6 +8,7 @@ import _ from 'lodash';
 import type { Case } from './Open311';
 
 type IndexedCase = {
+  service_request_id: string,
   status: string,
   location: ?{
     lat: number,
@@ -16,6 +17,7 @@ type IndexedCase = {
   address: string,
   description: string,
   service_name: string,
+  service_code: string,
   status_notes: string,
   requested_datetime: string,
   updated_datetime: string,
@@ -67,11 +69,13 @@ type MaxReplayAggregations = {
 
 function convertCaseToDocument(c: Case, replayId: ?number): IndexedCase {
   return {
+    service_request_id: c.service_request_id,
     status: c.status,
     location: c.lat && c.long ? { lat: c.lat, lon: c.long } : null,
     address: c.address || '',
     description: c.description || '',
     service_name: c.service_name || '',
+    service_code: c.service_code || '',
     status_notes: c.status_notes || '',
     requested_datetime: c.requested_datetime,
     updated_datetime: c.updated_datetime,
