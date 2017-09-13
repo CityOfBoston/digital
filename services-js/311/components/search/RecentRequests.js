@@ -177,11 +177,7 @@ export default class RecentRequests extends React.Component<Props> {
         {loading &&
           <div className={LOADING_CONTAINER_STYLE}>
             <div className={LOADING_WRAPPER_STYLE}>
-              <LoadingIcons
-                initialDelay={0}
-                serverCompatible
-                reduceMotion={ui.reduceMotion}
-              />
+              <LoadingIcons initialDelay={0} reduceMotion={ui.reduceMotion} />
             </div>
           </div>}
 

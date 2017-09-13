@@ -127,10 +127,7 @@ export default class extends Document {
 
           <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-          <div
-            className="mn mn--full mn--full-vc mn--nv-s"
-            style={{ zIndex: 2 }}
-          >
+          <div className="mn mn--full mn--nv-s" style={{ zIndex: 2 }}>
             <input
               type="checkbox"
               id="s-tr"

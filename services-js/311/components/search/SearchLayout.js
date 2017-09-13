@@ -231,6 +231,7 @@ export default class SearchLayout extends React.Component<Props> {
       },
       {
         name: 'location query updater',
+        delay: 500,
       }
     );
   }
