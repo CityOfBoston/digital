@@ -196,11 +196,13 @@ export default class LocationPopUp extends React.Component<Props> {
         location: addressSearch.location,
         address: addressSearch.address,
         addressId: addressSearch.addressId,
+        intent: addressSearch.intent,
       }),
-      ({ location, address, addressId }) => {
+      ({ location, address, addressId, intent }) => {
         requestForm.location = location;
         requestForm.address = address;
         requestForm.addressId = addressId;
+        requestForm.addressIntent = intent;
 
         if (requestForm.address) {
           accessibility.message = `Selected address: ${requestForm.address}`;

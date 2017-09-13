@@ -18,14 +18,20 @@ export default class AddressSearch {
   @observable.ref lastSearchError: ?Error = null;
 
   @observable.shallow places: ?Array<SearchAddressPlace> = null;
-  @observable currentPlaceIndex: number = -1;
+  @observable _currentPlaceIndex: number = -1;
   @observable highlightedPlaceIndex: number = -1;
-  @observable currentUnitIndex: number = 0;
+  @observable _currentUnitIndex: number = 0;
   @observable
   currentReverseGeocodeLocation: ?{ lat: number, lng: number } = null;
   @observable currentReverseGeocodeLocationIsValid: boolean = true;
 
   @observable mode: 'search' | 'geocode' = 'search';
+
+  // We keep track of whether the constituent seems to be pointing at a location
+  // on the map or choosing from the location menu, since we have to choose to
+  // send either lat/lng *or* address string to Open311. lat/lng matches the map
+  // exactly, but only address string captures the unit.
+  @observable intent: 'ADDRESS' | 'LATLNG' = 'ADDRESS';
 
   // Used so that LocationMap doesn't zoom things under the search box.
   searchPopupWidth: number = 0;
@@ -38,6 +44,26 @@ export default class AddressSearch {
 
   stop() {
     this.loopbackGraphql = null;
+  }
+
+  @computed
+  get currentPlaceIndex(): number {
+    return this._currentPlaceIndex;
+  }
+
+  set currentPlaceIndex(currentPlaceIndex: number) {
+    this._currentPlaceIndex = currentPlaceIndex;
+    this.intent = 'ADDRESS';
+  }
+
+  @computed
+  get currentUnitIndex(): number {
+    return this._currentUnitIndex;
+  }
+
+  set currentUnitIndex(currentUnitIndex: number) {
+    this._currentUnitIndex = currentUnitIndex;
+    this.intent = 'ADDRESS';
   }
 
   @action
@@ -66,6 +92,7 @@ export default class AddressSearch {
         this.currentPlaceIndex = places.length === 1 || selectFirst ? 0 : -1;
         this.highlightedPlaceIndex = this.currentPlaceIndex;
         this.currentUnitIndex = 0;
+        this.intent = 'ADDRESS';
       });
     } catch (err) {
       runInAction('search - searchAddress error', () => {
@@ -125,6 +152,7 @@ export default class AddressSearch {
           this.highlightedPlaceIndex = 0;
           this.currentUnitIndex = 0;
           this.currentReverseGeocodeLocationIsValid = true;
+          this.intent = 'LATLNG';
         } else {
           this.places = [];
           this.currentPlaceIndex = 0;

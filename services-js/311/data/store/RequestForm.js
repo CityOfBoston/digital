@@ -24,6 +24,7 @@ export default class RequestForm {
   @observable address: string = '';
   @observable.shallow location: ?{| lat: number, lng: number |} = null;
   @observable addressId: ?string = null;
+  @observable addressIntent: 'ADDRESS' | 'LATLNG' = 'ADDRESS';
   @observable sendLocation: boolean = false;
 
   @observable firstName: string = '';
