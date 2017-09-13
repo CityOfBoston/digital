@@ -104,14 +104,14 @@ const MESSAGES = {
     <span>
       Si bu prisiza di kumunika un asuntu ki ê ka di imerjênsia pa Cidadi di
       Boston, pur favor telifona pa BOS:311 pa númeru 3-1-1 ô pa{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617 635-4500</span>.
+      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
     </span>
   ),
   pt: (
     <span>
-      Se você precisa de comunicar algum assunto que não é de emergência à
-      Cidade de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou
-      para <span style={{ whitespace: 'nowrap' }}>617-635-4500</span>.
+      Se você precisa comunicar algum assunto que não é de emergência à Cidade
+      de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou para
+      <span style={{ whitespace: 'nowrap' }}>617-635-4500</span>.
     </span>
   ),
 };
