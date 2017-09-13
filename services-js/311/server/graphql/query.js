@@ -3,6 +3,7 @@
 
 import type { Context } from '.';
 import type { Service } from '../services/Open311';
+import type { IndexedCase } from '../services/Elasticsearch';
 import type { Root as CaseRoot } from './case';
 
 export const Schema = `
@@ -51,7 +52,7 @@ type SearchCasesArgs = {
 };
 
 type CaseSearchResults = {
-  cases: CaseRoot[],
+  cases: Array<IndexedCase>,
   query: string,
 };
 
@@ -126,14 +127,13 @@ export const resolvers = {
     searchCases: async (
       root: mixed,
       { query, topLeft, bottomRight }: SearchCasesArgs,
-      { open311, elasticsearch }: Context
+      { elasticsearch }: Context
     ): Promise<CaseSearchResults> => {
-      const ids = await elasticsearch.searchCases(query, topLeft, bottomRight);
-
-      // cast to "any" because filter removed the null / undefineds from request
-      const cases = ((await Promise.all(
-        ids.map(id => open311.request(id))
-      )).filter(r => !!r): any);
+      const cases = await elasticsearch.searchCases(
+        query,
+        topLeft,
+        bottomRight
+      );
 
       return {
         cases,

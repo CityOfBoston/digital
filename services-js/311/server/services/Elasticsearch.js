@@ -6,7 +6,7 @@ import HttpAwsEs from 'http-aws-es';
 import HttpsProxyAgent from 'https-proxy-agent';
 
 // This needs to be kept up-to-date with the 311-indexer
-type IndexedCase = {
+type CaseDocument = {|
   status: string,
   location: ?{
     lat: number,
@@ -15,10 +15,17 @@ type IndexedCase = {
   address: string,
   description: string,
   service_name: string,
+  service_code: ?string,
   status_notes: string,
   requested_datetime: string,
   updated_datetime: string,
   replay_id: number,
+  media_url: ?string,
+|};
+
+export type IndexedCase = {
+  service_request_id: string,
+  ...CaseDocument,
 };
 
 type SearchHit<S> = {
@@ -88,7 +95,7 @@ export default class Elasticsearch {
     query: ?string,
     topLeft: ?{ lat: number, lng: number },
     bottomRight: ?{ lat: number, lng: number }
-  ): Promise<Array<string>> {
+  ): Promise<Array<IndexedCase>> {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('search', 'Elasticsearch');
 
@@ -122,7 +129,7 @@ export default class Elasticsearch {
     }
 
     try {
-      const res: SearchResponse<IndexedCase> = await this.client.search({
+      const res: SearchResponse<CaseDocument> = await this.client.search({
         index: this.index,
         type: 'case',
         body: {
@@ -137,7 +144,10 @@ export default class Elasticsearch {
         },
       });
 
-      return res.hits.hits.map(({ _id }) => _id);
+      return res.hits.hits.map(h => ({
+        service_request_id: h._id,
+        ...h._source,
+      }));
     } finally {
       if (transaction) {
         transaction.end();

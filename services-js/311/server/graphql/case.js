@@ -7,8 +7,9 @@ import type {
   ServiceRequest,
   DetailedServiceRequest,
 } from '../services/Open311';
+import type { IndexedCase } from '../services/Elasticsearch';
 
-export type Root = ServiceRequest | DetailedServiceRequest;
+export type Root = ServiceRequest | DetailedServiceRequest | IndexedCase;
 
 export const Schema = `
 type Case {
@@ -88,7 +89,7 @@ export const resolvers = {
     id: (r: Root) => r.service_request_id,
     service: (r: Root): ServiceStub => ({
       service_name: r.service_name || '',
-      service_code: r.service_code,
+      service_code: r.service_code || 'UNKNOWN',
     }),
     description: (r: Root) => r.description || '',
     status: (r: Root) => r.status,
@@ -111,8 +112,15 @@ export const resolvers = {
         ];
       }
     },
-    location: (r: Root) =>
-      r.lat != null && r.long != null ? { lat: r.lat, lng: r.long } : null,
+    location: (r: Root) => {
+      if (r.lat != null && r.long != null) {
+        return { lat: r.lat, lng: r.long };
+      } else if (r.location) {
+        return { lat: r.location.lat, lng: r.location.lon };
+      } else {
+        return null;
+      }
+    },
     requestedAt: (r: Root) => moment(r.requested_datetime).unix(),
     updatedAt: (r: Root) =>
       moment(r.updated_datetime || r.requested_datetime).unix(),
