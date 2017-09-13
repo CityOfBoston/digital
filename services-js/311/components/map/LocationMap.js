@@ -16,7 +16,6 @@ import type {
   LngLat,
   LngLatBounds,
 } from 'mapbox-gl';
-import isMapboxGlSupported from 'mapbox-gl-supported';
 
 import type { AppStore } from '../../data/store';
 
@@ -28,6 +27,10 @@ import waypointMarkers, {
   WAYPOINT_NUMBER_STYLE,
   WAYPOINT_BASE_OPTIONS,
 } from './WaypointMarkers';
+
+// mapbox.js / Leaflet on require tries to access window, which doesn't work on
+// the server.
+const L = process.browser ? require('mapbox.js') : null;
 
 const MAP_STYLE = css({
   flex: 1,
@@ -373,6 +376,13 @@ export default class LocationMap extends React.Component<Props> {
       ];
       const opts = {
         maxZoom,
+        paddingTopLeft: mobile
+          ? [0, 0]
+          : [addressSearch.searchPopupWidth || 0 + 40, 60],
+        paddingBottomRight: mobile
+          ? [0, 0]
+          : // Need to leave some room for zoom controls
+            [60, 40],
       };
 
       if (animated && !ui.reduceMotion) {
@@ -718,6 +728,13 @@ export default class LocationMap extends React.Component<Props> {
           ],
           {
             animate: !ui.reduceMotion,
+            paddingTopLeft: mobile
+              ? [0, 0]
+              : [60, addressSearch.searchPopupWidth || 0 + 40],
+            paddingBottomRight: mobile
+              ? [0, 0]
+              : // Need to leave some room for zoom controls
+                [40, 60],
           }
         );
       }
@@ -1359,23 +1376,23 @@ export class LocationMapWithLibrary extends React.Component<
     L: ?LWithMapbox,
     mapboxgl: ?MapboxGL,
   } = {
-    L: null,
+    L,
     mapboxgl: null,
   };
 
-  componentDidMount() {
-    if (process.browser) {
-      if (isMapboxGlSupported()) {
-        import('mapbox-gl').then((mapboxgl: any) => {
-          this.setState({ mapboxgl });
-        });
-      } else {
-        import('mapbox.js').then((L: any) => {
-          this.setState({ L });
-        });
-      }
-    }
-  }
+  // componentDidMount() {
+  //   if (process.browser) {
+  //     if (isMapboxGlSupported() && false) {
+  //       import('mapbox-gl').then((mapboxgl: any) => {
+  //         this.setState({ mapboxgl });
+  //       });
+  //     } else {
+  //       import('mapbox.js').then((L: any) => {
+  //         this.setState({ L });
+  //       });
+  //     }
+  //   }
+  // }
 
   render() {
     const { locationMapRef } = this.props;
