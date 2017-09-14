@@ -173,6 +173,16 @@ export default class HomePane extends React.Component<Props> {
       return '';
     }
 
+    // We insert a delay when the page loads since there's so much else going
+    // on.
+    if (
+      !inPercy() &&
+      now(TIME_PER_PLACEHOLDER_MS) - this.animationStartMs <
+        TIME_PER_PLACEHOLDER_MS
+    ) {
+      return '';
+    }
+
     const msSinceStart = inPercy()
       ? TIME_PER_PLACEHOLDER_MS - 1
       : Math.max(0, now(100) - this.animationStartMs);
