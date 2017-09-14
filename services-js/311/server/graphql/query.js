@@ -56,12 +56,15 @@ type CaseSearchResults = {
   query: string,
 };
 
+// HACK(finh): We need a way to invalidate this cache.
+let cachedTopServices: ?Promise<Array<Service>> = null;
+
 const TOP_SERVICE_CODES = [
-  'RECCRTREQ',
+  'GENERALGRAFFITI',
   'PUDEADANML',
   'ILGLDUMP',
   'NEEDRMVL',
-  'ILGLPRKING',
+  'SCHDBLKITM',
 ];
 
 async function serviceSuggestions(
@@ -99,12 +102,21 @@ export const resolvers = {
       root: mixed,
       { first }: { first: ?number },
       { open311 }: Context
-    ): Promise<Service[]> =>
-      (await open311.services())
-        .filter(
-          ({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1
-        )
-        .slice(0, first || TOP_SERVICE_CODES.length),
+    ): Promise<Service[]> => {
+      if (!cachedTopServices) {
+        cachedTopServices = open311.services().catch(err => {
+          cachedTopServices = null;
+          throw err;
+        });
+      }
+      return cachedTopServices.then(services =>
+        services
+          .filter(
+            ({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1
+          )
+          .slice(0, first || TOP_SERVICE_CODES.length)
+      );
+    },
 
     servicesForDescription: (
       root: mixed,

@@ -14,7 +14,7 @@ export type Service = {|
   description: string,
   metadata: boolean,
   type: 'realtime' | 'batch' | 'blackbox',
-  keywords: string,
+  keywords: ?string,
   group: string,
 |};
 
