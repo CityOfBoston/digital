@@ -13,6 +13,7 @@ import AddressSearch from './AddressSearch';
 import Ui from './Ui';
 import BrowserLocation from './BrowserLocation';
 import AllServices from './AllServices';
+import SiteAnalytics from './SiteAnalytics';
 import RouterListener from './RouterListener';
 
 // MobX will enforce that state changes only happen in action blocks.
@@ -34,6 +35,7 @@ export class AppStore {
   browserLocation: BrowserLocation = new BrowserLocation();
   addressSearch: AddressSearch = new AddressSearch();
   allServices: AllServices = new AllServices();
+  siteAnalytics: SiteAnalytics = new SiteAnalytics();
 
   languages: LanguagePreference[] = [];
 
@@ -107,6 +109,7 @@ export default function getStore(loopbackGraphql: ?LoopbackGraphql): AppStore {
     store.accessibility.attach();
     store.ui.attach();
     store.browserLocation.attach(loopbackGraphql);
+    store.siteAnalytics.attach(window.ga);
 
     new RouterListener().attach(Router, store, window.ga);
   }

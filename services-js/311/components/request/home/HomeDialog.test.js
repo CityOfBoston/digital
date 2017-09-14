@@ -159,7 +159,7 @@ describe('integration', () => {
     expect(serviceLink.length).toEqual(1);
     // We look to the parent, which is a Next Link component.
     expect(serviceLink.first().parent().props().href).toEqual(
-      '/request?code=CSMCINC&description=Thanos%20is%20attacking'
+      '/request/CSMCINC'
     );
   });
 });

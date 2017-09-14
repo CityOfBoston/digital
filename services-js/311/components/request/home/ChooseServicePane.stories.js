@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import ChooseServicePane from './ChooseServicePane';
 import FormDialog from '../../common/FormDialog';
 import Ui from '../../../data/store/Ui';
+import SiteAnalytics from '../../../data/store/SiteAnalytics';
 
 const SERVICE_SUMMARIES = [
   {
@@ -50,6 +51,7 @@ storiesOf('ChooseServicePane', module)
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={null}
       ui={new Ui()}
+      siteAnalytics={new SiteAnalytics()}
     />
   )
   .add('Some matches', () =>
@@ -57,6 +59,7 @@ storiesOf('ChooseServicePane', module)
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={SERVICE_SUMMARIES}
       ui={new Ui()}
+      siteAnalytics={new SiteAnalytics()}
     />
   )
   .add('No matches', () =>
@@ -64,5 +67,6 @@ storiesOf('ChooseServicePane', module)
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={[]}
       ui={new Ui()}
+      siteAnalytics={new SiteAnalytics()}
     />
   );

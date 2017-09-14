@@ -188,6 +188,7 @@ exports[`methods submitRequest success 2`] = `
             "mapMoved": false,
             "searchDisposer": null,
           },
+          "siteAnalytics": SiteAnalytics {},
           "ui": Ui {
             "handleResize": [Function],
             "handleScroll": [Function],

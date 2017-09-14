@@ -44,6 +44,7 @@ export default class HomeDialog extends React.Component<Props> {
   @observable description: string;
 
   @observable.shallow suggestedServiceSummaries: ?(ServiceSummary[]) = null;
+  lastSuggestedServiceSummariesPromise: ?Promise<ServiceSummary[]> = null;
   serviceSuggestionsDisposer: ?Function;
 
   // Called by RequestLayout
@@ -95,10 +96,13 @@ export default class HomeDialog extends React.Component<Props> {
 
   suggestServices = debounce(async (description: string) => {
     try {
-      const suggestedServiceSummaries = await loadServiceSuggestions(
+      this.lastSuggestedServiceSummariesPromise = loadServiceSuggestions(
         this.props.loopbackGraphql,
         description
       );
+
+      const suggestedServiceSummaries = await this
+        .lastSuggestedServiceSummariesPromise;
 
       runInAction('suggestServices result', () => {
         this.suggestedServiceSummaries = suggestedServiceSummaries;
@@ -118,6 +122,26 @@ export default class HomeDialog extends React.Component<Props> {
 
   @action.bound
   routeToChoose() {
+    const { lastSuggestedServiceSummariesPromise, description } = this;
+    const { store: { siteAnalytics } } = this.props;
+
+    // We send site analytics only when routing to the choose dialog so that we
+    // don't send events for the autocomplete preloading.
+    if (lastSuggestedServiceSummariesPromise) {
+      lastSuggestedServiceSummariesPromise.then(arr => {
+        if (arr.length) {
+          siteAnalytics.sendEvent(
+            'Prediction',
+            'results',
+            description,
+            arr.length
+          );
+        } else {
+          siteAnalytics.sendEvent('Prediction', 'no-results', description, 0);
+        }
+      });
+    }
+
     Router.push(
       `/request?stage=choose&description=${encodeURIComponent(
         this.description
@@ -167,12 +191,13 @@ export default class HomeDialog extends React.Component<Props> {
   }
 
   renderServicePicker() {
-    const { store: { ui } } = this.props;
+    const { store: { ui, siteAnalytics } } = this.props;
     return (
       <ChooseServicePane
         description={this.description}
         suggestedServiceSummaries={this.suggestedServiceSummaries}
         ui={ui}
+        siteAnalytics={siteAnalytics}
       />
     );
   }

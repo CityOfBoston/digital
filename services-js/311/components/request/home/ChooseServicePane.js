@@ -2,11 +2,12 @@
 
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+import Router from 'next/router';
 import { css } from 'glamor';
 
 import type { ServiceSummary } from '../../../data/types';
 import type Ui from '../../../data/store/Ui';
+import type SiteAnalytics from '../../../data/store/SiteAnalytics';
 
 import SectionHeader from '../../common/SectionHeader';
 import LoadingIcons from '../../common/LoadingIcons';
@@ -15,6 +16,7 @@ export type Props = {|
   description: string,
   suggestedServiceSummaries: ?(ServiceSummary[]),
   ui: Ui,
+  siteAnalytics: SiteAnalytics,
 |};
 
 const LOADING_INDICATORS_STYLE = css({
@@ -27,23 +29,86 @@ const LOADING_INDICATOR_WRAPPER_STYLE = css({
   flexDirection: 'column',
 });
 
-function renderSummaryRow(
+const GENERAL_REQUEST_SUMMARY = {
+  code: 'BOS311GEN',
+  name: 'General Request',
+  // TODO(finh): Add something here
+  description: '',
+};
+
+type RowProps = {
   problemDescription: string,
-  {
-    code,
-    name,
-    description,
-  }: { code: string, name: string, description: ?string }
-) {
-  return (
-    <div className="dr" key={code}>
-      <Link
-        href={`/request?code=${code}&description=${encodeURIComponent(
-          problemDescription
-        )}`}
-        as={`/request/${code}`}
-      >
-        <a className="dr-h">
+  suggestionCount: number,
+  suggestionNum?: number,
+  isGeneral?: boolean,
+  // Not a ServiceSummary so we can easily fake out for the general request row
+  summary: {
+    code: string,
+    name: string,
+    description: ?string,
+  },
+  siteAnalytics: SiteAnalytics,
+};
+
+class SuggestionRow extends React.Component<RowProps> {
+  static defaultProps = {
+    isGeneral: false,
+  };
+
+  handleClick = (ev: SyntheticMouseEvent<*>) => {
+    const {
+      problemDescription,
+      isGeneral,
+      siteAnalytics,
+      summary: { code },
+      suggestionNum,
+      suggestionCount,
+    } = this.props;
+
+    let action;
+    if (isGeneral && suggestionCount === 0) {
+      action = 'pick general (no suggestions)';
+    } else if (isGeneral && suggestionCount > 0) {
+      action = 'pick general (suggestions available)';
+    } else {
+      action = 'pick suggestion';
+    }
+
+    siteAnalytics.sendEvent('Prediction', action, code, suggestionNum);
+
+    if (
+      ev.currentTarget.nodeName === 'A' &&
+      (ev.metaKey ||
+        ev.ctrlKey ||
+        ev.shiftKey ||
+        (ev.nativeEvent && ev.nativeEvent.which === 2))
+    ) {
+      // ignore click for new tab / new window behavior
+      return;
+    }
+
+    ev.preventDefault();
+
+    // We use Router instead of Link because Link doesn't support custom onClick
+    // handlers, which we need for reporting.
+    Router.push(
+      `/request?code=${code}&description=${encodeURIComponent(
+        problemDescription
+      )}`,
+      `/request/${code}`
+    );
+  };
+
+  render() {
+    const { summary: { code, description, name } } = this.props;
+
+    return (
+      <div className="dr" key={code}>
+        <a
+          onClick={this.handleClick}
+          href={`/request/${code}`}
+          className="dr-h"
+        >
           <div
             className="dr-ic"
             style={{ transform: 'translateY(-49%) rotateZ(-90deg)' }}
@@ -67,111 +132,126 @@ function renderSummaryRow(
             </span>
           </div>
         </a>
-      </Link>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
-function renderGeneralRequestRow(problemDescription: string) {
-  return renderSummaryRow(problemDescription, {
-    code: 'BOS311GEN',
-    name: 'General Request',
-    // TODO(finh): Add something here
-    description: '',
-  });
-}
+export default class ChooseServicePane extends React.Component<Props> {
+  render() {
+    const { description, suggestedServiceSummaries } = this.props;
+    return (
+      <div>
+        <Head>
+          <title>BOS:311 — Choose a Service</title>
+        </Head>
 
-function renderLoading(ui: Ui) {
-  return (
-    <div>
-      <div className="t--info">Matching your request to BOS:311 services…</div>
+        <div className="p-a300 p-a800--xl" style={{ paddingBottom: '.75rem' }}>
+          <SectionHeader>BOS:311 — Choose a Service</SectionHeader>
 
-      <div className={`p-a300 g ${LOADING_INDICATORS_STYLE.toString()}`}>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
-          <LoadingIcons initialDelay={0} reduceMotion={ui.reduceMotion} />
+          {description &&
+            <div className="m-v500 t--intro">
+              “{description}”
+            </div>}
         </div>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
-          <LoadingIcons initialDelay={100} reduceMotion={ui.reduceMotion} />
+
+        <div className="b b--g p-a300 p-a800--xl">
+          {!suggestedServiceSummaries && this.renderLoading()}
+          {suggestedServiceSummaries &&
+            suggestedServiceSummaries.length > 0 &&
+            this.renderSuggestions(suggestedServiceSummaries)}
+          {suggestedServiceSummaries &&
+            suggestedServiceSummaries.length === 0 &&
+            this.renderNoSuggestions()}
         </div>
-        <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
-          <LoadingIcons initialDelay={200} reduceMotion={ui.reduceMotion} />
+      </div>
+    );
+  }
+
+  renderLoading() {
+    const { ui } = this.props;
+
+    return (
+      <div>
+        <div className="t--info">
+          Matching your request to BOS:311 services…
+        </div>
+
+        <div className={`p-a300 g ${LOADING_INDICATORS_STYLE.toString()}`}>
+          <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
+            <LoadingIcons initialDelay={0} reduceMotion={ui.reduceMotion} />
+          </div>
+          <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
+            <LoadingIcons initialDelay={100} reduceMotion={ui.reduceMotion} />
+          </div>
+          <div className={`g--4 ${LOADING_INDICATOR_WRAPPER_STYLE.toString()}`}>
+            <LoadingIcons initialDelay={200} reduceMotion={ui.reduceMotion} />
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
-function renderSuggestions(
-  problemDescription: string,
-  suggestedServiceSummaries: ServiceSummary[]
-) {
-  return (
-    <div>
-      <div className="t--info">
-        We’ve matched these services to your request. Pick one to continue.
+  renderSuggestions(suggestedServiceSummaries: Array<ServiceSummary>) {
+    const { description, siteAnalytics } = this.props;
+
+    return (
+      <div>
+        <div className="t--info">
+          We’ve matched these services to your request. Pick one to continue.
+        </div>
+
+        <div className="m-v500">
+          {suggestedServiceSummaries.map((s, idx) =>
+            <SuggestionRow
+              key={s.code}
+              problemDescription={description}
+              summary={s}
+              suggestionNum={idx + 1}
+              suggestionCount={suggestedServiceSummaries.length}
+              siteAnalytics={siteAnalytics}
+            />
+          )}
+        </div>
+
+        <div className="t--info m-v300">
+          If none of those seem like a good fit, you can submit a General
+          Request.
+        </div>
+
+        <div className="m-v500">
+          <SuggestionRow
+            isGeneral
+            problemDescription={description}
+            summary={GENERAL_REQUEST_SUMMARY}
+            suggestionCount={suggestedServiceSummaries.length}
+            siteAnalytics={siteAnalytics}
+          />
+        </div>
       </div>
+    );
+  }
 
-      <div className="m-v500">
-        {suggestedServiceSummaries.map(s =>
-          renderSummaryRow(problemDescription, s)
-        )}
+  renderNoSuggestions() {
+    const { description, siteAnalytics } = this.props;
+
+    return (
+      <div>
+        <div className="t--info m-v300">
+          We weren’t able to automatically match your request with a service.
+          File a General Request and someone will help you out.
+        </div>
+
+        <div className="m-v500">
+          <SuggestionRow
+            isGeneral
+            problemDescription={description}
+            summary={GENERAL_REQUEST_SUMMARY}
+            suggestionCount={0}
+            siteAnalytics={siteAnalytics}
+          />
+        </div>
       </div>
-
-      <div className="t--info m-v300">
-        If none of those seem like a good fit, you can submit a General Request.
-      </div>
-
-      <div className="m-v500">
-        {renderGeneralRequestRow(problemDescription)}
-      </div>
-    </div>
-  );
-}
-
-function renderNoSuggestions(problemDescription: string) {
-  return (
-    <div>
-      <div className="t--info m-v300">
-        We weren’t able to automatically match your request with a service. File
-        a General Request and someone will help you out.
-      </div>
-
-      <div className="m-v500">
-        {renderGeneralRequestRow(problemDescription)}
-      </div>
-    </div>
-  );
-}
-
-export default function ChooseServicePane({
-  description,
-  suggestedServiceSummaries,
-  ui,
-}: Props) {
-  return (
-    <div>
-      <Head>
-        <title>BOS:311 — Choose a Service</title>
-      </Head>
-
-      <div className="p-a300 p-a800--xl" style={{ paddingBottom: '.75rem' }}>
-        <SectionHeader>BOS:311 — Choose a Service</SectionHeader>
-
-        {description &&
-          <div className="m-v500 t--intro">
-            “{description}”
-          </div>}
-      </div>
-
-      <div className="b b--g p-a300 p-a800--xl">
-        {!suggestedServiceSummaries && renderLoading(ui)}
-        {suggestedServiceSummaries &&
-          suggestedServiceSummaries.length > 0 &&
-          renderSuggestions(description, suggestedServiceSummaries)}
-        {suggestedServiceSummaries &&
-          suggestedServiceSummaries.length === 0 &&
-          renderNoSuggestions(description)}
-      </div>
-    </div>
-  );
+    );
+  }
 }
