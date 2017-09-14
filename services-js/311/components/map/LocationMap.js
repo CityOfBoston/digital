@@ -1376,23 +1376,15 @@ export class LocationMapWithLibrary extends React.Component<
     L: ?LWithMapbox,
     mapboxgl: ?MapboxGL,
   } = {
-    L,
+    L: null,
     mapboxgl: null,
   };
 
-  // componentDidMount() {
-  //   if (process.browser) {
-  //     if (isMapboxGlSupported() && false) {
-  //       import('mapbox-gl').then((mapboxgl: any) => {
-  //         this.setState({ mapboxgl });
-  //       });
-  //     } else {
-  //       import('mapbox.js').then((L: any) => {
-  //         this.setState({ L });
-  //       });
-  //     }
-  //   }
-  // }
+  componentDidMount() {
+    // We do this in componentDidMount so that the initial client-side render
+    // pass matches the server. (Leaflet can't do any server-side rendering.)
+    this.setState({ L });
+  }
 
   render() {
     const { locationMapRef } = this.props;
