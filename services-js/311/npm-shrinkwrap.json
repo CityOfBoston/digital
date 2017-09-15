@@ -5019,7 +5019,7 @@
       }
     },
     "eslint-plugin-react": {
-      "version": "github:yannickcr/eslint-plugin-react#94fbe6f3cf8a21a6d3c70146bdca6c3dd16a911b",
+      "version": "github:yannickcr/eslint-plugin-react#ddd05b1c7b77afc272f65690b33a9597739e79fa",
       "dev": true,
       "requires": {
         "doctrine": "2.0.0",

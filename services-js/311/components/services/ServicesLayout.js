@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prefer-stateless-function: 0 react/no-unused-prop-types: 0 */
 
 import React from 'react';
 import Head from 'next/head';
@@ -34,6 +33,12 @@ type GroupProps = {
   group: Group,
   services: ServiceSummary[],
 };
+
+const GROUP_DESCRIPTION_STYLE = css({
+  fontFamily: 'Lora, serif',
+  fontSize: '1rem',
+  textTransform: 'none',
+});
 
 const SERVICE_LINK_STYLE = css({
   display: 'inline-block',
@@ -73,7 +78,7 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
           <h2 className="dr-t">
             {group.name}
           </h2>
-          <div className="dr-st">
+          <div className={`${GROUP_DESCRIPTION_STYLE.toString()} dr-st`}>
             {group.description}
           </div>
         </button>

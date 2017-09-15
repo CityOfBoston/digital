@@ -6,61 +6,67 @@ const GROUPS = [
   {
     name: 'Animals',
     id: 'Animals',
-    description: 'Pet Ownership, Problems with Animals, Rodents & Pests',
+    description:
+      'Help for pet owners, or issues with animals, rodents, and pests.',
   },
   {
-    name: 'Fees and Pricing',
+    name: 'Fees and pricing',
     id: 'Fees-Pricing',
-    description: 'NEEDS DESCRIPTION',
+    description:
+      'Have an issue with the price or measurement of gas, oil, or another product?',
   },
   {
-    name: 'Health, Safety, and Social Services',
+    name: 'Health, safety, and social services',
     id: 'Health-Safety',
     description:
-      'Crime, Fire Prevention & Control, Healthy Living & Inspections',
+      'Get help for a public safety or disability issue, or request a health inspection.',
   },
   {
-    name: 'Parks and Public Space',
+    name: 'Parks and public space',
     id: 'Parks-Public',
-    description: 'Park Maintenance, Permits, Tree Planting, Donations',
+    description:
+      'File requests for repairs, permits, tree plantings, and even make donations.',
   },
   {
-    name: 'Property, Housing and Construction',
+    name: 'Property, housing and construction',
     id: 'Property-Construction',
     description:
-      'Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints',
+      'We offer help to developers, homeowners, and renters on many issues.',
   },
   {
     name: 'Schools',
     id: 'Schools',
-    description: 'NEEDS DESCRIPTION',
+    description:
+      'Have a problem with a City school bus? Want to see something repaired at a school?',
   },
   {
-    name: 'Snow or Weather Related Concerns',
+    name: 'Snow or weather-related concerns',
     id: 'Snow',
-    description: 'Plowing, snow removal',
+    description:
+      'Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.',
   },
   {
-    name: 'Streets, Sidewalks, Traffic, and Vehicles',
+    name: 'Streets, sidewalks, traffic, and vehicles',
     id: 'Streets-Sidewalks',
     description:
-      'Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance',
+      'You can report issues with street signs and signals, among other transportation issues.',
   },
   {
-    name: 'Trash, Recycling, and Graffiti',
+    name: 'Trash, recycling, and graffiti',
     id: 'Trash-Graffiti',
     description:
-      'Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup',
+      'Do you need help with trash or recycling? Want us to clean up a part of the City?',
   },
   {
     name: 'Utilities',
     id: 'Utilities',
-    description: 'NEEDS DESCRIPTION',
+    description:
+      'We can help if you have a problem with your electricity, water, or gas.',
   },
   {
-    name: 'Other Services',
+    name: 'Other services',
     id: 'Other',
-    description: 'General service requests that don’t fit in another category',
+    description: 'General requests that don’t fit into a category.',
   },
 ];
 
@@ -91,7 +97,7 @@ export class Group {
 export default class AllServices {
   groups: Group[] = GROUPS.map(g => new Group(g));
   otherGroup: Group = new Group({
-    name: 'Uncategorized Services',
+    name: 'Uncategorized services',
     id: '',
     description: 'These services have not yet been categorized',
   });

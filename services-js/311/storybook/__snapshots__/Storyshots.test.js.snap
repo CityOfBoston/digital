@@ -11807,9 +11807,9 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Animals
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Pet Ownership, Problems with Animals, Rodents & Pests
+                  Help for pet owners, or issues with animals, rodents, and pests.
                 </div>
               </button>
               <span
@@ -11843,12 +11843,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Fees and Pricing
+                  Fees and pricing
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  Have an issue with the price or measurement of gas, oil, or another product?
                 </div>
               </button>
               <span
@@ -11882,12 +11882,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Health, Safety, and Social Services
+                  Health, safety, and social services
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Crime, Fire Prevention & Control, Healthy Living & Inspections
+                  Get help for a public safety or disability issue, or request a health inspection.
                 </div>
               </button>
               <span
@@ -11921,12 +11921,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Parks and Public Space
+                  Parks and public space
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Park Maintenance, Permits, Tree Planting, Donations
+                  File requests for repairs, permits, tree plantings, and even make donations.
                 </div>
               </button>
               <span
@@ -11960,12 +11960,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Property, Housing and Construction
+                  Property, housing and construction
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints
+                  We offer help to developers, homeowners, and renters on many issues.
                 </div>
               </button>
               <span
@@ -12002,9 +12002,9 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Schools
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  Have a problem with a City school bus? Want to see something repaired at a school?
                 </div>
               </button>
               <span
@@ -12038,12 +12038,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Snow or Weather Related Concerns
+                  Snow or weather-related concerns
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Plowing, snow removal
+                  Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.
                 </div>
               </button>
               <span
@@ -12077,12 +12077,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Streets, Sidewalks, Traffic, and Vehicles
+                  Streets, sidewalks, traffic, and vehicles
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance
+                  You can report issues with street signs and signals, among other transportation issues.
                 </div>
               </button>
               <span
@@ -12116,12 +12116,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Trash, Recycling, and Graffiti
+                  Trash, recycling, and graffiti
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup
+                  Do you need help with trash or recycling? Want us to clean up a part of the City?
                 </div>
               </button>
               <span
@@ -12158,9 +12158,9 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Utilities
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  We can help if you have a problem with your electricity, water, or gas.
                 </div>
               </button>
               <span
@@ -12194,12 +12194,12 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Other Services
+                  Other services
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  General service requests that don’t fit in another category
+                  General requests that don’t fit into a category.
                 </div>
               </button>
               <span
@@ -12608,9 +12608,9 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Animals
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Pet Ownership, Problems with Animals, Rodents & Pests
+                  Help for pet owners, or issues with animals, rodents, and pests.
                 </div>
               </button>
               <span
@@ -12644,12 +12644,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Fees and Pricing
+                  Fees and pricing
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  Have an issue with the price or measurement of gas, oil, or another product?
                 </div>
               </button>
               <span
@@ -12683,12 +12683,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Health, Safety, and Social Services
+                  Health, safety, and social services
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Crime, Fire Prevention & Control, Healthy Living & Inspections
+                  Get help for a public safety or disability issue, or request a health inspection.
                 </div>
               </button>
               <span
@@ -12758,12 +12758,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Parks and Public Space
+                  Parks and public space
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Park Maintenance, Permits, Tree Planting, Donations
+                  File requests for repairs, permits, tree plantings, and even make donations.
                 </div>
               </button>
               <span
@@ -12797,12 +12797,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Property, Housing and Construction
+                  Property, housing and construction
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Home Ownership, Renting, Inspections, Code Enforcement, Permitting, Complaints
+                  We offer help to developers, homeowners, and renters on many issues.
                 </div>
               </button>
               <span
@@ -12839,9 +12839,9 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Schools
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  Have a problem with a City school bus? Want to see something repaired at a school?
                 </div>
               </button>
               <span
@@ -12875,12 +12875,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Snow or Weather Related Concerns
+                  Snow or weather-related concerns
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Plowing, snow removal
+                  Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.
                 </div>
               </button>
               <span
@@ -12914,12 +12914,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Streets, Sidewalks, Traffic, and Vehicles
+                  Streets, sidewalks, traffic, and vehicles
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Signs & Signals, Parking, Driving, Public Transportation, Taxi Issues, Road Maintenance
+                  You can report issues with street signs and signals, among other transportation issues.
                 </div>
               </button>
               <span
@@ -12953,12 +12953,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Trash, Recycling, and Graffiti
+                  Trash, recycling, and graffiti
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  Trash, Recycling, Graffiti, Dumping, Street Cleaning, Neighborhood Cleanup
+                  Do you need help with trash or recycling? Want us to clean up a part of the City?
                 </div>
               </button>
               <span
@@ -12995,9 +12995,9 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Utilities
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  NEEDS DESCRIPTION
+                  We can help if you have a problem with your electricity, water, or gas.
                 </div>
               </button>
               <span
@@ -13031,12 +13031,12 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Other Services
+                  Other services
                 </h2>
                 <div
-                  className="dr-st"
+                  className="css-1eii4bb dr-st"
                 >
-                  General service requests that don’t fit in another category
+                  General requests that don’t fit into a category.
                 </div>
               </button>
               <span
