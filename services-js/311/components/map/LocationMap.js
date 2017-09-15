@@ -598,15 +598,20 @@ export default class LocationMap extends React.Component<Props> {
       reaction(
         () => {
           const {
-            currentReverseGeocodeLocation,
-            currentReverseGeocodeLocationIsValid,
-            mode,
-          } = this.props.store.addressSearch;
+            store: {
+              addressSearch: {
+                currentReverseGeocodeLocation,
+                currentReverseGeocodeLocationIsValid,
+                mode: addressSearchMode,
+              },
+            },
+            mode: mapMode,
+          } = this.props;
 
           return {
             location: currentReverseGeocodeLocation,
             isValid: currentReverseGeocodeLocationIsValid,
-            isVisible: mode === 'geocode',
+            isVisible: addressSearchMode === 'geocode' && mapMode === 'picker',
           };
         },
         this.maintainGeocodeMarker,
