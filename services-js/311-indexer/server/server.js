@@ -193,9 +193,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     // processing.
     .subscribe({
       error: err => {
-        console.log(
-          '----- PROCESSING PIPELINE ERRORED. THAT SHOULDN’T HAPPEN -----'
-        );
+        console.log('----- PROCESSING PIPELINE VERY FATAL ERROR -----');
         opbeat.captureError(err);
         process.kill(process.pid, 'SIGHUP');
       },
