@@ -11960,7 +11960,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Property, housing and construction
+                  Property, housing, and construction
                 </h2>
                 <div
                   className="css-1eii4bb dr-st"
@@ -12797,7 +12797,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Property, housing and construction
+                  Property, housing, and construction
                 </h2>
                 <div
                   className="css-1eii4bb dr-st"

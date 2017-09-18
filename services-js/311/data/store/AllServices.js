@@ -28,7 +28,7 @@ const GROUPS = [
       'File requests for repairs, permits, tree plantings, and even make donations.',
   },
   {
-    name: 'Property, housing and construction',
+    name: 'Property, housing, and construction',
     id: 'Property-Construction',
     description:
       'We offer help to developers, homeowners, and renters on many issues.',

@@ -137,7 +137,7 @@ exports[`methods submitRequest success 2`] = `
               Group {
                 "description": "We offer help to developers, homeowners, and renters on many issues.",
                 "id": "Property-Construction",
-                "name": "Property, housing and construction",
+                "name": "Property, housing, and construction",
               },
               Group {
                 "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
