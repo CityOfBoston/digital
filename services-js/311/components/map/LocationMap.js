@@ -1110,7 +1110,9 @@ export default class LocationMap extends React.Component<Props> {
 
   @action.bound
   handleCurrentLocationMarkerClick(ev: Object) {
-    ev.stopPropagation();
+    if (ev.originalEvent) {
+      ev.originalEvent.stopPropagation();
+    }
     this.currentLocationClicked(ev.target.getLatLng());
   }
 
