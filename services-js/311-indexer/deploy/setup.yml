@@ -186,7 +186,7 @@ Resources:
   SalesforceTopicMessageFilter:
     Type: "AWS::Logs::MetricFilter"
     Properties: 
-      FilterPattern: '{($.channel = "/topic/*")}'
+      FilterPattern: '{($.stage = "batch-salesforce-events") && ($.message = "Received update event")}'
       LogGroupName: !GetAtt CommonResources.Outputs.LogGroupName
       MetricTransformations:
         - MetricName: SalesforceTopicMessage
