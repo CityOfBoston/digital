@@ -59,12 +59,18 @@ type CaseSearchResults = {
 // HACK(finh): We need a way to invalidate this cache.
 let cachedTopServices: ?Promise<Array<Service>> = null;
 
+// Top 10 non-seasonal requests as of 9/18/17
 const TOP_SERVICE_CODES = [
-  'GENERALGRAFFITI',
-  'PUDEADANML',
-  'ILGLDUMP',
-  'NEEDRMVL',
+  'PRKGENFORC',
+  'STRCLEAN',
   'SCHDBLKITM',
+  'REQPOTHL',
+  'MTRECYDBI',
+  'IMPSTRTRSH',
+  'STRLGTOUT',
+  'MISDMGSGN',
+  'TFCSGNINSP',
+  'SDWRPR',
 ];
 
 async function serviceSuggestions(
