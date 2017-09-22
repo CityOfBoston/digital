@@ -92,7 +92,7 @@ const EXAMPLE_PROBLEMS = [
   'My street hasn’t been plowed',
   'There’s a dead squirrel on the sidewalk',
   'I need a refrigerator picked up',
-  'Needles in the park!!!',
+  'Needles in the park near the trash can!!!',
   'My recycle bin is broken',
   'Fix the pothole on Comm Ave',
 ];
