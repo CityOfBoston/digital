@@ -17,6 +17,8 @@ import type { Group } from '../../data/store/AllServices';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import loadServiceSummaries from '../../data/dao/load-service-summaries';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import { CHARLES_BLUE } from '../style-constants';
@@ -176,6 +178,9 @@ export default class ServicesLayout extends React.Component<Props> {
             </div>
           </div>
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="PAGE" />
       </div>
     );
   }

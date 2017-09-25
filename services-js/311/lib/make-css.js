@@ -44,6 +44,8 @@ export default function makeCss(css: ?string) {
       body {
         color: #58585B;
         font-family: Lora, serif;
+        /* leave space for the fixed banner */
+        padding-bottom: 30px;
       }
 
       img, svg {

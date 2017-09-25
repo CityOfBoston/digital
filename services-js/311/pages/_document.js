@@ -8,7 +8,6 @@ import mobxReact from 'mobx-react';
 import makeCss from '../lib/make-css';
 
 import headerHtml from '../templates/header.html';
-import footerHtml from '../templates/footer.html';
 import navigationHtml from '../templates/navigation.html';
 
 type Props = {
@@ -127,7 +126,7 @@ export default class extends Document {
 
           <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-          <div className="mn mn--full mn--nv-s" style={{ zIndex: 2 }}>
+          <div className="mn mn--full mn--nv-s" style={{}}>
             <input
               type="checkbox"
               id="s-tr"
@@ -142,12 +141,6 @@ export default class extends Document {
 
             <Main />
           </div>
-
-          <footer
-            className="ft"
-            style={{ position: 'relative', zIndex: 2 }}
-            dangerouslySetInnerHTML={{ __html: footerHtml }}
-          />
 
           <script
             src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"

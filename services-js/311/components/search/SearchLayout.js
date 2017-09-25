@@ -17,6 +17,8 @@ import RequestSearch from '../../data/store/RequestSearch';
 import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
 import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import { LocationMapWithLibrary } from '../map/LocationMap';
 import type LocationMap from '../map/LocationMap';
@@ -416,6 +418,9 @@ export default class SearchLayout extends React.Component<Props> {
               </button>
             </div>}
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="PAGE" />
       </div>
     );
   }

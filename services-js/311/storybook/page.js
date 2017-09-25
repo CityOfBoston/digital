@@ -4,7 +4,6 @@
 import React, { type Node as ReactNode } from 'react';
 
 import headerHtml from '../templates/header.html';
-import footerHtml from '../templates/footer.html';
 import navigationHtml from '../templates/navigation.html';
 
 function Page({ children }: { children: ReactNode }) {
@@ -33,12 +32,6 @@ function Page({ children }: { children: ReactNode }) {
 
         {children}
       </div>
-
-      <footer
-        className="ft"
-        style={{ position: 'relative', zIndex: 2 }}
-        dangerouslySetInnerHTML={{ __html: footerHtml }}
-      />
     </div>
   );
 }

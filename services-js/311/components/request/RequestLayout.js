@@ -8,6 +8,8 @@ import { observer } from 'mobx-react';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import { LocationMapWithLibrary } from '../map/LocationMap';
 import type { MapMode } from '../map/LocationMap';
@@ -215,6 +217,9 @@ export default class RequestLayout extends React.Component<Props, State> {
           {data.view === 'translate' &&
             <TranslateDialog languages={store.languages} />}
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="DIALOG" />
       </div>
     );
   }

@@ -25,7 +25,11 @@ import LoadingBuildings from '../../common/LoadingBuildings';
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
 
-import { MEDIA_LARGE, CENTERED_DIALOG_STYLE } from '../../style-constants';
+import {
+  MEDIA_LARGE,
+  CENTERED_DIALOG_STYLE,
+  HEADER_HEIGHT,
+} from '../../style-constants';
 
 import QuestionsPane from './QuestionsPane';
 import LocationPopUp from './LocationPopUp';
@@ -57,9 +61,8 @@ const COMMON_DIALOG_STYLE = {
 export const CORNER_DIALOG_STYLE = css(COMMON_DIALOG_STYLE, {
   margin: 0,
   [MEDIA_LARGE]: {
-    // comedy bottom margin to push this up into the corner, otherwise it would
-    // get vertically centered.
-    margin: '-0px 70% 90vh 40px',
+    // 350px height estimate for the dialog
+    margin: `-0px 70% calc(100vh - ${HEADER_HEIGHT}px - 300px) 40px`,
     minWidth: 370,
   },
 });

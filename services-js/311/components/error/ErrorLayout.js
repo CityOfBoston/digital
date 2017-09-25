@@ -10,6 +10,8 @@ import { css } from 'glamor';
 
 import { HEADER_HEIGHT, assetUrl } from '../style-constants';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import FormDialog from '../common/FormDialog';
@@ -95,6 +97,9 @@ export default class ErrorLayout extends React.Component<Props> {
             />
           </FormDialog>
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="PAGE" />
       </div>
     );
   }

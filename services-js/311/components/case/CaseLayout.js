@@ -6,6 +6,8 @@ import Head from 'next/head';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import CaseView from './CaseView';
@@ -68,6 +70,9 @@ export default class CaseLayout extends React.Component<Props> {
           {data.request && <CaseView request={data.request} store={store} />}
           {!data.request && this.renderNotFound()}
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="PAGE" />
       </div>
     );
   }

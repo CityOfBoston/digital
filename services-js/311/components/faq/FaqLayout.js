@@ -6,6 +6,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'glamor';
 
+import FeedbackBanner from '../common/FeedbackBanner';
+import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
@@ -217,6 +219,9 @@ export default class FaqLayout extends React.Component<Props, State> {
               </div>}
           </div>
         </div>
+
+        <Footer />
+        <FeedbackBanner fit="PAGE" />
       </div>
     );
   }
