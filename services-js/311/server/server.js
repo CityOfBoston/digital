@@ -23,6 +23,7 @@ import Salesforce from './services/Salesforce';
 import schema from './graphql';
 import type { Context } from './graphql';
 import sitemapHandler from './sitemap';
+import legacyServiceRedirectHandler from './legacy-service-redirect';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -215,6 +216,19 @@ export default async function startServer({ opbeat }: any) {
     method: 'GET',
     path: '/search',
     handler: nextHandler(app, '/search'),
+  });
+
+  // Old Connected Bits URLs
+  server.route({
+    method: 'GET',
+    path: '/reports/list_services',
+    handler: (request, reply) => reply.redirect('/services').permanent(),
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/reports/new',
+    handler: legacyServiceRedirectHandler,
   });
 
   server.route({
