@@ -156,8 +156,8 @@ export default class Salesforce extends EventEmitter {
     });
   }
 
-  handleHandshake = (msg: MetaMessage) => {
-    if (msg.successful) {
+  handleHandshake = (handshakeMsg: MetaMessage) => {
+    if (handshakeMsg.successful) {
       const channel = `/topic/${this.pushTopic}`;
 
       this.cometd.subscribe(
@@ -168,11 +168,26 @@ export default class Salesforce extends EventEmitter {
           // all past events within the last 24 hours
           ext: { replay: { [channel]: this.lastReplayId || -2 } },
         },
-        (msg: MetaMessage) => {
-          if (msg.successful) {
+        (subscribeMsg: MetaMessage) => {
+          if (subscribeMsg.successful) {
             this.emit('subscribed');
+          } else if (
+            subscribeMsg.error &&
+            subscribeMsg.error.includes('replayId') &&
+            !!this.lastReplayId
+          ) {
+            // Sometimes Salesforce errors when it doesn't know the replayId, so
+            // we retry with -2 to just get everything in the last 24h.
+            //
+            // TODO(finh): One issue is that the search index still has the
+            // erroring replay ID, so if we restart and that is still the max
+            // replay ID then we will hit this case again. We could hold the
+            // most recent replay ID in separate stable storage and clear it in
+            // this case.
+            this.lastReplayId = null;
+            this.handleHandshake(handshakeMsg);
           } else {
-            this.emit('error', new Error(msg.error));
+            this.emit('error', new Error(subscribeMsg.error));
           }
         }
       );
@@ -180,8 +195,8 @@ export default class Salesforce extends EventEmitter {
       this.emit(
         'error',
         new Error(
-          msg.error ||
-            (msg.failure && msg.failure.reason) ||
+          handshakeMsg.error ||
+            (handshakeMsg.failure && handshakeMsg.failure.reason) ||
             'Unknown handshake error'
         )
       );
