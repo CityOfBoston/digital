@@ -224,6 +224,16 @@ export function makeServer({ opbeat }: ServerArgs) {
     },
   });
 
+  server.route({
+    method: 'GET',
+    path: '/storybook/{path*}',
+    handler: {
+      directory: {
+        path: 'storybook-static',
+      },
+    },
+  });
+
   return {
     server,
     startup,

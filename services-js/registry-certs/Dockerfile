@@ -17,7 +17,8 @@ ADD package.json npm-shrinkwrap.json /app/
 RUN npm install --loglevel warn
 
 ADD . /app
-RUN npm run-script build
+RUN npm run-script build \
+  && npx build-storybook -s static -c storybook
 RUN chmod a+x entrypoint.sh
 
 EXPOSE 3000
