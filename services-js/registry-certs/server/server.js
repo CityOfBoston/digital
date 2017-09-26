@@ -1,9 +1,5 @@
 // @flow
 /* eslint no-console: 0 */
-import AWS from 'aws-sdk';
-import os from 'os';
-import fetch from 'node-fetch';
-
 import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
@@ -14,8 +10,14 @@ import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 
-import { nextHandler, nextDefaultHandler } from './next-handlers';
-import addRequestAdditions from './request-additions';
+import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
+import addRequestAdditions from './lib/request-additions';
+import decryptEnv from './lib/decrypt-env';
+import {
+  opbeatWrapGraphqlOptions,
+  reportDeployToOpbeat,
+} from './lib/opbeat-utils';
+
 import {
   makeRegistryFactory,
   makeFixtureRegistryFactory,
@@ -25,8 +27,6 @@ import type { RegistryFactory } from './services/Registry';
 import schema from './graphql';
 import type { Context } from './graphql';
 
-import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
-
 type Opbeat = $Exports<'opbeat'>;
 
 type ServerArgs = {
@@ -34,86 +34,6 @@ type ServerArgs = {
 };
 
 const port = parseInt(process.env.PORT || '3000', 10);
-
-// Decrypts any vars that end with "_KMS_ENCRYPTED"
-function decryptConfig(): Promise<void> {
-  if (!process.env.AWS_REGION) {
-    console.log('AWS region not set, not decrypting environment variables');
-    return Promise.resolve();
-  }
-
-  AWS.config.update({ region: process.env.AWS_REGION });
-  const kms = new AWS.KMS();
-
-  return Promise.all(
-    Object.keys((process.env: any)).map(envKey => {
-      const match = envKey.match(/(.*)_KMS_ENCRYPTED$/);
-
-      if (!match) {
-        return Promise.resolve();
-      }
-
-      const decryptedEnvKey = match[1];
-
-      const decryptParams = {
-        CiphertextBlob: Buffer.from(process.env[envKey] || '', 'base64'),
-      };
-
-      return new Promise((resolve, reject) => {
-        kms.decrypt(decryptParams, (err, data) => {
-          if (err) {
-            reject(err);
-          } else {
-            process.env[decryptedEnvKey] = data.Plaintext.toString();
-            resolve();
-          }
-        });
-      });
-    })
-  ).then(() => {});
-}
-
-// https://opbeat.com/docs/api/intake/v1/#release-tracking
-async function reportDeployToOpbeat(opbeat, appId) {
-  if (
-    appId &&
-    process.env.OPBEAT_ORGANIZATION_ID &&
-    process.env.OPBEAT_SECRET_TOKEN &&
-    process.env.GIT_BRANCH &&
-    process.env.GIT_REVISION
-  ) {
-    try {
-      const res = await fetch(
-        `https://opbeat.com/api/v1/organizations/${process.env
-          .OPBEAT_ORGANIZATION_ID}/apps/${appId}/releases/`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Bearer ${process.env.OPBEAT_SECRET_TOKEN}`,
-          },
-          body: [
-            `rev=${process.env.GIT_REVISION}`,
-            `branch=${encodeURIComponent(process.env.GIT_BRANCH)}`,
-            `machine=${encodeURIComponent(os.hostname())}`,
-            `status=machine-completed`,
-          ].join('&'),
-        }
-      );
-      console.log(
-        `Reported ${appId} deploy to Opbeat:`,
-        JSON.stringify(await res.json())
-      );
-    } catch (err) {
-      // We swallow the error because we won't interrupt startup because we
-      // couldn't report the release.
-      console.error(`Error reporting ${appId} deploy to Opbeat`);
-
-      // bwaaaaaa
-      opbeat.captureError(err);
-    }
-  }
-}
 
 export function makeServer({ opbeat }: ServerArgs) {
   const server = new Hapi.Server();
@@ -311,7 +231,7 @@ export function makeServer({ opbeat }: ServerArgs) {
 }
 
 export default async function startServer(args: ServerArgs) {
-  await decryptConfig();
+  await decryptEnv();
 
   reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_APP_ID);
   reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_FRONTEND_APP_ID);

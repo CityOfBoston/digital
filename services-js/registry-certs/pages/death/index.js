@@ -1,6 +1,4 @@
 // @flow
 
-import page from '../../client/page';
-import SearchPage from '../../client/death/SearchPage';
-
-export default page(SearchPage);
+import '../../client/start';
+export default require('../../client/death/SearchPage').default;

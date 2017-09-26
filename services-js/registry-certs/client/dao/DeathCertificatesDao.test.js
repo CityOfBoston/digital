@@ -2,7 +2,7 @@
 
 import DeathCertificatesDao from './DeathCertificatesDao';
 
-import type { LoopbackGraphql } from '../loopback-graphql';
+import type { LoopbackGraphql } from '../lib/loopback-graphql';
 import type { DeathCertificateSearchResults } from '../types';
 
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';

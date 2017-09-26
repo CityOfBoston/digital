@@ -7,6 +7,9 @@ flow-decl/
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/.*
 <PROJECT_ROOT>/node_modules/mitt/.*
 
+# Doesn't support 0.53
+<PROJECT_ROOT>/node_modules/radium/.*
+
 [options]
 module.file_ext=.graphql
 module.file_ext=.js

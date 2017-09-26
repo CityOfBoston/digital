@@ -48,11 +48,11 @@ const styles = {
   },
 };
 
-export default class Error extends React.Component {
-  props: {
-    statusCode: ?number,
-  };
+type Props = {
+  statusCode: ?number,
+};
 
+export default class Error extends React.Component<Props> {
   static getInitialProps({ res, err }) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
@@ -80,6 +80,7 @@ export default class Error extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
+
         <div>
           <style dangerouslySetInnerHTML={{ __html: 'body { margin: 0 }' }} />
           {statusCode ? <h1 style={styles.h1}>{statusCode}</h1> : null}

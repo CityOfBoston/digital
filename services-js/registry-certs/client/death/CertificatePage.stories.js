@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import fullPageDecorator from '../../storybook/full-page-decorator';
-import CertificatePage from './CertificatePage';
+import { action } from '@storybook/addon-actions';
+import { CertificatePageContent } from './CertificatePage';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -17,21 +17,27 @@ function makeCart() {
 }
 
 storiesOf('CertificatePage', module)
-  .addDecorator(fullPageDecorator)
   .add('normal certificate', () => (
-    <CertificatePage
+    <CertificatePageContent
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       cart={makeCart()}
+      addToCart={action('addToCart')}
     />
   ))
   .add('pending certificate', () => (
-    <CertificatePage
+    <CertificatePageContent
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       cart={makeCart()}
+      addToCart={action('addToCart')}
     />
   ))
   .add('missing certificate', () => (
-    <CertificatePage id="200001" certificate={null} cart={makeCart()} />
+    <CertificatePageContent
+      id="200001"
+      certificate={null}
+      cart={makeCart()}
+      addToCart={action('addToCart')}
+    />
   ));

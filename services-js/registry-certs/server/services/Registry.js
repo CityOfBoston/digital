@@ -27,7 +27,7 @@ export type DeathCertificate = {|
 |};
 
 export type DeathCertificateSearchResult = {|
-  /* :: ...DeathCertificate, */
+  ...DeathCertificate,
   ResultCount: number,
 |};
 
@@ -68,9 +68,7 @@ export default class Registry {
 
   constructor(pool: ConnectionPool) {
     this.pool = pool;
-    this.lookupLoader = new DataLoader((keys: Array<string>) =>
-      this.lookupLoaderFetch(keys)
-    );
+    this.lookupLoader = new DataLoader(keys => this.lookupLoaderFetch(keys));
   }
 
   async search(
@@ -103,32 +101,37 @@ export default class Registry {
     return this.lookupLoader.load(id);
   }
 
-  async lookupLoaderFetch(
-    keys: Array<string>
-  ): Promise<Array<?DeathCertificate | Error>> {
+  // "any" here is really ?DeathCertificate | Error
+  async lookupLoaderFetch(keys: Array<string>): Promise<Array<any>> {
     // The api can only take 1000 characters of keys at once. We probably won't
     // run into that issue but just in case we split up and parallelize.
     const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
 
+    const idToOutputMap: { [key: string]: ?DeathCertificate | Error } = {};
+
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
-        const resp: DbResponse<DeathCertificate> = (await this.pool
-          .request()
-          .input('idList', keyString)
-          .execute('Registry.Death.sp_GetCertificatesWeb'): any);
+        try {
+          const resp: DbResponse<DeathCertificate> = (await this.pool
+            .request()
+            .input('idList', keyString)
+            .execute('Registry.Death.sp_GetCertificatesWeb'): any);
 
-        return resp.recordset;
+          return resp.recordset;
+        } catch (err) {
+          keyString.split(',').forEach(id => (idToOutputMap[id] = err));
+          return [];
+        }
       })
     );
 
-    const idToCertificateMap: { [key: string]: DeathCertificate } = {};
     allResults.forEach(results => {
       results.forEach((cert: DeathCertificate) => {
-        idToCertificateMap[cert.CertificateID.toString()] = cert;
+        idToOutputMap[cert.CertificateID.toString()] = cert;
       });
     });
 
-    return keys.map(k => idToCertificateMap[k]);
+    return keys.map(k => idToOutputMap[k]);
   }
 }
 

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Router from 'next/router';
+import '@storybook/addon-actions/register';
+
 import HeadManager from 'next/dist/client/head-manager';
 import { configure, addDecorator } from '@storybook/react';
 

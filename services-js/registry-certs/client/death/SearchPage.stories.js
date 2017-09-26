@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import fullPageDecorator from '../../storybook/full-page-decorator';
-import SearchPage from './SearchPage';
+import { action } from '@storybook/addon-actions';
+import { SearchPageContent } from './SearchPage';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -18,12 +18,17 @@ function makeCart() {
 }
 
 storiesOf('SearchPage', module)
-  .addDecorator(fullPageDecorator)
   .add('no search', () => (
-    <SearchPage query={''} results={null} cart={makeCart()} />
+    <SearchPageContent
+      submitSearch={action('submitSearch')}
+      query={''}
+      results={null}
+      cart={makeCart()}
+    />
   ))
   .add('no results', () => (
-    <SearchPage
+    <SearchPageContent
+      submitSearch={action('submitSearch')}
       query={'Jayne Doe'}
       results={{
         page: 1,
@@ -36,7 +41,8 @@ storiesOf('SearchPage', module)
     />
   ))
   .add('with results', () => (
-    <SearchPage
+    <SearchPageContent
+      submitSearch={action('submitSearch')}
       query={'Jayne Doe'}
       results={{
         page: 1,

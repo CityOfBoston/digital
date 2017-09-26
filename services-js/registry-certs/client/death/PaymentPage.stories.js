@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { runInAction } from 'mobx';
 
-import fullPageDecorator from '../../storybook/full-page-decorator';
-import PaymentPage from './PaymentPage';
+import { PaymentPageContent } from './PaymentPage';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -44,6 +44,9 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('PaymentPage', module)
-  .addDecorator(fullPageDecorator)
-  .add('loading', () => <PaymentPage cart={makeCart(true)} />)
-  .add('normal page', () => <PaymentPage cart={makeCart(false)} />);
+  .add('loading', () => (
+    <PaymentPageContent cart={makeCart(true)} submit={action('submit')} />
+  ))
+  .add('normal page', () => (
+    <PaymentPageContent cart={makeCart(false)} submit={action('submit')} />
+  ));

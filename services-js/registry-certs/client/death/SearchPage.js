@@ -1,59 +1,44 @@
 // @flow
 
-import React from 'react';
+import React, { type Element as ReactElement } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import type { Context } from 'next';
 
-import type { ClientDependencies } from '../page';
-
+import {
+  getDependencies,
+  type ClientContext,
+  type ClientDependencies,
+} from '../app';
 import type Cart from '../store/Cart';
+import type { DeathCertificateSearchResults } from '../types';
+
+import AppLayout from '../AppLayout';
+
 import Nav from '../common/Nav';
 import Pagination from '../common/Pagination';
-import type { DeathCertificateSearchResults } from '../types';
 
 import SearchResult from './search/SearchResult';
 
-export type InitialProps = {|
+type InitialProps = {|
   query: string,
   results: ?DeathCertificateSearchResults,
 |};
 
-export type Props = {
+type ContentProps = {
   ...InitialProps,
   cart: Cart,
+  submitSearch: string => mixed,
 };
 
-type State = {
+type ContentState = {
   query: string,
 };
 
-export default class IndexPage extends React.Component {
-  props: Props;
-  state: State;
-
-  static async getInitialProps(
-    ctx: Context<*>,
-    { deathCertificatesDao }: ClientDependencies
-  ): Promise<InitialProps> {
-    const { query } = ctx;
-
-    let results = null;
-
-    if (query.q) {
-      results = await deathCertificatesDao.search(
-        query.q,
-        parseInt(query.page, 10) || 1
-      );
-    }
-
-    return {
-      query: query.q || '',
-      results,
-    };
-  }
-
-  constructor(props: Props) {
+export class SearchPageContent extends React.Component<
+  ContentProps,
+  ContentState
+> {
+  constructor(props: ContentProps) {
     super(props);
 
     const { query } = props;
@@ -63,15 +48,18 @@ export default class IndexPage extends React.Component {
     };
   }
 
-  handleQueryChange = (ev: SyntheticInputEvent) => {
-    this.setState({ query: ev.target.value });
+  handleQueryChange = (ev: SyntheticInputEvent<*>) => {
+    const query: string = ev.target.value;
+    this.setState({ query });
   };
 
-  handleSubmit = (ev: SyntheticInputEvent) => {
+  handleSubmit = (ev: SyntheticInputEvent<*>) => {
+    ev.preventDefault();
+
+    const { submitSearch } = this.props;
     const { query } = this.state;
 
-    ev.preventDefault();
-    Router.push(`/death?q=${encodeURIComponent(query)}`);
+    submitSearch(query);
   };
 
   render() {
@@ -79,48 +67,52 @@ export default class IndexPage extends React.Component {
     const { query } = this.state;
 
     return (
-      <div>
-        <Head>
-          <title>Boston.gov — Death Certificates</title>
-        </Head>
+      <AppLayout>
+        {() => (
+          <div>
+            <Head>
+              <title>Boston.gov — Death Certificates</title>
+            </Head>
 
-        <Nav cart={cart} link="checkout" />
+            <Nav cart={cart} link="checkout" />
 
-        <div className="p-a300">
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Death Certificates</h1>
-          </div>
+            <div className="p-a300">
+              <div className="sh sh--b0">
+                <h1 className="sh-title">Death Certificates</h1>
+              </div>
 
-          <form
-            className="sf sf--md"
-            acceptCharset="UTF-8"
-            method="get"
-            action="/death"
-            onSubmit={this.handleSubmit}
-          >
-            <input name="utf8" type="hidden" value="✓" />
+              <form
+                className="sf sf--md"
+                acceptCharset="UTF-8"
+                method="get"
+                action="/death"
+                onSubmit={this.handleSubmit}
+              >
+                <input name="utf8" type="hidden" value="✓" />
 
-            <div className="sf-i">
-              <input
-                type="text"
-                name="q"
-                id="q"
-                value={query}
-                onChange={this.handleQueryChange}
-                placeholder="Search…"
-                className="sf-i-f"
-                autoComplete="off"
-              />
-              <button className="sf-i-b" type="submit">
-                Search
-              </button>
+                <div className="sf-i">
+                  <input
+                    type="text"
+                    name="q"
+                    id="q"
+                    value={query}
+                    onChange={this.handleQueryChange}
+                    placeholder="Search…"
+                    className="sf-i-f"
+                    autoComplete="off"
+                  />
+                  <button className="sf-i-b" type="submit">
+                    Search
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
 
-        {results && this.renderResults(results)}
-        <div />
-      </div>
+            {results && this.renderResults(results)}
+            <div />
+          </div>
+        )}
+      </AppLayout>
     );
   }
 
@@ -167,3 +159,47 @@ export default class IndexPage extends React.Component {
     return <Pagination page={page} pageCount={pageCount} hrefFunc={makeHref} />;
   }
 }
+
+export const wrapSearchPageController = (
+  getDependencies: (ctx?: ClientContext) => ClientDependencies,
+  renderContent: (props: ContentProps) => ?ReactElement<*>
+) =>
+  class SearchPageController extends React.Component<InitialProps> {
+    static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
+      const { query } = ctx;
+      const { deathCertificatesDao } = getDependencies(ctx);
+
+      let results = null;
+
+      if (query.q) {
+        results = await deathCertificatesDao.search(
+          query.q,
+          parseInt(query.page, 10) || 1
+        );
+      }
+
+      return {
+        query: query.q || '',
+        results,
+      };
+    }
+
+    dependencies = getDependencies();
+
+    submitSearch = (query: string) => {
+      Router.push(`/death?q=${encodeURIComponent(query)}`);
+    };
+
+    render() {
+      const { submitSearch } = this;
+      const { cart } = this.dependencies;
+      const { query, results } = this.props;
+
+      return renderContent({ submitSearch, cart, query, results });
+    }
+  };
+
+export default wrapSearchPageController(
+  getDependencies,
+  (props: ContentProps) => <SearchPageContent {...props} />
+);

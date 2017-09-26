@@ -18,9 +18,7 @@ export type Props = {
 };
 
 @observer
-export default class CheckoutItem extends React.Component {
-  props: Props;
-
+export default class CheckoutItem extends React.Component<Props> {
   @observable quantityHasFocus: boolean = false;
 
   @computed
@@ -42,7 +40,7 @@ export default class CheckoutItem extends React.Component {
     this.quantityHasFocus = false;
   });
 
-  handleQuantityChange = (ev: SyntheticInputEvent) => {
+  handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
     const { cart, item } = this.props;
 
     const value = ev.target.value;

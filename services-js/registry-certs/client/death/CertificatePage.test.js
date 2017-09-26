@@ -1,31 +1,32 @@
 // @flow
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import Cart from '../store/Cart';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
-import CertificatePage from './CertificatePage';
+import { wrapCertificatePageController } from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 jest.mock('../dao/DeathCertificatesDao');
 
 describe('getInitialProps', () => {
+  let CertificatePageController;
   let deathCertificatesDao;
 
   beforeEach(() => {
     deathCertificatesDao = new DeathCertificatesDao((null: any));
+
+    const dependencies: any = { deathCertificatesDao };
+    CertificatePageController = wrapCertificatePageController(
+      () => dependencies,
+      () => null
+    );
   });
 
   it('loads the cert passed in query', async () => {
     deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
 
-    const initialProps = await CertificatePage.getInitialProps(
-      ({
-        query: { id: '000002' },
-      }: any),
-      ({ deathCertificatesDao }: any)
+    const initialProps = await CertificatePageController.getInitialProps(
+      ({ query: { id: '000002' } }: any)
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -35,11 +36,8 @@ describe('getInitialProps', () => {
   it('handles a 404', async () => {
     deathCertificatesDao.get.mockReturnValue(null);
 
-    const initialProps = await CertificatePage.getInitialProps(
-      ({
-        query: { id: '000002' },
-      }: any),
-      ({ deathCertificatesDao }: any)
+    const initialProps = await CertificatePageController.getInitialProps(
+      ({ query: { id: '000002' } }: any)
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -47,24 +45,31 @@ describe('getInitialProps', () => {
   });
 });
 
-describe('searching', () => {
-  it('redirects to search for a query', () => {
-    const cart = new Cart();
-    const wrapper = shallow(
-      <CertificatePage
-        cart={cart}
-        id="00002"
-        certificate={TYPICAL_CERTIFICATE}
-      />
-    );
+describe('contentProps', () => {
+  describe('addToCart', () => {
+    let cart;
+    let contentProps;
 
-    wrapper
-      .find('select[name="quantity"]')
-      .simulate('change', { target: { value: '5' } });
-    wrapper
-      .find('form.js-add-to-cart-form')
-      .simulate('submit', { preventDefault: jest.fn() });
+    beforeEach(() => {
+      cart = new Cart();
 
-    expect(cart.size).toEqual(5);
+      const dependencies: any = { cart };
+      const CertificatePageController = wrapCertificatePageController(
+        () => dependencies,
+        props => {
+          contentProps = props;
+        }
+      );
+
+      new CertificatePageController({
+        id: '00002',
+        certificate: TYPICAL_CERTIFICATE,
+      }).render();
+    });
+
+    it('redirects to search for a query', () => {
+      contentProps.addToCart(5);
+      expect(cart.size).toEqual(5);
+    });
   });
 });

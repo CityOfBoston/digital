@@ -1,89 +1,84 @@
 // @flow
 
-import React from 'react';
+import React, { type Element as ReactElement } from 'react';
 import Head from 'next/head';
-import type { Context } from 'next';
-
-import type { DeathCertificate } from '../types';
-import type { ClientDependencies } from '../page';
 
 import type Cart from '../store/Cart';
+import type { DeathCertificate } from '../types';
+import {
+  getDependencies,
+  type ClientContext,
+  type ClientDependencies,
+} from '../app';
+
+import AppLayout from '../AppLayout';
 import Nav from '../common/Nav';
 
-export type InitialProps = {|
+type InitialProps = {|
   id: string,
   certificate: ?DeathCertificate,
 |};
 
-export type Props = {
+type ContentProps = {
   ...InitialProps,
   cart: Cart,
+  addToCart: number => mixed,
 };
 
-type State = {
+type ContentState = {
   quantity: number,
 };
 
-export default class CertificatePage extends React.Component {
-  props: Props;
-  state: State = {
+export class CertificatePageContent extends React.Component<
+  ContentProps,
+  ContentState
+> {
+  state = {
     quantity: 1,
   };
 
-  static async getInitialProps(
-    ctx: Context<*>,
-    { deathCertificatesDao }: ClientDependencies
-  ): Promise<InitialProps> {
-    const { query: { id } } = ctx;
-
-    const certificate = await deathCertificatesDao.get(id);
-
-    return {
-      id,
-      certificate,
-    };
-  }
-
-  handleQuantityChange = (ev: SyntheticInputEvent) => {
+  handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
     this.setState({
       quantity: parseInt(ev.target.value, 10),
     });
   };
 
-  handleAddToCart = (ev: SyntheticInputEvent) => {
-    const { cart, certificate } = this.props;
-    const { quantity } = this.state;
-
+  handleAddToCart = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
-    if (certificate) {
-      cart.add(certificate, quantity);
-    }
+    const { addToCart } = this.props;
+    const { quantity } = this.state;
+
+    addToCart(quantity);
   };
 
   render() {
     const { id, certificate, cart } = this.props;
 
     return (
-      <div>
-        <Head>
-          <title>Boston.gov — Death Certificate #{id}</title>
-        </Head>
+      <AppLayout>
+        {() => (
+          <div>
+            <Head>
+              <title>Boston.gov — Death Certificate #{id}</title>
+            </Head>
 
-        <Nav cart={cart} link="checkout" />
+            <Nav cart={cart} link="checkout" />
 
-        <div className="p-a300">
-          <div className="sh sh--b0">
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              Deceased Details
-            </h1>
+            <div className="p-a300">
+              <div className="sh sh--b0">
+                <h1 className="sh-title" style={{ marginBottom: 0 }}>
+                  Deceased Details
+                </h1>
+              </div>
+            </div>
+
+            <div className="p-a300 b--w">
+              {certificate && this.renderCertificate(certificate)}
+            </div>
           </div>
-        </div>
-
-        <div className="p-a300 b--w">
-          {certificate && this.renderCertificate(certificate)}
-        </div>
-      </div>
+        )}
+      </AppLayout>
     );
   }
 
@@ -159,3 +154,45 @@ export default class CertificatePage extends React.Component {
     );
   }
 }
+
+export const wrapCertificatePageController = (
+  getDependencies: (ctx?: ClientContext) => ClientDependencies,
+  renderContent: (props: ContentProps) => ?ReactElement<*>
+) =>
+  class CertificatePageController extends React.Component<InitialProps> {
+    static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
+      const { query: { id } } = ctx;
+      const { deathCertificatesDao } = getDependencies(ctx);
+
+      const certificate = await deathCertificatesDao.get(id);
+
+      return {
+        id,
+        certificate,
+      };
+    }
+
+    dependencies = getDependencies();
+
+    addToCart = (quantity: number) => {
+      const { cart } = this.dependencies;
+      const { certificate } = this.props;
+
+      if (certificate) {
+        cart.add(certificate, quantity);
+      }
+    };
+
+    render() {
+      const { addToCart } = this;
+      const { cart } = this.dependencies;
+      const { id, certificate } = this.props;
+
+      return renderContent({ cart, id, certificate, addToCart });
+    }
+  };
+
+export default wrapCertificatePageController(
+  getDependencies,
+  (props: ContentProps) => <CertificatePageContent {...props} />
+);

@@ -1,6 +1,6 @@
 // @flow
 
-import type { LoopbackGraphql } from '../loopback-graphql';
+import type { LoopbackGraphql } from '../lib/loopback-graphql';
 
 import type {
   SearchDeathCertificatesQuery,

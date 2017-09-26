@@ -1,6 +1,6 @@
 // @flow
 
-import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
+import { opbeatWrapGraphqlOptions } from './opbeat-utils';
 
 let opbeat: any;
 

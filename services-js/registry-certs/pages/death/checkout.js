@@ -1,6 +1,4 @@
 // @flow
 
-import page from '../../client/page';
-import CheckoutPage from '../../client/death/CheckoutPage';
-
-export default page(CheckoutPage);
+import '../../client/start';
+export default require('../../client/death/CheckoutPage').default;

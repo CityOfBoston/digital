@@ -1,6 +1,4 @@
 // @flow
 
-import page from '../../client/page';
-import PaymentPage from '../../client/death/PaymentPage';
-
-export default page(PaymentPage);
+import '../../client/start';
+export default require('../../client/death/PaymentPage').default;

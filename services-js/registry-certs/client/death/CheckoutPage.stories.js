@@ -4,8 +4,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
-import fullPageDecorator from '../../storybook/full-page-decorator';
-import CheckoutPage from './CheckoutPage';
+import { CheckoutPageContent } from './CheckoutPage';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -44,6 +43,5 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('CheckoutPage', module)
-  .addDecorator(fullPageDecorator)
-  .add('loading', () => <CheckoutPage cart={makeCart(true)} />)
-  .add('normal page', () => <CheckoutPage cart={makeCart(false)} />);
+  .add('loading', () => <CheckoutPageContent cart={makeCart(true)} />)
+  .add('normal page', () => <CheckoutPageContent cart={makeCart(false)} />);

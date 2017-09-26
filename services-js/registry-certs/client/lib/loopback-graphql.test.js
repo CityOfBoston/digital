@@ -1,7 +1,7 @@
 // @flow
 
 import fetchMock from 'fetch-mock';
-import inBrowser from '../lib/test/in-browser';
+import inBrowser from '../../lib/test/in-browser';
 
 import makeLoopbackGraphql from './loopback-graphql';
 

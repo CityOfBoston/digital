@@ -1,7 +1,7 @@
 // @flow
 
 import 'isomorphic-fetch';
-import type { RequestAdditions } from '../server/request-additions';
+import type { RequestAdditions } from '../../server/lib/request-additions';
 
 type QueryVariables = { [key: string]: any };
 export type LoopbackGraphql = (
