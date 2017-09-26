@@ -14590,9 +14590,9 @@
       }
     },
     "url-search-params": {
-      "version": "0.9.0",
-      "resolved": "https://registry.npmjs.org/url-search-params/-/url-search-params-0.9.0.tgz",
-      "integrity": "sha1-5x13ZKZQNTPL/pdxspY8th6hwiU="
+      "version": "0.10.0",
+      "resolved": "https://registry.npmjs.org/url-search-params/-/url-search-params-0.10.0.tgz",
+      "integrity": "sha512-oFPzmbPAbdthStgffGq8alULe47skPDt1X3KW6NOQnKkcLHP4IS1NfdfHG/CBP5lGsr2gDzNp87pfWLx/eIxjw=="
     },
     "urlgrey": {
       "version": "0.4.4",
