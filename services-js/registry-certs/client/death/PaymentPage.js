@@ -57,7 +57,7 @@ export default class PaymentPage extends React.Component {
             }
             .sel-f {
               text-align: left;
-              padding: .5rem;
+              padding: 0.5rem;
             }
             .sel-c:after {
               background-image: url(https://cob-patterns-staging.herokuapp.com/images/global/icons/chevron-blue.svg);

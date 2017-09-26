@@ -19,10 +19,10 @@ function makeCart() {
 
 storiesOf('SearchPage', module)
   .addDecorator(fullPageDecorator)
-  .add('no search', () =>
+  .add('no search', () => (
     <SearchPage query={''} results={null} cart={makeCart()} />
-  )
-  .add('no results', () =>
+  ))
+  .add('no results', () => (
     <SearchPage
       query={'Jayne Doe'}
       results={{
@@ -34,8 +34,8 @@ storiesOf('SearchPage', module)
       }}
       cart={makeCart()}
     />
-  )
-  .add('with results', () =>
+  ))
+  .add('with results', () => (
     <SearchPage
       query={'Jayne Doe'}
       results={{
@@ -51,4 +51,4 @@ storiesOf('SearchPage', module)
       }}
       cart={makeCart()}
     />
-  );
+  ));

@@ -18,20 +18,20 @@ function makeCart() {
 
 storiesOf('CertificatePage', module)
   .addDecorator(fullPageDecorator)
-  .add('normal certificate', () =>
+  .add('normal certificate', () => (
     <CertificatePage
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       cart={makeCart()}
     />
-  )
-  .add('pending certificate', () =>
+  ))
+  .add('pending certificate', () => (
     <CertificatePage
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       cart={makeCart()}
     />
-  )
-  .add('missing certificate', () =>
+  ))
+  .add('missing certificate', () => (
     <CertificatePage id="200001" certificate={null} cart={makeCart()} />
-  );
+  ));

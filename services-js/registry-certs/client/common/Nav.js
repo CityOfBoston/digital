@@ -34,14 +34,10 @@ export default observer(function Nav({ cart, link }: Props) {
     <nav className="nv-s nv-s--sticky">
       <div className="nv-s-l bar">
         <Link href={linkPath}>
-          <a className={'nv-s-l-b back-link'}>
-            {linkTitle}
-          </a>
+          <a className={'nv-s-l-b back-link'}>{linkTitle}</a>
         </Link>
         <Link href="/death/checkout">
-          <a className="cart-link">
-            {cart.size}
-          </a>
+          <a className="cart-link">{cart.size}</a>
         </Link>
       </div>
 
@@ -62,14 +58,14 @@ export default observer(function Nav({ cart, link }: Props) {
           position: relative;
           background: white;
           color: inherit;
-          padding: .5em 0;
+          padding: 0.5em 0;
           margin-right: 1.25rem;
           width: 3em;
           text-align: center;
           font-style: italic;
         }
         .cart-link:before {
-          content: "";
+          content: '';
           display: block;
           border-color: transparent white transparent transparent;
           border-width: 5px 10px;

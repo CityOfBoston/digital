@@ -140,9 +140,9 @@ export default class IndexPage extends React.Component {
           </div>
         </div>
 
-        {results.results.map(certificate =>
+        {results.results.map(certificate => (
           <SearchResult certificate={certificate} key={certificate.id} />
-        )}
+        ))}
 
         {results.resultCount > results.results.length &&
           this.renderPagination(results)}

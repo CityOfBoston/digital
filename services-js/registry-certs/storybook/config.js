@@ -36,9 +36,7 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        <Head>
-          {styleTags(DEFAULT_STYLE)}
-        </Head>
+        <Head>{styleTags(DEFAULT_STYLE)}</Head>
 
         {this.props.children}
       </div>
@@ -70,11 +68,7 @@ addDecorator(story => {
       window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
 
-  return (
-    <Wrapper headManager={headManager}>
-      {story()}
-    </Wrapper>
-  );
+  return <Wrapper headManager={headManager}>{story()}</Wrapper>;
 });
 
 configure(loadStories, module);

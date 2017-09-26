@@ -67,9 +67,7 @@ export default class CertificatePage extends React.Component {
     return (
       <div>
         <Head>
-          <title>
-            Boston.gov — Death Certificate #{id}
-          </title>
+          <title>Boston.gov — Death Certificate #{id}</title>
         </Head>
 
         <Nav cart={cart} link="checkout" />
@@ -109,15 +107,11 @@ export default class CertificatePage extends React.Component {
           </li>
           <li className="dl-i">
             <span className="dl-t">Date of Death</span>
-            <span className="dl-d">
-              {deathDate || deathYear}
-            </span>
+            <span className="dl-d">{deathDate || deathYear}</span>
           </li>
           <li className="dl-i">
             <span className="dl-t">Age</span>
-            <span className="dl-d">
-              {age}
-            </span>
+            <span className="dl-d">{age}</span>
           </li>
         </ul>
 

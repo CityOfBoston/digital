@@ -80,9 +80,7 @@ export default class Registry {
     startYear: ?string,
     endYear: ?string
   ): Promise<Array<DeathCertificateSearchResult>> {
-    const resp: DbResponse<
-      DeathCertificateSearchResult
-    > = (await this.pool
+    const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
       .request()
       .input('searchFor', name)
       .input('pageNumber', page)
@@ -114,9 +112,7 @@ export default class Registry {
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
-        const resp: DbResponse<
-          DeathCertificate
-        > = (await this.pool
+        const resp: DbResponse<DeathCertificate> = (await this.pool
           .request()
           .input('idList', keyString)
           .execute('Registry.Death.sp_GetCertificatesWeb'): any);

@@ -101,7 +101,7 @@ export default class CheckoutItem extends React.Component {
             background: white;
             border-top: 2px solid ${GRAY_100};
             display: flex;
-            alignItems: center;
+            alignitems: center;
           }
 
           .quantity-box {

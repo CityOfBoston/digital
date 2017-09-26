@@ -45,19 +45,21 @@ export default function Pagination({ page, pageCount, hrefFunc }: Props) {
 
   return (
     <ul className="pg">
-      {showPrev &&
+      {showPrev && (
         <li className="pg-li">
           <Link href={hrefFunc(page - 1)}>
             <a className="pg-li-i pg-li-i--link">≪</a>
           </Link>
-        </li>}
+        </li>
+      )}
       {boxes}
-      {showNext &&
+      {showNext && (
         <li className="pg-li">
           <Link href={hrefFunc(page + 1)}>
             <a className="pg-li-i pg-li-i--link">≫</a>
           </Link>
-        </li>}
+        </li>
+      )}
     </ul>
   );
 }

@@ -11,12 +11,12 @@ import {
 } from '../../../fixtures/client/death-certificates';
 
 storiesOf('SearchResult', module)
-  .add('typical certificate', () =>
+  .add('typical certificate', () => (
     <SearchResult certificate={TYPICAL_CERTIFICATE} />
-  )
-  .add('pending certificate', () =>
+  ))
+  .add('pending certificate', () => (
     <SearchResult certificate={PENDING_CERTIFICATE} />
-  )
-  .add('certificate without death date', () =>
+  ))
+  .add('certificate without death date', () => (
     <SearchResult certificate={NO_DATE_CERTIFICATE} />
-  );
+  ));
