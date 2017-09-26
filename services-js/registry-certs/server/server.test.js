@@ -11,8 +11,6 @@ import { makeServer } from './server';
 // eslint-disable-next-line no-undef
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
-jest.mock('watchpack');
-
 const API_KEY = 'test-api-key';
 const GRAPHQL_INTROSPECTION_PAYLOAD = {
   query: `
