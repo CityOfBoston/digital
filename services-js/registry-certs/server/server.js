@@ -11,7 +11,7 @@ import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
 import Path from 'path';
-import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
+import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';

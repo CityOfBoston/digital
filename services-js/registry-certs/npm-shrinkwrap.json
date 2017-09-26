@@ -442,81 +442,11 @@
         "redux": "3.7.1"
       }
     },
-    "@types/boom": {
-      "version": "4.3.6",
-      "resolved": "https://registry.npmjs.org/@types/boom/-/boom-4.3.6.tgz",
-      "integrity": "sha512-su/eNfCGZrqt49PkCka4W14mCfx5MOaS6qPg7QFu8ZzeyjQ4oXeMg+gBFyCmMzkbmrkha6C7uZuNannWw9wSSw=="
-    },
-    "@types/catbox": {
-      "version": "7.1.2",
-      "resolved": "https://registry.npmjs.org/@types/catbox/-/catbox-7.1.2.tgz",
-      "integrity": "sha512-9NvH2QwGFTyjCKOgzmXxyX2g/qWs4PXQFETG93JAuK7DqjuROCqfX4dWCgSBV8m69XLiIbNc8QFYooIkIlvfcA==",
-      "optional": true,
-      "requires": {
-        "@types/boom": "4.3.6"
-      }
-    },
     "@types/graphql": {
       "version": "0.9.2",
       "resolved": "https://registry.npmjs.org/@types/graphql/-/graphql-0.9.2.tgz",
       "integrity": "sha512-P4cMTUXQrJ75vreYhju7ovV7RvgMIiwAr5vwdZaqndyiicZJekQ5NirqInhNmftKtmplbkhQy2ENnYtGpTevpg==",
       "optional": true
-    },
-    "@types/hapi": {
-      "version": "16.1.8",
-      "resolved": "https://registry.npmjs.org/@types/hapi/-/hapi-16.1.8.tgz",
-      "integrity": "sha512-SICFotDKQhSybmdaScGWftQ9mPRx98hiMpU2XzfmxYOSlnmla60QRy4PId/wa0p62fdozBxVrg+fgczFlU1dmA==",
-      "optional": true,
-      "requires": {
-        "@types/boom": "4.3.6",
-        "@types/catbox": "7.1.2",
-        "@types/joi": "10.4.1",
-        "@types/mimos": "3.0.1",
-        "@types/node": "8.0.24",
-        "@types/podium": "1.0.0",
-        "@types/shot": "3.4.0"
-      }
-    },
-    "@types/joi": {
-      "version": "10.4.1",
-      "resolved": "https://registry.npmjs.org/@types/joi/-/joi-10.4.1.tgz",
-      "integrity": "sha512-tZ0q9R3XaEbBD6WW4mdBhRWUeG2ehVC4UqPAeIE0joE3BA/VfqdLF2asGkgQnC6xyU9VomDnaHS0IF5sjpr0eg==",
-      "optional": true
-    },
-    "@types/mime-db": {
-      "version": "1.27.0",
-      "resolved": "https://registry.npmjs.org/@types/mime-db/-/mime-db-1.27.0.tgz",
-      "integrity": "sha1-m8AUof0f30dknBpUxt15ZrgoR5I=",
-      "optional": true
-    },
-    "@types/mimos": {
-      "version": "3.0.1",
-      "resolved": "https://registry.npmjs.org/@types/mimos/-/mimos-3.0.1.tgz",
-      "integrity": "sha512-MATIRH4VMIJki8lcYUZdNQEHuAG7iQ1FWwoLgxV+4fUOly2xZYdhHtGgvQyWiTeJqq2tZbE0nOOgZD6pR0FpNQ==",
-      "optional": true,
-      "requires": {
-        "@types/mime-db": "1.27.0"
-      }
-    },
-    "@types/node": {
-      "version": "8.0.24",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.0.24.tgz",
-      "integrity": "sha512-c3Npme+2JGqxW8+B+aXdN5SPIlCf1C8WxQC6Ea39rO/ASPosnMkWVR16mDJtRE+2dr2xwOQ7DiLxb+wO/TWuPg=="
-    },
-    "@types/podium": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/@types/podium/-/podium-1.0.0.tgz",
-      "integrity": "sha1-v6ohUb4rHWEJzGn3+qnawsujuyA=",
-      "optional": true
-    },
-    "@types/shot": {
-      "version": "3.4.0",
-      "resolved": "https://registry.npmjs.org/@types/shot/-/shot-3.4.0.tgz",
-      "integrity": "sha1-RZR3xRh9Pr0wNmCrCZ5+ng87ZW8=",
-      "optional": true,
-      "requires": {
-        "@types/node": "8.0.24"
-      }
     },
     "abab": {
       "version": "1.0.3",
@@ -701,7 +631,7 @@
         "change-case": "3.0.1",
         "core-js": "2.4.1",
         "glob": "7.1.1",
-        "graphql": "0.10.3",
+        "graphql": "0.10.5",
         "inflected": "2.0.2",
         "lodash": "4.17.4",
         "mkdirp": "0.5.1",
@@ -745,6 +675,15 @@
                 "strip-ansi": "3.0.1"
               }
             }
+          }
+        },
+        "graphql": {
+          "version": "0.10.5",
+          "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.10.5.tgz",
+          "integrity": "sha512-Q7cx22DiLhwHsEfUnUip1Ww/Vfx7FS0w6+iHItNuN61+XpegHSa3k5U0+6M5BcpavQImBwFiy0z3uYwY7cXMLQ==",
+          "dev": true,
+          "requires": {
+            "iterall": "1.1.1"
           }
         },
         "load-json-file": {
@@ -867,6 +806,59 @@
           "dev": true,
           "requires": {
             "camelcase": "4.1.0"
+          }
+        }
+      }
+    },
+    "apollo-server-core": {
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/apollo-server-core/-/apollo-server-core-1.1.0.tgz",
+      "integrity": "sha1-dMO/Q5ThTq56tgsdmZo8W4qpTpo=",
+      "requires": {
+        "apollo-tracing": "0.0.7"
+      }
+    },
+    "apollo-server-hapi": {
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/apollo-server-hapi/-/apollo-server-hapi-1.1.2.tgz",
+      "integrity": "sha1-a25T4UpWXrIfs3QW6dP90Uzq6pM=",
+      "requires": {
+        "apollo-server-core": "1.1.0",
+        "apollo-server-module-graphiql": "1.1.2",
+        "boom": "5.2.0"
+      },
+      "dependencies": {
+        "boom": {
+          "version": "5.2.0",
+          "resolved": "https://registry.npmjs.org/boom/-/boom-5.2.0.tgz",
+          "integrity": "sha512-Z5BTk6ZRe4tXXQlkqftmsAUANpXmuwlsF5Oov8ThoMbQRzdGTA1ngYRW160GexgOgjsFOKJz0LYhoNi+2AMBUw==",
+          "requires": {
+            "hoek": "4.1.1"
+          }
+        }
+      }
+    },
+    "apollo-server-module-graphiql": {
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/apollo-server-module-graphiql/-/apollo-server-module-graphiql-1.1.2.tgz",
+      "integrity": "sha1-SaFUz4DphKywgr0AlhdbVh4b+8w="
+    },
+    "apollo-tracing": {
+      "version": "0.0.7",
+      "resolved": "https://registry.npmjs.org/apollo-tracing/-/apollo-tracing-0.0.7.tgz",
+      "integrity": "sha512-jvjNmOOb3M2QiBEuz9Vjp6HiXtZuDwRvHxqBZQ+TE0UoODRnJoQu5LF1uvPI2ooOHiPC1ce4SAKNNIU9y02EeA==",
+      "requires": {
+        "graphql-tools": "1.2.3"
+      },
+      "dependencies": {
+        "graphql-tools": {
+          "version": "1.2.3",
+          "resolved": "https://registry.npmjs.org/graphql-tools/-/graphql-tools-1.2.3.tgz",
+          "integrity": "sha512-3inNK3rmk32G4hGWbqBuVNxusF+Mcuckg+3aD4hHaMxO0LrSgteWoTD8pTD9GUnmoSRG4AbYHZ0jibGD5MTlrQ==",
+          "requires": {
+            "@types/graphql": "0.9.2",
+            "deprecated-decorator": "0.1.6",
+            "uuid": "3.1.0"
           }
         }
       }
@@ -6355,48 +6347,20 @@
       "dev": true
     },
     "graphql": {
-      "version": "0.10.3",
-      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.10.3.tgz",
-      "integrity": "sha1-wxOv1VGOZzNRvuGPtj4qDkh0B6s=",
+      "version": "0.11.3",
+      "resolved": "https://registry.npmjs.org/graphql/-/graphql-0.11.3.tgz",
+      "integrity": "sha512-/WGU673BlQaCw3gDECmqL5+l8kg4Sm3XHvuzPtZLiI/y8Xm7fKq+C0mtJmAImuHJvTBsMtCuX/R9BUQqPm4tzw==",
       "requires": {
         "iterall": "1.1.1"
       }
     },
-    "graphql-server-hapi": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/graphql-server-hapi/-/graphql-server-hapi-1.0.0.tgz",
-      "integrity": "sha1-qJS3uenPTTK9Qnyc3kfkClrM02Y=",
-      "requires": {
-        "@types/graphql": "0.9.2",
-        "@types/hapi": "16.1.8",
-        "boom": "5.1.0",
-        "graphql-server-core": "1.0.0",
-        "graphql-server-module-graphiql": "1.0.0"
-      },
-      "dependencies": {
-        "graphql-server-core": {
-          "version": "1.0.0",
-          "resolved": "https://registry.npmjs.org/graphql-server-core/-/graphql-server-core-1.0.0.tgz",
-          "integrity": "sha1-JdkrYnmoEmPwcUE2Y2pUkQwfr+A=",
-          "requires": {
-            "@types/graphql": "0.9.2"
-          }
-        },
-        "graphql-server-module-graphiql": {
-          "version": "1.0.0",
-          "resolved": "https://registry.npmjs.org/graphql-server-module-graphiql/-/graphql-server-module-graphiql-1.0.0.tgz",
-          "integrity": "sha1-GzAkgUI/g7PA9DyzC/3DC/49CoI="
-        }
-      }
-    },
     "graphql-tools": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/graphql-tools/-/graphql-tools-1.0.0.tgz",
-      "integrity": "sha1-drJeHc4FIbMdVWaqwoGy8TS8Scg=",
+      "version": "1.2.3",
+      "resolved": "https://registry.npmjs.org/graphql-tools/-/graphql-tools-1.2.3.tgz",
+      "integrity": "sha512-3inNK3rmk32G4hGWbqBuVNxusF+Mcuckg+3aD4hHaMxO0LrSgteWoTD8pTD9GUnmoSRG4AbYHZ0jibGD5MTlrQ==",
       "requires": {
         "@types/graphql": "0.9.2",
         "deprecated-decorator": "0.1.6",
-        "lodash": "4.17.4",
         "uuid": "3.1.0"
       }
     },
