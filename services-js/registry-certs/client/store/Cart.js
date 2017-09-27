@@ -13,14 +13,14 @@ type LocalStorageItem = {|
   quantity: number,
 |};
 
-export class CartItem {
+export class CartEntry {
   id: string;
   @observable.ref cert: ?DeathCertificate;
   @observable quantity: number;
 }
 
 export default class Cart {
-  @observable items = [];
+  @observable entries = [];
   @observable pendingFetches: number = 0;
 
   localStorageDisposer: ?Function;
@@ -31,14 +31,15 @@ export default class Cart {
         const savedCart: Array<LocalStorageItem> = JSON.parse(
           localStorage.getItem('cart') || '[]'
         );
-        this.items = savedCart.map(
+
+        this.entries = savedCart.map(
           action(
-            'hydrate item from local storage start',
+            'hydrate entry from local storage start',
             ({ id, quantity }: LocalStorageItem) => {
-              const item = new CartItem();
-              item.id = id;
-              item.cert = null;
-              item.quantity = quantity;
+              const entry = new CartEntry();
+              entry.id = id;
+              entry.cert = null;
+              entry.quantity = quantity;
 
               this.pendingFetches += 1;
 
@@ -46,13 +47,13 @@ export default class Cart {
                 action(
                   'hydrate item from local storage complete',
                   (cert: ?DeathCertificate) => {
-                    item.cert = cert;
+                    entry.cert = cert;
                     this.pendingFetches -= 1;
                   }
                 )
               );
 
-              return item;
+              return entry;
             }
           )
         );
@@ -64,7 +65,7 @@ export default class Cart {
         localStorage.setItem(
           'cart',
           JSON.stringify(
-            this.items.map(({ id, quantity }): LocalStorageItem => ({
+            this.entries.map(({ id, quantity }): LocalStorageItem => ({
               id,
               quantity,
             }))
@@ -83,7 +84,7 @@ export default class Cart {
 
   @computed
   get size(): number {
-    return this.items.reduce((acc, item) => acc + item.quantity, 0);
+    return this.entries.reduce((acc, item) => acc + item.quantity, 0);
   }
 
   @computed
@@ -100,22 +101,22 @@ export default class Cart {
 
   @action
   add(cert: DeathCertificate, quantity: number) {
-    const existingItem = this.items.find(item => item.id === cert.id);
+    const existingItem = this.entries.find(item => item.id === cert.id);
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
-      const item = new CartItem();
+      const item = new CartEntry();
       item.id = cert.id;
       item.cert = cert;
       item.quantity = quantity;
 
-      this.items.push(item);
+      this.entries.push(item);
     }
   }
 
   @action
   setQuantity(certId: string, quantity: number) {
-    const existingItem = this.items.find(({ id }) => id === certId);
+    const existingItem = this.entries.find(({ id }) => id === certId);
     if (existingItem) {
       existingItem.quantity = quantity;
     }
@@ -123,9 +124,9 @@ export default class Cart {
 
   @action
   remove(certId: string) {
-    const idx = this.items.findIndex(({ id }) => id === certId);
+    const idx = this.entries.findIndex(({ id }) => id === certId);
     if (idx !== -1) {
-      this.items.splice(idx, 1);
+      this.entries.splice(idx, 1);
     }
   }
 }

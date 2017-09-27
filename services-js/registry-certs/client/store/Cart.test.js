@@ -30,7 +30,7 @@ describe('add and size', () => {
     expect(cart.size).toEqual(3);
   });
 
-  it('adds 2 items to the cart', () => {
+  it('adds 2 entries to the cart', () => {
     cart.add(CERT_1, 1);
     cart.add(CERT_2, 1);
     expect(cart.size).toEqual(2);
@@ -89,14 +89,14 @@ describe('remove', () => {
     expect(cart.size).toEqual(1);
     cart.remove(CERT_1.id);
     expect(cart.size).toEqual(0);
-    expect(cart.items.length).toEqual(0);
+    expect(cart.entries.length).toEqual(0);
   });
 
   it('is a no-op when the id isn’t found', () => {
     expect(cart.size).toEqual(1);
     cart.remove(CERT_2.id);
     expect(cart.size).toEqual(1);
-    expect(cart.items.length).toEqual(1);
+    expect(cart.entries.length).toEqual(1);
   });
 });
 
@@ -130,7 +130,7 @@ describe('attach', () => {
     cart.detach();
   });
 
-  it('hydrates items from local storage', async () => {
+  it('hydrates entries from local storage', async () => {
     localStorage.getItem.mockReturnValue(
       JSON.stringify([
         { id: '00001', quantity: 4 },
@@ -145,8 +145,8 @@ describe('attach', () => {
 
     expect(cart.loading).toEqual(true);
 
-    const item1 = cart.items[0];
-    const item2 = cart.items[1];
+    const item1 = cart.entries[0];
+    const item2 = cart.entries[1];
 
     expect(item1.id).toEqual('00001');
     expect(item1.cert).toEqual(null);

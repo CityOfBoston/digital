@@ -4,7 +4,7 @@ import React from 'react';
 import { computed, action, observable } from 'mobx';
 import { observer } from 'mobx-react';
 
-import type Cart, { CartItem } from '../../store/Cart';
+import type Cart, { CartEntry } from '../../store/Cart';
 
 import {
   GRAY_100,
@@ -14,7 +14,7 @@ import {
 
 export type Props = {
   cart: Cart,
-  item: CartItem,
+  entry: CartEntry,
 };
 
 @observer
@@ -23,7 +23,7 @@ export default class CheckoutItem extends React.Component<Props> {
 
   @computed
   get quantityValue(): string {
-    const { item: { quantity } } = this.props;
+    const { entry: { quantity } } = this.props;
 
     if (quantity === 0) {
       return this.quantityHasFocus ? '' : '0';
@@ -41,27 +41,27 @@ export default class CheckoutItem extends React.Component<Props> {
   });
 
   handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
-    const { cart, item } = this.props;
+    const { cart, entry } = this.props;
 
     const value = ev.target.value;
 
     if (value === '') {
-      cart.setQuantity(item.id, 0);
+      cart.setQuantity(entry.id, 0);
     } else {
       const quantity = parseInt(value, 10);
       if (!isNaN(quantity)) {
-        cart.setQuantity(item.id, quantity);
+        cart.setQuantity(entry.id, quantity);
       }
     }
   };
 
   handleRemove = () => {
-    const { cart, item } = this.props;
-    cart.remove(item.id);
+    const { cart, entry } = this.props;
+    cart.remove(entry.id);
   };
 
   render() {
-    const { item: { cert } } = this.props;
+    const { entry: { cert } } = this.props;
 
     if (!cert) {
       return null;

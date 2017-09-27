@@ -3,29 +3,29 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { CartItem } from '../../store/Cart';
+import { CartEntry } from '../../store/Cart';
 
-import CheckoutItem from './CheckoutItem';
+import CartItem from './CartItem';
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
 describe('quantity field', () => {
-  let item: CartItem;
+  let entry: CartEntry;
   let cart;
   let wrapper;
   let quantityField;
 
   beforeEach(() => {
-    item = new CartItem();
-    item.id = TYPICAL_CERTIFICATE.id;
-    item.cert = TYPICAL_CERTIFICATE;
-    item.quantity = 4;
+    entry = new CartEntry();
+    entry.id = TYPICAL_CERTIFICATE.id;
+    entry.cert = TYPICAL_CERTIFICATE;
+    entry.quantity = 4;
 
     cart = {
       setQuantity: jest.fn(),
       remove: jest.fn(),
     };
 
-    wrapper = shallow(<CheckoutItem cart={(cart: any)} item={item} />);
+    wrapper = shallow(<CartItem cart={(cart: any)} entry={entry} />);
     quantityField = wrapper.find('input');
   });
 

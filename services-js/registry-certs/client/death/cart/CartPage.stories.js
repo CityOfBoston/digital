@@ -4,17 +4,17 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
-import Cart from '../store/Cart';
+import Cart from '../../store/Cart';
 
-import appLayoutDecorator from '../../storybook/app-layout-decorator';
+import appLayoutDecorator from '../../../storybook/app-layout-decorator';
 
-import { CheckoutPageContent } from './CheckoutPage';
+import { CartPageContent } from './CartPage';
 
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
-} from '../../fixtures/client/death-certificates';
+} from '../../../fixtures/client/death-certificates';
 
 function makeCart(loading: boolean) {
   const cart = new Cart();
@@ -22,7 +22,7 @@ function makeCart(loading: boolean) {
   if (loading) {
     runInAction(() => {
       cart.pendingFetches = 2;
-      cart.items = ([
+      cart.entries = ([
         {
           id: TYPICAL_CERTIFICATE.id,
           cert: null,
@@ -44,7 +44,8 @@ function makeCart(loading: boolean) {
   return cart;
 }
 
-storiesOf('CheckoutPage', module)
+storiesOf('CartPage', module)
   .addDecorator(appLayoutDecorator('lookup'))
-  .add('loading', () => <CheckoutPageContent cart={makeCart(true)} />)
-  .add('normal page', () => <CheckoutPageContent cart={makeCart(false)} />);
+  .add('loading', () => <CartPageContent cart={makeCart(true)} />)
+  .add('normal page', () => <CartPageContent cart={makeCart(false)} />)
+  .add('empty cart', () => <CartPageContent cart={new Cart()} />);

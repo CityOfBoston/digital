@@ -23,7 +23,7 @@ function makeCart(loading: boolean) {
   if (loading) {
     runInAction(() => {
       cart.pendingFetches = 2;
-      cart.items = ([
+      cart.entries = ([
         {
           id: TYPICAL_CERTIFICATE.id,
           cert: null,

@@ -9,7 +9,7 @@ exports[`integration renders 1`] = `
     }
   }
 >
-  <CheckoutPageContent
+  <CartPageContent
     cart={Cart {}}
   />
 </AppLayout>

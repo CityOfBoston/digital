@@ -10,27 +10,27 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
-import CheckoutItem from './CheckoutItem';
+import CartItem from './CartItem';
 
 function makeProps(certificate) {
   const cart = new Cart();
 
   cart.add(certificate, 1);
-  const item = cart.items[0];
+  const entry = cart.entries[0];
 
   return {
     cart,
-    item,
+    entry,
   };
 }
 
-storiesOf('CheckoutItem', module)
+storiesOf('CartItem', module)
   .add('typical certificate', () => (
-    <CheckoutItem {...makeProps(TYPICAL_CERTIFICATE)} />
+    <CartItem {...makeProps(TYPICAL_CERTIFICATE)} />
   ))
   .add('pending certificate', () => (
-    <CheckoutItem {...makeProps(PENDING_CERTIFICATE)} />
+    <CartItem {...makeProps(PENDING_CERTIFICATE)} />
   ))
   .add('certificate without death date', () => (
-    <CheckoutItem {...makeProps(NO_DATE_CERTIFICATE)} />
+    <CartItem {...makeProps(NO_DATE_CERTIFICATE)} />
   ));

@@ -13,34 +13,27 @@ export type Props = {|
 |};
 
 export default observer(function Nav({ cart, link }: Props) {
-  let linkTitle;
-  let linkPath;
-
-  switch (link) {
-    case 'checkout':
-      linkTitle = 'Checkout';
-      linkPath = '/death/checkout';
-      break;
-    case 'lookup':
-      linkTitle = 'Back to Lookup';
-      linkPath = '/death';
-      break;
-    default:
-      linkTitle = null;
-      linkPath = '';
-      break;
-  }
-
   return (
     <nav className="nv-s nv-s--sticky">
-      <div className="nv-s-l bar">
-        <Link href={linkPath}>
-          <a className={'nv-s-l-b back-link'}>{linkTitle}</a>
-        </Link>
-        <Link href="/death/checkout">
-          <a className="cart-link">{cart.size}</a>
-        </Link>
-      </div>
+      {link === 'checkout' && (
+        <div className="nv-s-l bar">
+          <Link href="/death/cart">
+            <a className="nv-s-l-b back-link back-link-right">View Cart</a>
+          </Link>
+
+          <Link href="/death/cart">
+            <a className="cart-link">{cart.size}</a>
+          </Link>
+        </div>
+      )}
+
+      {link === 'lookup' && (
+        <div className="nv-s-l bar">
+          <Link href="/death/">
+            <a className="nv-s-l-b back-link">Back to Lookup</a>
+          </Link>
+        </div>
+      )}
 
       <style jsx>{`
         .bar {
@@ -49,6 +42,9 @@ export default observer(function Nav({ cart, link }: Props) {
         .back-link {
           display: block !important;
           flex: 1;
+        }
+        .back-link-right {
+          text-align: right;
         }
         .back-link:after {
           display: none !important;
@@ -61,6 +57,7 @@ export default observer(function Nav({ cart, link }: Props) {
           color: inherit;
           padding: 0.5em 0;
           margin-right: 1.25rem;
+          margin-left: 1.25rem;
           width: 3em;
           text-align: center;
           font-style: italic;
