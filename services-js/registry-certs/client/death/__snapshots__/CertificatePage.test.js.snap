@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getInitialProps handles a 404 1`] = `
+exports[`controller getInitialProps handles a 404 1`] = `
 Object {
   "certificate": null,
   "id": "000002",
 }
 `;
 
-exports[`getInitialProps loads the cert passed in query 1`] = `
+exports[`controller getInitialProps loads the cert passed in query 1`] = `
 Object {
   "certificate": Object {
     "age": "21 yrs.",
@@ -20,4 +20,31 @@ Object {
   },
   "id": "000002",
 }
+`;
+
+exports[`integration renders 1`] = `
+<AppLayout
+  navProps={
+    Object {
+      "cart": Cart {},
+      "link": "checkout",
+    }
+  }
+>
+  <CertificatePageContent
+    addToCart={[Function]}
+    certificate={
+      Object {
+        "age": "21 yrs.",
+        "deathDate": "3/4/2016",
+        "deathYear": "2016",
+        "firstName": "Bruce",
+        "id": "000002",
+        "lastName": "Banner",
+        "pending": false,
+      }
+    }
+    id="000002"
+  />
+</AppLayout>
 `;

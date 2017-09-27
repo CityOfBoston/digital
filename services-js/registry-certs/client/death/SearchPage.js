@@ -9,12 +9,10 @@ import {
   type ClientContext,
   type ClientDependencies,
 } from '../app';
-import type Cart from '../store/Cart';
 import type { DeathCertificateSearchResults } from '../types';
 
-import AppLayout from '../AppLayout';
+import { wrapAppLayout } from '../AppLayout';
 
-import Nav from '../common/Nav';
 import Pagination from '../common/Pagination';
 
 import SearchResult from './search/SearchResult';
@@ -26,7 +24,6 @@ type InitialProps = {|
 
 type ContentProps = {
   ...InitialProps,
-  cart: Cart,
   submitSearch: string => mixed,
 };
 
@@ -63,56 +60,50 @@ export class SearchPageContent extends React.Component<
   };
 
   render() {
-    const { results, cart } = this.props;
+    const { results } = this.props;
     const { query } = this.state;
 
     return (
-      <AppLayout>
-        {() => (
-          <div>
-            <Head>
-              <title>Boston.gov — Death Certificates</title>
-            </Head>
+      <div>
+        <Head>
+          <title>Boston.gov — Death Certificates</title>
+        </Head>
 
-            <Nav cart={cart} link="checkout" />
-
-            <div className="p-a300">
-              <div className="sh sh--b0">
-                <h1 className="sh-title">Death Certificates</h1>
-              </div>
-
-              <form
-                className="sf sf--md"
-                acceptCharset="UTF-8"
-                method="get"
-                action="/death"
-                onSubmit={this.handleSubmit}
-              >
-                <input name="utf8" type="hidden" value="✓" />
-
-                <div className="sf-i">
-                  <input
-                    type="text"
-                    name="q"
-                    id="q"
-                    value={query}
-                    onChange={this.handleQueryChange}
-                    placeholder="Search…"
-                    className="sf-i-f"
-                    autoComplete="off"
-                  />
-                  <button className="sf-i-b" type="submit">
-                    Search
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {results && this.renderResults(results)}
-            <div />
+        <div className="p-a300">
+          <div className="sh sh--b0">
+            <h1 className="sh-title">Death Certificates</h1>
           </div>
-        )}
-      </AppLayout>
+
+          <form
+            className="sf sf--md"
+            acceptCharset="UTF-8"
+            method="get"
+            action="/death"
+            onSubmit={this.handleSubmit}
+          >
+            <input name="utf8" type="hidden" value="✓" />
+
+            <div className="sf-i">
+              <input
+                type="text"
+                name="q"
+                id="q"
+                value={query}
+                onChange={this.handleQueryChange}
+                placeholder="Search…"
+                className="sf-i-f"
+                autoComplete="off"
+              />
+              <button className="sf-i-b" type="submit">
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {results && this.renderResults(results)}
+        <div />
+      </div>
     );
   }
 
@@ -162,7 +153,10 @@ export class SearchPageContent extends React.Component<
 
 export const wrapSearchPageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (props: ContentProps) => ?ReactElement<*>
+  renderContent: (
+    dependencies: ClientDependencies,
+    props: ContentProps
+  ) => ?ReactElement<*>
 ) =>
   class SearchPageController extends React.Component<InitialProps> {
     static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
@@ -192,14 +186,13 @@ export const wrapSearchPageController = (
 
     render() {
       const { submitSearch } = this;
-      const { cart } = this.dependencies;
       const { query, results } = this.props;
 
-      return renderContent({ submitSearch, cart, query, results });
+      return renderContent(this.dependencies, { submitSearch, query, results });
     }
   };
 
 export default wrapSearchPageController(
   getDependencies,
-  (props: ContentProps) => <SearchPageContent {...props} />
+  wrapAppLayout('checkout', (_, props) => <SearchPageContent {...props} />)
 );

@@ -4,6 +4,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
+import Cart from '../store/Cart';
+
+import appLayoutDecorator from '../../storybook/app-layout-decorator';
+
 import { CheckoutPageContent } from './CheckoutPage';
 
 import {
@@ -11,8 +15,6 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../fixtures/client/death-certificates';
-
-import Cart from '../store/Cart';
 
 function makeCart(loading: boolean) {
   const cart = new Cart();
@@ -43,5 +45,6 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('CheckoutPage', module)
+  .addDecorator(appLayoutDecorator('lookup'))
   .add('loading', () => <CheckoutPageContent cart={makeCart(true)} />)
   .add('normal page', () => <CheckoutPageContent cart={makeCart(false)} />);

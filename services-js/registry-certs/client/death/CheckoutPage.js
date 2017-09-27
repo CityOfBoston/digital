@@ -12,7 +12,6 @@ import type Cart from '../store/Cart';
 
 import AppLayout from '../AppLayout';
 
-import Nav from '../common/Nav';
 import CheckoutItem from './checkout/CheckoutItem';
 
 type Props = {
@@ -25,44 +24,38 @@ export class CheckoutPageContent extends React.Component<Props> {
     const { cart } = this.props;
 
     return (
-      <AppLayout>
-        {() => (
-          <div>
-            <Head>
-              <title>Boston.gov — Death Certificate Checkout</title>
-            </Head>
+      <div>
+        <Head>
+          <title>Boston.gov — Death Certificate Checkout</title>
+        </Head>
 
-            <Nav cart={cart} link="lookup" />
-
-            <div className="p-a300">
-              <div className="sh sh--b0 m-v300">
-                <h1 className="sh-title">Checkout</h1>
-              </div>
-            </div>
-
-            <div>
-              {cart.items.map(item => (
-                <CheckoutItem key={item.id} item={item} cart={cart} />
-              ))}
-
-              <div className="p-a300 g">
-                {this.renderCost()}
-
-                <Link href="/death/payment">
-                  <a className="btn g--3 m-v500">Pay and Finish</a>
-                </Link>
-
-                <style jsx>{`
-                  a.btn {
-                    align-self: center;
-                    text-align: center;
-                  }
-                `}</style>
-              </div>
-            </div>
+        <div className="p-a300">
+          <div className="sh sh--b0 m-v300">
+            <h1 className="sh-title">Checkout</h1>
           </div>
-        )}
-      </AppLayout>
+        </div>
+
+        <div>
+          {cart.items.map(item => (
+            <CheckoutItem key={item.id} item={item} cart={cart} />
+          ))}
+
+          <div className="p-a300 g">
+            {this.renderCost()}
+
+            <Link href="/death/payment">
+              <a className="btn g--3 m-v500">Pay and Finish</a>
+            </Link>
+
+            <style jsx>{`
+              a.btn {
+                align-self: center;
+                text-align: center;
+              }
+            `}</style>
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -85,5 +78,10 @@ export class CheckoutPageContent extends React.Component<Props> {
 
 export default function CheckoutPageContentController() {
   const { cart } = getDependencies();
-  return <CheckoutPageContent cart={cart} />;
+
+  return (
+    <AppLayout navProps={{ cart, link: 'lookup' }}>
+      <CheckoutPageContent cart={cart} />
+    </AppLayout>
+  );
 }

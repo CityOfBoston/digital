@@ -3,6 +3,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+
+import appLayoutDecorator from '../../storybook/app-layout-decorator';
+
 import { SearchPageContent } from './SearchPage';
 
 import {
@@ -11,19 +14,13 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../fixtures/client/death-certificates';
 
-import Cart from '../store/Cart';
-
-function makeCart() {
-  return new Cart();
-}
-
 storiesOf('SearchPage', module)
+  .addDecorator(appLayoutDecorator('checkout'))
   .add('no search', () => (
     <SearchPageContent
       submitSearch={action('submitSearch')}
       query={''}
       results={null}
-      cart={makeCart()}
     />
   ))
   .add('no results', () => (
@@ -37,7 +34,6 @@ storiesOf('SearchPage', module)
         resultCount: 0,
         results: [],
       }}
-      cart={makeCart()}
     />
   ))
   .add('with results', () => (
@@ -55,6 +51,5 @@ storiesOf('SearchPage', module)
           NO_DATE_CERTIFICATE,
         ],
       }}
-      cart={makeCart()}
     />
   ));

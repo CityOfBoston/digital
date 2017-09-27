@@ -1,16 +1,24 @@
 // @flow
+/* eslint react/display-name: 0 */
 
-import React, { type Element as ReactElement } from 'react';
+import React, {
+  type Element as ReactElement,
+  type ChildrenArray as ReactChildrenArray,
+} from 'react';
 
 import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
 import footerHtml from '../templates/footer.html';
 
+import type { ClientDependencies } from './app';
+import Nav, { type Props as NavProps, type LinkOptions } from './common/Nav';
+
 type Props = {|
-  children: () => ReactElement<*>,
+  children: ReactChildrenArray<ReactElement<*>>,
+  navProps: NavProps,
 |};
 
-export default function AppLayout({ children: render }: Props) {
+export default function AppLayout({ children, navProps }: Props) {
   // TODO(fin): remove wrapper <div> and return an array w/ React 16
   return (
     <div>
@@ -35,7 +43,9 @@ export default function AppLayout({ children: render }: Props) {
           dangerouslySetInnerHTML={{ __html: headerHtml }}
         />
 
-        {render()}
+        <Nav {...navProps} />
+
+        {children}
       </div>
 
       <footer
@@ -46,3 +56,12 @@ export default function AppLayout({ children: render }: Props) {
     </div>
   );
 }
+
+export const wrapAppLayout = <P>(
+  navLink: LinkOptions,
+  render: (ClientDependencies, P) => ReactElement<*>
+) => (dependencies: ClientDependencies, props: P) => (
+  <AppLayout navProps={{ cart: dependencies.cart, link: navLink }}>
+    {render(dependencies, props)}
+  </AppLayout>
+);

@@ -3,6 +3,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+
+import appLayoutDecorator from '../../storybook/app-layout-decorator';
+
 import { CertificatePageContent } from './CertificatePage';
 
 import {
@@ -10,18 +13,12 @@ import {
   PENDING_CERTIFICATE,
 } from '../../fixtures/client/death-certificates';
 
-import Cart from '../store/Cart';
-
-function makeCart() {
-  return new Cart();
-}
-
 storiesOf('CertificatePage', module)
+  .addDecorator(appLayoutDecorator('checkout'))
   .add('normal certificate', () => (
     <CertificatePageContent
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
-      cart={makeCart()}
       addToCart={action('addToCart')}
     />
   ))
@@ -29,7 +26,6 @@ storiesOf('CertificatePage', module)
     <CertificatePageContent
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
-      cart={makeCart()}
       addToCart={action('addToCart')}
     />
   ))
@@ -37,7 +33,6 @@ storiesOf('CertificatePage', module)
     <CertificatePageContent
       id="200001"
       certificate={null}
-      cart={makeCart()}
       addToCart={action('addToCart')}
     />
   ));

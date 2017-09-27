@@ -260,33 +260,33 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -599,33 +599,33 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -1082,33 +1082,33 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -1727,33 +1727,33 @@ exports[`Storyshots CheckoutPage loading 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death"
-            onClick={[Function]}
-          >
-            Back to Lookup
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            8
-          </a>
-        </div>
-      </nav>
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -1770,7 +1770,7 @@ exports[`Storyshots CheckoutPage loading 1`] = `
       <div>
         <div
           className="p-a300 g"
-          data-jsx={1872797823}
+          data-jsx={2595578495}
         >
           <div
             className="m-v500 g--9"
@@ -1801,7 +1801,7 @@ exports[`Storyshots CheckoutPage loading 1`] = `
           </div>
           <a
             className="btn g--3 m-v500"
-            data-jsx={1872797823}
+            data-jsx={2595578495}
             href="/death/payment"
             onClick={[Function]}
           >
@@ -2100,33 +2100,33 @@ exports[`Storyshots CheckoutPage normal page 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death"
-            onClick={[Function]}
-          >
-            Back to Lookup
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            5
-          </a>
-        </div>
-      </nav>
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -2296,7 +2296,7 @@ exports[`Storyshots CheckoutPage normal page 1`] = `
         </div>
         <div
           className="p-a300 g"
-          data-jsx={1872797823}
+          data-jsx={2595578495}
         >
           <div
             className="m-v500 g--9"
@@ -2327,7 +2327,7 @@ exports[`Storyshots CheckoutPage normal page 1`] = `
           </div>
           <a
             className="btn g--3 m-v500"
-            data-jsx={1872797823}
+            data-jsx={2595578495}
             href="/death/payment"
             onClick={[Function]}
           >
@@ -2892,74 +2892,73 @@ exports[`Storyshots PaymentPage loading 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death"
-            onClick={[Function]}
-          >
-            Back to Lookup
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            8
-          </a>
-        </div>
-      </nav>
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
-        data-jsx={3432917710}
+        data-jsx={3804370638}
       >
         <div
           className="sh sh--b0 m-v300"
-          data-jsx={3432917710}
+          data-jsx={3804370638}
         >
           <h1
             className="sh-title"
-            data-jsx={3432917710}
+            data-jsx={3804370638}
           >
             Pay and Finish
           </h1>
         </div>
         <button
           className="sel-c sel-c--fw"
-          data-jsx={3432917710}
+          data-jsx={3804370638}
           type="button"
         >
           <div
             className="sel-f"
-            data-jsx={3432917710}
+            data-jsx={3804370638}
           >
             <div
               className="t--sans tt-u lnk"
-              data-jsx={3432917710}
+              data-jsx={3804370638}
             >
               Order Details
             </div>
             <div
               className="t--info"
-              data-jsx={3432917710}
+              data-jsx={3804370638}
             >
               8
                
               certificates
                × $
               14
-               
-              + fee = $
+               + fee = $
               115.09
             </div>
           </div>
@@ -2969,37 +2968,37 @@ exports[`Storyshots PaymentPage loading 1`] = `
         acceptCharset="UTF-8"
         action="/death/payment"
         className="m-v300"
-        data-jsx={2009203667}
+        data-jsx={3785310163}
         method="post"
         onSubmit={[Function]}
       >
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Contact
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="contact-email"
               >
                 Email Address
               </label>
               <input
                 className="txt-f txt-f--100"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="contact-email"
                 name="email"
                 placeholder="Email address"
@@ -3008,18 +3007,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="contact-phone"
               >
                 Phone Number
               </label>
               <input
                 className="txt-f txt-f--100"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="contact-phone"
                 name="phone"
                 placeholder="Phone number"
@@ -3030,31 +3029,31 @@ exports[`Storyshots PaymentPage loading 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Credit Card Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-name"
               >
                 Name on Card
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-name"
                 name="card-name"
                 placeholder="Name on card"
@@ -3063,18 +3062,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-number"
               >
                 Credit Card Number
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-number"
                 name="card-number"
                 placeholder="Credit Card Number"
@@ -3083,18 +3082,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-date"
               >
                 Expiration Date
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-date"
                 name="card-date"
                 placeholder="mm/yy"
@@ -3104,31 +3103,31 @@ exports[`Storyshots PaymentPage loading 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Billing Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-address-1"
               >
                 Address Line 1
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-address-1"
                 name="billing-address-1"
                 placeholder="Address Line 1"
@@ -3137,18 +3136,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-address-2"
               >
                 Address Line 2
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-address-2"
                 name="billing-address-2"
                 placeholder="Address Line 2"
@@ -3157,18 +3156,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-city"
               >
                 City
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-city"
                 name="billing-city"
                 placeholder="City"
@@ -3177,18 +3176,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-state"
               >
                 State
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-state"
                 name="billing-state"
                 placeholder="State"
@@ -3196,18 +3195,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-zip"
               >
                 ZIP Code
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-zip"
                 name="billing-zip"
                 placeholder="ZIP code"
@@ -3217,31 +3216,31 @@ exports[`Storyshots PaymentPage loading 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Shipping Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-address-1"
               >
                 Address Line 1
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-address-1"
                 name="shipping-address-1"
                 placeholder="Address Line 1"
@@ -3250,18 +3249,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-address-2"
               >
                 Address Line 2
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-address-2"
                 name="shipping-address-2"
                 placeholder="Address Line 2"
@@ -3270,18 +3269,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-city"
               >
                 City
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-city"
                 name="shipping-city"
                 placeholder="City"
@@ -3290,18 +3289,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-state"
               >
                 State
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-state"
                 name="shipping-state"
                 placeholder="State"
@@ -3309,18 +3308,18 @@ exports[`Storyshots PaymentPage loading 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-zip"
               >
                 ZIP Code
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-zip"
                 name="shipping-zip"
                 placeholder="ZIP code"
@@ -3330,11 +3329,11 @@ exports[`Storyshots PaymentPage loading 1`] = `
         </div>
         <div
           className="g p-a500 b--w"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <button
             className="g--3 btn m-v500"
-            data-jsx={2009203667}
+            data-jsx={3785310163}
             type="submit"
           >
             Submit
@@ -3632,74 +3631,73 @@ exports[`Storyshots PaymentPage normal page 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death"
-            onClick={[Function]}
-          >
-            Back to Lookup
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            5
-          </a>
-        </div>
-      </nav>
+          Back to Lookup
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
-        data-jsx={3432917710}
+        data-jsx={3804370638}
       >
         <div
           className="sh sh--b0 m-v300"
-          data-jsx={3432917710}
+          data-jsx={3804370638}
         >
           <h1
             className="sh-title"
-            data-jsx={3432917710}
+            data-jsx={3804370638}
           >
             Pay and Finish
           </h1>
         </div>
         <button
           className="sel-c sel-c--fw"
-          data-jsx={3432917710}
+          data-jsx={3804370638}
           type="button"
         >
           <div
             className="sel-f"
-            data-jsx={3432917710}
+            data-jsx={3804370638}
           >
             <div
               className="t--sans tt-u lnk"
-              data-jsx={3432917710}
+              data-jsx={3804370638}
             >
               Order Details
             </div>
             <div
               className="t--info"
-              data-jsx={3432917710}
+              data-jsx={3804370638}
             >
               5
                
               certificates
                × $
               14
-               
-              + fee = $
+               + fee = $
               71.93
             </div>
           </div>
@@ -3709,37 +3707,37 @@ exports[`Storyshots PaymentPage normal page 1`] = `
         acceptCharset="UTF-8"
         action="/death/payment"
         className="m-v300"
-        data-jsx={2009203667}
+        data-jsx={3785310163}
         method="post"
         onSubmit={[Function]}
       >
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Contact
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="contact-email"
               >
                 Email Address
               </label>
               <input
                 className="txt-f txt-f--100"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="contact-email"
                 name="email"
                 placeholder="Email address"
@@ -3748,18 +3746,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="contact-phone"
               >
                 Phone Number
               </label>
               <input
                 className="txt-f txt-f--100"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="contact-phone"
                 name="phone"
                 placeholder="Phone number"
@@ -3770,31 +3768,31 @@ exports[`Storyshots PaymentPage normal page 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Credit Card Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-name"
               >
                 Name on Card
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-name"
                 name="card-name"
                 placeholder="Name on card"
@@ -3803,18 +3801,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-number"
               >
                 Credit Card Number
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-number"
                 name="card-number"
                 placeholder="Credit Card Number"
@@ -3823,18 +3821,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="card-date"
               >
                 Expiration Date
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="card-date"
                 name="card-date"
                 placeholder="mm/yy"
@@ -3844,31 +3842,31 @@ exports[`Storyshots PaymentPage normal page 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Billing Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-address-1"
               >
                 Address Line 1
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-address-1"
                 name="billing-address-1"
                 placeholder="Address Line 1"
@@ -3877,18 +3875,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-address-2"
               >
                 Address Line 2
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-address-2"
                 name="billing-address-2"
                 placeholder="Address Line 2"
@@ -3897,18 +3895,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-city"
               >
                 City
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-city"
                 name="billing-city"
                 placeholder="City"
@@ -3917,18 +3915,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-state"
               >
                 State
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-state"
                 name="billing-state"
                 placeholder="State"
@@ -3936,18 +3934,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="billing-zip"
               >
                 ZIP Code
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="billing-zip"
                 name="billing-zip"
                 placeholder="ZIP code"
@@ -3957,31 +3955,31 @@ exports[`Storyshots PaymentPage normal page 1`] = `
         </div>
         <div
           className="b--w p-a500 field-container"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <fieldset
-            data-jsx={2009203667}
+            data-jsx={3785310163}
           >
             <legend
               className="stp m-b300"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               Shipping Information
             </legend>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-address-1"
               >
                 Address Line 1
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-address-1"
                 name="shipping-address-1"
                 placeholder="Address Line 1"
@@ -3990,18 +3988,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l txt-l--mt000"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-address-2"
               >
                 Address Line 2
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-address-2"
                 name="shipping-address-2"
                 placeholder="Address Line 2"
@@ -4010,18 +4008,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-city"
               >
                 City
               </label>
               <input
                 className="txt-f"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-city"
                 name="shipping-city"
                 placeholder="City"
@@ -4030,18 +4028,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-state"
               >
                 State
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-state"
                 name="shipping-state"
                 placeholder="State"
@@ -4049,18 +4047,18 @@ exports[`Storyshots PaymentPage normal page 1`] = `
             </div>
             <div
               className="txt"
-              data-jsx={2009203667}
+              data-jsx={3785310163}
             >
               <label
                 className="txt-l"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 htmlFor="shipping-zip"
               >
                 ZIP Code
               </label>
               <input
                 className="txt-f txt-f--50"
-                data-jsx={2009203667}
+                data-jsx={3785310163}
                 id="shipping-zip"
                 name="shipping-zip"
                 placeholder="ZIP code"
@@ -4070,11 +4068,11 @@ exports[`Storyshots PaymentPage normal page 1`] = `
         </div>
         <div
           className="g p-a500 b--w"
-          data-jsx={2009203667}
+          data-jsx={3785310163}
         >
           <button
             className="g--3 btn m-v500"
-            data-jsx={2009203667}
+            data-jsx={3785310163}
             type="submit"
           >
             Submit
@@ -4372,33 +4370,33 @@ exports[`Storyshots SearchPage no results 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -4779,33 +4777,33 @@ exports[`Storyshots SearchPage no search 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
@@ -5144,33 +5142,33 @@ exports[`Storyshots SearchPage with results 1`] = `
       }
       role="banner"
     />
-    <div>
-      <nav
-        className="nv-s nv-s--sticky"
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={2041744242}
+    >
+      <div
+        className="nv-s-l bar"
         data-jsx={2041744242}
       >
-        <div
-          className="nv-s-l bar"
+        <a
+          className="nv-s-l-b back-link"
           data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
         >
-          <a
-            className="nv-s-l-b back-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            Checkout
-          </a>
-          <a
-            className="cart-link"
-            data-jsx={2041744242}
-            href="/death/checkout"
-            onClick={[Function]}
-          >
-            0
-          </a>
-        </div>
-      </nav>
+          Checkout
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={2041744242}
+          href="/death/checkout"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >

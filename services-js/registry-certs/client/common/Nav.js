@@ -6,9 +6,10 @@ import { observer } from 'mobx-react';
 
 import type Cart from '../store/Cart';
 
-type Props = {|
+export type LinkOptions = 'lookup' | 'checkout';
+export type Props = {|
   cart: Cart,
-  link: 'lookup' | 'checkout',
+  link: LinkOptions,
 |};
 
 export default observer(function Nav({ cart, link }: Props) {

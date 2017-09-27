@@ -3,16 +3,15 @@
 import React, { type Element as ReactElement } from 'react';
 import Head from 'next/head';
 
-import type Cart from '../store/Cart';
 import type { DeathCertificate } from '../types';
+
 import {
   getDependencies,
   type ClientContext,
   type ClientDependencies,
 } from '../app';
 
-import AppLayout from '../AppLayout';
-import Nav from '../common/Nav';
+import { wrapAppLayout } from '../AppLayout';
 
 type InitialProps = {|
   id: string,
@@ -21,7 +20,6 @@ type InitialProps = {|
 
 type ContentProps = {
   ...InitialProps,
-  cart: Cart,
   addToCart: number => mixed,
 };
 
@@ -53,32 +51,26 @@ export class CertificatePageContent extends React.Component<
   };
 
   render() {
-    const { id, certificate, cart } = this.props;
+    const { id, certificate } = this.props;
 
     return (
-      <AppLayout>
-        {() => (
-          <div>
-            <Head>
-              <title>Boston.gov — Death Certificate #{id}</title>
-            </Head>
+      <div>
+        <Head>
+          <title>Boston.gov — Death Certificate #{id}</title>
+        </Head>
 
-            <Nav cart={cart} link="checkout" />
-
-            <div className="p-a300">
-              <div className="sh sh--b0">
-                <h1 className="sh-title" style={{ marginBottom: 0 }}>
-                  Deceased Details
-                </h1>
-              </div>
-            </div>
-
-            <div className="p-a300 b--w">
-              {certificate && this.renderCertificate(certificate)}
-            </div>
+        <div className="p-a300">
+          <div className="sh sh--b0">
+            <h1 className="sh-title" style={{ marginBottom: 0 }}>
+              Deceased Details
+            </h1>
           </div>
-        )}
-      </AppLayout>
+        </div>
+
+        <div className="p-a300 b--w">
+          {certificate && this.renderCertificate(certificate)}
+        </div>
+      </div>
     );
   }
 
@@ -157,7 +149,7 @@ export class CertificatePageContent extends React.Component<
 
 export const wrapCertificatePageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (props: ContentProps) => ?ReactElement<*>
+  renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
 ) =>
   class CertificatePageController extends React.Component<InitialProps> {
     static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
@@ -185,14 +177,13 @@ export const wrapCertificatePageController = (
 
     render() {
       const { addToCart } = this;
-      const { cart } = this.dependencies;
       const { id, certificate } = this.props;
 
-      return renderContent({ cart, id, certificate, addToCart });
+      return renderContent(this.dependencies, { id, certificate, addToCart });
     }
   };
 
 export default wrapCertificatePageController(
   getDependencies,
-  (props: ContentProps) => <CertificatePageContent {...props} />
+  wrapAppLayout('checkout', (_, props) => <CertificatePageContent {...props} />)
 );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getInitialProps searches when given a query 1`] = `
+exports[`controller getInitialProps searches when given a query 1`] = `
 Object {
   "query": "Monkey Joe",
   "results": Object {
@@ -41,7 +41,7 @@ Object {
 }
 `;
 
-exports[`getInitialProps works with no query 1`] = `
+exports[`controller getInitialProps works with no query 1`] = `
 Object {
   "query": "",
   "results": null,

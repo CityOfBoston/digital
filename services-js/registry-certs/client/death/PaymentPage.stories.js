@@ -5,6 +5,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { runInAction } from 'mobx';
 
+import Cart from '../store/Cart';
+
+import appLayoutDecorator from '../../storybook/app-layout-decorator';
+
 import { PaymentPageContent } from './PaymentPage';
 
 import {
@@ -12,8 +16,6 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../fixtures/client/death-certificates';
-
-import Cart from '../store/Cart';
 
 function makeCart(loading: boolean) {
   const cart = new Cart();
@@ -44,6 +46,7 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('PaymentPage', module)
+  .addDecorator(appLayoutDecorator('lookup'))
   .add('loading', () => (
     <PaymentPageContent cart={makeCart(true)} submit={action('submit')} />
   ))
