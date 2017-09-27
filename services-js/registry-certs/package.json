@@ -84,7 +84,7 @@
     "apollo-codegen": "^0.16.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
     "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
