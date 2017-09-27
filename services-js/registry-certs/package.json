@@ -29,6 +29,9 @@
     "*.js": "eslint --quiet"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/lib/test/setup.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
@@ -95,7 +98,8 @@
     "cheerio": "^0.22.0",
     "codecov": "^2.2.0",
     "del": "^3.0.0",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-15": "^1.0.0",
     "eslint": "^4.7.2",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-flowtype": "^2.36.0",
