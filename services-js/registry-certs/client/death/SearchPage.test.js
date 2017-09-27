@@ -63,23 +63,21 @@ describe('getInitialProps', () => {
   });
 });
 
-describe('contentProps', () => {
-  let contentProps;
+describe('operations', () => {
+  let controller;
 
   beforeEach(() => {
     const SearchPageController = wrapSearchPageController(
       () => ({}: any),
-      p => {
-        contentProps = p;
-      }
+      () => null
     );
 
-    new SearchPageController(({}: any)).render();
+    controller = new SearchPageController(({}: any));
   });
 
   describe('submitSearch', () => {
     it('redirects to search for a query', () => {
-      contentProps.submitSearch('Monkey Joe');
+      controller.submitSearch('Monkey Joe');
       expect(Router.push).toHaveBeenCalledWith('/death?q=Monkey%20Joe');
     });
   });

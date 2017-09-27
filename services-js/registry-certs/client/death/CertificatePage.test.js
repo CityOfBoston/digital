@@ -45,10 +45,10 @@ describe('getInitialProps', () => {
   });
 });
 
-describe('contentProps', () => {
+describe('operations', () => {
   describe('addToCart', () => {
     let cart;
-    let contentProps;
+    let controller;
 
     beforeEach(() => {
       cart = new Cart();
@@ -56,19 +56,17 @@ describe('contentProps', () => {
       const dependencies: any = { cart };
       const CertificatePageController = wrapCertificatePageController(
         () => dependencies,
-        props => {
-          contentProps = props;
-        }
+        () => null
       );
 
-      new CertificatePageController({
+      controller = new CertificatePageController({
         id: '00002',
         certificate: TYPICAL_CERTIFICATE,
-      }).render();
+      });
     });
 
     it('redirects to search for a query', () => {
-      contentProps.addToCart(5);
+      controller.addToCart(5);
       expect(cart.size).toEqual(5);
     });
   });
