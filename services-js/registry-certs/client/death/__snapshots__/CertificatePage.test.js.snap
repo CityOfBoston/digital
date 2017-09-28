@@ -10,7 +10,7 @@ Object {
 exports[`controller getInitialProps loads the cert passed in query 1`] = `
 Object {
   "certificate": Object {
-    "age": "21 yrs.",
+    "age": "5/1/1962",
     "deathDate": "3/4/2016",
     "deathYear": "2016",
     "firstName": "Bruce",
@@ -35,7 +35,7 @@ exports[`integration renders 1`] = `
     addToCart={[Function]}
     certificate={
       Object {
-        "age": "21 yrs.",
+        "age": "5/1/1962",
         "deathDate": "3/4/2016",
         "deathYear": "2016",
         "firstName": "Bruce",

@@ -97,7 +97,7 @@ export class CertificatePageContent extends React.Component<
             <span className="dl-d">{deathDate || deathYear}</span>
           </li>
           <li className="dl-i">
-            <span className="dl-t">Age</span>
+            <span className="dl-t">Date of Birth / Age</span>
             <span className="dl-d">{age}</span>
           </li>
         </ul>

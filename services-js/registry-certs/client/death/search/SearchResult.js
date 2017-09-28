@@ -27,7 +27,7 @@ export default function SearchResult({
           {firstName} {lastName}
         </div>
         <div>
-          Died: {deathDate || deathYear} Age: {age}
+          Died: {deathDate || deathYear} ({age})
         </div>
         {pending && <div>Certificate Pending</div>}
         <style jsx>{`

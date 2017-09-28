@@ -9,7 +9,7 @@ export const TYPICAL_CERTIFICATE: DeathCertificate = {
   deathYear: '2016',
   deathDate: '3/4/2016',
   pending: false,
-  age: '21 yrs.',
+  age: '5/1/1962',
 };
 
 export const PENDING_CERTIFICATE: DeathCertificate = {

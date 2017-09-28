@@ -2123,13 +2123,13 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                 className="dl-t"
                 data-jsx={3255886522}
               >
-                Age
+                Date of Birth / Age
               </span>
               <span
                 className="dl-d"
                 data-jsx={3255886522}
               >
-                21 yrs.
+                5/1/1962
               </span>
             </li>
           </ul>
@@ -2606,7 +2606,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                 className="dl-t"
                 data-jsx={3255886522}
               >
-                Age
+                Date of Birth / Age
               </span>
               <span
                 className="dl-d"
@@ -5488,8 +5488,9 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             Died: 
             3/4/2016
-             Age: 
-            21 yrs.
+             (
+            5/1/1962
+            )
           </div>
         </a>
         <a
@@ -5518,8 +5519,9 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             Died: 
             4/15/2014
-             Age: 
+             (
             44 yrs. 2 mos. 10 dys
+            )
           </div>
           <div
             data-jsx={1058049035}
@@ -5553,8 +5555,9 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             Died: 
             2004
-             Age: 
+             (
             6
+            )
           </div>
         </a>
         <ul
@@ -5715,8 +5718,9 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
   >
     Died: 
     2004
-     Age: 
+     (
     6
+    )
   </div>
 </a>
 `;
@@ -5748,8 +5752,9 @@ exports[`Storyshots SearchResult pending certificate 1`] = `
   >
     Died: 
     4/15/2014
-     Age: 
+     (
     44 yrs. 2 mos. 10 dys
+    )
   </div>
   <div
     data-jsx={1058049035}
@@ -5786,8 +5791,9 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
   >
     Died: 
     3/4/2016
-     Age: 
-    21 yrs.
+     (
+    5/1/1962
+    )
   </div>
 </a>
 `;
