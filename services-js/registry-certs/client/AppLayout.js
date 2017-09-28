@@ -10,12 +10,11 @@ import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
 import footerHtml from '../templates/footer.html';
 
-import type { ClientDependencies } from './app';
-import Nav, { type Props as NavProps, type LinkOptions } from './common/Nav';
+import Nav, { type Props as NavProps } from './common/Nav';
 
 type Props = {|
   children: ReactChildrenArray<ReactElement<*>>,
-  navProps: NavProps,
+  navProps: ?NavProps,
 |};
 
 export default function AppLayout({ children, navProps }: Props) {
@@ -35,7 +34,10 @@ export default function AppLayout({ children, navProps }: Props) {
 
       <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-      <div className="mn mn--full mn--nv-s" style={{ zIndex: 2 }}>
+      <div
+        className={`mn mn--full ${navProps ? 'mn--nv-s' : ''}`}
+        style={{ zIndex: 2 }}
+      >
         <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
         <header
           className="h"
@@ -43,7 +45,7 @@ export default function AppLayout({ children, navProps }: Props) {
           dangerouslySetInnerHTML={{ __html: headerHtml }}
         />
 
-        <Nav {...navProps} />
+        {navProps && <Nav {...navProps} />}
 
         {children}
       </div>
@@ -56,12 +58,3 @@ export default function AppLayout({ children, navProps }: Props) {
     </div>
   );
 }
-
-export const wrapAppLayout = <P>(
-  navLink: LinkOptions,
-  render: (ClientDependencies, P) => ReactElement<*>
-) => (dependencies: ClientDependencies, props: P) => (
-  <AppLayout navProps={{ cart: dependencies.cart, link: navLink }}>
-    {render(dependencies, props)}
-  </AppLayout>
-);

@@ -11,7 +11,7 @@ import {
 } from '../app';
 import type { DeathCertificateSearchResults } from '../types';
 
-import { wrapAppLayout } from '../AppLayout';
+import AppLayout from '../AppLayout';
 
 import Pagination from '../common/Pagination';
 
@@ -153,10 +153,7 @@ export class SearchPageContent extends React.Component<
 
 export const wrapSearchPageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (
-    dependencies: ClientDependencies,
-    props: ContentProps
-  ) => ?ReactElement<*>
+  renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
 ) =>
   class SearchPageController extends React.Component<InitialProps> {
     static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
@@ -192,7 +189,8 @@ export const wrapSearchPageController = (
     }
   };
 
-export default wrapSearchPageController(
-  getDependencies,
-  wrapAppLayout('checkout', (_, props) => <SearchPageContent {...props} />)
-);
+export default wrapSearchPageController(getDependencies, ({ cart }, props) => (
+  <AppLayout navProps={{ cart, link: 'checkout' }}>
+    <SearchPageContent {...props} />
+  </AppLayout>
+));

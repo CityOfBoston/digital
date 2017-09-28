@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration renders payment 1`] = `
+<AppLayout
+  navProps={null}
+>
+  <PaymentPageContent
+    cart={Cart {}}
+    order={
+      Order {
+        "info": Object {
+          "billingAddress1": "",
+          "billingAddress2": "",
+          "billingCity": "",
+          "billingState": "",
+          "billingZip": "",
+          "contactEmail": "",
+          "contactName": "",
+          "contactPhone": "",
+          "shippingAddress1": "",
+          "shippingAddress2": "",
+          "shippingCity": "",
+          "shippingName": "",
+          "shippingState": "",
+          "shippingZip": "",
+        },
+        "updateStorageDisposer": null,
+      }
+    }
+    submit={[Function]}
+  />
+</AppLayout>
+`;
+
+exports[`integration renders shipping 1`] = `
+<AppLayout
+  navProps={null}
+>
+  <ShippingPageContent
+    cart={Cart {}}
+    order={
+      Order {
+        "info": Object {
+          "billingAddress1": "",
+          "billingAddress2": "",
+          "billingCity": "",
+          "billingState": "",
+          "billingZip": "",
+          "contactEmail": "",
+          "contactName": "",
+          "contactPhone": "",
+          "shippingAddress1": "",
+          "shippingAddress2": "",
+          "shippingCity": "",
+          "shippingName": "",
+          "shippingState": "",
+          "shippingZip": "",
+        },
+        "updateStorageDisposer": null,
+      }
+    }
+    submit={[Function]}
+  />
+</AppLayout>
+`;

@@ -8,7 +8,7 @@ import type DeathCertificatesDao from '../dao/DeathCertificatesDao';
 export const CERTIFICATE_COST = 14;
 export const PROCESSING_FEE = 0.0275;
 
-type LocalStorageItem = {|
+type LocalStorageEntry = {|
   id: string,
   quantity: number,
 |};
@@ -28,14 +28,14 @@ export default class Cart {
   attach(localStorage: Storage, deathCertificatesDao: DeathCertificatesDao) {
     if (localStorage) {
       try {
-        const savedCart: Array<LocalStorageItem> = JSON.parse(
+        const savedCart: Array<LocalStorageEntry> = JSON.parse(
           localStorage.getItem('cart') || '[]'
         );
 
         this.entries = savedCart.map(
           action(
             'hydrate entry from local storage start',
-            ({ id, quantity }: LocalStorageItem) => {
+            ({ id, quantity }: LocalStorageEntry) => {
               const entry = new CartEntry();
               entry.id = id;
               entry.cert = null;
@@ -65,7 +65,7 @@ export default class Cart {
         localStorage.setItem(
           'cart',
           JSON.stringify(
-            this.entries.map(({ id, quantity }): LocalStorageItem => ({
+            this.entries.map(({ id, quantity }): LocalStorageEntry => ({
               id,
               quantity,
             }))

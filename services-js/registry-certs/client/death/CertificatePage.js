@@ -11,7 +11,7 @@ import {
   type ClientDependencies,
 } from '../app';
 
-import { wrapAppLayout } from '../AppLayout';
+import AppLayout from '../AppLayout';
 
 type InitialProps = {|
   id: string,
@@ -185,5 +185,9 @@ export const wrapCertificatePageController = (
 
 export default wrapCertificatePageController(
   getDependencies,
-  wrapAppLayout('checkout', (_, props) => <CertificatePageContent {...props} />)
+  ({ cart }, props) => (
+    <AppLayout navProps={{ cart, link: 'checkout' }}>
+      <CertificatePageContent {...props} />
+    </AppLayout>
+  )
 );

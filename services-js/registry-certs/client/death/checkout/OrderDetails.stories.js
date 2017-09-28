@@ -2,20 +2,17 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { runInAction } from 'mobx';
 
-import Cart from '../store/Cart';
+import Cart from '../../store/Cart';
 
-import appLayoutDecorator from '../../storybook/app-layout-decorator';
-
-import { PaymentPageContent } from './PaymentPage';
+import OrderDetails from './OrderDetails';
 
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
-} from '../../fixtures/client/death-certificates';
+} from '../../../fixtures/client/death-certificates';
 
 function makeCart(loading: boolean) {
   const cart = new Cart();
@@ -45,11 +42,7 @@ function makeCart(loading: boolean) {
   return cart;
 }
 
-storiesOf('PaymentPage', module)
-  .addDecorator(appLayoutDecorator('lookup'))
-  .add('loading', () => (
-    <PaymentPageContent cart={makeCart(true)} submit={action('submit')} />
-  ))
-  .add('normal page', () => (
-    <PaymentPageContent cart={makeCart(false)} submit={action('submit')} />
-  ));
+storiesOf('OrderDetails', module)
+  .add('loading', () => <OrderDetails cart={makeCart(true)} />)
+  .add('closed', () => <OrderDetails cart={makeCart(false)} />)
+  .add('open', () => <OrderDetails cart={makeCart(false)} open />);

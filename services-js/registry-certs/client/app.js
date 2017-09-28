@@ -14,6 +14,7 @@ import makeLoopbackGraphql, {
 import type { RequestAdditions } from '../server/lib/request-additions';
 
 import Cart from './store/Cart';
+import Order from './store/Order';
 
 import DeathCertificatesDao from './dao/DeathCertificatesDao';
 
@@ -22,6 +23,7 @@ export type ClientContext = NextContext<RequestAdditions>;
 export type ClientDependencies = {
   loopbackGraphql: LoopbackGraphql,
   cart: Cart,
+  order: Order,
   deathCertificatesDao: DeathCertificatesDao,
 };
 
@@ -59,13 +61,16 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
   const loopbackGraphql = makeLoopbackGraphql(req);
   const deathCertificatesDao = new DeathCertificatesDao(loopbackGraphql);
   const cart = new Cart();
+  const order = new Order();
 
   if (process.browser) {
     cart.attach(window.localStorage, deathCertificatesDao);
+    order.attach(window.sessionStorage);
   }
 
   const dependencies: ClientDependencies = {
     cart,
+    order,
     deathCertificatesDao,
     loopbackGraphql,
   };

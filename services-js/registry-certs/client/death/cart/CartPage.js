@@ -70,7 +70,7 @@ export class CartPageContent extends React.Component<Props> {
               {this.renderCost()}
 
               <div className="g--3 m-v500">
-                <Link href="/death/payment">
+                <Link href="/death/checkout">
                   <a className="btn">Continue to Checkout</a>
                 </Link>
               </div>
