@@ -10,5 +10,8 @@ const opbeat = require('opbeat/start');
 const start = require('./server.js').default;
 
 start({ opbeat }).catch(err => {
-  console.error('Error starting server', err);
+  console.error('Error starting server');
+  opbeat.captureError(err, () => {
+    process.exit(1);
+  });
 });

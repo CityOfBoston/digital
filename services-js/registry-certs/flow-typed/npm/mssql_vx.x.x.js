@@ -29,6 +29,7 @@ declare module 'mssql' {
       max?: number,
       min?: number,
       idleTimeoutMillis?: number,
+      acquireTimeoutMillis?: number,
     |},
     options?: {|
       encrypt?: boolean,
@@ -43,6 +44,9 @@ declare module 'mssql' {
     close(callback: BasicCallback): this;
 
     request(): Request;
+
+    on(event: string, cb: Function): void;
+    once(event: string, cb: Function): void;
   }
 
   declare export class Request {

@@ -21,7 +21,10 @@ const FIXTURE_SEARCHES = ['smith'];
     database: process.env.REGISTRY_DB_DATABASE,
   };
 
-  const registryFactory = await makeRegistryFactory(registryFactoryOpts);
+  const registryFactory = await makeRegistryFactory(
+    (null: any),
+    registryFactoryOpts
+  );
   const registry = registryFactory.registry();
 
   await Promise.all(

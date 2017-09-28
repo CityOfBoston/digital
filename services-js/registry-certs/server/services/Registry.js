@@ -6,6 +6,8 @@ import type { ConnectionPoolConfig } from 'mssql';
 import fs from 'fs';
 import DataLoader from 'dataloader';
 
+type Opbeat = $Exports<'opbeat'>;
+
 type DbResponse<R> = {|
   recordsets: Array<Array<R>>,
   recordset: Array<R>,
@@ -63,10 +65,12 @@ export function splitKeys(
 }
 
 export default class Registry {
+  opbeat: ?Opbeat;
   pool: ConnectionPool;
   lookupLoader: DataLoader<string, ?DeathCertificate>;
 
-  constructor(pool: ConnectionPool) {
+  constructor(pool: ConnectionPool, opbeat?: Opbeat) {
+    this.opbeat = opbeat;
     this.pool = pool;
     this.lookupLoader = new DataLoader(keys => this.lookupLoaderFetch(keys));
   }
@@ -78,23 +82,33 @@ export default class Registry {
     startYear: ?string,
     endYear: ?string
   ): Promise<Array<DeathCertificateSearchResult>> {
-    const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
-      .request()
-      .input('searchFor', name)
-      .input('pageNumber', page)
-      .input('pageSize', pageSize)
-      .input('sortBy', 'dateOfDeath')
-      .input('startYear', startYear)
-      .input('endYear', endYear)
-      .execute('Registry.Death.sp_FindCertificatesWeb'): any);
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('FindCertificatesWeb', 'Registry');
 
-    const { recordset } = resp;
+    try {
+      const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
+        .request()
+        .input('searchFor', name)
+        .input('pageNumber', page)
+        .input('pageSize', pageSize)
+        .input('sortBy', 'dateOfDeath')
+        .input('startYear', startYear)
+        .input('endYear', endYear)
+        .execute('Registry.Death.sp_FindCertificatesWeb'): any);
 
-    if (!recordset) {
-      throw new Error('Recordset for search came back empty');
+      const { recordset } = resp;
+
+      if (!recordset) {
+        throw new Error('Recordset for search came back empty');
+      }
+
+      return recordset;
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
     }
-
-    return recordset;
   }
 
   async lookup(id: string): Promise<?DeathCertificate> {
@@ -111,6 +125,9 @@ export default class Registry {
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
+        const transaction =
+          this.opbeat &&
+          this.opbeat.startTransaction('GetCertificatesWeb', 'Registry');
         try {
           const resp: DbResponse<DeathCertificate> = (await this.pool
             .request()
@@ -121,6 +138,10 @@ export default class Registry {
         } catch (err) {
           keyString.split(',').forEach(id => (idToOutputMap[id] = err));
           return [];
+        } finally {
+          if (transaction) {
+            transaction.end();
+          }
         }
       })
     );
@@ -137,13 +158,15 @@ export default class Registry {
 
 export class RegistryFactory {
   pool: ConnectionPool;
+  opbeat: Opbeat;
 
-  constructor(pool: ConnectionPool) {
+  constructor(pool: ConnectionPool, opbeat: Opbeat) {
     this.pool = pool;
+    this.opbeat = opbeat;
   }
 
   registry() {
-    return new Registry(this.pool);
+    return new Registry(this.pool, this.opbeat);
   }
 
   cleanup(): Promise<any> {
@@ -159,13 +182,10 @@ export type MakeRegistryOptions = {|
   database: ?string,
 |};
 
-export async function makeRegistryFactory({
-  user,
-  password,
-  server,
-  domain,
-  database,
-}: MakeRegistryOptions): Promise<RegistryFactory> {
+export async function makeRegistryFactory(
+  opbeat: Opbeat,
+  { user, password, server, domain, database }: MakeRegistryOptions
+): Promise<RegistryFactory> {
   if (!(user && password && server && database)) {
     throw new Error('Missing some element of database configuration');
   }
@@ -176,7 +196,9 @@ export async function makeRegistryFactory({
     server,
     database,
     pool: {
-      min: 1,
+      min: 0,
+      // Keeps the acquisition from looping forever if there's a failure.
+      acquireTimeoutMillis: 10000,
     },
     options: {
       encrypt: true,
@@ -189,9 +211,20 @@ export async function makeRegistryFactory({
 
   const pool = new ConnectionPool(opts);
 
+  // We need an error event handler to prevent default Node EventEmitter from
+  // crashing the connection pool by throwing any emitted 'error' events that
+  // aren't being listened to.
+  //
+  // On top of that, we need to report to Opbeat because the only permanent
+  // errors that will filter up to the GraphQL error reporting are pool timeout
+  // errors.
+  pool.on('error', err => {
+    opbeat.captureError(err);
+  });
+
   await pool.connect();
 
-  return new RegistryFactory(pool);
+  return new RegistryFactory(pool, opbeat);
 }
 
 export class FixtureRegistry {

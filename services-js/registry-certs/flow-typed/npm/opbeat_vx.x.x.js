@@ -14,11 +14,16 @@
  */
 
 declare module 'opbeat' {
+  declare class Transaction {
+    end(): void;
+  }
+
   declare class Opbeat {
     captureError(err: Error): void;
     captureError(err: Error, options: Object): void;
     captureError(err: Error, options: Object, callback: (err: Error, url: string) => void): void;
 
+    startTransaction(name: string, category?: string): Transaction;
   }
 
   declare module.exports: Opbeat;

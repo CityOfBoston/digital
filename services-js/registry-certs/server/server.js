@@ -67,7 +67,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   const startup = async () => {
     const services = await Promise.all([
       registryFactoryOpts.server
-        ? makeRegistryFactory(registryFactoryOpts)
+        ? makeRegistryFactory(opbeat, registryFactoryOpts)
         : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
       app.prepare(),
     ]);
