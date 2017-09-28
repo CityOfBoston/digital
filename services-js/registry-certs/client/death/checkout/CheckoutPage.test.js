@@ -14,6 +14,16 @@ describe('integration', () => {
   it('renders payment', () => {
     expect(new CheckoutPage({ page: 'payment' }).render()).toMatchSnapshot();
   });
+
+  it('renders confirmation', () => {
+    expect(
+      new CheckoutPage({
+        page: 'confirmation',
+        orderId: '123-456-7',
+        contactEmail: 'ttoe@squirrelzone.net',
+      }).render()
+    ).toMatchSnapshot();
+  });
 });
 
 describe('controller', () => {
@@ -76,6 +86,24 @@ describe('controller', () => {
 
       expect(initialProps.page).toEqual('shipping');
     });
+
+    it('passes confirm props along', () => {
+      const initialProps = CheckoutPageController.getInitialProps(
+        ({
+          query: {
+            page: 'confirmation',
+            orderId: '123-456-7',
+            contactEmail: 'ttoe@squirrelzone.net',
+          },
+        }: any)
+      );
+
+      expect(initialProps).toEqual({
+        page: 'confirmation',
+        orderId: '123-456-7',
+        contactEmail: 'ttoe@squirrelzone.net',
+      });
+    });
   });
 
   describe('operations', () => {
@@ -105,6 +133,8 @@ describe('controller', () => {
       it('exists', () => {
         expect(controller.submitOrder).toBeDefined();
       });
+
+      it('clears the cart on success');
     });
   });
 });

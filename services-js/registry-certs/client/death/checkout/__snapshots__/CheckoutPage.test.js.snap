@@ -1,10 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`integration renders confirmation 1`] = `
+<AppLayout
+  navProps={null}
+>
+  <ConfirmationContent
+    contactEmail="ttoe@squirrelzone.net"
+    orderId="123-456-7"
+  />
+</AppLayout>
+`;
+
 exports[`integration renders payment 1`] = `
 <AppLayout
   navProps={null}
 >
-  <PaymentPageContent
+  <PaymentContent
     cart={Cart {}}
     order={
       Order {
@@ -36,7 +47,7 @@ exports[`integration renders shipping 1`] = `
 <AppLayout
   navProps={null}
 >
-  <ShippingPageContent
+  <ShippingContent
     cart={Cart {}}
     order={
       Order {

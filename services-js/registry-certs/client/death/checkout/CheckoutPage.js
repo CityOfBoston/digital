@@ -20,9 +20,22 @@ import ShippingContent, {
   type Props as ShippingContentProps,
 } from './ShippingContent';
 
-type InitialProps = {
-  page: 'shipping' | 'payment',
-};
+import ConfirmationContent, {
+  type Props as ConfirmationContentProps,
+} from './ConfirmationContent';
+
+type InitialProps =
+  | {
+      page: 'shipping',
+    }
+  | {
+      page: 'payment',
+    }
+  | {
+      page: 'confirmation',
+      orderId: string,
+      contactEmail: string,
+    };
 
 type CheckoutContentProps =
   | {
@@ -32,6 +45,10 @@ type CheckoutContentProps =
   | {
       page: 'payment',
       props: PaymentContentProps,
+    }
+  | {
+      page: 'confirmation',
+      props: ConfirmationContentProps,
     };
 
 export function wrapCheckoutPageController(
@@ -40,18 +57,25 @@ export function wrapCheckoutPageController(
 ) {
   return class CheckoutPageController extends React.Component<InitialProps> {
     static getInitialProps({ query, res }: ClientContext): InitialProps {
-      let page;
+      let props: InitialProps;
 
       switch (query.page || '') {
         case '':
         case 'shipping':
-          page = 'shipping';
+          props = { page: 'shipping' };
           break;
         case 'payment':
-          page = 'payment';
+          props = { page: 'payment' };
+          break;
+        case 'confirmation':
+          props = {
+            page: 'confirmation',
+            orderId: query.orderId || '',
+            contactEmail: query.contactEmail || '',
+          };
           break;
         default:
-          page = 'shipping';
+          props = { page: 'shipping' };
 
           if (res) {
             res.writeHead(301, {
@@ -62,7 +86,7 @@ export function wrapCheckoutPageController(
           }
       }
 
-      return { page };
+      return props;
     }
 
     dependencies = getDependencies();
@@ -72,31 +96,53 @@ export function wrapCheckoutPageController(
       window.scrollTo(0, 0);
     };
 
-    submitOrder = () => {};
+    submitOrder = async () => {
+      const { order } = this.dependencies;
+
+      const orderId = '123-456-7';
+
+      await Router.push(
+        `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
+          orderId
+        )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
+        '/death/checkout?page=confirmation'
+      );
+
+      window.scrollTo(0, 0);
+    };
 
     render() {
       const { cart, order } = this.dependencies;
-      const { page } = this.props;
+      const props = this.props;
 
-      let props;
-      switch (page) {
+      let renderProps;
+      switch (props.page) {
         case 'shipping':
-          props = {
+          renderProps = {
             page: 'shipping',
             props: { cart, order, submit: this.advanceToPayment },
           };
           break;
         case 'payment':
-          props = {
+          renderProps = {
             page: 'payment',
             props: { cart, order, submit: this.submitOrder },
           };
           break;
+        case 'confirmation':
+          renderProps = {
+            page: 'confirmation',
+            props: {
+              orderId: props.orderId,
+              contactEmail: props.contactEmail,
+            },
+          };
+          break;
         default:
-          throw new Error(`Unknown page: ${page}`);
+          throw new Error(`Unknown page: ${(props.page: any)}`);
       }
 
-      return renderContent(this.dependencies, props);
+      return renderContent(this.dependencies, renderProps);
     }
   };
 }
@@ -113,6 +159,12 @@ export default wrapCheckoutPageController(getDependencies, (_, props) => {
       return (
         <AppLayout navProps={null}>
           <PaymentContent {...props.props} />
+        </AppLayout>
+      );
+    case 'confirmation':
+      return (
+        <AppLayout navProps={null}>
+          <ConfirmationContent {...props.props} />
         </AppLayout>
       );
     default:

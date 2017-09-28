@@ -156,6 +156,10 @@ export const wrapCertificatePageController = (
       const { query: { id } } = ctx;
       const { deathCertificatesDao } = getDependencies(ctx);
 
+      if (!id) {
+        throw new Error('Missing id');
+      }
+
       const certificate = await deathCertificatesDao.get(id);
 
       return {

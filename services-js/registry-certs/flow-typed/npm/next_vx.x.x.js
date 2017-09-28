@@ -7,7 +7,7 @@ declare module 'next' {
     req: ?(IncomingMessage & Q),
     res: ?ServerResponse,
     pathname: string,
-    query: {[key: string]: string},
+    query: {[key: string]: ?string},
   |};
 
   declare class App {

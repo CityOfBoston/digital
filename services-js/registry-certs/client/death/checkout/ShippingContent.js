@@ -18,7 +18,7 @@ export type Props = {
 };
 
 @observer
-export default class ShippingPageContent extends React.Component<Props> {
+export default class ShippingContent extends React.Component<Props> {
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
