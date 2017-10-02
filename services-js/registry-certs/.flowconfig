@@ -10,6 +10,9 @@ flow-decl/
 # Doesn't support 0.53
 <PROJECT_ROOT>/node_modules/radium/.*
 
+# 0.56
+<PROJECT_ROOT>/node_modules/immutable/dist/immutable.js.flow
+
 [options]
 module.file_ext=.graphql
 module.file_ext=.js

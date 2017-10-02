@@ -137,7 +137,7 @@ export const resolvers = {
       { registry }: Context
     ): Promise<Array<?DeathCertificate>> =>
       Promise.all(
-        ids.map(async id => {
+        ids.map(async (id): Promise<?DeathCertificate> => {
           const res = await registry.lookup(id);
           if (res) {
             return searchResultToDeathCertificate(res);
