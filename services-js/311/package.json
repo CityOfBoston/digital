@@ -18,7 +18,7 @@
     "snapshot": "gulp storybook:head && build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "lint-staged",
-    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit"
+    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace"
   },
   "lint-staged": {
     "*.js": "eslint --quiet"

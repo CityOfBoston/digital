@@ -17,7 +17,7 @@ import path from 'path';
 import cheerio from 'cheerio';
 import 'isomorphic-fetch';
 
-const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
+const TEMPLATE_URL = 'https://boston.gov/api/v1/layouts/app';
 
 (async function fetchTemplates() {
   const templatesPath = path.join(__dirname, '../templates');
@@ -35,7 +35,7 @@ const TEMPLATE_URL = 'https://edit-dev.boston.gov/api/v1/layouts/app';
   $('a').each((i, el) => {
     const $el = $(el);
     let href = $el.attr('href');
-    if (!href.match(/^https?:/)) {
+    if (!href.match(/^(https?|mailto):/)) {
       if (!href.startsWith('/')) {
         href = `/${href}`;
       }

@@ -81,7 +81,7 @@ gulp.task('next:compile', ['clean:next'], cb => {
   );
 });
 
-gulp.task('storybook:head', cb => {
+gulp.task('storybook:head', ['templates:fetch'], cb => {
   exec(
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
@@ -111,7 +111,7 @@ gulp.task('vendor', cb => {
   );
 });
 
-gulp.task('templates:fetch', cb => {
+gulp.task('templates:fetch', ['babel:clean'], cb => {
   exec(
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
@@ -167,6 +167,10 @@ gulp.task('watch:graphql', () => [
   ),
 ]);
 
-// TODO(finh): restore pulling templates at this step
-gulp.task('build', ['babel:server', 'next:compile', 'vendor']);
+gulp.task('build', [
+  'templates:fetch',
+  'babel:server',
+  'next:compile',
+  'vendor',
+]);
 gulp.task('watch', ['watch:graphql', 'watch:sprite']);
