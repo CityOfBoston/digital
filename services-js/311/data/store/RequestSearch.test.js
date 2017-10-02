@@ -45,7 +45,7 @@ describe('update', () => {
     requestSearch.updateCaseSearchResults(MOCK_SEARCH_CASES_RESULT);
     requestSearch.updateCaseSearchResults({
       ...MOCK_SEARCH_CASES_RESULT,
-      requests: [{ ...MOCK_CASE }],
+      cases: [{ ...MOCK_CASE }],
     });
 
     expect(requestSearch.results[0]).toEqual(MOCK_CASE);

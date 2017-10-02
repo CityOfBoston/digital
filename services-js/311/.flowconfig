@@ -7,7 +7,7 @@ flow-decl/
 [ignore]
 <PROJECT_ROOT>/node_modules/jsverify/.*
 <PROJECT_ROOT>/node_modules/mapbox.js/docs/.*
-<PROJECT_ROOT>/node_modules/mapbox-gl/src/style-spec/node_modules/.*
+<PROJECT_ROOT>/node_modules/mapbox-gl/src/.*
 <PROJECT_ROOT>/node_modules/unflowify/test/.*
 <PROJECT_ROOT>/node_modules/mitt/.*
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/graphql/.*
@@ -17,6 +17,8 @@ flow-decl/
 
 # Doesn't support 0.53
 <PROJECT_ROOT>/node_modules/radium/.*
+
+<PROJECT_ROOT>/node_modules/immutable/dist/.*
 
 [options]
 module.file_ext=.graphql
