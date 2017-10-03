@@ -15,7 +15,8 @@ const MOCK_REQUEST: Request = {
   },
   description: 'I think that Thanos is here',
   status: 'closed',
-  statusNotes:
+  closureReason: 'Case Resolved',
+  closureComment:
     'Found Thanos. Smashed him into the floor with all of us standing around.',
   location: null,
   images: [

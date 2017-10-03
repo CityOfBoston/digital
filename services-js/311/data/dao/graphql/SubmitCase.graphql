@@ -30,7 +30,8 @@ mutation SubmitCase(
       name
     }
     status
-    statusNotes
+    closureReason
+    closureComment
     description
     address
     location {

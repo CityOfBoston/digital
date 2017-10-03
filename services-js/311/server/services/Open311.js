@@ -136,6 +136,10 @@ export type DetailedServiceRequest = {|
     phone: ?string,
     email: ?string,
   },
+  closure_details: {
+    reason: ?string,
+    comment: ?string,
+  },
   activities: Array<Object>,
   // [
   //   {

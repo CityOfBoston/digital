@@ -4,6 +4,8 @@ type Case {
   description: String
   status: String!
   statusNotes: String
+  closureReason: String
+  closureComment: String
   address: String
   images: [CaseImage!]!
   location: LatLng

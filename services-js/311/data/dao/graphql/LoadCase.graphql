@@ -5,7 +5,8 @@ query LoadCase($id: String!) {
       name
     }
     status
-    statusNotes
+    closureReason
+    closureComment
     description
     address
     location {

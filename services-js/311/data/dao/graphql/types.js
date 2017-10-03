@@ -61,7 +61,8 @@ export type LoadCaseQuery = {|
       name: string,
     |},
     status: string,
-    statusNotes: ?string,
+    closureReason: ?string,
+    closureComment: ?string,
     description: ?string,
     address: ?string,
     location: ? {|
@@ -284,7 +285,8 @@ export type SubmitCaseMutation = {|
       name: string,
     |},
     status: string,
-    statusNotes: ?string,
+    closureReason: ?string,
+    closureComment: ?string,
     description: ?string,
     address: ?string,
     location: ? {|

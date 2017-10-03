@@ -47,7 +47,8 @@ const MOCK_REQUEST: Request = {
   },
   description: 'I think that Thanos is here',
   status: 'closed',
-  statusNotes:
+  closureReason: 'Case Resolved',
+  closureComment:
     'Found Thanos. Smashed him into the floor with all of us standing around.',
   location: {
     lat: 42.359927299999995,
@@ -173,6 +174,15 @@ storiesOf('CaseView', module)
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={MOCK_REQUEST}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>
+  )
+  .add('Closed without reasons', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{ ...MOCK_REQUEST, closureReason: null, closureComment: null }}
         store={makeStore()}
         noMap={suppressMap}
       />

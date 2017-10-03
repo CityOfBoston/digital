@@ -68,7 +68,12 @@ function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
   );
 }
 
-function renderStatus({ status, statusNotes, updatedAtString }: Request) {
+function renderStatus({
+  status,
+  closureReason,
+  closureComment,
+  updatedAtString,
+}: Request) {
   if (status !== 'closed') {
     return null;
   }
@@ -76,10 +81,10 @@ function renderStatus({ status, statusNotes, updatedAtString }: Request) {
   return (
     <div className="b b--g p-a500 m-v500">
       <div className="txt-l" style={{ marginTop: 0 }}>
-        Resolution — {updatedAtString}
+        {closureReason || 'Resolution'} — {updatedAtString}
       </div>
       <div className="t--intro" style={{ fontStyle: 'normal' }}>
-        {statusNotes || 'Case closed.'}
+        {closureComment || 'Case closed.'}
       </div>
     </div>
   );

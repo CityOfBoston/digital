@@ -18,6 +18,8 @@ type Case {
   description: String
   status: String!
   statusNotes: String
+  closureReason: String
+  closureComment: String
   address: String
   images: [CaseImage!]!
   location: LatLng
@@ -94,6 +96,10 @@ export const resolvers = {
     description: (r: Root) => r.description || '',
     status: (r: Root) => r.status,
     statusNotes: (r: Root) => r.status_notes || null,
+    closureReason: (r: Root) =>
+      (r.closure_details && r.closure_details.reason) || null,
+    closureComment: (r: Root) =>
+      (r.closure_details && r.closure_details.comment) || null,
     address: (r: Root) => r.address,
     images: (r: Root): Array<CaseImage> => {
       if (!r.media_url) {

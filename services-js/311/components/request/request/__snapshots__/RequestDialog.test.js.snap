@@ -82,6 +82,8 @@ exports[`methods submitRequest success 2`] = `
       request={
         Object {
           "address": "City Hall Plaza, Boston, MA 02131",
+          "closureComment": "Found Thanos. Smashed him into the floor with all of us standing around.",
+          "closureReason": "Case Resolved",
           "description": "I think that Thanos is here",
           "id": "17-000000001",
           "images": Array [
@@ -100,7 +102,6 @@ exports[`methods submitRequest success 2`] = `
             "name": "Cosmic Intervention",
           },
           "status": "closed",
-          "statusNotes": "Found Thanos. Smashed him into the floor with all of us standing around.",
           "updatedAtString": "April 8, 2017, 12:59 PM",
         }
       }
