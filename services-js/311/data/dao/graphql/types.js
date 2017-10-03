@@ -73,8 +73,8 @@ export type LoadCaseQuery = {|
       originalUrl: string,
       squarePreviewUrl: string,
     |} >,
-    requestedAtString: string,
-    updatedAtString: string,
+    requestedAtString: ?string,
+    updatedAtString: ?string,
   |},
 |};
 
@@ -249,8 +249,8 @@ export type SearchCasesQuery = {|
       images:  Array< {|
         squareThumbnailUrl: string,
       |} >,
-      requestedAt: number,
-      requestedAtRelativeString: string,
+      requestedAt: ?number,
+      requestedAtRelativeString: ?string,
       location: ? {|
         lat: number,
         lng: number,
@@ -296,7 +296,7 @@ export type SubmitCaseMutation = {|
       originalUrl: string,
       squarePreviewUrl: string,
     |} >,
-    requestedAtString: string,
-    updatedAtString: string,
+    requestedAtString: ?string,
+    updatedAtString: ?string,
   |},
 |};

@@ -125,8 +125,10 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
         </SectionHeader>
 
         <div className="m-v300 t--info">
-          Submitted on {request.requestedAtString}{' '}
-          {request.address && ` — ${request.address}`}
+          {request.requestedAtString &&
+            `Submitted on ${request.requestedAtString}`}
+          {request.address && request.requestedAtString && ' — '}
+          {request.address && `${request.address}`}
         </div>
       </div>
 

@@ -7,12 +7,12 @@ type Case {
   address: String
   images: [CaseImage!]!
   location: LatLng
-  requestedAt: Int!
-  updatedAt: Int!
-  requestedAtString(format: String): String!
-  updatedAtString(format: String): String!
-  requestedAtRelativeString: String!
-  updatedAtRelativeString: String!
+  requestedAt: Int
+  updatedAt: Int
+  requestedAtString(format: String): String
+  updatedAtString(format: String): String
+  requestedAtRelativeString: String
+  updatedAtRelativeString: String
 }
 
 type CaseImage {

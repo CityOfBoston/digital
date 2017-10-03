@@ -99,6 +99,19 @@ storiesOf('CaseView', module)
       />
     </div>
   )
+  .add('Open - No Date', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{
+          ...MOCK_REQUEST,
+          status: 'open',
+          requestedAtString: null,
+        }}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>
+  )
   .add('Open - Just location', () =>
     <div style={{ backgroundColor: 'white' }}>
       <CaseView

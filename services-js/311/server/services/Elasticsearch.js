@@ -17,8 +17,8 @@ type CaseDocument = {|
   service_name: string,
   service_code: ?string,
   status_notes: string,
-  requested_datetime: string,
-  updated_datetime: string,
+  requested_datetime: ?string,
+  updated_datetime: ?string,
   replay_id: number,
   media_url: ?string,
 |};

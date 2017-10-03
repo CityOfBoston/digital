@@ -91,6 +91,18 @@ storiesOf('RecentRequests', module)
   .add('with selection', () =>
     <RecentRequests store={makeStore(MOCK_CASES, 1)} />
   )
+  .add('no dates', () =>
+    <RecentRequests
+      store={makeStore(
+        (MOCK_CASES.map(c => ({
+          ...c,
+          requestedAt: null,
+          requestedAtRelativeString: null,
+        })): any),
+        1
+      )}
+    />
+  )
   .add('with error', () =>
     <RecentRequests
       store={makeStore([], -1, {

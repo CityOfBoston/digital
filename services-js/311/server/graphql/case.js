@@ -21,12 +21,12 @@ type Case {
   address: String
   images: [CaseImage!]!
   location: LatLng
-  requestedAt: Int!
-  updatedAt: Int!
-  requestedAtString(format: String): String!
-  updatedAtString(format: String): String!
-  requestedAtRelativeString: String!
-  updatedAtRelativeString: String!
+  requestedAt: Int
+  updatedAt: Int
+  requestedAtString(format: String): String
+  updatedAtString(format: String): String
+  requestedAtRelativeString: String
+  updatedAtRelativeString: String
 }
 
 type CaseImage {
@@ -121,18 +121,26 @@ export const resolvers = {
         return null;
       }
     },
-    requestedAt: (r: Root) => moment(r.requested_datetime).unix(),
-    updatedAt: (r: Root) =>
-      moment(r.updated_datetime || r.requested_datetime).unix(),
+    requestedAt: (r: Root) =>
+      r.requested_datetime ? moment(r.requested_datetime).unix() : null,
+    updatedAt: (r: Root) => {
+      const d = r.updated_datetime || r.requested_datetime;
+      return d ? moment(d).unix() : null;
+    },
     // We format timezones on the server to avoid having to ship moment to the client
     requestedAtString: (r: Root, { format = '' }: DateStringArguments) =>
-      moment(r.requested_datetime).tz('America/New_York').format(format),
-    updatedAtString: (r: Root, { format = '' }: DateStringArguments) =>
-      moment(r.updated_datetime || r.requested_datetime)
-        .tz('America/New_York')
-        .format(format),
+      r.requested_datetime
+        ? moment(r.requested_datetime).tz('America/New_York').format(format)
+        : null,
+    updatedAtString: (r: Root, { format = '' }: DateStringArguments) => {
+      const d = r.updated_datetime || r.requested_datetime;
+      return d ? moment(d).tz('America/New_York').format(format) : null;
+    },
     requestedAtRelativeString: (r: Root) =>
-      moment(r.requested_datetime).fromNow(),
-    updatedAtRelativeString: (r: Root) => moment(r.updated_datetime).fromNow(),
+      r.requested_datetime ? moment(r.requested_datetime).fromNow() : null,
+    updatedAtRelativeString: (r: Root) => {
+      const d = r.updated_datetime || r.requested_datetime;
+      return d ? moment(d).fromNow() : null;
+    },
   },
 };

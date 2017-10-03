@@ -92,8 +92,8 @@ export type ServiceRequest = {|
   agency_responsible: ?string,
   service_notice: ?string,
   // 2017-02-21T22:18:27.000Z
-  requested_datetime: string,
-  updated_datetime: string,
+  requested_datetime: ?string,
+  updated_datetime: ?string,
   expected_datetime: ?string,
   address: ?string,
   address_id: ?string,
@@ -121,8 +121,8 @@ export type DetailedServiceRequest = {|
   service_code: string,
   description: ?string,
   // 2017-08-16T14:24:02.000Z
-  requested_datetime: string,
-  expected_datetime: string,
+  requested_datetime: ?string,
+  expected_datetime: ?string,
   updated_datetime: ?string,
   address: ?string,
   zipcode: ?string,
