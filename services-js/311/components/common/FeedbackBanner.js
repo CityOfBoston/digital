@@ -5,6 +5,8 @@ import { css } from 'glamor';
 
 import { YELLOW } from '../style-constants';
 
+import FeedbackForm from './FeedbackForm';
+
 const BANNER_STYLE = css({
   backgroundColor: YELLOW,
   position: 'fixed',
@@ -30,9 +32,21 @@ export type Props = {|
   fit: 'DIALOG' | 'PAGE',
 |};
 
-export default class FeedbackBanner extends React.Component<Props> {
+type State = {|
+  feedbackFormVisible: boolean,
+|};
+
+export default class FeedbackBanner extends React.Component<Props, State> {
+  state: State = {
+    feedbackFormVisible: false,
+  };
+
+  showFeedbackForm = () => this.setState({ feedbackFormVisible: true });
+  hideFeedbackForm = () => this.setState({ feedbackFormVisible: false });
+
   render() {
     const { fit } = this.props;
+    const { feedbackFormVisible } = this.state;
 
     return (
       <div className={`${BANNER_STYLE.toString()}`}>
@@ -46,11 +60,17 @@ export default class FeedbackBanner extends React.Component<Props> {
           </span>{' '}
           <span className="t--info t--s100">
             We would love to hear your{' '}
-            <a href="javascript:void(0)" className="t--w">
+            <a
+              href="javascript:void(0)"
+              onClick={this.showFeedbackForm}
+              className="t--w"
+            >
               feedback
             </a>.
           </span>
         </div>
+
+        {feedbackFormVisible && <FeedbackForm close={this.hideFeedbackForm} />}
       </div>
     );
   }

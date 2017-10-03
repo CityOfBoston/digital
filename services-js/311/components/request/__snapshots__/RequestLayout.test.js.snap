@@ -454,6 +454,7 @@ exports[`existing service page rendering phone 1`] = `
         <a
           className="t--w"
           href="javascript:void(0)"
+          onClick={[Function]}
         >
           feedback
         </a>
@@ -685,6 +686,7 @@ exports[`existing service page rendering phone location step 1`] = `
         <a
           className="t--w"
           href="javascript:void(0)"
+          onClick={[Function]}
         >
           feedback
         </a>
@@ -877,6 +879,7 @@ exports[`missing service page rendering 1`] = `
         <a
           className="t--w"
           href="javascript:void(0)"
+          onClick={[Function]}
         >
           feedback
         </a>

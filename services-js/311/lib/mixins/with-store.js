@@ -16,6 +16,8 @@ import makeLoopbackGraphql, {
 } from '../../data/dao/loopback-graphql';
 import getStore, { type AppStore } from '../../data/store';
 
+import FeedbackForm from '../../components/common/FeedbackForm';
+
 if (process.browser) {
   svg4everybody();
 }
@@ -29,10 +31,18 @@ type PropsExtension = {
   store: AppStore,
 };
 
+type State = {|
+  feedbackFormVisible: boolean,
+|};
+
 export default <Props: {}>(
   Component: ReactComponentType<Props & PropsExtension>
 ): ReactComponentType<Props> =>
-  class WithStore extends React.Component<Props> {
+  class WithStore extends React.Component<Props, State> {
+    state: State = {
+      feedbackFormVisible: false,
+    };
+
     store: AppStore;
 
     static async getInitialProps(
@@ -89,7 +99,40 @@ export default <Props: {}>(
       }
     }
 
+    showFeedbackForm = (ev: Event) => {
+      ev.preventDefault();
+      this.setState({ feedbackFormVisible: true });
+    };
+
+    hideFeedbackForm = () => this.setState({ feedbackFormVisible: false });
+
+    getFeedbackLink() {
+      return document.querySelector('a.nv-h-l-a[title="Feedback"]');
+    }
+
+    componentDidMount() {
+      const feedbackLink = this.getFeedbackLink();
+      if (feedbackLink) {
+        feedbackLink.addEventListener('click', this.showFeedbackForm);
+      }
+    }
+
+    componentWillUnmount() {
+      const feedbackLink = this.getFeedbackLink();
+      if (feedbackLink) {
+        feedbackLink.removeEventListener('click', this.showFeedbackForm);
+      }
+    }
+
     render() {
-      return <Component store={this.store} {...this.props} />;
+      const { feedbackFormVisible } = this.state;
+
+      return (
+        <div>
+          <Component store={this.store} {...this.props} />
+          {feedbackFormVisible &&
+            <FeedbackForm close={this.hideFeedbackForm} />}
+        </div>
+      );
     }
   };
