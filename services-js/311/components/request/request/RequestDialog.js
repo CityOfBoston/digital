@@ -409,7 +409,14 @@ export default class RequestDialog extends React.Component<Props> {
               />
             );
           case 'rejected':
-            return <SubmitPane state="error" error={requestSubmission.value} />;
+            return (
+              <SubmitPane
+                state="error"
+                backUrl={`/request?code=${requestForm.code}`}
+                backUrlAs={`/request/${requestForm.code}`}
+                error={requestSubmission.value}
+              />
+            );
           default:
             return '';
         }

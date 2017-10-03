@@ -19,6 +19,8 @@ exports[`methods submitRequest graphql failure 1`] = `
     noPadding={false}
   >
     <SubmitPane
+      backUrl="/request?code=CSMCINC"
+      backUrlAs="/request/CSMCINC"
       error={[Error: Error submitting]}
       state="error"
     />

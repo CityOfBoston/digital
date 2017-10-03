@@ -12450,19 +12450,45 @@ exports[`Storyshots SubmitPane GraphQL Error 1`] = `
         <h1
           className="sh-title"
         >
-          Submission Error
+          Something’s Wrong!
         </h1>
       </div>
+      <p
+        className="m-v500 t--intro"
+      >
+        We couldn’t save your request because of
+         
+        these errors
+        :
+      </p>
       <div
         className="m-v500 t--info"
       >
         <p>
-          firstName is a required field
+          <p>
+            firstName is a required field
+          </p>
         </p>
         <p>
-          lastName is a required field
+          <p>
+            lastName is a required field
+          </p>
         </p>
       </div>
+      <p
+        className="m-v500"
+      >
+        You can
+         
+        <a
+          href="/requests/CSMCINC"
+          onClick={[Function]}
+        >
+          go back and update your request
+        </a>
+         
+        and try again.
+      </p>
     </div>
   </div>
 </div>
@@ -12483,14 +12509,38 @@ exports[`Storyshots SubmitPane Network Error 1`] = `
         <h1
           className="sh-title"
         >
-          Submission Error
+          Something’s Wrong!
         </h1>
       </div>
+      <p
+        className="m-v500 t--intro"
+      >
+        We couldn’t save your request because of
+         
+        this error
+        :
+      </p>
       <div
         className="m-v500 t--info"
       >
-        Failed to fetch
+        <p>
+          Failed to fetch
+        </p>
       </div>
+      <p
+        className="m-v500"
+      >
+        You can
+         
+        <a
+          href="/requests/CSMCINC"
+          onClick={[Function]}
+        >
+          go back and update your request
+        </a>
+         
+        and try again.
+      </p>
     </div>
   </div>
 </div>

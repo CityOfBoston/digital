@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import Link from 'next/link';
 import { css } from 'glamor';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';
@@ -14,6 +15,8 @@ export type Props =
   | {|
       state: 'error',
       error: Object,
+      backUrl: string,
+      backUrlAs: string,
     |};
 
 const LOADING_CONTAINER_STYLE = css({
@@ -42,20 +45,38 @@ export default function SubmitPane(props: Props) {
       );
 
     case 'error': {
-      const { error } = props;
+      const { error, backUrl, backUrlAs } = props;
+      const messages = Array.isArray(error.errors)
+        ? error.errors.map((e, i) =>
+            <p key={i}>
+              {e.message}
+            </p>
+          )
+        : [error.message ? error.message : error.toString()];
+
       return (
         <div>
-          <SectionHeader>Submission Error</SectionHeader>
+          <SectionHeader>Something’s Wrong!</SectionHeader>
+          <p className="m-v500 t--intro">
+            We couldn’t save your request because of{' '}
+            {messages.length === 1 ? 'this error' : 'these errors'}:
+          </p>
+
           <div className="m-v500 t--info">
-            {Array.isArray(error.errors) &&
-              error.errors.map((e, i) =>
-                <p key={i}>
-                  {e.message}
-                </p>
-              )}
-            {!Array.isArray(error.errors) &&
-              (error.message ? error.message : error.toString())}
+            {messages.map((msg, i) =>
+              <p key={i}>
+                {msg}
+              </p>
+            )}
           </div>
+
+          <p className="m-v500">
+            You can{' '}
+            <Link href={backUrl} as={backUrlAs}>
+              <a>go back and update your request</a>
+            </Link>{' '}
+            and try again.
+          </p>
         </div>
       );
     }

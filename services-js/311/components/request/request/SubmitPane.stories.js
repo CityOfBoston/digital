@@ -23,11 +23,18 @@ storiesOf('SubmitPane', module)
   )
   .add('Submitting', () => <SubmitPane state="submitting" ui={new Ui()} />)
   .add('Network Error', () =>
-    <SubmitPane state="error" error={new TypeError('Failed to fetch')} />
+    <SubmitPane
+      state="error"
+      backUrl="/requests?code=CSMCINC"
+      backUrlAs="/requests/CSMCINC"
+      error={new TypeError('Failed to fetch')}
+    />
   )
   .add('GraphQL Error', () =>
     <SubmitPane
       state="error"
+      backUrl="/requests?code=CSMCINC"
+      backUrlAs="/requests/CSMCINC"
       error={makeError('GraphQL Server Error', [
         { message: 'firstName is a required field' },
         { message: 'lastName is a required field' },
