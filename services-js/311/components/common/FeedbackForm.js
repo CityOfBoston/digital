@@ -66,7 +66,7 @@ export default function FeedbackForm({ close, userAgent }: Props) {
                       type="text"
                       className="txt-f txt-f--sm bos-contact-name"
                       size="10"
-                      value=""
+                      defaultValue=""
                     />
                   </div>
                   <div className="txt m-b300">
@@ -81,7 +81,7 @@ export default function FeedbackForm({ close, userAgent }: Props) {
                       type="text"
                       placeholder="email@address.com"
                       className="txt-f txt-f--sm bos-contact-email"
-                      value=""
+                      defaultValue=""
                     />
                   </div>
                   <div className="txt m-b300">
@@ -96,7 +96,7 @@ export default function FeedbackForm({ close, userAgent }: Props) {
                       type="text"
                       className="txt-f txt-f--sm bos-contact-subject"
                       size="10"
-                      value="BOS:311 Feedback"
+                      defaultValue="BOS:311 Feedback"
                     />
                   </div>
                   <div className="txt m-b300">

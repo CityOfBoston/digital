@@ -4730,10 +4730,10 @@ exports[`Storyshots FeedbackForm default 1`] = `
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-name"
+                  defaultValue=""
                   name="email[name]"
                   size="10"
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -4747,10 +4747,10 @@ exports[`Storyshots FeedbackForm default 1`] = `
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-email"
+                  defaultValue=""
                   name="email[from_address]"
                   placeholder="email@address.com"
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -4764,10 +4764,10 @@ exports[`Storyshots FeedbackForm default 1`] = `
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-subject"
+                  defaultValue="BOS:311 Feedback"
                   name="email[subject]"
                   size="10"
                   type="text"
-                  value="BOS:311 Feedback"
                 />
               </div>
               <div
