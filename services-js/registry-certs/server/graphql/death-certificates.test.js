@@ -1,6 +1,6 @@
 // @flow
 
-import { resolvers } from './death-certificates';
+import { resolvers, parseAgeOrDateOfBirth } from './death-certificates';
 import { FixtureRegistry } from '../services/Registry';
 import type Registry from '../services/Registry';
 
@@ -76,6 +76,55 @@ describe('DeathCertificates resolvers', () => {
       expect(certificates[0]).toBeTruthy();
       expect(certificates[1]).not.toBeTruthy();
       expect(certificates[2]).toBeTruthy();
+    });
+  });
+});
+
+describe('parseAgeOrDateOfBirth', () => {
+  test('null', () => {
+    expect(parseAgeOrDateOfBirth(null)).toEqual({ age: null, birthDate: null });
+  });
+
+  test('empty', () => {
+    expect(parseAgeOrDateOfBirth('')).toEqual({ age: null, birthDate: null });
+  });
+
+  test('just age', () => {
+    expect(parseAgeOrDateOfBirth('45')).toEqual({ age: '45', birthDate: null });
+  });
+
+  test('age with leading 0', () => {
+    expect(parseAgeOrDateOfBirth('045')).toEqual({
+      age: '45',
+      birthDate: null,
+    });
+  });
+
+  test('freeform age', () => {
+    expect(parseAgeOrDateOfBirth('2 mos. 11 dys')).toEqual({
+      age: '2 mos. 11 dys',
+      birthDate: null,
+    });
+  });
+
+  test('just date', () => {
+    expect(parseAgeOrDateOfBirth('11/20/1970')).toEqual({
+      age: null,
+      birthDate: '11/20/1970',
+    });
+  });
+
+  test('just date with single digits', () => {
+    expect(parseAgeOrDateOfBirth('1/2/1970')).toEqual({
+      age: null,
+      birthDate: '1/2/1970',
+    });
+  });
+
+  test('combined age and date', () => {
+    expect(parseAgeOrDateOfBirth('46 YRS. (11/20/1970 )')).toEqual({
+      age: '46 YRS.',
+      birthDate: '11/20/1970',
     });
   });
 });

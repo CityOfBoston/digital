@@ -6,6 +6,7 @@ type DeathCertificate {
   deathYear: String!
   pending: Boolean
   age: String
+  birthDate: String
 }
 
 type DeathCertificates {

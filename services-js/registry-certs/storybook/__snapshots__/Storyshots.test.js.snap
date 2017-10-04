@@ -3,11 +3,11 @@
 exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
 <div
   className="md-c"
-  data-jsx={4244086707}
+  data-jsx={173942748}
 >
   <button
     className="md-cb"
-    data-jsx={4244086707}
+    data-jsx={173942748}
     onClick={[Function]}
     style={
       Object {
@@ -20,73 +20,96 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
   </button>
   <div
     className="mb-b p-a300 p-a600--xl"
-    data-jsx={4244086707}
+    data-jsx={173942748}
   >
     <div
-      className="sh m-b500"
-      data-jsx={4244086707}
+      className="sh m-b300"
+      data-jsx={173942748}
     >
       <div
         className="sh-title"
-        data-jsx={4244086707}
+        data-jsx={173942748}
       >
         Added to Cart
       </div>
     </div>
     <div
-      className="p-a300 result"
-      data-jsx={4244086707}
+      className="p-a300 cert"
+      data-jsx={173942748}
+      style={
+        Object {
+          "color": "#091f2f",
+        }
+      }
     >
       <div
         aria-label="Quantity"
-        className="p-a300"
-        data-jsx={4244086707}
+        className="t--sans"
+        data-jsx={173942748}
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
       >
         5
          ×
       </div>
       <div
-        className="certificate-info"
-        data-jsx={4244086707}
+        className="p-a300 br b--w row "
+        data-jsx={2388892960}
       >
         <div
-          data-jsx={4244086707}
-        >
-          Bruce
-           
-          Banner
-        </div>
-        <div
-          data-jsx={4244086707}
+          className="t--sans"
+          data-jsx={2388892960}
           style={
             Object {
-              "fontStyle": "italic",
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1.4,
             }
           }
         >
-          3/4/2016
-          <span
-            className="id-label"
-            data-jsx={4244086707}
-          >
-            ID:
-          </span>
+          BRUCE
            
-          000002
+          BANNER
+        </div>
+        <div
+          data-jsx={2388892960}
+          style={
+            Object {
+              "color": "#091f2f",
+            }
+          }
+        >
+          Died: 
+          3/4/2016
         </div>
       </div>
     </div>
     <div
       className="m-v500 ta-c"
-      data-jsx={4244086707}
+      data-jsx={173942748}
     >
       <a
         className="btn"
-        data-jsx={4244086707}
+        data-jsx={173942748}
         href="/death/cart"
         onClick={[Function]}
       >
         Go to your cart
+      </a>
+    </div>
+    <div
+      className="m-t500"
+      data-jsx={173942748}
+    >
+      <a
+        data-jsx={173942748}
+        href="/death"
+        onClick={[Function]}
+      >
+        ← Start new search
       </a>
     </div>
   </div>
@@ -114,9 +137,9 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
     <div
       data-jsx={3098076729}
     >
-      Monkey
+      MONKEY
        
-      Joe
+      JOE
     </div>
     <div
       data-jsx={3098076729}
@@ -168,9 +191,9 @@ exports[`Storyshots CartItem pending certificate 1`] = `
     <div
       data-jsx={3098076729}
     >
-      Logan
+      JAMES
        
-      Howlett
+      HOWLETT (LOGAN)
     </div>
     <div
       data-jsx={3098076729}
@@ -222,9 +245,9 @@ exports[`Storyshots CartItem typical certificate 1`] = `
     <div
       data-jsx={3098076729}
     >
-      Bruce
+      BRUCE
        
-      Banner
+      BANNER
     </div>
     <div
       data-jsx={3098076729}
@@ -532,6 +555,62 @@ exports[`Storyshots CartPage empty cart 1`] = `
           Back to Lookup
         </a>
       </div>
+    </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
     </nav>
     <div
       data-jsx={101695693}
@@ -888,6 +967,62 @@ exports[`Storyshots CartPage loading 1`] = `
           Back to Lookup
         </a>
       </div>
+    </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
     </nav>
     <div
       data-jsx={101695693}
@@ -1266,6 +1401,62 @@ exports[`Storyshots CartPage normal page 1`] = `
         </a>
       </div>
     </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div
       data-jsx={101695693}
     >
@@ -1308,9 +1499,9 @@ exports[`Storyshots CartPage normal page 1`] = `
             <div
               data-jsx={3098076729}
             >
-              Bruce
+              BRUCE
                
-              Banner
+              BANNER
             </div>
             <div
               data-jsx={3098076729}
@@ -1359,9 +1550,9 @@ exports[`Storyshots CartPage normal page 1`] = `
             <div
               data-jsx={3098076729}
             >
-              Logan
+              JAMES
                
-              Howlett
+              HOWLETT (LOGAN)
             </div>
             <div
               data-jsx={3098076729}
@@ -1410,9 +1601,9 @@ exports[`Storyshots CartPage normal page 1`] = `
             <div
               data-jsx={3098076729}
             >
-              Monkey
+              MONKEY
                
-              Joe
+              JOE
             </div>
             <div
               data-jsx={3098076729}
@@ -1804,25 +1995,81 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </a>
       </div>
     </nav>
-    <div>
-      <div
-        className="m-t300 p-a300"
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
       >
-        <a
-          href="/search?q=jayne"
-          onClick={[Function]}
-          style={
-            Object {
-              "fontStyle": "italic",
-            }
-          }
+        <li
+          className="brc-l-i"
         >
-          ← Back to search
-        </a>
-      </div>
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
+        <div
+          className="m-b300"
+        >
+          <a
+            href="/search?q=jayne"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Back to search
+          </a>
+        </div>
         <div
           className="sh sh--b0"
         >
@@ -2158,25 +2405,81 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </a>
       </div>
     </nav>
-    <div>
-      <div
-        className="m-t300 p-a300"
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
       >
-        <a
-          href="/search?q=jayne"
-          onClick={[Function]}
-          style={
-            Object {
-              "fontStyle": "italic",
-            }
-          }
+        <li
+          className="brc-l-i"
         >
-          ← Back to search
-        </a>
-      </div>
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
+        <div
+          className="m-b300"
+        >
+          <a
+            href="/search?q=jayne"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Back to search
+          </a>
+        </div>
         <div
           className="sh sh--b0"
         >
@@ -2195,143 +2498,197 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       <div
         className="p-a300 b--w"
       >
-        <div
-          data-jsx={3255886522}
-        >
+        <div>
           <ul
             className="dl"
-            data-jsx={3255886522}
+            data-jsx={558143449}
           >
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Full Name
+                ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Bruce
-                 
-                Banner
+                000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Death
+                Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
+              >
+                BRUCE
+                 
+                BANNER
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of birth
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
+              >
+                5/1/1962
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Birth / Age
+                Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                5/1/1962
+                53
               </span>
             </li>
           </ul>
           <form
-            className="js-add-to-cart-form m-v300"
-            data-jsx={3255886522}
+            className="js-add-to-cart-form m-v500"
+            data-jsx={886949462}
             onSubmit={[Function]}
           >
-            <select
-              className="quantity"
-              data-jsx={3255886522}
+            <input
+              className="txt-f"
+              data-jsx={886949462}
+              id="quantity"
               name="quantity"
               onChange={[Function]}
+              type="text"
               value={1}
+            />
+            <div
+              className="sel-c sel-c--sq"
+              data-jsx={886949462}
             >
-              <option
-                data-jsx={3255886522}
-                value="1"
+              <label
+                className="a11y--h"
+                data-jsx={886949462}
+                htmlFor="quantity"
               >
-                Qty: 1
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="2"
+                Quantity:
+              </label>
+              <select
+                className="sel-f sel-f--sq"
+                data-jsx={886949462}
+                name="quantityMenu"
+                onChange={[Function]}
+                value={1}
               >
-                Qty: 2
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="3"
-              >
-                Qty: 3
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="4"
-              >
-                Qty: 4
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="5"
-              >
-                Qty: 5
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="6"
-              >
-                Qty: 6
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="7"
-              >
-                Qty: 7
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="8"
-              >
-                Qty: 8
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="9"
-              >
-                Qty: 9
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="10"
-              >
-                Qty: 10
-              </option>
-            </select>
+                <option
+                  data-jsx={886949462}
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="10"
+                >
+                  10
+                </option>
+              </select>
+            </div>
             <button
               className="btn add-to-cart"
-              data-jsx={3255886522}
+              data-jsx={886949462}
+              disabled={false}
               type="submit"
             >
               Add to Cart
@@ -2656,25 +3013,81 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </a>
       </div>
     </nav>
-    <div>
-      <div
-        className="m-t300 p-a300"
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
       >
-        <a
-          href="/search?q=jayne"
-          onClick={[Function]}
-          style={
-            Object {
-              "fontStyle": "italic",
-            }
-          }
+        <li
+          className="brc-l-i"
         >
-          ← Back to search
-        </a>
-      </div>
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
+        <div
+          className="m-b300"
+        >
+          <a
+            href="/search?q=jayne"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Back to search
+          </a>
+        </div>
         <div
           className="sh sh--b0"
         >
@@ -2693,143 +3106,197 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       <div
         className="p-a300 b--w"
       >
-        <div
-          data-jsx={3255886522}
-        >
+        <div>
           <ul
             className="dl"
-            data-jsx={3255886522}
+            data-jsx={558143449}
           >
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Full Name
+                ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Bruce
-                 
-                Banner
+                000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Death
+                Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
+              >
+                BRUCE
+                 
+                BANNER
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of birth
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
+              >
+                5/1/1962
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Birth / Age
+                Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                5/1/1962
+                53
               </span>
             </li>
           </ul>
           <form
-            className="js-add-to-cart-form m-v300"
-            data-jsx={3255886522}
+            className="js-add-to-cart-form m-v500"
+            data-jsx={886949462}
             onSubmit={[Function]}
           >
-            <select
-              className="quantity"
-              data-jsx={3255886522}
+            <input
+              className="txt-f"
+              data-jsx={886949462}
+              id="quantity"
               name="quantity"
               onChange={[Function]}
+              type="text"
               value={1}
+            />
+            <div
+              className="sel-c sel-c--sq"
+              data-jsx={886949462}
             >
-              <option
-                data-jsx={3255886522}
-                value="1"
+              <label
+                className="a11y--h"
+                data-jsx={886949462}
+                htmlFor="quantity"
               >
-                Qty: 1
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="2"
+                Quantity:
+              </label>
+              <select
+                className="sel-f sel-f--sq"
+                data-jsx={886949462}
+                name="quantityMenu"
+                onChange={[Function]}
+                value={1}
               >
-                Qty: 2
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="3"
-              >
-                Qty: 3
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="4"
-              >
-                Qty: 4
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="5"
-              >
-                Qty: 5
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="6"
-              >
-                Qty: 6
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="7"
-              >
-                Qty: 7
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="8"
-              >
-                Qty: 8
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="9"
-              >
-                Qty: 9
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="10"
-              >
-                Qty: 10
-              </option>
-            </select>
+                <option
+                  data-jsx={886949462}
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="10"
+                >
+                  10
+                </option>
+              </select>
+            </div>
             <button
               className="btn add-to-cart"
-              data-jsx={3255886522}
+              data-jsx={886949462}
+              disabled={false}
               type="submit"
             >
               Add to Cart
@@ -2842,11 +3309,11 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       >
         <div
           className="md-c"
-          data-jsx={4244086707}
+          data-jsx={173942748}
         >
           <button
             className="md-cb"
-            data-jsx={4244086707}
+            data-jsx={173942748}
             onClick={[Function]}
             style={
               Object {
@@ -2859,73 +3326,96 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
           </button>
           <div
             className="mb-b p-a300 p-a600--xl"
-            data-jsx={4244086707}
+            data-jsx={173942748}
           >
             <div
-              className="sh m-b500"
-              data-jsx={4244086707}
+              className="sh m-b300"
+              data-jsx={173942748}
             >
               <div
                 className="sh-title"
-                data-jsx={4244086707}
+                data-jsx={173942748}
               >
                 Added to Cart
               </div>
             </div>
             <div
-              className="p-a300 result"
-              data-jsx={4244086707}
+              className="p-a300 cert"
+              data-jsx={173942748}
+              style={
+                Object {
+                  "color": "#091f2f",
+                }
+              }
             >
               <div
                 aria-label="Quantity"
-                className="p-a300"
-                data-jsx={4244086707}
+                className="t--sans"
+                data-jsx={173942748}
+                style={
+                  Object {
+                    "fontWeight": "bold",
+                  }
+                }
               >
                 5
                  ×
               </div>
               <div
-                className="certificate-info"
-                data-jsx={4244086707}
+                className="p-a300 br b--w row "
+                data-jsx={2388892960}
               >
                 <div
-                  data-jsx={4244086707}
-                >
-                  Bruce
-                   
-                  Banner
-                </div>
-                <div
-                  data-jsx={4244086707}
+                  className="t--sans"
+                  data-jsx={2388892960}
                   style={
                     Object {
-                      "fontStyle": "italic",
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1.4,
                     }
                   }
                 >
-                  3/4/2016
-                  <span
-                    className="id-label"
-                    data-jsx={4244086707}
-                  >
-                    ID:
-                  </span>
+                  BRUCE
                    
-                  000002
+                  BANNER
+                </div>
+                <div
+                  data-jsx={2388892960}
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  Died: 
+                  3/4/2016
                 </div>
               </div>
             </div>
             <div
               className="m-v500 ta-c"
-              data-jsx={4244086707}
+              data-jsx={173942748}
             >
               <a
                 className="btn"
-                data-jsx={4244086707}
+                data-jsx={173942748}
                 href="/death/cart"
                 onClick={[Function]}
               >
                 Go to your cart
+              </a>
+            </div>
+            <div
+              className="m-t500"
+              data-jsx={173942748}
+            >
+              <a
+                data-jsx={173942748}
+                href="/death"
+                onClick={[Function]}
+              >
+                ← Start new search
               </a>
             </div>
           </div>
@@ -3248,6 +3738,62 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </a>
       </div>
     </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
@@ -3270,143 +3816,197 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       <div
         className="p-a300 b--w"
       >
-        <div
-          data-jsx={3255886522}
-        >
+        <div>
           <ul
             className="dl"
-            data-jsx={3255886522}
+            data-jsx={558143449}
           >
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Full Name
+                ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Bruce
-                 
-                Banner
+                000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Death
+                Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
+              >
+                BRUCE
+                 
+                BANNER
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of birth
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
+              >
+                5/1/1962
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Birth / Age
+                Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                5/1/1962
+                53
               </span>
             </li>
           </ul>
           <form
-            className="js-add-to-cart-form m-v300"
-            data-jsx={3255886522}
+            className="js-add-to-cart-form m-v500"
+            data-jsx={886949462}
             onSubmit={[Function]}
           >
-            <select
-              className="quantity"
-              data-jsx={3255886522}
+            <input
+              className="txt-f"
+              data-jsx={886949462}
+              id="quantity"
               name="quantity"
               onChange={[Function]}
+              type="text"
               value={1}
+            />
+            <div
+              className="sel-c sel-c--sq"
+              data-jsx={886949462}
             >
-              <option
-                data-jsx={3255886522}
-                value="1"
+              <label
+                className="a11y--h"
+                data-jsx={886949462}
+                htmlFor="quantity"
               >
-                Qty: 1
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="2"
+                Quantity:
+              </label>
+              <select
+                className="sel-f sel-f--sq"
+                data-jsx={886949462}
+                name="quantityMenu"
+                onChange={[Function]}
+                value={1}
               >
-                Qty: 2
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="3"
-              >
-                Qty: 3
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="4"
-              >
-                Qty: 4
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="5"
-              >
-                Qty: 5
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="6"
-              >
-                Qty: 6
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="7"
-              >
-                Qty: 7
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="8"
-              >
-                Qty: 8
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="9"
-              >
-                Qty: 9
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="10"
-              >
-                Qty: 10
-              </option>
-            </select>
+                <option
+                  data-jsx={886949462}
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="10"
+                >
+                  10
+                </option>
+              </select>
+            </div>
             <button
               className="btn add-to-cart"
-              data-jsx={3255886522}
+              data-jsx={886949462}
+              disabled={false}
               type="submit"
             >
               Add to Cart
@@ -3731,25 +4331,81 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </a>
       </div>
     </nav>
-    <div>
-      <div
-        className="m-t300 p-a300"
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
       >
-        <a
-          href="/search?q=jayne"
-          onClick={[Function]}
-          style={
-            Object {
-              "fontStyle": "italic",
-            }
-          }
+        <li
+          className="brc-l-i"
         >
-          ← Back to search
-        </a>
-      </div>
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
+    <div>
       <div
         className="p-a300"
       >
+        <div
+          className="m-b300"
+        >
+          <a
+            href="/search?q=jayne"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Back to search
+          </a>
+        </div>
         <div
           className="sh sh--b0"
         >
@@ -3768,143 +4424,180 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       <div
         className="p-a300 b--w"
       >
-        <div
-          data-jsx={3255886522}
-        >
+        <div>
           <ul
             className="dl"
-            data-jsx={3255886522}
+            data-jsx={558143449}
           >
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Full Name
+                ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Logan
-                 
-                Howlett
+                000001
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Death
+                Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
+              >
+                JAMES
+                 
+                HOWLETT (LOGAN)
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={558143449}
+            >
+              <span
+                className="dl-t"
+                data-jsx={558143449}
+              >
+                Date of death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={558143449}
               >
                 4/15/2014
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={3255886522}
+              data-jsx={558143449}
             >
               <span
                 className="dl-t"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
-                Date of Birth / Age
+                Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={3255886522}
+                data-jsx={558143449}
               >
                 44 yrs. 2 mos. 10 dys
               </span>
             </li>
           </ul>
           <form
-            className="js-add-to-cart-form m-v300"
-            data-jsx={3255886522}
+            className="js-add-to-cart-form m-v500"
+            data-jsx={886949462}
             onSubmit={[Function]}
           >
-            <select
-              className="quantity"
-              data-jsx={3255886522}
+            <input
+              className="txt-f"
+              data-jsx={886949462}
+              id="quantity"
               name="quantity"
               onChange={[Function]}
+              type="text"
               value={1}
+            />
+            <div
+              className="sel-c sel-c--sq"
+              data-jsx={886949462}
             >
-              <option
-                data-jsx={3255886522}
-                value="1"
+              <label
+                className="a11y--h"
+                data-jsx={886949462}
+                htmlFor="quantity"
               >
-                Qty: 1
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="2"
+                Quantity:
+              </label>
+              <select
+                className="sel-f sel-f--sq"
+                data-jsx={886949462}
+                name="quantityMenu"
+                onChange={[Function]}
+                value={1}
               >
-                Qty: 2
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="3"
-              >
-                Qty: 3
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="4"
-              >
-                Qty: 4
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="5"
-              >
-                Qty: 5
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="6"
-              >
-                Qty: 6
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="7"
-              >
-                Qty: 7
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="8"
-              >
-                Qty: 8
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="9"
-              >
-                Qty: 9
-              </option>
-              <option
-                data-jsx={3255886522}
-                value="10"
-              >
-                Qty: 10
-              </option>
-            </select>
+                <option
+                  data-jsx={886949462}
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  data-jsx={886949462}
+                  value="10"
+                >
+                  10
+                </option>
+              </select>
+            </div>
             <button
               className="btn add-to-cart"
-              data-jsx={3255886522}
+              data-jsx={886949462}
+              disabled={false}
               type="submit"
             >
               Add to Cart
@@ -4203,6 +4896,62 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       }
       role="banner"
     />
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
@@ -4543,17 +5292,6 @@ exports[`Storyshots Pagination 7 pages 1`] = `
     className="pg-li"
   >
     <a
-      className="pg-li-i pg-li-i--link "
-      href=""
-      onClick={[Function]}
-    >
-      5
-    </a>
-  </li>
-  <li
-    className="pg-li"
-  >
-    <a
       className="pg-li-i pg-li-i--link"
       href=""
       onClick={[Function]}
@@ -4577,17 +5315,6 @@ exports[`Storyshots Pagination 20 pages 1`] = `
       onClick={[Function]}
     >
       ≪
-    </a>
-  </li>
-  <li
-    className="pg-li"
-  >
-    <a
-      className="pg-li-i pg-li-i--link "
-      href=""
-      onClick={[Function]}
-    >
-      16
     </a>
   </li>
   <li
@@ -4908,6 +5635,62 @@ exports[`Storyshots PaymentContent default 1`] = `
       }
       role="banner"
     />
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
@@ -5460,6 +6243,62 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
       }
       role="banner"
     />
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
@@ -6038,19 +6877,94 @@ exports[`Storyshots SearchPage no results 1`] = `
         </a>
       </div>
     </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
       >
         <div
           className="sh sh--b0"
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
         >
           <h1
             className="sh-title"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
           >
             Death Certificates
           </h1>
         </div>
+      </div>
+      <div
+        className="p-a300"
+        style={
+          Object {
+            "backgroundColor": "#f3f3f3",
+          }
+        }
+      >
         <form
           acceptCharset="UTF-8"
           action="/death"
@@ -6072,7 +6986,7 @@ exports[`Storyshots SearchPage no results 1`] = `
               id="q"
               name="q"
               onChange={[Function]}
-              placeholder="Search…"
+              placeholder="Search by name…"
               type="text"
               value="Jayne Doe"
             />
@@ -6087,47 +7001,39 @@ exports[`Storyshots SearchPage no results 1`] = `
       </div>
       <div>
         <div
-          className="p-a300 b--w"
+          className="p-a300 t--intro"
         >
-          <div
-            className="t--sans tt-u"
-            style={
-              Object {
-                "fontSize": 12,
-              }
-            }
+          No results found for this search.
+        </div>
+        <ul
+          className="ul"
+          data-jsx={1762436028}
+        >
+          <li
+            data-jsx={1762436028}
           >
-            Showing 
-            1
-            –
-            0
-             of 
-            0
+            Try using a partial name. For example, “jo” matches “joe” and “joseph.”
+          </li>
+          <li
+            data-jsx={1762436028}
+          >
+            Add a 4-digit year of death. You can also search for a range of death years, like “smith 1950–1955”
+          </li>
+          <li
+            data-jsx={1762436028}
+          >
+            Most death certificates prior to 1870 are not available through this site. For these years,
              
-            results for “
-            Jayne Doe
-            ”
-          </div>
-        </div>
-        <div
-          className="p-a300"
-        >
-          Not finding what you’re looking for? Try refining your search or
-           
-          <a
-            href="https://www.boston.gov/departments/registry/how-get-death-certificate"
-            style={
-              Object {
-                "fontStyle": "italic",
-              }
-            }
-          >
-            request a death certificate
-          </a>
-          .
-        </div>
+            <a
+              data-jsx={1762436028}
+              href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+            >
+              request a death certificate by mail or in person
+            </a>
+            . An additional research fee may apply.
+          </li>
+        </ul>
       </div>
-      <div />
     </div>
   </div>
   <footer
@@ -6445,19 +7351,113 @@ exports[`Storyshots SearchPage no search 1`] = `
         </a>
       </div>
     </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
       >
         <div
           className="sh sh--b0"
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
         >
           <h1
             className="sh-title"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
           >
             Death Certificates
           </h1>
         </div>
+        <div
+          className="m-t300"
+          style={
+            Object {
+              "lineHeight": "2.16667em",
+            }
+          }
+        >
+          <div
+            className="t--intro m-v300"
+          >
+            We have death certificates for anyone who died in Boston, or who listed Boston as their home.
+          </div>
+          <div
+            className="m-t300"
+          >
+            To order a death certificate, start by searching for a name. You can type a full or partial name, and optionally a year of death.
+          </div>
+        </div>
+      </div>
+      <div
+        className="p-a300"
+        style={
+          Object {
+            "backgroundColor": "#f3f3f3",
+          }
+        }
+      >
         <form
           acceptCharset="UTF-8"
           action="/death"
@@ -6479,7 +7479,7 @@ exports[`Storyshots SearchPage no search 1`] = `
               id="q"
               name="q"
               onChange={[Function]}
-              placeholder="Search…"
+              placeholder="Search by name…"
               type="text"
               value=""
             />
@@ -6490,9 +7490,13 @@ exports[`Storyshots SearchPage no search 1`] = `
               Search
             </button>
           </div>
+          <div
+            className="t--subinfo m-v200"
+          >
+            Examples: “j doe” “thomas menino 2014” “johnson 1956-1957”
+          </div>
         </form>
       </div>
-      <div />
     </div>
   </div>
   <footer
@@ -6810,19 +7814,94 @@ exports[`Storyshots SearchPage with results 1`] = `
         </a>
       </div>
     </nav>
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
       >
         <div
           className="sh sh--b0"
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
         >
           <h1
             className="sh-title"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
           >
             Death Certificates
           </h1>
         </div>
+      </div>
+      <div
+        className="p-a300"
+        style={
+          Object {
+            "backgroundColor": "#f3f3f3",
+          }
+        }
+      >
         <form
           acceptCharset="UTF-8"
           action="/death"
@@ -6844,7 +7923,7 @@ exports[`Storyshots SearchPage with results 1`] = `
               id="q"
               name="q"
               onChange={[Function]}
-              placeholder="Search…"
+              placeholder="Search by name…"
               type="text"
               value="Jayne Doe"
             />
@@ -6882,101 +7961,112 @@ exports[`Storyshots SearchPage with results 1`] = `
           </div>
         </div>
         <a
-          className="p-a300 br br-t100 b--w result"
-          data-jsx={1058049035}
           href="/death/certificate/000002"
           onClick={[Function]}
         >
           <div
-            className="t--sans"
-            data-jsx={1058049035}
-            style={
-              Object {
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1.4,
+            className="p-a300 br b--w row br-t100"
+            data-jsx={2388892960}
+          >
+            <div
+              className="t--sans"
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1.4,
+                }
               }
-            }
-          >
-            Bruce
-             
-            Banner
-          </div>
-          <div
-            data-jsx={1058049035}
-          >
-            Died: 
-            3/4/2016
-             (
-            5/1/1962
-            )
+            >
+              BRUCE
+               
+              BANNER
+            </div>
+            <div
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "color": "#091f2f",
+                }
+              }
+            >
+              Died: 
+              3/4/2016
+            </div>
           </div>
         </a>
         <a
-          className="p-a300 br br-t100 b--w result"
-          data-jsx={1058049035}
           href="/death/certificate/000001"
           onClick={[Function]}
         >
           <div
-            className="t--sans"
-            data-jsx={1058049035}
-            style={
-              Object {
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1.4,
+            className="p-a300 br b--w row br-t100"
+            data-jsx={2388892960}
+          >
+            <div
+              className="t--sans"
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1.4,
+                }
               }
-            }
-          >
-            Logan
-             
-            Howlett
-          </div>
-          <div
-            data-jsx={1058049035}
-          >
-            Died: 
-            4/15/2014
-             (
-            44 yrs. 2 mos. 10 dys
-            )
-          </div>
-          <div
-            data-jsx={1058049035}
-          >
-            Certificate Pending
+            >
+              JAMES
+               
+              HOWLETT (LOGAN)
+            </div>
+            <div
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "color": "#091f2f",
+                }
+              }
+            >
+              Died: 
+              4/15/2014
+               – Certificate pending
+            </div>
           </div>
         </a>
         <a
-          className="p-a300 br br-t100 b--w result"
-          data-jsx={1058049035}
           href="/death/certificate/000003"
           onClick={[Function]}
         >
           <div
-            className="t--sans"
-            data-jsx={1058049035}
-            style={
-              Object {
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "letterSpacing": 1.4,
+            className="p-a300 br b--w row br-a100"
+            data-jsx={2388892960}
+          >
+            <div
+              className="t--sans"
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1.4,
+                }
               }
-            }
-          >
-            Monkey
-             
-            Joe
-          </div>
-          <div
-            data-jsx={1058049035}
-          >
-            Died: 
-            2004
-             (
-            6
-            )
+            >
+              MONKEY
+               
+              JOE
+            </div>
+            <div
+              data-jsx={2388892960}
+              style={
+                Object {
+                  "color": "#091f2f",
+                }
+              }
+            >
+              Died: 
+              2004
+            </div>
           </div>
         </a>
         <ul
@@ -7041,17 +8131,6 @@ exports[`Storyshots SearchPage with results 1`] = `
             className="pg-li"
           >
             <a
-              className="pg-li-i pg-li-i--link "
-              href="/death?q=Jayne Doe&page=5"
-              onClick={[Function]}
-            >
-              5
-            </a>
-          </li>
-          <li
-            className="pg-li"
-          >
-            <a
               className="pg-li-i pg-li-i--link"
               href="/death?q=Jayne Doe&page=3"
               onClick={[Function]}
@@ -7063,22 +8142,39 @@ exports[`Storyshots SearchPage with results 1`] = `
         <div
           className="p-a300"
         >
-          Not finding what you’re looking for? Try refining your search or
-           
-          <a
-            href="https://www.boston.gov/departments/registry/how-get-death-certificate"
-            style={
-              Object {
-                "fontStyle": "italic",
-              }
-            }
+          <p>
+            Not finding what you’re looking for?
+          </p>
+          <ul
+            className="ul"
+            data-jsx={1762436028}
           >
-            request a death certificate
-          </a>
-          .
+            <li
+              data-jsx={1762436028}
+            >
+              Try using a partial name. For example, “jo” matches “joe” and “joseph.”
+            </li>
+            <li
+              data-jsx={1762436028}
+            >
+              Add a 4-digit year of death. You can also search for a range of death years, like “smith 1950–1955”
+            </li>
+            <li
+              data-jsx={1762436028}
+            >
+              Most death certificates prior to 1870 are not available through this site. For these years,
+               
+              <a
+                data-jsx={1762436028}
+                href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+              >
+                request a death certificate by mail or in person
+              </a>
+              . An additional research fee may apply.
+            </li>
+          </ul>
         </div>
       </div>
-      <div />
     </div>
   </div>
   <footer
@@ -7110,109 +8206,119 @@ exports[`Storyshots SearchPage with results 1`] = `
 </div>
 `;
 
-exports[`Storyshots SearchResult certificate without death date 1`] = `
+exports[`Storyshots SearchResult bottom certificate 1`] = `
 <a
-  className="p-a300 br br-t100 b--w result"
-  data-jsx={1058049035}
-  href="/death/certificate/000003"
+  href="/death/certificate/000002"
   onClick={[Function]}
 >
   <div
-    className="t--sans"
-    data-jsx={1058049035}
-    style={
-      Object {
-        "fontStyle": "normal",
-        "fontWeight": "bold",
-        "letterSpacing": 1.4,
+    className="p-a300 br b--w row br-a100"
+    data-jsx={2388892960}
+  >
+    <div
+      className="t--sans"
+      data-jsx={2388892960}
+      style={
+        Object {
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1.4,
+        }
       }
-    }
-  >
-    Monkey
-     
-    Joe
-  </div>
-  <div
-    data-jsx={1058049035}
-  >
-    Died: 
-    2004
-     (
-    6
-    )
+    >
+      BRUCE
+       
+      BANNER
+    </div>
+    <div
+      data-jsx={2388892960}
+      style={
+        Object {
+          "color": "#091f2f",
+        }
+      }
+    >
+      Died: 
+      3/4/2016
+    </div>
   </div>
 </a>
 `;
 
-exports[`Storyshots SearchResult pending certificate 1`] = `
+exports[`Storyshots SearchResult certificate without death date 1`] = `
 <a
-  className="p-a300 br br-t100 b--w result"
-  data-jsx={1058049035}
-  href="/death/certificate/000001"
+  href="/death/certificate/000003"
   onClick={[Function]}
 >
   <div
-    className="t--sans"
-    data-jsx={1058049035}
-    style={
-      Object {
-        "fontStyle": "normal",
-        "fontWeight": "bold",
-        "letterSpacing": 1.4,
+    className="p-a300 br b--w row br-t100"
+    data-jsx={2388892960}
+  >
+    <div
+      className="t--sans"
+      data-jsx={2388892960}
+      style={
+        Object {
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1.4,
+        }
       }
-    }
-  >
-    Logan
-     
-    Howlett
-  </div>
-  <div
-    data-jsx={1058049035}
-  >
-    Died: 
-    4/15/2014
-     (
-    44 yrs. 2 mos. 10 dys
-    )
-  </div>
-  <div
-    data-jsx={1058049035}
-  >
-    Certificate Pending
+    >
+      MONKEY
+       
+      JOE
+    </div>
+    <div
+      data-jsx={2388892960}
+      style={
+        Object {
+          "color": "#091f2f",
+        }
+      }
+    >
+      Died: 
+      2004
+    </div>
   </div>
 </a>
 `;
 
 exports[`Storyshots SearchResult typical certificate 1`] = `
 <a
-  className="p-a300 br br-t100 b--w result"
-  data-jsx={1058049035}
   href="/death/certificate/000002"
   onClick={[Function]}
 >
   <div
-    className="t--sans"
-    data-jsx={1058049035}
-    style={
-      Object {
-        "fontStyle": "normal",
-        "fontWeight": "bold",
-        "letterSpacing": 1.4,
+    className="p-a300 br b--w row br-t100"
+    data-jsx={2388892960}
+  >
+    <div
+      className="t--sans"
+      data-jsx={2388892960}
+      style={
+        Object {
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1.4,
+        }
       }
-    }
-  >
-    Bruce
-     
-    Banner
-  </div>
-  <div
-    data-jsx={1058049035}
-  >
-    Died: 
-    3/4/2016
-     (
-    5/1/1962
-    )
+    >
+      BRUCE
+       
+      BANNER
+    </div>
+    <div
+      data-jsx={2388892960}
+      style={
+        Object {
+          "color": "#091f2f",
+        }
+      }
+    >
+      Died: 
+      3/4/2016
+    </div>
   </div>
 </a>
 `;
@@ -7477,6 +8583,62 @@ exports[`Storyshots ShippingContent default 1`] = `
       }
       role="banner"
     />
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"
@@ -8081,6 +9243,62 @@ exports[`Storyshots ShippingContent existing address 1`] = `
       }
       role="banner"
     />
+    <nav
+      className="brc p-a300"
+      role="navigation"
+    >
+      <ul
+        className="brc-l"
+      >
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/"
+          >
+            Home
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments"
+          >
+            Departments
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          <a
+            href="https://www.boston.gov/departments/registry"
+          >
+            Registry: Birth, death, and marriage
+          </a>
+          <span
+            className="brc-s"
+          >
+             › 
+          </span>
+        </li>
+        <li
+          className="brc-l-i"
+        >
+          Death certificates
+        </li>
+      </ul>
+    </nav>
     <div>
       <div
         className="p-a300"

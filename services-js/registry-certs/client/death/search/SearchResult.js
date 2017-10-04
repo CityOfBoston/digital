@@ -4,17 +4,18 @@ import React from 'react';
 import Link from 'next/link';
 
 import type { DeathCertificate } from '../../types';
-import { GRAY_100 } from '../../common/style-constants';
+
+import CertificateRow from '../../common/CertificateRow';
 
 export type Props = {|
   certificate: DeathCertificate,
   backUrl: string,
+  lastRow: boolean,
 |};
 
-export default function SearchResult({
-  backUrl,
-  certificate: { firstName, lastName, age, deathDate, deathYear, id, pending },
-}: Props) {
+export default function SearchResult({ backUrl, lastRow, certificate }: Props) {
+  const { id } = certificate;
+
   return (
     <Link
       href={`/death/certificate?id=${id}&backUrl=${encodeURIComponent(
@@ -22,29 +23,12 @@ export default function SearchResult({
       )}`}
       as={`/death/certificate/${id}`}
     >
-      <a className={'p-a300 br br-t100 b--w result'}>
-        <div
-          className="t--sans"
-          style={{
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-            letterSpacing: 1.4,
-          }}
-        >
-          {firstName} {lastName}
-        </div>
-        <div>
-          Died: {deathDate || deathYear} ({age})
-        </div>
-        {pending && <div>Certificate Pending</div>}
-        <style jsx>{`
-          .result {
-            display: block;
-            color: inherit;
-            font-style: italic;
-            border-color: ${GRAY_100};
-          }
-        `}</style>
+      <a>
+        <CertificateRow
+          certificate={certificate}
+          borderTop={true}
+          borderBottom={lastRow}
+        />
       </a>
     </Link>
   );

@@ -15,6 +15,7 @@ type DeathCertificate {
   deathYear: String!,
   pending: Boolean,
   age: String,
+  birthDate: String,
 }
 
 # Pages are 1-indexed to make the UI look better
@@ -70,9 +71,28 @@ type DeathCertificateSearch = {
   resultCount: number,
 };
 
+const DATE_REGEXP = /\(?\s*(\d\d?\/\d\d?\/\d\d\d\d)\s*\)?/;
+
+export function parseAgeOrDateOfBirth(
+  str: ?string
+): { age: ?string, birthDate: ?string } {
+  const dateMatch = (str || '').match(DATE_REGEXP);
+  const age = (str || '')
+    .replace(/^0+/, '')
+    .replace(DATE_REGEXP, '')
+    .trim();
+
+  return {
+    age: age ? age : null,
+    birthDate: dateMatch ? dateMatch[1] : null,
+  };
+}
+
 function searchResultToDeathCertificate(
   res: DeathCertificateSearchResult | DbDeathCertificate
 ): DeathCertificate {
+  const { age, birthDate } = parseAgeOrDateOfBirth(res.AgeOrDateOfBirth);
+
   return {
     id: res.CertificateID.toString(),
     firstName: res['First Name'],
@@ -80,7 +100,8 @@ function searchResultToDeathCertificate(
     deathDate: res['Date of Death'],
     deathYear: res.RegisteredYear,
     pending: !!res.Pending,
-    age: res.AgeOrDateOfBirth.replace(/^0+/, '') || '0',
+    age,
+    birthDate,
   };
 }
 

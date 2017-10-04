@@ -5,7 +5,8 @@ import Link from 'next/link';
 
 import type { DeathCertificate } from '../../types';
 
-import { GRAY_300 } from '../../common/style-constants';
+import { CHARLES_BLUE } from '../../common/style-constants';
+import CertificateRow from '../../common/CertificateRow';
 
 type Props = {|
   certificate: DeathCertificate,
@@ -14,7 +15,7 @@ type Props = {|
 |};
 
 export default function AddedToCartPopup({
-  certificate: { firstName, lastName, id, deathDate, deathYear },
+  certificate,
   quantity,
   close,
 }: Props) {
@@ -28,26 +29,26 @@ export default function AddedToCartPopup({
       >
         Close
       </button>
+
       <div className="mb-b p-a300 p-a600--xl">
-        <div className="sh m-b500">
+        <div className="sh m-b300">
           <div className="sh-title">Added to Cart</div>
         </div>
 
-        <div className="p-a300 result">
-          <div aria-label="Quantity" className="p-a300">
+        <div className="p-a300 cert" style={{ color: CHARLES_BLUE }}>
+          <div
+            aria-label="Quantity"
+            className="t--sans"
+            style={{ fontWeight: 'bold' }}
+          >
             {quantity} ×
           </div>
 
-          <div className="certificate-info">
-            <div>
-              {firstName} {lastName}
-            </div>
-
-            <div style={{ fontStyle: 'italic' }}>
-              {deathDate || deathYear}
-              <span className="id-label">ID:</span> {id}
-            </div>
-          </div>
+          <CertificateRow
+            certificate={certificate}
+            borderTop={false}
+            borderBottom={false}
+          />
         </div>
 
         <div className="m-v500 ta-c">
@@ -55,21 +56,28 @@ export default function AddedToCartPopup({
             <a className="btn">Go to your cart</a>
           </Link>
         </div>
+
+        <div className="m-t500">
+          <Link href="/death">
+            <a>← Start new search</a>
+          </Link>
+        </div>
       </div>
 
       <style jsx>{`
-        .result {
+        .md-c {
+          padding-top: 0;
+        }
+
+        .sh {
+          border-bottom: none;
+        }
+
+        .cert {
           display: flex;
           align-items: center;
-        }
-
-        .certificate-info {
-          flex: 1;
-        }
-
-        .id-label {
-          color: ${GRAY_300};
-          padding-left: 1em;
+          padding-top: 0;
+          padding-bottom: 0;
         }
       `}</style>
     </div>

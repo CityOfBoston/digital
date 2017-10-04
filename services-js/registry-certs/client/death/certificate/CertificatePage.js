@@ -31,7 +31,7 @@ export type ContentProps = {
 };
 
 type ContentState = {
-  quantity: number,
+  quantity: ?number,
 };
 
 export class CertificatePageContent extends React.Component<
@@ -43,8 +43,10 @@ export class CertificatePageContent extends React.Component<
   };
 
   handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
+    const { value } = ev.target;
+
     this.setState({
-      quantity: parseInt(ev.target.value, 10),
+      quantity: value ? parseInt(value, 10) : null,
     });
   };
 
@@ -53,6 +55,10 @@ export class CertificatePageContent extends React.Component<
 
     const { addToCart } = this.props;
     const { quantity } = this.state;
+
+    if (!quantity) {
+      return;
+    }
 
     addToCart(quantity);
   };
@@ -73,15 +79,15 @@ export class CertificatePageContent extends React.Component<
           <title>Boston.gov — Death Certificate #{id}</title>
         </Head>
 
-        {backUrl && (
-          <div className="m-t300 p-a300">
-            <Link href={backUrl}>
-              <a style={{ fontStyle: 'italic' }}>← Back to search</a>
-            </Link>
-          </div>
-        )}
-
         <div className="p-a300">
+          {backUrl && (
+            <div className="m-b300">
+              <Link href={backUrl}>
+                <a style={{ fontStyle: 'italic' }}>← Back to search</a>
+              </Link>
+            </div>
+          )}
+
           <div className="sh sh--b0">
             <h1 className="sh-title" style={{ marginBottom: 0 }}>
               Deceased Details
@@ -108,11 +114,13 @@ export class CertificatePageContent extends React.Component<
   }
 
   renderCertificate({
+    id,
     firstName,
     lastName,
     age,
     deathDate,
     deathYear,
+    birthDate,
   }: DeathCertificate) {
     const { quantity } = this.state;
 
@@ -120,61 +128,119 @@ export class CertificatePageContent extends React.Component<
       <div>
         <ul className="dl">
           <li className="dl-i">
-            <span className="dl-t">Full Name</span>
+            <span className="dl-t">ID #</span>
+            <span className="dl-d">{id}</span>
+          </li>
+          <li className="dl-i">
+            <span className="dl-t">Full name</span>
             <span className="dl-d">
               {firstName} {lastName}
             </span>
           </li>
+          {birthDate && (
+            <li className="dl-i">
+              <span className="dl-t">Date of birth</span>
+              <span className="dl-d">{birthDate}</span>
+            </li>
+          )}
           <li className="dl-i">
-            <span className="dl-t">Date of Death</span>
+            <span className="dl-t">Date of death</span>
             <span className="dl-d">{deathDate || deathYear}</span>
           </li>
-          <li className="dl-i">
-            <span className="dl-t">Date of Birth / Age</span>
-            <span className="dl-d">{age}</span>
-          </li>
+          {age && (
+            <li className="dl-i">
+              <span className="dl-t">Age</span>
+              <span className="dl-d">{age}</span>
+            </li>
+          )}
+
+          <style jsx>{`
+            .dl-i {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+            }
+            .dl-t {
+              padding-right: 1em;
+            }
+            .dl-t,
+            .dl-d {
+              line-height: 1rem;
+              vertical-align: center;
+            }
+          `}</style>
         </ul>
 
         <form
           onSubmit={this.handleAddToCart}
-          className="js-add-to-cart-form m-v300"
+          className="js-add-to-cart-form m-v500"
         >
-          <select
+          <input
+            type="text"
+            id="quantity"
             name="quantity"
+            className="txt-f"
             value={quantity}
-            className="quantity"
             onChange={this.handleQuantityChange}
-          >
-            <option value="1">Qty: 1</option>
-            <option value="2">Qty: 2</option>
-            <option value="3">Qty: 3</option>
-            <option value="4">Qty: 4</option>
-            <option value="5">Qty: 5</option>
-            <option value="6">Qty: 6</option>
-            <option value="7">Qty: 7</option>
-            <option value="8">Qty: 8</option>
-            <option value="9">Qty: 9</option>
-            <option value="10">Qty: 10</option>
-          </select>
+          />
 
-          <button type="submit" className="btn add-to-cart">
+          <div className="sel-c sel-c--sq">
+            <label htmlFor="quantity" className="a11y--h">
+              Quantity:
+            </label>
+
+            <select
+              name="quantityMenu"
+              value={quantity}
+              className="sel-f sel-f--sq"
+              onChange={this.handleQuantityChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="btn add-to-cart"
+            disabled={!quantity}
+          >
             Add to Cart
           </button>
-        </form>
 
-        <style jsx>{`
-          form {
-            display: flex;
-            align-items: center;
-          }
-          .quantity {
-            min-width: 5em;
-          }
-          .add-to-cart {
-            flex: 1;
-            margin-left: 1em;
-          }
-        `}</style>
+          <style jsx>{`
+            form {
+              display: flex;
+              align-items: center;
+            }
+
+            .txt-f {
+              /* matches the select box */
+              height: 62px;
+              width: 4em !important;
+              text-align: right;
+              border-right: none;
+            }
+
+            .sel-c:after {
+              content: 'Qty.';
+            }
+
+            .add-to-cart {
+              flex: 1;
+              margin-left: 1em;
+              height: 62px;
+            }
+          `}</style>
+        </form>
       </div>
     );
   }

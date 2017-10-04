@@ -15,6 +15,7 @@ export type FetchDeathCertificatesQuery = {|
       deathDate: ?string,
       pending: ?boolean,
       age: ?string,
+      birthDate: ?string,
     |} >,
   |},
 |};
@@ -41,6 +42,7 @@ export type SearchDeathCertificatesQuery = {|
         deathDate: ?string,
         pending: ?boolean,
         age: ?string,
+        birthDate: ?string,
       |} >,
     |},
   |},

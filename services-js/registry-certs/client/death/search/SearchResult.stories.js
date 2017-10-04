@@ -6,17 +6,24 @@ import SearchResult from './SearchResult';
 
 import {
   TYPICAL_CERTIFICATE,
-  PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
 storiesOf('SearchResult', module)
   .add('typical certificate', () => (
-    <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" />
+    <SearchResult
+      certificate={TYPICAL_CERTIFICATE}
+      backUrl=""
+      lastRow={false}
+    />
   ))
-  .add('pending certificate', () => (
-    <SearchResult certificate={PENDING_CERTIFICATE} backUrl="" />
+  .add('bottom certificate', () => (
+    <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" lastRow />
   ))
   .add('certificate without death date', () => (
-    <SearchResult certificate={NO_DATE_CERTIFICATE} backUrl="" />
+    <SearchResult
+      certificate={NO_DATE_CERTIFICATE}
+      backUrl=""
+      lastRow={false}
+    />
   ));

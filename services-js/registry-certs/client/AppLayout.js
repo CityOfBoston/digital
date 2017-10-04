@@ -47,6 +47,26 @@ export default function AppLayout({ children, navProps }: Props) {
 
         {navProps && <Nav {...navProps} />}
 
+        <nav className="brc p-a300" role="navigation">
+          <ul className="brc-l">
+            <li className="brc-l-i">
+              <a href="https://www.boston.gov/">Home</a>
+              <span className="brc-s"> › </span>
+            </li>
+            <li className="brc-l-i">
+              <a href="https://www.boston.gov/departments">Departments</a>
+              <span className="brc-s"> › </span>
+            </li>
+            <li className="brc-l-i">
+              <a href="https://www.boston.gov/departments/registry">
+                Registry: Birth, death, and marriage
+              </a>
+              <span className="brc-s"> › </span>
+            </li>
+            <li className="brc-l-i">Death certificates</li>
+          </ul>
+        </nav>
+
         {children}
       </div>
 

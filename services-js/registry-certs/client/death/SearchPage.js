@@ -14,6 +14,7 @@ import type { DeathCertificateSearchResults } from '../types';
 import AppLayout from '../AppLayout';
 
 import Pagination from '../common/Pagination';
+import { GRAY_000 } from '../common/style-constants';
 
 import SearchResult from './search/SearchResult';
 
@@ -36,6 +37,8 @@ export class SearchPageContent extends React.Component<
   ContentProps,
   ContentState
 > {
+  queryField: ?HTMLInputElement;
+
   constructor(props: ContentProps) {
     super(props);
 
@@ -46,6 +49,10 @@ export class SearchPageContent extends React.Component<
     };
   }
 
+  setQueryField = (queryField: ?HTMLInputElement) => {
+    this.queryField = queryField;
+  };
+
   handleQueryChange = (ev: SyntheticInputEvent<*>) => {
     const query: string = ev.target.value;
     this.setState({ query });
@@ -53,6 +60,10 @@ export class SearchPageContent extends React.Component<
 
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
+
+    if (this.queryField) {
+      this.queryField.blur();
+    }
 
     const { submitSearch } = this.props;
     const { query } = this.state;
@@ -71,10 +82,16 @@ export class SearchPageContent extends React.Component<
         </Head>
 
         <div className="p-a300">
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Death Certificates</h1>
+          <div className="sh sh--b0" style={{ paddingBottom: 0 }}>
+            <h1 className="sh-title" style={{ marginBottom: 0 }}>
+              Death Certificates
+            </h1>
           </div>
 
+          {!results && this.renderIntro()}
+        </div>
+
+        <div className="p-a300" style={{ backgroundColor: GRAY_000 }}>
           <form
             className="sf sf--md"
             acceptCharset="UTF-8"
@@ -89,9 +106,10 @@ export class SearchPageContent extends React.Component<
                 type="text"
                 name="q"
                 id="q"
+                ref={this.setQueryField}
                 value={query}
                 onChange={this.handleQueryChange}
-                placeholder="Search…"
+                placeholder="Search by name…"
                 className="sf-i-f"
                 autoComplete="off"
               />
@@ -99,11 +117,33 @@ export class SearchPageContent extends React.Component<
                 Search
               </button>
             </div>
+
+            {!results && (
+              <div className="t--subinfo m-v200">
+                Examples: “j doe” “thomas menino 2014” “johnson 1956-1957”
+              </div>
+            )}
           </form>
         </div>
 
-        {results && this.renderResults(results)}
-        <div />
+        {results && results.resultCount > 0 && this.renderResults(results)}
+        {results && results.resultCount === 0 && this.renderNoResults()}
+      </div>
+    );
+  }
+
+  renderIntro() {
+    return (
+      <div className="m-t300" style={{ lineHeight: '2.16667em' }}>
+        <div className="t--intro m-v300">
+          We have death certificates for anyone who died in Boston, or who
+          listed Boston as their home.
+        </div>
+
+        <div className="m-t300">
+          To order a death certificate, start by searching for a name. You can
+          type a full or partial name, and optionally a year of death.
+        </div>
       </div>
     );
   }
@@ -124,11 +164,12 @@ export class SearchPageContent extends React.Component<
           </div>
         </div>
 
-        {results.results.map(certificate => (
+        {results.results.map((certificate, i) => (
           <SearchResult
             certificate={certificate}
             key={certificate.id}
             backUrl={`/death?q=${query}&page=${page}`}
+            lastRow={i === results.results.length - 1}
           />
         ))}
 
@@ -136,15 +177,51 @@ export class SearchPageContent extends React.Component<
           this.renderPagination(results)}
 
         <div className="p-a300">
-          Not finding what you’re looking for? Try refining your search or{' '}
-          <a
-            href="https://www.boston.gov/departments/registry/how-get-death-certificate"
-            style={{ fontStyle: 'italic' }}
-          >
-            request a death certificate
-          </a>.
+          <p>Not finding what you’re looking for?</p>
+          {this.renderHelp()}
         </div>
       </div>
+    );
+  }
+
+  renderNoResults() {
+    return (
+      <div>
+        <div className="p-a300 t--intro">No results found for this search.</div>
+        {this.renderHelp()}
+      </div>
+    );
+  }
+
+  renderHelp() {
+    return (
+      <ul className="ul">
+        <li>
+          Try using a partial name. For example, “jo” matches “joe” and
+          “joseph.”
+        </li>
+
+        <li>
+          Add a 4-digit year of death. You can also search for a range of death
+          years, like “smith 1950–1955”
+        </li>
+
+        <li>
+          Most death certificates prior to 1870 are not available through this
+          site. For these years,{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
+            request a death certificate by mail or in person
+          </a>. An additional research fee may apply.
+        </li>
+
+        <style jsx>
+          {`
+            li {
+              margin-top: 0.5em;
+            }
+          `}
+        </style>
+      </ul>
     );
   }
 
