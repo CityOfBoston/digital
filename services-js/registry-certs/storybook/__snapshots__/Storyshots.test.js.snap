@@ -1,14 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
+<div
+  className="md-c"
+  data-jsx={4244086707}
+>
+  <button
+    className="md-cb"
+    data-jsx={4244086707}
+    onClick={[Function]}
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+    type="button"
+  >
+    Close
+  </button>
+  <div
+    className="mb-b p-a300 p-a600--xl"
+    data-jsx={4244086707}
+  >
+    <div
+      className="sh m-b500"
+      data-jsx={4244086707}
+    >
+      <div
+        className="sh-title"
+        data-jsx={4244086707}
+      >
+        Added to Cart
+      </div>
+    </div>
+    <div
+      className="p-a300 result"
+      data-jsx={4244086707}
+    >
+      <div
+        aria-label="Quantity"
+        className="p-a300"
+        data-jsx={4244086707}
+      >
+        5
+         ×
+      </div>
+      <div
+        className="certificate-info"
+        data-jsx={4244086707}
+      >
+        <div
+          data-jsx={4244086707}
+        >
+          Bruce
+           
+          Banner
+        </div>
+        <div
+          data-jsx={4244086707}
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          3/4/2016
+          <span
+            className="id-label"
+            data-jsx={4244086707}
+          >
+            ID:
+          </span>
+           
+          000002
+        </div>
+      </div>
+    </div>
+    <div
+      className="m-v500 ta-c"
+      data-jsx={4244086707}
+    >
+      <a
+        className="btn"
+        data-jsx={4244086707}
+        href="/death/cart"
+        onClick={[Function]}
+      >
+        Go to your cart
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots CartItem certificate without death date 1`] = `
 <div
   className="p-a300 result"
-  data-jsx={4235775412}
+  data-jsx={3098076729}
 >
   <input
     aria-label="Quantity"
     className="br br-a150 quantity-box"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -16,17 +109,17 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
   />
   <div
     className="certificate-info"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
   >
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
     >
       Monkey
        
       Joe
     </div>
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
       style={
         Object {
           "fontStyle": "italic",
@@ -36,7 +129,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
       2004
       <span
         className="id-label"
-        data-jsx={4235775412}
+        data-jsx={3098076729}
       >
         ID:
       </span>
@@ -45,7 +138,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
     </div>
   </div>
   <button
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onClick={[Function]}
     type="button"
   >
@@ -57,12 +150,12 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
 exports[`Storyshots CartItem pending certificate 1`] = `
 <div
   className="p-a300 result"
-  data-jsx={4235775412}
+  data-jsx={3098076729}
 >
   <input
     aria-label="Quantity"
     className="br br-a150 quantity-box"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -70,17 +163,17 @@ exports[`Storyshots CartItem pending certificate 1`] = `
   />
   <div
     className="certificate-info"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
   >
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
     >
       Logan
        
       Howlett
     </div>
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
       style={
         Object {
           "fontStyle": "italic",
@@ -90,7 +183,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
       4/15/2014
       <span
         className="id-label"
-        data-jsx={4235775412}
+        data-jsx={3098076729}
       >
         ID:
       </span>
@@ -99,7 +192,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
     </div>
   </div>
   <button
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onClick={[Function]}
     type="button"
   >
@@ -111,12 +204,12 @@ exports[`Storyshots CartItem pending certificate 1`] = `
 exports[`Storyshots CartItem typical certificate 1`] = `
 <div
   className="p-a300 result"
-  data-jsx={4235775412}
+  data-jsx={3098076729}
 >
   <input
     aria-label="Quantity"
     className="br br-a150 quantity-box"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -124,17 +217,17 @@ exports[`Storyshots CartItem typical certificate 1`] = `
   />
   <div
     className="certificate-info"
-    data-jsx={4235775412}
+    data-jsx={3098076729}
   >
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
     >
       Bruce
        
       Banner
     </div>
     <div
-      data-jsx={4235775412}
+      data-jsx={3098076729}
       style={
         Object {
           "fontStyle": "italic",
@@ -144,7 +237,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
       3/4/2016
       <span
         className="id-label"
-        data-jsx={4235775412}
+        data-jsx={3098076729}
       >
         ID:
       </span>
@@ -153,7 +246,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
     </div>
   </div>
   <button
-    data-jsx={4235775412}
+    data-jsx={3098076729}
     onClick={[Function]}
     type="button"
   >
@@ -1197,12 +1290,12 @@ exports[`Storyshots CartPage normal page 1`] = `
       >
         <div
           className="p-a300 result"
-          data-jsx={4235775412}
+          data-jsx={3098076729}
         >
           <input
             aria-label="Quantity"
             className="br br-a150 quantity-box"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -1210,17 +1303,17 @@ exports[`Storyshots CartPage normal page 1`] = `
           />
           <div
             className="certificate-info"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
           >
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
             >
               Bruce
                
               Banner
             </div>
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
               style={
                 Object {
                   "fontStyle": "italic",
@@ -1230,7 +1323,7 @@ exports[`Storyshots CartPage normal page 1`] = `
               3/4/2016
               <span
                 className="id-label"
-                data-jsx={4235775412}
+                data-jsx={3098076729}
               >
                 ID:
               </span>
@@ -1239,7 +1332,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <button
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onClick={[Function]}
             type="button"
           >
@@ -1248,12 +1341,12 @@ exports[`Storyshots CartPage normal page 1`] = `
         </div>
         <div
           className="p-a300 result"
-          data-jsx={4235775412}
+          data-jsx={3098076729}
         >
           <input
             aria-label="Quantity"
             className="br br-a150 quantity-box"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -1261,17 +1354,17 @@ exports[`Storyshots CartPage normal page 1`] = `
           />
           <div
             className="certificate-info"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
           >
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
             >
               Logan
                
               Howlett
             </div>
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
               style={
                 Object {
                   "fontStyle": "italic",
@@ -1281,7 +1374,7 @@ exports[`Storyshots CartPage normal page 1`] = `
               4/15/2014
               <span
                 className="id-label"
-                data-jsx={4235775412}
+                data-jsx={3098076729}
               >
                 ID:
               </span>
@@ -1290,7 +1383,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <button
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onClick={[Function]}
             type="button"
           >
@@ -1299,12 +1392,12 @@ exports[`Storyshots CartPage normal page 1`] = `
         </div>
         <div
           className="p-a300 result"
-          data-jsx={4235775412}
+          data-jsx={3098076729}
         >
           <input
             aria-label="Quantity"
             className="br br-a150 quantity-box"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -1312,17 +1405,17 @@ exports[`Storyshots CartPage normal page 1`] = `
           />
           <div
             className="certificate-info"
-            data-jsx={4235775412}
+            data-jsx={3098076729}
           >
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
             >
               Monkey
                
               Joe
             </div>
             <div
-              data-jsx={4235775412}
+              data-jsx={3098076729}
               style={
                 Object {
                   "fontStyle": "italic",
@@ -1332,7 +1425,7 @@ exports[`Storyshots CartPage normal page 1`] = `
               2004
               <span
                 className="id-label"
-                data-jsx={4235775412}
+                data-jsx={3098076729}
               >
                 ID:
               </span>
@@ -1341,7 +1434,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <button
-            data-jsx={4235775412}
+            data-jsx={3098076729}
             onClick={[Function]}
             type="button"
           >
@@ -1713,6 +1806,21 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
     </nav>
     <div>
       <div
+        className="m-t300 p-a300"
+      >
+        <a
+          href="/search?q=jayne"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          ← Back to search
+        </a>
+      </div>
+      <div
         className="p-a300"
       >
         <div
@@ -1765,6 +1873,1096 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
 `;
 
 exports[`Storyshots CertificatePage normal certificate 1`] = `
+<div>
+  <input
+    aria-hidden="true"
+    className="brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <img src=\\"https://cob-patterns-staging.herokuapp.com/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-184936\\"><a href=\\"https://www.boston.gov/programs-initiatives\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Programs and Initiatives</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/elections\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/cabinet-directory\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cabinet Directory</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-183211\\"><a href=\\"https://www.boston.gov/neighborhoods\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171786\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community Centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171791\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-171811\\"><a href=\\"https://www.boston.gov/cemeteries\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-l last leaf menu-mlid-212956\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+</ul>  </div>
+  <script>
+  'use strict'
+
+  var BostonMenu = (function () {
+    // Set height
+    var secondaryNavs;
+    var secondaryTriggers;
+    var listItems;
+    var secondaryNavItems;
+    var backTriggers;
+    var burger;
+    var placeholder;
+
+    function handleBurgerChange(ev) {
+      document.body.classList.toggle('no-s');
+    }
+
+    function handleTrigger(ev, method) {
+      var backTrigger;
+      var secondaryNav;
+      var trigger = ev.target;
+      var parentItem = method === 'reset' ? trigger.parentNode.parentNode.parentNode : trigger.parentNode;
+      var title = document.getElementById('nv-m-h-t');
+
+      // Find the secondary nav and trigger
+      for (var i = 0; i < parentItem.childNodes.length; i++) {
+        if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-l-l')) {
+          secondaryNav = parentItem.childNodes[i];
+        }
+
+        if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-a')) {
+          trigger = parentItem.childNodes[i];
+        }
+      }
+
+      // Find the backTrigger
+      for (var i = 0; i < secondaryNav.childNodes.length; i++) {
+        if (secondaryNav.childNodes[i].classList && secondaryNav.childNodes[i].classList.contains('nv-m-c-bc')) {
+          backTrigger = secondaryNav.childNodes[i];
+        }
+      }
+
+      if (method === 'nav') {
+        for (var i = 0; i < listItems.length; i++) {
+          if (parentItem != listItems[i]) {
+            listItems[i].classList.add('nv-m-c-l-i--h');
+          }
+        }
+
+        // Hide the trigger
+        trigger.classList.add('nv-m-c-a--h');
+
+        // Show the secondary nav
+        secondaryNav.classList.remove('nv-m-c-l-l--h');
+
+        // Show the back button
+        backTrigger.classList.remove('nv-m-c-b--h');
+
+        // Update the title
+        title.innerHTML = trigger.innerHTML;
+      } else {
+        for (var i = 0; i < listItems.length; i++) {
+          if (parentItem != listItems[i]) {
+            listItems[i].classList.remove('nv-m-c-l-i--h');
+          }
+        }
+
+        // Hide the trigger
+        trigger.classList.remove('nv-m-c-a--h');
+
+        // Show the secondary nav
+        secondaryNav.classList.add('nv-m-c-l-l--h');
+
+        // Show the back button
+        backTrigger.classList.add('nv-m-c-b--h');
+
+        // Update the title
+        title.innerHTML = placeholder;
+      }
+    }
+
+    function start() {
+      burger = document.getElementById('brg-tr');
+      listItems = document.querySelectorAll('.nv-m-c-l-i');
+      backTriggers = document.querySelectorAll('.nv-m-c-b');
+      secondaryTriggers = document.querySelectorAll('.nolink');
+      secondaryNavs = document.querySelectorAll('.nv-m-c-l-l');
+      secondaryNavItems = document.querySelectorAll('.nv-m-c-a--s');
+
+      placeholder = document.getElementById('nv-m-h-t').innerHTML;
+
+      // Set the secondary navigation menus to hidden
+      for (var i = 0; i < secondaryNavs.length; i++) {
+        secondaryNavs[i].classList.add('nv-m-c-l-l--h');
+      }
+
+      // Get the secondary navigation triggers ready
+      for (var i = 0; i < secondaryTriggers.length; i++) {
+        // Set to active
+        secondaryTriggers[i].classList.add('nolink--a');
+
+        // Handle clicks
+        secondaryTriggers[i].addEventListener('click', function(ev) {
+          ev.preventDefault();
+
+          handleTrigger(ev, 'nav');
+        });
+      }
+
+      // Get the secondary navigation triggers ready
+      for (var i = 0; i < backTriggers.length; i++) {
+        backTriggers[i].addEventListener('click', function(ev) {
+          ev.preventDefault();
+
+          handleTrigger(ev, 'reset');
+        });
+      }
+
+      // Set the secondary navigation menus to hidden
+      for (var i = 0; i < secondaryNavItems.length; i++) {
+        secondaryNavItems[i].classList.remove('nv-m-c-a--s');
+        secondaryNavItems[i].classList.add('nv-m-c-a--p');
+      }
+
+      if (burger) {
+        burger.addEventListener('change', handleBurgerChange);
+      }
+    }
+
+    return {
+      start: start
+    }
+  })()
+
+  BostonMenu.start()
+</script>
+",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="mn mn--full mn--nv-s"
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+      <div class=\\"brg\\">
+        <span class=\\"brg-c\\">
+          <span class=\\"brg-c-i\\"></span>
+        </span>
+        <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+      </div>
+    </label>
+    <div class=\\"lo\\">
+      <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+        <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+        <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+      </a>
+    </div>
+    <nav class=\\"nv-h\\">
+      <ul class=\\"nv-h-l\\">
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                <li class=\\"tr nv-h-l-i\\">
+          <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+          <ul class=\\"tr-dd\\">
+              <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+          </ul>
+        </li>
+        <li class=\\"nv-h-l-i\\">
+          <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+            <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+          </label>
+        </li>
+      </ul>
+    </nav>
+    <div class=\\"h-s\\">
+      <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+        <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+        <div class=\\"sf-i\\">
+          <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+          <button class=\\"sf-i-b\\">Search</button>
+        </div>
+      </form>
+    </div>
+  ",
+        }
+      }
+      role="banner"
+    />
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={4179230438}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={4179230438}
+      >
+        <a
+          className="nv-s-l-b back-link back-link-right"
+          data-jsx={4179230438}
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          View Cart
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={4179230438}
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
+      <div
+        className="m-t300 p-a300"
+      >
+        <a
+          href="/search?q=jayne"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          ← Back to search
+        </a>
+      </div>
+      <div
+        className="p-a300"
+      >
+        <div
+          className="sh sh--b0"
+        >
+          <h1
+            className="sh-title"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
+          >
+            Deceased Details
+          </h1>
+        </div>
+      </div>
+      <div
+        className="p-a300 b--w"
+      >
+        <div
+          data-jsx={3255886522}
+        >
+          <ul
+            className="dl"
+            data-jsx={3255886522}
+          >
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Full Name
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                Bruce
+                 
+                Banner
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Date of Death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                3/4/2016
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Date of Birth / Age
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                5/1/1962
+              </span>
+            </li>
+          </ul>
+          <form
+            className="js-add-to-cart-form m-v300"
+            data-jsx={3255886522}
+            onSubmit={[Function]}
+          >
+            <select
+              className="quantity"
+              data-jsx={3255886522}
+              name="quantity"
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                data-jsx={3255886522}
+                value="1"
+              >
+                Qty: 1
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="2"
+              >
+                Qty: 2
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="3"
+              >
+                Qty: 3
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="4"
+              >
+                Qty: 4
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="5"
+              >
+                Qty: 5
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="6"
+              >
+                Qty: 6
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="7"
+              >
+                Qty: 7
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="8"
+              >
+                Qty: 8
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="9"
+              >
+                Qty: 9
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="10"
+              >
+                Qty: 10
+              </option>
+            </select>
+            <button
+              className="btn add-to-cart"
+              data-jsx={3255886522}
+              type="submit"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/copyright/privacyandsecurity.asp\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" title=\\"\\" class=\\"ft-ll-a\\">Careers</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
+<div>
+  <input
+    aria-hidden="true"
+    className="brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <img src=\\"https://cob-patterns-staging.herokuapp.com/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-184936\\"><a href=\\"https://www.boston.gov/programs-initiatives\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Programs and Initiatives</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/elections\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/cabinet-directory\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cabinet Directory</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-183211\\"><a href=\\"https://www.boston.gov/neighborhoods\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171786\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community Centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171791\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-171811\\"><a href=\\"https://www.boston.gov/cemeteries\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-l last leaf menu-mlid-212956\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+</ul>  </div>
+  <script>
+  'use strict'
+
+  var BostonMenu = (function () {
+    // Set height
+    var secondaryNavs;
+    var secondaryTriggers;
+    var listItems;
+    var secondaryNavItems;
+    var backTriggers;
+    var burger;
+    var placeholder;
+
+    function handleBurgerChange(ev) {
+      document.body.classList.toggle('no-s');
+    }
+
+    function handleTrigger(ev, method) {
+      var backTrigger;
+      var secondaryNav;
+      var trigger = ev.target;
+      var parentItem = method === 'reset' ? trigger.parentNode.parentNode.parentNode : trigger.parentNode;
+      var title = document.getElementById('nv-m-h-t');
+
+      // Find the secondary nav and trigger
+      for (var i = 0; i < parentItem.childNodes.length; i++) {
+        if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-l-l')) {
+          secondaryNav = parentItem.childNodes[i];
+        }
+
+        if (parentItem.childNodes[i].classList && parentItem.childNodes[i].classList.contains('nv-m-c-a')) {
+          trigger = parentItem.childNodes[i];
+        }
+      }
+
+      // Find the backTrigger
+      for (var i = 0; i < secondaryNav.childNodes.length; i++) {
+        if (secondaryNav.childNodes[i].classList && secondaryNav.childNodes[i].classList.contains('nv-m-c-bc')) {
+          backTrigger = secondaryNav.childNodes[i];
+        }
+      }
+
+      if (method === 'nav') {
+        for (var i = 0; i < listItems.length; i++) {
+          if (parentItem != listItems[i]) {
+            listItems[i].classList.add('nv-m-c-l-i--h');
+          }
+        }
+
+        // Hide the trigger
+        trigger.classList.add('nv-m-c-a--h');
+
+        // Show the secondary nav
+        secondaryNav.classList.remove('nv-m-c-l-l--h');
+
+        // Show the back button
+        backTrigger.classList.remove('nv-m-c-b--h');
+
+        // Update the title
+        title.innerHTML = trigger.innerHTML;
+      } else {
+        for (var i = 0; i < listItems.length; i++) {
+          if (parentItem != listItems[i]) {
+            listItems[i].classList.remove('nv-m-c-l-i--h');
+          }
+        }
+
+        // Hide the trigger
+        trigger.classList.remove('nv-m-c-a--h');
+
+        // Show the secondary nav
+        secondaryNav.classList.add('nv-m-c-l-l--h');
+
+        // Show the back button
+        backTrigger.classList.add('nv-m-c-b--h');
+
+        // Update the title
+        title.innerHTML = placeholder;
+      }
+    }
+
+    function start() {
+      burger = document.getElementById('brg-tr');
+      listItems = document.querySelectorAll('.nv-m-c-l-i');
+      backTriggers = document.querySelectorAll('.nv-m-c-b');
+      secondaryTriggers = document.querySelectorAll('.nolink');
+      secondaryNavs = document.querySelectorAll('.nv-m-c-l-l');
+      secondaryNavItems = document.querySelectorAll('.nv-m-c-a--s');
+
+      placeholder = document.getElementById('nv-m-h-t').innerHTML;
+
+      // Set the secondary navigation menus to hidden
+      for (var i = 0; i < secondaryNavs.length; i++) {
+        secondaryNavs[i].classList.add('nv-m-c-l-l--h');
+      }
+
+      // Get the secondary navigation triggers ready
+      for (var i = 0; i < secondaryTriggers.length; i++) {
+        // Set to active
+        secondaryTriggers[i].classList.add('nolink--a');
+
+        // Handle clicks
+        secondaryTriggers[i].addEventListener('click', function(ev) {
+          ev.preventDefault();
+
+          handleTrigger(ev, 'nav');
+        });
+      }
+
+      // Get the secondary navigation triggers ready
+      for (var i = 0; i < backTriggers.length; i++) {
+        backTriggers[i].addEventListener('click', function(ev) {
+          ev.preventDefault();
+
+          handleTrigger(ev, 'reset');
+        });
+      }
+
+      // Set the secondary navigation menus to hidden
+      for (var i = 0; i < secondaryNavItems.length; i++) {
+        secondaryNavItems[i].classList.remove('nv-m-c-a--s');
+        secondaryNavItems[i].classList.add('nv-m-c-a--p');
+      }
+
+      if (burger) {
+        burger.addEventListener('change', handleBurgerChange);
+      }
+    }
+
+    return {
+      start: start
+    }
+  })()
+
+  BostonMenu.start()
+</script>
+",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="mn mn--full mn--nv-s"
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\" type=\\"button\\">
+      <div class=\\"brg\\">
+        <span class=\\"brg-c\\">
+          <span class=\\"brg-c-i\\"></span>
+        </span>
+        <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+      </div>
+    </label>
+    <div class=\\"lo\\">
+      <a href=\\"https://www.boston.gov\\" class=\\"lo-l\\">
+        <img src=\\"https://cob-patterns-staging.herokuapp.com/images/public/logo.svg\\" alt=\\"City of Boston\\" class=\\"lo-i\\">
+        <span class=\\"lo-t\\">Mayor Martin J. Walsh</span>
+      </a>
+    </div>
+    <nav class=\\"nv-h\\">
+      <ul class=\\"nv-h-l\\">
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/public-notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://edit-dev.boston.gov/node/3256/\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+                  <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/#\\" class=\\"nv-h-l-a nolink\\">Feedback</a></li>
+                <li class=\\"tr nv-h-l-i\\">
+          <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+          <ul class=\\"tr-dd\\">
+              <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+              <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+          </ul>
+        </li>
+        <li class=\\"nv-h-l-i\\">
+          <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\">
+            <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+          </label>
+        </li>
+      </ul>
+    </nav>
+    <div class=\\"h-s\\">
+      <form action=\\"https://search.boston.gov\\" class=\\"sf\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+        <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+        <div class=\\"sf-i\\">
+          <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+          <button class=\\"sf-i-b\\">Search</button>
+        </div>
+      </form>
+    </div>
+  ",
+        }
+      }
+      role="banner"
+    />
+    <nav
+      className="nv-s nv-s--sticky"
+      data-jsx={4179230438}
+    >
+      <div
+        className="nv-s-l bar"
+        data-jsx={4179230438}
+      >
+        <a
+          className="nv-s-l-b back-link back-link-right"
+          data-jsx={4179230438}
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          View Cart
+        </a>
+        <a
+          className="cart-link"
+          data-jsx={4179230438}
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
+        </a>
+      </div>
+    </nav>
+    <div>
+      <div
+        className="m-t300 p-a300"
+      >
+        <a
+          href="/search?q=jayne"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          ← Back to search
+        </a>
+      </div>
+      <div
+        className="p-a300"
+      >
+        <div
+          className="sh sh--b0"
+        >
+          <h1
+            className="sh-title"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
+          >
+            Deceased Details
+          </h1>
+        </div>
+      </div>
+      <div
+        className="p-a300 b--w"
+      >
+        <div
+          data-jsx={3255886522}
+        >
+          <ul
+            className="dl"
+            data-jsx={3255886522}
+          >
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Full Name
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                Bruce
+                 
+                Banner
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Date of Death
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                3/4/2016
+              </span>
+            </li>
+            <li
+              className="dl-i"
+              data-jsx={3255886522}
+            >
+              <span
+                className="dl-t"
+                data-jsx={3255886522}
+              >
+                Date of Birth / Age
+              </span>
+              <span
+                className="dl-d"
+                data-jsx={3255886522}
+              >
+                5/1/1962
+              </span>
+            </li>
+          </ul>
+          <form
+            className="js-add-to-cart-form m-v300"
+            data-jsx={3255886522}
+            onSubmit={[Function]}
+          >
+            <select
+              className="quantity"
+              data-jsx={3255886522}
+              name="quantity"
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                data-jsx={3255886522}
+                value="1"
+              >
+                Qty: 1
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="2"
+              >
+                Qty: 2
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="3"
+              >
+                Qty: 3
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="4"
+              >
+                Qty: 4
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="5"
+              >
+                Qty: 5
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="6"
+              >
+                Qty: 6
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="7"
+              >
+                Qty: 7
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="8"
+              >
+                Qty: 8
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="9"
+              >
+                Qty: 9
+              </option>
+              <option
+                data-jsx={3255886522}
+                value="10"
+              >
+                Qty: 10
+              </option>
+            </select>
+            <button
+              className="btn add-to-cart"
+              data-jsx={3255886522}
+              type="submit"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        className="md"
+      >
+        <div
+          className="md-c"
+          data-jsx={4244086707}
+        >
+          <button
+            className="md-cb"
+            data-jsx={4244086707}
+            onClick={[Function]}
+            style={
+              Object {
+                "border": "none",
+              }
+            }
+            type="button"
+          >
+            Close
+          </button>
+          <div
+            className="mb-b p-a300 p-a600--xl"
+            data-jsx={4244086707}
+          >
+            <div
+              className="sh m-b500"
+              data-jsx={4244086707}
+            >
+              <div
+                className="sh-title"
+                data-jsx={4244086707}
+              >
+                Added to Cart
+              </div>
+            </div>
+            <div
+              className="p-a300 result"
+              data-jsx={4244086707}
+            >
+              <div
+                aria-label="Quantity"
+                className="p-a300"
+                data-jsx={4244086707}
+              >
+                5
+                 ×
+              </div>
+              <div
+                className="certificate-info"
+                data-jsx={4244086707}
+              >
+                <div
+                  data-jsx={4244086707}
+                >
+                  Bruce
+                   
+                  Banner
+                </div>
+                <div
+                  data-jsx={4244086707}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  3/4/2016
+                  <span
+                    className="id-label"
+                    data-jsx={4244086707}
+                  >
+                    ID:
+                  </span>
+                   
+                  000002
+                </div>
+              </div>
+            </div>
+            <div
+              className="m-v500 ta-c"
+              data-jsx={4244086707}
+            >
+              <a
+                className="btn"
+                data-jsx={4244086707}
+                href="/death/cart"
+                onClick={[Function]}
+              >
+                Go to your cart
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/copyright/privacyandsecurity.asp\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/human-resources/career-center\\" title=\\"\\" class=\\"ft-ll-a\\">Careers</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots CertificatePage normal certificate — not from search 1`] = `
 <div>
   <input
     aria-hidden="true"
@@ -2534,6 +3732,21 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       </div>
     </nav>
     <div>
+      <div
+        className="m-t300 p-a300"
+      >
+        <a
+          href="/search?q=jayne"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        >
+          ← Back to search
+        </a>
+      </div>
       <div
         className="p-a300"
       >
@@ -3877,116 +5090,51 @@ exports[`Storyshots PaymentContent default 1`] = `
               className="stp m-b300"
               data-jsx={3785310163}
             >
-              Billing Information
+              Billing Address
             </legend>
             <div
-              className="txt"
               data-jsx={3785310163}
             >
               <label
-                className="txt-l txt-l--mt000"
+                className="ra"
                 data-jsx={3785310163}
-                htmlFor="billing-address-1"
               >
-                Address Line 1
+                <input
+                  checked={true}
+                  className="ra-f"
+                  data-jsx={3785310163}
+                  name="billing-address-same-as-shipping-address"
+                  onChange={[Function]}
+                  type="radio"
+                  value="true"
+                />
+                <span
+                  className="ra-l"
+                  data-jsx={3785310163}
+                >
+                  Same as shipping address
+                </span>
               </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-address-1"
-                name="billing-address-1"
-                onChange={[Function]}
-                placeholder="Address Line 1"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
               <label
-                className="txt-l txt-l--mt000"
+                className="ra"
                 data-jsx={3785310163}
-                htmlFor="billing-address-2"
               >
-                Address Line 2
+                <input
+                  checked={false}
+                  className="ra-f"
+                  data-jsx={3785310163}
+                  name="billing-address-same-as-shipping-address"
+                  onChange={[Function]}
+                  type="radio"
+                  value="false"
+                />
+                <span
+                  className="ra-l"
+                  data-jsx={3785310163}
+                >
+                  Use a different address
+                </span>
               </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-address-2"
-                name="billing-address-2"
-                onChange={[Function]}
-                placeholder="Address Line 2"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-city"
-              >
-                City
-              </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-city"
-                name="billing-city"
-                onChange={[Function]}
-                placeholder="City"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-state"
-              >
-                State
-              </label>
-              <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
-                id="billing-state"
-                max="2"
-                name="billing-state"
-                onChange={[Function]}
-                placeholder="State"
-                value=""
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-zip"
-              >
-                ZIP Code
-              </label>
-              <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
-                id="billing-zip"
-                name="billing-zip"
-                onChange={[Function]}
-                placeholder="ZIP code"
-                value=""
-              />
             </div>
           </fieldset>
         </div>
@@ -3997,7 +5145,7 @@ exports[`Storyshots PaymentContent default 1`] = `
           <button
             className="g--3 btn m-v500"
             data-jsx={3785310163}
-            disabled={true}
+            disabled={false}
             type="submit"
           >
             Submit Order
@@ -4494,116 +5642,51 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               className="stp m-b300"
               data-jsx={3785310163}
             >
-              Billing Information
+              Billing Address
             </legend>
             <div
-              className="txt"
               data-jsx={3785310163}
             >
               <label
-                className="txt-l txt-l--mt000"
+                className="ra"
                 data-jsx={3785310163}
-                htmlFor="billing-address-1"
               >
-                Address Line 1
+                <input
+                  checked={true}
+                  className="ra-f"
+                  data-jsx={3785310163}
+                  name="billing-address-same-as-shipping-address"
+                  onChange={[Function]}
+                  type="radio"
+                  value="true"
+                />
+                <span
+                  className="ra-l"
+                  data-jsx={3785310163}
+                >
+                  Same as shipping address
+                </span>
               </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-address-1"
-                name="billing-address-1"
-                onChange={[Function]}
-                placeholder="Address Line 1"
-                type="text"
-                value="3 Avengers Towers"
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
               <label
-                className="txt-l txt-l--mt000"
+                className="ra"
                 data-jsx={3785310163}
-                htmlFor="billing-address-2"
               >
-                Address Line 2
+                <input
+                  checked={false}
+                  className="ra-f"
+                  data-jsx={3785310163}
+                  name="billing-address-same-as-shipping-address"
+                  onChange={[Function]}
+                  type="radio"
+                  value="false"
+                />
+                <span
+                  className="ra-l"
+                  data-jsx={3785310163}
+                >
+                  Use a different address
+                </span>
               </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-address-2"
-                name="billing-address-2"
-                onChange={[Function]}
-                placeholder="Address Line 2"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-city"
-              >
-                City
-              </label>
-              <input
-                className="txt-f"
-                data-jsx={3785310163}
-                id="billing-city"
-                name="billing-city"
-                onChange={[Function]}
-                placeholder="City"
-                type="text"
-                value="New York"
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-state"
-              >
-                State
-              </label>
-              <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
-                id="billing-state"
-                max="2"
-                name="billing-state"
-                onChange={[Function]}
-                placeholder="State"
-                value="NY"
-              />
-            </div>
-            <div
-              className="txt"
-              data-jsx={3785310163}
-            >
-              <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
-                htmlFor="billing-zip"
-              >
-                ZIP Code
-              </label>
-              <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
-                id="billing-zip"
-                name="billing-zip"
-                onChange={[Function]}
-                placeholder="ZIP code"
-                value="12223"
-              />
             </div>
           </fieldset>
         </div>
@@ -5787,9 +6870,9 @@ exports[`Storyshots SearchPage with results 1`] = `
             }
           >
             Showing 
-            1
+            21
             –
-            20
+            40
              of 
             600
              
@@ -5903,7 +6986,18 @@ exports[`Storyshots SearchPage with results 1`] = `
             className="pg-li"
           >
             <a
-              className="pg-li-i pg-li-i--link pg-li-i--a"
+              className="pg-li-i pg-li-i--link"
+              href="/death?q=Jayne Doe&page=1"
+              onClick={[Function]}
+            >
+              ≪
+            </a>
+          </li>
+          <li
+            className="pg-li"
+          >
+            <a
+              className="pg-li-i pg-li-i--link "
               href="/death?q=Jayne Doe&page=1"
               onClick={[Function]}
             >
@@ -5914,7 +7008,7 @@ exports[`Storyshots SearchPage with results 1`] = `
             className="pg-li"
           >
             <a
-              className="pg-li-i pg-li-i--link "
+              className="pg-li-i pg-li-i--link pg-li-i--a"
               href="/death?q=Jayne Doe&page=2"
               onClick={[Function]}
             >
@@ -5958,19 +7052,8 @@ exports[`Storyshots SearchPage with results 1`] = `
             className="pg-li"
           >
             <a
-              className="pg-li-i pg-li-i--link "
-              href="/death?q=Jayne Doe&page=6"
-              onClick={[Function]}
-            >
-              6
-            </a>
-          </li>
-          <li
-            className="pg-li"
-          >
-            <a
               className="pg-li-i pg-li-i--link"
-              href="/death?q=Jayne Doe&page=2"
+              href="/death?q=Jayne Doe&page=3"
               onClick={[Function]}
             >
               ≫

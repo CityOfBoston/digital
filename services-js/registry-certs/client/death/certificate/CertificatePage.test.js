@@ -2,17 +2,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Cart from '../store/Cart';
-import DeathCertificatesDao from '../dao/DeathCertificatesDao';
+import Cart from '../../store/Cart';
+import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 
 import CertificatePage, {
   wrapCertificatePageController,
   CertificatePageContent,
 } from './CertificatePage';
 
-import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
+import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
-jest.mock('../dao/DeathCertificatesDao');
+jest.mock('../../dao/DeathCertificatesDao');
 
 describe('integration', () => {
   it('renders', () => {
@@ -20,6 +20,7 @@ describe('integration', () => {
       new CertificatePage({
         certificate: TYPICAL_CERTIFICATE,
         id: TYPICAL_CERTIFICATE.id,
+        backUrl: '/search?q=jayne',
       }).render()
     ).toMatchSnapshot();
   });
@@ -66,6 +67,7 @@ describe('controller', () => {
   describe('operations', () => {
     describe('addToCart', () => {
       let cart;
+      let contentProps;
       let controller;
 
       beforeEach(() => {
@@ -74,18 +76,41 @@ describe('controller', () => {
         const dependencies: any = { cart };
         const CertificatePageController = wrapCertificatePageController(
           () => dependencies,
-          () => null
+          (dependencies, props) => {
+            contentProps = props;
+            return null;
+          }
         );
 
-        controller = new CertificatePageController({
-          id: '00002',
-          certificate: TYPICAL_CERTIFICATE,
+        controller = shallow(
+          <CertificatePageController
+            id="0002"
+            certificate={TYPICAL_CERTIFICATE}
+            backUrl="/search?q=jayne"
+          />
+        ).instance();
+
+        controller.addToCart(5);
+      });
+
+      it('adds 5 things to the cart', () => {
+        expect(cart.size).toEqual(5);
+      });
+
+      it('displays the “add to cart” popup with the quantity', () => {
+        expect(contentProps).toMatchObject({
+          showAddedToCart: true,
+          addedToCartQuantity: 5,
         });
       });
 
-      it('redirects to search for a query', () => {
-        controller.addToCart(5);
-        expect(cart.size).toEqual(5);
+      it('popup can be closed', () => {
+        contentProps.closeAddedToCart();
+
+        expect(contentProps).toMatchObject({
+          showAddedToCart: false,
+          addedToCartQuantity: 5,
+        });
       });
     });
   });
@@ -102,7 +127,11 @@ describe('content', () => {
       <CertificatePageContent
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
+        backUrl={'/search?q=jayne'}
         addToCart={addToCart}
+        showAddedToCart={false}
+        addedToCartQuantity={0}
+        closeAddedToCart={jest.fn()}
       />
     );
   });

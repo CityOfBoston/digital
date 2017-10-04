@@ -42,6 +42,8 @@ function makeOrder() {
     shippingState: 'NY',
     shippingZip: '12345',
 
+    billingAddressSameAsShippingAddress: true,
+
     billingAddress1: '',
     billingAddress2: '',
     billingCity: '',

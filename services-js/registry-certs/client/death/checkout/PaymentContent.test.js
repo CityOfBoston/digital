@@ -16,6 +16,7 @@ describe('content', () => {
   beforeEach(() => {
     cart = new Cart();
     order = new Order();
+    order.info.billingAddressSameAsShippingAddress = false;
     submit = jest.fn();
     wrapper = shallow(
       <PaymentContent cart={cart} order={order} submit={submit} />

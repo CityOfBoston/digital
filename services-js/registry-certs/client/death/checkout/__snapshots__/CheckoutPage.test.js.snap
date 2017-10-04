@@ -22,6 +22,7 @@ exports[`integration renders payment 1`] = `
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
+          "billingAddressSameAsShippingAddress": true,
           "billingCity": "",
           "billingState": "",
           "billingZip": "",
@@ -54,6 +55,7 @@ exports[`integration renders shipping 1`] = `
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
+          "billingAddressSameAsShippingAddress": true,
           "billingCity": "",
           "billingState": "",
           "billingZip": "",

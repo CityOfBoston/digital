@@ -2,25 +2,32 @@
 
 import React, { type Element as ReactElement } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
-import type { DeathCertificate } from '../types';
+import type { DeathCertificate } from '../../types';
 
 import {
   getDependencies,
   type ClientContext,
   type ClientDependencies,
-} from '../app';
+} from '../../app';
 
-import AppLayout from '../AppLayout';
+import AppLayout from '../../AppLayout';
+
+import AddedToCartPopup from './AddedToCartPopup';
 
 type InitialProps = {|
   id: string,
   certificate: ?DeathCertificate,
+  backUrl: ?string,
 |};
 
-type ContentProps = {
+export type ContentProps = {
   ...InitialProps,
   addToCart: number => mixed,
+  showAddedToCart: boolean,
+  addedToCartQuantity: number,
+  closeAddedToCart: () => mixed,
 };
 
 type ContentState = {
@@ -51,13 +58,28 @@ export class CertificatePageContent extends React.Component<
   };
 
   render() {
-    const { id, certificate } = this.props;
+    const {
+      id,
+      certificate,
+      backUrl,
+      showAddedToCart,
+      addedToCartQuantity,
+      closeAddedToCart,
+    } = this.props;
 
     return (
       <div>
         <Head>
           <title>Boston.gov — Death Certificate #{id}</title>
         </Head>
+
+        {backUrl && (
+          <div className="m-t300 p-a300">
+            <Link href={backUrl}>
+              <a style={{ fontStyle: 'italic' }}>← Back to search</a>
+            </Link>
+          </div>
+        )}
 
         <div className="p-a300">
           <div className="sh sh--b0">
@@ -70,6 +92,17 @@ export class CertificatePageContent extends React.Component<
         <div className="p-a300 b--w">
           {certificate && this.renderCertificate(certificate)}
         </div>
+
+        {showAddedToCart &&
+          certificate && (
+            <div className="md">
+              <AddedToCartPopup
+                certificate={certificate}
+                quantity={addedToCartQuantity}
+                close={closeAddedToCart}
+              />
+            </div>
+          )}
       </div>
     );
   }
@@ -147,13 +180,21 @@ export class CertificatePageContent extends React.Component<
   }
 }
 
+type ControllerState = {|
+  showAddedToCart: boolean,
+  addedToCartQuantity: number,
+|};
+
 export const wrapCertificatePageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
   renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
 ) =>
-  class CertificatePageController extends React.Component<InitialProps> {
+  class CertificatePageController extends React.Component<
+    InitialProps,
+    ControllerState
+  > {
     static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
-      const { query: { id } } = ctx;
+      const { query: { id, backUrl } } = ctx;
       const { deathCertificatesDao } = getDependencies(ctx);
 
       if (!id) {
@@ -165,10 +206,15 @@ export const wrapCertificatePageController = (
       return {
         id,
         certificate,
+        backUrl,
       };
     }
 
     dependencies = getDependencies();
+    state: ControllerState = {
+      showAddedToCart: false,
+      addedToCartQuantity: 0,
+    };
 
     addToCart = (quantity: number) => {
       const { cart } = this.dependencies;
@@ -176,14 +222,29 @@ export const wrapCertificatePageController = (
 
       if (certificate) {
         cart.add(certificate, quantity);
+
+        this.setState({
+          showAddedToCart: true,
+          addedToCartQuantity: quantity,
+        });
       }
     };
 
-    render() {
-      const { addToCart } = this;
-      const { id, certificate } = this.props;
+    closeAddedToCart = () => {
+      this.setState({ showAddedToCart: false });
+    };
 
-      return renderContent(this.dependencies, { id, certificate, addToCart });
+    render() {
+      const { addToCart, closeAddedToCart } = this;
+      const { showAddedToCart, addedToCartQuantity } = this.state;
+
+      return renderContent(this.dependencies, {
+        ...this.props,
+        addToCart,
+        showAddedToCart,
+        addedToCartQuantity,
+        closeAddedToCart,
+      });
     }
   };
 

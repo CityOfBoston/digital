@@ -20,6 +20,7 @@ storiesOf('SearchPage', module)
     <SearchPageContent
       submitSearch={action('submitSearch')}
       query={''}
+      page={1}
       results={null}
     />
   ))
@@ -27,6 +28,7 @@ storiesOf('SearchPage', module)
     <SearchPageContent
       submitSearch={action('submitSearch')}
       query={'Jayne Doe'}
+      page={1}
       results={{
         page: 1,
         pageSize: 20,
@@ -40,8 +42,9 @@ storiesOf('SearchPage', module)
     <SearchPageContent
       submitSearch={action('submitSearch')}
       query={'Jayne Doe'}
+      page={2}
       results={{
-        page: 1,
+        page: 2,
         pageSize: 20,
         pageCount: 30,
         resultCount: 600,

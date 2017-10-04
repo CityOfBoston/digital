@@ -12,11 +12,11 @@ import {
 
 storiesOf('SearchResult', module)
   .add('typical certificate', () => (
-    <SearchResult certificate={TYPICAL_CERTIFICATE} />
+    <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" />
   ))
   .add('pending certificate', () => (
-    <SearchResult certificate={PENDING_CERTIFICATE} />
+    <SearchResult certificate={PENDING_CERTIFICATE} backUrl="" />
   ))
   .add('certificate without death date', () => (
-    <SearchResult certificate={NO_DATE_CERTIFICATE} />
+    <SearchResult certificate={NO_DATE_CERTIFICATE} backUrl="" />
   ));

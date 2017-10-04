@@ -8,13 +8,20 @@ import { GRAY_100 } from '../../common/style-constants';
 
 export type Props = {|
   certificate: DeathCertificate,
+  backUrl: string,
 |};
 
 export default function SearchResult({
+  backUrl,
   certificate: { firstName, lastName, age, deathDate, deathYear, id, pending },
 }: Props) {
   return (
-    <Link href={`/death/certificate?id=${id}`} as={`/death/certificate/${id}`}>
+    <Link
+      href={`/death/certificate?id=${id}&backUrl=${encodeURIComponent(
+        backUrl
+      )}`}
+      as={`/death/certificate/${id}`}
+    >
       <a className={'p-a300 br br-t100 b--w result'}>
         <div
           className="t--sans"

@@ -36,6 +36,8 @@ describe('attach', () => {
           shippingState: '',
           shippingZip: '',
 
+          billingAddressSameAsShippingAddress: true,
+
           billingAddress1: '',
           billingAddress2: '',
           billingCity: '',

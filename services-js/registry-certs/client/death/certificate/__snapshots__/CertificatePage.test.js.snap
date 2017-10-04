@@ -2,6 +2,7 @@
 
 exports[`controller getInitialProps handles a 404 1`] = `
 Object {
+  "backUrl": undefined,
   "certificate": null,
   "id": "000002",
 }
@@ -9,6 +10,7 @@ Object {
 
 exports[`controller getInitialProps loads the cert passed in query 1`] = `
 Object {
+  "backUrl": undefined,
   "certificate": Object {
     "age": "5/1/1962",
     "deathDate": "3/4/2016",
@@ -33,6 +35,8 @@ exports[`integration renders 1`] = `
 >
   <CertificatePageContent
     addToCart={[Function]}
+    addedToCartQuantity={0}
+    backUrl="/search?q=jayne"
     certificate={
       Object {
         "age": "5/1/1962",
@@ -44,7 +48,9 @@ exports[`integration renders 1`] = `
         "pending": false,
       }
     }
+    closeAddedToCart={[Function]}
     id="000002"
+    showAddedToCart={false}
   />
 </AppLayout>
 `;

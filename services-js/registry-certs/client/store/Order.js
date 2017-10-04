@@ -16,6 +16,8 @@ export type OrderInfo = {|
   shippingState: string,
   shippingZip: string,
 
+  billingAddressSameAsShippingAddress: boolean,
+
   billingAddress1: string,
   billingAddress2: string,
   billingCity: string,
@@ -42,6 +44,8 @@ export default class Order {
       shippingCity: '',
       shippingState: '',
       shippingZip: '',
+
+      billingAddressSameAsShippingAddress: true,
 
       billingAddress1: '',
       billingAddress2: '',
@@ -105,12 +109,16 @@ export default class Order {
   @computed
   get billingIsComplete(): boolean {
     const {
+      billingAddressSameAsShippingAddress,
       billingAddress1,
       billingCity,
       billingState,
       billingZip,
     } = this.info;
 
-    return !!(billingAddress1 && billingCity && billingState && billingZip);
+    return (
+      (billingAddressSameAsShippingAddress && this.shippingIsComplete) ||
+      !!(billingAddress1 && billingCity && billingState && billingZip)
+    );
   }
 }

@@ -28,6 +28,10 @@ export default class ShippingContent extends React.Component<Props> {
 
   setField(fieldName: $Keys<OrderInfo>) {
     return action(`onChange ${fieldName}`, (ev: SyntheticInputEvent<*>) => {
+      if (fieldName === 'billingAddressSameAsShippingAddress') {
+        return;
+      }
+
       const { order } = this.props;
       order.info[fieldName] = ev.target.value;
     });

@@ -29,7 +29,12 @@ export default class PaymentContent extends React.Component<Props> {
   setField(fieldName: $Keys<OrderInfo>) {
     return action(`onChange ${fieldName}`, (ev: SyntheticInputEvent<*>) => {
       const { order } = this.props;
-      order.info[fieldName] = ev.target.value;
+
+      if (fieldName === 'billingAddressSameAsShippingAddress') {
+        order.info[fieldName] = ev.target.value === 'true';
+      } else {
+        order.info[fieldName] = ev.target.value;
+      }
     });
   }
 
@@ -44,6 +49,7 @@ export default class PaymentContent extends React.Component<Props> {
         shippingCity,
         shippingState,
         shippingZip,
+        billingAddressSameAsShippingAddress,
         billingAddress1,
         billingAddress2,
         billingCity,
@@ -136,87 +142,123 @@ export default class PaymentContent extends React.Component<Props> {
 
           <div className="b--w p-a300 field-container">
             <fieldset>
-              <legend className="stp m-b300">Billing Information</legend>
+              <legend className="stp m-b300">Billing Address</legend>
 
-              <div className="txt">
-                <label
-                  htmlFor="billing-address-1"
-                  className="txt-l txt-l--mt000"
-                >
-                  Address Line 1
+              <div>
+                <label className="ra">
+                  <input
+                    type="radio"
+                    name="billing-address-same-as-shipping-address"
+                    value="true"
+                    className="ra-f"
+                    checked={billingAddressSameAsShippingAddress}
+                    onChange={this.setField(
+                      'billingAddressSameAsShippingAddress'
+                    )}
+                  />
+                  <span className="ra-l">Same as shipping address</span>
                 </label>
-                <input
-                  id="billing-address-1"
-                  name="billing-address-1"
-                  type="text"
-                  placeholder="Address Line 1"
-                  className="txt-f"
-                  value={billingAddress1}
-                  onChange={this.setField('billingAddress1')}
-                />
+
+                <label className="ra">
+                  <input
+                    type="radio"
+                    name="billing-address-same-as-shipping-address"
+                    value="false"
+                    className="ra-f"
+                    checked={!billingAddressSameAsShippingAddress}
+                    onChange={this.setField(
+                      'billingAddressSameAsShippingAddress'
+                    )}
+                  />
+                  <span className="ra-l">Use a different address</span>
+                </label>
               </div>
 
-              <div className="txt">
-                <label
-                  htmlFor="billing-address-2"
-                  className="txt-l txt-l--mt000"
-                >
-                  Address Line 2
-                </label>
-                <input
-                  id="billing-address-2"
-                  name="billing-address-2"
-                  type="text"
-                  placeholder="Address Line 2"
-                  className="txt-f"
-                  value={billingAddress2}
-                  onChange={this.setField('billingAddress2')}
-                />
-              </div>
-
-              <div className="txt">
-                <label htmlFor="billing-city" className="txt-l txt-l--mt000">
-                  City
-                </label>
-                <input
-                  id="billing-city"
-                  name="billing-city"
-                  type="text"
-                  placeholder="City"
-                  className="txt-f"
-                  value={billingCity}
-                  onChange={this.setField('billingCity')}
-                />
-              </div>
-
-              <div className="txt">
-                <label htmlFor="billing-state" className="txt-l txt-l--mt000">
-                  State
-                </label>
-                <input
-                  id="billing-state"
-                  name="billing-state"
-                  placeholder="State"
-                  className="txt-f txt-f--50"
-                  max="2"
-                  value={billingState}
-                  onChange={this.setField('billingState')}
-                />
-              </div>
-
-              <div className="txt">
-                <label htmlFor="billing-zip" className="txt-l txt-l--mt000">
-                  ZIP Code
-                </label>
-                <input
-                  id="billing-zip"
-                  name="billing-zip"
-                  placeholder="ZIP code"
-                  className="txt-f txt-f--50"
-                  value={billingZip}
-                  onChange={this.setField('billingZip')}
-                />
-              </div>
+              {!billingAddressSameAsShippingAddress && (
+                <div className="m-t500">
+                  <div className="txt">
+                    <label
+                      htmlFor="billing-address-1"
+                      className="txt-l txt-l--mt000"
+                    >
+                      Address Line 1
+                    </label>
+                    <input
+                      id="billing-address-1"
+                      name="billing-address-1"
+                      type="text"
+                      placeholder="Address Line 1"
+                      className="txt-f"
+                      value={billingAddress1}
+                      onChange={this.setField('billingAddress1')}
+                    />
+                  </div>
+                  <div className="txt">
+                    <label
+                      htmlFor="billing-address-2"
+                      className="txt-l txt-l--mt000"
+                    >
+                      Address Line 2 (optional)
+                    </label>
+                    <input
+                      id="billing-address-2"
+                      name="billing-address-2"
+                      type="text"
+                      placeholder="Address Line 2"
+                      className="txt-f"
+                      value={billingAddress2}
+                      onChange={this.setField('billingAddress2')}
+                    />
+                  </div>
+                  <div className="txt">
+                    <label
+                      htmlFor="billing-city"
+                      className="txt-l txt-l--mt000"
+                    >
+                      City
+                    </label>
+                    <input
+                      id="billing-city"
+                      name="billing-city"
+                      type="text"
+                      placeholder="City"
+                      className="txt-f"
+                      value={billingCity}
+                      onChange={this.setField('billingCity')}
+                    />
+                  </div>
+                  <div className="txt">
+                    <label
+                      htmlFor="billing-state"
+                      className="txt-l txt-l--mt000"
+                    >
+                      State
+                    </label>
+                    <input
+                      id="billing-state"
+                      name="billing-state"
+                      placeholder="State"
+                      className="txt-f txt-f--50"
+                      max="2"
+                      value={billingState}
+                      onChange={this.setField('billingState')}
+                    />
+                  </div>
+                  <div className="txt">
+                    <label htmlFor="billing-zip" className="txt-l txt-l--mt000">
+                      ZIP Code
+                    </label>
+                    <input
+                      id="billing-zip"
+                      name="billing-zip"
+                      placeholder="ZIP code"
+                      className="txt-f txt-f--50"
+                      value={billingZip}
+                      onChange={this.setField('billingZip')}
+                    />
+                  </div>
+                </div>
+              )}
             </fieldset>
           </div>
 

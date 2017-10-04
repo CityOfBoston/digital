@@ -99,7 +99,7 @@ export default class CheckoutItem extends React.Component<Props> {
             background: white;
             border-top: 2px solid ${GRAY_100};
             display: flex;
-            alignitems: center;
+            align-items: center;
           }
 
           .quantity-box {

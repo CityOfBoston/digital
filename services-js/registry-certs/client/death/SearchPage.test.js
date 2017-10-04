@@ -100,6 +100,7 @@ describe('content', () => {
       <SearchPageContent
         cart={new Cart()}
         query={'Jayne Doe'}
+        page={1}
         results={null}
         submitSearch={submitSearch}
       />

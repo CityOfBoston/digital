@@ -1,4 +1,5 @@
 // @flow
 
 import '../../client/start';
-export default require('../../client/death/CertificatePage').default;
+export default require('../../client/death/certificate/CertificatePage')
+  .default;

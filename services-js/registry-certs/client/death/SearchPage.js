@@ -19,6 +19,7 @@ import SearchResult from './search/SearchResult';
 
 type InitialProps = {|
   query: string,
+  page: number,
   results: ?DeathCertificateSearchResults,
 |};
 
@@ -109,7 +110,7 @@ export class SearchPageContent extends React.Component<
 
   renderResults(results: DeathCertificateSearchResults) {
     // we want the query that was searched for
-    const { query } = this.props;
+    const { query, page } = this.props;
 
     const start = 1 + (results.page - 1) * results.pageSize;
     const end = Math.min(start + results.pageSize - 1, results.resultCount);
@@ -124,7 +125,11 @@ export class SearchPageContent extends React.Component<
         </div>
 
         {results.results.map(certificate => (
-          <SearchResult certificate={certificate} key={certificate.id} />
+          <SearchResult
+            certificate={certificate}
+            key={certificate.id}
+            backUrl={`/death?q=${query}&page=${page}`}
+          />
         ))}
 
         {results.resultCount > results.results.length &&
@@ -160,17 +165,20 @@ export const wrapSearchPageController = (
       const { query } = ctx;
       const { deathCertificatesDao } = getDependencies(ctx);
 
+      let q = query.q || '';
+      let page = 1;
+
       let results = null;
 
-      if (query.q) {
-        results = await deathCertificatesDao.search(
-          query.q,
-          parseInt(query.page, 10) || 1
-        );
+      if (q) {
+        page = parseInt(query.page, 10) || 1;
+
+        results = await deathCertificatesDao.search(q, page);
       }
 
       return {
-        query: query.q || '',
+        query: q,
+        page,
         results,
       };
     }
@@ -183,9 +191,8 @@ export const wrapSearchPageController = (
 
     render() {
       const { submitSearch } = this;
-      const { query, results } = this.props;
 
-      return renderContent(this.dependencies, { submitSearch, query, results });
+      return renderContent(this.dependencies, { ...this.props, submitSearch });
     }
   };
 
