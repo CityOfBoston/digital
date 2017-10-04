@@ -19,8 +19,8 @@ type IndexedCase = {
   service_name: string,
   service_code: string,
   status_notes: string,
-  requested_datetime: string,
-  updated_datetime: string,
+  requested_datetime: ?string,
+  updated_datetime: ?string,
   media_url: ?string,
   // We store the Salesforce replay_id in the record so we can pull the latest
   // replay_id when we start up, to avoid always processing everything from the
@@ -182,7 +182,7 @@ export default class Elasticsearch {
   }
 
   async createCases(
-    cases: Array<{ case: Case, replayId: ?number }>
+    cases: Array<{ id: string, case: ?Case, replayId: ?number }>
   ): Promise<BulkResponse> {
     if (cases.length === 0) {
       return {
@@ -197,21 +197,27 @@ export default class Elasticsearch {
 
     const actions = [];
 
-    cases.forEach(({ case: c, replayId }) => {
-      const doc = convertCaseToDocument(c, replayId);
+    cases.forEach(({ id, case: c, replayId }) => {
+      if (c) {
+        const doc = convertCaseToDocument(c, replayId);
 
-      actions.push({
-        update: {
-          _index: this.index,
-          _type: 'case',
-          _id: c.service_request_id,
-        },
-      });
+        actions.push({
+          update: {
+            _index: this.index,
+            _type: 'case',
+            _id: id,
+          },
+        });
 
-      actions.push({
-        doc,
-        doc_as_upsert: true,
-      });
+        actions.push({
+          doc,
+          doc_as_upsert: true,
+        });
+      } else {
+        actions.push({
+          delete: { _index: this.index, _type: 'case', _id: id },
+        });
+      }
     });
 
     try {

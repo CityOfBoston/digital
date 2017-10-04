@@ -16,8 +16,8 @@ export type Case = {|
   agency_responsible: ?string,
   service_notice: ?string,
   // 2017-02-21T22:18:27.000Z
-  requested_datetime: string,
-  updated_datetime: string,
+  requested_datetime: ?string,
+  updated_datetime: ?string,
   expected_datetime: ?string,
   address: ?string,
   address_id: ?string,

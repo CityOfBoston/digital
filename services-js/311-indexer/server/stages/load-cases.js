@@ -21,12 +21,12 @@ type Deps = {
 
 export type CaseIdBatch = Array<{
   id: string,
-  replayId: number,
+  replayId: ?number,
 }>;
 
 export type LoadedCaseBatch = Array<{
   id: string,
-  replayId: number,
+  replayId: ?number,
   case: ?Case,
 }>;
 

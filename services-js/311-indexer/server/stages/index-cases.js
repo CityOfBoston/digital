@@ -20,14 +20,6 @@ type Deps = {
   opbeat: Opbeat,
 };
 
-// Reduce batch records array down to only those whose cases loaded
-const reduceToIndexableCases = (batch: LoadedCaseBatch) =>
-  batch.reduce(
-    (arr, r) =>
-      r.case ? [...arr, { case: r.case, replayId: r.replayId }] : arr,
-    []
-  );
-
 export default ({ elasticsearch, opbeat }: Deps) => (
   batch$: Rx.Observable<LoadedCaseBatch>
 ) =>
@@ -35,9 +27,7 @@ export default ({ elasticsearch, opbeat }: Deps) => (
     queue(
       caseBatch =>
         Rx.Observable
-          .defer(() =>
-            elasticsearch.createCases(reduceToIndexableCases(caseBatch))
-          )
+          .defer(() => elasticsearch.createCases(caseBatch))
           .let(
             retryWithFallback(5, 2000, {
               error: err => logNonfatalError('index-cases', err),
