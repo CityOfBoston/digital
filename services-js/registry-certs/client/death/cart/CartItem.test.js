@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { CartEntry } from '../../store/Cart';
 
@@ -25,7 +25,8 @@ describe('quantity field', () => {
       remove: jest.fn(),
     };
 
-    wrapper = shallow(<CartItem cart={(cart: any)} entry={entry} />);
+    // mount because the quantity field is behind a render prop
+    wrapper = mount(<CartItem cart={(cart: any)} entry={entry} lastRow />);
     quantityField = wrapper.find('input');
   });
 

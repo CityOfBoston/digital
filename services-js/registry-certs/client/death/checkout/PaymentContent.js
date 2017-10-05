@@ -64,13 +64,15 @@ export default class PaymentContent extends React.Component<Props> {
           <title>Boston.gov — Death Certificate Payment</title>
         </Head>
 
-        <div className="p-a300">
-          <div className="sh sh--b0 m-v300">
-            <h1 className="sh-title">Pay and Finish</h1>
+        <div className="p-a300 b--g">
+          <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
+            <h1 className="sh-title" style={{ marginBottom: 0 }}>
+              Payment
+            </h1>
           </div>
-
-          <OrderDetails cart={cart} />
         </div>
+
+        <OrderDetails cart={cart} />
 
         <form
           className="m-v300"
@@ -268,7 +270,7 @@ export default class PaymentContent extends React.Component<Props> {
               type="submit"
               disabled={!billingIsComplete}
             >
-              Submit Order
+              Pay ${cart.cost}
             </button>
 
             <div className="g--9 m-v500">

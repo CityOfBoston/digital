@@ -62,13 +62,15 @@ export default class ShippingContent extends React.Component<Props> {
           <title>Boston.gov — Death Certificate Checkout</title>
         </Head>
 
-        <div className="p-a300">
-          <div className="sh sh--b0 m-v300">
-            <h1 className="sh-title">Checkout</h1>
+        <div className="p-a300 b--g">
+          <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
+            <h1 className="sh-title" style={{ marginBottom: 0 }}>
+              Checkout
+            </h1>
           </div>
-
-          <OrderDetails cart={cart} />
         </div>
+
+        <OrderDetails cart={cart} />
 
         <form
           className="m-v300"
@@ -87,7 +89,7 @@ export default class ShippingContent extends React.Component<Props> {
                 <input
                   id="contact-name"
                   name="name"
-                  type="name"
+                  type="text"
                   placeholder="Full name"
                   className="txt-f txt-f--100"
                   value={contactName}

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { observer } from 'mobx-react';
 
 export type Props = {
@@ -35,14 +34,14 @@ export default class ConfirmationContent extends React.Component<Props> {
 
           <p>
             A copy of your receipt has been sent to {contactEmail}. We will mail
-            your order out in 1–2 business days by USPS.
+            out your order in 1–2 business days by USPS.
           </p>
-        </div>
 
-        <div className="g p-a300 b--w">
-          <Link href="/death">
-            <a className="g--3 btn m-v500 ta-c">Back to Search</a>
-          </Link>
+          <p>
+            If you have any questions, you can call the Registry Department at{' '}
+            <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
+            <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
+          </p>
         </div>
       </div>
     );

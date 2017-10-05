@@ -35,21 +35,24 @@ export default function AddedToCartPopup({
           <div className="sh-title">Added to Cart</div>
         </div>
 
-        <div className="p-a300 cert" style={{ color: CHARLES_BLUE }}>
-          <div
-            aria-label="Quantity"
-            className="t--sans"
-            style={{ fontWeight: 'bold' }}
-          >
-            {quantity} ×
-          </div>
+        <CertificateRow
+          certificate={certificate}
+          borderTop={false}
+          borderBottom={false}
+        >
+          {certificateDiv => [
+            <div
+              key="quantity"
+              aria-label="Quantity"
+              className="t--sans p-a300"
+              style={{ fontWeight: 'bold' }}
+            >
+              {quantity} ×
+            </div>,
 
-          <CertificateRow
-            certificate={certificate}
-            borderTop={false}
-            borderBottom={false}
-          />
-        </div>
+            certificateDiv,
+          ]}
+        </CertificateRow>
 
         <div className="m-v500 ta-c">
           <Link href="/death/cart">
@@ -67,17 +70,11 @@ export default function AddedToCartPopup({
       <style jsx>{`
         .md-c {
           padding-top: 0;
+          color: ${CHARLES_BLUE};
         }
 
         .sh {
           border-bottom: none;
-        }
-
-        .cert {
-          display: flex;
-          align-items: center;
-          padding-top: 0;
-          padding-bottom: 0;
         }
       `}</style>
     </div>

@@ -48,14 +48,22 @@ export class CartPageContent extends React.Component<Props> {
         </div>
 
         <div>
-          {cart.entries.map(entry => (
-            <CartItem key={entry.id} entry={entry} cart={cart} />
+          {cart.entries.map((entry, i) => (
+            <CartItem
+              key={entry.id}
+              entry={entry}
+              cart={cart}
+              lastRow={i === cart.entries.length - 1}
+            />
           ))}
 
           {cart.entries.length === 0 && (
-            <div className="p-a300 g">
-              <div className="g--9 t--intro vertical-center">
-                Your cart has no items.
+            <div className="p-a300 g" style={{ paddingTop: 0 }}>
+              <div className="g--9  vertical-center">
+                <div className="t--intro">There’s nothing here yet!</div>
+                <p className="t--info">
+                  Search for death certificates and add them to your cart.
+                </p>
               </div>
               <div className="g--3 m-v500">
                 <Link href="/death/">
@@ -66,10 +74,10 @@ export class CartPageContent extends React.Component<Props> {
           )}
 
           {cart.entries.length > 0 && (
-            <div className="p-a300 g">
+            <div className="p-a300">
               {this.renderCost()}
 
-              <div className="g--3 m-v500">
+              <div className="m-v500">
                 <Link href="/death/checkout">
                   <a className="btn">Continue to Checkout</a>
                 </Link>
@@ -84,15 +92,55 @@ export class CartPageContent extends React.Component<Props> {
   renderCost() {
     const { cart } = this.props;
 
+    const certificateCost = cart.size * CERTIFICATE_COST;
+    const processingFee = PROCESSING_FEE * certificateCost;
+
     return (
-      <div className="m-v500 g--9">
-        <div className="t--info">
-          {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}{' '}
-          + {(PROCESSING_FEE * 100).toFixed(2)}% credit card fee
+      <div className="m-v500">
+        <div className="p-v200">
+          <div className="cost-row">
+            <span className="t--info">
+              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}
+            </span>
+            <span className="cost">${certificateCost.toFixed(2)}</span>
+          </div>
+
+          <div className="cost-row">
+            <span className="t--info">Credit card processing fee</span>
+            <span className="cost">${processingFee.toFixed(2)}</span>
+          </div>
+
+          <div className="cost-row">
+            <span className="t--info">Shipping with USPS</span>
+            <span className="cost">
+              <i>free</i>
+            </span>
+          </div>
         </div>
-        <div className="sh sh--b0">
-          <span className="sh-title">Subtotal: ${cart.cost.toFixed(2)}</span>
+
+        <div className="cost-row">
+          <span className="sh-title">Total</span>
+          <span className="cost br br-t100 p-v200">
+            ${cart.cost.toFixed(2)}
+          </span>
         </div>
+
+        <style jsx>{`
+          .cost-row {
+            text-align: right;
+          }
+
+          .cost {
+            min-width: 5em;
+            margin-left: 1em;
+            display: inline-block;
+          }
+
+          .sh-title {
+            padding: 0;
+            line-height: 1;
+          }
+        `}</style>
       </div>
     );
   }

@@ -2,7 +2,12 @@
 
 exports[`integration renders confirmation 1`] = `
 <AppLayout
-  navProps={null}
+  navProps={
+    Object {
+      "cart": Cart {},
+      "link": "lookup",
+    }
+  }
 >
   <ConfirmationContent
     contactEmail="ttoe@squirrelzone.net"

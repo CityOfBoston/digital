@@ -26,11 +26,11 @@ function makeProps(certificate) {
 
 storiesOf('CartItem', module)
   .add('typical certificate', () => (
-    <CartItem {...makeProps(TYPICAL_CERTIFICATE)} />
+    <CartItem {...makeProps(TYPICAL_CERTIFICATE)} lastRow />
   ))
   .add('pending certificate', () => (
-    <CartItem {...makeProps(PENDING_CERTIFICATE)} />
+    <CartItem {...makeProps(PENDING_CERTIFICATE)} lastRow />
   ))
   .add('certificate without death date', () => (
-    <CartItem {...makeProps(NO_DATE_CERTIFICATE)} />
+    <CartItem {...makeProps(NO_DATE_CERTIFICATE)} lastRow />
   ));

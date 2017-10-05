@@ -45,4 +45,4 @@ function makeCart(loading: boolean) {
 storiesOf('OrderDetails', module)
   .add('loading', () => <OrderDetails cart={makeCart(true)} />)
   .add('closed', () => <OrderDetails cart={makeCart(false)} />)
-  .add('open', () => <OrderDetails cart={makeCart(false)} open />);
+  .add('open', () => <OrderDetails cart={makeCart(false)} defaultOpen />);

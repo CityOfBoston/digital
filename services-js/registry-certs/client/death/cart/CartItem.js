@@ -6,15 +6,14 @@ import { observer } from 'mobx-react';
 
 import type Cart, { CartEntry } from '../../store/Cart';
 
-import {
-  GRAY_100,
-  GRAY_300,
-  OPTIMISTIC_BLUE,
-} from '../../common/style-constants';
+import { FREEDOM_RED, OPTIMISTIC_BLUE } from '../../common/style-constants';
+
+import CertificateRow from '../../common/CertificateRow';
 
 export type Props = {
   cart: Cart,
   entry: CartEntry,
+  lastRow: boolean,
 };
 
 @observer
@@ -61,47 +60,43 @@ export default class CheckoutItem extends React.Component<Props> {
   };
 
   render() {
-    const { entry: { cert } } = this.props;
+    const { entry: { cert }, lastRow } = this.props;
 
     if (!cert) {
       return null;
     }
 
-    const { firstName, lastName, deathDate, deathYear, id } = cert;
-
     return (
-      <div className="p-a300 result">
-        <input
-          aria-label="Quantity"
-          value={this.quantityValue}
-          onChange={this.handleQuantityChange}
-          onFocus={this.handleQuanityFocus}
-          onBlur={this.handleQuanityBlur}
-          className="br br-a150 quantity-box"
-        />
+      <div>
+        <CertificateRow
+          certificate={cert}
+          borderTop={true}
+          borderBottom={lastRow}
+        >
+          {certificateDiv => [
+            <input
+              key="quantity"
+              aria-label="Quantity"
+              value={this.quantityValue}
+              onChange={this.handleQuantityChange}
+              onFocus={this.handleQuanityFocus}
+              onBlur={this.handleQuanityBlur}
+              className="br br-a150 quantity-box"
+            />,
+            certificateDiv,
 
-        <div className="certificate-info">
-          <div>
-            {firstName} {lastName}
-          </div>
-          <div style={{ fontStyle: 'italic' }}>
-            {deathDate || deathYear}
-            <span className="id-label">ID:</span> {id}
-          </div>
-        </div>
+            <button
+              key="removeButton"
+              className="remove-button"
+              type="button"
+              onClick={this.handleRemove}
+            >
+              ×
+            </button>,
+          ]}
+        </CertificateRow>
 
-        <button type="button" onClick={this.handleRemove}>
-          X
-        </button>
-
-        <style jsx>{`
-          .result {
-            background: white;
-            border-top: 2px solid ${GRAY_100};
-            display: flex;
-            align-items: center;
-          }
-
+        <style jsx key="style">{`
           .quantity-box {
             width: 2.5rem;
             height: 2.5rem;
@@ -115,13 +110,15 @@ export default class CheckoutItem extends React.Component<Props> {
             padding: 0.5rem;
           }
 
-          .certificate-info {
-            flex: 1;
-          }
-
-          .id-label {
-            color: ${GRAY_300};
-            padding-left: 1em;
+          .remove-button {
+            border: none;
+            background: transparent;
+            color: ${FREEDOM_RED};
+            font-size: 2.5rem;
+            line-height: 0;
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 0 0 0.2em;
           }
         `}</style>
       </div>

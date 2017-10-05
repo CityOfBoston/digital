@@ -30,7 +30,7 @@ export default observer(function Nav({ cart, link }: Props) {
       {link === 'lookup' && (
         <div className="nv-s-l bar">
           <Link href="/death/">
-            <a className="nv-s-l-b back-link">Back to Lookup</a>
+            <a className="nv-s-l-b back-link">Back to Search</a>
           </Link>
         </div>
       )}

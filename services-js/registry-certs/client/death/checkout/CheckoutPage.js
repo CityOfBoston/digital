@@ -147,27 +147,30 @@ export function wrapCheckoutPageController(
   };
 }
 
-export default wrapCheckoutPageController(getDependencies, (_, props) => {
-  switch (props.page) {
-    case 'shipping':
-      return (
-        <AppLayout navProps={null}>
-          <ShippingContent {...props.props} />
-        </AppLayout>
-      );
-    case 'payment':
-      return (
-        <AppLayout navProps={null}>
-          <PaymentContent {...props.props} />
-        </AppLayout>
-      );
-    case 'confirmation':
-      return (
-        <AppLayout navProps={null}>
-          <ConfirmationContent {...props.props} />
-        </AppLayout>
-      );
-    default:
-      throw new Error(`Unknown page: ${props.page}`);
+export default wrapCheckoutPageController(
+  getDependencies,
+  ({ cart }, props) => {
+    switch (props.page) {
+      case 'shipping':
+        return (
+          <AppLayout navProps={null}>
+            <ShippingContent {...props.props} />
+          </AppLayout>
+        );
+      case 'payment':
+        return (
+          <AppLayout navProps={null}>
+            <PaymentContent {...props.props} />
+          </AppLayout>
+        );
+      case 'confirmation':
+        return (
+          <AppLayout navProps={{ cart, link: 'lookup' }}>
+            <ConfirmationContent {...props.props} />
+          </AppLayout>
+        );
+      default:
+        throw new Error(`Unknown page: ${props.page}`);
+    }
   }
-});
+);
