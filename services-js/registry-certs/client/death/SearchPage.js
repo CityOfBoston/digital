@@ -120,7 +120,7 @@ export class SearchPageContent extends React.Component<
 
             {!results && (
               <div className="t--subinfo m-v200">
-                Examples: “j doe” “thomas menino 2014” “johnson 1956-1957”
+                Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
               </div>
             )}
           </form>
