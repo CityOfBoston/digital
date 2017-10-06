@@ -207,7 +207,7 @@ export class SearchPageContent extends React.Component<
         </li>
 
         <li>
-          Most death certificates prior to 1870 are not available through this
+          Most death certificates prior to 1956 are not available through this
           site. For these years,{' '}
           <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
             request a death certificate by mail or in person

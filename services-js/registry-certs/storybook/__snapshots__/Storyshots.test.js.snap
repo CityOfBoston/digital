@@ -7402,7 +7402,7 @@ exports[`Storyshots SearchPage no results 1`] = `
           <li
             data-jsx={1762436028}
           >
-            Most death certificates prior to 1870 are not available through this site. For these years,
+            Most death certificates prior to 1956 are not available through this site. For these years,
              
             <a
               data-jsx={1762436028}
@@ -8524,7 +8524,7 @@ exports[`Storyshots SearchPage with results 1`] = `
             <li
               data-jsx={1762436028}
             >
-              Most death certificates prior to 1870 are not available through this site. For these years,
+              Most death certificates prior to 1956 are not available through this site. For these years,
                
               <a
                 data-jsx={1762436028}
