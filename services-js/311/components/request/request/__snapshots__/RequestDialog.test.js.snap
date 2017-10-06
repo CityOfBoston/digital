@@ -85,6 +85,7 @@ exports[`methods submitRequest success 2`] = `
           "closureComment": "Found Thanos. Smashed him into the floor with all of us standing around.",
           "closureReason": "Case Resolved",
           "description": "I think that Thanos is here",
+          "expectedAtString": null,
           "id": "17-000000001",
           "images": Array [
             Object {
@@ -99,8 +100,10 @@ exports[`methods submitRequest success 2`] = `
           },
           "requestedAtString": "March 7, 2017, 12:59 PM",
           "service": Object {
+            "code": "CSMCINC",
             "name": "Cosmic Intervention",
           },
+          "serviceNotice": null,
           "status": "closed",
           "updatedAtString": "April 8, 2017, 12:59 PM",
         }

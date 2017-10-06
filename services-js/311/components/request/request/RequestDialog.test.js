@@ -199,6 +199,7 @@ describe('methods', () => {
         id: '17-000000001',
         service: {
           name: 'Cosmic Intervention',
+          code: 'CSMCINC',
         },
         description: 'I think that Thanos is here',
         status: 'closed',
@@ -219,6 +220,8 @@ describe('methods', () => {
         address: 'City Hall Plaza, Boston, MA 02131',
         requestedAtString: 'March 7, 2017, 12:59 PM',
         updatedAtString: 'April 8, 2017, 12:59 PM',
+        expectedAtString: null,
+        serviceNotice: null,
       };
 
       expect(submitRequest).toHaveBeenCalledWith(

@@ -18,6 +18,7 @@ type Case {
   description: String
   status: String!
   statusNotes: String
+  serviceNotice: String
   closureReason: String
   closureComment: String
   address: String
@@ -25,10 +26,13 @@ type Case {
   location: LatLng
   requestedAt: Int
   updatedAt: Int
+  expectedAt: Int
   requestedAtString(format: String): String
   updatedAtString(format: String): String
+  expectedAtString(format: String): String
   requestedAtRelativeString: String
   updatedAtRelativeString: String
+  expectedAtRelativeString: String
 }
 
 type CaseImage {
@@ -55,7 +59,7 @@ function makeHttpsImageUrl(mediaUrl: string): string {
     .trim()
     .replace(
       'http://boston.spot.show/',
-      'https://spot-boston-res.cloudinary.com/'
+      'https://res.cloudinary.com/spot-boston/'
     );
 }
 
@@ -96,6 +100,7 @@ export const resolvers = {
     description: (r: Root) => r.description || '',
     status: (r: Root) => r.status,
     statusNotes: (r: Root) => r.status_notes || null,
+    serviceNotice: (r: Root) => r.service_notice || null,
     closureReason: (r: Root) =>
       (r.closure_details && r.closure_details.reason) || null,
     closureComment: (r: Root) =>
@@ -133,6 +138,9 @@ export const resolvers = {
       const d = r.updated_datetime || r.requested_datetime;
       return d ? moment(d).unix() : null;
     },
+    expectedAt: (r: Root) =>
+      r.expected_datetime ? moment(r.expected_datetime).unix() : null,
+
     // We format timezones on the server to avoid having to ship moment to the client
     requestedAtString: (r: Root, { format = '' }: DateStringArguments) =>
       r.requested_datetime
@@ -142,11 +150,18 @@ export const resolvers = {
       const d = r.updated_datetime || r.requested_datetime;
       return d ? moment(d).tz('America/New_York').format(format) : null;
     },
+    expectedAtString: (r: Root, { format = '' }: DateStringArguments) =>
+      r.expected_datetime
+        ? moment(r.expected_datetime).tz('America/New_York').format(format)
+        : null,
+
     requestedAtRelativeString: (r: Root) =>
       r.requested_datetime ? moment(r.requested_datetime).fromNow() : null,
     updatedAtRelativeString: (r: Root) => {
       const d = r.updated_datetime || r.requested_datetime;
       return d ? moment(d).fromNow() : null;
     },
+    expectedAtRelativeString: (r: Root) =>
+      r.expected_datetime ? moment(r.expected_datetime).fromNow() : null,
   },
 };

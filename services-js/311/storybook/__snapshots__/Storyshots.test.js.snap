@@ -1292,14 +1292,14 @@ exports[`Storyshots CaseLayout Existing 1`] = `
             >
               <a
                 className="css-1p5q8vq br br-a150 m-b500"
-                href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <img
                   alt="Photo describing request or resolution"
                   className="css-i5kcuw"
-                  src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                  src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
                 />
               </a>
             </div>
@@ -1470,14 +1470,14 @@ exports[`Storyshots CaseView Closed without reasons 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1571,14 +1571,14 @@ exports[`Storyshots CaseView Open - 1 Image 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1672,14 +1672,14 @@ exports[`Storyshots CaseView Open - 2 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1693,14 +1693,14 @@ exports[`Storyshots CaseView Open - 2 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1794,14 +1794,14 @@ exports[`Storyshots CaseView Open - 3 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1815,14 +1815,14 @@ exports[`Storyshots CaseView Open - 3 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1836,14 +1836,14 @@ exports[`Storyshots CaseView Open - 3 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Photo describing request or resolution"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
               />
             </a>
           </div>
@@ -1932,14 +1932,14 @@ exports[`Storyshots CaseView Open - 4 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1953,14 +1953,14 @@ exports[`Storyshots CaseView Open - 4 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -1974,14 +1974,14 @@ exports[`Storyshots CaseView Open - 4 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Photo describing request or resolution"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg"
               />
             </a>
           </div>
@@ -1990,14 +1990,14 @@ exports[`Storyshots CaseView Open - 4 images 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Photo describing request or resolution"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg"
               />
             </a>
           </div>
@@ -2163,14 +2163,14 @@ exports[`Storyshots CaseView Open - No Date 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -2259,6 +2259,269 @@ exports[`Storyshots CaseView Open - No info 1`] = `
         <div
           className="g m-v400"
         />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CaseView Open - Scheduled Service Notice 1`] = `
+<div
+  style={
+    Object {
+      "background": "white",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="b-c"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            className=" sh sh--y "
+          >
+            <h1
+              className="sh-title"
+            >
+              Cosmic Intervention
+            </h1>
+            <div
+              className="sh-contact"
+            >
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Case ref: #17-000000001
+              </span>
+            </div>
+          </div>
+          <div
+            className="m-v300 t--info"
+          >
+            Submitted on March 7, 2017, 12:59 PM
+             — 
+            City Hall Plaza, Boston, MA 02131
+          </div>
+        </div>
+        <div
+          className="b b--g p-a500 m-v500"
+        >
+          <div>
+            <div
+              className="txt-l"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              What happens next?
+            </div>
+            <div
+              className="t--intro m-v200"
+            >
+              Your scheduled date is 
+              <strong>
+                Thursday, May 9, 2017
+              </strong>
+              .
+            </div>
+            <div
+              className="t--info"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.
+            </div>
+          </div>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <div
+            className="txt-l"
+          >
+            Description
+          </div>
+          <div
+            className="t--intro"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            I think that Thanos is here
+          </div>
+        </div>
+        <div
+          className="g m-v400"
+        >
+          <div
+            className="g--6"
+          >
+            <a
+              className="css-1p5q8vq br br-a150 m-b500"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Create"
+                className="css-i5kcuw"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              />
+              <div
+                className="css-1hrso82 p-a300 t--subtitle tt-u"
+              >
+                Create
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CaseView Open - Service Notice 1`] = `
+<div
+  style={
+    Object {
+      "background": "white",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="b-c"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            className=" sh sh--y "
+          >
+            <h1
+              className="sh-title"
+            >
+              Cosmic Intervention
+            </h1>
+            <div
+              className="sh-contact"
+            >
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Case ref: #17-000000001
+              </span>
+            </div>
+          </div>
+          <div
+            className="m-v300 t--info"
+          >
+            Submitted on March 7, 2017, 12:59 PM
+             — 
+            City Hall Plaza, Boston, MA 02131
+          </div>
+        </div>
+        <div
+          className="b b--g p-a500 m-v500"
+        >
+          <div>
+            <div
+              className="txt-l"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              What happens next?
+            </div>
+            <div
+              className="t--info"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.
+            </div>
+          </div>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <div
+            className="txt-l"
+          >
+            Description
+          </div>
+          <div
+            className="t--intro"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            I think that Thanos is here
+          </div>
+        </div>
+        <div
+          className="g m-v400"
+        >
+          <div
+            className="g--6"
+          >
+            <a
+              className="css-1p5q8vq br br-a150 m-b500"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Create"
+                className="css-i5kcuw"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              />
+              <div
+                className="css-1hrso82 p-a300 t--subtitle tt-u"
+              >
+                Create
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2369,14 +2632,14 @@ exports[`Storyshots CaseView Resolved 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"
@@ -2497,14 +2760,327 @@ exports[`Storyshots CaseView Submitted 1`] = `
           >
             <a
               className="css-1p5q8vq br br-a150 m-b500"
-              href="http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
                 alt="Create"
                 className="css-i5kcuw"
-                src="http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              />
+              <div
+                className="css-1hrso82 p-a300 t--subtitle tt-u"
+              >
+                Create
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CaseView Submitted with Service Notice 1`] = `
+<div
+  style={
+    Object {
+      "background": "white",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="b-c"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            className=" sh sh--y "
+          >
+            <h1
+              className="sh-title"
+            >
+              Cosmic Intervention
+            </h1>
+            <div
+              className="sh-contact"
+            >
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Case ref: #17-000000001
+              </span>
+            </div>
+          </div>
+          <div
+            className="m-v300 t--info"
+          >
+            Submitted on March 7, 2017, 12:59 PM
+             — 
+            City Hall Plaza, Boston, MA 02131
+          </div>
+        </div>
+        <div
+          className="b b--g p-a500 m-v500"
+        >
+          <div
+            className="txt-l"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Request submitted successfully — 
+            April 8, 2017, 12:59 PM
+          </div>
+          <div>
+            <div
+              className="t--intro m-b500"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              Thank you for submitting. Your case reference number is #
+              17-000000001
+              .
+            </div>
+            <div>
+              <div
+                className="txt-l"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                What happens next?
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <div
+            className="txt-l"
+          >
+            Description
+          </div>
+          <div
+            className="t--intro"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            I think that Thanos is here
+          </div>
+        </div>
+        <div
+          className="g m-v400"
+        >
+          <div
+            className="g--6"
+          >
+            <a
+              className="css-1p5q8vq br br-a150 m-b500"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Create"
+                className="css-i5kcuw"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              />
+              <div
+                className="css-1hrso82 p-a300 t--subtitle tt-u"
+              >
+                Create
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CaseView Submitted with Service Notice and schedule 1`] = `
+<div
+  style={
+    Object {
+      "background": "white",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="b-c"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            className=" sh sh--y "
+          >
+            <h1
+              className="sh-title"
+            >
+              Cosmic Intervention
+            </h1>
+            <div
+              className="sh-contact"
+            >
+              <span
+                style={
+                  Object {
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Case ref: #17-000000001
+              </span>
+            </div>
+          </div>
+          <div
+            className="m-v300 t--info"
+          >
+            Submitted on March 7, 2017, 12:59 PM
+             — 
+            City Hall Plaza, Boston, MA 02131
+          </div>
+        </div>
+        <div
+          className="b b--g p-a500 m-v500"
+        >
+          <div
+            className="txt-l"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Request submitted successfully — 
+            April 8, 2017, 12:59 PM
+          </div>
+          <div>
+            <div
+              className="t--intro m-b500"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              Thank you for submitting. Your case reference number is #
+              17-000000001
+              .
+            </div>
+            <div>
+              <div
+                className="txt-l"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                What happens next?
+              </div>
+              <div
+                className="t--intro m-v200"
+              >
+                Your scheduled date is 
+                <strong>
+                  Thursday, May 9, 2017
+                </strong>
+                .
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <div
+            className="txt-l"
+          >
+            Description
+          </div>
+          <div
+            className="t--intro"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            I think that Thanos is here
+          </div>
+        </div>
+        <div
+          className="g m-v400"
+        >
+          <div
+            className="g--6"
+          >
+            <a
+              className="css-1p5q8vq br br-a150 m-b500"
+              href="https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Create"
+                className="css-i5kcuw"
+                src="https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg"
               />
               <div
                 className="css-1hrso82 p-a300 t--subtitle tt-u"

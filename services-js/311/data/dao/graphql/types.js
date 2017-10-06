@@ -59,8 +59,10 @@ export type LoadCaseQuery = {|
     id: string,
     service: {|
       name: string,
+      code: string,
     |},
     status: string,
+    serviceNotice: ?string,
     closureReason: ?string,
     closureComment: ?string,
     description: ?string,
@@ -76,6 +78,7 @@ export type LoadCaseQuery = {|
     |} >,
     requestedAtString: ?string,
     updatedAtString: ?string,
+    expectedAtString: ?string,
   |},
 |};
 
@@ -283,8 +286,10 @@ export type SubmitCaseMutation = {|
     id: string,
     service: {|
       name: string,
+      code: string,
     |},
     status: string,
+    serviceNotice: ?string,
     closureReason: ?string,
     closureComment: ?string,
     description: ?string,
@@ -300,5 +305,6 @@ export type SubmitCaseMutation = {|
     |} >,
     requestedAtString: ?string,
     updatedAtString: ?string,
+    expectedAtString: ?string,
   |},
 |};

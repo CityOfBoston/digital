@@ -130,6 +130,7 @@ export type DetailedServiceRequest = {|
   agency_responsible: ?string,
   service_notice: ?string,
   status_notes: ?string,
+  service_notice: ?string,
   contact: {
     first_name: ?string,
     last_name: ?string,

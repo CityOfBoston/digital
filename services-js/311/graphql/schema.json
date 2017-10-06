@@ -1208,6 +1208,18 @@
               "deprecationReason": null
             },
             {
+              "name": "serviceNotice",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "closureReason",
               "description": "",
               "args": [],
@@ -1304,6 +1316,18 @@
               "deprecationReason": null
             },
             {
+              "name": "expectedAt",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "requestedAtString",
               "description": "",
               "args": [
@@ -1350,6 +1374,29 @@
               "deprecationReason": null
             },
             {
+              "name": "expectedAtString",
+              "description": "",
+              "args": [
+                {
+                  "name": "format",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "requestedAtRelativeString",
               "description": "",
               "args": [],
@@ -1363,6 +1410,18 @@
             },
             {
               "name": "updatedAtRelativeString",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "expectedAtRelativeString",
               "description": "",
               "args": [],
               "type": {

@@ -4,6 +4,7 @@ type Case {
   description: String
   status: String!
   statusNotes: String
+  serviceNotice: String
   closureReason: String
   closureComment: String
   address: String
@@ -11,10 +12,13 @@ type Case {
   location: LatLng
   requestedAt: Int
   updatedAt: Int
+  expectedAt: Int
   requestedAtString(format: String): String
   updatedAtString(format: String): String
+  expectedAtString(format: String): String
   requestedAtRelativeString: String
   updatedAtRelativeString: String
+  expectedAtRelativeString: String
 }
 
 type CaseImage {

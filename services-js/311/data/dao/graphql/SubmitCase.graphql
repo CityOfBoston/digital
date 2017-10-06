@@ -28,8 +28,10 @@ mutation SubmitCase(
     id
     service {
       name
+      code
     }
     status
+    serviceNotice
     closureReason
     closureComment
     description
@@ -45,5 +47,6 @@ mutation SubmitCase(
     }
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     updatedAtString(format: "MMMM D, YYYY, h:mm A")
+    expectedAtString(format: "dddd, MMMM D, YYYY")
   }
 }

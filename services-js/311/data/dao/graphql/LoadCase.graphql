@@ -3,8 +3,10 @@ query LoadCase($id: String!) {
     id
     service {
       name
+      code
     }
     status
+    serviceNotice
     closureReason
     closureComment
     description
@@ -20,5 +22,6 @@ query LoadCase($id: String!) {
     }
     requestedAtString(format: "MMMM D, YYYY, h:mm A")
     updatedAtString(format: "MMMM D, YYYY, h:mm A")
+    expectedAtString(format: "dddd, MMMM D, YYYY")
   }
 }

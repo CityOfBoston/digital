@@ -11,6 +11,9 @@ import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
 import { MEDIA_LARGE, CHARLES_BLUE } from '../style-constants';
 
+// Case types where we show the scheduled date.
+const SCHEDULED_CASE_TYPES = ['SCHDBLKITM'];
+
 export type DefaultProps = {|
   submitted: boolean,
   noMap: boolean,
@@ -49,45 +52,98 @@ const MAP_WRAPPER_STYLE = css({
   position: 'relative',
 });
 
-function renderSubmitted({ id, updatedAtString }: Request, submitted: boolean) {
-  if (!submitted) {
-    return null;
-  }
+function renderServiceNotice({
+  expectedAtString,
+  serviceNotice,
+  service: { code },
+}: Request) {
+  return (
+    <div>
+      <div className="txt-l" style={{ marginTop: 0 }}>
+        What happens next?
+      </div>
+
+      {SCHEDULED_CASE_TYPES.indexOf(code) !== -1 &&
+        expectedAtString &&
+        <div className="t--intro m-v200">
+          Your scheduled date is <strong>{expectedAtString}</strong>.
+        </div>}
+
+      {serviceNotice &&
+        <div className="t--info" style={{ fontStyle: 'normal' }}>
+          {serviceNotice}
+        </div>}
+    </div>
+  );
+}
+
+function renderSubmitted(req: Request) {
+  const {
+    id,
+    service: { code },
+    updatedAtString,
+    expectedAtString,
+    serviceNotice,
+  } = req;
 
   return (
     <div className="b b--g p-a500 m-v500">
       <div className="txt-l" style={{ marginTop: 0 }}>
         Request submitted successfully — {updatedAtString}
       </div>
-      <div className="t--intro" style={{ fontStyle: 'normal' }}>
-        Thank you for submitting. Your case reference number is #{id}. If you
-        gave your email address, we’ll send you an email when it’s resolved. You
-        can also bookmark this page to check back on it.
-      </div>
+
+      {serviceNotice ||
+      (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1)
+        ? <div>
+            <div className="t--intro m-b500" style={{ fontStyle: 'normal' }}>
+              Thank you for submitting. Your case reference number is #{id}.
+            </div>
+
+            {renderServiceNotice(req)}
+          </div>
+        : <div className="t--intro" style={{ fontStyle: 'normal' }}>
+            Thank you for submitting. Your case reference number is #{id}. If
+            you gave your email address, we’ll send you an email when it’s
+            resolved. You can also bookmark this page to check back on it.
+          </div>}
     </div>
   );
 }
 
-function renderStatus({
-  status,
-  closureReason,
-  closureComment,
-  updatedAtString,
-}: Request) {
-  if (status !== 'closed') {
+function renderStatus(req: Request) {
+  const {
+    status,
+    service: { code },
+    closureReason,
+    closureComment,
+    updatedAtString,
+    expectedAtString,
+    serviceNotice,
+  } = req;
+
+  if (status === 'closed') {
+    return (
+      <div className="b b--g p-a500 m-v500">
+        <div className="txt-l" style={{ marginTop: 0 }}>
+          {closureReason || 'Resolution'} — {updatedAtString}
+        </div>
+        <div className="t--intro" style={{ fontStyle: 'normal' }}>
+          {closureComment || 'Case closed.'}
+        </div>
+      </div>
+    );
+  } else if (
+    serviceNotice ||
+    (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1)
+  ) {
+    return (
+      <div className="b b--g p-a500 m-v500">
+        {renderServiceNotice(req)}
+      </div>
+    );
+  } else {
     return null;
   }
-
-  return (
-    <div className="b b--g p-a500 m-v500">
-      <div className="txt-l" style={{ marginTop: 0 }}>
-        {closureReason || 'Resolution'} — {updatedAtString}
-      </div>
-      <div className="t--intro" style={{ fontStyle: 'normal' }}>
-        {closureComment || 'Case closed.'}
-      </div>
-    </div>
-  );
 }
 
 function makeMapboxUrl(
@@ -137,9 +193,8 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
         </div>
       </div>
 
-      {renderSubmitted(request, submitted || false)}
-
-      {renderStatus(request)}
+      {submitted && renderSubmitted(request)}
+      {!submitted && renderStatus(request)}
 
       {request.description &&
         <div className="m-v500">

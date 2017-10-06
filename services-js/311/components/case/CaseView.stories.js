@@ -11,45 +11,47 @@ import CaseView from './CaseView';
 const IMAGE_1 = {
   tags: ['Create'],
   originalUrl:
-    'http://boston.spot.show/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
   squarePreviewUrl:
-    'http://boston.spot.show/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg',
 };
 
 const IMAGE_2 = {
   tags: ['Create'],
   originalUrl:
-    'http://boston.spot.show/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg',
   squarePreviewUrl:
-    'http://boston.spot.show/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493747308/boston/dev/rjnbye1orlk03jouoi6n.jpg',
 };
 
 const IMAGE_3 = {
   tags: [],
   originalUrl:
-    'http://boston.spot.show/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg',
   squarePreviewUrl:
-    'http://boston.spot.show/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1503597032/boston/dev/jp1zszxom2nfp5qiump7.jpg',
 };
 
 const IMAGE_4 = {
   tags: [],
   originalUrl:
-    'http://boston.spot.show/image/upload/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg',
   squarePreviewUrl:
-    'http://boston.spot.show/image/upload/t_large_square_preview/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1494436509/boston/dev/p4d2rpz0dihxglkkixgq.jpg',
 };
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',
   service: {
     name: 'Cosmic Intervention',
+    code: 'CSMCINC',
   },
   description: 'I think that Thanos is here',
   status: 'closed',
   closureReason: 'Case Resolved',
   closureComment:
     'Found Thanos. Smashed him into the floor with all of us standing around.',
+  serviceNotice: null,
   location: {
     lat: 42.359927299999995,
     lng: -71.0576853,
@@ -58,6 +60,7 @@ const MOCK_REQUEST: Request = {
   address: 'City Hall Plaza, Boston, MA 02131',
   requestedAtString: 'March 7, 2017, 12:59 PM',
   updatedAtString: 'April 8, 2017, 12:59 PM',
+  expectedAtString: 'Thursday, May 9, 2017',
 };
 
 function makeStore() {
@@ -80,6 +83,40 @@ storiesOf('CaseView', module)
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, status: 'open' }}
+        store={makeStore()}
+        submitted
+        noMap={suppressMap}
+      />
+    </div>
+  )
+  .add('Submitted with Service Notice', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{
+          ...MOCK_REQUEST,
+          status: 'open',
+          serviceNotice:
+            'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
+        }}
+        store={makeStore()}
+        submitted
+        noMap={suppressMap}
+      />
+    </div>
+  )
+  .add('Submitted with Service Notice and schedule', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{
+          ...MOCK_REQUEST,
+          service: {
+            ...MOCK_REQUEST.service,
+            code: 'SCHDBLKITM',
+          },
+          status: 'open',
+          serviceNotice:
+            'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
+        }}
         store={makeStore()}
         submitted
         noMap={suppressMap}
@@ -164,6 +201,38 @@ storiesOf('CaseView', module)
           ...MOCK_REQUEST,
           images: [IMAGE_1, IMAGE_2, IMAGE_3, IMAGE_4],
           status: 'open',
+        }}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>
+  )
+  .add('Open - Service Notice', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{
+          ...MOCK_REQUEST,
+          status: 'open',
+          serviceNotice:
+            'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
+        }}
+        store={makeStore()}
+        noMap={suppressMap}
+      />
+    </div>
+  )
+  .add('Open - Scheduled Service Notice', () =>
+    <div style={{ backgroundColor: 'white' }}>
+      <CaseView
+        request={{
+          ...MOCK_REQUEST,
+          service: {
+            ...MOCK_REQUEST.service,
+            code: 'SCHDBLKITM',
+          },
+          status: 'open',
+          serviceNotice:
+            'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
         }}
         store={makeStore()}
         noMap={suppressMap}

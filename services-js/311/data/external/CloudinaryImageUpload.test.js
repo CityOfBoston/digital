@@ -30,9 +30,9 @@ const FAKE_UPLOAD_RESPONSE: UploadResponse = {
   type: 'upload',
   etag: '5896cf0797b48ebe199e054b2d20d908',
   url:
-    'http://res.cloudinary.com/boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
+    'http://res.cloudinary.com/spot-boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
   secure_url:
-    'https://res.cloudinary.com/boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
+    'https://res.cloudinary.com/spot-boston/image/upload/v1490979693/cob-311-staging/poaqtvjcgoiuspnz4fak.jpg',
   original_filename: 'Screen Shot 2017-02-22 at 11.17.52 AM',
   delete_token:
     'ebfcb90e9a00a99170dc4fb92339f150f3d556a7fa1d21f17bc1daa680a4286fa8843ad653b33b8fb9969f9d086943d33e0835a77ac2b842f953525bb722929293d1f913d8da9c7296b96c29fcae867bd9cb6e83464a1e211de28007f6c8fb5c7c0786184da7cf6ff6c3aaff36ba6eae435d01bdf7589f4dbe0f0c43bd73946707610034dc1c8de7db1c455722d42148',
