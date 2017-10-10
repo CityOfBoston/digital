@@ -14,7 +14,7 @@ class StatsController < ActionController::Base
     response_time = Email.where.not(response_time: nil).average(:response_time)
 
     unless response_time.nil?
-      @repsonse_time = response_time / 1.hour
+      @response_time = response_time / 1.hour
     end
   end
 

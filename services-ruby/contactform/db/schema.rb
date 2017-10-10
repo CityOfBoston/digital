@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170607191944) do
     t.string "browser"
     t.string "url"
     t.string "ip"
-    t.time "sent"
-    t.time "replied"
+    t.datetime "sent"
+    t.datetime "replied"
     t.float "response_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

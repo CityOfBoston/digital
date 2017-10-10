@@ -1,14 +1,21 @@
 language: ruby
 dist: trusty
-group: edge
+services:
+- docker
 rvm:
 - 2.4.0
+branches:
+  only:
+  - master
+  - develop
+  - "/^greenkeeper\\/.*$/"
+before_deploy:
+- pip install --upgrade --user awscli
 deploy:
-  provider: heroku
-  app: cob-contact
-  on: master
-  api_key:
-    secure: naB0LIhnuQtMFwlLrIky1BJtMIJgs7u8aTs3XijP1aryNIB8iEQu1xi6pMrolFh5UpSnibZU26U6O9/Q3MdmWDCZCJ5Pb/Chn/XJ/9FgO2FLxW1+52w5C8Znvd/ANHsc5UdlBm9TF+KfXO16ue96mYkOyk1PBenWK31gv0/i8Qvg43xWAtfxN9vmdmdNiSVD9iLQA+eSB5aYwgV4nNEW3gQkRDAvJFCKq1KzA0DOnWpcnzJfs3s2uVbp9etizNwB4gIWr7lKUS4YbRdYHd/CSm+V6FtN8X0zrmcPtJslSWgmI+x1/4xijMbkxPIg1UePgmln72YqPJvRcZRHsLHm14NmOnc+VfWcLbQZ0ay9G66vxJJF9xUyb5FJQILS6mJJeZtshGGfsZO88jDZM2gZuqdJhpTZUl51BS7ErQUzTN1FFb63WiG8OcwpXNDRT7CCGwrXSk+6BtKUHE9GtXrxpUFLLnohcwXMUNLmQ1WQS4nOEog06zzlqw+avx+Fks76wo8nii8oo/Yi45eQ9a3S5UmSJ90Xk+JD7HP+5mf1XyStmBAquKqhM7JZ6V8IWycw7xzOVn+EUYgmHMt3bCatnJGP0TyrIwcUulLmzox/rzqcf97MEhYLtDIpC+oub/KioMsihxsXRKhvbcU0UZIbR0/ketEI4hPe6aolYAI85tg=
+  provider: script
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME  $STAGING_DESIRED_COUNT"
+  on:
+    branch: develop
 notifications:
   slack:
     rooms:

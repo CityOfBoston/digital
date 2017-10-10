@@ -1,0 +1,259 @@
+Description: Powers contactform.boston.gov for sending email feedback and handling subscriptions
+
+Parameters:
+  ClusterStack:
+    Type: String
+    Description: Our main stack. Expected to have Cluster, ConfigBucket, Namespace, and ServiceRoleArn outputs
+
+  LoadBalancerStack:
+    Type: String
+    Description: Stack with the ALB. Expected to have HttpListenerArn, VpcId, LoadBalancerFullName outputs.
+
+  ShortName:
+    Type: String
+    Default: contactform
+
+  PublicDnsName:
+    Type: String
+    Description: Host name we'll receive traffic from
+
+  CloudFormationTemplatesBucket:
+    Type: String
+    Description: Bucket for our CloudFormationTemplates so that we can reference them from substacks
+
+  ServiceDesiredCount:
+    Type: Number
+    Description: Update this and redeploy to change the number of instances of the service
+    Default: 0
+
+  LoadBalancerListenerPriority:
+    Type: Number
+    Description: Priority order in the listener to register our rule
+
+  ContainerPort:
+    Type: Number
+    Description: Port that the service container listens to traffic on. Must match Dockerfile's expose and .env's $PORT
+    Default: 3000
+
+  Environment:
+    Type: String
+    Description: Either 'production' or 'staging'
+    Default: staging
+
+  DbInstanceClass:
+    Type: String
+    Description: Instance type to use for the database
+    Default: db.t2.small
+
+  DbUsername:
+    Type: String
+    Description: Name of the root user on the database
+    Default: postgres
+
+  DbPassword:
+    Type: String
+    Description: Password for the root user on the database
+    NoEcho: true
+
+  CacheInstanceClass:
+    Type: String
+    Description: Instance type to use for the cache
+    Default: cache.t2.micro
+
+Conditions:
+  IsProduction: !Equals [!Ref Environment, "production"]
+
+Resources:
+  CommonResources:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        ClusterStack: !Ref ClusterStack
+        AppStack: !Ref AWS::StackName
+        ShortName: !Ref ShortName
+        Environment: !Ref Environment
+        ServiceDesiredCount: !Ref ServiceDesiredCount
+        CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
+      TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
+
+  WebappResources:
+    Type: "AWS::CloudFormation::Stack"
+    Properties:
+      Parameters:
+        ClusterStack: !Ref ClusterStack
+        LoadBalancerStack: !Ref LoadBalancerStack
+        AppStack: !Ref AWS::StackName
+        ShortName: !Ref ShortName
+        Environment: !Ref Environment
+        PublicDnsName: !Ref PublicDnsName
+        LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
+        LoadBalancerHealthCheckPath: /admin/ok
+        ServiceDesiredCount: !Ref ServiceDesiredCount
+        ContainerPort: 3000
+      TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/webapp-resources.yml'
+
+  Dashboard:
+    Type: "AWS::CloudWatch::Dashboard"
+    Properties:
+      DashboardName: !Ref AWS::StackName
+      DashboardBody:
+        Fn::Sub:
+          - |
+            {
+              "widgets": [
+                {
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 12,
+                  "height": 6,
+                  "properties": {
+                    "markdown": "${Markdown}"
+                  }
+                },
+                {
+                  "type": "metric",
+                  "x": 12,
+                  "y": 0,
+                  "width": 12,
+                  "height": 6,
+                  "properties": ${InstancesDashboardMetricJson}
+                },
+                {
+                  "type": "metric",
+                  "x": 0,
+                  "y": 6,
+                  "width": 12,
+                  "height": 3,
+                  "properties": ${CpuDashboardMetricJson}
+                },
+                {
+                  "type": "metric",
+                  "x": 12,
+                  "y": 6,
+                  "width": 12,
+                  "height": 3,
+                  "properties": ${MemoryDashboardMetricJson}
+                },
+                {
+                  "type": "metric",
+                  "x": 0,
+                  "y": 9,
+                  "width": 24,
+                  "height": 4,
+                  "properties": ${ResponseCodeDashboardMetricJson}
+                }
+              ]
+            }
+          - Markdown:
+              Fn::Join:
+                - '\n'
+                - Fn::Split:
+                  - "\n"
+                  - Fn::Sub:
+                    - |
+                      # Contact Form
+                      Server for handling email tasks
+
+                      &nbsp;
+
+                      ${ServiceLinks}
+
+                    - ServiceLinks: !GetAtt CommonResources.Outputs.ServiceLinksMarkdown
+            InstancesDashboardMetricJson: !GetAtt CommonResources.Outputs.InstancesDashboardMetricJson
+            CpuDashboardMetricJson: !GetAtt CommonResources.Outputs.CpuDashboardMetricJson
+            MemoryDashboardMetricJson: !GetAtt CommonResources.Outputs.MemoryDashboardMetricJson
+            ResponseCodeDashboardMetricJson: !GetAtt WebappResources.Outputs.ResponseCodeDashboardMetricJson
+
+  ###### CUSTOM RESOURCES TO THIS APP ######
+
+  DatabaseKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: !Sub 'Encryption key for ${AWS::StackName}’s database'
+      KeyPolicy:
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: "Allow"
+            Principal: 
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            # If we don't give all of these permissions to the account root then
+            # no one on the account may perform these actions, even if a user
+            # policy says that they can.
+            Action: 
+              - "kms:Create*"
+              - "kms:Describe*"
+              - "kms:Enable*"
+              - "kms:List*"
+              - "kms:Put*"
+              - "kms:Update*"
+              - "kms:Revoke*"
+              - "kms:Disable*"
+              - "kms:Get*"
+              - "kms:Delete*"
+              - "kms:ScheduleKeyDeletion"
+              - "kms:CancelKeyDeletion"
+              - "kms:Encrypt"
+              - "kms:Decrypt"
+            Resource: "*"
+
+  DatabaseParameterGroup:
+    Type: "AWS::RDS::DBParameterGroup"
+    Properties: 
+      Description: !Sub "Parameters for ${AWS::StackName}'s database"
+      Family: 'postgres9.6'
+      Parameters:
+        rds.force_ssl: 1
+
+  Database:
+    Type: "AWS::RDS::DBInstance"
+    Properties:
+      AllocatedStorage: 5
+      BackupRetentionPeriod: 30
+      DBInstanceClass: !Ref DbInstanceClass
+      DBParameterGroupName: !Ref DatabaseParameterGroup
+      DBSubnetGroupName:
+        Fn::ImportValue:
+          !Sub '${ClusterStack}:PrivateDbSubnetGroupName'
+      Engine: postgres
+      KmsKeyId: !Ref DatabaseKey
+      MasterUsername: !Ref DbUsername
+      MasterUserPassword: !Ref DbPassword
+      MultiAZ:
+        Fn::If:
+          - IsProduction
+          - true
+          - false
+      PubliclyAccessible: false
+      StorageEncrypted: true
+      StorageType: gp2
+      VPCSecurityGroups:
+        - Fn::ImportValue:
+            !Sub '${ClusterStack}:PrivateDbSecurityGroupId'
+
+  Cache:
+    Type: "AWS::ElastiCache::CacheCluster"
+    Properties:
+      AZMode: 
+        Fn::If:
+          - IsProduction
+          - cross-az
+          - single-az
+      CacheNodeType: !Ref CacheInstanceClass
+      CacheSubnetGroupName:
+        Fn::ImportValue:
+          !Sub '${ClusterStack}:PrivateCacheSubnetGroupName'
+      Engine: redis
+      NumCacheNodes: 1
+      VpcSecurityGroupIds:
+        - Fn::ImportValue:
+            !Sub '${ClusterStack}:PrivateCacheSecurityGroupId'
+
+Outputs:
+  DatabaseUrl:
+    Description: URL (without credentials) for the database instance. Put in .env.
+    Value:
+      Fn::Sub:
+        - 'postgres://${DbUsername}:********@${Address}:${Port}/contactform?sslmode=require'
+        - Address: !GetAtt Database.Endpoint.Address
+          Port: !GetAtt Database.Endpoint.Port
