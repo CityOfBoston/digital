@@ -9,6 +9,10 @@ Parameters:
     Type: String
     Description: Stack with the ALB. Expected to have HttpListenerArn, VpcId, LoadBalancerFullName outputs.
 
+  NotificationsStack:
+    Type: String
+    Description: Stack with SNS topics. Sends cache notifications to the alarm topic.
+
   ShortName:
     Type: String
     Default: contactform
@@ -33,7 +37,7 @@ Parameters:
   ContainerPort:
     Type: Number
     Description: Port that the service container listens to traffic on. Must match Dockerfile's expose and .env's $PORT
-    Default: 3000
+    Default: 5000
 
   Environment:
     Type: String
@@ -89,7 +93,7 @@ Resources:
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
         ServiceDesiredCount: !Ref ServiceDesiredCount
-        ContainerPort: 3000
+        ContainerPort: !Ref ContainerPort
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/webapp-resources.yml'
 
   Dashboard:
@@ -245,6 +249,9 @@ Resources:
           !Sub '${ClusterStack}:PrivateCacheSubnetGroupName'
       Engine: redis
       NumCacheNodes: 1
+      NotificationTopicArn:
+        Fn::ImportValue:
+          !Sub '${NotificationsStack}:AlarmTopicArn'
       VpcSecurityGroupIds:
         - Fn::ImportValue:
             !Sub '${ClusterStack}:PrivateCacheSecurityGroupId'

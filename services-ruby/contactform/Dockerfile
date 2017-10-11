@@ -28,7 +28,7 @@ RUN bin/rails assets:precompile
 ENV RAILS_ENV production
 ENV RACK_ENV production
 
-EXPOSE 3000
+EXPOSE 5000
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["foreman", "start"]
