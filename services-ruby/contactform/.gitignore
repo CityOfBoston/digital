@@ -24,3 +24,6 @@
 .env
 
 /public/assets
+
+server.key
+server.crt

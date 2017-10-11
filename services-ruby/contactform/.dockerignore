@@ -4,5 +4,8 @@ log
 tmp
 assets/precompile
 
+server.key
+server.crt
+
 # Makes it easier to iterate on this script without invalidating the container image cache
 deploy

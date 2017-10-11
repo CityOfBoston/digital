@@ -1,2 +1,2 @@
-web: puma -b 'ssl://127.0.0.1:3003?key=/Users/matthewcrist/.ssl/server.key&cert=/Users/matthewcrist/.ssl/server.crt'
+web: bundle exec rails s -p $PORT
 worker: bundle exec sidekiq
