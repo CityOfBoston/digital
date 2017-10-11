@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :subscriptions
   resources :emails
 
+  get '/admin/ok', to: proc { [200, {}, ['']] }
+
   mount_griddler('/inbound')
 
   require "sidekiq/web"
