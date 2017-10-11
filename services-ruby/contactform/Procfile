@@ -1,2 +1,2 @@
-web: bundle exec puma -b "ssl://127.0.0.1:$PORT?key=server.key&cert=server.crt"
+web: bundle exec puma -b "ssl://0.0.0.0:$PORT?key=server.key&cert=server.crt"
 worker: bundle exec sidekiq -c 3
