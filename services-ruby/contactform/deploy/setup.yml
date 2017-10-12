@@ -146,6 +146,49 @@ Resources:
                   "width": 24,
                   "height": 4,
                   "properties": ${ResponseCodeDashboardMetricJson}
+                },
+                {
+                  "type": "metric",
+                  "x": 0,
+                  "y": 13,
+                  "width": 24,
+                  "height": 4,
+                  "properties": {
+                    "view": "timeSeries",
+                    "metrics": [
+                      [
+                        "AWS/Events", "TriggeredRules", "RuleName", "${CalculateTimingRuleName}",
+                        {
+                          "label": "Triggered",
+                          "color": "#1f77b4",
+                          "stat": "Sum"
+                        }
+                      ],
+                      [ 
+                        ".", "Invocations", ".", ".",
+                        {
+                          "label": "Invocations",
+                          "color": "#2ca02c",
+                          "stat": "Sum"
+                        }
+                      ],
+                      [
+                        ".", "FailedInvocations", ".", ".",
+                        {
+                          "label": "Failed Invocations",
+                          "color": "#ff7f0e",
+                          "stat": "Sum"
+                        }
+                      ]
+                    ],
+                    "region": "${AWS::Region}",
+                    "title": "Calculate Timing Job",
+                    "period": 300,
+                    "yAxis": {
+                      "left": { "min": 0 }
+                    },
+                    "stacked": false
+                  }
                 }
               ]
             }
@@ -168,6 +211,7 @@ Resources:
             CpuDashboardMetricJson: !GetAtt CommonResources.Outputs.CpuDashboardMetricJson
             MemoryDashboardMetricJson: !GetAtt CommonResources.Outputs.MemoryDashboardMetricJson
             ResponseCodeDashboardMetricJson: !GetAtt WebappResources.Outputs.ResponseCodeDashboardMetricJson
+            CalculateTimingRuleName: !Sub '${AWS::StackName}-CalculateTiming'
 
   ###### CUSTOM RESOURCES TO THIS APP ######
 
