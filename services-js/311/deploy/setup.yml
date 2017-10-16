@@ -44,6 +44,13 @@ Parameters:
     Type: String 
     Description: ARN for the managed policy that gives us Elasticsearch access
 
+  DeployUserName:
+    Type: String
+    Description: Name of the user to be granted deploy permissions
+
+Conditions:
+  IsProduction: !Equals [!Ref Environment, "production"]
+
 Resources:
   CommonResources:
     Type: "AWS::CloudFormation::Stack"
@@ -56,6 +63,7 @@ Resources:
         TaskPolicyArnsString: !Join [',', [!Ref ElasticsearchPolicyArn]]
         ServiceDesiredCount: !Ref ServiceDesiredCount
         CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
+        DeployUserName: !Ref DeployUserName
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   WebappResources:
@@ -67,6 +75,11 @@ Resources:
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
         Environment: !Ref Environment
+        Cdn:
+          Fn::If:
+            - IsProduction
+            - 'cloudfront'
+            - 'none'
         PublicDnsName: !Ref PublicDnsName
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
