@@ -18,3 +18,16 @@
 ### Running
 
 `foreman start`
+
+
+### Restoring the DB
+
+1. Get a `pg_dump` custom-formatted dump file
+1. Upload it to the config bucket at `db/cob_contact.dump`
+1. Run a one-off task with:
+  - `DISABLE_DATABASE_ENVIRONMENT_CHECK=1`
+  - `rake db:restore`
+1. Delete the dump file from the bucket
+
+Putting the dump file in the config bucket is a simple way to get it loaded into
+a container.
