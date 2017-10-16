@@ -39,6 +39,10 @@ export default class extends Document {
     }
 
     __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY;
+    __NEXT_DATA__.contactForm = {
+      url: process.env.CONTACT_FORM_URL,
+      token: process.env.CONTACT_FORM_TOKEN,
+    };
     __NEXT_DATA__.assetPrefix =
       process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
         ? `https://${process.env.ASSET_HOST}`
