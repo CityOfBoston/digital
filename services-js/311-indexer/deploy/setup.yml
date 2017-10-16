@@ -22,6 +22,10 @@ Parameters:
     Type: String 
     Description: ARN for the managed policy that gives us Elasticsearch access
 
+  DeployUserName:
+    Type: String
+    Description: Name of the user to be granted deploy permissions
+
 Resources:
   CommonResources:
     Type: "AWS::CloudFormation::Stack"
@@ -33,6 +37,7 @@ Resources:
         ServiceDesiredCount: !Ref ServiceDesiredCount
         TaskPolicyArnsString: !Join [',', [!Ref ElasticsearchPolicyArn]]
         CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
+        DeployUserName: !Ref DeployUserName
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   Dashboard:
