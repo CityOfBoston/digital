@@ -12,10 +12,14 @@ branches:
 before_deploy:
 - pip install --upgrade --user awscli
 deploy:
-  provider: script
-  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME  $STAGING_DESIRED_COUNT"
-  on:
-    branch: develop
+  - provider: script
+    script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
+    on:
+      branch: develop
+  - provider: script
+    script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME $PROD_DESIRED_COUNT"
+    on:
+      branch: production
 notifications:
   slack:
     rooms:

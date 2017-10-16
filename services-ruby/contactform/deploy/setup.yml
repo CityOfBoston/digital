@@ -58,11 +58,22 @@ Parameters:
     Type: String
     Description: Password for the root user on the database
     NoEcho: true
+  
+  ResourceName:
+    Type: String
+    Description: Name for cache and database
+    AllowedPattern: '[A-Za-z0-9-]+'
+    MaxLength: 20
+    Default: contactform-staging
 
   CacheInstanceClass:
     Type: String
     Description: Instance type to use for the cache
     Default: cache.t2.micro
+
+  DeployUserName:
+    Type: String
+    Description: Name of the user to be granted deploy permissions
 
 Conditions:
   IsProduction: !Equals [!Ref Environment, "production"]
@@ -78,6 +89,7 @@ Resources:
         Environment: !Ref Environment
         ServiceDesiredCount: !Ref ServiceDesiredCount
         CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
+        DeployUserName: !Ref DeployUserName
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   WebappResources:
@@ -89,6 +101,7 @@ Resources:
         AppStack: !Ref AWS::StackName
         ShortName: !Ref ShortName
         Environment: !Ref Environment
+        Cdn: 'none'
         PublicDnsName: !Ref PublicDnsName
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
@@ -259,6 +272,7 @@ Resources:
       AllocatedStorage: 5
       BackupRetentionPeriod: 30
       DBInstanceClass: !Ref DbInstanceClass
+      DBInstanceIdentifier: !Ref ResourceName
       DBParameterGroupName: !Ref DatabaseParameterGroup
       DBSubnetGroupName:
         Fn::ImportValue:
@@ -282,11 +296,7 @@ Resources:
   Cache:
     Type: "AWS::ElastiCache::CacheCluster"
     Properties:
-      AZMode: 
-        Fn::If:
-          - IsProduction
-          - cross-az
-          - single-az
+      ClusterName: !Ref ResourceName
       CacheNodeType: !Ref CacheInstanceClass
       CacheSubnetGroupName:
         Fn::ImportValue:
@@ -308,3 +318,11 @@ Outputs:
         - 'postgres://${DbUsername}:********@${Address}:${Port}/contactform?sslmode=require'
         - Address: !GetAtt Database.Endpoint.Address
           Port: !GetAtt Database.Endpoint.Port
+
+  RedisUrl:
+    Description: URL for the Redis cache
+    Value:
+      Fn::Sub:
+        - 'redis://${Address}:${Port}'
+        - Address: !GetAtt Cache.RedisEndpoint.Address
+          Port: !GetAtt Cache.RedisEndpoint.Port
