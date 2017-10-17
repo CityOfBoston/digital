@@ -25,11 +25,15 @@ type Deps = {
 
 const handleSingleLoadError = (err: any) => {
   // These first two errors are permanent and should not be retried.
+  const msg = err.message || '';
+
   if (
-    (err.message || '').startsWith('Cannot execute GET on Service Type Code')
+    msg.startsWith('Cannot execute GET on Service Type Code') ||
+    msg.startsWith('Unexpected error - this could be caused by configuration')
   ) {
     // treat these as a missing load to be removed from the index
-    return null;
+    err.missing = true;
+    throw err;
   } else if (err.message === 'Session expried or invalid') {
     err.fatal = true;
     throw err;
@@ -39,12 +43,12 @@ const handleSingleLoadError = (err: any) => {
 };
 
 const handleRetriedLoadError = (id, opbeat, err) => {
-  const { message, fatal, silent } = err;
+  const { message, fatal, missing } = err;
 
   logMessage('load-cases', 'Permanent failure loading case', {
     message,
     id,
-    silent,
+    missing,
     fatal,
   });
 
@@ -52,10 +56,12 @@ const handleRetriedLoadError = (id, opbeat, err) => {
   // pipeline and kill the job (which will then get restarted)
   if (fatal) {
     throw err;
-  } else if (!silent) {
+  } else if (missing) {
+    return Rx.Observable.of(null);
+  } else {
     opbeat.captureError(err);
+    return Rx.Observable.empty();
   }
-  return Rx.Observable.empty();
 };
 
 // rxjs operation (use with "let") that hydrates a stream of

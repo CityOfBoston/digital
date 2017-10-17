@@ -18,6 +18,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 dotenv.config();
 const opbeat = require('opbeat/start');
 
+const timingStart = moment();
+let caseCount = 0;
+
 (async function initializeIndex() {
   await decryptEnv();
 
@@ -85,7 +88,10 @@ const opbeat = require('opbeat/start');
           })
         )
     )
-    .do(cases => console.log(` - found ${cases.length} cases`))
+    .do(cases => {
+      caseCount += cases.length;
+      console.log(` - found ${cases.length} cases`);
+    })
     // completes the stream when we make a fetch that has no cases
     .takeWhile(cases => cases.length > 0)
     .mergeMap(
@@ -126,7 +132,13 @@ const opbeat = require('opbeat/start');
   });
 })()
   .then(() => {
+    const duration = moment.duration(moment().diff(timingStart));
     console.log('----- IMPORT COMPLETE -----');
+    console.log(
+      `Imported ${caseCount} cases in ${duration.asSeconds()}s - ${Math.round(
+        caseCount / duration.asHours()
+      )} cases/hr`
+    );
   })
   .catch(err => {
     console.error(err);
