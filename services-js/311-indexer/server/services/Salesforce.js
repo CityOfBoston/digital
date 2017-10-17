@@ -68,10 +68,6 @@ export default class Salesforce extends EventEmitter {
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
     this.lastReplayId = null;
-
-    if (typeof window !== 'undefined') {
-      this.cometd = new cometd.CometD();
-    }
   }
 
   async authenticate(
@@ -114,6 +110,8 @@ export default class Salesforce extends EventEmitter {
     securityToken: ?string,
     lastReplayId: ?number
   ): Promise<string> {
+    this.cometd = new cometd.CometD();
+
     const sessionId = await this.authenticate(
       oauthUrl,
       username,

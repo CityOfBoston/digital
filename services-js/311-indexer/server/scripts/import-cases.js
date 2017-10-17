@@ -5,10 +5,12 @@ import dotenv from 'dotenv';
 import moment from 'moment';
 
 import decryptEnv from '../lib/decrypt-env';
+import loadCases from '../stages/load-cases';
+import type { HydratedCaseRecord } from '../stages/types';
 import { retryWithFallback } from '../stages/stage-helpers';
 
 import Elasticsearch from '../services/Elasticsearch';
-import Open311 from '../services/Open311';
+import Open311, { type Case } from '../services/Open311';
 import Salesforce from '../services/Salesforce';
 
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -66,6 +68,7 @@ const opbeat = require('opbeat/start');
   const endDateObserver = new BehaviorSubject(endDateMoment.toDate());
 
   endDateObserver
+    // completes the stream when we've reached the start date
     .takeWhile(endDate => startDateMoment.isSameOrBefore(endDate))
     .do(endDate => console.log(`Fetching cases through ${endDate}…`))
     .concatMap(endDate =>
@@ -83,19 +86,24 @@ const opbeat = require('opbeat/start');
         )
     )
     .do(cases => console.log(` - found ${cases.length} cases`))
+    // completes the stream when we make a fetch that has no cases
     .takeWhile(cases => cases.length > 0)
-    .concatMap(
-      cases =>
-        Observable.of(cases)
-          .map(cases => cases.map(c => ({ case: c, replayId: null })))
-          .mergeMap(caseList => elasticsearch.createCases(caseList))
-          .let(
-            retryWithFallback(5, 2000, {
-              error: err => {
-                console.log(`- error indexing cases`);
-                opbeat.captureError(err);
-              },
-            })
+    .mergeMap(
+      (cases: Array<Case>) =>
+        Observable.from(cases)
+          .map(c => ({ id: c.service_request_id, replayId: null }))
+          // Reload from the individual endpoint for consistency with the frontend.
+          .let(loadCases(10, { opbeat, open311 }))
+          .toArray()
+          .mergeMap((recordArr: Array<HydratedCaseRecord>) =>
+            Observable.defer(() => elasticsearch.createCases(recordArr)).let(
+              retryWithFallback(5, 2000, {
+                error: err => {
+                  console.log(`- error indexing cases`);
+                  opbeat.captureError(err);
+                },
+              })
+            )
           ),
       // We ignore the output of the indexing and push the original case list
       // through the rest of the stream.

@@ -13,7 +13,7 @@ import Prediction from './services/Prediction';
 
 import decryptEnv from './lib/decrypt-env';
 
-import batchSalesforceEvents from './stages/batch-salesforce-events';
+import convertSalesforceEvents from './stages/convert-salesforce-events';
 import loadCases from './stages/load-cases';
 import indexCases from './stages/index-cases';
 import updateClassifier from './stages/update-classifier';
@@ -23,6 +23,8 @@ type Opbeat = $Exports<'opbeat'>;
 type ServerArgs = {
   opbeat: Opbeat,
 };
+
+const SIMULTANEOUS_CASE_LOADS = 5;
 
 // https://opbeat.com/docs/api/intake/v1/#release-tracking
 async function reportDeployToOpbeat(opbeat) {
@@ -173,15 +175,14 @@ export default async function startServer({ opbeat }: ServerArgs) {
 
   const loadedBatch$ = Rx.Observable
     .fromEvent(salesforce, 'event')
-    .let(batchSalesforceEvents())
-    .let(loadCases({ opbeat, open311 }))
-    // shared so that we only load cases from Open311 once for every event,
-    // regardless of how many subscribers we have.
+    .let(convertSalesforceEvents())
+    .let(loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }))
+    // multicast the same loaded cases to each of the later pipeline stages.
     .share();
 
   // We merge two streams off of the loaded cases so that indexing and
-  // classification happen in parallel. The merging is just so we can control
-  // this through a single subscription.
+  // classification happen in parallel. The merging is just so we can control /
+  // error out through a single subscription.
   rxjsSubscription = Rx.Observable
     .merge(
       loadedBatch$.let(updateClassifier({ opbeat, prediction })),

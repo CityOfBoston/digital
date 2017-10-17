@@ -33,4 +33,6 @@ Copy `.env.default` to `.env` and modify any necessary values.
 
 ### Bulk Import
 
-`node ./build/server/scripts/import-cases.js 20170501 20171016`
+Local: `npx babel-node server/scripts/import-cases.js 20170501 20171016`
+
+Container Task: `node,./build/server/scripts/import-cases.js,20170501,20171016`

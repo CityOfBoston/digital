@@ -2,7 +2,11 @@
 
 import Rx from 'rxjs';
 
-import type Open311, { Case } from '../services/Open311';
+import type Open311, { DetailedServiceRequest } from '../services/Open311';
+import type {
+  UpdatedCaseNotificationRecord,
+  HydratedCaseRecord,
+} from './types';
 
 import {
   queue,
@@ -19,77 +23,80 @@ type Deps = {
   opbeat: Opbeat,
 };
 
-export type CaseIdBatch = Array<{
-  id: string,
-  replayId: ?number,
-}>;
+const handleSingleLoadError = (err: any) => {
+  // These first two errors are permanent and should not be retried.
+  if (
+    (err.message || '').startsWith('Cannot execute GET on Service Type Code')
+  ) {
+    // treat these as a missing load to be removed from the index
+    return null;
+  } else if (err.message === 'Session expried or invalid') {
+    err.fatal = true;
+    throw err;
+  } else {
+    logNonfatalError('load-cases', err);
+  }
+};
 
-export type LoadedCaseBatch = Array<{
-  id: string,
-  replayId: ?number,
-  case: ?Case,
-}>;
+const handleRetriedLoadError = (id, opbeat, err) => {
+  const { message, fatal, silent } = err;
 
-const hydrateIdBatch = (idBatch: CaseIdBatch) => (
-  cases: Array<?Case>
-): LoadedCaseBatch =>
-  idBatch.map(({ id, replayId }, i) => ({
+  logMessage('load-cases', 'Permanent failure loading case', {
+    message,
     id,
-    replayId,
-    case: cases[i],
-  }));
+    silent,
+    fatal,
+  });
 
-// rxjs operation (use with "let") that converts a stream of CaseIdBatches (an
-// array of caseIds and the associated Salesforce CometD replayId values) into a
-// stream of hydrated batches suitable for indexing in Elasticsearch.
+  // Throwing out of this stage will fail back up to the server
+  // pipeline and kill the job (which will then get restarted)
+  if (fatal) {
+    throw err;
+  } else if (!silent) {
+    opbeat.captureError(err);
+  }
+  return Rx.Observable.empty();
+};
+
+// rxjs operation (use with "let") that hydrates a stream of
+// UpdatedCaseNotificationRecords.
 //
-// The incoming batches are queued so that only one call to the Open311 API is
-// active at any time. Open311 API failures are retried with an exponential
-// backoff before failing.
-//
-// This op catches and logs / reports most errors so that the source observable
-// isn't terminated. The exception is Salesforce session auth exceptions, which
-// we propagate up to terminate the job.
-export default ({ open311, opbeat }: Deps) => (
-  batch$: Rx.Observable<CaseIdBatch>
-): Rx.Observable<LoadedCaseBatch> =>
-  batch$.let(
+// Catches and retries most errors, but propagates Salesforce authentication
+// errors to fail the job and cause a restart (which re-auths).
+export default (parallel: number, { open311, opbeat }: Deps) => (
+  updates$: Rx.Observable<UpdatedCaseNotificationRecord>
+): Rx.Observable<HydratedCaseRecord> =>
+  updates$.let(
     queue(
-      idBatch =>
+      ({ id, replayId }) =>
         Rx.Observable
-          .defer(() => open311.loadCases(idBatch.map(({ id }) => id)))
+          .defer(() => open311.loadCase(id))
           .let(
             retryWithFallback(5, 2000, {
-              error: err => logNonfatalError('load-cases', err),
+              error: handleSingleLoadError,
             })
           )
-          .map(hydrateIdBatch(idBatch))
-          .do(caseBatch => {
-            logMessage('load-cases', 'Loading complete', {
-              ids: caseBatch.map(b => b.id),
-            });
-          }),
+          .do((c: ?DetailedServiceRequest) => {
+            if (c) {
+              logMessage('load-cases', 'Successful case load', {
+                id: c.service_request_id,
+                code: c.service_code,
+              });
+            } else {
+              logMessage('load-cases', 'Unsuccessful case load', {
+                id,
+              });
+            }
+          })
+          .catch(handleRetriedLoadError.bind(null, id, opbeat))
+          .map((c: ?DetailedServiceRequest): HydratedCaseRecord => ({
+            id,
+            case: c,
+            replayId,
+          })),
       {
         length: length => logQueueLength('load-cases', length),
-        error: (err, batch) => {
-          // If we get this error message from Salesforce, it means that our
-          // OAuth token has expired and we need to restart to fetch it.
-          //
-          // Throwing out of this stage will fail back up to the server
-          // pipeline.
-          if (err.message === 'Session expired or invalid') {
-            logMessage('load-cases', 'Salesforce auth error loading cases', {
-              batch,
-            });
-
-            throw err;
-          } else {
-            opbeat.captureError(err);
-            logMessage('load-cases', 'Permanent failure loading cases', {
-              batch,
-            });
-          }
-        },
-      }
+      },
+      parallel
     )
   );

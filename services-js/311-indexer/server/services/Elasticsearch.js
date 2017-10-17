@@ -5,7 +5,7 @@ import elasticsearch from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
 import _ from 'lodash';
 
-import type { Case } from './Open311';
+import type { DetailedServiceRequest } from './Open311';
 
 type IndexedCase = {
   service_request_id: string,
@@ -21,7 +21,12 @@ type IndexedCase = {
   status_notes: string,
   requested_datetime: ?string,
   updated_datetime: ?string,
-  media_url: ?string,
+  media_url:
+    | ?Array<{|
+        url: string,
+        tags: string[],
+      |}>
+    | ?string,
   // We store the Salesforce replay_id in the record so we can pull the latest
   // replay_id when we start up, to avoid always processing everything from the
   // past 24 hours.
@@ -67,7 +72,10 @@ type MaxReplayAggregations = {
   },
 };
 
-function convertCaseToDocument(c: Case, replayId: ?number): IndexedCase {
+function convertCaseToDocument(
+  c: DetailedServiceRequest,
+  replayId: ?number
+): IndexedCase {
   return {
     service_request_id: c.service_request_id,
     status: c.status,
@@ -78,7 +86,7 @@ function convertCaseToDocument(c: Case, replayId: ?number): IndexedCase {
     service_code: c.service_code || '',
     status_notes: c.status_notes || '',
     requested_datetime: c.requested_datetime,
-    updated_datetime: c.updated_datetime,
+    updated_datetime: c.updated_datetime || c.requested_datetime,
     media_url: c.media_url,
     replay_id: replayId,
   };
@@ -182,7 +190,11 @@ export default class Elasticsearch {
   }
 
   async createCases(
-    cases: Array<{ id: string, case: ?Case, replayId: ?number }>
+    cases: Array<{|
+      id: string,
+      case: ?DetailedServiceRequest,
+      replayId: ?number,
+    |}>
   ): Promise<BulkResponse> {
     if (cases.length === 0) {
       return {

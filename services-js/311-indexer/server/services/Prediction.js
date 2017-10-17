@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 
-import type { Case } from './Open311';
+import type { DetailedServiceRequest } from './Open311';
 
 export default class Prediction {
   agent: any;
@@ -27,7 +27,7 @@ export default class Prediction {
     return url.resolve(this.endpoint, path);
   }
 
-  async caseUpdated(c: Case): Promise<?string> {
+  async reportCaseUpdate(c: DetailedServiceRequest): Promise<?string> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('update_case_request', 'Prediction');

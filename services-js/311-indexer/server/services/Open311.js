@@ -27,6 +27,75 @@ export type Case = {|
   media_url: ?string,
 |};
 
+export type DetailedServiceRequest = {|
+  service_request_id: string,
+  status: string,
+  long: ?number,
+  lat: ?number,
+  // Yes this can be an array or a string, depending on whether or not the case
+  // was imported.
+  media_url:
+    | ?Array<{|
+        url: string,
+        tags: string[],
+      |}>
+    | ?string,
+  service_name: ?string,
+  service_code: string,
+  description: ?string,
+  // 2017-08-16T14:24:02.000Z
+  requested_datetime: string,
+  expected_datetime: string,
+  updated_datetime: ?string,
+  address: ?string,
+  zipcode: ?string,
+  address_id: ?string,
+  agency_responsible: ?string,
+  service_notice: ?string,
+  status_notes: ?string,
+  contact: {
+    first_name: ?string,
+    last_name: ?string,
+    phone: ?string,
+    email: ?string,
+  },
+  activities: Array<Object>,
+  // [
+  //   {
+  //     code: 'NEEDRMVL-PICKUP',
+  //     order: null,
+  //     description: null,
+  //     status: 'Not Started',
+  //     completion_date: null,
+  //   },
+  // ],
+  attributes: Array<Object>,
+  // [
+  //   {
+  //     code: 'SR-NEDRMV1',
+  //     description: 'How many needles are at the location?',
+  //     order: 1,
+  //     values: [
+  //       {
+  //         answer: 'One',
+  //         answer_value: 'One',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     code: 'ST-PROPLOC',
+  //     description: 'Property location type',
+  //     order: 2,
+  //     values: [
+  //       {
+  //         answer: 'Public',
+  //         answer_value: 'Public',
+  //       },
+  //     ],
+  //   },
+  // ],
+|};
+
 async function processResponse(res): Promise<any> {
   if (res.status === 404) {
     return null;
@@ -140,7 +209,10 @@ export default class Open311 {
   }
 
   async loadCases(ids: Array<string>): Promise<Array<?Case>> {
-    const transaction = this.opbeat.startTransaction('loadCases', 'Open311');
+    const transaction = this.opbeat.startTransaction(
+      'bulk-requests',
+      'Open311'
+    );
 
     const params = new URLSearchParams();
     params.append('service_request_id', ids.join(','));
@@ -171,5 +243,43 @@ export default class Open311 {
     });
 
     return ids.map(id => casesById[id]);
+  }
+
+  async loadCase(id: string): Promise<?DetailedServiceRequest> {
+    const { opbeat } = this;
+
+    const params = new URLSearchParams();
+    if (this.apiKey) {
+      params.append('api_key', this.apiKey);
+    }
+
+    const transaction = opbeat && opbeat.startTransaction('request', 'Open311');
+
+    try {
+      const response = await fetch(
+        this.url(`request/${id}.json?${params.toString()}`),
+        {
+          agent: this.agent,
+          headers: this.requestHeaders(),
+        }
+      );
+
+      // For whatever reason, looking up a single request ID still returns
+      // an array.
+      const requestArr: Array<?DetailedServiceRequest> = await processResponse(
+        response
+      );
+
+      // processResponse turns 404s into nulls
+      if (requestArr) {
+        return requestArr[0];
+      } else {
+        return null;
+      }
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
   }
 }
