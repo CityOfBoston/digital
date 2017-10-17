@@ -69,7 +69,9 @@ export default class Salesforce extends EventEmitter {
     this.consumerSecret = consumerSecret;
     this.lastReplayId = null;
 
-    this.cometd = new cometd.CometD();
+    if (typeof window !== 'undefined') {
+      this.cometd = new cometd.CometD();
+    }
   }
 
   async authenticate(

@@ -31,3 +31,6 @@ Copy `.env.default` to `.env` and modify any necessary values.
  1. Run `npm run-script elasticsearch-start`
  1. Run `npx babel-node server/scripts/elasticsearch-init.js`
 
+### Bulk Import
+
+`node ./build/server/scripts/import-cases.js 20170501 20171016`
