@@ -34,7 +34,7 @@ const handleSingleLoadError = (err: any) => {
     // treat these as a missing load to be removed from the index
     err.missing = true;
     throw err;
-  } else if (err.message === 'Session expried or invalid') {
+  } else if (msg === 'Session expired or invalid') {
     err.fatal = true;
     throw err;
   } else {
