@@ -32,7 +32,7 @@ exports[`existing service page rendering phone 1`] = `
           href="/"
           onClick={[Function]}
         >
-          Make a request
+          BOS:311 Home
         </a>
       </li>
       <li
@@ -496,7 +496,7 @@ exports[`existing service page rendering phone location step 1`] = `
           href="/"
           onClick={[Function]}
         >
-          Make a request
+          BOS:311 Home
         </a>
       </li>
       <li
@@ -727,7 +727,7 @@ exports[`missing service page rendering 1`] = `
           href="/"
           onClick={[Function]}
         >
-          Make a request
+          BOS:311 Home
         </a>
       </li>
       <li

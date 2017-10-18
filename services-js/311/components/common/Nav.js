@@ -48,7 +48,7 @@ export default function Nav({ activeSection }: Props) {
         </li>
 
         {renderNavItem(
-          { href: '/request', as: '/', title: 'Make a request' },
+          { href: '/request', as: '/', title: 'BOS:311 Home' },
           activeSection === 'request'
         )}
         {renderNavItem(

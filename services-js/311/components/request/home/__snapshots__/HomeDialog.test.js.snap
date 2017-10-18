@@ -280,6 +280,11 @@ exports[`home page rendering 1`] = `
             >
               <li
                 className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
                 <a
                   className="m-v100"

@@ -58,6 +58,9 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
   render() {
     const { group, services } = this.props;
 
+    const sortedServices = [...services];
+    sortedServices.sort((s1, s2) => s1.name.localeCompare(s2.name));
+
     const regionId = `${group.id.replace(/\s/g, '-')}-region`;
 
     return (
@@ -94,7 +97,7 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
           {group.open &&
             <div className="dr-c" style={{ display: 'block' }}>
               <ul className="ul" key="content">
-                {services.map(({ name, code, description }) =>
+                {sortedServices.map(({ name, code, description }) =>
                   <li key={code}>
                     <Link
                       href={`/request?code=${code}`}

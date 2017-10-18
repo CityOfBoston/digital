@@ -299,7 +299,11 @@ export default class HomePane extends React.Component<Props> {
 
               <ul className="ul m-v300">
                 {topServiceSummaries.map(({ code, name }) =>
-                  <li key={code} className="t--info">
+                  <li
+                    key={code}
+                    className="t--info"
+                    style={{ fontStyle: 'normal' }}
+                  >
                     <Link
                       href={`/request?code=${code}`}
                       as={`/request/${code}`}
