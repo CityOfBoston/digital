@@ -36,12 +36,6 @@ type GroupProps = {
   services: ServiceSummary[],
 };
 
-const GROUP_DESCRIPTION_STYLE = css({
-  fontFamily: 'Lora, serif',
-  fontSize: '1rem',
-  textTransform: 'none',
-});
-
 const SERVICE_LINK_STYLE = css({
   display: 'inline-block',
   verticalAlign: 'middle',
@@ -83,7 +77,7 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
           <h2 className="dr-t">
             {group.name}
           </h2>
-          <div className={`${GROUP_DESCRIPTION_STYLE.toString()} dr-st`}>
+          <div className="dr-st">
             {group.description}
           </div>
         </button>

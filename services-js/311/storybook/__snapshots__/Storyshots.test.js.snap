@@ -12287,7 +12287,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Animals
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Help for pet owners, or issues with animals, rodents, and pests.
                 </div>
@@ -12326,7 +12326,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Fees and pricing
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Have an issue with the price or measurement of gas, oil, or another product?
                 </div>
@@ -12365,7 +12365,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Health, safety, and social services
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Get help for a public safety or disability issue, or request a health inspection.
                 </div>
@@ -12404,7 +12404,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Parks and public space
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   File requests for repairs, permits, tree plantings, and even make donations.
                 </div>
@@ -12443,7 +12443,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Property, housing, and construction
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   We offer help to developers, homeowners, and renters on many issues.
                 </div>
@@ -12482,7 +12482,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Schools
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Have a problem with a City school bus? Want to see something repaired at a school?
                 </div>
@@ -12521,7 +12521,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Snow or weather-related concerns
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.
                 </div>
@@ -12560,7 +12560,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Streets, sidewalks, traffic, and vehicles
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   You can report issues with street signs and signals, among other transportation issues.
                 </div>
@@ -12599,7 +12599,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Trash, recycling, and graffiti
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Do you need help with trash or recycling? Want us to clean up a part of the City?
                 </div>
@@ -12638,7 +12638,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Utilities
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   We can help if you have a problem with your electricity, water, or gas.
                 </div>
@@ -12677,7 +12677,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                   Other services
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   General requests that don’t fit into a category.
                 </div>
@@ -12988,7 +12988,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Animals
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Help for pet owners, or issues with animals, rodents, and pests.
                 </div>
@@ -13027,7 +13027,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Fees and pricing
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Have an issue with the price or measurement of gas, oil, or another product?
                 </div>
@@ -13066,7 +13066,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Health, safety, and social services
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Get help for a public safety or disability issue, or request a health inspection.
                 </div>
@@ -13141,7 +13141,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Parks and public space
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   File requests for repairs, permits, tree plantings, and even make donations.
                 </div>
@@ -13180,7 +13180,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Property, housing, and construction
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   We offer help to developers, homeowners, and renters on many issues.
                 </div>
@@ -13219,7 +13219,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Schools
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Have a problem with a City school bus? Want to see something repaired at a school?
                 </div>
@@ -13258,7 +13258,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Snow or weather-related concerns
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.
                 </div>
@@ -13297,7 +13297,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Streets, sidewalks, traffic, and vehicles
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   You can report issues with street signs and signals, among other transportation issues.
                 </div>
@@ -13336,7 +13336,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Trash, recycling, and graffiti
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   Do you need help with trash or recycling? Want us to clean up a part of the City?
                 </div>
@@ -13375,7 +13375,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Utilities
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   We can help if you have a problem with your electricity, water, or gas.
                 </div>
@@ -13414,7 +13414,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                   Other services
                 </h2>
                 <div
-                  className="css-1eii4bb dr-st"
+                  className="dr-st"
                 >
                   General requests that don’t fit into a category.
                 </div>
