@@ -19,6 +19,8 @@ flow-decl/
 <PROJECT_ROOT>/node_modules/radium/.*
 
 <PROJECT_ROOT>/node_modules/immutable/dist/.*
+<PROJECT_ROOT>/node_modules/config-chain/test/.*
+<PROJECT_ROOT>/node_modules/npmconf/test/.*
 
 [options]
 module.file_ext=.graphql

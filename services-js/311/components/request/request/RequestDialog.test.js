@@ -2,13 +2,15 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { runInAction } from 'mobx';
 
 import RequestDialog from './RequestDialog';
 
 import type { Service, SubmittedRequest } from '../../../data/types';
 import { AppStore } from '../../../data/store';
+
+jest.mock('next/router');
 
 jest.mock('../../../data/dao/submit-request');
 const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): any)
@@ -135,8 +137,12 @@ describe('methods', () => {
     loopbackGraphql = jest.fn();
 
     store = new AppStore();
+    store.apiKeys.mapbox = {};
 
-    wrapper = shallow(
+    // We have to use mount here so that we get the same component instance
+    // across renders. Otherwise calling submitRequest won't update the same
+    // instance that's rendered.
+    wrapper = mount(
       <RequestDialog
         store={store}
         description=""

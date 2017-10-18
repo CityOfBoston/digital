@@ -151,15 +151,14 @@ describe('integration', () => {
     );
 
     await resolveSuggestions(SERVICE_SUMMARIES);
+    wrapper.update();
 
     // The service should now appear in the list
     const serviceLink = wrapper
       .find('a')
-      .findWhere(el => el.text() === 'Cosmic Incursion');
+      .filterWhere(el => el.text().startsWith('Cosmic Incursion'));
     expect(serviceLink.length).toEqual(1);
     // We look to the parent, which is a Next Link component.
-    expect(serviceLink.first().parent().props().href).toEqual(
-      '/request/CSMCINC'
-    );
+    expect(serviceLink.first().props().href).toEqual('/request/CSMCINC');
   });
 });

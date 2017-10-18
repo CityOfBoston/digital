@@ -57,16 +57,16 @@ export default function SubmitPane(props: Props) {
       return (
         <div>
           <SectionHeader>Something’s Wrong!</SectionHeader>
-          <p className="m-v500 t--intro">
+          <div className="m-v500 t--intro">
             We couldn’t save your request because of{' '}
             {messages.length === 1 ? 'this error' : 'these errors'}:
-          </p>
+          </div>
 
           <div className="m-v500 t--info">
             {messages.map((msg, i) =>
-              <p key={i}>
+              <div key={i}>
                 {msg}
-              </p>
+              </div>
             )}
           </div>
 

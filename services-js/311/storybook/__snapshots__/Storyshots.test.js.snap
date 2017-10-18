@@ -13504,27 +13504,27 @@ exports[`Storyshots SubmitPane GraphQL Error 1`] = `
           Something’s Wrong!
         </h1>
       </div>
-      <p
+      <div
         className="m-v500 t--intro"
       >
         We couldn’t save your request because of
          
         these errors
         :
-      </p>
+      </div>
       <div
         className="m-v500 t--info"
       >
-        <p>
+        <div>
           <p>
             firstName is a required field
           </p>
-        </p>
-        <p>
+        </div>
+        <div>
           <p>
             lastName is a required field
           </p>
-        </p>
+        </div>
       </div>
       <p
         className="m-v500"
@@ -13563,20 +13563,20 @@ exports[`Storyshots SubmitPane Network Error 1`] = `
           Something’s Wrong!
         </h1>
       </div>
-      <p
+      <div
         className="m-v500 t--intro"
       >
         We couldn’t save your request because of
          
         this error
         :
-      </p>
+      </div>
       <div
         className="m-v500 t--info"
       >
-        <p>
+        <div>
           Failed to fetch
-        </p>
+        </div>
       </div>
       <p
         className="m-v500"

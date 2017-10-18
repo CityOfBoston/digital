@@ -1,210 +1,1045 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`methods submitRequest graphql failure 1`] = `
-<div
-  className={
+<RequestDialog
+  description=""
+  loopbackGraphql={[Function]}
+  routeToServiceForm={[Function]}
+  service={
     Object {
-      "data-css-1prrpm3": "",
+      "attributes": Array [
+        Object {
+          "code": "ST-CMTS",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "Please provide any other relevant information:",
+          "required": false,
+          "type": "TEXT",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "INFO-CSIRMV1",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+          "required": false,
+          "type": "STRING",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "SR-CSIRMV1",
+          "conditionalValues": Array [],
+          "dependencies": null,
+          "description": "How many dimensions have been breached?",
+          "required": true,
+          "type": "SINGLEVALUELIST",
+          "validations": Array [],
+          "values": Array [
+            Object {
+              "key": "One",
+              "name": "One",
+            },
+            Object {
+              "key": "Two",
+              "name": "Two",
+            },
+            Object {
+              "key": "Three",
+              "name": "Three",
+            },
+            Object {
+              "key": "More than Three",
+              "name": "More than Three",
+            },
+          ],
+        },
+      ],
+      "code": "CSMCINC",
+      "contactRequirement": "REQUIRED",
+      "description": "Bad things getting in from other universes",
+      "locationRequirement": "VISIBLE",
+      "name": "Cosmic Incursion",
+    }
+  }
+  serviceCode="CSMCINC"
+  setLocationMapActive={[Function]}
+  stage="submit"
+  store={
+    AppStore {
+      "_liveAgentButtonId": "",
+      "accessibility": Accessibility {
+        "el": null,
+        "messageListenerDisposer": null,
+      },
+      "addressSearch": AddressSearch {
+        "searchPopupWidth": 0,
+      },
+      "allServices": AllServices {
+        "groups": Array [
+          Group {
+            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
+            "id": "Animals",
+            "name": "Animals",
+          },
+          Group {
+            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
+            "id": "Fees-Pricing",
+            "name": "Fees and pricing",
+          },
+          Group {
+            "description": "Get help for a public safety or disability issue, or request a health inspection.",
+            "id": "Health-Safety",
+            "name": "Health, safety, and social services",
+          },
+          Group {
+            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
+            "id": "Parks-Public",
+            "name": "Parks and public space",
+          },
+          Group {
+            "description": "We offer help to developers, homeowners, and renters on many issues.",
+            "id": "Property-Construction",
+            "name": "Property, housing, and construction",
+          },
+          Group {
+            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
+            "id": "Schools",
+            "name": "Schools",
+          },
+          Group {
+            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
+            "id": "Snow",
+            "name": "Snow or weather-related concerns",
+          },
+          Group {
+            "description": "You can report issues with street signs and signals, among other transportation issues.",
+            "id": "Streets-Sidewalks",
+            "name": "Streets, sidewalks, traffic, and vehicles",
+          },
+          Group {
+            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
+            "id": "Trash-Graffiti",
+            "name": "Trash, recycling, and graffiti",
+          },
+          Group {
+            "description": "We can help if you have a problem with your electricity, water, or gas.",
+            "id": "Utilities",
+            "name": "Utilities",
+          },
+          Group {
+            "description": "General requests that don’t fit into a category.",
+            "id": "Other",
+            "name": "Other services",
+          },
+        ],
+        "otherGroup": Group {
+          "description": "These services have not yet been categorized",
+          "id": "",
+          "name": "Uncategorized services",
+        },
+      },
+      "apiKeys": Object {
+        "mapbox": Object {},
+      },
+      "browserLocation": BrowserLocation {
+        "watchId": null,
+      },
+      "languages": Array [],
+      "requestSearch": RequestSearch {
+        "boundsSet": false,
+        "boundsSetDisposer": null,
+        "debouncedSearch": [Function],
+        "mapMoved": false,
+        "searchDisposer": null,
+      },
+      "siteAnalytics": SiteAnalytics {},
+      "ui": Ui {
+        "debouncedScrollY": 0,
+        "handleResize": [Function],
+        "handleScroll": [Function],
+        "reduceMotion": false,
+        "scrollY": 0,
+        "visible": true,
+        "visibleHeight": 9007199254740991,
+        "visibleWidth": undefined,
+      },
     }
   }
 >
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Submission error
-    </title>
-  </SideEffect(Head)>
-  <FormDialog
-    narrow={false}
-    noPadding={false}
+  <div
+    className={
+      Object {
+        "data-css-1prrpm3": "",
+      }
+    }
   >
-    <SubmitPane
-      backUrl="/request?code=CSMCINC"
-      backUrlAs="/request/CSMCINC"
-      error={[Error: Error submitting]}
-      state="error"
-    />
-  </FormDialog>
-</div>
+    <SideEffect(Head)>
+      <Head />
+    </SideEffect(Head)>
+    <FormDialog
+      narrow={false}
+      noPadding={false}
+    >
+      <div
+        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        style={Object {}}
+      >
+        <SubmitPane
+          backUrl="/request?code=CSMCINC"
+          backUrlAs="/request/CSMCINC"
+          error={[Error: Error submitting]}
+          state="error"
+        >
+          <div>
+            <SectionHeader>
+              <div
+                className=" sh sh--y "
+              >
+                <h1
+                  className="sh-title"
+                >
+                  Something’s Wrong!
+                </h1>
+              </div>
+            </SectionHeader>
+            <div
+              className="m-v500 t--intro"
+            >
+              We couldn’t save your request because of
+               
+              these errors
+              :
+            </div>
+            <div
+              className="m-v500 t--info"
+            >
+              <div
+                key="0"
+              >
+                <p
+                  key="0"
+                >
+                  All required fields were missing
+                </p>
+              </div>
+              <div
+                key="1"
+              >
+                <p
+                  key="1"
+                >
+                  Also your location is in Cambridge
+                </p>
+              </div>
+            </div>
+            <p
+              className="m-v500"
+            >
+              You can
+               
+              <Link
+                as="/request/CSMCINC"
+                href="/request?code=CSMCINC"
+              >
+                <a
+                  href="/request/CSMCINC"
+                  onClick={[Function]}
+                >
+                  go back and update your request
+                </a>
+              </Link>
+               
+              and try again.
+            </p>
+          </div>
+        </SubmitPane>
+      </div>
+    </FormDialog>
+  </div>
+</RequestDialog>
 `;
 
 exports[`methods submitRequest success 1`] = `
-<div
-  className={
+<RequestDialog
+  description=""
+  loopbackGraphql={[Function]}
+  routeToServiceForm={[Function]}
+  service={
     Object {
-      "data-css-1prrpm3": "",
+      "attributes": Array [
+        Object {
+          "code": "ST-CMTS",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "Please provide any other relevant information:",
+          "required": false,
+          "type": "TEXT",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "INFO-CSIRMV1",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+          "required": false,
+          "type": "STRING",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "SR-CSIRMV1",
+          "conditionalValues": Array [],
+          "dependencies": null,
+          "description": "How many dimensions have been breached?",
+          "required": true,
+          "type": "SINGLEVALUELIST",
+          "validations": Array [],
+          "values": Array [
+            Object {
+              "key": "One",
+              "name": "One",
+            },
+            Object {
+              "key": "Two",
+              "name": "Two",
+            },
+            Object {
+              "key": "Three",
+              "name": "Three",
+            },
+            Object {
+              "key": "More than Three",
+              "name": "More than Three",
+            },
+          ],
+        },
+      ],
+      "code": "CSMCINC",
+      "contactRequirement": "REQUIRED",
+      "description": "Bad things getting in from other universes",
+      "locationRequirement": "VISIBLE",
+      "name": "Cosmic Incursion",
+    }
+  }
+  serviceCode="CSMCINC"
+  setLocationMapActive={[Function]}
+  stage="submit"
+  store={
+    AppStore {
+      "_liveAgentButtonId": "",
+      "accessibility": Accessibility {
+        "el": null,
+        "messageListenerDisposer": null,
+      },
+      "addressSearch": AddressSearch {
+        "searchPopupWidth": 0,
+      },
+      "allServices": AllServices {
+        "groups": Array [
+          Group {
+            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
+            "id": "Animals",
+            "name": "Animals",
+          },
+          Group {
+            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
+            "id": "Fees-Pricing",
+            "name": "Fees and pricing",
+          },
+          Group {
+            "description": "Get help for a public safety or disability issue, or request a health inspection.",
+            "id": "Health-Safety",
+            "name": "Health, safety, and social services",
+          },
+          Group {
+            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
+            "id": "Parks-Public",
+            "name": "Parks and public space",
+          },
+          Group {
+            "description": "We offer help to developers, homeowners, and renters on many issues.",
+            "id": "Property-Construction",
+            "name": "Property, housing, and construction",
+          },
+          Group {
+            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
+            "id": "Schools",
+            "name": "Schools",
+          },
+          Group {
+            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
+            "id": "Snow",
+            "name": "Snow or weather-related concerns",
+          },
+          Group {
+            "description": "You can report issues with street signs and signals, among other transportation issues.",
+            "id": "Streets-Sidewalks",
+            "name": "Streets, sidewalks, traffic, and vehicles",
+          },
+          Group {
+            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
+            "id": "Trash-Graffiti",
+            "name": "Trash, recycling, and graffiti",
+          },
+          Group {
+            "description": "We can help if you have a problem with your electricity, water, or gas.",
+            "id": "Utilities",
+            "name": "Utilities",
+          },
+          Group {
+            "description": "General requests that don’t fit into a category.",
+            "id": "Other",
+            "name": "Other services",
+          },
+        ],
+        "otherGroup": Group {
+          "description": "These services have not yet been categorized",
+          "id": "",
+          "name": "Uncategorized services",
+        },
+      },
+      "apiKeys": Object {
+        "mapbox": Object {},
+      },
+      "browserLocation": BrowserLocation {
+        "watchId": null,
+      },
+      "languages": Array [],
+      "requestSearch": RequestSearch {
+        "boundsSet": false,
+        "boundsSetDisposer": null,
+        "debouncedSearch": [Function],
+        "mapMoved": false,
+        "searchDisposer": null,
+      },
+      "siteAnalytics": SiteAnalytics {},
+      "ui": Ui {
+        "debouncedScrollY": 0,
+        "handleResize": [Function],
+        "handleScroll": [Function],
+        "reduceMotion": false,
+        "scrollY": 0,
+        "visible": true,
+        "visibleHeight": 9007199254740991,
+        "visibleWidth": undefined,
+      },
     }
   }
 >
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Submitting…
-    </title>
-  </SideEffect(Head)>
-  <FormDialog
-    narrow={false}
-    noPadding={false}
-  >
-    <SubmitPane
-      state="submitting"
-      ui={
-        Ui {
-          "handleResize": [Function],
-          "handleScroll": [Function],
-        }
+  <div
+    className={
+      Object {
+        "data-css-1prrpm3": "",
       }
-    />
-  </FormDialog>
-</div>
+    }
+  >
+    <SideEffect(Head)>
+      <Head />
+    </SideEffect(Head)>
+    <FormDialog
+      narrow={false}
+      noPadding={false}
+    >
+      <div
+        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        style={Object {}}
+      >
+        <SubmitPane
+          state="submitting"
+          ui={
+            Ui {
+              "debouncedScrollY": 0,
+              "handleResize": [Function],
+              "handleScroll": [Function],
+              "reduceMotion": false,
+              "scrollY": 0,
+              "visible": true,
+              "visibleHeight": 9007199254740991,
+              "visibleWidth": undefined,
+            }
+          }
+        >
+          <div>
+            <SectionHeader>
+              <div
+                className=" sh sh--y "
+              >
+                <h1
+                  className="sh-title"
+                >
+                  Submitting…
+                </h1>
+              </div>
+            </SectionHeader>
+            <div
+              className="t--intro m-v500"
+            >
+              Please wait while we save your request.
+            </div>
+            <div
+              className="m-v500 p-a500 css-1ym6g0r"
+            >
+              <LoadingBuildings
+                reduceMotion={false}
+              >
+                <VelocityTransitionGroup
+                  className={
+                    Object {
+                      "data-css-1vjs1z7": "",
+                    }
+                  }
+                  enter={
+                    Object {
+                      "animation": Object {
+                        "opacity": 1,
+                        "translateX": Array [
+                          0,
+                          "30%",
+                        ],
+                      },
+                      "begin": [Function],
+                      "delay": 510,
+                      "duration": 500,
+                      "style": Object {
+                        "display": "none",
+                      },
+                    }
+                  }
+                  enterHideStyle={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                  enterShowStyle={
+                    Object {
+                      "display": "",
+                    }
+                  }
+                  leave={
+                    Object {
+                      "animation": Object {
+                        "opacity": 0,
+                        "translateX": "-30%",
+                      },
+                      "duration": 500,
+                    }
+                  }
+                  runOnMount={true}
+                >
+                  <TransitionGroup
+                    childFactory={[Function]}
+                    className={
+                      Object {
+                        "data-css-1vjs1z7": "",
+                      }
+                    }
+                    component="span"
+                  >
+                    <span
+                      className={
+                        Object {
+                          "data-css-1vjs1z7": "",
+                        }
+                      }
+                    >
+                      <svg
+                        className={
+                          Object {
+                            "data-css-mfy564": "",
+                          }
+                        }
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+                          }
+                        }
+                        key=".$allston"
+                        role="img"
+                      />
+                    </span>
+                  </TransitionGroup>
+                </VelocityTransitionGroup>
+              </LoadingBuildings>
+            </div>
+          </div>
+        </SubmitPane>
+      </div>
+    </FormDialog>
+  </div>
+</RequestDialog>
 `;
 
 exports[`methods submitRequest success 2`] = `
-<div
-  className={
+<RequestDialog
+  description=""
+  loopbackGraphql={[Function]}
+  routeToServiceForm={[Function]}
+  service={
     Object {
-      "data-css-1prrpm3": "",
+      "attributes": Array [
+        Object {
+          "code": "ST-CMTS",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "Please provide any other relevant information:",
+          "required": false,
+          "type": "TEXT",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "INFO-CSIRMV1",
+          "conditionalValues": null,
+          "dependencies": null,
+          "description": "**All cosmic incursion cases should be followed up with a phone call to Alpha Flight.**",
+          "required": false,
+          "type": "STRING",
+          "validations": Array [],
+          "values": null,
+        },
+        Object {
+          "code": "SR-CSIRMV1",
+          "conditionalValues": Array [],
+          "dependencies": null,
+          "description": "How many dimensions have been breached?",
+          "required": true,
+          "type": "SINGLEVALUELIST",
+          "validations": Array [],
+          "values": Array [
+            Object {
+              "key": "One",
+              "name": "One",
+            },
+            Object {
+              "key": "Two",
+              "name": "Two",
+            },
+            Object {
+              "key": "Three",
+              "name": "Three",
+            },
+            Object {
+              "key": "More than Three",
+              "name": "More than Three",
+            },
+          ],
+        },
+      ],
+      "code": "CSMCINC",
+      "contactRequirement": "REQUIRED",
+      "description": "Bad things getting in from other universes",
+      "locationRequirement": "VISIBLE",
+      "name": "Cosmic Incursion",
+    }
+  }
+  serviceCode="CSMCINC"
+  setLocationMapActive={[Function]}
+  stage="submit"
+  store={
+    AppStore {
+      "_liveAgentButtonId": "",
+      "accessibility": Accessibility {
+        "el": null,
+        "messageListenerDisposer": null,
+      },
+      "addressSearch": AddressSearch {
+        "searchPopupWidth": 0,
+      },
+      "allServices": AllServices {
+        "groups": Array [
+          Group {
+            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
+            "id": "Animals",
+            "name": "Animals",
+          },
+          Group {
+            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
+            "id": "Fees-Pricing",
+            "name": "Fees and pricing",
+          },
+          Group {
+            "description": "Get help for a public safety or disability issue, or request a health inspection.",
+            "id": "Health-Safety",
+            "name": "Health, safety, and social services",
+          },
+          Group {
+            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
+            "id": "Parks-Public",
+            "name": "Parks and public space",
+          },
+          Group {
+            "description": "We offer help to developers, homeowners, and renters on many issues.",
+            "id": "Property-Construction",
+            "name": "Property, housing, and construction",
+          },
+          Group {
+            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
+            "id": "Schools",
+            "name": "Schools",
+          },
+          Group {
+            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
+            "id": "Snow",
+            "name": "Snow or weather-related concerns",
+          },
+          Group {
+            "description": "You can report issues with street signs and signals, among other transportation issues.",
+            "id": "Streets-Sidewalks",
+            "name": "Streets, sidewalks, traffic, and vehicles",
+          },
+          Group {
+            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
+            "id": "Trash-Graffiti",
+            "name": "Trash, recycling, and graffiti",
+          },
+          Group {
+            "description": "We can help if you have a problem with your electricity, water, or gas.",
+            "id": "Utilities",
+            "name": "Utilities",
+          },
+          Group {
+            "description": "General requests that don’t fit into a category.",
+            "id": "Other",
+            "name": "Other services",
+          },
+        ],
+        "otherGroup": Group {
+          "description": "These services have not yet been categorized",
+          "id": "",
+          "name": "Uncategorized services",
+        },
+      },
+      "apiKeys": Object {
+        "mapbox": Object {},
+      },
+      "browserLocation": BrowserLocation {
+        "watchId": null,
+      },
+      "languages": Array [],
+      "requestSearch": RequestSearch {
+        "boundsSet": false,
+        "boundsSetDisposer": null,
+        "debouncedSearch": [Function],
+        "mapMoved": false,
+        "searchDisposer": null,
+      },
+      "siteAnalytics": SiteAnalytics {},
+      "ui": Ui {
+        "debouncedScrollY": 0,
+        "handleResize": [Function],
+        "handleScroll": [Function],
+        "reduceMotion": false,
+        "scrollY": 0,
+        "visible": true,
+        "visibleHeight": 9007199254740991,
+        "visibleWidth": undefined,
+      },
     }
   }
 >
-  <SideEffect(Head)>
-    <title>
-      BOS:311 — 
-      Success: Case 17-000000001
-    </title>
-  </SideEffect(Head)>
-  <FormDialog
-    narrow={false}
-    noPadding={false}
+  <div
+    className={
+      Object {
+        "data-css-1prrpm3": "",
+      }
+    }
   >
-    <CaseView
-      noMap={false}
-      request={
-        Object {
-          "address": "City Hall Plaza, Boston, MA 02131",
-          "closureComment": "Found Thanos. Smashed him into the floor with all of us standing around.",
-          "closureReason": "Case Resolved",
-          "description": "I think that Thanos is here",
-          "expectedAtString": null,
-          "id": "17-000000001",
-          "images": Array [
+    <SideEffect(Head)>
+      <Head />
+    </SideEffect(Head)>
+    <FormDialog
+      narrow={false}
+      noPadding={false}
+    >
+      <div
+        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        style={Object {}}
+      >
+        <CaseView
+          noMap={false}
+          request={
             Object {
-              "originalUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
-              "squarePreviewUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
-              "tags": Array [],
-            },
-          ],
-          "location": Object {
-            "lat": 42.359927299999995,
-            "lng": -71.0576853,
-          },
-          "requestedAtString": "March 7, 2017, 12:59 PM",
-          "service": Object {
-            "code": "CSMCINC",
-            "name": "Cosmic Intervention",
-          },
-          "serviceNotice": null,
-          "status": "closed",
-          "updatedAtString": "April 8, 2017, 12:59 PM",
-        }
-      }
-      store={
-        AppStore {
-          "_liveAgentButtonId": "",
-          "accessibility": Accessibility {
-            "el": null,
-            "messageListenerDisposer": null,
-          },
-          "addressSearch": AddressSearch {
-            "searchPopupWidth": 0,
-          },
-          "allServices": AllServices {
-            "groups": Array [
-              Group {
-                "description": "Help for pet owners, or issues with animals, rodents, and pests.",
-                "id": "Animals",
-                "name": "Animals",
+              "address": "City Hall Plaza, Boston, MA 02131",
+              "closureComment": "Found Thanos. Smashed him into the floor with all of us standing around.",
+              "closureReason": "Case Resolved",
+              "description": "I think that Thanos is here",
+              "expectedAtString": null,
+              "id": "17-000000001",
+              "images": Array [
+                Object {
+                  "originalUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
+                  "squarePreviewUrl": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg",
+                  "tags": Array [],
+                },
+              ],
+              "location": Object {
+                "lat": 42.359927299999995,
+                "lng": -71.0576853,
               },
-              Group {
-                "description": "Have an issue with the price or measurement of gas, oil, or another product?",
-                "id": "Fees-Pricing",
-                "name": "Fees and pricing",
+              "requestedAtString": "March 7, 2017, 12:59 PM",
+              "service": Object {
+                "code": "CSMCINC",
+                "name": "Cosmic Intervention",
               },
-              Group {
-                "description": "Get help for a public safety or disability issue, or request a health inspection.",
-                "id": "Health-Safety",
-                "name": "Health, safety, and social services",
+              "serviceNotice": null,
+              "status": "closed",
+              "updatedAtString": "April 8, 2017, 12:59 PM",
+            }
+          }
+          store={
+            AppStore {
+              "_liveAgentButtonId": "",
+              "accessibility": Accessibility {
+                "el": null,
+                "messageListenerDisposer": null,
               },
-              Group {
-                "description": "File requests for repairs, permits, tree plantings, and even make donations.",
-                "id": "Parks-Public",
-                "name": "Parks and public space",
+              "addressSearch": AddressSearch {
+                "searchPopupWidth": 0,
               },
-              Group {
-                "description": "We offer help to developers, homeowners, and renters on many issues.",
-                "id": "Property-Construction",
-                "name": "Property, housing, and construction",
+              "allServices": AllServices {
+                "groups": Array [
+                  Group {
+                    "description": "Help for pet owners, or issues with animals, rodents, and pests.",
+                    "id": "Animals",
+                    "name": "Animals",
+                  },
+                  Group {
+                    "description": "Have an issue with the price or measurement of gas, oil, or another product?",
+                    "id": "Fees-Pricing",
+                    "name": "Fees and pricing",
+                  },
+                  Group {
+                    "description": "Get help for a public safety or disability issue, or request a health inspection.",
+                    "id": "Health-Safety",
+                    "name": "Health, safety, and social services",
+                  },
+                  Group {
+                    "description": "File requests for repairs, permits, tree plantings, and even make donations.",
+                    "id": "Parks-Public",
+                    "name": "Parks and public space",
+                  },
+                  Group {
+                    "description": "We offer help to developers, homeowners, and renters on many issues.",
+                    "id": "Property-Construction",
+                    "name": "Property, housing, and construction",
+                  },
+                  Group {
+                    "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
+                    "id": "Schools",
+                    "name": "Schools",
+                  },
+                  Group {
+                    "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
+                    "id": "Snow",
+                    "name": "Snow or weather-related concerns",
+                  },
+                  Group {
+                    "description": "You can report issues with street signs and signals, among other transportation issues.",
+                    "id": "Streets-Sidewalks",
+                    "name": "Streets, sidewalks, traffic, and vehicles",
+                  },
+                  Group {
+                    "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
+                    "id": "Trash-Graffiti",
+                    "name": "Trash, recycling, and graffiti",
+                  },
+                  Group {
+                    "description": "We can help if you have a problem with your electricity, water, or gas.",
+                    "id": "Utilities",
+                    "name": "Utilities",
+                  },
+                  Group {
+                    "description": "General requests that don’t fit into a category.",
+                    "id": "Other",
+                    "name": "Other services",
+                  },
+                ],
+                "otherGroup": Group {
+                  "description": "These services have not yet been categorized",
+                  "id": "",
+                  "name": "Uncategorized services",
+                },
               },
-              Group {
-                "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
-                "id": "Schools",
-                "name": "Schools",
+              "apiKeys": Object {
+                "mapbox": Object {},
               },
-              Group {
-                "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
-                "id": "Snow",
-                "name": "Snow or weather-related concerns",
+              "browserLocation": BrowserLocation {
+                "watchId": null,
               },
-              Group {
-                "description": "You can report issues with street signs and signals, among other transportation issues.",
-                "id": "Streets-Sidewalks",
-                "name": "Streets, sidewalks, traffic, and vehicles",
+              "languages": Array [],
+              "requestSearch": RequestSearch {
+                "boundsSet": false,
+                "boundsSetDisposer": null,
+                "debouncedSearch": [Function],
+                "mapMoved": false,
+                "searchDisposer": null,
               },
-              Group {
-                "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
-                "id": "Trash-Graffiti",
-                "name": "Trash, recycling, and graffiti",
+              "siteAnalytics": SiteAnalytics {},
+              "ui": Ui {
+                "debouncedScrollY": 0,
+                "handleResize": [Function],
+                "handleScroll": [Function],
+                "reduceMotion": false,
+                "scrollY": 0,
+                "visible": true,
+                "visibleHeight": 9007199254740991,
+                "visibleWidth": undefined,
               },
-              Group {
-                "description": "We can help if you have a problem with your electricity, water, or gas.",
-                "id": "Utilities",
-                "name": "Utilities",
-              },
-              Group {
-                "description": "General requests that don’t fit into a category.",
-                "id": "Other",
-                "name": "Other services",
-              },
-            ],
-            "otherGroup": Group {
-              "description": "These services have not yet been categorized",
-              "id": "",
-              "name": "Uncategorized services",
-            },
-          },
-          "apiKeys": Object {},
-          "browserLocation": BrowserLocation {
-            "watchId": null,
-          },
-          "languages": Array [],
-          "requestSearch": RequestSearch {
-            "boundsSet": false,
-            "boundsSetDisposer": null,
-            "debouncedSearch": [Function],
-            "mapMoved": false,
-            "searchDisposer": null,
-          },
-          "siteAnalytics": SiteAnalytics {},
-          "ui": Ui {
-            "handleResize": [Function],
-            "handleScroll": [Function],
-          },
-        }
-      }
-      submitted={true}
-    />
-  </FormDialog>
-</div>
+            }
+          }
+          submitted={true}
+        >
+          <div>
+            <div>
+              <SectionHeader
+                subtitle={
+                  <span
+                    style={
+                      Object {
+                        "whiteSpace": "nowrap",
+                      }
+                    }
+                  >
+                    Case ref: #17-000000001
+                  </span>
+                }
+              >
+                <div
+                  className=" sh sh--y "
+                >
+                  <h1
+                    className="sh-title"
+                  >
+                    Cosmic Intervention
+                  </h1>
+                  <div
+                    className="sh-contact"
+                  >
+                    <span
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
+                    >
+                      Case ref: #17-000000001
+                    </span>
+                  </div>
+                </div>
+              </SectionHeader>
+              <div
+                className="m-v300 t--info"
+              >
+                Submitted on March 7, 2017, 12:59 PM
+                 — 
+                City Hall Plaza, Boston, MA 02131
+              </div>
+            </div>
+            <div
+              className="b b--g p-a500 m-v500"
+            >
+              <div
+                className="txt-l"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Request submitted successfully — 
+                April 8, 2017, 12:59 PM
+              </div>
+              <div
+                className="t--intro"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Thank you for submitting. Your case reference number is #
+                17-000000001
+                . If you gave your email address, we’ll send you an email when it’s resolved. You can also bookmark this page to check back on it.
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="txt-l"
+              >
+                Description
+              </div>
+              <div
+                className="t--intro"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                I think that Thanos is here
+              </div>
+            </div>
+            <div
+              className="g m-v400"
+            >
+              <div
+                className="g--6"
+              >
+                <div
+                  className={
+                    Object {
+                      "data-css-13azwyo": "",
+                    }
+                  }
+                >
+                  <img
+                    alt="Map of City Hall Plaza, Boston, MA 02131"
+                    className="css-i5kcuw m-b500 br br-a150"
+                    src="https://api.mapbox.com/styles/v1/undefined/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=undefined"
+                  />
+                  <div
+                    className="css-3nz9vn"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "
+    <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+      <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+    </svg>
+  ",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className="g--6"
+                key="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+              >
+                <a
+                  className="css-1p5q8vq br br-a150 m-b500"
+                  href="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img
+                    alt="Photo describing request or resolution"
+                    className="css-i5kcuw"
+                    src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </CaseView>
+      </div>
+    </FormDialog>
+  </div>
+</RequestDialog>
 `;
 
 exports[`rendering contact 1`] = `
