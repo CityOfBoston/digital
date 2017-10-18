@@ -127,7 +127,7 @@ export function filterPlainValues(
     return null;
   }
 
-  const plainValues: {| key: string, name: string |}[] = [];
+  const plainValues: Array<PlainValue> = [];
 
   mixedValues.forEach(value => {
     let key: ?string;
