@@ -310,6 +310,30 @@ Resources:
         - Fn::ImportValue:
             !Sub '${ClusterStack}:PrivateCacheSecurityGroupId'
 
+  RedisConnectionAlarm:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmName: !Sub '${AWS::StackName} no Redis connections'
+      AlarmDescription: There are no connections to our Redis cluster
+      MetricName: CurrConnections
+      Namespace: 'AWS/ElastiCache'
+      Dimensions:
+        - Name: CacheClusterId
+          Value: !Ref Cache
+      Statistic: Average
+      ComparisonOperator: LessThanThreshold
+      Threshold: 1
+      Period: 60
+      EvaluationPeriods: 3
+      TreatMissingData: breaching
+      ActionsEnabled: true
+      AlarmActions:
+        - Fn::ImportValue:
+            !Sub '${ClusterStack}:AlarmTopicArn'
+      OKActions:
+        - Fn::ImportValue:
+            !Sub '${ClusterStack}:AlarmTopicArn'
+
 Outputs:
   DatabaseUrl:
     Description: URL (without credentials) for the database instance. Put in .env.
