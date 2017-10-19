@@ -21,12 +21,12 @@ type IndexedCase = {
   status_notes: string,
   requested_datetime: ?string,
   updated_datetime: ?string,
-  media_url:
-    | ?Array<{|
-        url: string,
-        tags: string[],
-      |}>
-    | ?string,
+  // Must be the array format because Elasticsearch can't do both object and
+  // string for the same field.
+  media_url: ?Array<{|
+    url: string,
+    tags: string[],
+  |}>,
   // We store the Salesforce replay_id in the record so we can pull the latest
   // replay_id when we start up, to avoid always processing everything from the
   // past 24 hours.
@@ -87,7 +87,10 @@ function convertCaseToDocument(
     status_notes: c.status_notes || '',
     requested_datetime: c.requested_datetime,
     updated_datetime: c.updated_datetime || c.requested_datetime,
-    media_url: c.media_url,
+    media_url:
+      typeof c.media_url === 'string'
+        ? [{ url: c.media_url, tags: [] }]
+        : c.media_url,
     replay_id: replayId,
   };
 }
@@ -237,8 +240,6 @@ export default class Elasticsearch {
       if (!res) {
         throw new Error('unknown error: no response');
       } else if (res.errors) {
-        // eslint-disable-next-line no-console
-        console.log('error response', JSON.stringify(res, null, 2));
         throw new Error(
           'Errors indexing cases: \n' +
             _(res.items)
@@ -249,6 +250,12 @@ export default class Elasticsearch {
                   (item.delete ? item.delete.error : null)
               )
               .compact()
+              .map(
+                error =>
+                  typeof error === 'string'
+                    ? error
+                    : `${error.type}: ${error.reason}`
+              )
               .uniq()
               .join('\n')
         );
