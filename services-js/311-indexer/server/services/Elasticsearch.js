@@ -237,11 +237,17 @@ export default class Elasticsearch {
       if (!res) {
         throw new Error('unknown error: no response');
       } else if (res.errors) {
+        // eslint-disable-next-line no-console
+        console.log('error response', JSON.stringify(res, null, 2));
         throw new Error(
           'Errors indexing cases: \n' +
             _(res.items)
               // action is 'update' from above
-              .map(item => (item.update ? item.update.error : null))
+              .map(
+                item =>
+                  (item.update ? item.update.error : null) ||
+                  (item.delete ? item.delete.error : null)
+              )
               .compact()
               .uniq()
               .join('\n')
