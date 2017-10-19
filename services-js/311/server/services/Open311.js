@@ -281,7 +281,7 @@ export default class Open311 {
           }
 
           try {
-            const response = await fetch(
+            const response = await this.fetch(
               this.url(
                 `services/${additionalPath}${code}.json?${params.toString()}`
               ),
@@ -319,7 +319,7 @@ export default class Open311 {
           // the bulk endpoint, even for a single case, so we optimize by using
           // it when there's only one thing to look up.
           transaction = opbeat && opbeat.startTransaction('request', 'Open311');
-          const response = await fetch(
+          const response = await this.fetch(
             this.url(`request/${ids[0]}.json?${params.toString()}`),
             {
               agent: this.agent,
