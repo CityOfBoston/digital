@@ -46,10 +46,15 @@ const GROUPS = [
       'Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.',
   },
   {
-    name: 'Streets, sidewalks, traffic, and vehicles',
+    name: 'Streets and sidewalks',
     id: 'Streets-Sidewalks',
     description:
-      'You can report issues with street signs and signals, among other transportation issues.',
+      'You can report issues with street signs and signals, and road and sidewalk conditions.',
+  },
+  {
+    name: 'Traffic and vehicles',
+    id: 'Traffic-Vehicles',
+    description: 'temp description',
   },
   {
     name: 'Trash, recycling, and graffiti',

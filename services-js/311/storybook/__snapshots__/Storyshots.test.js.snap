@@ -12557,16 +12557,55 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Streets, sidewalks, traffic, and vehicles
+                  Streets and sidewalks
                 </h2>
                 <div
                   className="dr-st"
                 >
-                  You can report issues with street signs and signals, among other transportation issues.
+                  You can report issues with street signs and signals, and road and sidewalk conditions.
                 </div>
               </button>
               <span
                 id="Streets-Sidewalks-region"
+                role="region"
+              />
+            </div>
+            <div
+              className="dr "
+            >
+              <button
+                aria-controls="Traffic-Vehicles-region"
+                aria-expanded={false}
+                className="dr-h"
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="dr-ic"
+                >
+                  <svg
+                    viewBox="-2 8.5 18 25"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className="dr-i"
+                      d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                    />
+                  </svg>
+                </div>
+                <h2
+                  className="dr-t"
+                >
+                  Traffic and vehicles
+                </h2>
+                <div
+                  className="dr-st"
+                >
+                  temp description
+                </div>
+              </button>
+              <span
+                id="Traffic-Vehicles-region"
                 role="region"
               />
             </div>
@@ -13294,16 +13333,55 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <h2
                   className="dr-t"
                 >
-                  Streets, sidewalks, traffic, and vehicles
+                  Streets and sidewalks
                 </h2>
                 <div
                   className="dr-st"
                 >
-                  You can report issues with street signs and signals, among other transportation issues.
+                  You can report issues with street signs and signals, and road and sidewalk conditions.
                 </div>
               </button>
               <span
                 id="Streets-Sidewalks-region"
+                role="region"
+              />
+            </div>
+            <div
+              className="dr "
+            >
+              <button
+                aria-controls="Traffic-Vehicles-region"
+                aria-expanded={false}
+                className="dr-h"
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="dr-ic"
+                >
+                  <svg
+                    viewBox="-2 8.5 18 25"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className="dr-i"
+                      d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                    />
+                  </svg>
+                </div>
+                <h2
+                  className="dr-t"
+                >
+                  Traffic and vehicles
+                </h2>
+                <div
+                  className="dr-st"
+                >
+                  temp description
+                </div>
+              </button>
+              <span
+                id="Traffic-Vehicles-region"
                 role="region"
               />
             </div>
