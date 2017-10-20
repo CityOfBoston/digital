@@ -19,8 +19,8 @@
   },
   "license": "CC0-1.0",
   "engines": {
-    "node": "~8.4.0",
-    "npm": "5.3.0"
+    "node": "~8.4",
+    "npm": "~5.3"
   },
   "lint-staged": {
     "*.js": "eslint --quiet"
