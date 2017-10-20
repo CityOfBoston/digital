@@ -7,7 +7,7 @@
   },
   "license": "CC0-1.0",
   "engines": {
-    "node": "~8.4.0",
+    "node": "~8.7",
     "npm": "^5.0.0"
   },
   "scripts": {
