@@ -3,7 +3,7 @@ services:
 - docker
 language: node_js
 node_js:
-- 8.4.0
+- 8
 env:
 - TZ=America/New_York
 before_script:
