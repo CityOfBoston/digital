@@ -1,10 +1,20 @@
 // @flow
 
+import MockDate from 'mockdate';
+
 import { resolvers, parseAgeOrDateOfBirth } from './death-certificates';
 import { FixtureRegistry } from '../services/Registry';
 import type Registry from '../services/Registry';
 
 import fixtureData from '../../fixtures/registry/smith.json';
+
+beforeEach(() => {
+  MockDate.set('10/20/2016');
+});
+
+afterEach(() => {
+  MockDate.reset();
+});
 
 describe('DeathCertificates resolvers', () => {
   let registry: Registry;
@@ -109,14 +119,14 @@ describe('parseAgeOrDateOfBirth', () => {
 
   test('just date', () => {
     expect(parseAgeOrDateOfBirth('11/20/1970')).toEqual({
-      age: null,
+      age: '45',
       birthDate: '11/20/1970',
     });
   });
 
   test('just date with single digits', () => {
     expect(parseAgeOrDateOfBirth('1/2/1970')).toEqual({
-      age: null,
+      age: '46',
       birthDate: '1/2/1970',
     });
   });

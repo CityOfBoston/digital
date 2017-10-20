@@ -177,7 +177,7 @@ export class SearchPageContent extends React.Component<
           this.renderPagination(results)}
 
         <div className="p-a300">
-          <p>Not finding what you’re looking for?</p>
+          <p>Not finding who you’re looking for?</p>
           {this.renderHelp()}
         </div>
       </div>
@@ -188,7 +188,7 @@ export class SearchPageContent extends React.Component<
     return (
       <div>
         <div className="p-a300 t--intro">No results found for this search.</div>
-        {this.renderHelp()}
+        <div className="p-a300">{this.renderHelp()}</div>
       </div>
     );
   }
@@ -197,26 +197,42 @@ export class SearchPageContent extends React.Component<
     return (
       <ul className="ul">
         <li>
-          Try using a partial name. For example, “jo” matches “joe” and
-          “joseph.”
+          We only have death records for people who either died in the City of
+          Boston or who had Boston as their residence on their death
+          certificate.
+        </li>
+
+        <li>
+          This site has all deaths from 1956 on, but only a few records before
+          then. You can{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
+            request a death certificate from before 1956
+          </a>.
+        </li>
+
+        <li>
+          Search for both formal names and nicknames. For example, if there are
+          no results for “Elizabeth,” try “Betty.”
+        </li>
+
+        <li>
+          You can also search for a partial name. For example, “Jo” matches
+          “Joe” and “Joseph.”
+        </li>
+
+        <li>
+          If the decedent had a hyphenated first or last name, try searching for
+          only one of the parts.
         </li>
 
         <li>
           Add a 4-digit year of death. You can also search for a range of death
-          years, like “smith 1950–1955”
-        </li>
-
-        <li>
-          Most death certificates prior to 1956 are not available through this
-          site. For these years,{' '}
-          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
-            request a death certificate by mail or in person
-          </a>. An additional research fee may apply.
+          years, like “smith 1960–1965”
         </li>
 
         <style jsx>
           {`
-            li {
+            & > li {
               margin-top: 0.5em;
             }
           `}

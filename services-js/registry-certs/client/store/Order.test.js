@@ -30,6 +30,7 @@ describe('attach', () => {
           contactPhone: '',
 
           shippingName: '',
+          shippingCompanyName: '',
           shippingAddress1: '',
           shippingAddress2: '',
           shippingCity: '',

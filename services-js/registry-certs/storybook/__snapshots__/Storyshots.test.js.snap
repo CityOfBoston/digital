@@ -68,6 +68,7 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
         >
           Died: 
           3/4/2016
+           — Age: 53
         </div>
       </div>
     </div>
@@ -135,6 +136,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
       >
         Died: 
         2004
+         — Age: 6
       </div>
     </div>
     <button
@@ -184,7 +186,20 @@ exports[`Storyshots CartItem pending certificate 1`] = `
       >
         Died: 
         4/15/2014
-         – Certificate pending
+         — Age: 44 yrs. 2 mos. 10 dys
+        <span
+          className="t--sans tt-u"
+          data-jsx={3654363549}
+          style={
+            Object {
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+            }
+          }
+        >
+           
+          Certificate pending
+        </span>
       </div>
     </div>
     <button
@@ -234,6 +249,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
       >
         Died: 
         3/4/2016
+         — Age: 53
       </div>
     </div>
     <button
@@ -583,65 +599,71 @@ exports[`Storyshots CartPage empty cart 1`] = `
       </ul>
     </nav>
     <div
-      data-jsx={101695693}
+      className="page"
+      data-jsx={4273518101}
     >
       <div
         className="p-a300"
-        data-jsx={101695693}
+        data-jsx={4273518101}
       >
         <div
           className="sh sh--b0 m-t300"
-          data-jsx={101695693}
+          data-jsx={4273518101}
         >
           <h1
             className="sh-title"
-            data-jsx={101695693}
+            data-jsx={4273518101}
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        data-jsx={101695693}
+        className="content"
+        data-jsx={4273518101}
       >
         <div
-          className="p-a300 g"
-          data-jsx={101695693}
-          style={
-            Object {
-              "paddingTop": 0,
-            }
-          }
+          data-jsx={4273518101}
         >
           <div
-            className="g--9  vertical-center"
-            data-jsx={101695693}
+            className="p-a300 g"
+            data-jsx={4273518101}
+            style={
+              Object {
+                "paddingTop": 0,
+              }
+            }
           >
             <div
-              className="t--intro"
-              data-jsx={101695693}
+              className="g--9  vertical-center"
+              data-jsx={4273518101}
             >
-              There’s nothing here yet!
+              <div
+                className="t--intro"
+                data-jsx={4273518101}
+              >
+                There’s nothing here yet!
+              </div>
+              <p
+                className="t--info"
+                data-jsx={4273518101}
+              >
+                Search for death certificates and add them to your cart.
+              </p>
             </div>
-            <p
-              className="t--info"
-              data-jsx={101695693}
+            <div
+              className="g--3 m-v500"
+              data-jsx={4273518101}
             >
-              Search for death certificates and add them to your cart.
-            </p>
-          </div>
-          <div
-            className="g--3 m-v500"
-            data-jsx={101695693}
-          >
-            <a
-              className="btn"
-              data-jsx={101695693}
-              href="/death/"
-              onClick={[Function]}
-            >
-              Back to Search
-            </a>
+              <a
+                className="btn"
+                data-jsx={4273518101}
+                href="/death/"
+                onClick={[Function]}
+              >
+                Back to Search
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1011,46 +1033,51 @@ exports[`Storyshots CartPage loading 1`] = `
       </ul>
     </nav>
     <div
-      data-jsx={101695693}
+      className="page"
+      data-jsx={4273518101}
     >
       <div
         className="p-a300"
-        data-jsx={101695693}
+        data-jsx={4273518101}
       >
         <div
           className="sh sh--b0 m-t300"
-          data-jsx={101695693}
+          data-jsx={4273518101}
         >
           <h1
             className="sh-title"
-            data-jsx={101695693}
+            data-jsx={4273518101}
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        data-jsx={101695693}
+        className="content"
+        data-jsx={4273518101}
       >
         <div
+          data-jsx={4273518101}
+        />
+        <div
           className="p-a300"
-          data-jsx={101695693}
+          data-jsx={4273518101}
         >
           <div
             className="m-v500"
-            data-jsx={3128903485}
+            data-jsx={399087421}
           >
             <div
               className="p-v200"
-              data-jsx={3128903485}
+              data-jsx={399087421}
             >
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   8
                    
@@ -1060,7 +1087,7 @@ exports[`Storyshots CartPage loading 1`] = `
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   $
                   112.00
@@ -1068,17 +1095,17 @@ exports[`Storyshots CartPage loading 1`] = `
               </div>
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   Credit card processing fee
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   $
                   3.08
@@ -1086,20 +1113,20 @@ exports[`Storyshots CartPage loading 1`] = `
               </div>
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
-                  Shipping with USPS
+                  Shipping within the U.S.
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   <i
-                    data-jsx={3128903485}
+                    data-jsx={399087421}
                   >
                     free
                   </i>
@@ -1108,17 +1135,17 @@ exports[`Storyshots CartPage loading 1`] = `
             </div>
             <div
               className="cost-row"
-              data-jsx={3128903485}
+              data-jsx={399087421}
             >
               <span
                 className="sh-title"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 Total
               </span>
               <span
                 className="cost br br-t100 p-v200"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 $
                 115.09
@@ -1127,11 +1154,11 @@ exports[`Storyshots CartPage loading 1`] = `
           </div>
           <div
             className="m-v500"
-            data-jsx={101695693}
+            data-jsx={4273518101}
           >
             <a
               className="btn"
-              data-jsx={101695693}
+              data-jsx={4273518101}
               href="/death/checkout"
               onClick={[Function]}
             >
@@ -1506,185 +1533,206 @@ exports[`Storyshots CartPage normal page 1`] = `
       </ul>
     </nav>
     <div
-      data-jsx={101695693}
+      className="page"
+      data-jsx={4273518101}
     >
       <div
         className="p-a300"
-        data-jsx={101695693}
+        data-jsx={4273518101}
       >
         <div
           className="sh sh--b0 m-t300"
-          data-jsx={101695693}
+          data-jsx={4273518101}
         >
           <h1
             className="sh-title"
-            data-jsx={101695693}
+            data-jsx={4273518101}
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        data-jsx={101695693}
+        className="content"
+        data-jsx={4273518101}
       >
         <div
-          data-jsx={2121221989}
+          data-jsx={4273518101}
         >
           <div
-            className="p-a300 br b--w row br-t100"
-            data-jsx={649230602}
+            data-jsx={2121221989}
           >
-            <input
-              aria-label="Quantity"
-              className="br br-a150 quantity-box"
-              data-jsx={2121221989}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              value="1"
-            />
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="p-a300 br b--w row br-t100"
+              data-jsx={649230602}
             >
+              <input
+                aria-label="Quantity"
+                className="br br-a150 quantity-box"
+                data-jsx={2121221989}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                value="1"
+              />
               <div
-                className="t--sans certificate-name"
+                className="certificate-info-box"
                 data-jsx={3654363549}
               >
-                BRUCE
-                 
-                BANNER
+                <div
+                  className="t--sans certificate-name"
+                  data-jsx={3654363549}
+                >
+                  BRUCE
+                   
+                  BANNER
+                </div>
+                <div
+                  className="certificate-subinfo"
+                  data-jsx={3654363549}
+                >
+                  Died: 
+                  3/4/2016
+                   — Age: 53
+                </div>
               </div>
-              <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+              <button
+                className="remove-button"
+                data-jsx={2121221989}
+                onClick={[Function]}
+                type="button"
               >
-                Died: 
-                3/4/2016
-              </div>
+                ×
+              </button>
             </div>
-            <button
-              className="remove-button"
-              data-jsx={2121221989}
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
           </div>
-        </div>
-        <div
-          data-jsx={2121221989}
-        >
           <div
-            className="p-a300 br b--w row br-t100"
-            data-jsx={649230602}
+            data-jsx={2121221989}
           >
-            <input
-              aria-label="Quantity"
-              className="br br-a150 quantity-box"
-              data-jsx={2121221989}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              value="3"
-            />
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="p-a300 br b--w row br-t100"
+              data-jsx={649230602}
             >
+              <input
+                aria-label="Quantity"
+                className="br br-a150 quantity-box"
+                data-jsx={2121221989}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                value="3"
+              />
               <div
-                className="t--sans certificate-name"
+                className="certificate-info-box"
                 data-jsx={3654363549}
               >
-                JAMES
-                 
-                HOWLETT (LOGAN)
+                <div
+                  className="t--sans certificate-name"
+                  data-jsx={3654363549}
+                >
+                  JAMES
+                   
+                  HOWLETT (LOGAN)
+                </div>
+                <div
+                  className="certificate-subinfo"
+                  data-jsx={3654363549}
+                >
+                  Died: 
+                  4/15/2014
+                   — Age: 44 yrs. 2 mos. 10 dys
+                  <span
+                    className="t--sans tt-u"
+                    data-jsx={3654363549}
+                    style={
+                      Object {
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                     
+                    Certificate pending
+                  </span>
+                </div>
               </div>
-              <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+              <button
+                className="remove-button"
+                data-jsx={2121221989}
+                onClick={[Function]}
+                type="button"
               >
-                Died: 
-                4/15/2014
-                 – Certificate pending
-              </div>
+                ×
+              </button>
             </div>
-            <button
-              className="remove-button"
-              data-jsx={2121221989}
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
           </div>
-        </div>
-        <div
-          data-jsx={2121221989}
-        >
           <div
-            className="p-a300 br b--w row br-a100"
-            data-jsx={649230602}
+            data-jsx={2121221989}
           >
-            <input
-              aria-label="Quantity"
-              className="br br-a150 quantity-box"
-              data-jsx={2121221989}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              value="1"
-            />
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="p-a300 br b--w row br-a100"
+              data-jsx={649230602}
             >
+              <input
+                aria-label="Quantity"
+                className="br br-a150 quantity-box"
+                data-jsx={2121221989}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                value="1"
+              />
               <div
-                className="t--sans certificate-name"
+                className="certificate-info-box"
                 data-jsx={3654363549}
               >
-                MONKEY
-                 
-                JOE
+                <div
+                  className="t--sans certificate-name"
+                  data-jsx={3654363549}
+                >
+                  MONKEY
+                   
+                  JOE
+                </div>
+                <div
+                  className="certificate-subinfo"
+                  data-jsx={3654363549}
+                >
+                  Died: 
+                  2004
+                   — Age: 6
+                </div>
               </div>
-              <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+              <button
+                className="remove-button"
+                data-jsx={2121221989}
+                onClick={[Function]}
+                type="button"
               >
-                Died: 
-                2004
-              </div>
+                ×
+              </button>
             </div>
-            <button
-              className="remove-button"
-              data-jsx={2121221989}
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
           </div>
         </div>
         <div
           className="p-a300"
-          data-jsx={101695693}
+          data-jsx={4273518101}
         >
           <div
             className="m-v500"
-            data-jsx={3128903485}
+            data-jsx={399087421}
           >
             <div
               className="p-v200"
-              data-jsx={3128903485}
+              data-jsx={399087421}
             >
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   5
                    
@@ -1694,7 +1742,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   $
                   70.00
@@ -1702,17 +1750,17 @@ exports[`Storyshots CartPage normal page 1`] = `
               </div>
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   Credit card processing fee
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   $
                   1.93
@@ -1720,20 +1768,20 @@ exports[`Storyshots CartPage normal page 1`] = `
               </div>
               <div
                 className="cost-row"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 <span
                   className="t--info"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
-                  Shipping with USPS
+                  Shipping within the U.S.
                 </span>
                 <span
                   className="cost"
-                  data-jsx={3128903485}
+                  data-jsx={399087421}
                 >
                   <i
-                    data-jsx={3128903485}
+                    data-jsx={399087421}
                   >
                     free
                   </i>
@@ -1742,17 +1790,17 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
             <div
               className="cost-row"
-              data-jsx={3128903485}
+              data-jsx={399087421}
             >
               <span
                 className="sh-title"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 Total
               </span>
               <span
                 className="cost br br-t100 p-v200"
-                data-jsx={3128903485}
+                data-jsx={399087421}
               >
                 $
                 71.93
@@ -1761,11 +1809,11 @@ exports[`Storyshots CartPage normal page 1`] = `
           </div>
           <div
             className="m-v500"
-            data-jsx={101695693}
+            data-jsx={4273518101}
           >
             <a
               className="btn"
-              data-jsx={101695693}
+              data-jsx={4273518101}
               href="/death/checkout"
               onClick={[Function]}
             >
@@ -2147,14 +2195,20 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="content"
+      data-jsx={1942578276}
+    >
       <div
         className="p-a300"
+        data-jsx={1942578276}
       >
         <div
           className="m-b300"
+          data-jsx={1942578276}
         >
           <a
+            data-jsx={1942578276}
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -2168,9 +2222,11 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </div>
         <div
           className="sh sh--b0"
+          data-jsx={1942578276}
         >
           <h1
             className="sh-title"
+            data-jsx={1942578276}
             style={
               Object {
                 "marginBottom": 0,
@@ -2182,7 +2238,8 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w"
+        className="p-a300 b--w certificate-wrapper"
+        data-jsx={1942578276}
       />
     </div>
   </div>
@@ -2557,14 +2614,20 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="content"
+      data-jsx={1942578276}
+    >
       <div
         className="p-a300"
+        data-jsx={1942578276}
       >
         <div
           className="m-b300"
+          data-jsx={1942578276}
         >
           <a
+            data-jsx={1942578276}
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -2578,9 +2641,11 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </div>
         <div
           className="sh sh--b0"
+          data-jsx={1942578276}
         >
           <h1
             className="sh-title"
+            data-jsx={1942578276}
             style={
               Object {
                 "marginBottom": 0,
@@ -2592,43 +2657,47 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w"
+        className="p-a300 b--w certificate-wrapper"
+        data-jsx={1942578276}
       >
-        <div>
+        <div
+          className="certificate"
+          data-jsx={923686781}
+        >
           <ul
             className="dl"
-            data-jsx={558143449}
+            data-jsx={923686781}
           >
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 BRUCE
                  
@@ -2637,159 +2706,182 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of birth
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 5/1/1962
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of death
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 53
               </span>
             </li>
           </ul>
-          <form
-            className="js-add-to-cart-form m-v500"
-            data-jsx={886949462}
-            onSubmit={[Function]}
+          <div
+            className="m-v500 "
+            data-jsx={923686781}
           >
-            <input
-              className="txt-f"
-              data-jsx={886949462}
-              id="quantity"
-              name="quantity"
-              onChange={[Function]}
-              type="text"
-              value={1}
-            />
-            <div
-              className="sel-c sel-c--sq"
-              data-jsx={886949462}
+            <form
+              className="js-add-to-cart-form "
+              data-jsx={923686781}
+              onSubmit={[Function]}
             >
-              <label
-                className="a11y--h"
-                data-jsx={886949462}
-                htmlFor="quantity"
-              >
-                Quantity:
-              </label>
-              <select
-                className="sel-f sel-f--sq"
-                data-jsx={886949462}
-                name="quantityMenu"
+              <input
+                className="txt-f"
+                data-jsx={923686781}
+                id="quantity"
+                name="quantity"
                 onChange={[Function]}
+                type="text"
                 value={1}
+              />
+              <div
+                className="sel-c sel-c--sq"
+                data-jsx={923686781}
               >
-                <option
-                  data-jsx={886949462}
-                  value="1"
+                <label
+                  className="a11y--h"
+                  data-jsx={923686781}
+                  htmlFor="quantity"
                 >
-                  1
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="2"
+                  Quantity:
+                </label>
+                <select
+                  className="sel-f sel-f--sq"
+                  data-jsx={923686781}
+                  name="quantityMenu"
+                  onChange={[Function]}
+                  value={1}
                 >
-                  2
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="3"
-                >
-                  3
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="4"
-                >
-                  4
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="5"
-                >
-                  5
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="6"
-                >
-                  6
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="7"
-                >
-                  7
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="8"
-                >
-                  8
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="9"
-                >
-                  9
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="10"
-                >
-                  10
-                </option>
-              </select>
-            </div>
-            <button
-              className="btn add-to-cart"
-              data-jsx={886949462}
-              disabled={false}
-              type="submit"
+                  <option
+                    data-jsx={923686781}
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    disabled={true}
+                  >
+                    ---------------
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="other"
+                  >
+                    Other…
+                  </option>
+                </select>
+              </div>
+              <button
+                className="btn add-to-cart"
+                data-jsx={923686781}
+                disabled={false}
+                type="submit"
+              >
+                Add to Cart
+              </button>
+            </form>
+            <p
+              className="t--subinfo"
+              data-jsx={923686781}
             >
-              Add to Cart
-            </button>
-          </form>
+              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -3165,14 +3257,20 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="content"
+      data-jsx={1942578276}
+    >
       <div
         className="p-a300"
+        data-jsx={1942578276}
       >
         <div
           className="m-b300"
+          data-jsx={1942578276}
         >
           <a
+            data-jsx={1942578276}
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -3186,9 +3284,11 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </div>
         <div
           className="sh sh--b0"
+          data-jsx={1942578276}
         >
           <h1
             className="sh-title"
+            data-jsx={1942578276}
             style={
               Object {
                 "marginBottom": 0,
@@ -3200,43 +3300,47 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w"
+        className="p-a300 b--w certificate-wrapper"
+        data-jsx={1942578276}
       >
-        <div>
+        <div
+          className="certificate"
+          data-jsx={923686781}
+        >
           <ul
             className="dl"
-            data-jsx={558143449}
+            data-jsx={923686781}
           >
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 BRUCE
                  
@@ -3245,163 +3349,187 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of birth
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 5/1/1962
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of death
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 53
               </span>
             </li>
           </ul>
-          <form
-            className="js-add-to-cart-form m-v500"
-            data-jsx={886949462}
-            onSubmit={[Function]}
+          <div
+            className="m-v500 "
+            data-jsx={923686781}
           >
-            <input
-              className="txt-f"
-              data-jsx={886949462}
-              id="quantity"
-              name="quantity"
-              onChange={[Function]}
-              type="text"
-              value={1}
-            />
-            <div
-              className="sel-c sel-c--sq"
-              data-jsx={886949462}
+            <form
+              className="js-add-to-cart-form "
+              data-jsx={923686781}
+              onSubmit={[Function]}
             >
-              <label
-                className="a11y--h"
-                data-jsx={886949462}
-                htmlFor="quantity"
-              >
-                Quantity:
-              </label>
-              <select
-                className="sel-f sel-f--sq"
-                data-jsx={886949462}
-                name="quantityMenu"
+              <input
+                className="txt-f"
+                data-jsx={923686781}
+                id="quantity"
+                name="quantity"
                 onChange={[Function]}
+                type="text"
                 value={1}
+              />
+              <div
+                className="sel-c sel-c--sq"
+                data-jsx={923686781}
               >
-                <option
-                  data-jsx={886949462}
-                  value="1"
+                <label
+                  className="a11y--h"
+                  data-jsx={923686781}
+                  htmlFor="quantity"
                 >
-                  1
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="2"
+                  Quantity:
+                </label>
+                <select
+                  className="sel-f sel-f--sq"
+                  data-jsx={923686781}
+                  name="quantityMenu"
+                  onChange={[Function]}
+                  value={1}
                 >
-                  2
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="3"
-                >
-                  3
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="4"
-                >
-                  4
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="5"
-                >
-                  5
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="6"
-                >
-                  6
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="7"
-                >
-                  7
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="8"
-                >
-                  8
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="9"
-                >
-                  9
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="10"
-                >
-                  10
-                </option>
-              </select>
-            </div>
-            <button
-              className="btn add-to-cart"
-              data-jsx={886949462}
-              disabled={false}
-              type="submit"
+                  <option
+                    data-jsx={923686781}
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    disabled={true}
+                  >
+                    ---------------
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="other"
+                  >
+                    Other…
+                  </option>
+                </select>
+              </div>
+              <button
+                className="btn add-to-cart"
+                data-jsx={923686781}
+                disabled={false}
+                type="submit"
+              >
+                Add to Cart
+              </button>
+            </form>
+            <p
+              className="t--subinfo"
+              data-jsx={923686781}
             >
-              Add to Cart
-            </button>
-          </form>
+              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+            </p>
+          </div>
         </div>
       </div>
       <div
         className="md"
+        data-jsx={1942578276}
       >
         <div
           className="md-c"
@@ -3470,6 +3598,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                 >
                   Died: 
                   3/4/2016
+                   — Age: 53
                 </div>
               </div>
             </div>
@@ -3874,15 +4003,21 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="content"
+      data-jsx={1942578276}
+    >
       <div
         className="p-a300"
+        data-jsx={1942578276}
       >
         <div
           className="sh sh--b0"
+          data-jsx={1942578276}
         >
           <h1
             className="sh-title"
+            data-jsx={1942578276}
             style={
               Object {
                 "marginBottom": 0,
@@ -3894,43 +4029,47 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </div>
       </div>
       <div
-        className="p-a300 b--w"
+        className="p-a300 b--w certificate-wrapper"
+        data-jsx={1942578276}
       >
-        <div>
+        <div
+          className="certificate"
+          data-jsx={923686781}
+        >
           <ul
             className="dl"
-            data-jsx={558143449}
+            data-jsx={923686781}
           >
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 000002
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 BRUCE
                  
@@ -3939,159 +4078,182 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of birth
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 5/1/1962
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of death
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 3/4/2016
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 53
               </span>
             </li>
           </ul>
-          <form
-            className="js-add-to-cart-form m-v500"
-            data-jsx={886949462}
-            onSubmit={[Function]}
+          <div
+            className="m-v500 "
+            data-jsx={923686781}
           >
-            <input
-              className="txt-f"
-              data-jsx={886949462}
-              id="quantity"
-              name="quantity"
-              onChange={[Function]}
-              type="text"
-              value={1}
-            />
-            <div
-              className="sel-c sel-c--sq"
-              data-jsx={886949462}
+            <form
+              className="js-add-to-cart-form "
+              data-jsx={923686781}
+              onSubmit={[Function]}
             >
-              <label
-                className="a11y--h"
-                data-jsx={886949462}
-                htmlFor="quantity"
-              >
-                Quantity:
-              </label>
-              <select
-                className="sel-f sel-f--sq"
-                data-jsx={886949462}
-                name="quantityMenu"
+              <input
+                className="txt-f"
+                data-jsx={923686781}
+                id="quantity"
+                name="quantity"
                 onChange={[Function]}
+                type="text"
                 value={1}
+              />
+              <div
+                className="sel-c sel-c--sq"
+                data-jsx={923686781}
               >
-                <option
-                  data-jsx={886949462}
-                  value="1"
+                <label
+                  className="a11y--h"
+                  data-jsx={923686781}
+                  htmlFor="quantity"
                 >
-                  1
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="2"
+                  Quantity:
+                </label>
+                <select
+                  className="sel-f sel-f--sq"
+                  data-jsx={923686781}
+                  name="quantityMenu"
+                  onChange={[Function]}
+                  value={1}
                 >
-                  2
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="3"
-                >
-                  3
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="4"
-                >
-                  4
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="5"
-                >
-                  5
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="6"
-                >
-                  6
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="7"
-                >
-                  7
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="8"
-                >
-                  8
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="9"
-                >
-                  9
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="10"
-                >
-                  10
-                </option>
-              </select>
-            </div>
-            <button
-              className="btn add-to-cart"
-              data-jsx={886949462}
-              disabled={false}
-              type="submit"
+                  <option
+                    data-jsx={923686781}
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    disabled={true}
+                  >
+                    ---------------
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="other"
+                  >
+                    Other…
+                  </option>
+                </select>
+              </div>
+              <button
+                className="btn add-to-cart"
+                data-jsx={923686781}
+                disabled={false}
+                type="submit"
+              >
+                Add to Cart
+              </button>
+            </form>
+            <p
+              className="t--subinfo"
+              data-jsx={923686781}
             >
-              Add to Cart
-            </button>
-          </form>
+              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -4467,14 +4629,20 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="content"
+      data-jsx={1942578276}
+    >
       <div
         className="p-a300"
+        data-jsx={1942578276}
       >
         <div
           className="m-b300"
+          data-jsx={1942578276}
         >
           <a
+            data-jsx={1942578276}
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -4488,9 +4656,11 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </div>
         <div
           className="sh sh--b0"
+          data-jsx={1942578276}
         >
           <h1
             className="sh-title"
+            data-jsx={1942578276}
             style={
               Object {
                 "marginBottom": 0,
@@ -4502,43 +4672,47 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w"
+        className="p-a300 b--w certificate-wrapper"
+        data-jsx={1942578276}
       >
-        <div>
+        <div
+          className="certificate"
+          data-jsx={923686781}
+        >
           <ul
             className="dl"
-            data-jsx={558143449}
+            data-jsx={923686781}
           >
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 ID #
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 000001
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Full name
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 JAMES
                  
@@ -4547,142 +4721,165 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Date of death
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 4/15/2014
               </span>
             </li>
             <li
               className="dl-i"
-              data-jsx={558143449}
+              data-jsx={923686781}
             >
               <span
                 className="dl-t"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 Age
               </span>
               <span
                 className="dl-d"
-                data-jsx={558143449}
+                data-jsx={923686781}
               >
                 44 yrs. 2 mos. 10 dys
               </span>
             </li>
           </ul>
-          <form
-            className="js-add-to-cart-form m-v500"
-            data-jsx={886949462}
-            onSubmit={[Function]}
+          <div
+            className="m-v500 "
+            data-jsx={923686781}
           >
-            <input
-              className="txt-f"
-              data-jsx={886949462}
-              id="quantity"
-              name="quantity"
-              onChange={[Function]}
-              type="text"
-              value={1}
-            />
-            <div
-              className="sel-c sel-c--sq"
-              data-jsx={886949462}
+            <form
+              className="js-add-to-cart-form "
+              data-jsx={923686781}
+              onSubmit={[Function]}
             >
-              <label
-                className="a11y--h"
-                data-jsx={886949462}
-                htmlFor="quantity"
-              >
-                Quantity:
-              </label>
-              <select
-                className="sel-f sel-f--sq"
-                data-jsx={886949462}
-                name="quantityMenu"
+              <input
+                className="txt-f"
+                data-jsx={923686781}
+                id="quantity"
+                name="quantity"
                 onChange={[Function]}
+                type="text"
                 value={1}
+              />
+              <div
+                className="sel-c sel-c--sq"
+                data-jsx={923686781}
               >
-                <option
-                  data-jsx={886949462}
-                  value="1"
+                <label
+                  className="a11y--h"
+                  data-jsx={923686781}
+                  htmlFor="quantity"
                 >
-                  1
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="2"
+                  Quantity:
+                </label>
+                <select
+                  className="sel-f sel-f--sq"
+                  data-jsx={923686781}
+                  name="quantityMenu"
+                  onChange={[Function]}
+                  value={1}
                 >
-                  2
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="3"
-                >
-                  3
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="4"
-                >
-                  4
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="5"
-                >
-                  5
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="6"
-                >
-                  6
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="7"
-                >
-                  7
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="8"
-                >
-                  8
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="9"
-                >
-                  9
-                </option>
-                <option
-                  data-jsx={886949462}
-                  value="10"
-                >
-                  10
-                </option>
-              </select>
-            </div>
-            <button
-              className="btn add-to-cart"
-              data-jsx={886949462}
-              disabled={false}
-              type="submit"
+                  <option
+                    data-jsx={923686781}
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    disabled={true}
+                  >
+                    ---------------
+                  </option>
+                  <option
+                    data-jsx={923686781}
+                    value="other"
+                  >
+                    Other…
+                  </option>
+                </select>
+              </div>
+              <button
+                className="btn add-to-cart"
+                data-jsx={923686781}
+                disabled={false}
+                type="submit"
+              >
+                Add to Cart
+              </button>
+            </form>
+            <p
+              className="t--subinfo"
+              data-jsx={923686781}
             >
-              Add to Cart
-            </button>
-          </form>
+              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -5400,6 +5597,7 @@ exports[`Storyshots OrderDetails open 1`] = `
           >
             Died: 
             3/4/2016
+             — Age: 53
           </div>
         </div>
       </div>
@@ -5438,7 +5636,20 @@ exports[`Storyshots OrderDetails open 1`] = `
           >
             Died: 
             4/15/2014
-             – Certificate pending
+             — Age: 44 yrs. 2 mos. 10 dys
+            <span
+              className="t--sans tt-u"
+              data-jsx={3654363549}
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+               
+              Certificate pending
+            </span>
           </div>
         </div>
       </div>
@@ -5477,6 +5688,7 @@ exports[`Storyshots OrderDetails open 1`] = `
           >
             Died: 
             2004
+             — Age: 6
           </div>
         </div>
       </div>
@@ -6131,7 +6343,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                 edit
               </a>
             </legend>
-            Dorm Hall, Apt 5, Empire State University, New York NY 12345
+            Dorm Hall, Apt 5, 10 College Avenue, New York NY 12345
           </fieldset>
         </div>
         <div
@@ -6268,17 +6480,122 @@ exports[`Storyshots PaymentContent default 1`] = `
           </fieldset>
         </div>
         <div
+          className="p-a300"
+          data-jsx={3785310163}
+        >
+          <div
+            className="m-v500"
+            data-jsx={399087421}
+          >
+            <div
+              className="p-v200"
+              data-jsx={399087421}
+            >
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  5
+                   
+                  certificates
+                   × $
+                  14
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  $
+                  70.00
+                </span>
+              </div>
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  Credit card processing fee
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  $
+                  1.93
+                </span>
+              </div>
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  Shipping within the U.S.
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  <i
+                    data-jsx={399087421}
+                  >
+                    free
+                  </i>
+                </span>
+              </div>
+            </div>
+            <div
+              className="cost-row"
+              data-jsx={399087421}
+            >
+              <span
+                className="sh-title"
+                data-jsx={399087421}
+              >
+                Total
+              </span>
+              <span
+                className="cost br br-t100 p-v200"
+                data-jsx={399087421}
+              >
+                $
+                71.93
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
           className="g p-a300 b--w"
           data-jsx={3785310163}
         >
+          <p
+            className="g--9 t--subinfo"
+            data-jsx={3785310163}
+          >
+            Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+             
+            <strong
+              data-jsx={3785310163}
+            >
+              Certificates are non-refundable.
+            </strong>
+          </p>
           <button
             className="g--3 btn m-v500"
             data-jsx={3785310163}
             disabled={false}
             type="submit"
           >
-            Pay $
-            71.93
+            Submit Order
           </button>
           <div
             className="g--9 m-v500"
@@ -6772,7 +7089,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 edit
               </a>
             </legend>
-            Dorm Hall, Apt 5, Empire State University, New York NY 12345
+            Dorm Hall, Apt 5, 10 College Avenue, New York NY 12345
           </fieldset>
         </div>
         <div
@@ -6909,17 +7226,122 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </fieldset>
         </div>
         <div
+          className="p-a300"
+          data-jsx={3785310163}
+        >
+          <div
+            className="m-v500"
+            data-jsx={399087421}
+          >
+            <div
+              className="p-v200"
+              data-jsx={399087421}
+            >
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  5
+                   
+                  certificates
+                   × $
+                  14
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  $
+                  70.00
+                </span>
+              </div>
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  Credit card processing fee
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  $
+                  1.93
+                </span>
+              </div>
+              <div
+                className="cost-row"
+                data-jsx={399087421}
+              >
+                <span
+                  className="t--info"
+                  data-jsx={399087421}
+                >
+                  Shipping within the U.S.
+                </span>
+                <span
+                  className="cost"
+                  data-jsx={399087421}
+                >
+                  <i
+                    data-jsx={399087421}
+                  >
+                    free
+                  </i>
+                </span>
+              </div>
+            </div>
+            <div
+              className="cost-row"
+              data-jsx={399087421}
+            >
+              <span
+                className="sh-title"
+                data-jsx={399087421}
+              >
+                Total
+              </span>
+              <span
+                className="cost br br-t100 p-v200"
+                data-jsx={399087421}
+              >
+                $
+                71.93
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
           className="g p-a300 b--w"
           data-jsx={3785310163}
         >
+          <p
+            className="g--9 t--subinfo"
+            data-jsx={3785310163}
+          >
+            Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+             
+            <strong
+              data-jsx={3785310163}
+            >
+              Certificates are non-refundable.
+            </strong>
+          </p>
           <button
             className="g--3 btn m-v500"
             data-jsx={3785310163}
             disabled={false}
             type="submit"
           >
-            Pay $
-            71.93
+            Submit Order
           </button>
           <div
             className="g--9 m-v500"
@@ -7385,34 +7807,53 @@ exports[`Storyshots SearchPage no results 1`] = `
         >
           No results found for this search.
         </div>
-        <ul
-          className="ul"
-          data-jsx={1762436028}
+        <div
+          className="p-a300"
         >
-          <li
-            data-jsx={1762436028}
+          <ul
+            className="ul"
+            data-jsx={1475005988}
           >
-            Try using a partial name. For example, “jo” matches “joe” and “joseph.”
-          </li>
-          <li
-            data-jsx={1762436028}
-          >
-            Add a 4-digit year of death. You can also search for a range of death years, like “smith 1950–1955”
-          </li>
-          <li
-            data-jsx={1762436028}
-          >
-            Most death certificates prior to 1956 are not available through this site. For these years,
-             
-            <a
-              data-jsx={1762436028}
-              href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+            <li
+              data-jsx={1475005988}
             >
-              request a death certificate by mail or in person
-            </a>
-            . An additional research fee may apply.
-          </li>
-        </ul>
+              We only have death records for people who either died in the City of Boston or who had Boston as their residence on their death certificate.
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              This site has all deaths from 1956 on, but only a few records before then. You can
+               
+              <a
+                data-jsx={1475005988}
+                href="https://www.boston.gov/departments/registry/how-get-death-certificate"
+              >
+                request a death certificate from before 1956
+              </a>
+              .
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              Search for both formal names and nicknames. For example, if there are no results for “Elizabeth,” try “Betty.”
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              You can also search for a partial name. For example, “Jo” matches “Joe” and “Joseph.”
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              If the decedent had a hyphenated first or last name, try searching for only one of the parts.
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              Add a 4-digit year of death. You can also search for a range of death years, like “smith 1960–1965”
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -8366,6 +8807,7 @@ exports[`Storyshots SearchPage with results 1`] = `
               >
                 Died: 
                 3/4/2016
+                 — Age: 53
               </div>
             </div>
           </div>
@@ -8396,7 +8838,20 @@ exports[`Storyshots SearchPage with results 1`] = `
               >
                 Died: 
                 4/15/2014
-                 – Certificate pending
+                 — Age: 44 yrs. 2 mos. 10 dys
+                <span
+                  className="t--sans tt-u"
+                  data-jsx={3654363549}
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                   
+                  Certificate pending
+                </span>
               </div>
             </div>
           </div>
@@ -8427,6 +8882,7 @@ exports[`Storyshots SearchPage with results 1`] = `
               >
                 Died: 
                 2004
+                 — Age: 6
               </div>
             </div>
           </div>
@@ -8505,34 +8961,49 @@ exports[`Storyshots SearchPage with results 1`] = `
           className="p-a300"
         >
           <p>
-            Not finding what you’re looking for?
+            Not finding who you’re looking for?
           </p>
           <ul
             className="ul"
-            data-jsx={1762436028}
+            data-jsx={1475005988}
           >
             <li
-              data-jsx={1762436028}
+              data-jsx={1475005988}
             >
-              Try using a partial name. For example, “jo” matches “joe” and “joseph.”
+              We only have death records for people who either died in the City of Boston or who had Boston as their residence on their death certificate.
             </li>
             <li
-              data-jsx={1762436028}
+              data-jsx={1475005988}
             >
-              Add a 4-digit year of death. You can also search for a range of death years, like “smith 1950–1955”
-            </li>
-            <li
-              data-jsx={1762436028}
-            >
-              Most death certificates prior to 1956 are not available through this site. For these years,
+              This site has all deaths from 1956 on, but only a few records before then. You can
                
               <a
-                data-jsx={1762436028}
+                data-jsx={1475005988}
                 href="https://www.boston.gov/departments/registry/how-get-death-certificate"
               >
-                request a death certificate by mail or in person
+                request a death certificate from before 1956
               </a>
-              . An additional research fee may apply.
+              .
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              Search for both formal names and nicknames. For example, if there are no results for “Elizabeth,” try “Betty.”
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              You can also search for a partial name. For example, “Jo” matches “Joe” and “Joseph.”
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              If the decedent had a hyphenated first or last name, try searching for only one of the parts.
+            </li>
+            <li
+              data-jsx={1475005988}
+            >
+              Add a 4-digit year of death. You can also search for a range of death years, like “smith 1960–1965”
             </li>
           </ul>
         </div>
@@ -8595,6 +9066,7 @@ exports[`Storyshots SearchResult bottom certificate 1`] = `
       >
         Died: 
         3/4/2016
+         — Age: 53
       </div>
     </div>
   </div>
@@ -8628,6 +9100,7 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
       >
         Died: 
         2004
+         — Age: 6
       </div>
     </div>
   </div>
@@ -8661,6 +9134,7 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
       >
         Died: 
         3/4/2016
+         — Age: 53
       </div>
     </div>
   </div>
@@ -9092,7 +9566,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-name"
               >
-                Full Name
+                Full Name 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9114,7 +9594,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-email"
               >
-                Email Address
+                Email Address 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9136,7 +9622,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-phone"
               >
-                Phone Number
+                Phone Number 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9173,7 +9665,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-name"
               >
-                Full name
+                Full name 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9193,9 +9691,37 @@ exports[`Storyshots ShippingContent default 1`] = `
               <label
                 className="txt-l txt-l--mt000"
                 data-jsx={3785310163}
+                htmlFor="shipping-company-name"
+              >
+                Company Name
+              </label>
+              <input
+                className="txt-f"
+                data-jsx={3785310163}
+                id="shipping-company-name"
+                name="shipping-company-name"
+                onChange={[Function]}
+                placeholder="Company Name"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              className="txt"
+              data-jsx={3785310163}
+            >
+              <label
+                className="txt-l txt-l--mt000"
+                data-jsx={3785310163}
                 htmlFor="shipping-address-1"
               >
-                Address Line 1
+                Address Line 1 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9217,7 +9743,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-address-2"
               >
-                Address Line 2 (optional)
+                Address Line 2
               </label>
               <input
                 className="txt-f"
@@ -9239,7 +9765,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-city"
               >
-                City
+                City 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9261,7 +9793,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-state"
               >
-                State
+                State 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--50"
@@ -9283,7 +9821,13 @@ exports[`Storyshots ShippingContent default 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-zip"
               >
-                ZIP Code
+                ZIP Code 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--50"
@@ -9784,7 +10328,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-name"
               >
-                Full Name
+                Full Name 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9806,7 +10356,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-email"
               >
-                Email Address
+                Email Address 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9828,7 +10384,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="contact-phone"
               >
-                Phone Number
+                Phone Number 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--100"
@@ -9865,7 +10427,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-name"
               >
-                Full name
+                Full name 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9885,9 +10453,37 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               <label
                 className="txt-l txt-l--mt000"
                 data-jsx={3785310163}
+                htmlFor="shipping-company-name"
+              >
+                Company Name
+              </label>
+              <input
+                className="txt-f"
+                data-jsx={3785310163}
+                id="shipping-company-name"
+                name="shipping-company-name"
+                onChange={[Function]}
+                placeholder="Company Name"
+                type="text"
+                value="Empire State University"
+              />
+            </div>
+            <div
+              className="txt"
+              data-jsx={3785310163}
+            >
+              <label
+                className="txt-l txt-l--mt000"
+                data-jsx={3785310163}
                 htmlFor="shipping-address-1"
               >
-                Address Line 1
+                Address Line 1 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9909,7 +10505,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-address-2"
               >
-                Address Line 2 (optional)
+                Address Line 2
               </label>
               <input
                 className="txt-f"
@@ -9919,7 +10515,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 onChange={[Function]}
                 placeholder="Address Line 2"
                 type="text"
-                value="Empire State University"
+                value="10 College Avenue"
               />
             </div>
             <div
@@ -9931,7 +10527,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-city"
               >
-                City
+                City 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f"
@@ -9953,7 +10555,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-state"
               >
-                State
+                State 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--50"
@@ -9975,7 +10583,13 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 data-jsx={3785310163}
                 htmlFor="shipping-zip"
               >
-                ZIP Code
+                ZIP Code 
+                <span
+                  className="t--req"
+                  data-jsx={3785310163}
+                >
+                  Required
+                </span>
               </label>
               <input
                 className="txt-f txt-f--50"

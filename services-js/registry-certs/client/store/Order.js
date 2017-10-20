@@ -10,6 +10,7 @@ export type OrderInfo = {|
   contactPhone: string,
 
   shippingName: string,
+  shippingCompanyName: string,
   shippingAddress1: string,
   shippingAddress2: string,
   shippingCity: string,
@@ -39,6 +40,7 @@ export default class Order {
       contactPhone: '',
 
       shippingName: '',
+      shippingCompanyName: '',
       shippingAddress1: '',
       shippingAddress2: '',
       shippingCity: '',
@@ -83,6 +85,7 @@ export default class Order {
 
   @computed
   get shippingIsComplete(): boolean {
+    // company name and address line 2 are optional
     const {
       contactName,
       contactEmail,

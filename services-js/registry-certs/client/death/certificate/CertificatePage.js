@@ -42,12 +42,21 @@ export class CertificatePageContent extends React.Component<
     quantity: 1,
   };
 
+  quantityField: ?HTMLInputElement = null;
+
   handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
     const { value } = ev.target;
 
-    this.setState({
-      quantity: value ? parseInt(value, 10) : null,
-    });
+    if (value === 'other') {
+      this.setState({ quantity: null });
+      if (this.quantityField) {
+        this.quantityField.focus();
+      }
+    } else {
+      this.setState({
+        quantity: value ? parseInt(value, 10) : null,
+      });
+    }
   };
 
   handleAddToCart = (ev: SyntheticInputEvent<*>) => {
@@ -63,6 +72,10 @@ export class CertificatePageContent extends React.Component<
     addToCart(quantity);
   };
 
+  setQuantityField = (quantityField: ?HTMLInputElement) => {
+    this.quantityField = quantityField;
+  };
+
   render() {
     const {
       id,
@@ -74,7 +87,7 @@ export class CertificatePageContent extends React.Component<
     } = this.props;
 
     return (
-      <div>
+      <div className="content">
         <Head>
           <title>Boston.gov — Death Certificate #{id}</title>
         </Head>
@@ -95,7 +108,7 @@ export class CertificatePageContent extends React.Component<
           </div>
         </div>
 
-        <div className="p-a300 b--w">
+        <div className="p-a300 b--w certificate-wrapper">
           {certificate && this.renderCertificate(certificate)}
         </div>
 
@@ -109,6 +122,17 @@ export class CertificatePageContent extends React.Component<
               />
             </div>
           )}
+
+        <style jsx>
+          {`
+            .content,
+            .certificate-wrapper {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+            }
+          `}
+        </style>
       </div>
     );
   }
@@ -125,7 +149,7 @@ export class CertificatePageContent extends React.Component<
     const { quantity } = this.state;
 
     return (
-      <div>
+      <div className="certificate">
         <ul className="dl">
           <li className="dl-i">
             <span className="dl-t">ID #</span>
@@ -153,94 +177,108 @@ export class CertificatePageContent extends React.Component<
               <span className="dl-d">{age}</span>
             </li>
           )}
-
-          <style jsx>{`
-            .dl-i {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-            }
-            .dl-t {
-              padding-right: 1em;
-            }
-            .dl-t,
-            .dl-d {
-              line-height: 1rem;
-              vertical-align: center;
-            }
-          `}</style>
         </ul>
 
-        <form
-          onSubmit={this.handleAddToCart}
-          className="js-add-to-cart-form m-v500"
-        >
-          <input
-            type="text"
-            id="quantity"
-            name="quantity"
-            className="txt-f"
-            value={quantity}
-            onChange={this.handleQuantityChange}
-          />
-
-          <div className="sel-c sel-c--sq">
-            <label htmlFor="quantity" className="a11y--h">
-              Quantity:
-            </label>
-
-            <select
-              name="quantityMenu"
-              value={quantity}
-              className="sel-f sel-f--sq"
-              onChange={this.handleQuantityChange}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-
-          <button
-            type="submit"
-            className="btn add-to-cart"
-            disabled={!quantity}
+        <div className="m-v500 ">
+          <form
+            onSubmit={this.handleAddToCart}
+            className="js-add-to-cart-form "
           >
-            Add to Cart
-          </button>
+            <input
+              ref={this.setQuantityField}
+              type="text"
+              id="quantity"
+              name="quantity"
+              className="txt-f"
+              value={quantity || ''}
+              onChange={this.handleQuantityChange}
+            />
 
-          <style jsx>{`
-            form {
-              display: flex;
-              align-items: center;
-            }
+            <div className="sel-c sel-c--sq">
+              <label htmlFor="quantity" className="a11y--h">
+                Quantity:
+              </label>
 
-            .txt-f {
-              /* matches the select box */
-              height: 62px;
-              width: 4em !important;
-              text-align: right;
-              border-right: none;
-            }
+              <select
+                name="quantityMenu"
+                value={quantity && quantity <= 10 ? quantity : 'other'}
+                className="sel-f sel-f--sq"
+                onChange={this.handleQuantityChange}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option disabled>---------------</option>
+                <option value="other">Other…</option>
+              </select>
+            </div>
 
-            .sel-c:after {
-              content: 'Qty.';
-            }
+            <button
+              type="submit"
+              className="btn add-to-cart"
+              disabled={!quantity}
+            >
+              Add to Cart
+            </button>
+          </form>
 
-            .add-to-cart {
-              flex: 1;
-              margin-left: 1em;
-              height: 62px;
-            }
-          `}</style>
-        </form>
+          <p className="t--subinfo">
+            Death certificates cost $14 each, including shipping. An additional
+            credit card processing fee will be added at checkout.
+          </p>
+        </div>
+
+        <style jsx>{`
+          .certificate {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+          }
+          .dl-i {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+          }
+          .dl-t {
+            padding-right: 1em;
+            width: 30%;
+          }
+          .dl-t,
+          .dl-d {
+            line-height: 1rem;
+            vertical-align: center;
+          }
+          form {
+            display: flex;
+            align-items: center;
+          }
+
+          .txt-f {
+            /* matches the select box */
+            height: 62px;
+            width: 4em !important;
+            text-align: right;
+            border-right: none;
+          }
+
+          .sel-c:after {
+            content: 'Qty.';
+          }
+
+          .add-to-cart {
+            flex: 1;
+            margin-left: 1em;
+            height: 62px;
+          }
+        `}</style>
       </div>
     );
   }

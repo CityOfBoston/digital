@@ -48,6 +48,7 @@ export default class ShippingContent extends React.Component<Props> {
         contactPhone,
 
         shippingName,
+        shippingCompanyName,
         shippingAddress1,
         shippingAddress2,
         shippingCity,
@@ -84,7 +85,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="contact-name" className="txt-l txt-l--mt000">
-                  Full Name
+                  Full Name <span className="t--req">Required</span>
                 </label>
                 <input
                   id="contact-name"
@@ -99,7 +100,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="contact-email" className="txt-l txt-l--mt000">
-                  Email Address
+                  Email Address <span className="t--req">Required</span>
                 </label>
                 <input
                   id="contact-email"
@@ -114,7 +115,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="contact-phone" className="txt-l txt-l--mt000">
-                  Phone Number
+                  Phone Number <span className="t--req">Required</span>
                 </label>
                 <input
                   id="contact-phone"
@@ -135,7 +136,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="shipping-name" className="txt-l txt-l--mt000">
-                  Full name
+                  Full name <span className="t--req">Required</span>
                 </label>
                 <input
                   id="shipping-name"
@@ -150,10 +151,28 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label
+                  htmlFor="shipping-company-name"
+                  className="txt-l txt-l--mt000"
+                >
+                  Company Name
+                </label>
+                <input
+                  id="shipping-company-name"
+                  name="shipping-company-name"
+                  type="text"
+                  placeholder="Company Name"
+                  className="txt-f"
+                  value={shippingCompanyName}
+                  onChange={this.setField('shippingCompanyName')}
+                />
+              </div>
+
+              <div className="txt">
+                <label
                   htmlFor="shipping-address-1"
                   className="txt-l txt-l--mt000"
                 >
-                  Address Line 1
+                  Address Line 1 <span className="t--req">Required</span>
                 </label>
                 <input
                   id="shipping-address-1"
@@ -171,7 +190,7 @@ export default class ShippingContent extends React.Component<Props> {
                   htmlFor="shipping-address-2"
                   className="txt-l txt-l--mt000"
                 >
-                  Address Line 2 (optional)
+                  Address Line 2
                 </label>
                 <input
                   id="shipping-address-2"
@@ -186,7 +205,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="shipping-city" className="txt-l txt-l--mt000">
-                  City
+                  City <span className="t--req">Required</span>
                 </label>
                 <input
                   id="shipping-city"
@@ -201,7 +220,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="shipping-state" className="txt-l txt-l--mt000">
-                  State
+                  State <span className="t--req">Required</span>
                 </label>
                 <input
                   id="shipping-state"
@@ -216,7 +235,7 @@ export default class ShippingContent extends React.Component<Props> {
 
               <div className="txt">
                 <label htmlFor="shipping-zip" className="txt-l txt-l--mt000">
-                  ZIP Code
+                  ZIP Code <span className="t--req">Required</span>
                 </label>
                 <input
                   id="shipping-zip"

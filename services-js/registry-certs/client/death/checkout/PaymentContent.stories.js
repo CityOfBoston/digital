@@ -36,8 +36,9 @@ function makeShippingCompleteOrder() {
     contactPhone: '(555) 123-9999',
 
     shippingName: 'Doreen Green',
+    shippingCompanyName: 'Empire State University',
     shippingAddress1: 'Dorm Hall, Apt 5',
-    shippingAddress2: 'Empire State University',
+    shippingAddress2: '10 College Avenue',
     shippingCity: 'New York',
     shippingState: 'NY',
     shippingZip: '12345',

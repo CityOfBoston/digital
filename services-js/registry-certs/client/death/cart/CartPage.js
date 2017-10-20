@@ -7,12 +7,12 @@ import Link from 'next/link';
 
 import { getDependencies } from '../../app';
 
-import { CERTIFICATE_COST, PROCESSING_FEE } from '../../store/Cart';
 import type Cart from '../../store/Cart';
 
 import AppLayout from '../../AppLayout';
 
 import CartItem from './CartItem';
+import CostSummary from '../../common/CostSummary';
 
 type Props = {
   cart: Cart,
@@ -24,8 +24,21 @@ export class CartPageContent extends React.Component<Props> {
     const { cart } = this.props;
 
     return (
-      <div>
+      <div className="page">
         <style jsx>{`
+          .page {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
           a.btn {
             align-self: center;
             text-align: center;
@@ -47,35 +60,37 @@ export class CartPageContent extends React.Component<Props> {
           </div>
         </div>
 
-        <div>
-          {cart.entries.map((entry, i) => (
-            <CartItem
-              key={entry.id}
-              entry={entry}
-              cart={cart}
-              lastRow={i === cart.entries.length - 1}
-            />
-          ))}
+        <div className="content">
+          <div>
+            {cart.entries.map((entry, i) => (
+              <CartItem
+                key={entry.id}
+                entry={entry}
+                cart={cart}
+                lastRow={i === cart.entries.length - 1}
+              />
+            ))}
 
-          {cart.entries.length === 0 && (
-            <div className="p-a300 g" style={{ paddingTop: 0 }}>
-              <div className="g--9  vertical-center">
-                <div className="t--intro">There’s nothing here yet!</div>
-                <p className="t--info">
-                  Search for death certificates and add them to your cart.
-                </p>
+            {cart.entries.length === 0 && (
+              <div className="p-a300 g" style={{ paddingTop: 0 }}>
+                <div className="g--9  vertical-center">
+                  <div className="t--intro">There’s nothing here yet!</div>
+                  <p className="t--info">
+                    Search for death certificates and add them to your cart.
+                  </p>
+                </div>
+                <div className="g--3 m-v500">
+                  <Link href="/death/">
+                    <a className="btn">Back to Search</a>
+                  </Link>
+                </div>
               </div>
-              <div className="g--3 m-v500">
-                <Link href="/death/">
-                  <a className="btn">Back to Search</a>
-                </Link>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
 
           {cart.entries.length > 0 && (
             <div className="p-a300">
-              {this.renderCost()}
+              <CostSummary cart={cart} />
 
               <div className="m-v500">
                 <Link href="/death/checkout">
@@ -85,62 +100,6 @@ export class CartPageContent extends React.Component<Props> {
             </div>
           )}
         </div>
-      </div>
-    );
-  }
-
-  renderCost() {
-    const { cart } = this.props;
-
-    const certificateCost = cart.size * CERTIFICATE_COST;
-    const processingFee = PROCESSING_FEE * certificateCost;
-
-    return (
-      <div className="m-v500">
-        <div className="p-v200">
-          <div className="cost-row">
-            <span className="t--info">
-              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}
-            </span>
-            <span className="cost">${certificateCost.toFixed(2)}</span>
-          </div>
-
-          <div className="cost-row">
-            <span className="t--info">Credit card processing fee</span>
-            <span className="cost">${processingFee.toFixed(2)}</span>
-          </div>
-
-          <div className="cost-row">
-            <span className="t--info">Shipping with USPS</span>
-            <span className="cost">
-              <i>free</i>
-            </span>
-          </div>
-        </div>
-
-        <div className="cost-row">
-          <span className="sh-title">Total</span>
-          <span className="cost br br-t100 p-v200">
-            ${cart.cost.toFixed(2)}
-          </span>
-        </div>
-
-        <style jsx>{`
-          .cost-row {
-            text-align: right;
-          }
-
-          .cost {
-            min-width: 5em;
-            margin-left: 1em;
-            display: inline-block;
-          }
-
-          .sh-title {
-            padding: 0;
-            line-height: 1;
-          }
-        `}</style>
       </div>
     );
   }

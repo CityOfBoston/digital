@@ -17,6 +17,7 @@ const renderCertificate = ({
   lastName,
   deathDate,
   deathYear,
+  age,
   pending,
 }: DeathCertificate) => (
   <div key="certificate" className="certificate-info-box">
@@ -26,7 +27,16 @@ const renderCertificate = ({
 
     <div className="certificate-subinfo">
       Died: {deathDate || deathYear}
-      {pending && ' – Certificate pending'}
+      {age && ` — Age: ${age}`}
+      {pending && (
+        <span
+          className="t--sans tt-u"
+          style={{ fontStyle: 'normal', fontWeight: 'bold' }}
+        >
+          {' '}
+          Certificate pending
+        </span>
+      )}
     </div>
 
     <style jsx>{`

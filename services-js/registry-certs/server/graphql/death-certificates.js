@@ -1,5 +1,6 @@
 // @flow
 
+import moment from 'moment';
 import type { Context } from './index';
 import type {
   DeathCertificateSearchResult,
@@ -77,13 +78,18 @@ export function parseAgeOrDateOfBirth(
   str: ?string
 ): { age: ?string, birthDate: ?string } {
   const dateMatch = (str || '').match(DATE_REGEXP);
-  const age = (str || '')
+
+  let age = (str || '')
     .replace(/^0+/, '')
     .replace(DATE_REGEXP, '')
     .trim();
 
+  if (dateMatch && !age) {
+    age = moment().diff(moment(dateMatch[1], 'MM/DD/YYYY'), 'years');
+  }
+
   return {
-    age: age ? age : null,
+    age: age ? `${age}` : null,
     birthDate: dateMatch ? dateMatch[1] : null,
   };
 }

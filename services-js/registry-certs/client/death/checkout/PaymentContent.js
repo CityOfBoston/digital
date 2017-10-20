@@ -9,6 +9,7 @@ import { observer } from 'mobx-react';
 import type Cart from '../../store/Cart';
 import type Order, { OrderInfo } from '../../store/Order';
 
+import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';
 
 export type Props = {
@@ -264,13 +265,23 @@ export default class PaymentContent extends React.Component<Props> {
             </fieldset>
           </div>
 
+          <div className="p-a300">
+            <CostSummary cart={cart} />
+          </div>
+
           <div className="g p-a300 b--w">
+            <p className="g--9 t--subinfo">
+              Pressing the “Submit Order” button will charge the total amount to
+              your credit card and place an order with the Registry.{' '}
+              <strong>Certificates are non-refundable.</strong>
+            </p>
+
             <button
               className="g--3 btn m-v500"
               type="submit"
               disabled={!billingIsComplete}
             >
-              Pay ${cart.cost}
+              Submit Order
             </button>
 
             <div className="g--9 m-v500">
