@@ -66,11 +66,6 @@ Parameters:
     MaxLength: 20
     Default: contactform-staging
 
-  CacheInstanceClass:
-    Type: String
-    Description: Instance type to use for the cache
-    Default: cache.t2.micro
-
   DeployUserName:
     Type: String
     Description: Name of the user to be granted deploy permissions
@@ -293,47 +288,6 @@ Resources:
         - Fn::ImportValue:
             !Sub '${ClusterStack}:PrivateDbSecurityGroupId'
 
-  Cache:
-    Type: "AWS::ElastiCache::CacheCluster"
-    Properties:
-      ClusterName: !Ref ResourceName
-      CacheNodeType: !Ref CacheInstanceClass
-      CacheSubnetGroupName:
-        Fn::ImportValue:
-          !Sub '${ClusterStack}:PrivateCacheSubnetGroupName'
-      Engine: redis
-      NumCacheNodes: 1
-      NotificationTopicArn:
-        Fn::ImportValue:
-          !Sub '${NotificationsStack}:AlarmTopicArn'
-      VpcSecurityGroupIds:
-        - Fn::ImportValue:
-            !Sub '${ClusterStack}:PrivateCacheSecurityGroupId'
-
-  RedisConnectionAlarm:
-    Type: "AWS::CloudWatch::Alarm"
-    Properties:
-      AlarmName: !Sub '${AWS::StackName} no Redis connections'
-      AlarmDescription: There are no connections to our Redis cluster
-      MetricName: CurrConnections
-      Namespace: 'AWS/ElastiCache'
-      Dimensions:
-        - Name: CacheClusterId
-          Value: !Ref Cache
-      Statistic: Average
-      ComparisonOperator: LessThanThreshold
-      Threshold: 1
-      Period: 60
-      EvaluationPeriods: 3
-      TreatMissingData: breaching
-      ActionsEnabled: true
-      AlarmActions:
-        - Fn::ImportValue:
-            !Sub '${ClusterStack}:AlarmTopicArn'
-      OKActions:
-        - Fn::ImportValue:
-            !Sub '${ClusterStack}:AlarmTopicArn'
-
 Outputs:
   DatabaseUrl:
     Description: URL (without credentials) for the database instance. Put in .env.
@@ -342,11 +296,3 @@ Outputs:
         - 'postgres://${DbUsername}:********@${Address}:${Port}/contactform?sslmode=require'
         - Address: !GetAtt Database.Endpoint.Address
           Port: !GetAtt Database.Endpoint.Port
-
-  RedisUrl:
-    Description: URL for the Redis cache
-    Value:
-      Fn::Sub:
-        - 'redis://${Address}:${Port}'
-        - Address: !GetAtt Cache.RedisEndpoint.Address
-          Port: !GetAtt Cache.RedisEndpoint.Port
