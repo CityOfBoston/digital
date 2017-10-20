@@ -50,6 +50,16 @@ const IMG_LABEL_STYLE = css({
 
 const MAP_WRAPPER_STYLE = css({
   position: 'relative',
+  // 1:1 aspect ratio hack. Keeps the page from jumping when the image loads
+  paddingBottom: '100%',
+});
+
+const MAP_IMG_STYLE = css({
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
 });
 
 function renderServiceNotice({
@@ -224,9 +234,9 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
           !noMap &&
           !longMap &&
           <div className="g--6">
-            <div className={MAP_WRAPPER_STYLE}>
+            <div className={`${MAP_WRAPPER_STYLE.toString()} m-b500`}>
               <img
-                className={`${IMG_STYLE.toString()} m-b500 br br-a150`}
+                className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
                 src={makeMapboxUrl(store, request, 440, 440)}
                 alt={`Map of ${request.address || ''}`}
               />

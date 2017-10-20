@@ -1011,15 +1011,11 @@ exports[`methods submitRequest success 2`] = `
                 className="g--6"
               >
                 <div
-                  className={
-                    Object {
-                      "data-css-13azwyo": "",
-                    }
-                  }
+                  className="css-iz6ix8 m-b500"
                 >
                   <img
                     alt="Map of City Hall Plaza, Boston, MA 02131"
-                    className="css-i5kcuw m-b500 br br-a150"
+                    className="css-i5kcuw css-kag5at br br-a150"
                     src="https://api.mapbox.com/styles/v1/undefined/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=undefined"
                   />
                   <div
