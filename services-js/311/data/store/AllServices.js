@@ -54,7 +54,8 @@ const GROUPS = [
   {
     name: 'Traffic and vehicles',
     id: 'Traffic-Vehicles',
-    description: 'temp description',
+    description:
+      'We can help with requests about bikes, parking, accessible spots, and more.',
   },
   {
     name: 'Trash, recycling, and graffiti',

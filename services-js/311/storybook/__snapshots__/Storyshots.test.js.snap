@@ -12601,7 +12601,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
                 <div
                   className="dr-st"
                 >
-                  temp description
+                  We can help with requests about bikes, parking, accessible spots, and more.
                 </div>
               </button>
               <span
@@ -13377,7 +13377,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 <div
                   className="dr-st"
                 >
-                  temp description
+                  We can help with requests about bikes, parking, accessible spots, and more.
                 </div>
               </button>
               <span

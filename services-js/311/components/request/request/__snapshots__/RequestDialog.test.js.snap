@@ -119,7 +119,7 @@ exports[`methods submitRequest graphql failure 1`] = `
             "name": "Streets and sidewalks",
           },
           Group {
-            "description": "temp description",
+            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
             "id": "Traffic-Vehicles",
             "name": "Traffic and vehicles",
           },
@@ -385,7 +385,7 @@ exports[`methods submitRequest success 1`] = `
             "name": "Streets and sidewalks",
           },
           Group {
-            "description": "temp description",
+            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
             "id": "Traffic-Vehicles",
             "name": "Traffic and vehicles",
           },
@@ -701,7 +701,7 @@ exports[`methods submitRequest success 2`] = `
             "name": "Streets and sidewalks",
           },
           Group {
-            "description": "temp description",
+            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
             "id": "Traffic-Vehicles",
             "name": "Traffic and vehicles",
           },
@@ -857,7 +857,7 @@ exports[`methods submitRequest success 2`] = `
                     "name": "Streets and sidewalks",
                   },
                   Group {
-                    "description": "temp description",
+                    "description": "We can help with requests about bikes, parking, accessible spots, and more.",
                     "id": "Traffic-Vehicles",
                     "name": "Traffic and vehicles",
                   },
