@@ -178,15 +178,19 @@ export default class RequestLayout extends React.Component<Props, State> {
           style={{ backgroundColor: 'transparent' }}
           role="main"
         >
-          {(mediaLarge || !process.browser) &&
-            !noMap &&
-            <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+          <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+            {/* Condition must be on the inner element. If it's on the outer
+            DIV, React 16's reconcilliation of the server and client (which are
+            different because we're conditional on mediaLarge) will apply the
+            runtime attributes to the server content. And things will be broken.*/}
+            {(mediaLarge || !process.browser) &&
+              !noMap &&
               <LocationMapWithLibrary
                 store={store}
                 mode={mapMode}
                 mobile={false}
-              />
-            </div>}
+              />}
+          </div>
 
           {/* We can't put any wrappers around the dialogs below because in the
                case of RequestDialog's location picker, it needs to make sure nothing

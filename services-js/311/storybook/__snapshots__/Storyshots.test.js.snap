@@ -1000,10 +1000,10 @@ exports[`Storyshots CaseLayout 404 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -1330,10 +1330,10 @@ exports[`Storyshots CaseLayout Existing 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -4424,10 +4424,10 @@ exports[`Storyshots ErrorLayout 404 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -4714,10 +4714,10 @@ exports[`Storyshots ErrorLayout 500 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -5121,10 +5121,10 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -5158,10 +5158,10 @@ exports[`Storyshots FeedbackBanner Fit dialog width 1`] = `
   className="b-c"
 >
   <div
-    className="css-11nlcd5"
+    className="css-4d9qs8"
   >
     <div
-      className="css-1meeng7 css-13or21o"
+      className="css-1meeng7 css-1ks0mbq"
     >
       <span
         className="t--subtitle t--upper"
@@ -5193,10 +5193,10 @@ exports[`Storyshots FeedbackBanner Fit page width 1`] = `
   className="b-c"
 >
   <div
-    className="css-11nlcd5"
+    className="css-4d9qs8"
   >
     <div
-      className="b-c css-13or21o"
+      className="b-c css-1ks0mbq"
     >
       <span
         className="t--subtitle t--upper"
@@ -9917,6 +9917,13 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
         <div
           className={
             Object {
+              "data-css-pmaldw": "",
+            }
+          }
+        />
+        <div
+          className={
+            Object {
               "data-css-19tfmgz": "",
             }
           }
@@ -10195,10 +10202,10 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="css-1meeng7 css-13or21o"
+          className="css-1meeng7 css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -10434,6 +10441,13 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
           }
         }
       >
+        <div
+          className={
+            Object {
+              "data-css-pmaldw": "",
+            }
+          }
+        />
         <div
           className={
             Object {
@@ -10778,10 +10792,10 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="css-1meeng7 css-13or21o"
+          className="css-1meeng7 css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -11020,6 +11034,13 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
         <div
           className={
             Object {
+              "data-css-pmaldw": "",
+            }
+          }
+        />
+        <div
+          className={
+            Object {
               "data-css-19tfmgz": "",
             }
           }
@@ -11247,10 +11268,10 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="css-1meeng7 css-13or21o"
+          className="css-1meeng7 css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -11703,10 +11724,10 @@ exports[`Storyshots SearchLayout List View 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -12016,10 +12037,10 @@ exports[`Storyshots SearchLayout Map View 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -12756,10 +12777,10 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"
@@ -13532,10 +13553,10 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
         }
       />
       <div
-        className="css-11nlcd5"
+        className="css-4d9qs8"
       >
         <div
-          className="b-c css-13or21o"
+          className="b-c css-1ks0mbq"
         >
           <span
             className="t--subtitle t--upper"

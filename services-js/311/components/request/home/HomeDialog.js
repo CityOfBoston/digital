@@ -144,10 +144,10 @@ export default class HomeDialog extends React.Component<Props> {
 
     Router.push(
       `/request?stage=choose&description=${encodeURIComponent(
-        this.description
+        this.description.trim()
       )}`,
       '/request'
-    );
+    ).then(() => window.scrollTo(0, 0));
   }
 
   render() {

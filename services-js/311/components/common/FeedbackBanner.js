@@ -3,17 +3,23 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import { YELLOW } from '../style-constants';
+import { YELLOW, MEDIA_LARGE } from '../style-constants';
 
 import FeedbackForm from './FeedbackForm';
 
 const BANNER_STYLE = css({
   backgroundColor: YELLOW,
-  position: 'fixed',
-  left: 0,
-  right: 0,
-  bottom: 0,
+  marginBottom: -30,
+  position: 'relative',
   zIndex: 5,
+
+  [MEDIA_LARGE]: {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    marginBottom: 0,
+  },
 });
 
 const FIT_DIALOG_STYLE = css({
@@ -23,8 +29,7 @@ const FIT_DIALOG_STYLE = css({
 
 const BANNER_INNER_STYLE = css({
   minHeight: 30,
-  paddingTop: '0.5rem',
-  paddingBottom: '0.5rem',
+  padding: '0.5rem 1rem',
   transition: 'max-width 200ms',
 });
 
