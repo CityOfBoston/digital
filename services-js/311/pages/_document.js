@@ -21,7 +21,7 @@ export default class extends Document {
 
   static async getInitialProps({ renderPage }) {
     const page = renderPage();
-    const styles = renderStatic(() => page.html);
+    const styles = renderStatic(() => page.html || page.errorHtml);
     return {
       ...page,
       ...styles,
