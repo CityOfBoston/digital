@@ -102,6 +102,13 @@ export default (parallel: number, { open311, opbeat }: Deps) => (
           })),
       {
         length: length => logQueueLength('load-cases', length),
+        // Queue error handler to make sure we completely explode on fatal
+        // errors. Necessary to cause a restart when auth expires.
+        error: err => {
+          if (err.fatal) {
+            throw err;
+          }
+        },
       },
       parallel
     )
