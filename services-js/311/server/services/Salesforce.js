@@ -96,7 +96,7 @@ export default class Salesforce {
       const err: any = new Error(
         json.error_description || 'Error authenticating to Salesforce'
       );
-      err.extra = { responseText: await res.text() };
+      err.extra = { responseJson: json };
       throw err;
     } else {
       return json.access_token;
