@@ -63,6 +63,7 @@ export default class Salesforce {
     this.consumerSecret = consumerSecret;
     this.username = username;
     this.password = password;
+    this.securityToken = securityToken;
 
     this.authenticating = false;
   }
