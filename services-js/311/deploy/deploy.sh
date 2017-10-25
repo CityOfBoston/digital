@@ -41,7 +41,7 @@ echo "ChangeSetProperties='" >> deploy-message.txt
 
 aws cloudformation create-change-set \
   --stack-name "${APP_STACK}-Deploy" \
-  --template-url "${DEPLOY_TEMPLATE_S3_URI}" \
+  --template-url "${DEPLOY_TEMPLATE_S3_HTTPS}" \
   --change-set-name "${TRAVIS_BRANCH}-${TAG}" \
   --parameters \
     ParameterKey=ClusterStack,ParameterValue=$CLUSTER_STACK \
