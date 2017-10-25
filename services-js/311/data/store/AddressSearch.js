@@ -98,7 +98,9 @@ export default class AddressSearch {
       runInAction('search - searchAddress error', () => {
         this.searching = false;
         this.lastSearchError = err;
-        window._opbeat && window._opbeat('captureException', err);
+        window._opbeat &&
+          !err.server &&
+          window._opbeat('captureException', err);
       });
     }
   }

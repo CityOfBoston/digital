@@ -253,7 +253,7 @@ export default class RequestDialog extends React.Component<Props> {
       },
       err => {
         /* eslint-disable no-underscore-dangle */
-        if (window._opbeat) {
+        if (window._opbeat && !err.server) {
           window._opbeat('captureException', err);
           err._sentToOpbeat = true;
         }

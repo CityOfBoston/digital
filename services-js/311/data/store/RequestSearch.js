@@ -208,7 +208,9 @@ export default class RequestSearch {
       action('searchCases failure', err => {
         this.loading = false;
         this.resultsError = err;
-        window._opbeat && window._opbeat('captureException', err);
+        window._opbeat &&
+          !err.server &&
+          window._opbeat('captureException', err);
       })
     );
   }

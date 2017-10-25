@@ -20,6 +20,10 @@ const makeGraphQLError = (message, errors) => {
 
   const e: Object = new Error(message);
   e.errors = errors;
+
+  // These exceptions were already sent by the server process, so no need to
+  // send them again for the web.
+  e.server = true;
   return e;
 };
 

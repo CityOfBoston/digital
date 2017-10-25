@@ -45,7 +45,13 @@ export default class ErrorLayout extends React.Component<Props> {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 
-    if (process.browser && window._opbeat && err && !err._sentToOpbeat) {
+    if (
+      process.browser &&
+      window._opbeat &&
+      err &&
+      !err.server &&
+      !err._sentToOpbeat
+    ) {
       window._opbeat('captureException', err);
       err._sentToOpbeat = true;
     }
