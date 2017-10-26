@@ -4,16 +4,13 @@ services:
 language: node_js
 node_js:
 - 8
-
 branches:
   only:
   - production
   - develop
   - "/^greenkeeper\\/.*$/"
-
 before_install:
 - npm i -g greenkeeper-lockfile@1
-
 before_script:
 - greenkeeper-lockfile-update
 script:
@@ -24,11 +21,18 @@ after_success:
 before_deploy:
 - pip install --upgrade --user awscli
 deploy:
-  - provider: script
-    script: "./deploy/deploy.sh $DEVINT2_CLUSTER_STACK $DEVINT2_APP_STACK $DEVINT2_REPOSITORY_NAME $DEVINT2_DESIRED_COUNT && ./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
-    on:
-      branch: develop
-  - provider: script
-    script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME $PROD_DESIRED_COUNT"
-    on:
-      branch: production
+- provider: script
+  script: "./deploy/deploy.sh $DEVINT2_CLUSTER_STACK $DEVINT2_APP_STACK $DEVINT2_REPOSITORY_NAME
+    $DEVINT2_DESIRED_COUNT && ./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK
+    $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
+  on:
+    branch: develop
+- provider: script
+  script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME
+    $PROD_DESIRED_COUNT"
+  on:
+    branch: production
+notifications:
+  slack:
+    rooms:
+      secure: J0/Fz7mlbA69LMfcEvuU9NvbIyuYnh717dXXgz5QbXQixC4kxo9ULSkGYbBZn4tX9xlJcpj2CV7+hxhl+H94NCjqHD8zzZWPpB6ap+5wdTvnGujO2FoDmtRYTUjdrXC7Qh6nukDTOc7k+5MyrUOdxA/Js3TBWkfauZPmewjNmPxx4ADQsoyvzX+D+n75F0ACvwYY0z/86TKVx/L7oWSrvCDF21qvwQFALlXIT9XwWuAIv+Et2zao1S68cwgEgEvqsyLWIgJT0h5I5MQ2zNlHAhbsZ2lVHhNQ8yh0VdVJTrj2s42JCOfNLPlwZX7eSUtwkkjeUWRdQix13lmgqh0UvPJX1ECNBjH0G3B4XXPC02YfyDIbInBrQPzfdJ0iq86mF7YWJrbrDHThKROnVJ5fZbUiQHiBDtmFpqjZKpiwTgkqKOM4sTM9Qm6a8N5miPH9LxrRJGlaAeINVgwiiU7xo35vhHRrJiIkn7B9Vf+oZ4T6x3gUutztTHaQsdKxYVHmnKMlc5TN0S3a24/8yHjRPByWAEe9zHGGOfWC1hieWLt0E4U92UPAz7kBmIzHx39t6DsYvVxdTiNhgxJp0251NX6re/Neat48lEq9uyqqc5pU+oa6kZZEqaCeY3RWOD2vvY0OdMWOWgQXmbGRy3qcM1HgBxIppSUNYJwU4dajqbg=

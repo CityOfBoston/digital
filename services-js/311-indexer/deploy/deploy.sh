@@ -33,19 +33,28 @@ docker build \
 docker push $REPOSITORY_NAME:latest
 docker push $REPOSITORY_NAME:$TAG
 
-aws s3 cp $DEPLOY_TEMPLATE_S3_URI deploy.yml
+echo "StackName='${APP_STACK}-Deploy'" >> deploy-message.txt
+echo "LogicalResourceId='${APP_STACK}-Deploy'" >> deploy-message.txt
+echo "ResourceStatus='CHANGE_SET_CREATE'" >> deploy-message.txt
+echo "ChangeSetName='${TRAVIS_BRANCH}-${TAG}'" >> deploy-message.txt
+echo "ChangeSetProperties='" >> deploy-message.txt
 
-# Add this to prevent execution
-# --no-execute-changeset \
-
-aws cloudformation deploy \
-  --template-file deploy.yml \
+aws cloudformation create-change-set \
   --stack-name "${APP_STACK}-Deploy" \
-  --parameter-overrides \
-    ClusterStack=$CLUSTER_STACK \
-    AppStack=$APP_STACK \
-    RepositoryName=$REPOSITORY_NAME \
-    DesiredCount=$DESIRED_COUNT \
-    Tag=$TAG \
-    GitBranch=$TRAVIS_BRANCH \
-    GitRevision=$TRAVIS_COMMIT 
+  --template-url "${DEPLOY_TEMPLATE_S3_HTTPS}" \
+  --change-set-name "${TRAVIS_BRANCH}-${TAG}" \
+  --parameters \
+    ParameterKey=ClusterStack,ParameterValue=$CLUSTER_STACK \
+    ParameterKey=AppStack,ParameterValue=$APP_STACK \
+    ParameterKey=RepositoryName,ParameterValue=$REPOSITORY_NAME \
+    ParameterKey=DesiredCount,ParameterValue=$DESIRED_COUNT \
+    ParameterKey=Tag,ParameterValue=$TAG \
+    ParameterKey=GitBranch,ParameterValue=$TRAVIS_BRANCH \
+    ParameterKey=GitRevision,ParameterValue=$TRAVIS_COMMIT \
+  --notification-arns "${DEPLOY_NOTIFICATION_ARN}" >> deploy-message.txt
+
+echo "'" >> deploy-message.txt
+
+cat deploy-message.txt
+
+aws sns publish --message file://deploy-message.txt --topic "${DEPLOY_NOTIFICATION_ARN}"
