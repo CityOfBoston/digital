@@ -7,7 +7,7 @@ rvm:
 branches:
   only:
   - production
-  - develop
+  - staging
   - "/^greenkeeper\\/.*$/"
 before_deploy:
 - pip install --upgrade --user awscli
@@ -16,7 +16,7 @@ deploy:
   script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME
     $STAGING_DESIRED_COUNT"
   on:
-    branch: develop
+    branch: staging
 - provider: script
   script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME
     $PROD_DESIRED_COUNT"
