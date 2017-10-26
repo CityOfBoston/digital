@@ -12,15 +12,17 @@ branches:
 before_deploy:
 - pip install --upgrade --user awscli
 deploy:
-  - provider: script
-    script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
-    on:
-      branch: develop
-  - provider: script
-    script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME $PROD_DESIRED_COUNT"
-    on:
-      branch: production
+- provider: script
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME
+    $STAGING_DESIRED_COUNT"
+  on:
+    branch: develop
+- provider: script
+  script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME
+    $PROD_DESIRED_COUNT"
+  on:
+    branch: production
 notifications:
   slack:
     rooms:
-      secure: LThaWUbmBm4rhpQT9WdeaWepI+FLLXED3j/FnH2DdDe2bQC25nWjos5SrepzrDLp42uM/WupCIqjlEXcQOUxdF9+9v+02dvsUFBtr8YpFyHPtiy6AJ3QpTYWxZd/J9FfeaIl29nu4hEXqkRDDToJOhl87alyPlYAiNIubgzBrDikt+UDB5IPgBrMUEyviG2selO+uWEOLgnTAMF2RRqtDuNiOiFXMYPWNxcx6Zf9UYcHdxd2DjtTAj4ts70dMpY93HTf71sxxkYy0EPsjh2T7miN/3QYG3HJfHDsJswzh4s0Y9vwXHHqZbiSsVKIJHg6Co8hHSVSMKU1VVOoy6bKsdPwTgXNQdYIeEBqEt8cUAWc4Z6kzayjrsvvIyVnyWvp6Wu4cb3KzbPaT5qSFB5zsREFZjY6rt4TU9KRLeNYAVKbrWrKAcKxLoV0clKl7J9NCe6ZK4K6b//RyS8ZNExcTafui7GmT4739ztbwh4P9VL0eTepdSzA6UjoAjv/lklMJex1b81oWUX10z+DdZrENAg8+YToGauJQGvqVvrCsiAN9NBWUq8Yoq++saZ1aAPIKqnoWGap1lHHko/LNMhi1XdurKsUi5idjsiWNatK8qKjLGaa2kDJpqb1VCJkXMo8BnaSYU8fMO9t2/2mzDsTV4RHzroK1hBDu5JJubj3YWc=
+      secure: f/JZuEI6pLZDnhN7rwZ7qdCuPE52qxms04KBCVhjqOUCsabxM2+7freBfwpv2qkacOFA84dv+yC97Sqt3EIumvqwOhqJ2PUddaRJs3jgxkATuWh4by9QyQcbDNr7kNvb978FxJQmRzzAJ1Wsp48XVo9BsSDccAorjaVHq+q7abRyRKsm22DXmG6MGkDzK5VzpwbTc7rpECkAcxZSFTLjVcI2nHuGIGRm0P3LfZBcqPKrkcW4KsWtCTSx4FFQ9aFthTmTGLu5A22sPb/3RJ7V2tGQeEj/3vHb0JF1YPVkDgxGURCA9gHOw+u5Rh0+qh4Bt4nOBVlMZkEF9g+qHlZ4tQAuozzc3ll0bCliounob5qaES3t2qqoW8pDMEznRwwK10gRbqSSAEtp5GWA9qlI8XIbAG6lGREz3unubknyOOq/Y37foeHezyP+/dVujcuyYBU41dN/bLTvx9sa8q5Eoou8UK6XU9bSIY8Hhbwwu0g0bQ0iEp7mHjQEPn2KrxhfUmYQUnI0ofM1hPaXF9vzAt7zQm0PtHUzjEPH1BRFj8KfcLts39fPSxoQNyqzg4W8PREuivGtnQ9ILiGkDHznz3qbm/3Lc6NP8/eeh36LM55HhDIccbE8n7NlQNfMsXFeA23oOJ6AD7Bn95mXThHlH++43pYsVlWpIHLqlL4i17s=
