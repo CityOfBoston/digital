@@ -58,3 +58,5 @@ echo "'" >> deploy-message.txt
 cat deploy-message.txt
 
 aws sns publish --message file://deploy-message.txt --topic "${DEPLOY_NOTIFICATION_ARN}"
+
+rm deploy-message.txt
