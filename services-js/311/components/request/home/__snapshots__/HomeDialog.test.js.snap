@@ -164,7 +164,7 @@ exports[`home page rendering 1`] = `
           className="g m-t500"
         >
           <form
-            className="g--7 css-1vm2aiv"
+            className="g--7 css-1t62idy"
             onSubmit={[Function]}
           >
             <div>
@@ -204,14 +204,10 @@ exports[`home page rendering 1`] = `
               </div>
             </div>
             <div
-              className="m-t500"
-              style={
-                Object {
-                  "textAlign": "right",
-                }
-              }
+              className="m-t500 g g--r"
             >
               <span
+                className="ta-r g--5 m-b200"
                 style={
                   Object {
                     "position": "relative",
@@ -240,6 +236,9 @@ exports[`home page rendering 1`] = `
                   }
                 />
               </span>
+              <div
+                className="g--7 m-b200 css-td8zes"
+              />
             </div>
           </form>
           <div

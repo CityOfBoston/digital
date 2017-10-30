@@ -23,7 +23,6 @@ import DescriptionBox from '../../common/DescriptionBox';
 const FORM_COLUMN_STYLE = css({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
 });
 
 const NEXT_BUTTON_STYLE = css({
@@ -78,6 +77,25 @@ const BROWSE_CASES_STYLE = css({
   display: 'flex',
   alignItems: 'center',
   margin: '1rem 0',
+});
+
+const CHAT_LINK_WRAPPER_STYLE = css({
+  alignSelf: 'center',
+  fontStyle: 'italic',
+  position: 'relative',
+  paddingLeft: '4rem',
+  marginTop: '1rem',
+
+  [MEDIA_LARGE]: {
+    marginTop: 0,
+  },
+});
+
+const CHAT_ICON_STYLE = css({
+  position: 'absolute',
+  width: '6rem',
+  left: '-1.1rem',
+  top: '-0.75rem',
 });
 
 export type Props = {|
@@ -246,16 +264,11 @@ export default class HomePane extends React.Component<Props> {
                 />
               </div>
 
-              <div className="m-t500" style={{ textAlign: 'right' }}>
-                {store.liveAgentAvailable &&
-                  <button
-                    type="button"
-                    className="btn m-h100"
-                    onClick={this.startChat}
-                  >
-                    Start Live Chat
-                  </button>}
-                <span style={{ position: 'relative' }}>
+              <div className="m-t500 g g--r">
+                <span
+                  style={{ position: 'relative' }}
+                  className="ta-r g--5 m-b200"
+                >
                   <button
                     disabled={description.length === 0}
                     type="submit"
@@ -263,6 +276,7 @@ export default class HomePane extends React.Component<Props> {
                   >
                     Start a Request
                   </button>
+
                   {description.length === 0 &&
                     <span
                       style={{
@@ -277,6 +291,20 @@ export default class HomePane extends React.Component<Props> {
                       role="presentation"
                     />}
                 </span>
+
+                <div
+                  className={`g--7 m-b200 ${CHAT_LINK_WRAPPER_STYLE.toString()}`}
+                >
+                  {store.liveAgentAvailable &&
+                    <a href="javascript:void()" onClick={this.startChat}>
+                      <img
+                        src="https://patterns.boston.gov/images/global/icons/experiential/city-council-meeting.svg"
+                        alt=""
+                        className={`${CHAT_ICON_STYLE.toString()}`}
+                      />
+                      Start live chat
+                    </a>}
+                </div>
               </div>
             </form>
 

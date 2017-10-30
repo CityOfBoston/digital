@@ -754,7 +754,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -807,13 +807,13 @@ exports[`Storyshots CaseLayout 404 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1066,7 +1066,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -1119,13 +1119,13 @@ exports[`Storyshots CaseLayout Existing 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4200,7 +4200,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -4253,13 +4253,13 @@ exports[`Storyshots ErrorLayout 404 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4490,7 +4490,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -4543,13 +4543,13 @@ exports[`Storyshots ErrorLayout 500 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4780,7 +4780,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -4833,13 +4833,13 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -5814,7 +5814,7 @@ exports[`Storyshots HomePane Home 1`] = `
           className="g m-t500"
         >
           <form
-            className="g--7 css-1vm2aiv"
+            className="g--7 css-1t62idy"
             onSubmit={[Function]}
           >
             <div>
@@ -5854,14 +5854,10 @@ exports[`Storyshots HomePane Home 1`] = `
               </div>
             </div>
             <div
-              className="m-t500"
-              style={
-                Object {
-                  "textAlign": "right",
-                }
-              }
+              className="m-t500 g g--r"
             >
               <span
+                className="ta-r g--5 m-b200"
                 style={
                   Object {
                     "position": "relative",
@@ -5876,6 +5872,9 @@ exports[`Storyshots HomePane Home 1`] = `
                   Start a Request
                 </button>
               </span>
+              <div
+                className="g--7 m-b200 css-td8zes"
+              />
             </div>
           </form>
           <div
@@ -9741,7 +9740,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -9794,13 +9793,13 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -9959,7 +9958,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                   className="g m-t500"
                 >
                   <form
-                    className="g--7 css-1vm2aiv"
+                    className="g--7 css-1t62idy"
                     onSubmit={[Function]}
                   >
                     <div>
@@ -9999,21 +9998,10 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                       </div>
                     </div>
                     <div
-                      className="m-t500"
-                      style={
-                        Object {
-                          "textAlign": "right",
-                        }
-                      }
+                      className="m-t500 g g--r"
                     >
-                      <button
-                        className="btn m-h100"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        Start Live Chat
-                      </button>
                       <span
+                        className="ta-r g--5 m-b200"
                         style={
                           Object {
                             "position": "relative",
@@ -10042,6 +10030,21 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                           }
                         />
                       </span>
+                      <div
+                        className="g--7 m-b200 css-td8zes"
+                      >
+                        <a
+                          href="javascript:void()"
+                          onClick={[Function]}
+                        >
+                          <img
+                            alt=""
+                            className="css-tipz5y"
+                            src="https://patterns.boston.gov/images/global/icons/experiential/city-council-meeting.svg"
+                          />
+                          Start live chat
+                        </a>
+                      </div>
                     </div>
                   </form>
                   <div
@@ -10268,7 +10271,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -10321,13 +10324,13 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -10858,7 +10861,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -10911,13 +10914,13 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11424,7 +11427,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -11477,13 +11480,13 @@ exports[`Storyshots SearchLayout List View 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11790,7 +11793,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -11843,13 +11846,13 @@ exports[`Storyshots SearchLayout Map View 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -12103,7 +12106,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -12156,13 +12159,13 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -12843,7 +12846,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
 <li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
 <li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
 <li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
@@ -12896,13 +12899,13 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=ox63h7\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=ox63h7\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
