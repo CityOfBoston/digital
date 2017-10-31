@@ -1113,7 +1113,10 @@ export default class LocationMap extends React.Component<Props> {
     if (ev.originalEvent) {
       ev.originalEvent.stopPropagation();
     }
-    this.currentLocationClicked(ev.target.getLatLng());
+
+    // We need to make this a plain object rather than a LatLng instance.
+    const { lat, lng } = ev.target.getLatLng();
+    this.currentLocationClicked({ lat, lng });
   }
 
   @action.bound
