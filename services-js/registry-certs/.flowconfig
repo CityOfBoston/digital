@@ -6,6 +6,8 @@ flow-decl/
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/.*
 <PROJECT_ROOT>/node_modules/mitt/.*
+<PROJECT_ROOT>/node_modules/config-chain/test/broken.json
+<PROJECT_ROOT>/node_modules/npmconf/test/fixtures/package.json
 
 # Doesn't support 0.53
 <PROJECT_ROOT>/node_modules/radium/.*

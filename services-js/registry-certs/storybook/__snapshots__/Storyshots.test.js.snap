@@ -2,12 +2,10 @@
 
 exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
 <div
-  className="md-c"
-  data-jsx={45542349}
+  className="jsx-2805620393 md-c"
 >
   <button
-    className="md-cb"
-    data-jsx={45542349}
+    className="jsx-2805620393 md-cb"
     onClick={[Function]}
     style={
       Object {
@@ -19,28 +17,23 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
     Close
   </button>
   <div
-    className="mb-b p-a300 p-a600--xl"
-    data-jsx={45542349}
+    className="jsx-2805620393 mb-b p-a300 p-a600--xl"
   >
     <div
-      className="sh m-b300"
-      data-jsx={45542349}
+      className="jsx-2805620393 sh m-b300"
     >
       <div
-        className="sh-title"
-        data-jsx={45542349}
+        className="jsx-2805620393 sh-title"
       >
         Added to Cart
       </div>
     </div>
     <div
-      className="p-a300 br b--w row "
-      data-jsx={649230602}
+      className="jsx-947238363 p-a300 br b--w row "
     >
       <div
         aria-label="Quantity"
-        className="t--sans p-a300"
-        data-jsx={45542349}
+        className="jsx-2805620393 t--sans p-a300"
         style={
           Object {
             "fontWeight": "bold",
@@ -51,20 +44,17 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
          ×
       </div>
       <div
-        className="certificate-info-box"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-info-box"
       >
         <div
-          className="t--sans certificate-name"
-          data-jsx={3654363549}
+          className="jsx-2636230671 t--sans certificate-name"
         >
           BRUCE
            
           BANNER
         </div>
         <div
-          className="certificate-subinfo"
-          data-jsx={3654363549}
+          className="jsx-2636230671 certificate-subinfo"
         >
           Died: 
           3/4/2016
@@ -73,12 +63,10 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
       </div>
     </div>
     <div
-      className="m-v500 ta-c"
-      data-jsx={45542349}
+      className="jsx-2805620393 m-v500 ta-c"
     >
       <a
-        className="btn"
-        data-jsx={45542349}
+        className="jsx-2805620393 btn"
         href="/death/cart"
         onClick={[Function]}
       >
@@ -86,11 +74,10 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
       </a>
     </div>
     <div
-      className="m-t500"
-      data-jsx={45542349}
+      className="jsx-2805620393 m-t500"
     >
       <a
-        data-jsx={45542349}
+        className="jsx-2805620393"
         href="/death"
         onClick={[Function]}
       >
@@ -103,36 +90,31 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
 
 exports[`Storyshots CartItem certificate without death date 1`] = `
 <div
-  data-jsx={2121221989}
+  className="jsx-4105449804"
 >
   <div
-    className="p-a300 br b--w row br-a100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
-      className="br br-a150 quantity-box"
-      data-jsx={2121221989}
+      className="jsx-4105449804 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       value="1"
     />
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         MONKEY
          
         JOE
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         2004
@@ -140,8 +122,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
       </div>
     </div>
     <button
-      className="remove-button"
-      data-jsx={2121221989}
+      className="jsx-4105449804 remove-button"
       onClick={[Function]}
       type="button"
     >
@@ -153,43 +134,37 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
 
 exports[`Storyshots CartItem pending certificate 1`] = `
 <div
-  data-jsx={2121221989}
+  className="jsx-4105449804"
 >
   <div
-    className="p-a300 br b--w row br-a100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
-      className="br br-a150 quantity-box"
-      data-jsx={2121221989}
+      className="jsx-4105449804 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       value="1"
     />
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         JAMES
          
         HOWLETT (LOGAN)
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         4/15/2014
          — Age: 44 yrs. 2 mos. 10 dys
         <span
-          className="t--sans tt-u"
-          data-jsx={3654363549}
+          className="jsx-2636230671 t--sans tt-u"
           style={
             Object {
               "fontStyle": "normal",
@@ -203,8 +178,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
       </div>
     </div>
     <button
-      className="remove-button"
-      data-jsx={2121221989}
+      className="jsx-4105449804 remove-button"
       onClick={[Function]}
       type="button"
     >
@@ -216,36 +190,31 @@ exports[`Storyshots CartItem pending certificate 1`] = `
 
 exports[`Storyshots CartItem typical certificate 1`] = `
 <div
-  data-jsx={2121221989}
+  className="jsx-4105449804"
 >
   <div
-    className="p-a300 br b--w row br-a100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
-      className="br br-a150 quantity-box"
-      data-jsx={2121221989}
+      className="jsx-4105449804 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       value="1"
     />
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -253,8 +222,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
       </div>
     </div>
     <button
-      className="remove-button"
-      data-jsx={2121221989}
+      className="jsx-4105449804 remove-button"
       onClick={[Function]}
       type="button"
     >
@@ -525,16 +493,13 @@ exports[`Storyshots CartPage empty cart 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link"
           href="/death/"
           onClick={[Function]}
         >
@@ -599,35 +564,29 @@ exports[`Storyshots CartPage empty cart 1`] = `
       </ul>
     </nav>
     <div
-      className="page"
-      data-jsx={4273518101}
+      className="jsx-858389963 page"
     >
       <div
-        className="p-a300"
-        data-jsx={4273518101}
+        className="jsx-858389963 p-a300"
       >
         <div
-          className="sh sh--b0 m-t300"
-          data-jsx={4273518101}
+          className="jsx-858389963 sh sh--b0 m-t300"
         >
           <h1
-            className="sh-title"
-            data-jsx={4273518101}
+            className="jsx-858389963 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="content"
-        data-jsx={4273518101}
+        className="jsx-858389963 content"
       >
         <div
-          data-jsx={4273518101}
+          className="jsx-858389963"
         >
           <div
-            className="p-a300 g"
-            data-jsx={4273518101}
+            className="jsx-858389963 p-a300 g"
             style={
               Object {
                 "paddingTop": 0,
@@ -635,29 +594,24 @@ exports[`Storyshots CartPage empty cart 1`] = `
             }
           >
             <div
-              className="g--9  vertical-center"
-              data-jsx={4273518101}
+              className="jsx-858389963 g--9  vertical-center"
             >
               <div
-                className="t--intro"
-                data-jsx={4273518101}
+                className="jsx-858389963 t--intro"
               >
                 There’s nothing here yet!
               </div>
               <p
-                className="t--info"
-                data-jsx={4273518101}
+                className="jsx-858389963 t--info"
               >
                 Search for death certificates and add them to your cart.
               </p>
             </div>
             <div
-              className="g--3 m-v500"
-              data-jsx={4273518101}
+              className="jsx-858389963 g--3 m-v500"
             >
               <a
-                className="btn"
-                data-jsx={4273518101}
+                className="jsx-858389963 btn"
                 href="/death/"
                 onClick={[Function]}
               >
@@ -959,16 +913,13 @@ exports[`Storyshots CartPage loading 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link"
           href="/death/"
           onClick={[Function]}
         >
@@ -1033,51 +984,41 @@ exports[`Storyshots CartPage loading 1`] = `
       </ul>
     </nav>
     <div
-      className="page"
-      data-jsx={4273518101}
+      className="jsx-858389963 page"
     >
       <div
-        className="p-a300"
-        data-jsx={4273518101}
+        className="jsx-858389963 p-a300"
       >
         <div
-          className="sh sh--b0 m-t300"
-          data-jsx={4273518101}
+          className="jsx-858389963 sh sh--b0 m-t300"
         >
           <h1
-            className="sh-title"
-            data-jsx={4273518101}
+            className="jsx-858389963 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="content"
-        data-jsx={4273518101}
+        className="jsx-858389963 content"
       >
         <div
-          data-jsx={4273518101}
+          className="jsx-858389963"
         />
         <div
-          className="p-a300"
-          data-jsx={4273518101}
+          className="jsx-858389963 p-a300"
         >
           <div
-            className="m-v500"
-            data-jsx={399087421}
+            className="jsx-4282255710 m-v500"
           >
             <div
-              className="p-v200"
-              data-jsx={399087421}
+              className="jsx-4282255710 p-v200"
             >
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   8
                    
@@ -1086,47 +1027,40 @@ exports[`Storyshots CartPage loading 1`] = `
                   14
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   112.00
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Credit card processing fee
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   3.08
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   <i
-                    data-jsx={399087421}
+                    className="jsx-4282255710"
                   >
                     free
                   </i>
@@ -1134,18 +1068,15 @@ exports[`Storyshots CartPage loading 1`] = `
               </div>
             </div>
             <div
-              className="cost-row"
-              data-jsx={399087421}
+              className="jsx-4282255710 cost-row"
             >
               <span
-                className="sh-title"
-                data-jsx={399087421}
+                className="jsx-4282255710 sh-title"
               >
                 Total
               </span>
               <span
-                className="cost br br-t100 p-v200"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
                 115.09
@@ -1153,12 +1084,10 @@ exports[`Storyshots CartPage loading 1`] = `
             </div>
           </div>
           <div
-            className="m-v500"
-            data-jsx={4273518101}
+            className="jsx-858389963 m-v500"
           >
             <a
-              className="btn"
-              data-jsx={4273518101}
+              className="jsx-858389963 btn"
               href="/death/checkout"
               onClick={[Function]}
             >
@@ -1459,16 +1388,13 @@ exports[`Storyshots CartPage normal page 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link"
           href="/death/"
           onClick={[Function]}
         >
@@ -1533,63 +1459,53 @@ exports[`Storyshots CartPage normal page 1`] = `
       </ul>
     </nav>
     <div
-      className="page"
-      data-jsx={4273518101}
+      className="jsx-858389963 page"
     >
       <div
-        className="p-a300"
-        data-jsx={4273518101}
+        className="jsx-858389963 p-a300"
       >
         <div
-          className="sh sh--b0 m-t300"
-          data-jsx={4273518101}
+          className="jsx-858389963 sh sh--b0 m-t300"
         >
           <h1
-            className="sh-title"
-            data-jsx={4273518101}
+            className="jsx-858389963 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="content"
-        data-jsx={4273518101}
+        className="jsx-858389963 content"
       >
         <div
-          data-jsx={4273518101}
+          className="jsx-858389963"
         >
           <div
-            data-jsx={2121221989}
+            className="jsx-4105449804"
           >
             <div
-              className="p-a300 br b--w row br-t100"
-              data-jsx={649230602}
+              className="jsx-947238363 p-a300 br b--w row br-t100"
             >
               <input
                 aria-label="Quantity"
-                className="br br-a150 quantity-box"
-                data-jsx={2121221989}
+                className="jsx-4105449804 br br-a150 quantity-box"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
                 value="1"
               />
               <div
-                className="certificate-info-box"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-info-box"
               >
                 <div
-                  className="t--sans certificate-name"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 t--sans certificate-name"
                 >
                   BRUCE
                    
                   BANNER
                 </div>
                 <div
-                  className="certificate-subinfo"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 certificate-subinfo"
                 >
                   Died: 
                   3/4/2016
@@ -1597,8 +1513,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 </div>
               </div>
               <button
-                className="remove-button"
-                data-jsx={2121221989}
+                className="jsx-4105449804 remove-button"
                 onClick={[Function]}
                 type="button"
               >
@@ -1607,43 +1522,37 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <div
-            data-jsx={2121221989}
+            className="jsx-4105449804"
           >
             <div
-              className="p-a300 br b--w row br-t100"
-              data-jsx={649230602}
+              className="jsx-947238363 p-a300 br b--w row br-t100"
             >
               <input
                 aria-label="Quantity"
-                className="br br-a150 quantity-box"
-                data-jsx={2121221989}
+                className="jsx-4105449804 br br-a150 quantity-box"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
                 value="3"
               />
               <div
-                className="certificate-info-box"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-info-box"
               >
                 <div
-                  className="t--sans certificate-name"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 t--sans certificate-name"
                 >
                   JAMES
                    
                   HOWLETT (LOGAN)
                 </div>
                 <div
-                  className="certificate-subinfo"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 certificate-subinfo"
                 >
                   Died: 
                   4/15/2014
                    — Age: 44 yrs. 2 mos. 10 dys
                   <span
-                    className="t--sans tt-u"
-                    data-jsx={3654363549}
+                    className="jsx-2636230671 t--sans tt-u"
                     style={
                       Object {
                         "fontStyle": "normal",
@@ -1657,8 +1566,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 </div>
               </div>
               <button
-                className="remove-button"
-                data-jsx={2121221989}
+                className="jsx-4105449804 remove-button"
                 onClick={[Function]}
                 type="button"
               >
@@ -1667,36 +1575,31 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <div
-            data-jsx={2121221989}
+            className="jsx-4105449804"
           >
             <div
-              className="p-a300 br b--w row br-a100"
-              data-jsx={649230602}
+              className="jsx-947238363 p-a300 br b--w row br-a100"
             >
               <input
                 aria-label="Quantity"
-                className="br br-a150 quantity-box"
-                data-jsx={2121221989}
+                className="jsx-4105449804 br br-a150 quantity-box"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
                 value="1"
               />
               <div
-                className="certificate-info-box"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-info-box"
               >
                 <div
-                  className="t--sans certificate-name"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 t--sans certificate-name"
                 >
                   MONKEY
                    
                   JOE
                 </div>
                 <div
-                  className="certificate-subinfo"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 certificate-subinfo"
                 >
                   Died: 
                   2004
@@ -1704,8 +1607,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 </div>
               </div>
               <button
-                className="remove-button"
-                data-jsx={2121221989}
+                className="jsx-4105449804 remove-button"
                 onClick={[Function]}
                 type="button"
               >
@@ -1715,24 +1617,19 @@ exports[`Storyshots CartPage normal page 1`] = `
           </div>
         </div>
         <div
-          className="p-a300"
-          data-jsx={4273518101}
+          className="jsx-858389963 p-a300"
         >
           <div
-            className="m-v500"
-            data-jsx={399087421}
+            className="jsx-4282255710 m-v500"
           >
             <div
-              className="p-v200"
-              data-jsx={399087421}
+              className="jsx-4282255710 p-v200"
             >
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   5
                    
@@ -1741,47 +1638,40 @@ exports[`Storyshots CartPage normal page 1`] = `
                   14
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Credit card processing fee
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   1.93
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   <i
-                    data-jsx={399087421}
+                    className="jsx-4282255710"
                   >
                     free
                   </i>
@@ -1789,18 +1679,15 @@ exports[`Storyshots CartPage normal page 1`] = `
               </div>
             </div>
             <div
-              className="cost-row"
-              data-jsx={399087421}
+              className="jsx-4282255710 cost-row"
             >
               <span
-                className="sh-title"
-                data-jsx={399087421}
+                className="jsx-4282255710 sh-title"
               >
                 Total
               </span>
               <span
-                className="cost br br-t100 p-v200"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
                 71.93
@@ -1808,12 +1695,10 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
           <div
-            className="m-v500"
-            data-jsx={4273518101}
+            className="jsx-858389963 m-v500"
           >
             <a
-              className="btn"
-              data-jsx={4273518101}
+              className="jsx-858389963 btn"
               href="/death/checkout"
               onClick={[Function]}
             >
@@ -2114,24 +1999,20 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -2196,19 +2077,16 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       </ul>
     </nav>
     <div
-      className="content"
-      data-jsx={1942578276}
+      className="jsx-225913026 content"
     >
       <div
-        className="p-a300"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300"
       >
         <div
-          className="m-b300"
-          data-jsx={1942578276}
+          className="jsx-225913026 m-b300"
         >
           <a
-            data-jsx={1942578276}
+            className="jsx-225913026"
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -2221,12 +2099,10 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
           </a>
         </div>
         <div
-          className="sh sh--b0"
-          data-jsx={1942578276}
+          className="jsx-225913026 sh sh--b0"
         >
           <h1
-            className="sh-title"
-            data-jsx={1942578276}
+            className="jsx-225913026 sh-title"
             style={
               Object {
                 "marginBottom": 0,
@@ -2238,8 +2114,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w certificate-wrapper"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300 b--w certificate-wrapper"
       />
     </div>
   </div>
@@ -2533,24 +2408,20 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -2615,19 +2486,16 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       </ul>
     </nav>
     <div
-      className="content"
-      data-jsx={1942578276}
+      className="jsx-225913026 content"
     >
       <div
-        className="p-a300"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300"
       >
         <div
-          className="m-b300"
-          data-jsx={1942578276}
+          className="jsx-225913026 m-b300"
         >
           <a
-            data-jsx={1942578276}
+            className="jsx-225913026"
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -2640,12 +2508,10 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
           </a>
         </div>
         <div
-          className="sh sh--b0"
-          data-jsx={1942578276}
+          className="jsx-225913026 sh sh--b0"
         >
           <h1
-            className="sh-title"
-            data-jsx={1942578276}
+            className="jsx-225913026 sh-title"
             style={
               Object {
                 "marginBottom": 0,
@@ -2657,47 +2523,38 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w certificate-wrapper"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300 b--w certificate-wrapper"
       >
         <div
-          className="certificate"
-          data-jsx={923686781}
+          className="jsx-3528172379 certificate"
         >
           <ul
-            className="dl"
-            data-jsx={923686781}
+            className="jsx-3528172379 dl"
           >
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 ID #
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 000002
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Full name
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 BRUCE
                  
@@ -2705,69 +2562,57 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of birth
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 5/1/1962
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of death
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 3/4/2016
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Age
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 53
               </span>
             </li>
           </ul>
           <div
-            className="m-v500 "
-            data-jsx={923686781}
+            className="jsx-3528172379 m-v500 "
           >
             <form
-              className="js-add-to-cart-form "
-              data-jsx={923686781}
+              className="jsx-3528172379 js-add-to-cart-form "
               onSubmit={[Function]}
             >
               <input
-                className="txt-f"
-                data-jsx={923686781}
+                className="jsx-3528172379 txt-f"
                 id="quantity"
                 name="quantity"
                 onChange={[Function]}
@@ -2775,91 +2620,88 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                 value={1}
               />
               <div
-                className="sel-c sel-c--sq"
-                data-jsx={923686781}
+                className="jsx-3528172379 sel-c sel-c--sq"
               >
                 <label
-                  className="a11y--h"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 a11y--h"
                   htmlFor="quantity"
                 >
                   Quantity:
                 </label>
                 <select
-                  className="sel-f sel-f--sq"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 sel-f sel-f--sq"
                   name="quantityMenu"
                   onChange={[Function]}
                   value={1}
                 >
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="1"
                   >
                     1
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="2"
                   >
                     2
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="3"
                   >
                     3
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="4"
                   >
                     4
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="5"
                   >
                     5
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="6"
                   >
                     6
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="7"
                   >
                     7
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="8"
                   >
                     8
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="9"
                   >
                     9
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="10"
                   >
                     10
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     disabled={true}
                   >
                     ---------------
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="other"
                   >
                     Other…
@@ -2867,8 +2709,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                 </select>
               </div>
               <button
-                className="btn add-to-cart"
-                data-jsx={923686781}
+                className="jsx-3528172379 btn add-to-cart"
                 disabled={false}
                 type="submit"
               >
@@ -2876,8 +2717,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               </button>
             </form>
             <p
-              className="t--subinfo"
-              data-jsx={923686781}
+              className="jsx-3528172379 t--subinfo"
             >
               Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
             </p>
@@ -3176,24 +3016,20 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -3258,19 +3094,16 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       </ul>
     </nav>
     <div
-      className="content"
-      data-jsx={1942578276}
+      className="jsx-225913026 content"
     >
       <div
-        className="p-a300"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300"
       >
         <div
-          className="m-b300"
-          data-jsx={1942578276}
+          className="jsx-225913026 m-b300"
         >
           <a
-            data-jsx={1942578276}
+            className="jsx-225913026"
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -3283,12 +3116,10 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
           </a>
         </div>
         <div
-          className="sh sh--b0"
-          data-jsx={1942578276}
+          className="jsx-225913026 sh sh--b0"
         >
           <h1
-            className="sh-title"
-            data-jsx={1942578276}
+            className="jsx-225913026 sh-title"
             style={
               Object {
                 "marginBottom": 0,
@@ -3300,47 +3131,38 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w certificate-wrapper"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300 b--w certificate-wrapper"
       >
         <div
-          className="certificate"
-          data-jsx={923686781}
+          className="jsx-3528172379 certificate"
         >
           <ul
-            className="dl"
-            data-jsx={923686781}
+            className="jsx-3528172379 dl"
           >
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 ID #
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 000002
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Full name
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 BRUCE
                  
@@ -3348,69 +3170,57 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of birth
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 5/1/1962
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of death
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 3/4/2016
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Age
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 53
               </span>
             </li>
           </ul>
           <div
-            className="m-v500 "
-            data-jsx={923686781}
+            className="jsx-3528172379 m-v500 "
           >
             <form
-              className="js-add-to-cart-form "
-              data-jsx={923686781}
+              className="jsx-3528172379 js-add-to-cart-form "
               onSubmit={[Function]}
             >
               <input
-                className="txt-f"
-                data-jsx={923686781}
+                className="jsx-3528172379 txt-f"
                 id="quantity"
                 name="quantity"
                 onChange={[Function]}
@@ -3418,91 +3228,88 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                 value={1}
               />
               <div
-                className="sel-c sel-c--sq"
-                data-jsx={923686781}
+                className="jsx-3528172379 sel-c sel-c--sq"
               >
                 <label
-                  className="a11y--h"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 a11y--h"
                   htmlFor="quantity"
                 >
                   Quantity:
                 </label>
                 <select
-                  className="sel-f sel-f--sq"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 sel-f sel-f--sq"
                   name="quantityMenu"
                   onChange={[Function]}
                   value={1}
                 >
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="1"
                   >
                     1
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="2"
                   >
                     2
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="3"
                   >
                     3
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="4"
                   >
                     4
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="5"
                   >
                     5
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="6"
                   >
                     6
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="7"
                   >
                     7
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="8"
                   >
                     8
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="9"
                   >
                     9
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="10"
                   >
                     10
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     disabled={true}
                   >
                     ---------------
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="other"
                   >
                     Other…
@@ -3510,8 +3317,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                 </select>
               </div>
               <button
-                className="btn add-to-cart"
-                data-jsx={923686781}
+                className="jsx-3528172379 btn add-to-cart"
                 disabled={false}
                 type="submit"
               >
@@ -3519,8 +3325,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               </button>
             </form>
             <p
-              className="t--subinfo"
-              data-jsx={923686781}
+              className="jsx-3528172379 t--subinfo"
             >
               Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
             </p>
@@ -3528,16 +3333,13 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         </div>
       </div>
       <div
-        className="md"
-        data-jsx={1942578276}
+        className="jsx-225913026 md"
       >
         <div
-          className="md-c"
-          data-jsx={45542349}
+          className="jsx-2805620393 md-c"
         >
           <button
-            className="md-cb"
-            data-jsx={45542349}
+            className="jsx-2805620393 md-cb"
             onClick={[Function]}
             style={
               Object {
@@ -3549,28 +3351,23 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
             Close
           </button>
           <div
-            className="mb-b p-a300 p-a600--xl"
-            data-jsx={45542349}
+            className="jsx-2805620393 mb-b p-a300 p-a600--xl"
           >
             <div
-              className="sh m-b300"
-              data-jsx={45542349}
+              className="jsx-2805620393 sh m-b300"
             >
               <div
-                className="sh-title"
-                data-jsx={45542349}
+                className="jsx-2805620393 sh-title"
               >
                 Added to Cart
               </div>
             </div>
             <div
-              className="p-a300 br b--w row "
-              data-jsx={649230602}
+              className="jsx-947238363 p-a300 br b--w row "
             >
               <div
                 aria-label="Quantity"
-                className="t--sans p-a300"
-                data-jsx={45542349}
+                className="jsx-2805620393 t--sans p-a300"
                 style={
                   Object {
                     "fontWeight": "bold",
@@ -3581,20 +3378,17 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                  ×
               </div>
               <div
-                className="certificate-info-box"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-info-box"
               >
                 <div
-                  className="t--sans certificate-name"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 t--sans certificate-name"
                 >
                   BRUCE
                    
                   BANNER
                 </div>
                 <div
-                  className="certificate-subinfo"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 certificate-subinfo"
                 >
                   Died: 
                   3/4/2016
@@ -3603,12 +3397,10 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               </div>
             </div>
             <div
-              className="m-v500 ta-c"
-              data-jsx={45542349}
+              className="jsx-2805620393 m-v500 ta-c"
             >
               <a
-                className="btn"
-                data-jsx={45542349}
+                className="jsx-2805620393 btn"
                 href="/death/cart"
                 onClick={[Function]}
               >
@@ -3616,11 +3408,10 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               </a>
             </div>
             <div
-              className="m-t500"
-              data-jsx={45542349}
+              className="jsx-2805620393 m-t500"
             >
               <a
-                data-jsx={45542349}
+                className="jsx-2805620393"
                 href="/death"
                 onClick={[Function]}
               >
@@ -3922,24 +3713,20 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -4004,20 +3791,16 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       </ul>
     </nav>
     <div
-      className="content"
-      data-jsx={1942578276}
+      className="jsx-225913026 content"
     >
       <div
-        className="p-a300"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300"
       >
         <div
-          className="sh sh--b0"
-          data-jsx={1942578276}
+          className="jsx-225913026 sh sh--b0"
         >
           <h1
-            className="sh-title"
-            data-jsx={1942578276}
+            className="jsx-225913026 sh-title"
             style={
               Object {
                 "marginBottom": 0,
@@ -4029,47 +3812,38 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </div>
       </div>
       <div
-        className="p-a300 b--w certificate-wrapper"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300 b--w certificate-wrapper"
       >
         <div
-          className="certificate"
-          data-jsx={923686781}
+          className="jsx-3528172379 certificate"
         >
           <ul
-            className="dl"
-            data-jsx={923686781}
+            className="jsx-3528172379 dl"
           >
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 ID #
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 000002
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Full name
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 BRUCE
                  
@@ -4077,69 +3851,57 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of birth
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 5/1/1962
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of death
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 3/4/2016
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Age
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 53
               </span>
             </li>
           </ul>
           <div
-            className="m-v500 "
-            data-jsx={923686781}
+            className="jsx-3528172379 m-v500 "
           >
             <form
-              className="js-add-to-cart-form "
-              data-jsx={923686781}
+              className="jsx-3528172379 js-add-to-cart-form "
               onSubmit={[Function]}
             >
               <input
-                className="txt-f"
-                data-jsx={923686781}
+                className="jsx-3528172379 txt-f"
                 id="quantity"
                 name="quantity"
                 onChange={[Function]}
@@ -4147,91 +3909,88 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                 value={1}
               />
               <div
-                className="sel-c sel-c--sq"
-                data-jsx={923686781}
+                className="jsx-3528172379 sel-c sel-c--sq"
               >
                 <label
-                  className="a11y--h"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 a11y--h"
                   htmlFor="quantity"
                 >
                   Quantity:
                 </label>
                 <select
-                  className="sel-f sel-f--sq"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 sel-f sel-f--sq"
                   name="quantityMenu"
                   onChange={[Function]}
                   value={1}
                 >
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="1"
                   >
                     1
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="2"
                   >
                     2
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="3"
                   >
                     3
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="4"
                   >
                     4
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="5"
                   >
                     5
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="6"
                   >
                     6
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="7"
                   >
                     7
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="8"
                   >
                     8
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="9"
                   >
                     9
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="10"
                   >
                     10
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     disabled={true}
                   >
                     ---------------
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="other"
                   >
                     Other…
@@ -4239,8 +3998,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                 </select>
               </div>
               <button
-                className="btn add-to-cart"
-                data-jsx={923686781}
+                className="jsx-3528172379 btn add-to-cart"
                 disabled={false}
                 type="submit"
               >
@@ -4248,8 +4006,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               </button>
             </form>
             <p
-              className="t--subinfo"
-              data-jsx={923686781}
+              className="jsx-3528172379 t--subinfo"
             >
               Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
             </p>
@@ -4548,24 +4305,20 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -4630,19 +4383,16 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       </ul>
     </nav>
     <div
-      className="content"
-      data-jsx={1942578276}
+      className="jsx-225913026 content"
     >
       <div
-        className="p-a300"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300"
       >
         <div
-          className="m-b300"
-          data-jsx={1942578276}
+          className="jsx-225913026 m-b300"
         >
           <a
-            data-jsx={1942578276}
+            className="jsx-225913026"
             href="/search?q=jayne"
             onClick={[Function]}
             style={
@@ -4655,12 +4405,10 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
           </a>
         </div>
         <div
-          className="sh sh--b0"
-          data-jsx={1942578276}
+          className="jsx-225913026 sh sh--b0"
         >
           <h1
-            className="sh-title"
-            data-jsx={1942578276}
+            className="jsx-225913026 sh-title"
             style={
               Object {
                 "marginBottom": 0,
@@ -4672,47 +4420,38 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 b--w certificate-wrapper"
-        data-jsx={1942578276}
+        className="jsx-225913026 p-a300 b--w certificate-wrapper"
       >
         <div
-          className="certificate"
-          data-jsx={923686781}
+          className="jsx-3528172379 certificate"
         >
           <ul
-            className="dl"
-            data-jsx={923686781}
+            className="jsx-3528172379 dl"
           >
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 ID #
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 000001
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Full name
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 JAMES
                  
@@ -4720,52 +4459,43 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Date of death
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 4/15/2014
               </span>
             </li>
             <li
-              className="dl-i"
-              data-jsx={923686781}
+              className="jsx-3528172379 dl-i"
             >
               <span
-                className="dl-t"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-t"
               >
                 Age
               </span>
               <span
-                className="dl-d"
-                data-jsx={923686781}
+                className="jsx-3528172379 dl-d"
               >
                 44 yrs. 2 mos. 10 dys
               </span>
             </li>
           </ul>
           <div
-            className="m-v500 "
-            data-jsx={923686781}
+            className="jsx-3528172379 m-v500 "
           >
             <form
-              className="js-add-to-cart-form "
-              data-jsx={923686781}
+              className="jsx-3528172379 js-add-to-cart-form "
               onSubmit={[Function]}
             >
               <input
-                className="txt-f"
-                data-jsx={923686781}
+                className="jsx-3528172379 txt-f"
                 id="quantity"
                 name="quantity"
                 onChange={[Function]}
@@ -4773,91 +4503,88 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                 value={1}
               />
               <div
-                className="sel-c sel-c--sq"
-                data-jsx={923686781}
+                className="jsx-3528172379 sel-c sel-c--sq"
               >
                 <label
-                  className="a11y--h"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 a11y--h"
                   htmlFor="quantity"
                 >
                   Quantity:
                 </label>
                 <select
-                  className="sel-f sel-f--sq"
-                  data-jsx={923686781}
+                  className="jsx-3528172379 sel-f sel-f--sq"
                   name="quantityMenu"
                   onChange={[Function]}
                   value={1}
                 >
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="1"
                   >
                     1
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="2"
                   >
                     2
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="3"
                   >
                     3
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="4"
                   >
                     4
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="5"
                   >
                     5
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="6"
                   >
                     6
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="7"
                   >
                     7
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="8"
                   >
                     8
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="9"
                   >
                     9
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="10"
                   >
                     10
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     disabled={true}
                   >
                     ---------------
                   </option>
                   <option
-                    data-jsx={923686781}
+                    className="jsx-3528172379"
                     value="other"
                   >
                     Other…
@@ -4865,8 +4592,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                 </select>
               </div>
               <button
-                className="btn add-to-cart"
-                data-jsx={923686781}
+                className="jsx-3528172379 btn add-to-cart"
                 disabled={false}
                 type="submit"
               >
@@ -4874,8 +4600,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               </button>
             </form>
             <p
-              className="t--subinfo"
-              data-jsx={923686781}
+              className="jsx-3528172379 t--subinfo"
             >
               Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
             </p>
@@ -5174,16 +4899,13 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link"
           href="/death/"
           onClick={[Function]}
         >
@@ -5331,16 +5053,13 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 
 exports[`Storyshots Nav checkout page 1`] = `
 <nav
-  className="nv-s nv-s--sticky"
-  data-jsx={4179230438}
+  className="jsx-1306696032 nv-s nv-s--sticky"
 >
   <div
-    className="nv-s-l bar"
-    data-jsx={4179230438}
+    className="jsx-1306696032 nv-s-l bar"
   >
     <a
-      className="nv-s-l-b back-link"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s-l-b back-link"
       href="/death/"
       onClick={[Function]}
     >
@@ -5352,24 +5071,20 @@ exports[`Storyshots Nav checkout page 1`] = `
 
 exports[`Storyshots Nav normal page 1`] = `
 <nav
-  className="nv-s nv-s--sticky"
-  data-jsx={4179230438}
+  className="jsx-1306696032 nv-s nv-s--sticky"
 >
   <div
-    className="nv-s-l bar"
-    data-jsx={4179230438}
+    className="jsx-1306696032 nv-s-l bar"
   >
     <a
-      className="nv-s-l-b back-link back-link-right"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s-l-b back-link back-link-right"
       href="/death/cart"
       onClick={[Function]}
     >
       View Cart
     </a>
     <a
-      className="cart-link"
-      data-jsx={4179230438}
+      className="jsx-1306696032 cart-link"
       href="/death/cart"
       onClick={[Function]}
     >
@@ -5381,45 +5096,38 @@ exports[`Storyshots Nav normal page 1`] = `
 
 exports[`Storyshots OrderDetails closed 1`] = `
 <div
-  className="dr "
-  data-jsx={1379921796}
+  className="jsx-3101717291 dr "
 >
   <button
     aria-expanded={false}
-    className="dr-h"
-    data-jsx={1379921796}
+    className="jsx-3101717291 dr-h"
     onClick={[Function]}
     type="button"
   >
     <div
-      className="p-a300"
-      data-jsx={1379921796}
+      className="jsx-3101717291 p-a300"
     >
       <div
-        className="dr-ic"
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr-ic"
       >
         <svg
-          data-jsx={1379921796}
+          className="jsx-3101717291"
           viewBox="-2 8.5 18 25"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            className="dr-i"
+            className="jsx-3101717291 dr-i"
             d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            data-jsx={1379921796}
           />
         </svg>
       </div>
       <h2
-        className="t--sans tt-u"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--sans tt-u"
       >
         Order details
       </h2>
       <div
-        className="t--info"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--info"
       >
         5
          
@@ -5440,45 +5148,38 @@ exports[`Storyshots OrderDetails closed 1`] = `
 
 exports[`Storyshots OrderDetails loading 1`] = `
 <div
-  className="dr "
-  data-jsx={1379921796}
+  className="jsx-3101717291 dr "
 >
   <button
     aria-expanded={false}
-    className="dr-h"
-    data-jsx={1379921796}
+    className="jsx-3101717291 dr-h"
     onClick={[Function]}
     type="button"
   >
     <div
-      className="p-a300"
-      data-jsx={1379921796}
+      className="jsx-3101717291 p-a300"
     >
       <div
-        className="dr-ic"
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr-ic"
       >
         <svg
-          data-jsx={1379921796}
+          className="jsx-3101717291"
           viewBox="-2 8.5 18 25"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            className="dr-i"
+            className="jsx-3101717291 dr-i"
             d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            data-jsx={1379921796}
           />
         </svg>
       </div>
       <h2
-        className="t--sans tt-u"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--sans tt-u"
       >
         Order details
       </h2>
       <div
-        className="t--info"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--info"
       >
         8
          
@@ -5499,45 +5200,38 @@ exports[`Storyshots OrderDetails loading 1`] = `
 
 exports[`Storyshots OrderDetails open 1`] = `
 <div
-  className="dr dr--open"
-  data-jsx={1379921796}
+  className="jsx-3101717291 dr dr--open"
 >
   <button
     aria-expanded={true}
-    className="dr-h"
-    data-jsx={1379921796}
+    className="jsx-3101717291 dr-h"
     onClick={[Function]}
     type="button"
   >
     <div
-      className="p-a300"
-      data-jsx={1379921796}
+      className="jsx-3101717291 p-a300"
     >
       <div
-        className="dr-ic"
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr-ic"
       >
         <svg
-          data-jsx={1379921796}
+          className="jsx-3101717291"
           viewBox="-2 8.5 18 25"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            className="dr-i"
+            className="jsx-3101717291 dr-i"
             d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            data-jsx={1379921796}
           />
         </svg>
       </div>
       <h2
-        className="t--sans tt-u"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--sans tt-u"
       >
         Order details
       </h2>
       <div
-        className="t--info"
-        data-jsx={1379921796}
+        className="jsx-3101717291 t--info"
       >
         5
          
@@ -5554,8 +5248,7 @@ exports[`Storyshots OrderDetails open 1`] = `
     role="region"
   >
     <div
-      className="dr-c"
-      data-jsx={1379921796}
+      className="jsx-3101717291 dr-c"
       style={
         Object {
           "display": "block",
@@ -5563,13 +5256,11 @@ exports[`Storyshots OrderDetails open 1`] = `
       }
     >
       <div
-        className="p-a300 br b--w row "
-        data-jsx={649230602}
+        className="jsx-947238363 p-a300 br b--w row "
       >
         <div
           aria-label="Quantity"
-          className="t--sans p-a300"
-          data-jsx={1379921796}
+          className="jsx-3101717291 t--sans p-a300"
           style={
             Object {
               "fontWeight": "bold",
@@ -5580,20 +5271,17 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="certificate-info-box"
-          data-jsx={3654363549}
+          className="jsx-2636230671 certificate-info-box"
         >
           <div
-            className="t--sans certificate-name"
-            data-jsx={3654363549}
+            className="jsx-2636230671 t--sans certificate-name"
           >
             BRUCE
              
             BANNER
           </div>
           <div
-            className="certificate-subinfo"
-            data-jsx={3654363549}
+            className="jsx-2636230671 certificate-subinfo"
           >
             Died: 
             3/4/2016
@@ -5602,13 +5290,11 @@ exports[`Storyshots OrderDetails open 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 br b--w row br-t100"
-        data-jsx={649230602}
+        className="jsx-947238363 p-a300 br b--w row br-t100"
       >
         <div
           aria-label="Quantity"
-          className="t--sans p-a300"
-          data-jsx={1379921796}
+          className="jsx-3101717291 t--sans p-a300"
           style={
             Object {
               "fontWeight": "bold",
@@ -5619,27 +5305,23 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="certificate-info-box"
-          data-jsx={3654363549}
+          className="jsx-2636230671 certificate-info-box"
         >
           <div
-            className="t--sans certificate-name"
-            data-jsx={3654363549}
+            className="jsx-2636230671 t--sans certificate-name"
           >
             JAMES
              
             HOWLETT (LOGAN)
           </div>
           <div
-            className="certificate-subinfo"
-            data-jsx={3654363549}
+            className="jsx-2636230671 certificate-subinfo"
           >
             Died: 
             4/15/2014
              — Age: 44 yrs. 2 mos. 10 dys
             <span
-              className="t--sans tt-u"
-              data-jsx={3654363549}
+              className="jsx-2636230671 t--sans tt-u"
               style={
                 Object {
                   "fontStyle": "normal",
@@ -5654,13 +5336,11 @@ exports[`Storyshots OrderDetails open 1`] = `
         </div>
       </div>
       <div
-        className="p-a300 br b--w row br-t100"
-        data-jsx={649230602}
+        className="jsx-947238363 p-a300 br b--w row br-t100"
       >
         <div
           aria-label="Quantity"
-          className="t--sans p-a300"
-          data-jsx={1379921796}
+          className="jsx-3101717291 t--sans p-a300"
           style={
             Object {
               "fontWeight": "bold",
@@ -5671,20 +5351,17 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="certificate-info-box"
-          data-jsx={3654363549}
+          className="jsx-2636230671 certificate-info-box"
         >
           <div
-            className="t--sans certificate-name"
-            data-jsx={3654363549}
+            className="jsx-2636230671 t--sans certificate-name"
           >
             MONKEY
              
             JOE
           </div>
           <div
-            className="certificate-subinfo"
-            data-jsx={3654363549}
+            className="jsx-2636230671 certificate-subinfo"
           >
             Died: 
             2004
@@ -5693,11 +5370,10 @@ exports[`Storyshots OrderDetails open 1`] = `
         </div>
       </div>
       <div
-        className="ta-c t--subinfo b--g"
-        data-jsx={1379921796}
+        className="jsx-3101717291 ta-c t--subinfo b--g"
       >
         <a
-          data-jsx={1379921796}
+          className="jsx-3101717291"
           href="/death/cart"
           onClick={[Function]}
           style={
@@ -6242,45 +5918,38 @@ exports[`Storyshots PaymentContent default 1`] = `
         </div>
       </div>
       <div
-        className="dr "
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr "
       >
         <button
           aria-expanded={false}
-          className="dr-h"
-          data-jsx={1379921796}
+          className="jsx-3101717291 dr-h"
           onClick={[Function]}
           type="button"
         >
           <div
-            className="p-a300"
-            data-jsx={1379921796}
+            className="jsx-3101717291 p-a300"
           >
             <div
-              className="dr-ic"
-              data-jsx={1379921796}
+              className="jsx-3101717291 dr-ic"
             >
               <svg
-                data-jsx={1379921796}
+                className="jsx-3101717291"
                 viewBox="-2 8.5 18 25"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  className="dr-i"
+                  className="jsx-3101717291 dr-i"
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                  data-jsx={1379921796}
                 />
               </svg>
             </div>
             <h2
-              className="t--sans tt-u"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--sans tt-u"
             >
               Order details
             </h2>
             <div
-              className="t--info"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--info"
             >
               5
                
@@ -6300,25 +5969,21 @@ exports[`Storyshots PaymentContent default 1`] = `
       <form
         acceptCharset="UTF-8"
         action="/death/payment"
-        className="m-v300"
-        data-jsx={3785310163}
+        className="jsx-418405546 m-v300"
         method="post"
         onSubmit={[Function]}
       >
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 m-b300"
             >
               <span
-                className="stp"
-                data-jsx={3785310163}
+                className="jsx-418405546 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -6331,7 +5996,7 @@ exports[`Storyshots PaymentContent default 1`] = `
               —
                
               <a
-                data-jsx={3785310163}
+                className="jsx-418405546"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -6347,32 +6012,27 @@ exports[`Storyshots PaymentContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Payment method
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-name"
               >
                 Name on Card
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="card-name"
                 name="card-name"
                 placeholder="Name on card"
@@ -6380,19 +6040,16 @@ exports[`Storyshots PaymentContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
                 Credit Card Number
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="card-number"
                 name="card-number"
                 placeholder="Credit Card Number"
@@ -6400,19 +6057,16 @@ exports[`Storyshots PaymentContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-date"
               >
                 Expiration Date
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="card-date"
                 name="card-date"
                 placeholder="mm/yy"
@@ -6421,57 +6075,49 @@ exports[`Storyshots PaymentContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Billing Address
             </legend>
             <div
-              data-jsx={3785310163}
+              className="jsx-418405546"
             >
               <label
-                className="ra"
-                data-jsx={3785310163}
+                className="jsx-418405546 ra"
               >
                 <input
                   checked={true}
-                  className="ra-f"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-f"
                   name="billing-address-same-as-shipping-address"
                   onChange={[Function]}
                   type="radio"
                   value="true"
                 />
                 <span
-                  className="ra-l"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-l"
                 >
                   Same as shipping address
                 </span>
               </label>
               <label
-                className="ra"
-                data-jsx={3785310163}
+                className="jsx-418405546 ra"
               >
                 <input
                   checked={false}
-                  className="ra-f"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-f"
                   name="billing-address-same-as-shipping-address"
                   onChange={[Function]}
                   type="radio"
                   value="false"
                 />
                 <span
-                  className="ra-l"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-l"
                 >
                   Use a different address
                 </span>
@@ -6480,24 +6126,19 @@ exports[`Storyshots PaymentContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="p-a300"
-          data-jsx={3785310163}
+          className="jsx-418405546 p-a300"
         >
           <div
-            className="m-v500"
-            data-jsx={399087421}
+            className="jsx-4282255710 m-v500"
           >
             <div
-              className="p-v200"
-              data-jsx={399087421}
+              className="jsx-4282255710 p-v200"
             >
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   5
                    
@@ -6506,47 +6147,40 @@ exports[`Storyshots PaymentContent default 1`] = `
                   14
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Credit card processing fee
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   1.93
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   <i
-                    data-jsx={399087421}
+                    className="jsx-4282255710"
                   >
                     free
                   </i>
@@ -6554,18 +6188,15 @@ exports[`Storyshots PaymentContent default 1`] = `
               </div>
             </div>
             <div
-              className="cost-row"
-              data-jsx={399087421}
+              className="jsx-4282255710 cost-row"
             >
               <span
-                className="sh-title"
-                data-jsx={399087421}
+                className="jsx-4282255710 sh-title"
               >
                 Total
               </span>
               <span
-                className="cost br br-t100 p-v200"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
                 71.93
@@ -6574,35 +6205,31 @@ exports[`Storyshots PaymentContent default 1`] = `
           </div>
         </div>
         <div
-          className="g p-a300 b--w"
-          data-jsx={3785310163}
+          className="jsx-418405546 g p-a300 b--w"
         >
           <p
-            className="g--9 t--subinfo"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 t--subinfo"
           >
             Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
              
             <strong
-              data-jsx={3785310163}
+              className="jsx-418405546"
             >
               Certificates are non-refundable.
             </strong>
           </p>
           <button
-            className="g--3 btn m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--3 btn m-v500"
             disabled={false}
             type="submit"
           >
             Submit Order
           </button>
           <div
-            className="g--9 m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 m-v500"
           >
             <a
-              data-jsx={3785310163}
+              className="jsx-418405546"
               href="/death/checkout"
               onClick={[Function]}
               style={
@@ -6988,45 +6615,38 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
         </div>
       </div>
       <div
-        className="dr "
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr "
       >
         <button
           aria-expanded={false}
-          className="dr-h"
-          data-jsx={1379921796}
+          className="jsx-3101717291 dr-h"
           onClick={[Function]}
           type="button"
         >
           <div
-            className="p-a300"
-            data-jsx={1379921796}
+            className="jsx-3101717291 p-a300"
           >
             <div
-              className="dr-ic"
-              data-jsx={1379921796}
+              className="jsx-3101717291 dr-ic"
             >
               <svg
-                data-jsx={1379921796}
+                className="jsx-3101717291"
                 viewBox="-2 8.5 18 25"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  className="dr-i"
+                  className="jsx-3101717291 dr-i"
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                  data-jsx={1379921796}
                 />
               </svg>
             </div>
             <h2
-              className="t--sans tt-u"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--sans tt-u"
             >
               Order details
             </h2>
             <div
-              className="t--info"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--info"
             >
               5
                
@@ -7046,25 +6666,21 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
       <form
         acceptCharset="UTF-8"
         action="/death/payment"
-        className="m-v300"
-        data-jsx={3785310163}
+        className="jsx-418405546 m-v300"
         method="post"
         onSubmit={[Function]}
       >
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 m-b300"
             >
               <span
-                className="stp"
-                data-jsx={3785310163}
+                className="jsx-418405546 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -7077,7 +6693,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               —
                
               <a
-                data-jsx={3785310163}
+                className="jsx-418405546"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -7093,32 +6709,27 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Payment method
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-name"
               >
                 Name on Card
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="card-name"
                 name="card-name"
                 placeholder="Name on card"
@@ -7126,19 +6737,16 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
                 Credit Card Number
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="card-number"
                 name="card-number"
                 placeholder="Credit Card Number"
@@ -7146,19 +6754,16 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-date"
               >
                 Expiration Date
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="card-date"
                 name="card-date"
                 placeholder="mm/yy"
@@ -7167,57 +6772,49 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Billing Address
             </legend>
             <div
-              data-jsx={3785310163}
+              className="jsx-418405546"
             >
               <label
-                className="ra"
-                data-jsx={3785310163}
+                className="jsx-418405546 ra"
               >
                 <input
                   checked={true}
-                  className="ra-f"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-f"
                   name="billing-address-same-as-shipping-address"
                   onChange={[Function]}
                   type="radio"
                   value="true"
                 />
                 <span
-                  className="ra-l"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-l"
                 >
                   Same as shipping address
                 </span>
               </label>
               <label
-                className="ra"
-                data-jsx={3785310163}
+                className="jsx-418405546 ra"
               >
                 <input
                   checked={false}
-                  className="ra-f"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-f"
                   name="billing-address-same-as-shipping-address"
                   onChange={[Function]}
                   type="radio"
                   value="false"
                 />
                 <span
-                  className="ra-l"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 ra-l"
                 >
                   Use a different address
                 </span>
@@ -7226,24 +6823,19 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </fieldset>
         </div>
         <div
-          className="p-a300"
-          data-jsx={3785310163}
+          className="jsx-418405546 p-a300"
         >
           <div
-            className="m-v500"
-            data-jsx={399087421}
+            className="jsx-4282255710 m-v500"
           >
             <div
-              className="p-v200"
-              data-jsx={399087421}
+              className="jsx-4282255710 p-v200"
             >
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   5
                    
@@ -7252,47 +6844,40 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   14
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Credit card processing fee
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   $
                   1.93
                 </span>
               </div>
               <div
-                className="cost-row"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost-row"
               >
                 <span
-                  className="t--info"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="cost"
-                  data-jsx={399087421}
+                  className="jsx-4282255710 cost"
                 >
                   <i
-                    data-jsx={399087421}
+                    className="jsx-4282255710"
                   >
                     free
                   </i>
@@ -7300,18 +6885,15 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               </div>
             </div>
             <div
-              className="cost-row"
-              data-jsx={399087421}
+              className="jsx-4282255710 cost-row"
             >
               <span
-                className="sh-title"
-                data-jsx={399087421}
+                className="jsx-4282255710 sh-title"
               >
                 Total
               </span>
               <span
-                className="cost br br-t100 p-v200"
-                data-jsx={399087421}
+                className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
                 71.93
@@ -7320,35 +6902,31 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </div>
         </div>
         <div
-          className="g p-a300 b--w"
-          data-jsx={3785310163}
+          className="jsx-418405546 g p-a300 b--w"
         >
           <p
-            className="g--9 t--subinfo"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 t--subinfo"
           >
             Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
              
             <strong
-              data-jsx={3785310163}
+              className="jsx-418405546"
             >
               Certificates are non-refundable.
             </strong>
           </p>
           <button
-            className="g--3 btn m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--3 btn m-v500"
             disabled={false}
             type="submit"
           >
             Submit Order
           </button>
           <div
-            className="g--9 m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 m-v500"
           >
             <a
-              data-jsx={3785310163}
+              className="jsx-418405546"
               href="/death/checkout"
               onClick={[Function]}
               style={
@@ -7654,24 +7232,20 @@ exports[`Storyshots SearchPage no results 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -7811,21 +7385,20 @@ exports[`Storyshots SearchPage no results 1`] = `
           className="p-a300"
         >
           <ul
-            className="ul"
-            data-jsx={1475005988}
+            className="jsx-2780398414 ul"
           >
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               We only have death records for people who either died in the City of Boston or who had Boston as their residence on their death certificate.
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               This site has all deaths from 1956 on, but only a few records before then. You can
                
               <a
-                data-jsx={1475005988}
+                className="jsx-2780398414"
                 href="https://www.boston.gov/departments/registry/how-get-death-certificate"
               >
                 request a death certificate from before 1956
@@ -7833,22 +7406,22 @@ exports[`Storyshots SearchPage no results 1`] = `
               .
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               Search for both formal names and nicknames. For example, if there are no results for “Elizabeth,” try “Betty.”
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               You can also search for a partial name. For example, “Jo” matches “Joe” and “Joseph.”
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               If the decedent had a hyphenated first or last name, try searching for only one of the parts.
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               Add a 4-digit year of death. You can also search for a range of death years, like “smith 1960–1965”
             </li>
@@ -8147,24 +7720,20 @@ exports[`Storyshots SearchPage no search 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -8610,24 +8179,20 @@ exports[`Storyshots SearchPage with results 1`] = `
       role="banner"
     />
     <nav
-      className="nv-s nv-s--sticky"
-      data-jsx={4179230438}
+      className="jsx-1306696032 nv-s nv-s--sticky"
     >
       <div
-        className="nv-s-l bar"
-        data-jsx={4179230438}
+        className="jsx-1306696032 nv-s-l bar"
       >
         <a
-          className="nv-s-l-b back-link back-link-right"
-          data-jsx={4179230438}
+          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="cart-link"
-          data-jsx={4179230438}
+          className="jsx-1306696032 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -8786,24 +8351,20 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="p-a300 br b--w row br-t100"
-            data-jsx={649230602}
+            className="jsx-947238363 p-a300 br b--w row br-t100"
           >
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="jsx-2636230671 certificate-info-box"
             >
               <div
-                className="t--sans certificate-name"
-                data-jsx={3654363549}
+                className="jsx-2636230671 t--sans certificate-name"
               >
                 BRUCE
                  
                 BANNER
               </div>
               <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-subinfo"
               >
                 Died: 
                 3/4/2016
@@ -8817,31 +8378,26 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="p-a300 br b--w row br-t100"
-            data-jsx={649230602}
+            className="jsx-947238363 p-a300 br b--w row br-t100"
           >
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="jsx-2636230671 certificate-info-box"
             >
               <div
-                className="t--sans certificate-name"
-                data-jsx={3654363549}
+                className="jsx-2636230671 t--sans certificate-name"
               >
                 JAMES
                  
                 HOWLETT (LOGAN)
               </div>
               <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-subinfo"
               >
                 Died: 
                 4/15/2014
                  — Age: 44 yrs. 2 mos. 10 dys
                 <span
-                  className="t--sans tt-u"
-                  data-jsx={3654363549}
+                  className="jsx-2636230671 t--sans tt-u"
                   style={
                     Object {
                       "fontStyle": "normal",
@@ -8861,24 +8417,20 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="p-a300 br b--w row br-a100"
-            data-jsx={649230602}
+            className="jsx-947238363 p-a300 br b--w row br-a100"
           >
             <div
-              className="certificate-info-box"
-              data-jsx={3654363549}
+              className="jsx-2636230671 certificate-info-box"
             >
               <div
-                className="t--sans certificate-name"
-                data-jsx={3654363549}
+                className="jsx-2636230671 t--sans certificate-name"
               >
                 MONKEY
                  
                 JOE
               </div>
               <div
-                className="certificate-subinfo"
-                data-jsx={3654363549}
+                className="jsx-2636230671 certificate-subinfo"
               >
                 Died: 
                 2004
@@ -8964,21 +8516,20 @@ exports[`Storyshots SearchPage with results 1`] = `
             Not finding who you’re looking for?
           </p>
           <ul
-            className="ul"
-            data-jsx={1475005988}
+            className="jsx-2780398414 ul"
           >
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               We only have death records for people who either died in the City of Boston or who had Boston as their residence on their death certificate.
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               This site has all deaths from 1956 on, but only a few records before then. You can
                
               <a
-                data-jsx={1475005988}
+                className="jsx-2780398414"
                 href="https://www.boston.gov/departments/registry/how-get-death-certificate"
               >
                 request a death certificate from before 1956
@@ -8986,22 +8537,22 @@ exports[`Storyshots SearchPage with results 1`] = `
               .
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               Search for both formal names and nicknames. For example, if there are no results for “Elizabeth,” try “Betty.”
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               You can also search for a partial name. For example, “Jo” matches “Joe” and “Joseph.”
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               If the decedent had a hyphenated first or last name, try searching for only one of the parts.
             </li>
             <li
-              data-jsx={1475005988}
+              className="jsx-2780398414"
             >
               Add a 4-digit year of death. You can also search for a range of death years, like “smith 1960–1965”
             </li>
@@ -9045,24 +8596,20 @@ exports[`Storyshots SearchResult bottom certificate 1`] = `
   onClick={[Function]}
 >
   <div
-    className="p-a300 br b--w row br-a100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-a100"
   >
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -9079,24 +8626,20 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
   onClick={[Function]}
 >
   <div
-    className="p-a300 br b--w row br-t100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-t100"
   >
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         MONKEY
          
         JOE
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         2004
@@ -9113,24 +8656,20 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
   onClick={[Function]}
 >
   <div
-    className="p-a300 br b--w row br-t100"
-    data-jsx={649230602}
+    className="jsx-947238363 p-a300 br b--w row br-t100"
   >
     <div
-      className="certificate-info-box"
-      data-jsx={3654363549}
+      className="jsx-2636230671 certificate-info-box"
     >
       <div
-        className="t--sans certificate-name"
-        data-jsx={3654363549}
+        className="jsx-2636230671 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="certificate-subinfo"
-        data-jsx={3654363549}
+        className="jsx-2636230671 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -9482,45 +9021,38 @@ exports[`Storyshots ShippingContent default 1`] = `
         </div>
       </div>
       <div
-        className="dr "
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr "
       >
         <button
           aria-expanded={false}
-          className="dr-h"
-          data-jsx={1379921796}
+          className="jsx-3101717291 dr-h"
           onClick={[Function]}
           type="button"
         >
           <div
-            className="p-a300"
-            data-jsx={1379921796}
+            className="jsx-3101717291 p-a300"
           >
             <div
-              className="dr-ic"
-              data-jsx={1379921796}
+              className="jsx-3101717291 dr-ic"
             >
               <svg
-                data-jsx={1379921796}
+                className="jsx-3101717291"
                 viewBox="-2 8.5 18 25"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  className="dr-i"
+                  className="jsx-3101717291 dr-i"
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                  data-jsx={1379921796}
                 />
               </svg>
             </div>
             <h2
-              className="t--sans tt-u"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--sans tt-u"
             >
               Order details
             </h2>
             <div
-              className="t--info"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--info"
             >
               5
                
@@ -9539,44 +9071,37 @@ exports[`Storyshots ShippingContent default 1`] = `
       </div>
       <form
         action="javascript:void(0)"
-        className="m-v300"
-        data-jsx={3785310163}
+        className="jsx-418405546 m-v300"
         method="post"
         onSubmit={[Function]}
       >
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Contact Information
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-name"
               >
                 Full Name 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-name"
                 name="name"
                 onChange={[Function]}
@@ -9586,25 +9111,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-email"
               >
                 Email Address 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-email"
                 name="email"
                 onChange={[Function]}
@@ -9614,25 +9135,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-phone"
               >
                 Phone Number 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-phone"
                 name="phone"
                 onChange={[Function]}
@@ -9644,38 +9161,32 @@ exports[`Storyshots ShippingContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Shipping Address
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-name"
               >
                 Full name 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-name"
                 name="shipping-name"
                 onChange={[Function]}
@@ -9685,19 +9196,16 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-company-name"
               >
                 Company Name
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-company-name"
                 name="shipping-company-name"
                 onChange={[Function]}
@@ -9707,25 +9215,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-1"
               >
                 Address Line 1 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-address-1"
                 name="shipping-address-1"
                 onChange={[Function]}
@@ -9735,19 +9239,16 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-2"
               >
                 Address Line 2
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-address-2"
                 name="shipping-address-2"
                 onChange={[Function]}
@@ -9757,25 +9258,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-city"
               >
                 City 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-city"
                 name="shipping-city"
                 onChange={[Function]}
@@ -9785,25 +9282,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-state"
               >
                 State 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="shipping-state"
                 max="2"
                 name="shipping-state"
@@ -9813,25 +9306,21 @@ exports[`Storyshots ShippingContent default 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-zip"
               >
                 ZIP Code 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="shipping-zip"
                 name="shipping-zip"
                 onChange={[Function]}
@@ -9842,23 +9331,20 @@ exports[`Storyshots ShippingContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="g p-a300 b--w"
-          data-jsx={3785310163}
+          className="jsx-418405546 g p-a300 b--w"
         >
           <button
-            className="g--3 btn m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--3 btn m-v500"
             disabled={true}
             type="submit"
           >
             Continue to Payment
           </button>
           <div
-            className="g--9 m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 m-v500"
           >
             <a
-              data-jsx={3785310163}
+              className="jsx-418405546"
               href="/death/cart"
               onClick={[Function]}
               style={
@@ -10244,45 +9730,38 @@ exports[`Storyshots ShippingContent existing address 1`] = `
         </div>
       </div>
       <div
-        className="dr "
-        data-jsx={1379921796}
+        className="jsx-3101717291 dr "
       >
         <button
           aria-expanded={false}
-          className="dr-h"
-          data-jsx={1379921796}
+          className="jsx-3101717291 dr-h"
           onClick={[Function]}
           type="button"
         >
           <div
-            className="p-a300"
-            data-jsx={1379921796}
+            className="jsx-3101717291 p-a300"
           >
             <div
-              className="dr-ic"
-              data-jsx={1379921796}
+              className="jsx-3101717291 dr-ic"
             >
               <svg
-                data-jsx={1379921796}
+                className="jsx-3101717291"
                 viewBox="-2 8.5 18 25"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  className="dr-i"
+                  className="jsx-3101717291 dr-i"
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                  data-jsx={1379921796}
                 />
               </svg>
             </div>
             <h2
-              className="t--sans tt-u"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--sans tt-u"
             >
               Order details
             </h2>
             <div
-              className="t--info"
-              data-jsx={1379921796}
+              className="jsx-3101717291 t--info"
             >
               5
                
@@ -10301,44 +9780,37 @@ exports[`Storyshots ShippingContent existing address 1`] = `
       </div>
       <form
         action="javascript:void(0)"
-        className="m-v300"
-        data-jsx={3785310163}
+        className="jsx-418405546 m-v300"
         method="post"
         onSubmit={[Function]}
       >
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Contact Information
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-name"
               >
                 Full Name 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-name"
                 name="name"
                 onChange={[Function]}
@@ -10348,25 +9820,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-email"
               >
                 Email Address 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-email"
                 name="email"
                 onChange={[Function]}
@@ -10376,25 +9844,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="contact-phone"
               >
                 Phone Number 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--100"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--100"
                 id="contact-phone"
                 name="phone"
                 onChange={[Function]}
@@ -10406,38 +9870,32 @@ exports[`Storyshots ShippingContent existing address 1`] = `
           </fieldset>
         </div>
         <div
-          className="b--w p-a300 field-container"
-          data-jsx={3785310163}
+          className="jsx-418405546 b--w p-a300 field-container"
         >
           <fieldset
-            data-jsx={3785310163}
+            className="jsx-418405546"
           >
             <legend
-              className="stp m-b300"
-              data-jsx={3785310163}
+              className="jsx-418405546 stp m-b300"
             >
               Shipping Address
             </legend>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-name"
               >
                 Full name 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-name"
                 name="shipping-name"
                 onChange={[Function]}
@@ -10447,19 +9905,16 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-company-name"
               >
                 Company Name
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-company-name"
                 name="shipping-company-name"
                 onChange={[Function]}
@@ -10469,25 +9924,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-1"
               >
                 Address Line 1 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-address-1"
                 name="shipping-address-1"
                 onChange={[Function]}
@@ -10497,19 +9948,16 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-2"
               >
                 Address Line 2
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-address-2"
                 name="shipping-address-2"
                 onChange={[Function]}
@@ -10519,25 +9967,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-city"
               >
                 City 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f"
                 id="shipping-city"
                 name="shipping-city"
                 onChange={[Function]}
@@ -10547,25 +9991,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-state"
               >
                 State 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="shipping-state"
                 max="2"
                 name="shipping-state"
@@ -10575,25 +10015,21 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               />
             </div>
             <div
-              className="txt"
-              data-jsx={3785310163}
+              className="jsx-418405546 txt"
             >
               <label
-                className="txt-l txt-l--mt000"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-zip"
               >
                 ZIP Code 
                 <span
-                  className="t--req"
-                  data-jsx={3785310163}
+                  className="jsx-418405546 t--req"
                 >
                   Required
                 </span>
               </label>
               <input
-                className="txt-f txt-f--50"
-                data-jsx={3785310163}
+                className="jsx-418405546 txt-f txt-f--50"
                 id="shipping-zip"
                 name="shipping-zip"
                 onChange={[Function]}
@@ -10604,23 +10040,20 @@ exports[`Storyshots ShippingContent existing address 1`] = `
           </fieldset>
         </div>
         <div
-          className="g p-a300 b--w"
-          data-jsx={3785310163}
+          className="jsx-418405546 g p-a300 b--w"
         >
           <button
-            className="g--3 btn m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--3 btn m-v500"
             disabled={false}
             type="submit"
           >
             Continue to Payment
           </button>
           <div
-            className="g--9 m-v500"
-            data-jsx={3785310163}
+            className="jsx-418405546 g--9 m-v500"
           >
             <a
-              data-jsx={3785310163}
+              className="jsx-418405546"
               href="/death/cart"
               onClick={[Function]}
               style={

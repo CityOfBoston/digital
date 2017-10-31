@@ -30,6 +30,7 @@
   },
   "jest": {
     "setupFiles": [
+      "<rootDir>/lib/test/jest-polyfills.js",
       "<rootDir>/lib/test/setup.js"
     ],
     "testPathIgnorePatterns": [
@@ -49,7 +50,7 @@
     ]
   },
   "dependencies": {
-    "apollo-server-hapi": "^1.1.2",
+    "apollo-server-hapi": "^1.2.0",
     "aws-sdk": "^2.100.0",
     "babel-runtime": "^6.26.0",
     "boom": "^6.0.0",
@@ -60,7 +61,7 @@
     "good": "^7.1.0",
     "good-console": "^6.4.0",
     "good-squeeze": "^5.0.2",
-    "graphql": "^0.11.6",
+    "graphql": "^0.11.7",
     "graphql-tools": "^1.2.3",
     "hapi": "^16.1.1",
     "http-status": "^1.0.1",
@@ -70,12 +71,12 @@
     "mobx": "^3.3.0",
     "mobx-react": "^4.3.2",
     "mssql": "^4.0.4",
-    "next": "^3.2.2",
+    "next": "^4.1.4",
     "node-cleanup": "^2.1.2",
     "nprogress": "^0.2.0",
     "opbeat": "^4.14.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
     "url-search-params": "^0.10.0",
     "velocity-react": "^1.3.3"
@@ -84,7 +85,7 @@
     "@percy-io/react-percy-storybook": "^1.0.0",
     "@storybook/addon-actions": "^3.2.10",
     "@storybook/addon-storyshots": "^3.2.10",
-    "@storybook/react": "^3.2.10",
+    "@storybook/react": "^3.2.13",
     "apollo-codegen": "^0.16.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -97,10 +98,10 @@
     "babel-preset-env": "^1.6.0",
     "babel-watch": "^2.0.7",
     "cheerio": "^0.22.0",
-    "codecov": "^2.2.0",
+    "codecov": "^2.3.1",
     "del": "^3.0.0",
     "enzyme": "^3.0.0",
-    "enzyme-adapter-react-15": "^1.0.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^4.7.2",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-flowtype": "^2.36.0",
@@ -117,13 +118,13 @@
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.8",
     "husky": "^0.14.1",
-    "jest": "^21.2.0",
+    "jest": "^21.2.1",
     "json-loader": "^0.5.4",
     "lint-staged": "^4.0.0",
     "mockdate": "^2.0.2",
     "prettier": "^1.7.0",
     "prop-types": "^15.5.10",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^16.0.0",
     "through2": "^2.0.3",
     "webpack-bundle-analyzer": "^2.8.1"
   }
