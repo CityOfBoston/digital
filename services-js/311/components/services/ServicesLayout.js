@@ -23,13 +23,14 @@ import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import { CHARLES_BLUE } from '../style-constants';
 
-type InitialProps = {
+type InitialProps = {|
   services: ServiceSummary[],
-};
+|};
 
-type Props = InitialProps & {
+type Props = {|
+  ...InitialProps,
   store: AppStore,
-};
+|};
 
 type GroupProps = {
   group: Group,
@@ -128,8 +129,36 @@ export default class ServicesLayout extends React.Component<Props> {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyEvents);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyEvents);
+  }
+
+  @action.bound
+  handleKeyEvents(event: KeyboardEvent) {
+    const { store: { allServices } } = this.props;
+
+    // Expand drawers so users can search within them easily.
+    // Check for CTRL+f input.
+    if (event.keyCode == 70 && (event.ctrlKey || event.metaKey)) {
+      allServices.groups.forEach(g => {
+        g.open = true;
+      });
+    }
+
+    // Check for ESC input.
+    if (event.keyCode == 27) {
+      allServices.groups.forEach(g => {
+        g.open = false;
+      });
+    }
+  }
+
   render() {
-    const { store } = this.props;
+    const { store, services } = this.props;
 
     const servicesByGroup = {};
     const otherServices = [];
@@ -138,7 +167,7 @@ export default class ServicesLayout extends React.Component<Props> {
       servicesByGroup[g.id.toLowerCase()] = [];
     });
 
-    this.props.services.forEach(s => {
+    services.forEach(s => {
       if (s.group && servicesByGroup[s.group.toLowerCase()]) {
         servicesByGroup[s.group.toLowerCase()].push(s);
       } else {
@@ -159,13 +188,17 @@ export default class ServicesLayout extends React.Component<Props> {
             <SectionHeader>All BOS:311 Services</SectionHeader>
 
             <div>
-              {store.allServices.groups.map(g =>
-                <ServicesLayoutGroup
-                  key={g.id}
-                  group={g}
-                  services={servicesByGroup[g.id.toLowerCase()]}
-                />
-              )}
+              {store.allServices.groups.map(g => {
+                const services = servicesByGroup[g.id.toLowerCase()];
+                return (
+                  !!services.length &&
+                  <ServicesLayoutGroup
+                    key={g.id}
+                    group={g}
+                    services={services}
+                  />
+                );
+              })}
 
               {otherServices.length > 0 &&
                 <ServicesLayoutGroup
