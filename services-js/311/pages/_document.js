@@ -160,6 +160,10 @@ export default class extends Document {
             dangerouslySetInnerHTML={{
               __html: `
               (function() {
+                if (typeof liveagent === 'undefined') {
+                  return;
+                }
+
                 var buttonId = "${process.env.LIVE_AGENT_BUTTON_ID || ''}";
                 // We need to make a fake "showWhenOnline" in order to get
                 // button events from the server. All of the app showing/hiding
