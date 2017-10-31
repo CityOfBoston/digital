@@ -85,6 +85,11 @@ describe('controller', () => {
         controller.submitSearch('Monkey Joe');
         expect(Router.push).toHaveBeenCalledWith('/death?q=Monkey%20Joe');
       });
+
+      it('trims the query', () => {
+        controller.submitSearch('Monkey Joe   ');
+        expect(Router.push).toHaveBeenCalledWith('/death?q=Monkey%20Joe');
+      });
     });
   });
 });

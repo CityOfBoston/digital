@@ -279,7 +279,7 @@ export const wrapSearchPageController = (
     dependencies = getDependencies();
 
     submitSearch = (query: string) => {
-      Router.push(`/death?q=${encodeURIComponent(query)}`);
+      Router.push(`/death?q=${encodeURIComponent(query.trim())}`);
     };
 
     render() {
