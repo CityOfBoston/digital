@@ -2,7 +2,8 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { renderStatic } from 'glamor/server';
+import { extractCritical } from 'emotion-server';
+
 import mobxReact from 'mobx-react';
 
 import makeCss from '../lib/make-css';
@@ -21,7 +22,8 @@ export default class extends Document {
 
   static async getInitialProps({ renderPage }) {
     const page = renderPage();
-    const styles = renderStatic(() => page.html || page.errorHtml);
+    const styles = extractCritical(page.html || page.errorHtml);
+
     return {
       ...page,
       ...styles,

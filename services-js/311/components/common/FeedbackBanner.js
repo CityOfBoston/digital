@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import { YELLOW, MEDIA_LARGE } from '../style-constants';
 

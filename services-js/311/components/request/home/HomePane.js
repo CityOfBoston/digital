@@ -3,7 +3,7 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';

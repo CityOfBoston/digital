@@ -2,14 +2,10 @@
 
 exports[`choose page rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-19tfmgz": "",
-    }
-  }
+  className="css-11whg3t"
 >
   <div
-    className=" br br-t400 br--y css-1aypqv0"
+    className=" br br-t400 br--y css-1qypc7t"
     style={
       Object {
         "maxWidth": 800,
@@ -52,20 +48,16 @@ exports[`choose page rendering 1`] = `
             Matching your request to BOS:311 services…
           </div>
           <div
-            className="p-a300 g css-rdsogp"
+            className="p-a300 g css-i6bazn"
           >
             <div
-              className="g--4 css-19eoixt"
+              className="g--4 css-1d1o05u"
             >
               <span
-                className="css-17mox4x"
+                className="css-11w0igf"
               >
                 <svg
-                  className={
-                    Object {
-                      "data-css-1acy7qc": "",
-                    }
-                  }
+                  className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
@@ -76,17 +68,13 @@ exports[`choose page rendering 1`] = `
               </span>
             </div>
             <div
-              className="g--4 css-19eoixt"
+              className="g--4 css-1d1o05u"
             >
               <span
-                className="css-17mox4x"
+                className="css-11w0igf"
               >
                 <svg
-                  className={
-                    Object {
-                      "data-css-1acy7qc": "",
-                    }
-                  }
+                  className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
@@ -97,17 +85,13 @@ exports[`choose page rendering 1`] = `
               </span>
             </div>
             <div
-              className="g--4 css-19eoixt"
+              className="g--4 css-1d1o05u"
             >
               <span
-                className="css-17mox4x"
+                className="css-11w0igf"
               >
                 <svg
-                  className={
-                    Object {
-                      "data-css-1acy7qc": "",
-                    }
-                  }
+                  className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
@@ -127,14 +111,10 @@ exports[`choose page rendering 1`] = `
 
 exports[`home page rendering 1`] = `
 <div
-  className={
-    Object {
-      "data-css-19tfmgz": "",
-    }
-  }
+  className="css-11whg3t"
 >
   <div
-    className=" br br-t400 br--y css-1aypqv0"
+    className=" br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>
@@ -164,7 +144,7 @@ exports[`home page rendering 1`] = `
           className="g m-t500"
         >
           <form
-            className="g--7 css-1t62idy"
+            className="g--7 css-j7qwjs"
             onSubmit={[Function]}
           >
             <div>
@@ -174,7 +154,7 @@ exports[`home page rendering 1`] = `
                 What can we help with?
               </h2>
               <div
-                className="br br-a100 css-1szg2lt"
+                className="br br-a100 css-6z7lzz"
                 style={
                   Object {
                     "maxHeight": 222,
@@ -184,11 +164,7 @@ exports[`home page rendering 1`] = `
               >
                 <textarea
                   aria-label="Description of the problem"
-                  className={
-                    Object {
-                      "data-css-1mdtlto": "",
-                    }
-                  }
+                  className="css-gpgvaw"
                   defaultValue=""
                   name="description"
                   onBlur={[Function]}
@@ -215,7 +191,7 @@ exports[`home page rendering 1`] = `
                 }
               >
                 <button
-                  className="btn css-1q8b8td"
+                  className="btn css-1qgvmz2"
                   disabled={true}
                   type="submit"
                 >
@@ -237,23 +213,23 @@ exports[`home page rendering 1`] = `
                 />
               </span>
               <div
-                className="g--7 m-b200 css-td8zes"
+                className="g--7 m-b200 css-1s2lbdj"
               />
             </div>
           </form>
           <div
-            className="g--1 m-v300 css-18t5hgw"
+            className="g--1 m-v300 css-r3pj4i"
           >
             <div
-              className="br br-a150 css-fkncct"
+              className="br br-a150 css-1178hae"
             />
             <div
-              className="br br-a150 t--info css-u5arvv"
+              className="br br-a150 t--info css-c2jpki"
             >
               or
             </div>
             <div
-              className="br br-a150 css-fkncct"
+              className="br br-a150 css-1178hae"
             />
           </div>
           <div
@@ -308,7 +284,7 @@ exports[`home page rendering 1`] = `
         </div>
       </div>
       <div
-        className="b b--g p-a300 p-a800--xl css-1jhd7f9"
+        className="b b--g p-a300 p-a800--xl css-p12rmj"
         role="search"
         style={
           Object {
@@ -357,7 +333,7 @@ exports[`home page rendering 1`] = `
             className="g--1"
           />
           <div
-            className="g--4 t--info css-15j4nw7"
+            className="g--4 t--info css-12zgsaz"
           >
             <a
               href="/search"

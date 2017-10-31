@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type RequestSearch from '../../data/store/RequestSearch';
 import type Ui from '../../data/store/Ui';

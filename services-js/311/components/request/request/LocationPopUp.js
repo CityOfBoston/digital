@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -113,8 +113,8 @@ const UNIT_PICKER_STYLE = css({
   zIndex: 2,
   right: 10,
   top: 10,
-  ' .sel-c:after': {
-    content: 'Units',
+  '& .sel-c:after': {
+    content: '"Units"',
   },
 });
 

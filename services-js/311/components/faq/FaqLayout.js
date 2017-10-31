@@ -4,7 +4,7 @@
 import React, { type Node as ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';

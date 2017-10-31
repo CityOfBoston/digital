@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { computed, action, reaction, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';

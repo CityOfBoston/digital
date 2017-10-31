@@ -4,7 +4,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';

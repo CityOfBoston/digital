@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import Router from 'next/router';
 import type { Context } from 'next';
 import { observer } from 'mobx-react';

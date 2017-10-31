@@ -2,7 +2,7 @@
 /* eslint react/no-danger: 0 */
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type { Request } from '../../data/types';
 import type { AppStore } from '../../data/store';

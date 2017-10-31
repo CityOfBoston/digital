@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import InputMask from 'react-input-mask';

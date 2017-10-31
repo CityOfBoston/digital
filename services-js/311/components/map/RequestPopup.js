@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { GRAY_300, GREEN, YELLOW } from '../style-constants';
 import type { SearchCase } from '../../data/types';
 

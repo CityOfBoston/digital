@@ -5,7 +5,7 @@ import React from 'react';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 import { now } from 'mobx-utils';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import inPercy from '@percy-io/in-percy';
 

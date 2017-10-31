@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Element as ReactElement } from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 const CENTERED_STYLE = css({
   display: 'flex',

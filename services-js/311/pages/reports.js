@@ -1,9 +1,9 @@
 // @flow
 
-import withGlamor from '../lib/mixins/with-glamor';
+import withEmotion from '../lib/mixins/with-emotion';
 import withStore from '../lib/mixins/with-store';
 
 // eslint-disable-next-line global-require
 export default withStore(
-  withGlamor(() => require('../components/case/CaseLayout').default)
+  withEmotion(() => require('../components/case/CaseLayout').default)
 );

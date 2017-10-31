@@ -5,7 +5,7 @@ import 'url-search-params-polyfill';
 import React from 'react';
 import type { Context } from 'next';
 import Router from 'next/router';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { action, reaction, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';

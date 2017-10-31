@@ -174,11 +174,7 @@ exports[`methods submitRequest graphql failure 1`] = `
   }
 >
   <div
-    className={
-      Object {
-        "data-css-1prrpm3": "",
-      }
-    }
+    className="css-15m5iw4"
   >
     <SideEffect(Head)>
       <Head />
@@ -188,7 +184,7 @@ exports[`methods submitRequest graphql failure 1`] = `
       noPadding={false}
     >
       <div
-        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <SubmitPane
@@ -440,11 +436,7 @@ exports[`methods submitRequest success 1`] = `
   }
 >
   <div
-    className={
-      Object {
-        "data-css-1prrpm3": "",
-      }
-    }
+    className="css-15m5iw4"
   >
     <SideEffect(Head)>
       <Head />
@@ -454,7 +446,7 @@ exports[`methods submitRequest success 1`] = `
       noPadding={false}
     >
       <div
-        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <SubmitPane
@@ -490,17 +482,13 @@ exports[`methods submitRequest success 1`] = `
               Please wait while we save your request.
             </div>
             <div
-              className="m-v500 p-a500 css-1ym6g0r"
+              className="m-v500 p-a500 css-1f99mjs"
             >
               <LoadingBuildings
                 reduceMotion={false}
               >
                 <VelocityTransitionGroup
-                  className={
-                    Object {
-                      "data-css-1vjs1z7": "",
-                    }
-                  }
+                  className="css-6ezlc4"
                   enter={
                     Object {
                       "animation": Object {
@@ -541,26 +529,14 @@ exports[`methods submitRequest success 1`] = `
                 >
                   <TransitionGroup
                     childFactory={[Function]}
-                    className={
-                      Object {
-                        "data-css-1vjs1z7": "",
-                      }
-                    }
+                    className="css-6ezlc4"
                     component="span"
                   >
                     <span
-                      className={
-                        Object {
-                          "data-css-1vjs1z7": "",
-                        }
-                      }
+                      className="css-6ezlc4"
                     >
                       <svg
-                        className={
-                          Object {
-                            "data-css-mfy564": "",
-                          }
-                        }
+                        className="css-1rr4qq7"
                         dangerouslySetInnerHTML={
                           Object {
                             "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
@@ -756,11 +732,7 @@ exports[`methods submitRequest success 2`] = `
   }
 >
   <div
-    className={
-      Object {
-        "data-css-1prrpm3": "",
-      }
-    }
+    className="css-15m5iw4"
   >
     <SideEffect(Head)>
       <Head />
@@ -770,7 +742,7 @@ exports[`methods submitRequest success 2`] = `
       noPadding={false}
     >
       <div
-        className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+        className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <CaseView
@@ -1011,19 +983,19 @@ exports[`methods submitRequest success 2`] = `
                 className="g--6"
               >
                 <div
-                  className="css-iz6ix8 m-b500"
+                  className="css-1cc52qw m-b500"
                 >
                   <img
                     alt="Map of City Hall Plaza, Boston, MA 02131"
-                    className="css-i5kcuw css-kag5at br br-a150"
+                    className="css-bitd7o css-t37t6d br br-a150"
                     src="https://api.mapbox.com/styles/v1/undefined/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=undefined"
                   />
                   <div
-                    className="css-3nz9vn"
+                    className="css-oixmdu"
                     dangerouslySetInnerHTML={
                       Object {
                         "__html": "
-    <svg role=\\"img\\" class=\\"css-1ebs7nx\\">
+    <svg role=\\"img\\" class=\\"css-uwwqev\\">
       <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
     </svg>
   ",
@@ -1037,14 +1009,14 @@ exports[`methods submitRequest success 2`] = `
                 key="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
               >
                 <a
-                  className="css-1p5q8vq br br-a150 m-b500"
+                  className="css-1bx5ylf br br-a150 m-b500"
                   href="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <img
                     alt="Photo describing request or resolution"
-                    className="css-i5kcuw"
+                    className="css-bitd7o"
                     src="https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
                   />
                 </a>
@@ -1060,14 +1032,10 @@ exports[`methods submitRequest success 2`] = `
 
 exports[`rendering contact 1`] = `
 <div
-  className={
-    Object {
-      "data-css-1prrpm3": "",
-    }
-  }
+  className="css-15m5iw4"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={
       Object {
         "maxWidth": 800,
@@ -1243,10 +1211,10 @@ exports[`rendering contact 1`] = `
         </div>
       </div>
       <div
-        className="g m-v500 css-1k8tu3j"
+        className="g m-v500 css-zcxndt"
       >
         <div
-          className="g--8 t--info m-v200 css-hn0yet"
+          className="g--8 t--info m-v200 css-1gz4i5v"
         >
           <span>
             Please fill out 
@@ -1273,25 +1241,17 @@ exports[`rendering contact 1`] = `
 
 exports[`rendering location 1`] = `
 <div
-  className={
-    Object {
-      "data-css-ik3lvy": "",
-    }
-  }
+  className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1aypqv0"
+    className=" br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
-      className={
-        Object {
-          "data-css-xmixgj": "",
-        }
-      }
+      className="css-1v26nfd"
     >
       <div
-        className="css-m89tpz"
+        className="css-1gx8zcz"
       >
         <div
           className="p-a300"
@@ -1323,14 +1283,10 @@ exports[`rendering location 1`] = `
           </form>
         </div>
         <div
-          className={
-            Object {
-              "data-css-129qykh": "",
-            }
-          }
+          className="css-1d3uvm0"
         />
         <div
-          className="g p-a300 css-1k8tu3j"
+          className="g p-a300 css-zcxndt"
         >
           <div
             className="g--7 t--subinfo m-v200"
@@ -1359,14 +1315,10 @@ exports[`rendering location 1`] = `
 
 exports[`rendering questions 1`] = `
 <div
-  className={
-    Object {
-      "data-css-1prrpm3": "",
-    }
-  }
+  className="css-15m5iw4"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1aypqv0"
+    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -1585,7 +1537,7 @@ exports[`rendering questions 1`] = `
           >
             <div
               aria-disabled={false}
-              className="css-19ub58"
+              className="css-1xobwt1"
               onClick={[Function]}
               onDragEnter={[Function]}
               onDragLeave={[Function]}
@@ -1648,10 +1600,10 @@ exports[`rendering questions 1`] = `
         </div>
       </div>
       <div
-        className="g m-v500 css-1k8tu3j"
+        className="g m-v500 css-zcxndt"
       >
         <div
-          className="g--9 t--info m-v200 css-hn0yet"
+          className="g--9 t--info m-v200 css-1gz4i5v"
         >
           <span>
             Please fill out 

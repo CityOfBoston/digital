@@ -6,7 +6,7 @@
 import React from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import { HEADER_HEIGHT, assetUrl } from '../style-constants';
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';
 import type Ui from '../../../data/store/Ui';

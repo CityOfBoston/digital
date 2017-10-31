@@ -1,6 +1,6 @@
 // @flow
 
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type { DivIconOptions } from 'mapbox.js';
 import { assetUrl } from '../style-constants';

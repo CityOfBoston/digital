@@ -3,7 +3,7 @@
 import React from 'react';
 import { action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type { AppStore } from '../../data/store';
 import {

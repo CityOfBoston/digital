@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import type { Context } from 'next';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
 import type { RequestAdditions } from '../../server/next-handlers';

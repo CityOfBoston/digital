@@ -7,7 +7,7 @@ import { action, observable, autorun } from 'mobx';
 // import ScopedError from 'react-scoped-error-component';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import type { Context } from 'next';
 import type { IPromiseBasedObservable } from 'mobx-utils';
 

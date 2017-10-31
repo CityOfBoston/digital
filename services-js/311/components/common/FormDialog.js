@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import { MEDIA_LARGE, HEADER_HEIGHT, CLEAR_FIX } from '../style-constants';
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type { ServiceSummary } from '../../../data/types';
 import type Ui from '../../../data/store/Ui';

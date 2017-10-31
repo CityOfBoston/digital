@@ -3,7 +3,7 @@
 import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 import type Question from '../../../data/store/Question';
 

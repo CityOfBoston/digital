@@ -1,6 +1,6 @@
 // @flow
 
-import { css } from 'glamor';
+import { css } from 'emotion';
 
 export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
 export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';

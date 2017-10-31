@@ -4,7 +4,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { action, computed, autorun } from 'mobx';
 import type { IComputedValue } from 'mobx';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import type { Map as MapboxMap, Marker, DivIcon, Popup } from 'mapbox.js';
 import type RequestSearch from '../../data/store/RequestSearch';
 import type { SearchCase } from '../../data/types';

@@ -1,6 +1,6 @@
 // @flow
 
-// Mixin to hydrate Glamor IDs before requiring the component and rendering it.
+// Mixin to hydrate Emotion IDs before requiring the component and rendering it.
 //
 // Pass this mixin a function that requires the component class and returns it.
 // require is necessary rather than import since imports are hoisted to the
@@ -8,19 +8,19 @@
 // statements are processed.
 
 import React, { type ComponentType as ReactComponentType } from 'react';
-import { rehydrate } from 'glamor';
+import { hydrate } from 'emotion';
 
 export default <Props: {}>(
   componentFn: () => ReactComponentType<Props>
 ): ReactComponentType<Props> => {
   if (process.browser) {
     // eslint-disable-next-line no-underscore-dangle
-    rehydrate(window.__NEXT_DATA__.ids);
+    hydrate(window.__NEXT_DATA__.ids);
   }
 
   const Component = componentFn();
 
-  return class WithGlamor extends React.Component<Props> {
+  return class WithEmotion extends React.Component<Props> {
     // Need to pass this through for Next
     static getInitialProps(...args) {
       if (typeof Component.getInitialProps === 'function') {

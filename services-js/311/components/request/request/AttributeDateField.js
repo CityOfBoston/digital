@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { css } from 'glamor';
+import { css } from 'emotion';
 import { action, observable, reaction, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
