@@ -12,14 +12,23 @@ import type Order, { OrderInfo } from '../../store/Order';
 import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';
 
-export type Props = {
+export type Props = {|
   submit: () => mixed,
   cart: Cart,
   order: Order,
+  showErrorsForTest?: boolean,
+|};
+
+type State = {
+  touchedFields: { [$Keys<OrderInfo>]: boolean },
 };
 
 @observer
-export default class PaymentContent extends React.Component<Props> {
+export default class PaymentContent extends React.Component<Props, State> {
+  state: State = {
+    touchedFields: {},
+  };
+
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
@@ -27,23 +36,49 @@ export default class PaymentContent extends React.Component<Props> {
     submit();
   };
 
-  setField(fieldName: $Keys<OrderInfo>) {
-    return action(`onChange ${fieldName}`, (ev: SyntheticInputEvent<*>) => {
-      const { order } = this.props;
+  fieldListeners(fieldName: $Keys<OrderInfo>) {
+    return {
+      onBlur: action(`onBlur ${fieldName}`, () => {
+        const { touchedFields } = this.state;
 
-      if (fieldName === 'billingAddressSameAsShippingAddress') {
-        order.info[fieldName] = ev.target.value === 'true';
-      } else {
-        order.info[fieldName] = ev.target.value;
-      }
-    });
+        this.setState({
+          touchedFields: { ...touchedFields, [fieldName]: true },
+        });
+      }),
+
+      onChange: action(
+        `onChange ${fieldName}`,
+        (ev: SyntheticInputEvent<*>) => {
+          const { order } = this.props;
+
+          if (fieldName === 'billingAddressSameAsShippingAddress') {
+            order.info[fieldName] = ev.target.value === 'true';
+          } else {
+            order.info[fieldName] = ev.target.value;
+          }
+        }
+      ),
+    };
+  }
+
+  errorForField(fieldName: $Keys<OrderInfo>): ?string {
+    const { order, showErrorsForTest } = this.props;
+    const { touchedFields } = this.state;
+
+    const errors = order.paymentErrors[fieldName];
+
+    return (touchedFields[fieldName] || showErrorsForTest) &&
+      errors &&
+      errors[0]
+      ? errors[0]
+      : null;
   }
 
   render() {
     const { cart, order } = this.props;
 
     const {
-      billingIsComplete,
+      paymentIsComplete,
       info: {
         shippingAddress1,
         shippingAddress2,
@@ -152,12 +187,12 @@ export default class PaymentContent extends React.Component<Props> {
                   <input
                     type="radio"
                     name="billing-address-same-as-shipping-address"
+                    {...this.fieldListeners(
+                      'billingAddressSameAsShippingAddress'
+                    )}
                     value="true"
                     className="ra-f"
                     checked={billingAddressSameAsShippingAddress}
-                    onChange={this.setField(
-                      'billingAddressSameAsShippingAddress'
-                    )}
                   />
                   <span className="ra-l">Same as shipping address</span>
                 </label>
@@ -166,12 +201,12 @@ export default class PaymentContent extends React.Component<Props> {
                   <input
                     type="radio"
                     name="billing-address-same-as-shipping-address"
+                    {...this.fieldListeners(
+                      'billingAddressSameAsShippingAddress'
+                    )}
                     value="false"
                     className="ra-f"
                     checked={!billingAddressSameAsShippingAddress}
-                    onChange={this.setField(
-                      'billingAddressSameAsShippingAddress'
-                    )}
                   />
                   <span className="ra-l">Use a different address</span>
                 </label>
@@ -184,18 +219,23 @@ export default class PaymentContent extends React.Component<Props> {
                       htmlFor="billing-address-1"
                       className="txt-l txt-l--mt000"
                     >
-                      Address Line 1
+                      Address Line 1 <span className="t--req">Required</span>
                     </label>
                     <input
                       id="billing-address-1"
                       name="billing-address-1"
+                      {...this.fieldListeners('billingAddress1')}
                       type="text"
                       placeholder="Address Line 1"
-                      className="txt-f"
+                      className={`txt-f ${this.renderErrorClassName(
+                        'billingAddress1'
+                      )}`}
                       value={billingAddress1}
-                      onChange={this.setField('billingAddress1')}
                     />
+
+                    {this.renderError('billingAddress1')}
                   </div>
+
                   <div className="txt">
                     <label
                       htmlFor="billing-address-2"
@@ -206,59 +246,78 @@ export default class PaymentContent extends React.Component<Props> {
                     <input
                       id="billing-address-2"
                       name="billing-address-2"
+                      {...this.fieldListeners('billingAddress2')}
                       type="text"
                       placeholder="Address Line 2"
-                      className="txt-f"
+                      className={`txt-f ${this.renderErrorClassName(
+                        'billingAddress2'
+                      )}`}
                       value={billingAddress2}
-                      onChange={this.setField('billingAddress2')}
                     />
+
+                    {this.renderError('billingAddress2')}
                   </div>
+
                   <div className="txt">
                     <label
                       htmlFor="billing-city"
                       className="txt-l txt-l--mt000"
                     >
-                      City
+                      City <span className="t--req">Required</span>
                     </label>
                     <input
                       id="billing-city"
                       name="billing-city"
+                      {...this.fieldListeners('billingCity')}
                       type="text"
                       placeholder="City"
-                      className="txt-f"
+                      className={`txt-f ${this.renderErrorClassName(
+                        'billingCity'
+                      )}`}
                       value={billingCity}
-                      onChange={this.setField('billingCity')}
                     />
+
+                    {this.renderError('billingCity')}
                   </div>
+
                   <div className="txt">
                     <label
                       htmlFor="billing-state"
                       className="txt-l txt-l--mt000"
                     >
-                      State
+                      State <span className="t--req">Required</span>
                     </label>
                     <input
                       id="billing-state"
                       name="billing-state"
+                      {...this.fieldListeners('billingState')}
                       placeholder="State"
-                      className="txt-f txt-f--50"
+                      className={`txt-f txt-f--50 ${this.renderErrorClassName(
+                        'billingState'
+                      )}`}
                       max="2"
                       value={billingState}
-                      onChange={this.setField('billingState')}
                     />
+
+                    {this.renderError('billingState')}
                   </div>
+
                   <div className="txt">
                     <label htmlFor="billing-zip" className="txt-l txt-l--mt000">
-                      ZIP Code
+                      ZIP Code <span className="t--req">Required</span>
                     </label>
                     <input
                       id="billing-zip"
                       name="billing-zip"
+                      {...this.fieldListeners('billingZip')}
                       placeholder="ZIP code"
-                      className="txt-f txt-f--50"
+                      className={`txt-f txt-f--50 ${this.renderErrorClassName(
+                        'billingZip'
+                      )}`}
                       value={billingZip}
-                      onChange={this.setField('billingZip')}
                     />
+
+                    {this.renderError('billingZip')}
                   </div>
                 </div>
               )}
@@ -279,7 +338,7 @@ export default class PaymentContent extends React.Component<Props> {
             <button
               className="g--3 btn m-v500"
               type="submit"
-              disabled={!billingIsComplete}
+              disabled={!paymentIsComplete}
             >
               Submit Order
             </button>
@@ -324,5 +383,15 @@ export default class PaymentContent extends React.Component<Props> {
         </form>
       </div>
     );
+  }
+
+  renderError(fieldName: $Keys<OrderInfo>) {
+    const error = this.errorForField(fieldName);
+    return error && <div className="t--subinfo t--err m-t100">{error}</div>;
+  }
+
+  renderErrorClassName(fieldName: $Keys<OrderInfo>) {
+    const error = this.errorForField(fieldName);
+    return error ? 'txt-f--err' : '';
   }
 }

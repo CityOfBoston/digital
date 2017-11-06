@@ -4,10 +4,10 @@ import React from 'react';
 import Head from 'next/head';
 import { observer } from 'mobx-react';
 
-export type Props = {
+export type Props = {|
   orderId: string,
   contactEmail: string,
-};
+|};
 
 @observer
 export default class ConfirmationContent extends React.Component<Props> {

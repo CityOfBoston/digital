@@ -28,6 +28,13 @@ describe('content', () => {
     expect(order.info.contactName).toEqual('Doreen Green');
   });
 
+  it('shows an error after blur', () => {
+    expect(wrapper.text()).not.toMatch(/The full name field is required/);
+    const contactNameField = wrapper.find('input[name="name"]');
+    contactNameField.simulate('blur');
+    expect(wrapper.text()).toMatch(/The full name field is required./);
+  });
+
   it('submits', () => {
     const form = wrapper.find('form');
     form.simulate('submit', { preventDefault: jest.fn() });

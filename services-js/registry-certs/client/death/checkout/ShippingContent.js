@@ -11,14 +11,25 @@ import type Order, { OrderInfo } from '../../store/Order';
 
 import OrderDetails from './OrderDetails';
 
-export type Props = {
+export type Props = {|
   submit: () => mixed,
   cart: Cart,
   order: Order,
-};
+  showErrorsForTest?: boolean,
+|};
+
+type State = {|
+  touchedFields: { [$Keys<OrderInfo>]: boolean },
+|};
 
 @observer
-export default class ShippingContent extends React.Component<Props> {
+export default class ShippingContent extends React.Component<Props, State> {
+  state = {
+    // We keep track of what the user has tabbed through so we don't show
+    // "required" errors for everything all at once.
+    touchedFields: {},
+  };
+
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
@@ -26,15 +37,41 @@ export default class ShippingContent extends React.Component<Props> {
     submit();
   };
 
-  setField(fieldName: $Keys<OrderInfo>) {
-    return action(`onChange ${fieldName}`, (ev: SyntheticInputEvent<*>) => {
-      if (fieldName === 'billingAddressSameAsShippingAddress') {
-        return;
-      }
+  fieldListeners(fieldName: $Keys<OrderInfo>) {
+    return {
+      onBlur: action(`onBlur ${fieldName}`, () => {
+        const { touchedFields } = this.state;
 
-      const { order } = this.props;
-      order.info[fieldName] = ev.target.value;
-    });
+        this.setState({
+          touchedFields: { ...touchedFields, [fieldName]: true },
+        });
+      }),
+
+      onChange: action(
+        `onChange ${fieldName}`,
+        (ev: SyntheticInputEvent<*>) => {
+          if (fieldName === 'billingAddressSameAsShippingAddress') {
+            return;
+          }
+
+          const { order } = this.props;
+          order.info[fieldName] = ev.target.value;
+        }
+      ),
+    };
+  }
+
+  errorForField(fieldName: $Keys<OrderInfo>): ?string {
+    const { order, showErrorsForTest } = this.props;
+    const { touchedFields } = this.state;
+
+    const errors = order.shippingErrors[fieldName];
+
+    return (touchedFields[fieldName] || showErrorsForTest) &&
+      errors &&
+      errors[0]
+      ? errors[0]
+      : null;
   }
 
   render() {
@@ -87,15 +124,20 @@ export default class ShippingContent extends React.Component<Props> {
                 <label htmlFor="contact-name" className="txt-l txt-l--mt000">
                   Full Name <span className="t--req">Required</span>
                 </label>
+
                 <input
                   id="contact-name"
                   name="name"
                   type="text"
                   placeholder="Full name"
-                  className="txt-f txt-f--100"
+                  {...this.fieldListeners('contactName')}
+                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                    'contactName'
+                  )}`}
                   value={contactName}
-                  onChange={this.setField('contactName')}
                 />
+
+                {this.renderError('contactName')}
               </div>
 
               <div className="txt">
@@ -107,10 +149,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="email"
                   type="email"
                   placeholder="Email address"
-                  className="txt-f txt-f--100"
+                  {...this.fieldListeners('contactEmail')}
+                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                    'contactEmail'
+                  )}`}
                   value={contactEmail}
-                  onChange={this.setField('contactEmail')}
                 />
+
+                {this.renderError('contactEmail')}
               </div>
 
               <div className="txt">
@@ -122,10 +168,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="phone"
                   type="phone"
                   placeholder="Phone number"
-                  className="txt-f txt-f--100"
+                  {...this.fieldListeners('contactPhone')}
+                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                    'contactPhone'
+                  )}`}
                   value={contactPhone}
-                  onChange={this.setField('contactPhone')}
                 />
+
+                {this.renderError('contactPhone')}
               </div>
             </fieldset>
           </div>
@@ -143,10 +193,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="shipping-name"
                   type="text"
                   placeholder="Full name"
-                  className="txt-f"
+                  {...this.fieldListeners('shippingName')}
+                  className={`txt-f ${this.renderErrorClassName(
+                    'shippingName'
+                  )}`}
                   value={shippingName}
-                  onChange={this.setField('shippingName')}
                 />
+
+                {this.renderError('shippingName')}
               </div>
 
               <div className="txt">
@@ -161,10 +215,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="shipping-company-name"
                   type="text"
                   placeholder="Company Name"
-                  className="txt-f"
+                  {...this.fieldListeners('shippingCompanyName')}
+                  className={`txt-f ${this.renderErrorClassName(
+                    'shippingCompanyName'
+                  )}`}
                   value={shippingCompanyName}
-                  onChange={this.setField('shippingCompanyName')}
                 />
+
+                {this.renderError('shippingCompanyName')}
               </div>
 
               <div className="txt">
@@ -179,10 +237,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="shipping-address-1"
                   type="text"
                   placeholder="Address Line 1"
-                  className="txt-f"
+                  {...this.fieldListeners('shippingAddress1')}
+                  className={`txt-f ${this.renderErrorClassName(
+                    'shippingAddress1'
+                  )}`}
                   value={shippingAddress1}
-                  onChange={this.setField('shippingAddress1')}
                 />
+
+                {this.renderError('shippingAddress1')}
               </div>
 
               <div className="txt">
@@ -197,10 +259,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="shipping-address-2"
                   type="text"
                   placeholder="Address Line 2"
-                  className="txt-f"
+                  {...this.fieldListeners('shippingAddress2')}
+                  className={`txt-f ${this.renderErrorClassName(
+                    'shippingAddress2'
+                  )}`}
                   value={shippingAddress2}
-                  onChange={this.setField('shippingAddress2')}
                 />
+
+                {this.renderError('shippingAddress2')}
               </div>
 
               <div className="txt">
@@ -212,10 +278,14 @@ export default class ShippingContent extends React.Component<Props> {
                   name="shipping-city"
                   type="text"
                   placeholder="City"
-                  className="txt-f"
+                  {...this.fieldListeners('shippingCity')}
+                  className={`txt-f ${this.renderErrorClassName(
+                    'shippingCity'
+                  )}`}
                   value={shippingCity}
-                  onChange={this.setField('shippingCity')}
                 />
+
+                {this.renderError('shippingCity')}
               </div>
 
               <div className="txt">
@@ -226,11 +296,15 @@ export default class ShippingContent extends React.Component<Props> {
                   id="shipping-state"
                   name="shipping-state"
                   placeholder="State"
-                  className="txt-f txt-f--50"
+                  {...this.fieldListeners('shippingState')}
+                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
+                    'shippingState'
+                  )}`}
                   max="2"
                   value={shippingState}
-                  onChange={this.setField('shippingState')}
                 />
+
+                {this.renderError('shippingState')}
               </div>
 
               <div className="txt">
@@ -241,15 +315,19 @@ export default class ShippingContent extends React.Component<Props> {
                   id="shipping-zip"
                   name="shipping-zip"
                   placeholder="ZIP code"
-                  className="txt-f txt-f--50"
+                  {...this.fieldListeners('shippingZip')}
+                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
+                    'shippingZip'
+                  )}`}
                   value={shippingZip}
-                  onChange={this.setField('shippingZip')}
                 />
+
+                {this.renderError('shippingZip')}
               </div>
             </fieldset>
           </div>
 
-          <div className="g p-a300 b--w">
+          <div className="g g--r p-a300 b--w">
             <button
               className="g--3 btn m-v500"
               type="submit"
@@ -296,5 +374,15 @@ export default class ShippingContent extends React.Component<Props> {
         </form>
       </div>
     );
+  }
+
+  renderError(fieldName: $Keys<OrderInfo>) {
+    const error = this.errorForField(fieldName);
+    return error && <div className="t--subinfo t--err m-t100">{error}</div>;
+  }
+
+  renderErrorClassName(fieldName: $Keys<OrderInfo>) {
+    const error = this.errorForField(fieldName);
+    return error ? 'txt-f--err' : '';
   }
 }

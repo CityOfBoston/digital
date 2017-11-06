@@ -154,19 +154,19 @@ export default wrapCheckoutPageController(
       case 'shipping':
         return (
           <AppLayout navProps={null}>
-            <ShippingContent {...props.props} />
+            {React.createElement(ShippingContent, props.props)}
           </AppLayout>
         );
       case 'payment':
         return (
           <AppLayout navProps={null}>
-            <PaymentContent {...props.props} />
+            {React.createElement(PaymentContent, props.props)}
           </AppLayout>
         );
       case 'confirmation':
         return (
           <AppLayout navProps={{ cart, link: 'lookup' }}>
-            <ConfirmationContent {...props.props} />
+            {React.createElement(ConfirmationContent, props.props)}
           </AppLayout>
         );
       default:

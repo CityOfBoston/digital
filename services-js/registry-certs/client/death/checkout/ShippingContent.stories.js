@@ -27,7 +27,7 @@ function makeCart() {
   return cart;
 }
 
-function makeOrder() {
+function makeOrder(overrides = {}) {
   const order = new Order();
 
   order.info = {
@@ -50,6 +50,8 @@ function makeOrder() {
     billingCity: '',
     billingState: '',
     billingZip: '',
+
+    ...overrides,
   };
 
   return order;
@@ -62,6 +64,14 @@ storiesOf('ShippingContent', module)
       cart={makeCart()}
       order={new Order()}
       submit={action('submit')}
+    />
+  ))
+  .add('email error', () => (
+    <ShippingContent
+      cart={makeCart()}
+      order={makeOrder({ contactEmail: 'notacompleteaddress@' })}
+      submit={action('submit')}
+      showErrorsForTest
     />
   ))
   .add('existing address', () => (

@@ -27,7 +27,7 @@ function makeCart() {
   return cart;
 }
 
-function makeShippingCompleteOrder() {
+function makeShippingCompleteOrder(overrides = {}) {
   const order = new Order();
 
   order.info = {
@@ -50,23 +50,24 @@ function makeShippingCompleteOrder() {
     billingCity: '',
     billingState: '',
     billingZip: '',
+
+    ...overrides,
   };
 
   return order;
 }
 
-function makeBillingCompleteOrder() {
-  const order = makeShippingCompleteOrder();
+function makeBillingCompleteOrder(overrides = {}) {
+  return makeShippingCompleteOrder({
+    billingAddressSameAsShippingAddress: false,
 
-  Object.assign(order.info, {
     billingAddress1: '3 Avengers Towers',
     billingAddress2: '',
     billingCity: 'New York',
     billingState: 'NY',
     billingZip: '12223',
+    ...overrides,
   });
-
-  return order;
 }
 
 storiesOf('PaymentContent', module)
@@ -76,6 +77,16 @@ storiesOf('PaymentContent', module)
       cart={makeCart()}
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
+    />
+  ))
+  .add('state error', () => (
+    <PaymentContent
+      cart={makeCart()}
+      order={makeBillingCompleteOrder({
+        billingState: '??',
+      })}
+      submit={action('submit')}
+      showErrorsForTest
     />
   ))
   .add('existing billing', () => (

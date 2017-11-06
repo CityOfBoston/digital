@@ -1,6 +1,12 @@
 // @flow
 
 import { observable, action, autorun, computed } from 'mobx';
+import makeShippingValidator, {
+  type ShippingValidator,
+} from '../../lib/validators/ShippingValidator';
+import makePaymentValidator, {
+  type PaymentValidator,
+} from '../../lib/validators/PaymentValidator';
 
 // session-storage based container for keeping track of ordering info
 
@@ -84,44 +90,36 @@ export default class Order {
   }
 
   @computed
-  get shippingIsComplete(): boolean {
-    // company name and address line 2 are optional
-    const {
-      contactName,
-      contactEmail,
-      contactPhone,
-      shippingName,
-      shippingAddress1,
-      shippingCity,
-      shippingState,
-      shippingZip,
-    } = this.info;
-
-    return !!(
-      contactName &&
-      contactEmail &&
-      contactPhone &&
-      shippingName &&
-      shippingAddress1 &&
-      shippingCity &&
-      shippingState &&
-      shippingZip
-    );
+  get shippingValidator(): ShippingValidator {
+    const validator = makeShippingValidator(this.info);
+    validator.check();
+    return validator;
   }
 
   @computed
-  get billingIsComplete(): boolean {
-    const {
-      billingAddressSameAsShippingAddress,
-      billingAddress1,
-      billingCity,
-      billingState,
-      billingZip,
-    } = this.info;
+  get shippingIsComplete(): boolean {
+    return this.shippingValidator.passes();
+  }
 
-    return (
-      (billingAddressSameAsShippingAddress && this.shippingIsComplete) ||
-      !!(billingAddress1 && billingCity && billingState && billingZip)
-    );
+  @computed
+  get shippingErrors(): { [any]: Array<string> } {
+    return this.shippingValidator.errors.all();
+  }
+
+  @computed
+  get paymentValidator(): PaymentValidator {
+    // Object spread to make sure we get mobX dependencies on all the keys,
+    // since they're not dereferenced until "check" later.
+    return makePaymentValidator({ ...this.info });
+  }
+
+  @computed
+  get paymentIsComplete(): boolean {
+    return this.paymentValidator.passes();
+  }
+
+  @computed
+  get paymentErrors(): { [any]: Array<string> } {
+    return this.paymentValidator.errors.all();
   }
 }
