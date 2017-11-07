@@ -43,6 +43,8 @@ function makeOrder(overrides = {}) {
     shippingState: 'NY',
     shippingZip: '12345',
 
+    cardholderName: 'Nancy Whitehead',
+
     billingAddressSameAsShippingAddress: true,
 
     billingAddress1: '',

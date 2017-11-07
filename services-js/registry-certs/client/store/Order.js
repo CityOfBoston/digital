@@ -23,6 +23,8 @@ export type OrderInfo = {|
   shippingState: string,
   shippingZip: string,
 
+  cardholderName: string,
+
   billingAddressSameAsShippingAddress: boolean,
 
   billingAddress1: string,
@@ -52,6 +54,8 @@ export default class Order {
       shippingCity: '',
       shippingState: '',
       shippingZip: '',
+
+      cardholderName: '',
 
       billingAddressSameAsShippingAddress: true,
 

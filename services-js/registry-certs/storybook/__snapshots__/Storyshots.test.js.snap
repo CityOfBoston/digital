@@ -6029,14 +6029,22 @@ exports[`Storyshots PaymentContent default 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-name"
               >
-                Name on Card
+                Cardholder Name 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
               <input
-                className="jsx-418405546 txt-f"
+                className="jsx-418405546 txt-f "
                 id="card-name"
                 name="card-name"
-                placeholder="Name on card"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Cardholder Name"
                 type="text"
+                value="Nancy Whitehead"
               />
             </div>
             <div
@@ -6046,30 +6054,15 @@ exports[`Storyshots PaymentContent default 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card Number
+                Credit Card 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
-              <input
-                className="jsx-418405546 txt-f"
-                id="card-number"
-                name="card-number"
-                placeholder="Credit Card Number"
-                type="text"
-              />
-            </div>
-            <div
-              className="jsx-418405546 txt"
-            >
-              <label
-                className="jsx-418405546 txt-l txt-l--mt000"
-                htmlFor="card-date"
-              >
-                Expiration Date
-              </label>
-              <input
-                className="jsx-418405546 txt-f txt-f--50"
-                id="card-date"
-                name="card-date"
-                placeholder="mm/yy"
+              <div
+                className="jsx-418405546"
               />
             </div>
           </fieldset>
@@ -6222,7 +6215,7 @@ exports[`Storyshots PaymentContent default 1`] = `
           </p>
           <button
             className="jsx-418405546 g--3 btn m-v500"
-            disabled={false}
+            disabled={true}
             type="submit"
           >
             Submit Order
@@ -6728,14 +6721,22 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-name"
               >
-                Name on Card
+                Cardholder Name 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
               <input
-                className="jsx-418405546 txt-f"
+                className="jsx-418405546 txt-f "
                 id="card-name"
                 name="card-name"
-                placeholder="Name on card"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Cardholder Name"
                 type="text"
+                value="Nancy Whitehead"
               />
             </div>
             <div
@@ -6745,30 +6746,15 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card Number
+                Credit Card 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
-              <input
-                className="jsx-418405546 txt-f"
-                id="card-number"
-                name="card-number"
-                placeholder="Credit Card Number"
-                type="text"
-              />
-            </div>
-            <div
-              className="jsx-418405546 txt"
-            >
-              <label
-                className="jsx-418405546 txt-l txt-l--mt000"
-                htmlFor="card-date"
-              >
-                Expiration Date
-              </label>
-              <input
-                className="jsx-418405546 txt-f txt-f--50"
-                id="card-date"
-                name="card-date"
-                placeholder="mm/yy"
+              <div
+                className="jsx-418405546"
               />
             </div>
           </fieldset>
@@ -7044,7 +7030,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </p>
           <button
             className="jsx-418405546 g--3 btn m-v500"
-            disabled={false}
+            disabled={true}
             type="submit"
           >
             Submit Order
@@ -7550,14 +7536,22 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-name"
               >
-                Name on Card
+                Cardholder Name 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
               <input
-                className="jsx-418405546 txt-f"
+                className="jsx-418405546 txt-f "
                 id="card-name"
                 name="card-name"
-                placeholder="Name on card"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Cardholder Name"
                 type="text"
+                value="Nancy Whitehead"
               />
             </div>
             <div
@@ -7567,30 +7561,15 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card Number
+                Credit Card 
+                <span
+                  className="jsx-418405546 t--req"
+                >
+                  Required
+                </span>
               </label>
-              <input
-                className="jsx-418405546 txt-f"
-                id="card-number"
-                name="card-number"
-                placeholder="Credit Card Number"
-                type="text"
-              />
-            </div>
-            <div
-              className="jsx-418405546 txt"
-            >
-              <label
-                className="jsx-418405546 txt-l txt-l--mt000"
-                htmlFor="card-date"
-              >
-                Expiration Date
-              </label>
-              <input
-                className="jsx-418405546 txt-f txt-f--50"
-                id="card-date"
-                name="card-date"
-                placeholder="mm/yy"
+              <div
+                className="jsx-418405546"
               />
             </div>
           </fieldset>

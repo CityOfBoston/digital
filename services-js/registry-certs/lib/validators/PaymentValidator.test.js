@@ -3,6 +3,8 @@
 import makePaymentValidator from './PaymentValidator';
 
 const EMPTY_FORM = {
+  cardholderName: '',
+
   billingAddressSameAsShippingAddress: true,
 
   billingAddress1: '',

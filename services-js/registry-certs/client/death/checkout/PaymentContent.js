@@ -1,4 +1,5 @@
 // @flow
+/* global Stripe */
 
 import React from 'react';
 import Head from 'next/head';
@@ -21,12 +22,74 @@ export type Props = {|
 
 type State = {
   touchedFields: { [$Keys<OrderInfo>]: boolean },
+  cardElementError: ?string,
+  cardElementComplete: boolean,
 };
 
 @observer
 export default class PaymentContent extends React.Component<Props, State> {
   state: State = {
     touchedFields: {},
+    cardElementError: null,
+    cardElementComplete: false,
+  };
+
+  stripe: ?StripeInstance = null;
+  cardElement: ?StripeElement = null;
+
+  componentWillMount() {
+    if (typeof Stripe !== 'undefined') {
+      this.stripe = Stripe(
+        (window.__NEXT_DATA__ || {}).stripePublishableKey || ''
+      );
+      const elements = this.stripe.elements();
+
+      this.cardElement = elements.create('card', {
+        hidePostalCode: true,
+        classes: {
+          base: 'txt-f',
+          invalid: 'txt-f--err',
+        },
+        style: {
+          base: {
+            lineHeight: '20px',
+          },
+        },
+      });
+
+      this.cardElement.on('change', this.handleCardElementChange);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.cardElement) {
+      this.cardElement.destroy();
+      this.cardElement = null;
+    }
+  }
+
+  setCardField = (el: ?HTMLInputElement) => {
+    if (this.cardElement) {
+      if (el) {
+        this.cardElement.mount(el);
+      } else {
+        this.cardElement.unmount();
+      }
+    }
+  };
+
+  handleCardElementChange = (ev: StripeElementChangeEvent) => {
+    if (ev.error) {
+      this.setState({
+        cardElementError: ev.error.message,
+        cardElementComplete: false,
+      });
+    } else {
+      this.setState({
+        cardElementError: null,
+        cardElementComplete: ev.complete,
+      });
+    }
   };
 
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
@@ -76,6 +139,7 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   render() {
     const { cart, order } = this.props;
+    const { cardElementError, cardElementComplete } = this.state;
 
     const {
       paymentIsComplete,
@@ -85,6 +149,7 @@ export default class PaymentContent extends React.Component<Props, State> {
         shippingCity,
         shippingState,
         shippingZip,
+        cardholderName,
         billingAddressSameAsShippingAddress,
         billingAddress1,
         billingAddress2,
@@ -140,40 +205,35 @@ export default class PaymentContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="card-name" className="txt-l txt-l--mt000">
-                  Name on Card
+                  Cardholder Name <span className="t--req">Required</span>
                 </label>
+
                 <input
                   id="card-name"
                   name="card-name"
                   type="text"
-                  placeholder="Name on card"
-                  className="txt-f"
+                  {...this.fieldListeners('cardholderName')}
+                  value={cardholderName}
+                  placeholder="Cardholder Name"
+                  className={`txt-f ${this.renderErrorClassName(
+                    'cardholderName'
+                  )}`}
                 />
+
+                {this.renderError('cardholderName')}
               </div>
 
               <div className="txt">
                 <label htmlFor="card-number" className="txt-l txt-l--mt000">
-                  Credit Card Number
+                  Credit Card <span className="t--req">Required</span>
                 </label>
-                <input
-                  id="card-number"
-                  name="card-number"
-                  type="text"
-                  placeholder="Credit Card Number"
-                  className="txt-f"
-                />
-              </div>
 
-              <div className="txt">
-                <label htmlFor="card-date" className="txt-l txt-l--mt000">
-                  Expiration Date
-                </label>
-                <input
-                  id="card-date"
-                  name="card-date"
-                  placeholder="mm/yy"
-                  className="txt-f txt-f--50"
-                />
+                <div ref={this.setCardField} />
+                {cardElementError && (
+                  <div className="t--subinfo t--err m-t100">
+                    {cardElementError}
+                  </div>
+                )}
               </div>
             </fieldset>
           </div>
@@ -338,7 +398,7 @@ export default class PaymentContent extends React.Component<Props, State> {
             <button
               className="g--3 btn m-v500"
               type="submit"
-              disabled={!paymentIsComplete}
+              disabled={!paymentIsComplete || !cardElementComplete}
             >
               Submit Order
             </button>

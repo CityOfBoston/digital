@@ -38,7 +38,10 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        <Head>{styleTags(DEFAULT_STYLE)}</Head>
+        <Head>
+          {styleTags(DEFAULT_STYLE)}
+          <script src="https://js.stripe.com/v3/" />
+        </Head>
 
         {this.props.children}
       </div>

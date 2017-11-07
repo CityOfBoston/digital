@@ -6,6 +6,7 @@ import './custom-validations';
 
 // matches part of store/Order.js’s OrderInfo
 type PaymentFields = {
+  cardholderName: string,
   billingAddressSameAsShippingAddress: boolean,
 
   billingAddress1: string,
@@ -20,6 +21,7 @@ const ADDRESS_REQUIRED_RULE = {
 };
 
 const RULES = {
+  cardholderName: 'required|string',
   billingAddressSameAsShippingAddress: 'boolean',
 
   billingAddress1: [ADDRESS_REQUIRED_RULE, 'string'],
@@ -30,6 +32,7 @@ const RULES = {
 };
 
 const NAMES = {
+  cardholderName: 'name',
   billingAddressSameAsShippingAddress: 'checkbox',
 
   billingAddress1: 'address line',

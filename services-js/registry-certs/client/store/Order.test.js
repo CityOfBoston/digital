@@ -37,6 +37,8 @@ describe('attach', () => {
           shippingState: '',
           shippingZip: '',
 
+          cardholderName: 'Nancy Whitehead',
+
           billingAddressSameAsShippingAddress: true,
 
           billingAddress1: '',

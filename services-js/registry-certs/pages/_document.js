@@ -18,6 +18,8 @@ export default class extends Document {
     const { __NEXT_DATA__ } = props;
 
     __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY || 'test-api-key';
+    __NEXT_DATA__.stripePublishableKey =
+      process.env.STRIPE_PUBLISHABLE_KEY || 'fake-stripe-key';
   }
 
   render() {
@@ -36,6 +38,8 @@ export default class extends Document {
             data-org-id={process.env.OPBEAT_FRONTEND_ORGANIZATION_ID}
             data-app-id={process.env.OPBEAT_FRONTEND_APP_ID}
           />
+
+          <script src="https://js.stripe.com/v3/" />
 
           <NextScript />
         </body>
