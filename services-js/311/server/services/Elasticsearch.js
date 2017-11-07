@@ -106,7 +106,7 @@ export default class Elasticsearch {
       must.push({
         multi_match: {
           query: query || '',
-          fields: ['description', 'service_name'],
+          fields: ['description', 'service_name', 'address'],
         },
       });
     }
