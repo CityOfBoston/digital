@@ -8,8 +8,8 @@ import makePaymentValidator, {
   type PaymentValidator,
 } from '../../lib/validators/PaymentValidator';
 
-// session-storage based container for keeping track of ordering info
-
+// Session-storage based container for keeping track of ordering info. Only add
+// values here that should be in session storage.
 export type OrderInfo = {|
   contactName: string,
   contactEmail: string,
@@ -38,6 +38,12 @@ const LOCAL_STORAGE_KEY = 'order';
 
 export default class Order {
   @observable info: OrderInfo;
+
+  @observable cardElementError: ?string = null;
+  @observable cardElementComplete: boolean = false;
+
+  @observable submitting: boolean = false;
+  @observable submissionError: ?string = null;
 
   updateStorageDisposer: ?Function = null;
 
@@ -125,5 +131,40 @@ export default class Order {
   @computed
   get paymentErrors(): { [any]: Array<string> } {
     return this.paymentValidator.errors.all();
+  }
+
+  @computed
+  get billingAddress1(): string {
+    return this.info.billingAddressSameAsShippingAddress
+      ? this.info.shippingAddress1
+      : this.info.billingAddress1;
+  }
+
+  @computed
+  get billingAddress2(): string {
+    return this.info.billingAddressSameAsShippingAddress
+      ? this.info.shippingAddress2
+      : this.info.billingAddress2;
+  }
+
+  @computed
+  get billingCity(): string {
+    return this.info.billingAddressSameAsShippingAddress
+      ? this.info.shippingCity
+      : this.info.billingCity;
+  }
+
+  @computed
+  get billingState(): string {
+    return this.info.billingAddressSameAsShippingAddress
+      ? this.info.shippingState
+      : this.info.billingState;
+  }
+
+  @computed
+  get billingZip(): string {
+    return this.info.billingAddressSameAsShippingAddress
+      ? this.info.shippingZip
+      : this.info.billingZip;
   }
 }

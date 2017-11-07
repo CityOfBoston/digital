@@ -19,7 +19,7 @@ describe('content', () => {
     order.info.billingAddressSameAsShippingAddress = false;
     submit = jest.fn();
     wrapper = shallow(
-      <PaymentContent cart={cart} order={order} submit={submit} />
+      <PaymentContent cart={cart} stripe={null} order={order} submit={submit} />
     );
   });
 

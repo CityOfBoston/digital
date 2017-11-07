@@ -29,6 +29,7 @@
     "*.js": "eslint --quiet"
   },
   "jest": {
+    "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/lib/test/jest-polyfills.js",
       "<rootDir>/lib/test/setup.js"

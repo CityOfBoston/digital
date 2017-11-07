@@ -24,6 +24,8 @@ exports[`integration renders payment 1`] = `
     cart={Cart {}}
     order={
       Order {
+        "cardElementComplete": false,
+        "cardElementError": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
@@ -43,9 +45,12 @@ exports[`integration renders payment 1`] = `
           "shippingState": "",
           "shippingZip": "",
         },
+        "submissionError": null,
+        "submitting": false,
         "updateStorageDisposer": null,
       }
     }
+    stripe={null}
     submit={[Function]}
   />
 </AppLayout>
@@ -59,6 +64,8 @@ exports[`integration renders shipping 1`] = `
     cart={Cart {}}
     order={
       Order {
+        "cardElementComplete": false,
+        "cardElementError": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
@@ -78,6 +85,8 @@ exports[`integration renders shipping 1`] = `
           "shippingState": "",
           "shippingZip": "",
         },
+        "submissionError": null,
+        "submitting": false,
         "updateStorageDisposer": null,
       }
     }

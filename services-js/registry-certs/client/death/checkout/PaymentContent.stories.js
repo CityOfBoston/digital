@@ -1,4 +1,5 @@
 // @flow
+/* global Stripe */
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
@@ -16,6 +17,8 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
+
+const makeStripe = () => (typeof Stripe !== 'undefined' ? Stripe('') : null);
 
 function makeCart() {
   const cart = new Cart();
@@ -77,13 +80,29 @@ storiesOf('PaymentContent', module)
   .add('default', () => (
     <PaymentContent
       cart={makeCart()}
+      stripe={makeStripe()}
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
+    />
+  ))
+  .add('credit card error', () => (
+    <PaymentContent
+      cart={makeCart()}
+      stripe={makeStripe()}
+      order={(() => {
+        const order = makeBillingCompleteOrder();
+        order.cardElementError = 'Your card number is incomplete.';
+
+        return order;
+      })()}
+      submit={action('submit')}
+      showErrorsForTest
     />
   ))
   .add('state error', () => (
     <PaymentContent
       cart={makeCart()}
+      stripe={makeStripe()}
       order={makeBillingCompleteOrder({
         billingState: '??',
       })}
@@ -91,9 +110,24 @@ storiesOf('PaymentContent', module)
       showErrorsForTest
     />
   ))
+  .add('submission error', () => (
+    <PaymentContent
+      cart={makeCart()}
+      stripe={makeStripe()}
+      order={(() => {
+        const order = makeBillingCompleteOrder();
+        order.submissionError = 'The order could not be processed.';
+
+        return order;
+      })()}
+      submit={action('submit')}
+      showErrorsForTest
+    />
+  ))
   .add('existing billing', () => (
     <PaymentContent
       cart={makeCart()}
+      stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
     />

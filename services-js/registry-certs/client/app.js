@@ -1,4 +1,5 @@
 // @flow
+/* global Stripe */
 
 import { useStrict } from 'mobx';
 import Router from 'next/router';
@@ -17,14 +18,17 @@ import Cart from './store/Cart';
 import Order from './store/Order';
 
 import DeathCertificatesDao from './dao/DeathCertificatesDao';
+import CheckoutDao from './dao/CheckoutDao';
 
 export type ClientContext = NextContext<RequestAdditions>;
 
 export type ClientDependencies = {
+  stripe: ?StripeInstance,
   loopbackGraphql: LoopbackGraphql,
   cart: Cart,
   order: Order,
   deathCertificatesDao: DeathCertificatesDao,
+  checkoutDao: CheckoutDao,
 };
 
 let browserInited = false;
@@ -58,8 +62,13 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
   // server.
   const req = ctx && ctx.req;
 
+  const stripe =
+    typeof Stripe !== 'undefined'
+      ? Stripe((window.__NEXT_DATA__ || {}).stripePublishableKey || '')
+      : null;
   const loopbackGraphql = makeLoopbackGraphql(req);
   const deathCertificatesDao = new DeathCertificatesDao(loopbackGraphql);
+  const checkoutDao = new CheckoutDao(loopbackGraphql, stripe);
   const cart = new Cart();
   const order = new Order();
 
@@ -69,9 +78,11 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
   }
 
   const dependencies: ClientDependencies = {
+    stripe,
     cart,
     order,
     deathCertificatesDao,
+    checkoutDao,
     loopbackGraphql,
   };
 

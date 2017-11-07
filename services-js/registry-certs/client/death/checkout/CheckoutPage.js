@@ -96,23 +96,25 @@ export function wrapCheckoutPageController(
       window.scrollTo(0, 0);
     };
 
-    submitOrder = async () => {
-      const { order } = this.dependencies;
+    submitOrder = async (cardElement: ?StripeElement) => {
+      const { order, checkoutDao } = this.dependencies;
 
-      const orderId = '123-456-7';
+      const orderId = await checkoutDao.submit(order, cardElement);
 
-      await Router.push(
-        `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
-          orderId
-        )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-        '/death/checkout?page=confirmation'
-      );
+      if (orderId) {
+        await Router.push(
+          `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
+            orderId
+          )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
+          '/death/checkout?page=confirmation'
+        );
 
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+      }
     };
 
     render() {
-      const { cart, order } = this.dependencies;
+      const { cart, order, stripe } = this.dependencies;
       const props = this.props;
 
       let renderProps;
@@ -126,7 +128,7 @@ export function wrapCheckoutPageController(
         case 'payment':
           renderProps = {
             page: 'payment',
-            props: { cart, order, submit: this.submitOrder },
+            props: { stripe, cart, order, submit: this.submitOrder },
           };
           break;
         case 'confirmation':

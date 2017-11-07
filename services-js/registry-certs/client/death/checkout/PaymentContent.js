@@ -1,5 +1,4 @@
 // @flow
-/* global Stripe */
 
 import React from 'react';
 import Head from 'next/head';
@@ -14,7 +13,8 @@ import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';
 
 export type Props = {|
-  submit: () => mixed,
+  submit: (cardElement: ?StripeElement) => mixed,
+  stripe: ?StripeInstance,
   cart: Cart,
   order: Order,
   showErrorsForTest?: boolean,
@@ -22,27 +22,21 @@ export type Props = {|
 
 type State = {
   touchedFields: { [$Keys<OrderInfo>]: boolean },
-  cardElementError: ?string,
-  cardElementComplete: boolean,
 };
 
 @observer
 export default class PaymentContent extends React.Component<Props, State> {
   state: State = {
     touchedFields: {},
-    cardElementError: null,
-    cardElementComplete: false,
   };
 
-  stripe: ?StripeInstance = null;
   cardElement: ?StripeElement = null;
 
   componentWillMount() {
-    if (typeof Stripe !== 'undefined') {
-      this.stripe = Stripe(
-        (window.__NEXT_DATA__ || {}).stripePublishableKey || ''
-      );
-      const elements = this.stripe.elements();
+    const { stripe } = this.props;
+
+    if (stripe) {
+      const elements = stripe.elements();
 
       this.cardElement = elements.create('card', {
         hidePostalCode: true,
@@ -78,25 +72,22 @@ export default class PaymentContent extends React.Component<Props, State> {
     }
   };
 
-  handleCardElementChange = (ev: StripeElementChangeEvent) => {
+  handleCardElementChange = action((ev: StripeElementChangeEvent) => {
+    const { order } = this.props;
     if (ev.error) {
-      this.setState({
-        cardElementError: ev.error.message,
-        cardElementComplete: false,
-      });
+      order.cardElementError = ev.error.message;
+      order.cardElementComplete = false;
     } else {
-      this.setState({
-        cardElementError: null,
-        cardElementComplete: ev.complete,
-      });
+      order.cardElementError = null;
+      order.cardElementComplete = ev.complete;
     }
-  };
+  });
 
   handleSubmit = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
     const { submit } = this.props;
-    submit();
+    submit(this.cardElement);
   };
 
   fieldListeners(fieldName: $Keys<OrderInfo>) {
@@ -139,10 +130,13 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   render() {
     const { cart, order } = this.props;
-    const { cardElementError, cardElementComplete } = this.state;
 
     const {
       paymentIsComplete,
+      cardElementError,
+      cardElementComplete,
+      submitting,
+      submissionError,
       info: {
         shippingAddress1,
         shippingAddress2,
@@ -388,17 +382,27 @@ export default class PaymentContent extends React.Component<Props, State> {
             <CostSummary cart={cart} />
           </div>
 
-          <div className="g p-a300 b--w">
-            <p className="g--9 t--subinfo">
+          <div className="g p-a300">
+            <div className="g--9 t--subinfo">
               Pressing the “Submit Order” button will charge the total amount to
               your credit card and place an order with the Registry.{' '}
               <strong>Certificates are non-refundable.</strong>
-            </p>
+            </div>
 
+            {submissionError && (
+              <div className="g--9 t--subinfo t--err m-t300">
+                {submissionError}
+              </div>
+            )}
+          </div>
+
+          <div className="g g--r p-a300 b--w">
             <button
               className="g--3 btn m-v500"
               type="submit"
-              disabled={!paymentIsComplete || !cardElementComplete}
+              disabled={
+                !paymentIsComplete || !cardElementComplete || submitting
+              }
             >
               Submit Order
             </button>

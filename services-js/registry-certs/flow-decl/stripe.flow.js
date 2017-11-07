@@ -60,15 +60,17 @@ type StripeElementOptions = {|
 
 type StripeCheckResult = 'pass' | 'fail' | 'unavailable' | 'unchecked';
 
+type StripeError = {|
+  code: string,
+  message: string,
+  type: string,
+|};
+
 type StripeElementChangeEvent = {
   brand: string,
   complete: boolean,
   empty: boolean,
-  error: ?{
-    code: string,
-    message: string,
-    type: string,
-  },
+  error: ?StripeError,
   value: { [key: string]: string },
 };
 
@@ -133,17 +135,17 @@ type StripeTokenResult =
       token: StripeToken,
     |}
   | {|
-      error: any,
+      error: StripeError,
     |};
 
 type StripeCardData = {|
-  name?: ?string,
-  address_line1?: ?string,
-  address_line2?: ?string,
-  address_city?: ?string,
-  address_state?: ?string,
-  address_zip?: ?string,
-  address_country?: ?string,
+  name?: string,
+  address_line1?: string,
+  address_line2?: string,
+  address_city?: string,
+  address_state?: string,
+  address_zip?: string,
+  address_country?: string,
 |};
 
 type StripeInstance = {|

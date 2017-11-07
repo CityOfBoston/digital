@@ -1,10 +1,17 @@
 // @flow
 
-import CheckoutPage, { wrapCheckoutPageController } from './CheckoutPage';
-
 import Router from 'next/router';
 
+import CheckoutPage, { wrapCheckoutPageController } from './CheckoutPage';
+import CheckoutDao from '../../dao/CheckoutDao';
+import Order from '../../store/Order';
+
 jest.mock('next/router');
+jest.mock('../../dao/CheckoutDao');
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 describe('integration', () => {
   it('renders shipping', () => {
@@ -108,10 +115,18 @@ describe('controller', () => {
 
   describe('operations', () => {
     let dependencies: any;
+    let checkoutDao: CheckoutDao;
+    let order: Order;
     let controller;
 
     beforeEach(() => {
-      dependencies = {};
+      order = new Order();
+      checkoutDao = new CheckoutDao((null: any), null);
+
+      dependencies = {
+        checkoutDao,
+        order,
+      };
 
       const CheckoutPageController = wrapCheckoutPageController(
         () => dependencies,
@@ -132,6 +147,18 @@ describe('controller', () => {
     describe('submitOrder', () => {
       it('exists', () => {
         expect(controller.submitOrder).toBeDefined();
+      });
+
+      it('redirects on success', async () => {
+        checkoutDao.submit.mockReturnValue(Promise.resolve('test-order-id'));
+        await controller.submitOrder(null);
+        expect(Router.push).toHaveBeenCalled();
+      });
+
+      it('stays on the same page on failure', async () => {
+        checkoutDao.submit.mockReturnValue(Promise.resolve(null));
+        await controller.submitOrder(null);
+        expect(Router.push).not.toHaveBeenCalled();
       });
 
       it('clears the cart on success');
