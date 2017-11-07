@@ -40,6 +40,13 @@ Parameters:
     Description: Either 'production' or 'staging'
     Default: staging
 
+  DeployUserName:
+    Type: String
+    Description: Name of the user to be granted deploy permissions
+
+Conditions:
+  IsProduction: !Equals [!Ref Environment, "production"]
+
 Resources:
   CommonResources:
     Type: "AWS::CloudFormation::Stack"
@@ -51,6 +58,7 @@ Resources:
         Environment: !Ref Environment
         ServiceDesiredCount: !Ref ServiceDesiredCount
         CloudFormationTemplatesBucket: !Ref CloudFormationTemplatesBucket
+        DeployUserName: !Ref DeployUserName
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/common-resources.yml'
 
   WebappResources:
@@ -63,6 +71,11 @@ Resources:
         ShortName: !Ref ShortName
         Environment: !Ref Environment
         PublicDnsName: !Ref PublicDnsName
+        Cdn:
+          Fn::If:
+            - IsProduction
+            - 'cloudfront'
+            - 'none'
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
         ServiceDesiredCount: !Ref ServiceDesiredCount
