@@ -29,6 +29,15 @@ gulp.task('babel:server', ['clean:build'], () =>
     .pipe(gulp.dest('build/server'))
 );
 
+gulp.task('babel:lib', ['clean:build'], () =>
+  gulp
+    .src('lib/**/*.js')
+    .pipe(plumber())
+    .pipe(ignore.exclude(IGNORED_JS_SOURCE))
+    .pipe(babel())
+    .pipe(gulp.dest('build/lib'))
+);
+
 gulp.task('next:compile', ['clean:next'], cb => {
   exec(
     `${path.join('node_modules', '.bin', 'next')} build`,
@@ -96,5 +105,5 @@ gulp.task('watch:graphql', () => [
 ]);
 
 // TODO(finh): restore pulling templates at this step
-gulp.task('build', ['babel:server', 'next:compile']);
+gulp.task('build', ['babel:server', 'babel:lib', 'next:compile']);
 gulp.task('watch', ['watch:graphql']);
