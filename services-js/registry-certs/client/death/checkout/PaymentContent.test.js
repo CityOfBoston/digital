@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Cart from '../../store/Cart';
-import Order from '../../store/Order';
+import Order from '../../models/Order';
 
 import PaymentContent from './PaymentContent';
 

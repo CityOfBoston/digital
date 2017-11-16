@@ -9,6 +9,7 @@ import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
+import makeStripe from 'stripe';
 
 import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
 import addRequestAdditions from './lib/request-additions';
@@ -63,6 +64,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   };
 
   let registryFactory: RegistryFactory;
+  const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
 
   const startup = async () => {
     const services = await Promise.all([
@@ -150,6 +152,7 @@ export function makeServer({ opbeat }: ServerArgs) {
         schema,
         context: ({
           registry: registryFactory.registry(),
+          stripe,
         }: Context),
       })),
       route: {

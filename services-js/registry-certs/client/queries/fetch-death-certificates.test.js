@@ -6,7 +6,7 @@ import FetchDeathCertificatesGraphql from './FetchDeathCertificates.graphql';
 import fetchDeathCertificates from './fetch-death-certificates';
 
 test('fetchDeathCertificates', async () => {
-  const loopbackGraphql = jest.fn().mockReturnValue({
+  const loopbackGraphql: any = jest.fn().mockReturnValue({
     deathCertificates: {
       certificates: [],
     },

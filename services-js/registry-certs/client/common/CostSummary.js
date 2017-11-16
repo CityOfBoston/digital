@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { CERTIFICATE_COST, PROCESSING_FEE } from '../store/Cart';
+import { calculateCost, CERTIFICATE_COST } from '../../lib/costs';
 import type Cart from '../store/Cart';
 
 type Props = {
@@ -10,22 +10,21 @@ type Props = {
 };
 
 export default function CostSummary({ cart }: Props) {
-  const certificateCost = cart.size * CERTIFICATE_COST;
-  const processingFee = PROCESSING_FEE * certificateCost;
+  const { total, subtotal, serviceFee } = calculateCost(cart.size);
 
   return (
     <div className="m-v500">
       <div className="p-v200">
         <div className="cost-row">
           <span className="t--info">
-            {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}
+            {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${(CERTIFICATE_COST / 100).toFixed()}
           </span>
-          <span className="cost">${certificateCost.toFixed(2)}</span>
+          <span className="cost">${(subtotal / 100).toFixed(2)}</span>
         </div>
 
         <div className="cost-row">
           <span className="t--info">Credit card processing fee</span>
-          <span className="cost">${processingFee.toFixed(2)}</span>
+          <span className="cost">${(serviceFee / 100).toFixed(2)}</span>
         </div>
 
         <div className="cost-row">
@@ -38,7 +37,9 @@ export default function CostSummary({ cart }: Props) {
 
       <div className="cost-row">
         <span className="sh-title">Total</span>
-        <span className="cost br br-t100 p-v200">${cart.cost.toFixed(2)}</span>
+        <span className="cost br br-t100 p-v200">
+          ${(total / 100).toFixed(2)}
+        </span>
       </div>
 
       <style jsx>{`

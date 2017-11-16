@@ -7,7 +7,7 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type Cart from '../../store/Cart';
-import type Order, { OrderInfo } from '../../store/Order';
+import type Order, { OrderInfo } from '../../models/Order';
 
 import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';

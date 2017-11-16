@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+import { CERTIFICATE_COST, calculateCost } from '../../../lib/costs';
 
-import { CERTIFICATE_COST } from '../../store/Cart';
 import type Cart from '../../store/Cart';
 
 import {
@@ -63,8 +63,8 @@ export default class OrderDetails extends React.Component<Props, State> {
             </div>
             <h2 className="t--sans tt-u">Order details</h2>
             <div className="t--info">
-              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${CERTIFICATE_COST}{' '}
-              + fee = ${cart.cost.toFixed(2)}
+              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${(CERTIFICATE_COST / 100).toFixed(2)}{' '}
+              + fee = ${(calculateCost(cart.size).total / 100).toFixed(2)}
             </div>
           </div>
         </button>

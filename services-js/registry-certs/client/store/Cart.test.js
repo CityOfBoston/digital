@@ -43,19 +43,6 @@ describe('add and size', () => {
   });
 });
 
-describe('cost', () => {
-  let cart;
-
-  beforeEach(() => {
-    cart = new Cart();
-  });
-
-  it('charges based on one certificate', () => {
-    cart.add(CERT_1, 1);
-    expect(cart.cost).toEqual(14.39);
-  });
-});
-
 describe('setQuantity', () => {
   let cart;
 

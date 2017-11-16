@@ -8,12 +8,16 @@ import type { DeathCertificateSearchResults } from '../types';
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
 jest.mock('../queries/fetch-death-certificates');
-const fetchDeathCertificates: JestMockFn = (require('../queries/fetch-death-certificates'): any)
-  .default;
+const fetchDeathCertificates: JestMockFn<
+  *,
+  *
+> = (require('../queries/fetch-death-certificates'): any).default;
 
 jest.mock('../queries/search-death-certificates');
-const searchDeathCertificates: JestMockFn = (require('../queries/search-death-certificates'): any)
-  .default;
+const searchDeathCertificates: JestMockFn<
+  *,
+  *
+> = (require('../queries/search-death-certificates'): any).default;
 
 const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
   results: [TYPICAL_CERTIFICATE],

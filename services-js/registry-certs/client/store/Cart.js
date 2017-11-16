@@ -5,9 +5,6 @@ import { observable, computed, action, autorun } from 'mobx';
 import type { DeathCertificate } from '../types';
 import type DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
-export const CERTIFICATE_COST = 14;
-export const PROCESSING_FEE = 0.0275;
-
 type LocalStorageEntry = {|
   id: string,
   quantity: number,
@@ -20,7 +17,7 @@ export class CartEntry {
 }
 
 export default class Cart {
-  @observable entries = [];
+  @observable entries: Array<CartEntry> = [];
   @observable pendingFetches: number = 0;
 
   localStorageDisposer: ?Function;
@@ -92,13 +89,6 @@ export default class Cart {
     return this.pendingFetches > 0;
   }
 
-  @computed
-  get cost(): number {
-    return (
-      Math.ceil(this.size * CERTIFICATE_COST * (1 + PROCESSING_FEE) * 100) / 100
-    );
-  }
-
   @action
   add(cert: DeathCertificate, quantity: number) {
     const existingItem = this.entries.find(item => item.id === cert.id);
@@ -128,5 +118,10 @@ export default class Cart {
     if (idx !== -1) {
       this.entries.splice(idx, 1);
     }
+  }
+
+  @action
+  clear() {
+    this.entries = [];
   }
 }

@@ -61,17 +61,20 @@ GraphQLSchema {
     },
   ],
   "_implementations": Object {},
-  "_mutationType": null,
+  "_mutationType": "Mutation",
   "_queryType": "Query",
   "_subscriptionType": null,
   "_typeMap": Object {
     "Boolean": "Boolean",
+    "CertificateOrderItem": "CertificateOrderItem",
     "DeathCertificate": "DeathCertificate",
     "DeathCertificateSearch": "DeathCertificateSearch",
     "DeathCertificates": "DeathCertificates",
     "Int": "Int",
+    "Mutation": "Mutation",
     "Query": "Query",
     "String": "String",
+    "SubmittedOrder": "SubmittedOrder",
     "__Directive": "__Directive",
     "__DirectiveLocation": "__DirectiveLocation",
     "__EnumValue": "__EnumValue",
@@ -85,7 +88,7 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 26,
+      "end": 48,
       "start": 0,
     },
     "operationTypes": Array [
@@ -109,6 +112,29 @@ GraphQLSchema {
               "start": 18,
             },
             "value": "Query",
+          },
+        },
+      },
+      Object {
+        "kind": "OperationTypeDefinition",
+        "loc": Object {
+          "end": 45,
+          "start": 27,
+        },
+        "operation": "mutation",
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 45,
+            "start": 37,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 45,
+              "start": 37,
+            },
+            "value": "Mutation",
           },
         },
       },

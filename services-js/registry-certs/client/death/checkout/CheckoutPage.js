@@ -12,6 +12,8 @@ import {
 
 import AppLayout from '../../AppLayout';
 
+import Order from '../../models/Order';
+
 import PaymentContent, {
   type Props as PaymentContentProps,
 } from './PaymentContent';
@@ -58,6 +60,7 @@ export function wrapCheckoutPageController(
   return class CheckoutPageController extends React.Component<InitialProps> {
     static getInitialProps({ query, res }: ClientContext): InitialProps {
       let props: InitialProps;
+      let redirectToShippingIfServer = false;
 
       switch (query.page || '') {
         case '':
@@ -66,6 +69,11 @@ export function wrapCheckoutPageController(
           break;
         case 'payment':
           props = { page: 'payment' };
+
+          // We know that we won't have shipping information if someone visits
+          // the payment page directly from the server (since this component's
+          // internal state will be blank), so redirect.
+          redirectToShippingIfServer = true;
           break;
         case 'confirmation':
           props = {
@@ -76,14 +84,15 @@ export function wrapCheckoutPageController(
           break;
         default:
           props = { page: 'shipping' };
+          redirectToShippingIfServer = true;
+      }
 
-          if (res) {
-            res.writeHead(301, {
-              Location: '/death/checkout',
-            });
-            res.end();
-            res.finished = true;
-          }
+      if (redirectToShippingIfServer && res) {
+        res.writeHead(301, {
+          Location: '/death/checkout',
+        });
+        res.end();
+        res.finished = true;
       }
 
       return props;
@@ -91,17 +100,44 @@ export function wrapCheckoutPageController(
 
     dependencies = getDependencies();
 
+    // This wil persist across different sub-pages since React will preserve the
+    // component instance. This will keep the form fields filled out as the user
+    // goes forward and back in the interface, and it will get automatically
+    // disposed of if the user leaves the flow, which is the behavior that we
+    // want.
+    order: Order = new Order();
+
+    componentDidMount() {
+      this.redirectIfMissingShipping(this.props);
+    }
+
+    componentWillReceiveProps(newProps: InitialProps) {
+      this.redirectIfMissingShipping(newProps);
+    }
+
+    // In the case of reloading from the browser, for example, or clicking
+    // "back" from the confirmation page.
+    async redirectIfMissingShipping(props: InitialProps) {
+      if (props.page === 'payment' && !this.order.shippingIsComplete) {
+        await Router.push('/death/checkout?page=shipping');
+        window.scrollTo(0, 0);
+      }
+    }
+
     advanceToPayment = async () => {
       await Router.push('/death/checkout?page=payment');
       window.scrollTo(0, 0);
     };
 
     submitOrder = async (cardElement: ?StripeElement) => {
-      const { order, checkoutDao } = this.dependencies;
+      const { order } = this;
+      const { cart, checkoutDao } = this.dependencies;
 
-      const orderId = await checkoutDao.submit(order, cardElement);
+      const orderId = await checkoutDao.submit(cart, order, cardElement);
 
       if (orderId) {
+        this.order = new Order();
+
         await Router.push(
           `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
             orderId
@@ -114,21 +150,30 @@ export function wrapCheckoutPageController(
     };
 
     render() {
-      const { cart, order, stripe } = this.dependencies;
-      const props = this.props;
+      const { props, order } = this;
+      const { cart, stripe } = this.dependencies;
 
       let renderProps;
       switch (props.page) {
         case 'shipping':
           renderProps = {
             page: 'shipping',
-            props: { cart, order, submit: this.advanceToPayment },
+            props: {
+              cart,
+              order,
+              submit: this.advanceToPayment,
+            },
           };
           break;
         case 'payment':
           renderProps = {
             page: 'payment',
-            props: { stripe, cart, order, submit: this.submitOrder },
+            props: {
+              stripe,
+              cart,
+              order,
+              submit: this.submitOrder,
+            },
           };
           break;
         case 'confirmation':

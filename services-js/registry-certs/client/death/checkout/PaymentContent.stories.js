@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/Cart';
-import Order from '../../store/Order';
+import Order from '../../models/Order';
 
 import appLayoutDecorator from '../../../storybook/app-layout-decorator';
 

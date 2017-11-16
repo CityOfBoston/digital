@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import CheckoutPage, { wrapCheckoutPageController } from './CheckoutPage';
 import CheckoutDao from '../../dao/CheckoutDao';
-import Order from '../../store/Order';
+import Order from '../../models/Order';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -37,9 +37,16 @@ describe('controller', () => {
   describe('getInitialProps', () => {
     let CheckoutPageController;
     let dependencies: any;
+    let res: ServerResponse;
 
     beforeEach(() => {
       dependencies = {};
+      res = {
+        writeHead: jest.fn(),
+        end: jest.fn(),
+        finished: false,
+      };
+
       CheckoutPageController = wrapCheckoutPageController(
         () => dependencies,
         () => null
@@ -48,36 +55,32 @@ describe('controller', () => {
 
     it('treats no page query param as shipping', () => {
       const initialProps = CheckoutPageController.getInitialProps(
-        ({
-          query: {},
-        }: any)
+        ({ res, query: {} }: any)
       );
 
       expect(initialProps.page).toEqual('shipping');
     });
 
-    it('passes payment query param through', () => {
+    it('process payment on server', () => {
       const initialProps = CheckoutPageController.getInitialProps(
-        ({
-          query: { page: 'payment' },
-        }: any)
+        ({ query: { page: 'payment' } }: any)
       );
 
       expect(initialProps.page).toEqual('payment');
     });
 
-    it('redirects unknown page query param to shipping on server', () => {
-      const res: ServerResponse = {
-        writeHead: jest.fn(),
-        end: jest.fn(),
-        finished: false,
-      };
-
+    it('redirects payment on server back to shipping', () => {
       CheckoutPageController.getInitialProps(
-        ({
-          query: { page: 'not-a-real-page' },
-          res,
-        }: any)
+        ({ res, query: { page: 'payment' } }: any)
+      );
+
+      expect(res.writeHead).toHaveBeenCalled();
+      expect(res.finished).toBe(true);
+    });
+
+    it('redirects unknown page query param to shipping on server', () => {
+      CheckoutPageController.getInitialProps(
+        ({ res, query: { page: 'not-a-real-page' } }: any)
       );
 
       expect(res.writeHead).toHaveBeenCalled();

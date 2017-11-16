@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mutation resolvers submitDeathCertificateOrder throws if there are no items 1`] = `[Error: Quantity of order is 0]`;

@@ -2,7 +2,10 @@
 import { action, runInAction } from 'mobx';
 
 import type { LoopbackGraphql } from '../lib/loopback-graphql';
-import type Order from '../store/Order';
+import type Cart from '../store/Cart';
+import type Order from '../models/Order';
+
+import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
 
 export default class CheckoutDao {
   loopbackGraphql: LoopbackGraphql;
@@ -14,32 +17,50 @@ export default class CheckoutDao {
   }
 
   @action
-  async submit(order: Order, cardElement: ?StripeElement): Promise<?string> {
+  async submit(
+    cart: Cart,
+    order: Order,
+    cardElement: ?StripeElement
+  ): Promise<?string> {
+    const { stripe } = this;
+
+    if (!stripe || !cardElement) {
+      throw new Error('submit called without Stripe and/or StripeElement');
+    }
+
     try {
       order.submitting = true;
       order.submissionError = null;
 
-      if (this.stripe && cardElement) {
-        const result = await this.stripe.createToken(cardElement, {
-          name: order.info.cardholderName,
-          address_line1: order.billingAddress1,
-          address_line2: order.billingAddress2,
-          address_city: order.billingCity,
-          address_state: order.billingState,
-          address_zip: order.billingZip,
-          address_country: 'us',
+      const tokenResult = await stripe.createToken(cardElement, {
+        name: order.info.cardholderName,
+        address_line1: order.billingAddress1,
+        address_line2: order.billingAddress2,
+        address_city: order.billingCity,
+        address_state: order.billingState,
+        address_zip: order.billingZip,
+        address_country: 'us',
+      });
+
+      if (tokenResult.error) {
+        runInAction('CheckoutDao > submit > createToken error result', () => {
+          order.submissionError = tokenResult.error.message;
         });
 
-        if (result.error) {
-          runInAction('CheckoutDao > submit > createToken error result', () => {
-            order.submissionError = result.error.message;
-          });
-
-          return null;
-        }
+        return null;
       }
 
-      return '1-234-56';
+      const orderId = await submitDeathCertificateOrder(
+        this.loopbackGraphql,
+        cart,
+        order,
+        tokenResult.token.id,
+        tokenResult.token.card.last4
+      );
+
+      cart.clear();
+
+      return orderId;
     } catch (err) {
       runInAction('CheckoutDao > submit > catch block', () => {
         order.submissionError =

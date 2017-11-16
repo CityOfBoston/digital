@@ -7,7 +7,7 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type Cart from '../../store/Cart';
-import type Order, { OrderInfo } from '../../store/Order';
+import type Order, { OrderInfo } from '../../models/Order';
 
 import OrderDetails from './OrderDetails';
 
@@ -208,7 +208,7 @@ export default class ShippingContent extends React.Component<Props, State> {
                   htmlFor="shipping-company-name"
                   className="txt-l txt-l--mt000"
                 >
-                  Company Name
+                  Company Name (optional)
                 </label>
                 <input
                   id="shipping-company-name"
@@ -252,7 +252,7 @@ export default class ShippingContent extends React.Component<Props, State> {
                   htmlFor="shipping-address-2"
                   className="txt-l txt-l--mt000"
                 >
-                  Address Line 2
+                  Address Line 2 (optional)
                 </label>
                 <input
                   id="shipping-address-2"

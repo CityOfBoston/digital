@@ -1045,7 +1045,7 @@ exports[`Storyshots CartPage loading 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  3.08
+                  3.65
                 </span>
               </div>
               <div
@@ -1079,7 +1079,7 @@ exports[`Storyshots CartPage loading 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                115.09
+                115.65
               </span>
             </div>
           </div>
@@ -1656,7 +1656,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -1690,7 +1690,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -5133,10 +5133,10 @@ exports[`Storyshots OrderDetails closed 1`] = `
          
         certificates
          × $
-        14
+        14.00
          
         + fee = $
-        71.93
+        72.40
       </div>
     </div>
   </button>
@@ -5185,10 +5185,10 @@ exports[`Storyshots OrderDetails loading 1`] = `
          
         certificates
          × $
-        14
+        14.00
          
         + fee = $
-        115.09
+        115.65
       </div>
     </div>
   </button>
@@ -5237,10 +5237,10 @@ exports[`Storyshots OrderDetails open 1`] = `
          
         certificates
          × $
-        14
+        14.00
          
         + fee = $
-        71.93
+        72.40
       </div>
     </div>
   </button>
@@ -5955,10 +5955,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -6288,7 +6288,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -6322,7 +6322,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -6779,10 +6779,10 @@ exports[`Storyshots PaymentContent default 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -6984,7 +6984,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -7018,7 +7018,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -7475,10 +7475,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -7803,7 +7803,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -7837,7 +7837,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -8294,10 +8294,10 @@ exports[`Storyshots PaymentContent state error 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -8627,7 +8627,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -8661,7 +8661,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -9118,10 +9118,10 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -9446,7 +9446,7 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                   className="jsx-4282255710 cost"
                 >
                   $
-                  1.93
+                  2.40
                 </span>
               </div>
               <div
@@ -9480,7 +9480,7 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                71.93
+                72.40
               </span>
             </div>
           </div>
@@ -11651,10 +11651,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -11799,7 +11799,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-company-name"
               >
-                Company Name
+                Company Name (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "
@@ -11844,7 +11844,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-2"
               >
-                Address Line 2
+                Address Line 2 (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "
@@ -12370,10 +12370,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -12523,7 +12523,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-company-name"
               >
-                Company Name
+                Company Name (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "
@@ -12568,7 +12568,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-2"
               >
-                Address Line 2
+                Address Line 2 (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "
@@ -13094,10 +13094,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                
               certificates
                × $
-              14
+              14.00
                
               + fee = $
-              71.93
+              72.40
             </div>
           </div>
         </button>
@@ -13242,7 +13242,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-company-name"
               >
-                Company Name
+                Company Name (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "
@@ -13287,7 +13287,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="shipping-address-2"
               >
-                Address Line 2
+                Address Line 2 (optional)
               </label>
               <input
                 className="jsx-418405546 txt-f "

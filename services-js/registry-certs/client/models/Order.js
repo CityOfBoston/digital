@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, action, autorun, computed } from 'mobx';
+import { observable, computed } from 'mobx';
 import makeShippingValidator, {
   type ShippingValidator,
 } from '../../lib/validators/ShippingValidator';
@@ -33,8 +33,6 @@ export type OrderInfo = {|
   billingState: string,
   billingZip: string,
 |};
-
-const LOCAL_STORAGE_KEY = 'order';
 
 export default class Order {
   @observable info: OrderInfo;
@@ -73,32 +71,6 @@ export default class Order {
     };
   }
 
-  @action
-  attach(storage: Storage) {
-    if (storage) {
-      try {
-        const savedOrderJson = storage.getItem(LOCAL_STORAGE_KEY);
-        if (savedOrderJson) {
-          this.info = JSON.parse(savedOrderJson);
-        }
-      } catch (e) {
-        storage.removeItem(LOCAL_STORAGE_KEY);
-      }
-
-      this.updateStorageDisposer = autorun(
-        'save order to session storage',
-        () => storage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.info))
-      );
-    }
-  }
-
-  detach() {
-    if (this.updateStorageDisposer) {
-      this.updateStorageDisposer();
-      this.updateStorageDisposer = null;
-    }
-  }
-
   @computed
   get shippingValidator(): ShippingValidator {
     const validator = makeShippingValidator(this.info);
@@ -118,9 +90,9 @@ export default class Order {
 
   @computed
   get paymentValidator(): PaymentValidator {
-    // Object spread to make sure we get mobX dependencies on all the keys,
-    // since they're not dereferenced until "check" later.
-    return makePaymentValidator({ ...this.info });
+    const validator = makePaymentValidator(this.info);
+    validator.check();
+    return validator;
   }
 
   @computed

@@ -1,14 +1,22 @@
 // @flow
 
 import type { LoopbackGraphql } from '../lib/loopback-graphql';
-import Order from '../store/Order';
+import Cart from '../store/Cart';
+import Order from '../models/Order';
 
 import CheckoutDao from './CheckoutDao';
+
+jest.mock('../queries/submit-death-certificate-order');
+const submitDeathCertificateOrder: JestMockFn<
+  *,
+  Promise<string>
+> = (require('../queries/submit-death-certificate-order'): any).default;
 
 let loopbackGraphql: LoopbackGraphql;
 let stripe: StripeInstance;
 let dao: CheckoutDao;
 
+let cart: Cart;
 let order: Order;
 let cardElement: StripeElement;
 
@@ -18,22 +26,37 @@ beforeEach(() => {
     createToken: jest.fn(),
   }: any);
 
+  submitDeathCertificateOrder.mockReturnValueOnce(Promise.resolve('order-id'));
+
   dao = new CheckoutDao(loopbackGraphql, stripe);
 
+  cart = new Cart();
   order = new Order();
   cardElement = ({}: any);
+});
+
+afterEach(() => {
+  jest.resetAllMocks();
 });
 
 describe('submit', () => {
   test('tokenization success path', async () => {
     stripe.createToken.mockReturnValue(
-      Promise.resolve({ token: { id: 'tok_id' } })
+      Promise.resolve({ token: { id: 'tok_id', card: { last4: '4040' } } })
     );
 
-    const submitPromise = dao.submit(order, cardElement);
+    const submitPromise = dao.submit(cart, order, cardElement);
     expect(order.submitting).toEqual(true);
 
     const orderId = await submitPromise;
+
+    expect(submitDeathCertificateOrder).toHaveBeenCalledWith(
+      loopbackGraphql,
+      cart,
+      order,
+      'tok_id',
+      '4040'
+    );
 
     expect(orderId).toBeTruthy();
     expect(order.submitting).toEqual(false);
@@ -46,7 +69,7 @@ describe('submit', () => {
       })
     );
 
-    const submitPromise = dao.submit(order, cardElement);
+    const submitPromise = dao.submit(cart, order, cardElement);
     expect(order.submitting).toEqual(true);
 
     const orderId = await submitPromise;
@@ -63,7 +86,7 @@ describe('submit', () => {
       Promise.reject(new Error('Internet exploded. It’s for the best.'))
     );
 
-    const submitPromise = dao.submit(order, cardElement);
+    const submitPromise = dao.submit(cart, order, cardElement);
     expect(order.submitting).toEqual(true);
 
     const orderId = await submitPromise;

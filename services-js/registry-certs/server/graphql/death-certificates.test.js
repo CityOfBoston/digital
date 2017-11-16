@@ -28,7 +28,7 @@ describe('DeathCertificates resolvers', () => {
       const search = await resolvers.DeathCertificates.search(
         {},
         { query: 'Logan' },
-        { registry }
+        { registry, stripe: ({}: any) }
       );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(20);
@@ -40,7 +40,7 @@ describe('DeathCertificates resolvers', () => {
       const search = await resolvers.DeathCertificates.search(
         {},
         { query: 'Logan', pageSize: 2, page: 1 },
-        { registry }
+        { registry, stripe: ({}: any) }
       );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(2);
@@ -54,7 +54,7 @@ describe('DeathCertificates resolvers', () => {
         await resolvers.DeathCertificates.certificate(
           {},
           { id: fixtureData[0].CertificateID.toString() },
-          { registry }
+          { registry, stripe: ({}: any) }
         )
       ).toBeTruthy();
     });
@@ -64,7 +64,7 @@ describe('DeathCertificates resolvers', () => {
         await resolvers.DeathCertificates.certificate(
           {},
           { id: '999992' },
-          { registry }
+          { registry, stripe: ({}: any) }
         )
       ).not.toBeTruthy();
     });
@@ -81,7 +81,7 @@ describe('DeathCertificates resolvers', () => {
             fixtureData[2].CertificateID.toString(),
           ],
         },
-        { registry }
+        { registry, stripe: ({}: any) }
       );
       expect(certificates[0]).toBeTruthy();
       expect(certificates[1]).not.toBeTruthy();
