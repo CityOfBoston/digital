@@ -3,7 +3,7 @@
 exports[`samFeatureToUnit matches the snapshot 1`] = `
 Object {
   "address": "280-306 Fake St
-Boston, MA, 02108",
+Boston, 02108",
   "addressId": "343432",
   "buildingId": "136614",
   "location": Object {

@@ -222,7 +222,7 @@ export function samFeatureToUnit({
 }: LiveSamFeature): UnitResult {
   return {
     location: { lat: geometry.y, lng: geometry.x },
-    address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, MA, ${attributes.ZIP_CODE}`,
+    address: `${attributes.FULL_ADDRESS}\n${attributes.MAILING_NEIGHBORHOOD}, ${attributes.ZIP_CODE}`,
     addressId: attributes.SAM_ADDRESS_ID.toString(),
     streetAddress: attributes.FULL_ADDRESS,
     unit: attributes.UNIT,
@@ -356,13 +356,13 @@ export default class ArcGIS {
         address: formatAddress(
           candidate.attributes.Addr_type === 'StreetAddress'
             ? candidate.address
-            : candidate.attributes.User_fld
+            : candidate.attributes.User_fld || candidate.address
         ),
         addressId: candidate.attributes.Ref_ID
           ? candidate.attributes.Ref_ID.toString()
           : null,
         buildingId: candidate.attributes.Street_ID || null,
-        exact: isExactAddress(candidate),
+        exact: true,
       };
     }
   };
