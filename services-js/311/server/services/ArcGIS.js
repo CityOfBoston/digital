@@ -14,29 +14,29 @@ type SpatialReference = {
   latestWkid: number,
 };
 
-type ReverseGeocodeResponse =
-  | {
-      address: {
+type ReverseGeocodeResult =
+  | {|
+      address: {|
         Street: string,
         City: string,
         State: string,
         ZIP: string,
         Match_addr: string,
         Loc_name: string,
-      },
-      location: {
+      |},
+      location: {|
         x: number,
         y: number,
         spatialReference: SpatialReference,
-      },
-    }
-  | {
-      error: {
+      |},
+    |}
+  | {|
+      error: {|
         code: number,
         message: string,
         details: string[],
-      },
-    };
+      |},
+    |};
 
 export type FindAddressCandidate = {|
   address: string,
@@ -302,22 +302,29 @@ export default class ArcGIS {
         throw new Error('Got not-ok response from ArcGIS geocoder');
       }
 
-      const geocode: ReverseGeocodeResponse = await response.json();
+      const result: ReverseGeocodeResult = await response.json();
 
-      if (geocode.error) {
-        return null;
+      if (result.error) {
+        const { error } = result;
+        if (error.code === 400) {
+          return null;
+        } else {
+          throw new Error(
+            error.details[0] || error.message || 'Unknown ArcGIS error'
+          );
+        }
       }
 
       // We take the address from the locator and send it over to
       // search so we can get the building ID and SAM id, which are
       // not sent in the reverse geocode response.
-      const places = await this.search(geocode.address.Match_addr);
+      const places = await this.search(result.address.Match_addr);
 
       return (
         // Just in case, we still want to return something
         places[0] || {
           location: { lat, lng },
-          address: formatAddress(geocode.address.Match_addr),
+          address: formatAddress(result.address.Match_addr),
           addressId: null,
           buildingId: null,
           exact: false,

@@ -277,4 +277,15 @@ storiesOf('LocationPopUp', module)
       })}
       requestForm={new RequestForm()}
     />
+  )
+  .add('geocode error', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore(null, {
+        currentReverseGeocodeLocation: { lat: 2, lng: 3 },
+        lastQuery: '123 fake street',
+        lastSearchError: new Error('SERVER ERROR THINGS ARE BROKEN'),
+      })}
+      requestForm={new RequestForm()}
+    />
   );

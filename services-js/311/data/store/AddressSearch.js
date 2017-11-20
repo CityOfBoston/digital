@@ -115,6 +115,7 @@ export default class AddressSearch {
 
   set location(location: {| lat: number, lng: number |}) {
     this.query = '';
+    this.intent = 'LATLNG';
 
     if (
       this.location &&
@@ -155,7 +156,6 @@ export default class AddressSearch {
           this.highlightedPlaceIndex = 0;
           this.currentUnitIndex = 0;
           this.currentReverseGeocodeLocationIsValid = true;
-          this.intent = 'LATLNG';
         } else {
           this.places = [];
           this.currentPlaceIndex = 0;

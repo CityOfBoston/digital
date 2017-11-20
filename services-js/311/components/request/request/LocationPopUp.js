@@ -278,7 +278,13 @@ export default class LocationPopUp extends React.Component<Props> {
     } = this.props;
     const { belowMediaLarge } = ui;
     const { locationRequirementsMet } = requestForm;
-    const { places, lastSearchError, searching, query } = addressSearch;
+    const {
+      places,
+      lastSearchError,
+      searching,
+      query,
+      location,
+    } = addressSearch;
 
     return (
       <div className={CONTENT_STYLE}>
@@ -318,7 +324,8 @@ export default class LocationPopUp extends React.Component<Props> {
 
           <div className={ADDRESS_WRAPPER_STYLE}>
             {searching && this.renderLoading()}
-            {lastSearchError && this.renderSearchError()}
+            {lastSearchError && !location && this.renderSearchError()}
+            {lastSearchError && location && this.renderGeocodeError()}
 
             {places &&
               (places.length > 0
@@ -393,11 +400,28 @@ export default class LocationPopUp extends React.Component<Props> {
 
   renderSearchError() {
     return (
-      <div className="p-a300 t--info" key="error">
-        <span className="t--err">
-          We couldn’t find that address because of a server problem. Please try
+      <div className="p-a300" key="error" style={{ paddingTop: 0 }}>
+        <p className="t--err t--info" style={{ marginTop: 0 }}>
+          We couldn’t find that address because of a server problem.
+        </p>
+        <p className="t--subinfo">
+          Please try again later, or choose a location using the map.
+        </p>
+      </div>
+    );
+  }
+
+  renderGeocodeError() {
+    return (
+      <div className="p-a300" key="error" style={{ paddingTop: 0 }}>
+        <p className="t--err t--info" style={{ marginTop: 0 }}>
+          We couldn’t find an address for the map pin because of a server
+          problem.
+        </p>
+        <p className="t--subinfo">
+          If your case is for something at a specific street address, please try
           again later.
-        </span>
+        </p>
       </div>
     );
   }

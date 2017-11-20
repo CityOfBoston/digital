@@ -6387,6 +6387,105 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
 </div>
 `;
 
+exports[`Storyshots LocationPopUp geocode error 1`] = `
+<div
+  className="css-18ppl9p"
+>
+  <div
+    className=" br br-t400 br--y css-1qypc7t"
+    style={Object {}}
+  >
+    <div
+      className="css-1v26nfd"
+    >
+      <div
+        className="css-1gx8zcz"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className="css-1d3uvm0"
+        >
+          <div
+            className="p-a300"
+            style={
+              Object {
+                "paddingTop": 0,
+              }
+            }
+          >
+            <p
+              className="t--err t--info"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              We couldn’t find an address for the map pin because of a server problem.
+            </p>
+            <p
+              className="t--subinfo"
+            >
+              If your case is for something at a specific street address, please try again later.
+            </p>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-zcxndt"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots LocationPopUp search error 1`] = `
 <div
   className="css-18ppl9p"
@@ -6434,13 +6533,28 @@ exports[`Storyshots LocationPopUp search error 1`] = `
           className="css-1d3uvm0"
         >
           <div
-            className="p-a300 t--info"
+            className="p-a300"
+            style={
+              Object {
+                "paddingTop": 0,
+              }
+            }
           >
-            <span
-              className="t--err"
+            <p
+              className="t--err t--info"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
             >
-              We couldn’t find that address because of a server problem. Please try again later.
-            </span>
+              We couldn’t find that address because of a server problem.
+            </p>
+            <p
+              className="t--subinfo"
+            >
+              Please try again later, or choose a location using the map.
+            </p>
           </div>
         </div>
         <div

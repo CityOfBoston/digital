@@ -64,7 +64,10 @@ export default class RequestForm {
 
   @computed
   get locationRequirementsMet(): boolean {
-    return this.address.length > 0;
+    return (
+      (this.addressIntent === 'ADDRESS' && this.address.length > 0) ||
+      (this.addressIntent === 'LATLNG' && !!this.location)
+    );
   }
 
   @computed
