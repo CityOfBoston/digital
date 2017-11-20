@@ -60,6 +60,10 @@ function makeHttpsImageUrl(mediaUrl: string): string {
     .replace(
       'http://boston.spot.show/',
       'https://res.cloudinary.com/spot-boston/'
+    )
+    .replace(
+      'http://spot-boston-res.cloudinary.com/',
+      'https://spot-boston-res.cloudinary.com/'
     );
 }
 
