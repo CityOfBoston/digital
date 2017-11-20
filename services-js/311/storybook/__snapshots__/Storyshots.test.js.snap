@@ -6699,6 +6699,147 @@ Dorchester, 02125
 </div>
 `;
 
+exports[`Storyshots LocationPopUp with inexact address 1`] = `
+<div
+  className="css-18ppl9p"
+>
+  <div
+    className=" br br-t400 br--y css-1qypc7t"
+    style={Object {}}
+  >
+    <div
+      className="css-1v26nfd"
+    >
+      <div
+        className="css-1gx8zcz"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className="css-1d3uvm0"
+        >
+          <div
+            className=""
+          >
+            <div
+              className="css-1jp7css"
+            >
+              <div
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
+              >
+                <button
+                  className="css-ti3y12 p-a300 css-1ix5imm css-w1yixc css-u2ohxn"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="css-1tksw0t"
+                  >
+                    <div
+                      className="css-1dfexzg"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "
+    <svg role=\\"img\\" class=\\"css-uwwqev\\">
+      <use xlink:href=\\"/assets/img/svg/waypoints.svg#orange-filled\\" height=\\"100%\\" />
+    </svg>
+  ",
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="addr addr--s"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "lineHeight": 1.4,
+                        "verticalAlign": "middle",
+                        "whiteSpace": "pre-line",
+                      }
+                    }
+                  >
+                    <div
+                      className="t--subinfo tt-n"
+                    >
+                      Approximate location
+                    </div>
+                    123 Fake St.
+Dorchester, 02125
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "clear": "both",
+                      }
+                    }
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-zcxndt"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
 <div
   className="css-18ppl9p"

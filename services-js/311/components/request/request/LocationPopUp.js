@@ -535,6 +535,8 @@ class AddressRow extends React.Component<AddressRowProps> {
               lineHeight: 1.4,
             }}
           >
+            {!place.exact &&
+              <div className="t--subinfo tt-n">Approximate location</div>}
             {(current
               ? address
               : place.units && place.units.length

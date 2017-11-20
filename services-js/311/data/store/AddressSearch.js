@@ -147,6 +147,7 @@ export default class AddressSearch {
               location,
               address: place.address,
               addressId: place.addressId,
+              exact: place.exact,
               units: place.units,
             },
           ];

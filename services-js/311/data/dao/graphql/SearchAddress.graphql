@@ -7,6 +7,7 @@ query SearchAddress($query: String!) {
       }
 		  address
       addressId
+      exact
       units {
         address
         streetAddress

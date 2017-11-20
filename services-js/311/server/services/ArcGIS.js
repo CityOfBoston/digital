@@ -38,14 +38,14 @@ type ReverseGeocodeResponse =
       },
     };
 
-export type FindAddressCandidate = {
+export type FindAddressCandidate = {|
   address: string,
   location: {
     x: number,
     y: number,
   },
   score: number,
-  attributes: {
+  attributes: {|
     Loc_name: string,
     Match_addr: string,
     Ref_ID: number,
@@ -55,19 +55,19 @@ export type FindAddressCandidate = {
     SubAddrUnit: string,
     // This is where building ID is currently stored
     Street_ID: string,
-  },
-  extent?: {
+  |},
+  extent?: {|
     xmin: number,
     ymin: number,
     xmax: number,
     ymax: number,
-  },
-};
+  |},
+|};
 
-type FindAddressResponse = {
+type FindAddressResponse = {|
   spatialReference: SpatialReference,
   candidates: FindAddressCandidate[],
-};
+|};
 
 export type LiveSamFeature = {
   attributes: {
@@ -199,21 +199,6 @@ export function sortAddressCandidates(
   );
 }
 
-export function candidateToSearchResult(
-  candidate: FindAddressCandidate
-): SearchResult {
-  const { x: lng, y: lat } = candidate.location;
-  return {
-    location: { lat, lng },
-    address: formatAddress(candidate.attributes.User_fld),
-    addressId: candidate.attributes.Ref_ID
-      ? candidate.attributes.Ref_ID.toString()
-      : null,
-    buildingId: candidate.attributes.Street_ID || null,
-    exact: isExactAddress(candidate),
-  };
-}
-
 export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
   return _(units)
     .sort((a, b) => {
@@ -273,7 +258,7 @@ export default class ArcGIS {
   samAddressOnlyLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `Locators/SAM_Address_FH/GeocodeServer/${path}`
+      `Locators/SAM_Address/GeocodeServer/${path}`
     );
   }
 
@@ -345,6 +330,43 @@ export default class ArcGIS {
     }
   }
 
+  candidateToSearchResult = async (
+    candidate: FindAddressCandidate
+  ): Promise<?SearchResult> => {
+    const { x: lng, y: lat } = candidate.location;
+
+    // The goal here is to never return an interpolated, StreetAddress result,
+    // since it has no SAM ID. So, if we found one in the search results, we
+    // reverse-geocode its estimated location to get an address. We then set the
+    // "exact" bit to false since the address can be named something somewhat
+    // different from the search term and we want to communicate that something
+    // approximate is going on.
+    if (candidate.attributes.Addr_type === 'StreetAddress') {
+      const geocoded = await this.reverseGeocode(
+        candidate.location.y,
+        candidate.location.x
+      );
+      if (geocoded) {
+        geocoded.exact = false;
+      }
+      return geocoded;
+    } else {
+      return {
+        location: { lat, lng },
+        address: formatAddress(
+          candidate.attributes.Addr_type === 'StreetAddress'
+            ? candidate.address
+            : candidate.attributes.User_fld
+        ),
+        addressId: candidate.attributes.Ref_ID
+          ? candidate.attributes.Ref_ID.toString()
+          : null,
+        buildingId: candidate.attributes.Street_ID || null,
+        exact: isExactAddress(candidate),
+      };
+    }
+  };
+
   async search(query: string): Promise<Array<SearchResult>> {
     const transaction =
       this.opbeat &&
@@ -373,8 +395,12 @@ export default class ArcGIS {
 
       const findAddressResponse: FindAddressResponse = await response.json();
 
-      return sortAddressCandidates(findAddressResponse.candidates).map(
-        candidateToSearchResult
+      return _.compact(
+        await Promise.all(
+          sortAddressCandidates(findAddressResponse.candidates).map(
+            this.candidateToSearchResult
+          )
+        )
       );
     } finally {
       if (transaction) {

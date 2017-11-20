@@ -14,6 +14,7 @@ const PLACE: SearchAddressPlace = {
   address: '1 City Hall Plaza',
   addressId: '12345',
   units: [],
+  exact: true,
   location: {
     lat: 42.36035940296916,
     lng: -71.05802536010744,
@@ -24,6 +25,7 @@ const PLACE_2: SearchAddressPlace = {
   address: '2 City Hall Plaza',
   addressId: '12346',
   units: [],
+  exact: true,
   location: {
     lat: 42.37,
     lng: -71.06,
@@ -151,6 +153,7 @@ describe('reverse geocoding', () => {
         lng: -71.05802536010744,
       },
       addressId: '12345',
+      exact: true,
       units: [],
     });
 

@@ -82,6 +82,7 @@ describe('mounted map', () => {
           address: '1 City Hall Plaza',
           addressId: '12345',
           units: [],
+          exact: true,
           location: {
             lat: 42,
             lng: -71,
@@ -90,6 +91,7 @@ describe('mounted map', () => {
         {
           address: '2 City Hall Plaza',
           addressId: '12346',
+          exact: true,
           units: [],
           location: {
             lat: 43,

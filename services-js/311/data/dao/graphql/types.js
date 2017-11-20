@@ -203,6 +203,7 @@ export type ReverseGeocodeQuery = {|
       |},
       address: string,
       addressId: ?string,
+      exact: boolean,
       units:  Array< {|
         address: string,
         streetAddress: string,
@@ -226,6 +227,7 @@ export type SearchAddressQuery = {|
       |},
       address: string,
       addressId: ?string,
+      exact: boolean,
       units:  Array< {|
         address: string,
         streetAddress: string,

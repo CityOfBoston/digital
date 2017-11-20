@@ -119,6 +119,28 @@ storiesOf('LocationPopUp', module)
             address: '123 Fake St.\nDorchester, 02125',
             addressId: '12345',
             location: { lat: 0, lng: 0 },
+            exact: true,
+            units: [],
+          },
+        ],
+        {
+          query: '123 fake street dorchester ma',
+          lastQuery: '123 fake street dorchester ma',
+        }
+      )}
+      requestForm={new RequestForm()}
+    />
+  )
+  .add('with inexact address', () =>
+    <LocationPopUp
+      {...props}
+      store={makeStore(
+        [
+          {
+            address: '123 Fake St.\nDorchester, 02125',
+            addressId: '12345',
+            location: { lat: 0, lng: 0 },
+            exact: false,
             units: [],
           },
         ],
@@ -139,6 +161,7 @@ storiesOf('LocationPopUp', module)
             address: '123 Fake St.\nBoston, MA 02121',
             addressId: '12345',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: MOCK_UNITS,
           },
         ],
@@ -159,24 +182,28 @@ storiesOf('LocationPopUp', module)
             address: '123 Fake St.\nDorchester, 02125',
             addressId: '12345',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: [],
           },
           {
             address: '123 Fake St.\nRoslindate, 02125',
             addressId: '12346',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: [],
           },
           {
             address: '123 Fake St.\nCharlestown, 02125',
             addressId: '12347',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: [],
           },
           {
             address: '123 Fake St.\nBoston, 02125',
             addressId: '12348',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: [],
           },
         ],
@@ -197,24 +224,28 @@ storiesOf('LocationPopUp', module)
             address: '123 Fake St.\nDorchester, 02125',
             addressId: '12345',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: [],
           },
           {
             address: '123 Fake St.\nRoslindate, 02125',
             addressId: '12346',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: MOCK_UNITS,
           },
           {
             address: '123 Fake St.\nCharlestown, 02125',
             addressId: '12347',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: MOCK_UNITS,
           },
           {
             address: '123 Fake St.\nBoston, 02125',
             addressId: '12348',
             location: { lat: 0, lng: 0 },
+            exact: true,
             units: MOCK_UNITS,
           },
         ],

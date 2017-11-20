@@ -1,10 +1,9 @@
 // @flow
 
-import {
+import ArcGIS, {
   sortUnits,
   samFeatureToUnit,
   sortAddressCandidates,
-  candidateToSearchResult,
   formatAddress,
 } from './ArcGIS';
 import type { LiveSamFeature } from './ArcGIS';
@@ -53,10 +52,12 @@ SOUTH BOSTON, MA`);
 });
 
 describe('sort and format findAddressCandidates', () => {
-  it('matches the snapshot', () => {
+  it('matches the snapshot', async () => {
     expect(
-      sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
-        candidateToSearchResult
+      await Promise.all(
+        sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
+          new ArcGIS('fake endpoint').candidateToSearchResult
+        )
       )
     ).toMatchSnapshot();
   });
