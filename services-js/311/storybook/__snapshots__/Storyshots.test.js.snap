@@ -724,7 +724,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -795,13 +795,13 @@ exports[`Storyshots CaseLayout 404 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1036,7 +1036,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -1107,13 +1107,13 @@ exports[`Storyshots CaseLayout Existing 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4150,7 +4150,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -4221,13 +4221,13 @@ exports[`Storyshots ErrorLayout 404 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4440,7 +4440,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -4511,13 +4511,13 @@ exports[`Storyshots ErrorLayout 500 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4730,7 +4730,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -4801,13 +4801,13 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -9334,7 +9334,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -9405,13 +9405,13 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -9849,7 +9849,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -9920,13 +9920,13 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -10427,7 +10427,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -10498,13 +10498,13 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -10969,7 +10969,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -11040,13 +11040,13 @@ exports[`Storyshots SearchLayout List View 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11327,7 +11327,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -11398,13 +11398,13 @@ exports[`Storyshots SearchLayout Map View 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11636,7 +11636,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -11707,13 +11707,13 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11947,7 +11947,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
         </a>
       </div>
       <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
@@ -12018,13 +12018,13 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/logo.svg?k=oygej0\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg?k=oz4zgw\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://d2hk73kicft6oi.cloudfront.net/images/public/seal.svg?k=oygej0\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg?k=oz4zgw\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">

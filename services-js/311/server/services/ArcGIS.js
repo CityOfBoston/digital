@@ -49,8 +49,12 @@ export type FindAddressCandidate = {
     Loc_name: string,
     Match_addr: string,
     Ref_ID: number,
+    // Combined address string
     User_fld: string,
     Addr_type: string,
+    SubAddrUnit: string,
+    // This is where building ID is currently stored
+    Street_ID: string,
   },
   extent?: {
     xmin: number,
@@ -68,6 +72,7 @@ type FindAddressResponse = {
 export type LiveSamFeature = {
   attributes: {
     SAM_ADDRESS_ID: number,
+    RELATIONSHIP_TYPE: number,
     BUILDING_ID: number,
     FULL_ADDRESS: string,
     STREET_NUMBER: string,
@@ -123,7 +128,8 @@ export function formatAddress(address: string): string {
   }
 
   // Intersections don't have a zip code
-  const hasZip = !address.endsWith(', MA');
+  const hasZip =
+    address.match(/\d\d\d\d\d$/) || address.match(/\d\d\d\d\d-\d\d\d\d$/);
   const hasMa = address.indexOf(', MA') !== -1;
 
   // Assume that the last two commas are for city and state. Not sure if this is
@@ -146,27 +152,36 @@ export function formatAddress(address: string): string {
 }
 
 // Returns true if this matches a known address in the database, rather than
-// being estimated based on the street and street number.
-function isExact(candidate: FindAddressCandidate): boolean {
+// being estimated based on the street and street number. Used to filter out
+// "StreetAddress" interpolated results if we have an exact match.
+function isExactAddress(candidate: FindAddressCandidate): boolean {
   return candidate.attributes.Addr_type === 'PointAddress';
+}
+
+function isExactIntersection(candidate: FindAddressCandidate): boolean {
+  return candidate.attributes.Loc_name === 'Intersection';
 }
 
 export function sortAddressCandidates(
   candidates: Array<FindAddressCandidate>
 ): Array<FindAddressCandidate> {
-  const needsExact = !!candidates.find(isExact);
+  const needsExactAddress = !!candidates.find(isExactAddress);
+  const needsExactIntersection = !!candidates.find(isExactIntersection);
 
   return (
     _(candidates)
-      .filter(c => c.attributes.Loc_name !== 'SAMAddressSubU')
+      // At this stage we don't want sub-units. We'll look them up later by
+      // building ID.
+      .filter(c => c.attributes.SubAddrUnit === '')
       // If we have any exact matches in the results, only return exact results.
       // Should clean up the address options to avoid confusing constituents.
-      .filter(c => !needsExact || isExact(c))
+      .filter(c => !needsExactAddress || isExactAddress(c))
+      .filter(c => !needsExactIntersection || isExactIntersection(c))
       .uniqBy(c => c.attributes.Ref_ID)
-      // if two elements have the same User_fld (building id) we only want one. If
+      // if two elements have the same building id we only want one. If
       // there's no building id, we want to keep it, so we return a "guaranteed"
       // unique value.
-      .uniqBy(c => c.attributes.User_fld || Math.random())
+      .uniqBy(c => c.attributes.Street_ID || Math.random())
       .sort(
         (a, b) =>
           // Most importantly, sort by score
@@ -178,6 +193,8 @@ export function sortAddressCandidates(
           // Finally, be in alphabetical order
           a.attributes.Match_addr.localeCompare(b.attributes.Match_addr)
       )
+      // Can remove duplicate intersections
+      .uniqBy(c => `${c.location.x}:${c.location.y}`)
       .value()
   );
 }
@@ -188,12 +205,12 @@ export function candidateToSearchResult(
   const { x: lng, y: lat } = candidate.location;
   return {
     location: { lat, lng },
-    address: formatAddress(candidate.address),
+    address: formatAddress(candidate.attributes.User_fld),
     addressId: candidate.attributes.Ref_ID
       ? candidate.attributes.Ref_ID.toString()
       : null,
-    buildingId: candidate.attributes.User_fld || null,
-    exact: isExact(candidate),
+    buildingId: candidate.attributes.Street_ID || null,
+    exact: isExactAddress(candidate),
   };
 }
 
@@ -201,6 +218,7 @@ export function sortUnits(units: Array<LiveSamFeature>): Array<LiveSamFeature> {
   return _(units)
     .sort((a, b) => {
       return (
+        a.attributes.RELATIONSHIP_TYPE - b.attributes.RELATIONSHIP_TYPE ||
         a.attributes.FULL_STREET_NAME.localeCompare(
           b.attributes.FULL_STREET_NAME
         ) ||
@@ -245,10 +263,10 @@ export default class ArcGIS {
     }
   }
 
-  locatorUrl(path: string): string {
+  addressSearchLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `Locators/BostonComposite/GeocodeServer/${path}`
+      `Locators/Boston_Composite_Prod/GeocodeServer/${path}`
     );
   }
 
@@ -341,7 +359,9 @@ export default class ArcGIS {
       params.append('outSR', '4326');
 
       const response = await fetch(
-        this.locatorUrl(`findAddressCandidates?${params.toString()}`),
+        this.addressSearchLocatorUrl(
+          `findAddressCandidates?${params.toString()}`
+        ),
         {
           agent: this.agent,
         }

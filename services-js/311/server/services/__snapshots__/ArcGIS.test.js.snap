@@ -2,15 +2,15 @@
 
 exports[`samFeatureToUnit matches the snapshot 1`] = `
 Object {
-  "address": "9 Example Ln
-Boston, MA, 02109",
-  "addressId": "357809",
+  "address": "280-306 Fake St
+Boston, MA, 02108",
+  "addressId": "343432",
   "buildingId": "136614",
   "location": Object {
-    "lat": 42.357348672895455,
-    "lng": -71.05793059026055,
+    "lat": 42.3572888902216,
+    "lng": -71.05803081786436,
   },
-  "streetAddress": "9 Example Ln",
+  "streetAddress": "280-306 Fake St",
   "unit": "",
 }
 `;
@@ -19,8 +19,8 @@ exports[`sort and format findAddressCandidates matches the snapshot 1`] = `
 Array [
   Object {
     "address": "37 Testing Hill St
-Boston, 02108",
-    "addressId": "356281",
+Boston, 02114",
+    "addressId": "98567",
     "buildingId": "138797",
     "exact": true,
     "location": Object {
@@ -62,7 +62,7 @@ Dorchester, 02125",
     },
   },
   Object {
-    "address": "37 Testing Hill St
+    "address": "37 Testing Hill St #1
 West Roxbury, 02132",
     "addressId": "279371",
     "buildingId": "113080",
@@ -77,10 +77,10 @@ West Roxbury, 02132",
 
 exports[`sortUnits sorts by street and number 1`] = `
 Array [
+  "280-306 Fake St",
   "9 Example Ln",
   "280-300 Fake St",
   "280 Fake St",
-  "280-306 Fake St",
   "288 Fake St",
   "290 Fake St",
   "292 Fake St",
