@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import CheckoutPage, { wrapCheckoutPageController } from './CheckoutPage';
 import CheckoutDao from '../../dao/CheckoutDao';
-import Order from '../../models/Order';
+import OrderProvider from '../../store/OrderProvider';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -14,22 +14,28 @@ beforeEach(() => {
 });
 
 describe('integration', () => {
+  // We have to componentWillMount in all of these to initialize the
+  // Order object.
   it('renders shipping', () => {
-    expect(new CheckoutPage({ page: 'shipping' }).render()).toMatchSnapshot();
+    const page = new CheckoutPage({ page: 'shipping' });
+    page.componentWillMount();
+    expect(page.render()).toMatchSnapshot();
   });
 
   it('renders payment', () => {
-    expect(new CheckoutPage({ page: 'payment' }).render()).toMatchSnapshot();
+    const page = new CheckoutPage({ page: 'payment' });
+    page.componentWillMount();
+    expect(page.render()).toMatchSnapshot();
   });
 
   it('renders confirmation', () => {
-    expect(
-      new CheckoutPage({
-        page: 'confirmation',
-        orderId: '123-456-7',
-        contactEmail: 'ttoe@squirrelzone.net',
-      }).render()
-    ).toMatchSnapshot();
+    const page = new CheckoutPage({
+      page: 'confirmation',
+      orderId: '123-456-7',
+      contactEmail: 'ttoe@squirrelzone.net',
+    });
+    page.componentWillMount();
+    expect(page.render()).toMatchSnapshot();
   });
 });
 
@@ -119,16 +125,16 @@ describe('controller', () => {
   describe('operations', () => {
     let dependencies: any;
     let checkoutDao: CheckoutDao;
-    let order: Order;
+    let orderProvider: OrderProvider;
     let controller;
 
     beforeEach(() => {
-      order = new Order();
+      orderProvider = new OrderProvider();
       checkoutDao = new CheckoutDao((null: any), null);
 
       dependencies = {
         checkoutDao,
-        order,
+        orderProvider,
       };
 
       const CheckoutPageController = wrapCheckoutPageController(
@@ -138,6 +144,7 @@ describe('controller', () => {
 
       // page doesn't really matter for this
       controller = new CheckoutPageController({ page: 'shipping' });
+      controller.componentWillMount();
     });
 
     describe('advanceToPayment', () => {
@@ -163,8 +170,6 @@ describe('controller', () => {
         await controller.submitOrder(null);
         expect(Router.push).not.toHaveBeenCalled();
       });
-
-      it('clears the cart on success');
     });
   });
 });

@@ -11,6 +11,9 @@ import makePaymentValidator, {
 // Session-storage based container for keeping track of ordering info. Only add
 // values here that should be in session storage.
 export type OrderInfo = {|
+  storeContactAndShipping: boolean,
+  storeBilling: boolean,
+
   contactName: string,
   contactEmail: string,
   contactPhone: string,
@@ -45,8 +48,11 @@ export default class Order {
 
   updateStorageDisposer: ?Function = null;
 
-  constructor() {
-    this.info = {
+  constructor(info: ?OrderInfo = null) {
+    this.info = info || {
+      storeContactAndShipping: false,
+      storeBilling: false,
+
       contactName: '',
       contactEmail: '',
       contactPhone: '',

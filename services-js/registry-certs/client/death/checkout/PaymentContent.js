@@ -105,7 +105,12 @@ export default class PaymentContent extends React.Component<Props, State> {
         (ev: SyntheticInputEvent<*>) => {
           const { order } = this.props;
 
-          if (fieldName === 'billingAddressSameAsShippingAddress') {
+          if (
+            fieldName === 'storeContactAndShipping' ||
+            fieldName === 'storeBilling'
+          ) {
+            order.info[fieldName] = ev.target.checked;
+          } else if (fieldName === 'billingAddressSameAsShippingAddress') {
             order.info[fieldName] = ev.target.value === 'true';
           } else {
             order.info[fieldName] = ev.target.value;
@@ -138,6 +143,7 @@ export default class PaymentContent extends React.Component<Props, State> {
       submitting,
       submissionError,
       info: {
+        storeBilling,
         shippingAddress1,
         shippingAddress2,
         shippingCity,
@@ -372,6 +378,23 @@ export default class PaymentContent extends React.Component<Props, State> {
                     />
 
                     {this.renderError('billingZip')}
+                  </div>
+
+                  <div className="m-t300 field-container">
+                    <label className="cb">
+                      <input
+                        id="store-billing"
+                        name="store-billing"
+                        type="checkbox"
+                        value="true"
+                        checked={storeBilling}
+                        {...this.fieldListeners('storeBilling')}
+                        className="cb-f"
+                      />{' '}
+                      <span className="cb-l">
+                        Save billing address on this computer
+                      </span>
+                    </label>
                   </div>
                 </div>
               )}

@@ -34,6 +34,9 @@ function makeShippingCompleteOrder(overrides = {}) {
   const order = new Order();
 
   order.info = {
+    storeContactAndShipping: true,
+    storeBilling: false,
+
     contactName: 'Squirrel Girl',
     contactEmail: 'squirrel.girl@avengers.org',
     contactPhone: '(555) 123-9999',

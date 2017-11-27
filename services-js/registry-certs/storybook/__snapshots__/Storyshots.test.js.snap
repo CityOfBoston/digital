@@ -6245,6 +6245,30 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   value="12223"
                 />
               </div>
+              <div
+                className="jsx-418405546 m-t300 field-container"
+              >
+                <label
+                  className="jsx-418405546 cb"
+                >
+                  <input
+                    checked={false}
+                    className="jsx-418405546 cb-f"
+                    id="store-billing"
+                    name="store-billing"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                   
+                  <span
+                    className="jsx-418405546 cb-l"
+                  >
+                    Save billing address on this computer
+                  </span>
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
@@ -7760,6 +7784,30 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   value="12223"
                 />
               </div>
+              <div
+                className="jsx-418405546 m-t300 field-container"
+              >
+                <label
+                  className="jsx-418405546 cb"
+                >
+                  <input
+                    checked={false}
+                    className="jsx-418405546 cb-f"
+                    id="store-billing"
+                    name="store-billing"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                   
+                  <span
+                    className="jsx-418405546 cb-l"
+                  >
+                    Save billing address on this computer
+                  </span>
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
@@ -8584,6 +8632,30 @@ exports[`Storyshots PaymentContent state error 1`] = `
                   value="12223"
                 />
               </div>
+              <div
+                className="jsx-418405546 m-t300 field-container"
+              >
+                <label
+                  className="jsx-418405546 cb"
+                >
+                  <input
+                    checked={false}
+                    className="jsx-418405546 cb-f"
+                    id="store-billing"
+                    name="store-billing"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                   
+                  <span
+                    className="jsx-418405546 cb-l"
+                  >
+                    Save billing address on this computer
+                  </span>
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
@@ -9402,6 +9474,30 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                   placeholder="ZIP code"
                   value="12223"
                 />
+              </div>
+              <div
+                className="jsx-418405546 m-t300 field-container"
+              >
+                <label
+                  className="jsx-418405546 cb"
+                >
+                  <input
+                    checked={false}
+                    className="jsx-418405546 cb-f"
+                    id="store-billing"
+                    name="store-billing"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                   
+                  <span
+                    className="jsx-418405546 cb-l"
+                  >
+                    Save billing address on this computer
+                  </span>
+                </label>
               </div>
             </div>
           </fieldset>
@@ -11934,17 +12030,41 @@ exports[`Storyshots ShippingContent default 1`] = `
           </fieldset>
         </div>
         <div
+          className="jsx-418405546 b--w p-a300 field-container"
+        >
+          <label
+            className="jsx-418405546 cb"
+          >
+            <input
+              checked={false}
+              className="jsx-418405546 cb-f"
+              id="store-contact-and-shipping"
+              name="store-contact-and-shipping"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+             
+            <span
+              className="jsx-418405546 cb-l"
+            >
+              Save contact and shipping info on this computer
+            </span>
+          </label>
+        </div>
+        <div
           className="jsx-418405546 g g--r p-a300 b--w"
         >
           <button
-            className="jsx-418405546 g--3 btn m-v500"
+            className="jsx-418405546 g--4 btn m-v500"
             disabled={true}
             type="submit"
           >
             Continue to Payment
           </button>
           <div
-            className="jsx-418405546 g--9 m-v500"
+            className="jsx-418405546 g--8 m-v500"
           >
             <a
               className="jsx-418405546"
@@ -12658,17 +12778,41 @@ exports[`Storyshots ShippingContent email error 1`] = `
           </fieldset>
         </div>
         <div
+          className="jsx-418405546 b--w p-a300 field-container"
+        >
+          <label
+            className="jsx-418405546 cb"
+          >
+            <input
+              checked={true}
+              className="jsx-418405546 cb-f"
+              id="store-contact-and-shipping"
+              name="store-contact-and-shipping"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+             
+            <span
+              className="jsx-418405546 cb-l"
+            >
+              Save contact and shipping info on this computer
+            </span>
+          </label>
+        </div>
+        <div
           className="jsx-418405546 g g--r p-a300 b--w"
         >
           <button
-            className="jsx-418405546 g--3 btn m-v500"
+            className="jsx-418405546 g--4 btn m-v500"
             disabled={true}
             type="submit"
           >
             Continue to Payment
           </button>
           <div
-            className="jsx-418405546 g--9 m-v500"
+            className="jsx-418405546 g--8 m-v500"
           >
             <a
               className="jsx-418405546"
@@ -13377,17 +13521,41 @@ exports[`Storyshots ShippingContent existing address 1`] = `
           </fieldset>
         </div>
         <div
+          className="jsx-418405546 b--w p-a300 field-container"
+        >
+          <label
+            className="jsx-418405546 cb"
+          >
+            <input
+              checked={true}
+              className="jsx-418405546 cb-f"
+              id="store-contact-and-shipping"
+              name="store-contact-and-shipping"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+             
+            <span
+              className="jsx-418405546 cb-l"
+            >
+              Save contact and shipping info on this computer
+            </span>
+          </label>
+        </div>
+        <div
           className="jsx-418405546 g g--r p-a300 b--w"
         >
           <button
-            className="jsx-418405546 g--3 btn m-v500"
+            className="jsx-418405546 g--4 btn m-v500"
             disabled={false}
             type="submit"
           >
             Continue to Payment
           </button>
           <div
-            className="jsx-418405546 g--9 m-v500"
+            className="jsx-418405546 g--8 m-v500"
           >
             <a
               className="jsx-418405546"

@@ -50,12 +50,19 @@ export default class ShippingContent extends React.Component<Props, State> {
       onChange: action(
         `onChange ${fieldName}`,
         (ev: SyntheticInputEvent<*>) => {
-          if (fieldName === 'billingAddressSameAsShippingAddress') {
-            return;
-          }
-
           const { order } = this.props;
-          order.info[fieldName] = ev.target.value;
+
+          if (
+            fieldName === 'storeContactAndShipping' ||
+            fieldName === 'storeBilling'
+          ) {
+            order.info[fieldName] = ev.target.checked;
+          } else if (fieldName === 'billingAddressSameAsShippingAddress') {
+            // not actually on this page, but we have it so that the Flow types work.
+            order.info[fieldName] = ev.target.value === 'true';
+          } else {
+            order.info[fieldName] = ev.target.value;
+          }
         }
       ),
     };
@@ -80,6 +87,8 @@ export default class ShippingContent extends React.Component<Props, State> {
     const {
       shippingIsComplete,
       info: {
+        storeContactAndShipping,
+
         contactName,
         contactEmail,
         contactPhone,
@@ -327,16 +336,33 @@ export default class ShippingContent extends React.Component<Props, State> {
             </fieldset>
           </div>
 
+          <div className="b--w p-a300 field-container">
+            <label className="cb">
+              <input
+                id="store-contact-and-shipping"
+                name="store-contact-and-shipping"
+                type="checkbox"
+                value="true"
+                checked={storeContactAndShipping}
+                {...this.fieldListeners('storeContactAndShipping')}
+                className="cb-f"
+              />{' '}
+              <span className="cb-l">
+                Save contact and shipping info on this computer
+              </span>
+            </label>
+          </div>
+
           <div className="g g--r p-a300 b--w">
             <button
-              className="g--3 btn m-v500"
+              className="g--4 btn m-v500"
               type="submit"
               disabled={!shippingIsComplete}
             >
               Continue to Payment
             </button>
 
-            <div className="g--9 m-v500">
+            <div className="g--8 m-v500">
               <Link href="/death/cart">
                 <a style={{ fontStyle: 'italic' }}>← Return to cart</a>
               </Link>

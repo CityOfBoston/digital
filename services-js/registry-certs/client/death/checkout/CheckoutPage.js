@@ -105,7 +105,14 @@ export function wrapCheckoutPageController(
     // goes forward and back in the interface, and it will get automatically
     // disposed of if the user leaves the flow, which is the behavior that we
     // want.
-    order: Order = new Order();
+    order: Order;
+
+    componentWillMount() {
+      const { orderProvider } = this.dependencies;
+      // This will be populated from localStorage, and changes to it will get
+      // written back there.
+      this.order = orderProvider.get();
+    }
 
     componentDidMount() {
       this.redirectIfMissingShipping(this.props);
