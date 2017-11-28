@@ -154,20 +154,32 @@ describe('controller', () => {
       });
     });
 
-    describe('submitOrder', () => {
-      it('exists', () => {
-        expect(controller.submitOrder).toBeDefined();
+    describe('advanceToReview', () => {
+      it('routes to next stage if tokenization is successful', async () => {
+        checkoutDao.tokenizeCard.mockReturnValue(Promise.resolve(true));
+
+        await controller.advanceToReview(null);
+        expect(Router.push).toHaveBeenCalled();
       });
 
+      it('does not route if tokenization is unsuccessful', async () => {
+        checkoutDao.tokenizeCard.mockReturnValue(Promise.resolve(false));
+
+        await controller.advanceToReview(null);
+        expect(Router.push).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('submitOrder', () => {
       it('redirects on success', async () => {
         checkoutDao.submit.mockReturnValue(Promise.resolve('test-order-id'));
-        await controller.submitOrder(null);
+        await controller.submitOrder();
         expect(Router.push).toHaveBeenCalled();
       });
 
       it('stays on the same page on failure', async () => {
         checkoutDao.submit.mockReturnValue(Promise.resolve(null));
-        await controller.submitOrder(null);
+        await controller.submitOrder();
         expect(Router.push).not.toHaveBeenCalled();
       });
     });

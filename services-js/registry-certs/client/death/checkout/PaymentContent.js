@@ -6,12 +6,9 @@ import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
-import { PERCENTAGE_STRING, FIXED_STRING } from '../../../lib/costs';
-
 import type Cart from '../../store/Cart';
 import type Order, { OrderInfo } from '../../models/Order';
 
-import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';
 
 export type Props = {|
@@ -142,8 +139,8 @@ export default class PaymentContent extends React.Component<Props, State> {
       paymentIsComplete,
       cardElementError,
       cardElementComplete,
-      submitting,
-      submissionError,
+      processing,
+      processingError,
       info: {
         storeBilling,
         shippingAddress1,
@@ -167,7 +164,7 @@ export default class PaymentContent extends React.Component<Props, State> {
           <title>Boston.gov — Death Certificate Payment</title>
         </Head>
 
-        <div className="p-a300 b--g">
+        <div className="p-a300">
           <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
             <h1 className="sh-title" style={{ marginBottom: 0 }}>
               Payment
@@ -181,7 +178,6 @@ export default class PaymentContent extends React.Component<Props, State> {
           className="m-v300"
           acceptCharset="UTF-8"
           method="post"
-          action="/death/payment"
           onSubmit={this.handleSubmit}
         >
           <div className="b--w p-a300 field-container">
@@ -403,20 +399,10 @@ export default class PaymentContent extends React.Component<Props, State> {
             </fieldset>
           </div>
 
-          <div className="p-a300">
-            <CostSummary cart={cart} />
-          </div>
-
           <div className="g p-a300">
-            <div className="g--9 t--subinfo">
-              Pressing the “Submit Order” button will charge the total amount to
-              your credit card and place an order with the Registry.{' '}
-              <strong>Certificates are non-refundable.</strong>
-            </div>
-
-            {submissionError && (
+            {processingError && (
               <div className="g--9 t--subinfo t--err m-t300">
-                {submissionError}
+                {processingError}
               </div>
             )}
           </div>
@@ -426,10 +412,10 @@ export default class PaymentContent extends React.Component<Props, State> {
               className="g--3 btn m-v500"
               type="submit"
               disabled={
-                !paymentIsComplete || !cardElementComplete || submitting
+                !paymentIsComplete || !cardElementComplete || processing
               }
             >
-              Submit Order
+              Review Order
             </button>
 
             <div className="g--9 m-v500">
@@ -439,15 +425,6 @@ export default class PaymentContent extends React.Component<Props, State> {
                 </a>
               </Link>
             </div>
-
-            <p className="t--subinfo">
-              <a name="service-fee" />
-              * You are charged an extra service fee of {FIXED_STRING} plus{' '}
-              {PERCENTAGE_STRING}. This fee goes directly to a third party to
-              pay for the cost of credit card processing. Learn more about{' '}
-              <a href="https://www.boston.gov/">credit card service fees</a> at
-              the City of Boston.
-            </p>
           </div>
 
           <style jsx>{`

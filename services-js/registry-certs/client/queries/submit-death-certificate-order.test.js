@@ -39,6 +39,8 @@ test('submitDeathCertificateOrder', async () => {
     shippingZip: '12345',
 
     cardholderName: 'Nancy Whitehead',
+    cardToken: 'tok_testtoken',
+    cardLast4: '4040',
 
     billingAddressSameAsShippingAddress: false,
 
@@ -49,13 +51,7 @@ test('submitDeathCertificateOrder', async () => {
     billingZip: '12223',
   };
 
-  await submitDeathCertificateOrder(
-    loopbackGraphql,
-    cart,
-    order,
-    'tok_testtoken',
-    '4040'
-  );
+  await submitDeathCertificateOrder(loopbackGraphql, cart, order);
 
   const queryVariables: SubmitDeathCertificateOrderMutationVariables = {
     contactName: 'Squirrel Girl',

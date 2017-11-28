@@ -18,7 +18,6 @@ let dao: CheckoutDao;
 
 let cart: Cart;
 let order: Order;
-let cardElement: StripeElement;
 
 beforeEach(() => {
   loopbackGraphql = jest.fn();
@@ -26,40 +25,33 @@ beforeEach(() => {
     createToken: jest.fn(),
   }: any);
 
-  submitDeathCertificateOrder.mockReturnValueOnce(Promise.resolve('order-id'));
-
   dao = new CheckoutDao(loopbackGraphql, stripe);
 
   cart = new Cart();
   order = new Order();
-  cardElement = ({}: any);
 });
 
 afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('submit', () => {
+describe('tokenizeCard', () => {
+  const cardElement: StripeElement = ({}: any);
+
   test('tokenization success path', async () => {
     stripe.createToken.mockReturnValue(
       Promise.resolve({ token: { id: 'tok_id', card: { last4: '4040' } } })
     );
 
-    const submitPromise = dao.submit(cart, order, cardElement);
-    expect(order.submitting).toEqual(true);
+    const tokenizePromise = dao.tokenizeCard(order, cardElement);
+    expect(order.processing).toEqual(true);
 
-    const orderId = await submitPromise;
+    const success = await tokenizePromise;
 
-    expect(submitDeathCertificateOrder).toHaveBeenCalledWith(
-      loopbackGraphql,
-      cart,
-      order,
-      'tok_id',
-      '4040'
-    );
-
-    expect(orderId).toBeTruthy();
-    expect(order.submitting).toEqual(false);
+    expect(success).toEqual(true);
+    expect(order.info.cardToken).toEqual('tok_id');
+    expect(order.info.cardLast4).toEqual('4040');
+    expect(order.processing).toEqual(false);
   });
 
   test('tokenization error response path', async () => {
@@ -69,16 +61,16 @@ describe('submit', () => {
       })
     );
 
-    const submitPromise = dao.submit(cart, order, cardElement);
-    expect(order.submitting).toEqual(true);
+    const tokenizePromise = dao.tokenizeCard(order, cardElement);
+    expect(order.processing).toEqual(true);
 
-    const orderId = await submitPromise;
+    const success = await tokenizePromise;
 
-    expect(orderId).toEqual(null);
-    expect(order.submissionError).toEqual(
+    expect(success).toEqual(false);
+    expect(order.processingError).toEqual(
       'The credit card could not be tokenized.'
     );
-    expect(order.submitting).toEqual(false);
+    expect(order.processing).toEqual(false);
   });
 
   test('tokenization network error path', async () => {
@@ -86,15 +78,44 @@ describe('submit', () => {
       Promise.reject(new Error('Internet exploded. It’s for the best.'))
     );
 
-    const submitPromise = dao.submit(cart, order, cardElement);
-    expect(order.submitting).toEqual(true);
+    const tokenizePromise = dao.tokenizeCard(order, cardElement);
+    expect(order.processing).toEqual(true);
 
-    const orderId = await submitPromise;
+    const success = await tokenizePromise;
 
-    expect(orderId).toEqual(null);
-    expect(order.submissionError).toEqual(
+    expect(success).toEqual(false);
+    expect(order.processingError).toEqual(
       'Internet exploded. It’s for the best.'
     );
-    expect(order.submitting).toEqual(false);
+    expect(order.processing).toEqual(false);
+  });
+});
+
+describe('submit', () => {
+  test('submit success path', async () => {
+    submitDeathCertificateOrder.mockReturnValueOnce(
+      Promise.resolve('order-id')
+    );
+
+    const orderIdPromise = dao.submit(cart, order);
+    expect(order.processing).toEqual(true);
+
+    const orderId = await orderIdPromise;
+    expect(orderId).toEqual('order-id');
+    expect(order.processing).toEqual(false);
+  });
+
+  test('submit failure path', async () => {
+    submitDeathCertificateOrder.mockReturnValueOnce(
+      Promise.reject(new Error('I’m not dead yet!'))
+    );
+
+    const orderIdPromise = dao.submit(cart, order);
+    expect(order.processing).toEqual(true);
+
+    const orderId = await orderIdPromise;
+    expect(orderId).toEqual(null);
+    expect(order.processing).toEqual(false);
+    expect(order.processingError).toEqual('I’m not dead yet!');
   });
 });

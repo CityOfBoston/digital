@@ -16,21 +16,26 @@ export default class CheckoutDao {
     this.stripe = stripe;
   }
 
+  // Given a StripeElement object, tokenizes the card info with Stripe and, if
+  // successful, populates the cardToken and cardLast4 values in Order’s info
+  // and returns true. Returns false and populates processingError if it fails
+  // for network or validation reasons.
   @action
-  async submit(
-    cart: Cart,
+  async tokenizeCard(
     order: Order,
     cardElement: ?StripeElement
-  ): Promise<?string> {
+  ): Promise<boolean> {
     const { stripe } = this;
 
     if (!stripe || !cardElement) {
-      throw new Error('submit called without Stripe and/or StripeElement');
+      throw new Error(
+        'tokenizeCard called without Stripe and/or StripeElement'
+      );
     }
 
     try {
-      order.submitting = true;
-      order.submissionError = null;
+      order.processing = true;
+      order.processingError = null;
 
       const tokenResult = await stripe.createToken(cardElement, {
         name: order.info.cardholderName,
@@ -43,19 +48,53 @@ export default class CheckoutDao {
       });
 
       if (tokenResult.error) {
-        runInAction('CheckoutDao > submit > createToken error result', () => {
-          order.submissionError = tokenResult.error.message;
+        runInAction(
+          'CheckoutDao > tokenizeCard > createToken error result',
+          () => {
+            order.processingError = tokenResult.error.message;
+          }
+        );
+
+        return false;
+      } else {
+        const { token } = tokenResult;
+        const { card } = token;
+
+        runInAction('CheckoutDao > tokenizeCard > createToken success', () => {
+          order.info.cardToken = token.id;
+          order.info.cardLast4 = card.last4;
         });
 
-        return null;
+        return true;
       }
+    } catch (err) {
+      runInAction('CheckoutDao > tokenizeCard > catch block', () => {
+        order.processingError =
+          err.message || `Unexpected error submitting order: ${err}`;
+      });
+
+      if (window._opbeat && !err._sentToOpbeat) {
+        window._opbeat('captureException', err);
+      }
+
+      return false;
+    } finally {
+      runInAction('CheckoutDao > tokenizeCard > finally', () => {
+        order.processing = false;
+      });
+    }
+  }
+
+  @action
+  async submit(cart: Cart, order: Order): Promise<?string> {
+    try {
+      order.processing = true;
+      order.processingError = null;
 
       const orderId = await submitDeathCertificateOrder(
         this.loopbackGraphql,
         cart,
-        order,
-        tokenResult.token.id,
-        tokenResult.token.card.last4
+        order
       );
 
       cart.clear();
@@ -63,7 +102,7 @@ export default class CheckoutDao {
       return orderId;
     } catch (err) {
       runInAction('CheckoutDao > submit > catch block', () => {
-        order.submissionError =
+        order.processingError =
           err.message || `Unexpected error submitting order: ${err}`;
       });
 
@@ -74,7 +113,7 @@ export default class CheckoutDao {
       return null;
     } finally {
       runInAction('CheckoutDao > submit > finally', () => {
-        order.submitting = false;
+        order.processing = false;
       });
     }
   }

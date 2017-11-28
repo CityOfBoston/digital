@@ -28,9 +28,7 @@ function makeCart() {
 }
 
 function makeOrder(overrides = {}) {
-  const order = new Order();
-
-  order.info = {
+  return new Order({
     storeContactAndShipping: true,
     storeBilling: false,
 
@@ -47,6 +45,8 @@ function makeOrder(overrides = {}) {
     shippingZip: '12345',
 
     cardholderName: 'Nancy Whitehead',
+    cardToken: 'tok_testtoken',
+    cardLast4: '4040',
 
     billingAddressSameAsShippingAddress: true,
 
@@ -57,9 +57,7 @@ function makeOrder(overrides = {}) {
     billingZip: '',
 
     ...overrides,
-  };
-
-  return order;
+  });
 }
 
 storiesOf('ShippingContent', module)

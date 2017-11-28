@@ -109,7 +109,7 @@ export default class ShippingContent extends React.Component<Props, State> {
           <title>Boston.gov — Death Certificate Checkout</title>
         </Head>
 
-        <div className="p-a300 b--g">
+        <div className="p-a300">
           <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
             <h1 className="sh-title" style={{ marginBottom: 0 }}>
               Checkout

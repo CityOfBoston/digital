@@ -10,6 +10,7 @@ export type Props = {|
   borderTop: boolean,
   borderBottom: boolean,
   children?: (ReactElement<*>) => ReactElement<*> | Array<ReactElement<*>>,
+  invert?: boolean,
 |};
 
 const renderCertificate = ({
@@ -67,6 +68,7 @@ export default function SearchResult({
   borderBottom,
   certificate,
   children,
+  invert,
 }: Props) {
   let borderClass;
 
@@ -81,7 +83,7 @@ export default function SearchResult({
   }
 
   return (
-    <div className={`p-a300 br b--w row ${borderClass}`}>
+    <div className={`p-a300 br ${invert ? 'b--g' : 'b--w'} row ${borderClass}`}>
       {children
         ? children(renderCertificate(certificate))
         : renderCertificate(certificate)}

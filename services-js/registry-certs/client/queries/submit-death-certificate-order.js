@@ -13,9 +13,7 @@ import SubmitDeathCertificateOrderMutationGraphql from './SubmitDeathCertificate
 export default async function submitDeathCertificateOrder(
   loopbackGraphql: LoopbackGraphql,
   cart: Cart,
-  order: Order,
-  cardToken: string,
-  cardLast4: string
+  order: Order
 ): Promise<string> {
   const {
     contactName,
@@ -29,7 +27,15 @@ export default async function submitDeathCertificateOrder(
     shippingState,
     shippingZip,
     cardholderName,
+    cardToken,
+    cardLast4,
   } = order.info;
+
+  if (!cardToken || !cardLast4) {
+    throw new Error(
+      'submitDeathCertificateOrder called before card tokenization'
+    );
+  }
 
   const {
     billingAddress1,

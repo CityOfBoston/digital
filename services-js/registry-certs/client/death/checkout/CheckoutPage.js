@@ -22,6 +22,10 @@ import ShippingContent, {
   type Props as ShippingContentProps,
 } from './ShippingContent';
 
+import ReviewContent, {
+  type Props as ReviewContentProps,
+} from './ReviewContent';
+
 import ConfirmationContent, {
   type Props as ConfirmationContentProps,
 } from './ConfirmationContent';
@@ -32,6 +36,9 @@ type InitialProps =
     }
   | {
       page: 'payment',
+    }
+  | {
+      page: 'review',
     }
   | {
       page: 'confirmation',
@@ -49,6 +56,10 @@ type CheckoutContentProps =
       props: PaymentContentProps,
     }
   | {
+      page: 'review',
+      props: ReviewContentProps,
+    }
+  | {
       page: 'confirmation',
       props: ConfirmationContentProps,
     };
@@ -62,13 +73,23 @@ export function wrapCheckoutPageController(
       let props: InitialProps;
       let redirectToShippingIfServer = false;
 
-      switch (query.page || '') {
+      const page = query.page || '';
+
+      switch (page) {
         case '':
         case 'shipping':
           props = { page: 'shipping' };
           break;
         case 'payment':
           props = { page: 'payment' };
+
+          // We know that we won't have shipping information if someone visits
+          // the payment page directly from the server (since this component's
+          // internal state will be blank), so redirect.
+          redirectToShippingIfServer = true;
+          break;
+        case 'review':
+          props = { page: 'review' };
 
           // We know that we won't have shipping information if someone visits
           // the payment page directly from the server (since this component's
@@ -115,32 +136,48 @@ export function wrapCheckoutPageController(
     }
 
     componentDidMount() {
-      this.redirectIfMissingShipping(this.props);
+      this.redirectIfMissingOrderInfo(this.props);
     }
 
     componentWillReceiveProps(newProps: InitialProps) {
-      this.redirectIfMissingShipping(newProps);
+      this.redirectIfMissingOrderInfo(newProps);
     }
 
     // In the case of reloading from the browser, for example, or clicking
     // "back" from the confirmation page.
-    async redirectIfMissingShipping(props: InitialProps) {
-      if (props.page === 'payment' && !this.order.shippingIsComplete) {
-        await Router.push('/death/checkout?page=shipping');
+    async redirectIfMissingOrderInfo(props: InitialProps) {
+      if (
+        (props.page === 'payment' && !this.order.shippingIsComplete) ||
+        (props.page === 'review' &&
+          (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
+      ) {
+        await Router.push('/death/checkout?page=shipping', '/death/checkout');
         window.scrollTo(0, 0);
       }
     }
 
     advanceToPayment = async () => {
-      await Router.push('/death/checkout?page=payment');
+      await Router.push('/death/checkout?page=payment', '/death/checkout');
       window.scrollTo(0, 0);
     };
 
-    submitOrder = async (cardElement: ?StripeElement) => {
+    advanceToReview = async (cardElement: ?StripeElement) => {
+      const { order } = this;
+      const { checkoutDao } = this.dependencies;
+
+      const success = await checkoutDao.tokenizeCard(order, cardElement);
+
+      if (success) {
+        await Router.push('/death/checkout?page=review', '/death/checkout');
+        window.scrollTo(0, 0);
+      }
+    };
+
+    submitOrder = async () => {
       const { order } = this;
       const { cart, checkoutDao } = this.dependencies;
 
-      const orderId = await checkoutDao.submit(cart, order, cardElement);
+      const orderId = await checkoutDao.submit(cart, order);
 
       if (orderId) {
         this.order = new Order();
@@ -149,7 +186,7 @@ export function wrapCheckoutPageController(
           `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
             orderId
           )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-          '/death/checkout?page=confirmation'
+          '/death/checkout'
         );
 
         window.scrollTo(0, 0);
@@ -177,6 +214,16 @@ export function wrapCheckoutPageController(
             page: 'payment',
             props: {
               stripe,
+              cart,
+              order,
+              submit: this.advanceToReview,
+            },
+          };
+          break;
+        case 'review':
+          renderProps = {
+            page: 'review',
+            props: {
               cart,
               order,
               submit: this.submitOrder,
@@ -215,6 +262,12 @@ export default wrapCheckoutPageController(
         return (
           <AppLayout navProps={null}>
             {React.createElement(PaymentContent, props.props)}
+          </AppLayout>
+        );
+      case 'review':
+        return (
+          <AppLayout navProps={null}>
+            {React.createElement(ReviewContent, props.props)}
           </AppLayout>
         );
       case 'confirmation':

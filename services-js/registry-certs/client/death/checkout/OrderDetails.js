@@ -3,7 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
-import { CERTIFICATE_COST, calculateCost } from '../../../lib/costs';
+import {
+  CERTIFICATE_COST_STRING,
+  PERCENTAGE_STRING,
+  FIXED_STRING,
+  calculateCost,
+} from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
 
@@ -17,6 +22,7 @@ import CertificateRow from '../../common/CertificateRow';
 type Props = {|
   cart: Cart,
   defaultOpen: boolean,
+  fixed: boolean,
 |};
 
 type State = {|
@@ -26,13 +32,14 @@ type State = {|
 export default class OrderDetails extends React.Component<Props, State> {
   static defaultProps = {
     defaultOpen: false,
+    fixed: false,
   };
 
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      open: props.defaultOpen,
+      open: props.defaultOpen || props.fixed,
     };
   }
 
@@ -41,6 +48,40 @@ export default class OrderDetails extends React.Component<Props, State> {
   };
 
   render() {
+    const { fixed } = this.props;
+
+    return fixed ? this.renderAsFixed() : this.renderAsDropdown();
+  }
+
+  renderCart(cart: Cart, invert: boolean) {
+    return cart.entries.map(
+      ({ cert, quantity }, i) =>
+        cert && (
+          <CertificateRow
+            key={cert.id}
+            certificate={cert}
+            borderTop={i !== 0}
+            borderBottom={i === cart.entries.length - 1}
+            invert={invert}
+          >
+            {certificateDiv => [
+              <div
+                key="quantity"
+                aria-label="Quantity"
+                className="t--sans p-a300"
+                style={{ fontWeight: 'bold' }}
+              >
+                {quantity} ×
+              </div>,
+
+              certificateDiv,
+            ]}
+          </CertificateRow>
+        )
+    );
+  }
+
+  renderAsDropdown() {
     const { cart } = this.props;
     const { open } = this.state;
 
@@ -61,10 +102,10 @@ export default class OrderDetails extends React.Component<Props, State> {
                 />
               </svg>
             </div>
-            <h2 className="t--sans tt-u">Order details</h2>
+            <h2 className="stp">Order details</h2>
             <div className="t--info">
-              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${(CERTIFICATE_COST / 100).toFixed(2)}{' '}
-              + fee = ${(calculateCost(cart.size).total / 100).toFixed(2)}
+              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
+              {CERTIFICATE_COST_STRING} + service fee* = ${(calculateCost(cart.size).total / 100).toFixed(2)}
             </div>
           </div>
         </button>
@@ -76,30 +117,17 @@ export default class OrderDetails extends React.Component<Props, State> {
         >
           {open && (
             <div className="dr-c" style={{ display: 'block' }}>
-              {cart.entries.map(
-                ({ cert, quantity }, i) =>
-                  cert && (
-                    <CertificateRow
-                      key={cert.id}
-                      certificate={cert}
-                      borderTop={i !== 0}
-                      borderBottom={false}
-                    >
-                      {certificateDiv => [
-                        <div
-                          key="quantity"
-                          aria-label="Quantity"
-                          className="t--sans p-a300"
-                          style={{ fontWeight: 'bold' }}
-                        >
-                          {quantity} ×
-                        </div>,
+              {this.renderCart(cart, false)}
 
-                        certificateDiv,
-                      ]}
-                    </CertificateRow>
-                  )
-              )}
+              <p className="t--subinfo p-a300">
+                * You are charged an extra service fee of {FIXED_STRING} plus{' '}
+                {PERCENTAGE_STRING}. This fee goes directly to a third party to
+                pay for the cost of credit card processing. Learn more about{' '}
+                <a href="https://www.boston.gov/">
+                  credit card service fees
+                </a>{' '}
+                at the City of Boston.
+              </p>
 
               <div className="ta-c t--subinfo b--g">
                 <Link href="/death/cart">
@@ -123,6 +151,56 @@ export default class OrderDetails extends React.Component<Props, State> {
           }
 
           .dr--open .dr-h {
+            background-color: ${GRAY_000};
+            color: ${CHARLES_BLUE};
+          }
+
+          .dr--open .dr-i {
+            fill: ${OPTIMISTIC_BLUE};
+          }
+
+          .dr-c {
+            padding: 0;
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  renderAsFixed() {
+    const { cart } = this.props;
+
+    return (
+      <div className="dr dr-open">
+        <div className="dr-h">
+          <div className="p-a300" style={{ paddingBottom: 0 }}>
+            <h2 className="stp" style={{ display: 'inline-block' }}>
+              Order details
+            </h2>{' '}
+            —{' '}
+            <Link href="/death/cart">
+              <a style={{ fontStyle: 'italic' }}>edit</a>
+            </Link>
+          </div>
+        </div>
+
+        <div className="dr-c" style={{ display: 'block' }}>
+          {this.renderCart(cart, true)}
+        </div>
+
+        <style jsx>{`
+          .dr {
+            background-color: ${GRAY_000};
+            margin-top: 0 !important;
+          }
+
+          .dr-h {
+            padding: 0;
+          }
+
+          .dr--open .dr-h,
+          .dr-h:hover {
+            cursor: default;
             background-color: ${GRAY_000};
             color: ${CHARLES_BLUE};
           }

@@ -49,6 +49,8 @@ describe('storage', () => {
           shippingZip: '12345',
 
           cardholderName: '',
+          cardToken: 'tok_testtoken',
+          cardLast4: '4040',
 
           billingAddressSameAsShippingAddress: true,
 

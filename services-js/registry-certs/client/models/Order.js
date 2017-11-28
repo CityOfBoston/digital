@@ -27,6 +27,8 @@ export type OrderInfo = {|
   shippingZip: string,
 
   cardholderName: string,
+  cardToken: ?string,
+  cardLast4: ?string,
 
   billingAddressSameAsShippingAddress: boolean,
 
@@ -43,8 +45,14 @@ export default class Order {
   @observable cardElementError: ?string = null;
   @observable cardElementComplete: boolean = false;
 
-  @observable submitting: boolean = false;
-  @observable submissionError: ?string = null;
+  // Set to true if there's a network operation related to the order going on,
+  // such as tokenizing the card with Stripe or submitting the order to the
+  // backend.
+  @observable processing: boolean = false;
+
+  // An error string arising from a network operation, suck as tokenizing the
+  // card with Stripe or submitting the order to the backend.
+  @observable processingError: ?string = null;
 
   updateStorageDisposer: ?Function = null;
 
@@ -66,6 +74,8 @@ export default class Order {
       shippingZip: '',
 
       cardholderName: '',
+      cardToken: null,
+      cardLast4: null,
 
       billingAddressSameAsShippingAddress: true,
 
