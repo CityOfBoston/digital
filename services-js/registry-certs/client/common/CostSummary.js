@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { calculateCost, CERTIFICATE_COST } from '../../lib/costs';
+import { calculateCost, CERTIFICATE_COST_STRING } from '../../lib/costs';
 import type Cart from '../store/Cart';
 
 type Props = {
@@ -17,20 +17,24 @@ export default function CostSummary({ cart }: Props) {
       <div className="p-v200">
         <div className="cost-row">
           <span className="t--info">
-            {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} × ${(CERTIFICATE_COST / 100).toFixed()}
+            {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
+            {CERTIFICATE_COST_STRING}
           </span>
           <span className="cost">${(subtotal / 100).toFixed(2)}</span>
         </div>
 
         <div className="cost-row">
-          <span className="t--info">Credit card processing fee</span>
+          <a name="service-fee" />
+          <span className="t--info">
+            Credit card service fee <a href="#service-fee">*</a>
+          </span>
           <span className="cost">${(serviceFee / 100).toFixed(2)}</span>
         </div>
 
         <div className="cost-row">
           <span className="t--info">Shipping within the U.S.</span>
           <span className="cost">
-            <i>free</i>
+            <i>included</i>
           </span>
         </div>
       </div>

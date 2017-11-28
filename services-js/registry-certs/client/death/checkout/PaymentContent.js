@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
+import { PERCENTAGE_STRING, FIXED_STRING } from '../../../lib/costs';
+
 import type Cart from '../../store/Cart';
 import type Order, { OrderInfo } from '../../models/Order';
 
@@ -437,6 +439,15 @@ export default class PaymentContent extends React.Component<Props, State> {
                 </a>
               </Link>
             </div>
+
+            <p className="t--subinfo">
+              <a name="service-fee" />
+              * You are charged an extra service fee of {FIXED_STRING} plus{' '}
+              {PERCENTAGE_STRING}. This fee goes directly to a third party to
+              pay for the cost of credit card processing. Learn more about{' '}
+              <a href="https://www.boston.gov/">credit card service fees</a> at
+              the City of Boston.
+            </p>
           </div>
 
           <style jsx>{`

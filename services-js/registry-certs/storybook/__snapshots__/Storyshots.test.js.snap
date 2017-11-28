@@ -1023,8 +1023,9 @@ exports[`Storyshots CartPage loading 1`] = `
                   8
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -1036,16 +1037,26 @@ exports[`Storyshots CartPage loading 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  3.65
+                  2.66
                 </span>
               </div>
               <div
@@ -1062,7 +1073,7 @@ exports[`Storyshots CartPage loading 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -1079,7 +1090,7 @@ exports[`Storyshots CartPage loading 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                115.65
+                114.66
               </span>
             </div>
           </div>
@@ -1094,6 +1105,28 @@ exports[`Storyshots CartPage loading 1`] = `
               Continue to Checkout
             </a>
           </div>
+          <p
+            className="jsx-858389963 t--subinfo"
+          >
+            <a
+              className="jsx-858389963"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-858389963"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             
+            at the City of Boston.
+          </p>
         </div>
       </div>
     </div>
@@ -1634,8 +1667,9 @@ exports[`Storyshots CartPage normal page 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -1647,16 +1681,26 @@ exports[`Storyshots CartPage normal page 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -1673,7 +1717,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -1690,7 +1734,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -1705,6 +1749,28 @@ exports[`Storyshots CartPage normal page 1`] = `
               Continue to Checkout
             </a>
           </div>
+          <p
+            className="jsx-858389963 t--subinfo"
+          >
+            <a
+              className="jsx-858389963"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-858389963"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             
+            at the City of Boston.
+          </p>
         </div>
       </div>
     </div>
@@ -2719,7 +2785,22 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
             <p
               className="jsx-3528172379 t--subinfo"
             >
-              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+              Death certificates cost 
+              $14.00
+               each. That price includes shipping. You will be charged an extra service fee of
+               
+              $0.25
+               plus 
+              2.15%
+              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+               
+              <a
+                className="jsx-3528172379"
+                href="https://www.boston.gov/"
+              >
+                credit card service fees
+              </a>
+               at the City of Boston.
             </p>
           </div>
         </div>
@@ -3327,7 +3408,22 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
             <p
               className="jsx-3528172379 t--subinfo"
             >
-              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+              Death certificates cost 
+              $14.00
+               each. That price includes shipping. You will be charged an extra service fee of
+               
+              $0.25
+               plus 
+              2.15%
+              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+               
+              <a
+                className="jsx-3528172379"
+                href="https://www.boston.gov/"
+              >
+                credit card service fees
+              </a>
+               at the City of Boston.
             </p>
           </div>
         </div>
@@ -4008,7 +4104,22 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
             <p
               className="jsx-3528172379 t--subinfo"
             >
-              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+              Death certificates cost 
+              $14.00
+               each. That price includes shipping. You will be charged an extra service fee of
+               
+              $0.25
+               plus 
+              2.15%
+              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+               
+              <a
+                className="jsx-3528172379"
+                href="https://www.boston.gov/"
+              >
+                credit card service fees
+              </a>
+               at the City of Boston.
             </p>
           </div>
         </div>
@@ -4602,7 +4713,22 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
             <p
               className="jsx-3528172379 t--subinfo"
             >
-              Death certificates cost $14 each, including shipping. An additional credit card processing fee will be added at checkout.
+              Death certificates cost 
+              $14.00
+               each. That price includes shipping. You will be charged an extra service fee of
+               
+              $0.25
+               plus 
+              2.15%
+              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+               
+              <a
+                className="jsx-3528172379"
+                href="https://www.boston.gov/"
+              >
+                credit card service fees
+              </a>
+               at the City of Boston.
             </p>
           </div>
         </div>
@@ -5136,7 +5262,7 @@ exports[`Storyshots OrderDetails closed 1`] = `
         14.00
          
         + fee = $
-        72.40
+        71.76
       </div>
     </div>
   </button>
@@ -5188,7 +5314,7 @@ exports[`Storyshots OrderDetails loading 1`] = `
         14.00
          
         + fee = $
-        115.65
+        114.66
       </div>
     </div>
   </button>
@@ -5240,7 +5366,7 @@ exports[`Storyshots OrderDetails open 1`] = `
         14.00
          
         + fee = $
-        72.40
+        71.76
       </div>
     </div>
   </button>
@@ -5958,7 +6084,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -6290,8 +6416,9 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -6303,16 +6430,26 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -6329,7 +6466,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -6346,7 +6483,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -6392,6 +6529,28 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
               ← Return to shipping information
             </a>
           </div>
+          <p
+            className="jsx-418405546 t--subinfo"
+          >
+            <a
+              className="jsx-418405546"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus
+             
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-418405546"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </p>
         </div>
       </form>
     </div>
@@ -6806,7 +6965,7 @@ exports[`Storyshots PaymentContent default 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -6986,8 +7145,9 @@ exports[`Storyshots PaymentContent default 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -6999,16 +7159,26 @@ exports[`Storyshots PaymentContent default 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -7025,7 +7195,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -7042,7 +7212,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -7088,6 +7258,28 @@ exports[`Storyshots PaymentContent default 1`] = `
               ← Return to shipping information
             </a>
           </div>
+          <p
+            className="jsx-418405546 t--subinfo"
+          >
+            <a
+              className="jsx-418405546"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus
+             
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-418405546"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </p>
         </div>
       </form>
     </div>
@@ -7502,7 +7694,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -7829,8 +8021,9 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -7842,16 +8035,26 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -7868,7 +8071,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -7885,7 +8088,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -7931,6 +8134,28 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               ← Return to shipping information
             </a>
           </div>
+          <p
+            className="jsx-418405546 t--subinfo"
+          >
+            <a
+              className="jsx-418405546"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus
+             
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-418405546"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </p>
         </div>
       </form>
     </div>
@@ -8345,7 +8570,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -8677,8 +8902,9 @@ exports[`Storyshots PaymentContent state error 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -8690,16 +8916,26 @@ exports[`Storyshots PaymentContent state error 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -8716,7 +8952,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -8733,7 +8969,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -8779,6 +9015,28 @@ exports[`Storyshots PaymentContent state error 1`] = `
               ← Return to shipping information
             </a>
           </div>
+          <p
+            className="jsx-418405546 t--subinfo"
+          >
+            <a
+              className="jsx-418405546"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus
+             
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-418405546"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </p>
         </div>
       </form>
     </div>
@@ -9193,7 +9451,7 @@ exports[`Storyshots PaymentContent submission error 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -9520,8 +9778,9 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                   5
                    
                   certificates
-                   × $
-                  14
+                   ×
+                   
+                  $14.00
                 </span>
                 <span
                   className="jsx-4282255710 cost"
@@ -9533,16 +9792,26 @@ exports[`Storyshots PaymentContent submission error 1`] = `
               <div
                 className="jsx-4282255710 cost-row"
               >
+                <a
+                  className="jsx-4282255710"
+                  name="service-fee"
+                />
                 <span
                   className="jsx-4282255710 t--info"
                 >
-                  Credit card processing fee
+                  Credit card service fee 
+                  <a
+                    className="jsx-4282255710"
+                    href="#service-fee"
+                  >
+                    *
+                  </a>
                 </span>
                 <span
                   className="jsx-4282255710 cost"
                 >
                   $
-                  2.40
+                  1.76
                 </span>
               </div>
               <div
@@ -9559,7 +9828,7 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                   <i
                     className="jsx-4282255710"
                   >
-                    free
+                    included
                   </i>
                 </span>
               </div>
@@ -9576,7 +9845,7 @@ exports[`Storyshots PaymentContent submission error 1`] = `
                 className="jsx-4282255710 cost br br-t100 p-v200"
               >
                 $
-                72.40
+                71.76
               </span>
             </div>
           </div>
@@ -9627,6 +9896,28 @@ exports[`Storyshots PaymentContent submission error 1`] = `
               ← Return to shipping information
             </a>
           </div>
+          <p
+            className="jsx-418405546 t--subinfo"
+          >
+            <a
+              className="jsx-418405546"
+              name="service-fee"
+            />
+            * You are charged an extra service fee of 
+            $0.25
+             plus
+             
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              className="jsx-418405546"
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </p>
         </div>
       </form>
     </div>
@@ -11750,7 +12041,7 @@ exports[`Storyshots ShippingContent default 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -12493,7 +12784,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>
@@ -13241,7 +13532,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
               14.00
                
               + fee = $
-              72.40
+              71.76
             </div>
           </div>
         </button>

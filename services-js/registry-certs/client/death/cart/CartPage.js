@@ -7,6 +7,8 @@ import Link from 'next/link';
 
 import { getDependencies } from '../../app';
 
+import { PERCENTAGE_STRING, FIXED_STRING } from '../../../lib/costs';
+
 import type Cart from '../../store/Cart';
 
 import AppLayout from '../../AppLayout';
@@ -97,6 +99,19 @@ export class CartPageContent extends React.Component<Props> {
                   <a className="btn">Continue to Checkout</a>
                 </Link>
               </div>
+
+              <p className="t--subinfo">
+                <a name="service-fee" />
+                * You are charged an extra service fee of {
+                  FIXED_STRING
+                } plus {PERCENTAGE_STRING}. This fee goes directly to a third
+                party to pay for the cost of credit card processing. Learn more
+                about{' '}
+                <a href="https://www.boston.gov/">
+                  credit card service fees
+                </a>{' '}
+                at the City of Boston.
+              </p>
             </div>
           )}
         </div>

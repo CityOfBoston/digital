@@ -66,7 +66,7 @@ describe('Mutation resolvers', () => {
       );
 
       expect(chargesCreate).toHaveBeenCalledWith({
-        amount: 14449,
+        amount: 14326,
         currency: 'usd',
         source: 'tok_test',
         description: 'Death certificates (Registry)',

@@ -7,6 +7,12 @@ import Link from 'next/link';
 import type { DeathCertificate } from '../../types';
 
 import {
+  CERTIFICATE_COST_STRING,
+  PERCENTAGE_STRING,
+  FIXED_STRING,
+} from '../../../lib/costs';
+
+import {
   getDependencies,
   type ClientContext,
   type ClientDependencies,
@@ -230,8 +236,13 @@ export class CertificatePageContent extends React.Component<
           </form>
 
           <p className="t--subinfo">
-            Death certificates cost $14 each, including shipping. An additional
-            credit card processing fee will be added at checkout.
+            Death certificates cost {CERTIFICATE_COST_STRING} each. That price
+            includes shipping. You will be charged an extra service fee of{' '}
+            {FIXED_STRING} plus {PERCENTAGE_STRING}. That fee goes directly to a
+            third party to pay for the cost of credit card processing. Learn
+            more about{' '}
+            <a href="https://www.boston.gov/">credit card service fees</a> at
+            the City of Boston.
           </p>
         </div>
 
