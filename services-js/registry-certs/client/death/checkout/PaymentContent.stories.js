@@ -77,7 +77,7 @@ function makeBillingCompleteOrder(overrides = {}) {
 }
 
 storiesOf('PaymentContent', module)
-  .addDecorator(appLayoutDecorator(null))
+  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <PaymentContent
       cart={makeCart()}

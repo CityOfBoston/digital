@@ -59,12 +59,6 @@ export default function AddedToCartPopup({
             <a className="btn">Go to your cart</a>
           </Link>
         </div>
-
-        <div className="m-t500">
-          <Link href="/death">
-            <a>← Start new search</a>
-          </Link>
-        </div>
       </div>
 
       <style jsx>{`

@@ -5,12 +5,14 @@ import React, {
   type Element as ReactElement,
   type ChildrenArray as ReactChildrenArray,
 } from 'react';
+import Link from 'next/link';
 
 import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
 import footerHtml from '../templates/footer.html';
 
 import Nav, { type Props as NavProps } from './common/Nav';
+import { FREEDOM_RED } from './common/style-constants';
 
 type Props = {|
   children: ReactChildrenArray<ReactElement<*>>,
@@ -63,7 +65,11 @@ export default function AppLayout({ children, navProps }: Props) {
               </a>
               <span className="brc-s"> › </span>
             </li>
-            <li className="brc-l-i">Death certificates</li>
+            <li className="brc-l-i">
+              <Link href="/death">
+                <a>Death certificates</a>
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -75,6 +81,12 @@ export default function AppLayout({ children, navProps }: Props) {
         style={{ position: 'relative', zIndex: 2 }}
         dangerouslySetInnerHTML={{ __html: footerHtml }}
       />
+
+      <style jsx>{`
+        .brc li:last-child a {
+          color: ${FREEDOM_RED};
+        }
+      `}</style>
     </div>
   );
 }

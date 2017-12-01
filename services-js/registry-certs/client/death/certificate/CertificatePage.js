@@ -92,6 +92,11 @@ export class CertificatePageContent extends React.Component<
       closeAddedToCart,
     } = this.props;
 
+    const { firstName, lastName } = certificate || {
+      firstName: null,
+      lastName: null,
+    };
+
     return (
       <div className="content">
         <Head>
@@ -100,16 +105,16 @@ export class CertificatePageContent extends React.Component<
 
         <div className="p-a300">
           {backUrl && (
-            <div className="m-b300">
+            <div className="m-b500">
               <Link href={backUrl}>
-                <a style={{ fontStyle: 'italic' }}>← Back to search</a>
+                <a style={{ fontStyle: 'italic' }}>← Back to search results</a>
               </Link>
             </div>
           )}
 
           <div className="sh sh--b0">
             <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              Deceased Details
+              {firstName} {lastName}
             </h1>
           </div>
         </div>
@@ -162,10 +167,12 @@ export class CertificatePageContent extends React.Component<
             <span className="dl-d">{id}</span>
           </li>
           <li className="dl-i">
-            <span className="dl-t">Full name</span>
-            <span className="dl-d">
-              {firstName} {lastName}
-            </span>
+            <span className="dl-t">First name</span>
+            <span className="dl-d">{firstName}</span>
+          </li>
+          <li className="dl-i">
+            <span className="dl-t">Last name</span>
+            <span className="dl-d">{lastName}</span>
           </li>
           {birthDate && (
             <li className="dl-i">
@@ -366,7 +373,7 @@ export const wrapCertificatePageController = (
 export default wrapCertificatePageController(
   getDependencies,
   ({ cart }, props) => (
-    <AppLayout navProps={{ cart, link: 'checkout' }}>
+    <AppLayout navProps={{ cart }}>
       <CertificatePageContent {...props} />
     </AppLayout>
   )

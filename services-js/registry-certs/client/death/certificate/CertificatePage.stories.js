@@ -14,7 +14,7 @@ import {
 } from '../../../fixtures/client/death-certificates';
 
 storiesOf('CertificatePage', module)
-  .addDecorator(appLayoutDecorator('checkout'))
+  .addDecorator(appLayoutDecorator(true))
   .add('normal certificate', () => (
     <CertificatePageContent
       id={TYPICAL_CERTIFICATE.id}

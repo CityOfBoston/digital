@@ -6,6 +6,6 @@ import Nav from './Nav';
 
 import Cart from '../store/Cart';
 
-storiesOf('Nav', module)
-  .add('normal page', () => <Nav cart={new Cart()} link="checkout" />)
-  .add('checkout page', () => <Nav cart={new Cart()} link="lookup" />);
+storiesOf('Nav', module).add('default', () => (
+  <Nav cart={new Cart()} link="checkout" />
+));

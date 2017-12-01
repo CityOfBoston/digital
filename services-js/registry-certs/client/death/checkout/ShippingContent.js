@@ -359,12 +359,12 @@ export default class ShippingContent extends React.Component<Props, State> {
               type="submit"
               disabled={!shippingIsComplete}
             >
-              Continue to Payment
+              Next: Payment Method
             </button>
 
             <div className="g--8 m-v500">
               <Link href="/death/cart">
-                <a style={{ fontStyle: 'italic' }}>← Return to cart</a>
+                <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
               </Link>
             </div>
           </div>

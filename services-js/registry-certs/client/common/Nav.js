@@ -9,43 +9,35 @@ import type Cart from '../store/Cart';
 export type LinkOptions = 'lookup' | 'checkout';
 export type Props = {|
   cart: Cart,
-  link: LinkOptions,
 |};
 
-export default observer(function Nav({ cart, link }: Props) {
+export default observer(function Nav({ cart }: Props) {
   return (
     <nav className="nv-s nv-s--sticky">
-      {link === 'checkout' && (
-        <div className="nv-s-l bar">
-          <Link href="/death/cart">
-            <a className="nv-s-l-b back-link back-link-right">View Cart</a>
-          </Link>
+      <div className="nv-s-l bar">
+        <Link href="/death/cart">
+          <a className="nv-s-l-b back-link back-link-right">View Cart</a>
+        </Link>
 
-          <Link href="/death/cart">
-            <a className="cart-link">{cart.size}</a>
-          </Link>
-        </div>
-      )}
-
-      {link === 'lookup' && (
-        <div className="nv-s-l bar">
-          <Link href="/death/">
-            <a className="nv-s-l-b back-link">Back to Search</a>
-          </Link>
-        </div>
-      )}
+        <Link href="/death/cart">
+          <a className="cart-link">{cart.size}</a>
+        </Link>
+      </div>
 
       <style jsx>{`
         .bar {
           display: flex;
         }
+
         .back-link {
           display: block !important;
           flex: 1;
         }
+
         .back-link-right {
           text-align: right;
         }
+
         .back-link:after {
           display: none !important;
         }
@@ -62,6 +54,7 @@ export default observer(function Nav({ cart, link }: Props) {
           text-align: center;
           font-style: italic;
         }
+
         .cart-link:before {
           content: '';
           display: block;

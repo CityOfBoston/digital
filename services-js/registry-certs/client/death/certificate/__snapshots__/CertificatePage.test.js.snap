@@ -30,7 +30,6 @@ exports[`integration renders 1`] = `
   navProps={
     Object {
       "cart": Cart {},
-      "link": "checkout",
     }
   }
 >

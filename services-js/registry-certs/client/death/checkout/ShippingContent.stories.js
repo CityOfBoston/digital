@@ -61,7 +61,7 @@ function makeOrder(overrides = {}) {
 }
 
 storiesOf('ShippingContent', module)
-  .addDecorator(appLayoutDecorator(null))
+  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <ShippingContent
       cart={makeCart()}

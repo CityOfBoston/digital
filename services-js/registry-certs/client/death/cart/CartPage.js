@@ -96,7 +96,13 @@ export class CartPageContent extends React.Component<Props> {
 
               <div className="m-v500">
                 <Link href="/death/checkout">
-                  <a className="btn">Continue to Checkout</a>
+                  <a className="btn">Checkout</a>
+                </Link>
+              </div>
+
+              <div className="m-v500 ta-c t--info">
+                <Link href="/death">
+                  <a>Start a new search</a>
                 </Link>
               </div>
 
@@ -124,7 +130,7 @@ export default function CartPageContentController() {
   const { cart } = getDependencies();
 
   return (
-    <AppLayout navProps={{ cart, link: 'lookup' }}>
+    <AppLayout navProps={{ cart }}>
       <CartPageContent cart={cart} />
     </AppLayout>
   );

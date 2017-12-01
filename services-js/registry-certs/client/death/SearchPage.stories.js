@@ -15,7 +15,7 @@ import {
 } from '../../fixtures/client/death-certificates';
 
 storiesOf('SearchPage', module)
-  .addDecorator(appLayoutDecorator('checkout'))
+  .addDecorator(appLayoutDecorator(true))
   .add('no search', () => (
     <SearchPageContent
       submitSearch={action('submitSearch')}

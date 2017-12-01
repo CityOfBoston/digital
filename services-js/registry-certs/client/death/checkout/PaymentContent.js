@@ -415,13 +415,13 @@ export default class PaymentContent extends React.Component<Props, State> {
                 !paymentIsComplete || !cardElementComplete || processing
               }
             >
-              Review Order
+              Next: Review Order
             </button>
 
             <div className="g--9 m-v500">
               <Link href="/death/checkout?page=shipping" as="/death/checkout">
                 <a style={{ fontStyle: 'italic' }}>
-                  ← Return to shipping information
+                  ← Back to shipping information
                 </a>
               </Link>
             </div>

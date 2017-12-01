@@ -45,7 +45,7 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('CartPage', module)
-  .addDecorator(appLayoutDecorator('lookup'))
+  .addDecorator(appLayoutDecorator(true))
   .add('loading', () => <CartPageContent cart={makeCart(true)} />)
   .add('normal page', () => <CartPageContent cart={makeCart(false)} />)
   .add('empty cart', () => <CartPageContent cart={new Cart()} />);

@@ -10,19 +10,19 @@ export type Props = {|
   borderTop: boolean,
   borderBottom: boolean,
   children?: (ReactElement<*>) => ReactElement<*> | Array<ReactElement<*>>,
-  invert?: boolean,
+  thin?: boolean,
 |};
 
-const renderCertificate = ({
-  firstName,
-  lastName,
-  deathDate,
-  deathYear,
-  age,
-  pending,
-}: DeathCertificate) => (
+const renderCertificate = (
+  { firstName, lastName, deathDate, deathYear, age, pending }: DeathCertificate,
+  thin: boolean
+) => (
   <div key="certificate" className="certificate-info-box">
-    <div className="t--sans certificate-name">
+    <div
+      className={`t--sans ${thin
+        ? 'thin-certificate-name'
+        : 'certificate-name'}`}
+    >
       {firstName} {lastName}
     </div>
 
@@ -51,6 +51,10 @@ const renderCertificate = ({
         letter-spacing: 1.4px;
       }
 
+      .thin-certificate-name {
+        font-style: normal;
+      }
+
       .certificate-subinfo {
         color: ${CHARLES_BLUE};
         font-style: italic;
@@ -68,25 +72,25 @@ export default function SearchResult({
   borderBottom,
   certificate,
   children,
-  invert,
+  thin,
 }: Props) {
-  let borderClass;
+  let borderClass = '';
 
-  if (borderTop && borderBottom) {
-    borderClass = 'br-a100';
-  } else if (borderTop) {
-    borderClass = 'br-t100';
-  } else if (borderBottom) {
-    borderClass = 'br-b100';
-  } else {
-    borderClass = '';
+  if (!thin) {
+    if (borderTop && borderBottom) {
+      borderClass = 'br-a100';
+    } else if (borderTop) {
+      borderClass = 'br-t100';
+    } else if (borderBottom) {
+      borderClass = 'br-b100';
+    }
   }
 
   return (
-    <div className={`p-a300 br ${invert ? 'b--g' : 'b--w'} row ${borderClass}`}>
+    <div className={`${thin ? 'p-a200' : 'p-a300'} br b--w row ${borderClass}`}>
       {children
-        ? children(renderCertificate(certificate))
-        : renderCertificate(certificate)}
+        ? children(renderCertificate(certificate, !!thin))
+        : renderCertificate(certificate, !!thin)}
 
       <style jsx>{`
         .row {
@@ -96,6 +100,10 @@ export default function SearchResult({
 
           display: flex;
           align-items: center;
+        }
+
+        .br-b100 {
+          border-bottom-width: 1px;
         }
       `}</style>
     </div>

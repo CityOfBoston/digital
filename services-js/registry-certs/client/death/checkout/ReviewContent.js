@@ -83,10 +83,13 @@ export default class ReviewContent extends React.Component<Props> {
         >
           <OrderDetails cart={cart} fixed />
 
-          <div className="b--w p-a300 field-container">
+          <div className="b--w p-a300 m-t300 field-container">
             <fieldset>
-              <legend className="m-b300">
-                <span className="stp" style={{ display: 'inline-block' }}>
+              <legend className="">
+                <span
+                  className="stp"
+                  style={{ fontWeight: 'bold', display: 'inline-block' }}
+                >
                   Shipping Address
                 </span>{' '}
                 —{' '}
@@ -94,20 +97,27 @@ export default class ReviewContent extends React.Component<Props> {
                   <a style={{ fontStyle: 'italic' }}>edit</a>
                 </Link>
               </legend>
-              {`${shippingName}${shippingCompanyName
-                ? ` — ${shippingCompanyName}`
-                : ''}`}
-              <br />
-              {`${shippingAddress1}${shippingAddress2
-                ? `, ${shippingAddress2}`
-                : ''}, ${shippingCity} ${shippingState} ${shippingZip}`}
+              <div className="p-a300">
+                {shippingName}
+                <br />
+                {shippingCompanyName
+                  ? [shippingCompanyName, <br key="br" />]
+                  : null}
+                {shippingAddress1}
+                <br />
+                {shippingAddress2 ? [shippingAddress2, <br key="br" />] : null}
+                {`${shippingCity}, ${shippingState} ${shippingZip}`}
+              </div>
             </fieldset>
           </div>
 
-          <div className="b--g p-a300 field-container">
+          <div className="b--w p-a300 m-t300 field-container">
             <fieldset>
-              <legend className="m-b300">
-                <span className="stp" style={{ display: 'inline-block' }}>
+              <legend>
+                <span
+                  className="stp"
+                  style={{ fontWeight: 'bold', display: 'inline-block' }}
+                >
                   Payment Information
                 </span>{' '}
                 —{' '}
@@ -115,11 +125,16 @@ export default class ReviewContent extends React.Component<Props> {
                   <a style={{ fontStyle: 'italic' }}>edit</a>
                 </Link>
               </legend>
-              {`${cardholderName} — XXXX XXXX XXXX ${cardLast4 || ''}`}
-              <br />
-              {`${billingAddress1}${billingAddress2
-                ? `, ${billingAddress2}`
-                : ''}, ${billingCity} ${billingState} ${billingZip}`}
+              <div className="p-a300">
+                {cardholderName}
+                <br />
+                **** **** **** {cardLast4 || ''}
+                <br />
+                {billingAddress1}
+                <br />
+                {billingAddress2 ? [billingAddress2, <br key="br" />] : null}
+                {billingCity}, {billingState} {billingZip}
+              </div>
             </fieldset>
           </div>
 
@@ -158,6 +173,12 @@ export default class ReviewContent extends React.Component<Props> {
             >
               Submit Order
             </button>
+          </div>
+
+          <div className="m-v500 ta-c t--info">
+            <Link href="/death">
+              <a>Cancel order and go back to search</a>
+            </Link>
           </div>
 
           <style jsx>{`

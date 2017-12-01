@@ -29,7 +29,7 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
       </div>
     </div>
     <div
-      className="jsx-947238363 p-a300 br b--w row "
+      className="jsx-4137792350 p-a300 br b--w row "
     >
       <div
         aria-label="Quantity"
@@ -44,17 +44,17 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
          ×
       </div>
       <div
-        className="jsx-2636230671 certificate-info-box"
+        className="jsx-2577800471 certificate-info-box"
       >
         <div
-          className="jsx-2636230671 t--sans certificate-name"
+          className="jsx-2577800471 t--sans certificate-name"
         >
           BRUCE
            
           BANNER
         </div>
         <div
-          className="jsx-2636230671 certificate-subinfo"
+          className="jsx-2577800471 certificate-subinfo"
         >
           Died: 
           3/4/2016
@@ -73,17 +73,6 @@ exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
         Go to your cart
       </a>
     </div>
-    <div
-      className="jsx-2805620393 m-t500"
-    >
-      <a
-        className="jsx-2805620393"
-        href="/death"
-        onClick={[Function]}
-      >
-        ← Start new search
-      </a>
-    </div>
   </div>
 </div>
 `;
@@ -93,7 +82,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
   className="jsx-4105449804"
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-a100"
+    className="jsx-4137792350 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
@@ -104,17 +93,17 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
       value="1"
     />
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         MONKEY
          
         JOE
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         2004
@@ -137,7 +126,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
   className="jsx-4105449804"
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-a100"
+    className="jsx-4137792350 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
@@ -148,23 +137,23 @@ exports[`Storyshots CartItem pending certificate 1`] = `
       value="1"
     />
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         JAMES
          
         HOWLETT (LOGAN)
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         4/15/2014
          — Age: 44 yrs. 2 mos. 10 dys
         <span
-          className="jsx-2636230671 t--sans tt-u"
+          className="jsx-2577800471 t--sans tt-u"
           style={
             Object {
               "fontStyle": "normal",
@@ -193,7 +182,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
   className="jsx-4105449804"
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-a100"
+    className="jsx-4137792350 p-a300 br b--w row br-a100"
   >
     <input
       aria-label="Quantity"
@@ -204,17 +193,17 @@ exports[`Storyshots CartItem typical certificate 1`] = `
       value="1"
     />
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -233,15 +222,17 @@ exports[`Storyshots CartItem typical certificate 1`] = `
 `;
 
 exports[`Storyshots CartPage empty cart 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -419,11 +410,11 @@ exports[`Storyshots CartPage empty cart 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -432,12 +423,12 @@ exports[`Storyshots CartPage empty cart 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -493,73 +484,89 @@ exports[`Storyshots CartPage empty cart 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link"
-          href="/death/"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+          href="/death/cart"
           onClick={[Function]}
         >
-          Back to Search
+          View Cart
+        </a>
+        <a
+          className="jsx-1795526402 cart-link"
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
         </a>
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -624,7 +631,7 @@ exports[`Storyshots CartPage empty cart 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -653,15 +660,17 @@ exports[`Storyshots CartPage empty cart 1`] = `
 `;
 
 exports[`Storyshots CartPage loading 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -839,11 +848,11 @@ exports[`Storyshots CartPage loading 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -852,12 +861,12 @@ exports[`Storyshots CartPage loading 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -913,73 +922,89 @@ exports[`Storyshots CartPage loading 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link"
-          href="/death/"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+          href="/death/cart"
           onClick={[Function]}
         >
-          Back to Search
+          View Cart
+        </a>
+        <a
+          className="jsx-1795526402 cart-link"
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
         </a>
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -1102,7 +1127,18 @@ exports[`Storyshots CartPage loading 1`] = `
               href="/death/checkout"
               onClick={[Function]}
             >
-              Continue to Checkout
+              Checkout
+            </a>
+          </div>
+          <div
+            className="jsx-858389963 m-v500 ta-c t--info"
+          >
+            <a
+              className="jsx-858389963"
+              href="/death"
+              onClick={[Function]}
+            >
+              Start a new search
             </a>
           </div>
           <p
@@ -1132,7 +1168,7 @@ exports[`Storyshots CartPage loading 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -1161,15 +1197,17 @@ exports[`Storyshots CartPage loading 1`] = `
 `;
 
 exports[`Storyshots CartPage normal page 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -1347,11 +1385,11 @@ exports[`Storyshots CartPage normal page 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -1360,12 +1398,12 @@ exports[`Storyshots CartPage normal page 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -1421,73 +1459,89 @@ exports[`Storyshots CartPage normal page 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link"
-          href="/death/"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+          href="/death/cart"
           onClick={[Function]}
         >
-          Back to Search
+          View Cart
+        </a>
+        <a
+          className="jsx-1795526402 cart-link"
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
         </a>
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -1517,7 +1571,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             className="jsx-4105449804"
           >
             <div
-              className="jsx-947238363 p-a300 br b--w row br-t100"
+              className="jsx-4137792350 p-a300 br b--w row br-t100"
             >
               <input
                 aria-label="Quantity"
@@ -1528,17 +1582,17 @@ exports[`Storyshots CartPage normal page 1`] = `
                 value="1"
               />
               <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-2577800471 certificate-info-box"
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
+                  className="jsx-2577800471 t--sans certificate-name"
                 >
                   BRUCE
                    
                   BANNER
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-subinfo"
                 >
                   Died: 
                   3/4/2016
@@ -1558,7 +1612,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             className="jsx-4105449804"
           >
             <div
-              className="jsx-947238363 p-a300 br b--w row br-t100"
+              className="jsx-4137792350 p-a300 br b--w row br-t100"
             >
               <input
                 aria-label="Quantity"
@@ -1569,23 +1623,23 @@ exports[`Storyshots CartPage normal page 1`] = `
                 value="3"
               />
               <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-2577800471 certificate-info-box"
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
+                  className="jsx-2577800471 t--sans certificate-name"
                 >
                   JAMES
                    
                   HOWLETT (LOGAN)
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-subinfo"
                 >
                   Died: 
                   4/15/2014
                    — Age: 44 yrs. 2 mos. 10 dys
                   <span
-                    className="jsx-2636230671 t--sans tt-u"
+                    className="jsx-2577800471 t--sans tt-u"
                     style={
                       Object {
                         "fontStyle": "normal",
@@ -1611,7 +1665,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             className="jsx-4105449804"
           >
             <div
-              className="jsx-947238363 p-a300 br b--w row br-a100"
+              className="jsx-4137792350 p-a300 br b--w row br-a100"
             >
               <input
                 aria-label="Quantity"
@@ -1622,17 +1676,17 @@ exports[`Storyshots CartPage normal page 1`] = `
                 value="1"
               />
               <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-2577800471 certificate-info-box"
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
+                  className="jsx-2577800471 t--sans certificate-name"
                 >
                   MONKEY
                    
                   JOE
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-subinfo"
                 >
                   Died: 
                   2004
@@ -1746,7 +1800,18 @@ exports[`Storyshots CartPage normal page 1`] = `
               href="/death/checkout"
               onClick={[Function]}
             >
-              Continue to Checkout
+              Checkout
+            </a>
+          </div>
+          <div
+            className="jsx-858389963 m-v500 ta-c t--info"
+          >
+            <a
+              className="jsx-858389963"
+              href="/death"
+              onClick={[Function]}
+            >
+              Start a new search
             </a>
           </div>
           <p
@@ -1776,7 +1841,7 @@ exports[`Storyshots CartPage normal page 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -1805,15 +1870,17 @@ exports[`Storyshots CartPage normal page 1`] = `
 `;
 
 exports[`Storyshots CertificatePage missing certificate 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -1991,11 +2058,11 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -2004,12 +2071,12 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -2065,20 +2132,20 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -2087,58 +2154,67 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -2149,7 +2225,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         className="jsx-225913026 p-a300"
       >
         <div
-          className="jsx-225913026 m-b300"
+          className="jsx-225913026 m-b500"
         >
           <a
             className="jsx-225913026"
@@ -2161,7 +2237,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
               }
             }
           >
-            ← Back to search
+            ← Back to search results
           </a>
         </div>
         <div
@@ -2175,7 +2251,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
               }
             }
           >
-            Deceased Details
+             
           </h1>
         </div>
       </div>
@@ -2185,7 +2261,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -2214,15 +2290,17 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
 `;
 
 exports[`Storyshots CertificatePage normal certificate 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -2400,11 +2478,11 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -2413,12 +2491,12 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -2474,20 +2552,20 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -2496,58 +2574,67 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -2558,7 +2645,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         className="jsx-225913026 p-a300"
       >
         <div
-          className="jsx-225913026 m-b300"
+          className="jsx-225913026 m-b500"
         >
           <a
             className="jsx-225913026"
@@ -2570,7 +2657,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               }
             }
           >
-            ← Back to search
+            ← Back to search results
           </a>
         </div>
         <div
@@ -2584,7 +2671,9 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               }
             }
           >
-            Deceased Details
+            BRUCE
+             
+            BANNER
           </h1>
         </div>
       </div>
@@ -2617,13 +2706,25 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               <span
                 className="jsx-3528172379 dl-t"
               >
-                Full name
+                First name
               </span>
               <span
                 className="jsx-3528172379 dl-d"
               >
                 BRUCE
-                 
+              </span>
+            </li>
+            <li
+              className="jsx-3528172379 dl-i"
+            >
+              <span
+                className="jsx-3528172379 dl-t"
+              >
+                Last name
+              </span>
+              <span
+                className="jsx-3528172379 dl-d"
+              >
                 BANNER
               </span>
             </li>
@@ -2808,7 +2909,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -2837,15 +2938,17 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
 `;
 
 exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -3023,11 +3126,11 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -3036,12 +3139,12 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -3097,20 +3200,20 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -3119,58 +3222,67 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -3181,7 +3293,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
         className="jsx-225913026 p-a300"
       >
         <div
-          className="jsx-225913026 m-b300"
+          className="jsx-225913026 m-b500"
         >
           <a
             className="jsx-225913026"
@@ -3193,7 +3305,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               }
             }
           >
-            ← Back to search
+            ← Back to search results
           </a>
         </div>
         <div
@@ -3207,7 +3319,9 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               }
             }
           >
-            Deceased Details
+            BRUCE
+             
+            BANNER
           </h1>
         </div>
       </div>
@@ -3240,13 +3354,25 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               <span
                 className="jsx-3528172379 dl-t"
               >
-                Full name
+                First name
               </span>
               <span
                 className="jsx-3528172379 dl-d"
               >
                 BRUCE
-                 
+              </span>
+            </li>
+            <li
+              className="jsx-3528172379 dl-i"
+            >
+              <span
+                className="jsx-3528172379 dl-t"
+              >
+                Last name
+              </span>
+              <span
+                className="jsx-3528172379 dl-d"
+              >
                 BANNER
               </span>
             </li>
@@ -3459,7 +3585,7 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
               </div>
             </div>
             <div
-              className="jsx-947238363 p-a300 br b--w row "
+              className="jsx-4137792350 p-a300 br b--w row "
             >
               <div
                 aria-label="Quantity"
@@ -3474,17 +3600,17 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                  ×
               </div>
               <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-2577800471 certificate-info-box"
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
+                  className="jsx-2577800471 t--sans certificate-name"
                 >
                   BRUCE
                    
                   BANNER
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-subinfo"
                 >
                   Died: 
                   3/4/2016
@@ -3503,24 +3629,13 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
                 Go to your cart
               </a>
             </div>
-            <div
-              className="jsx-2805620393 m-t500"
-            >
-              <a
-                className="jsx-2805620393"
-                href="/death"
-                onClick={[Function]}
-              >
-                ← Start new search
-              </a>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -3549,15 +3664,17 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
 `;
 
 exports[`Storyshots CertificatePage normal certificate — not from search 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -3735,11 +3852,11 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -3748,12 +3865,12 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -3809,20 +3926,20 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -3831,58 +3948,67 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -3903,7 +4029,9 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               }
             }
           >
-            Deceased Details
+            BRUCE
+             
+            BANNER
           </h1>
         </div>
       </div>
@@ -3936,13 +4064,25 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               <span
                 className="jsx-3528172379 dl-t"
               >
-                Full name
+                First name
               </span>
               <span
                 className="jsx-3528172379 dl-d"
               >
                 BRUCE
-                 
+              </span>
+            </li>
+            <li
+              className="jsx-3528172379 dl-i"
+            >
+              <span
+                className="jsx-3528172379 dl-t"
+              >
+                Last name
+              </span>
+              <span
+                className="jsx-3528172379 dl-d"
+              >
                 BANNER
               </span>
             </li>
@@ -4127,7 +4267,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -4156,15 +4296,17 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
 `;
 
 exports[`Storyshots CertificatePage pending certificate 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -4342,11 +4484,11 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -4355,12 +4497,12 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -4416,20 +4558,20 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -4438,58 +4580,67 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -4500,7 +4651,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         className="jsx-225913026 p-a300"
       >
         <div
-          className="jsx-225913026 m-b300"
+          className="jsx-225913026 m-b500"
         >
           <a
             className="jsx-225913026"
@@ -4512,7 +4663,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               }
             }
           >
-            ← Back to search
+            ← Back to search results
           </a>
         </div>
         <div
@@ -4526,7 +4677,9 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               }
             }
           >
-            Deceased Details
+            JAMES
+             
+            HOWLETT (LOGAN)
           </h1>
         </div>
       </div>
@@ -4559,13 +4712,25 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               <span
                 className="jsx-3528172379 dl-t"
               >
-                Full name
+                First name
               </span>
               <span
                 className="jsx-3528172379 dl-d"
               >
                 JAMES
-                 
+              </span>
+            </li>
+            <li
+              className="jsx-3528172379 dl-i"
+            >
+              <span
+                className="jsx-3528172379 dl-t"
+              >
+                Last name
+              </span>
+              <span
+                className="jsx-3528172379 dl-d"
+              >
                 HOWLETT (LOGAN)
               </span>
             </li>
@@ -4736,7 +4901,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -4765,15 +4930,17 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
 `;
 
 exports[`Storyshots ConfirmationContent default 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -4951,11 +5118,11 @@ exports[`Storyshots ConfirmationContent default 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -4964,12 +5131,12 @@ exports[`Storyshots ConfirmationContent default 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -5025,73 +5192,89 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link"
-          href="/death/"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+          href="/death/cart"
           onClick={[Function]}
         >
-          Back to Search
+          View Cart
+        </a>
+        <a
+          className="jsx-1795526402 cart-link"
+          href="/death/cart"
+          onClick={[Function]}
+        >
+          0
         </a>
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -5149,7 +5332,7 @@ exports[`Storyshots ConfirmationContent default 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -5177,40 +5360,22 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Nav checkout page 1`] = `
+exports[`Storyshots Nav default 1`] = `
 <nav
-  className="jsx-1306696032 nv-s nv-s--sticky"
+  className="jsx-1795526402 nv-s nv-s--sticky"
 >
   <div
-    className="jsx-1306696032 nv-s-l bar"
+    className="jsx-1795526402 nv-s-l bar"
   >
     <a
-      className="jsx-1306696032 nv-s-l-b back-link"
-      href="/death/"
-      onClick={[Function]}
-    >
-      Back to Search
-    </a>
-  </div>
-</nav>
-`;
-
-exports[`Storyshots Nav normal page 1`] = `
-<nav
-  className="jsx-1306696032 nv-s nv-s--sticky"
->
-  <div
-    className="jsx-1306696032 nv-s-l bar"
-  >
-    <a
-      className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+      className="jsx-1795526402 nv-s-l-b back-link back-link-right"
       href="/death/cart"
       onClick={[Function]}
     >
       View Cart
     </a>
     <a
-      className="jsx-1306696032 cart-link"
+      className="jsx-1795526402 cart-link"
       href="/death/cart"
       onClick={[Function]}
     >
@@ -5257,11 +5422,11 @@ exports[`Storyshots OrderDetails closed 1`] = `
       >
         5
          
-        certificates
+        items
          ×
          
         $14.00
-         + service fee* = $
+         + service fee = $
         71.76
       </div>
     </div>
@@ -5274,13 +5439,13 @@ exports[`Storyshots OrderDetails closed 1`] = `
 
 exports[`Storyshots OrderDetails fixed open 1`] = `
 <div
-  className="jsx-173035744 dr dr-open"
+  className="jsx-2525850060 dr dr-open"
 >
   <div
-    className="jsx-173035744 dr-h"
+    className="jsx-2525850060 dr-h"
   >
     <div
-      className="jsx-173035744 p-a300"
+      className="jsx-2525850060 p-a300"
       style={
         Object {
           "paddingBottom": 0,
@@ -5288,10 +5453,11 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
       }
     >
       <h2
-        className="jsx-173035744 stp"
+        className="jsx-2525850060 stp"
         style={
           Object {
             "display": "inline-block",
+            "fontWeight": "bold",
           }
         }
       >
@@ -5301,7 +5467,7 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
       —
        
       <a
-        className="jsx-173035744"
+        className="jsx-2525850060"
         href="/death/cart"
         onClick={[Function]}
         style={
@@ -5315,124 +5481,133 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
     </div>
   </div>
   <div
-    className="jsx-173035744 dr-c"
+    className="jsx-2525850060 p-a300"
     style={
       Object {
-        "display": "block",
+        "paddingTop": 0,
       }
     }
   >
     <div
-      className="jsx-947238363 p-a300 br b--g row "
+      className="jsx-2525850060 dr-c"
+      style={
+        Object {
+          "display": "block",
+        }
+      }
     >
       <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        1
-         ×
-      </div>
-      <div
-        className="jsx-2636230671 certificate-info-box"
+        className="jsx-4137792350 p-a200 br b--w row "
       >
         <div
-          className="jsx-2636230671 t--sans certificate-name"
-        >
-          BRUCE
-           
-          BANNER
-        </div>
-        <div
-          className="jsx-2636230671 certificate-subinfo"
-        >
-          Died: 
-          3/4/2016
-           — Age: 53
-        </div>
-      </div>
-    </div>
-    <div
-      className="jsx-947238363 p-a300 br b--g row br-t100"
-    >
-      <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        3
-         ×
-      </div>
-      <div
-        className="jsx-2636230671 certificate-info-box"
-      >
-        <div
-          className="jsx-2636230671 t--sans certificate-name"
-        >
-          JAMES
-           
-          HOWLETT (LOGAN)
-        </div>
-        <div
-          className="jsx-2636230671 certificate-subinfo"
-        >
-          Died: 
-          4/15/2014
-           — Age: 44 yrs. 2 mos. 10 dys
-          <span
-            className="jsx-2636230671 t--sans tt-u"
-            style={
-              Object {
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-              }
+          aria-label="Quantity"
+          className="t--sans p-a300"
+          style={
+            Object {
+              "fontWeight": "bold",
             }
-          >
-             
-            Certificate pending
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      className="jsx-947238363 p-a300 br b--g row br-a100"
-    >
-      <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
           }
-        }
-      >
-        1
-         ×
-      </div>
-      <div
-        className="jsx-2636230671 certificate-info-box"
-      >
-        <div
-          className="jsx-2636230671 t--sans certificate-name"
         >
-          MONKEY
-           
-          JOE
+          1
+           ×
         </div>
         <div
-          className="jsx-2636230671 certificate-subinfo"
+          className="jsx-2577800471 certificate-info-box"
         >
-          Died: 
-          2004
-           — Age: 6
+          <div
+            className="jsx-2577800471 t--sans thin-certificate-name"
+          >
+            BRUCE
+             
+            BANNER
+          </div>
+          <div
+            className="jsx-2577800471 certificate-subinfo"
+          >
+            Died: 
+            3/4/2016
+             — Age: 53
+          </div>
+        </div>
+      </div>
+      <div
+        className="jsx-4137792350 p-a200 br b--w row "
+      >
+        <div
+          aria-label="Quantity"
+          className="t--sans p-a300"
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          3
+           ×
+        </div>
+        <div
+          className="jsx-2577800471 certificate-info-box"
+        >
+          <div
+            className="jsx-2577800471 t--sans thin-certificate-name"
+          >
+            JAMES
+             
+            HOWLETT (LOGAN)
+          </div>
+          <div
+            className="jsx-2577800471 certificate-subinfo"
+          >
+            Died: 
+            4/15/2014
+             — Age: 44 yrs. 2 mos. 10 dys
+            <span
+              className="jsx-2577800471 t--sans tt-u"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+               
+              Certificate pending
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="jsx-4137792350 p-a200 br b--w row "
+      >
+        <div
+          aria-label="Quantity"
+          className="t--sans p-a300"
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          1
+           ×
+        </div>
+        <div
+          className="jsx-2577800471 certificate-info-box"
+        >
+          <div
+            className="jsx-2577800471 t--sans thin-certificate-name"
+          >
+            MONKEY
+             
+            JOE
+          </div>
+          <div
+            className="jsx-2577800471 certificate-subinfo"
+          >
+            Died: 
+            2004
+             — Age: 6
+          </div>
         </div>
       </div>
     </div>
@@ -5477,11 +5652,11 @@ exports[`Storyshots OrderDetails loading 1`] = `
       >
         8
          
-        certificates
+        items
          ×
          
         $14.00
-         + service fee* = $
+         + service fee = $
         114.66
       </div>
     </div>
@@ -5529,11 +5704,11 @@ exports[`Storyshots OrderDetails open 1`] = `
       >
         5
          
-        certificates
+        items
          ×
          
         $14.00
-         + service fee* = $
+         + service fee = $
         71.76
       </div>
     </div>
@@ -5550,7 +5725,7 @@ exports[`Storyshots OrderDetails open 1`] = `
       }
     >
       <div
-        className="jsx-947238363 p-a300 br b--w row "
+        className="jsx-4137792350 p-a300 br b--w row "
       >
         <div
           aria-label="Quantity"
@@ -5565,17 +5740,17 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="jsx-2636230671 certificate-info-box"
+          className="jsx-2577800471 certificate-info-box"
         >
           <div
-            className="jsx-2636230671 t--sans certificate-name"
+            className="jsx-2577800471 t--sans certificate-name"
           >
             BRUCE
              
             BANNER
           </div>
           <div
-            className="jsx-2636230671 certificate-subinfo"
+            className="jsx-2577800471 certificate-subinfo"
           >
             Died: 
             3/4/2016
@@ -5584,7 +5759,7 @@ exports[`Storyshots OrderDetails open 1`] = `
         </div>
       </div>
       <div
-        className="jsx-947238363 p-a300 br b--w row br-t100"
+        className="jsx-4137792350 p-a300 br b--w row br-t100"
       >
         <div
           aria-label="Quantity"
@@ -5599,23 +5774,23 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="jsx-2636230671 certificate-info-box"
+          className="jsx-2577800471 certificate-info-box"
         >
           <div
-            className="jsx-2636230671 t--sans certificate-name"
+            className="jsx-2577800471 t--sans certificate-name"
           >
             JAMES
              
             HOWLETT (LOGAN)
           </div>
           <div
-            className="jsx-2636230671 certificate-subinfo"
+            className="jsx-2577800471 certificate-subinfo"
           >
             Died: 
             4/15/2014
              — Age: 44 yrs. 2 mos. 10 dys
             <span
-              className="jsx-2636230671 t--sans tt-u"
+              className="jsx-2577800471 t--sans tt-u"
               style={
                 Object {
                   "fontStyle": "normal",
@@ -5630,7 +5805,7 @@ exports[`Storyshots OrderDetails open 1`] = `
         </div>
       </div>
       <div
-        className="jsx-947238363 p-a300 br b--w row br-a100"
+        className="jsx-4137792350 p-a300 br b--w row br-a100"
       >
         <div
           aria-label="Quantity"
@@ -5645,17 +5820,17 @@ exports[`Storyshots OrderDetails open 1`] = `
            ×
         </div>
         <div
-          className="jsx-2636230671 certificate-info-box"
+          className="jsx-2577800471 certificate-info-box"
         >
           <div
-            className="jsx-2636230671 t--sans certificate-name"
+            className="jsx-2577800471 t--sans certificate-name"
           >
             MONKEY
              
             JOE
           </div>
           <div
-            className="jsx-2636230671 certificate-subinfo"
+            className="jsx-2577800471 certificate-subinfo"
           >
             Died: 
             2004
@@ -5666,7 +5841,7 @@ exports[`Storyshots OrderDetails open 1`] = `
       <p
         className="jsx-3101717291 t--subinfo p-a300"
       >
-        * You are charged an extra service fee of 
+        You are charged an extra service fee of 
         $0.25
          plus
          
@@ -5891,15 +6066,17 @@ exports[`Storyshots Pagination 20 pages 1`] = `
 `;
 
 exports[`Storyshots PaymentContent Stripe error 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -6077,11 +6254,11 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -6090,12 +6267,12 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -6151,58 +6328,67 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -6266,11 +6452,11 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -6596,7 +6782,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
             disabled={true}
             type="submit"
           >
-            Review Order
+            Next: Review Order
           </button>
           <div
             className="jsx-418405546 g--9 m-v500"
@@ -6611,7 +6797,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                 }
               }
             >
-              ← Return to shipping information
+              ← Back to shipping information
             </a>
           </div>
         </div>
@@ -6619,7 +6805,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -6648,15 +6834,17 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
 `;
 
 exports[`Storyshots PaymentContent credit card error 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -6834,11 +7022,11 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -6847,12 +7035,12 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -6908,58 +7096,67 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -7023,11 +7220,11 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -7352,7 +7549,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
             disabled={true}
             type="submit"
           >
-            Review Order
+            Next: Review Order
           </button>
           <div
             className="jsx-418405546 g--9 m-v500"
@@ -7367,7 +7564,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                 }
               }
             >
-              ← Return to shipping information
+              ← Back to shipping information
             </a>
           </div>
         </div>
@@ -7375,7 +7572,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -7404,15 +7601,17 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
 `;
 
 exports[`Storyshots PaymentContent default 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -7590,11 +7789,11 @@ exports[`Storyshots PaymentContent default 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -7603,12 +7802,12 @@ exports[`Storyshots PaymentContent default 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -7664,58 +7863,67 @@ exports[`Storyshots PaymentContent default 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -7779,11 +7987,11 @@ exports[`Storyshots PaymentContent default 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -7956,7 +8164,7 @@ exports[`Storyshots PaymentContent default 1`] = `
             disabled={true}
             type="submit"
           >
-            Review Order
+            Next: Review Order
           </button>
           <div
             className="jsx-418405546 g--9 m-v500"
@@ -7971,7 +8179,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                 }
               }
             >
-              ← Return to shipping information
+              ← Back to shipping information
             </a>
           </div>
         </div>
@@ -7979,7 +8187,7 @@ exports[`Storyshots PaymentContent default 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -8008,15 +8216,17 @@ exports[`Storyshots PaymentContent default 1`] = `
 `;
 
 exports[`Storyshots PaymentContent existing billing 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -8194,11 +8404,11 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -8207,12 +8417,12 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -8268,58 +8478,67 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -8383,11 +8602,11 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -8707,7 +8926,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
             disabled={true}
             type="submit"
           >
-            Review Order
+            Next: Review Order
           </button>
           <div
             className="jsx-418405546 g--9 m-v500"
@@ -8722,7 +8941,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 }
               }
             >
-              ← Return to shipping information
+              ← Back to shipping information
             </a>
           </div>
         </div>
@@ -8730,7 +8949,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -8759,15 +8978,17 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
 `;
 
 exports[`Storyshots PaymentContent state error 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -8945,11 +9166,11 @@ exports[`Storyshots PaymentContent state error 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -8958,12 +9179,12 @@ exports[`Storyshots PaymentContent state error 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -9019,58 +9240,67 @@ exports[`Storyshots PaymentContent state error 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -9134,11 +9364,11 @@ exports[`Storyshots PaymentContent state error 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -9463,7 +9693,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
             disabled={true}
             type="submit"
           >
-            Review Order
+            Next: Review Order
           </button>
           <div
             className="jsx-418405546 g--9 m-v500"
@@ -9478,7 +9708,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 }
               }
             >
-              ← Return to shipping information
+              ← Back to shipping information
             </a>
           </div>
         </div>
@@ -9486,7 +9716,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -9515,15 +9745,17 @@ exports[`Storyshots PaymentContent state error 1`] = `
 `;
 
 exports[`Storyshots ReviewContent default 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -9701,11 +9933,11 @@ exports[`Storyshots ReviewContent default 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -9714,12 +9946,12 @@ exports[`Storyshots ReviewContent default 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -9775,58 +10007,67 @@ exports[`Storyshots ReviewContent default 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -9870,13 +10111,13 @@ exports[`Storyshots ReviewContent default 1`] = `
         onSubmit={[Function]}
       >
         <div
-          className="jsx-173035744 dr dr-open"
+          className="jsx-2525850060 dr dr-open"
         >
           <div
-            className="jsx-173035744 dr-h"
+            className="jsx-2525850060 dr-h"
           >
             <div
-              className="jsx-173035744 p-a300"
+              className="jsx-2525850060 p-a300"
               style={
                 Object {
                   "paddingBottom": 0,
@@ -9884,10 +10125,11 @@ exports[`Storyshots ReviewContent default 1`] = `
               }
             >
               <h2
-                className="jsx-173035744 stp"
+                className="jsx-2525850060 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -9897,7 +10139,7 @@ exports[`Storyshots ReviewContent default 1`] = `
               —
                
               <a
-                className="jsx-173035744"
+                className="jsx-2525850060"
                 href="/death/cart"
                 onClick={[Function]}
                 style={
@@ -9911,143 +10153,153 @@ exports[`Storyshots ReviewContent default 1`] = `
             </div>
           </div>
           <div
-            className="jsx-173035744 dr-c"
+            className="jsx-2525850060 p-a300"
             style={
               Object {
-                "display": "block",
+                "paddingTop": 0,
               }
             }
           >
             <div
-              className="jsx-947238363 p-a300 br b--g row "
+              className="jsx-2525850060 dr-c"
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
             >
               <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                1
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-4137792350 p-a200 br b--w row "
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
-                >
-                  BRUCE
-                   
-                  BANNER
-                </div>
-                <div
-                  className="jsx-2636230671 certificate-subinfo"
-                >
-                  Died: 
-                  3/4/2016
-                   — Age: 53
-                </div>
-              </div>
-            </div>
-            <div
-              className="jsx-947238363 p-a300 br b--g row br-t100"
-            >
-              <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                3
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
-              >
-                <div
-                  className="jsx-2636230671 t--sans certificate-name"
-                >
-                  JAMES
-                   
-                  HOWLETT (LOGAN)
-                </div>
-                <div
-                  className="jsx-2636230671 certificate-subinfo"
-                >
-                  Died: 
-                  4/15/2014
-                   — Age: 44 yrs. 2 mos. 10 dys
-                  <span
-                    className="jsx-2636230671 t--sans tt-u"
-                    style={
-                      Object {
-                        "fontStyle": "normal",
-                        "fontWeight": "bold",
-                      }
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
                     }
-                  >
-                     
-                    Certificate pending
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="jsx-947238363 p-a300 br b--g row br-a100"
-            >
-              <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
                   }
-                }
-              >
-                1
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
-              >
-                <div
-                  className="jsx-2636230671 t--sans certificate-name"
                 >
-                  MONKEY
-                   
-                  JOE
+                  1
+                   ×
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-info-box"
                 >
-                  Died: 
-                  2004
-                   — Age: 6
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    BRUCE
+                     
+                    BANNER
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    3/4/2016
+                     — Age: 53
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-4137792350 p-a200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  3
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    JAMES
+                     
+                    HOWLETT (LOGAN)
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    4/15/2014
+                     — Age: 44 yrs. 2 mos. 10 dys
+                    <span
+                      className="jsx-2577800471 t--sans tt-u"
+                      style={
+                        Object {
+                          "fontStyle": "normal",
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                       
+                      Certificate pending
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-4137792350 p-a200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    MONKEY
+                     
+                    JOE
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    2004
+                     — Age: 6
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 field-container"
+          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
         >
           <fieldset
             className="jsx-2133745651"
           >
             <legend
-              className="jsx-2133745651 m-b300"
+              className="jsx-2133745651 "
             >
               <span
                 className="jsx-2133745651 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -10069,27 +10321,44 @@ exports[`Storyshots ReviewContent default 1`] = `
                 edit
               </a>
             </legend>
-            Doreen Green — Empire State University
-            <br
-              className="jsx-2133745651"
-            />
-            Dorm Hall, Apt 5, 10 College Avenue, New York NY 12345
+            <div
+              className="jsx-2133745651 p-a300"
+            >
+              Doreen Green
+              <br
+                className="jsx-2133745651"
+              />
+              Empire State University
+              <br
+                className="jsx-2133745651"
+              />
+              Dorm Hall, Apt 5
+              <br
+                className="jsx-2133745651"
+              />
+              10 College Avenue
+              <br
+                className="jsx-2133745651"
+              />
+              New York, NY 12345
+            </div>
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 b--g p-a300 field-container"
+          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
         >
           <fieldset
             className="jsx-2133745651"
           >
             <legend
-              className="jsx-2133745651 m-b300"
+              className="jsx-2133745651"
             >
               <span
                 className="jsx-2133745651 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -10111,11 +10380,28 @@ exports[`Storyshots ReviewContent default 1`] = `
                 edit
               </a>
             </legend>
-            Nancy Whitehead — XXXX XXXX XXXX 4040
-            <br
-              className="jsx-2133745651"
-            />
-            3 Avengers Towers, New York NY 12223
+            <div
+              className="jsx-2133745651 p-a300"
+            >
+              Nancy Whitehead
+              <br
+                className="jsx-2133745651"
+              />
+              **** **** **** 
+              4040
+              <br
+                className="jsx-2133745651"
+              />
+              3 Avengers Towers
+              <br
+                className="jsx-2133745651"
+              />
+              New York
+              , 
+              NY
+               
+              12223
+            </div>
           </fieldset>
         </div>
         <div
@@ -10256,11 +10542,22 @@ exports[`Storyshots ReviewContent default 1`] = `
             Submit Order
           </button>
         </div>
+        <div
+          className="jsx-2133745651 m-v500 ta-c t--info"
+        >
+          <a
+            className="jsx-2133745651"
+            href="/death"
+            onClick={[Function]}
+          >
+            Cancel order and go back to search
+          </a>
+        </div>
       </form>
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -10289,15 +10586,17 @@ exports[`Storyshots ReviewContent default 1`] = `
 `;
 
 exports[`Storyshots ReviewContent submission error 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -10475,11 +10774,11 @@ exports[`Storyshots ReviewContent submission error 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -10488,12 +10787,12 @@ exports[`Storyshots ReviewContent submission error 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -10549,58 +10848,67 @@ exports[`Storyshots ReviewContent submission error 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -10644,13 +10952,13 @@ exports[`Storyshots ReviewContent submission error 1`] = `
         onSubmit={[Function]}
       >
         <div
-          className="jsx-173035744 dr dr-open"
+          className="jsx-2525850060 dr dr-open"
         >
           <div
-            className="jsx-173035744 dr-h"
+            className="jsx-2525850060 dr-h"
           >
             <div
-              className="jsx-173035744 p-a300"
+              className="jsx-2525850060 p-a300"
               style={
                 Object {
                   "paddingBottom": 0,
@@ -10658,10 +10966,11 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               }
             >
               <h2
-                className="jsx-173035744 stp"
+                className="jsx-2525850060 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -10671,7 +10980,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               —
                
               <a
-                className="jsx-173035744"
+                className="jsx-2525850060"
                 href="/death/cart"
                 onClick={[Function]}
                 style={
@@ -10685,143 +10994,153 @@ exports[`Storyshots ReviewContent submission error 1`] = `
             </div>
           </div>
           <div
-            className="jsx-173035744 dr-c"
+            className="jsx-2525850060 p-a300"
             style={
               Object {
-                "display": "block",
+                "paddingTop": 0,
               }
             }
           >
             <div
-              className="jsx-947238363 p-a300 br b--g row "
+              className="jsx-2525850060 dr-c"
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
             >
               <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                1
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
+                className="jsx-4137792350 p-a200 br b--w row "
               >
                 <div
-                  className="jsx-2636230671 t--sans certificate-name"
-                >
-                  BRUCE
-                   
-                  BANNER
-                </div>
-                <div
-                  className="jsx-2636230671 certificate-subinfo"
-                >
-                  Died: 
-                  3/4/2016
-                   — Age: 53
-                </div>
-              </div>
-            </div>
-            <div
-              className="jsx-947238363 p-a300 br b--g row br-t100"
-            >
-              <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
-                  }
-                }
-              >
-                3
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
-              >
-                <div
-                  className="jsx-2636230671 t--sans certificate-name"
-                >
-                  JAMES
-                   
-                  HOWLETT (LOGAN)
-                </div>
-                <div
-                  className="jsx-2636230671 certificate-subinfo"
-                >
-                  Died: 
-                  4/15/2014
-                   — Age: 44 yrs. 2 mos. 10 dys
-                  <span
-                    className="jsx-2636230671 t--sans tt-u"
-                    style={
-                      Object {
-                        "fontStyle": "normal",
-                        "fontWeight": "bold",
-                      }
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
                     }
-                  >
-                     
-                    Certificate pending
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="jsx-947238363 p-a300 br b--g row br-a100"
-            >
-              <div
-                aria-label="Quantity"
-                className="t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
                   }
-                }
-              >
-                1
-                 ×
-              </div>
-              <div
-                className="jsx-2636230671 certificate-info-box"
-              >
-                <div
-                  className="jsx-2636230671 t--sans certificate-name"
                 >
-                  MONKEY
-                   
-                  JOE
+                  1
+                   ×
                 </div>
                 <div
-                  className="jsx-2636230671 certificate-subinfo"
+                  className="jsx-2577800471 certificate-info-box"
                 >
-                  Died: 
-                  2004
-                   — Age: 6
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    BRUCE
+                     
+                    BANNER
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    3/4/2016
+                     — Age: 53
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-4137792350 p-a200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  3
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    JAMES
+                     
+                    HOWLETT (LOGAN)
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    4/15/2014
+                     — Age: 44 yrs. 2 mos. 10 dys
+                    <span
+                      className="jsx-2577800471 t--sans tt-u"
+                      style={
+                        Object {
+                          "fontStyle": "normal",
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                       
+                      Certificate pending
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-4137792350 p-a200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans thin-certificate-name"
+                  >
+                    MONKEY
+                     
+                    JOE
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    2004
+                     — Age: 6
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 field-container"
+          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
         >
           <fieldset
             className="jsx-2133745651"
           >
             <legend
-              className="jsx-2133745651 m-b300"
+              className="jsx-2133745651 "
             >
               <span
                 className="jsx-2133745651 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -10843,27 +11162,44 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                 edit
               </a>
             </legend>
-            Doreen Green — Empire State University
-            <br
-              className="jsx-2133745651"
-            />
-            Dorm Hall, Apt 5, 10 College Avenue, New York NY 12345
+            <div
+              className="jsx-2133745651 p-a300"
+            >
+              Doreen Green
+              <br
+                className="jsx-2133745651"
+              />
+              Empire State University
+              <br
+                className="jsx-2133745651"
+              />
+              Dorm Hall, Apt 5
+              <br
+                className="jsx-2133745651"
+              />
+              10 College Avenue
+              <br
+                className="jsx-2133745651"
+              />
+              New York, NY 12345
+            </div>
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 b--g p-a300 field-container"
+          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
         >
           <fieldset
             className="jsx-2133745651"
           >
             <legend
-              className="jsx-2133745651 m-b300"
+              className="jsx-2133745651"
             >
               <span
                 className="jsx-2133745651 stp"
                 style={
                   Object {
                     "display": "inline-block",
+                    "fontWeight": "bold",
                   }
                 }
               >
@@ -10885,11 +11221,28 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                 edit
               </a>
             </legend>
-            Nancy Whitehead — XXXX XXXX XXXX 4040
-            <br
-              className="jsx-2133745651"
-            />
-            3 Avengers Towers, New York NY 12223
+            <div
+              className="jsx-2133745651 p-a300"
+            >
+              Nancy Whitehead
+              <br
+                className="jsx-2133745651"
+              />
+              **** **** **** 
+              4040
+              <br
+                className="jsx-2133745651"
+              />
+              3 Avengers Towers
+              <br
+                className="jsx-2133745651"
+              />
+              New York
+              , 
+              NY
+               
+              12223
+            </div>
           </fieldset>
         </div>
         <div
@@ -11035,11 +11388,22 @@ exports[`Storyshots ReviewContent submission error 1`] = `
             Submit Order
           </button>
         </div>
+        <div
+          className="jsx-2133745651 m-v500 ta-c t--info"
+        >
+          <a
+            className="jsx-2133745651"
+            href="/death"
+            onClick={[Function]}
+          >
+            Cancel order and go back to search
+          </a>
+        </div>
       </form>
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -11068,15 +11432,17 @@ exports[`Storyshots ReviewContent submission error 1`] = `
 `;
 
 exports[`Storyshots SearchPage no results 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -11254,11 +11620,11 @@ exports[`Storyshots SearchPage no results 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -11267,12 +11633,12 @@ exports[`Storyshots SearchPage no results 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -11328,20 +11694,20 @@ exports[`Storyshots SearchPage no results 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -11350,58 +11716,67 @@ exports[`Storyshots SearchPage no results 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -11527,7 +11902,7 @@ exports[`Storyshots SearchPage no results 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -11556,15 +11931,17 @@ exports[`Storyshots SearchPage no results 1`] = `
 `;
 
 exports[`Storyshots SearchPage no search 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -11742,11 +12119,11 @@ exports[`Storyshots SearchPage no search 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -11755,12 +12132,12 @@ exports[`Storyshots SearchPage no search 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -11816,20 +12193,20 @@ exports[`Storyshots SearchPage no search 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -11838,58 +12215,67 @@ exports[`Storyshots SearchPage no search 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -11986,7 +12372,7 @@ exports[`Storyshots SearchPage no search 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -12015,15 +12401,17 @@ exports[`Storyshots SearchPage no search 1`] = `
 `;
 
 exports[`Storyshots SearchPage with results 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -12201,11 +12589,11 @@ exports[`Storyshots SearchPage with results 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full mn--nv-s"
+    className="jsx-3465476614 mn mn--full mn--nv-s"
     style={
       Object {
         "zIndex": 2,
@@ -12214,12 +12602,12 @@ exports[`Storyshots SearchPage with results 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -12275,20 +12663,20 @@ exports[`Storyshots SearchPage with results 1`] = `
       role="banner"
     />
     <nav
-      className="jsx-1306696032 nv-s nv-s--sticky"
+      className="jsx-1795526402 nv-s nv-s--sticky"
     >
       <div
-        className="jsx-1306696032 nv-s-l bar"
+        className="jsx-1795526402 nv-s-l bar"
       >
         <a
-          className="jsx-1306696032 nv-s-l-b back-link back-link-right"
+          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
           href="/death/cart"
           onClick={[Function]}
         >
           View Cart
         </a>
         <a
-          className="jsx-1306696032 cart-link"
+          className="jsx-1795526402 cart-link"
           href="/death/cart"
           onClick={[Function]}
         >
@@ -12297,58 +12685,67 @@ exports[`Storyshots SearchPage with results 1`] = `
       </div>
     </nav>
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -12447,20 +12844,20 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="jsx-947238363 p-a300 br b--w row br-t100"
+            className="jsx-4137792350 p-a300 br b--w row br-t100"
           >
             <div
-              className="jsx-2636230671 certificate-info-box"
+              className="jsx-2577800471 certificate-info-box"
             >
               <div
-                className="jsx-2636230671 t--sans certificate-name"
+                className="jsx-2577800471 t--sans certificate-name"
               >
                 BRUCE
                  
                 BANNER
               </div>
               <div
-                className="jsx-2636230671 certificate-subinfo"
+                className="jsx-2577800471 certificate-subinfo"
               >
                 Died: 
                 3/4/2016
@@ -12474,26 +12871,26 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="jsx-947238363 p-a300 br b--w row br-t100"
+            className="jsx-4137792350 p-a300 br b--w row br-t100"
           >
             <div
-              className="jsx-2636230671 certificate-info-box"
+              className="jsx-2577800471 certificate-info-box"
             >
               <div
-                className="jsx-2636230671 t--sans certificate-name"
+                className="jsx-2577800471 t--sans certificate-name"
               >
                 JAMES
                  
                 HOWLETT (LOGAN)
               </div>
               <div
-                className="jsx-2636230671 certificate-subinfo"
+                className="jsx-2577800471 certificate-subinfo"
               >
                 Died: 
                 4/15/2014
                  — Age: 44 yrs. 2 mos. 10 dys
                 <span
-                  className="jsx-2636230671 t--sans tt-u"
+                  className="jsx-2577800471 t--sans tt-u"
                   style={
                     Object {
                       "fontStyle": "normal",
@@ -12513,20 +12910,20 @@ exports[`Storyshots SearchPage with results 1`] = `
           onClick={[Function]}
         >
           <div
-            className="jsx-947238363 p-a300 br b--w row br-a100"
+            className="jsx-4137792350 p-a300 br b--w row br-a100"
           >
             <div
-              className="jsx-2636230671 certificate-info-box"
+              className="jsx-2577800471 certificate-info-box"
             >
               <div
-                className="jsx-2636230671 t--sans certificate-name"
+                className="jsx-2577800471 t--sans certificate-name"
               >
                 MONKEY
                  
                 JOE
               </div>
               <div
-                className="jsx-2636230671 certificate-subinfo"
+                className="jsx-2577800471 certificate-subinfo"
               >
                 Died: 
                 2004
@@ -12658,7 +13055,7 @@ exports[`Storyshots SearchPage with results 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -12692,20 +13089,20 @@ exports[`Storyshots SearchResult bottom certificate 1`] = `
   onClick={[Function]}
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-a100"
+    className="jsx-4137792350 p-a300 br b--w row br-a100"
   >
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -12722,20 +13119,20 @@ exports[`Storyshots SearchResult certificate without death date 1`] = `
   onClick={[Function]}
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-t100"
+    className="jsx-4137792350 p-a300 br b--w row br-t100"
   >
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         MONKEY
          
         JOE
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         2004
@@ -12752,20 +13149,20 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
   onClick={[Function]}
 >
   <div
-    className="jsx-947238363 p-a300 br b--w row br-t100"
+    className="jsx-4137792350 p-a300 br b--w row br-t100"
   >
     <div
-      className="jsx-2636230671 certificate-info-box"
+      className="jsx-2577800471 certificate-info-box"
     >
       <div
-        className="jsx-2636230671 t--sans certificate-name"
+        className="jsx-2577800471 t--sans certificate-name"
       >
         BRUCE
          
         BANNER
       </div>
       <div
-        className="jsx-2636230671 certificate-subinfo"
+        className="jsx-2577800471 certificate-subinfo"
       >
         Died: 
         3/4/2016
@@ -12777,15 +13174,17 @@ exports[`Storyshots SearchResult typical certificate 1`] = `
 `;
 
 exports[`Storyshots ShippingContent default 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -12963,11 +13362,11 @@ exports[`Storyshots ShippingContent default 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -12976,12 +13375,12 @@ exports[`Storyshots ShippingContent default 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -13037,58 +13436,67 @@ exports[`Storyshots ShippingContent default 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -13152,11 +13560,11 @@ exports[`Storyshots ShippingContent default 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -13468,7 +13876,7 @@ exports[`Storyshots ShippingContent default 1`] = `
             disabled={true}
             type="submit"
           >
-            Continue to Payment
+            Next: Payment Method
           </button>
           <div
             className="jsx-418405546 g--8 m-v500"
@@ -13483,7 +13891,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                 }
               }
             >
-              ← Return to cart
+              ← Back to cart
             </a>
           </div>
         </div>
@@ -13491,7 +13899,7 @@ exports[`Storyshots ShippingContent default 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -13520,15 +13928,17 @@ exports[`Storyshots ShippingContent default 1`] = `
 `;
 
 exports[`Storyshots ShippingContent email error 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -13706,11 +14116,11 @@ exports[`Storyshots ShippingContent email error 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -13719,12 +14129,12 @@ exports[`Storyshots ShippingContent email error 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -13780,58 +14190,67 @@ exports[`Storyshots ShippingContent email error 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -13895,11 +14314,11 @@ exports[`Storyshots ShippingContent email error 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -14216,7 +14635,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
             disabled={true}
             type="submit"
           >
-            Continue to Payment
+            Next: Payment Method
           </button>
           <div
             className="jsx-418405546 g--8 m-v500"
@@ -14231,7 +14650,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                 }
               }
             >
-              ← Return to cart
+              ← Back to cart
             </a>
           </div>
         </div>
@@ -14239,7 +14658,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -14268,15 +14687,17 @@ exports[`Storyshots ShippingContent email error 1`] = `
 `;
 
 exports[`Storyshots ShippingContent existing address 1`] = `
-<div>
+<div
+  className="jsx-3465476614"
+>
   <input
     aria-hidden="true"
-    className="brg-tr"
+    className="jsx-3465476614 brg-tr"
     id="brg-tr"
     type="checkbox"
   />
   <nav
-    className="nv-m"
+    className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
         "__html": "
@@ -14454,11 +14875,11 @@ exports[`Storyshots ShippingContent existing address 1`] = `
   />
   <div
     aria-live="polite"
-    className="a11y--h"
+    className="jsx-3465476614 a11y--h"
     id="ariaLive"
   />
   <div
-    className="mn mn--full "
+    className="jsx-3465476614 mn mn--full "
     style={
       Object {
         "zIndex": 2,
@@ -14467,12 +14888,12 @@ exports[`Storyshots ShippingContent existing address 1`] = `
   >
     <input
       aria-hidden="true"
-      className="s-tr"
+      className="jsx-3465476614 s-tr"
       id="s-tr"
       type="checkbox"
     />
     <header
-      className="h"
+      className="jsx-3465476614 h"
       dangerouslySetInnerHTML={
         Object {
           "__html": "
@@ -14528,58 +14949,67 @@ exports[`Storyshots ShippingContent existing address 1`] = `
       role="banner"
     />
     <nav
-      className="brc p-a300"
+      className="jsx-3465476614 brc p-a300"
       role="navigation"
     >
       <ul
-        className="brc-l"
+        className="jsx-3465476614 brc-l"
       >
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/"
           >
             Home
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments"
           >
             Departments
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
           <a
+            className="jsx-3465476614"
             href="https://www.boston.gov/departments/registry"
           >
             Registry: Birth, death, and marriage
           </a>
           <span
-            className="brc-s"
+            className="jsx-3465476614 brc-s"
           >
              › 
           </span>
         </li>
         <li
-          className="brc-l-i"
+          className="jsx-3465476614 brc-l-i"
         >
-          Death certificates
+          <a
+            className="jsx-3465476614"
+            href="/death"
+            onClick={[Function]}
+          >
+            Death certificates
+          </a>
         </li>
       </ul>
     </nav>
@@ -14643,11 +15073,11 @@ exports[`Storyshots ShippingContent existing address 1`] = `
             >
               5
                
-              certificates
+              items
                ×
                
               $14.00
-               + service fee* = $
+               + service fee = $
               71.76
             </div>
           </div>
@@ -14959,7 +15389,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
             disabled={false}
             type="submit"
           >
-            Continue to Payment
+            Next: Payment Method
           </button>
           <div
             className="jsx-418405546 g--8 m-v500"
@@ -14974,7 +15404,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                 }
               }
             >
-              ← Return to cart
+              ← Back to cart
             </a>
           </div>
         </div>
@@ -14982,7 +15412,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
     </div>
   </div>
   <footer
-    className="ft"
+    className="jsx-3465476614 ft"
     dangerouslySetInnerHTML={
       Object {
         "__html": "

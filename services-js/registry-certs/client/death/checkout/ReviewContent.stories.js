@@ -61,7 +61,7 @@ function makeOrder(overrides = {}) {
 }
 
 storiesOf('ReviewContent', module)
-  .addDecorator(appLayoutDecorator(null))
+  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <ReviewContent
       cart={makeCart()}

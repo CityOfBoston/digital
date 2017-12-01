@@ -53,7 +53,7 @@ export default class OrderDetails extends React.Component<Props, State> {
     return fixed ? this.renderAsFixed() : this.renderAsDropdown();
   }
 
-  renderCart(cart: Cart, invert: boolean) {
+  renderCart(cart: Cart, thin: boolean) {
     return cart.entries.map(
       ({ cert, quantity }, i) =>
         cert && (
@@ -62,7 +62,7 @@ export default class OrderDetails extends React.Component<Props, State> {
             certificate={cert}
             borderTop={i !== 0}
             borderBottom={i === cart.entries.length - 1}
-            invert={invert}
+            thin={thin}
           >
             {certificateDiv => [
               <div
@@ -104,8 +104,8 @@ export default class OrderDetails extends React.Component<Props, State> {
             </div>
             <h2 className="stp">Order details</h2>
             <div className="t--info">
-              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
-              {CERTIFICATE_COST_STRING} + service fee* = ${(calculateCost(cart.size).total / 100).toFixed(2)}
+              {cart.size} {cart.size === 1 ? 'item' : 'items'} ×{' '}
+              {CERTIFICATE_COST_STRING} + service fee = ${(calculateCost(cart.size).total / 100).toFixed(2)}
             </div>
           </div>
         </button>
@@ -120,7 +120,7 @@ export default class OrderDetails extends React.Component<Props, State> {
               {this.renderCart(cart, false)}
 
               <p className="t--subinfo p-a300">
-                * You are charged an extra service fee of {FIXED_STRING} plus{' '}
+                You are charged an extra service fee of {FIXED_STRING} plus{' '}
                 {PERCENTAGE_STRING}. This fee goes directly to a third party to
                 pay for the cost of credit card processing. Learn more about{' '}
                 <a href="https://www.boston.gov/">
@@ -174,7 +174,10 @@ export default class OrderDetails extends React.Component<Props, State> {
       <div className="dr dr-open">
         <div className="dr-h">
           <div className="p-a300" style={{ paddingBottom: 0 }}>
-            <h2 className="stp" style={{ display: 'inline-block' }}>
+            <h2
+              className="stp"
+              style={{ fontWeight: 'bold', display: 'inline-block' }}
+            >
               Order details
             </h2>{' '}
             —{' '}
@@ -184,13 +187,14 @@ export default class OrderDetails extends React.Component<Props, State> {
           </div>
         </div>
 
-        <div className="dr-c" style={{ display: 'block' }}>
-          {this.renderCart(cart, true)}
+        <div className="p-a300" style={{ paddingTop: 0 }}>
+          <div className="dr-c" style={{ display: 'block' }}>
+            {this.renderCart(cart, true)}
+          </div>
         </div>
 
         <style jsx>{`
           .dr {
-            background-color: ${GRAY_000};
             margin-top: 0 !important;
           }
 
@@ -200,8 +204,8 @@ export default class OrderDetails extends React.Component<Props, State> {
 
           .dr--open .dr-h,
           .dr-h:hover {
-            cursor: default;
-            background-color: ${GRAY_000};
+            cursor: inherit;
+            background-color: white;
             color: ${CHARLES_BLUE};
           }
 

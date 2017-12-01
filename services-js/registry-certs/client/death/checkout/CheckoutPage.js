@@ -272,7 +272,7 @@ export default wrapCheckoutPageController(
         );
       case 'confirmation':
         return (
-          <AppLayout navProps={{ cart, link: 'lookup' }}>
+          <AppLayout navProps={{ cart }}>
             {React.createElement(ConfirmationContent, props.props)}
           </AppLayout>
         );

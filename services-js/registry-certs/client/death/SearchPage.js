@@ -290,7 +290,7 @@ export const wrapSearchPageController = (
   };
 
 export default wrapSearchPageController(getDependencies, ({ cart }, props) => (
-  <AppLayout navProps={{ cart, link: 'checkout' }}>
+  <AppLayout navProps={{ cart }}>
     <SearchPageContent {...props} />
   </AppLayout>
 ));
