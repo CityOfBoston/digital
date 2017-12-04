@@ -15,6 +15,7 @@ type Props = {
   __NEXT_DATA__: Object,
   ids: string[],
   css: string,
+  cacheParam: string,
 };
 
 export default class extends Document {
@@ -24,9 +25,15 @@ export default class extends Document {
     const page = renderPage();
     const styles = extractCritical(page.html || page.errorHtml);
 
+    // This is set by our standard deployment process.
+    const cacheParam =
+      (process.env.GIT_REVISION && process.env.GIT_REVISION.substring(0, 8)) ||
+      '';
+
     return {
       ...page,
       ...styles,
+      cacheParam,
     };
   }
 
@@ -52,7 +59,7 @@ export default class extends Document {
   }
 
   render() {
-    const { css } = this.props;
+    const { css: additionalCss, cacheParam } = this.props;
 
     return (
       <html lang="en" className="js flexbox">
@@ -97,7 +104,7 @@ export default class extends Document {
             href="/assets/icons/android-icon-192x192.png"
           />
 
-          {makeCss(css)}
+          {makeCss({ cacheParam, additionalCss })}
 
           {process.env.GOOGLE_TRACKING_ID &&
             <script

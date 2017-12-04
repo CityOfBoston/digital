@@ -6,9 +6,21 @@ import * as React from 'react';
 import stylesheetHrefs from '../templates/stylesheets.json';
 import { assetUrl } from '../components/style-constants';
 
-export default function makeCss(css: ?string) {
-  const publicCssHref = stylesheetHrefs.find(href => href.match(/public\.css/));
-  const otherCssHrefs = stylesheetHrefs.filter(
+type CssOpts = {
+  cacheParam?: string,
+  additionalCss?: string,
+};
+
+export default function makeCss(opts: CssOpts = {}) {
+  const { cacheParam, additionalCss } = opts;
+
+  const cacheBustedCssHrefs = stylesheetHrefs.map(
+    href => (cacheParam ? `${href}?k=${cacheParam}` : href)
+  );
+  const publicCssHref = cacheBustedCssHrefs.find(href =>
+    href.match(/public\.css/)
+  );
+  const otherCssHrefs = cacheBustedCssHrefs.filter(
     href => !href.match(/public\.css/)
   );
 
@@ -62,11 +74,11 @@ export default function makeCss(css: ?string) {
       #nprogress .bar{background:rgba(252,182,26,.7);position:fixed;z-index:1031;top:0;left:0;width:100%;height:65px;}
     `}</style>,
 
-    css &&
+    additionalCss &&
       <style
         type="text/css"
         key="static"
-        dangerouslySetInnerHTML={{ __html: css }}
+        dangerouslySetInnerHTML={{ __html: additionalCss }}
       />,
   ];
 }

@@ -12,13 +12,13 @@ import fs from 'fs';
 import path from 'path';
 import makeCss from '../lib/make-css';
 
-const css = `
+const additionalCss = `
   body, html {
     background-color: #eee;
   }
 `;
 
-const headElements = makeCss(css)
+const headElements = makeCss({ additionalCss })
   .filter(el => !!el)
   .map(el => ReactDOMServer.renderToString(el));
 fs.writeFileSync(
