@@ -77,29 +77,34 @@ describe('mounted map', () => {
 
   it('positions a marker based on the form location', () => {
     runInAction(() => {
-      store.addressSearch.places = [
-        {
-          address: '1 City Hall Plaza',
-          addressId: '12345',
-          units: [],
-          exact: true,
-          location: {
-            lat: 42,
-            lng: -71,
+      store.addressSearch.setPlaces(
+        [
+          {
+            address: '1 City Hall Plaza',
+            addressId: '12345',
+            units: [],
+            exact: true,
+            alwaysUseLatLng: false,
+            location: {
+              lat: 42,
+              lng: -71,
+            },
           },
-        },
-        {
-          address: '2 City Hall Plaza',
-          addressId: '12346',
-          exact: true,
-          units: [],
-          location: {
-            lat: 43,
-            lng: -70,
+          {
+            address: '2 City Hall Plaza',
+            addressId: '12346',
+            exact: true,
+            alwaysUseLatLng: false,
+            units: [],
+            location: {
+              lat: 43,
+              lng: -70,
+            },
           },
-        },
-      ];
-      store.addressSearch.currentPlaceIndex = 0;
+        ],
+        'search',
+        false
+      );
     });
 
     const { locationSearchMarkers } = locationMap;

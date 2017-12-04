@@ -17,7 +17,7 @@ export default class AddressSearch {
   @observable lastQuery: string = '';
   @observable.ref lastSearchError: ?Error = null;
 
-  @observable.shallow places: ?Array<SearchAddressPlace> = null;
+  @observable.shallow _places: ?Array<SearchAddressPlace> = null;
   @observable _currentPlaceIndex: number = -1;
   @observable highlightedPlaceIndex: number = -1;
   @observable _currentUnitIndex: number = 0;
@@ -47,13 +47,54 @@ export default class AddressSearch {
   }
 
   @computed
+  get places(): ?Array<SearchAddressPlace> {
+    return this._places;
+  }
+
+  clearPlaces() {
+    this._places = null;
+  }
+
+  setPlaces(
+    places: ?Array<SearchAddressPlace>,
+    mode: 'search' | 'geocode',
+    selectFirst: boolean
+  ) {
+    this._places = places;
+
+    // These calls are not going through the setters to avoid changing the intent.
+    this._currentPlaceIndex =
+      places && (places.length === 1 || selectFirst) ? 0 : -1;
+    this.highlightedPlaceIndex = this._currentPlaceIndex;
+    this._currentUnitIndex = 0;
+
+    if (
+      mode === 'search' &&
+      (!this.currentPlace || !this.currentPlace.alwaysUseLatLng)
+    ) {
+      this.intent = 'ADDRESS';
+    } else {
+      this.intent = 'LATLNG';
+    }
+  }
+
+  @computed
   get currentPlaceIndex(): number {
     return this._currentPlaceIndex;
   }
 
   set currentPlaceIndex(currentPlaceIndex: number) {
     this._currentPlaceIndex = currentPlaceIndex;
-    this.intent = 'ADDRESS';
+
+    // Your intent should likely already be 'ADDRESS' in this case, because
+    // picking from multiple places means that you did a forward search and the
+    // intent was already address. Regardless, since you chose something by
+    // name, we update the intent unless it’s a place that should never be
+    // referenced by name (which for now means an intersection).
+    const place = this._places && this._places[currentPlaceIndex];
+    if (place) {
+      this.intent = place.alwaysUseLatLng ? 'LATLNG' : 'ADDRESS';
+    }
   }
 
   @computed
@@ -63,16 +104,21 @@ export default class AddressSearch {
 
   set currentUnitIndex(currentUnitIndex: number) {
     this._currentUnitIndex = currentUnitIndex;
+    // If you're changing the unit, we need to send the address string along so
+    // the backend can seach for which unit you chose. This won't be called for
+    // intersections because they don't have units.
     this.intent = 'ADDRESS';
   }
 
   @action
   async search(selectFirst: boolean): Promise<void> {
-    if (!this.loopbackGraphql) {
+    const { loopbackGraphql } = this;
+
+    if (!loopbackGraphql) {
       return;
     }
 
-    this.places = null;
+    this.clearPlaces();
     this.lastQuery = this.query;
     this.lastSearchError = null;
     this.currentReverseGeocodeLocation = null;
@@ -84,15 +130,11 @@ export default class AddressSearch {
 
     try {
       this.searching = true;
-      const places = await searchAddress(this.loopbackGraphql, this.query);
+      const places = await searchAddress(loopbackGraphql, this.query);
 
       runInAction('search - searchAddress success', () => {
         this.searching = false;
-        this.places = places;
-        this.currentPlaceIndex = places.length === 1 || selectFirst ? 0 : -1;
-        this.highlightedPlaceIndex = this.currentPlaceIndex;
-        this.currentUnitIndex = 0;
-        this.intent = 'ADDRESS';
+        this.setPlaces(places, 'search', selectFirst);
       });
     } catch (err) {
       runInAction('search - searchAddress error', () => {
@@ -114,8 +156,9 @@ export default class AddressSearch {
   }
 
   set location(location: {| lat: number, lng: number |}) {
+    const { loopbackGraphql } = this;
+
     this.query = '';
-    this.intent = 'LATLNG';
 
     if (
       this.location &&
@@ -125,42 +168,42 @@ export default class AddressSearch {
       return;
     }
 
-    if (!this.loopbackGraphql) {
+    if (!loopbackGraphql) {
       return;
     }
 
     this.currentReverseGeocodeLocation = location;
-    this.places = null;
+    this.clearPlaces();
     this.mode = 'geocode';
     this.lastQuery = '';
     this.lastSearchError = null;
 
     this.searching = true;
-    reverseGeocode(this.loopbackGraphql, location).then(
+    reverseGeocode(loopbackGraphql, location).then(
       action('reverseGeocode success', place => {
         this.searching = false;
 
         if (place) {
           // We overwrite the location in the place to stay with the one picked so
           // that the map marker doesn’t move.
-          this.places = [
-            {
-              location,
-              address: place.address,
-              addressId: place.addressId,
-              exact: place.exact,
-              units: place.units,
-            },
-          ];
-          this.currentPlaceIndex = 0;
-          this.highlightedPlaceIndex = 0;
-          this.currentUnitIndex = 0;
+          this.setPlaces(
+            [
+              {
+                location,
+                address: place.address,
+                addressId: place.addressId,
+                exact: place.exact,
+                units: place.units,
+                alwaysUseLatLng: place.alwaysUseLatLng,
+              },
+            ],
+            'geocode',
+            true
+          );
+
           this.currentReverseGeocodeLocationIsValid = true;
         } else {
-          this.places = [];
-          this.currentPlaceIndex = 0;
-          this.highlightedPlaceIndex = 0;
-          this.currentUnitIndex = 0;
+          this.setPlaces([], 'geocode', true);
           this.currentReverseGeocodeLocationIsValid = false;
         }
       }),

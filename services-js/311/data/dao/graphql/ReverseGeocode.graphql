@@ -8,6 +8,7 @@ query ReverseGeocode($location: LatLngIn!) {
 		  address
       addressId
       exact
+      alwaysUseLatLng
       units {
         address
         streetAddress

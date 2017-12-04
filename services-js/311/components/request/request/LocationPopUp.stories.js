@@ -17,11 +17,10 @@ const props: any = {
 
 const makeStore = (places: ?Array<SearchAddressPlace>, opts = {}) => {
   const store = new AppStore();
-  store.addressSearch.places = places;
+  store.addressSearch.setPlaces(places, 'search', true);
   store.addressSearch.currentPlaceIndex = places
     ? Math.floor((places.length - 1) / 2)
     : 0;
-  store.addressSearch.currentUnitIndex = 0;
 
   Object.assign(store.addressSearch, opts);
 
@@ -120,6 +119,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12345',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
         ],
@@ -141,6 +141,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12345',
             location: { lat: 0, lng: 0 },
             exact: false,
+            alwaysUseLatLng: false,
             units: [],
           },
         ],
@@ -162,6 +163,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12345',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: MOCK_UNITS,
           },
         ],
@@ -183,6 +185,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12345',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
           {
@@ -190,6 +193,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12346',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
           {
@@ -197,6 +201,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12347',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
           {
@@ -204,6 +209,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12348',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
         ],
@@ -225,6 +231,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12345',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: [],
           },
           {
@@ -232,6 +239,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12346',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: MOCK_UNITS,
           },
           {
@@ -239,6 +247,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12347',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: MOCK_UNITS,
           },
           {
@@ -246,6 +255,7 @@ storiesOf('LocationPopUp', module)
             addressId: '12348',
             location: { lat: 0, lng: 0 },
             exact: true,
+            alwaysUseLatLng: false,
             units: MOCK_UNITS,
           },
         ],

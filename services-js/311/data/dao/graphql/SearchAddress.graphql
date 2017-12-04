@@ -8,6 +8,7 @@ query SearchAddress($query: String!) {
 		  address
       addressId
       exact
+      alwaysUseLatLng
       units {
         address
         streetAddress

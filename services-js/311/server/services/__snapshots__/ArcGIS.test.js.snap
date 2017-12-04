@@ -21,6 +21,7 @@ Array [
     "address": "37 Testing Hill St
 Boston, 02114",
     "addressId": "98567",
+    "alwaysUseLatLng": false,
     "buildingId": "138797",
     "exact": true,
     "location": Object {
@@ -32,6 +33,7 @@ Boston, 02114",
     "address": "37 Testing Hill St
 Brighton, 02135",
     "addressId": "407408",
+    "alwaysUseLatLng": false,
     "buildingId": "147657",
     "exact": true,
     "location": Object {
@@ -43,6 +45,7 @@ Brighton, 02135",
     "address": "37 Testing Hill St
 Charlestown, 02129",
     "addressId": "98861",
+    "alwaysUseLatLng": false,
     "buildingId": "134374",
     "exact": true,
     "location": Object {
@@ -54,6 +57,7 @@ Charlestown, 02129",
     "address": "37 Testing Hill St
 Dorchester, 02125",
     "addressId": "98961",
+    "alwaysUseLatLng": false,
     "buildingId": "160765",
     "exact": true,
     "location": Object {
@@ -65,6 +69,7 @@ Dorchester, 02125",
     "address": "37 Testing Hill St #1
 West Roxbury, 02132",
     "addressId": "279371",
+    "alwaysUseLatLng": false,
     "buildingId": "113080",
     "exact": true,
     "location": Object {

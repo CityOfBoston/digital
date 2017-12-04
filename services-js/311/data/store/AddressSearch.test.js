@@ -15,6 +15,19 @@ const PLACE: SearchAddressPlace = {
   addressId: '12345',
   units: [],
   exact: true,
+  alwaysUseLatLng: false,
+  location: {
+    lat: 42.36035940296916,
+    lng: -71.05802536010744,
+  },
+};
+
+const INTERSECTION_PLACE: SearchAddressPlace = {
+  address: 'Milk St and Washington St',
+  addressId: null,
+  units: [],
+  exact: true,
+  alwaysUseLatLng: true,
   location: {
     lat: 42.36035940296916,
     lng: -71.05802536010744,
@@ -26,6 +39,7 @@ const PLACE_2: SearchAddressPlace = {
   addressId: '12346',
   units: [],
   exact: true,
+  alwaysUseLatLng: false,
   location: {
     lat: 42.37,
     lng: -71.06,
@@ -71,11 +85,26 @@ describe('searching', () => {
       lng: -71.05802536010744,
     });
     expect(addressSearch.addressId).toEqual('12345');
+    expect(addressSearch.intent).toEqual('ADDRESS');
+  });
+
+  it('searches for an intersection and uses LATLNG intent', async () => {
+    addressSearch.query = 'Milk and Washington';
+    addressSearch.search(false);
+
+    expect(searchAddress).toHaveBeenCalledWith(
+      loopbackGraphql,
+      'Milk and Washington'
+    );
+
+    await resolveGraphql([INTERSECTION_PLACE]);
+
+    expect(addressSearch.address).toEqual('Milk St and Washington St');
+    expect(addressSearch.intent).toEqual('LATLNG');
   });
 
   it('clears things when search returns nothing', async () => {
-    addressSearch.places = [PLACE];
-    addressSearch.currentPlaceIndex = 0;
+    addressSearch.setPlaces([PLACE], 'search', true);
 
     addressSearch.query = '8888 milk st';
     addressSearch.search(false);
@@ -154,6 +183,7 @@ describe('reverse geocoding', () => {
       },
       addressId: '12345',
       exact: true,
+      alwaysUseLatLng: false,
       units: [],
     });
 

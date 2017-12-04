@@ -204,6 +204,7 @@ export type ReverseGeocodeQuery = {|
       address: string,
       addressId: ?string,
       exact: boolean,
+      alwaysUseLatLng: boolean,
       units:  Array< {|
         address: string,
         streetAddress: string,
@@ -228,6 +229,7 @@ export type SearchAddressQuery = {|
       address: string,
       addressId: ?string,
       exact: boolean,
+      alwaysUseLatLng: boolean,
       units:  Array< {|
         address: string,
         streetAddress: string,

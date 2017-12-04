@@ -69,6 +69,7 @@ type Place {
   addressId: String
   units: [Unit!]!
   exact: Boolean!
+  alwaysUseLatLng: Boolean!
 }
 
 type Query {

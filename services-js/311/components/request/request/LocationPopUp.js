@@ -236,7 +236,7 @@ export default class LocationPopUp extends React.Component<Props> {
     addressSearch.query = query;
 
     if (query === '') {
-      addressSearch.places = null;
+      addressSearch.clearPlaces();
     }
   }
 

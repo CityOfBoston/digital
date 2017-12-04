@@ -15,6 +15,7 @@ type Place {
   addressId: String
   units: [Unit!]!
   exact: Boolean!
+  alwaysUseLatLng: Boolean!
 }
 
 type Unit {
@@ -47,6 +48,7 @@ type Place = {
   addressId: ?string,
   buildingId: ?string,
   exact: boolean,
+  alwaysUseLatLng: boolean,
 };
 
 type Unit = {

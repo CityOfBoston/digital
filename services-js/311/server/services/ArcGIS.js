@@ -109,6 +109,7 @@ export type SearchResult = {
   addressId: ?string,
   buildingId: ?string,
   exact: boolean,
+  alwaysUseLatLng: boolean,
 };
 
 export type UnitResult = {
@@ -156,6 +157,13 @@ export function formatAddress(address: string): string {
 // "StreetAddress" interpolated results if we have an exact match.
 function isExactAddress(candidate: FindAddressCandidate): boolean {
   return candidate.attributes.Addr_type === 'PointAddress';
+}
+
+function isAnyIntersection(candidate: FindAddressCandidate): boolean {
+  return (
+    candidate.attributes.Loc_name === 'Intersection' ||
+    candidate.attributes.Loc_name === 'Seg_Alternate'
+  );
 }
 
 function isExactIntersection(candidate: FindAddressCandidate): boolean {
@@ -255,10 +263,11 @@ export default class ArcGIS {
     );
   }
 
-  samAddressOnlyLocatorUrl(path: string): string {
+  // Locator that returns SAM addresses and intersections
+  reverseGeocodeLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `Locators/SAM_Address/GeocodeServer/${path}`
+      `Locators/intersection_and_address/GeocodeServer/${path}`
     );
   }
 
@@ -292,7 +301,7 @@ export default class ArcGIS {
       // This done though a particular locator that we have high confidence will
       // return addresses that we can look up through search.
       const response = await fetch(
-        this.samAddressOnlyLocatorUrl(`reverseGeocode?${params.toString()}`),
+        this.reverseGeocodeLocatorUrl(`reverseGeocode?${params.toString()}`),
         {
           agent: this.agent,
         }
@@ -349,6 +358,8 @@ export default class ArcGIS {
     // different from the search term and we want to communicate that something
     // approximate is going on.
     if (candidate.attributes.Addr_type === 'StreetAddress') {
+      // Recur. Safe because reverseGeocode won't find 'StreetAddress'
+      // candidates.
       const geocoded = await this.reverseGeocode(
         candidate.location.y,
         candidate.location.x
@@ -370,6 +381,9 @@ export default class ArcGIS {
           : null,
         buildingId: candidate.attributes.Street_ID || null,
         exact: true,
+        // We never send the text of an intersection to Salesforce because it is
+        // potentially non-unique.
+        alwaysUseLatLng: isAnyIntersection(candidate),
       };
     }
   };
