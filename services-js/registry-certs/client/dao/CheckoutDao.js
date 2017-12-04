@@ -61,7 +61,8 @@ export default class CheckoutDao {
         const { card } = token;
 
         runInAction('CheckoutDao > tokenizeCard > createToken success', () => {
-          order.info.cardToken = token.id;
+          order.cardToken = token.id;
+          order.cardFunding = card.funding;
           order.info.cardLast4 = card.last4;
         });
 

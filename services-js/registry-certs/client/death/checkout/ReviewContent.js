@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 
-import { PERCENTAGE_STRING, FIXED_STRING } from '../../../lib/costs';
+import { PERCENTAGE_CC_STRING, FIXED_CC_STRING } from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
 import type Order from '../../models/Order';
@@ -49,6 +49,7 @@ export default class ReviewContent extends React.Component<Props> {
         cardholderName,
         cardLast4,
       },
+      cardFunding,
       billingAddress1,
       billingAddress2,
       billingCity,
@@ -139,7 +140,10 @@ export default class ReviewContent extends React.Component<Props> {
           </div>
 
           <div className="p-a300">
-            <CostSummary cart={cart} />
+            <CostSummary
+              cart={cart}
+              serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
+            />
           </div>
 
           <div className="g p-a300">
@@ -151,9 +155,10 @@ export default class ReviewContent extends React.Component<Props> {
 
             <p className="g--9 t--subinfo">
               <a name="service-fee" />
-              * You are charged an extra service fee of {FIXED_STRING} plus{' '}
-              {PERCENTAGE_STRING}. This fee goes directly to a third party to
-              pay for the cost of credit card processing. Learn more about{' '}
+              * You are charged an extra service fee of not more than{' '}
+              {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
+              directly to a third party to pay for the cost of credit card
+              processing. Learn more about{' '}
               <a href="https://www.boston.gov/">credit card service fees</a> at
               the City of Boston.
             </p>

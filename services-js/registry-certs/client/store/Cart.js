@@ -81,7 +81,11 @@ export default class Cart {
 
   @computed
   get size(): number {
-    return this.entries.reduce((acc, item) => acc + item.quantity, 0);
+    // quantity shouldn't be below 0 but we want to be defensive.
+    return this.entries.reduce(
+      (acc, item) => acc + Math.max(item.quantity, 0),
+      0
+    );
   }
 
   @computed

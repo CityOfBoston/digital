@@ -27,8 +27,7 @@ export type OrderInfo = {|
   shippingZip: string,
 
   cardholderName: string,
-  cardToken: ?string,
-  cardLast4: ?string,
+  cardLast4: string,
 
   billingAddressSameAsShippingAddress: boolean,
 
@@ -41,6 +40,10 @@ export type OrderInfo = {|
 
 export default class Order {
   @observable info: OrderInfo;
+
+  @observable cardToken: ?string = null;
+  @observable
+  cardFunding: 'credit' | 'debit' | 'prepaid' | 'unknown' = 'credit';
 
   @observable cardElementError: ?string = null;
   @observable cardElementComplete: boolean = false;
@@ -74,8 +77,7 @@ export default class Order {
       shippingZip: '',
 
       cardholderName: '',
-      cardToken: null,
-      cardLast4: null,
+      cardLast4: '',
 
       billingAddressSameAsShippingAddress: true,
 

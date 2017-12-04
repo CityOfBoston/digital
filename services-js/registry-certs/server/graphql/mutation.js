@@ -2,7 +2,10 @@
 
 import type { Context } from '.';
 
-import { calculateCost } from '../../lib/costs';
+import {
+  calculateCreditCardCost,
+  calculateDebitCardCost,
+} from '../../lib/costs';
 
 export const Schema = `
 input CertificateOrderItem {
@@ -89,6 +92,8 @@ export const resolvers = {
     ): Promise<SubmittedOrder> => {
       const { cardToken, items } = args;
 
+      // Math.max here to make sure you can't order negative death certificates
+      // to offset the cost of real ones.
       const totalQuantity = items.reduce(
         (count, { quantity }) => count + Math.max(quantity, 0),
         0
@@ -98,7 +103,15 @@ export const resolvers = {
         throw new Error('Quantity of order is 0');
       }
 
-      const { total } = calculateCost(totalQuantity);
+      // We have to look the token up again so we can figure out what fee
+      // structure to use. We do *not* trust the client to send us this
+      // information.
+      const token = await stripe.tokens.retrieve(cardToken);
+
+      const { total } =
+        token.card.funding === 'credit'
+          ? calculateCreditCardCost(totalQuantity)
+          : calculateDebitCardCost(totalQuantity);
 
       const charge = await stripe.charges.create({
         amount: total,

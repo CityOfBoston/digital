@@ -103,6 +103,40 @@ declare module 'stripe' {
     statement_description?: ?string,
   |};
 
+  declare export type Token = {|
+    id: string,
+    object: 'token',
+    card: {
+      id: string,
+      object: 'card',
+      address_city: ?string,
+      address_country: ?string,
+      address_line1: ?string,
+      address_line1_check: ?StripeCheckResult,
+      address_line2: ?string,
+      address_state: ?string,
+      address_zip: ?string,
+      address_zip_check: ?StripeCheckResult,
+      brand: string,
+      country: string,
+      cvc_check: ?StripeCheckResult,
+      dynamic_last4: ?string,
+      exp_month: number,
+      exp_year: number,
+      fingerprint: string,
+      funding: 'credit' | 'debit' | 'prepaid' | 'unknown',
+      last4: string,
+      metadata: { [key: string]: string },
+      name: ?string,
+      tokenization_method: 'apple_pay' | 'android_pay' | null,
+    },
+    client_ip: ?string,
+    created: number,
+    livemode: boolean,
+    type: 'card' | 'bank_account',
+    used: boolean,
+  |};
+
   declare export type Card = {|
     id: string,
     object: 'card',
@@ -220,7 +254,14 @@ declare module 'stripe' {
         charge: ChargeInput,
         cb?: (err: Error, charge: Charge) => mixed
       ) => Promise<Charge>,
-    |}
+    |},
+
+    tokens: {|
+      retrieve: (
+        id: string,
+        cb?: (err: Error, token: Token) => mixed
+      ) => Promise<Token>,
+    |},
   |};
 
   declare export default (secretKey: string) => NodeStripe;

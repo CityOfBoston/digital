@@ -5,9 +5,9 @@ import Link from 'next/link';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import {
   CERTIFICATE_COST_STRING,
-  PERCENTAGE_STRING,
-  FIXED_STRING,
-  calculateCost,
+  PERCENTAGE_CC_STRING,
+  FIXED_CC_STRING,
+  calculateCreditCardCost,
 } from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
@@ -105,7 +105,10 @@ export default class OrderDetails extends React.Component<Props, State> {
             <h2 className="stp">Order details</h2>
             <div className="t--info">
               {cart.size} {cart.size === 1 ? 'item' : 'items'} ×{' '}
-              {CERTIFICATE_COST_STRING} + service fee = ${(calculateCost(cart.size).total / 100).toFixed(2)}
+              {CERTIFICATE_COST_STRING} = ${(calculateCreditCardCost(cart.size)
+                .subtotal / 100
+              ).toFixed(2)}{' '}
+              + service fee*
             </div>
           </div>
         </button>
@@ -120,13 +123,12 @@ export default class OrderDetails extends React.Component<Props, State> {
               {this.renderCart(cart, false)}
 
               <p className="t--subinfo p-a300">
-                You are charged an extra service fee of {FIXED_STRING} plus{' '}
-                {PERCENTAGE_STRING}. This fee goes directly to a third party to
-                pay for the cost of credit card processing. Learn more about{' '}
-                <a href="https://www.boston.gov/">
-                  credit card service fees
-                </a>{' '}
-                at the City of Boston.
+                * You are charged an extra service fee of not more than{' '}
+                {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
+                directly to a third party to pay for the cost of card
+                processing. Learn more about{' '}
+                <a href="https://www.boston.gov/">card service fees</a> at the
+                City of Boston.
               </p>
 
               <div className="ta-c t--subinfo b--g">

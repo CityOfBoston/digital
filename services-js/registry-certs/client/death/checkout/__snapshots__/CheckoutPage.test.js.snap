@@ -25,6 +25,8 @@ exports[`integration renders payment 1`] = `
       Order {
         "cardElementComplete": false,
         "cardElementError": null,
+        "cardFunding": "credit",
+        "cardToken": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
@@ -32,8 +34,7 @@ exports[`integration renders payment 1`] = `
           "billingCity": "",
           "billingState": "",
           "billingZip": "",
-          "cardLast4": null,
-          "cardToken": null,
+          "cardLast4": "",
           "cardholderName": "",
           "contactEmail": "",
           "contactName": "",
@@ -69,6 +70,8 @@ exports[`integration renders shipping 1`] = `
       Order {
         "cardElementComplete": false,
         "cardElementError": null,
+        "cardFunding": "credit",
+        "cardToken": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
@@ -76,8 +79,7 @@ exports[`integration renders shipping 1`] = `
           "billingCity": "",
           "billingState": "",
           "billingZip": "",
-          "cardLast4": null,
-          "cardToken": null,
+          "cardLast4": "",
           "cardholderName": "",
           "contactEmail": "",
           "contactName": "",

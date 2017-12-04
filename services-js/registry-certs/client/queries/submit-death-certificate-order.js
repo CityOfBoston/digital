@@ -16,34 +16,33 @@ export default async function submitDeathCertificateOrder(
   order: Order
 ): Promise<string> {
   const {
-    contactName,
-    contactEmail,
-    contactPhone,
-    shippingName,
-    shippingCompanyName,
-    shippingAddress1,
-    shippingAddress2,
-    shippingCity,
-    shippingState,
-    shippingZip,
-    cardholderName,
+    info: {
+      contactName,
+      contactEmail,
+      contactPhone,
+      shippingName,
+      shippingCompanyName,
+      shippingAddress1,
+      shippingAddress2,
+      shippingCity,
+      shippingState,
+      shippingZip,
+      cardholderName,
+      cardLast4,
+    },
     cardToken,
-    cardLast4,
-  } = order.info;
-
-  if (!cardToken || !cardLast4) {
-    throw new Error(
-      'submitDeathCertificateOrder called before card tokenization'
-    );
-  }
-
-  const {
     billingAddress1,
     billingAddress2,
     billingCity,
     billingState,
     billingZip,
   } = order;
+
+  if (!cardToken || !cardLast4) {
+    throw new Error(
+      'submitDeathCertificateOrder called before card tokenization'
+    );
+  }
 
   const queryVariables: SubmitDeathCertificateOrderMutationVariables = {
     contactName,

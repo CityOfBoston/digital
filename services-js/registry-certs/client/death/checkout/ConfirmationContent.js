@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { observer } from 'mobx-react';
 
 export type Props = {|
@@ -42,6 +43,12 @@ export default class ConfirmationContent extends React.Component<Props> {
             <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
             <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
           </p>
+        </div>
+
+        <div className="m-v500 ta-c t--info">
+          <Link href="/death">
+            <a>Back to search</a>
+          </Link>
         </div>
       </div>
     );

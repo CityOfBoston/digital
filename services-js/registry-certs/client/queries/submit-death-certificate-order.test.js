@@ -39,7 +39,6 @@ test('submitDeathCertificateOrder', async () => {
     shippingZip: '12345',
 
     cardholderName: 'Nancy Whitehead',
-    cardToken: 'tok_testtoken',
     cardLast4: '4040',
 
     billingAddressSameAsShippingAddress: false,
@@ -50,6 +49,8 @@ test('submitDeathCertificateOrder', async () => {
     billingState: 'NY',
     billingZip: '12223',
   };
+
+  order.cardToken = 'tok_testtoken';
 
   await submitDeathCertificateOrder(loopbackGraphql, cart, order);
 

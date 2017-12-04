@@ -45,7 +45,6 @@ function makeOrder(overrides = {}) {
     shippingZip: '12345',
 
     cardholderName: 'Nancy Whitehead',
-    cardToken: 'tok_testtoken',
     cardLast4: '4040',
 
     billingAddressSameAsShippingAddress: true,

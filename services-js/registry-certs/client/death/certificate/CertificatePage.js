@@ -8,8 +8,8 @@ import type { DeathCertificate } from '../../types';
 
 import {
   CERTIFICATE_COST_STRING,
-  PERCENTAGE_STRING,
-  FIXED_STRING,
+  PERCENTAGE_CC_STRING,
+  FIXED_CC_STRING,
 } from '../../../lib/costs';
 
 import {
@@ -244,12 +244,12 @@ export class CertificatePageContent extends React.Component<
 
           <p className="t--subinfo">
             Death certificates cost {CERTIFICATE_COST_STRING} each. That price
-            includes shipping. You will be charged an extra service fee of{' '}
-            {FIXED_STRING} plus {PERCENTAGE_STRING}. That fee goes directly to a
-            third party to pay for the cost of credit card processing. Learn
-            more about{' '}
-            <a href="https://www.boston.gov/">credit card service fees</a> at
-            the City of Boston.
+            includes shipping. You will be charged an extra service fee of not
+            more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
+            goes directly to a third party to pay for the cost of card
+            processing. Learn more about{' '}
+            <a href="https://www.boston.gov/">card service fees</a> at the City
+            of Boston.
           </p>
         </div>
 

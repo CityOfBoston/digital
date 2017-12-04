@@ -40,7 +40,9 @@ describe('tokenizeCard', () => {
 
   test('tokenization success path', async () => {
     stripe.createToken.mockReturnValue(
-      Promise.resolve({ token: { id: 'tok_id', card: { last4: '4040' } } })
+      Promise.resolve({
+        token: { id: 'tok_id', card: { last4: '4040', funding: 'debit' } },
+      })
     );
 
     const tokenizePromise = dao.tokenizeCard(order, cardElement);
@@ -49,7 +51,8 @@ describe('tokenizeCard', () => {
     const success = await tokenizePromise;
 
     expect(success).toEqual(true);
-    expect(order.info.cardToken).toEqual('tok_id');
+    expect(order.cardToken).toEqual('tok_id');
+    expect(order.cardFunding).toEqual('debit');
     expect(order.info.cardLast4).toEqual('4040');
     expect(order.processing).toEqual(false);
   });

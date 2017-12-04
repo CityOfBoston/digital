@@ -1034,16 +1034,16 @@ exports[`Storyshots CartPage loading 1`] = `
           className="jsx-858389963 p-a300"
         >
           <div
-            className="jsx-4282255710 m-v500"
+            className="jsx-2514143691 m-v500"
           >
             <div
-              className="jsx-4282255710 p-v200"
+              className="jsx-2514143691 p-v200"
             >
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   8
                    
@@ -1053,50 +1053,84 @@ exports[`Storyshots CartPage loading 1`] = `
                   $14.00
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   $
                   112.00
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
-                <a
-                  className="jsx-4282255710"
-                  name="service-fee"
-                />
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-443563205 t--info"
                 >
-                  Credit card service fee 
-                  <a
-                    className="jsx-4282255710"
-                    href="#service-fee"
+                  <div
+                    className="jsx-443563205 sel sel--thin"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                      }
+                    }
                   >
-                    *
-                  </a>
+                    <div
+                      className="jsx-443563205 sel-c"
+                    >
+                      <select
+                        className="jsx-443563205 sel-f"
+                        id="serviceFeeTypeSelect"
+                        onChange={[Function]}
+                        value="CREDIT"
+                      >
+                        <option
+                          className="jsx-443563205"
+                          value="CREDIT"
+                        >
+                          Credit card
+                        </option>
+                        <option
+                          className="jsx-443563205"
+                          value="DEBIT"
+                        >
+                          Debit card
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                   
+                  <label
+                    className="jsx-443563205"
+                    htmlFor="serviceFeeTypeSelect"
+                  >
+                    service fee
+                    <a
+                      className="jsx-443563205"
+                      href="#service-fee"
+                    >
+                      *
+                    </a>
+                  </label>
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2394436591 cost"
                 >
                   $
                   2.66
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   <i
-                    className="jsx-4282255710"
+                    className="jsx-2514143691"
                   >
                     included
                   </i>
@@ -1104,15 +1138,15 @@ exports[`Storyshots CartPage loading 1`] = `
               </div>
             </div>
             <div
-              className="jsx-4282255710 cost-row"
+              className="jsx-2514143691 cost-row"
             >
               <span
-                className="jsx-4282255710 sh-title"
+                className="jsx-2514143691 sh-title"
               >
                 Total
               </span>
               <span
-                className="jsx-4282255710 cost br br-t100 p-v200"
+                className="jsx-2514143691 cost br br-t100 p-v200"
               >
                 $
                 114.66
@@ -1148,20 +1182,20 @@ exports[`Storyshots CartPage loading 1`] = `
               className="jsx-858389963"
               name="service-fee"
             />
-            * You are charged an extra service fee of 
+            * You are charged an extra service fee of no more than
+             
             $0.25
              plus 
             2.15%
-            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+            . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
              
             <a
               className="jsx-858389963"
               href="https://www.boston.gov/"
             >
-              credit card service fees
+              card service fees
             </a>
-             
-            at the City of Boston.
+             at the City of Boston.
           </p>
         </div>
       </div>
@@ -1707,16 +1741,16 @@ exports[`Storyshots CartPage normal page 1`] = `
           className="jsx-858389963 p-a300"
         >
           <div
-            className="jsx-4282255710 m-v500"
+            className="jsx-2514143691 m-v500"
           >
             <div
-              className="jsx-4282255710 p-v200"
+              className="jsx-2514143691 p-v200"
             >
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   5
                    
@@ -1726,50 +1760,84 @@ exports[`Storyshots CartPage normal page 1`] = `
                   $14.00
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
-                <a
-                  className="jsx-4282255710"
-                  name="service-fee"
-                />
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-443563205 t--info"
                 >
-                  Credit card service fee 
-                  <a
-                    className="jsx-4282255710"
-                    href="#service-fee"
+                  <div
+                    className="jsx-443563205 sel sel--thin"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                      }
+                    }
                   >
-                    *
-                  </a>
+                    <div
+                      className="jsx-443563205 sel-c"
+                    >
+                      <select
+                        className="jsx-443563205 sel-f"
+                        id="serviceFeeTypeSelect"
+                        onChange={[Function]}
+                        value="CREDIT"
+                      >
+                        <option
+                          className="jsx-443563205"
+                          value="CREDIT"
+                        >
+                          Credit card
+                        </option>
+                        <option
+                          className="jsx-443563205"
+                          value="DEBIT"
+                        >
+                          Debit card
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                   
+                  <label
+                    className="jsx-443563205"
+                    htmlFor="serviceFeeTypeSelect"
+                  >
+                    service fee
+                    <a
+                      className="jsx-443563205"
+                      href="#service-fee"
+                    >
+                      *
+                    </a>
+                  </label>
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2394436591 cost"
                 >
                   $
                   1.76
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   <i
-                    className="jsx-4282255710"
+                    className="jsx-2514143691"
                   >
                     included
                   </i>
@@ -1777,15 +1845,15 @@ exports[`Storyshots CartPage normal page 1`] = `
               </div>
             </div>
             <div
-              className="jsx-4282255710 cost-row"
+              className="jsx-2514143691 cost-row"
             >
               <span
-                className="jsx-4282255710 sh-title"
+                className="jsx-2514143691 sh-title"
               >
                 Total
               </span>
               <span
-                className="jsx-4282255710 cost br br-t100 p-v200"
+                className="jsx-2514143691 cost br br-t100 p-v200"
               >
                 $
                 71.76
@@ -1821,20 +1889,20 @@ exports[`Storyshots CartPage normal page 1`] = `
               className="jsx-858389963"
               name="service-fee"
             />
-            * You are charged an extra service fee of 
+            * You are charged an extra service fee of no more than
+             
             $0.25
              plus 
             2.15%
-            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+            . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
              
             <a
               className="jsx-858389963"
               href="https://www.boston.gov/"
             >
-              credit card service fees
+              card service fees
             </a>
-             
-            at the City of Boston.
+             at the City of Boston.
           </p>
         </div>
       </div>
@@ -2888,18 +2956,17 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
             >
               Death certificates cost 
               $14.00
-               each. That price includes shipping. You will be charged an extra service fee of
-               
+               each. That price includes shipping. You will be charged an extra service fee of not more than 
               $0.25
                plus 
               2.15%
-              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
                
               <a
                 className="jsx-3528172379"
                 href="https://www.boston.gov/"
               >
-                credit card service fees
+                card service fees
               </a>
                at the City of Boston.
             </p>
@@ -3536,18 +3603,17 @@ exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
             >
               Death certificates cost 
               $14.00
-               each. That price includes shipping. You will be charged an extra service fee of
-               
+               each. That price includes shipping. You will be charged an extra service fee of not more than 
               $0.25
                plus 
               2.15%
-              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
                
               <a
                 className="jsx-3528172379"
                 href="https://www.boston.gov/"
               >
-                credit card service fees
+                card service fees
               </a>
                at the City of Boston.
             </p>
@@ -4246,18 +4312,17 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
             >
               Death certificates cost 
               $14.00
-               each. That price includes shipping. You will be charged an extra service fee of
-               
+               each. That price includes shipping. You will be charged an extra service fee of not more than 
               $0.25
                plus 
               2.15%
-              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
                
               <a
                 className="jsx-3528172379"
                 href="https://www.boston.gov/"
               >
-                credit card service fees
+                card service fees
               </a>
                at the City of Boston.
             </p>
@@ -4880,18 +4945,17 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
             >
               Death certificates cost 
               $14.00
-               each. That price includes shipping. You will be charged an extra service fee of
-               
+               each. That price includes shipping. You will be charged an extra service fee of not more than 
               $0.25
                plus 
               2.15%
-              . That fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
                
               <a
                 className="jsx-3528172379"
                 href="https://www.boston.gov/"
               >
-                credit card service fees
+                card service fees
               </a>
                at the City of Boston.
             </p>
@@ -5329,6 +5393,16 @@ exports[`Storyshots ConfirmationContent default 1`] = `
           .
         </p>
       </div>
+      <div
+        className="m-v500 ta-c t--info"
+      >
+        <a
+          href="/death"
+          onClick={[Function]}
+        >
+          Back to search
+        </a>
+      </div>
     </div>
   </div>
   <footer
@@ -5357,6 +5431,420 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       }
     }
   />
+</div>
+`;
+
+exports[`Storyshots CostSummary default credit card 1`] = `
+<div
+  className="jsx-2514143691 m-v500"
+>
+  <div
+    className="jsx-2514143691 p-v200"
+  >
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        5
+         
+        certificates
+         ×
+         
+        $14.00
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        $
+        70.00
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-443563205 t--info"
+      >
+        <div
+          className="jsx-443563205 sel sel--thin"
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <div
+            className="jsx-443563205 sel-c"
+          >
+            <select
+              className="jsx-443563205 sel-f"
+              id="serviceFeeTypeSelect"
+              onChange={[Function]}
+              value="CREDIT"
+            >
+              <option
+                className="jsx-443563205"
+                value="CREDIT"
+              >
+                Credit card
+              </option>
+              <option
+                className="jsx-443563205"
+                value="DEBIT"
+              >
+                Debit card
+              </option>
+            </select>
+          </div>
+        </div>
+         
+        <label
+          className="jsx-443563205"
+          htmlFor="serviceFeeTypeSelect"
+        >
+          service fee
+          <a
+            className="jsx-443563205"
+            href="#service-fee"
+          >
+            *
+          </a>
+        </label>
+      </span>
+      <span
+        className="jsx-2394436591 cost"
+      >
+        $
+        1.76
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        Shipping within the U.S.
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        <i
+          className="jsx-2514143691"
+        >
+          included
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    className="jsx-2514143691 cost-row"
+  >
+    <span
+      className="jsx-2514143691 sh-title"
+    >
+      Total
+    </span>
+    <span
+      className="jsx-2514143691 cost br br-t100 p-v200"
+    >
+      $
+      71.76
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CostSummary default debit card 1`] = `
+<div
+  className="jsx-2514143691 m-v500"
+>
+  <div
+    className="jsx-2514143691 p-v200"
+  >
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        5
+         
+        certificates
+         ×
+         
+        $14.00
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        $
+        70.00
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-443563205 t--info"
+      >
+        <div
+          className="jsx-443563205 sel sel--thin"
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <div
+            className="jsx-443563205 sel-c"
+          >
+            <select
+              className="jsx-443563205 sel-f"
+              id="serviceFeeTypeSelect"
+              onChange={[Function]}
+              value="DEBIT"
+            >
+              <option
+                className="jsx-443563205"
+                value="CREDIT"
+              >
+                Credit card
+              </option>
+              <option
+                className="jsx-443563205"
+                value="DEBIT"
+              >
+                Debit card
+              </option>
+            </select>
+          </div>
+        </div>
+         
+        <label
+          className="jsx-443563205"
+          htmlFor="serviceFeeTypeSelect"
+        >
+          service fee
+          <a
+            className="jsx-443563205"
+            href="#service-fee"
+          >
+            *
+          </a>
+        </label>
+      </span>
+      <span
+        className="jsx-2394436591 cost"
+      >
+        $
+        1.32
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        Shipping within the U.S.
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        <i
+          className="jsx-2514143691"
+        >
+          included
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    className="jsx-2514143691 cost-row"
+  >
+    <span
+      className="jsx-2514143691 sh-title"
+    >
+      Total
+    </span>
+    <span
+      className="jsx-2514143691 cost br br-t100 p-v200"
+    >
+      $
+      71.32
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CostSummary only credit card 1`] = `
+<div
+  className="jsx-2514143691 m-v500"
+>
+  <div
+    className="jsx-2514143691 p-v200"
+  >
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        5
+         
+        certificates
+         ×
+         
+        $14.00
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        $
+        70.00
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="t--info"
+      >
+        Credit card service fee 
+        <a
+          href="#service-fee"
+        >
+          *
+        </a>
+      </span>
+      <span
+        className="jsx-2394436591 cost"
+      >
+        $
+        1.76
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        Shipping within the U.S.
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        <i
+          className="jsx-2514143691"
+        >
+          included
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    className="jsx-2514143691 cost-row"
+  >
+    <span
+      className="jsx-2514143691 sh-title"
+    >
+      Total
+    </span>
+    <span
+      className="jsx-2514143691 cost br br-t100 p-v200"
+    >
+      $
+      71.76
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots CostSummary only debit card 1`] = `
+<div
+  className="jsx-2514143691 m-v500"
+>
+  <div
+    className="jsx-2514143691 p-v200"
+  >
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        5
+         
+        certificates
+         ×
+         
+        $14.00
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        $
+        70.00
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="t--info"
+      >
+        Debit card service fee 
+        <a
+          href="#service-fee"
+        >
+          *
+        </a>
+      </span>
+      <span
+        className="jsx-2394436591 cost"
+      >
+        $
+        1.32
+      </span>
+    </div>
+    <div
+      className="jsx-2514143691 cost-row"
+    >
+      <span
+        className="jsx-2514143691 t--info"
+      >
+        Shipping within the U.S.
+      </span>
+      <span
+        className="jsx-2514143691 t--info cost"
+      >
+        <i
+          className="jsx-2514143691"
+        >
+          included
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    className="jsx-2514143691 cost-row"
+  >
+    <span
+      className="jsx-2514143691 sh-title"
+    >
+      Total
+    </span>
+    <span
+      className="jsx-2514143691 cost br br-t100 p-v200"
+    >
+      $
+      71.32
+    </span>
+  </div>
 </div>
 `;
 
@@ -5426,8 +5914,10 @@ exports[`Storyshots OrderDetails closed 1`] = `
          ×
          
         $14.00
-         + service fee = $
-        71.76
+         = $
+        70.00
+         
+        + service fee*
       </div>
     </div>
   </button>
@@ -5656,8 +6146,10 @@ exports[`Storyshots OrderDetails loading 1`] = `
          ×
          
         $14.00
-         + service fee = $
-        114.66
+         = $
+        112.00
+         
+        + service fee*
       </div>
     </div>
   </button>
@@ -5708,8 +6200,10 @@ exports[`Storyshots OrderDetails open 1`] = `
          ×
          
         $14.00
-         + service fee = $
-        71.76
+         = $
+        70.00
+         
+        + service fee*
       </div>
     </div>
   </button>
@@ -5841,21 +6335,20 @@ exports[`Storyshots OrderDetails open 1`] = `
       <p
         className="jsx-3101717291 t--subinfo p-a300"
       >
-        You are charged an extra service fee of 
-        $0.25
-         plus
+        * You are charged an extra service fee of not more than
          
+        $0.25
+         plus 
         2.15%
-        . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+        . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
          
         <a
           className="jsx-3101717291"
           href="https://www.boston.gov/"
         >
-          credit card service fees
+          card service fees
         </a>
-         
-        at the City of Boston.
+         at the City of Boston.
       </p>
       <div
         className="jsx-3101717291 ta-c t--subinfo b--g"
@@ -6456,8 +6949,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -6552,7 +7047,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card 
+                Credit or Debit Card 
                 <span
                   className="jsx-418405546 t--req"
                 >
@@ -6562,6 +7057,11 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
               <div
                 className="jsx-418405546"
               />
+              <div
+                className="jsx-418405546 m-t100 t--subinfo"
+              >
+                We accept Visa, MasterCard, and Discover.
+              </div>
             </div>
           </fieldset>
         </div>
@@ -7224,8 +7724,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -7320,7 +7822,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card 
+                Credit or Debit Card 
                 <span
                   className="jsx-418405546 t--req"
                 >
@@ -7334,6 +7836,11 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                 className="jsx-418405546 t--subinfo t--err m-t100"
               >
                 Your card number is incomplete.
+              </div>
+              <div
+                className="jsx-418405546 m-t100 t--subinfo"
+              >
+                We accept Visa, MasterCard, and Discover.
               </div>
             </div>
           </fieldset>
@@ -7991,8 +8498,10 @@ exports[`Storyshots PaymentContent default 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -8087,7 +8596,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card 
+                Credit or Debit Card 
                 <span
                   className="jsx-418405546 t--req"
                 >
@@ -8097,6 +8606,11 @@ exports[`Storyshots PaymentContent default 1`] = `
               <div
                 className="jsx-418405546"
               />
+              <div
+                className="jsx-418405546 m-t100 t--subinfo"
+              >
+                We accept Visa, MasterCard, and Discover.
+              </div>
             </div>
           </fieldset>
         </div>
@@ -8606,8 +9120,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -8702,7 +9218,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card 
+                Credit or Debit Card 
                 <span
                   className="jsx-418405546 t--req"
                 >
@@ -8712,6 +9228,11 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               <div
                 className="jsx-418405546"
               />
+              <div
+                className="jsx-418405546 m-t100 t--subinfo"
+              >
+                We accept Visa, MasterCard, and Discover.
+              </div>
             </div>
           </fieldset>
         </div>
@@ -9368,8 +9889,10 @@ exports[`Storyshots PaymentContent state error 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -9464,7 +9987,7 @@ exports[`Storyshots PaymentContent state error 1`] = `
                 className="jsx-418405546 txt-l txt-l--mt000"
                 htmlFor="card-number"
               >
-                Credit Card 
+                Credit or Debit Card 
                 <span
                   className="jsx-418405546 t--req"
                 >
@@ -9474,6 +9997,11 @@ exports[`Storyshots PaymentContent state error 1`] = `
               <div
                 className="jsx-418405546"
               />
+              <div
+                className="jsx-418405546 m-t100 t--subinfo"
+              >
+                We accept Visa, MasterCard, and Discover.
+              </div>
             </div>
           </fieldset>
         </div>
@@ -10408,16 +10936,16 @@ exports[`Storyshots ReviewContent default 1`] = `
           className="jsx-2133745651 p-a300"
         >
           <div
-            className="jsx-4282255710 m-v500"
+            className="jsx-2514143691 m-v500"
           >
             <div
-              className="jsx-4282255710 p-v200"
+              className="jsx-2514143691 p-v200"
             >
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   5
                    
@@ -10427,50 +10955,45 @@ exports[`Storyshots ReviewContent default 1`] = `
                   $14.00
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
-                <a
-                  className="jsx-4282255710"
-                  name="service-fee"
-                />
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="t--info"
                 >
                   Credit card service fee 
                   <a
-                    className="jsx-4282255710"
                     href="#service-fee"
                   >
                     *
                   </a>
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2394436591 cost"
                 >
                   $
                   1.76
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   <i
-                    className="jsx-4282255710"
+                    className="jsx-2514143691"
                   >
                     included
                   </i>
@@ -10478,15 +11001,15 @@ exports[`Storyshots ReviewContent default 1`] = `
               </div>
             </div>
             <div
-              className="jsx-4282255710 cost-row"
+              className="jsx-2514143691 cost-row"
             >
               <span
-                className="jsx-4282255710 sh-title"
+                className="jsx-2514143691 sh-title"
               >
                 Total
               </span>
               <span
-                className="jsx-4282255710 cost br br-t100 p-v200"
+                className="jsx-2514143691 cost br br-t100 p-v200"
               >
                 $
                 71.76
@@ -10515,10 +11038,10 @@ exports[`Storyshots ReviewContent default 1`] = `
               className="jsx-2133745651"
               name="service-fee"
             />
-            * You are charged an extra service fee of 
-            $0.25
-             plus
+            * You are charged an extra service fee of not more than
              
+            $0.25
+             plus 
             2.15%
             . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
              
@@ -11249,16 +11772,16 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           className="jsx-2133745651 p-a300"
         >
           <div
-            className="jsx-4282255710 m-v500"
+            className="jsx-2514143691 m-v500"
           >
             <div
-              className="jsx-4282255710 p-v200"
+              className="jsx-2514143691 p-v200"
             >
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   5
                    
@@ -11268,50 +11791,45 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                   $14.00
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   $
                   70.00
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
-                <a
-                  className="jsx-4282255710"
-                  name="service-fee"
-                />
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="t--info"
                 >
                   Credit card service fee 
                   <a
-                    className="jsx-4282255710"
                     href="#service-fee"
                   >
                     *
                   </a>
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2394436591 cost"
                 >
                   $
                   1.76
                 </span>
               </div>
               <div
-                className="jsx-4282255710 cost-row"
+                className="jsx-2514143691 cost-row"
               >
                 <span
-                  className="jsx-4282255710 t--info"
+                  className="jsx-2514143691 t--info"
                 >
                   Shipping within the U.S.
                 </span>
                 <span
-                  className="jsx-4282255710 cost"
+                  className="jsx-2514143691 t--info cost"
                 >
                   <i
-                    className="jsx-4282255710"
+                    className="jsx-2514143691"
                   >
                     included
                   </i>
@@ -11319,15 +11837,15 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               </div>
             </div>
             <div
-              className="jsx-4282255710 cost-row"
+              className="jsx-2514143691 cost-row"
             >
               <span
-                className="jsx-4282255710 sh-title"
+                className="jsx-2514143691 sh-title"
               >
                 Total
               </span>
               <span
-                className="jsx-4282255710 cost br br-t100 p-v200"
+                className="jsx-2514143691 cost br br-t100 p-v200"
               >
                 $
                 71.76
@@ -11356,10 +11874,10 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               className="jsx-2133745651"
               name="service-fee"
             />
-            * You are charged an extra service fee of 
-            $0.25
-             plus
+            * You are charged an extra service fee of not more than
              
+            $0.25
+             plus 
             2.15%
             . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
              
@@ -13564,8 +14082,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -14318,8 +14838,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>
@@ -15077,8 +15599,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                ×
                
               $14.00
-               + service fee = $
-              71.76
+               = $
+              70.00
+               
+              + service fee*
             </div>
           </div>
         </button>

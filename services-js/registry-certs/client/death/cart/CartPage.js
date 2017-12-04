@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import { getDependencies } from '../../app';
 
-import { PERCENTAGE_STRING, FIXED_STRING } from '../../../lib/costs';
+import { PERCENTAGE_CC_STRING, FIXED_CC_STRING } from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
 
@@ -92,7 +92,11 @@ export class CartPageContent extends React.Component<Props> {
 
           {cart.entries.length > 0 && (
             <div className="p-a300">
-              <CostSummary cart={cart} />
+              <CostSummary
+                cart={cart}
+                allowServiceFeeTypeChoice
+                serviceFeeType="CREDIT"
+              />
 
               <div className="m-v500">
                 <Link href="/death/checkout">
@@ -108,15 +112,12 @@ export class CartPageContent extends React.Component<Props> {
 
               <p className="t--subinfo">
                 <a name="service-fee" />
-                * You are charged an extra service fee of {
-                  FIXED_STRING
-                } plus {PERCENTAGE_STRING}. This fee goes directly to a third
-                party to pay for the cost of credit card processing. Learn more
-                about{' '}
-                <a href="https://www.boston.gov/">
-                  credit card service fees
-                </a>{' '}
-                at the City of Boston.
+                * You are charged an extra service fee of no more than{' '}
+                {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
+                directly to a third party to pay for the cost of card
+                processing. Learn more about{' '}
+                <a href="https://www.boston.gov/">card service fees</a> at the
+                City of Boston.
               </p>
             </div>
           )}

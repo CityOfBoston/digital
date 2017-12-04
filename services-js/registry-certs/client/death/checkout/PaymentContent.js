@@ -223,7 +223,7 @@ export default class PaymentContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="card-number" className="txt-l txt-l--mt000">
-                  Credit Card <span className="t--req">Required</span>
+                  Credit or Debit Card <span className="t--req">Required</span>
                 </label>
 
                 <div ref={this.setCardField} />
@@ -232,6 +232,10 @@ export default class PaymentContent extends React.Component<Props, State> {
                     {cardElementError}
                   </div>
                 )}
+
+                <div className="m-t100 t--subinfo">
+                  We accept Visa, MasterCard, and Discover.
+                </div>
               </div>
             </fieldset>
           </div>

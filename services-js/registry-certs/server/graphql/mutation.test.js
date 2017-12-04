@@ -50,13 +50,21 @@ describe('Mutation resolvers', () => {
     });
 
     it('sends a charge to Stripe', async () => {
+      const tokensRetrieve = jest.fn();
       const chargesCreate = jest.fn();
+
       const stripe: any = {
         charges: {
           create: chargesCreate,
         },
+        tokens: {
+          retrieve: tokensRetrieve,
+        },
       };
 
+      tokensRetrieve.mockReturnValue(
+        Promise.resolve({ card: { funding: 'credit' } })
+      );
       chargesCreate.mockReturnValue(Promise.resolve({ id: 'ch_12345' }));
 
       await resolvers.Mutation.submitDeathCertificateOrder(

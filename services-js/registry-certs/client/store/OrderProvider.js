@@ -76,7 +76,6 @@ export default class OrderProvider {
 
       // not stored
       cardholderName: '',
-      cardToken: 'tok_testtoken',
       cardLast4: '4040',
 
       billingAddressSameAsShippingAddress: storeBilling
