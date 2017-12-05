@@ -32,7 +32,13 @@ export default class PaymentContent extends React.Component<Props, State> {
   cardElement: ?StripeElement = null;
 
   componentWillMount() {
-    const { stripe } = this.props;
+    const { stripe, order, showErrorsForTest } = this.props;
+
+    // If someone comes back to this page we need to clear out the credit card
+    // info.
+    if (!showErrorsForTest) {
+      order.resetCard();
+    }
 
     if (stripe) {
       const elements = stripe.elements();

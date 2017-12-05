@@ -1,6 +1,6 @@
 // @flow
 
-import { observable, computed } from 'mobx';
+import { observable, computed, action } from 'mobx';
 import makeShippingValidator, {
   type ShippingValidator,
 } from '../../lib/validators/ShippingValidator';
@@ -156,5 +156,14 @@ export default class Order {
     return this.info.billingAddressSameAsShippingAddress
       ? this.info.shippingZip
       : this.info.billingZip;
+  }
+
+  @action
+  resetCard() {
+    this.cardElementComplete = false;
+    this.cardElementError = null;
+    this.cardToken = null;
+    this.cardFunding = 'credit';
+    this.info.cardLast4 = '';
   }
 }
