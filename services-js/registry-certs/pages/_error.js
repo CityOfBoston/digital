@@ -6,6 +6,7 @@
 import React from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
+import { type ClientContext } from '../client/app';
 
 const styles = {
   error: {
@@ -53,7 +54,7 @@ type Props = {
 };
 
 export default class Error extends React.Component<Props> {
-  static getInitialProps({ res, err }) {
+  static getInitialProps({ res, err }: ClientContext) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 

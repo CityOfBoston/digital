@@ -8,6 +8,7 @@ declare module 'next' {
     res: ?ServerResponse,
     pathname: string,
     query: {[key: string]: ?string},
+    err?: any,
   |};
 
   declare class App {

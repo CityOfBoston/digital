@@ -61,7 +61,7 @@ export default class PaymentContent extends React.Component<Props, State> {
     }
   }
 
-  setCardField = (el: ?HTMLInputElement) => {
+  setCardField = (el: ?HTMLElement) => {
     if (this.cardElement) {
       if (el) {
         this.cardElement.mount(el);
