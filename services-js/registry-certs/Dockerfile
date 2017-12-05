@@ -11,6 +11,9 @@ RUN apk add --update python python-dev curl unzip \
   && rm awscli-bundle.zip \
   && rm -rf awscli-bundle
 
+# Yes. I know. https://github.com/npm/npm/issues/16807
+RUN yarn global add npm@5.6.0 && npm version
+
 # By just bringing these in first, we can re-use the npm install layer when the
 # package.json and npm-shrinkwrap haven't changed, speeding up recompilation.
 ADD package.json npm-shrinkwrap.json /app/
