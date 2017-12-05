@@ -99,12 +99,12 @@ storiesOf('PaymentContent', module)
       showErrorsForTest
     />
   ))
-  .add('state error', () => (
+  .add('ZIP code error', () => (
     <PaymentContent
       cart={makeCart()}
       stripe={makeStripe()}
       order={makeBillingCompleteOrder({
-        billingState: '??',
+        billingZip: 'abc123',
       })}
       submit={action('submit')}
       showErrorsForTest

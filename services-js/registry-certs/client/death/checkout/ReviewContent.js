@@ -182,7 +182,7 @@ export default class ReviewContent extends React.Component<Props> {
 
           <div className="m-v500 ta-c t--info">
             <Link href="/death">
-              <a>Cancel order and go back to search</a>
+              <a>I’m not done yet, go back to search</a>
             </Link>
           </div>
 

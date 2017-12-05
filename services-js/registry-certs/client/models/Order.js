@@ -73,7 +73,7 @@ export default class Order {
       shippingAddress1: '',
       shippingAddress2: '',
       shippingCity: '',
-      shippingState: '',
+      shippingState: 'MA',
       shippingZip: '',
 
       cardholderName: '',
@@ -84,7 +84,7 @@ export default class Order {
       billingAddress1: '',
       billingAddress2: '',
       billingCity: '',
-      billingState: '',
+      billingState: 'MA',
       billingZip: '',
     };
   }

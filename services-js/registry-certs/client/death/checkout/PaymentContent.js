@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 
 import type Cart from '../../store/Cart';
 import type Order, { OrderInfo } from '../../models/Order';
+import { makeStateSelectOptions } from '../../common/form-elements';
 
 import OrderDetails from './OrderDetails';
 
@@ -348,24 +349,27 @@ export default class PaymentContent extends React.Component<Props, State> {
                     {this.renderError('billingCity')}
                   </div>
 
-                  <div className="txt">
+                  {/* Adding "txt" so that we get the bottom margin right. */}
+                  <div className="sel txt">
                     <label
                       htmlFor="billing-state"
-                      className="txt-l txt-l--mt000"
+                      className="sel-l txt-l--mt000"
                     >
-                      State <span className="t--req">Required</span>
+                      State / Territory <span className="t--req">Required</span>
                     </label>
-                    <input
-                      id="billing-state"
-                      name="billing-state"
-                      {...this.fieldListeners('billingState')}
-                      placeholder="State"
-                      className={`txt-f txt-f--50 ${this.renderErrorClassName(
-                        'billingState'
-                      )}`}
-                      max="2"
-                      value={billingState}
-                    />
+                    <div className="sel-c">
+                      <select
+                        id="billing-state"
+                        name="billing-state"
+                        {...this.fieldListeners('billingState')}
+                        className={`sel-f ${this.renderErrorClassName(
+                          'billingState'
+                        )}`}
+                        value={billingState}
+                      >
+                        {makeStateSelectOptions()}
+                      </select>
+                    </div>
 
                     {this.renderError('billingState')}
                   </div>
@@ -451,7 +455,8 @@ export default class PaymentContent extends React.Component<Props, State> {
               padding: 0;
               display: table;
             }
-            .txt-l {
+            .txt-l,
+            .sel-l {
               font-weight: normal;
               font-size: 12px;
             }

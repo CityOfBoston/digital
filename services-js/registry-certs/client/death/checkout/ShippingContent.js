@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 
 import type Cart from '../../store/Cart';
 import type Order, { OrderInfo } from '../../models/Order';
+import { makeStateSelectOptions } from '../../common/form-elements';
 
 import OrderDetails from './OrderDetails';
 
@@ -297,21 +298,24 @@ export default class ShippingContent extends React.Component<Props, State> {
                 {this.renderError('shippingCity')}
               </div>
 
-              <div className="txt">
-                <label htmlFor="shipping-state" className="txt-l txt-l--mt000">
-                  State <span className="t--req">Required</span>
+              {/* Adding "txt" so that we get the bottom margin right. */}
+              <div className="sel txt">
+                <label htmlFor="shipping-state" className="sel-l txt-l--mt000">
+                  State / Territory <span className="t--req">Required</span>
                 </label>
-                <input
-                  id="shipping-state"
-                  name="shipping-state"
-                  placeholder="State"
-                  {...this.fieldListeners('shippingState')}
-                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
-                    'shippingState'
-                  )}`}
-                  max="2"
-                  value={shippingState}
-                />
+                <div className="sel-c">
+                  <select
+                    id="shipping-state"
+                    name="shipping-state"
+                    {...this.fieldListeners('shippingState')}
+                    className={`sel-f ${this.renderErrorClassName(
+                      'shippingState'
+                    )}`}
+                    value={shippingState}
+                  >
+                    {makeStateSelectOptions()}
+                  </select>
+                </div>
 
                 {this.renderError('shippingState')}
               </div>
@@ -383,7 +387,8 @@ export default class ShippingContent extends React.Component<Props, State> {
               padding: 0;
               display: table;
             }
-            .txt-l {
+            .txt-l,
+            .sel-l {
               font-weight: normal;
               font-size: 12px;
             }
