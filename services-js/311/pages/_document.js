@@ -145,8 +145,7 @@ export default class extends Document {
           />
 
           <div className="a11y--h" aria-live="polite" id="ariaLive" />
-
-          <div className="mn mn--full mn--nv-s" style={{}}>
+          <div className="mn mn--nv-s">
             <input
               type="checkbox"
               id="s-tr"

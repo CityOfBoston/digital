@@ -71,7 +71,7 @@ exports[`existing service page rendering phone 1`] = `
     </ul>
   </nav>
   <div
-    className="css-y96f4i"
+    className="mn--full css-y96f4i"
     role="main"
     style={
       Object {
@@ -523,7 +523,7 @@ exports[`existing service page rendering phone location step 1`] = `
     </ul>
   </nav>
   <div
-    className="css-y96f4i"
+    className="mn--full css-y96f4i"
     role="main"
     style={
       Object {
@@ -734,7 +734,7 @@ exports[`missing service page rendering 1`] = `
     </ul>
   </nav>
   <div
-    className="css-y96f4i"
+    className="mn--full css-y96f4i"
     role="main"
     style={
       Object {

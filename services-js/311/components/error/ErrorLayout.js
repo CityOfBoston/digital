@@ -77,7 +77,7 @@ export default class ErrorLayout extends React.Component<Props> {
 
         <Nav />
 
-        <div className={`${CONTAINER_STYLE.toString()}`}>
+        <div className={`mn--full ${CONTAINER_STYLE.toString()}`}>
           <FormDialog
             narrow
             style={{

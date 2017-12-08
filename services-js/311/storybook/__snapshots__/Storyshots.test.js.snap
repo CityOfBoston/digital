@@ -903,7 +903,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
         </ul>
       </nav>
       <div
-        className="b-c"
+        className="b-c mn--full"
         role="main"
       >
         <div
@@ -1215,7 +1215,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
         </ul>
       </nav>
       <div
-        className="b-c"
+        className="b-c mn--full"
         role="main"
       >
         <div>
@@ -4329,7 +4329,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
         </ul>
       </nav>
       <div
-        className="css-1kiozsl"
+        className="mn--full css-1kiozsl"
       >
         <div
           className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
@@ -4619,7 +4619,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
         </ul>
       </nav>
       <div
-        className="css-1kiozsl"
+        className="mn--full css-1kiozsl"
       >
         <div
           className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
@@ -4909,140 +4909,144 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
         </ul>
       </nav>
       <div
-        className="b"
+        className="mn--full"
       >
         <div
-          className="b-c"
+          className="b"
         >
           <div
-            className=" sh sh--y "
+            className="b-c"
           >
-            <h1
-              className="sh-title"
+            <div
+              className=" sh sh--y "
             >
-              How to 311
-            </h1>
-          </div>
-          <div
-            className="g m-v500"
-          >
-            <a
-              className="lwi lwi--y g--3 m-v100"
-              href="https://twitter.com/bos311"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="lwi-ic"
+              <h1
+                className="sh-title"
               >
-                <svg
-                  className="css-36ke2n"
-                  role="img"
+                How to 311
+              </h1>
+            </div>
+            <div
+              className="g m-v500"
+            >
+              <a
+                className="lwi lwi--y g--3 m-v100"
+                href="https://twitter.com/bos311"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="lwi-ic"
                 >
-                  <use
-                    height="100%"
-                    xlinkHref="/assets/img/svg/faq-icons.svg#Twitter_off"
-                  />
-                </svg>
-              </div>
-              <span
-                className="lwi-t"
-              >
-                Tweet @bos311
-              </span>
-            </a>
-            <a
-              className="lwi lwi--y g--3 m-v100"
-              href="tel:+311"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="lwi-ic"
-              >
-                <svg
-                  className="css-36ke2n"
-                  role="img"
+                  <svg
+                    className="css-36ke2n"
+                    role="img"
+                  >
+                    <use
+                      height="100%"
+                      xlinkHref="/assets/img/svg/faq-icons.svg#Twitter_off"
+                    />
+                  </svg>
+                </div>
+                <span
+                  className="lwi-t"
                 >
-                  <use
-                    height="100%"
-                    xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
-                  />
-                </svg>
-              </div>
-              <span
-                className="lwi-t"
+                  Tweet @bos311
+                </span>
+              </a>
+              <a
+                className="lwi lwi--y g--3 m-v100"
+                href="tel:+311"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
-                Dial 311
-              </span>
-            </a>
-            <a
-              className="lwi lwi--y g--3 m-v100"
-              href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="lwi-ic"
-              >
-                <svg
-                  className="css-36ke2n"
-                  role="img"
+                <div
+                  className="lwi-ic"
                 >
-                  <use
-                    height="100%"
-                    xlinkHref="/assets/img/svg/faq-icons.svg#App_store_off"
-                  />
-                </svg>
-              </div>
-              <span
-                className="lwi-t"
-              >
-                Download the App
-              </span>
-            </a>
-            <a
-              className="lwi lwi--y g--3 m-v100"
-              href="/"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="lwi-ic"
-              >
-                <svg
-                  className="css-36ke2n"
-                  role="img"
+                  <svg
+                    className="css-36ke2n"
+                    role="img"
+                  >
+                    <use
+                      height="100%"
+                      xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
+                    />
+                  </svg>
+                </div>
+                <span
+                  className="lwi-t"
                 >
-                  <use
-                    height="100%"
-                    xlinkHref="/assets/img/svg/faq-icons.svg#Computer_off"
-                  />
-                </svg>
-              </div>
-              <span
-                className="lwi-t"
+                  Dial 311
+                </span>
+              </a>
+              <a
+                className="lwi lwi--y g--3 m-v100"
+                href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
               >
-                Use this site
-              </span>
-            </a>
+                <div
+                  className="lwi-ic"
+                >
+                  <svg
+                    className="css-36ke2n"
+                    role="img"
+                  >
+                    <use
+                      height="100%"
+                      xlinkHref="/assets/img/svg/faq-icons.svg#App_store_off"
+                    />
+                  </svg>
+                </div>
+                <span
+                  className="lwi-t"
+                >
+                  Download the App
+                </span>
+              </a>
+              <a
+                className="lwi lwi--y g--3 m-v100"
+                href="/"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="lwi-ic"
+                >
+                  <svg
+                    className="css-36ke2n"
+                    role="img"
+                  >
+                    <use
+                      height="100%"
+                      xlinkHref="/assets/img/svg/faq-icons.svg#Computer_off"
+                    />
+                  </svg>
+                </div>
+                <span
+                  className="lwi-t"
+                >
+                  Use this site
+                </span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="b b--g"
-      >
         <div
-          className="b-c"
+          className="b b--g"
         >
           <div
-            className=" sh sh--y "
+            className="b-c"
           >
-            <h1
-              className="sh-title"
+            <div
+              className=" sh sh--y "
             >
-              FAQ
-            </h1>
+              <h1
+                className="sh-title"
+              >
+                FAQ
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -9982,7 +9986,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
         </ul>
       </nav>
       <div
-        className="css-y96f4i"
+        className="mn--full css-y96f4i"
         role="main"
         style={
           Object {
@@ -10497,7 +10501,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
         </ul>
       </nav>
       <div
-        className="css-y96f4i"
+        className="mn--full css-y96f4i"
         role="main"
         style={
           Object {
@@ -11075,7 +11079,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
         </ul>
       </nav>
       <div
-        className="css-y96f4i"
+        className="mn--full css-y96f4i"
         role="main"
         style={
           Object {
@@ -12284,59 +12288,63 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
         </ul>
       </nav>
       <div
-        className="b b--g"
+        className="mn--full "
       >
         <div
-          className="b-c"
+          className="b b--g"
         >
           <div
-            className=" sh sh--y "
+            className="b-c"
           >
-            <h1
-              className="sh-title"
-            >
-              All BOS:311 Services
-            </h1>
-          </div>
-          <div>
             <div
-              className="dr "
+              className=" sh sh--y "
             >
-              <button
-                aria-controls="Health-Safety-region"
-                aria-expanded={false}
-                className="dr-h"
-                onClick={[Function]}
-                type="button"
+              <h1
+                className="sh-title"
               >
-                <div
-                  className="dr-ic"
+                All BOS:311 Services
+              </h1>
+            </div>
+            <div>
+              <div
+                className="dr "
+              >
+                <button
+                  aria-controls="Health-Safety-region"
+                  aria-expanded={false}
+                  className="dr-h"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <svg
-                    viewBox="-2 8.5 18 25"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    className="dr-ic"
                   >
-                    <path
-                      className="dr-i"
-                      d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                    />
-                  </svg>
-                </div>
-                <h2
-                  className="dr-t"
-                >
-                  Health, safety, and social services
-                </h2>
-                <div
-                  className="dr-st"
-                >
-                  Get help for a public safety or disability issue, or request a health inspection.
-                </div>
-              </button>
-              <span
-                id="Health-Safety-region"
-                role="region"
-              />
+                    <svg
+                      viewBox="-2 8.5 18 25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        className="dr-i"
+                        d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                      />
+                    </svg>
+                  </div>
+                  <h2
+                    className="dr-t"
+                  >
+                    Health, safety, and social services
+                  </h2>
+                  <div
+                    className="dr-st"
+                  >
+                    Get help for a public safety or disability issue, or request a health inspection.
+                  </div>
+                </button>
+                <span
+                  id="Health-Safety-region"
+                  role="region"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -12595,95 +12603,99 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
         </ul>
       </nav>
       <div
-        className="b b--g"
+        className="mn--full "
       >
         <div
-          className="b-c"
+          className="b b--g"
         >
           <div
-            className=" sh sh--y "
+            className="b-c"
           >
-            <h1
-              className="sh-title"
-            >
-              All BOS:311 Services
-            </h1>
-          </div>
-          <div>
             <div
-              className="dr dr--open"
+              className=" sh sh--y "
             >
-              <button
-                aria-controls="Health-Safety-region"
-                aria-expanded={true}
-                className="dr-h"
-                onClick={[Function]}
-                type="button"
+              <h1
+                className="sh-title"
               >
-                <div
-                  className="dr-ic"
+                All BOS:311 Services
+              </h1>
+            </div>
+            <div>
+              <div
+                className="dr dr--open"
+              >
+                <button
+                  aria-controls="Health-Safety-region"
+                  aria-expanded={true}
+                  className="dr-h"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <svg
-                    viewBox="-2 8.5 18 25"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    className="dr-ic"
                   >
-                    <path
-                      className="dr-i"
-                      d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                    />
-                  </svg>
-                </div>
-                <h2
-                  className="dr-t"
+                    <svg
+                      viewBox="-2 8.5 18 25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        className="dr-i"
+                        d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+                      />
+                    </svg>
+                  </div>
+                  <h2
+                    className="dr-t"
+                  >
+                    Health, safety, and social services
+                  </h2>
+                  <div
+                    className="dr-st"
+                  >
+                    Get help for a public safety or disability issue, or request a health inspection.
+                  </div>
+                </button>
+                <span
+                  id="Health-Safety-region"
+                  role="region"
                 >
-                  Health, safety, and social services
-                </h2>
-                <div
-                  className="dr-st"
-                >
-                  Get help for a public safety or disability issue, or request a health inspection.
-                </div>
-              </button>
-              <span
-                id="Health-Safety-region"
-                role="region"
-              >
-                <div
-                  className="dr-c"
-                  style={
-                    Object {
-                      "display": "block",
+                  <div
+                    className="dr-c"
+                    style={
+                      Object {
+                        "display": "block",
+                      }
                     }
-                  }
-                >
-                  <ul
-                    className="ul"
                   >
-                    <li>
-                      <a
-                        className="css-v7ibj3 p-a300"
-                        href="/request/CSMCINC"
-                        onClick={[Function]}
-                      >
-                        <div
-                          className="t--sans tt-u"
+                    <ul
+                      className="ul"
+                    >
+                      <li>
+                        <a
+                          className="css-v7ibj3 p-a300"
+                          href="/request/CSMCINC"
+                          onClick={[Function]}
                         >
-                          Cosmic Incursion
-                        </div>
-                        <div
-                          style={
-                            Object {
-                              "color": "#091f2f",
+                          <div
+                            className="t--sans tt-u"
+                          >
+                            Cosmic Incursion
+                          </div>
+                          <div
+                            style={
+                              Object {
+                                "color": "#091f2f",
+                              }
                             }
-                          }
-                        >
-                          Something is threatening the fabric of the universe
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </span>
+                          >
+                            Something is threatening the fabric of the universe
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+              </div>
             </div>
           </div>
         </div>

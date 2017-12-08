@@ -174,7 +174,7 @@ export default class RequestLayout extends React.Component<Props, State> {
             that the content can center over the map and keep the footer from
             encroaching up. */}
         <div
-          className={CONTAINER_STYLE}
+          className={`mn--full ${CONTAINER_STYLE.toString()}`}
           style={{ backgroundColor: 'transparent' }}
           role="main"
         >

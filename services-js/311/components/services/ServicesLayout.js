@@ -183,28 +183,30 @@ export default class ServicesLayout extends React.Component<Props> {
 
         <Nav activeSection="services" />
 
-        <div className="b b--g">
-          <div className="b-c">
-            <SectionHeader>All BOS:311 Services</SectionHeader>
+        <div className="mn--full ">
+          <div className="b b--g">
+            <div className="b-c">
+              <SectionHeader>All BOS:311 Services</SectionHeader>
 
-            <div>
-              {store.allServices.groups.map(g => {
-                const services = servicesByGroup[g.id.toLowerCase()];
-                return (
-                  !!services.length &&
+              <div>
+                {store.allServices.groups.map(g => {
+                  const services = servicesByGroup[g.id.toLowerCase()];
+                  return (
+                    !!services.length &&
+                    <ServicesLayoutGroup
+                      key={g.id}
+                      group={g}
+                      services={services}
+                    />
+                  );
+                })}
+
+                {otherServices.length > 0 &&
                   <ServicesLayoutGroup
-                    key={g.id}
-                    group={g}
-                    services={services}
-                  />
-                );
-              })}
-
-              {otherServices.length > 0 &&
-                <ServicesLayoutGroup
-                  group={store.allServices.otherGroup}
-                  services={otherServices}
-                />}
+                    group={store.allServices.otherGroup}
+                    services={otherServices}
+                  />}
+              </div>
             </div>
           </div>
         </div>

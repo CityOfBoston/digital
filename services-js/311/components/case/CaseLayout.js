@@ -66,7 +66,7 @@ export default class CaseLayout extends React.Component<Props> {
 
         <Nav activeSection="search" />
 
-        <div className="b-c" role="main">
+        <div className="b-c mn--full" role="main">
           {data.request && <CaseView request={data.request} store={store} />}
           {!data.request && this.renderNotFound()}
         </div>
