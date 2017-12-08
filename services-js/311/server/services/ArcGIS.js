@@ -88,9 +88,48 @@ export type LiveSamFeature = {
   },
 };
 
+export type LayerFeature = {
+  attributes: {
+    OBJECTID: number,
+    // use this
+    SITE_NAME: string,
+    OWNERSHIP: string,
+    PROTECTION: string,
+    TYPECODE: number,
+    DISTRICT: string,
+    ACRES: number,
+    ADDRESS: string,
+    ZonAgg: string,
+    TypeLong: string,
+    OS_Own_Jur: string,
+    OS_Mngmnt: string,
+    POS: string,
+    PA: string,
+    ALT_NAME: string,
+    AgncyJuris: string,
+    Shape_STArea__: number,
+    Shape_STLength__: number,
+    PARK_ID: null,
+    'Shape.STLength()': number,
+    REGION: string,
+  },
+};
+
 type LiveSamResponse =
   | {|
       features: LiveSamFeature[],
+    |}
+  | {|
+      error: {|
+        code: number,
+        message: string,
+        details: Array<string>,
+      |},
+    |};
+
+type LayerQueryResult =
+  | {|
+      features: LayerFeature[],
     |}
   | {|
       error: {|
@@ -159,10 +198,14 @@ function isExactAddress(candidate: FindAddressCandidate): boolean {
   return candidate.attributes.Addr_type === 'PointAddress';
 }
 
-function isAnyIntersection(candidate: FindAddressCandidate): boolean {
+// These locator types can't be found in Salesforce's forward address, so we
+// send lat/lng for these types. (This is safe, since there won't be e.g.
+// separate units sharing the same point that we'd need to differentiate.)
+function isAddressUnsearchable(candidate: FindAddressCandidate): boolean {
   return (
     candidate.attributes.Loc_name === 'Intersection' ||
-    candidate.attributes.Loc_name === 'Seg_Alternate'
+    candidate.attributes.Loc_name === 'Seg_Alternate' ||
+    candidate.attributes.Loc_name === 'Landmark_Alter'
   );
 }
 
@@ -278,30 +321,33 @@ export default class ArcGIS {
     );
   }
 
-  async reverseGeocode(lat: number, lng: number): Promise<?SearchResult> {
+  openSpacesUrl(path: string): string {
+    return url.resolve(
+      this.endpoint,
+      `311/Composite_Services/MapServer/13/${path}`
+    );
+  }
+
+  async reverseGeocodeOpenSpace(
+    lat: number,
+    lng: number
+  ): Promise<?SearchResult> {
     const transaction =
-      this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
+      this.opbeat &&
+      this.opbeat.startTransaction('open space layer query', 'ArcGIS');
 
     try {
-      const location = {
-        x: lng,
-        y: lat,
-        // Makes the output in lat/lng
-        spatialReference: {
-          wkid: '4326',
-        },
-      };
-
       const params = new URLSearchParams();
-      params.append('location', JSON.stringify(location));
+      params.append('geometry', `${lng},${lat}`);
+      params.append('geometryType', 'esriGeometryPoint');
+      params.append('inSR', '4326');
+      params.append('spatialRelationship', 'esriSpatialRelWithin');
+      params.append('returnGeometry', 'false');
       params.append('outFields', '*');
-      params.append('returnIntersection', 'false');
       params.append('f', 'json');
 
-      // This done though a particular locator that we have high confidence will
-      // return addresses that we can look up through search.
       const response = await fetch(
-        this.reverseGeocodeLocatorUrl(`reverseGeocode?${params.toString()}`),
+        this.openSpacesUrl(`query?${params.toString()}`),
         {
           agent: this.agent,
         }
@@ -311,7 +357,7 @@ export default class ArcGIS {
         throw new Error('Got not-ok response from ArcGIS geocoder');
       }
 
-      const result: ReverseGeocodeResult = await response.json();
+      const result: LayerQueryResult = await response.json();
 
       if (result.error) {
         const { error } = result;
@@ -324,26 +370,118 @@ export default class ArcGIS {
         }
       }
 
-      // We take the address from the locator and send it over to
-      // search so we can get the building ID and SAM id, which are
-      // not sent in the reverse geocode response.
-      const places = await this.search(result.address.Match_addr);
+      if (!result.features.length) {
+        return null;
+      } else {
+        const { SITE_NAME } = result.features[0].attributes;
 
-      return (
-        // Just in case, we still want to return something
-        places[0] || {
+        return {
           location: { lat, lng },
-          address: formatAddress(result.address.Match_addr),
+          address: SITE_NAME,
           addressId: null,
           buildingId: null,
-          exact: false,
-        }
-      );
+          exact: true,
+          alwaysUseLatLng: true,
+        };
+      }
     } finally {
       if (transaction) {
         transaction.end();
       }
     }
+  }
+
+  async reverseGeocode(lat: number, lng: number): Promise<?SearchResult> {
+    // We do the reverse geocoding in parallel.
+    const reverseGeocodeOpenSpacePromise = this.reverseGeocodeOpenSpace(
+      lat,
+      lng
+    );
+
+    const location = {
+      x: lng,
+      y: lat,
+      // Makes the output in lat/lng
+      spatialReference: {
+        wkid: '4326',
+      },
+    };
+
+    const params = new URLSearchParams();
+    params.append('location', JSON.stringify(location));
+    params.append('outFields', '*');
+    params.append('returnIntersection', 'false');
+    params.append('f', 'json');
+
+    const transaction =
+      this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
+
+    // This done though a particular locator that we have high confidence will
+    // return addresses that we can look up through search.
+    const responsePromise = fetch(
+      this.reverseGeocodeLocatorUrl(`reverseGeocode?${params.toString()}`),
+      {
+        agent: this.agent,
+      }
+    );
+
+    // Ensures we end the transaction, regardless of whether we exit early due
+    // to an open space result. Also means that we time this request
+    // specifically, rather than waiting until after the open space request
+    // completes.
+    responsePromise.then(
+      () => {
+        transaction && transaction.end();
+      },
+      () => {
+        transaction && transaction.end();
+      }
+    );
+
+    // open spaces take precedence, so we await this first and actually
+    // short-circuit out if it returns, not waiting for the responsePromise to
+    // complete.
+    const openSpaceResult = await reverseGeocodeOpenSpacePromise;
+    if (openSpaceResult) {
+      // keeps us from having an uncaught promise exception
+      return openSpaceResult;
+    }
+
+    const response = await responsePromise;
+
+    if (!response.ok) {
+      throw new Error('Got not-ok response from ArcGIS geocoder');
+    }
+
+    const result: ReverseGeocodeResult = await response.json();
+
+    if (result.error) {
+      const { error } = result;
+      if (error.code === 400) {
+        return null;
+      } else {
+        throw new Error(
+          error.details[0] || error.message || 'Unknown ArcGIS error'
+        );
+      }
+    }
+
+    // We take the address from the locator and send it over to
+    // search so we can get the building ID and SAM id, which are
+    // not sent in the reverse geocode response.
+    const places = await this.search(result.address.Match_addr);
+
+    return (
+      // Just in case, we still want to return something
+      places[0] || {
+        location: { lat, lng },
+        address: formatAddress(result.address.Match_addr),
+        addressId: null,
+        buildingId: null,
+        exact: false,
+        alwaysUseLatLng: true,
+      }
+    );
   }
 
   candidateToSearchResult = async (
@@ -381,9 +519,7 @@ export default class ArcGIS {
           : null,
         buildingId: candidate.attributes.Street_ID || null,
         exact: true,
-        // We never send the text of an intersection to Salesforce because it is
-        // potentially non-unique.
-        alwaysUseLatLng: isAnyIntersection(candidate),
+        alwaysUseLatLng: isAddressUnsearchable(candidate),
       };
     }
   };
