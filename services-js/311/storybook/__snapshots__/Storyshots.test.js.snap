@@ -6350,13 +6350,19 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
           className="css-1d3uvm0"
         >
           <div
-            className="p-a300 t--info"
+            className="p-a300"
+            style={
+              Object {
+                "paddingBottom": 0,
+                "paddingTop": 0,
+              }
+            }
           >
-            <span
-              className="t--err"
+            <p
+              className="t--info t--err"
             >
               We could not find an address or intersection in Boston for “”
-            </span>
+            </p>
           </div>
         </div>
         <div
@@ -6456,6 +6462,214 @@ exports[`Storyshots LocationPopUp geocode error 1`] = `
             >
               If your case is for something at a specific street address, please try again later.
             </p>
+          </div>
+        </div>
+        <div
+          className="g p-a300 css-zcxndt"
+        >
+          <div
+            className="g--7 t--subinfo m-v200"
+          >
+            <a
+              href="javascript:void(0)"
+              onClick={[Function]}
+            >
+              Continue without location
+            </a>
+          </div>
+          <button
+            className="btn g--5"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LocationPopUp outside of Boston 1`] = `
+<div
+  className="css-18ppl9p"
+>
+  <div
+    className=" br br-t400 br--y css-1qypc7t"
+    style={Object {}}
+  >
+    <div
+      className="css-1v26nfd"
+    >
+      <div
+        className="css-1gx8zcz"
+      >
+        <div
+          className="p-a300"
+        >
+          <form
+            action="#"
+            className="sf sf--md sf--y"
+            onSubmit={[Function]}
+          >
+            <div
+              className="sf-i"
+            >
+              <input
+                aria-label="Address search field"
+                className="sf-i-f"
+                onChange={[Function]}
+                placeholder="Search address…"
+                type="text"
+                value=""
+              />
+              <button
+                className="sf-i-b"
+                disabled={true}
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          className="css-1d3uvm0"
+        >
+          <div
+            className="p-a300"
+            style={
+              Object {
+                "paddingBottom": 0,
+                "paddingTop": 0,
+              }
+            }
+          >
+            <div>
+              <p
+                className="t--info"
+              >
+                We could not find a Boston address for the spot you chose.
+              </p>
+              <div
+                className="sel"
+              >
+                <label
+                  className="sel-l"
+                  htmlFor="outsideOfBostonSelect"
+                >
+                  Call another city or town:
+                </label>
+                <div
+                  className="sel-c"
+                >
+                  <select
+                    className="sel-f"
+                    id="outsideOfBostonSelect"
+                    onChange={[Function]}
+                    value="Cambridge"
+                  >
+                    <option
+                      disabled={true}
+                      value="none"
+                    >
+                      Choose one…
+                    </option>
+                    <option
+                      disabled={true}
+                    >
+                      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+                    </option>
+                    <option
+                      value="Brookline"
+                    >
+                      Brookline
+                    </option>
+                    <option
+                      value="Cambridge"
+                    >
+                      Cambridge
+                    </option>
+                    <option
+                      value="Chelsea"
+                    >
+                      Chelsea
+                    </option>
+                    <option
+                      value="Dedham"
+                    >
+                      Dedham
+                    </option>
+                    <option
+                      value="Lawrence"
+                    >
+                      Lawrence
+                    </option>
+                    <option
+                      value="Lowell"
+                    >
+                      Lowell
+                    </option>
+                    <option
+                      value="Lynn"
+                    >
+                      Lynn
+                    </option>
+                    <option
+                      value="Milton"
+                    >
+                      Milton
+                    </option>
+                    <option
+                      value="Quincy"
+                    >
+                      Quincy
+                    </option>
+                    <option
+                      value="Revere"
+                    >
+                      Revere
+                    </option>
+                    <option
+                      value="Somerville"
+                    >
+                      Somerville
+                    </option>
+                    <option
+                      value="Springfield"
+                    >
+                      Springfield
+                    </option>
+                    <option
+                      value="Winthrop"
+                    >
+                      Winthrop
+                    </option>
+                    <option
+                      value="Worcester"
+                    >
+                      Worcester
+                    </option>
+                  </select>
+                </div>
+                <div
+                  className="p-v300 t--info"
+                >
+                  Cambridge
+                   
+                  City Hall
+                  :
+                   
+                  <a
+                    href="tel:(617) 349-4000"
+                  >
+                    (617) 349-4000
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div

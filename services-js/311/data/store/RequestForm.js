@@ -26,6 +26,7 @@ export default class RequestForm {
   @observable addressId: ?string = null;
   @observable addressIntent: 'ADDRESS' | 'LATLNG' = 'ADDRESS';
   @observable sendLocation: boolean = false;
+  @observable locationRequirementsMet: boolean = false;
 
   @observable firstName: string = '';
   @observable lastName: string = '';
@@ -60,14 +61,6 @@ export default class RequestForm {
   @computed
   get locationRequired(): boolean {
     return !!this._service && this._service.locationRequirement === 'REQUIRED';
-  }
-
-  @computed
-  get locationRequirementsMet(): boolean {
-    return (
-      (this.addressIntent === 'ADDRESS' && this.address.length > 0) ||
-      (this.addressIntent === 'LATLNG' && !!this.location)
-    );
   }
 
   @computed

@@ -298,4 +298,15 @@ storiesOf('LocationPopUp', module)
       })}
       requestForm={new RequestForm()}
     />
+  )
+  .add('outside of Boston', () =>
+    <LocationPopUp
+      {...props}
+      selectedCityForTest="Cambridge"
+      store={makeStore([], {
+        currentReverseGeocodeLocation: { lat: 2, lng: 3 },
+        lastQuery: '123 fake street',
+      })}
+      requestForm={new RequestForm()}
+    />
   );

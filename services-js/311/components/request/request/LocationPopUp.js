@@ -24,6 +24,23 @@ import waypointMarkers, {
   WAYPOINT_NUMBER_STYLE,
 } from '../../map/WaypointMarkers';
 
+const OUTSIDE_OF_BOSTON = [
+  { city: 'Brookline', label: 'City Hall', tel: '(617) 730-2000' },
+  { city: 'Cambridge', label: 'City Hall', tel: '(617) 349-4000' },
+  { city: 'Somerville', label: '311', tel: '(617) 666-3311' },
+  { city: 'Revere', label: 'City Hall', tel: '(781) 286-8100' },
+  { city: 'Lynn', label: 'City Hall', tel: '(781) 598-4000' },
+  { city: 'Quincy', label: 'City Hall', tel: '(617) 376-1000' },
+  { city: 'Chelsea', label: 'City Hall', tel: '(617) 466-4000' },
+  { city: 'Dedham', label: 'City Hall', tel: '(781) 751-9100' },
+  { city: 'Winthrop', label: 'City Hall', tel: '(617) 846-1852' },
+  { city: 'Lowell', label: 'City Hall', tel: '(978) 970-4000' },
+  { city: 'Lawrence', label: 'City Hall', tel: '(978) 620-3000' },
+  { city: 'Milton', label: 'Town Hall', tel: '617-898-4800' },
+  { city: 'Worcester', label: 'City Hall', tel: '(508) 929-1300' },
+  { city: 'Springfield', label: 'City Hall', tel: '(413) 736-3111' },
+].sort(({ city: cityA }, { city: cityB }) => cityA.localeCompare(cityB));
+
 // On large screen sizes below, the location picker is in a little
 // dialog that floats over the map. We let it size itself automatically
 // from its content. On mobile devices, the picker has a fixed height
@@ -172,10 +189,15 @@ export type Props = {|
   requestForm: RequestForm,
   nextFunc: () => mixed,
   nextIsSubmit: boolean,
+  selectedCityForTest?: string,
+|};
+
+type State = {|
+  selectedOutsideOfBostonCity: string,
 |};
 
 @observer
-export default class LocationPopUp extends React.Component<Props> {
+export default class LocationPopUp extends React.Component<Props, State> {
   containerEl: ?HTMLElement;
   searchField: ?HTMLInputElement;
 
@@ -183,6 +205,12 @@ export default class LocationPopUp extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
+
+    const { selectedCityForTest } = props;
+
+    this.state = {
+      selectedOutsideOfBostonCity: selectedCityForTest || 'none',
+    };
   }
 
   @action
@@ -197,12 +225,14 @@ export default class LocationPopUp extends React.Component<Props> {
         address: addressSearch.address,
         addressId: addressSearch.addressId,
         intent: addressSearch.intent,
+        locationRequirementsMet: !!addressSearch.currentPlace,
       }),
-      ({ location, address, addressId, intent }) => {
+      ({ location, address, addressId, intent, locationRequirementsMet }) => {
         requestForm.location = location;
         requestForm.address = address;
         requestForm.addressId = addressId;
         requestForm.addressIntent = intent;
+        requestForm.locationRequirementsMet = locationRequirementsMet;
 
         if (requestForm.address) {
           accessibility.message = `Selected address: ${requestForm.address}`;
@@ -255,6 +285,10 @@ export default class LocationPopUp extends React.Component<Props> {
     // on mobile, select the first result by default
     addressSearch.search(belowMediaLarge);
   }
+
+  whenOutsideOfBostonCitySelected = (ev: SyntheticInputEvent<>) => {
+    this.setState({ selectedOutsideOfBostonCity: ev.target.value });
+  };
 
   @action.bound
   continueWithLocation() {
@@ -428,14 +462,58 @@ export default class LocationPopUp extends React.Component<Props> {
 
   renderNotFound() {
     const { location, query } = this.props.store.addressSearch;
+    const { selectedOutsideOfBostonCity } = this.state;
+
+    const selectedOutsideOfBoston = OUTSIDE_OF_BOSTON.find(
+      ({ city }) => city === selectedOutsideOfBostonCity
+    );
 
     return (
-      <div className="p-a300 t--info" key="not-found">
-        <span className="t--err">
-          {location
-            ? 'Please pick a location within Boston'
-            : `We could not find an address or intersection in Boston for “${query}”`}
-        </span>
+      <div
+        className="p-a300"
+        key="not-found"
+        style={{ paddingTop: 0, paddingBottom: 0 }}
+      >
+        {location
+          ? <div>
+              <p className="t--info">
+                We could not find a Boston address for the spot you chose.
+              </p>
+              <div className="sel">
+                <label htmlFor="outsideOfBostonSelect" className="sel-l">
+                  Call another city or town:
+                </label>
+                <div className="sel-c">
+                  <select
+                    id="outsideOfBostonSelect"
+                    className="sel-f"
+                    value={selectedOutsideOfBostonCity}
+                    onChange={this.whenOutsideOfBostonCitySelected}
+                  >
+                    <option value="none" disabled>
+                      Choose one…
+                    </option>
+                    <option disabled>⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</option>
+                    {OUTSIDE_OF_BOSTON.map(({ city }) =>
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    )}
+                  </select>
+                </div>
+                {selectedOutsideOfBoston &&
+                  <div className="p-v300 t--info">
+                    {selectedOutsideOfBoston.city}{' '}
+                    {selectedOutsideOfBoston.label}:{' '}
+                    <a href={`tel:${selectedOutsideOfBoston.tel}`}>
+                      {selectedOutsideOfBoston.tel}
+                    </a>
+                  </div>}
+              </div>
+            </div>
+          : <p className="t--info t--err">
+              {`We could not find an address or intersection in Boston for “${query}”`}
+            </p>}
       </div>
     );
   }
