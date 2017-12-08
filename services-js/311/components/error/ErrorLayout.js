@@ -4,6 +4,7 @@
 // Forked from next.js to add Opbeat error sending
 
 import React from 'react';
+import type { Context } from 'next';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
 import { css } from 'emotion';
@@ -41,7 +42,7 @@ type Props = {|
 |};
 
 export default class ErrorLayout extends React.Component<Props> {
-  static getInitialProps({ res, err }) {
+  static getInitialProps({ res, err }: Context<*>) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 

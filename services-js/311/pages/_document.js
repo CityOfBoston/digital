@@ -1,6 +1,7 @@
 // @flow
 /* eslint react/no-danger: 0 */
 import React from 'react';
+import type { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
@@ -21,9 +22,15 @@ type Props = {
 export default class extends Document {
   props: Props;
 
-  static async getInitialProps({ renderPage }) {
+  static async getInitialProps({ renderPage }: DocumentContext<*>) {
     const page = renderPage();
-    const styles = extractCritical(page.html || page.errorHtml);
+    let styles = {};
+
+    if (page.html) {
+      styles = extractCritical(page.html);
+    } else if (page.errorHtml) {
+      styles = extractCritical(page.errorHtml);
+    }
 
     // This is set by our standard deployment process.
     const cacheParam =
