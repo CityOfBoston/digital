@@ -32,18 +32,27 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
   const templateHtml = await res.text();
   const $ = cheerio.load(templateHtml);
 
-  $('a').each((i, el) => {
+  $('a, img').each((i, el) => {
     const $el = $(el);
-    let href = $el.attr('href');
 
-    if (!href.match(/^https?:/)) {
-      if (!href.startsWith('/')) {
-        href = `/${href}`;
+    // We need to absolutize all URLs, and also strip the cache-busting attribute.
+    ['href', 'src'].forEach(attr => {
+      let url = $el.attr(attr);
+
+      if (!url) {
+        return;
       }
-      href = `https://www.boston.gov${href}`;
-    }
 
-    $el.attr('href', href);
+      if (!url.match(/^(https?|mailto):/)) {
+        if (!url.startsWith('/')) {
+          url = `/${url}`;
+        }
+        url = `https://www.boston.gov${url}`;
+      }
+
+      url = url.replace(/\?k=.*/, '');
+      $el.attr(attr, url);
+    });
   });
 
   // Hand-restore the Translate link because we're not shipping the JS to
@@ -82,7 +91,8 @@ async function fetchTemplates({ url, enableTranslate }: Options, push) {
 
   const stylesheetHrefs = $('link[rel=stylesheet]')
     .map((i, el) => $(el).attr('href'))
-    .toArray();
+    .toArray()
+    .map(url => url.replace(/\?k=.*/, ''));
   push(
     new gutil.File({
       path: 'stylesheets.json',

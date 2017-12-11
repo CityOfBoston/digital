@@ -11,6 +11,17 @@ declare module 'next' {
     err?: any,
   |};
 
+  declare type RenderedPage = {|
+    html: string,
+  |} | {|
+    errorHtml: string,
+  |}
+
+  declare type DocumentContext<Q> = {|
+    ...Context<Q>,
+    renderPage: () => RenderedPage,
+  |}
+
   declare class App {
     prepare: () => Promise<void>,
     close: () => Promise<void>,

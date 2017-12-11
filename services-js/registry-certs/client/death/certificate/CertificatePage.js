@@ -202,7 +202,8 @@ export class CertificatePageContent extends React.Component<
               type="text"
               id="quantity"
               name="quantity"
-              className="txt-f"
+              className="txt-f txt-f--combo txt-f--auto ta-r"
+              size="5"
               value={quantity || ''}
               onChange={this.handleQuantityChange}
             />
@@ -215,7 +216,7 @@ export class CertificatePageContent extends React.Component<
               <select
                 name="quantityMenu"
                 value={quantity && quantity <= 10 ? quantity : 'other'}
-                className="sel-f sel-f--sq"
+                className="sel-f sel-f--sq quantity-dropdown"
                 onChange={this.handleQuantityChange}
               >
                 <option value="1">1</option>
@@ -279,15 +280,7 @@ export class CertificatePageContent extends React.Component<
             align-items: center;
           }
 
-          .txt-f {
-            /* matches the select box */
-            height: 62px;
-            width: 4em !important;
-            text-align: right;
-            border-right: none;
-          }
-
-          .sel-c:after {
+          .quantity-dropdown:after {
             content: 'Qty.';
           }
 

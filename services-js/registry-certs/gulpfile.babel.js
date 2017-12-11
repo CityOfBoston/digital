@@ -53,7 +53,7 @@ gulp.task('templates:fetch', () =>
   plumber()
     .pipe(
       fetchTemplates({
-        url: 'https://edit-dev.boston.gov/api/v1/layouts/app',
+        url: 'https://www.boston.gov/api/v1/layouts/app',
       })
     )
     .pipe(gulp.dest('templates'))

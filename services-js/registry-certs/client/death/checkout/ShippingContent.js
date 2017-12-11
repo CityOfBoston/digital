@@ -179,7 +179,7 @@ export default class ShippingContent extends React.Component<Props, State> {
                   type="phone"
                   placeholder="Phone number"
                   {...this.fieldListeners('contactPhone')}
-                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
                     'contactPhone'
                   )}`}
                   value={contactPhone}
