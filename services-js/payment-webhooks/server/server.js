@@ -15,9 +15,9 @@ type ServerArgs = {
 
 const port = parseInt(process.env.PORT || '5000', 10);
 
-export function makeServer({opbeat}: ServerArgs) {
+export function makeServer({ opbeat }: ServerArgs) {
   const server = new Hapi.Server();
-  server.connection({port}, '0.0.0.0');
+  server.connection({ port }, '0.0.0.0');
 
   // Add services to wait for in here.
   // Returns an async shutdown method.
@@ -60,7 +60,7 @@ export function makeServer({opbeat}: ServerArgs) {
       process.env.INOVAH_USERNAME,
       process.env.INOVAH_PASSWORD,
       process.env.INOVAH_PAYMENT_ORIGIN,
-      opbeat,
+      opbeat
     );
 
   server.route({
@@ -113,11 +113,11 @@ export function makeServer({opbeat}: ServerArgs) {
     },
   });
 
-  return {server, startup};
+  return { server, startup };
 }
 
 export default (async function startServer(args: ServerArgs) {
-  const {server, startup} = makeServer(args);
+  const { server, startup } = makeServer(args);
 
   const shutdown = await startup();
   cleanup(exitCode => {
@@ -128,7 +128,7 @@ export default (async function startServer(args: ServerArgs) {
       err => {
         console.log('CLEAN EXIT FAILED', err);
         process.exit(-1);
-      },
+      }
     );
 
     cleanup.uninstall();

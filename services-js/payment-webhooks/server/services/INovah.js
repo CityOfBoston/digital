@@ -9,7 +9,7 @@ export type SoapCallback<T> = (
   err: ?Error,
   result: T,
   raw: any,
-  soapHeader: Object,
+  soapHeader: Object
 ) => void;
 
 export type StandardResult<R> = {|
@@ -208,8 +208,8 @@ export type AddTransactionOutput = {|
 |};
 
 export type RegisterSecurityKeyInput = {|
-  'strSignOnUserName': string,
-  'strPassword': string,
+  strSignOnUserName: string,
+  strPassword: string,
 |};
 
 export type RegisterSecurityKeyResult = {|
@@ -240,19 +240,19 @@ export type VoidTransactionOutput = {|
 |};
 
 export interface INovahClient {
-  describe(): Object,
+  describe(): Object;
   AddTransaction(
     input: AddTransactionInput,
-    cb: SoapCallback<AddTransactionOutput>,
-  ): void,
+    cb: SoapCallback<AddTransactionOutput>
+  ): void;
   RegisterSecurityKey(
     input: RegisterSecurityKeyInput,
-    cb: SoapCallback<RegisterSecurtyKeyOutput>,
-  ): void,
+    cb: SoapCallback<RegisterSecurtyKeyOutput>
+  ): void;
   VoidTransaction(
     input: VoidTransactionInput,
-    cb: SoapCallback<VoidTransactionOutput>,
-  ): void,
+    cb: SoapCallback<VoidTransactionOutput>
+  ): void;
 }
 
 export default class INovah {
@@ -267,7 +267,7 @@ export default class INovah {
     username: ?string,
     password: ?string,
     paymentOrigin: ?string,
-    opbeat: Opbeat,
+    opbeat: Opbeat
   ) {
     if (!endpoint) {
       throw new Error('Must specify INOVAH_ENDPOINT');
@@ -338,7 +338,7 @@ export default class INovah {
                 break;
             }
           }
-        },
+        }
       );
     });
   }
@@ -397,7 +397,7 @@ export default class INovah {
                 break;
             }
           }
-        },
+        }
       );
     });
   }
@@ -429,7 +429,7 @@ export default class INovah {
                 break;
             }
           }
-        },
+        }
       );
     });
   }

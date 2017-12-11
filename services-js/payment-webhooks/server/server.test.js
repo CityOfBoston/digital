@@ -6,7 +6,7 @@
 
 /* eslint no-console: 0 */
 
-import {makeServer} from './server';
+import { makeServer } from './server';
 
 // eslint-disable-next-line no-undef
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe('server', () => {
   it('can be created', () => {
-    const {server} = makeServer({opbeat});
+    const { server } = makeServer({ opbeat });
     expect(server).toBeDefined();
   });
 });
@@ -32,7 +32,7 @@ describe('running server', () => {
     const oldLog = console.log;
     console.log = () => {};
 
-    const out = makeServer({opbeat});
+    const out = makeServer({ opbeat });
     server = out.server;
     const startup = out.startup;
 

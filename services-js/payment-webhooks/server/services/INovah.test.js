@@ -131,7 +131,7 @@ clientStub.AddTransaction.respondWithSuccess = soapStub.createRespondingStub(
         },
       },
     },
-  }: AddTransactionOutput),
+  }: AddTransactionOutput)
 );
 
 clientStub.RegisterSecurityKey.respondWithSuccess = soapStub.createRespondingStub(
@@ -148,7 +148,7 @@ clientStub.RegisterSecurityKey.respondWithSuccess = soapStub.createRespondingStu
         },
       },
     },
-  }: RegisterSecurtyKeyOutput),
+  }: RegisterSecurtyKeyOutput)
 );
 
 clientStub.RegisterSecurityKey.respondWithFailure = soapStub.createRespondingStub(
@@ -164,7 +164,7 @@ clientStub.RegisterSecurityKey.respondWithFailure = soapStub.createRespondingStu
         },
       },
     },
-  }: RegisterSecurtyKeyOutput),
+  }: RegisterSecurtyKeyOutput)
 );
 
 clientStub.VoidTransaction.respondWithSuccess = soapStub.createRespondingStub(
@@ -184,7 +184,7 @@ clientStub.VoidTransaction.respondWithSuccess = soapStub.createRespondingStub(
         },
       },
     },
-  }: VoidTransactionOutput),
+  }: VoidTransactionOutput)
 );
 
 soapStub.registerClient('inovah', FAKE_ENDPOINT + '?WSDL', clientStub);
@@ -198,7 +198,7 @@ beforeEach(() => {
     FAKE_USERNAME,
     FAKE_PASSWORD,
     FAKE_PAYMENT_ORIGIN,
-    opbeat,
+    opbeat
   );
 });
 

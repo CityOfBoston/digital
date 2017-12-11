@@ -19,11 +19,11 @@ gulp.task('babel:server', ['clean:build'], () =>
     .pipe(plumber())
     .pipe(ignore.exclude(IGNORED_JS_SOURCE))
     .pipe(babel())
-    .pipe(gulp.dest('build/server')),
+    .pipe(gulp.dest('build/server'))
 );
 
 gulp.task('babel:clear-cache', () =>
-  del(path.join('node_modules', '.cache', 'babel-loader')),
+  del(path.join('node_modules', '.cache', 'babel-loader'))
 );
 
 gulp.task('build', ['babel:server']);
