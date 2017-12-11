@@ -172,14 +172,14 @@ export default class QuestionsPane extends React.Component<Props> {
                 htmlFor="QuestionsPane-description"
                 style={{ marginTop: 0 }}
               >
-                Description
+                Describe your request
               </label>
               <textarea
                 name="description"
                 id="QuestionsPane-description"
                 className="txt-f"
                 value={description}
-                placeholder="Please describe your request"
+                placeholder="What can we help with?"
                 onChange={this.handleUpdateDescription}
                 rows="5"
               />

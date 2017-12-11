@@ -8272,14 +8272,14 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
                 }
               }
             >
-              Description
+              Describe your request
             </label>
             <textarea
               className="txt-f"
               id="QuestionsPane-description"
               name="description"
               onChange={[Function]}
-              placeholder="Please describe your request"
+              placeholder="What can we help with?"
               rows="5"
               value=""
             />
@@ -8417,14 +8417,14 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
                 }
               }
             >
-              Description
+              Describe your request
             </label>
             <textarea
               className="txt-f"
               id="QuestionsPane-description"
               name="description"
               onChange={[Function]}
-              placeholder="Please describe your request"
+              placeholder="What can we help with?"
               rows="5"
               value="I could use some heroic support"
             />
@@ -8562,14 +8562,14 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
                 }
               }
             >
-              Description
+              Describe your request
             </label>
             <textarea
               className="txt-f"
               id="QuestionsPane-description"
               name="description"
               onChange={[Function]}
-              placeholder="Please describe your request"
+              placeholder="What can we help with?"
               rows="5"
               value="I could use some heroic support"
             />
@@ -10554,14 +10554,14 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
                         }
                       }
                     >
-                      Description
+                      Describe your request
                     </label>
                     <textarea
                       className="txt-f"
                       id="QuestionsPane-description"
                       name="description"
                       onChange={[Function]}
-                      placeholder="Please describe your request"
+                      placeholder="What can we help with?"
                       rows="5"
                       value=""
                     />

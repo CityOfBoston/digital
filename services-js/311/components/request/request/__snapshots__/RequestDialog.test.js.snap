@@ -1356,14 +1356,14 @@ exports[`rendering questions 1`] = `
                 }
               }
             >
-              Description
+              Describe your request
             </label>
             <textarea
               className="txt-f"
               id="QuestionsPane-description"
               name="description"
               onChange={[Function]}
-              placeholder="Please describe your request"
+              placeholder="What can we help with?"
               rows="5"
               value=""
             />
