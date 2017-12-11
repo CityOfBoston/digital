@@ -114,7 +114,7 @@ export type DetailedServiceRequest = {|
   media_url:
     | ?Array<{|
         url: string,
-        tags: string[],
+        tags?: string[],
       |}>
     | ?string,
   service_name: ?string,

@@ -115,7 +115,7 @@ export const resolvers = {
         return [];
       } else if (Array.isArray(r.media_url)) {
         return r.media_url.map(i => ({
-          tags: i.tags,
+          tags: i.tags || [],
           ...makeResizedImageUrls(i.url),
         }));
       } else {
