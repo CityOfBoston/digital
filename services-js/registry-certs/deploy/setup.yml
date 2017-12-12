@@ -79,7 +79,7 @@ Resources:
         LoadBalancerListenerPriority: !Ref LoadBalancerListenerPriority
         LoadBalancerHealthCheckPath: /admin/ok
         ServiceDesiredCount: !Ref ServiceDesiredCount
-        ContainerPort: 3000
+        ContainerPort: !Ref ContainerPort
       TemplateURL: !Sub 'https://${CloudFormationTemplatesBucket}.s3.amazonaws.com/service/webapp-resources.yml'
 
   Dashboard:
