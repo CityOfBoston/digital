@@ -48,7 +48,8 @@ export function makeServer({ opbeat }: ServerArgs) {
               name: 'Squeeze',
               args: [
                 {
-                  response: '*',
+                  // Keep our health checks from appearing in logs
+                  response: { exclude: 'health' },
                   log: '*',
                 },
               ],
@@ -81,6 +82,10 @@ export function makeServer({ opbeat }: ServerArgs) {
     method: 'GET',
     path: '/admin/ok',
     handler: (request, reply) => reply('ok'),
+    config: {
+      // mark this as a health check so that it doesn’t get logged
+      tags: ['health'],
+    },
   });
 
   server.route({
