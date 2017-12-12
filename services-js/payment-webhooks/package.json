@@ -39,6 +39,7 @@
     ]
   },
   "dependencies": {
+    "aws-sdk": "^2.168.0",
     "babel-runtime": "^6.23.0",
     "boom": "^5.1.0",
     "dotenv": "^4.0.0",
@@ -47,6 +48,7 @@
     "good-squeeze": "^5.0.2",
     "hapi": "^16.4.3",
     "node-cleanup": "^2.1.2",
+    "node-fetch": "^1.7.3",
     "opbeat": "^4.14.0",
     "soap": "^0.20.0"
   },

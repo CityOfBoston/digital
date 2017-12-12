@@ -1,11 +1,37 @@
+dist: trusty
+services:
+- docker
 language: node_js
 node_js:
-- 8.1.0
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
-script:
-- yarn test-ci
-- yarn codecov
-after_script: greenkeeper-lockfile-upload
+- 8
 env:
-  secure: Cs69hwBaEE8yBlIpf8TP/Ku2MTJDIHPyFPA9cEFNqVktcoGxx3IUxrwx2Ta+X5ZVvdSDrRvIzh/jauzjwirwR+gar8pZJ2d5sFmbsaRh08RkKInmJ1FhlvPzH5+mvyMDLP7CAMjoKUYv5BlaTDf4y4HatBs5wYsydlHWip23VkDfnoDlXNwdZiQ370auO2Ue4qsU6oKRUGZUTc+u5EtUiJmlRl7KJZ/7pwl4XlcHRjqfpUIw/DnPEFbuQNVAGU6E5tnA4gfaIdTBcWWqota1/ta3QrwH83yy/vcH2mrcyDkHuRXU90hj49iw/EUrhCJ7+wuv7Dqy4NeDHfYFE2KEtrtxgbjnNJ6ZKXW+K6fVvcxKZcqm2xW6cFk+7hq+3ELFaMQ5mHWCGsaczvw2hMHEHtzG+mwpTX9coJs/n01ce4N2dAE5y7xgk9kNPijyYLiy1xOYokG4Ztovk3fkN0ZrW89ZaXt9Cm6x3jjTl4ckuMP+gFYmkSHWq3HTI4A4Kq8yZqbbvkNrK5Kb4EMLS3g6yQsAqP/q7tpOCSiLMFG4cpjpfz2hDF8hLK0dteLgPonMdAx7FGGiDFKt1wxI2vikeqE8ViAwr1RDbNZmG0+HI/BckFzyfYPidMY+h2rnOIMfQrdQ1C5a/zplKv6c8EdgnbF0BcCsTugeNY6V1VY328w=
+- TZ=America/New_York
+cache:
+  directories:
+  - node_modules
+before_install:
+- npm i -g npm@5.6.x
+before_script:
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-update
+script:
+- npm run-script test-ci
+after_script:
+- npx codecov
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-upload
+branches:
+  only:
+  - production
+  - staging
+  - "/^greenkeeper\\/.*$/"
+before_deploy:
+- pip install --upgrade --user awscli
+deploy:
+- provider: script
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME
+    $STAGING_DESIRED_COUNT"
+  on:
+    branch: production
+notifications:
+  slack:
+    rooms:
+      secure: EOXQsyhbUHPWrfDjhB4XcRXeErVaNGMyyG46BB+Zlb/CzxH2A9LU+1l4stZJ/bEVqO2lYFmyM0N94zdrxNtoWPU0DbNbq0/zS7DEcPf9ehAfc/55SZ7PXP2RIdT7MLHrVrfigFjIUN3mJNjPnHRkjkcde0WDsW3374GIPPdo3KFL4MjsqpBIybAd5lcfBeEOCyUZWQMaSUhY2eWRGCvV7G9nXhnjhCP7fGWApSXCTlhKPkucMZHC074D5rfNwQH0rdQziMfv9VWKZK6s9Ok+J2GlmfZTtqj0SB93iNWn1FsWhy+xxuYAUrGfD4HTUuqnZI9IdC5kay3CjYWSNLsjez3+Y9Fa47HKOkE6OlWvfjiFpnTABjUkpxTzt22QARmQuN/qt4te7iEyUWlBVX9X/xSdKEH8DUbfJMKtMpQ5wVVmSZQO4yShSxF8Fynp5n87aXcY1oyrn3LI4KCEno16ubMbVU5hj6hU3pj+vCi84Exdiulinr+FDNoMpMtafELLByDMPMgPG/5oNBZB0IoDQ2TL4Jp1Kbeb8e6nhqAvFIPF7JqQG+8tVwQmfnHY2FqhdC+8UmF1QyQ3qLRl866Zz2nh2i7lrB1zUKWThC2R0Y+MCT0VQmHMCkTj8wKJrY69S9/P0CXVmsVEjAi2vYy9niHlJXqXpoTAcGoFco2vpV8=
