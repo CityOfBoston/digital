@@ -11,6 +11,8 @@ import { reportDeployToOpbeat } from './lib/opbeat-utils';
 
 import INovah from './services/INovah';
 
+import makeStripe from './stripe';
+
 type Opbeat = $Exports<'opbeat'>;
 
 type ServerArgs = {
@@ -86,6 +88,12 @@ export function makeServer({ opbeat }: ServerArgs) {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
     },
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/stripe',
+    handler: makeStripe(),
   });
 
   server.route({
