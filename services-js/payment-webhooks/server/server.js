@@ -101,7 +101,7 @@ export function makeServer({ opbeat }: ServerArgs) {
       try {
         await processStripeEvent(
           stripe,
-          inovahFactory.inovah(),
+          inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN),
           (request.payload: any)
         );
         reply().code(200);
