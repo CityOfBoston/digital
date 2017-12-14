@@ -1,16 +1,10 @@
 // @flow
 
-import soap from 'soap';
 import Boom from 'boom';
 
-type Opbeat = $Exports<'opbeat'>;
+import { createSoapClient } from '../lib/soap-helpers';
 
-export type SoapCallback<T> = (
-  err: ?Error,
-  result: T,
-  raw: any,
-  soapHeader: Object
-) => void;
+type Opbeat = $Exports<'opbeat'>;
 
 export type StandardResult<R> = {|
   StandardResult: {|
@@ -217,7 +211,7 @@ export type RegisterSecurityKeyResult = {|
   SecurityKey: string,
 |};
 
-export type RegisterSecurtyKeyOutput = {|
+export type RegisterSecurityKeyOutput = {|
   RegisterSecurityKeyResult: StandardResult<RegisterSecurityKeyResult>,
 |};
 
@@ -241,196 +235,180 @@ export type VoidTransactionOutput = {|
 
 export interface INovahClient {
   describe(): Object;
-  AddTransaction(
-    input: AddTransactionInput,
-    cb: SoapCallback<AddTransactionOutput>
-  ): void;
-  RegisterSecurityKey(
-    input: RegisterSecurityKeyInput,
-    cb: SoapCallback<RegisterSecurtyKeyOutput>
-  ): void;
-  VoidTransaction(
-    input: VoidTransactionInput,
-    cb: SoapCallback<VoidTransactionOutput>
-  ): void;
+  AddTransactionAsync(
+    input: AddTransactionInput
+  ): Promise<AddTransactionOutput>;
+  RegisterSecurityKeyAsync(
+    input: RegisterSecurityKeyInput
+  ): Promise<RegisterSecurityKeyOutput>;
+  VoidTransactionAsync(
+    input: VoidTransactionInput
+  ): Promise<VoidTransactionOutput>;
 }
 
-export default class INovah {
-  endpoint: string;
-  username: string;
-  password: string;
-  paymentOrigin: string;
+export class INovahFactory {
+  client: INovahClient;
   opbeat: Opbeat;
+  securityKey: ?string;
 
-  constructor(
-    endpoint: ?string,
-    username: ?string,
-    password: ?string,
-    paymentOrigin: ?string,
-    opbeat: Opbeat
-  ) {
-    if (!endpoint) {
-      throw new Error('Must specify INOVAH_ENDPOINT');
-    }
-
-    if (!username) {
-      throw new Error('Must specify INOVAH_USERNAME');
-    }
-
-    if (!password) {
-      throw new Error('Must specify INOVAH_PASSWORD');
-    }
-
-    if (!paymentOrigin) {
-      throw new Error('Must specify INOVAH_PAYMENT_ORIGIN');
-    }
-
-    this.endpoint = endpoint;
-    this.username = username;
-    this.password = password;
-    this.paymentOrigin = paymentOrigin;
+  constructor(client: INovahClient, opbeat: Opbeat) {
+    this.client = client;
     this.opbeat = opbeat;
   }
 
-  makeClient(): Promise<INovahClient> {
-    const wsdlUrl = `${this.endpoint}?WSDL`;
-    return new Promise((resolve, reject) => {
-      const options = {
-        connection: 'keep-alive',
-      };
-
-      soap.createClient(wsdlUrl, options, (err, client) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(client);
-        }
-      });
+  async login(username: string, password: string): Promise<string> {
+    const output = await this.client.RegisterSecurityKeyAsync({
+      strSignOnUserName: username,
+      strPassword: password,
     });
+
+    const result = output.RegisterSecurityKeyResult.StandardResult.Result;
+
+    switch (result.ReturnCode) {
+      case 'Failure':
+        throw Boom.unauthorized(result.LongErrorMessage);
+
+      case 'Success':
+        this.securityKey = result.SecurityKey;
+        return this.securityKey;
+
+      default:
+        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+    }
+  }
+
+  inovah(paymentOrigin: ?string) {
+    if (!paymentOrigin) {
+      throw new Error('Must specify payment origin');
+    }
+
+    const { client, opbeat, securityKey } = this;
+    if (!securityKey) {
+      throw Boom.internal('INovah service created before login');
+    }
+
+    return new INovah(client, opbeat, paymentOrigin, securityKey);
+  }
+}
+
+// Loads the WDSL file for the endpoint and logs in. Returns a factory that can
+// make INovah instances.
+export async function makeINovahFactory(
+  endpoint: ?string,
+  username: ?string,
+  password: ?string,
+  opbeat: Opbeat
+): Promise<INovahFactory> {
+  if (!endpoint) {
+    throw new Error('Must specify INOVAH_ENDPOINT');
+  }
+
+  if (!username) {
+    throw new Error('Must specify INOVAH_USERNAME');
+  }
+
+  if (!password) {
+    throw new Error('Must specify INOVAH_PASSWORD');
+  }
+
+  const client: INovahClient = await createSoapClient(endpoint);
+  const factory = new INovahFactory(client, opbeat);
+
+  await factory.login(username, password);
+
+  return factory;
+}
+
+export default class INovah {
+  client: INovahClient;
+  opbeat: Opbeat;
+
+  paymentOrigin: string;
+  securityKey: string;
+
+  constructor(
+    client: INovahClient,
+    opbeat: Opbeat,
+    paymentOrigin: string,
+    securityKey: string
+  ) {
+    this.client = client;
+    this.opbeat = opbeat;
+
+    this.paymentOrigin = paymentOrigin;
+    this.securityKey = securityKey;
   }
 
   async describe(): Promise<Object> {
-    const client = await this.makeClient();
-    return client.describe();
+    return this.client.describe();
   }
 
-  getSecurityKey(client: INovahClient): Promise<string> {
-    return new Promise((resolve, reject) => {
-      client.RegisterSecurityKey(
-        {
-          strSignOnUserName: this.username,
-          strPassword: this.password,
-        },
-        (err, output: RegisterSecurtyKeyOutput) => {
-          if (err) {
-            reject(err);
-          } else {
-            const result =
-              output.RegisterSecurityKeyResult.StandardResult.Result;
+  async addTransaction(amountInDollars: number): Promise<string> {
+    const { client, securityKey, paymentOrigin } = this;
 
-            switch (result.ReturnCode) {
-              case 'Failure':
-                reject(Boom.unauthorized(result.LongErrorMessage));
-                break;
-
-              case 'Success':
-                resolve(result.SecurityKey);
-                break;
-            }
-          }
-        }
-      );
-    });
-  }
-
-  async registerSecurityKey(): Promise<string> {
-    return this.getSecurityKey(await this.makeClient());
-  }
-
-  async addTransaction(amount: number): Promise<string> {
-    const client = await this.makeClient();
-    const securityKey = await this.getSecurityKey(client);
-
-    return new Promise((resolve, reject) => {
-      client.AddTransaction(
-        {
-          strSecurityKey: securityKey,
-          strPaymentOrigin: this.paymentOrigin,
-          xmlTransaction: {
-            Transaction: {
-              attributes: {
-                xmlns: '',
-              },
-              Payment: {
-                PaymentCode: 'REG13',
-                PaymentAllocation: {
-                  AllocationCode: 'REG13',
-                  Amount: amount.toFixed(4),
-                },
-                LastName: 'DANVERS, CAROL',
-                City: 'Boston',
-                State: 'MA',
-                PaymentCustom: {
-                  AddressLine1: '123 Marvel St',
-                },
-              },
-              Tender: {
-                TenderCode: 'CASH',
-                Amount: amount.toFixed(4),
-              },
+    const output = await client.AddTransactionAsync({
+      strSecurityKey: securityKey,
+      strPaymentOrigin: paymentOrigin,
+      xmlTransaction: {
+        Transaction: {
+          attributes: {
+            xmlns: '',
+          },
+          Payment: {
+            PaymentCode: 'REG13',
+            PaymentAllocation: {
+              AllocationCode: 'REG13',
+              Amount: amountInDollars.toFixed(4),
+            },
+            LastName: 'DANVERS, CAROL',
+            City: 'Boston',
+            State: 'MA',
+            PaymentCustom: {
+              AddressLine1: '123 Marvel St',
             },
           },
+          Tender: {
+            TenderCode: 'CASH',
+            Amount: amountInDollars.toFixed(4),
+          },
         },
-        (err, output: AddTransactionOutput) => {
-          if (err) {
-            reject(err);
-          } else {
-            const result = output.AddTransactionResult.StandardResult.Result;
-
-            switch (result.ReturnCode) {
-              case 'Failure':
-                reject(Boom.badData(result.LongErrorMessage));
-                break;
-
-              case 'Success':
-                resolve(result.PaymentBatch.Transaction.TransactionID);
-                break;
-            }
-          }
-        }
-      );
+      },
     });
+
+    const result = output.AddTransactionResult.StandardResult.Result;
+
+    switch (result.ReturnCode) {
+      case 'Failure':
+        throw Boom.badData(result.LongErrorMessage);
+
+      case 'Success':
+        return result.PaymentBatch.Transaction.TransactionID;
+
+      default:
+        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+    }
   }
 
   async voidTransaction(transactionId: string): Promise<boolean> {
-    const client = await this.makeClient();
-    const securityKey = await this.getSecurityKey(client);
+    const { client, securityKey } = this;
 
-    return new Promise((resolve, reject) => {
-      client.VoidTransaction(
-        {
-          strSecurityKey: securityKey,
-          strTransactionID: transactionId,
-          strAdjustmentReason: 'refund',
-        },
-        (err, output: VoidTransactionOutput) => {
-          if (err) {
-            reject(err);
-          } else {
-            const result = output.VoidTransactionResult.StandardResult.Result;
-
-            switch (result.ReturnCode) {
-              case 'Failure':
-                reject(Boom.badData(result.LongErrorMessage));
-                break;
-
-              case 'Success':
-                resolve(true);
-                break;
-            }
-          }
-        }
-      );
+    const output = await client.VoidTransactionAsync({
+      strSecurityKey: securityKey,
+      strTransactionID: transactionId,
+      strAdjustmentReason: 'refund',
     });
+
+    const result = output.VoidTransactionResult.StandardResult.Result;
+
+    switch (result.ReturnCode) {
+      case 'Failure':
+        throw Boom.badData(result.LongErrorMessage);
+
+      case 'Success':
+        return true;
+
+      default:
+        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+    }
   }
 }

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processStripeEvent charge.succeeded it rejects if Stripe fails 1`] = `[Error: Stripe backend error!]`;
+
+exports[`processStripeEvent charge.succeeded it rejects if iNovah fails 1`] = `[Error: iNovah backend error!]`;

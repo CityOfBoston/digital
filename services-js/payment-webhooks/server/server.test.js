@@ -8,6 +8,10 @@
 
 import { makeServer } from './server';
 
+// We don't want to try and actually connect to the INovah endpoint, which
+// happens on server startup.
+jest.mock('./services/INovah');
+
 // eslint-disable-next-line no-undef
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 

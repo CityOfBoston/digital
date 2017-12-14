@@ -1,0 +1,25 @@
+
+
+{
+  "id": "txn_1BYfsgHEIqCf0Nlg2VWuyvMI",
+  "object": "balance_transaction",
+  "amount": 1456,
+  "available_on": 1513728000,
+  "created": 1513193222,
+  "currency": "usd",
+  "description": "Death certificates (Registry)",
+  "fee": 56,
+  "fee_details": [
+    {
+      "amount": 56,
+      "application": null,
+      "currency": "usd",
+      "description": "Stripe processing fees",
+      "type": "stripe_fee"
+    }
+  ],
+  "net": 1400,
+  "source": "ch_1BYfsgHEIqCf0Nlg2OMEEkQv",
+  "status": "pending",
+  "type": "charge"
+}

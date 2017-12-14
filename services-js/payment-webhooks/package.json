@@ -25,6 +25,7 @@
   },
   "license": "CC0-1.0",
   "jest": {
+    "collectCoverage": true,
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
@@ -50,7 +51,8 @@
     "node-cleanup": "^2.1.2",
     "node-fetch": "^1.7.3",
     "opbeat": "^4.14.0",
-    "soap": "^0.20.0"
+    "soap": "^0.20.0",
+    "stripe": "^5.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

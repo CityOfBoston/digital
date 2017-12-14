@@ -5,13 +5,14 @@ import fs from 'fs';
 import Hapi from 'hapi';
 import Good from 'good';
 import cleanup from 'node-cleanup';
+import makeStripe from 'stripe';
 
 import decryptEnv from './lib/decrypt-env';
 import { reportDeployToOpbeat } from './lib/opbeat-utils';
 
-import INovah from './services/INovah';
+import { makeINovahFactory, type INovahFactory } from './services/INovah';
 
-import makeStripe from './stripe';
+import { processStripeEvent } from './stripe-events';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -35,9 +36,21 @@ export function makeServer({ opbeat }: ServerArgs) {
     server.connection({ port }, '0.0.0.0');
   }
 
+  const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+
   // Add services to wait for in here.
   // Returns an async shutdown method.
-  const startup = async () => async () => {};
+  let inovahFactory: INovahFactory;
+  const startup = async () => {
+    inovahFactory = await makeINovahFactory(
+      process.env.INOVAH_ENDPOINT,
+      process.env.INOVAH_USERNAME,
+      process.env.INOVAH_PASSWORD,
+      opbeat
+    );
+
+    return async () => {};
+  };
 
   if (process.env.NODE_ENV !== 'test') {
     server.register({
@@ -71,15 +84,6 @@ export function makeServer({ opbeat }: ServerArgs) {
     });
   }
 
-  const makeINovah = () =>
-    new INovah(
-      process.env.INOVAH_ENDPOINT,
-      process.env.INOVAH_USERNAME,
-      process.env.INOVAH_PASSWORD,
-      process.env.INOVAH_PAYMENT_ORIGIN,
-      opbeat
-    );
-
   server.route({
     method: 'GET',
     path: '/admin/ok',
@@ -93,14 +97,25 @@ export function makeServer({ opbeat }: ServerArgs) {
   server.route({
     method: 'POST',
     path: '/stripe',
-    handler: makeStripe(),
+    handler: async (request, reply) => {
+      try {
+        await processStripeEvent(
+          stripe,
+          inovahFactory.inovah(),
+          (request.payload: any)
+        );
+        reply().code(200);
+      } catch (e) {
+        reply(e);
+      }
+    },
   });
 
   server.route({
     method: 'GET',
     path: '/describe',
     handler: async (request, reply) => {
-      const iNovah = makeINovah();
+      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
       const description = await iNovah.describe();
 
       reply(JSON.stringify(description, null, 2)).type('text/plain');
@@ -109,20 +124,9 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   server.route({
     method: 'GET',
-    path: '/login',
-    handler: async (request, reply) => {
-      const iNovah = makeINovah();
-      const key = await iNovah.registerSecurityKey();
-
-      reply(key);
-    },
-  });
-
-  server.route({
-    method: 'GET',
     path: '/payment',
     handler: async (request, reply) => {
-      const iNovah = makeINovah();
+      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
       const transactionId = await iNovah.addTransaction(15);
 
       reply(`Transaction ID: ${transactionId}`).type('text/plain');
@@ -133,7 +137,7 @@ export function makeServer({ opbeat }: ServerArgs) {
     method: 'GET',
     path: '/void/{transactionId}',
     handler: async (request, reply) => {
-      const iNovah = makeINovah();
+      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
       const output = await iNovah.voidTransaction(request.params.transactionId);
 
       reply(output).type('text/plain');
