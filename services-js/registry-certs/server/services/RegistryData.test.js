@@ -1,6 +1,6 @@
 // @flow
 
-import { splitKeys } from './Registry';
+import { splitKeys } from './RegistryData';
 
 describe('split keys', () => {
   it('combines keys', () => {

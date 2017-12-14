@@ -1,3 +1,5 @@
+// @flow
+
 import initStoryshots, {
   snapshotWithOptions,
 } from '@storybook/addon-storyshots';

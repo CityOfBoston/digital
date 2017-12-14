@@ -3,10 +3,10 @@
 import MockDate from 'mockdate';
 
 import { resolvers, parseAgeOrDateOfBirth } from './death-certificates';
-import { FixtureRegistry } from '../services/Registry';
-import type Registry from '../services/Registry';
+import { FixtureRegistryData } from '../services/RegistryData';
+import type RegistryData from '../services/RegistryData';
 
-import fixtureData from '../../fixtures/registry/smith.json';
+import fixtureData from '../../fixtures/registry-data/smith.json';
 
 beforeEach(() => {
   MockDate.set('10/20/2016');
@@ -17,10 +17,10 @@ afterEach(() => {
 });
 
 describe('DeathCertificates resolvers', () => {
-  let registry: Registry;
+  let registryData: RegistryData;
 
   beforeEach(() => {
-    registry = (new FixtureRegistry(fixtureData): any);
+    registryData = (new FixtureRegistryData(fixtureData): any);
   });
 
   describe('search', () => {
@@ -28,7 +28,12 @@ describe('DeathCertificates resolvers', () => {
       const search = await resolvers.DeathCertificates.search(
         {},
         { query: 'Logan' },
-        { registry, stripe: ({}: any) }
+        {
+          registryData,
+          registryOrders: ({}: any),
+          stripe: ({}: any),
+          opbeat: ({}: any),
+        }
       );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(20);
@@ -40,7 +45,12 @@ describe('DeathCertificates resolvers', () => {
       const search = await resolvers.DeathCertificates.search(
         {},
         { query: 'Logan', pageSize: 2, page: 1 },
-        { registry, stripe: ({}: any) }
+        {
+          registryData,
+          registryOrders: ({}: any),
+          stripe: ({}: any),
+          opbeat: ({}: any),
+        }
       );
       expect(search.page).toEqual(1);
       expect(search.pageSize).toEqual(2);
@@ -54,7 +64,12 @@ describe('DeathCertificates resolvers', () => {
         await resolvers.DeathCertificates.certificate(
           {},
           { id: fixtureData[0].CertificateID.toString() },
-          { registry, stripe: ({}: any) }
+          {
+            registryData,
+            registryOrders: ({}: any),
+            stripe: ({}: any),
+            opbeat: ({}: any),
+          }
         )
       ).toBeTruthy();
     });
@@ -64,7 +79,12 @@ describe('DeathCertificates resolvers', () => {
         await resolvers.DeathCertificates.certificate(
           {},
           { id: '999992' },
-          { registry, stripe: ({}: any) }
+          {
+            registryData,
+            registryOrders: ({}: any),
+            stripe: ({}: any),
+            opbeat: ({}: any),
+          }
         )
       ).not.toBeTruthy();
     });
@@ -81,7 +101,12 @@ describe('DeathCertificates resolvers', () => {
             fixtureData[2].CertificateID.toString(),
           ],
         },
-        { registry, stripe: ({}: any) }
+        {
+          registryData,
+          registryOrders: ({}: any),
+          stripe: ({}: any),
+          opbeat: ({}: any),
+        }
       );
       expect(certificates[0]).toBeTruthy();
       expect(certificates[1]).not.toBeTruthy();

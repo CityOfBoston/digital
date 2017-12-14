@@ -13,10 +13,15 @@ import {
   resolvers as deathResolvers,
 } from './death-certificates';
 
-import type Registry from '../services/Registry';
+import type RegistryData from '../services/RegistryData';
+import type RegistryOrders from '../services/RegistryOrders';
+
+type Opbeat = $Exports<'opbeat'>;
 
 export type Context = {|
-  registry: Registry,
+  opbeat: Opbeat,
+  registryData: RegistryData,
+  registryOrders: RegistryOrders,
   stripe: NodeStripe,
 |};
 

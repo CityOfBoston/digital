@@ -112,14 +112,14 @@ declare module 'stripe' {
       address_city: ?string,
       address_country: ?string,
       address_line1: ?string,
-      address_line1_check: ?StripeCheckResult,
+      address_line1_check: ?CheckResult,
       address_line2: ?string,
       address_state: ?string,
       address_zip: ?string,
-      address_zip_check: ?StripeCheckResult,
+      address_zip_check: ?CheckResult,
       brand: string,
       country: string,
-      cvc_check: ?StripeCheckResult,
+      cvc_check: ?CheckResult,
       dynamic_last4: ?string,
       exp_month: number,
       exp_year: number,
@@ -244,16 +244,96 @@ declare module 'stripe' {
     transfer_group: ?string,
   |};
 
+  declare export type RefundInput = {|
+    charge: string,
+    metadata?: {[key: string]: string},
+  |};
+
+  declare export type Refund = {|
+    id: string,
+    object: 'refund',
+  |};
+
+  declare export type FeeDetail = {|
+    amount: number,
+    application: string,
+    currency: string,
+    description: string,
+    type: 'application_fee' | 'stripe_fee' | 'tax',
+  |};
+
+  declare export type BalanceTransaction = {|
+    id: string,
+    object: 'balance_transaction',
+    amount: number,
+    avaliable_on: number,
+    created: number,
+    currency: string,
+    description: string,
+    fee: number,
+    fee_details: Array<FeeDetail>,
+    net: number,
+    source: string,
+    status: 'available' | 'pending',
+    type: 
+      | 'adjustment'
+      | 'application_fee'
+      | 'application_fee_refund'
+      | 'charge'
+      | 'payment'
+      | 'payment_failure_refund'
+      | 'payment_refund'
+      | 'refund'
+      | 'transfer'
+      | 'transfer_refund'
+      | 'payout'
+      | 'payout_cancel'
+      | 'payout_failure'
+      | 'validation'
+      | 'stripe_fee',
+  |};
+
+  declare type EventHeader = {|
+    created: number,
+    livemode: boolean,
+    id: string,
+    object: 'event',
+    request: null,
+    pending_webhooks: number,
+    api_version: string,
+  |};
+  
+  declare export type Event = {|
+    ...EventHeader,
+    type: 'charge.succeeded',
+    data: {|
+      object: Charge,
+    |},
+  |}
+
   // Can't collide with the global Stripe function from stripe.flow.js
   declare export type NodeStripe = {|
     setTimeout(ms: number): void,
     setHttpAgent(agent: Agent): void,
     
+    balance: {|
+      retrieveTransaction(
+        id: string,
+        cb?: (err: Error, token: Token) => mixed
+      ): Promise<BalanceTransaction>,
+    |},
+
     charges: {|
-      create: (
+      create(
         charge: ChargeInput,
         cb?: (err: Error, charge: Charge) => mixed
-      ) => Promise<Charge>,
+      ): Promise<Charge>,
+    |},
+
+    refunds: {|
+      create(refund: RefundInput,
+        cb?: (err: Error, refund: Refund) => mixed
+      ): Promise<Refund>,
     |},
 
     tokens: {|

@@ -5,7 +5,7 @@ import type { Context } from './index';
 import type {
   DeathCertificateSearchResult,
   DeathCertificate as DbDeathCertificate,
-} from '../services/Registry';
+} from '../services/RegistryData';
 
 export const Schema = `
 type DeathCertificate {
@@ -116,7 +116,7 @@ export const resolvers = {
     search: async (
       root: mixed,
       { query, pageSize, page, startYear, endYear }: SearchArgs,
-      { registry }: Context
+      { registryData }: Context
     ): Promise<DeathCertificateSearch> => {
       const queryPageSize = Math.min(
         pageSize || DEFAULT_PAGE_SIZE,
@@ -126,7 +126,7 @@ export const resolvers = {
 
       const results: Array<
         DeathCertificateSearchResult
-      > = await registry.search(
+      > = await registryData.search(
         query,
         queryPage,
         queryPageSize,
@@ -148,9 +148,9 @@ export const resolvers = {
     certificate: async (
       root: mixed,
       { id }: CertificateArgs,
-      { registry }: Context
+      { registryData }: Context
     ): Promise<?DeathCertificate> => {
-      const res = await registry.lookup(id);
+      const res = await registryData.lookup(id);
 
       if (res) {
         return searchResultToDeathCertificate(res);
@@ -161,11 +161,11 @@ export const resolvers = {
     certificates: (
       root: mixed,
       { ids }: CertificatesArgs,
-      { registry }: Context
+      { registryData }: Context
     ): Promise<Array<?DeathCertificate>> =>
       Promise.all(
         ids.map(async (id): Promise<?DeathCertificate> => {
-          const res = await registry.lookup(id);
+          const res = await registryData.lookup(id);
           if (res) {
             return searchResultToDeathCertificate(res);
           } else {

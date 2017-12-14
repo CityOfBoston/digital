@@ -1,6 +1,6 @@
-import type { IncomingMessage, ServerResponse } from 'http';
-
 declare module 'next' {
+  import type { IncomingMessage, ServerResponse } from 'http';
+
   // We include a generic here that's merged with the request to support
   // type checking on the attributes that we add to a request in our middleware.
   declare type Context<Q> = {|

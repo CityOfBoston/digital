@@ -43,7 +43,7 @@ describe('controller', () => {
   describe('getInitialProps', () => {
     let CheckoutPageController;
     let dependencies: any;
-    let res: ServerResponse;
+    let res: any;
 
     beforeEach(() => {
       dependencies = {};

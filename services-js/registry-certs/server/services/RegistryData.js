@@ -1,10 +1,14 @@
 // @flow
 
 import { ConnectionPool } from 'mssql';
-import type { ConnectionPoolConfig } from 'mssql';
 
 import fs from 'fs';
 import DataLoader from 'dataloader';
+
+import {
+  createConnectionPool,
+  type DatabaseConnectionOptions,
+} from '../lib/mssql-helpers';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -64,7 +68,7 @@ export function splitKeys(
   return keyStrings;
 }
 
-export default class Registry {
+export default class RegistryData {
   opbeat: ?Opbeat;
   pool: ConnectionPool;
   lookupLoader: DataLoader<string, ?DeathCertificate>;
@@ -84,7 +88,7 @@ export default class Registry {
   ): Promise<Array<DeathCertificateSearchResult>> {
     const transaction =
       this.opbeat &&
-      this.opbeat.startTransaction('FindCertificatesWeb', 'Registry');
+      this.opbeat.startTransaction('FindCertificatesWeb', 'Registry Data');
 
     try {
       const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
@@ -127,7 +131,7 @@ export default class Registry {
       keyStrings.map(async keyString => {
         const transaction =
           this.opbeat &&
-          this.opbeat.startTransaction('GetCertificatesWeb', 'Registry');
+          this.opbeat.startTransaction('GetCertificatesWeb', 'Registry Data');
         try {
           const resp: DbResponse<DeathCertificate> = (await this.pool
             .request()
@@ -156,7 +160,7 @@ export default class Registry {
   }
 }
 
-export class RegistryFactory {
+export class RegistryDataFactory {
   pool: ConnectionPool;
   opbeat: Opbeat;
 
@@ -165,8 +169,8 @@ export class RegistryFactory {
     this.opbeat = opbeat;
   }
 
-  registry() {
-    return new Registry(this.pool, this.opbeat);
+  registryData() {
+    return new RegistryData(this.pool, this.opbeat);
   }
 
   cleanup(): Promise<any> {
@@ -174,60 +178,15 @@ export class RegistryFactory {
   }
 }
 
-export type MakeRegistryOptions = {|
-  user: ?string,
-  password: ?string,
-  server: ?string,
-  domain: ?string,
-  database: ?string,
-|};
-
-export async function makeRegistryFactory(
+export async function makeRegistryDataFactory(
   opbeat: Opbeat,
-  { user, password, server, domain, database }: MakeRegistryOptions
-): Promise<RegistryFactory> {
-  if (!(user && password && server && database)) {
-    throw new Error('Missing some element of database configuration');
-  }
-
-  const opts: ConnectionPoolConfig = {
-    user,
-    password,
-    server,
-    database,
-    pool: {
-      min: 0,
-      // Keeps the acquisition from looping forever if there's a failure.
-      acquireTimeoutMillis: 10000,
-    },
-    options: {
-      encrypt: true,
-    },
-  };
-
-  if (domain) {
-    opts.domain = domain;
-  }
-
-  const pool = new ConnectionPool(opts);
-
-  // We need an error event handler to prevent default Node EventEmitter from
-  // crashing the connection pool by throwing any emitted 'error' events that
-  // aren't being listened to.
-  //
-  // On top of that, we need to report to Opbeat because the only permanent
-  // errors that will filter up to the GraphQL error reporting are pool timeout
-  // errors.
-  pool.on('error', err => {
-    opbeat.captureError(err);
-  });
-
-  await pool.connect();
-
-  return new RegistryFactory(pool, opbeat);
+  connectionOptions: DatabaseConnectionOptions
+): Promise<RegistryDataFactory> {
+  const pool = await createConnectionPool(opbeat, connectionOptions);
+  return new RegistryDataFactory(pool, opbeat);
 }
 
-export class FixtureRegistry {
+export class FixtureRegistryData {
   data: Array<DeathCertificateSearchResult>;
 
   constructor(data: Array<DeathCertificateSearchResult>) {
@@ -247,9 +206,9 @@ export class FixtureRegistry {
   }
 }
 
-export function makeFixtureRegistryFactory(
+export function makeFixtureRegistryDataFactory(
   fixtureName: string
-): Promise<RegistryFactory> {
+): Promise<RegistryDataFactory> {
   return new Promise((resolve, reject) => {
     fs.readFile(fixtureName, (err, data) => {
       if (err) {
@@ -260,8 +219,8 @@ export function makeFixtureRegistryFactory(
 
           resolve(
             ({
-              registry() {
-                return new FixtureRegistry(json);
+              registryData() {
+                return new FixtureRegistryData(json);
               },
 
               cleanup() {

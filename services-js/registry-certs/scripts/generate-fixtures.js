@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 
-import { makeRegistryFactory } from '../server/services/Registry';
+import { makeRegistryDataFactory } from '../server/services/RegistryData';
 
 dotenv.config();
 
@@ -21,23 +21,23 @@ const FIXTURE_SEARCHES = ['smith'];
     database: process.env.REGISTRY_DB_DATABASE,
   };
 
-  const registryFactory = await makeRegistryFactory(
+  const registryDataFactory = await makeRegistryDataFactory(
     (null: any),
     registryFactoryOpts
   );
-  const registry = registryFactory.registry();
+  const registryData = registryDataFactory.registryData();
 
   await Promise.all(
     FIXTURE_SEARCHES.map(async search => {
-      const records = await registry.search(search, 0, 500);
+      const records = await registryData.search(search, 0, 500);
       fs.writeFileSync(
-        path.join(__dirname, `../fixtures/registry/${search}.json`),
+        path.join(__dirname, `../fixtures/registry-data/${search}.json`),
         JSON.stringify(records, null, 2)
       );
     })
   );
 
-  await registryFactory.cleanup();
+  await registryDataFactory.cleanup();
 })().catch(err => {
   console.error(err);
   process.exit(1);

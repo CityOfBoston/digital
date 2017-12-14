@@ -62,6 +62,14 @@ describe('Mutation resolvers', () => {
         },
       };
 
+      const registryOrders = {
+        addOrder: jest.fn(),
+        addItem: jest.fn(),
+        addPayment: jest.fn(),
+      };
+
+      registryOrders.addOrder.mockReturnValue(Promise.resolve(25));
+
       tokensRetrieve.mockReturnValue(
         Promise.resolve({ card: { funding: 'credit' } })
       );
@@ -70,7 +78,7 @@ describe('Mutation resolvers', () => {
       await resolvers.Mutation.submitDeathCertificateOrder(
         null,
         DEFAULT_ORDER,
-        ({ stripe }: any)
+        ({ stripe, registryOrders }: any)
       );
 
       expect(chargesCreate).toHaveBeenCalledWith({
@@ -78,6 +86,10 @@ describe('Mutation resolvers', () => {
         currency: 'usd',
         source: 'tok_test',
         description: 'Death certificates (Registry)',
+        metadata: expect.objectContaining({
+          'registry.orderId': expect.any(String),
+          'registry.orderKey': '25',
+        }),
       });
     });
   });

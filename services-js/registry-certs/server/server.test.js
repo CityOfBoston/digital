@@ -26,7 +26,9 @@ const GRAPHQL_INTROSPECTION_PAYLOAD = {
 let opbeat;
 
 beforeEach(() => {
-  opbeat = {};
+  opbeat = {
+    captureError: jest.fn(),
+  };
 });
 
 describe('server', () => {
@@ -68,6 +70,7 @@ describe('running server', () => {
         },
         payload: GRAPHQL_INTROSPECTION_PAYLOAD,
       });
+
       expect(resp.statusCode).toEqual(200);
     });
 

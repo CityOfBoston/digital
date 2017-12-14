@@ -4,7 +4,7 @@ import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
 import Boom from 'boom';
-import Inert from 'inert';
+import Inert, { type ReplyWithInert } from 'inert';
 import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
@@ -20,10 +20,16 @@ import {
 } from './lib/opbeat-utils';
 
 import {
-  makeRegistryFactory,
-  makeFixtureRegistryFactory,
-} from './services/Registry';
-import type { RegistryFactory } from './services/Registry';
+  makeRegistryDataFactory,
+  makeFixtureRegistryDataFactory,
+  type RegistryDataFactory,
+} from './services/RegistryData';
+
+import {
+  makeRegistryOrdersFactory,
+  makeFixtureRegistryOrdersFactory,
+  type RegistryOrdersFactory,
+} from './services/RegistryOrders';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -55,30 +61,45 @@ export function makeServer({ opbeat }: ServerArgs) {
     quiet: process.env.NODE_ENV === 'test',
   });
 
-  const registryFactoryOpts = {
-    user: process.env.REGISTRY_DB_USER,
-    password: process.env.REGISTRY_DB_PASSWORD,
-    domain: process.env.REGISTRY_DB_DOMAIN,
-    server: process.env.REGISTRY_DB_SERVER,
-    database: process.env.REGISTRY_DB_DATABASE,
+  const registryDataFactoryOpts = {
+    user: process.env.REGISTRY_DATA_DB_USER,
+    password: process.env.REGISTRY_DATA_DB_PASSWORD,
+    domain: process.env.REGISTRY_DATA_DB_DOMAIN,
+    server: process.env.REGISTRY_DATA_DB_SERVER,
+    database: process.env.REGISTRY_DATA_DB_DATABASE,
   };
 
-  let registryFactory: RegistryFactory;
+  const registryOrdersFactoryOpts = {
+    user: process.env.REGISTRY_ORDERS_DB_USER,
+    password: process.env.REGISTRY_ORDERS_DB_PASSWORD,
+    domain: process.env.REGISTRY_ORDERS_DB_DOMAIN,
+    server: process.env.REGISTRY_ORDERS_DB_SERVER,
+    database: process.env.REGISTRY_ORDERS_DB_DATABASE,
+  };
+
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+
+  let registryDataFactory: RegistryDataFactory;
+  let registryOrdersFactory: RegistryOrdersFactory;
 
   const startup = async () => {
     const services = await Promise.all([
-      registryFactoryOpts.server
-        ? makeRegistryFactory(opbeat, registryFactoryOpts)
-        : makeFixtureRegistryFactory('fixtures/registry/smith.json'),
+      registryDataFactoryOpts.server
+        ? makeRegistryDataFactory(opbeat, registryDataFactoryOpts)
+        : makeFixtureRegistryDataFactory('fixtures/registry-data/smith.json'),
+      registryOrdersFactoryOpts.server
+        ? makeRegistryOrdersFactory(opbeat, registryOrdersFactoryOpts)
+        : makeFixtureRegistryOrdersFactory(),
       app.prepare(),
     ]);
 
-    registryFactory = services[0];
+    registryDataFactory = services[0];
+    registryOrdersFactory = services[1];
 
     return async () => {
       await Promise.all([
-        registryFactory.cleanup(),
+        registryDataFactory.cleanup(),
+        registryOrdersFactory.cleanup(),
         app.close(),
         server.stop(),
       ]);
@@ -151,8 +172,10 @@ export function makeServer({ opbeat }: ServerArgs) {
       graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
         schema,
         context: ({
-          registry: registryFactory.registry(),
+          registryData: registryDataFactory.registryData(),
+          registryOrders: registryOrdersFactory.registryOrders(),
           stripe,
+          opbeat: ({}: any),
         }: Context),
       })),
       route: {
@@ -211,7 +234,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/assets/{path*}',
-    handler: (request, reply) => {
+    handler: (request, reply: any) => {
       if (!request.params.path || request.params.path.indexOf('..') !== -1) {
         return reply(Boom.forbidden());
       }
@@ -221,7 +244,8 @@ export function makeServer({ opbeat }: ServerArgs) {
         'assets',
         ...request.params.path.split('/')
       );
-      return reply
+
+      return (reply: ReplyWithInert)
         .file(p)
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
     },
