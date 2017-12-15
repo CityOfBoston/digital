@@ -195,8 +195,11 @@ export const resolvers = {
         source: cardToken,
         description: 'Death certificates (Registry)',
         metadata: {
-          'registry.orderId': orderId,
-          'registry.orderKey': orderKey.toString(),
+          'order.orderId': orderId,
+          'order.orderKey': orderKey.toString(),
+          'order.source': 'registry',
+          'order.quantity': totalQuantity.toString(),
+          'order.unitPrice': CERTIFICATE_COST.toString(),
         },
       });
 

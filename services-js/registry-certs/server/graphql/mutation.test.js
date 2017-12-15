@@ -87,8 +87,10 @@ describe('Mutation resolvers', () => {
         source: 'tok_test',
         description: 'Death certificates (Registry)',
         metadata: expect.objectContaining({
-          'registry.orderId': expect.any(String),
-          'registry.orderKey': '25',
+          'order.orderId': expect.any(String),
+          'order.orderKey': '25',
+          'order.quantity': '10',
+          'order.unitPrice': '1400',
         }),
       });
     });
