@@ -8,6 +8,15 @@ const FAKE_PAYMENT_ORIGIN = 'testhook';
 const FAKE_SECURITY_KEY = '853bc748-e355-48b5-8e16-990ce2d62c80';
 const FAKE_TRANSACTION_ID = '6f1ed5ba-c027-4112-8033-a73a2b090cb0';
 
+const TEST_CUSTOMER = {
+  cardholderName: 'Nancy Whitehead',
+  billingAddress1: '15 College Ave.',
+  billingAddress2: '',
+  billingCity: 'New York',
+  billingState: 'NY',
+  billingZip: '02222',
+};
+
 const SECURITY_KEY_SUCCESS_RESULT = {
   ReturnCode: 'Success',
   ErrorType: 'None',
@@ -215,9 +224,19 @@ describe('INovah', () => {
     });
 
     it('returns the transaction id', async () => {
-      await expect(inovah.addTransaction(15)).resolves.toEqual(
-        FAKE_TRANSACTION_ID
-      );
+      await expect(
+        inovah.addTransaction(
+          'REG-DC-20171214-abcd123',
+          'chg_testcharge',
+          15,
+          TEST_CUSTOMER
+        )
+      ).resolves.toEqual({
+        batchId: '61f393a8-eefc-4169-a374-cd59b0637943',
+        batchNum: '2831',
+        transactionId: FAKE_TRANSACTION_ID,
+        transactionNum: '3',
+      });
     });
   });
 

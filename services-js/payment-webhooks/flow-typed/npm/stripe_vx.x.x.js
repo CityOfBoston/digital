@@ -103,6 +103,16 @@ declare module 'stripe' {
     statement_description?: ?string,
   |};
 
+  declare export type ChargeUpdateInput = {|
+    description?: ?string,
+    fraud_details?: {
+      user_report?: 'safe' | 'fraudulent',
+      stripe_report?: 'fraudulent',
+    },
+    metadata?: {[key: string]: string},
+    receipt_email?: string,
+  |};
+
   declare export type Token = {|
     id: string,
     object: 'token',
@@ -244,6 +254,16 @@ declare module 'stripe' {
     transfer_group: ?string,
   |};
 
+  declare export type RefundInput = {|
+    charge: string,
+    metadata?: {[key: string]: string},
+  |};
+
+  declare export type Refund = {|
+    id: string,
+    object: 'refund',
+  |};
+
   declare export type FeeDetail = {|
     amount: number,
     application: string,
@@ -299,7 +319,29 @@ declare module 'stripe' {
     data: {|
       object: Charge,
     |},
-  |}
+  |};
+
+  declare export type EventsListInput = {|
+    created?: {|
+      gt?: number,
+      gte?: number,
+      lt?: number,
+      lte?: number,
+    |},
+
+    ending_before?: string,
+    limit?: number,
+    starting_after?: string,
+    type?: string,
+    types?: Array<string>,
+  |};
+
+  declare export type List<D> = {|
+    object: 'list',
+    data: Array<D>,
+    has_more: boolean,
+    url: string,
+  |};
 
   // Can't collide with the global Stripe function from stripe.flow.js
   declare export type NodeStripe = {|
@@ -307,17 +349,35 @@ declare module 'stripe' {
     setHttpAgent(agent: Agent): void,
     
     balance: {|
-      retrieveTransaction: (
+      retrieveTransaction(
         id: string,
         cb?: (err: Error, token: Token) => mixed
-      ) => Promise<BalanceTransaction>,
+      ): Promise<BalanceTransaction>,
     |},
 
     charges: {|
-      create: (
+      create(
         charge: ChargeInput,
         cb?: (err: Error, charge: Charge) => mixed
-      ) => Promise<Charge>,
+      ): Promise<Charge>,
+      update(
+        id: string,
+        charge: ChargeUpdateInput,
+        cb?: (err: Error, charge: Charge) => mixed
+      ): Promise<Charge>,
+    |},
+
+    events: {|
+      list(
+        EventsListInput,
+        cb?: (err: Error, refund: List<Event>) => mixed
+      ): Promise<List<Event>>; 
+    |},
+
+    refunds: {|
+      create(refund: RefundInput,
+        cb?: (err: Error, refund: Refund) => mixed
+      ): Promise<Refund>,
     |},
 
     tokens: {|

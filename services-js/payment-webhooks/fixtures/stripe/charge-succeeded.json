@@ -30,6 +30,8 @@
       "invoice": null,
       "livemode": false,
       "metadata": {
+        "registry.orderId": "DC-20171215-yg4lk",
+        "registry.orderKey": "19"
       },
       "on_behalf_of": null,
       "order": null,
@@ -58,9 +60,9 @@
       "source": {
         "id": "card_00000000000000",
         "object": "card",
-        "address_city": "Cambridge",
+        "address_city": "Boston",
         "address_country": "us",
-        "address_line1": "136 Thorndike St.",
+        "address_line1": "1 City Hall Plaza",
         "address_line1_check": "pass",
         "address_line2": "",
         "address_state": "MA",
@@ -78,7 +80,7 @@
         "last4": "4242",
         "metadata": {
         },
-        "name": "Fin Hopkins",
+        "name": "Tomas Lara-Perez",
         "tokenization_method": null
       },
       "source_transfer": null,

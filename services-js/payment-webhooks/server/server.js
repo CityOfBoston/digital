@@ -100,12 +100,16 @@ export function makeServer({ opbeat }: ServerArgs) {
     handler: async (request, reply) => {
       try {
         await processStripeEvent(
-          stripe,
-          inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN),
+          {
+            opbeat,
+            stripe,
+            inovah: inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN),
+          },
           (request.payload: any)
         );
         reply().code(200);
       } catch (e) {
+        opbeat.captureError(e);
         reply(e);
       }
     },
@@ -113,34 +117,12 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   server.route({
     method: 'GET',
-    path: '/describe',
+    path: '/inovah/describe',
     handler: async (request, reply) => {
       const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
       const description = await iNovah.describe();
 
       reply(JSON.stringify(description, null, 2)).type('text/plain');
-    },
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/payment',
-    handler: async (request, reply) => {
-      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
-      const transactionId = await iNovah.addTransaction(15);
-
-      reply(`Transaction ID: ${transactionId}`).type('text/plain');
-    },
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/void/{transactionId}',
-    handler: async (request, reply) => {
-      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
-      const output = await iNovah.voidTransaction(request.params.transactionId);
-
-      reply(output).type('text/plain');
     },
   });
 

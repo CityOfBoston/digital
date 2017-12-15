@@ -14,6 +14,9 @@ describe('processStripeEvent', () => {
       balance: {
         retrieveTransaction: jest.fn(),
       },
+      charges: {
+        update: jest.fn(),
+      },
     };
 
     inovah = {
@@ -28,16 +31,38 @@ describe('processStripeEvent', () => {
         Promise.resolve(BALANCE_TRANSACTION)
       );
 
-      await processStripeEvent(stripe, inovah, CHARGE_SUCCEEDED);
-      expect(inovah.addTransaction).toHaveBeenCalledWith(14.0);
+      inovah.addTransaction.mockReturnValue({});
+
+      await processStripeEvent(
+        { stripe, inovah, opbeat: ({}: any) },
+        CHARGE_SUCCEEDED
+      );
+
+      expect(inovah.addTransaction).toHaveBeenCalledWith(
+        'DC-20171215-yg4lk',
+        'ch_00000000000000',
+        14.0,
+        {
+          billingAddress1: '1 City Hall Plaza',
+          billingAddress2: '',
+          billingCity: 'Boston',
+          billingState: 'MA',
+          billingZip: '02141',
+          cardholderName: 'Tomas Lara-Perez',
+        }
+      );
     });
+
     test('it rejects if Stripe fails', async () => {
       stripe.balance.retrieveTransaction.mockReturnValue(
         Promise.reject(new Error('Stripe backend error!'))
       );
 
       expect(
-        processStripeEvent(stripe, inovah, CHARGE_SUCCEEDED)
+        processStripeEvent(
+          { stripe, inovah, opbeat: ({}: any) },
+          CHARGE_SUCCEEDED
+        )
       ).rejects.toMatchSnapshot();
     });
 
@@ -51,7 +76,10 @@ describe('processStripeEvent', () => {
       );
 
       expect(
-        processStripeEvent(stripe, inovah, CHARGE_SUCCEEDED)
+        processStripeEvent(
+          { stripe, inovah, opbeat: ({}: any) },
+          CHARGE_SUCCEEDED
+        )
       ).rejects.toMatchSnapshot();
     });
   });

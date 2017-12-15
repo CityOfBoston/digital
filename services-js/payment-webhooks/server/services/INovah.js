@@ -6,6 +6,15 @@ import { createSoapClient } from '../lib/soap-helpers';
 
 type Opbeat = $Exports<'opbeat'>;
 
+type TransactionCustomer = {|
+  cardholderName: string,
+  billingAddress1: string,
+  billingAddress2: string,
+  billingCity: string,
+  billingState: string,
+  billingZip: string,
+|};
+
 export type StandardResult<R> = {|
   StandardResult: {|
     Result: FailureResult | R,
@@ -61,6 +70,8 @@ type PaymentIn = {|
   LastName?: string,
   City?: string,
   State?: string,
+  Zip?: string,
+  Invoice?: string,
   PaymentCustom?: {|
     AddressLine1?: string,
     AddressLine2?: string,
@@ -233,6 +244,13 @@ export type VoidTransactionOutput = {|
   VoidTransactionResult: StandardResult<VoidTransactionResult>,
 |};
 
+export type AddTransactionReturn = {|
+  transactionId: string,
+  transactionNum: string,
+  batchId: string,
+  batchNum: string,
+|};
+
 export interface INovahClient {
   describe(): Object;
   AddTransactionAsync(
@@ -343,7 +361,20 @@ export default class INovah {
     return this.client.describe();
   }
 
-  async addTransaction(amountInDollars: number): Promise<string> {
+  // Returns the iNovah TransactionID
+  async addTransaction(
+    registryOrderId: string,
+    stripeChargeId: string,
+    amountInDollars: number,
+    {
+      cardholderName,
+      billingAddress1,
+      billingAddress2,
+      billingCity,
+      billingState,
+      billingZip,
+    }: TransactionCustomer
+  ): Promise<AddTransactionReturn> {
     const { client, securityKey, paymentOrigin } = this;
 
     const output = await client.AddTransactionAsync({
@@ -360,11 +391,14 @@ export default class INovah {
               AllocationCode: 'REG13',
               Amount: amountInDollars.toFixed(4),
             },
-            LastName: 'DANVERS, CAROL',
-            City: 'Boston',
-            State: 'MA',
+            Invoice: stripeChargeId,
+            LastName: cardholderName,
+            City: billingCity,
+            State: billingState,
+            Zip: billingZip,
             PaymentCustom: {
-              AddressLine1: '123 Marvel St',
+              AddressLine1: billingAddress1,
+              AddressLine2: billingAddress2,
             },
           },
           Tender: {
@@ -382,7 +416,12 @@ export default class INovah {
         throw Boom.badData(result.LongErrorMessage);
 
       case 'Success':
-        return result.PaymentBatch.Transaction.TransactionID;
+        return {
+          batchId: result.PaymentBatch.PaymentBatchID,
+          batchNum: result.PaymentBatch.PaymentBatchNum,
+          transactionId: result.PaymentBatch.Transaction.TransactionID,
+          transactionNum: result.PaymentBatch.Transaction.TransactionNum,
+        };
 
       default:
         throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);

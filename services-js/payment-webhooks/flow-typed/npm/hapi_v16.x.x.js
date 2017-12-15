@@ -168,6 +168,16 @@ declare module 'hapi' {
     rewritable(isRewritable?: boolean): this;
   }
 
+  declare type ReplyEntityOptions = {|
+    etag?: string,
+    modified?: string,
+    vary?: boolean,
+  |};
+
+  declare type ReplyCloseOptions = {|
+    end?: boolean,
+  |};
+
   declare export type Reply = {|
      (
       err?: ReplyContent | Promise<ReplyContent>,
@@ -176,6 +186,13 @@ declare module 'hapi' {
     ): Response,
     realm: any,
     request: Request,
+    continue(result?: ReplyContent): void,
+    entity(options: ReplyEntityOptions): void,
+    close(options?: ReplyCloseOptions): void,
+    redirect(uri: string): void,
+    response(result: ReplyContent | Promise<ReplyContent>): void,
+    state(name: string, value: string | Object, options?: CookieOptions): void,
+    unstate(name: string, options?: CookieOptions): void,
   |};
 
   declare type ConnectionOptions = Object;
@@ -300,8 +317,12 @@ declare module 'hapi' {
   |};
 
   declare type RouteHandlerFunction = (request: Request, reply: Reply) => void | Response | Promise<void | Response>;
+  declare type RouteHandlerObject = {
+    $call?: empty
+  };
   declare type RouteHandler = 
     | RouteHandlerFunction
+    | RouteHandlerObject
     | string;
 
   declare type RouteConfig = {|
@@ -341,11 +362,38 @@ declare module 'hapi' {
     config?: RouteConfig | (server: Server) => RouteConfig,
   |};
 
+  declare type AuthScheme = {|
+    api?: Object,
+    authenticate: RouteHandlerFunction,
+    payload?: RouteHandlerFunction,
+    response?: RouteHandlerFunction,
+    options?: {|
+      payload?: boolean,
+    |},
+  |};
+
+  declare class ServerAuth {
+    default(options: string | AuthOptions): void;
+    scheme(name: string, scheme: (server: Server, options: Object) => AuthScheme): void;
+
+    strategy(name: string, scheme: string): void;
+    strategy(name: string, scheme: string, options: Object): void;
+    strategy(name: string, scheme: string, mode: boolean): void;
+    strategy(name: string, scheme: string, mode: boolean, options: Object): void;
+
+    test(strategy: string, request: Request, next: (err: any, credentials: ?Object) => mixed): void;
+  }
+
   declare export class Server {
+    auth: ServerAuth;
+    bind(context: Object): void;
     connection(opts: ConnectionOptions, address: string): void;
     register(opts: RegisterOptions): void;
     route(opts: RouteOptions): void;
+    start(cb: (err: any) => mixed): void; 
     start(): Promise<void>;
+    stop(cb: (err: any) => mixed): void; 
+    stop(): Promise<void>; 
   }
 
   declare type Hapi = {|

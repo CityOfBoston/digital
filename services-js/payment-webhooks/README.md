@@ -6,3 +6,12 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Service to update iNovah based on webhook calls from a payment provider
+
+## Testing
+
+### `charge.succeeded` webhook
+```
+npm run test-latest-charge
+```
+
+This requires at least one charge in Stripe.
