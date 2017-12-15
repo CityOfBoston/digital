@@ -152,7 +152,7 @@ export const resolvers = {
         .toString(36)
         .substr(2, 5);
 
-      const orderId = `DC-${datePart}-${randomPart}`;
+      const orderId = `REG-DC-${datePart}-${randomPart}`;
 
       const orderKey = await registryOrders.addOrder({
         orderID: orderId,
