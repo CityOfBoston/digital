@@ -1,4 +1,5 @@
 // @flow
+/* eslint no-console: 0 */
 
 import { ConnectionPool } from 'mssql';
 
@@ -102,6 +103,7 @@ export default class RegistryOrders {
       const { recordset } = resp;
 
       if (!recordset || recordset.length === 0) {
+        console.log('ERROR FROM AddOrder', JSON.stringify(resp));
         throw new Error('Recordset for creating an order came back empty');
       }
 
@@ -144,6 +146,7 @@ export default class RegistryOrders {
       const { recordset } = resp;
 
       if (!recordset || recordset.length === 0) {
+        console.log('ERROR FROM AddOrderItem', JSON.stringify(resp));
         throw new Error('Recordset for adding order item came back empty');
       }
     } finally {
@@ -176,6 +179,7 @@ export default class RegistryOrders {
       const { recordset } = resp;
 
       if (!recordset || recordset.length === 0) {
+        console.log('ERROR FROM AddPayment', JSON.stringify(resp));
         throw new Error('Recordset for adding payment came back empty');
       }
     } finally {
