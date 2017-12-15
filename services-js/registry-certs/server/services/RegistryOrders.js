@@ -102,8 +102,8 @@ export default class RegistryOrders {
 
       const { recordset } = resp;
 
+      console.log('RESPONSE FROM AddOrder', JSON.stringify(resp));
       if (!recordset || recordset.length === 0) {
-        console.log('ERROR FROM AddOrder', JSON.stringify(resp));
         throw new Error('Recordset for creating an order came back empty');
       }
 
@@ -132,6 +132,13 @@ export default class RegistryOrders {
       this.opbeat &&
       this.opbeat.startTransaction('AddOrderItem', 'Registry Orders');
 
+    console.log(
+      orderKey,
+      certificateId,
+      certificateName,
+      quantity,
+      certificateCost
+    );
     try {
       const resp: DbResponse<Object> = (await this.pool
         .request()
@@ -143,10 +150,10 @@ export default class RegistryOrders {
         .input('unitCost', `$${certificateCost.toFixed(2)}`)
         .execute('Commerce.sp_AddOrderItem'): any);
 
+      console.log('RESPONSE FROM AddOrderItem', JSON.stringify(resp));
       const { recordset } = resp;
 
       if (!recordset || recordset.length === 0) {
-        console.log('ERROR FROM AddOrderItem', JSON.stringify(resp));
         throw new Error('Recordset for adding order item came back empty');
       }
     } finally {
@@ -176,10 +183,10 @@ export default class RegistryOrders {
         .input('paymentAmount', `$${totalInDollars.toFixed(2)}`)
         .execute('Commerce.sp_AddPayment'): any);
 
+      console.log('RESPONSE FROM AddPayment', JSON.stringify(resp));
       const { recordset } = resp;
 
       if (!recordset || recordset.length === 0) {
-        console.log('ERROR FROM AddPayment', JSON.stringify(resp));
         throw new Error('Recordset for adding payment came back empty');
       }
     } finally {
