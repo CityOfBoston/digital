@@ -15,6 +15,12 @@ type TransactionCustomer = {|
   billingZip: string,
 |};
 
+type TransactionPayment = {|
+  quantity: number,
+  amountInDollars: number,
+  unitPriceInDollars: number,
+|};
+
 export type StandardResult<R> = {|
   StandardResult: {|
     Result: FailureResult | R,
@@ -41,6 +47,10 @@ type PaymentAllocationIn = {|
   AllocationCode: string,
   // decimal string: 0.0000
   Amount: string,
+  // decimal string: 1.000000
+  Quantity: string,
+  // decimal string: 0.0000
+  UnitCharge: string,
 |};
 
 type PaymentAllocation = {|
@@ -51,8 +61,6 @@ type PaymentAllocation = {|
   // numeric string
   AllocationSequence: string,
   AllocationName: string,
-  // decimal string: 1.000000
-  Quantity: string,
   GLAccount: string,
   GLDepartment: string,
   GLCode: string,
@@ -60,8 +68,6 @@ type PaymentAllocation = {|
   AllocationID: string,
   UserDefined10: string,
   UserDefined11: string,
-  // decimal string: 0.0000
-  UnitCharge: string,
 |};
 
 type PaymentIn = {|
@@ -365,7 +371,7 @@ export default class INovah {
   async addTransaction(
     registryOrderId: string,
     stripeChargeId: string,
-    amountInDollars: number,
+    { quantity, amountInDollars, unitPriceInDollars }: TransactionPayment,
     {
       cardholderName,
       billingAddress1,
@@ -389,7 +395,9 @@ export default class INovah {
             PaymentCode: 'REG13',
             PaymentAllocation: {
               AllocationCode: 'REG13',
+              Quantity: quantity.toString(),
               Amount: amountInDollars.toFixed(4),
+              UnitCharge: unitPriceInDollars.toString(),
             },
             Invoice: stripeChargeId,
             LastName: cardholderName,

@@ -30,8 +30,10 @@
       "invoice": null,
       "livemode": false,
       "metadata": {
-        "registry.orderId": "DC-20171215-yg4lk",
-        "registry.orderKey": "19"
+        "order.orderId": "DC-20171215-yg4lk",
+        "order.orderKey": "19",
+        "order.quantity": "1",
+        "order.unitPrice": "1400"
       },
       "on_behalf_of": null,
       "order": null,

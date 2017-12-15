@@ -29,10 +29,15 @@ async function processChargeSucceeded(
     batchId,
     batchNum,
   } = await inovah.addTransaction(
-    charge.metadata['registry.orderId'] || 'unknown',
+    charge.metadata['order.orderId'] || 'unknown',
     charge.id,
-    // Stripe works in cents, iNovah in floating-point dollars.
-    balanceTransaction.net / 100,
+    {
+      // Stripe works in cents, iNovah in floating-point dollars.
+      amountInDollars: balanceTransaction.net / 100,
+      quantity: parseInt(charge.metadata['order.quantity'] || '0', 10),
+      unitPriceInDollars:
+        parseInt(charge.metadata['order.unitPrice'] || '0', 10) / 100,
+    },
     {
       cardholderName: charge.source.name,
       billingAddress1: charge.source.address_line1,
