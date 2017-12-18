@@ -17,7 +17,7 @@ export type Props = {
 };
 
 @observer
-export default class CheckoutItem extends React.Component<Props> {
+export default class CartItem extends React.Component<Props> {
   @observable quantityHasFocus: boolean = false;
 
   @computed
@@ -66,6 +66,10 @@ export default class CheckoutItem extends React.Component<Props> {
       return null;
     }
 
+    // We define this here because if we put it in the CertificateRow callback
+    // MobX doesn't capture it as a dependency, due to an intermediary render.
+    const { quantityValue } = this;
+
     return (
       <div>
         <CertificateRow
@@ -77,12 +81,13 @@ export default class CheckoutItem extends React.Component<Props> {
             <input
               key="quantity"
               aria-label="Quantity"
-              value={this.quantityValue}
+              value={quantityValue}
               onChange={this.handleQuantityChange}
               onFocus={this.handleQuanityFocus}
               onBlur={this.handleQuanityBlur}
               className="br br-a150 quantity-box"
             />,
+
             certificateDiv,
 
             <button

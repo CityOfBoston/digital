@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import {
   calculateCreditCardCost,
@@ -23,6 +24,7 @@ type State = {
 
 // Component to display the subtotal / service fee / shipping / total UI from
 // the cart and order review screens.
+@observer
 export default class CostSummary extends React.Component<Props, State> {
   static defaultProps = {
     allowServiceFeeTypeChoice: false,

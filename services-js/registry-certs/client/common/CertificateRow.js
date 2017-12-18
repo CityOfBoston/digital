@@ -67,7 +67,7 @@ const renderCertificate = (
 // construct their own rows. The function is given a <div> component for the
 // certificate, and they can return it and other elements.
 
-export default function SearchResult({
+export default function CertificateRow({
   borderTop,
   borderBottom,
   certificate,
