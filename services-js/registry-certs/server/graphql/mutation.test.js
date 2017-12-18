@@ -32,6 +32,8 @@ const DEFAULT_ORDER = {
       quantity: 10,
     },
   ],
+
+  idempotencyKey: '1234abcd',
 };
 
 describe('Mutation resolvers', () => {

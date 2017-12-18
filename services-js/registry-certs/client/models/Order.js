@@ -48,6 +48,8 @@ export default class Order {
   @observable cardElementError: ?string = null;
   @observable cardElementComplete: boolean = false;
 
+  idempotencyKey: ?string = null;
+
   // Set to true if there's a network operation related to the order going on,
   // such as tokenizing the card with Stripe or submitting the order to the
   // backend.
@@ -165,5 +167,14 @@ export default class Order {
     this.cardToken = null;
     this.cardFunding = 'credit';
     this.info.cardLast4 = '';
+  }
+
+  // We use an idempotency key to prevent double-clicks on submit from
+  // generating mulitple orders (though disabling submit during submission helps
+  // as well).
+  regenerateIdempotencyKey() {
+    this.idempotencyKey = Math.random()
+      .toString(36)
+      .substring(2, 9);
   }
 }

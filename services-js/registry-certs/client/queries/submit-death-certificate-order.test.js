@@ -51,6 +51,7 @@ test('submitDeathCertificateOrder', async () => {
   };
 
   order.cardToken = 'tok_testtoken';
+  order.idempotencyKey = '1234abcd';
 
   await submitDeathCertificateOrder(loopbackGraphql, cart, order);
 
@@ -84,6 +85,8 @@ test('submitDeathCertificateOrder', async () => {
         quantity: 10,
       },
     ],
+
+    idempotencyKey: '1234abcd',
   };
 
   expect(loopbackGraphql).toHaveBeenCalledWith(

@@ -36,11 +36,18 @@ export default async function submitDeathCertificateOrder(
     billingCity,
     billingState,
     billingZip,
+    idempotencyKey,
   } = order;
 
   if (!cardToken || !cardLast4) {
     throw new Error(
       'submitDeathCertificateOrder called before card tokenization'
+    );
+  }
+
+  if (!idempotencyKey) {
+    throw new Error(
+      'submitDeathCertificateOrder called before setting idempotencyKey'
     );
   }
 
@@ -68,6 +75,7 @@ export default async function submitDeathCertificateOrder(
       quantity: e.quantity,
       name: e.cert ? `${e.cert.firstName} ${e.cert.lastName}` : 'Unknown Name',
     })),
+    idempotencyKey,
   };
 
   const response: SubmitDeathCertificateOrderMutation = await loopbackGraphql(

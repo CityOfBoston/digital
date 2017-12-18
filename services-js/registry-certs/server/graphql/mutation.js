@@ -45,6 +45,8 @@ type Mutation {
     billingZip: String!
 
     items: [CertificateOrderItem!]!
+
+    idempotencyKey: String!
   ): SubmittedOrder!
 }
 `;
@@ -85,6 +87,7 @@ type SubmitDeathCertificateOrderArgs = {|
   billingZip: string,
 
   items: Array<CertificateOrderItem>,
+  idempotencyKey: string,
 |};
 
 export const resolvers = {
@@ -154,6 +157,7 @@ export const resolvers = {
 
       const orderId = `REG-DC-${datePart}-${randomPart}`;
 
+      // TODO(finh): Use the idempotency key from the browser in addOrder
       const orderKey = await registryOrders.addOrder({
         orderID: orderId,
         orderDate: new Date(),

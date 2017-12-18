@@ -103,6 +103,16 @@ declare module 'stripe' {
     statement_description?: ?string,
   |};
 
+  declare export type ChargeUpdateInput = {|
+    description?: ?string,
+    fraud_details?: {
+      user_report?: 'safe' | 'fraudulent',
+      stripe_report?: 'fraudulent',
+    },
+    metadata?: {[key: string]: string},
+    receipt_email?: string,
+  |};
+
   declare export type Token = {|
     id: string,
     object: 'token',
@@ -170,7 +180,7 @@ declare module 'stripe' {
     amount_refunded: number,
     application: ?string,
     application_fee: ?string,
-    balance_transaction: string,
+    balance_transaction: string | BalanceTransaction,
     captured: boolean,
     created: number,
     currency: string,
@@ -309,7 +319,37 @@ declare module 'stripe' {
     data: {|
       object: Charge,
     |},
-  |}
+  |};
+
+  declare export type EventsListInput = {|
+    created?: {|
+      gt?: number,
+      gte?: number,
+      lt?: number,
+      lte?: number,
+    |},
+
+    ending_before?: string,
+    limit?: number,
+    starting_after?: string,
+    type?: string,
+    types?: Array<string>,
+  |};
+
+  declare export type List<D> = {|
+    object: 'list',
+    data: Array<D>,
+    has_more: boolean,
+    url: string,
+  |};
+
+  declare type RequestOptions = {|
+    api_key?: string,
+    idempotency_key?: string,
+    stripe_account?: string,
+    stripe_version?: string,
+    expand?: Array<string>,
+  |};
 
   // Can't collide with the global Stripe function from stripe.flow.js
   declare export type NodeStripe = {|
@@ -319,6 +359,7 @@ declare module 'stripe' {
     balance: {|
       retrieveTransaction(
         id: string,
+        options?: RequestOptions,
         cb?: (err: Error, token: Token) => mixed
       ): Promise<BalanceTransaction>,
     |},
@@ -326,12 +367,33 @@ declare module 'stripe' {
     charges: {|
       create(
         charge: ChargeInput,
+        options?: RequestOptions,
+        cb?: (err: Error, charge: Charge) => mixed
+      ): Promise<Charge>,
+      retrieve(
+        id: string,
+        options?: RequestOptions,
+        cb?: (err: Error, charge: Charge) => mixed
+      ): Promise<Charge>,
+      update(
+        id: string,
+        charge: ChargeUpdateInput,
+        options?: RequestOptions,
         cb?: (err: Error, charge: Charge) => mixed
       ): Promise<Charge>,
     |},
 
+    events: {|
+      list(
+        EventsListInput,
+        options?: RequestOptions,
+        cb?: (err: Error, refund: List<Event>) => mixed
+      ): Promise<List<Event>>; 
+    |},
+
     refunds: {|
       create(refund: RefundInput,
+        options?: RequestOptions,
         cb?: (err: Error, refund: Refund) => mixed
       ): Promise<Refund>,
     |},
@@ -339,6 +401,7 @@ declare module 'stripe' {
     tokens: {|
       retrieve: (
         id: string,
+        options?: RequestOptions,
         cb?: (err: Error, token: Token) => mixed
       ) => Promise<Token>,
     |},

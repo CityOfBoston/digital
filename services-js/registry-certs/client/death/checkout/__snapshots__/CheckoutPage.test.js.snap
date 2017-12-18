@@ -27,6 +27,7 @@ exports[`integration renders payment 1`] = `
         "cardElementError": null,
         "cardFunding": "credit",
         "cardToken": null,
+        "idempotencyKey": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",
@@ -72,6 +73,7 @@ exports[`integration renders shipping 1`] = `
         "cardElementError": null,
         "cardFunding": "credit",
         "cardToken": null,
+        "idempotencyKey": null,
         "info": Object {
           "billingAddress1": "",
           "billingAddress2": "",

@@ -190,6 +190,10 @@ export function wrapCheckoutPageController(
         );
 
         window.scrollTo(0, 0);
+
+        return true;
+      } else {
+        return false;
       }
     };
 

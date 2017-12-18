@@ -14,7 +14,7 @@ import CostSummary from '../../common/CostSummary';
 import OrderDetails from './OrderDetails';
 
 export type Props = {|
-  submit: (cardElement: ?StripeElement) => mixed,
+  submit: (cardElement: ?StripeElement) => Promise<boolean>,
   cart: Cart,
   order: Order,
   showErrorsForTest?: boolean,
@@ -22,11 +22,24 @@ export type Props = {|
 
 @observer
 export default class ReviewContent extends React.Component<Props> {
-  handleSubmit = (ev: SyntheticInputEvent<*>) => {
+  componentWillMount() {
+    // When we land on this page we create a new idempotency key so that our
+    // submission will only be processed once.
+    const { order } = this.props;
+    order.regenerateIdempotencyKey();
+  }
+
+  handleSubmit = async (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
-    const { submit } = this.props;
-    submit();
+    const { submit, order } = this.props;
+    const success = await submit();
+
+    if (!success) {
+      // If there's an error we need to regenerate the key to allow another
+      // submission to occur.
+      order.regenerateIdempotencyKey();
+    }
   };
 
   render() {

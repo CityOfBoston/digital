@@ -75,6 +75,7 @@ export type SubmitDeathCertificateOrderMutationVariables = {|
   billingState: string,
   billingZip: string,
   items: Array< CertificateOrderItem >,
+  idempotencyKey: string,
 |};
 
 export type SubmitDeathCertificateOrderMutation = {|

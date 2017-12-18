@@ -31,7 +31,7 @@ type DeathCertificateSearch {
 }
 
 type Mutation {
-  submitDeathCertificateOrder(contactName: String!, contactEmail: String!, contactPhone: String!, shippingName: String!, shippingCompanyName: String, shippingAddress1: String!, shippingAddress2: String, shippingCity: String!, shippingState: String!, shippingZip: String!, cardToken: String!, cardLast4: String!, cardholderName: String!, billingAddress1: String!, billingAddress2: String, billingCity: String!, billingState: String!, billingZip: String!, items: [CertificateOrderItem!]!): SubmittedOrder!
+  submitDeathCertificateOrder(contactName: String!, contactEmail: String!, contactPhone: String!, shippingName: String!, shippingCompanyName: String, shippingAddress1: String!, shippingAddress2: String, shippingCity: String!, shippingState: String!, shippingZip: String!, cardToken: String!, cardLast4: String!, cardholderName: String!, billingAddress1: String!, billingAddress2: String, billingCity: String!, billingState: String!, billingZip: String!, items: [CertificateOrderItem!]!, idempotencyKey: String!): SubmittedOrder!
 }
 
 type Query {
