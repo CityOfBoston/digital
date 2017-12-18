@@ -9,10 +9,9 @@ Service to update iNovah based on webhook calls from a payment provider
 
 ## Testing
 
-Run `npm run dev` first to set up the server.
-
 ### `charge.succeeded` webhook
 ```
+env SKIP_IDEMPOTENCY_CHECKS=1 npm run dev
 npm run test-latest-charge
 ```
 

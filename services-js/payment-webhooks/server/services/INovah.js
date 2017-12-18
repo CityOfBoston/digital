@@ -82,6 +82,7 @@ type PaymentIn = {|
     AddressLine1?: string,
     AddressLine2?: string,
     AddressLine3?: string,
+    UnstructuredName?: string,
   |},
 |};
 
@@ -116,6 +117,7 @@ type TenderIn = {|
   // decimal string: 0.0000
   Amount: string,
   TenderCode: string,
+  ReferenceCode?: string,
 |};
 
 type Tender = {|
@@ -143,6 +145,7 @@ type TransactionIn = {|
   // enforcing this at the type level
   Payment: PaymentIn,
   Tender: TenderIn,
+  ForeignID?: string,
 |};
 
 type Transaction = {|
@@ -401,6 +404,11 @@ export default class INovah {
           attributes: {
             xmlns: '',
           },
+          // Ensures we get idempotent updates
+          ForeignID:
+            process.env.SKIP_IDEMPOTENCY_CHECKS === '0'
+              ? undefined
+              : stripeChargeId,
           Payment: {
             PaymentCode: 'REG13',
             PaymentAllocation: {
@@ -409,19 +417,20 @@ export default class INovah {
               Amount: amountInDollars.toFixed(4),
               UnitCharge: unitPriceInDollars.toString(),
             },
-            Invoice: stripeChargeId,
-            LastName: cardholderName,
+            Invoice: registryOrderId,
             City: billingCity,
             State: billingState,
             Zip: billingZip,
             PaymentCustom: {
               AddressLine1: billingAddress1,
               AddressLine2: billingAddress2,
+              UnstructuredName: cardholderName,
             },
           },
           Tender: {
             TenderCode: 'STR',
             Amount: amountInDollars.toFixed(4),
+            ReferenceCode: stripeChargeId,
           },
         },
       },
@@ -431,6 +440,8 @@ export default class INovah {
 
     switch (result.ReturnCode) {
       case 'Failure':
+        // TODO(finh): In the case of ForeignKey being duplicated, look up by it
+        // and return that information.
         throw Boom.badData(result.LongErrorMessage);
 
       case 'Success':

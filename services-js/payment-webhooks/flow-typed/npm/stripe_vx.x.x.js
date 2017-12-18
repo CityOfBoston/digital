@@ -180,7 +180,7 @@ declare module 'stripe' {
     amount_refunded: number,
     application: ?string,
     application_fee: ?string,
-    balance_transaction: string,
+    balance_transaction: string | BalanceTransaction,
     captured: boolean,
     created: number,
     currency: string,
@@ -348,6 +348,7 @@ declare module 'stripe' {
     idempotency_key?: string,
     stripe_account?: string,
     stripe_version?: string,
+    expand?: Array<string>,
   |};
 
   // Can't collide with the global Stripe function from stripe.flow.js
@@ -366,6 +367,11 @@ declare module 'stripe' {
     charges: {|
       create(
         charge: ChargeInput,
+        options?: RequestOptions,
+        cb?: (err: Error, charge: Charge) => mixed
+      ): Promise<Charge>,
+      retrieve(
+        id: string,
         options?: RequestOptions,
         cb?: (err: Error, charge: Charge) => mixed
       ): Promise<Charge>,

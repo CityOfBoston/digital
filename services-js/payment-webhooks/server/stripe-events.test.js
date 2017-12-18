@@ -2,6 +2,7 @@
 
 import { processStripeEvent } from './stripe-events';
 
+import CHARGE from '../fixtures/stripe/charge';
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded';
 import BALANCE_TRANSACTION from '../fixtures/stripe/balance-transaction';
 
@@ -11,11 +12,10 @@ describe('processStripeEvent', () => {
 
   beforeEach(() => {
     stripe = {
-      balance: {
-        retrieveTransaction: jest.fn(),
-      },
+      balance: {},
       charges: {
         update: jest.fn(),
+        retrieve: jest.fn(),
       },
     };
 
@@ -27,8 +27,13 @@ describe('processStripeEvent', () => {
   describe('charge.succeeded', () => {
     beforeEach(() => {});
     test('it sends charge to iNovah', async () => {
-      stripe.balance.retrieveTransaction.mockReturnValue(
-        Promise.resolve(BALANCE_TRANSACTION)
+      // we do the expanded balance transaction
+      stripe.charges.retrieve.mockReturnValue(
+        Promise.resolve(
+          Object.assign({}, CHARGE, {
+            balance_transaction: BALANCE_TRANSACTION,
+          })
+        )
       );
 
       inovah.addTransaction.mockReturnValue({});
@@ -58,7 +63,8 @@ describe('processStripeEvent', () => {
     });
 
     test('it rejects if Stripe fails', async () => {
-      stripe.balance.retrieveTransaction.mockReturnValue(
+      // we do the expanded balance transaction
+      stripe.charges.retrieve.mockReturnValue(
         Promise.reject(new Error('Stripe backend error!'))
       );
 
@@ -71,8 +77,13 @@ describe('processStripeEvent', () => {
     });
 
     test('it rejects if iNovah fails', async () => {
-      stripe.balance.retrieveTransaction.mockReturnValue(
-        Promise.resolve(BALANCE_TRANSACTION)
+      // we do the expanded balance transaction
+      stripe.charges.retrieve.mockReturnValue(
+        Promise.resolve(
+          Object.assign({}, CHARGE, {
+            balance_transaction: BALANCE_TRANSACTION,
+          })
+        )
       );
 
       inovah.addTransaction.mockReturnValue(
