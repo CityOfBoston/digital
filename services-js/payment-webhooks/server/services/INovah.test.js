@@ -152,7 +152,12 @@ describe('INovahFactory', () => {
       VoidTransactionAsync: jest.fn(),
     };
 
-    inovahFactory = new INovahFactory(client, (null: any));
+    inovahFactory = new INovahFactory(
+      client,
+      (null: any),
+      FAKE_USERNAME,
+      FAKE_PASSWORD
+    );
   });
 
   describe('login', () => {
@@ -167,9 +172,7 @@ describe('INovahFactory', () => {
         })
       );
 
-      await expect(
-        inovahFactory.login(FAKE_USERNAME, FAKE_PASSWORD)
-      ).resolves.toEqual(FAKE_SECURITY_KEY);
+      await expect(inovahFactory.login()).resolves.toEqual(FAKE_SECURITY_KEY);
     });
 
     it('handles wrong password error', async () => {
@@ -183,9 +186,7 @@ describe('INovahFactory', () => {
         })
       );
 
-      await expect(
-        inovahFactory.login(FAKE_USERNAME, FAKE_PASSWORD)
-      ).rejects.toMatchSnapshot();
+      await expect(inovahFactory.login()).rejects.toMatchSnapshot();
     });
   });
 });

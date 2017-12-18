@@ -103,7 +103,9 @@ export function makeServer({ opbeat }: ServerArgs) {
           {
             opbeat,
             stripe,
-            inovah: inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN),
+            inovah: await inovahFactory.inovah(
+              process.env.INOVAH_PAYMENT_ORIGIN
+            ),
           },
           (request.payload: any)
         );
@@ -119,7 +121,9 @@ export function makeServer({ opbeat }: ServerArgs) {
     method: 'GET',
     path: '/inovah/describe',
     handler: async (request, reply) => {
-      const iNovah = inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN);
+      const iNovah = await inovahFactory.inovah(
+        process.env.INOVAH_PAYMENT_ORIGIN
+      );
       const description = await iNovah.describe();
 
       reply(JSON.stringify(description, null, 2)).type('text/plain');

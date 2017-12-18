@@ -273,14 +273,23 @@ export interface INovahClient {
 export class INovahFactory {
   client: INovahClient;
   opbeat: Opbeat;
-  securityKey: ?string;
+  username: string;
+  password: string;
 
-  constructor(client: INovahClient, opbeat: Opbeat) {
+  constructor(
+    client: INovahClient,
+    opbeat: Opbeat,
+    username: string,
+    password: string
+  ) {
     this.client = client;
     this.opbeat = opbeat;
+    this.username = username;
+    this.password = password;
   }
 
-  async login(username: string, password: string): Promise<string> {
+  async login(): Promise<string> {
+    const { username, password } = this;
     const output = await this.client.RegisterSecurityKeyAsync({
       strSignOnUserName: username,
       strPassword: password,
@@ -293,23 +302,23 @@ export class INovahFactory {
         throw Boom.unauthorized(result.LongErrorMessage);
 
       case 'Success':
-        this.securityKey = result.SecurityKey;
-        return this.securityKey;
+        return result.SecurityKey;
 
       default:
         throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
     }
   }
 
-  inovah(paymentOrigin: ?string) {
+  async inovah(paymentOrigin: ?string) {
     if (!paymentOrigin) {
       throw new Error('Must specify payment origin');
     }
 
-    const { client, opbeat, securityKey } = this;
-    if (!securityKey) {
-      throw Boom.internal('INovah service created before login');
-    }
+    const { client, opbeat } = this;
+
+    // We need to get a security key before every request because they're only
+    // valid for 60s.
+    const securityKey = await this.login();
 
     return new INovah(client, opbeat, paymentOrigin, securityKey);
   }
@@ -336,9 +345,10 @@ export async function makeINovahFactory(
   }
 
   const client: INovahClient = await createSoapClient(endpoint);
-  const factory = new INovahFactory(client, opbeat);
+  const factory = new INovahFactory(client, opbeat, username, password);
 
-  await factory.login(username, password);
+  // initial test to make sure we can login
+  await factory.login();
 
   return factory;
 }

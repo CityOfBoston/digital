@@ -343,6 +343,13 @@ declare module 'stripe' {
     url: string,
   |};
 
+  declare type RequestOptions = {|
+    api_key?: string,
+    idempotency_key?: string,
+    stripe_account?: string,
+    stripe_version?: string,
+  |};
+
   // Can't collide with the global Stripe function from stripe.flow.js
   declare export type NodeStripe = {|
     setTimeout(ms: number): void,
@@ -351,6 +358,7 @@ declare module 'stripe' {
     balance: {|
       retrieveTransaction(
         id: string,
+        options?: RequestOptions,
         cb?: (err: Error, token: Token) => mixed
       ): Promise<BalanceTransaction>,
     |},
@@ -358,11 +366,13 @@ declare module 'stripe' {
     charges: {|
       create(
         charge: ChargeInput,
+        options?: RequestOptions,
         cb?: (err: Error, charge: Charge) => mixed
       ): Promise<Charge>,
       update(
         id: string,
         charge: ChargeUpdateInput,
+        options?: RequestOptions,
         cb?: (err: Error, charge: Charge) => mixed
       ): Promise<Charge>,
     |},
@@ -370,12 +380,14 @@ declare module 'stripe' {
     events: {|
       list(
         EventsListInput,
+        options?: RequestOptions,
         cb?: (err: Error, refund: List<Event>) => mixed
       ): Promise<List<Event>>; 
     |},
 
     refunds: {|
       create(refund: RefundInput,
+        options?: RequestOptions,
         cb?: (err: Error, refund: Refund) => mixed
       ): Promise<Refund>,
     |},
@@ -383,6 +395,7 @@ declare module 'stripe' {
     tokens: {|
       retrieve: (
         id: string,
+        options?: RequestOptions,
         cb?: (err: Error, token: Token) => mixed
       ) => Promise<Token>,
     |},
