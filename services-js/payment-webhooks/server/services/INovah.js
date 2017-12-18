@@ -420,7 +420,7 @@ export default class INovah {
             },
           },
           Tender: {
-            TenderCode: 'CASH',
+            TenderCode: 'STR',
             Amount: amountInDollars.toFixed(4),
           },
         },
