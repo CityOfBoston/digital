@@ -32,6 +32,7 @@ export type AddOrderOptions = {|
   billingZIP: string,
   billingLast4: string,
   serviceFee: number,
+  idempotencyKey: string,
 |};
 
 export type AddOrderResult = {|
@@ -69,6 +70,7 @@ export default class RegistryOrders {
     billingZIP,
     billingLast4,
     serviceFee,
+    idempotencyKey,
   }: AddOrderOptions): Promise<number> {
     const transaction =
       this.opbeat &&
@@ -98,6 +100,7 @@ export default class RegistryOrders {
         .input('billingZIP', billingZIP)
         .input('billingLast4', billingLast4)
         .input('serviceFee', `$${serviceFee.toFixed(2)}`)
+        .input('idempotencyKey', idempotencyKey)
         .execute('Commerce.sp_AddOrder'): any);
 
       const { recordset } = resp;

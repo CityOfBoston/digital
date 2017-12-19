@@ -121,6 +121,7 @@ export const resolvers = {
         billingZip,
 
         items,
+        idempotencyKey,
       } = args;
 
       let totalQuantity = 0;
@@ -157,7 +158,6 @@ export const resolvers = {
 
       const orderId = `REG-DC-${datePart}-${randomPart}`;
 
-      // TODO(finh): Use the idempotency key from the browser in addOrder
       const orderKey = await registryOrders.addOrder({
         orderID: orderId,
         orderDate: new Date(),
@@ -179,6 +179,7 @@ export const resolvers = {
         billingZIP: billingZip,
         billingLast4: cardLast4,
         serviceFee: serviceFee / 100,
+        idempotencyKey,
       });
 
       await Promise.all(
