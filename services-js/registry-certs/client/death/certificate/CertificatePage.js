@@ -3,6 +3,7 @@
 import React, { type Element as ReactElement } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import type { DeathCertificate } from '../../types';
 
@@ -20,8 +21,6 @@ import {
 
 import AppLayout from '../../AppLayout';
 
-import AddedToCartPopup from './AddedToCartPopup';
-
 type InitialProps = {|
   id: string,
   certificate: ?DeathCertificate,
@@ -31,9 +30,6 @@ type InitialProps = {|
 export type ContentProps = {
   ...InitialProps,
   addToCart: number => mixed,
-  showAddedToCart: boolean,
-  addedToCartQuantity: number,
-  closeAddedToCart: () => mixed,
 };
 
 type ContentState = {
@@ -83,14 +79,7 @@ export class CertificatePageContent extends React.Component<
   };
 
   render() {
-    const {
-      id,
-      certificate,
-      backUrl,
-      showAddedToCart,
-      addedToCartQuantity,
-      closeAddedToCart,
-    } = this.props;
+    const { id, certificate, backUrl } = this.props;
 
     const { firstName, lastName } = certificate || {
       firstName: null,
@@ -119,20 +108,21 @@ export class CertificatePageContent extends React.Component<
           </div>
         </div>
 
-        <div className="p-a300 b--w certificate-wrapper">
+        <div className="p-a300 certificate-wrapper">
           {certificate && this.renderCertificate(certificate)}
-        </div>
 
-        {showAddedToCart &&
-          certificate && (
-            <div className="md">
-              <AddedToCartPopup
-                certificate={certificate}
-                quantity={addedToCartQuantity}
-                close={closeAddedToCart}
-              />
-            </div>
-          )}
+          {this.renderAddToCart()}
+
+          <p className="t--subinfo">
+            Death certificates cost {CERTIFICATE_COST_STRING} each. That price
+            includes shipping. You will be charged an extra service fee of not
+            more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
+            goes directly to a third party to pay for the cost of card
+            processing. Learn more about{' '}
+            <a href="https://www.boston.gov/">card service fees</a> at the City
+            of Boston.
+          </p>
+        </div>
 
         <style jsx>
           {`
@@ -157,8 +147,6 @@ export class CertificatePageContent extends React.Component<
     deathYear,
     birthDate,
   }: DeathCertificate) {
-    const { quantity } = this.state;
-
     return (
       <div className="certificate">
         <ul className="dl">
@@ -191,68 +179,6 @@ export class CertificatePageContent extends React.Component<
             </li>
           )}
         </ul>
-
-        <div className="m-v500 ">
-          <form
-            onSubmit={this.handleAddToCart}
-            className="js-add-to-cart-form "
-          >
-            <input
-              ref={this.setQuantityField}
-              type="text"
-              id="quantity"
-              name="quantity"
-              className="txt-f txt-f--combo txt-f--auto ta-r"
-              size="5"
-              value={quantity || ''}
-              onChange={this.handleQuantityChange}
-            />
-
-            <div className="sel-c sel-c--sq">
-              <label htmlFor="quantity" className="a11y--h">
-                Quantity:
-              </label>
-
-              <select
-                name="quantityMenu"
-                value={quantity && quantity <= 10 ? quantity : 'other'}
-                className="sel-f sel-f--sq quantity-dropdown"
-                onChange={this.handleQuantityChange}
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option disabled>---------------</option>
-                <option value="other">Other…</option>
-              </select>
-            </div>
-
-            <button
-              type="submit"
-              className="btn add-to-cart"
-              disabled={!quantity}
-            >
-              Add to Cart
-            </button>
-          </form>
-
-          <p className="t--subinfo">
-            Death certificates cost {CERTIFICATE_COST_STRING} each. That price
-            includes shipping. You will be charged an extra service fee of not
-            more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
-            goes directly to a third party to pay for the cost of card
-            processing. Learn more about{' '}
-            <a href="https://www.boston.gov/">card service fees</a> at the City
-            of Boston.
-          </p>
-        </div>
 
         <style jsx>{`
           .certificate {
@@ -293,21 +219,76 @@ export class CertificatePageContent extends React.Component<
       </div>
     );
   }
-}
 
-type ControllerState = {|
-  showAddedToCart: boolean,
-  addedToCartQuantity: number,
-|};
+  renderAddToCart() {
+    const { quantity } = this.state;
+
+    return (
+      <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form">
+        <input
+          ref={this.setQuantityField}
+          type="text"
+          id="quantity"
+          name="quantity"
+          className="txt-f txt-f--combo txt-f--auto ta-r"
+          size="5"
+          value={quantity || ''}
+          onChange={this.handleQuantityChange}
+        />
+        <div className="sel-c sel-c--sq">
+          <label htmlFor="quantity" className="a11y--h">
+            Quantity:
+          </label>
+
+          <select
+            name="quantityMenu"
+            value={quantity && quantity <= 10 ? quantity : 'other'}
+            className="sel-f sel-f--sq quantity-dropdown"
+            onChange={this.handleQuantityChange}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option disabled>---------------</option>
+            <option value="other">Other…</option>
+          </select>
+        </div>
+        <button type="submit" className="btn add-to-cart" disabled={!quantity}>
+          Add to Cart
+        </button>
+        <style jsx>{`
+          form {
+            display: flex;
+            align-items: center;
+          }
+
+          .quantity-dropdown:after {
+            content: 'Qty.';
+          }
+
+          .add-to-cart {
+            flex: 1;
+            margin-left: 1em;
+            height: 62px;
+          }
+        `}</style>{' '}
+      </form>
+    );
+  }
+}
 
 export const wrapCertificatePageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
   renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
 ) =>
-  class CertificatePageController extends React.Component<
-    InitialProps,
-    ControllerState
-  > {
+  class CertificatePageController extends React.Component<InitialProps> {
     static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
       const { query: { id, backUrl } } = ctx;
       const { deathCertificatesDao } = getDependencies(ctx);
@@ -326,39 +307,25 @@ export const wrapCertificatePageController = (
     }
 
     dependencies = getDependencies();
-    state: ControllerState = {
-      showAddedToCart: false,
-      addedToCartQuantity: 0,
-    };
 
-    addToCart = (quantity: number) => {
+    addToCart = async (quantity: number) => {
       const { cart } = this.dependencies;
       const { certificate } = this.props;
 
       if (certificate) {
         cart.add(certificate, quantity);
 
-        this.setState({
-          showAddedToCart: true,
-          addedToCartQuantity: quantity,
-        });
+        await Router.push('/death/cart');
+        window.scrollTo(0, 0);
       }
     };
 
-    closeAddedToCart = () => {
-      this.setState({ showAddedToCart: false });
-    };
-
     render() {
-      const { addToCart, closeAddedToCart } = this;
-      const { showAddedToCart, addedToCartQuantity } = this.state;
+      const { addToCart } = this;
 
       return renderContent(this.dependencies, {
         ...this.props,
         addToCart,
-        showAddedToCart,
-        addedToCartQuantity,
-        closeAddedToCart,
       });
     }
   };

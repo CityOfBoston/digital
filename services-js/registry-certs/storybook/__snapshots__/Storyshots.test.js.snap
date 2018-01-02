@@ -1,82 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots AddedToCartPopup normal certificate 1`] = `
-<div
-  className="jsx-2805620393 md-c"
->
-  <button
-    className="jsx-2805620393 md-cb"
-    onClick={[Function]}
-    style={
-      Object {
-        "border": "none",
-      }
-    }
-    type="button"
-  >
-    Close
-  </button>
-  <div
-    className="jsx-2805620393 mb-b p-a300 p-a600--xl"
-  >
-    <div
-      className="jsx-2805620393 sh m-b300"
-    >
-      <div
-        className="jsx-2805620393 sh-title"
-      >
-        Added to Cart
-      </div>
-    </div>
-    <div
-      className="jsx-4137792350 p-a300 br b--w row "
-    >
-      <div
-        aria-label="Quantity"
-        className="jsx-2805620393 t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        5
-         ×
-      </div>
-      <div
-        className="jsx-2577800471 certificate-info-box"
-      >
-        <div
-          className="jsx-2577800471 t--sans certificate-name"
-        >
-          BRUCE
-           
-          BANNER
-        </div>
-        <div
-          className="jsx-2577800471 certificate-subinfo"
-        >
-          Died: 
-          3/4/2016
-           — Age: 53
-        </div>
-      </div>
-    </div>
-    <div
-      className="jsx-2805620393 m-v500 ta-c"
-    >
-      <a
-        className="jsx-2805620393 btn"
-        href="/death/cart"
-        onClick={[Function]}
-      >
-        Go to your cart
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots CartItem certificate without death date 1`] = `
 <div
   className="jsx-4105449804"
@@ -443,29 +366,45 @@ exports[`Storyshots CartPage empty cart 1`] = `
       </ul>
     </nav>
     <div
-      className="jsx-858389963 page"
+      className="jsx-4136109507 page"
     >
       <div
-        className="jsx-858389963 p-a300"
+        className="jsx-4136109507 p-a300"
       >
         <div
-          className="jsx-858389963 sh sh--b0 m-t300"
+          className="jsx-4136109507 m-b500"
+        >
+          <a
+            className="jsx-4136109507"
+            href="/death"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Search for another certificate
+          </a>
+        </div>
+        <div
+          className="jsx-4136109507 sh sh--b0 m-t300"
         >
           <h1
-            className="jsx-858389963 sh-title"
+            className="jsx-4136109507 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="jsx-858389963 content"
+        className="jsx-4136109507 content"
       >
         <div
-          className="jsx-858389963"
+          className="jsx-4136109507"
         >
           <div
-            className="jsx-858389963 p-a300 g"
+            className="jsx-4136109507 p-a300 g g--vc"
             style={
               Object {
                 "paddingTop": 0,
@@ -473,24 +412,24 @@ exports[`Storyshots CartPage empty cart 1`] = `
             }
           >
             <div
-              className="jsx-858389963 g--9  vertical-center"
+              className="jsx-4136109507 g--9  vertical-center"
             >
               <div
-                className="jsx-858389963 t--intro"
+                className="jsx-4136109507 t--intro"
               >
                 There’s nothing here yet!
               </div>
               <p
-                className="jsx-858389963 t--info"
+                className="jsx-4136109507 t--info"
               >
                 Search for death certificates and add them to your cart.
               </p>
             </div>
             <div
-              className="jsx-858389963 g--3 m-v500"
+              className="jsx-4136109507 g--3 m-v500"
             >
               <a
-                className="jsx-858389963 btn"
+                className="jsx-4136109507 btn"
                 href="/death/"
                 onClick={[Function]}
               >
@@ -753,177 +692,199 @@ exports[`Storyshots CartPage loading 1`] = `
       </ul>
     </nav>
     <div
-      className="jsx-858389963 page"
+      className="jsx-4136109507 page"
     >
       <div
-        className="jsx-858389963 p-a300"
+        className="jsx-4136109507 p-a300"
       >
         <div
-          className="jsx-858389963 sh sh--b0 m-t300"
+          className="jsx-4136109507 m-b500"
+        >
+          <a
+            className="jsx-4136109507"
+            href="/death"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Search for another certificate
+          </a>
+        </div>
+        <div
+          className="jsx-4136109507 sh sh--b0 m-t300"
         >
           <h1
-            className="jsx-858389963 sh-title"
+            className="jsx-4136109507 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="jsx-858389963 content"
+        className="jsx-4136109507 content"
       >
         <div
-          className="jsx-858389963"
+          className="jsx-4136109507"
         />
         <div
-          className="jsx-858389963 p-a300"
+          className="jsx-4136109507"
         >
           <div
-            className="jsx-2514143691 m-v500"
+            className="jsx-4136109507 p-a300"
           >
             <div
-              className="jsx-2514143691 p-v200"
+              className="jsx-4244768073 clearfix"
             >
-              <div
-                className="jsx-2514143691 cost-row"
+              <table
+                className="jsx-4244768073 m-v500 t--info ta-r"
+                style={
+                  Object {
+                    "float": "right",
+                  }
+                }
               >
-                <span
-                  className="jsx-2514143691 t--info"
+                <tbody
+                  className="jsx-4244768073"
                 >
-                  8
-                   
-                  certificates
-                   ×
-                   
-                  $14.00
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  $
-                  112.00
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-443563205 t--info"
-                >
-                  <div
-                    className="jsx-443563205 sel sel--thin"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                      }
-                    }
+                  <tr
+                    className="jsx-4244768073"
                   >
-                    <div
-                      className="jsx-443563205 sel-c"
+                    <td
+                      className="jsx-4244768073"
                     >
-                      <select
-                        className="jsx-443563205 sel-f"
-                        id="serviceFeeTypeSelect"
-                        onChange={[Function]}
-                        value="CREDIT"
+                      8
+                       
+                      certificates
+                       ×
+                       
+                      $14.00
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
+                    >
+                      $
+                      112.00
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
+                  >
+                    <td
+                      className="jsx-4244768073"
+                    >
+                      <div
+                        className="jsx-3529807465"
                       >
-                        <option
-                          className="jsx-443563205"
-                          value="CREDIT"
+                        <div
+                          className="jsx-3529807465 sel sel--thin"
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
                         >
-                          Credit card
-                        </option>
-                        <option
-                          className="jsx-443563205"
-                          value="DEBIT"
+                          <div
+                            className="jsx-3529807465 sel-c"
+                          >
+                            <select
+                              className="jsx-3529807465 sel-f"
+                              id="serviceFeeTypeSelect"
+                              onChange={[Function]}
+                              value="CREDIT"
+                            >
+                              <option
+                                className="jsx-3529807465"
+                                value="CREDIT"
+                              >
+                                Credit card
+                              </option>
+                              <option
+                                className="jsx-3529807465"
+                                value="DEBIT"
+                              >
+                                Debit card
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                         
+                        <label
+                          className="jsx-3529807465"
+                          htmlFor="serviceFeeTypeSelect"
                         >
-                          Debit card
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                   
-                  <label
-                    className="jsx-443563205"
-                    htmlFor="serviceFeeTypeSelect"
-                  >
-                    service fee
-                    <a
-                      className="jsx-443563205"
-                      href="#service-fee"
+                          service fee
+                          <a
+                            className="jsx-3529807465"
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </label>
+                      </div>
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
                     >
-                      *
-                    </a>
-                  </label>
-                </span>
-                <span
-                  className="jsx-2394436591 cost"
-                >
-                  $
-                  2.66
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-2514143691 t--info"
-                >
-                  Shipping within the U.S.
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  <i
-                    className="jsx-2514143691"
+                      $
+                      2.66
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
                   >
-                    included
-                  </i>
-                </span>
-              </div>
+                    <td
+                      className="jsx-4244768073"
+                    >
+                      Shipping within the U.S.
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
+                    >
+                      <i
+                        className="jsx-4244768073"
+                      >
+                        included
+                      </i>
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
+                  >
+                    <td
+                      className="jsx-4244768073 sh-title"
+                    >
+                      Total
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                    >
+                      $
+                      114.66
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div
-              className="jsx-2514143691 cost-row"
+              className="jsx-4136109507 ta-c ta-r--large g--6 m-t500"
             >
-              <span
-                className="jsx-2514143691 sh-title"
+              <a
+                className="jsx-4136109507 btn"
+                href="/death/checkout"
+                onClick={[Function]}
               >
-                Total
-              </span>
-              <span
-                className="jsx-2514143691 cost br br-t100 p-v200"
-              >
-                $
-                114.66
-              </span>
+                Go to checkout
+              </a>
             </div>
-          </div>
-          <div
-            className="jsx-858389963 m-v500"
-          >
-            <a
-              className="jsx-858389963 btn"
-              href="/death/checkout"
-              onClick={[Function]}
-            >
-              Checkout
-            </a>
-          </div>
-          <div
-            className="jsx-858389963 m-v500 ta-c t--info"
-          >
-            <a
-              className="jsx-858389963"
-              href="/death"
-              onClick={[Function]}
-            >
-              Start a new search
-            </a>
           </div>
           <p
-            className="jsx-858389963 t--subinfo"
+            className="jsx-4136109507 t--subinfo b--g p-a300"
           >
             <a
-              className="jsx-858389963"
+              className="jsx-4136109507"
               name="service-fee"
             />
             * You are charged an extra service fee of no more than
@@ -934,7 +895,7 @@ exports[`Storyshots CartPage loading 1`] = `
             . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
              
             <a
-              className="jsx-858389963"
+              className="jsx-4136109507"
               href="https://www.boston.gov/"
             >
               card service fees
@@ -1196,26 +1157,42 @@ exports[`Storyshots CartPage normal page 1`] = `
       </ul>
     </nav>
     <div
-      className="jsx-858389963 page"
+      className="jsx-4136109507 page"
     >
       <div
-        className="jsx-858389963 p-a300"
+        className="jsx-4136109507 p-a300"
       >
         <div
-          className="jsx-858389963 sh sh--b0 m-t300"
+          className="jsx-4136109507 m-b500"
+        >
+          <a
+            className="jsx-4136109507"
+            href="/death"
+            onClick={[Function]}
+            style={
+              Object {
+                "fontStyle": "italic",
+              }
+            }
+          >
+            ← Search for another certificate
+          </a>
+        </div>
+        <div
+          className="jsx-4136109507 sh sh--b0 m-t300"
         >
           <h1
-            className="jsx-858389963 sh-title"
+            className="jsx-4136109507 sh-title"
           >
             Cart
           </h1>
         </div>
       </div>
       <div
-        className="jsx-858389963 content"
+        className="jsx-4136109507 content"
       >
         <div
-          className="jsx-858389963"
+          className="jsx-4136109507"
         >
           <div
             className="jsx-4105449804"
@@ -1354,155 +1331,161 @@ exports[`Storyshots CartPage normal page 1`] = `
           </div>
         </div>
         <div
-          className="jsx-858389963 p-a300"
+          className="jsx-4136109507"
         >
           <div
-            className="jsx-2514143691 m-v500"
+            className="jsx-4136109507 p-a300"
           >
             <div
-              className="jsx-2514143691 p-v200"
+              className="jsx-4244768073 clearfix"
             >
-              <div
-                className="jsx-2514143691 cost-row"
+              <table
+                className="jsx-4244768073 m-v500 t--info ta-r"
+                style={
+                  Object {
+                    "float": "right",
+                  }
+                }
               >
-                <span
-                  className="jsx-2514143691 t--info"
+                <tbody
+                  className="jsx-4244768073"
                 >
-                  5
-                   
-                  certificates
-                   ×
-                   
-                  $14.00
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  $
-                  70.00
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-443563205 t--info"
-                >
-                  <div
-                    className="jsx-443563205 sel sel--thin"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                      }
-                    }
+                  <tr
+                    className="jsx-4244768073"
                   >
-                    <div
-                      className="jsx-443563205 sel-c"
+                    <td
+                      className="jsx-4244768073"
                     >
-                      <select
-                        className="jsx-443563205 sel-f"
-                        id="serviceFeeTypeSelect"
-                        onChange={[Function]}
-                        value="CREDIT"
+                      5
+                       
+                      certificates
+                       ×
+                       
+                      $14.00
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
+                    >
+                      $
+                      70.00
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
+                  >
+                    <td
+                      className="jsx-4244768073"
+                    >
+                      <div
+                        className="jsx-3529807465"
                       >
-                        <option
-                          className="jsx-443563205"
-                          value="CREDIT"
+                        <div
+                          className="jsx-3529807465 sel sel--thin"
+                          style={
+                            Object {
+                              "display": "inline-block",
+                            }
+                          }
                         >
-                          Credit card
-                        </option>
-                        <option
-                          className="jsx-443563205"
-                          value="DEBIT"
+                          <div
+                            className="jsx-3529807465 sel-c"
+                          >
+                            <select
+                              className="jsx-3529807465 sel-f"
+                              id="serviceFeeTypeSelect"
+                              onChange={[Function]}
+                              value="CREDIT"
+                            >
+                              <option
+                                className="jsx-3529807465"
+                                value="CREDIT"
+                              >
+                                Credit card
+                              </option>
+                              <option
+                                className="jsx-3529807465"
+                                value="DEBIT"
+                              >
+                                Debit card
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                         
+                        <label
+                          className="jsx-3529807465"
+                          htmlFor="serviceFeeTypeSelect"
                         >
-                          Debit card
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                   
-                  <label
-                    className="jsx-443563205"
-                    htmlFor="serviceFeeTypeSelect"
-                  >
-                    service fee
-                    <a
-                      className="jsx-443563205"
-                      href="#service-fee"
+                          service fee
+                          <a
+                            className="jsx-3529807465"
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </label>
+                      </div>
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
                     >
-                      *
-                    </a>
-                  </label>
-                </span>
-                <span
-                  className="jsx-2394436591 cost"
-                >
-                  $
-                  1.76
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-2514143691 t--info"
-                >
-                  Shipping within the U.S.
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  <i
-                    className="jsx-2514143691"
+                      $
+                      1.76
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
                   >
-                    included
-                  </i>
-                </span>
-              </div>
+                    <td
+                      className="jsx-4244768073"
+                    >
+                      Shipping within the U.S.
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell"
+                    >
+                      <i
+                        className="jsx-4244768073"
+                      >
+                        included
+                      </i>
+                    </td>
+                  </tr>
+                  <tr
+                    className="jsx-4244768073"
+                  >
+                    <td
+                      className="jsx-4244768073 sh-title"
+                    >
+                      Total
+                    </td>
+                    <td
+                      className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                    >
+                      $
+                      71.76
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div
-              className="jsx-2514143691 cost-row"
+              className="jsx-4136109507 ta-c ta-r--large g--6 m-t500"
             >
-              <span
-                className="jsx-2514143691 sh-title"
+              <a
+                className="jsx-4136109507 btn"
+                href="/death/checkout"
+                onClick={[Function]}
               >
-                Total
-              </span>
-              <span
-                className="jsx-2514143691 cost br br-t100 p-v200"
-              >
-                $
-                71.76
-              </span>
+                Go to checkout
+              </a>
             </div>
-          </div>
-          <div
-            className="jsx-858389963 m-v500"
-          >
-            <a
-              className="jsx-858389963 btn"
-              href="/death/checkout"
-              onClick={[Function]}
-            >
-              Checkout
-            </a>
-          </div>
-          <div
-            className="jsx-858389963 m-v500 ta-c t--info"
-          >
-            <a
-              className="jsx-858389963"
-              href="/death"
-              onClick={[Function]}
-            >
-              Start a new search
-            </a>
           </div>
           <p
-            className="jsx-858389963 t--subinfo"
+            className="jsx-4136109507 t--subinfo b--g p-a300"
           >
             <a
-              className="jsx-858389963"
+              className="jsx-4136109507"
               name="service-fee"
             />
             * You are charged an extra service fee of no more than
@@ -1513,7 +1496,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
              
             <a
-              className="jsx-858389963"
+              className="jsx-4136109507"
               href="https://www.boston.gov/"
             >
               card service fees
@@ -1785,7 +1768,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         >
           <a
             className="jsx-225913026"
-            href="/search?q=jayne"
+            href="/search?q=Jayn"
             onClick={[Function]}
             style={
               Object {
@@ -1812,8 +1795,139 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </div>
       </div>
       <div
-        className="jsx-225913026 p-a300 b--w certificate-wrapper"
-      />
+        className="jsx-225913026 p-a300 certificate-wrapper"
+      >
+        <form
+          className="jsx-1884744003 js-add-to-cart-form"
+          onSubmit={[Function]}
+        >
+          <input
+            className="jsx-1884744003 txt-f txt-f--combo txt-f--auto ta-r"
+            id="quantity"
+            name="quantity"
+            onChange={[Function]}
+            size="5"
+            type="text"
+            value={1}
+          />
+          <div
+            className="jsx-1884744003 sel-c sel-c--sq"
+          >
+            <label
+              className="jsx-1884744003 a11y--h"
+              htmlFor="quantity"
+            >
+              Quantity:
+            </label>
+            <select
+              className="jsx-1884744003 sel-f sel-f--sq quantity-dropdown"
+              name="quantityMenu"
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                className="jsx-1884744003"
+                value="1"
+              >
+                1
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="2"
+              >
+                2
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="3"
+              >
+                3
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="4"
+              >
+                4
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="5"
+              >
+                5
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="6"
+              >
+                6
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="7"
+              >
+                7
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="8"
+              >
+                8
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="9"
+              >
+                9
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="10"
+              >
+                10
+              </option>
+              <option
+                className="jsx-1884744003"
+                disabled={true}
+              >
+                ---------------
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="other"
+              >
+                Other…
+              </option>
+            </select>
+          </div>
+          <button
+            className="jsx-1884744003 btn add-to-cart"
+            disabled={false}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+           
+        </form>
+        <p
+          className="jsx-225913026 t--subinfo"
+        >
+          Death certificates cost 
+          $14.00
+           each. That price includes shipping. You will be charged an extra service fee of not more than 
+          $0.25
+           plus 
+          2.15%
+          . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
+           
+          <a
+            className="jsx-225913026"
+            href="https://www.boston.gov/"
+          >
+            card service fees
+          </a>
+           at the City of Boston.
+        </p>
+      </div>
     </div>
   </div>
   <footer
@@ -2077,7 +2191,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         >
           <a
             className="jsx-225913026"
-            href="/search?q=jayne"
+            href="/search?q=Jayn"
             onClick={[Function]}
             style={
               Object {
@@ -2106,7 +2220,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </div>
       </div>
       <div
-        className="jsx-225913026 p-a300 b--w certificate-wrapper"
+        className="jsx-225913026 p-a300 certificate-wrapper"
       >
         <div
           className="jsx-349382380 certificate"
@@ -2199,738 +2313,137 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               </span>
             </li>
           </ul>
+        </div>
+        <form
+          className="jsx-1884744003 js-add-to-cart-form"
+          onSubmit={[Function]}
+        >
+          <input
+            className="jsx-1884744003 txt-f txt-f--combo txt-f--auto ta-r"
+            id="quantity"
+            name="quantity"
+            onChange={[Function]}
+            size="5"
+            type="text"
+            value={1}
+          />
           <div
-            className="jsx-349382380 m-v500 "
+            className="jsx-1884744003 sel-c sel-c--sq"
           >
-            <form
-              className="jsx-349382380 js-add-to-cart-form "
-              onSubmit={[Function]}
+            <label
+              className="jsx-1884744003 a11y--h"
+              htmlFor="quantity"
             >
-              <input
-                className="jsx-349382380 txt-f txt-f--combo txt-f--auto ta-r"
-                id="quantity"
-                name="quantity"
-                onChange={[Function]}
-                size="5"
-                type="text"
-                value={1}
-              />
-              <div
-                className="jsx-349382380 sel-c sel-c--sq"
-              >
-                <label
-                  className="jsx-349382380 a11y--h"
-                  htmlFor="quantity"
-                >
-                  Quantity:
-                </label>
-                <select
-                  className="jsx-349382380 sel-f sel-f--sq quantity-dropdown"
-                  name="quantityMenu"
-                  onChange={[Function]}
-                  value={1}
-                >
-                  <option
-                    className="jsx-349382380"
-                    value="1"
-                  >
-                    1
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="2"
-                  >
-                    2
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="3"
-                  >
-                    3
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="4"
-                  >
-                    4
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="5"
-                  >
-                    5
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="6"
-                  >
-                    6
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="7"
-                  >
-                    7
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="8"
-                  >
-                    8
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="9"
-                  >
-                    9
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="10"
-                  >
-                    10
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    disabled={true}
-                  >
-                    ---------------
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="other"
-                  >
-                    Other…
-                  </option>
-                </select>
-              </div>
-              <button
-                className="jsx-349382380 btn add-to-cart"
-                disabled={false}
-                type="submit"
-              >
-                Add to Cart
-              </button>
-            </form>
-            <p
-              className="jsx-349382380 t--subinfo"
+              Quantity:
+            </label>
+            <select
+              className="jsx-1884744003 sel-f sel-f--sq quantity-dropdown"
+              name="quantityMenu"
+              onChange={[Function]}
+              value={1}
             >
-              Death certificates cost 
-              $14.00
-               each. That price includes shipping. You will be charged an extra service fee of not more than 
-              $0.25
-               plus 
-              2.15%
-              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
-               
-              <a
-                className="jsx-349382380"
-                href="https://www.boston.gov/"
+              <option
+                className="jsx-1884744003"
+                value="1"
               >
-                card service fees
-              </a>
-               at the City of Boston.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer
-    className="jsx-3465476614 ft"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
-
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
-      }
-    }
-    style={
-      Object {
-        "position": "relative",
-        "zIndex": 2,
-      }
-    }
-  />
-</div>
-`;
-
-exports[`Storyshots CertificatePage normal certificate — added to cart 1`] = `
-<div
-  className="jsx-3465476614"
->
-  <input
-    aria-hidden="true"
-    className="jsx-3465476614 brg-tr"
-    id="brg-tr"
-    type="checkbox"
-  />
-  <nav
-    className="jsx-3465476614 nv-m"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-  <div class=\\"nv-m-h\\">
-      <div class=\\"nv-m-h-ic\\">
-        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
-        </a>
-      </div>
-      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
-  </div>
-  <div class=\\"nv-m-c\\">
-    
-
-<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
-<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
-</ul></li>
-<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
-</ul></li>
-</ul>  </div>
-",
-      }
-    }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
-  />
-  <div
-    className="jsx-3465476614 mn mn--full mn--nv-s"
-    style={
-      Object {
-        "zIndex": 2,
-      }
-    }
-  >
-    <input
-      aria-hidden="true"
-      className="jsx-3465476614 s-tr"
-      id="s-tr"
-      type="checkbox"
-    />
-    <header
-      className="jsx-3465476614 h"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-    <label for=\\"brg-tr\\" class=\\"brg-b\\">
-  <div class=\\"brg\\">
-    <span class=\\"brg-c\\">
-      <span class=\\"brg-c-i\\"></span>
-    </span>
-    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-  </div>
-</label>
-      <div class=\\"lo lo--abs\\">
-    <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
-      </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
-          </div>
-  </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
-</a>
-    <nav class=\\"nv-h\\">
-  <ul class=\\"nv-h-l\\">
-              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\">Feedback</a></li>
-        <li class=\\"tr nv-h-l-i\\">
-      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
-      <ul class=\\"tr-dd\\">
-        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
-      </ul>
-    </li>
-    <li class=\\"nv-h-l-i\\">
-      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
-      </label>
-    </li>
-  </ul>
-</nav>
-    <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
-    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
-    <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
-      <button class=\\"sf-i-b\\">Search</button>
-    </div>
-  </form>
-</div>
-  ",
-        }
-      }
-      role="banner"
-    />
-    <nav
-      className="jsx-1795526402 nv-s nv-s--sticky"
-    >
-      <div
-        className="jsx-1795526402 nv-s-l bar"
-      >
-        <a
-          className="jsx-1795526402 nv-s-l-b back-link back-link-right"
-          href="/death/cart"
-          onClick={[Function]}
-        >
-          View Cart
-        </a>
-        <a
-          className="jsx-1795526402 cart-link"
-          href="/death/cart"
-          onClick={[Function]}
-        >
-          0
-        </a>
-      </div>
-    </nav>
-    <nav
-      className="jsx-3465476614 brc p-a300"
-      role="navigation"
-    >
-      <ul
-        className="jsx-3465476614 brc-l"
-      >
-        <li
-          className="jsx-3465476614 brc-l-i"
-        >
-          <a
-            className="jsx-3465476614"
-            href="https://www.boston.gov/"
-          >
-            Home
-          </a>
-          <span
-            className="jsx-3465476614 brc-s"
-          >
-             › 
-          </span>
-        </li>
-        <li
-          className="jsx-3465476614 brc-l-i"
-        >
-          <a
-            className="jsx-3465476614"
-            href="https://www.boston.gov/departments"
-          >
-            Departments
-          </a>
-          <span
-            className="jsx-3465476614 brc-s"
-          >
-             › 
-          </span>
-        </li>
-        <li
-          className="jsx-3465476614 brc-l-i"
-        >
-          <a
-            className="jsx-3465476614"
-            href="https://www.boston.gov/departments/registry"
-          >
-            Registry: Birth, death, and marriage
-          </a>
-          <span
-            className="jsx-3465476614 brc-s"
-          >
-             › 
-          </span>
-        </li>
-        <li
-          className="jsx-3465476614 brc-l-i"
-        >
-          <a
-            className="jsx-3465476614"
-            href="/death"
-            onClick={[Function]}
-          >
-            Death certificates
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div
-      className="jsx-225913026 content"
-    >
-      <div
-        className="jsx-225913026 p-a300"
-      >
-        <div
-          className="jsx-225913026 m-b500"
-        >
-          <a
-            className="jsx-225913026"
-            href="/search?q=jayne"
-            onClick={[Function]}
-            style={
-              Object {
-                "fontStyle": "italic",
-              }
-            }
-          >
-            ← Back to search results
-          </a>
-        </div>
-        <div
-          className="jsx-225913026 sh sh--b0"
-        >
-          <h1
-            className="jsx-225913026 sh-title"
-            style={
-              Object {
-                "marginBottom": 0,
-              }
-            }
-          >
-            BRUCE
-             
-            BANNER
-          </h1>
-        </div>
-      </div>
-      <div
-        className="jsx-225913026 p-a300 b--w certificate-wrapper"
-      >
-        <div
-          className="jsx-349382380 certificate"
-        >
-          <ul
-            className="jsx-349382380 dl"
-          >
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
+                1
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="2"
               >
-                ID #
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
+                2
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="3"
               >
-                000002
-              </span>
-            </li>
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
+                3
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="4"
               >
-                First name
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
-              >
-                BRUCE
-              </span>
-            </li>
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
-              >
-                Last name
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
-              >
-                BANNER
-              </span>
-            </li>
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
-              >
-                Date of birth
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
-              >
-                5/1/1962
-              </span>
-            </li>
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
-              >
-                Date of death
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
-              >
-                3/4/2016
-              </span>
-            </li>
-            <li
-              className="jsx-349382380 dl-i"
-            >
-              <span
-                className="jsx-349382380 dl-t"
-              >
-                Age
-              </span>
-              <span
-                className="jsx-349382380 dl-d"
-              >
-                53
-              </span>
-            </li>
-          </ul>
-          <div
-            className="jsx-349382380 m-v500 "
-          >
-            <form
-              className="jsx-349382380 js-add-to-cart-form "
-              onSubmit={[Function]}
-            >
-              <input
-                className="jsx-349382380 txt-f txt-f--combo txt-f--auto ta-r"
-                id="quantity"
-                name="quantity"
-                onChange={[Function]}
-                size="5"
-                type="text"
-                value={1}
-              />
-              <div
-                className="jsx-349382380 sel-c sel-c--sq"
-              >
-                <label
-                  className="jsx-349382380 a11y--h"
-                  htmlFor="quantity"
-                >
-                  Quantity:
-                </label>
-                <select
-                  className="jsx-349382380 sel-f sel-f--sq quantity-dropdown"
-                  name="quantityMenu"
-                  onChange={[Function]}
-                  value={1}
-                >
-                  <option
-                    className="jsx-349382380"
-                    value="1"
-                  >
-                    1
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="2"
-                  >
-                    2
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="3"
-                  >
-                    3
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="4"
-                  >
-                    4
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="5"
-                  >
-                    5
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="6"
-                  >
-                    6
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="7"
-                  >
-                    7
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="8"
-                  >
-                    8
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="9"
-                  >
-                    9
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="10"
-                  >
-                    10
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    disabled={true}
-                  >
-                    ---------------
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="other"
-                  >
-                    Other…
-                  </option>
-                </select>
-              </div>
-              <button
-                className="jsx-349382380 btn add-to-cart"
-                disabled={false}
-                type="submit"
-              >
-                Add to Cart
-              </button>
-            </form>
-            <p
-              className="jsx-349382380 t--subinfo"
-            >
-              Death certificates cost 
-              $14.00
-               each. That price includes shipping. You will be charged an extra service fee of not more than 
-              $0.25
-               plus 
-              2.15%
-              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
-               
-              <a
-                className="jsx-349382380"
-                href="https://www.boston.gov/"
-              >
-                card service fees
-              </a>
-               at the City of Boston.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        className="jsx-225913026 md"
-      >
-        <div
-          className="jsx-2805620393 md-c"
-        >
-          <button
-            className="jsx-2805620393 md-cb"
-            onClick={[Function]}
-            style={
-              Object {
-                "border": "none",
-              }
-            }
-            type="button"
-          >
-            Close
-          </button>
-          <div
-            className="jsx-2805620393 mb-b p-a300 p-a600--xl"
-          >
-            <div
-              className="jsx-2805620393 sh m-b300"
-            >
-              <div
-                className="jsx-2805620393 sh-title"
-              >
-                Added to Cart
-              </div>
-            </div>
-            <div
-              className="jsx-4137792350 p-a300 br b--w row "
-            >
-              <div
-                aria-label="Quantity"
-                className="jsx-2805620393 t--sans p-a300"
-                style={
-                  Object {
-                    "fontWeight": "bold",
-                  }
-                }
+                4
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="5"
               >
                 5
-                 ×
-              </div>
-              <div
-                className="jsx-2577800471 certificate-info-box"
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="6"
               >
-                <div
-                  className="jsx-2577800471 t--sans certificate-name"
-                >
-                  BRUCE
-                   
-                  BANNER
-                </div>
-                <div
-                  className="jsx-2577800471 certificate-subinfo"
-                >
-                  Died: 
-                  3/4/2016
-                   — Age: 53
-                </div>
-              </div>
-            </div>
-            <div
-              className="jsx-2805620393 m-v500 ta-c"
-            >
-              <a
-                className="jsx-2805620393 btn"
-                href="/death/cart"
-                onClick={[Function]}
+                6
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="7"
               >
-                Go to your cart
-              </a>
-            </div>
+                7
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="8"
+              >
+                8
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="9"
+              >
+                9
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="10"
+              >
+                10
+              </option>
+              <option
+                className="jsx-1884744003"
+                disabled={true}
+              >
+                ---------------
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="other"
+              >
+                Other…
+              </option>
+            </select>
           </div>
-        </div>
+          <button
+            className="jsx-1884744003 btn add-to-cart"
+            disabled={false}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+           
+        </form>
+        <p
+          className="jsx-225913026 t--subinfo"
+        >
+          Death certificates cost 
+          $14.00
+           each. That price includes shipping. You will be charged an extra service fee of not more than 
+          $0.25
+           plus 
+          2.15%
+          . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
+           
+          <a
+            className="jsx-225913026"
+            href="https://www.boston.gov/"
+          >
+            card service fees
+          </a>
+           at the City of Boston.
+        </p>
       </div>
     </div>
   </div>
@@ -3208,7 +2721,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </div>
       </div>
       <div
-        className="jsx-225913026 p-a300 b--w certificate-wrapper"
+        className="jsx-225913026 p-a300 certificate-wrapper"
       >
         <div
           className="jsx-349382380 certificate"
@@ -3301,140 +2814,137 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               </span>
             </li>
           </ul>
-          <div
-            className="jsx-349382380 m-v500 "
-          >
-            <form
-              className="jsx-349382380 js-add-to-cart-form "
-              onSubmit={[Function]}
-            >
-              <input
-                className="jsx-349382380 txt-f txt-f--combo txt-f--auto ta-r"
-                id="quantity"
-                name="quantity"
-                onChange={[Function]}
-                size="5"
-                type="text"
-                value={1}
-              />
-              <div
-                className="jsx-349382380 sel-c sel-c--sq"
-              >
-                <label
-                  className="jsx-349382380 a11y--h"
-                  htmlFor="quantity"
-                >
-                  Quantity:
-                </label>
-                <select
-                  className="jsx-349382380 sel-f sel-f--sq quantity-dropdown"
-                  name="quantityMenu"
-                  onChange={[Function]}
-                  value={1}
-                >
-                  <option
-                    className="jsx-349382380"
-                    value="1"
-                  >
-                    1
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="2"
-                  >
-                    2
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="3"
-                  >
-                    3
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="4"
-                  >
-                    4
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="5"
-                  >
-                    5
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="6"
-                  >
-                    6
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="7"
-                  >
-                    7
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="8"
-                  >
-                    8
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="9"
-                  >
-                    9
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="10"
-                  >
-                    10
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    disabled={true}
-                  >
-                    ---------------
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="other"
-                  >
-                    Other…
-                  </option>
-                </select>
-              </div>
-              <button
-                className="jsx-349382380 btn add-to-cart"
-                disabled={false}
-                type="submit"
-              >
-                Add to Cart
-              </button>
-            </form>
-            <p
-              className="jsx-349382380 t--subinfo"
-            >
-              Death certificates cost 
-              $14.00
-               each. That price includes shipping. You will be charged an extra service fee of not more than 
-              $0.25
-               plus 
-              2.15%
-              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
-               
-              <a
-                className="jsx-349382380"
-                href="https://www.boston.gov/"
-              >
-                card service fees
-              </a>
-               at the City of Boston.
-            </p>
-          </div>
         </div>
+        <form
+          className="jsx-1884744003 js-add-to-cart-form"
+          onSubmit={[Function]}
+        >
+          <input
+            className="jsx-1884744003 txt-f txt-f--combo txt-f--auto ta-r"
+            id="quantity"
+            name="quantity"
+            onChange={[Function]}
+            size="5"
+            type="text"
+            value={1}
+          />
+          <div
+            className="jsx-1884744003 sel-c sel-c--sq"
+          >
+            <label
+              className="jsx-1884744003 a11y--h"
+              htmlFor="quantity"
+            >
+              Quantity:
+            </label>
+            <select
+              className="jsx-1884744003 sel-f sel-f--sq quantity-dropdown"
+              name="quantityMenu"
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                className="jsx-1884744003"
+                value="1"
+              >
+                1
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="2"
+              >
+                2
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="3"
+              >
+                3
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="4"
+              >
+                4
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="5"
+              >
+                5
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="6"
+              >
+                6
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="7"
+              >
+                7
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="8"
+              >
+                8
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="9"
+              >
+                9
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="10"
+              >
+                10
+              </option>
+              <option
+                className="jsx-1884744003"
+                disabled={true}
+              >
+                ---------------
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="other"
+              >
+                Other…
+              </option>
+            </select>
+          </div>
+          <button
+            className="jsx-1884744003 btn add-to-cart"
+            disabled={false}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+           
+        </form>
+        <p
+          className="jsx-225913026 t--subinfo"
+        >
+          Death certificates cost 
+          $14.00
+           each. That price includes shipping. You will be charged an extra service fee of not more than 
+          $0.25
+           plus 
+          2.15%
+          . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
+           
+          <a
+            className="jsx-225913026"
+            href="https://www.boston.gov/"
+          >
+            card service fees
+          </a>
+           at the City of Boston.
+        </p>
       </div>
     </div>
   </div>
@@ -3699,7 +3209,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         >
           <a
             className="jsx-225913026"
-            href="/search?q=jayne"
+            href="/search?q=Jayn"
             onClick={[Function]}
             style={
               Object {
@@ -3728,7 +3238,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </div>
       </div>
       <div
-        className="jsx-225913026 p-a300 b--w certificate-wrapper"
+        className="jsx-225913026 p-a300 certificate-wrapper"
       >
         <div
           className="jsx-349382380 certificate"
@@ -3807,140 +3317,137 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               </span>
             </li>
           </ul>
-          <div
-            className="jsx-349382380 m-v500 "
-          >
-            <form
-              className="jsx-349382380 js-add-to-cart-form "
-              onSubmit={[Function]}
-            >
-              <input
-                className="jsx-349382380 txt-f txt-f--combo txt-f--auto ta-r"
-                id="quantity"
-                name="quantity"
-                onChange={[Function]}
-                size="5"
-                type="text"
-                value={1}
-              />
-              <div
-                className="jsx-349382380 sel-c sel-c--sq"
-              >
-                <label
-                  className="jsx-349382380 a11y--h"
-                  htmlFor="quantity"
-                >
-                  Quantity:
-                </label>
-                <select
-                  className="jsx-349382380 sel-f sel-f--sq quantity-dropdown"
-                  name="quantityMenu"
-                  onChange={[Function]}
-                  value={1}
-                >
-                  <option
-                    className="jsx-349382380"
-                    value="1"
-                  >
-                    1
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="2"
-                  >
-                    2
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="3"
-                  >
-                    3
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="4"
-                  >
-                    4
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="5"
-                  >
-                    5
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="6"
-                  >
-                    6
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="7"
-                  >
-                    7
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="8"
-                  >
-                    8
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="9"
-                  >
-                    9
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="10"
-                  >
-                    10
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    disabled={true}
-                  >
-                    ---------------
-                  </option>
-                  <option
-                    className="jsx-349382380"
-                    value="other"
-                  >
-                    Other…
-                  </option>
-                </select>
-              </div>
-              <button
-                className="jsx-349382380 btn add-to-cart"
-                disabled={false}
-                type="submit"
-              >
-                Add to Cart
-              </button>
-            </form>
-            <p
-              className="jsx-349382380 t--subinfo"
-            >
-              Death certificates cost 
-              $14.00
-               each. That price includes shipping. You will be charged an extra service fee of not more than 
-              $0.25
-               plus 
-              2.15%
-              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
-               
-              <a
-                className="jsx-349382380"
-                href="https://www.boston.gov/"
-              >
-                card service fees
-              </a>
-               at the City of Boston.
-            </p>
-          </div>
         </div>
+        <form
+          className="jsx-1884744003 js-add-to-cart-form"
+          onSubmit={[Function]}
+        >
+          <input
+            className="jsx-1884744003 txt-f txt-f--combo txt-f--auto ta-r"
+            id="quantity"
+            name="quantity"
+            onChange={[Function]}
+            size="5"
+            type="text"
+            value={1}
+          />
+          <div
+            className="jsx-1884744003 sel-c sel-c--sq"
+          >
+            <label
+              className="jsx-1884744003 a11y--h"
+              htmlFor="quantity"
+            >
+              Quantity:
+            </label>
+            <select
+              className="jsx-1884744003 sel-f sel-f--sq quantity-dropdown"
+              name="quantityMenu"
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                className="jsx-1884744003"
+                value="1"
+              >
+                1
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="2"
+              >
+                2
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="3"
+              >
+                3
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="4"
+              >
+                4
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="5"
+              >
+                5
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="6"
+              >
+                6
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="7"
+              >
+                7
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="8"
+              >
+                8
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="9"
+              >
+                9
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="10"
+              >
+                10
+              </option>
+              <option
+                className="jsx-1884744003"
+                disabled={true}
+              >
+                ---------------
+              </option>
+              <option
+                className="jsx-1884744003"
+                value="other"
+              >
+                Other…
+              </option>
+            </select>
+          </div>
+          <button
+            className="jsx-1884744003 btn add-to-cart"
+            disabled={false}
+            type="submit"
+          >
+            Add to Cart
+          </button>
+           
+        </form>
+        <p
+          className="jsx-225913026 t--subinfo"
+        >
+          Death certificates cost 
+          $14.00
+           each. That price includes shipping. You will be charged an extra service fee of not more than 
+          $0.25
+           plus 
+          2.15%
+          . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
+           
+          <a
+            className="jsx-225913026"
+            href="https://www.boston.gov/"
+          >
+            card service fees
+          </a>
+           at the City of Boston.
+        </p>
       </div>
     </div>
   </div>
@@ -4288,415 +3795,463 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 
 exports[`Storyshots CostSummary default credit card 1`] = `
 <div
-  className="jsx-2514143691 m-v500"
+  className="jsx-4244768073 clearfix"
 >
-  <div
-    className="jsx-2514143691 p-v200"
+  <table
+    className="jsx-4244768073 m-v500 t--info ta-r"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
   >
-    <div
-      className="jsx-2514143691 cost-row"
+    <tbody
+      className="jsx-4244768073"
     >
-      <span
-        className="jsx-2514143691 t--info"
+      <tr
+        className="jsx-4244768073"
       >
-        5
-         
-        certificates
-         ×
-         
-        $14.00
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
+        <td
+          className="jsx-4244768073"
+        >
+          5
+           
+          certificates
+           ×
+           
+          $14.00
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          $
+          70.00
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
       >
-        $
-        70.00
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-443563205 t--info"
-      >
-        <div
-          className="jsx-443563205 sel sel--thin"
-          style={
-            Object {
-              "display": "inline-block",
-            }
-          }
+        <td
+          className="jsx-4244768073"
         >
           <div
-            className="jsx-443563205 sel-c"
+            className="jsx-3529807465"
           >
-            <select
-              className="jsx-443563205 sel-f"
-              id="serviceFeeTypeSelect"
-              onChange={[Function]}
-              value="CREDIT"
+            <div
+              className="jsx-3529807465 sel sel--thin"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
             >
-              <option
-                className="jsx-443563205"
-                value="CREDIT"
+              <div
+                className="jsx-3529807465 sel-c"
               >
-                Credit card
-              </option>
-              <option
-                className="jsx-443563205"
-                value="DEBIT"
+                <select
+                  className="jsx-3529807465 sel-f"
+                  id="serviceFeeTypeSelect"
+                  onChange={[Function]}
+                  value="CREDIT"
+                >
+                  <option
+                    className="jsx-3529807465"
+                    value="CREDIT"
+                  >
+                    Credit card
+                  </option>
+                  <option
+                    className="jsx-3529807465"
+                    value="DEBIT"
+                  >
+                    Debit card
+                  </option>
+                </select>
+              </div>
+            </div>
+             
+            <label
+              className="jsx-3529807465"
+              htmlFor="serviceFeeTypeSelect"
+            >
+              service fee
+              <a
+                className="jsx-3529807465"
+                href="#service-fee"
               >
-                Debit card
-              </option>
-            </select>
+                *
+              </a>
+            </label>
           </div>
-        </div>
-         
-        <label
-          className="jsx-443563205"
-          htmlFor="serviceFeeTypeSelect"
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
         >
-          service fee
-          <a
-            className="jsx-443563205"
-            href="#service-fee"
+          $
+          1.76
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          Shipping within the U.S.
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          <i
+            className="jsx-4244768073"
           >
-            *
-          </a>
-        </label>
-      </span>
-      <span
-        className="jsx-2394436591 cost"
+            included
+          </i>
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
       >
-        $
-        1.76
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-2514143691 t--info"
-      >
-        Shipping within the U.S.
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        <i
-          className="jsx-2514143691"
+        <td
+          className="jsx-4244768073 sh-title"
         >
-          included
-        </i>
-      </span>
-    </div>
-  </div>
-  <div
-    className="jsx-2514143691 cost-row"
-  >
-    <span
-      className="jsx-2514143691 sh-title"
-    >
-      Total
-    </span>
-    <span
-      className="jsx-2514143691 cost br br-t100 p-v200"
-    >
-      $
-      71.76
-    </span>
-  </div>
+          Total
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+        >
+          $
+          71.76
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
 exports[`Storyshots CostSummary default debit card 1`] = `
 <div
-  className="jsx-2514143691 m-v500"
+  className="jsx-4244768073 clearfix"
 >
-  <div
-    className="jsx-2514143691 p-v200"
+  <table
+    className="jsx-4244768073 m-v500 t--info ta-r"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
   >
-    <div
-      className="jsx-2514143691 cost-row"
+    <tbody
+      className="jsx-4244768073"
     >
-      <span
-        className="jsx-2514143691 t--info"
+      <tr
+        className="jsx-4244768073"
       >
-        5
-         
-        certificates
-         ×
-         
-        $14.00
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
+        <td
+          className="jsx-4244768073"
+        >
+          5
+           
+          certificates
+           ×
+           
+          $14.00
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          $
+          70.00
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
       >
-        $
-        70.00
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-443563205 t--info"
-      >
-        <div
-          className="jsx-443563205 sel sel--thin"
-          style={
-            Object {
-              "display": "inline-block",
-            }
-          }
+        <td
+          className="jsx-4244768073"
         >
           <div
-            className="jsx-443563205 sel-c"
+            className="jsx-3529807465"
           >
-            <select
-              className="jsx-443563205 sel-f"
-              id="serviceFeeTypeSelect"
-              onChange={[Function]}
-              value="DEBIT"
+            <div
+              className="jsx-3529807465 sel sel--thin"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
             >
-              <option
-                className="jsx-443563205"
-                value="CREDIT"
+              <div
+                className="jsx-3529807465 sel-c"
               >
-                Credit card
-              </option>
-              <option
-                className="jsx-443563205"
-                value="DEBIT"
+                <select
+                  className="jsx-3529807465 sel-f"
+                  id="serviceFeeTypeSelect"
+                  onChange={[Function]}
+                  value="DEBIT"
+                >
+                  <option
+                    className="jsx-3529807465"
+                    value="CREDIT"
+                  >
+                    Credit card
+                  </option>
+                  <option
+                    className="jsx-3529807465"
+                    value="DEBIT"
+                  >
+                    Debit card
+                  </option>
+                </select>
+              </div>
+            </div>
+             
+            <label
+              className="jsx-3529807465"
+              htmlFor="serviceFeeTypeSelect"
+            >
+              service fee
+              <a
+                className="jsx-3529807465"
+                href="#service-fee"
               >
-                Debit card
-              </option>
-            </select>
+                *
+              </a>
+            </label>
           </div>
-        </div>
-         
-        <label
-          className="jsx-443563205"
-          htmlFor="serviceFeeTypeSelect"
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
         >
-          service fee
-          <a
-            className="jsx-443563205"
-            href="#service-fee"
+          $
+          1.32
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          Shipping within the U.S.
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          <i
+            className="jsx-4244768073"
           >
-            *
-          </a>
-        </label>
-      </span>
-      <span
-        className="jsx-2394436591 cost"
+            included
+          </i>
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
       >
-        $
-        1.32
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-2514143691 t--info"
-      >
-        Shipping within the U.S.
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        <i
-          className="jsx-2514143691"
+        <td
+          className="jsx-4244768073 sh-title"
         >
-          included
-        </i>
-      </span>
-    </div>
-  </div>
-  <div
-    className="jsx-2514143691 cost-row"
-  >
-    <span
-      className="jsx-2514143691 sh-title"
-    >
-      Total
-    </span>
-    <span
-      className="jsx-2514143691 cost br br-t100 p-v200"
-    >
-      $
-      71.32
-    </span>
-  </div>
+          Total
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+        >
+          $
+          71.32
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
 exports[`Storyshots CostSummary only credit card 1`] = `
 <div
-  className="jsx-2514143691 m-v500"
+  className="jsx-4244768073 clearfix"
 >
-  <div
-    className="jsx-2514143691 p-v200"
+  <table
+    className="jsx-4244768073 m-v500 t--info ta-r"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
   >
-    <div
-      className="jsx-2514143691 cost-row"
+    <tbody
+      className="jsx-4244768073"
     >
-      <span
-        className="jsx-2514143691 t--info"
+      <tr
+        className="jsx-4244768073"
       >
-        5
-         
-        certificates
-         ×
-         
-        $14.00
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        $
-        70.00
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="t--info"
-      >
-        Credit card service fee 
-        <a
-          href="#service-fee"
+        <td
+          className="jsx-4244768073"
         >
-          *
-        </a>
-      </span>
-      <span
-        className="jsx-2394436591 cost"
-      >
-        $
-        1.76
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-2514143691 t--info"
-      >
-        Shipping within the U.S.
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        <i
-          className="jsx-2514143691"
+          5
+           
+          certificates
+           ×
+           
+          $14.00
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
         >
-          included
-        </i>
-      </span>
-    </div>
-  </div>
-  <div
-    className="jsx-2514143691 cost-row"
-  >
-    <span
-      className="jsx-2514143691 sh-title"
-    >
-      Total
-    </span>
-    <span
-      className="jsx-2514143691 cost br br-t100 p-v200"
-    >
-      $
-      71.76
-    </span>
-  </div>
+          $
+          70.00
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          <span>
+            Credit card service fee 
+            <a
+              href="#service-fee"
+            >
+              *
+            </a>
+          </span>
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          $
+          1.76
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          Shipping within the U.S.
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          <i
+            className="jsx-4244768073"
+          >
+            included
+          </i>
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073 sh-title"
+        >
+          Total
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+        >
+          $
+          71.76
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
 exports[`Storyshots CostSummary only debit card 1`] = `
 <div
-  className="jsx-2514143691 m-v500"
+  className="jsx-4244768073 clearfix"
 >
-  <div
-    className="jsx-2514143691 p-v200"
+  <table
+    className="jsx-4244768073 m-v500 t--info ta-r"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
   >
-    <div
-      className="jsx-2514143691 cost-row"
+    <tbody
+      className="jsx-4244768073"
     >
-      <span
-        className="jsx-2514143691 t--info"
+      <tr
+        className="jsx-4244768073"
       >
-        5
-         
-        certificates
-         ×
-         
-        $14.00
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        $
-        70.00
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="t--info"
-      >
-        Debit card service fee 
-        <a
-          href="#service-fee"
+        <td
+          className="jsx-4244768073"
         >
-          *
-        </a>
-      </span>
-      <span
-        className="jsx-2394436591 cost"
-      >
-        $
-        1.32
-      </span>
-    </div>
-    <div
-      className="jsx-2514143691 cost-row"
-    >
-      <span
-        className="jsx-2514143691 t--info"
-      >
-        Shipping within the U.S.
-      </span>
-      <span
-        className="jsx-2514143691 t--info cost"
-      >
-        <i
-          className="jsx-2514143691"
+          5
+           
+          certificates
+           ×
+           
+          $14.00
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
         >
-          included
-        </i>
-      </span>
-    </div>
-  </div>
-  <div
-    className="jsx-2514143691 cost-row"
-  >
-    <span
-      className="jsx-2514143691 sh-title"
-    >
-      Total
-    </span>
-    <span
-      className="jsx-2514143691 cost br br-t100 p-v200"
-    >
-      $
-      71.32
-    </span>
-  </div>
+          $
+          70.00
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          <span>
+            Debit card service fee 
+            <a
+              href="#service-fee"
+            >
+              *
+            </a>
+          </span>
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          $
+          1.32
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073"
+        >
+          Shipping within the U.S.
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell"
+        >
+          <i
+            className="jsx-4244768073"
+          >
+            included
+          </i>
+        </td>
+      </tr>
+      <tr
+        className="jsx-4244768073"
+      >
+        <td
+          className="jsx-4244768073 sh-title"
+        >
+          Total
+        </td>
+        <td
+          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+        >
+          $
+          71.32
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
@@ -9910,7 +9465,7 @@ exports[`Storyshots ReviewContent default 1`] = `
       </div>
       <form
         acceptCharset="UTF-8"
-        className="jsx-2133745651 m-b300"
+        className="jsx-2137690629 m-b300"
         method="post"
         onSubmit={[Function]}
       >
@@ -10090,16 +9645,16 @@ exports[`Storyshots ReviewContent default 1`] = `
           </div>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
+          className="jsx-2137690629 b--w p-a300 m-t300 field-container"
         >
           <fieldset
-            className="jsx-2133745651"
+            className="jsx-2137690629"
           >
             <legend
-              className="jsx-2133745651 "
+              className="jsx-2137690629 "
             >
               <span
-                className="jsx-2133745651 stp"
+                className="jsx-2137690629 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -10113,7 +9668,7 @@ exports[`Storyshots ReviewContent default 1`] = `
               —
                
               <a
-                className="jsx-2133745651"
+                className="jsx-2137690629"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -10126,39 +9681,39 @@ exports[`Storyshots ReviewContent default 1`] = `
               </a>
             </legend>
             <div
-              className="jsx-2133745651 p-a300"
+              className="jsx-2137690629 p-a300"
             >
               Doreen Green
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               Empire State University
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               Dorm Hall, Apt 5
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               10 College Avenue
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               New York, NY 12345
             </div>
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
+          className="jsx-2137690629 b--w p-a300 m-t300 field-container"
         >
           <fieldset
-            className="jsx-2133745651"
+            className="jsx-2137690629"
           >
             <legend
-              className="jsx-2133745651"
+              className="jsx-2137690629"
             >
               <span
-                className="jsx-2133745651 stp"
+                className="jsx-2137690629 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -10172,7 +9727,7 @@ exports[`Storyshots ReviewContent default 1`] = `
               —
                
               <a
-                className="jsx-2133745651"
+                className="jsx-2137690629"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -10185,20 +9740,20 @@ exports[`Storyshots ReviewContent default 1`] = `
               </a>
             </legend>
             <div
-              className="jsx-2133745651 p-a300"
+              className="jsx-2137690629 p-a300"
             >
               Nancy Whitehead
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               **** **** **** 
               4040
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               3 Avengers Towers
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               New York
               , 
@@ -10209,132 +9764,121 @@ exports[`Storyshots ReviewContent default 1`] = `
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 p-a300"
+          className="jsx-2137690629 p-a300"
         >
           <div
-            className="jsx-2514143691 m-v500"
+            className="jsx-4244768073 clearfix"
           >
-            <div
-              className="jsx-2514143691 p-v200"
+            <table
+              className="jsx-4244768073 m-v500 t--info ta-r"
+              style={
+                Object {
+                  "float": "right",
+                }
+              }
             >
-              <div
-                className="jsx-2514143691 cost-row"
+              <tbody
+                className="jsx-4244768073"
               >
-                <span
-                  className="jsx-2514143691 t--info"
+                <tr
+                  className="jsx-4244768073"
                 >
-                  5
-                   
-                  certificates
-                   ×
-                   
-                  $14.00
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  $
-                  70.00
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="t--info"
-                >
-                  Credit card service fee 
-                  <a
-                    href="#service-fee"
+                  <td
+                    className="jsx-4244768073"
                   >
-                    *
-                  </a>
-                </span>
-                <span
-                  className="jsx-2394436591 cost"
-                >
-                  $
-                  1.76
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-2514143691 t--info"
-                >
-                  Shipping within the U.S.
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  <i
-                    className="jsx-2514143691"
+                    5
+                     
+                    certificates
+                     ×
+                     
+                    $14.00
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
                   >
-                    included
-                  </i>
-                </span>
-              </div>
-            </div>
-            <div
-              className="jsx-2514143691 cost-row"
-            >
-              <span
-                className="jsx-2514143691 sh-title"
-              >
-                Total
-              </span>
-              <span
-                className="jsx-2514143691 cost br br-t100 p-v200"
-              >
-                $
-                71.76
-              </span>
-            </div>
+                    $
+                    70.00
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073"
+                  >
+                    <span>
+                      Credit card service fee 
+                      <a
+                        href="#service-fee"
+                      >
+                        *
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
+                  >
+                    $
+                    1.76
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073"
+                  >
+                    Shipping within the U.S.
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
+                  >
+                    <i
+                      className="jsx-4244768073"
+                    >
+                      included
+                    </i>
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073 sh-title"
+                  >
+                    Total
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                  >
+                    $
+                    71.76
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div
-          className="jsx-2133745651 g p-a300"
+          className="jsx-2137690629 g p-a300 submit-row"
         >
           <div
-            className="jsx-2133745651 g--9 t--info"
+            className="jsx-2137690629 g--9"
           >
-            Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
-             
-            <strong
-              className="jsx-2133745651"
+            <div
+              className="jsx-2137690629 t--info"
             >
-              Certificates are non-refundable.
-            </strong>
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+               
+              <strong
+                className="jsx-2137690629"
+              >
+                Certificates are non-refundable.
+              </strong>
+            </div>
           </div>
-          <p
-            className="jsx-2133745651 g--9 t--subinfo"
-          >
-            <a
-              className="jsx-2133745651"
-              name="service-fee"
-            />
-            * You are charged an extra service fee of not more than
-             
-            $0.25
-             plus 
-            2.15%
-            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
-             
-            <a
-              className="jsx-2133745651"
-              href="https://www.boston.gov/"
-            >
-              credit card service fees
-            </a>
-             at the City of Boston.
-          </p>
-        </div>
-        <div
-          className="jsx-2133745651 g g--r p-a300 b--w"
-        >
           <button
-            className="jsx-2133745651 g--3 btn m-v500"
+            className="jsx-2137690629 g--3 btn"
             disabled={false}
             type="submit"
           >
@@ -10342,15 +9886,37 @@ exports[`Storyshots ReviewContent default 1`] = `
           </button>
         </div>
         <div
-          className="jsx-2133745651 m-v500 ta-c t--info"
+          className="jsx-2137690629 m-v500 ta-c t--info"
         >
           <a
-            className="jsx-2133745651"
+            className="jsx-2137690629"
             href="/death"
             onClick={[Function]}
           >
             I’m not done yet, go back to search
           </a>
+        </div>
+        <div
+          className="jsx-2137690629 t--subinfo p-a300 b--g"
+        >
+          <a
+            className="jsx-2137690629"
+            name="service-fee"
+          />
+          * You are charged an extra service fee of not more than
+           
+          $0.25
+           plus 
+          2.15%
+          . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+           
+          <a
+            className="jsx-2137690629"
+            href="https://www.boston.gov/"
+          >
+            credit card service fees
+          </a>
+           at the City of Boston.
         </div>
       </form>
     </div>
@@ -10618,7 +10184,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
       </div>
       <form
         acceptCharset="UTF-8"
-        className="jsx-2133745651 m-b300"
+        className="jsx-2137690629 m-b300"
         method="post"
         onSubmit={[Function]}
       >
@@ -10798,16 +10364,16 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           </div>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
+          className="jsx-2137690629 b--w p-a300 m-t300 field-container"
         >
           <fieldset
-            className="jsx-2133745651"
+            className="jsx-2137690629"
           >
             <legend
-              className="jsx-2133745651 "
+              className="jsx-2137690629 "
             >
               <span
-                className="jsx-2133745651 stp"
+                className="jsx-2137690629 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -10821,7 +10387,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               —
                
               <a
-                className="jsx-2133745651"
+                className="jsx-2137690629"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -10834,39 +10400,39 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               </a>
             </legend>
             <div
-              className="jsx-2133745651 p-a300"
+              className="jsx-2137690629 p-a300"
             >
               Doreen Green
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               Empire State University
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               Dorm Hall, Apt 5
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               10 College Avenue
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               New York, NY 12345
             </div>
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 b--w p-a300 m-t300 field-container"
+          className="jsx-2137690629 b--w p-a300 m-t300 field-container"
         >
           <fieldset
-            className="jsx-2133745651"
+            className="jsx-2137690629"
           >
             <legend
-              className="jsx-2133745651"
+              className="jsx-2137690629"
             >
               <span
-                className="jsx-2133745651 stp"
+                className="jsx-2137690629 stp"
                 style={
                   Object {
                     "display": "inline-block",
@@ -10880,7 +10446,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               —
                
               <a
-                className="jsx-2133745651"
+                className="jsx-2137690629"
                 href="/death/checkout"
                 onClick={[Function]}
                 style={
@@ -10893,20 +10459,20 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               </a>
             </legend>
             <div
-              className="jsx-2133745651 p-a300"
+              className="jsx-2137690629 p-a300"
             >
               Nancy Whitehead
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               **** **** **** 
               4040
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               3 Avengers Towers
               <br
-                className="jsx-2133745651"
+                className="jsx-2137690629"
               />
               New York
               , 
@@ -10917,137 +10483,126 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           </fieldset>
         </div>
         <div
-          className="jsx-2133745651 p-a300"
+          className="jsx-2137690629 p-a300"
         >
           <div
-            className="jsx-2514143691 m-v500"
+            className="jsx-4244768073 clearfix"
           >
-            <div
-              className="jsx-2514143691 p-v200"
+            <table
+              className="jsx-4244768073 m-v500 t--info ta-r"
+              style={
+                Object {
+                  "float": "right",
+                }
+              }
             >
-              <div
-                className="jsx-2514143691 cost-row"
+              <tbody
+                className="jsx-4244768073"
               >
-                <span
-                  className="jsx-2514143691 t--info"
+                <tr
+                  className="jsx-4244768073"
                 >
-                  5
-                   
-                  certificates
-                   ×
-                   
-                  $14.00
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  $
-                  70.00
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="t--info"
-                >
-                  Credit card service fee 
-                  <a
-                    href="#service-fee"
+                  <td
+                    className="jsx-4244768073"
                   >
-                    *
-                  </a>
-                </span>
-                <span
-                  className="jsx-2394436591 cost"
-                >
-                  $
-                  1.76
-                </span>
-              </div>
-              <div
-                className="jsx-2514143691 cost-row"
-              >
-                <span
-                  className="jsx-2514143691 t--info"
-                >
-                  Shipping within the U.S.
-                </span>
-                <span
-                  className="jsx-2514143691 t--info cost"
-                >
-                  <i
-                    className="jsx-2514143691"
+                    5
+                     
+                    certificates
+                     ×
+                     
+                    $14.00
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
                   >
-                    included
-                  </i>
-                </span>
-              </div>
-            </div>
-            <div
-              className="jsx-2514143691 cost-row"
-            >
-              <span
-                className="jsx-2514143691 sh-title"
-              >
-                Total
-              </span>
-              <span
-                className="jsx-2514143691 cost br br-t100 p-v200"
-              >
-                $
-                71.76
-              </span>
-            </div>
+                    $
+                    70.00
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073"
+                  >
+                    <span>
+                      Credit card service fee 
+                      <a
+                        href="#service-fee"
+                      >
+                        *
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
+                  >
+                    $
+                    1.76
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073"
+                  >
+                    Shipping within the U.S.
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell"
+                  >
+                    <i
+                      className="jsx-4244768073"
+                    >
+                      included
+                    </i>
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-4244768073"
+                >
+                  <td
+                    className="jsx-4244768073 sh-title"
+                  >
+                    Total
+                  </td>
+                  <td
+                    className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                  >
+                    $
+                    71.76
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div
-          className="jsx-2133745651 g p-a300"
+          className="jsx-2137690629 g p-a300 submit-row"
         >
           <div
-            className="jsx-2133745651 g--9 t--info"
+            className="jsx-2137690629 g--9"
           >
-            Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
-             
-            <strong
-              className="jsx-2133745651"
+            <div
+              className="jsx-2137690629 t--info"
             >
-              Certificates are non-refundable.
-            </strong>
-          </div>
-          <p
-            className="jsx-2133745651 g--9 t--subinfo"
-          >
-            <a
-              className="jsx-2133745651"
-              name="service-fee"
-            />
-            * You are charged an extra service fee of not more than
-             
-            $0.25
-             plus 
-            2.15%
-            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
-             
-            <a
-              className="jsx-2133745651"
-              href="https://www.boston.gov/"
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+               
+              <strong
+                className="jsx-2137690629"
+              >
+                Certificates are non-refundable.
+              </strong>
+            </div>
+            <div
+              className="jsx-2137690629 t--subinfo t--err m-t300"
             >
-              credit card service fees
-            </a>
-             at the City of Boston.
-          </p>
-          <div
-            className="jsx-2133745651 g--9 t--subinfo t--err m-t300"
-          >
-            The order could not be processed.
+              The order could not be processed.
+            </div>
           </div>
-        </div>
-        <div
-          className="jsx-2133745651 g g--r p-a300 b--w"
-        >
           <button
-            className="jsx-2133745651 g--3 btn m-v500"
+            className="jsx-2137690629 g--3 btn"
             disabled={false}
             type="submit"
           >
@@ -11055,15 +10610,37 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           </button>
         </div>
         <div
-          className="jsx-2133745651 m-v500 ta-c t--info"
+          className="jsx-2137690629 m-v500 ta-c t--info"
         >
           <a
-            className="jsx-2133745651"
+            className="jsx-2137690629"
             href="/death"
             onClick={[Function]}
           >
             I’m not done yet, go back to search
           </a>
+        </div>
+        <div
+          className="jsx-2137690629 t--subinfo p-a300 b--g"
+        >
+          <a
+            className="jsx-2137690629"
+            name="service-fee"
+          />
+          * You are charged an extra service fee of not more than
+           
+          $0.25
+           plus 
+          2.15%
+          . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+           
+          <a
+            className="jsx-2137690629"
+            href="https://www.boston.gov/"
+          >
+            credit card service fees
+          </a>
+           at the City of Boston.
         </div>
       </form>
     </div>
@@ -11373,7 +10950,7 @@ exports[`Storyshots SearchPage no results 1`] = `
               onChange={[Function]}
               placeholder="Search by name…"
               type="text"
-              value="Jayne Doe"
+              value="Jayn Doe"
             />
             <button
               className="sf-i-b"
@@ -12086,7 +11663,7 @@ exports[`Storyshots SearchPage with results 1`] = `
               onChange={[Function]}
               placeholder="Search by name…"
               type="text"
-              value="Jayne Doe"
+              value="Jayn Doe"
             />
             <button
               className="sf-i-b"
@@ -12117,7 +11694,7 @@ exports[`Storyshots SearchPage with results 1`] = `
             600
              
             results for “
-            Jayne Doe
+            Jayn Doe
             ”
           </div>
         </div>
@@ -12222,7 +11799,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link"
-              href="/death?q=Jayne Doe&page=1"
+              href="/death?q=Jayn Doe&page=1"
               onClick={[Function]}
             >
               ≪
@@ -12233,7 +11810,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link "
-              href="/death?q=Jayne Doe&page=1"
+              href="/death?q=Jayn Doe&page=1"
               onClick={[Function]}
             >
               1
@@ -12244,7 +11821,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link pg-li-i--a"
-              href="/death?q=Jayne Doe&page=2"
+              href="/death?q=Jayn Doe&page=2"
               onClick={[Function]}
             >
               2
@@ -12255,7 +11832,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link "
-              href="/death?q=Jayne Doe&page=3"
+              href="/death?q=Jayn Doe&page=3"
               onClick={[Function]}
             >
               3
@@ -12266,7 +11843,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link "
-              href="/death?q=Jayne Doe&page=4"
+              href="/death?q=Jayn Doe&page=4"
               onClick={[Function]}
             >
               4
@@ -12277,7 +11854,7 @@ exports[`Storyshots SearchPage with results 1`] = `
           >
             <a
               className="pg-li-i pg-li-i--link"
-              href="/death?q=Jayne Doe&page=3"
+              href="/death?q=Jayn Doe&page=3"
               onClick={[Function]}
             >
               ≫

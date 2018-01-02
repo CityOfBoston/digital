@@ -159,33 +159,23 @@ export default class ReviewContent extends React.Component<Props> {
             />
           </div>
 
-          <div className="g p-a300">
-            <div className="g--9 t--info">
-              Pressing the “Submit Order” button will charge the total amount to
-              your credit card and place an order with the Registry.{' '}
-              <strong>Certificates are non-refundable.</strong>
+          <div className="g p-a300 submit-row">
+            <div className="g--9">
+              <div className="t--info">
+                Pressing the “Submit Order” button will charge the total amount
+                to your credit card and place an order with the Registry.{' '}
+                <strong>Certificates are non-refundable.</strong>
+              </div>
+
+              {processingError && (
+                <div className="t--subinfo t--err m-t300">
+                  {processingError}
+                </div>
+              )}
             </div>
 
-            <p className="g--9 t--subinfo">
-              <a name="service-fee" />
-              * You are charged an extra service fee of not more than{' '}
-              {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
-              directly to a third party to pay for the cost of credit card
-              processing. Learn more about{' '}
-              <a href="https://www.boston.gov/">credit card service fees</a> at
-              the City of Boston.
-            </p>
-
-            {processingError && (
-              <div className="g--9 t--subinfo t--err m-t300">
-                {processingError}
-              </div>
-            )}
-          </div>
-
-          <div className="g g--r p-a300 b--w">
             <button
-              className="g--3 btn m-v500"
+              className="g--3 btn"
               type="submit"
               disabled={!paymentIsComplete || !shippingIsComplete || processing}
             >
@@ -199,16 +189,28 @@ export default class ReviewContent extends React.Component<Props> {
             </Link>
           </div>
 
+          <div className="t--subinfo p-a300 b--g">
+            <a name="service-fee" />
+            * You are charged an extra service fee of not more than{' '}
+            {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
+            directly to a third party to pay for the cost of credit card
+            processing. Learn more about{' '}
+            <a href="https://www.boston.gov/">credit card service fees</a> at
+            the City of Boston.
+          </div>
+
           <style jsx>{`
-            button {
-              align-self: center;
+            .submit-row {
+              align-items: flex-start;
             }
+
             fieldset {
               border: 0;
               padding: 0.01em 0 0 0;
               margin: 0;
               min-width: 0;
             }
+
             legend {
               padding: 0;
               display: table;

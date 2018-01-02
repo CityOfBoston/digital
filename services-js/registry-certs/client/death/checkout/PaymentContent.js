@@ -11,6 +11,12 @@ import type Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 
 import OrderDetails from './OrderDetails';
+import {
+  CHARLES_BLUE,
+  GRAY_300,
+  LORA_SRC,
+  FREEDOM_RED,
+} from '../../common/style-constants';
 
 export type Props = {|
   submit: (cardElement: ?StripeElement) => mixed,
@@ -42,7 +48,14 @@ export default class PaymentContent extends React.Component<Props, State> {
     }
 
     if (stripe) {
-      const elements = stripe.elements();
+      const elements = stripe.elements({
+        fonts: [
+          {
+            family: 'Lora',
+            src: `url('${LORA_SRC}')`,
+          },
+        ],
+      });
 
       this.cardElement = elements.create('card', {
         hidePostalCode: true,
@@ -52,7 +65,16 @@ export default class PaymentContent extends React.Component<Props, State> {
         },
         style: {
           base: {
-            lineHeight: '20px',
+            lineHeight: '3.5rem',
+            fontFamily: 'Lora, Impact, fixed',
+            fontSize: '16px',
+            color: CHARLES_BLUE,
+          },
+          empty: {
+            color: GRAY_300,
+          },
+          invalid: {
+            color: FREEDOM_RED,
           },
         },
       });

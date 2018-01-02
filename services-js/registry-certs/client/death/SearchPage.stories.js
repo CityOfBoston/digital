@@ -27,7 +27,7 @@ storiesOf('SearchPage', module)
   .add('no results', () => (
     <SearchPageContent
       submitSearch={action('submitSearch')}
-      query={'Jayne Doe'}
+      query={'Jayn Doe'}
       page={1}
       results={{
         page: 1,
@@ -41,7 +41,7 @@ storiesOf('SearchPage', module)
   .add('with results', () => (
     <SearchPageContent
       submitSearch={action('submitSearch')}
-      query={'Jayne Doe'}
+      query={'Jayn Doe'}
       page={2}
       results={{
         page: 2,

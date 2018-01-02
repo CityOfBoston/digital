@@ -40,16 +40,6 @@ export class CartPageContent extends React.Component<Props> {
             flex-direction: column;
             justify-content: space-between;
           }
-
-          a.btn {
-            align-self: center;
-            text-align: center;
-            display: block;
-          }
-
-          .vertical-center {
-            align-self: center;
-          }
         `}</style>
 
         <Head>
@@ -57,6 +47,14 @@ export class CartPageContent extends React.Component<Props> {
         </Head>
 
         <div className="p-a300">
+          <div className="m-b500">
+            <Link href="/death">
+              <a style={{ fontStyle: 'italic' }}>
+                ← Search for another certificate
+              </a>
+            </Link>
+          </div>
+
           <div className="sh sh--b0 m-t300">
             <h1 className="sh-title">Cart</h1>
           </div>
@@ -74,7 +72,7 @@ export class CartPageContent extends React.Component<Props> {
             ))}
 
             {cart.entries.length === 0 && (
-              <div className="p-a300 g" style={{ paddingTop: 0 }}>
+              <div className="p-a300 g g--vc" style={{ paddingTop: 0 }}>
                 <div className="g--9  vertical-center">
                   <div className="t--intro">There’s nothing here yet!</div>
                   <p className="t--info">
@@ -91,26 +89,22 @@ export class CartPageContent extends React.Component<Props> {
           </div>
 
           {cart.entries.length > 0 && (
-            <div className="p-a300">
-              <CostSummary
-                cart={cart}
-                allowServiceFeeTypeChoice
-                serviceFeeType="CREDIT"
-              />
+            <div>
+              <div className="p-a300">
+                <CostSummary
+                  cart={cart}
+                  allowServiceFeeTypeChoice
+                  serviceFeeType="CREDIT"
+                />
 
-              <div className="m-v500">
-                <Link href="/death/checkout">
-                  <a className="btn">Checkout</a>
-                </Link>
+                <div className="ta-c ta-r--large g--6 m-t500">
+                  <Link href="/death/checkout">
+                    <a className="btn">Go to checkout</a>
+                  </Link>
+                </div>
               </div>
 
-              <div className="m-v500 ta-c t--info">
-                <Link href="/death">
-                  <a>Start a new search</a>
-                </Link>
-              </div>
-
-              <p className="t--subinfo">
+              <p className="t--subinfo b--g p-a300">
                 <a name="service-fee" />
                 * You are charged an extra service fee of no more than{' '}
                 {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes

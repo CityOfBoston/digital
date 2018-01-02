@@ -1,6 +1,16 @@
 // @flow
 /* eslint no-unused-vars: 0 */
 
+type StripeFont = {|
+  family: string,
+  src: string,
+  unicodeRange?: string,
+|};
+
+type StripeElementsOptions = {|
+  fonts?: Array<StripeFont>,
+|};
+
 type StripeElementType =
   | 'card'
   | 'cardNumber'
@@ -149,7 +159,7 @@ type StripeCardData = {|
 |};
 
 type StripeInstance = {|
-  elements: () => StripeElements,
+  elements: (opts?: StripeElementsOptions) => StripeElements,
   createToken: (
     element: StripeElement,
     cardData?: StripeCardData

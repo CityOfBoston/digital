@@ -104,7 +104,7 @@ describe('content', () => {
     wrapper = shallow(
       <SearchPageContent
         cart={new Cart()}
-        query={'Jayne Doe'}
+        query={'Jayn Doe'}
         page={1}
         results={null}
         submitSearch={submitSearch}
@@ -114,7 +114,7 @@ describe('content', () => {
 
   it('defaults to the passed-in query', () => {
     const queryField = wrapper.find('input[name="q"]');
-    expect(queryField.prop('value')).toEqual('Jayne Doe');
+    expect(queryField.prop('value')).toEqual('Jayn Doe');
   });
 
   it('changes query input and submits it', () => {

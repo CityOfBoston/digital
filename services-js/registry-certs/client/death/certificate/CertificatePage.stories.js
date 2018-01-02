@@ -19,22 +19,8 @@ storiesOf('CertificatePage', module)
     <CertificatePageContent
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
-      backUrl={'/search?q=jayne'}
+      backUrl={'/search?q=Jayn'}
       addToCart={action('addToCart')}
-      showAddedToCart={false}
-      addedToCartQuantity={0}
-      closeAddedToCart={action('closeAddedToCart')}
-    />
-  ))
-  .add('normal certificate — added to cart', () => (
-    <CertificatePageContent
-      id={TYPICAL_CERTIFICATE.id}
-      certificate={TYPICAL_CERTIFICATE}
-      backUrl={'/search?q=jayne'}
-      addToCart={action('addToCart')}
-      showAddedToCart={true}
-      addedToCartQuantity={5}
-      closeAddedToCart={action('closeAddedToCart')}
     />
   ))
   .add('normal certificate — not from search', () => (
@@ -43,30 +29,21 @@ storiesOf('CertificatePage', module)
       certificate={TYPICAL_CERTIFICATE}
       backUrl={null}
       addToCart={action('addToCart')}
-      showAddedToCart={false}
-      addedToCartQuantity={0}
-      closeAddedToCart={action('closeAddedToCart')}
     />
   ))
   .add('pending certificate', () => (
     <CertificatePageContent
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
-      backUrl={'/search?q=jayne'}
+      backUrl={'/search?q=Jayn'}
       addToCart={action('addToCart')}
-      showAddedToCart={false}
-      addedToCartQuantity={0}
-      closeAddedToCart={action('closeAddedToCart')}
     />
   ))
   .add('missing certificate', () => (
     <CertificatePageContent
       id="200001"
       certificate={null}
-      backUrl={'/search?q=jayne'}
+      backUrl={'/search?q=Jayn'}
       addToCart={action('addToCart')}
-      showAddedToCart={false}
-      addedToCartQuantity={0}
-      closeAddedToCart={action('closeAddedToCart')}
     />
   ));

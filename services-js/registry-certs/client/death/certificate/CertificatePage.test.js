@@ -67,7 +67,6 @@ describe('controller', () => {
   describe('operations', () => {
     describe('addToCart', () => {
       let cart;
-      let contentProps;
       let controller;
 
       beforeEach(() => {
@@ -76,10 +75,7 @@ describe('controller', () => {
         const dependencies: any = { cart };
         const CertificatePageController = wrapCertificatePageController(
           () => dependencies,
-          (dependencies, props) => {
-            contentProps = props;
-            return null;
-          }
+          () => null
         );
 
         controller = shallow(
@@ -95,22 +91,6 @@ describe('controller', () => {
 
       it('adds 5 things to the cart', () => {
         expect(cart.size).toEqual(5);
-      });
-
-      it('displays the “add to cart” popup with the quantity', () => {
-        expect(contentProps).toMatchObject({
-          showAddedToCart: true,
-          addedToCartQuantity: 5,
-        });
-      });
-
-      it('popup can be closed', () => {
-        contentProps.closeAddedToCart();
-
-        expect(contentProps).toMatchObject({
-          showAddedToCart: false,
-          addedToCartQuantity: 5,
-        });
       });
     });
   });
@@ -129,9 +109,6 @@ describe('content', () => {
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}
         addToCart={addToCart}
-        showAddedToCart={false}
-        addedToCartQuantity={0}
-        closeAddedToCart={jest.fn()}
       />
     );
   });

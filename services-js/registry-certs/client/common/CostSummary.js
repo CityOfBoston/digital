@@ -55,66 +55,69 @@ export default class CostSummary extends React.Component<Props, State> {
 
   render() {
     const { cart } = this.props;
-    const { total, subtotal } = this.calculateCost();
+    const { total, subtotal, serviceFee } = this.calculateCost();
 
     return (
-      <div className="m-v500">
-        <div className="p-v200">
-          <div className="cost-row">
-            <span className="t--info">
-              {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
-              {CERTIFICATE_COST_STRING}
-            </span>
-            <span className="t--info cost">${(subtotal / 100).toFixed(2)}</span>
-          </div>
+      <div className="clearfix">
+        <table className="m-v500 t--info ta-r" style={{ float: 'right' }}>
+          <tbody>
+            <tr>
+              <td>
+                {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
+                {CERTIFICATE_COST_STRING}
+              </td>
+              <td className="cost-cell">${(subtotal / 100).toFixed(2)}</td>
+            </tr>
 
-          <div className="cost-row">{this.renderServiceFee()}</div>
+            <tr>
+              <td>{this.renderServiceFeeLabel()}</td>
+              <td className="cost-cell">${(serviceFee / 100).toFixed(2)}</td>
+            </tr>
 
-          <div className="cost-row">
-            <span className="t--info">Shipping within the U.S.</span>
-            <span className="t--info cost">
-              <i>included</i>
-            </span>
-          </div>
-        </div>
+            <tr>
+              <td>Shipping within the U.S.</td>
+              <td className="cost-cell">
+                <i>included</i>
+              </td>
+            </tr>
 
-        <div className="cost-row">
-          <span className="sh-title">Total</span>
-          <span className="cost br br-t100 p-v200">
-            ${(total / 100).toFixed(2)}
-          </span>
-        </div>
-
+            <tr>
+              <td className="sh-title">Total</td>
+              <td className="cost-cell cost br br-t100 p-v200">
+                ${(total / 100).toFixed(2)}
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <style jsx>{`
-          .cost-row {
-            text-align: right;
+          .clearfix:after {
+            content: '';
+            display: table;
+            clear: both;
           }
 
-          .cost {
-            min-width: 5em;
-            margin-left: 1em;
-            display: inline-block;
-            color: #58585b;
+          .cost-cell {
+            width: 5em;
+            vertical-align: bottom;
           }
 
           .sh-title {
             padding: 0;
             line-height: 1;
+            font-style: normal;
           }
         `}</style>
       </div>
     );
   }
 
-  renderServiceFee() {
+  renderServiceFeeLabel() {
     const { allowServiceFeeTypeChoice } = this.props;
     const { serviceFeeType } = this.state;
 
-    let label;
-
     if (allowServiceFeeTypeChoice) {
-      label = (
-        <span className="t--info" key="label">
+      return (
+        <div>
           <div className="sel sel--thin" style={{ display: 'inline-block' }}>
             <div className="sel-c">
               <select
@@ -134,49 +137,34 @@ export default class CostSummary extends React.Component<Props, State> {
           </label>
           <style jsx>{`
             .sel--thin .sel-f {
-              padding-top: 0;
-              padding-bottom: 0;
+              height: 2rem;
+            }
+
+            .sel-c:after {
+              width: 2rem;
             }
           `}</style>
-        </span>
+        </div>
       );
     } else {
       switch (serviceFeeType) {
         case 'CREDIT':
-          label = (
-            <span className="t--info" key="label">
+          return (
+            <span>
               Credit card service fee <a href="#service-fee">*</a>
             </span>
           );
-          break;
 
         case 'DEBIT':
-          label = (
-            <span className="t--info" key="label">
+          return (
+            <span>
               Debit card service fee <a href="#service-fee">*</a>
             </span>
           );
-          break;
 
         default:
           throw new Error();
       }
     }
-
-    const { serviceFee } = this.calculateCost();
-
-    return [
-      label,
-      <span className="cost" key="value">
-        ${(serviceFee / 100).toFixed(2)}
-        <style jsx>{`
-          .cost {
-            min-width: 5em;
-            margin-left: 1em;
-            display: inline-block;
-          }
-        `}</style>
-      </span>,
-    ];
   }
 }

@@ -35,7 +35,6 @@ exports[`integration renders 1`] = `
 >
   <CertificatePageContent
     addToCart={[Function]}
-    addedToCartQuantity={0}
     backUrl="/search?q=jayne"
     certificate={
       Object {
@@ -49,9 +48,7 @@ exports[`integration renders 1`] = `
         "pending": false,
       }
     }
-    closeAddedToCart={[Function]}
     id="000002"
-    showAddedToCart={false}
   />
 </AppLayout>
 `;
