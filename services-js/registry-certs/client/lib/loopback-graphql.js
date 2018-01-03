@@ -33,19 +33,7 @@ function handleGraphqlResponse(ok, json) {
   }
 }
 
-let clientCache = {};
-
-export function setClientCache(cache: { [key: string]: mixed }) {
-  clientCache = cache;
-}
-
-async function clientGraphqlFetch(query, variables = null, options = {}) {
-  const { cacheKey } = options;
-
-  if (cacheKey && clientCache[cacheKey]) {
-    return clientCache[cacheKey];
-  }
-
+async function clientGraphqlFetch(query, variables = null) {
   const res = await fetch('/graphql', {
     method: 'POST',
     headers: {
@@ -62,25 +50,13 @@ async function clientGraphqlFetch(query, variables = null, options = {}) {
 
   if (res.ok) {
     // only assume we can json if the response is ok
-    const value = handleGraphqlResponse(true, await res.json());
-    if (cacheKey) {
-      clientCache[cacheKey] = value;
-    }
-    return value;
+    return handleGraphqlResponse(true, await res.json());
   } else {
     throw new Error(await res.text());
   }
 }
 
-async function serverGraphqlFetch(
-  hapiInject,
-  cache,
-  query,
-  variables = null,
-  options = {}
-) {
-  const { cacheKey } = options;
-
+async function serverGraphqlFetch(hapiInject, query, variables = null) {
   const res = await hapiInject({
     url: '/graphql',
     method: 'post',
@@ -95,11 +71,7 @@ async function serverGraphqlFetch(
 
   const json =
     typeof res.result === 'string' ? JSON.parse(res.result) : res.result;
-  const value = handleGraphqlResponse(res.statusCode === 200, json);
-  if (cacheKey) {
-    cache[cacheKey] = value;
-  }
-  return value;
+  return handleGraphqlResponse(res.statusCode === 200, json);
 }
 
 function serverRenderGraphqlFetch() {
@@ -122,11 +94,7 @@ export default function makeLoopbackGraphql(
   if (process.browser) {
     return clientGraphqlFetch;
   } else if (req) {
-    return serverGraphqlFetch.bind(
-      null,
-      req.hapiInject,
-      req.loopbackGraphqlCache
-    );
+    return serverGraphqlFetch.bind(null, req.hapiInject);
   } else {
     // This case comes up when components make a loopbackGraphql outside of
     // getInitialProps but during server rendering. We don't error immediately

@@ -14,7 +14,6 @@ type HapiInject = (options: {|
 
 export type RequestAdditions = {|
   hapiInject: HapiInject,
-  loopbackGraphqlCache: { [key: string]: mixed },
 |};
 
 export default (handler: (request: mixed, reply: mixed) => mixed) => (
@@ -25,7 +24,6 @@ export default (handler: (request: mixed, reply: mixed) => mixed) => (
 
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
-    loopbackGraphqlCache: {},
   };
 
   Object.assign(req, requestAdditions);
