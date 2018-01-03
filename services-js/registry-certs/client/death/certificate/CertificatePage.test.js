@@ -12,6 +12,7 @@ import CertificatePage, {
 
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
+jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
 
 describe('integration', () => {

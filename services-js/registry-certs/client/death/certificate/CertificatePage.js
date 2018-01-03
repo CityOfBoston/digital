@@ -111,11 +111,11 @@ export class CertificatePageContent extends React.Component<
           </div>
 
           <div className="g g--r g--vc">
-            <div className="g--6 m-v300">
+            <div className="g--5 m-v300">
               {certificate && this.renderAddToCart()}
             </div>
 
-            <div className="g--6 m-v300">
+            <div className="g--7 m-v300">
               {backUrl && (
                 <Link href={backUrl}>
                   <a style={{ fontStyle: 'italic' }}>
@@ -222,7 +222,7 @@ export class CertificatePageContent extends React.Component<
             id="quantity"
             name="quantity"
             className="txt-f txt-f--combo txt-f--auto ta-r"
-            size="5"
+            size="3"
             value={quantity || ''}
             onChange={this.handleQuantityChange}
           />

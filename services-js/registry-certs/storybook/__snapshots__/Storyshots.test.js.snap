@@ -1818,10 +1818,10 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--6 m-v300"
+                className="g--5 m-v300"
               />
               <div
-                className="g--6 m-v300"
+                className="g--7 m-v300"
               >
                 <a
                   href="/search?q=Jayn"
@@ -2234,7 +2234,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--6 m-v300"
+                className="g--5 m-v300"
               >
                 <form
                   className="jsx-2742074348 js-add-to-cart-form"
@@ -2248,7 +2248,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                       id="quantity"
                       name="quantity"
                       onChange={[Function]}
-                      size="5"
+                      size="3"
                       type="text"
                       value={1}
                     />
@@ -2352,7 +2352,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                 </form>
               </div>
               <div
-                className="g--6 m-v300"
+                className="g--7 m-v300"
               >
                 <a
                   href="/search?q=Jayn"
@@ -2765,7 +2765,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               className="g g--r g--vc"
             >
               <div
-                className="g--6 m-v300"
+                className="g--5 m-v300"
               >
                 <form
                   className="jsx-2742074348 js-add-to-cart-form"
@@ -2779,7 +2779,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                       id="quantity"
                       name="quantity"
                       onChange={[Function]}
-                      size="5"
+                      size="3"
                       type="text"
                       value={1}
                     />
@@ -2883,7 +2883,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                 </form>
               </div>
               <div
-                className="g--6 m-v300"
+                className="g--7 m-v300"
               />
             </div>
           </div>
@@ -3270,7 +3270,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--6 m-v300"
+                className="g--5 m-v300"
               >
                 <form
                   className="jsx-2742074348 js-add-to-cart-form"
@@ -3284,7 +3284,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                       id="quantity"
                       name="quantity"
                       onChange={[Function]}
-                      size="5"
+                      size="3"
                       type="text"
                       value={1}
                     />
@@ -3388,7 +3388,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                 </form>
               </div>
               <div
-                className="g--6 m-v300"
+                className="g--7 m-v300"
               >
                 <a
                   href="/search?q=Jayn"
