@@ -19,7 +19,7 @@ const renderCertificate = (
 ) => (
   <div key="certificate" className="certificate-info-box">
     <div
-      className={`t--sans ${thin
+      className={`t--sans m-v100 ${thin
         ? 'thin-certificate-name'
         : 'certificate-name'}`}
     >
@@ -87,7 +87,7 @@ export default function CertificateRow({
   }
 
   return (
-    <div className={`${thin ? 'p-a200' : 'p-a300'} br b--w row ${borderClass}`}>
+    <div className={`${thin ? 'p-v200' : 'p-v300'} br b--w row ${borderClass}`}>
       {children
         ? children(renderCertificate(certificate, !!thin))
         : renderCertificate(certificate, !!thin)}
@@ -100,10 +100,6 @@ export default function CertificateRow({
 
           display: flex;
           align-items: center;
-        }
-
-        .br-b100 {
-          border-bottom-width: 1px;
         }
       `}</style>
     </div>

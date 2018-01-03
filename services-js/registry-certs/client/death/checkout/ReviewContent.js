@@ -72,46 +72,46 @@ export default class ReviewContent extends React.Component<Props> {
 
     return (
       <div>
-        <Head>
-          <title>Boston.gov — Death Certificate Payment</title>
-        </Head>
+        <div className="b-c b-c--hsm b-c--nbp">
+          <Head>
+            <title>Boston.gov — Death Certificate Payment</title>
+          </Head>
 
-        <div className="p-a300">
-          <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              Review Order
-            </h1>
+          <div className="sh sh--b0">
+            <h1 className="sh-title">Review Order</h1>
           </div>
-        </div>
 
-        <div className="p-a300 t--info">
-          Your order is not yet complete. Please check the information below,
-          then click the <b>Submit Order</b> button.
-        </div>
+          <div className="t--info m-v500">
+            Your order is not yet complete. Please check the information below,
+            then click the <b>Submit Order</b> button.
+          </div>
 
-        <form
-          className="m-b300"
-          acceptCharset="UTF-8"
-          method="post"
-          onSubmit={this.handleSubmit}
-        >
-          <OrderDetails cart={cart} fixed />
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={this.handleSubmit}
+          >
+            <OrderDetails cart={cart} fixed />
 
-          <div className="b--w p-a300 m-t300 field-container">
-            <fieldset>
-              <legend className="">
-                <span
-                  className="stp"
-                  style={{ fontWeight: 'bold', display: 'inline-block' }}
-                >
+            <fieldset className="fs m-v700">
+              <legend className="fs-l">
+                <div className="fs-l-c">
                   Shipping Address
-                </span>{' '}
-                —{' '}
-                <Link href="/death/checkout?page=shipping" as="/death/checkout">
-                  <a style={{ fontStyle: 'italic' }}>edit</a>
-                </Link>
+                  <span className="t--reset">
+                    &nbsp;—&nbsp;
+                    <span className="t--subinfo">
+                      <Link
+                        href="/death/checkout?page=shipping"
+                        as="/death/checkout"
+                      >
+                        <a>edit</a>
+                      </Link>
+                    </span>
+                  </span>
+                </div>
               </legend>
-              <div className="p-a300">
+
+              <div className="t--info" style={{ fontStyle: 'normal' }}>
                 {shippingName}
                 <br />
                 {shippingCompanyName
@@ -123,23 +123,26 @@ export default class ReviewContent extends React.Component<Props> {
                 {`${shippingCity}, ${shippingState} ${shippingZip}`}
               </div>
             </fieldset>
-          </div>
 
-          <div className="b--w p-a300 m-t300 field-container">
-            <fieldset>
-              <legend>
-                <span
-                  className="stp"
-                  style={{ fontWeight: 'bold', display: 'inline-block' }}
-                >
+            <fieldset className="fs m-v700">
+              <legend className="fs-l">
+                <div className="fs-l-c">
                   Payment Information
-                </span>{' '}
-                —{' '}
-                <Link href="/death/checkout?page=payment" as="/death/checkout">
-                  <a style={{ fontStyle: 'italic' }}>edit</a>
-                </Link>
+                  <span className="t--reset">
+                    &nbsp;—&nbsp;
+                    <span className="t--subinfo">
+                      <Link
+                        href="/death/checkout?page=payment"
+                        as="/death/checkout"
+                      >
+                        <a>edit</a>
+                      </Link>
+                    </span>
+                  </span>
+                </div>
               </legend>
-              <div className="p-a300">
+
+              <div className="t--info" style={{ fontStyle: 'normal' }}>
                 {cardholderName}
                 <br />
                 **** **** **** {cardLast4 || ''}
@@ -150,46 +153,59 @@ export default class ReviewContent extends React.Component<Props> {
                 {billingCity}, {billingState} {billingZip}
               </div>
             </fieldset>
-          </div>
 
-          <div className="p-a300">
-            <CostSummary
-              cart={cart}
-              serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
-            />
-          </div>
-
-          <div className="g p-a300 submit-row">
-            <div className="g--9">
-              <div className="t--info">
-                Pressing the “Submit Order” button will charge the total amount
-                to your credit card and place an order with the Registry.{' '}
-                <strong>Certificates are non-refundable.</strong>
-              </div>
-
-              {processingError && (
-                <div className="t--subinfo t--err m-t300">
-                  {processingError}
-                </div>
-              )}
+            <div className="m-v500">
+              <CostSummary
+                cart={cart}
+                serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
+              />
             </div>
 
-            <button
-              className="g--3 btn"
-              type="submit"
-              disabled={!paymentIsComplete || !shippingIsComplete || processing}
-            >
-              Submit Order
-            </button>
-          </div>
+            {processingError && (
+              <div className="m-v500 p-a300 br br-a100 br--r">
+                <div className="t--intro t--err">
+                  There was an error: {processingError}
+                </div>
+                <div className="t--info">
+                  You can try again. If it keeps happening, please email{' '}
+                  <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
+                </div>
+              </div>
+            )}
 
-          <div className="m-v500 ta-c t--info">
-            <Link href="/death">
-              <a>I’m not done yet, go back to search</a>
-            </Link>
-          </div>
+            <div className="g g--vc">
+              <div className="g--8 m-b500">
+                <div className="t--info">
+                  Pressing the “Submit Order” button will charge the total
+                  amount to your credit card and place an order with the
+                  Registry. <strong>Certificates are non-refundable.</strong>
+                </div>
+              </div>
 
-          <div className="t--subinfo p-a300 b--g">
+              <div className="g--4 m-b500">
+                <button
+                  className="btn"
+                  style={{ display: 'block', width: '100%' }}
+                  type="submit"
+                  disabled={
+                    !paymentIsComplete || !shippingIsComplete || processing
+                  }
+                >
+                  Submit Order
+                </button>
+              </div>
+            </div>
+
+            <div className="ta-c t--info m-b500">
+              <Link href="/death">
+                <a>I’m not done yet, go back to search</a>
+              </Link>
+            </div>
+          </form>
+        </div>
+
+        <div className="b--g m-t700">
+          <div className="b-c b-c--smv b-c--hsm t--subinfo">
             <a name="service-fee" />
             * You are charged an extra service fee of not more than{' '}
             {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
@@ -198,25 +214,7 @@ export default class ReviewContent extends React.Component<Props> {
             <a href="https://www.boston.gov/">credit card service fees</a> at
             the City of Boston.
           </div>
-
-          <style jsx>{`
-            .submit-row {
-              align-items: flex-start;
-            }
-
-            fieldset {
-              border: 0;
-              padding: 0.01em 0 0 0;
-              margin: 0;
-              min-width: 0;
-            }
-
-            legend {
-              padding: 0;
-              display: table;
-            }
-          `}</style>
-        </form>
+        </div>
       </div>
     );
   }

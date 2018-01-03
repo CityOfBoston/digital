@@ -122,14 +122,14 @@ export default class OrderDetails extends React.Component<Props, State> {
             <div className="dr-c" style={{ display: 'block' }}>
               {this.renderCart(cart, false)}
 
-              <p className="t--subinfo p-a300">
+              <div className="t--subinfo p-a300">
                 * You are charged an extra service fee of not more than{' '}
                 {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
                 directly to a third party to pay for the cost of card
                 processing. Learn more about{' '}
                 <a href="https://www.boston.gov/">card service fees</a> at the
                 City of Boston.
-              </p>
+              </div>
 
               <div className="ta-c t--subinfo b--g">
                 <Link href="/death/cart">
@@ -173,52 +173,22 @@ export default class OrderDetails extends React.Component<Props, State> {
     const { cart } = this.props;
 
     return (
-      <div className="dr dr-open">
-        <div className="dr-h">
-          <div className="p-a300" style={{ paddingBottom: 0 }}>
-            <h2
-              className="stp"
-              style={{ fontWeight: 'bold', display: 'inline-block' }}
-            >
-              Order details
-            </h2>{' '}
-            —{' '}
-            <Link href="/death/cart">
-              <a style={{ fontStyle: 'italic' }}>edit</a>
-            </Link>
+      <div className="m-v700">
+        <div className="fs-l">
+          <div className="fs-l-c">
+            Order details
+            <span className="t--reset">
+              &nbsp;—&nbsp;
+              <span className="t--subinfo">
+                <Link href="/death/cart">
+                  <a>edit</a>
+                </Link>
+              </span>
+            </span>
           </div>
         </div>
 
-        <div className="p-a300" style={{ paddingTop: 0 }}>
-          <div className="dr-c" style={{ display: 'block' }}>
-            {this.renderCart(cart, true)}
-          </div>
-        </div>
-
-        <style jsx>{`
-          .dr {
-            margin-top: 0 !important;
-          }
-
-          .dr-h {
-            padding: 0;
-          }
-
-          .dr--open .dr-h,
-          .dr-h:hover {
-            cursor: inherit;
-            background-color: white;
-            color: ${CHARLES_BLUE};
-          }
-
-          .dr--open .dr-i {
-            fill: ${OPTIMISTIC_BLUE};
-          }
-
-          .dr-c {
-            padding: 0;
-          }
-        `}</style>
+        {this.renderCart(cart, true)}
       </div>
     );
   }

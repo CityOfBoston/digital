@@ -86,34 +86,49 @@ export class CertificatePageContent extends React.Component<
       lastName: null,
     };
 
+    const fullName = certificate
+      ? `${firstName || ''} ${lastName || ''}`
+      : null;
+
     return (
-      <div className="content">
+      <div className="b-ff">
         <Head>
-          <title>Boston.gov — Death Certificate #{id}</title>
+          <title>Boston.gov — Death Certificate {fullName || `#${id}`}</title>
         </Head>
 
-        <div className="p-a300">
-          {backUrl && (
-            <div className="m-b500">
-              <Link href={backUrl}>
-                <a style={{ fontStyle: 'italic' }}>← Back to search results</a>
-              </Link>
-            </div>
-          )}
-
+        <div className="b-c b-c--nbp b-ff">
           <div className="sh sh--b0">
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              {firstName} {lastName}
-            </h1>
+            <h1 className="sh-title">{fullName || 'Certificate not found'}</h1>
+          </div>
+
+          <div className="m-v300 b-ff">
+            {certificate && this.renderCertificate(certificate)}
+            {!certificate && (
+              <div className="t--info">
+                We could not find a certificate with ID #{id}.
+              </div>
+            )}
+          </div>
+
+          <div className="g g--r g--vc">
+            <div className="g--6 m-v300">
+              {certificate && this.renderAddToCart()}
+            </div>
+
+            <div className="g--6 m-v300">
+              {backUrl && (
+                <Link href={backUrl}>
+                  <a style={{ fontStyle: 'italic' }}>
+                    ← Back to search results
+                  </a>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="p-a300 certificate-wrapper">
-          {certificate && this.renderCertificate(certificate)}
-
-          {this.renderAddToCart()}
-
-          <p className="t--subinfo">
+        <div className="b--g m-t700">
+          <div className="b-c b-c--smv t--subinfo">
             Death certificates cost {CERTIFICATE_COST_STRING} each. That price
             includes shipping. You will be charged an extra service fee of not
             more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
@@ -121,19 +136,8 @@ export class CertificatePageContent extends React.Component<
             processing. Learn more about{' '}
             <a href="https://www.boston.gov/">card service fees</a> at the City
             of Boston.
-          </p>
+          </div>
         </div>
-
-        <style jsx>
-          {`
-            .content,
-            .certificate-wrapper {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-            }
-          `}
-        </style>
       </div>
     );
   }
@@ -151,7 +155,7 @@ export class CertificatePageContent extends React.Component<
       <div className="certificate">
         <ul className="dl">
           <li className="dl-i">
-            <span className="dl-t">ID #</span>
+            <span className="dl-t">Certificate #</span>
             <span className="dl-d">{id}</span>
           </li>
           <li className="dl-i">
@@ -184,7 +188,7 @@ export class CertificatePageContent extends React.Component<
           .certificate {
             display: flex;
             flex-direction: column;
-            flex: 1;
+            flex-grow: 1;
             justify-content: space-between;
           }
           .dl-i {
@@ -201,20 +205,6 @@ export class CertificatePageContent extends React.Component<
             line-height: 1rem;
             vertical-align: center;
           }
-          form {
-            display: flex;
-            align-items: center;
-          }
-
-          .quantity-dropdown:after {
-            content: 'Qty.';
-          }
-
-          .add-to-cart {
-            flex: 1;
-            margin-left: 1em;
-            height: 62px;
-          }
         `}</style>
       </div>
     );
@@ -225,42 +215,44 @@ export class CertificatePageContent extends React.Component<
 
     return (
       <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form">
-        <input
-          ref={this.setQuantityField}
-          type="text"
-          id="quantity"
-          name="quantity"
-          className="txt-f txt-f--combo txt-f--auto ta-r"
-          size="5"
-          value={quantity || ''}
-          onChange={this.handleQuantityChange}
-        />
-        <div className="sel-c sel-c--sq">
-          <label htmlFor="quantity" className="a11y--h">
-            Quantity:
-          </label>
-
-          <select
-            name="quantityMenu"
-            value={quantity && quantity <= 10 ? quantity : 'other'}
-            className="sel-f sel-f--sq quantity-dropdown"
+        <div className="m-r100">
+          <input
+            ref={this.setQuantityField}
+            type="text"
+            id="quantity"
+            name="quantity"
+            className="txt-f txt-f--combo txt-f--auto ta-r"
+            size="5"
+            value={quantity || ''}
             onChange={this.handleQuantityChange}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option disabled>---------------</option>
-            <option value="other">Other…</option>
-          </select>
+          />
+          <div className="sel-c sel-c--sq quantity-dropdown">
+            <label htmlFor="quantity" className="a11y--h">
+              Quantity:
+            </label>
+
+            <select
+              name="quantityMenu"
+              value={quantity && quantity <= 10 ? quantity : 'other'}
+              className="sel-f sel-f--sq"
+              onChange={this.handleQuantityChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option disabled>---------------</option>
+              <option value="other">Other…</option>
+            </select>
+          </div>
         </div>
-        <button type="submit" className="btn add-to-cart" disabled={!quantity}>
+        <button type="submit" className="btn btn--row" disabled={!quantity}>
           Add to Cart
         </button>
         <style jsx>{`
@@ -272,13 +264,7 @@ export class CertificatePageContent extends React.Component<
           .quantity-dropdown:after {
             content: 'Qty.';
           }
-
-          .add-to-cart {
-            flex: 1;
-            margin-left: 1em;
-            height: 62px;
-          }
-        `}</style>{' '}
+        `}</style>
       </form>
     );
   }

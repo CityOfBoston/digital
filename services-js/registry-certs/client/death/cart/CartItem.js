@@ -120,7 +120,6 @@ export default class CartItem extends React.Component<Props> {
             background: transparent;
             color: ${FREEDOM_RED};
             font-size: 2.5rem;
-            line-height: 0;
             vertical-align: middle;
             cursor: pointer;
             padding: 0 0 0.2em;

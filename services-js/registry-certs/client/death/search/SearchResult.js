@@ -10,10 +10,9 @@ import CertificateRow from '../../common/CertificateRow';
 export type Props = {|
   certificate: DeathCertificate,
   backUrl: string,
-  lastRow: boolean,
 |};
 
-export default function SearchResult({ backUrl, lastRow, certificate }: Props) {
+export default function SearchResult({ backUrl, certificate }: Props) {
   const { id } = certificate;
 
   return (
@@ -26,8 +25,8 @@ export default function SearchResult({ backUrl, lastRow, certificate }: Props) {
       <a>
         <CertificateRow
           certificate={certificate}
-          borderTop={true}
-          borderBottom={lastRow}
+          borderTop={false}
+          borderBottom={true}
         />
       </a>
     </Link>

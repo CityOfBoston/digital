@@ -59,7 +59,7 @@ export default class CostSummary extends React.Component<Props, State> {
 
     return (
       <div className="clearfix">
-        <table className="m-v500 t--info ta-r" style={{ float: 'right' }}>
+        <table className="t--info ta-r" style={{ float: 'right' }}>
           <tbody>
             <tr>
               <td>
@@ -136,8 +136,13 @@ export default class CostSummary extends React.Component<Props, State> {
             <a href="#service-fee">*</a>
           </label>
           <style jsx>{`
+            label {
+              white-space: nowrap;
+            }
+
             .sel--thin .sel-f {
               height: 2rem;
+              padding-right: 3rem;
             }
 
             .sel-c:after {

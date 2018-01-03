@@ -16,36 +16,32 @@ export default class ConfirmationContent extends React.Component<Props> {
     const { orderId, contactEmail } = this.props;
 
     return (
-      <div>
+      <div className="b-c">
         <Head>
           <title>Boston.gov — Death Certificate Order Complete</title>
         </Head>
 
-        <div className="p-a300">
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Order submitted</h1>
-          </div>
+        <div className="sh sh--b0">
+          <h1 className="sh-title">Order submitted</h1>
         </div>
 
-        <div className="p-a300">
-          <div className="t--intro">
-            Thank you for your order! Your order number is{' '}
-            <strong>#{orderId}</strong>.
-          </div>
-
-          <p>
-            A copy of your receipt has been sent to {contactEmail}. We will mail
-            out your order in 1–2 business days by USPS.
-          </p>
-
-          <p>
-            If you have any questions, you can call the Registry Department at{' '}
-            <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
-            <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
-          </p>
+        <div className="t--intro">
+          Thank you for your order! Your order number is{' '}
+          <strong>#{orderId}</strong>.
         </div>
 
-        <div className="m-v500 ta-c t--info">
+        <p className="t--info" style={{ fontStyle: 'normal' }}>
+          A copy of your receipt has been sent to {contactEmail}. We will mail
+          out your order in 1–2 business days by USPS.
+        </p>
+
+        <p className="t--info" style={{ fontStyle: 'normal' }}>
+          If you have any questions, you can call the Registry Department at{' '}
+          <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
+          <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
+        </p>
+
+        <div className="m-t500 ta-c t--info">
           <Link href="/death">
             <a>Back to search</a>
           </Link>

@@ -11,19 +11,8 @@ import {
 
 storiesOf('SearchResult', module)
   .add('typical certificate', () => (
-    <SearchResult
-      certificate={TYPICAL_CERTIFICATE}
-      backUrl=""
-      lastRow={false}
-    />
-  ))
-  .add('bottom certificate', () => (
-    <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" lastRow />
+    <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" />
   ))
   .add('certificate without death date', () => (
-    <SearchResult
-      certificate={NO_DATE_CERTIFICATE}
-      backUrl=""
-      lastRow={false}
-    />
+    <SearchResult certificate={NO_DATE_CERTIFICATE} backUrl="" />
   ));

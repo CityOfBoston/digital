@@ -105,242 +105,226 @@ export default class ShippingContent extends React.Component<Props, State> {
     } = order;
 
     return (
-      <div>
+      <div className="b-c b-c--hsm">
         <Head>
           <title>Boston.gov — Death Certificate Checkout</title>
         </Head>
 
-        <div className="p-a300">
-          <div className="sh sh--b0 m-t300" style={{ paddingBottom: 0 }}>
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              Checkout
-            </h1>
-          </div>
+        <div className="sh sh--b0">
+          <h1 className="sh-title">Checkout</h1>
         </div>
 
-        <OrderDetails cart={cart} />
+        <div className="m-v300">
+          <OrderDetails cart={cart} />
+        </div>
 
         <form
-          className="m-v300"
           method="post"
           action="javascript:void(0)"
           onSubmit={this.handleSubmit}
         >
-          <div className="b--w p-a300 field-container">
-            <fieldset>
-              <legend className="stp m-b300">Contact Information</legend>
+          <fieldset className="fs m-v700">
+            <legend className="fs-l">Contact Information</legend>
 
-              <div className="txt">
-                <label htmlFor="contact-name" className="txt-l txt-l--mt000">
-                  Full Name <span className="t--req">Required</span>
-                </label>
+            <div className="txt">
+              <label htmlFor="contact-name" className="txt-l txt-l--sm">
+                Full Name <span className="t--req">Required</span>
+              </label>
 
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  placeholder="Full name"
-                  {...this.fieldListeners('contactName')}
-                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
-                    'contactName'
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                placeholder="Full name"
+                {...this.fieldListeners('contactName')}
+                className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                  'contactName'
+                )}`}
+                value={contactName}
+              />
+
+              {this.renderError('contactName')}
+            </div>
+
+            <div className="txt">
+              <label htmlFor="contact-email" className="txt-l txt-l--sm">
+                Email Address <span className="t--req">Required</span>
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                placeholder="Email address"
+                {...this.fieldListeners('contactEmail')}
+                className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                  'contactEmail'
+                )}`}
+                value={contactEmail}
+              />
+
+              {this.renderError('contactEmail')}
+            </div>
+
+            <div className="txt">
+              <label htmlFor="contact-phone" className="txt-l txt-l--sm">
+                Phone Number <span className="t--req">Required</span>
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="phone"
+                placeholder="Phone number"
+                {...this.fieldListeners('contactPhone')}
+                className={`txt-f txt-f--100 ${this.renderErrorClassName(
+                  'contactPhone'
+                )}`}
+                value={contactPhone}
+              />
+
+              {this.renderError('contactPhone')}
+            </div>
+          </fieldset>
+
+          <fieldset className="fs m-v700">
+            <legend className="fs-l">Shipping Address</legend>
+
+            <div className="txt">
+              <label htmlFor="shipping-name" className="txt-l txt-l--sm">
+                Full name <span className="t--req">Required</span>
+              </label>
+              <input
+                id="shipping-name"
+                name="shipping-name"
+                type="text"
+                placeholder="Full name"
+                {...this.fieldListeners('shippingName')}
+                className={`txt-f ${this.renderErrorClassName('shippingName')}`}
+                value={shippingName}
+              />
+
+              {this.renderError('shippingName')}
+            </div>
+
+            <div className="txt">
+              <label
+                htmlFor="shipping-company-name"
+                className="txt-l txt-l--sm"
+              >
+                Company Name (optional)
+              </label>
+              <input
+                id="shipping-company-name"
+                name="shipping-company-name"
+                type="text"
+                placeholder="Company Name"
+                {...this.fieldListeners('shippingCompanyName')}
+                className={`txt-f ${this.renderErrorClassName(
+                  'shippingCompanyName'
+                )}`}
+                value={shippingCompanyName}
+              />
+
+              {this.renderError('shippingCompanyName')}
+            </div>
+
+            <div className="txt">
+              <label htmlFor="shipping-address-1" className="txt-l txt-l--sm">
+                Address Line 1 <span className="t--req">Required</span>
+              </label>
+              <input
+                id="shipping-address-1"
+                name="shipping-address-1"
+                type="text"
+                placeholder="Address Line 1"
+                {...this.fieldListeners('shippingAddress1')}
+                className={`txt-f ${this.renderErrorClassName(
+                  'shippingAddress1'
+                )}`}
+                value={shippingAddress1}
+              />
+
+              {this.renderError('shippingAddress1')}
+            </div>
+
+            <div className="txt">
+              <label htmlFor="shipping-address-2" className="txt-l txt-l--sm">
+                Address Line 2 (optional)
+              </label>
+              <input
+                id="shipping-address-2"
+                name="shipping-address-2"
+                type="text"
+                placeholder="Address Line 2"
+                {...this.fieldListeners('shippingAddress2')}
+                className={`txt-f ${this.renderErrorClassName(
+                  'shippingAddress2'
+                )}`}
+                value={shippingAddress2}
+              />
+
+              {this.renderError('shippingAddress2')}
+            </div>
+
+            <div className="txt">
+              <label htmlFor="shipping-city" className="txt-l txt-l--sm">
+                City <span className="t--req">Required</span>
+              </label>
+              <input
+                id="shipping-city"
+                name="shipping-city"
+                type="text"
+                placeholder="City"
+                {...this.fieldListeners('shippingCity')}
+                className={`txt-f ${this.renderErrorClassName('shippingCity')}`}
+                value={shippingCity}
+              />
+
+              {this.renderError('shippingCity')}
+            </div>
+
+            {/* Adding "txt" so that we get the bottom margin right. */}
+            <div className="sel txt">
+              <label htmlFor="shipping-state" className="sel-l sel-l--sm">
+                State / Territory <span className="t--req">Required</span>
+              </label>
+              <div className="sel-c">
+                <select
+                  id="shipping-state"
+                  name="shipping-state"
+                  {...this.fieldListeners('shippingState')}
+                  className={`sel-f ${this.renderErrorClassName(
+                    'shippingState'
                   )}`}
-                  value={contactName}
-                />
-
-                {this.renderError('contactName')}
-              </div>
-
-              <div className="txt">
-                <label htmlFor="contact-email" className="txt-l txt-l--mt000">
-                  Email Address <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  placeholder="Email address"
-                  {...this.fieldListeners('contactEmail')}
-                  className={`txt-f txt-f--100 ${this.renderErrorClassName(
-                    'contactEmail'
-                  )}`}
-                  value={contactEmail}
-                />
-
-                {this.renderError('contactEmail')}
-              </div>
-
-              <div className="txt">
-                <label htmlFor="contact-phone" className="txt-l txt-l--mt000">
-                  Phone Number <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="contact-phone"
-                  name="phone"
-                  type="phone"
-                  placeholder="Phone number"
-                  {...this.fieldListeners('contactPhone')}
-                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
-                    'contactPhone'
-                  )}`}
-                  value={contactPhone}
-                />
-
-                {this.renderError('contactPhone')}
-              </div>
-            </fieldset>
-          </div>
-
-          <div className="b--w p-a300 field-container">
-            <fieldset>
-              <legend className="stp m-b300">Shipping Address</legend>
-
-              <div className="txt">
-                <label htmlFor="shipping-name" className="txt-l txt-l--mt000">
-                  Full name <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="shipping-name"
-                  name="shipping-name"
-                  type="text"
-                  placeholder="Full name"
-                  {...this.fieldListeners('shippingName')}
-                  className={`txt-f ${this.renderErrorClassName(
-                    'shippingName'
-                  )}`}
-                  value={shippingName}
-                />
-
-                {this.renderError('shippingName')}
-              </div>
-
-              <div className="txt">
-                <label
-                  htmlFor="shipping-company-name"
-                  className="txt-l txt-l--mt000"
+                  value={shippingState}
                 >
-                  Company Name (optional)
-                </label>
-                <input
-                  id="shipping-company-name"
-                  name="shipping-company-name"
-                  type="text"
-                  placeholder="Company Name"
-                  {...this.fieldListeners('shippingCompanyName')}
-                  className={`txt-f ${this.renderErrorClassName(
-                    'shippingCompanyName'
-                  )}`}
-                  value={shippingCompanyName}
-                />
-
-                {this.renderError('shippingCompanyName')}
+                  {makeStateSelectOptions()}
+                </select>
               </div>
 
-              <div className="txt">
-                <label
-                  htmlFor="shipping-address-1"
-                  className="txt-l txt-l--mt000"
-                >
-                  Address Line 1 <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="shipping-address-1"
-                  name="shipping-address-1"
-                  type="text"
-                  placeholder="Address Line 1"
-                  {...this.fieldListeners('shippingAddress1')}
-                  className={`txt-f ${this.renderErrorClassName(
-                    'shippingAddress1'
-                  )}`}
-                  value={shippingAddress1}
-                />
+              {this.renderError('shippingState')}
+            </div>
 
-                {this.renderError('shippingAddress1')}
-              </div>
+            <div className="txt">
+              <label htmlFor="shipping-zip" className="txt-l txt-l--sm">
+                ZIP Code <span className="t--req">Required</span>
+              </label>
+              <input
+                id="shipping-zip"
+                name="shipping-zip"
+                placeholder="ZIP code"
+                {...this.fieldListeners('shippingZip')}
+                className={`txt-f txt-f--auto ${this.renderErrorClassName(
+                  'shippingZip'
+                )}`}
+                size={10}
+                value={shippingZip}
+              />
 
-              <div className="txt">
-                <label
-                  htmlFor="shipping-address-2"
-                  className="txt-l txt-l--mt000"
-                >
-                  Address Line 2 (optional)
-                </label>
-                <input
-                  id="shipping-address-2"
-                  name="shipping-address-2"
-                  type="text"
-                  placeholder="Address Line 2"
-                  {...this.fieldListeners('shippingAddress2')}
-                  className={`txt-f ${this.renderErrorClassName(
-                    'shippingAddress2'
-                  )}`}
-                  value={shippingAddress2}
-                />
+              {this.renderError('shippingZip')}
+            </div>
+          </fieldset>
 
-                {this.renderError('shippingAddress2')}
-              </div>
-
-              <div className="txt">
-                <label htmlFor="shipping-city" className="txt-l txt-l--mt000">
-                  City <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="shipping-city"
-                  name="shipping-city"
-                  type="text"
-                  placeholder="City"
-                  {...this.fieldListeners('shippingCity')}
-                  className={`txt-f ${this.renderErrorClassName(
-                    'shippingCity'
-                  )}`}
-                  value={shippingCity}
-                />
-
-                {this.renderError('shippingCity')}
-              </div>
-
-              {/* Adding "txt" so that we get the bottom margin right. */}
-              <div className="sel txt">
-                <label htmlFor="shipping-state" className="sel-l txt-l--mt000">
-                  State / Territory <span className="t--req">Required</span>
-                </label>
-                <div className="sel-c">
-                  <select
-                    id="shipping-state"
-                    name="shipping-state"
-                    {...this.fieldListeners('shippingState')}
-                    className={`sel-f ${this.renderErrorClassName(
-                      'shippingState'
-                    )}`}
-                    value={shippingState}
-                  >
-                    {makeStateSelectOptions()}
-                  </select>
-                </div>
-
-                {this.renderError('shippingState')}
-              </div>
-
-              <div className="txt">
-                <label htmlFor="shipping-zip" className="txt-l txt-l--mt000">
-                  ZIP Code <span className="t--req">Required</span>
-                </label>
-                <input
-                  id="shipping-zip"
-                  name="shipping-zip"
-                  placeholder="ZIP code"
-                  {...this.fieldListeners('shippingZip')}
-                  className={`txt-f txt-f--50 ${this.renderErrorClassName(
-                    'shippingZip'
-                  )}`}
-                  value={shippingZip}
-                />
-
-                {this.renderError('shippingZip')}
-              </div>
-            </fieldset>
-          </div>
-
-          <div className="b--w p-a300 field-container">
+          <div className="m-v700">
             <label className="cb">
               <input
                 id="store-contact-and-shipping"
@@ -350,58 +334,30 @@ export default class ShippingContent extends React.Component<Props, State> {
                 checked={storeContactAndShipping}
                 {...this.fieldListeners('storeContactAndShipping')}
                 className="cb-f"
-              />{' '}
+              />
               <span className="cb-l">
                 Save contact and shipping info on this computer
               </span>
             </label>
           </div>
 
-          <div className="g g--r p-a300 b--w">
-            <button
-              className="g--4 btn m-v500"
-              type="submit"
-              disabled={!shippingIsComplete}
-            >
-              Next: Payment Method
-            </button>
+          <div className="g g--r g--vc">
+            <div className="g--5 m-b500">
+              <button
+                className="btn btn--b"
+                type="submit"
+                disabled={!shippingIsComplete}
+              >
+                Next: Payment
+              </button>
+            </div>
 
-            <div className="g--8 m-v500">
+            <div className="g--7 m-b500">
               <Link href="/death/cart">
                 <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
               </Link>
             </div>
           </div>
-
-          <style jsx>{`
-            button {
-              align-self: center;
-            }
-            fieldset {
-              border: 0;
-              padding: 0.01em 0 0 0;
-              margin: 0;
-              min-width: 0;
-            }
-            legend {
-              padding: 0;
-              display: table;
-            }
-            .txt-l,
-            .sel-l {
-              font-weight: normal;
-              font-size: 12px;
-            }
-            .txt-f--100 {
-              width: 100%;
-            }
-            .txt-f--50 {
-              width: 50%;
-            }
-            .field-container {
-              margin-bottom: 2px;
-            }
-          `}</style>
         </form>
       </div>
     );
@@ -409,7 +365,7 @@ export default class ShippingContent extends React.Component<Props, State> {
 
   renderError(fieldName: $Keys<OrderInfo>) {
     const error = this.errorForField(fieldName);
-    return error && <div className="t--subinfo t--err m-t100">{error}</div>;
+    return error && <div className="t--info t--err m-t200">{error}</div>;
   }
 
   renderErrorClassName(fieldName: $Keys<OrderInfo>) {

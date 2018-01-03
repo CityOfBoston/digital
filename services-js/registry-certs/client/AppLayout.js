@@ -36,44 +36,51 @@ export default function AppLayout({ children, navProps }: Props) {
 
       <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
-      <div
-        className={`mn mn--full ${navProps ? 'mn--nv-s' : ''}`}
-        style={{ zIndex: 2 }}
-      >
-        <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
-        <header
-          className="h"
-          role="banner"
-          dangerouslySetInnerHTML={{ __html: headerHtml }}
-        />
+      <div className="mn--full-ie">
+        <div
+          className={`mn mn--full ${navProps ? 'mn--nv-s' : ''}`}
+          style={{ zIndex: 2 }}
+        >
+          <input
+            type="checkbox"
+            id="s-tr"
+            className="s-tr"
+            aria-hidden="true"
+          />
+          <header
+            className="h"
+            role="banner"
+            dangerouslySetInnerHTML={{ __html: headerHtml }}
+          />
 
-        {navProps && <Nav {...navProps} />}
+          {navProps && <Nav {...navProps} />}
 
-        <nav className="brc p-a300" role="navigation">
-          <ul className="brc-l">
-            <li className="brc-l-i">
-              <a href="https://www.boston.gov/">Home</a>
-              <span className="brc-s"> › </span>
-            </li>
-            <li className="brc-l-i">
-              <a href="https://www.boston.gov/departments">Departments</a>
-              <span className="brc-s"> › </span>
-            </li>
-            <li className="brc-l-i">
-              <a href="https://www.boston.gov/departments/registry">
-                Registry: Birth, death, and marriage
-              </a>
-              <span className="brc-s"> › </span>
-            </li>
-            <li className="brc-l-i">
-              <Link href="/death">
-                <a>Death certificates</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+          <nav className="brc p-a300" role="navigation">
+            <ul className="brc-l">
+              <li className="brc-l-i">
+                <a href="https://www.boston.gov/">Home</a>
+                <span className="brc-s"> › </span>
+              </li>
+              <li className="brc-l-i">
+                <a href="https://www.boston.gov/departments">Departments</a>
+                <span className="brc-s"> › </span>
+              </li>
+              <li className="brc-l-i">
+                <a href="https://www.boston.gov/departments/registry">
+                  Registry: Birth, death, and marriage
+                </a>
+                <span className="brc-s"> › </span>
+              </li>
+              <li className="brc-l-i">
+                <Link href="/death">
+                  <a>Death certificates</a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
 
-        {children}
+          <div className="b-ff">{children}</div>
+        </div>
       </div>
 
       <footer
