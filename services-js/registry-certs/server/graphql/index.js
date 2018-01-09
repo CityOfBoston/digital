@@ -15,6 +15,7 @@ import {
 
 import type RegistryData from '../services/RegistryData';
 import type RegistryOrders from '../services/RegistryOrders';
+import type Emails from '../services/Emails';
 
 type Opbeat = $Exports<'opbeat'>;
 
@@ -23,6 +24,7 @@ export type Context = {|
   registryData: RegistryData,
   registryOrders: RegistryOrders,
   stripe: NodeStripe,
+  emails: Emails,
 |};
 
 const SchemaDefinition = `

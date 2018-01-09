@@ -5,7 +5,10 @@
       "extensions": [
         ".graphql",
         ".env",
-        ".html"
+        ".html",
+        ".mjml",
+        ".txt",
+        ".hbs"
       ]
     }],
     "transform-class-properties"

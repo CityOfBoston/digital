@@ -3,27 +3,27 @@
 import { resolvers } from './mutation';
 
 const DEFAULT_ORDER = {
-  contactName: '',
-  contactEmail: '',
-  contactPhone: '',
+  contactName: 'Nancy Whitehead',
+  contactEmail: 'nancy@mew.io',
+  contactPhone: '(555) 123-4567',
 
-  shippingName: '',
-  shippingCompanyName: '',
-  shippingAddress1: '',
+  shippingName: 'Squirrel Girl',
+  shippingCompanyName: 'Avengers Tower',
+  shippingAddress1: '1 Avengers Pl.',
   shippingAddress2: '',
-  shippingCity: '',
-  shippingState: '',
-  shippingZip: '',
+  shippingCity: 'New York',
+  shippingState: 'NY',
+  shippingZip: '10001',
 
-  cardholderName: '',
+  cardholderName: 'Doreen Green',
   cardToken: 'tok_test',
   cardLast4: '1234',
 
-  billingAddress1: '',
+  billingAddress1: 'City University',
   billingAddress2: '',
-  billingCity: '',
-  billingState: '',
-  billingZip: '',
+  billingCity: 'New York',
+  billingState: 'NY',
+  billingZip: '10021',
 
   items: [
     {
@@ -38,6 +38,19 @@ const DEFAULT_ORDER = {
 
 describe('Mutation resolvers', () => {
   describe('submitDeathCertificateOrder', () => {
+    it('throws if a validator fails', async () => {
+      await expect(
+        resolvers.Mutation.submitDeathCertificateOrder(
+          null,
+          {
+            ...DEFAULT_ORDER,
+            contactName: '',
+          },
+          ({}: any)
+        )
+      ).rejects.toMatchSnapshot();
+    });
+
     it('throws if there are no items', async () => {
       await expect(
         resolvers.Mutation.submitDeathCertificateOrder(
@@ -70,6 +83,10 @@ describe('Mutation resolvers', () => {
         addPayment: jest.fn(),
       };
 
+      const emails = {
+        sendReceiptEmail: jest.fn(),
+      };
+
       registryOrders.addOrder.mockReturnValue(Promise.resolve(25));
 
       tokensRetrieve.mockReturnValue(
@@ -80,7 +97,7 @@ describe('Mutation resolvers', () => {
       await resolvers.Mutation.submitDeathCertificateOrder(
         null,
         DEFAULT_ORDER,
-        ({ stripe, registryOrders }: any)
+        ({ stripe, registryOrders, emails }: any)
       );
 
       expect(chargesCreate).toHaveBeenCalledWith({

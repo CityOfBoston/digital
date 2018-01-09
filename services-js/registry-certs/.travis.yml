@@ -4,6 +4,8 @@ services:
 language: node_js
 node_js:
 - 8
+env:
+- TZ=America/New_York
 cache:
   directories:
   - "node_modules"

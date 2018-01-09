@@ -10,6 +10,7 @@ import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import makeStripe from 'stripe';
+import { Client as PostmarkClient } from 'postmark';
 
 import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
 import addRequestAdditions from './lib/request-additions';
@@ -30,6 +31,8 @@ import {
   makeFixtureRegistryOrdersFactory,
   type RegistryOrdersFactory,
 } from './services/RegistryOrders';
+
+import Emails from './services/Emails';
 
 import schema from './graphql';
 import type { Context } from './graphql';
@@ -78,6 +81,15 @@ export function makeServer({ opbeat }: ServerArgs) {
   };
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+  const postmarkClient = new PostmarkClient(
+    process.env.POSTMARK_SERVER_API_TOKEN || 'fake-postmark-key'
+  );
+
+  const emails = new Emails(
+    process.env.POSTMARK_FROM_ADDRESS || 'no-reply@boston.gov',
+    postmarkClient,
+    opbeat
+  );
 
   let registryDataFactory: RegistryDataFactory;
   let registryOrdersFactory: RegistryOrdersFactory;
@@ -175,7 +187,8 @@ export function makeServer({ opbeat }: ServerArgs) {
           registryData: registryDataFactory.registryData(),
           registryOrders: registryOrdersFactory.registryOrders(),
           stripe,
-          opbeat: ({}: any),
+          emails,
+          opbeat,
         }: Context),
       })),
       route: {

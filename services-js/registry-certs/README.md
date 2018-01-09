@@ -11,11 +11,46 @@ The source code for ordering registry certificates online.
 This is a Node project using the [Next.js](https://github.com/zeit/next.js/)
 framework for server-side rendering.
 
-[Yarn](https://yarnpkg.com/) is recommended.
+ * **Development Server**: `npm run dev` <http://localhost:3000/>
+ * **React Storybook**: `npm run storybook` <http://localhost:9001/>
+ * **Gulp**: `npx gulp watch`
+ * **Tests**: `npx jest` or `npx jest --watch`
+ * **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
+ * **Typecheck**: `npx flow`
 
- * **Development Server**: `yarn dev` <http://localhost:3000/>
- * **React Storybook**: `yarn storybook` <http://localhost:9001/>
- * **Gulp**: `yarn gulp watch`
- * **Tests**: `yarn test` or `yarn test -- --watch`
- * **Lint**: `yarn lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
- * **Typecheck**: `yarn flow`
+ ## Testing
+
+You can use GraphiQL to run GraphQL queries against the backend: <http://localhost:3000/graphiql>
+
+Test query for submitting an order:
+
+```
+mutation {
+  submitDeathCertificateOrder(
+    contactName: "Jyn Doe"
+    contactEmail: "jyn@fake.com"
+    contactPhone: "5551234567"
+    shippingName: "Jyn Doe"
+    shippingAddress1: "123 Fake St."
+    shippingCity: "Boston"
+    shippingState: "MA"
+    shippingZip: "02210"
+    cardToken: "tok_visa"
+    cardLast4: "1234"
+    cardholderName: "Jyn X. Doe"
+    billingAddress1: "321 Faux Pl."
+    billingAddress2: ""
+    billingCity: "Boston"
+    billingState: "MA"
+    billingZip: "02211"
+    idempotencyKey: "1234"
+    items: [{
+      id: "1234"
+      name: "Robert Frost"
+      quantity: 11
+    }]
+  ) {
+    id
+  } 
+}
+ ```

@@ -60,10 +60,16 @@ global.beforeEach = () => {};
 global.afterEach = () => {};
 global.describe = () => {};
 
-const storiesContext = require.context('../client', true, /.stories.js$/);
+const clientStoriesContext = require.context('../client', true, /.stories.js$/);
+const serverStoriesContext = require.context('../server', true, /.stories.js$/);
 
 function loadStories() {
-  storiesContext.keys().forEach(filename => storiesContext(filename));
+  clientStoriesContext
+    .keys()
+    .forEach(filename => clientStoriesContext(filename));
+  serverStoriesContext
+    .keys()
+    .forEach(filename => serverStoriesContext(filename));
 }
 
 addDecorator(story => {

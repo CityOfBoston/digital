@@ -2,12 +2,18 @@
 /* eslint no-console: 0 */
 
 import type { Context } from '.';
+import moment from 'moment';
 
 import {
   CERTIFICATE_COST,
+  FIXED_CC_SERVICE_FEE,
+  PERCENTAGE_CC_SERVICE_FEE,
   calculateCreditCardCost,
   calculateDebitCardCost,
 } from '../../lib/costs';
+
+import makePaymentValidator from '../../lib/validators/PaymentValidator';
+import makeShippingValidator from '../../lib/validators/ShippingValidator';
 
 export const Schema = `
 input CertificateOrderItem {
@@ -51,8 +57,6 @@ type Mutation {
 }
 `;
 
-const padNum = (n: number) => (n < 10 ? `0${n}` : `${n}`);
-
 type CertificateOrderItem = {|
   id: string,
   name: string,
@@ -95,7 +99,7 @@ export const resolvers = {
     submitDeathCertificateOrder: async (
       root: mixed,
       args: SubmitDeathCertificateOrderArgs,
-      { opbeat, stripe, registryOrders }: Context
+      { opbeat, stripe, registryOrders, emails }: Context
     ): Promise<SubmittedOrder> => {
       const {
         contactName,
@@ -137,30 +141,70 @@ export const resolvers = {
         throw new Error('Quantity of order is 0');
       }
 
+      const shippingValidator = new makeShippingValidator({
+        contactName,
+        contactEmail,
+        contactPhone,
+        shippingName,
+        shippingCompanyName,
+        shippingAddress1,
+        shippingAddress2,
+        shippingCity,
+        shippingState,
+        shippingZip,
+      });
+
+      const paymentValidator = new makePaymentValidator({
+        cardholderName,
+        billingAddressSameAsShippingAddress: false,
+        billingAddress1,
+        billingAddress2,
+        billingCity,
+        billingState,
+        billingZip,
+      });
+
+      shippingValidator.check();
+      paymentValidator.check();
+
+      if (shippingValidator.fails() || paymentValidator.fails()) {
+        const errors = {
+          ...shippingValidator.errors.all(),
+          ...paymentValidator.errors.all(),
+        };
+        const message = Object.keys(errors)
+          .map(field => `${field}: ${errors[field].join(', ')}`)
+          .join('\n');
+
+        const err: any = new Error('Shipping validation errors');
+        err.message = message;
+
+        throw err;
+      }
+
       // We have to look the token up again so we can figure out what fee
       // structure to use. We do *not* trust the client to send us this
       // information.
       const token = await stripe.tokens.retrieve(cardToken);
 
-      const { total, serviceFee } =
+      // These are all in cents, to match Stripe
+      const { total, serviceFee, subtotal } =
         token.card.funding === 'credit'
           ? calculateCreditCardCost(totalQuantity)
           : calculateDebitCardCost(totalQuantity);
 
-      const now = new Date();
-      const datePart = `${now.getFullYear()}${padNum(
-        now.getMonth() + 1
-      )}${padNum(now.getDate())}`;
+      const datePart = moment().format('YYYYMM');
 
       const randomPart = Math.random()
         .toString(36)
         .substr(2, 5);
 
       const orderId = `REG-DC-${datePart}-${randomPart}`;
+      const orderDate = new Date();
 
       const orderKey = await registryOrders.addOrder({
         orderID: orderId,
-        orderDate: new Date(),
+        orderDate,
         contactName,
         contactEmail,
         contactPhone,
@@ -229,6 +273,8 @@ export const resolvers = {
             },
           });
         } catch (e) {
+          console.log(`ISSUING REFUND FAILED. MANUALLY REFUND ${charge.id}`);
+
           // Let Opbeat know, but still fail the mutation with the original
           // error.
           opbeat.captureError(e);
@@ -236,6 +282,29 @@ export const resolvers = {
 
         throw e;
       }
+
+      emails.sendReceiptEmail(contactEmail, {
+        orderId,
+        orderDate,
+        shippingName,
+        shippingCompanyName,
+        shippingAddress1,
+        shippingAddress2,
+        shippingCity,
+        shippingState,
+        shippingZip,
+        subtotal,
+        serviceFee,
+        total,
+        items: items.map(({ id, name, quantity }) => ({
+          id,
+          name,
+          quantity,
+          cost: quantity * CERTIFICATE_COST,
+        })),
+        fixedFee: FIXED_CC_SERVICE_FEE,
+        percentageFee: PERCENTAGE_CC_SERVICE_FEE,
+      });
 
       return { id: orderId };
     },

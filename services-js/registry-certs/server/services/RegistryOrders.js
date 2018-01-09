@@ -223,8 +223,8 @@ export class FixtureRegistryOrders {
     return 50;
   }
 
-  async addOrderItems(): Promise<void> {}
-  async addOrderPayment(): Promise<void> {}
+  async addItem(): Promise<void> {}
+  async addPayment(): Promise<void> {}
 }
 
 export async function makeFixtureRegistryOrdersFactory(): Promise<
@@ -234,5 +234,7 @@ export async function makeFixtureRegistryOrdersFactory(): Promise<
     registryOrders() {
       return new FixtureRegistryOrders();
     },
+
+    async cleanup(): Promise<void> {},
   }: any);
 }

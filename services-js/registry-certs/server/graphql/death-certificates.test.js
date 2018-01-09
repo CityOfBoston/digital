@@ -33,6 +33,7 @@ describe('DeathCertificates resolvers', () => {
           registryOrders: ({}: any),
           stripe: ({}: any),
           opbeat: ({}: any),
+          emails: ({}: any),
         }
       );
       expect(search.page).toEqual(1);
@@ -50,6 +51,7 @@ describe('DeathCertificates resolvers', () => {
           registryOrders: ({}: any),
           stripe: ({}: any),
           opbeat: ({}: any),
+          emails: ({}: any),
         }
       );
       expect(search.page).toEqual(1);
@@ -69,6 +71,7 @@ describe('DeathCertificates resolvers', () => {
             registryOrders: ({}: any),
             stripe: ({}: any),
             opbeat: ({}: any),
+            emails: ({}: any),
           }
         )
       ).toBeTruthy();
@@ -84,6 +87,7 @@ describe('DeathCertificates resolvers', () => {
             registryOrders: ({}: any),
             stripe: ({}: any),
             opbeat: ({}: any),
+            emails: ({}: any),
           }
         )
       ).not.toBeTruthy();
@@ -106,6 +110,7 @@ describe('DeathCertificates resolvers', () => {
           registryOrders: ({}: any),
           stripe: ({}: any),
           opbeat: ({}: any),
+          emails: ({}: any),
         }
       );
       expect(certificates[0]).toBeTruthy();

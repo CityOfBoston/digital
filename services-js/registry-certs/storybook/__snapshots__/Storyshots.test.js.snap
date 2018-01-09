@@ -9143,6 +9143,223 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
 </div>
 `;
 
+exports[`Storyshots ReceiptEmail HTML 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<!doctype html><html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\"><head>
+  <title></title>
+  <!--[if !mso]><!-- -->
+  <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+  <!--<![endif]-->
+<meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=UTF-8\\">
+<meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\">
+<style type=\\"text/css\\">
+  #outlook a { padding: 0; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass { width: 100%; }
+  .ExternalClass * { line-height:100%; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  p { display: block; margin: 13px 0; }
+</style>
+<!--[if !mso]><!-->
+<style type=\\"text/css\\">
+  @media only screen and (max-width:480px) {
+    @-ms-viewport { width:320px; }
+    @viewport { width:320px; }
+  }
+</style>
+<!--<![endif]-->
+<!--[if mso]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<!--[if lte mso 11]>
+<style type=\\"text/css\\">
+  .outlook-group-fix {
+    width:100% !important;
+  }
+</style>
+<![endif]-->
+
+<!--[if !mso]><!-->
+    <link href=\\"https://fonts.googleapis.com/css?family=Lora:400,700,400i\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+<link href=\\"https://fonts.googleapis.com/css?family=Montserrat:400,700\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+    <style type=\\"text/css\\">
+
+        @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400i);
+  @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+    </style>
+  <!--<![endif]--><style type=\\"text/css\\">
+  @media only screen and (min-width:480px) {
+    .mj-column-per-100 { width:100%!important; }
+.mj-column-per-50 { width:50%!important; }
+.mj-column-per-100 { width:100%!important; }
+.mj-column-px-75 { width:75px!important; }
+.mj-column-px-525 { width:525px!important; }
+  }
+</style>
+</head>
+<body>
+  
+  <div class=\\"mj-container\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"600\\" align=\\"center\\" style=\\"width:600px;\\">
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:25px 0px 10px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:600px;\\">
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-collapse:collapse;border-spacing:0px;\\" align=\\"left\\" border=\\"0\\"><tbody><tr><td style=\\"width:200px;\\"><img alt=\\"City of Boston\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/logo.png\\" style=\\"border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;\\" width=\\"200\\"></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"600\\" align=\\"center\\" style=\\"width:600px;\\">
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;background:#f2f2f2;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;background:#f2f2f2;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;border:2px solid #091f2f;direction:ltr;font-size:0px;padding:10px 0px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"width:600px;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:600px;\\">
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;\\">Thank you for your order</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\"><p style=\\"font-size:1px;margin:0px auto;border-top:4px solid #000000;width:100%;\\"></p><!--[if mso | IE]><table role=\\"presentation\\" align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:1px;margin:0px auto;border-top:4px solid #000000;width:100%;\\" width=\\"600\\"><tr><td style=\\"height:0;line-height:0;\\"> </td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+        </td>
+      </tr>
+      <tr>
+        <td style=\\"width:600px;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 0px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:300px;\\">
+      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Date:</b> <i>1/8/2018 2:05PM</i><br>
+                <b>Order #:</b> <i>REG-DC-201801-abcde</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td><td style=\\"vertical-align:top;width:300px;\\">
+      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your shipping information:</b><br>
+                <i>Nancy Whitehead<br>
+                
+                123 Fake St.<br>
+                
+                Boston, MA 02141</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+        </td>
+      </tr>
+      <tr>
+        <td style=\\"width:600px;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 0px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:600px;\\">
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your order:</b></div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"cellspacing:0px;color:#000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;table-layout:auto;\\" width=\\"100%\\" border=\\"0\\"><tbody><tr>
+                  <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe (#555000)</i></td>
+                  <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$56.00</b></td>
+                </tr>
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>6 × Death certificate for Bruce Banner (#667123)</i></td>
+                  <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$84.00</b></td>
+                </tr>
+
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>Subtotal</i></td>
+                  <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$140.00</b></td>
+                </tr>
+                <tr>
+                  <td style=\\"background-color: #d2d2d2; padding: 0 25px\\"><i>Card service fee*</i></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 0 25px\\" align=\\"right\\"><b>$1.32</b></td>
+                </tr>
+                <tr>
+                  <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
+                  <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
+                </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
+                $0.25 plus 2.15%. This fee goes directly to a third party to
+                pay for the cost of card processing. Learn more about <a href=\\"https://www.boston.gov/\\">card service fees</a> at the City
+                of Boston.</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"600\\" align=\\"center\\" style=\\"width:600px;\\">
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]--><div style=\\"margin:0px auto;max-width:600px;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"font-size:0px;width:100%;\\" align=\\"center\\" border=\\"0\\"><tbody><tr><td style=\\"text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:20px 0px 10px;\\"><!--[if mso | IE]>
+      <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:600px;\\">
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;font-size:0px;line-height:0px;text-align:left;width:100%;\\"><!--[if mso | IE]>
+      <table  role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+        <tr>
+          <td style=\\"vertical-align:top;width:75px;\\">
+      <![endif]--><div class=\\"mj-column-px-75 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.125%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-collapse:collapse;border-spacing:0px;\\" align=\\"left\\" border=\\"0\\"><tbody><tr><td style=\\"width:75px;\\"><img alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/global/icons/seal.png\\" style=\\"border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;\\" width=\\"75\\"></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+            </td>
+            <td style=\\"vertical-align:top;width:525px;\\">
+      <![endif]--><div class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.875%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 0px 0px 10px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.5;text-align:left;\\">If you have any issues or questions, contact the Registry at <a href=\\"tel:617-635-4175\\">617-635-4175</a> or email <b><i><a href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.</div></td></tr></tbody></table></div><!--[if mso | IE]>
+            </td>
+          </tr>
+        </table>
+      <![endif]--></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></div>
+
+</body></html>",
+    }
+  }
+/>
+`;
+
+exports[`Storyshots ReceiptEmail text 1`] = `
+<pre>
+  City of Boston
+
+Thank you for your order!
+
+Date: 1/8/2018 2:05PM
+Order ID: REG-DC-201801-abcde
+
+Your shipping information:
+Nancy Whitehead
+123 Fake St.
+Boston, MA 02141
+
+Your order:
+  4 x Death certificate for Monkey Joe (#555000)  $56.00
+  6 x Death certificate for Bruce Banner (#667123)  $84.00
+  Subtotal  $140.00
+  Card processing fee*  $1.32
+  Total  $141.32
+
+* You are charged an extra service fee of not more than 
+$0.25 plus 2.15%. This fee goes directly to a third party to 
+pay for the cost of card processing. Learn more about card 
+service fees at the City of Boston. 
+[https://www.boston.gov/]
+
+If you have any issues or questions, contact the Registry at 
+617-635-4175 or email registry@boston.gov.
+
+</pre>
+`;
+
 exports[`Storyshots ReviewContent default 1`] = `
 <div
   className="jsx-3465476614"
