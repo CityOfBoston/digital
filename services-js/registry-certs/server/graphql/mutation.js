@@ -195,11 +195,10 @@ export const resolvers = {
 
       const datePart = moment().format('YYYYMM');
 
-      const randomPart = Math.random()
-        .toString(36)
-        .substr(2, 5);
+      // gives us a 6-digit number that doesn't start with 0
+      const randomPart = 100000 + Math.floor(Math.abs(Math.random()) * 899999);
 
-      const orderId = `REG-DC-${datePart}-${randomPart}`;
+      const orderId = `RG-DC${datePart}-${randomPart}`;
       const orderDate = new Date();
 
       const orderKey = await registryOrders.addOrder({

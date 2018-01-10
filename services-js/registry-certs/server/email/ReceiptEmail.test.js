@@ -4,7 +4,7 @@ import ReceiptEmail from './ReceiptEmail';
 
 const TEST_ORDER = {
   orderDate: new Date(1515438318 * 1000),
-  orderId: 'REG-DC-201801-abcde',
+  orderId: 'RG-DC201801-100001',
   shippingName: 'Nancy Whitehead',
   shippingCompanyName: '',
   shippingAddress1: '123 Fake St.',
