@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { computed, action, observable } from 'mobx';
+import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type Cart, { CartEntry } from '../../store/Cart';
@@ -16,43 +16,56 @@ export type Props = {
   lastRow: boolean,
 };
 
+type State = {
+  quantityHasFocus: boolean,
+};
+
 @observer
-export default class CartItem extends React.Component<Props> {
-  @observable quantityHasFocus: boolean = false;
+export default class CartItem extends React.Component<Props, State> {
+  state: State = {
+    quantityHasFocus: false,
+  };
 
   @computed
   get quantityValue(): string {
     const { entry: { quantity } } = this.props;
+    const { quantityHasFocus } = this.state;
 
     if (quantity === 0) {
-      return this.quantityHasFocus ? '' : '0';
+      return quantityHasFocus ? '' : '0';
     } else {
       return quantity.toString();
     }
   }
 
-  handleQuanityFocus = action(() => {
-    this.quantityHasFocus = true;
-  });
+  handleQuantityFocus = () => {
+    this.setState({ quantityHasFocus: true });
+  };
 
-  handleQuanityBlur = action(() => {
-    this.quantityHasFocus = false;
-  });
+  handleQuantityBlur = () => {
+    this.setState({ quantityHasFocus: false });
+  };
 
-  handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
-    const { cart, entry } = this.props;
+  handleQuantityChange = action(
+    'CartItem handleQuantityChange',
+    (ev: SyntheticInputEvent<*>) => {
+      const { cart, entry: { cert } } = this.props;
 
-    const value = ev.target.value;
+      const value = ev.target.value;
+      if (!cert) {
+        return;
+      }
 
-    if (value === '') {
-      cart.setQuantity(entry.id, 0);
-    } else {
-      const quantity = parseInt(value, 10);
-      if (!isNaN(quantity)) {
-        cart.setQuantity(entry.id, quantity);
+      if (value === '') {
+        cart.setQuantity(cert, 0);
+      } else {
+        const quantity = parseInt(value, 10);
+        if (!isNaN(quantity)) {
+          cart.setQuantity(cert, quantity);
+        }
       }
     }
-  };
+  );
 
   handleRemove = () => {
     const { cart, entry } = this.props;
@@ -83,8 +96,8 @@ export default class CartItem extends React.Component<Props> {
               aria-label="Quantity"
               value={quantityValue}
               onChange={this.handleQuantityChange}
-              onFocus={this.handleQuanityFocus}
-              onBlur={this.handleQuanityBlur}
+              onFocus={this.handleQuantityFocus}
+              onBlur={this.handleQuantityBlur}
               className="br br-a150 quantity-box"
             />,
 

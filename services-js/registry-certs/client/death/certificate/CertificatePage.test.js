@@ -66,7 +66,7 @@ describe('controller', () => {
   });
 
   describe('operations', () => {
-    describe('addToCart', () => {
+    describe('setCartQuantity', () => {
       let cart;
       let controller;
 
@@ -87,7 +87,7 @@ describe('controller', () => {
           />
         ).instance();
 
-        controller.addToCart(5);
+        controller.setCartQuantity(5);
       });
 
       it('adds 5 things to the cart', () => {
@@ -99,17 +99,18 @@ describe('controller', () => {
 
 describe('content', () => {
   let wrapper;
-  let addToCart;
+  let setCartQuantity;
 
   beforeEach(() => {
-    addToCart = jest.fn();
+    setCartQuantity = jest.fn();
 
     wrapper = shallow(
       <CertificatePageContent
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}
-        addToCart={addToCart}
+        setCartQuantity={setCartQuantity}
+        cartQuantity={0}
       />
     );
   });
@@ -121,6 +122,6 @@ describe('content', () => {
     quantityMenu.simulate('change', { target: { value: '5' } });
     form.simulate('submit', { preventDefault: jest.fn() });
 
-    expect(addToCart).toHaveBeenCalledWith(5);
+    expect(setCartQuantity).toHaveBeenCalledWith(5);
   });
 });

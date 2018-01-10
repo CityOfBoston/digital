@@ -29,13 +29,16 @@ exports[`integration renders 1`] = `
 <AppLayout
   navProps={
     Object {
-      "cart": Cart {},
+      "cart": Cart {
+        "entries": Array [],
+        "pendingFetches": 0,
+      },
     }
   }
 >
   <CertificatePageContent
-    addToCart={[Function]}
     backUrl="/search?q=jayne"
+    cartQuantity={0}
     certificate={
       Object {
         "age": "53",
@@ -49,6 +52,7 @@ exports[`integration renders 1`] = `
       }
     }
     id="000002"
+    setCartQuantity={[Function]}
   />
 </AppLayout>
 `;

@@ -1,6 +1,8 @@
 // @flow
 
 import React, { type Element as ReactElement } from 'react';
+import { action } from 'mobx';
+import { observer } from 'mobx-react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -29,7 +31,8 @@ type InitialProps = {|
 
 export type ContentProps = {
   ...InitialProps,
-  addToCart: number => mixed,
+  setCartQuantity: number => mixed,
+  cartQuantity: number,
 };
 
 type ContentState = {
@@ -40,11 +43,16 @@ export class CertificatePageContent extends React.Component<
   ContentProps,
   ContentState
 > {
-  state = {
-    quantity: 1,
-  };
-
+  state: ContentState;
   quantityField: ?HTMLInputElement = null;
+
+  constructor(props: ContentProps) {
+    super(props);
+
+    this.state = {
+      quantity: props.cartQuantity || 1,
+    };
+  }
 
   handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
     const { value } = ev.target;
@@ -64,14 +72,14 @@ export class CertificatePageContent extends React.Component<
   handleAddToCart = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
-    const { addToCart } = this.props;
+    const { setCartQuantity } = this.props;
     const { quantity } = this.state;
 
-    if (!quantity) {
+    if (typeof quantity !== 'number') {
       return;
     }
 
-    addToCart(quantity);
+    setCartQuantity(quantity);
   };
 
   setQuantityField = (quantityField: ?HTMLInputElement) => {
@@ -211,6 +219,7 @@ export class CertificatePageContent extends React.Component<
   }
 
   renderAddToCart() {
+    const { cartQuantity } = this.props;
     const { quantity } = this.state;
 
     return (
@@ -223,7 +232,9 @@ export class CertificatePageContent extends React.Component<
             name="quantity"
             className="txt-f txt-f--combo txt-f--auto ta-r"
             size="3"
-            value={quantity || ''}
+            value={
+              typeof quantity === 'number' && quantity >= 0 ? quantity : ''
+            }
             onChange={this.handleQuantityChange}
           />
           <div className="sel-c sel-c--sq quantity-dropdown">
@@ -233,10 +244,24 @@ export class CertificatePageContent extends React.Component<
 
             <select
               name="quantityMenu"
-              value={quantity && quantity <= 10 ? quantity : 'other'}
+              value={
+                typeof quantity === 'number' && quantity <= 10
+                  ? quantity
+                  : 'other'
+              }
               className="sel-f sel-f--sq"
               onChange={this.handleQuantityChange}
             >
+              {cartQuantity
+                ? [
+                    <option value="0" key="remove">
+                      Remove
+                    </option>,
+                    <option disabled key="separator">
+                      ---------------
+                    </option>,
+                  ]
+                : null}
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -252,8 +277,12 @@ export class CertificatePageContent extends React.Component<
             </select>
           </div>
         </div>
-        <button type="submit" className="btn btn--row" disabled={!quantity}>
-          Add to Cart
+        <button
+          type="submit"
+          className="btn btn--row"
+          disabled={quantity === cartQuantity}
+        >
+          {cartQuantity ? 'Update Cart' : 'Add to Cart'}
         </button>
         <style jsx>{`
           form {
@@ -274,47 +303,58 @@ export const wrapCertificatePageController = (
   getDependencies: (ctx?: ClientContext) => ClientDependencies,
   renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
 ) =>
-  class CertificatePageController extends React.Component<InitialProps> {
-    static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
-      const { query: { id, backUrl } } = ctx;
-      const { deathCertificatesDao } = getDependencies(ctx);
+  observer(
+    class CertificatePageController extends React.Component<InitialProps> {
+      static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
+        const { query: { id, backUrl } } = ctx;
+        const { deathCertificatesDao } = getDependencies(ctx);
 
-      if (!id) {
-        throw new Error('Missing id');
+        if (!id) {
+          throw new Error('Missing id');
+        }
+
+        const certificate = await deathCertificatesDao.get(id);
+
+        return {
+          id,
+          certificate,
+          backUrl,
+        };
       }
 
-      const certificate = await deathCertificatesDao.get(id);
+      dependencies = getDependencies();
 
-      return {
-        id,
-        certificate,
-        backUrl,
-      };
-    }
+      setCartQuantity = action(
+        'CertificatePageController setCartQuantity',
+        async (quantity: number) => {
+          const { cart } = this.dependencies;
+          const { certificate } = this.props;
 
-    dependencies = getDependencies();
+          if (certificate) {
+            if (quantity === 0) {
+              cart.remove(certificate.id);
+            } else {
+              cart.setQuantity(certificate, quantity);
+              await Router.push('/death/cart');
+              window.scrollTo(0, 0);
+            }
+          }
+        }
+      );
 
-    addToCart = async (quantity: number) => {
-      const { cart } = this.dependencies;
-      const { certificate } = this.props;
+      render() {
+        const { setCartQuantity } = this;
+        const { certificate } = this.props;
+        const { cart } = this.dependencies;
 
-      if (certificate) {
-        cart.add(certificate, quantity);
-
-        await Router.push('/death/cart');
-        window.scrollTo(0, 0);
+        return renderContent(this.dependencies, {
+          ...this.props,
+          setCartQuantity,
+          cartQuantity: certificate ? cart.getQuantity(certificate.id) : 0,
+        });
       }
-    };
-
-    render() {
-      const { addToCart } = this;
-
-      return renderContent(this.dependencies, {
-        ...this.props,
-        addToCart,
-      });
     }
-  };
+  );
 
 export default wrapCertificatePageController(
   getDependencies,

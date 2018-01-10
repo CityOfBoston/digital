@@ -29,7 +29,7 @@ export default class Cart {
           localStorage.getItem('cart') || '[]'
         );
 
-        this.entries = savedCart.map(
+        this.entries = savedCart.filter(({ quantity }) => quantity > 0).map(
           action(
             'hydrate entry from local storage start',
             ({ id, quantity }: LocalStorageEntry) => {
@@ -44,7 +44,11 @@ export default class Cart {
                 action(
                   'hydrate item from local storage complete',
                   (cert: ?DeathCertificate) => {
-                    entry.cert = cert;
+                    if (cert) {
+                      entry.cert = cert;
+                    } else {
+                      this.remove(id);
+                    }
                     this.pendingFetches -= 1;
                   }
                 )
@@ -93,7 +97,6 @@ export default class Cart {
     return this.pendingFetches > 0;
   }
 
-  @action
   add(cert: DeathCertificate, quantity: number) {
     const existingItem = this.entries.find(item => item.id === cert.id);
     if (existingItem) {
@@ -108,23 +111,39 @@ export default class Cart {
     }
   }
 
-  @action
-  setQuantity(certId: string, quantity: number) {
-    const existingItem = this.entries.find(({ id }) => id === certId);
+  setQuantity(cert: DeathCertificate, quantity: number) {
+    const existingItem = this.entries.find(({ id }) => id === cert.id);
     if (existingItem) {
+      // We don't remove items here when their quantity is 0 so that they don't
+      // disappear when you edit the values on the cart page.
       existingItem.quantity = quantity;
+    } else {
+      this.add(cert, quantity);
     }
   }
 
-  @action
   remove(certId: string) {
     const idx = this.entries.findIndex(({ id }) => id === certId);
+
     if (idx !== -1) {
       this.entries.splice(idx, 1);
     }
   }
 
-  @action
+  getQuantity(certId: string): number {
+    const entry = this.entries.find(({ id }) => id === certId);
+
+    if (entry) {
+      return entry.quantity;
+    } else {
+      return 0;
+    }
+  }
+
+  clean() {
+    this.entries = this.entries.filter(({ quantity }) => quantity > 0);
+  }
+
   clear() {
     this.entries = [];
   }

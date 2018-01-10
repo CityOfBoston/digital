@@ -53,14 +53,33 @@ describe('setQuantity', () => {
 
   it('it changes the quantity', () => {
     expect(cart.size).toEqual(1);
-    cart.setQuantity(CERT_1.id, 5);
+    cart.setQuantity(CERT_1, 5);
     expect(cart.size).toEqual(5);
   });
 
-  it('is a no-op when the ID isn’t found', () => {
+  it('keeps an entry with quantity 0', () => {
     expect(cart.size).toEqual(1);
-    cart.setQuantity(CERT_2.id, 5);
-    expect(cart.size).toEqual(1);
+    cart.setQuantity(CERT_1, 0);
+    expect(cart.size).toEqual(0);
+    expect(cart.entries.length).toEqual(1);
+  });
+});
+
+describe('clean', () => {
+  let cart;
+
+  beforeEach(() => {
+    cart = new Cart();
+    cart.add(CERT_1, 0);
+    cart.add(CERT_2, 5);
+  });
+
+  it('removes certs with 0', () => {
+    expect(cart.size).toEqual(5);
+    expect(cart.entries.length).toEqual(2);
+    cart.clean();
+    expect(cart.size).toEqual(5);
+    expect(cart.entries.length).toEqual(1);
   });
 });
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
@@ -113,12 +114,26 @@ export class CartPageContent extends React.Component<Props> {
   }
 }
 
-export default function CartPageContentController() {
-  const { cart } = getDependencies();
+@observer
+export default class CartPageController extends React.Component<{}> {
+  dependencies = getDependencies();
 
-  return (
-    <AppLayout navProps={{ cart }}>
-      <CartPageContent cart={cart} />
-    </AppLayout>
+  // When we leave the cart page, remove everything that's 0-size.
+  componentWillUnmount = action(
+    'CartPageController componentWillUnmount',
+    () => {
+      const { cart } = this.dependencies;
+      cart.clean();
+    }
   );
+
+  render() {
+    const { cart } = this.dependencies;
+
+    return (
+      <AppLayout navProps={{ cart }}>
+        <CartPageContent cart={cart} />
+      </AppLayout>
+    );
+  }
 }

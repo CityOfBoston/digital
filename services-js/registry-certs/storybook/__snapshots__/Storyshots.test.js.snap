@@ -1561,6 +1561,549 @@ exports[`Storyshots CartPage normal page 1`] = `
 </div>
 `;
 
+exports[`Storyshots CertificatePage certificate in cart 1`] = `
+<div
+  className="jsx-3465476614"
+>
+  <input
+    aria-hidden="true"
+    className="jsx-3465476614 brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="jsx-3465476614 nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="jsx-3465476614 a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="jsx-3465476614 mn--full-ie"
+  >
+    <div
+      className="jsx-3465476614 mn mn--full mn--nv-s"
+      style={
+        Object {
+          "zIndex": 2,
+        }
+      }
+    >
+      <input
+        aria-hidden="true"
+        className="jsx-3465476614 s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="jsx-3465476614 h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <nav
+        className="jsx-1795526402 nv-s nv-s--sticky"
+      >
+        <div
+          className="jsx-1795526402 nv-s-l bar"
+        >
+          <a
+            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            href="/death/cart"
+            onClick={[Function]}
+          >
+            View Cart
+          </a>
+          <a
+            className="jsx-1795526402 cart-link"
+            href="/death/cart"
+            onClick={[Function]}
+          >
+            0
+          </a>
+        </div>
+      </nav>
+      <nav
+        className="jsx-3465476614 brc p-a300"
+        role="navigation"
+      >
+        <ul
+          className="jsx-3465476614 brc-l"
+        >
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/"
+            >
+              Home
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/departments"
+            >
+              Departments
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/departments/registry"
+            >
+              Registry: Birth, death, and marriage
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="/death"
+              onClick={[Function]}
+            >
+              Death certificates
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="jsx-3465476614 b-ff"
+      >
+        <div
+          className="b-ff"
+        >
+          <div
+            className="b-c b-c--nbp b-ff"
+          >
+            <div
+              className="sh sh--b0"
+            >
+              <h1
+                className="sh-title"
+              >
+                BRUCE BANNER
+              </h1>
+            </div>
+            <div
+              className="m-v300 b-ff"
+            >
+              <div
+                className="jsx-2730222605 certificate"
+              >
+                <ul
+                  className="jsx-2730222605 dl"
+                >
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      Certificate #
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      000002
+                    </span>
+                  </li>
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      First name
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      BRUCE
+                    </span>
+                  </li>
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      Last name
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      BANNER
+                    </span>
+                  </li>
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      Date of birth
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      5/1/1962
+                    </span>
+                  </li>
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      Date of death
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      3/4/2016
+                    </span>
+                  </li>
+                  <li
+                    className="jsx-2730222605 dl-i"
+                  >
+                    <span
+                      className="jsx-2730222605 dl-t"
+                    >
+                      Age
+                    </span>
+                    <span
+                      className="jsx-2730222605 dl-d"
+                    >
+                      53
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="g g--r g--vc"
+            >
+              <div
+                className="g--5 m-v300"
+              >
+                <form
+                  className="jsx-2742074348 js-add-to-cart-form"
+                  onSubmit={[Function]}
+                >
+                  <div
+                    className="jsx-2742074348 m-r100"
+                  >
+                    <input
+                      className="jsx-2742074348 txt-f txt-f--combo txt-f--auto ta-r"
+                      id="quantity"
+                      name="quantity"
+                      onChange={[Function]}
+                      size="3"
+                      type="text"
+                      value={5}
+                    />
+                    <div
+                      className="jsx-2742074348 sel-c sel-c--sq quantity-dropdown"
+                    >
+                      <label
+                        className="jsx-2742074348 a11y--h"
+                        htmlFor="quantity"
+                      >
+                        Quantity:
+                      </label>
+                      <select
+                        className="jsx-2742074348 sel-f sel-f--sq"
+                        name="quantityMenu"
+                        onChange={[Function]}
+                        value={5}
+                      >
+                        <option
+                          className="jsx-2742074348"
+                          value="0"
+                        >
+                          Remove
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          disabled={true}
+                        >
+                          ---------------
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="1"
+                        >
+                          1
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="2"
+                        >
+                          2
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="3"
+                        >
+                          3
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="4"
+                        >
+                          4
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="5"
+                        >
+                          5
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="6"
+                        >
+                          6
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="7"
+                        >
+                          7
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="8"
+                        >
+                          8
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="9"
+                        >
+                          9
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="10"
+                        >
+                          10
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          disabled={true}
+                        >
+                          ---------------
+                        </option>
+                        <option
+                          className="jsx-2742074348"
+                          value="other"
+                        >
+                          Other…
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    className="jsx-2742074348 btn btn--row"
+                    disabled={true}
+                    type="submit"
+                  >
+                    Update Cart
+                  </button>
+                </form>
+              </div>
+              <div
+                className="g--7 m-v300"
+              >
+                <a
+                  href="/search?q=Jayn"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  ← Back to search results
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            className="b--g m-t700"
+          >
+            <div
+              className="b-c b-c--smv t--subinfo"
+            >
+              Death certificates cost 
+              $14.00
+               each. That price includes shipping. You will be charged an extra service fee of not more than 
+              $0.25
+               plus 
+              2.15%
+              . That fee goes directly to a third party to pay for the cost of card processing. Learn more about
+               
+              <a
+                href="https://www.boston.gov/"
+              >
+                card service fees
+              </a>
+               at the City of Boston.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="jsx-3465476614 ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Storyshots CertificatePage missing certificate 1`] = `
 <div
   className="jsx-3465476614"

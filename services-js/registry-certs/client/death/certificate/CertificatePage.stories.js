@@ -20,7 +20,17 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      addToCart={action('addToCart')}
+      setCartQuantity={action('setCartQuantity')}
+      cartQuantity={0}
+    />
+  ))
+  .add('certificate in cart', () => (
+    <CertificatePageContent
+      id={TYPICAL_CERTIFICATE.id}
+      certificate={TYPICAL_CERTIFICATE}
+      backUrl={'/search?q=Jayn'}
+      setCartQuantity={action('setCartQuantity')}
+      cartQuantity={5}
     />
   ))
   .add('normal certificate — not from search', () => (
@@ -28,7 +38,8 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={null}
-      addToCart={action('addToCart')}
+      setCartQuantity={action('setCartQuantity')}
+      cartQuantity={0}
     />
   ))
   .add('pending certificate', () => (
@@ -36,7 +47,8 @@ storiesOf('CertificatePage', module)
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      addToCart={action('addToCart')}
+      setCartQuantity={action('setCartQuantity')}
+      cartQuantity={0}
     />
   ))
   .add('missing certificate', () => (
@@ -44,6 +56,7 @@ storiesOf('CertificatePage', module)
       id="200001"
       certificate={null}
       backUrl={'/search?q=Jayn'}
-      addToCart={action('addToCart')}
+      setCartQuantity={action('setCartQuantity')}
+      cartQuantity={0}
     />
   ));
