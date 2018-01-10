@@ -98,7 +98,9 @@ export default class CheckoutDao {
         order
       );
 
-      cart.clear();
+      runInAction('CheckoutDao > submit > success', () => {
+        cart.clear();
+      });
 
       return orderId;
     } catch (err) {

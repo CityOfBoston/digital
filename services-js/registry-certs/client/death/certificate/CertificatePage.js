@@ -109,6 +109,15 @@ export class CertificatePageContent extends React.Component<
             <h1 className="sh-title">{fullName || 'Certificate not found'}</h1>
           </div>
 
+          {certificate &&
+            certificate.pending && (
+              <div className="br br--r br-a200 m-v300 p-a300 t--info">
+                This certificate is <strong>pending</strong> and will not
+                include the cause of death. Some insurance and banking companies
+                won’t accept a death certificate if it is still pending.
+              </div>
+            )}
+
           <div className="m-v300 b-ff">
             {certificate && this.renderCertificate(certificate)}
             {!certificate && (

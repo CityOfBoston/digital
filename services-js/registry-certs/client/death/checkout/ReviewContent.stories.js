@@ -4,6 +4,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import type { DeathCertificate } from '../../types.js';
 import Cart from '../../store/Cart';
 import Order from '../../models/Order';
 
@@ -17,12 +18,13 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
-function makeCart() {
+function makeCart(extraCerts?: Array<DeathCertificate>) {
   const cart = new Cart();
 
   cart.add(TYPICAL_CERTIFICATE, 1);
-  cart.add(PENDING_CERTIFICATE, 3);
-  cart.add(NO_DATE_CERTIFICATE, 1);
+  cart.add(NO_DATE_CERTIFICATE, 5);
+
+  (extraCerts || []).forEach(cert => cart.add(cert, 2));
 
   return cart;
 }
@@ -64,6 +66,13 @@ storiesOf('ReviewContent', module)
   .add('default', () => (
     <ReviewContent
       cart={makeCart()}
+      order={makeOrder()}
+      submit={action('submit')}
+    />
+  ))
+  .add('cart has pending certs', () => (
+    <ReviewContent
+      cart={makeCart([PENDING_CERTIFICATE])}
       order={makeOrder()}
       submit={action('submit')}
     />

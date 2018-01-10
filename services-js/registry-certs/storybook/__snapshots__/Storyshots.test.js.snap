@@ -68,6 +68,27 @@ exports[`Storyshots CartItem pending certificate 1`] = `
         JAMES
          
         HOWLETT (LOGAN)
+        <span
+          className="jsx-2577800471"
+          style={
+            Object {
+              "color": "#091f2f",
+            }
+          }
+        >
+           — 
+          <span
+            className="jsx-2577800471 t--sans tt-u"
+            style={
+              Object {
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+              }
+            }
+          >
+            pending
+          </span>
+        </span>
       </div>
       <div
         className="jsx-2577800471 certificate-subinfo"
@@ -75,18 +96,6 @@ exports[`Storyshots CartItem pending certificate 1`] = `
         Died: 
         4/15/2014
          — Age: 44 yrs. 2 mos. 10 dys
-        <span
-          className="jsx-2577800471 t--sans tt-u"
-          style={
-            Object {
-              "fontStyle": "normal",
-              "fontWeight": "bold",
-            }
-          }
-        >
-           
-          Certificate pending
-        </span>
       </div>
     </div>
     <button
@@ -1270,6 +1279,27 @@ exports[`Storyshots CartPage normal page 1`] = `
                         JAMES
                          
                         HOWLETT (LOGAN)
+                        <span
+                          className="jsx-2577800471"
+                          style={
+                            Object {
+                              "color": "#091f2f",
+                            }
+                          }
+                        >
+                           — 
+                          <span
+                            className="jsx-2577800471 t--sans tt-u"
+                            style={
+                              Object {
+                                "fontStyle": "normal",
+                                "fontWeight": "bold",
+                              }
+                            }
+                          >
+                            pending
+                          </span>
+                        </span>
                       </div>
                       <div
                         className="jsx-2577800471 certificate-subinfo"
@@ -1277,18 +1307,6 @@ exports[`Storyshots CartPage normal page 1`] = `
                         Died: 
                         4/15/2014
                          — Age: 44 yrs. 2 mos. 10 dys
-                        <span
-                          className="jsx-2577800471 t--sans tt-u"
-                          style={
-                            Object {
-                              "fontStyle": "normal",
-                              "fontWeight": "bold",
-                            }
-                          }
-                        >
-                           
-                          Certificate pending
-                        </span>
                       </div>
                     </div>
                     <button
@@ -3728,6 +3746,15 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
               </h1>
             </div>
             <div
+              className="br br--r br-a200 m-v300 p-a300 t--info"
+            >
+              This certificate is 
+              <strong>
+                pending
+              </strong>
+               and will not include the cause of death. Some insurance and banking companies won’t accept a death certificate if it is still pending.
+            </div>
+            <div
               className="m-v300 b-ff"
             >
               <div
@@ -4958,6 +4985,27 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
         JAMES
          
         HOWLETT (LOGAN)
+        <span
+          className="jsx-2577800471"
+          style={
+            Object {
+              "color": "#091f2f",
+            }
+          }
+        >
+           — 
+          <span
+            className="jsx-2577800471 t--sans tt-u"
+            style={
+              Object {
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+              }
+            }
+          >
+            pending
+          </span>
+        </span>
       </div>
       <div
         className="jsx-2577800471 certificate-subinfo"
@@ -4965,18 +5013,6 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
         Died: 
         4/15/2014
          — Age: 44 yrs. 2 mos. 10 dys
-        <span
-          className="jsx-2577800471 t--sans tt-u"
-          style={
-            Object {
-              "fontStyle": "normal",
-              "fontWeight": "bold",
-            }
-          }
-        >
-           
-          Certificate pending
-        </span>
       </div>
     </div>
   </div>
@@ -5188,6 +5224,27 @@ exports[`Storyshots OrderDetails open 1`] = `
             JAMES
              
             HOWLETT (LOGAN)
+            <span
+              className="jsx-2577800471"
+              style={
+                Object {
+                  "color": "#091f2f",
+                }
+              }
+            >
+               — 
+              <span
+                className="jsx-2577800471 t--sans tt-u"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                pending
+              </span>
+            </span>
           </div>
           <div
             className="jsx-2577800471 certificate-subinfo"
@@ -5195,18 +5252,6 @@ exports[`Storyshots OrderDetails open 1`] = `
             Died: 
             4/15/2014
              — Age: 44 yrs. 2 mos. 10 dys
-            <span
-              className="jsx-2577800471 t--sans tt-u"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                }
-              }
-            >
-               
-              Certificate pending
-            </span>
           </div>
         </div>
       </div>
@@ -9905,6 +9950,734 @@ If you have any issues or questions, contact the Registry at
 </pre>
 `;
 
+exports[`Storyshots ReviewContent cart has pending certs 1`] = `
+<div
+  className="jsx-3465476614"
+>
+  <input
+    aria-hidden="true"
+    className="jsx-3465476614 brg-tr"
+    id="brg-tr"
+    type="checkbox"
+  />
+  <nav
+    className="jsx-3465476614 nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission/our-work-landmarks-commission\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />
+  <div
+    aria-live="polite"
+    className="jsx-3465476614 a11y--h"
+    id="ariaLive"
+  />
+  <div
+    className="jsx-3465476614 mn--full-ie"
+  >
+    <div
+      className="jsx-3465476614 mn mn--full "
+      style={
+        Object {
+          "zIndex": 2,
+        }
+      }
+    >
+      <input
+        aria-hidden="true"
+        className="jsx-3465476614 s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="jsx-3465476614 h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewbox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <nav
+        className="jsx-3465476614 brc p-a300"
+        role="navigation"
+      >
+        <ul
+          className="jsx-3465476614 brc-l"
+        >
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/"
+            >
+              Home
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/departments"
+            >
+              Departments
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="https://www.boston.gov/departments/registry"
+            >
+              Registry: Birth, death, and marriage
+            </a>
+            <span
+              className="jsx-3465476614 brc-s"
+            >
+               › 
+            </span>
+          </li>
+          <li
+            className="jsx-3465476614 brc-l-i"
+          >
+            <a
+              className="jsx-3465476614"
+              href="/death"
+              onClick={[Function]}
+            >
+              Death certificates
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="jsx-3465476614 b-ff"
+      >
+        <div>
+          <div
+            className="b-c b-c--hsm b-c--nbp"
+          >
+            <div
+              className="sh sh--b0"
+            >
+              <h1
+                className="sh-title"
+              >
+                Review Order
+              </h1>
+            </div>
+            <div
+              className="t--info m-v500"
+            >
+              Your order is not yet complete. Please check the information below, then click the 
+              <b>
+                Submit Order
+              </b>
+               button.
+            </div>
+            <form
+              acceptCharset="UTF-8"
+              method="post"
+              onSubmit={[Function]}
+            >
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
+                    Order details
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          href="/death/cart"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="jsx-947238363 p-v200 br b--w row "
+                >
+                  <div
+                    aria-label="Quantity"
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    1
+                     ×
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-info-box"
+                  >
+                    <div
+                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                    >
+                      BRUCE
+                       
+                      BANNER
+                    </div>
+                    <div
+                      className="jsx-2577800471 certificate-subinfo"
+                    >
+                      Died: 
+                      3/4/2016
+                       — Age: 53
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="jsx-947238363 p-v200 br b--w row "
+                >
+                  <div
+                    aria-label="Quantity"
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    5
+                     ×
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-info-box"
+                  >
+                    <div
+                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                    >
+                      MONKEY
+                       
+                      JOE
+                    </div>
+                    <div
+                      className="jsx-2577800471 certificate-subinfo"
+                    >
+                      Died: 
+                      2004
+                       — Age: 6
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="jsx-947238363 p-v200 br b--w row "
+                >
+                  <div
+                    aria-label="Quantity"
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    2
+                     ×
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-info-box"
+                  >
+                    <div
+                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                    >
+                      JAMES
+                       
+                      HOWLETT (LOGAN)
+                      <span
+                        className="jsx-2577800471"
+                        style={
+                          Object {
+                            "color": "#091f2f",
+                          }
+                        }
+                      >
+                         — 
+                        <span
+                          className="jsx-2577800471 t--sans tt-u"
+                          style={
+                            Object {
+                              "fontStyle": "normal",
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          pending
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      className="jsx-2577800471 certificate-subinfo"
+                    >
+                      Died: 
+                      4/15/2014
+                       — Age: 44 yrs. 2 mos. 10 dys
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <fieldset
+                className="fs m-v700"
+              >
+                <legend
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
+                    Shipping Address
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          href="/death/checkout"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </legend>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  Doreen Green
+                  <br />
+                  Empire State University
+                  <br />
+                  Dorm Hall, Apt 5
+                  <br />
+                  10 College Avenue
+                  <br />
+                  New York, NY 12345
+                </div>
+              </fieldset>
+              <fieldset
+                className="fs m-v700"
+              >
+                <legend
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
+                    Payment Information
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          href="/death/checkout"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </legend>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  Nancy Whitehead
+                  <br />
+                  **** **** **** 
+                  4040
+                  <br />
+                  3 Avengers Towers
+                  <br />
+                  New York
+                  , 
+                  NY
+                   
+                  12223
+                </div>
+              </fieldset>
+              <div
+                className="m-v500"
+              >
+                <div
+                  className="jsx-4244768073 clearfix"
+                >
+                  <table
+                    className="jsx-4244768073 t--info ta-r"
+                    style={
+                      Object {
+                        "float": "right",
+                      }
+                    }
+                  >
+                    <tbody
+                      className="jsx-4244768073"
+                    >
+                      <tr
+                        className="jsx-4244768073"
+                      >
+                        <td
+                          className="jsx-4244768073"
+                        >
+                          8
+                           
+                          certificates
+                           ×
+                           
+                          $14.00
+                        </td>
+                        <td
+                          className="jsx-4244768073 cost-cell"
+                        >
+                          $
+                          112.00
+                        </td>
+                      </tr>
+                      <tr
+                        className="jsx-4244768073"
+                      >
+                        <td
+                          className="jsx-4244768073"
+                        >
+                          <span>
+                            Credit card service fee 
+                            <a
+                              href="#service-fee"
+                            >
+                              *
+                            </a>
+                          </span>
+                        </td>
+                        <td
+                          className="jsx-4244768073 cost-cell"
+                        >
+                          $
+                          2.66
+                        </td>
+                      </tr>
+                      <tr
+                        className="jsx-4244768073"
+                      >
+                        <td
+                          className="jsx-4244768073"
+                        >
+                          Shipping within the U.S.
+                        </td>
+                        <td
+                          className="jsx-4244768073 cost-cell"
+                        >
+                          <i
+                            className="jsx-4244768073"
+                          >
+                            included
+                          </i>
+                        </td>
+                      </tr>
+                      <tr
+                        className="jsx-4244768073"
+                      >
+                        <td
+                          className="jsx-4244768073 sh-title"
+                        >
+                          Total
+                        </td>
+                        <td
+                          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        >
+                          $
+                          114.66
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="t--info"
+                >
+                  You have to read and accept these checkboxes before you place your order:
+                </div>
+                <div
+                  className="m-v300"
+                >
+                  <label
+                    className="cb"
+                  >
+                    <input
+                      checked={false}
+                      className="cb-f"
+                      id="acceptNonRefundableInput"
+                      name="acceptNonRefundable"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="true"
+                    />
+                    <span
+                      className="cb-l"
+                    >
+                      I understand that
+                       
+                      <strong>
+                        death certificates are non-refundable
+                      </strong>
+                      .
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="m-v300"
+                >
+                  <label
+                    className="cb"
+                  >
+                    <input
+                      checked={false}
+                      className="cb-f"
+                      id="acceptPendingCertificatesInput"
+                      name="acceptPendingCertificates"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="true"
+                    />
+                    <span
+                      className="cb-l"
+                    >
+                      I understand that this order has
+                       
+                      <strong>
+                        pending death certificates
+                      </strong>
+                      , which may not be accepted by insurance or banking companies.
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="t--info m-v300"
+              >
+                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+              </div>
+              <div
+                className="m-v300"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "display": "block",
+                      "width": "100%",
+                    }
+                  }
+                  type="submit"
+                >
+                  Submit Order
+                </button>
+              </div>
+              <div
+                className="ta-c t--info m-v700"
+              >
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                >
+                  I’m not done yet, go back to search
+                </a>
+              </div>
+            </form>
+          </div>
+          <div
+            className="b--g m-t700"
+          >
+            <div
+              className="b-c b-c--smv b-c--hsm t--subinfo"
+            >
+              <a
+                name="service-fee"
+              />
+              * You are charged an extra service fee of not more than
+               
+              $0.25
+               plus 
+              2.15%
+              . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+               
+              <a
+                href="https://www.boston.gov/"
+              >
+                credit card service fees
+              </a>
+               at the City of Boston.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="jsx-3465476614 ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Storyshots ReviewContent default 1`] = `
 <div
   className="jsx-3465476614"
@@ -10210,53 +10983,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                       }
                     }
                   >
-                    3
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      JAMES
-                       
-                      HOWLETT (LOGAN)
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      4/15/2014
-                       — Age: 44 yrs. 2 mos. 10 dys
-                      <span
-                        className="jsx-2577800471 t--sans tt-u"
-                        style={
-                          Object {
-                            "fontStyle": "normal",
-                            "fontWeight": "bold",
-                          }
-                        }
-                      >
-                         
-                        Certificate pending
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    1
+                    5
                      ×
                   </div>
                   <div
@@ -10397,7 +11124,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                         <td
                           className="jsx-4244768073"
                         >
-                          5
+                          6
                            
                           certificates
                            ×
@@ -10408,7 +11135,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                           className="jsx-4244768073 cost-cell"
                         >
                           $
-                          70.00
+                          84.00
                         </td>
                       </tr>
                       <tr
@@ -10430,7 +11157,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                           className="jsx-4244768073 cost-cell"
                         >
                           $
-                          1.76
+                          2.06
                         </td>
                       </tr>
                       <tr
@@ -10463,7 +11190,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                           className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          71.76
+                          86.06
                         </td>
                       </tr>
                     </tbody>
@@ -10471,40 +11198,65 @@ exports[`Storyshots ReviewContent default 1`] = `
                 </div>
               </div>
               <div
-                className="g g--vc"
+                className="m-v700"
               >
                 <div
-                  className="g--8 m-b500"
+                  className="t--info"
                 >
-                  <div
-                    className="t--info"
-                  >
-                    Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry. 
-                    <strong>
-                      Certificates are non-refundable.
-                    </strong>
-                  </div>
+                  You have to read and accept this checkbox before you place your order:
                 </div>
                 <div
-                  className="g--4 m-b500"
+                  className="m-v300"
                 >
-                  <button
-                    className="btn"
-                    disabled={false}
-                    style={
-                      Object {
-                        "display": "block",
-                        "width": "100%",
-                      }
-                    }
-                    type="submit"
+                  <label
+                    className="cb"
                   >
-                    Submit Order
-                  </button>
+                    <input
+                      checked={false}
+                      className="cb-f"
+                      id="acceptNonRefundableInput"
+                      name="acceptNonRefundable"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="true"
+                    />
+                    <span
+                      className="cb-l"
+                    >
+                      I understand that
+                       
+                      <strong>
+                        death certificates are non-refundable
+                      </strong>
+                      .
+                    </span>
+                  </label>
                 </div>
               </div>
               <div
-                className="ta-c t--info m-b500"
+                className="t--info m-v300"
+              >
+                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+              </div>
+              <div
+                className="m-v300"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "display": "block",
+                      "width": "100%",
+                    }
+                  }
+                  type="submit"
+                >
+                  Submit Order
+                </button>
+              </div>
+              <div
+                className="ta-c t--info m-v700"
               >
                 <a
                   href="/death"
@@ -10877,53 +11629,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                       }
                     }
                   >
-                    3
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      JAMES
-                       
-                      HOWLETT (LOGAN)
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      4/15/2014
-                       — Age: 44 yrs. 2 mos. 10 dys
-                      <span
-                        className="jsx-2577800471 t--sans tt-u"
-                        style={
-                          Object {
-                            "fontStyle": "normal",
-                            "fontWeight": "bold",
-                          }
-                        }
-                      >
-                         
-                        Certificate pending
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    1
+                    5
                      ×
                   </div>
                   <div
@@ -11064,7 +11770,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         <td
                           className="jsx-4244768073"
                         >
-                          5
+                          6
                            
                           certificates
                            ×
@@ -11075,7 +11781,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                           className="jsx-4244768073 cost-cell"
                         >
                           $
-                          70.00
+                          84.00
                         </td>
                       </tr>
                       <tr
@@ -11097,7 +11803,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                           className="jsx-4244768073 cost-cell"
                         >
                           $
-                          1.76
+                          2.06
                         </td>
                       </tr>
                       <tr
@@ -11130,7 +11836,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                           className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          71.76
+                          86.06
                         </td>
                       </tr>
                     </tbody>
@@ -11160,40 +11866,65 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                 </div>
               </div>
               <div
-                className="g g--vc"
+                className="m-v700"
               >
                 <div
-                  className="g--8 m-b500"
+                  className="t--info"
                 >
-                  <div
-                    className="t--info"
-                  >
-                    Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry. 
-                    <strong>
-                      Certificates are non-refundable.
-                    </strong>
-                  </div>
+                  You have to read and accept this checkbox before you place your order:
                 </div>
                 <div
-                  className="g--4 m-b500"
+                  className="m-v300"
                 >
-                  <button
-                    className="btn"
-                    disabled={false}
-                    style={
-                      Object {
-                        "display": "block",
-                        "width": "100%",
-                      }
-                    }
-                    type="submit"
+                  <label
+                    className="cb"
                   >
-                    Submit Order
-                  </button>
+                    <input
+                      checked={false}
+                      className="cb-f"
+                      id="acceptNonRefundableInput"
+                      name="acceptNonRefundable"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="true"
+                    />
+                    <span
+                      className="cb-l"
+                    >
+                      I understand that
+                       
+                      <strong>
+                        death certificates are non-refundable
+                      </strong>
+                      .
+                    </span>
+                  </label>
                 </div>
               </div>
               <div
-                className="ta-c t--info m-b500"
+                className="t--info m-v300"
+              >
+                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+              </div>
+              <div
+                className="m-v300"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "display": "block",
+                      "width": "100%",
+                    }
+                  }
+                  type="submit"
+                >
+                  Submit Order
+                </button>
+              </div>
+              <div
+                className="ta-c t--info m-v700"
               >
                 <a
                   href="/death"
@@ -12349,6 +13080,27 @@ exports[`Storyshots SearchPage with results 1`] = `
                       JAMES
                        
                       HOWLETT (LOGAN)
+                      <span
+                        className="jsx-2577800471"
+                        style={
+                          Object {
+                            "color": "#091f2f",
+                          }
+                        }
+                      >
+                         — 
+                        <span
+                          className="jsx-2577800471 t--sans tt-u"
+                          style={
+                            Object {
+                              "fontStyle": "normal",
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          pending
+                        </span>
+                      </span>
                     </div>
                     <div
                       className="jsx-2577800471 certificate-subinfo"
@@ -12356,18 +13108,6 @@ exports[`Storyshots SearchPage with results 1`] = `
                       Died: 
                       4/15/2014
                        — Age: 44 yrs. 2 mos. 10 dys
-                      <span
-                        className="jsx-2577800471 t--sans tt-u"
-                        style={
-                          Object {
-                            "fontStyle": "normal",
-                            "fontWeight": "bold",
-                          }
-                        }
-                      >
-                         
-                        Certificate pending
-                      </span>
                     </div>
                   </div>
                 </div>

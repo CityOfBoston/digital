@@ -24,20 +24,22 @@ const renderCertificate = (
         : 'certificate-name'}`}
     >
       {firstName} {lastName}
+      {pending && (
+        <span style={{ color: CHARLES_BLUE }}>
+          {' — '}
+          <span
+            className="t--sans tt-u"
+            style={{ fontStyle: 'normal', fontWeight: 'bold' }}
+          >
+            pending
+          </span>
+        </span>
+      )}
     </div>
 
     <div className="certificate-subinfo">
       Died: {deathDate || deathYear}
       {age && ` — Age: ${age}`}
-      {pending && (
-        <span
-          className="t--sans tt-u"
-          style={{ fontStyle: 'normal', fontWeight: 'bold' }}
-        >
-          {' '}
-          Certificate pending
-        </span>
-      )}
     </div>
 
     <style jsx>{`

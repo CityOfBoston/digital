@@ -7,10 +7,12 @@ const DeathCertificatesDao = require('../dao/DeathCertificatesDao').default;
 
 const CERT_1: any = {
   id: '00001',
+  pending: false,
 };
 
 const CERT_2: any = {
   id: '00002',
+  pending: true,
 };
 
 describe('add and size', () => {
@@ -103,6 +105,24 @@ describe('remove', () => {
     cart.remove(CERT_2.id);
     expect(cart.size).toEqual(1);
     expect(cart.entries.length).toEqual(1);
+  });
+});
+
+describe('contains pending', () => {
+  let cart;
+
+  beforeEach(() => {
+    cart = new Cart();
+    cart.add(CERT_1, 1);
+  });
+
+  it('is false if there are no pending certificates', () => {
+    expect(cart.containsPending).toEqual(false);
+  });
+
+  it('is true if there are pending certificates', () => {
+    cart.add(CERT_2, 5);
+    expect(cart.containsPending).toEqual(true);
   });
 });
 

@@ -20,14 +20,32 @@ export type Props = {|
   showErrorsForTest?: boolean,
 |};
 
+export type State = {|
+  acceptNonRefundable: boolean,
+  acceptPendingCertificates: boolean,
+|};
+
 @observer
-export default class ReviewContent extends React.Component<Props> {
+export default class ReviewContent extends React.Component<Props, State> {
+  state: State = {
+    acceptNonRefundable: false,
+    acceptPendingCertificates: false,
+  };
+
   componentWillMount() {
     // When we land on this page we create a new idempotency key so that our
     // submission will only be processed once.
     const { order } = this.props;
     order.regenerateIdempotencyKey();
   }
+
+  handleAcceptNonRefundable = (ev: SyntheticInputEvent<*>) => {
+    this.setState({ acceptNonRefundable: ev.target.checked });
+  };
+
+  handleAcceptPendingCertificates = (ev: SyntheticInputEvent<*>) => {
+    this.setState({ acceptPendingCertificates: ev.target.checked });
+  };
 
   handleSubmit = async (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
@@ -44,6 +62,7 @@ export default class ReviewContent extends React.Component<Props> {
 
   render() {
     const { cart, order } = this.props;
+    const { acceptNonRefundable, acceptPendingCertificates } = this.state;
 
     const {
       paymentIsComplete,
@@ -69,6 +88,10 @@ export default class ReviewContent extends React.Component<Props> {
       billingState,
       billingZip,
     } = order;
+
+    const needsAccepting =
+      !acceptNonRefundable ||
+      (cart.containsPending && !acceptPendingCertificates);
 
     return (
       <div>
@@ -173,30 +196,75 @@ export default class ReviewContent extends React.Component<Props> {
               </div>
             )}
 
-            <div className="g g--vc">
-              <div className="g--8 m-b500">
-                <div className="t--info">
-                  Pressing the “Submit Order” button will charge the total
-                  amount to your credit card and place an order with the
-                  Registry. <strong>Certificates are non-refundable.</strong>
-                </div>
+            <div className="m-v700">
+              <div className="t--info">
+                {cart.containsPending
+                  ? 'You have to read and accept these checkboxes before you place your order:'
+                  : 'You have to read and accept this checkbox before you place your order:'}
               </div>
 
-              <div className="g--4 m-b500">
-                <button
-                  className="btn"
-                  style={{ display: 'block', width: '100%' }}
-                  type="submit"
-                  disabled={
-                    !paymentIsComplete || !shippingIsComplete || processing
-                  }
-                >
-                  Submit Order
-                </button>
+              <div className="m-v300">
+                <label className="cb">
+                  <input
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    type="checkbox"
+                    value="true"
+                    checked={acceptNonRefundable}
+                    className="cb-f"
+                    onChange={this.handleAcceptNonRefundable}
+                  />
+                  <span className="cb-l">
+                    I understand that{' '}
+                    <strong>death certificates are non-refundable</strong>.
+                  </span>
+                </label>
               </div>
+
+              {cart.containsPending && (
+                <div className="m-v300">
+                  <label className="cb">
+                    <input
+                      id="acceptPendingCertificatesInput"
+                      name="acceptPendingCertificates"
+                      type="checkbox"
+                      value="true"
+                      checked={acceptPendingCertificates}
+                      className="cb-f"
+                      onChange={this.handleAcceptPendingCertificates}
+                    />
+                    <span className="cb-l">
+                      I understand that this order has{' '}
+                      <strong>pending death certificates</strong>, which may not
+                      be accepted by insurance or banking companies.
+                    </span>
+                  </label>
+                </div>
+              )}
             </div>
 
-            <div className="ta-c t--info m-b500">
+            <div className="t--info m-v300">
+              Pressing the “Submit Order” button will charge the total amount to
+              your credit card and place an order with the Registry.
+            </div>
+
+            <div className="m-v300">
+              <button
+                className="btn"
+                style={{ display: 'block', width: '100%' }}
+                type="submit"
+                disabled={
+                  !paymentIsComplete ||
+                  !shippingIsComplete ||
+                  needsAccepting ||
+                  processing
+                }
+              >
+                Submit Order
+              </button>
+            </div>
+
+            <div className="ta-c t--info m-v700">
               <Link href="/death">
                 <a>I’m not done yet, go back to search</a>
               </Link>

@@ -47,7 +47,7 @@ export default class CartItem extends React.Component<Props, State> {
   };
 
   handleQuantityChange = action(
-    'CartItem handleQuantityChange',
+    'CartItem > handleQuantityChange',
     (ev: SyntheticInputEvent<*>) => {
       const { cart, entry: { cert } } = this.props;
 
@@ -67,10 +67,10 @@ export default class CartItem extends React.Component<Props, State> {
     }
   );
 
-  handleRemove = () => {
+  handleRemove = action('CartItem > handleRemove', () => {
     const { cart, entry } = this.props;
     cart.remove(entry.id);
-  };
+  });
 
   render() {
     const { entry: { cert }, lastRow } = this.props;

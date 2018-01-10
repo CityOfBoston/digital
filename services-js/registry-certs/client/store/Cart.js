@@ -147,4 +147,9 @@ export default class Cart {
   clear() {
     this.entries = [];
   }
+
+  @computed
+  get containsPending(): boolean {
+    return !!this.entries.find(({ cert }) => cert && cert.pending);
+  }
 }
