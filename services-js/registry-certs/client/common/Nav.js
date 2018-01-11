@@ -13,7 +13,7 @@ export type Props = {|
 
 export default observer(function Nav({ cart }: Props) {
   return (
-    <nav className="nv-s nv-s--sticky">
+    <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
       <div className="nv-s-l bar">
         <Link href="/death/cart">
           <a className="nv-s-l-b back-link back-link-right">View Cart</a>

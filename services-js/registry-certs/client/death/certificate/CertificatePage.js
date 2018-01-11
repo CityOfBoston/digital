@@ -101,7 +101,9 @@ export class CertificatePageContent extends React.Component<
     return (
       <div className="b-ff">
         <Head>
-          <title>Boston.gov — Death Certificate {fullName || `#${id}`}</title>
+          <title>
+            Boston.gov — Death Certificates — {fullName || `#${id}`}
+          </title>
         </Head>
 
         <div className="b-c b-c--nbp b-ff">
@@ -237,8 +239,8 @@ export class CertificatePageContent extends React.Component<
           <input
             ref={this.setQuantityField}
             type="text"
-            id="quantity"
             name="quantity"
+            aria-label="Quantity"
             className="txt-f txt-f--combo txt-f--auto ta-r"
             size="3"
             value={
@@ -247,12 +249,9 @@ export class CertificatePageContent extends React.Component<
             onChange={this.handleQuantityChange}
           />
           <div className="sel-c sel-c--sq quantity-dropdown">
-            <label htmlFor="quantity" className="a11y--h">
-              Quantity:
-            </label>
-
             <select
               name="quantityMenu"
+              aria-label="Quantity menu"
               value={
                 typeof quantity === 'number' && quantity <= 10
                   ? quantity

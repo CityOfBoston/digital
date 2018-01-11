@@ -82,6 +82,17 @@ export default class ShippingContent extends React.Component<Props, State> {
       : null;
   }
 
+  errorAttributes(fieldName: $Keys<OrderInfo>) {
+    if (this.errorForField(fieldName)) {
+      return {
+        'aria-invalid': true,
+        'aria-describedby': `${fieldName}-error`,
+      };
+    } else {
+      return {};
+    }
+  }
+
   render() {
     const { cart, order } = this.props;
 
@@ -107,7 +118,7 @@ export default class ShippingContent extends React.Component<Props, State> {
     return (
       <div className="b-c b-c--hsm">
         <Head>
-          <title>Boston.gov — Death Certificate Checkout</title>
+          <title>Boston.gov — Death Certificates — Checkout</title>
         </Head>
 
         <div className="sh sh--b0">
@@ -136,6 +147,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="name"
                 type="text"
                 placeholder="Full name"
+                aria-required="true"
+                {...this.errorAttributes('contactName')}
                 {...this.fieldListeners('contactName')}
                 className={`txt-f txt-f--100 ${this.renderErrorClassName(
                   'contactName'
@@ -155,6 +168,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="email"
                 type="email"
                 placeholder="Email address"
+                aria-required="true"
+                {...this.errorAttributes('contactEmail')}
                 {...this.fieldListeners('contactEmail')}
                 className={`txt-f txt-f--100 ${this.renderErrorClassName(
                   'contactEmail'
@@ -174,6 +189,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="phone"
                 type="phone"
                 placeholder="Phone number"
+                aria-required="true"
+                {...this.errorAttributes('contactPhone')}
                 {...this.fieldListeners('contactPhone')}
                 className={`txt-f txt-f--100 ${this.renderErrorClassName(
                   'contactPhone'
@@ -197,6 +214,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="shipping-name"
                 type="text"
                 placeholder="Full name"
+                aria-required="true"
+                {...this.errorAttributes('shippingName')}
                 {...this.fieldListeners('shippingName')}
                 className={`txt-f ${this.renderErrorClassName('shippingName')}`}
                 value={shippingName}
@@ -217,6 +236,7 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="shipping-company-name"
                 type="text"
                 placeholder="Company Name"
+                {...this.errorAttributes('shippingCompanyName')}
                 {...this.fieldListeners('shippingCompanyName')}
                 className={`txt-f ${this.renderErrorClassName(
                   'shippingCompanyName'
@@ -236,6 +256,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="shipping-address-1"
                 type="text"
                 placeholder="Address Line 1"
+                aria-required="true"
+                {...this.errorAttributes('shippingAddress1')}
                 {...this.fieldListeners('shippingAddress1')}
                 className={`txt-f ${this.renderErrorClassName(
                   'shippingAddress1'
@@ -255,6 +277,7 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="shipping-address-2"
                 type="text"
                 placeholder="Address Line 2"
+                {...this.errorAttributes('shippingAddress2')}
                 {...this.fieldListeners('shippingAddress2')}
                 className={`txt-f ${this.renderErrorClassName(
                   'shippingAddress2'
@@ -274,6 +297,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 name="shipping-city"
                 type="text"
                 placeholder="City"
+                aria-required="true"
+                {...this.errorAttributes('shippingCity')}
                 {...this.fieldListeners('shippingCity')}
                 className={`txt-f ${this.renderErrorClassName('shippingCity')}`}
                 value={shippingCity}
@@ -291,6 +316,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 <select
                   id="shipping-state"
                   name="shipping-state"
+                  aria-required="true"
+                  {...this.errorAttributes('shippingState')}
                   {...this.fieldListeners('shippingState')}
                   className={`sel-f ${this.renderErrorClassName(
                     'shippingState'
@@ -312,6 +339,8 @@ export default class ShippingContent extends React.Component<Props, State> {
                 id="shipping-zip"
                 name="shipping-zip"
                 placeholder="ZIP code"
+                aria-required="true"
+                {...this.errorAttributes('shippingZip')}
                 {...this.fieldListeners('shippingZip')}
                 className={`txt-f txt-f--auto ${this.renderErrorClassName(
                   'shippingZip'
@@ -365,7 +394,13 @@ export default class ShippingContent extends React.Component<Props, State> {
 
   renderError(fieldName: $Keys<OrderInfo>) {
     const error = this.errorForField(fieldName);
-    return error && <div className="t--info t--err m-t200">{error}</div>;
+    return (
+      error && (
+        <div className="t--info t--err m-t200" id={`${fieldName}-error`}>
+          {error}
+        </div>
+      )
+    );
   }
 
   renderErrorClassName(fieldName: $Keys<OrderInfo>) {

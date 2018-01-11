@@ -8,7 +8,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
     className="jsx-947238363 p-v300 br b--w row br-a100"
   >
     <input
-      aria-label="Quantity"
+      aria-label="Quantity for MONKEY JOE"
       className="jsx-169610795 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
@@ -34,6 +34,7 @@ exports[`Storyshots CartItem certificate without death date 1`] = `
       </div>
     </div>
     <button
+      aria-label="Remove MONKEY JOE"
       className="jsx-169610795 remove-button"
       onClick={[Function]}
       type="button"
@@ -52,7 +53,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
     className="jsx-947238363 p-v300 br b--w row br-a100"
   >
     <input
-      aria-label="Quantity"
+      aria-label="Quantity for JAMES HOWLETT (LOGAN)"
       className="jsx-169610795 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
@@ -99,6 +100,7 @@ exports[`Storyshots CartItem pending certificate 1`] = `
       </div>
     </div>
     <button
+      aria-label="Remove JAMES HOWLETT (LOGAN)"
       className="jsx-169610795 remove-button"
       onClick={[Function]}
       type="button"
@@ -117,7 +119,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
     className="jsx-947238363 p-v300 br b--w row br-a100"
   >
     <input
-      aria-label="Quantity"
+      aria-label="Quantity for BRUCE BANNER"
       className="jsx-169610795 br br-a150 quantity-box"
       onBlur={[Function]}
       onChange={[Function]}
@@ -143,6 +145,7 @@ exports[`Storyshots CartItem typical certificate 1`] = `
       </div>
     </div>
     <button
+      aria-label="Remove BRUCE BANNER"
       className="jsx-169610795 remove-button"
       onClick={[Function]}
       type="button"
@@ -157,6 +160,12 @@ exports[`Storyshots CartPage empty cart 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -164,6 +173,7 @@ exports[`Storyshots CartPage empty cart 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -206,11 +216,6 @@ exports[`Storyshots CartPage empty cart 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -291,6 +296,7 @@ exports[`Storyshots CartPage empty cart 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -313,8 +319,8 @@ exports[`Storyshots CartPage empty cart 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -377,7 +383,11 @@ exports[`Storyshots CartPage empty cart 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -432,7 +442,7 @@ exports[`Storyshots CartPage empty cart 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -468,6 +478,12 @@ exports[`Storyshots CartPage loading 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -475,6 +491,7 @@ exports[`Storyshots CartPage loading 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -517,11 +534,6 @@ exports[`Storyshots CartPage loading 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -602,6 +614,7 @@ exports[`Storyshots CartPage loading 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -624,8 +637,8 @@ exports[`Storyshots CartPage loading 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -688,7 +701,11 @@ exports[`Storyshots CartPage loading 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -792,6 +809,7 @@ exports[`Storyshots CartPage loading 1`] = `
                               className="jsx-1411408356 sel-c"
                             >
                               <select
+                                aria-label="Payment type"
                                 className="jsx-1411408356 sel-f"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
@@ -813,18 +831,14 @@ exports[`Storyshots CartPage loading 1`] = `
                             </div>
                           </div>
                            
-                          <label
+                          service fee
+                          <a
+                            aria-label="About the service fee"
                             className="jsx-1411408356"
-                            htmlFor="serviceFeeTypeSelect"
+                            href="#service-fee"
                           >
-                            service fee
-                            <a
-                              className="jsx-1411408356"
-                              href="#service-fee"
-                            >
-                              *
-                            </a>
-                          </label>
+                            *
+                          </a>
                         </div>
                       </td>
                       <td
@@ -920,7 +934,7 @@ exports[`Storyshots CartPage loading 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -956,6 +970,12 @@ exports[`Storyshots CartPage normal page 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -963,6 +983,7 @@ exports[`Storyshots CartPage normal page 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -1005,11 +1026,6 @@ exports[`Storyshots CartPage normal page 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -1090,6 +1106,7 @@ exports[`Storyshots CartPage normal page 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -1112,8 +1129,8 @@ exports[`Storyshots CartPage normal page 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -1176,7 +1193,11 @@ exports[`Storyshots CartPage normal page 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -1222,7 +1243,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                     className="jsx-947238363 p-v300 br b--w row br-t100"
                   >
                     <input
-                      aria-label="Quantity"
+                      aria-label="Quantity for BRUCE BANNER"
                       className="jsx-169610795 br br-a150 quantity-box"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -1248,6 +1269,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                       </div>
                     </div>
                     <button
+                      aria-label="Remove BRUCE BANNER"
                       className="jsx-169610795 remove-button"
                       onClick={[Function]}
                       type="button"
@@ -1263,7 +1285,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                     className="jsx-947238363 p-v300 br b--w row br-t100"
                   >
                     <input
-                      aria-label="Quantity"
+                      aria-label="Quantity for JAMES HOWLETT (LOGAN)"
                       className="jsx-169610795 br br-a150 quantity-box"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -1310,6 +1332,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                       </div>
                     </div>
                     <button
+                      aria-label="Remove JAMES HOWLETT (LOGAN)"
                       className="jsx-169610795 remove-button"
                       onClick={[Function]}
                       type="button"
@@ -1325,7 +1348,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                     className="jsx-947238363 p-v300 br b--w row br-a100"
                   >
                     <input
-                      aria-label="Quantity"
+                      aria-label="Quantity for MONKEY JOE"
                       className="jsx-169610795 br br-a150 quantity-box"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -1351,6 +1374,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                       </div>
                     </div>
                     <button
+                      aria-label="Remove MONKEY JOE"
                       className="jsx-169610795 remove-button"
                       onClick={[Function]}
                       type="button"
@@ -1419,6 +1443,7 @@ exports[`Storyshots CartPage normal page 1`] = `
                               className="jsx-1411408356 sel-c"
                             >
                               <select
+                                aria-label="Payment type"
                                 className="jsx-1411408356 sel-f"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
@@ -1440,18 +1465,14 @@ exports[`Storyshots CartPage normal page 1`] = `
                             </div>
                           </div>
                            
-                          <label
+                          service fee
+                          <a
+                            aria-label="About the service fee"
                             className="jsx-1411408356"
-                            htmlFor="serviceFeeTypeSelect"
+                            href="#service-fee"
                           >
-                            service fee
-                            <a
-                              className="jsx-1411408356"
-                              href="#service-fee"
-                            >
-                              *
-                            </a>
-                          </label>
+                            *
+                          </a>
                         </div>
                       </td>
                       <td
@@ -1547,7 +1568,7 @@ exports[`Storyshots CartPage normal page 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -1583,6 +1604,12 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -1590,6 +1617,7 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -1632,11 +1660,6 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -1717,6 +1740,7 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -1739,8 +1763,8 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -1803,7 +1827,11 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -1931,8 +1959,8 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
                     className="jsx-2742074348 m-r100"
                   >
                     <input
+                      aria-label="Quantity"
                       className="jsx-2742074348 txt-f txt-f--combo txt-f--auto ta-r"
-                      id="quantity"
                       name="quantity"
                       onChange={[Function]}
                       size="3"
@@ -1942,13 +1970,8 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
                     <div
                       className="jsx-2742074348 sel-c sel-c--sq quantity-dropdown"
                     >
-                      <label
-                        className="jsx-2742074348 a11y--h"
-                        htmlFor="quantity"
-                      >
-                        Quantity:
-                      </label>
                       <select
+                        aria-label="Quantity menu"
                         className="jsx-2742074348 sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
@@ -2090,7 +2113,7 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -2126,6 +2149,12 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -2133,6 +2162,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -2175,11 +2205,6 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -2260,6 +2285,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -2282,8 +2308,8 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -2346,7 +2372,11 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -2421,7 +2451,7 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -2457,6 +2487,12 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -2464,6 +2500,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -2506,11 +2543,6 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -2591,6 +2623,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -2613,8 +2646,8 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -2677,7 +2710,11 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -2805,8 +2842,8 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                     className="jsx-2742074348 m-r100"
                   >
                     <input
+                      aria-label="Quantity"
                       className="jsx-2742074348 txt-f txt-f--combo txt-f--auto ta-r"
-                      id="quantity"
                       name="quantity"
                       onChange={[Function]}
                       size="3"
@@ -2816,13 +2853,8 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                     <div
                       className="jsx-2742074348 sel-c sel-c--sq quantity-dropdown"
                     >
-                      <label
-                        className="jsx-2742074348 a11y--h"
-                        htmlFor="quantity"
-                      >
-                        Quantity:
-                      </label>
                       <select
+                        aria-label="Quantity menu"
                         className="jsx-2742074348 sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
@@ -2952,7 +2984,7 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -2988,6 +3020,12 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -2995,6 +3033,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -3037,11 +3076,6 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -3122,6 +3156,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -3144,8 +3179,8 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -3208,7 +3243,11 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -3336,8 +3375,8 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                     className="jsx-2742074348 m-r100"
                   >
                     <input
+                      aria-label="Quantity"
                       className="jsx-2742074348 txt-f txt-f--combo txt-f--auto ta-r"
-                      id="quantity"
                       name="quantity"
                       onChange={[Function]}
                       size="3"
@@ -3347,13 +3386,8 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                     <div
                       className="jsx-2742074348 sel-c sel-c--sq quantity-dropdown"
                     >
-                      <label
-                        className="jsx-2742074348 a11y--h"
-                        htmlFor="quantity"
-                      >
-                        Quantity:
-                      </label>
                       <select
+                        aria-label="Quantity menu"
                         className="jsx-2742074348 sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
@@ -3471,7 +3505,7 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -3507,6 +3541,12 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -3514,6 +3554,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -3556,11 +3597,6 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -3641,6 +3677,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -3663,8 +3700,8 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -3727,7 +3764,11 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -3850,8 +3891,8 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                     className="jsx-2742074348 m-r100"
                   >
                     <input
+                      aria-label="Quantity"
                       className="jsx-2742074348 txt-f txt-f--combo txt-f--auto ta-r"
-                      id="quantity"
                       name="quantity"
                       onChange={[Function]}
                       size="3"
@@ -3861,13 +3902,8 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                     <div
                       className="jsx-2742074348 sel-c sel-c--sq quantity-dropdown"
                     >
-                      <label
-                        className="jsx-2742074348 a11y--h"
-                        htmlFor="quantity"
-                      >
-                        Quantity:
-                      </label>
                       <select
+                        aria-label="Quantity menu"
                         className="jsx-2742074348 sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
@@ -3997,7 +4033,7 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -4033,6 +4069,12 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -4040,6 +4082,7 @@ exports[`Storyshots ConfirmationContent default 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -4082,11 +4125,6 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -4167,6 +4205,7 @@ exports[`Storyshots ConfirmationContent default 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -4189,8 +4228,8 @@ exports[`Storyshots ConfirmationContent default 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -4253,7 +4292,11 @@ exports[`Storyshots ConfirmationContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -4326,7 +4369,7 @@ exports[`Storyshots ConfirmationContent default 1`] = `
             </a>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -4414,6 +4457,7 @@ exports[`Storyshots CostSummary default credit card 1`] = `
                 className="jsx-1411408356 sel-c"
               >
                 <select
+                  aria-label="Payment type"
                   className="jsx-1411408356 sel-f"
                   id="serviceFeeTypeSelect"
                   onChange={[Function]}
@@ -4435,18 +4479,14 @@ exports[`Storyshots CostSummary default credit card 1`] = `
               </div>
             </div>
              
-            <label
+            service fee
+            <a
+              aria-label="About the service fee"
               className="jsx-1411408356"
-              htmlFor="serviceFeeTypeSelect"
+              href="#service-fee"
             >
-              service fee
-              <a
-                className="jsx-1411408356"
-                href="#service-fee"
-              >
-                *
-              </a>
-            </label>
+              *
+            </a>
           </div>
         </td>
         <td
@@ -4550,6 +4590,7 @@ exports[`Storyshots CostSummary default debit card 1`] = `
                 className="jsx-1411408356 sel-c"
               >
                 <select
+                  aria-label="Payment type"
                   className="jsx-1411408356 sel-f"
                   id="serviceFeeTypeSelect"
                   onChange={[Function]}
@@ -4571,18 +4612,14 @@ exports[`Storyshots CostSummary default debit card 1`] = `
               </div>
             </div>
              
-            <label
+            service fee
+            <a
+              aria-label="About the service fee"
               className="jsx-1411408356"
-              htmlFor="serviceFeeTypeSelect"
+              href="#service-fee"
             >
-              service fee
-              <a
-                className="jsx-1411408356"
-                href="#service-fee"
-              >
-                *
-              </a>
-            </label>
+              *
+            </a>
           </div>
         </td>
         <td
@@ -4822,6 +4859,7 @@ exports[`Storyshots CostSummary only debit card 1`] = `
 
 exports[`Storyshots Nav default 1`] = `
 <nav
+  aria-label="Shopping cart"
   className="jsx-1795526402 nv-s nv-s--sticky"
 >
   <div
@@ -4918,6 +4956,7 @@ exports[`Storyshots OrderDetails fixed open 1`] = `
           className="t--subinfo"
         >
           <a
+            aria-label="Edit order details"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -5519,6 +5558,12 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -5526,6 +5571,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -5568,11 +5614,6 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -5653,8 +5694,8 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -5717,7 +5758,11 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -5792,10 +5837,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
             method="post"
             onSubmit={[Function]}
           >
-            <fieldset
-              className="fs m-v700"
+            <div
+              className="m-v700"
             >
-              <legend
+              <div
                 className="fs-l"
               >
                 <div
@@ -5810,6 +5855,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                       className="t--subinfo"
                     >
                       <a
+                        aria-label="Edit shipping address"
                         href="/death/checkout"
                         onClick={[Function]}
                       >
@@ -5818,7 +5864,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
               <div
                 className="m-b200"
               >
@@ -5827,7 +5873,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
               <div>
                  
               </div>
-            </fieldset>
+            </div>
             <fieldset
               className="fs m-v700"
             >
@@ -5851,6 +5897,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="card-name"
                   name="card-name"
@@ -5949,6 +5996,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-address-1"
                     name="billing-address-1"
@@ -5994,6 +6042,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-city"
                     name="billing-city"
@@ -6022,6 +6071,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     className="sel-c"
                   >
                     <select
+                      aria-required="true"
                       className="sel-f "
                       id="billing-state"
                       name="billing-state"
@@ -6342,6 +6392,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f txt-f--50 "
                     id="billing-zip"
                     name="billing-zip"
@@ -6379,6 +6430,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
             </fieldset>
             <div
               className="m-v500 p-a300 br br-a100 br--r"
+              id="processing-error"
             >
               <div
                 className="t--intro t--err"
@@ -6406,6 +6458,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                 className="g--5 m-b500"
               >
                 <button
+                  aria-describedby="processing-error"
                   className="btn btn--b"
                   disabled={true}
                   type="submit"
@@ -6431,7 +6484,7 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -6467,6 +6520,12 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -6474,6 +6533,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -6516,11 +6576,6 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -6601,8 +6656,8 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -6665,7 +6720,11 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -6740,10 +6799,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
             method="post"
             onSubmit={[Function]}
           >
-            <fieldset
-              className="fs m-v700"
+            <div
+              className="m-v700"
             >
-              <legend
+              <div
                 className="fs-l"
               >
                 <div
@@ -6758,6 +6817,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                       className="t--subinfo"
                     >
                       <a
+                        aria-label="Edit shipping address"
                         href="/death/checkout"
                         onClick={[Function]}
                       >
@@ -6766,7 +6826,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
               <div
                 className="m-b200"
               >
@@ -6775,7 +6835,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
               <div>
                  
               </div>
-            </fieldset>
+            </div>
             <fieldset
               className="fs m-v700"
             >
@@ -6799,6 +6859,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="card-name"
                   name="card-name"
@@ -6897,6 +6958,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-address-1"
                     name="billing-address-1"
@@ -6942,6 +7004,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-city"
                     name="billing-city"
@@ -6970,6 +7033,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     className="sel-c"
                   >
                     <select
+                      aria-required="true"
                       className="sel-f "
                       id="billing-state"
                       name="billing-state"
@@ -7290,6 +7354,9 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-describedby="billingZip-error"
+                    aria-invalid={true}
+                    aria-required="true"
                     className="txt-f txt-f--50 txt-f--err"
                     id="billing-zip"
                     name="billing-zip"
@@ -7300,6 +7367,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                   />
                   <div
                     className="t--info t--err m-t200"
+                    id="billingZip-error"
                   >
                     The ZIP code must be a 5 or 9 digit ZIP code
                   </div>
@@ -7362,7 +7430,7 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -7398,6 +7466,12 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -7405,6 +7479,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -7447,11 +7522,6 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -7532,8 +7602,8 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -7596,7 +7666,11 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -7671,10 +7745,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
             method="post"
             onSubmit={[Function]}
           >
-            <fieldset
-              className="fs m-v700"
+            <div
+              className="m-v700"
             >
-              <legend
+              <div
                 className="fs-l"
               >
                 <div
@@ -7689,6 +7763,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                       className="t--subinfo"
                     >
                       <a
+                        aria-label="Edit shipping address"
                         href="/death/checkout"
                         onClick={[Function]}
                       >
@@ -7697,7 +7772,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
               <div
                 className="m-b200"
               >
@@ -7706,7 +7781,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
               <div>
                  
               </div>
-            </fieldset>
+            </div>
             <fieldset
               className="fs m-v700"
             >
@@ -7730,6 +7805,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="card-name"
                   name="card-name"
@@ -7832,6 +7908,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-address-1"
                     name="billing-address-1"
@@ -7877,6 +7954,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-city"
                     name="billing-city"
@@ -7905,6 +7983,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     className="sel-c"
                   >
                     <select
+                      aria-required="true"
                       className="sel-f "
                       id="billing-state"
                       name="billing-state"
@@ -8225,6 +8304,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f txt-f--50 "
                     id="billing-zip"
                     name="billing-zip"
@@ -8292,7 +8372,7 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -8328,6 +8408,12 @@ exports[`Storyshots PaymentContent default 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -8335,6 +8421,7 @@ exports[`Storyshots PaymentContent default 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -8377,11 +8464,6 @@ exports[`Storyshots PaymentContent default 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -8462,8 +8544,8 @@ exports[`Storyshots PaymentContent default 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -8526,7 +8608,11 @@ exports[`Storyshots PaymentContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -8601,10 +8687,10 @@ exports[`Storyshots PaymentContent default 1`] = `
             method="post"
             onSubmit={[Function]}
           >
-            <fieldset
-              className="fs m-v700"
+            <div
+              className="m-v700"
             >
-              <legend
+              <div
                 className="fs-l"
               >
                 <div
@@ -8619,6 +8705,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                       className="t--subinfo"
                     >
                       <a
+                        aria-label="Edit shipping address"
                         href="/death/checkout"
                         onClick={[Function]}
                       >
@@ -8627,7 +8714,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
               <div
                 className="m-b200"
               >
@@ -8636,7 +8723,7 @@ exports[`Storyshots PaymentContent default 1`] = `
               <div>
                  
               </div>
-            </fieldset>
+            </div>
             <fieldset
               className="fs m-v700"
             >
@@ -8660,6 +8747,7 @@ exports[`Storyshots PaymentContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="card-name"
                   name="card-name"
@@ -8773,7 +8861,7 @@ exports[`Storyshots PaymentContent default 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -8809,6 +8897,12 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -8816,6 +8910,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -8858,11 +8953,6 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -8943,8 +9033,8 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -9007,7 +9097,11 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -9082,10 +9176,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
             method="post"
             onSubmit={[Function]}
           >
-            <fieldset
-              className="fs m-v700"
+            <div
+              className="m-v700"
             >
-              <legend
+              <div
                 className="fs-l"
               >
                 <div
@@ -9100,6 +9194,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                       className="t--subinfo"
                     >
                       <a
+                        aria-label="Edit shipping address"
                         href="/death/checkout"
                         onClick={[Function]}
                       >
@@ -9108,7 +9203,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
               <div
                 className="m-b200"
               >
@@ -9117,7 +9212,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
               <div>
                  
               </div>
-            </fieldset>
+            </div>
             <fieldset
               className="fs m-v700"
             >
@@ -9141,6 +9236,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="card-name"
                   name="card-name"
@@ -9239,6 +9335,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-address-1"
                     name="billing-address-1"
@@ -9284,6 +9381,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f "
                     id="billing-city"
                     name="billing-city"
@@ -9312,6 +9410,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     className="sel-c"
                   >
                     <select
+                      aria-required="true"
                       className="sel-f "
                       id="billing-state"
                       name="billing-state"
@@ -9632,6 +9731,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     </span>
                   </label>
                   <input
+                    aria-required="true"
                     className="txt-f txt-f--50 "
                     id="billing-zip"
                     name="billing-zip"
@@ -9699,7 +9799,7 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -9954,6 +10054,12 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -9961,6 +10067,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -10003,11 +10110,6 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -10088,8 +10190,8 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -10152,7 +10254,11 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -10200,6 +10306,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit order details"
                           href="/death/cart"
                           onClick={[Function]}
                         >
@@ -10333,10 +10440,10 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                   </div>
                 </div>
               </div>
-              <fieldset
-                className="fs m-v700"
+              <div
+                className="m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -10351,6 +10458,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit shipping address"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -10359,7 +10467,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -10378,11 +10486,11 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                   <br />
                   New York, NY 12345
                 </div>
-              </fieldset>
-              <fieldset
+              </div>
+              <div
                 className="fs m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -10397,6 +10505,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit payment information"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -10405,7 +10514,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -10427,7 +10536,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                    
                   12223
                 </div>
-              </fieldset>
+              </div>
               <div
                 className="m-v500"
               >
@@ -10589,6 +10698,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
               </div>
               <div
                 className="t--info m-v300"
+                id="charge-message"
               >
                 Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
               </div>
@@ -10596,6 +10706,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                 className="m-v300"
               >
                 <button
+                  aria-describedby="charge-message"
                   className="btn"
                   disabled={true}
                   style={
@@ -10646,7 +10757,7 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -10682,6 +10793,12 @@ exports[`Storyshots ReviewContent default 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -10689,6 +10806,7 @@ exports[`Storyshots ReviewContent default 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -10731,11 +10849,6 @@ exports[`Storyshots ReviewContent default 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -10816,8 +10929,8 @@ exports[`Storyshots ReviewContent default 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -10880,7 +10993,11 @@ exports[`Storyshots ReviewContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -10928,6 +11045,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit order details"
                           href="/death/cart"
                           onClick={[Function]}
                         >
@@ -11006,10 +11124,10 @@ exports[`Storyshots ReviewContent default 1`] = `
                   </div>
                 </div>
               </div>
-              <fieldset
-                className="fs m-v700"
+              <div
+                className="m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -11024,6 +11142,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit shipping address"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -11032,7 +11151,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -11051,11 +11170,11 @@ exports[`Storyshots ReviewContent default 1`] = `
                   <br />
                   New York, NY 12345
                 </div>
-              </fieldset>
-              <fieldset
+              </div>
+              <div
                 className="fs m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -11070,6 +11189,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit payment information"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -11078,7 +11198,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -11100,7 +11220,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                    
                   12223
                 </div>
-              </fieldset>
+              </div>
               <div
                 className="m-v500"
               >
@@ -11235,6 +11355,7 @@ exports[`Storyshots ReviewContent default 1`] = `
               </div>
               <div
                 className="t--info m-v300"
+                id="charge-message"
               >
                 Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
               </div>
@@ -11242,6 +11363,7 @@ exports[`Storyshots ReviewContent default 1`] = `
                 className="m-v300"
               >
                 <button
+                  aria-describedby="charge-message"
                   className="btn"
                   disabled={true}
                   style={
@@ -11292,7 +11414,7 @@ exports[`Storyshots ReviewContent default 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -11328,6 +11450,12 @@ exports[`Storyshots ReviewContent submission error 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -11335,6 +11463,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -11377,11 +11506,6 @@ exports[`Storyshots ReviewContent submission error 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -11462,8 +11586,8 @@ exports[`Storyshots ReviewContent submission error 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -11526,7 +11650,11 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -11574,6 +11702,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit order details"
                           href="/death/cart"
                           onClick={[Function]}
                         >
@@ -11652,10 +11781,10 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                   </div>
                 </div>
               </div>
-              <fieldset
-                className="fs m-v700"
+              <div
+                className="m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -11670,6 +11799,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit shipping address"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -11678,7 +11808,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -11697,11 +11827,11 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                   <br />
                   New York, NY 12345
                 </div>
-              </fieldset>
-              <fieldset
+              </div>
+              <div
                 className="fs m-v700"
               >
-                <legend
+                <div
                   className="fs-l"
                 >
                   <div
@@ -11716,6 +11846,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         className="t--subinfo"
                       >
                         <a
+                          aria-label="Edit payment information"
                           href="/death/checkout"
                           onClick={[Function]}
                         >
@@ -11724,7 +11855,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                       </span>
                     </span>
                   </div>
-                </legend>
+                </div>
                 <div
                   className="t--info"
                   style={
@@ -11746,7 +11877,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                    
                   12223
                 </div>
-              </fieldset>
+              </div>
               <div
                 className="m-v500"
               >
@@ -11845,6 +11976,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               </div>
               <div
                 className="m-v500 p-a300 br br-a100 br--r"
+                id="processing-error"
               >
                 <div
                   className="t--intro t--err"
@@ -11903,6 +12035,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               </div>
               <div
                 className="t--info m-v300"
+                id="charge-message"
               >
                 Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
               </div>
@@ -11910,6 +12043,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                 className="m-v300"
               >
                 <button
+                  aria-describedby="processing-error"
                   className="btn"
                   disabled={true}
                   style={
@@ -11960,7 +12094,7 @@ exports[`Storyshots ReviewContent submission error 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -11996,6 +12130,12 @@ exports[`Storyshots SearchPage no results 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -12003,6 +12143,7 @@ exports[`Storyshots SearchPage no results 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -12045,11 +12186,6 @@ exports[`Storyshots SearchPage no results 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -12130,6 +12266,7 @@ exports[`Storyshots SearchPage no results 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -12152,8 +12289,8 @@ exports[`Storyshots SearchPage no results 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -12216,7 +12353,11 @@ exports[`Storyshots SearchPage no results 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -12261,9 +12402,10 @@ exports[`Storyshots SearchPage no results 1`] = `
                   className="sf-i"
                 >
                   <input
+                    aria-describedby="searchExamples"
+                    aria-label="Search box"
                     autoComplete="off"
                     className="sf-i-f"
-                    id="q"
                     name="q"
                     onChange={[Function]}
                     placeholder="Search by full or partial name…"
@@ -12279,6 +12421,7 @@ exports[`Storyshots SearchPage no results 1`] = `
                 </div>
                 <div
                   className="t--subinfo m-t200"
+                  id="searchExamples"
                 >
                   Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
                 </div>
@@ -12344,7 +12487,7 @@ exports[`Storyshots SearchPage no results 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -12380,6 +12523,12 @@ exports[`Storyshots SearchPage no search 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -12387,6 +12536,7 @@ exports[`Storyshots SearchPage no search 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -12429,11 +12579,6 @@ exports[`Storyshots SearchPage no search 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -12514,6 +12659,7 @@ exports[`Storyshots SearchPage no search 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -12536,8 +12682,8 @@ exports[`Storyshots SearchPage no search 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -12600,7 +12746,11 @@ exports[`Storyshots SearchPage no search 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -12662,9 +12812,10 @@ exports[`Storyshots SearchPage no search 1`] = `
                   className="sf-i"
                 >
                   <input
+                    aria-describedby="searchExamples"
+                    aria-label="Search box"
                     autoComplete="off"
                     className="sf-i-f"
-                    id="q"
                     name="q"
                     onChange={[Function]}
                     placeholder="Search by full or partial name…"
@@ -12680,6 +12831,7 @@ exports[`Storyshots SearchPage no search 1`] = `
                 </div>
                 <div
                   className="t--subinfo m-t200"
+                  id="searchExamples"
                 >
                   Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
                 </div>
@@ -12687,7 +12839,7 @@ exports[`Storyshots SearchPage no search 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -12723,6 +12875,12 @@ exports[`Storyshots SearchPage with results 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -12730,6 +12888,7 @@ exports[`Storyshots SearchPage with results 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -12772,11 +12931,6 @@ exports[`Storyshots SearchPage with results 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -12857,6 +13011,7 @@ exports[`Storyshots SearchPage with results 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Shopping cart"
         className="jsx-1795526402 nv-s nv-s--sticky"
       >
         <div
@@ -12879,8 +13034,8 @@ exports[`Storyshots SearchPage with results 1`] = `
         </div>
       </nav>
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -12943,7 +13098,11 @@ exports[`Storyshots SearchPage with results 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div>
@@ -12988,9 +13147,10 @@ exports[`Storyshots SearchPage with results 1`] = `
                   className="sf-i"
                 >
                   <input
+                    aria-describedby="searchExamples"
+                    aria-label="Search box"
                     autoComplete="off"
                     className="sf-i-f"
-                    id="q"
                     name="q"
                     onChange={[Function]}
                     placeholder="Search by full or partial name…"
@@ -13006,6 +13166,7 @@ exports[`Storyshots SearchPage with results 1`] = `
                 </div>
                 <div
                   className="t--subinfo m-t200"
+                  id="searchExamples"
                 >
                   Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
                 </div>
@@ -13276,7 +13437,7 @@ exports[`Storyshots SearchPage with results 1`] = `
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -13372,6 +13533,12 @@ exports[`Storyshots ShippingContent default 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -13379,6 +13546,7 @@ exports[`Storyshots ShippingContent default 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -13421,11 +13589,6 @@ exports[`Storyshots ShippingContent default 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -13506,8 +13669,8 @@ exports[`Storyshots ShippingContent default 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -13570,7 +13733,11 @@ exports[`Storyshots ShippingContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -13668,6 +13835,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-name"
                   name="name"
@@ -13693,6 +13861,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-email"
                   name="email"
@@ -13718,6 +13887,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-phone"
                   name="phone"
@@ -13752,6 +13922,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-name"
                   name="shipping-name"
@@ -13797,6 +13968,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-address-1"
                   name="shipping-address-1"
@@ -13842,6 +14014,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-city"
                   name="shipping-city"
@@ -13870,6 +14043,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="sel-c"
                 >
                   <select
+                    aria-required="true"
                     className="sel-f "
                     id="shipping-state"
                     name="shipping-state"
@@ -14190,6 +14364,7 @@ exports[`Storyshots ShippingContent default 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--auto "
                   id="shipping-zip"
                   name="shipping-zip"
@@ -14256,7 +14431,7 @@ exports[`Storyshots ShippingContent default 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -14292,6 +14467,12 @@ exports[`Storyshots ShippingContent email error 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -14299,6 +14480,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -14341,11 +14523,6 @@ exports[`Storyshots ShippingContent email error 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -14426,8 +14603,8 @@ exports[`Storyshots ShippingContent email error 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -14490,7 +14667,11 @@ exports[`Storyshots ShippingContent email error 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -14588,6 +14769,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-name"
                   name="name"
@@ -14613,6 +14795,9 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-describedby="contactEmail-error"
+                  aria-invalid={true}
+                  aria-required="true"
                   className="txt-f txt-f--100 txt-f--err"
                   id="contact-email"
                   name="email"
@@ -14624,6 +14809,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                 />
                 <div
                   className="t--info t--err m-t200"
+                  id="contactEmail-error"
                 >
                   The email address format is invalid.
                 </div>
@@ -14643,6 +14829,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-phone"
                   name="phone"
@@ -14677,6 +14864,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-name"
                   name="shipping-name"
@@ -14722,6 +14910,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-address-1"
                   name="shipping-address-1"
@@ -14767,6 +14956,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-city"
                   name="shipping-city"
@@ -14795,6 +14985,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="sel-c"
                 >
                   <select
+                    aria-required="true"
                     className="sel-f "
                     id="shipping-state"
                     name="shipping-state"
@@ -15115,6 +15306,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--auto "
                   id="shipping-zip"
                   name="shipping-zip"
@@ -15181,7 +15373,7 @@ exports[`Storyshots ShippingContent email error 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer
@@ -15217,6 +15409,12 @@ exports[`Storyshots ShippingContent existing address 1`] = `
 <div
   className="jsx-3465476614"
 >
+  <a
+    className="jsx-3465476614 a11y--h"
+    href="#content"
+  >
+    Jump to content
+  </a>
   <input
     aria-hidden="true"
     className="jsx-3465476614 brg-tr"
@@ -15224,6 +15422,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
     type="checkbox"
   />
   <nav
+    aria-label="Boston.gov menu"
     className="jsx-3465476614 nv-m"
     dangerouslySetInnerHTML={
       Object {
@@ -15266,11 +15465,6 @@ exports[`Storyshots ShippingContent existing address 1`] = `
 ",
       }
     }
-  />
-  <div
-    aria-live="polite"
-    className="jsx-3465476614 a11y--h"
-    id="ariaLive"
   />
   <div
     className="jsx-3465476614 mn--full-ie"
@@ -15351,8 +15545,8 @@ exports[`Storyshots ShippingContent existing address 1`] = `
         role="banner"
       />
       <nav
+        aria-label="Breadcrumbs"
         className="jsx-3465476614 brc p-a300"
-        role="navigation"
       >
         <ul
           className="jsx-3465476614 brc-l"
@@ -15415,7 +15609,11 @@ exports[`Storyshots ShippingContent existing address 1`] = `
           </li>
         </ul>
       </nav>
-      <div
+      <a
+        className="jsx-3465476614"
+        name="content"
+      />
+      <main
         className="jsx-3465476614 b-ff"
       >
         <div
@@ -15513,6 +15711,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-name"
                   name="name"
@@ -15538,6 +15737,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-email"
                   name="email"
@@ -15563,6 +15763,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--100 "
                   id="contact-phone"
                   name="phone"
@@ -15597,6 +15798,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-name"
                   name="shipping-name"
@@ -15642,6 +15844,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-address-1"
                   name="shipping-address-1"
@@ -15687,6 +15890,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f "
                   id="shipping-city"
                   name="shipping-city"
@@ -15715,6 +15919,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="sel-c"
                 >
                   <select
+                    aria-required="true"
                     className="sel-f "
                     id="shipping-state"
                     name="shipping-state"
@@ -16035,6 +16240,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   </span>
                 </label>
                 <input
+                  aria-required="true"
                   className="txt-f txt-f--auto "
                   id="shipping-zip"
                   name="shipping-zip"
@@ -16101,7 +16307,7 @@ exports[`Storyshots ShippingContent existing address 1`] = `
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   </div>
   <footer

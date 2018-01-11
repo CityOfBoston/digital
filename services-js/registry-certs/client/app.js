@@ -16,6 +16,7 @@ import type { RequestAdditions } from '../server/lib/request-additions';
 
 import Cart from './store/Cart';
 import OrderProvider from './store/OrderProvider';
+import Accessibility from './store/Accessibility';
 
 import DeathCertificatesDao from './dao/DeathCertificatesDao';
 import CheckoutDao from './dao/CheckoutDao';
@@ -26,6 +27,7 @@ export type ClientDependencies = {
   stripe: ?StripeInstance,
   loopbackGraphql: LoopbackGraphql,
   cart: Cart,
+  accessibility: Accessibility,
   orderProvider: OrderProvider,
   deathCertificatesDao: DeathCertificatesDao,
   checkoutDao: CheckoutDao,
@@ -33,6 +35,8 @@ export type ClientDependencies = {
 
 let browserInited = false;
 let browserDependencies: ClientDependencies;
+
+const accessibility = new Accessibility();
 
 // Browser-only setup
 export function initBrowser() {
@@ -44,8 +48,10 @@ export function initBrowser() {
 
   useStrict(true);
 
+  accessibility.attach();
+
   const routerListener = new RouterListener();
-  routerListener.attach(Router);
+  routerListener.attach(Router, accessibility);
 }
 
 // Works on both server and browser. Memoizes on browser, so these dependencies
@@ -79,6 +85,7 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
 
   const dependencies: ClientDependencies = {
     stripe,
+    accessibility,
     cart,
     orderProvider,
     deathCertificatesDao,

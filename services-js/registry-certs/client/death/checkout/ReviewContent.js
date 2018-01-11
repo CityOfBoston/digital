@@ -116,8 +116,8 @@ export default class ReviewContent extends React.Component<Props, State> {
           >
             <OrderDetails cart={cart} fixed />
 
-            <fieldset className="fs m-v700">
-              <legend className="fs-l">
+            <div className="m-v700">
+              <div className="fs-l">
                 <div className="fs-l-c">
                   Shipping Address
                   <span className="t--reset">
@@ -127,12 +127,12 @@ export default class ReviewContent extends React.Component<Props, State> {
                         href="/death/checkout?page=shipping"
                         as="/death/checkout"
                       >
-                        <a>edit</a>
+                        <a aria-label="Edit shipping address">edit</a>
                       </Link>
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
 
               <div className="t--info" style={{ fontStyle: 'normal' }}>
                 {shippingName}
@@ -145,10 +145,10 @@ export default class ReviewContent extends React.Component<Props, State> {
                 {shippingAddress2 ? [shippingAddress2, <br key="br" />] : null}
                 {`${shippingCity}, ${shippingState} ${shippingZip}`}
               </div>
-            </fieldset>
+            </div>
 
-            <fieldset className="fs m-v700">
-              <legend className="fs-l">
+            <div className="fs m-v700">
+              <div className="fs-l">
                 <div className="fs-l-c">
                   Payment Information
                   <span className="t--reset">
@@ -158,12 +158,12 @@ export default class ReviewContent extends React.Component<Props, State> {
                         href="/death/checkout?page=payment"
                         as="/death/checkout"
                       >
-                        <a>edit</a>
+                        <a aria-label="Edit payment information">edit</a>
                       </Link>
                     </span>
                   </span>
                 </div>
-              </legend>
+              </div>
 
               <div className="t--info" style={{ fontStyle: 'normal' }}>
                 {cardholderName}
@@ -175,7 +175,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                 {billingAddress2 ? [billingAddress2, <br key="br" />] : null}
                 {billingCity}, {billingState} {billingZip}
               </div>
-            </fieldset>
+            </div>
 
             <div className="m-v500">
               <CostSummary
@@ -185,7 +185,10 @@ export default class ReviewContent extends React.Component<Props, State> {
             </div>
 
             {processingError && (
-              <div className="m-v500 p-a300 br br-a100 br--r">
+              <div
+                className="m-v500 p-a300 br br-a100 br--r"
+                id="processing-error"
+              >
                 <div className="t--intro t--err">
                   There was an error: {processingError}
                 </div>
@@ -243,7 +246,7 @@ export default class ReviewContent extends React.Component<Props, State> {
               )}
             </div>
 
-            <div className="t--info m-v300">
+            <div className="t--info m-v300" id="charge-message">
               Pressing the “Submit Order” button will charge the total amount to
               your credit card and place an order with the Registry.
             </div>
@@ -258,6 +261,9 @@ export default class ReviewContent extends React.Component<Props, State> {
                   !shippingIsComplete ||
                   needsAccepting ||
                   processing
+                }
+                aria-describedby={
+                  processingError ? 'processing-error' : 'charge-message'
                 }
               >
                 Submit Order

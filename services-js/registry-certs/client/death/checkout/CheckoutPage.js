@@ -2,6 +2,7 @@
 // Wrapper controller for ShippingContent and PaymentContent
 
 import React, { type Element as ReactElement } from 'react';
+import { reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
@@ -130,15 +131,33 @@ export function wrapCheckoutPageController(
       // want.
       order: Order;
 
+      errorAccessibilityDisposer: Function;
+
       componentWillMount() {
-        const { orderProvider } = this.dependencies;
+        const { orderProvider, accessibility } = this.dependencies;
+
         // This will be populated from localStorage, and changes to it will get
         // written back there.
-        this.order = orderProvider.get();
+        const order = orderProvider.get();
+        this.order = order;
+
+        this.errorAccessibilityDisposer = reaction(
+          () => order.processingError,
+          processingError => {
+            if (processingError) {
+              accessibility.message = `There was an error: ${processingError}. You can try again. If it keeps happening, please email digital@boston.gov.`;
+              accessibility.interrupt = true;
+            }
+          }
+        );
       }
 
       componentDidMount() {
         this.redirectIfMissingOrderInfo(this.props);
+      }
+
+      componentWillUnmount() {
+        this.errorAccessibilityDisposer();
       }
 
       componentWillReceiveProps(newProps: InitialProps) {

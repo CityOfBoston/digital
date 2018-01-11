@@ -1864,15 +1864,6 @@
       "integrity": "sha1-7L0W+JSbFXGDcRsb2jNPN4QBhas=",
       "dev": true
     },
-    "aria-query": {
-      "version": "0.7.0",
-      "resolved": "https://registry.npmjs.org/aria-query/-/aria-query-0.7.0.tgz",
-      "integrity": "sha512-/r2lHl09V3o74+2MLKEdewoj37YZqiQZnfen1O4iNlrOjUgeKuu1U2yF3iKh6HJxqF+OXkLMfQv65Z/cvxD6vA==",
-      "dev": true,
-      "requires": {
-        "ast-types-flow": "0.0.7"
-      }
-    },
     "arr-diff": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/arr-diff/-/arr-diff-2.0.0.tgz",
@@ -2003,12 +1994,6 @@
       "integrity": "sha512-Ebvx7/0lLboCdyEmAw/4GqwBeKIijPveXNiVGhCGCNxc7z26T5he7DC6ARxu8ByKuzUZZcLog+VP8GMyZrBzJw==",
       "dev": true
     },
-    "ast-types-flow": {
-      "version": "0.0.7",
-      "resolved": "https://registry.npmjs.org/ast-types-flow/-/ast-types-flow-0.0.7.tgz",
-      "integrity": "sha1-9wtzXGvKGlycItmCw+Oef+ujva0=",
-      "dev": true
-    },
     "astral-regex": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/astral-regex/-/astral-regex-1.0.0.tgz",
@@ -2126,15 +2111,6 @@
       "version": "1.6.0",
       "resolved": "https://registry.npmjs.org/aws4/-/aws4-1.6.0.tgz",
       "integrity": "sha1-g+9cqGCysy5KDe7e6MdxudtXRx4="
-    },
-    "axobject-query": {
-      "version": "0.1.0",
-      "resolved": "https://registry.npmjs.org/axobject-query/-/axobject-query-0.1.0.tgz",
-      "integrity": "sha1-YvWdvFnJ+SQnWco0mWDnov48NsA=",
-      "dev": true,
-      "requires": {
-        "ast-types-flow": "0.0.7"
-      }
     },
     "b64": {
       "version": "3.0.2",
@@ -5627,12 +5603,6 @@
         "es5-ext": "0.10.35"
       }
     },
-    "damerau-levenshtein": {
-      "version": "1.0.4",
-      "resolved": "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.4.tgz",
-      "integrity": "sha1-AxkcQyy27qFou3fzpV/9zLiXhRQ=",
-      "dev": true
-    },
     "dargs": {
       "version": "4.1.0",
       "resolved": "https://registry.npmjs.org/dargs/-/dargs-4.1.0.tgz",
@@ -6070,12 +6040,6 @@
       "version": "0.0.3",
       "resolved": "https://registry.npmjs.org/emitter-mixin/-/emitter-mixin-0.0.3.tgz",
       "integrity": "sha1-WUjLKG8uSO3DslGnz8H3iDOW1lw="
-    },
-    "emoji-regex": {
-      "version": "6.5.1",
-      "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-6.5.1.tgz",
-      "integrity": "sha512-PAHp6TxrCy7MGMFidro8uikr+zlJJKJ/Q6mm2ExZ7HwkyR9lSVFfE3kt36qcwa24BQL7y0G9axycGjK1A/0uNQ==",
-      "dev": true
     },
     "emojis-list": {
       "version": "2.1.0",
@@ -6738,21 +6702,6 @@
           "integrity": "sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=",
           "dev": true
         }
-      }
-    },
-    "eslint-plugin-jsx-a11y": {
-      "version": "6.0.2",
-      "resolved": "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.0.2.tgz",
-      "integrity": "sha1-ZZJ3p1iwNsMFp+ShMFfDAc075z8=",
-      "dev": true,
-      "requires": {
-        "aria-query": "0.7.0",
-        "array-includes": "3.0.3",
-        "ast-types-flow": "0.0.7",
-        "axobject-query": "0.1.0",
-        "damerau-levenshtein": "1.0.4",
-        "emoji-regex": "6.5.1",
-        "jsx-ast-utils": "1.4.1"
       }
     },
     "eslint-plugin-prettier": {
@@ -11695,12 +11644,6 @@
       "version": "2.3.1",
       "resolved": "https://registry.npmjs.org/jssha/-/jssha-2.3.1.tgz",
       "integrity": "sha1-FHshJTaQNcpLL30hDcU58Amz3po=",
-      "dev": true
-    },
-    "jsx-ast-utils": {
-      "version": "1.4.1",
-      "resolved": "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-1.4.1.tgz",
-      "integrity": "sha1-OGchPo3Xm/Ho8jAMDPwe+xgsDfE=",
       "dev": true
     },
     "juice": {

@@ -181,7 +181,7 @@ export default class OrderDetails extends React.Component<Props, State> {
               &nbsp;—&nbsp;
               <span className="t--subinfo">
                 <Link href="/death/cart">
-                  <a>edit</a>
+                  <a aria-label="Edit order details">edit</a>
                 </Link>
               </span>
             </span>

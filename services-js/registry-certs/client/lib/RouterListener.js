@@ -4,11 +4,15 @@ import { action } from 'mobx';
 import NProgress from 'nprogress';
 import type Router from 'next/router';
 
+import type Accessibility from '../store/Accessibility';
+
 export default class RouterListener {
+  accessibility: ?Accessibility = null;
   router: ?Router = null;
 
-  attach(router: Router) {
+  attach(router: Router, accessibility: Accessibility) {
     this.router = router;
+    this.accessibility = accessibility;
 
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
@@ -30,25 +34,27 @@ export default class RouterListener {
   @action.bound
   routeChangeStart() {
     NProgress.start();
-
-    // const { accessibility } = this.store;
-    //
-    // accessibility.message = 'Page loading';
-    // accessibility.interrupt = true;
   }
 
   @action.bound
   routeChangeComplete() {
     NProgress.done();
 
-    // const { accessibility } = this.store;
-    //
-    // // we do a setTimeout so that the new title renders by the time we
-    // // want to see it
-    // setTimeout(action(() => {
-    //   accessibility.message = `${document.title} loaded`;
-    //   accessibility.interrupt = true;
-    // }), 0);
+    const { accessibility } = this;
+    if (accessibility) {
+      // we do a setTimeout so that the new title renders by the time we
+      // want to see it
+      setTimeout(
+        action(() => {
+          const pieces = document.title.split(/—/);
+          accessibility.message = `Page loaded: ${pieces[
+            pieces.length - 1
+          ].trim()}`;
+          accessibility.interrupt = true;
+        }),
+        0
+      );
+    }
   }
 
   @action.bound

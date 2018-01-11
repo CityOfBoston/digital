@@ -161,6 +161,17 @@ export default class PaymentContent extends React.Component<Props, State> {
       : null;
   }
 
+  errorAttributes(fieldName: $Keys<OrderInfo>) {
+    if (this.errorForField(fieldName)) {
+      return {
+        'aria-invalid': true,
+        'aria-describedby': `${fieldName}-error`,
+      };
+    } else {
+      return {};
+    }
+  }
+
   render() {
     const { cart, order } = this.props;
 
@@ -190,7 +201,7 @@ export default class PaymentContent extends React.Component<Props, State> {
     return (
       <div className="b-c b-c--hsm">
         <Head>
-          <title>Boston.gov — Death Certificate Payment</title>
+          <title>Boston.gov — Death Certificates — Payment</title>
         </Head>
 
         <div className="sh sh--b0">
@@ -202,8 +213,8 @@ export default class PaymentContent extends React.Component<Props, State> {
         </div>
 
         <form acceptCharset="UTF-8" method="post" onSubmit={this.handleSubmit}>
-          <fieldset className="fs m-v700">
-            <legend className="fs-l">
+          <div className="m-v700">
+            <div className="fs-l">
               <div className="fs-l-c">
                 Shipping Address
                 <span className="t--reset">
@@ -213,18 +224,18 @@ export default class PaymentContent extends React.Component<Props, State> {
                       href="/death/checkout?page=shipping"
                       as="/death/checkout"
                     >
-                      <a>edit</a>
+                      <a aria-label="Edit shipping address">edit</a>
                     </Link>
                   </span>
                 </span>
               </div>
-            </legend>
+            </div>
 
             <div className="m-b200">{`${shippingAddress1}${shippingAddress2
               ? `, ${shippingAddress2}`
               : ''}, ${shippingCity} ${shippingState} ${shippingZip}`}</div>
             <div> </div>
-          </fieldset>
+          </div>
 
           <fieldset className="fs m-v700">
             <legend className="fs-l">Payment method</legend>
@@ -238,6 +249,8 @@ export default class PaymentContent extends React.Component<Props, State> {
                 id="card-name"
                 name="card-name"
                 type="text"
+                aria-required="true"
+                {...this.errorAttributes('cardholderName')}
                 {...this.fieldListeners('cardholderName')}
                 value={cardholderName}
                 placeholder="Cardholder Name"
@@ -311,6 +324,8 @@ export default class PaymentContent extends React.Component<Props, State> {
                   <input
                     id="billing-address-1"
                     name="billing-address-1"
+                    aria-required="true"
+                    {...this.errorAttributes('billingAddress1')}
                     {...this.fieldListeners('billingAddress1')}
                     type="text"
                     placeholder="Address Line 1"
@@ -333,6 +348,7 @@ export default class PaymentContent extends React.Component<Props, State> {
                   <input
                     id="billing-address-2"
                     name="billing-address-2"
+                    {...this.errorAttributes('billingAddress2')}
                     {...this.fieldListeners('billingAddress2')}
                     type="text"
                     placeholder="Address Line 2"
@@ -352,6 +368,8 @@ export default class PaymentContent extends React.Component<Props, State> {
                   <input
                     id="billing-city"
                     name="billing-city"
+                    aria-required="true"
+                    {...this.errorAttributes('billingCity')}
                     {...this.fieldListeners('billingCity')}
                     type="text"
                     placeholder="City"
@@ -373,6 +391,8 @@ export default class PaymentContent extends React.Component<Props, State> {
                     <select
                       id="billing-state"
                       name="billing-state"
+                      aria-required="true"
+                      {...this.errorAttributes('billingState')}
                       {...this.fieldListeners('billingState')}
                       className={`sel-f ${this.renderErrorClassName(
                         'billingState'
@@ -393,6 +413,8 @@ export default class PaymentContent extends React.Component<Props, State> {
                   <input
                     id="billing-zip"
                     name="billing-zip"
+                    aria-required="true"
+                    {...this.errorAttributes('billingZip')}
                     {...this.fieldListeners('billingZip')}
                     placeholder="ZIP code"
                     className={`txt-f txt-f--50 ${this.renderErrorClassName(
@@ -425,7 +447,10 @@ export default class PaymentContent extends React.Component<Props, State> {
           </fieldset>
 
           {processingError && (
-            <div className="m-v500 p-a300 br br-a100 br--r">
+            <div
+              className="m-v500 p-a300 br br-a100 br--r"
+              id="processing-error"
+            >
               <div className="t--intro t--err">
                 There was an error: {processingError}
               </div>
@@ -441,6 +466,9 @@ export default class PaymentContent extends React.Component<Props, State> {
               <button
                 className="btn btn--b"
                 type="submit"
+                {...(processingError
+                  ? { 'aria-describedby': 'processing-error' }
+                  : {})}
                 disabled={
                   !paymentIsComplete || !cardElementComplete || processing
                 }
@@ -464,7 +492,13 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   renderError(fieldName: $Keys<OrderInfo>) {
     const error = this.errorForField(fieldName);
-    return error && <div className="t--info t--err m-t200">{error}</div>;
+    return (
+      error && (
+        <div className="t--info t--err m-t200" id={`${fieldName}-error`}>
+          {error}
+        </div>
+      )
+    );
   }
 
   renderErrorClassName(fieldName: $Keys<OrderInfo>) {

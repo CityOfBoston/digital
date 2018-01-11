@@ -71,14 +71,20 @@ export class SearchPageContent extends React.Component<
   };
 
   render() {
-    const { results } = this.props;
+    const { results, query: originalQuery } = this.props;
     const { query } = this.state;
 
     return (
       <div>
         <div className="b-c b-c--nbp">
           <Head>
-            <title>Boston.gov — Death Certificates</title>
+            {originalQuery ? (
+              <title>
+                Boston.gov — Death Certificates — Results for “{originalQuery}”
+              </title>
+            ) : (
+              <title>Boston.gov — Death Certificates</title>
+            )}
           </Head>
 
           <div className="sh sh--b0" style={{ paddingBottom: 0 }}>
@@ -101,9 +107,10 @@ export class SearchPageContent extends React.Component<
 
               <div className="sf-i">
                 <input
+                  aria-label="Search box"
+                  aria-describedby="searchExamples"
                   type="text"
                   name="q"
-                  id="q"
                   ref={this.setQueryField}
                   value={query}
                   onChange={this.handleQueryChange}
@@ -116,7 +123,7 @@ export class SearchPageContent extends React.Component<
                 </button>
               </div>
 
-              <div className="t--subinfo m-t200">
+              <div className="t--subinfo m-t200" id="searchExamples">
                 Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
               </div>
             </form>

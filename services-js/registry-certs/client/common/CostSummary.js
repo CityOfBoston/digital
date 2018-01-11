@@ -125,16 +125,17 @@ export default class CostSummary extends React.Component<Props, State> {
                 className="sel-f"
                 onChange={this.handleCardOptionChanged}
                 value={serviceFeeType}
+                aria-label="Payment type"
               >
                 <option value="CREDIT">Credit card</option>
                 <option value="DEBIT">Debit card</option>
               </select>
             </div>
           </div>{' '}
-          <label htmlFor="serviceFeeTypeSelect">
-            service fee
-            <a href="#service-fee">*</a>
-          </label>
+          service fee
+          <a href="#service-fee" aria-label="About the service fee">
+            *
+          </a>
           <style jsx>{`
             label {
               white-space: nowrap;

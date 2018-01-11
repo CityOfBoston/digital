@@ -46,6 +46,8 @@ export default class extends Document {
         </Head>
 
         <body>
+          <div className="a11y--h" aria-live="polite" id="ariaLive" />
+
           <Main />
 
           <script

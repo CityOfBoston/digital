@@ -23,6 +23,10 @@ export default function AppLayout({ children, navProps }: Props) {
   // TODO(fin): remove wrapper <div> and return an array w/ React 16
   return (
     <div>
+      <a href="#content" className="a11y--h">
+        Jump to content
+      </a>
+
       <input
         type="checkbox"
         id="brg-tr"
@@ -32,9 +36,8 @@ export default function AppLayout({ children, navProps }: Props) {
       <nav
         className="nv-m"
         dangerouslySetInnerHTML={{ __html: navigationHtml }}
+        aria-label="Boston.gov menu"
       />
-
-      <div className="a11y--h" aria-live="polite" id="ariaLive" />
 
       <div className="mn--full-ie">
         <div
@@ -55,7 +58,7 @@ export default function AppLayout({ children, navProps }: Props) {
 
           {navProps && <Nav {...navProps} />}
 
-          <nav className="brc p-a300" role="navigation">
+          <nav className="brc p-a300" aria-label="Breadcrumbs">
             <ul className="brc-l">
               <li className="brc-l-i">
                 <a href="https://www.boston.gov/">Home</a>
@@ -79,7 +82,8 @@ export default function AppLayout({ children, navProps }: Props) {
             </ul>
           </nav>
 
-          <div className="b-ff">{children}</div>
+          <a name="content" />
+          <main className="b-ff">{children}</main>
         </div>
       </div>
 

@@ -93,7 +93,7 @@ export default class CartItem extends React.Component<Props, State> {
           {certificateDiv => [
             <input
               key="quantity"
-              aria-label="Quantity"
+              aria-label={`Quantity for ${cert.firstName} ${cert.lastName}`}
               value={quantityValue}
               onChange={this.handleQuantityChange}
               onFocus={this.handleQuantityFocus}
@@ -108,6 +108,7 @@ export default class CartItem extends React.Component<Props, State> {
               className="remove-button"
               type="button"
               onClick={this.handleRemove}
+              aria-label={`Remove ${cert.firstName} ${cert.lastName}`}
             >
               ×
             </button>,

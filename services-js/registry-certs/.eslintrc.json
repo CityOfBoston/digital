@@ -10,8 +10,7 @@
     "flowtype",
     "import",
     "react",
-    "prettier",
-    "jsx-a11y"
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
