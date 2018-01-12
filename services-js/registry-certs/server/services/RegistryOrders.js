@@ -9,8 +9,6 @@ import {
   type DbResponse,
 } from '../lib/mssql-helpers';
 
-import ORDER_FIXTURE from '../../fixtures/registry-orders/order.json';
-
 type Opbeat = $Exports<'opbeat'>;
 
 export type AddOrderOptions = {|
@@ -283,7 +281,8 @@ export class FixtureRegistryOrders {
   async addPayment(): Promise<void> {}
 
   async findOrder(): Promise<?FindOrderResult> {
-    return (ORDER_FIXTURE: any);
+    const orderFixture = require('../../fixtures/registry-orders/order.json');
+    return (orderFixture: any);
   }
 }
 
