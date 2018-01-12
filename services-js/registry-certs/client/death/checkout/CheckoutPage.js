@@ -1,309 +1,256 @@
 // @flow
-// Wrapper controller for ShippingContent and PaymentContent
 
-import React, { type Element as ReactElement } from 'react';
+// Wrapper controller for the separate pages along the checkout flow
+
+import React from 'react';
 import { reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
-import {
-  getDependencies,
-  type ClientContext,
-  type ClientDependencies,
-} from '../../app';
+import { getDependencies, type ClientContext } from '../../app';
 
-import AppLayout from '../../AppLayout';
+import type CheckoutDao from '../../dao/CheckoutDao';
+import type Accessibility from '../../store/Accessibility';
+import type Cart from '../../store/Cart';
+import type OrderProvider from '../../store/OrderProvider';
 
 import Order from '../../models/Order';
 
-import PaymentContent, {
-  type Props as PaymentContentProps,
-} from './PaymentContent';
+import ShippingContent from './ShippingContent';
+import PaymentContent from './PaymentContent';
+import ReviewContent from './ReviewContent';
+import ConfirmationContent from './ConfirmationContent';
 
-import ShippingContent, {
-  type Props as ShippingContentProps,
-} from './ShippingContent';
-
-import ReviewContent, {
-  type Props as ReviewContentProps,
-} from './ReviewContent';
-
-import ConfirmationContent, {
-  type Props as ConfirmationContentProps,
-} from './ConfirmationContent';
-
-type InitialProps =
-  | {
+type PageInfo =
+  | {|
       page: 'shipping',
-    }
-  | {
+    |}
+  | {|
       page: 'payment',
-    }
-  | {
+    |}
+  | {|
       page: 'review',
-    }
-  | {
+    |}
+  | {|
       page: 'confirmation',
       orderId: string,
       contactEmail: string,
-    };
+    |};
 
-type CheckoutContentProps =
-  | {
-      page: 'shipping',
-      props: ShippingContentProps,
-    }
-  | {
-      page: 'payment',
-      props: PaymentContentProps,
-    }
-  | {
-      page: 'review',
-      props: ReviewContentProps,
-    }
-  | {
-      page: 'confirmation',
-      props: ConfirmationContentProps,
-    };
+type DefaultProps = {|
+  accessibility: Accessibility,
+  cart: Cart,
+  orderProvider: OrderProvider,
+  checkoutDao: CheckoutDao,
+  stripe: ?StripeInstance,
+|};
 
-export function wrapCheckoutPageController(
-  getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (ClientDependencies, CheckoutContentProps) => ?ReactElement<*>
-) {
-  return observer(
-    class CheckoutPageController extends React.Component<InitialProps> {
-      static getInitialProps({ query, res }: ClientContext): InitialProps {
-        let props: InitialProps;
-        let redirectToShippingIfServer = false;
+type InitialProps = {|
+  info: PageInfo,
+|};
 
-        const page = query.page || '';
+type Props = {|
+  ...DefaultProps,
+  ...InitialProps,
+|};
 
-        switch (page) {
-          case '':
-          case 'shipping':
-            props = { page: 'shipping' };
-            break;
-          case 'payment':
-            props = { page: 'payment' };
+@observer
+export default class CheckoutPageController extends React.Component<Props> {
+  static get defaultProps(): DefaultProps {
+    const {
+      accessibility,
+      cart,
+      orderProvider,
+      checkoutDao,
+      stripe,
+    } = getDependencies();
 
-            // We know that we won't have shipping information if someone visits
-            // the payment page directly from the server (since this component's
-            // internal state will be blank), so redirect.
-            redirectToShippingIfServer = true;
-            break;
-          case 'review':
-            props = { page: 'review' };
+    return { accessibility, cart, orderProvider, checkoutDao, stripe };
+  }
 
-            // We know that we won't have shipping information if someone visits
-            // the payment page directly from the server (since this component's
-            // internal state will be blank), so redirect.
-            redirectToShippingIfServer = true;
-            break;
-          case 'confirmation':
-            props = {
-              page: 'confirmation',
-              orderId: query.orderId || '',
-              contactEmail: query.contactEmail || '',
-            };
-            break;
-          default:
-            props = { page: 'shipping' };
-            redirectToShippingIfServer = true;
-        }
+  static getInitialProps({ query, res }: ClientContext): InitialProps {
+    let info: PageInfo;
+    let redirectToShippingIfServer = false;
 
-        if (redirectToShippingIfServer && res) {
-          res.writeHead(301, {
-            Location: '/death/checkout',
-          });
-          res.end();
-          res.finished = true;
-        }
+    const page = query.page || '';
 
-        return props;
-      }
-
-      dependencies = getDependencies();
-
-      // This wil persist across different sub-pages since React will preserve the
-      // component instance. This will keep the form fields filled out as the user
-      // goes forward and back in the interface, and it will get automatically
-      // disposed of if the user leaves the flow, which is the behavior that we
-      // want.
-      order: Order;
-
-      errorAccessibilityDisposer: Function;
-
-      componentWillMount() {
-        const { orderProvider, accessibility } = this.dependencies;
-
-        // This will be populated from localStorage, and changes to it will get
-        // written back there.
-        const order = orderProvider.get();
-        this.order = order;
-
-        this.errorAccessibilityDisposer = reaction(
-          () => order.processingError,
-          processingError => {
-            if (processingError) {
-              accessibility.message = `There was an error: ${processingError}. You can try again. If it keeps happening, please email digital@boston.gov.`;
-              accessibility.interrupt = true;
-            }
-          }
-        );
-      }
-
-      componentDidMount() {
-        this.redirectIfMissingOrderInfo(this.props);
-      }
-
-      componentWillUnmount() {
-        this.errorAccessibilityDisposer();
-      }
-
-      componentWillReceiveProps(newProps: InitialProps) {
-        this.redirectIfMissingOrderInfo(newProps);
-      }
-
-      // In the case of reloading from the browser, for example, or clicking
-      // "back" from the confirmation page.
-      async redirectIfMissingOrderInfo(props: InitialProps) {
-        if (
-          (props.page === 'payment' && !this.order.shippingIsComplete) ||
-          (props.page === 'review' &&
-            (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
-        ) {
-          await Router.push('/death/checkout?page=shipping', '/death/checkout');
-          window.scrollTo(0, 0);
-        }
-      }
-
-      advanceToPayment = async () => {
-        await Router.push('/death/checkout?page=payment', '/death/checkout');
-        window.scrollTo(0, 0);
-      };
-
-      advanceToReview = async (cardElement: ?StripeElement) => {
-        const { order } = this;
-        const { checkoutDao } = this.dependencies;
-
-        const success = await checkoutDao.tokenizeCard(order, cardElement);
-
-        if (success) {
-          await Router.push('/death/checkout?page=review', '/death/checkout');
-          window.scrollTo(0, 0);
-        }
-      };
-
-      submitOrder = async () => {
-        const { order } = this;
-        const { cart, checkoutDao } = this.dependencies;
-
-        const orderId = await checkoutDao.submit(cart, order);
-
-        if (orderId) {
-          this.order = new Order();
-
-          await Router.push(
-            `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
-              orderId
-            )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-            '/death/checkout'
-          );
-
-          window.scrollTo(0, 0);
-
-          return true;
-        } else {
-          return false;
-        }
-      };
-
-      render() {
-        const { props, order } = this;
-        const { cart, stripe } = this.dependencies;
-
-        let renderProps;
-        switch (props.page) {
-          case 'shipping':
-            renderProps = {
-              page: 'shipping',
-              props: {
-                cart,
-                order,
-                submit: this.advanceToPayment,
-              },
-            };
-            break;
-          case 'payment':
-            renderProps = {
-              page: 'payment',
-              props: {
-                stripe,
-                cart,
-                order,
-                submit: this.advanceToReview,
-              },
-            };
-            break;
-          case 'review':
-            renderProps = {
-              page: 'review',
-              props: {
-                cart,
-                order,
-                submit: this.submitOrder,
-              },
-            };
-            break;
-          case 'confirmation':
-            renderProps = {
-              page: 'confirmation',
-              props: {
-                orderId: props.orderId,
-                contactEmail: props.contactEmail,
-              },
-            };
-            break;
-          default:
-            throw new Error(`Unknown page: ${(props.page: any)}`);
-        }
-
-        return renderContent(this.dependencies, renderProps);
-      }
-    }
-  );
-}
-
-export default wrapCheckoutPageController(
-  getDependencies,
-  ({ cart }, props) => {
-    switch (props.page) {
+    switch (page) {
+      case '':
       case 'shipping':
-        return (
-          <AppLayout navProps={null}>
-            {React.createElement(ShippingContent, props.props)}
-          </AppLayout>
-        );
+        info = { page: 'shipping' };
+        break;
       case 'payment':
-        return (
-          <AppLayout navProps={null}>
-            {React.createElement(PaymentContent, props.props)}
-          </AppLayout>
-        );
+        info = { page: 'payment' };
+
+        // We know that we won't have shipping information if someone visits
+        // the payment page directly from the server (since this component's
+        // internal state will be blank), so redirect.
+        redirectToShippingIfServer = true;
+        break;
       case 'review':
-        return (
-          <AppLayout navProps={null}>
-            {React.createElement(ReviewContent, props.props)}
-          </AppLayout>
-        );
+        info = { page: 'review' };
+
+        // We know that we won't have shipping information if someone visits
+        // the payment page directly from the server (since this component's
+        // internal state will be blank), so redirect.
+        redirectToShippingIfServer = true;
+        break;
       case 'confirmation':
-        return (
-          <AppLayout navProps={{ cart }}>
-            {React.createElement(ConfirmationContent, props.props)}
-          </AppLayout>
-        );
+        info = {
+          page: 'confirmation',
+          orderId: query.orderId || '',
+          contactEmail: query.contactEmail || '',
+        };
+        break;
       default:
-        throw new Error(`Unknown page: ${props.page}`);
+        info = { page: 'shipping' };
+        redirectToShippingIfServer = true;
+    }
+
+    if (redirectToShippingIfServer && res) {
+      res.writeHead(301, {
+        Location: '/death/checkout',
+      });
+      res.end();
+      res.finished = true;
+    }
+
+    return { info };
+  }
+
+  // This wil persist across different sub-pages since React will preserve the
+  // component instance. This will keep the form fields filled out as the user
+  // goes forward and back in the interface, and it will get automatically
+  // disposed of if the user leaves the flow, which is the behavior that we
+  // want.
+  order: Order;
+
+  errorAccessibilityDisposer: Function;
+
+  componentWillMount() {
+    const { orderProvider, accessibility } = this.props;
+
+    // This will be populated from localStorage, and changes to it will get
+    // written back there.
+    const order = orderProvider.get();
+    this.order = order;
+
+    this.errorAccessibilityDisposer = reaction(
+      () => order.processingError,
+      processingError => {
+        if (processingError) {
+          accessibility.message = `There was an error: ${processingError}. You can try again. If it keeps happening, please email digital@boston.gov.`;
+          accessibility.interrupt = true;
+        }
+      }
+    );
+  }
+
+  componentDidMount() {
+    this.redirectIfMissingOrderInfo(this.props);
+  }
+
+  componentWillUnmount() {
+    this.errorAccessibilityDisposer();
+  }
+
+  componentWillReceiveProps(newProps: Props) {
+    this.redirectIfMissingOrderInfo(newProps);
+  }
+
+  // In the case of reloading from the browser, for example, or clicking
+  // "back" from the confirmation page.
+  async redirectIfMissingOrderInfo(props: Props) {
+    if (
+      (props.page === 'payment' && !this.order.shippingIsComplete) ||
+      (props.page === 'review' &&
+        (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
+    ) {
+      await Router.push('/death/checkout?page=shipping', '/death/checkout');
+      window.scrollTo(0, 0);
     }
   }
-);
+
+  advanceToPayment = async () => {
+    await Router.push('/death/checkout?page=payment', '/death/checkout');
+    window.scrollTo(0, 0);
+  };
+
+  advanceToReview = async (cardElement: ?StripeElement) => {
+    const { order } = this;
+    const { checkoutDao } = this.props;
+
+    const success = await checkoutDao.tokenizeCard(order, cardElement);
+
+    if (success) {
+      await Router.push('/death/checkout?page=review', '/death/checkout');
+      window.scrollTo(0, 0);
+    }
+  };
+
+  submitOrder = async () => {
+    const { order } = this;
+    const { cart, checkoutDao } = this.props;
+
+    const orderId = await checkoutDao.submit(cart, order);
+
+    if (orderId) {
+      this.order = new Order();
+
+      await Router.push(
+        `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
+          orderId
+        )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
+        '/death/checkout'
+      );
+
+      window.scrollTo(0, 0);
+
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  render() {
+    const { order } = this;
+    const { info, cart, stripe } = this.props;
+
+    switch (info.page) {
+      case 'shipping':
+        return (
+          <ShippingContent
+            cart={cart}
+            order={order}
+            submit={this.advanceToPayment}
+          />
+        );
+
+      case 'payment':
+        return (
+          <PaymentContent
+            stripe={stripe}
+            cart={cart}
+            order={order}
+            submit={this.advanceToReview}
+          />
+        );
+
+      case 'review':
+        return (
+          <ReviewContent cart={cart} order={order} submit={this.submitOrder} />
+        );
+
+      case 'confirmation':
+        return (
+          <ConfirmationContent
+            orderId={info.orderId}
+            contactEmail={info.contactEmail}
+          />
+        );
+
+      default:
+        throw new Error(`Unknown page: ${(info.page: any)}`);
+    }
+  }
+}

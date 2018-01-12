@@ -6,9 +6,7 @@ import { runInAction } from 'mobx';
 
 import Cart from '../../store/Cart';
 
-import appLayoutDecorator from '../../../storybook/app-layout-decorator';
-
-import { CartPageContent } from './CartPage';
+import CartPage from './CartPage';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -45,7 +43,6 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('CartPage', module)
-  .addDecorator(appLayoutDecorator(true))
-  .add('loading', () => <CartPageContent cart={makeCart(true)} />)
-  .add('normal page', () => <CartPageContent cart={makeCart(false)} />)
-  .add('empty cart', () => <CartPageContent cart={new Cart()} />);
+  .add('loading', () => <CartPage cart={makeCart(true)} />)
+  .add('normal page', () => <CartPage cart={makeCart(false)} />)
+  .add('empty cart', () => <CartPage cart={new Cart()} />);

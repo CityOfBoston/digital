@@ -11,15 +11,15 @@ import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
 import footerHtml from '../templates/footer.html';
 
-import Nav, { type Props as NavProps } from './common/Nav';
+import Nav from './common/Nav';
 import { FREEDOM_RED } from './common/style-constants';
 
 type Props = {|
+  showNav?: boolean,
   children: ReactChildrenArray<ReactElement<*>>,
-  navProps: ?NavProps,
 |};
 
-export default function AppLayout({ children, navProps }: Props) {
+export default function AppLayout({ children, showNav }: Props) {
   // TODO(fin): remove wrapper <div> and return an array w/ React 16
   return (
     <div>
@@ -41,7 +41,7 @@ export default function AppLayout({ children, navProps }: Props) {
 
       <div className="mn--full-ie">
         <div
-          className={`mn mn--full ${navProps ? 'mn--nv-s' : ''}`}
+          className={`mn mn--full ${showNav ? 'mn--nv-s' : ''}`}
           style={{ zIndex: 2 }}
         >
           <input
@@ -56,7 +56,7 @@ export default function AppLayout({ children, navProps }: Props) {
             dangerouslySetInnerHTML={{ __html: headerHtml }}
           />
 
-          {navProps && <Nav {...navProps} />}
+          {showNav && <Nav />}
 
           <nav className="brc p-a300" aria-label="Breadcrumbs">
             <ul className="brc-l">

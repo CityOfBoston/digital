@@ -9,6 +9,8 @@ import {
   type DbResponse,
 } from '../lib/mssql-helpers';
 
+import ORDER_FIXTURE from '../../fixtures/registry-orders/order.json';
+
 type Opbeat = $Exports<'opbeat'>;
 
 export type AddOrderOptions = {|
@@ -38,6 +40,35 @@ export type AddOrderOptions = {|
 export type AddOrderResult = {|
   OrderKey: number,
   ErrorMessage: string,
+|};
+
+export type FindOrderResult = {|
+  OrderKey: number,
+  OrderType: string,
+  OrderDate: string,
+  OrderStatus: string,
+  ProcessDtTm: ?string,
+  ContactName: string,
+  ContactEmail: string,
+  ContactPhone: string,
+  ShippingName: string,
+  ShippingCompany: string,
+  ShippingAddr1: string,
+  ShippingAddr2: string,
+  ShippingCity: string,
+  ShippingState: string,
+  ShippingZIP: string,
+  BillingName: string,
+  BillingAddr1: string,
+  BillingAddr2: string,
+  BillingCity: string,
+  BillingState: string,
+  BillingZIP: string,
+  CertificateIDs: string,
+  CertificateQuantities: string,
+  CertificateCost: number,
+  ServiceFee: number,
+  TotalCost: number,
 |};
 
 export default class RegistryOrders {
@@ -190,6 +221,31 @@ export default class RegistryOrders {
       }
     }
   }
+
+  async findOrder(orderId: string): Promise<?FindOrderResult> {
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('FindOrder', 'Registry Orders');
+
+    try {
+      const resp: DbResponse<FindOrderResult> = (await this.pool
+        .request()
+        .input('orderID', orderId)
+        .execute('Commerce.sp_FindOrder'): any);
+
+      const { recordset } = resp;
+
+      if (!recordset || recordset.length === 0) {
+        return null;
+      }
+
+      return recordset[0];
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
+  }
 }
 
 export class RegistryOrdersFactory {
@@ -225,6 +281,10 @@ export class FixtureRegistryOrders {
 
   async addItem(): Promise<void> {}
   async addPayment(): Promise<void> {}
+
+  async findOrder(): Promise<?FindOrderResult> {
+    return (ORDER_FIXTURE: any);
+  }
 }
 
 export async function makeFixtureRegistryOrdersFactory(): Promise<

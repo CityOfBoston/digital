@@ -7,8 +7,6 @@ import { action } from '@storybook/addon-actions';
 import Cart from '../../store/Cart';
 import Order from '../../models/Order';
 
-import appLayoutDecorator from '../../../storybook/app-layout-decorator';
-
 import ShippingContent from './ShippingContent';
 
 import {
@@ -60,7 +58,6 @@ function makeOrder(overrides = {}) {
 }
 
 storiesOf('ShippingContent', module)
-  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <ShippingContent
       cart={makeCart()}

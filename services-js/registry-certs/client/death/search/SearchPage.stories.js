@@ -2,31 +2,19 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import appLayoutDecorator from '../../storybook/app-layout-decorator';
-
-import { SearchPageContent } from './SearchPage';
+import SearchPage from './SearchPage';
 
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
-} from '../../fixtures/client/death-certificates';
+} from '../../../fixtures/client/death-certificates';
 
 storiesOf('SearchPage', module)
-  .addDecorator(appLayoutDecorator(true))
-  .add('no search', () => (
-    <SearchPageContent
-      submitSearch={action('submitSearch')}
-      query={''}
-      page={1}
-      results={null}
-    />
-  ))
+  .add('no search', () => <SearchPage query={''} page={1} results={null} />)
   .add('no results', () => (
-    <SearchPageContent
-      submitSearch={action('submitSearch')}
+    <SearchPage
       query={'Jayn Doe'}
       page={1}
       results={{
@@ -39,8 +27,7 @@ storiesOf('SearchPage', module)
     />
   ))
   .add('with results', () => (
-    <SearchPageContent
-      submitSearch={action('submitSearch')}
+    <SearchPage
       query={'Jayn Doe'}
       page={2}
       results={{

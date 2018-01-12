@@ -8,8 +8,6 @@ import type { DeathCertificate } from '../../types.js';
 import Cart from '../../store/Cart';
 import Order from '../../models/Order';
 
-import appLayoutDecorator from '../../../storybook/app-layout-decorator';
-
 import ReviewContent from './ReviewContent';
 
 import {
@@ -62,7 +60,6 @@ function makeOrder(overrides = {}) {
 }
 
 storiesOf('ReviewContent', module)
-  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <ReviewContent
       cart={makeCart()}

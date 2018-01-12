@@ -19,6 +19,6 @@ export default async function fetchDeathCertificates(
     FetchDeathCertificatesGraphql,
     queryVariables
   );
-  // Returning "any" until https://github.com/apollographql/apollo-codegen/issues/122 is fixed
-  return (response.deathCertificates.certificates: any);
+
+  return response.deathCertificates.certificates;
 }

@@ -23,16 +23,17 @@ describe('content', () => {
   });
 
   it('updates a field', () => {
-    const contactNameField = wrapper.find('input[name="name"]');
+    const contactNameField = wrapper.find('#contact-name');
     contactNameField.simulate('change', { target: { value: 'Doreen Green' } });
     expect(order.info.contactName).toEqual('Doreen Green');
   });
 
   it('shows an error after blur', () => {
     expect(wrapper.text()).not.toMatch(/The full name field is required/);
-    const contactNameField = wrapper.find('input[name="name"]');
+    const contactNameField = wrapper.find('#contact-name');
     contactNameField.simulate('blur');
-    expect(wrapper.text()).toMatch(/The full name field is required./);
+    const contactNameError = wrapper.find('#contactName-error');
+    expect(contactNameError.text()).toMatch(/The full name field is required./);
   });
 
   it('submits', () => {

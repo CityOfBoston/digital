@@ -8,8 +8,6 @@ import { action } from '@storybook/addon-actions';
 import Cart from '../../store/Cart';
 import Order from '../../models/Order';
 
-import appLayoutDecorator from '../../../storybook/app-layout-decorator';
-
 import PaymentContent from './PaymentContent';
 
 import {
@@ -76,7 +74,6 @@ function makeBillingCompleteOrder(overrides = {}) {
 }
 
 storiesOf('PaymentContent', module)
-  .addDecorator(appLayoutDecorator(false))
   .add('default', () => (
     <PaymentContent
       cart={makeCart()}

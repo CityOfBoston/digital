@@ -67,7 +67,9 @@ GraphQLSchema {
   "_typeMap": Object {
     "Boolean": "Boolean",
     "CertificateOrderItem": "CertificateOrderItem",
+    "CertificateOrderItemInput": "CertificateOrderItemInput",
     "DeathCertificate": "DeathCertificate",
+    "DeathCertificateOrder": "DeathCertificateOrder",
     "DeathCertificateSearch": "DeathCertificateSearch",
     "DeathCertificates": "DeathCertificates",
     "Int": "Int",

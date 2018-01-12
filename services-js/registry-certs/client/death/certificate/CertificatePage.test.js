@@ -5,123 +5,123 @@ import { shallow } from 'enzyme';
 import Cart from '../../store/Cart';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 
-import CertificatePage, {
-  wrapCertificatePageController,
-  CertificatePageContent,
-} from './CertificatePage';
+import CertificatePage from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
 jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
 
-describe('integration', () => {
-  it('renders', () => {
-    expect(
-      new CertificatePage({
-        certificate: TYPICAL_CERTIFICATE,
-        id: TYPICAL_CERTIFICATE.id,
-        backUrl: '/search?q=jayne',
-      }).render()
-    ).toMatchSnapshot();
+describe('getInitialProps', () => {
+  let deathCertificatesDao;
+
+  beforeEach(() => {
+    deathCertificatesDao = new DeathCertificatesDao((null: any));
   });
-});
 
-describe('controller', () => {
-  describe('getInitialProps', () => {
-    let CertificatePageController;
-    let deathCertificatesDao;
+  it('loads the cert passed in query', async () => {
+    deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
 
-    beforeEach(() => {
-      deathCertificatesDao = new DeathCertificatesDao((null: any));
+    const initialProps = await CertificatePage.getInitialProps(
+      ({ query: { id: '000002' } }: any),
+      ({ deathCertificatesDao }: any)
+    );
 
-      const dependencies: any = { deathCertificatesDao };
-      CertificatePageController = wrapCertificatePageController(
-        () => dependencies,
-        () => null
-      );
-    });
+    expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
+    expect(initialProps).toMatchSnapshot();
+  });
 
-    it('loads the cert passed in query', async () => {
-      deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
+  it('handles a 404', async () => {
+    deathCertificatesDao.get.mockReturnValue(null);
 
-      const initialProps = await CertificatePageController.getInitialProps(
-        ({ query: { id: '000002' } }: any)
-      );
+    const initialProps = await CertificatePage.getInitialProps(
+      ({ query: { id: '000002' } }: any),
+      ({ deathCertificatesDao }: any)
+    );
 
-      expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
-      expect(initialProps).toMatchSnapshot();
-    });
-
-    it('handles a 404', async () => {
-      deathCertificatesDao.get.mockReturnValue(null);
-
-      const initialProps = await CertificatePageController.getInitialProps(
-        ({ query: { id: '000002' } }: any)
-      );
-
-      expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
-      expect(initialProps).toMatchSnapshot();
-    });
+    expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
+    expect(initialProps).toMatchSnapshot();
   });
 
   describe('operations', () => {
     describe('setCartQuantity', () => {
       let cart;
-      let controller;
+      let component;
 
       beforeEach(() => {
         cart = new Cart();
 
-        const dependencies: any = { cart };
-        const CertificatePageController = wrapCertificatePageController(
-          () => dependencies,
-          () => null
-        );
-
-        controller = shallow(
-          <CertificatePageController
+        component = shallow(
+          <CertificatePage
+            cart={cart}
             id="0002"
             certificate={TYPICAL_CERTIFICATE}
             backUrl="/search?q=jayne"
           />
         ).instance();
-
-        controller.setCartQuantity(5);
       });
 
       it('adds 5 things to the cart', () => {
+        component.setCartQuantity(5);
         expect(cart.size).toEqual(5);
+      });
+
+      it('removes certificates when set to 0', () => {
+        cart.add(TYPICAL_CERTIFICATE, 5);
+        expect(cart.entries.length).toBe(1);
+
+        component.setCartQuantity(0);
+        expect(cart.entries.length).toBe(0);
       });
     });
   });
 });
 
-describe('content', () => {
+describe('interface', () => {
   let wrapper;
-  let setCartQuantity;
 
   beforeEach(() => {
-    setCartQuantity = jest.fn();
-
     wrapper = shallow(
-      <CertificatePageContent
+      <CertificatePage
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}
-        setCartQuantity={setCartQuantity}
-        cartQuantity={0}
       />
     );
+
+    wrapper.instance().setCartQuantity = jest.fn();
   });
 
-  it('changes quantity and adds to cart', () => {
-    const form = wrapper.find('form');
-    const quantityMenu = wrapper.find('[name="quantity"]');
+  it('clears text field when other is selected', () => {
+    const quantityField = wrapper.find('[name="quantity"]');
+    const quantityMenu = wrapper.find('[name="quantityMenu"]');
 
-    quantityMenu.simulate('change', { target: { value: '5' } });
+    expect(quantityField.props().value).toEqual(1);
+
+    quantityMenu.simulate('change', { target: { value: 'other' } });
+
+    wrapper.update();
+    const updatedQuantityField = wrapper.find('[name="quantity"]');
+    expect(updatedQuantityField.props().value).toEqual('');
+  });
+
+  it('changes quantity via text field and adds to cart', () => {
+    const form = wrapper.find('form');
+    const quantityField = wrapper.find('[name="quantity"]');
+
+    quantityField.simulate('change', { target: { value: '5' } });
     form.simulate('submit', { preventDefault: jest.fn() });
 
-    expect(setCartQuantity).toHaveBeenCalledWith(5);
+    expect(wrapper.instance().setCartQuantity).toHaveBeenCalledWith(5);
+  });
+
+  it('changes quantity via menu and adds to cart', () => {
+    const form = wrapper.find('form');
+    const quantityMenu = wrapper.find('[name="quantityMenu"]');
+
+    quantityMenu.simulate('change', { target: { value: '8' } });
+    form.simulate('submit', { preventDefault: jest.fn() });
+
+    expect(wrapper.instance().setCartQuantity).toHaveBeenCalledWith(8);
   });
 });

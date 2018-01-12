@@ -1,107 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`integration renders confirmation 1`] = `
-<AppLayout
-  navProps={
-    Object {
-      "cart": Cart {},
-    }
-  }
->
-  <ConfirmationContent
-    contactEmail="ttoe@squirrelzone.net"
-    orderId="123-456-7"
-  />
-</AppLayout>
+exports[`rendering renders confirmation 1`] = `
+<ConfirmationContent
+  contactEmail="ttoe@squirrelzone.net"
+  orderId="123-456-7"
+/>
 `;
 
-exports[`integration renders payment 1`] = `
-<AppLayout
-  navProps={null}
->
-  <PaymentContent
-    cart={Cart {}}
-    order={
-      Order {
-        "cardElementComplete": false,
-        "cardElementError": null,
-        "cardFunding": "credit",
-        "cardToken": null,
-        "idempotencyKey": null,
-        "info": Object {
-          "billingAddress1": "",
-          "billingAddress2": "",
-          "billingAddressSameAsShippingAddress": true,
-          "billingCity": "",
-          "billingState": "MA",
-          "billingZip": "",
-          "cardLast4": "",
-          "cardholderName": "",
-          "contactEmail": "",
-          "contactName": "",
-          "contactPhone": "",
-          "shippingAddress1": "",
-          "shippingAddress2": "",
-          "shippingCity": "",
-          "shippingCompanyName": "",
-          "shippingName": "",
-          "shippingState": "MA",
-          "shippingZip": "",
-          "storeBilling": false,
-          "storeContactAndShipping": false,
-        },
-        "processing": false,
-        "processingError": null,
-        "updateStorageDisposer": null,
-      }
-    }
-    stripe={null}
-    submit={[Function]}
-  />
-</AppLayout>
+exports[`rendering renders payment 1`] = `
+<PaymentContent
+  cart={Cart {}}
+  order={undefined}
+  stripe={null}
+  submit={[Function]}
+/>
 `;
 
-exports[`integration renders shipping 1`] = `
-<AppLayout
-  navProps={null}
->
-  <ShippingContent
-    cart={Cart {}}
-    order={
-      Order {
-        "cardElementComplete": false,
-        "cardElementError": null,
-        "cardFunding": "credit",
-        "cardToken": null,
-        "idempotencyKey": null,
-        "info": Object {
-          "billingAddress1": "",
-          "billingAddress2": "",
-          "billingAddressSameAsShippingAddress": true,
-          "billingCity": "",
-          "billingState": "MA",
-          "billingZip": "",
-          "cardLast4": "",
-          "cardholderName": "",
-          "contactEmail": "",
-          "contactName": "",
-          "contactPhone": "",
-          "shippingAddress1": "",
-          "shippingAddress2": "",
-          "shippingCity": "",
-          "shippingCompanyName": "",
-          "shippingName": "",
-          "shippingState": "MA",
-          "shippingZip": "",
-          "storeBilling": false,
-          "storeContactAndShipping": false,
-        },
-        "processing": false,
-        "processingError": null,
-        "updateStorageDisposer": null,
-      }
-    }
-    submit={[Function]}
-  />
-</AppLayout>
+exports[`rendering renders review 1`] = `
+<ReviewContent
+  cart={Cart {}}
+  order={undefined}
+  submit={[Function]}
+/>
+`;
+
+exports[`rendering renders shipping 1`] = `
+<ShippingContent
+  cart={Cart {}}
+  order={undefined}
+  submit={[Function]}
+/>
 `;

@@ -2,7 +2,7 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CertificateOrderItem = {|
+export type CertificateOrderItemInput = {|
   id: string,
   name: string,
   quantity: number,
@@ -24,6 +24,43 @@ export type FetchDeathCertificatesQuery = {|
       age: ?string,
       birthDate: ?string,
     |} >,
+  |},
+|};
+
+export type LookupDeathCertificateOrderQueryVariables = {|
+  id: string,
+  contactEmail: string,
+|};
+
+export type LookupDeathCertificateOrderQuery = {|
+  deathCertificates: {|
+    order: ? {|
+      id: string,
+      date: string,
+      contactName: string,
+      contactEmail: string,
+      contactPhone: string,
+      shippingName: string,
+      shippingCompanyName: string,
+      shippingAddress1: string,
+      shippingAddress2: string,
+      shippingCity: string,
+      shippingState: string,
+      shippingZip: string,
+      items:  Array< {|
+        certificate: ? {|
+          id: string,
+          firstName: string,
+          lastName: string,
+        |},
+        quantity: number,
+        cost: number,
+      |} >,
+      certificateCost: number,
+      subtotal: number,
+      serviceFee: number,
+      total: number,
+    |},
   |},
 |};
 
@@ -74,7 +111,7 @@ export type SubmitDeathCertificateOrderMutationVariables = {|
   billingCity: string,
   billingState: string,
   billingZip: string,
-  items: Array< CertificateOrderItem >,
+  items: Array< CertificateOrderItemInput >,
   idempotencyKey: string,
 |};
 

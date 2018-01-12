@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Element as ReactElement } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
@@ -8,37 +8,55 @@ import {
   getDependencies,
   type ClientContext,
   type ClientDependencies,
-} from '../app';
-import type { DeathCertificateSearchResults } from '../types';
+} from '../../app';
+import type { DeathCertificateSearchResults } from '../../types';
 
-import AppLayout from '../AppLayout';
+import AppLayout from '../../AppLayout';
 
-import Pagination from '../common/Pagination';
+import Pagination from '../../common/Pagination';
 
-import SearchResult from './search/SearchResult';
+import SearchResult from './SearchResult';
 
-type InitialProps = {|
+type Props = {|
   query: string,
   page: number,
   results: ?DeathCertificateSearchResults,
 |};
 
-type ContentProps = {
-  ...InitialProps,
-  submitSearch: string => mixed,
-};
-
-type ContentState = {
+type State = {
   query: string,
 };
 
-export class SearchPageContent extends React.Component<
-  ContentProps,
-  ContentState
-> {
+export default class SearchPage extends React.Component<Props, State> {
   queryField: ?HTMLInputElement;
 
-  constructor(props: ContentProps) {
+  static async getInitialProps(
+    ctx: ClientContext,
+    dependenciesForTest?: ClientDependencies
+  ): Promise<Props> {
+    const { query } = ctx;
+    const { deathCertificatesDao } =
+      dependenciesForTest || getDependencies(ctx);
+
+    let q = query.q || '';
+    let page = 1;
+
+    let results = null;
+
+    if (q) {
+      page = parseInt(query.page, 10) || 1;
+
+      results = await deathCertificatesDao.search(q, page);
+    }
+
+    return {
+      query: q,
+      page,
+      results,
+    };
+  }
+
+  constructor(props: Props) {
     super(props);
 
     const { query } = props;
@@ -47,6 +65,10 @@ export class SearchPageContent extends React.Component<
       query,
     };
   }
+
+  submitSearch = (query: string) => {
+    Router.push(`/death?q=${encodeURIComponent(query.trim())}`);
+  };
 
   setQueryField = (queryField: ?HTMLInputElement) => {
     this.queryField = queryField;
@@ -64,10 +86,9 @@ export class SearchPageContent extends React.Component<
       this.queryField.blur();
     }
 
-    const { submitSearch } = this.props;
     const { query } = this.state;
 
-    submitSearch(query);
+    this.submitSearch(query);
   };
 
   render() {
@@ -75,64 +96,66 @@ export class SearchPageContent extends React.Component<
     const { query } = this.state;
 
     return (
-      <div>
-        <div className="b-c b-c--nbp">
-          <Head>
-            {originalQuery ? (
-              <title>
-                Boston.gov — Death Certificates — Results for “{originalQuery}”
-              </title>
-            ) : (
-              <title>Boston.gov — Death Certificates</title>
-            )}
-          </Head>
+      <AppLayout showNav>
+        <div>
+          <div className="b-c b-c--nbp">
+            <Head>
+              {originalQuery ? (
+                <title>
+                  Boston.gov — Death Certificates — Results for “{originalQuery}”
+                </title>
+              ) : (
+                <title>Boston.gov — Death Certificates</title>
+              )}
+            </Head>
 
-          <div className="sh sh--b0" style={{ paddingBottom: 0 }}>
-            <h1 className="sh-title" style={{ marginBottom: 0 }}>
-              {!results ? 'Death certificates' : 'Search results'}
-            </h1>
+            <div className="sh sh--b0" style={{ paddingBottom: 0 }}>
+              <h1 className="sh-title" style={{ marginBottom: 0 }}>
+                {!results ? 'Death certificates' : 'Search results'}
+              </h1>
+            </div>
+
+            {!results && this.renderIntro()}
+
+            <div className="m-v300">
+              <form
+                className="sf sf--md"
+                acceptCharset="UTF-8"
+                method="get"
+                action="/death"
+                onSubmit={this.handleSubmit}
+              >
+                <input name="utf8" type="hidden" value="✓" />
+
+                <div className="sf-i">
+                  <input
+                    aria-label="Search box"
+                    aria-describedby="searchExamples"
+                    type="text"
+                    name="q"
+                    ref={this.setQueryField}
+                    value={query}
+                    onChange={this.handleQueryChange}
+                    placeholder="Search by full or partial name…"
+                    className="sf-i-f"
+                    autoComplete="off"
+                  />
+                  <button className="sf-i-b" type="submit">
+                    Search
+                  </button>
+                </div>
+
+                <div className="t--subinfo m-t200" id="searchExamples">
+                  Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
+                </div>
+              </form>
+            </div>
           </div>
 
-          {!results && this.renderIntro()}
-
-          <div className="m-v300">
-            <form
-              className="sf sf--md"
-              acceptCharset="UTF-8"
-              method="get"
-              action="/death"
-              onSubmit={this.handleSubmit}
-            >
-              <input name="utf8" type="hidden" value="✓" />
-
-              <div className="sf-i">
-                <input
-                  aria-label="Search box"
-                  aria-describedby="searchExamples"
-                  type="text"
-                  name="q"
-                  ref={this.setQueryField}
-                  value={query}
-                  onChange={this.handleQueryChange}
-                  placeholder="Search by full or partial name…"
-                  className="sf-i-f"
-                  autoComplete="off"
-                />
-                <button className="sf-i-b" type="submit">
-                  Search
-                </button>
-              </div>
-
-              <div className="t--subinfo m-t200" id="searchExamples">
-                Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
-              </div>
-            </form>
-          </div>
+          {results && results.resultCount > 0 && this.renderResults(results)}
+          {results && results.resultCount === 0 && this.renderNoResults()}
         </div>
-
-        {results && results.resultCount > 0 && this.renderResults(results)}
-        {results && results.resultCount === 0 && this.renderNoResults()}
-      </div>
+      </AppLayout>
     );
   }
 
@@ -261,49 +284,3 @@ export class SearchPageContent extends React.Component<
     );
   }
 }
-
-export const wrapSearchPageController = (
-  getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
-) =>
-  class SearchPageController extends React.Component<InitialProps> {
-    static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
-      const { query } = ctx;
-      const { deathCertificatesDao } = getDependencies(ctx);
-
-      let q = query.q || '';
-      let page = 1;
-
-      let results = null;
-
-      if (q) {
-        page = parseInt(query.page, 10) || 1;
-
-        results = await deathCertificatesDao.search(q, page);
-      }
-
-      return {
-        query: q,
-        page,
-        results,
-      };
-    }
-
-    dependencies = getDependencies();
-
-    submitSearch = (query: string) => {
-      Router.push(`/death?q=${encodeURIComponent(query.trim())}`);
-    };
-
-    render() {
-      const { submitSearch } = this;
-
-      return renderContent(this.dependencies, { ...this.props, submitSearch });
-    }
-  };
-
-export default wrapSearchPageController(getDependencies, ({ cart }, props) => (
-  <AppLayout navProps={{ cart }}>
-    <SearchPageContent {...props} />
-  </AppLayout>
-));

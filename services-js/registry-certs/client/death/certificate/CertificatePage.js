@@ -1,13 +1,20 @@
 // @flow
 
-import React, { type Element as ReactElement } from 'react';
+import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
 
+import {
+  getDependencies,
+  type ClientContext,
+  type ClientDependencies,
+} from '../../app';
 import type { DeathCertificate } from '../../types';
+
+import type Cart from '../../store/Cart';
 
 import {
   CERTIFICATE_COST_STRING,
@@ -15,13 +22,11 @@ import {
   FIXED_CC_STRING,
 } from '../../../lib/costs';
 
-import {
-  getDependencies,
-  type ClientContext,
-  type ClientDependencies,
-} from '../../app';
-
 import AppLayout from '../../AppLayout';
+
+type DefaultProps = {|
+  cart: Cart,
+|};
 
 type InitialProps = {|
   id: string,
@@ -29,30 +34,76 @@ type InitialProps = {|
   backUrl: ?string,
 |};
 
-export type ContentProps = {
+type Props = {|
+  ...DefaultProps,
   ...InitialProps,
-  setCartQuantity: number => mixed,
-  cartQuantity: number,
-};
+|};
 
-type ContentState = {
+type State = {
   quantity: ?number,
 };
 
-export class CertificatePageContent extends React.Component<
-  ContentProps,
-  ContentState
-> {
-  state: ContentState;
+@observer
+export default class CertificatePage extends React.Component<Props, State> {
+  state: State;
   quantityField: ?HTMLInputElement = null;
 
-  constructor(props: ContentProps) {
-    super(props);
+  static get defaultProps(): DefaultProps {
+    const { cart } = getDependencies();
+    return { cart };
+  }
 
-    this.state = {
-      quantity: props.cartQuantity || 1,
+  static async getInitialProps(
+    ctx: ClientContext,
+    dependenciesForTest?: ClientDependencies
+  ): Promise<InitialProps> {
+    const { query: { id, backUrl }, res } = ctx;
+    const { deathCertificatesDao } =
+      dependenciesForTest || getDependencies(ctx);
+
+    if (!id) {
+      throw new Error('Missing id');
+    }
+
+    const certificate = await deathCertificatesDao.get(id);
+
+    if (!certificate && res) {
+      res.statusCode = 404;
+    }
+
+    return {
+      id,
+      certificate,
+      backUrl,
     };
   }
+
+  constructor(props: Props) {
+    super(props);
+
+    const { id, cart } = props;
+
+    this.state = {
+      quantity: cart.getQuantity(id) || 1,
+    };
+  }
+
+  setCartQuantity = action(
+    'CertificatePageController setCartQuantity',
+    async (quantity: number) => {
+      const { certificate, cart } = this.props;
+
+      if (certificate) {
+        if (quantity === 0) {
+          cart.remove(certificate.id);
+        } else {
+          cart.setQuantity(certificate, quantity);
+          await Router.push('/death/cart');
+          window.scrollTo(0, 0);
+        }
+      }
+    }
+  );
 
   handleQuantityChange = (ev: SyntheticInputEvent<*>) => {
     const { value } = ev.target;
@@ -72,14 +123,13 @@ export class CertificatePageContent extends React.Component<
   handleAddToCart = (ev: SyntheticInputEvent<*>) => {
     ev.preventDefault();
 
-    const { setCartQuantity } = this.props;
     const { quantity } = this.state;
 
     if (typeof quantity !== 'number') {
       return;
     }
 
-    setCartQuantity(quantity);
+    this.setCartQuantity(quantity);
   };
 
   setQuantityField = (quantityField: ?HTMLInputElement) => {
@@ -99,65 +149,70 @@ export class CertificatePageContent extends React.Component<
       : null;
 
     return (
-      <div className="b-ff">
-        <Head>
-          <title>
-            Boston.gov — Death Certificates — {fullName || `#${id}`}
-          </title>
-        </Head>
+      <AppLayout showNav>
+        <div className="b-ff">
+          <Head>
+            <title>
+              Boston.gov — Death Certificates — {fullName || `#${id}`}
+            </title>
+          </Head>
 
-        <div className="b-c b-c--nbp b-ff">
-          <div className="sh sh--b0">
-            <h1 className="sh-title">{fullName || 'Certificate not found'}</h1>
-          </div>
-
-          {certificate &&
-            certificate.pending && (
-              <div className="br br--r br-a200 m-v300 p-a300 t--info">
-                This certificate is <strong>pending</strong> and will not
-                include the cause of death. Some insurance and banking companies
-                won’t accept a death certificate if it is still pending.
-              </div>
-            )}
-
-          <div className="m-v300 b-ff">
-            {certificate && this.renderCertificate(certificate)}
-            {!certificate && (
-              <div className="t--info">
-                We could not find a certificate with ID #{id}.
-              </div>
-            )}
-          </div>
-
-          <div className="g g--r g--vc">
-            <div className="g--5 m-v300">
-              {certificate && this.renderAddToCart()}
+          <div className="b-c b-c--nbp b-ff">
+            <div className="sh sh--b0">
+              <h1 className="sh-title">
+                {fullName || 'Certificate not found'}
+              </h1>
             </div>
 
-            <div className="g--7 m-v300">
-              {backUrl && (
-                <Link href={backUrl}>
-                  <a style={{ fontStyle: 'italic' }}>
-                    ← Back to search results
-                  </a>
-                </Link>
+            {certificate &&
+              certificate.pending && (
+                <div className="br br--r br-a200 m-v300 p-a300 t--info">
+                  This certificate is <strong>pending</strong> and will not
+                  include the cause of death. Some insurance and banking
+                  companies won’t accept a death certificate if it is still
+                  pending.
+                </div>
+              )}
+
+            <div className="m-v300 b-ff">
+              {certificate && this.renderCertificate(certificate)}
+              {!certificate && (
+                <div className="t--info">
+                  We could not find a certificate with ID #{id}.
+                </div>
               )}
             </div>
-          </div>
-        </div>
 
-        <div className="b--g m-t700">
-          <div className="b-c b-c--smv t--subinfo">
-            Death certificates cost {CERTIFICATE_COST_STRING} each. That price
-            includes shipping. You will be charged an extra service fee of not
-            more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
-            goes directly to a third party to pay for the cost of card
-            processing. Learn more about{' '}
-            <a href="https://www.boston.gov/">card service fees</a> at the City
-            of Boston.
+            <div className="g g--r g--vc">
+              <div className="g--5 m-v300">
+                {certificate && this.renderAddToCart()}
+              </div>
+
+              <div className="g--7 m-v300">
+                {backUrl && (
+                  <Link href={backUrl}>
+                    <a style={{ fontStyle: 'italic' }}>
+                      ← Back to search results
+                    </a>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="b--g m-t700">
+            <div className="b-c b-c--smv t--subinfo">
+              Death certificates cost {CERTIFICATE_COST_STRING} each. That price
+              includes shipping. You will be charged an extra service fee of not
+              more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
+              goes directly to a third party to pay for the cost of card
+              processing. Learn more about{' '}
+              <a href="https://www.boston.gov/">card service fees</a> at the
+              City of Boston.
+            </div>
           </div>
         </div>
-      </div>
+      </AppLayout>
     );
   }
 
@@ -230,8 +285,10 @@ export class CertificatePageContent extends React.Component<
   }
 
   renderAddToCart() {
-    const { cartQuantity } = this.props;
+    const { cart, id } = this.props;
     const { quantity } = this.state;
+
+    const cartQuantity = cart.getQuantity(id);
 
     return (
       <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form">
@@ -306,69 +363,3 @@ export class CertificatePageContent extends React.Component<
     );
   }
 }
-
-export const wrapCertificatePageController = (
-  getDependencies: (ctx?: ClientContext) => ClientDependencies,
-  renderContent: (ClientDependencies, ContentProps) => ?ReactElement<*>
-) =>
-  observer(
-    class CertificatePageController extends React.Component<InitialProps> {
-      static async getInitialProps(ctx: ClientContext): Promise<InitialProps> {
-        const { query: { id, backUrl } } = ctx;
-        const { deathCertificatesDao } = getDependencies(ctx);
-
-        if (!id) {
-          throw new Error('Missing id');
-        }
-
-        const certificate = await deathCertificatesDao.get(id);
-
-        return {
-          id,
-          certificate,
-          backUrl,
-        };
-      }
-
-      dependencies = getDependencies();
-
-      setCartQuantity = action(
-        'CertificatePageController setCartQuantity',
-        async (quantity: number) => {
-          const { cart } = this.dependencies;
-          const { certificate } = this.props;
-
-          if (certificate) {
-            if (quantity === 0) {
-              cart.remove(certificate.id);
-            } else {
-              cart.setQuantity(certificate, quantity);
-              await Router.push('/death/cart');
-              window.scrollTo(0, 0);
-            }
-          }
-        }
-      );
-
-      render() {
-        const { setCartQuantity } = this;
-        const { certificate } = this.props;
-        const { cart } = this.dependencies;
-
-        return renderContent(this.dependencies, {
-          ...this.props,
-          setCartQuantity,
-          cartQuantity: certificate ? cart.getQuantity(certificate.id) : 0,
-        });
-      }
-    }
-  );
-
-export default wrapCertificatePageController(
-  getDependencies,
-  ({ cart }, props) => (
-    <AppLayout navProps={{ cart }}>
-      <CertificatePageContent {...props} />
-    </AppLayout>
-  )
-);

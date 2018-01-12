@@ -6,6 +6,4 @@ import Nav from './Nav';
 
 import Cart from '../store/Cart';
 
-storiesOf('Nav', module).add('default', () => (
-  <Nav cart={new Cart()} link="checkout" />
-));
+storiesOf('Nav', module).add('default', () => <Nav cart={new Cart()} />);

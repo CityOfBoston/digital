@@ -16,7 +16,7 @@ import makePaymentValidator from '../../lib/validators/PaymentValidator';
 import makeShippingValidator from '../../lib/validators/ShippingValidator';
 
 export const Schema = `
-input CertificateOrderItem {
+input CertificateOrderItemInput {
   id: String!
   name: String!
   quantity: Int!
@@ -24,6 +24,7 @@ input CertificateOrderItem {
 
 type SubmittedOrder {
   id: String!
+  contactEmail: String!
 }
 
 type Mutation {
@@ -50,22 +51,23 @@ type Mutation {
     billingState: String!
     billingZip: String!
 
-    items: [CertificateOrderItem!]!
+    items: [CertificateOrderItemInput!]!
 
     idempotencyKey: String!
   ): SubmittedOrder!
 }
 `;
 
-type CertificateOrderItem = {|
+type CertificateOrderItemInput = {|
   id: string,
   name: string,
   quantity: number,
 |};
 
-type SubmittedOrder = {|
+type SubmittedOrder = {
   id: string,
-|};
+  contactEmail: string,
+};
 
 type SubmitDeathCertificateOrderArgs = {|
   contactName: string,
@@ -90,7 +92,7 @@ type SubmitDeathCertificateOrderArgs = {|
   billingState: string,
   billingZip: string,
 
-  items: Array<CertificateOrderItem>,
+  items: Array<CertificateOrderItemInput>,
   idempotencyKey: string,
 |};
 
@@ -305,7 +307,7 @@ export const resolvers = {
         percentageFee: PERCENTAGE_CC_SERVICE_FEE,
       });
 
-      return { id: orderId };
+      return { id: orderId, contactEmail };
     },
   },
 };

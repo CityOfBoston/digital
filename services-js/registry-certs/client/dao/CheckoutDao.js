@@ -86,6 +86,7 @@ export default class CheckoutDao {
     }
   }
 
+  // Does not reject. Instead stores errors in Order.processingError
   @action
   async submit(cart: Cart, order: Order): Promise<?string> {
     try {

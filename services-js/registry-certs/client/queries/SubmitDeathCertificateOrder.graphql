@@ -17,7 +17,7 @@ mutation SubmitDeathCertificateOrder(
   $billingCity: String!,
   $billingState: String!,
   $billingZip: String!,
-  $items: [CertificateOrderItem!]!,
+  $items: [CertificateOrderItemInput!]!,
   $idempotencyKey: String!
 ) {
   submitDeathCertificateOrder(

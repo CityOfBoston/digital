@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getInitialProps handles a 404 1`] = `
+Object {
+  "order": undefined,
+}
+`;
+
+exports[`getInitialProps loads the order passed in query 1`] = `
+Object {
+  "order": Object {
+    "certificateCost": 1400,
+    "contactEmail": "nancy@mew.org",
+    "contactName": "Nancy Whitehead",
+    "contactPhone": "5551234567",
+    "date": "1/8/2018 2:05PM",
+    "id": "RG-DC201801-360926",
+    "items": Array [
+      Object {
+        "certificate": Object {
+          "firstName": "JAMES",
+          "id": "640768",
+          "lastName": "HOWLETT (LOGAN)",
+        },
+        "cost": 9800,
+        "quantity": 7,
+      },
+      Object {
+        "certificate": Object {
+          "firstName": "BRUCE",
+          "id": "639896",
+          "lastName": "BANNER",
+        },
+        "cost": 1400,
+        "quantity": 1,
+      },
+    ],
+    "serviceFee": 266,
+    "shippingAddress1": "Avengers Tower",
+    "shippingAddress2": "",
+    "shippingCity": "New York",
+    "shippingCompanyName": "US Avengers",
+    "shippingName": "Squirrel Girl",
+    "shippingState": "NY",
+    "shippingZip": "10001",
+    "subtotal": 11200,
+    "total": 11466,
+  },
+}
+`;

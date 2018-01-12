@@ -3,6 +3,7 @@
 import type {
   FetchDeathCertificatesQuery,
   SearchDeathCertificatesQuery,
+  LookupDeathCertificateOrderQuery,
 } from './queries/graphql-types';
 
 export type DeathCertificate = $NonMaybeType<
@@ -17,4 +18,9 @@ export type DeathCertificate = $NonMaybeType<
 export type DeathCertificateSearchResults = $PropertyType<
   $PropertyType<SearchDeathCertificatesQuery, 'deathCertificates'>,
   'search'
+>;
+
+export type DeathCertificateOrder = $PropertyType<
+  $PropertyType<LookupDeathCertificateOrderQuery, 'deathCertificates'>,
+  'order'
 >;

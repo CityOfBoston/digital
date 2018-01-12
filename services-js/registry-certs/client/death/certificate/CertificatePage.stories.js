@@ -2,61 +2,64 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import appLayoutDecorator from '../../../storybook/app-layout-decorator';
+import Cart from '../../store/Cart';
 
-import { CertificatePageContent } from './CertificatePage';
+import CertificatePage from './CertificatePage';
 
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
+const makeCart = (quantity: number) => {
+  const cart = new Cart();
+
+  if (quantity) {
+    cart.add(TYPICAL_CERTIFICATE, quantity);
+  }
+
+  return cart;
+};
+
 storiesOf('CertificatePage', module)
-  .addDecorator(appLayoutDecorator(true))
   .add('normal certificate', () => (
-    <CertificatePageContent
+    <CertificatePage
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      setCartQuantity={action('setCartQuantity')}
-      cartQuantity={0}
+      cart={makeCart(0)}
     />
   ))
   .add('certificate in cart', () => (
-    <CertificatePageContent
+    <CertificatePage
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      setCartQuantity={action('setCartQuantity')}
-      cartQuantity={5}
+      cart={makeCart(5)}
     />
   ))
   .add('normal certificate — not from search', () => (
-    <CertificatePageContent
+    <CertificatePage
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={null}
-      setCartQuantity={action('setCartQuantity')}
-      cartQuantity={0}
+      cart={makeCart(0)}
     />
   ))
   .add('pending certificate', () => (
-    <CertificatePageContent
+    <CertificatePage
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      setCartQuantity={action('setCartQuantity')}
-      cartQuantity={0}
+      cart={makeCart(0)}
     />
   ))
   .add('missing certificate', () => (
-    <CertificatePageContent
+    <CertificatePage
       id="200001"
       certificate={null}
       backUrl={'/search?q=Jayn'}
-      setCartQuantity={action('setCartQuantity')}
-      cartQuantity={0}
+      cart={makeCart(0)}
     />
   ));

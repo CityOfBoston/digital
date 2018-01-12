@@ -297,20 +297,20 @@ exports[`Storyshots CartPage empty cart 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -615,20 +615,20 @@ exports[`Storyshots CartPage loading 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -1107,20 +1107,20 @@ exports[`Storyshots CartPage normal page 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -1741,20 +1741,20 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -2286,20 +2286,20 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -2624,20 +2624,20 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -3157,20 +3157,20 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -3678,20 +3678,20 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -4206,20 +4206,20 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -4322,6 +4322,17 @@ exports[`Storyshots ConfirmationContent default 1`] = `
             </strong>
             .
           </div>
+          <div
+            className="ta-c m-v300"
+          >
+            <a
+              className="btn"
+              href="/death/receipt?id=123-4444-5&contactEmail=ttoe%40squirrelzone.net"
+              target="_blank"
+            >
+              View printable receipt
+            </a>
+          </div>
           <p
             className="t--info"
             style={
@@ -4330,8 +4341,11 @@ exports[`Storyshots ConfirmationContent default 1`] = `
               }
             }
           >
-            A copy of your receipt has been sent to 
-            ttoe@squirrelzone.net
+            A copy of your receipt has been sent to
+             
+            <strong>
+              ttoe@squirrelzone.net
+            </strong>
             . We will mail out your order in 1–2 business days by USPS.
           </p>
           <p
@@ -4860,20 +4874,20 @@ exports[`Storyshots CostSummary only debit card 1`] = `
 exports[`Storyshots Nav default 1`] = `
 <nav
   aria-label="Shopping cart"
-  className="jsx-1795526402 nv-s nv-s--sticky"
+  className="jsx-1730659780 nv-s nv-s--sticky"
 >
   <div
-    className="jsx-1795526402 nv-s-l bar"
+    className="jsx-1730659780 nv-s-l bar"
   >
     <a
-      className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+      className="jsx-1730659780 nv-s-l-b back-link back-link-right"
       href="/death/cart"
       onClick={[Function]}
     >
       View Cart
     </a>
     <a
-      className="jsx-1795526402 cart-link"
+      className="jsx-1730659780 cart-link"
       href="/death/cart"
       onClick={[Function]}
     >
@@ -9933,10 +9947,10 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
       <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
         <tr>
           <td style=\\"vertical-align:top;width:300px;\\">
-      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Date:</b> <i>1/8/2018 2:05PM</i><br>
+      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Date:</b> <i>1/8/2018 2:05PM</i><br>
                 <b>Order #:</b> <i>RG-DC201801-100001</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
       </td><td style=\\"vertical-align:top;width:300px;\\">
-      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your shipping information:</b><br>
+      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your shipping information:</b><br>
                 <i>Nancy Whitehead<br>
                 
                 123 Fake St.<br>
@@ -9952,7 +9966,7 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
       <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
         <tr>
           <td style=\\"vertical-align:top;width:600px;\\">
-      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your order:</b></div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"cellspacing:0px;color:#000;font-family:Lora, sans-serif;font-size:16px;line-height:1.8;table-layout:auto;\\" width=\\"100%\\" border=\\"0\\"><tbody><tr>
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your order:</b></div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"cellspacing:0px;color:#000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;\\" width=\\"100%\\" border=\\"0\\"><tbody><tr>
                   <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe (#555000)</i></td>
                   <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
@@ -9972,7 +9986,7 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
                 <tr>
                   <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
                   <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
-                </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.5;text-align:left;\\">Your order will be shipped within 1–2 business days via USPS.</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
+                </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">Your order will be shipped within 1–2 business days via USPS.</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
                 $0.25 plus 2.15%. This fee goes directly to a third party to
                 pay for the cost of card processing. Learn more about <a href=\\"https://www.boston.gov/\\">card service fees</a> at the City
                 of Boston.</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
@@ -9999,7 +10013,7 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
       <![endif]--><div class=\\"mj-column-px-75 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.125%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-collapse:collapse;border-spacing:0px;\\" align=\\"left\\" border=\\"0\\"><tbody><tr><td style=\\"width:75px;\\"><img alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/global/icons/seal.png\\" style=\\"border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;\\" width=\\"75\\"></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
             </td>
             <td style=\\"vertical-align:top;width:525px;\\">
-      <![endif]--><div class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.875%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 0px 0px 10px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, sans-serif;font-size:16px;line-height:1.5;text-align:left;\\">If you have any issues or questions, contact the Registry at <a href=\\"tel:617-635-4175\\">617-635-4175</a> or email <b><i><a href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.</div></td></tr></tbody></table></div><!--[if mso | IE]>
+      <![endif]--><div class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.875%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 0px 0px 10px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">If you have any issues or questions, contact the Registry at <a href=\\"tel:617-635-4175\\">617-635-4175</a> or email <b><i><a href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.</div></td></tr></tbody></table></div><!--[if mso | IE]>
             </td>
           </tr>
         </table>
@@ -10048,6 +10062,297 @@ If you have any issues or questions, contact the Registry at
 617-635-4175 or email registry@boston.gov.
 
 </pre>
+`;
+
+exports[`Storyshots ReceiptPage default 1`] = `
+<div
+  className="jsx-3488182405 b-ff"
+>
+  <div
+    className="jsx-3488182405 b-c b-c--hsm b-ff"
+  >
+    <div
+      className="jsx-3488182405 lo m-b300 logo-holder"
+    >
+      <span
+        className="jsx-3488182405 lo-l"
+      >
+        <img
+          alt="City of Boston"
+          className="jsx-3488182405 lo-i"
+          src="https://patterns.boston.gov/images/public/logo.svg"
+        />
+      </span>
+      <a
+        className="jsx-3488182405 print-button"
+        href="javascript:void(0)"
+        onClick={[Function]}
+        style={
+          Object {
+            "fontStyle": "italic",
+          }
+        }
+      >
+        Print this page
+      </a>
+    </div>
+    <div
+      className="jsx-3488182405 b--g p-a300 br br-a200"
+    >
+      <div
+        className="jsx-3488182405 sh sh--sm"
+      >
+        <h1
+          className="jsx-3488182405 sh-title"
+        >
+          Thank you for your order
+        </h1>
+      </div>
+      <div
+        className="jsx-3488182405 m-v300 t--cb"
+      >
+        <div
+          className="jsx-3488182405 g"
+        >
+          <div
+            className="jsx-3488182405 g--6"
+          >
+            <div
+              className="jsx-3488182405 m-t200"
+            >
+              <span
+                className="jsx-3488182405 receipt-title"
+              >
+                Date:
+              </span>
+               
+              <span
+                className="jsx-3488182405 receipt-value"
+              >
+                1/8/2018 2:05PM
+              </span>
+            </div>
+            <div
+              className="jsx-3488182405 m-t200"
+            >
+              <span
+                className="jsx-3488182405 receipt-title"
+              >
+                Order #:
+              </span>
+               
+              <span
+                className="jsx-3488182405 receipt-value"
+              >
+                RG-DC201801-360926
+              </span>
+            </div>
+          </div>
+          <div
+            className="jsx-3488182405 g--6"
+          >
+            <div
+              className="jsx-3488182405 m-t200 receipt-title"
+            >
+              Your shipping information:
+            </div>
+            <div
+              className="jsx-3488182405 receipt-value"
+            >
+              Squirrel Girl
+              <br
+                className="jsx-3488182405"
+              />
+              US Avengers
+              <br
+                className="jsx-3488182405"
+              />
+              Avengers Tower
+              <br
+                className="jsx-3488182405"
+              />
+              New York, NY 10001
+            </div>
+          </div>
+        </div>
+        <div
+          className="jsx-3488182405"
+        >
+          <div
+            className="jsx-3488182405 m-t200 receipt-title"
+          >
+            Your order:
+          </div>
+          <table
+            className="jsx-3488182405"
+          >
+            <tbody
+              className="jsx-3488182405"
+            >
+              <tr
+                className="jsx-3488182405"
+              >
+                <td
+                  className="jsx-3488182405 receipt-value"
+                >
+                  7
+                   × Death certificate for
+                   
+                  JAMES
+                   
+                  HOWLETT (LOGAN)
+                   (#
+                  640768
+                  )
+                </td>
+                <td
+                  className="jsx-3488182405 ta-r"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  $
+                  98.00
+                </td>
+              </tr>
+              <tr
+                className="jsx-3488182405"
+              >
+                <td
+                  className="jsx-3488182405 receipt-value"
+                >
+                  1
+                   × Death certificate for
+                   
+                  BRUCE
+                   
+                  BANNER
+                   (#
+                  639896
+                  )
+                </td>
+                <td
+                  className="jsx-3488182405 ta-r"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  $
+                  14.00
+                </td>
+              </tr>
+              <tr
+                className="jsx-3488182405"
+              >
+                <td
+                  className="jsx-3488182405 receipt-value"
+                >
+                  Subtotal
+                </td>
+                <td
+                  className="jsx-3488182405 ta-r"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  $
+                  112.00
+                </td>
+              </tr>
+              <tr
+                className="jsx-3488182405"
+              >
+                <td
+                  className="jsx-3488182405 receipt-value"
+                >
+                  Card service fee*
+                </td>
+                <td
+                  className="jsx-3488182405 ta-r"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  $
+                  2.66
+                </td>
+              </tr>
+              <tr
+                className="jsx-3488182405 total-row t--sans"
+              >
+                <td
+                  className="jsx-3488182405"
+                >
+                  Total
+                </td>
+                <td
+                  className="jsx-3488182405 ta-r"
+                >
+                  $
+                  114.66
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        className="jsx-3488182405 t--cb m-v300"
+      >
+        Your order will be shipped within 1–2 business days via USPS.
+      </div>
+      <div
+        className="jsx-3488182405 t--subinfo m-t300"
+      >
+        * You are charged an extra service fee to pay for the cost of card processing. This fee goes directly to a third party, not the City of Boston.
+      </div>
+    </div>
+    <div
+      className="jsx-3488182405 t--info m-v300 seal-holder"
+    >
+      <img
+        alt=""
+        className="jsx-3488182405 s-i"
+        src="https://patterns.boston.gov/images/public/seal.svg"
+        style={
+          Object {
+            "height": 75,
+            "width": 75,
+          }
+        }
+      />
+      <div
+        className="jsx-3488182405 m-l300"
+      >
+        If you have any issues or questions, contact the Registry at
+         
+        <a
+          className="jsx-3488182405"
+          href="tel:617-635-4175"
+        >
+          617-635-4175
+        </a>
+         or email
+         
+        <a
+          className="jsx-3488182405"
+          href="mailto:registry@boston.gov"
+        >
+          registry@boston.gov
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots ReviewContent cart has pending certs 1`] = `
@@ -10261,500 +10566,498 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
       <main
         className="jsx-3465476614 b-ff"
       >
-        <div>
+        <div
+          className="b-c b-c--hsm b-c--nbp"
+        >
           <div
-            className="b-c b-c--hsm b-c--nbp"
+            className="sh sh--b0"
+          >
+            <h1
+              className="sh-title"
+            >
+              Review Order
+            </h1>
+          </div>
+          <div
+            className="t--info m-v500"
+          >
+            Your order is not yet complete. Please check the information below, then click the 
+            <b>
+              Submit Order
+            </b>
+             button.
+          </div>
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={[Function]}
           >
             <div
-              className="sh sh--b0"
-            >
-              <h1
-                className="sh-title"
-              >
-                Review Order
-              </h1>
-            </div>
-            <div
-              className="t--info m-v500"
-            >
-              Your order is not yet complete. Please check the information below, then click the 
-              <b>
-                Submit Order
-              </b>
-               button.
-            </div>
-            <form
-              acceptCharset="UTF-8"
-              method="post"
-              onSubmit={[Function]}
+              className="m-v700"
             >
               <div
-                className="m-v700"
+                className="fs-l"
               >
                 <div
-                  className="fs-l"
+                  className="fs-l-c"
                 >
-                  <div
-                    className="fs-l-c"
+                  Order details
+                  <span
+                    className="t--reset"
                   >
-                    Order details
+                     — 
                     <span
-                      className="t--reset"
+                      className="t--subinfo"
                     >
-                       — 
-                      <span
-                        className="t--subinfo"
+                      <a
+                        aria-label="Edit order details"
+                        href="/death/cart"
+                        onClick={[Function]}
                       >
-                        <a
-                          aria-label="Edit order details"
-                          href="/death/cart"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
+                        edit
+                      </a>
                     </span>
-                  </div>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                   ×
                 </div>
                 <div
-                  className="jsx-947238363 p-v200 br b--w row "
+                  className="jsx-2577800471 certificate-info-box"
                 >
                   <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
                   >
-                    1
-                     ×
+                    BRUCE
+                     
+                    BANNER
                   </div>
                   <div
-                    className="jsx-2577800471 certificate-info-box"
+                    className="jsx-2577800471 certificate-subinfo"
                   >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      BRUCE
-                       
-                      BANNER
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      3/4/2016
-                       — Age: 53
-                    </div>
+                    Died: 
+                    3/4/2016
+                     — Age: 53
                   </div>
                 </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
                 <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
                     }
-                  >
-                    5
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      MONKEY
-                       
-                      JOE
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      2004
-                       — Age: 6
-                    </div>
-                  </div>
+                  }
+                >
+                  5
+                   ×
                 </div>
                 <div
-                  className="jsx-947238363 p-v200 br b--w row "
+                  className="jsx-2577800471 certificate-info-box"
                 >
                   <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
                   >
-                    2
-                     ×
+                    MONKEY
+                     
+                    JOE
                   </div>
                   <div
-                    className="jsx-2577800471 certificate-info-box"
+                    className="jsx-2577800471 certificate-subinfo"
                   >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                    Died: 
+                    2004
+                     — Age: 6
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  2
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                  >
+                    JAMES
+                     
+                    HOWLETT (LOGAN)
+                    <span
+                      className="jsx-2577800471"
+                      style={
+                        Object {
+                          "color": "#091f2f",
+                        }
+                      }
                     >
-                      JAMES
-                       
-                      HOWLETT (LOGAN)
+                       — 
                       <span
-                        className="jsx-2577800471"
+                        className="jsx-2577800471 t--sans tt-u"
                         style={
                           Object {
-                            "color": "#091f2f",
+                            "fontStyle": "normal",
+                            "fontWeight": "bold",
                           }
                         }
                       >
-                         — 
-                        <span
-                          className="jsx-2577800471 t--sans tt-u"
-                          style={
-                            Object {
-                              "fontStyle": "normal",
-                              "fontWeight": "bold",
-                            }
-                          }
-                        >
-                          pending
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      4/15/2014
-                       — Age: 44 yrs. 2 mos. 10 dys
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="m-v700"
-              >
-                <div
-                  className="fs-l"
-                >
-                  <div
-                    className="fs-l-c"
-                  >
-                    Shipping Address
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit shipping address"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
+                        pending
                       </span>
                     </span>
                   </div>
-                </div>
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                    }
-                  }
-                >
-                  Doreen Green
-                  <br />
-                  Empire State University
-                  <br />
-                  Dorm Hall, Apt 5
-                  <br />
-                  10 College Avenue
-                  <br />
-                  New York, NY 12345
-                </div>
-              </div>
-              <div
-                className="fs m-v700"
-              >
-                <div
-                  className="fs-l"
-                >
                   <div
-                    className="fs-l-c"
+                    className="jsx-2577800471 certificate-subinfo"
                   >
-                    Payment Information
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit payment information"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
-                    </span>
+                    Died: 
+                    4/15/2014
+                     — Age: 44 yrs. 2 mos. 10 dys
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
                 <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                    }
-                  }
+                  className="fs-l-c"
                 >
-                  Nancy Whitehead
-                  <br />
-                  **** **** **** 
-                  4040
-                  <br />
-                  3 Avengers Towers
-                  <br />
-                  New York
-                  , 
-                  NY
-                   
-                  12223
+                  Shipping Address
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit shipping address"
+                        href="/death/checkout"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
                 </div>
               </div>
               <div
-                className="m-v500"
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Doreen Green
+                <br />
+                Empire State University
+                <br />
+                Dorm Hall, Apt 5
+                <br />
+                10 College Avenue
+                <br />
+                New York, NY 12345
+              </div>
+            </div>
+            <div
+              className="fs m-v700"
+            >
+              <div
+                className="fs-l"
               >
                 <div
-                  className="jsx-4244768073 clearfix"
+                  className="fs-l-c"
                 >
-                  <table
-                    className="jsx-4244768073 t--info ta-r"
-                    style={
-                      Object {
-                        "float": "right",
-                      }
-                    }
+                  Payment Information
+                  <span
+                    className="t--reset"
                   >
-                    <tbody
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit payment information"
+                        href="/death/checkout"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Nancy Whitehead
+                <br />
+                **** **** **** 
+                4040
+                <br />
+                3 Avengers Towers
+                <br />
+                New York
+                , 
+                NY
+                 
+                12223
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="jsx-4244768073 clearfix"
+              >
+                <table
+                  className="jsx-4244768073 t--info ta-r"
+                  style={
+                    Object {
+                      "float": "right",
+                    }
+                  }
+                >
+                  <tbody
+                    className="jsx-4244768073"
+                  >
+                    <tr
                       className="jsx-4244768073"
                     >
-                      <tr
+                      <td
                         className="jsx-4244768073"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          8
-                           
-                          certificates
-                           ×
-                           
-                          $14.00
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          112.00
-                        </td>
-                      </tr>
-                      <tr
+                        8
+                         
+                        certificates
+                         ×
+                         
+                        $14.00
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        $
+                        112.00
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
                         className="jsx-4244768073"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          <span>
-                            Credit card service fee 
-                            <a
-                              href="#service-fee"
-                            >
-                              *
-                            </a>
-                          </span>
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          2.66
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
-                      >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          Shipping within the U.S.
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          <i
-                            className="jsx-4244768073"
+                        <span>
+                          Credit card service fee 
+                          <a
+                            href="#service-fee"
                           >
-                            included
-                          </i>
-                        </td>
-                      </tr>
-                      <tr
+                            *
+                          </a>
+                        </span>
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        $
+                        2.66
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
                         className="jsx-4244768073"
                       >
-                        <td
-                          className="jsx-4244768073 sh-title"
+                        Shipping within the U.S.
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        <i
+                          className="jsx-4244768073"
                         >
-                          Total
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
-                        >
-                          $
-                          114.66
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div
-                className="m-v700"
-              >
-                <div
-                  className="t--info"
-                >
-                  You have to read and accept these checkboxes before you place your order:
-                </div>
-                <div
-                  className="m-v300"
-                >
-                  <label
-                    className="cb"
-                  >
-                    <input
-                      checked={false}
-                      className="cb-f"
-                      id="acceptNonRefundableInput"
-                      name="acceptNonRefundable"
-                      onChange={[Function]}
-                      type="checkbox"
-                      value="true"
-                    />
-                    <span
-                      className="cb-l"
+                          included
+                        </i>
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
                     >
-                      I understand that
-                       
-                      <strong>
-                        death certificates are non-refundable
-                      </strong>
-                      .
-                    </span>
-                  </label>
-                </div>
-                <div
-                  className="m-v300"
-                >
-                  <label
-                    className="cb"
-                  >
-                    <input
-                      checked={false}
-                      className="cb-f"
-                      id="acceptPendingCertificatesInput"
-                      name="acceptPendingCertificates"
-                      onChange={[Function]}
-                      type="checkbox"
-                      value="true"
-                    />
-                    <span
-                      className="cb-l"
-                    >
-                      I understand that this order has
-                       
-                      <strong>
-                        pending death certificates
-                      </strong>
-                      , which may not be accepted by insurance or banking companies.
-                    </span>
-                  </label>
-                </div>
+                      <td
+                        className="jsx-4244768073 sh-title"
+                      >
+                        Total
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                      >
+                        $
+                        114.66
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </div>
+            <div
+              className="m-v700"
+            >
               <div
-                className="t--info m-v300"
-                id="charge-message"
+                className="t--info"
               >
-                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+                You have to read and accept these checkboxes before you place your order:
               </div>
               <div
                 className="m-v300"
               >
-                <button
-                  aria-describedby="charge-message"
-                  className="btn"
-                  disabled={true}
-                  style={
-                    Object {
-                      "display": "block",
-                      "width": "100%",
-                    }
-                  }
-                  type="submit"
+                <label
+                  className="cb"
                 >
-                  Submit Order
-                </button>
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that
+                     
+                    <strong>
+                      death certificates are non-refundable
+                    </strong>
+                    .
+                  </span>
+                </label>
               </div>
               <div
-                className="ta-c t--info m-v700"
+                className="m-v300"
               >
-                <a
-                  href="/death"
-                  onClick={[Function]}
+                <label
+                  className="cb"
                 >
-                  I’m not done yet, go back to search
-                </a>
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptPendingCertificatesInput"
+                    name="acceptPendingCertificates"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that this order has
+                     
+                    <strong>
+                      pending death certificates
+                    </strong>
+                    , which may not be accepted by insurance or banking companies.
+                  </span>
+                </label>
               </div>
-            </form>
-          </div>
-          <div
-            className="b--g m-t700"
-          >
+            </div>
             <div
-              className="b-c b-c--smv b-c--hsm t--subinfo"
+              className="t--info m-v300"
+              id="charge-message"
+            >
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+            </div>
+            <div
+              className="m-v300"
+            >
+              <button
+                aria-describedby="charge-message"
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "display": "block",
+                    "width": "100%",
+                  }
+                }
+                type="submit"
+              >
+                Submit Order
+              </button>
+            </div>
+            <div
+              className="ta-c t--info m-v700"
             >
               <a
-                name="service-fee"
-              />
-              * You are charged an extra service fee of not more than
-               
-              $0.25
-               plus 
-              2.15%
-              . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
-               
-              <a
-                href="https://www.boston.gov/"
+                href="/death"
+                onClick={[Function]}
               >
-                credit card service fees
+                I’m not done yet, go back to search
               </a>
-               at the City of Boston.
             </div>
+          </form>
+        </div>
+        <div
+          className="b--g m-t700"
+        >
+          <div
+            className="b-c b-c--smv b-c--hsm t--subinfo"
+          >
+            <a
+              name="service-fee"
+            />
+            * You are charged an extra service fee of not more than
+             
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
           </div>
         </div>
       </main>
@@ -11000,418 +11303,416 @@ exports[`Storyshots ReviewContent default 1`] = `
       <main
         className="jsx-3465476614 b-ff"
       >
-        <div>
+        <div
+          className="b-c b-c--hsm b-c--nbp"
+        >
           <div
-            className="b-c b-c--hsm b-c--nbp"
+            className="sh sh--b0"
+          >
+            <h1
+              className="sh-title"
+            >
+              Review Order
+            </h1>
+          </div>
+          <div
+            className="t--info m-v500"
+          >
+            Your order is not yet complete. Please check the information below, then click the 
+            <b>
+              Submit Order
+            </b>
+             button.
+          </div>
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={[Function]}
           >
             <div
-              className="sh sh--b0"
+              className="m-v700"
             >
-              <h1
-                className="sh-title"
+              <div
+                className="fs-l"
               >
-                Review Order
-              </h1>
+                <div
+                  className="fs-l-c"
+                >
+                  Order details
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit order details"
+                        href="/death/cart"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                  >
+                    BRUCE
+                     
+                    BANNER
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    3/4/2016
+                     — Age: 53
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  5
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                  >
+                    MONKEY
+                     
+                    JOE
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    2004
+                     — Age: 6
+                  </div>
+                </div>
+              </div>
             </div>
             <div
-              className="t--info m-v500"
+              className="m-v700"
             >
-              Your order is not yet complete. Please check the information below, then click the 
-              <b>
-                Submit Order
-              </b>
-               button.
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Shipping Address
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit shipping address"
+                        href="/death/checkout"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Doreen Green
+                <br />
+                Empire State University
+                <br />
+                Dorm Hall, Apt 5
+                <br />
+                10 College Avenue
+                <br />
+                New York, NY 12345
+              </div>
             </div>
-            <form
-              acceptCharset="UTF-8"
-              method="post"
-              onSubmit={[Function]}
+            <div
+              className="fs m-v700"
             >
               <div
-                className="m-v700"
+                className="fs-l"
               >
                 <div
-                  className="fs-l"
+                  className="fs-l-c"
                 >
-                  <div
-                    className="fs-l-c"
+                  Payment Information
+                  <span
+                    className="t--reset"
                   >
-                    Order details
+                     — 
                     <span
-                      className="t--reset"
+                      className="t--subinfo"
                     >
-                       — 
-                      <span
-                        className="t--subinfo"
+                      <a
+                        aria-label="Edit payment information"
+                        href="/death/checkout"
+                        onClick={[Function]}
                       >
-                        <a
-                          aria-label="Edit order details"
-                          href="/death/cart"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
+                        edit
+                      </a>
                     </span>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    1
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      BRUCE
-                       
-                      BANNER
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      3/4/2016
-                       — Age: 53
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    5
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      MONKEY
-                       
-                      JOE
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      2004
-                       — Age: 6
-                    </div>
-                  </div>
+                  </span>
                 </div>
               </div>
               <div
-                className="m-v700"
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
-                <div
-                  className="fs-l"
-                >
-                  <div
-                    className="fs-l-c"
-                  >
-                    Shipping Address
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit shipping address"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="t--info"
+                Nancy Whitehead
+                <br />
+                **** **** **** 
+                4040
+                <br />
+                3 Avengers Towers
+                <br />
+                New York
+                , 
+                NY
+                 
+                12223
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="jsx-4244768073 clearfix"
+              >
+                <table
+                  className="jsx-4244768073 t--info ta-r"
                   style={
                     Object {
-                      "fontStyle": "normal",
+                      "float": "right",
                     }
                   }
                 >
-                  Doreen Green
-                  <br />
-                  Empire State University
-                  <br />
-                  Dorm Hall, Apt 5
-                  <br />
-                  10 College Avenue
-                  <br />
-                  New York, NY 12345
-                </div>
-              </div>
-              <div
-                className="fs m-v700"
-              >
-                <div
-                  className="fs-l"
-                >
-                  <div
-                    className="fs-l-c"
+                  <tbody
+                    className="jsx-4244768073"
                   >
-                    Payment Information
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit payment information"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                    }
-                  }
-                >
-                  Nancy Whitehead
-                  <br />
-                  **** **** **** 
-                  4040
-                  <br />
-                  3 Avengers Towers
-                  <br />
-                  New York
-                  , 
-                  NY
-                   
-                  12223
-                </div>
-              </div>
-              <div
-                className="m-v500"
-              >
-                <div
-                  className="jsx-4244768073 clearfix"
-                >
-                  <table
-                    className="jsx-4244768073 t--info ta-r"
-                    style={
-                      Object {
-                        "float": "right",
-                      }
-                    }
-                  >
-                    <tbody
+                    <tr
                       className="jsx-4244768073"
                     >
-                      <tr
+                      <td
                         className="jsx-4244768073"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          6
-                           
-                          certificates
-                           ×
-                           
-                          $14.00
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          84.00
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
+                        6
+                         
+                        certificates
+                         ×
+                         
+                        $14.00
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          <span>
-                            Credit card service fee 
-                            <a
-                              href="#service-fee"
-                            >
-                              *
-                            </a>
-                          </span>
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          2.06
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
-                      >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          Shipping within the U.S.
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          <i
-                            className="jsx-4244768073"
-                          >
-                            included
-                          </i>
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
-                      >
-                        <td
-                          className="jsx-4244768073 sh-title"
-                        >
-                          Total
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
-                        >
-                          $
-                          86.06
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div
-                className="m-v700"
-              >
-                <div
-                  className="t--info"
-                >
-                  You have to read and accept this checkbox before you place your order:
-                </div>
-                <div
-                  className="m-v300"
-                >
-                  <label
-                    className="cb"
-                  >
-                    <input
-                      checked={false}
-                      className="cb-f"
-                      id="acceptNonRefundableInput"
-                      name="acceptNonRefundable"
-                      onChange={[Function]}
-                      type="checkbox"
-                      value="true"
-                    />
-                    <span
-                      className="cb-l"
+                        $
+                        84.00
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
                     >
-                      I understand that
-                       
-                      <strong>
-                        death certificates are non-refundable
-                      </strong>
-                      .
-                    </span>
-                  </label>
-                </div>
+                      <td
+                        className="jsx-4244768073"
+                      >
+                        <span>
+                          Credit card service fee 
+                          <a
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </span>
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        $
+                        2.06
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
+                        className="jsx-4244768073"
+                      >
+                        Shipping within the U.S.
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        <i
+                          className="jsx-4244768073"
+                        >
+                          included
+                        </i>
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
+                        className="jsx-4244768073 sh-title"
+                      >
+                        Total
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                      >
+                        $
+                        86.06
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </div>
+            <div
+              className="m-v700"
+            >
               <div
-                className="t--info m-v300"
-                id="charge-message"
+                className="t--info"
               >
-                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+                You have to read and accept this checkbox before you place your order:
               </div>
               <div
                 className="m-v300"
               >
-                <button
-                  aria-describedby="charge-message"
-                  className="btn"
-                  disabled={true}
-                  style={
-                    Object {
-                      "display": "block",
-                      "width": "100%",
-                    }
-                  }
-                  type="submit"
+                <label
+                  className="cb"
                 >
-                  Submit Order
-                </button>
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that
+                     
+                    <strong>
+                      death certificates are non-refundable
+                    </strong>
+                    .
+                  </span>
+                </label>
               </div>
-              <div
-                className="ta-c t--info m-v700"
-              >
-                <a
-                  href="/death"
-                  onClick={[Function]}
-                >
-                  I’m not done yet, go back to search
-                </a>
-              </div>
-            </form>
-          </div>
-          <div
-            className="b--g m-t700"
-          >
+            </div>
             <div
-              className="b-c b-c--smv b-c--hsm t--subinfo"
+              className="t--info m-v300"
+              id="charge-message"
+            >
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+            </div>
+            <div
+              className="m-v300"
+            >
+              <button
+                aria-describedby="charge-message"
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "display": "block",
+                    "width": "100%",
+                  }
+                }
+                type="submit"
+              >
+                Submit Order
+              </button>
+            </div>
+            <div
+              className="ta-c t--info m-v700"
             >
               <a
-                name="service-fee"
-              />
-              * You are charged an extra service fee of not more than
-               
-              $0.25
-               plus 
-              2.15%
-              . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
-               
-              <a
-                href="https://www.boston.gov/"
+                href="/death"
+                onClick={[Function]}
               >
-                credit card service fees
+                I’m not done yet, go back to search
               </a>
-               at the City of Boston.
             </div>
+          </form>
+        </div>
+        <div
+          className="b--g m-t700"
+        >
+          <div
+            className="b-c b-c--smv b-c--hsm t--subinfo"
+          >
+            <a
+              name="service-fee"
+            />
+            * You are charged an extra service fee of not more than
+             
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
           </div>
         </div>
       </main>
@@ -11657,441 +11958,439 @@ exports[`Storyshots ReviewContent submission error 1`] = `
       <main
         className="jsx-3465476614 b-ff"
       >
-        <div>
+        <div
+          className="b-c b-c--hsm b-c--nbp"
+        >
           <div
-            className="b-c b-c--hsm b-c--nbp"
+            className="sh sh--b0"
+          >
+            <h1
+              className="sh-title"
+            >
+              Review Order
+            </h1>
+          </div>
+          <div
+            className="t--info m-v500"
+          >
+            Your order is not yet complete. Please check the information below, then click the 
+            <b>
+              Submit Order
+            </b>
+             button.
+          </div>
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={[Function]}
           >
             <div
-              className="sh sh--b0"
+              className="m-v700"
             >
-              <h1
-                className="sh-title"
+              <div
+                className="fs-l"
               >
-                Review Order
-              </h1>
+                <div
+                  className="fs-l-c"
+                >
+                  Order details
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit order details"
+                        href="/death/cart"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  1
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                  >
+                    BRUCE
+                     
+                    BANNER
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    3/4/2016
+                     — Age: 53
+                  </div>
+                </div>
+              </div>
+              <div
+                className="jsx-947238363 p-v200 br b--w row "
+              >
+                <div
+                  aria-label="Quantity"
+                  className="t--sans p-a300"
+                  style={
+                    Object {
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  5
+                   ×
+                </div>
+                <div
+                  className="jsx-2577800471 certificate-info-box"
+                >
+                  <div
+                    className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
+                  >
+                    MONKEY
+                     
+                    JOE
+                  </div>
+                  <div
+                    className="jsx-2577800471 certificate-subinfo"
+                  >
+                    Died: 
+                    2004
+                     — Age: 6
+                  </div>
+                </div>
+              </div>
             </div>
             <div
-              className="t--info m-v500"
+              className="m-v700"
             >
-              Your order is not yet complete. Please check the information below, then click the 
-              <b>
-                Submit Order
-              </b>
-               button.
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Shipping Address
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit shipping address"
+                        href="/death/checkout"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Doreen Green
+                <br />
+                Empire State University
+                <br />
+                Dorm Hall, Apt 5
+                <br />
+                10 College Avenue
+                <br />
+                New York, NY 12345
+              </div>
             </div>
-            <form
-              acceptCharset="UTF-8"
-              method="post"
-              onSubmit={[Function]}
+            <div
+              className="fs m-v700"
             >
               <div
-                className="m-v700"
+                className="fs-l"
               >
                 <div
-                  className="fs-l"
+                  className="fs-l-c"
                 >
-                  <div
-                    className="fs-l-c"
+                  Payment Information
+                  <span
+                    className="t--reset"
                   >
-                    Order details
+                     — 
                     <span
-                      className="t--reset"
+                      className="t--subinfo"
                     >
-                       — 
-                      <span
-                        className="t--subinfo"
+                      <a
+                        aria-label="Edit payment information"
+                        href="/death/checkout"
+                        onClick={[Function]}
                       >
-                        <a
-                          aria-label="Edit order details"
-                          href="/death/cart"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
+                        edit
+                      </a>
                     </span>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    1
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      BRUCE
-                       
-                      BANNER
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      3/4/2016
-                       — Age: 53
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="jsx-947238363 p-v200 br b--w row "
-                >
-                  <div
-                    aria-label="Quantity"
-                    className="t--sans p-a300"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                      }
-                    }
-                  >
-                    5
-                     ×
-                  </div>
-                  <div
-                    className="jsx-2577800471 certificate-info-box"
-                  >
-                    <div
-                      className="jsx-2577800471 t--sans m-v100 thin-certificate-name"
-                    >
-                      MONKEY
-                       
-                      JOE
-                    </div>
-                    <div
-                      className="jsx-2577800471 certificate-subinfo"
-                    >
-                      Died: 
-                      2004
-                       — Age: 6
-                    </div>
-                  </div>
+                  </span>
                 </div>
               </div>
               <div
-                className="m-v700"
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
-                <div
-                  className="fs-l"
-                >
-                  <div
-                    className="fs-l-c"
-                  >
-                    Shipping Address
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit shipping address"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="t--info"
+                Nancy Whitehead
+                <br />
+                **** **** **** 
+                4040
+                <br />
+                3 Avengers Towers
+                <br />
+                New York
+                , 
+                NY
+                 
+                12223
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="jsx-4244768073 clearfix"
+              >
+                <table
+                  className="jsx-4244768073 t--info ta-r"
                   style={
                     Object {
-                      "fontStyle": "normal",
+                      "float": "right",
                     }
                   }
                 >
-                  Doreen Green
-                  <br />
-                  Empire State University
-                  <br />
-                  Dorm Hall, Apt 5
-                  <br />
-                  10 College Avenue
-                  <br />
-                  New York, NY 12345
-                </div>
-              </div>
-              <div
-                className="fs m-v700"
-              >
-                <div
-                  className="fs-l"
-                >
-                  <div
-                    className="fs-l-c"
+                  <tbody
+                    className="jsx-4244768073"
                   >
-                    Payment Information
-                    <span
-                      className="t--reset"
-                    >
-                       — 
-                      <span
-                        className="t--subinfo"
-                      >
-                        <a
-                          aria-label="Edit payment information"
-                          href="/death/checkout"
-                          onClick={[Function]}
-                        >
-                          edit
-                        </a>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                    }
-                  }
-                >
-                  Nancy Whitehead
-                  <br />
-                  **** **** **** 
-                  4040
-                  <br />
-                  3 Avengers Towers
-                  <br />
-                  New York
-                  , 
-                  NY
-                   
-                  12223
-                </div>
-              </div>
-              <div
-                className="m-v500"
-              >
-                <div
-                  className="jsx-4244768073 clearfix"
-                >
-                  <table
-                    className="jsx-4244768073 t--info ta-r"
-                    style={
-                      Object {
-                        "float": "right",
-                      }
-                    }
-                  >
-                    <tbody
+                    <tr
                       className="jsx-4244768073"
                     >
-                      <tr
+                      <td
                         className="jsx-4244768073"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          6
-                           
-                          certificates
-                           ×
-                           
-                          $14.00
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          84.00
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
+                        6
+                         
+                        certificates
+                         ×
+                         
+                        $14.00
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
                       >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          <span>
-                            Credit card service fee 
-                            <a
-                              href="#service-fee"
-                            >
-                              *
-                            </a>
-                          </span>
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          $
-                          2.06
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
-                      >
-                        <td
-                          className="jsx-4244768073"
-                        >
-                          Shipping within the U.S.
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell"
-                        >
-                          <i
-                            className="jsx-4244768073"
-                          >
-                            included
-                          </i>
-                        </td>
-                      </tr>
-                      <tr
-                        className="jsx-4244768073"
-                      >
-                        <td
-                          className="jsx-4244768073 sh-title"
-                        >
-                          Total
-                        </td>
-                        <td
-                          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
-                        >
-                          $
-                          86.06
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div
-                className="m-v500 p-a300 br br-a100 br--r"
-                id="processing-error"
-              >
-                <div
-                  className="t--intro t--err"
-                >
-                  There was an error: 
-                  The order could not be processed.
-                </div>
-                <div
-                  className="t--info"
-                >
-                  You can try again. If it keeps happening, please email
-                   
-                  <a
-                    href="mailto:digital@boston.gov"
-                  >
-                    digital@boston.gov
-                  </a>
-                  .
-                </div>
-              </div>
-              <div
-                className="m-v700"
-              >
-                <div
-                  className="t--info"
-                >
-                  You have to read and accept this checkbox before you place your order:
-                </div>
-                <div
-                  className="m-v300"
-                >
-                  <label
-                    className="cb"
-                  >
-                    <input
-                      checked={false}
-                      className="cb-f"
-                      id="acceptNonRefundableInput"
-                      name="acceptNonRefundable"
-                      onChange={[Function]}
-                      type="checkbox"
-                      value="true"
-                    />
-                    <span
-                      className="cb-l"
+                        $
+                        84.00
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
                     >
-                      I understand that
-                       
-                      <strong>
-                        death certificates are non-refundable
-                      </strong>
-                      .
-                    </span>
-                  </label>
-                </div>
+                      <td
+                        className="jsx-4244768073"
+                      >
+                        <span>
+                          Credit card service fee 
+                          <a
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </span>
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        $
+                        2.06
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
+                        className="jsx-4244768073"
+                      >
+                        Shipping within the U.S.
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell"
+                      >
+                        <i
+                          className="jsx-4244768073"
+                        >
+                          included
+                        </i>
+                      </td>
+                    </tr>
+                    <tr
+                      className="jsx-4244768073"
+                    >
+                      <td
+                        className="jsx-4244768073 sh-title"
+                      >
+                        Total
+                      </td>
+                      <td
+                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                      >
+                        $
+                        86.06
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              className="m-v500 p-a300 br br-a100 br--r"
+              id="processing-error"
+            >
+              <div
+                className="t--intro t--err"
+              >
+                There was an error: 
+                The order could not be processed.
               </div>
               <div
-                className="t--info m-v300"
-                id="charge-message"
+                className="t--info"
               >
-                Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+                You can try again. If it keeps happening, please email
+                 
+                <a
+                  href="mailto:digital@boston.gov"
+                >
+                  digital@boston.gov
+                </a>
+                .
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="t--info"
+              >
+                You have to read and accept this checkbox before you place your order:
               </div>
               <div
                 className="m-v300"
               >
-                <button
-                  aria-describedby="processing-error"
-                  className="btn"
-                  disabled={true}
-                  style={
-                    Object {
-                      "display": "block",
-                      "width": "100%",
-                    }
-                  }
-                  type="submit"
+                <label
+                  className="cb"
                 >
-                  Submit Order
-                </button>
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that
+                     
+                    <strong>
+                      death certificates are non-refundable
+                    </strong>
+                    .
+                  </span>
+                </label>
               </div>
-              <div
-                className="ta-c t--info m-v700"
-              >
-                <a
-                  href="/death"
-                  onClick={[Function]}
-                >
-                  I’m not done yet, go back to search
-                </a>
-              </div>
-            </form>
-          </div>
-          <div
-            className="b--g m-t700"
-          >
+            </div>
             <div
-              className="b-c b-c--smv b-c--hsm t--subinfo"
+              className="t--info m-v300"
+              id="charge-message"
+            >
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+            </div>
+            <div
+              className="m-v300"
+            >
+              <button
+                aria-describedby="processing-error"
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "display": "block",
+                    "width": "100%",
+                  }
+                }
+                type="submit"
+              >
+                Submit Order
+              </button>
+            </div>
+            <div
+              className="ta-c t--info m-v700"
             >
               <a
-                name="service-fee"
-              />
-              * You are charged an extra service fee of not more than
-               
-              $0.25
-               plus 
-              2.15%
-              . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
-               
-              <a
-                href="https://www.boston.gov/"
+                href="/death"
+                onClick={[Function]}
               >
-                credit card service fees
+                I’m not done yet, go back to search
               </a>
-               at the City of Boston.
             </div>
+          </form>
+        </div>
+        <div
+          className="b--g m-t700"
+        >
+          <div
+            className="b-c b-c--smv b-c--hsm t--subinfo"
+          >
+            <a
+              name="service-fee"
+            />
+            * You are charged an extra service fee of not more than
+             
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              href="https://www.boston.gov/"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
           </div>
         </div>
       </main>
@@ -12267,20 +12566,20 @@ exports[`Storyshots SearchPage no results 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -12660,20 +12959,20 @@ exports[`Storyshots SearchPage no search 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >
@@ -13012,20 +13311,20 @@ exports[`Storyshots SearchPage with results 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1795526402 nv-s nv-s--sticky"
+        className="jsx-1730659780 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1795526402 nv-s-l bar"
+          className="jsx-1730659780 nv-s-l bar"
         >
           <a
-            className="jsx-1795526402 nv-s-l-b back-link back-link-right"
+            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
             View Cart
           </a>
           <a
-            className="jsx-1795526402 cart-link"
+            className="jsx-1730659780 cart-link"
             href="/death/cart"
             onClick={[Function]}
           >

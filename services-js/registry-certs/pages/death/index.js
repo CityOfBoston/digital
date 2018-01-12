@@ -1,4 +1,4 @@
 // @flow
 
 import '../../client/start';
-export default require('../../client/death/SearchPage').default;
+export default require('../../client/death/search/SearchPage').default;

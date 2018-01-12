@@ -6,7 +6,11 @@ import type { DeathCertificate } from '../types';
 
 import fetchDeathCertificates from '../queries/fetch-death-certificates';
 import searchDeathCertificates from '../queries/search-death-certificates';
-import type { DeathCertificateSearchResults } from '../types';
+import lookupDeathCertificateOrder from '../queries/lookup-death-certificate-order';
+import type {
+  DeathCertificateSearchResults,
+  DeathCertificateOrder,
+} from '../types';
 
 export type DeathCertificateCache = { [id: string]: DeathCertificate };
 
@@ -46,6 +50,13 @@ export default class DeathCertificatesDao {
     });
 
     return results;
+  }
+
+  async lookupOrder(
+    id: string,
+    contactEmail: string
+  ): Promise<?DeathCertificateOrder> {
+    return lookupDeathCertificateOrder(this.loopbackGraphql, id, contactEmail);
   }
 
   parseQuery(
