@@ -1,10 +1,10 @@
 class CodeRed
   include HTTParty
   base_uri ENV['API_BASE']
-  debug_output
+  debug_output if Rails.env.development?
 
   def initialize
-    post_response = self.class.post(
+    login_response = self.class.post(
       '/api/login',
       body: {
         username: ENV['API_USER'],
@@ -12,16 +12,16 @@ class CodeRed
       }
     )
 
-    @cookie = post_response.header['Set-Cookie']
+    @cookie = login_response.header['Set-Cookie']
   end
 
-  def add_contact(contact)
+  def add_contact(subscription)
     contact_response = self.class.post(
       '/api/contacts',
       headers: {
         'Cookie' => @cookie
       },
-      body: create_contact_for_post(contact)
+      body: create_contact_for_post(subscription)
     )
 
     if contact_response.code == 201
@@ -48,19 +48,17 @@ class CodeRed
 
   private
 
-    def create_contact_for_post(contact)
-      created_contact = {
+    def create_contact_for_post(subscription)
+      return {
         'CustomKey' => SecureRandom.hex,
-        'HomeEmail' => contact.email,
-        'FirstName' => contact.first_name,
-        'LastName' => contact.last_name,
-        'HomePhone' => contact.call ? contact.phone_number : '',
-        'TextNumber' => contact.text ? contact.phone_number : '',
+        'HomeEmail' => subscription.email,
+        'FirstName' => subscription.first_name,
+        'LastName' => subscription.last_name,
+        'HomePhone' => subscription.call ? subscription.phone_number : '',
+        'TextNumber' => subscription.text ? subscription.phone_number : '',
         'MobileProvider' => 'Sprint',
-        'Zip' => contact.zip,
+        'Zip' => subscription.zip,
         'Groups' => ENV['API_GROUPS']
       }
-
-      created_contact
     end
 end

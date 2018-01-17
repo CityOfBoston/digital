@@ -1,34 +1,31 @@
 require 'test_helper'
 
 class SubscriptionTest < ActiveSupport::TestCase
-  test "should not save subscription without email or phone" do
+  test "should not validate subscription without email or phone" do
     subscripton = Subscription.new
-    subscripton.call = true
+    subscripton.call = '1'
     subscripton.first_name = 'Elah'
-    assert_not subscripton.save
+    assert_not subscripton.valid?
   end
 
-  test "should not save subscription without call or text" do
+  test "should not validate subscription without call or text" do
     subscripton = Subscription.new
-    subscripton.call = false
-    subscripton.text = false
     subscripton.first_name = 'Elah'
     subscripton.email = 'e@e.com'
-    assert_not subscripton.save
+    assert_not subscripton.valid?
   end
 
-  test "should not save subscription without valid email" do
+  test "should not validate subscription without valid email" do
     subscripton = Subscription.new
-    subscripton.call = true
-    subscripton.text = false
+    subscripton.call = '1'
     subscripton.first_name = 'Elah'
     subscripton.email = 'e'
-    assert_not subscripton.save
+    assert_not subscripton.valid?
     subscripton.email = 'e@io'
-    assert_not subscripton.save
+    assert_not subscripton.valid?
     subscripton.email = 'e@example.com'
-    assert subscripton.save
+    assert subscripton.valid?
     subscripton.email = 'e@example.io'
-    assert subscripton.save
+    assert subscripton.valid?
   end
 end

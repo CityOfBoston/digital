@@ -22,3 +22,5 @@
 
 .byebug_history
 .env
+server.key
+server.crt

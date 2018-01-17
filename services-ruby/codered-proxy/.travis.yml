@@ -1,15 +1,27 @@
 language: ruby
 dist: trusty
-group: edge
+services:
+- docker
 rvm:
 - 2.4.0
+branches:
+  only:
+  - production
+  - staging
+before_deploy:
+- pip install --upgrade --user awscli
 deploy:
-  provider: heroku
-  app: cob-oemalerts
-  on: master
-  api_key:
-    secure: NN2/QITclzWys5vSO2TtxTzXVSujRRbcSq58qxW+s5SfWgMrpF3fzTYDe5cPjyiYBoto8palLVBYtX2qUvxQs6DaKShvbcB7V0vDgD140m0kd2Xp86kkgAjpb68Fprf4hhi5rYYhI7uD07nUyLG1xtsyn4Bpvsnil1scLntMDUOxwAf8CnS6ATqHhyfKZBCqL3tQ8TUF/chdokQExjWMXyrg/34WDlLQL/plCjJBvv3xgK2ezXCLUVjz2YDX10/FCdmuRP8RvPT3SjfGMNu1dW12few4DqcyE2k80uTpuQv++6vj2SbdcPH1ceFiyjqcjCGetIQ/MUXZr5SqDPToNY90/enBlmBADI8OhZoegBbOGfH9selOSJYb7B3r06pP835aJqPIpoYDDqxik9lPN+Dgzg7VITgeGTl5D+mUarcANRxfk8B3kOAw8T+WxdkizujbB2qbPBdrbWePJW8KM47AGR05JyxUskcDnkaH1FU/yL/czIoiGGybfTWysKkn5+kB7RtERkarRXNrbHWp0QGa1cGYdM5/cWF7UeYpHpsReckLB9QU+ILxRkk4gGIWcGVw0+QRnpQMcwJeVjupudhhZO4E6NbY5CGkYRePkV7iNO2tYaz6u0JiXgRUNmEf86Nun8COt4+9hBQNrk1JWBw8GE7KdMxWQIXXeuz+ERQ=
+- provider: script
+  script: "./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK $STAGING_REPOSITORY_NAME
+    $STAGING_DESIRED_COUNT"
+  on:
+    branch: staging
+- provider: script
+  script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME
+    $PROD_DESIRED_COUNT"
+  on:
+    branch: production
 notifications:
   slack:
     rooms:
-      secure: gPhEynppOhpFZHSI3ApEtybsk3We4sfggKrliXzWNR9qGFRBE2ZIxWigejO3g7NX6+gRa6EQwnFAOJNnfwDYBUCGGA4ybaShqukwtsol639B2obXUkwc+b5vfMh0GqTo8yasnv3YWHJjOXba2yhYaBG3foeBPHkG7vW5dKUUv0bj8WczKAIvO5Je0N6V0RVjKooikeEkmf7ZUF6QZRtBaRVfUoLBo9KShkzIBXiw+/nLj961ZAefoCSyCKjZgJx3cYlupK7r2BEcpmL9V1NoXgP+nEACZhWVvWUgHjkhmq4UPX+k1gSvFbv4Owp+FPqUfkwPVyabdxU9sWCIDCOE57G0zRPd4eEAuUQkWiADOX1ghhuA6bLCbcl8Lt1TxMETvoTl7P2iyEgXTZb8SBjYw5LELbGjMoalCd7cfIi5lZC9I6ppzS2mJ96fRraAJgyMmSdtywZicQ/YtwELW5Bv5yJuFk2qKISrKiRj6bWlUhte/hachH3boCU7iGwCcjDsRA/7LY/Q0MmZBHTOH4SODuOpO72ZVJWg76nuU6oXQrik4yd3KoW7+aeh+Syv+ZWOihjL9VgaheAxVCAI7/KCb8VsF7ig/Qc0N/ovrC81xAwas+6VeUfm+puPV77Y7O7nzhuaUQFrL9vJQ3GcIOCOPST3uKnhl2VhrfpaSQqgKpA=
+      secure: dVPv78QG9xrCr5TnS9GdTGlZ0hcuWD8VWmRSLzi8/hSVOHO5VuThqxzTuSD/Ewne1XUds+w7NtrD4QAWq8+fl6fl41c0xvwD3TnKhk3gA5JVugeKwllJyoqLdDKdLf7VBPwB3zV+uOf9ytcyUbAhe8MXHZAK6xem5ExB/KqNZ/G4R8W4mAKnHTtTCDr6QmVHaLOfarMm4FWckWfyQGPRJhH0NQjrNSfHbv7CYhfLFKDxaCh0nnU/cddlaxx9Lv7+V64w1elJZXJSvUJ3f1m0he5aKQJ9W/uTfP6EVU5LzXah8wgHy6N5H+xvmWNXzhORyEHBBgwlXgp8dY/CS6N7H/rv3iTzKVfOAD0zzH3kYRIc05KVdx3O9MZHkf9RNXDHtyleHura//VJG/EOT8aV7z6ijg+1fcv678U0Bbu5LDdB+sewCMJfFQFm30s2kQJgiXc9wyPRrRlRzeoNB2+lHfoaeRIngxNQuyCZzvgSGRaVK24i1pCwPAscnOsTI4oTW2tCAbth64z9WSfG2kBqh52/O63eg8q7mIrt/c/EDu4ZQC4pWrB+hkKg2gkhiGwGfSagkXU/9ts8FdzXAP/iamujG7JIHv1MXhCNVjLmpip80K4sfeKC3cNQMfhKUVqFBliNjgvqe0fjFpdea7rs4ToGDHr0HQVxyDZIN82QBO0=
