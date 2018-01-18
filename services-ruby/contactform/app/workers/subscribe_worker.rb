@@ -1,20 +1,28 @@
 class SubscribeWorker
   include Sidekiq::Worker
 
-  def perform(subscriber, list)
+  def perform(profile_id, list)
     bot = SubscribeBot.new
 
-    # Add the subscriber
-    subscriber_check = bot.check_subscriber(subscriber)
+    check_response = bot.check_subscriber(profile_id)
+    
+    if check_response.code === 200
+      upankee_subscriber = Hash.from_xml(check_response.body)
 
-    if subscriber_check.code === 200
-      subscription = bot.add_subscription(subscriber, list)
+      # Handles the case where the email address was sent a
+      # verification email in the past that it never responded
+      # to. Resubscribe causes another email to be sent.
+      if upankee_subscriber["subscriber"]["status"] === 'pending'
+        bot.resubscribe(profile_id)
+      end
+
+      bot.add_subscription(profile_id, list)
     else
-      subscriber = Subscriber.find_by(profile_id: subscriber)
-      subscriber_check = bot.create_subscriber(subscriber)
+      subscriber = Subscriber.find_by!(profile_id: profile_id)
+      create_response = bot.create_subscriber(subscriber)
 
-      if subscriber_check.code === 201
-        subscription = bot.add_subscription(subscriber.profile_id, list)
+      if create_response.code === 201
+        bot.add_subscription(subscriber.profile_id, list)
       end
     end
   end

@@ -31,3 +31,11 @@
 
 Putting the dump file in the config bucket is a simple way to get it loaded into
 a container.
+
+### Testing
+
+#### Upaknee subscriptions
+
+```
+curl -k -X POST -d "subscriber[email]=XXXXXXX" -d "subscriber[zipcode]=02201" 'https://localhost:5000/subscriptions?list=2' 
+```
