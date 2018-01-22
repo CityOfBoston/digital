@@ -9950,7 +9950,7 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
       <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Date:</b> <i>1/8/2018 2:05PM</i><br>
                 <b>Order #:</b> <i>RG-DC201801-100001</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
       </td><td style=\\"vertical-align:top;width:300px;\\">
-      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your shipping information:</b><br>
+      <![endif]--><div class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Shipping information:</b><br>
                 <i>Nancy Whitehead<br>
                 
                 123 Fake St.<br>
@@ -9966,7 +9966,7 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
       <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
         <tr>
           <td style=\\"vertical-align:top;width:600px;\\">
-      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;\\"><b>Your order:</b></div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"cellspacing:0px;color:#000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;\\" width=\\"100%\\" border=\\"0\\"><tbody><tr>
+      <![endif]--><div class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px 25px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:18px;line-height:1.8;text-align:left;\\"><b>Order:</b></div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"cellspacing:0px;color:#000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;\\" width=\\"100%\\" border=\\"0\\"><tbody><tr>
                   <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe (#555000)</i></td>
                   <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
@@ -9980,12 +9980,12 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
                   <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$140.00</b></td>
                 </tr>
                 <tr>
-                  <td style=\\"background-color: #d2d2d2; padding: 0 25px\\"><i>Card service fee*</i></td>
-                  <td style=\\"background-color: #d2d2d2; padding: 0 25px\\" align=\\"right\\"><b>$1.32</b></td>
+                  <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
+                  <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$1.32</b></td>
                 </tr>
                 <tr>
-                  <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
                 </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">Your order will be shipped within 1–2 business days via USPS.</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
                 $0.25 plus 2.15%. This fee goes directly to a third party to
                 pay for the cost of card processing. Learn more about <a href=\\"https://www.boston.gov/\\">card service fees</a> at the City
@@ -10066,25 +10066,25 @@ If you have any issues or questions, contact the Registry at
 
 exports[`Storyshots ReceiptPage default 1`] = `
 <div
-  className="jsx-3488182405 b-ff"
+  className="jsx-833761660 b-ff"
 >
   <div
-    className="jsx-3488182405 b-c b-c--hsm b-ff"
+    className="jsx-833761660 b-c b-c--hsm b-ff"
   >
     <div
-      className="jsx-3488182405 lo m-b300 logo-holder"
+      className="jsx-833761660 lo m-b300 logo-holder"
     >
       <span
-        className="jsx-3488182405 lo-l"
+        className="jsx-833761660 lo-l"
       >
         <img
           alt="City of Boston"
-          className="jsx-3488182405 lo-i"
+          className="jsx-833761660 lo-i"
           src="https://patterns.boston.gov/images/public/logo.svg"
         />
       </span>
       <a
-        className="jsx-3488182405 print-button"
+        className="jsx-833761660 print-button"
         href="javascript:void(0)"
         onClick={[Function]}
         style={
@@ -10097,230 +10097,274 @@ exports[`Storyshots ReceiptPage default 1`] = `
       </a>
     </div>
     <div
-      className="jsx-3488182405 b--g p-a300 br br-a200"
+      className="jsx-833761660 b--g br br-a200"
     >
       <div
-        className="jsx-3488182405 sh sh--sm"
-      >
-        <h1
-          className="jsx-3488182405 sh-title"
-        >
-          Thank you for your order
-        </h1>
-      </div>
-      <div
-        className="jsx-3488182405 m-v300 t--cb"
+        className="jsx-833761660 p-a300"
+        style={
+          Object {
+            "paddingBottom": 0,
+          }
+        }
       >
         <div
-          className="jsx-3488182405 g"
+          className="jsx-833761660 sh sh--sm"
         >
-          <div
-            className="jsx-3488182405 g--6"
+          <h1
+            className="jsx-833761660 sh-title"
           >
-            <div
-              className="jsx-3488182405 m-t200"
-            >
-              <span
-                className="jsx-3488182405 receipt-title"
-              >
-                Date:
-              </span>
-               
-              <span
-                className="jsx-3488182405 receipt-value"
-              >
-                1/8/2018 2:05PM
-              </span>
-            </div>
-            <div
-              className="jsx-3488182405 m-t200"
-            >
-              <span
-                className="jsx-3488182405 receipt-title"
-              >
-                Order #:
-              </span>
-               
-              <span
-                className="jsx-3488182405 receipt-value"
-              >
-                RG-DC201801-360926
-              </span>
-            </div>
-          </div>
-          <div
-            className="jsx-3488182405 g--6"
-          >
-            <div
-              className="jsx-3488182405 m-t200 receipt-title"
-            >
-              Your shipping information:
-            </div>
-            <div
-              className="jsx-3488182405 receipt-value"
-            >
-              Squirrel Girl
-              <br
-                className="jsx-3488182405"
-              />
-              US Avengers
-              <br
-                className="jsx-3488182405"
-              />
-              Avengers Tower
-              <br
-                className="jsx-3488182405"
-              />
-              New York, NY 10001
-            </div>
-          </div>
+            Thank you for your order
+          </h1>
         </div>
         <div
-          className="jsx-3488182405"
+          className="jsx-833761660 m-t300 t--cb"
         >
           <div
-            className="jsx-3488182405 m-t200 receipt-title"
+            className="jsx-833761660 g"
           >
-            Your order:
-          </div>
-          <table
-            className="jsx-3488182405"
-          >
-            <tbody
-              className="jsx-3488182405"
+            <div
+              className="jsx-833761660 g--6"
             >
-              <tr
-                className="jsx-3488182405"
+              <div
+                className="jsx-833761660 m-t200"
               >
-                <td
-                  className="jsx-3488182405 receipt-value"
+                <span
+                  className="jsx-833761660 receipt-title"
                 >
-                  7
-                   × Death certificate for
-                   
-                  JAMES
-                   
-                  HOWLETT (LOGAN)
-                   (#
-                  640768
-                  )
-                </td>
-                <td
-                  className="jsx-3488182405 ta-r"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  Date:
+                </span>
+                 
+                <span
+                  className="jsx-833761660 receipt-value"
+                >
+                  1/8/2018 2:05PM
+                </span>
+              </div>
+              <div
+                className="jsx-833761660 m-t200"
+              >
+                <span
+                  className="jsx-833761660 receipt-title"
+                >
+                  Order #:
+                </span>
+                 
+                <span
+                  className="jsx-833761660 receipt-value"
+                >
+                  RG-DC201801-360926
+                </span>
+              </div>
+            </div>
+            <div
+              className="jsx-833761660 g--6"
+            >
+              <div
+                className="jsx-833761660 m-t200 receipt-title"
+              >
+                Shipping information:
+              </div>
+              <div
+                className="jsx-833761660 receipt-value"
+              >
+                Squirrel Girl
+                <br
+                  className="jsx-833761660"
+                />
+                US Avengers
+                <br
+                  className="jsx-833761660"
+                />
+                Avengers Tower
+                <br
+                  className="jsx-833761660"
+                />
+                New York, NY 10001
+              </div>
+            </div>
+          </div>
+          <div
+            className="jsx-833761660 m-t700"
+          >
+            <div
+              className="jsx-833761660 receipt-title"
+              style={
+                Object {
+                  "fontSize": "1.333rem",
+                }
+              }
+            >
+              Order:
+            </div>
+            <table
+              className="jsx-833761660"
+            >
+              <tbody
+                className="jsx-833761660"
+              >
+                <tr
+                  className="jsx-833761660"
+                >
+                  <td
+                    className="jsx-833761660 receipt-value"
+                  >
+                    7
+                     × Death certificate for
+                     
+                    JAMES
+                     
+                    HOWLETT (LOGAN)
+                     
+                    (#
+                    640768
+                    )
+                  </td>
+                  <td
+                    className="jsx-833761660 ta-r"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
+                  >
+                    $
+                    98.00
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-833761660"
                 >
-                  $
-                  98.00
-                </td>
-              </tr>
-              <tr
-                className="jsx-3488182405"
-              >
-                <td
-                  className="jsx-3488182405 receipt-value"
-                >
-                  1
-                   × Death certificate for
-                   
-                  BRUCE
-                   
-                  BANNER
-                   (#
-                  639896
-                  )
-                </td>
-                <td
-                  className="jsx-3488182405 ta-r"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  <td
+                    className="jsx-833761660 receipt-value"
+                  >
+                    1
+                     × Death certificate for
+                     
+                    BRUCE
+                     
+                    BANNER
+                     
+                    (#
+                    639896
+                    )
+                  </td>
+                  <td
+                    className="jsx-833761660 ta-r"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
+                  >
+                    $
+                    14.00
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-833761660"
                 >
-                  $
-                  14.00
-                </td>
-              </tr>
-              <tr
-                className="jsx-3488182405"
-              >
-                <td
-                  className="jsx-3488182405 receipt-value"
-                >
-                  Subtotal
-                </td>
-                <td
-                  className="jsx-3488182405 ta-r"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  <td
+                    className="jsx-833761660 receipt-value"
+                  >
+                    Subtotal
+                  </td>
+                  <td
+                    className="jsx-833761660 ta-r"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
+                  >
+                    $
+                    112.00
+                  </td>
+                </tr>
+                <tr
+                  className="jsx-833761660"
                 >
-                  $
-                  112.00
-                </td>
-              </tr>
-              <tr
-                className="jsx-3488182405"
-              >
-                <td
-                  className="jsx-3488182405 receipt-value"
-                >
-                  Card service fee*
-                </td>
-                <td
-                  className="jsx-3488182405 ta-r"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  <td
+                    className="jsx-833761660 receipt-value"
+                  >
+                    Card service fee*
+                  </td>
+                  <td
+                    className="jsx-833761660 ta-r"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
-                >
-                  $
-                  2.66
-                </td>
-              </tr>
-              <tr
-                className="jsx-3488182405 total-row t--sans"
-              >
-                <td
-                  className="jsx-3488182405"
-                >
-                  Total
-                </td>
-                <td
-                  className="jsx-3488182405 ta-r"
-                >
-                  $
-                  114.66
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  >
+                    $
+                    2.66
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div
-        className="jsx-3488182405 t--cb m-v300"
+        className="jsx-833761660 p-a300"
+        style={
+          Object {
+            "backgroundColor": "#C8C8C8",
+            "paddingBottom": "0.25rem",
+            "paddingTop": "0.25rem",
+          }
+        }
       >
-        Your order will be shipped within 1–2 business days via USPS.
+        <table
+          className="jsx-833761660"
+        >
+          <tbody
+            className="jsx-833761660"
+          >
+            <tr
+              className="jsx-833761660 total-row t--sans sh--sm"
+            >
+              <td
+                className="jsx-833761660 sh-title"
+              >
+                Total
+              </td>
+              <td
+                className="jsx-833761660 ta-r sh-title"
+                style={
+                  Object {
+                    "padding": 0,
+                  }
+                }
+              >
+                $
+                114.66
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div
-        className="jsx-3488182405 t--subinfo m-t300"
+        className="jsx-833761660 p-a300"
       >
-        * You are charged an extra service fee to pay for the cost of card processing. This fee goes directly to a third party, not the City of Boston.
+        <div
+          className="jsx-833761660 t--cb m-v300"
+        >
+          Your order will be shipped within 1–2 business days via USPS.
+        </div>
+        <div
+          className="jsx-833761660 t--subinfo m-t300"
+        >
+          * You are charged an extra service fee to pay for the cost of card processing. This fee goes directly to a third party, not the City of Boston.
+        </div>
       </div>
     </div>
     <div
-      className="jsx-3488182405 t--info m-v300 seal-holder"
+      className="jsx-833761660 t--info m-v300 seal-holder"
     >
       <img
         alt=""
-        className="jsx-3488182405 s-i"
+        className="jsx-833761660 s-i"
         src="https://patterns.boston.gov/images/public/seal.svg"
         style={
           Object {
@@ -10330,12 +10374,12 @@ exports[`Storyshots ReceiptPage default 1`] = `
         }
       />
       <div
-        className="jsx-3488182405 m-l300"
+        className="jsx-833761660 m-l300"
       >
         If you have any issues or questions, contact the Registry at
          
         <a
-          className="jsx-3488182405"
+          className="jsx-833761660"
           href="tel:617-635-4175"
         >
           617-635-4175
@@ -10343,7 +10387,7 @@ exports[`Storyshots ReceiptPage default 1`] = `
          or email
          
         <a
-          className="jsx-3488182405"
+          className="jsx-833761660"
           href="mailto:registry@boston.gov"
         >
           registry@boston.gov

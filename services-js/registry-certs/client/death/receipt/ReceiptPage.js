@@ -11,6 +11,8 @@ import {
   type ClientDependencies,
 } from '../../app';
 
+import { GRAY_200 } from '../../common/style-constants';
+
 type Props = {|
   order: ?DeathCertificateOrder,
 |};
@@ -91,94 +93,122 @@ export default class ReceiptPage extends React.Component<Props> {
             </a>
           </div>
 
-          <div className="b--g p-a300 br br-a200">
-            <div className="sh sh--sm">
-              <h1 className="sh-title">Thank you for your order</h1>
-            </div>
+          <div className="b--g br br-a200">
+            <div className="p-a300" style={{ paddingBottom: 0 }}>
+              <div className="sh sh--sm">
+                <h1 className="sh-title">Thank you for your order</h1>
+              </div>
 
-            <div className="m-v300 t--cb">
-              <div className="g">
-                <div className="g--6">
-                  <div className="m-t200">
-                    <span className="receipt-title">Date:</span>{' '}
-                    <span className="receipt-value">{date}</span>
+              <div className="m-t300 t--cb">
+                <div className="g">
+                  <div className="g--6">
+                    <div className="m-t200">
+                      <span className="receipt-title">Date:</span>{' '}
+                      <span className="receipt-value">{date}</span>
+                    </div>
+                    <div className="m-t200">
+                      <span className="receipt-title">Order #:</span>{' '}
+                      <span className="receipt-value">{id}</span>
+                    </div>
                   </div>
-                  <div className="m-t200">
-                    <span className="receipt-title">Order #:</span>{' '}
-                    <span className="receipt-value">{id}</span>
+
+                  <div className="g--6">
+                    <div className="m-t200 receipt-title">
+                      Shipping information:
+                    </div>
+                    <div className="receipt-value">
+                      {shippingName}
+                      <br />
+                      {shippingCompanyName
+                        ? [shippingCompanyName, <br key="br" />]
+                        : null}
+                      {shippingAddress1}
+                      <br />
+                      {shippingAddress2
+                        ? [shippingAddress2, <br key="br" />]
+                        : null}
+                      {`${shippingCity}, ${shippingState} ${shippingZip}`}
+                    </div>
                   </div>
                 </div>
 
-                <div className="g--6">
-                  <div className="m-t200 receipt-title">
-                    Your shipping information:
+                <div className="m-t700">
+                  <div
+                    className="receipt-title"
+                    style={{ fontSize: '1.333rem' }}
+                  >
+                    Order:
                   </div>
-                  <div className="receipt-value">
-                    {shippingName}
-                    <br />
-                    {shippingCompanyName
-                      ? [shippingCompanyName, <br key="br" />]
-                      : null}
-                    {shippingAddress1}
-                    <br />
-                    {shippingAddress2
-                      ? [shippingAddress2, <br key="br" />]
-                      : null}
-                    {`${shippingCity}, ${shippingState} ${shippingZip}`}
-                  </div>
+                  <table>
+                    <tbody>
+                      {items.map(
+                        ({ certificate, quantity, cost }) =>
+                          certificate && (
+                            <tr key={certificate.id}>
+                              <td className="receipt-value">
+                                {quantity} × Death certificate for{' '}
+                                {certificate.firstName} {certificate.lastName}{' '}
+                                (#{certificate.id})
+                              </td>
+                              <td
+                                className="ta-r"
+                                style={{ fontWeight: 'bold' }}
+                              >
+                                ${(cost / 100).toFixed(2)}
+                              </td>
+                            </tr>
+                          )
+                      )}
+
+                      <tr>
+                        <td className="receipt-value">Subtotal</td>
+                        <td className="ta-r" style={{ fontWeight: 'bold' }}>
+                          ${(subtotal / 100).toFixed(2)}
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="receipt-value">Card service fee*</td>
+                        <td className="ta-r" style={{ fontWeight: 'bold' }}>
+                          ${(serviceFee / 100).toFixed(2)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
+            </div>
 
-              <div>
-                <div className="m-t200 receipt-title">Your order:</div>
-                <table>
-                  <tbody>
-                    {items.map(
-                      ({ certificate, quantity, cost }) =>
-                        certificate && (
-                          <tr key={certificate.id}>
-                            <td className="receipt-value">
-                              {quantity} × Death certificate for{' '}
-                              {certificate.firstName} {certificate.lastName} (#{certificate.id})
-                            </td>
-                            <td className="ta-r" style={{ fontWeight: 'bold' }}>
-                              ${(cost / 100).toFixed(2)}
-                            </td>
-                          </tr>
-                        )
-                    )}
+            <div
+              className="p-a300"
+              style={{
+                paddingTop: '0.25rem',
+                paddingBottom: '0.25rem',
+                backgroundColor: GRAY_200,
+              }}
+            >
+              <table>
+                <tbody>
+                  <tr className="total-row t--sans sh--sm">
+                    <td className="sh-title">Total</td>
+                    <td className="ta-r sh-title" style={{ padding: 0 }}>
+                      ${(total / 100).toFixed(2)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-                    <tr>
-                      <td className="receipt-value">Subtotal</td>
-                      <td className="ta-r" style={{ fontWeight: 'bold' }}>
-                        ${(subtotal / 100).toFixed(2)}
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="receipt-value">Card service fee*</td>
-                      <td className="ta-r" style={{ fontWeight: 'bold' }}>
-                        ${(serviceFee / 100).toFixed(2)}
-                      </td>
-                    </tr>
-
-                    <tr className="total-row t--sans">
-                      <td>Total</td>
-                      <td className="ta-r">${(total / 100).toFixed(2)}</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div className="p-a300">
+              <div className="t--cb m-v300">
+                Your order will be shipped within 1–2 business days via USPS.
               </div>
-            </div>
 
-            <div className="t--cb m-v300">
-              Your order will be shipped within 1–2 business days via USPS.
-            </div>
-
-            <div className="t--subinfo m-t300">
-              * You are charged an extra service fee to pay for the cost of card
-              processing. This fee goes directly to a third party, not the City
-              of Boston.
+              <div className="t--subinfo m-t300">
+                * You are charged an extra service fee to pay for the cost of
+                card processing. This fee goes directly to a third party, not
+                the City of Boston.
+              </div>
             </div>
           </div>
 
@@ -237,12 +267,6 @@ export default class ReceiptPage extends React.Component<Props> {
             table {
               width: 100%;
               line-height: 1.4;
-            }
-
-            .total-row {
-              font-size: 2rem;
-              text-transform: uppercase;
-              font-weight: bold;
             }
 
             .seal-holder {

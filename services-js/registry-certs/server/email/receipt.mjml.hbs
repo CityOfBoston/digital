@@ -37,7 +37,7 @@
 
             <mj-column>
               <mj-text>
-                <b>Your shipping information:</b><br/>
+                <b>Shipping information:</b><br/>
                 <i>{{shippingName}}<br/>
                 {{#if shippingCompanyName}}{{shippingCompanyName}}<br/>{{/if}}
                 {{shippingAddress1}}<br/>
@@ -49,8 +49,8 @@
 
           <mj-section padding="10 0">
             <mj-column>
-              <mj-text padding="0 25">
-                <b>Your order:</b>
+              <mj-text padding="0 25" font-size="18px">
+                <b>Order:</b>
               </mj-text>
 
               <mj-table padding="0">
@@ -66,12 +66,12 @@
                   <td style="padding: 0 25px" align="right"><b>{{formatCents subtotal}}</b></td>
                 </tr>
                 <tr>
-                  <td style="background-color: #d2d2d2; padding: 0 25px"><i>Card service fee*</i></td>
-                  <td style="background-color: #d2d2d2; padding: 0 25px" align="right"><b>{{formatCents serviceFee}}</b></td>
+                  <td style="padding: 0 25px"><i>Card service fee*</i></td>
+                  <td style="padding: 0 25px" align="right"><b>{{formatCents serviceFee}}</b></td>
                 </tr>
                 <tr>
-                  <td style="padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;">Total</td>
-                  <td style="padding: 10px 25px 0; font: 700 26px Montserrat, sans-serif; text-transform: uppercase;" align="right"><b>{{formatCents total}}</b></td>
+                  <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;">Total</td>
+                  <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;" align="right"><b>{{formatCents total}}</b></td>
                 </tr>
               </mj-table>
 
