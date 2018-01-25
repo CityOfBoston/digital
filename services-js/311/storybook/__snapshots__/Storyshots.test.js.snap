@@ -5245,13 +5245,14 @@ exports[`Storyshots FeedbackForm error 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[name]"
+                  htmlFor="FeedbackForm-name"
                 >
                   Full Name
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-name"
                   defaultValue=""
+                  id="FeedbackForm-name"
                   name="email[name]"
                   size="10"
                   type="text"
@@ -5262,13 +5263,14 @@ exports[`Storyshots FeedbackForm error 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[from_address]"
+                  htmlFor="FeedbackForm-email"
                 >
                   Email Address
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-email"
                   defaultValue=""
+                  id="FeedbackForm-email"
                   name="email[from_address]"
                   placeholder="email@address.com"
                   type="text"
@@ -5279,13 +5281,14 @@ exports[`Storyshots FeedbackForm error 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[subject]"
+                  htmlFor="FeedbackForm-subject"
                 >
                   Subject
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-subject"
                   defaultValue="BOS:311 Feedback"
+                  id="FeedbackForm-subject"
                   name="email[subject]"
                   size="10"
                   type="text"
@@ -5296,12 +5299,13 @@ exports[`Storyshots FeedbackForm error 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[message]"
+                  htmlFor="FeedbackForm-message"
                 >
                   Message
                 </label>
                 <textarea
                   className="txt-f txt-f--sm bos-contact-message"
+                  id="FeedbackForm-message"
                   name="email[message]"
                   rows="10"
                   type="text"
@@ -5399,13 +5403,14 @@ exports[`Storyshots FeedbackForm form 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[name]"
+                  htmlFor="FeedbackForm-name"
                 >
                   Full Name
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-name"
                   defaultValue=""
+                  id="FeedbackForm-name"
                   name="email[name]"
                   size="10"
                   type="text"
@@ -5416,13 +5421,14 @@ exports[`Storyshots FeedbackForm form 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[from_address]"
+                  htmlFor="FeedbackForm-email"
                 >
                   Email Address
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-email"
                   defaultValue=""
+                  id="FeedbackForm-email"
                   name="email[from_address]"
                   placeholder="email@address.com"
                   type="text"
@@ -5433,13 +5439,14 @@ exports[`Storyshots FeedbackForm form 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[subject]"
+                  htmlFor="FeedbackForm-subject"
                 >
                   Subject
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-subject"
                   defaultValue="BOS:311 Feedback"
+                  id="FeedbackForm-subject"
                   name="email[subject]"
                   size="10"
                   type="text"
@@ -5450,12 +5457,13 @@ exports[`Storyshots FeedbackForm form 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[message]"
+                  htmlFor="FeedbackForm-message"
                 >
                   Message
                 </label>
                 <textarea
                   className="txt-f txt-f--sm bos-contact-message"
+                  id="FeedbackForm-message"
                   name="email[message]"
                   rows="10"
                   type="text"
@@ -5547,13 +5555,14 @@ exports[`Storyshots FeedbackForm loading 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[name]"
+                  htmlFor="FeedbackForm-name"
                 >
                   Full Name
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-name"
                   defaultValue=""
+                  id="FeedbackForm-name"
                   name="email[name]"
                   size="10"
                   type="text"
@@ -5564,13 +5573,14 @@ exports[`Storyshots FeedbackForm loading 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[from_address]"
+                  htmlFor="FeedbackForm-email"
                 >
                   Email Address
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-email"
                   defaultValue=""
+                  id="FeedbackForm-email"
                   name="email[from_address]"
                   placeholder="email@address.com"
                   type="text"
@@ -5581,13 +5591,14 @@ exports[`Storyshots FeedbackForm loading 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[subject]"
+                  htmlFor="FeedbackForm-subject"
                 >
                   Subject
                 </label>
                 <input
                   className="txt-f txt-f--sm bos-contact-subject"
                   defaultValue="BOS:311 Feedback"
+                  id="FeedbackForm-subject"
                   name="email[subject]"
                   size="10"
                   type="text"
@@ -5598,12 +5609,13 @@ exports[`Storyshots FeedbackForm loading 1`] = `
               >
                 <label
                   className="txt-l txt-l--mt000"
-                  htmlFor="email[message]"
+                  htmlFor="FeedbackForm-message"
                 >
                   Message
                 </label>
                 <textarea
                   className="txt-f txt-f--sm bos-contact-message"
+                  id="FeedbackForm-message"
                   name="email[message]"
                   rows="10"
                   type="text"

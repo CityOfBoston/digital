@@ -90,10 +90,14 @@ export class FeedbackFormContent extends React.Component<ContentProps> {
           <div className="fs">
             <div className="fs-c">
               <div className="txt m-b300">
-                <label htmlFor="email[name]" className="txt-l txt-l--mt000">
+                <label
+                  htmlFor="FeedbackForm-name"
+                  className="txt-l txt-l--mt000"
+                >
                   Full Name
                 </label>
                 <input
+                  id="FeedbackForm-name"
                   name="email[name]"
                   type="text"
                   className="txt-f txt-f--sm bos-contact-name"
@@ -103,12 +107,13 @@ export class FeedbackFormContent extends React.Component<ContentProps> {
               </div>
               <div className="txt m-b300">
                 <label
-                  htmlFor="email[from_address]"
+                  htmlFor="FeedbackForm-email"
                   className="txt-l txt-l--mt000"
                 >
                   Email Address
                 </label>
                 <input
+                  id="FeedbackForm-email"
                   name="email[from_address]"
                   type="text"
                   placeholder="email@address.com"
@@ -117,10 +122,14 @@ export class FeedbackFormContent extends React.Component<ContentProps> {
                 />
               </div>
               <div className="txt m-b300">
-                <label htmlFor="email[subject]" className="txt-l txt-l--mt000">
+                <label
+                  htmlFor="FeedbackForm-subject"
+                  className="txt-l txt-l--mt000"
+                >
                   Subject
                 </label>
                 <input
+                  id="FeedbackForm-subject"
                   name="email[subject]"
                   type="text"
                   className="txt-f txt-f--sm bos-contact-subject"
@@ -129,10 +138,14 @@ export class FeedbackFormContent extends React.Component<ContentProps> {
                 />
               </div>
               <div className="txt m-b300">
-                <label htmlFor="email[message]" className="txt-l txt-l--mt000">
+                <label
+                  htmlFor="FeedbackForm-message"
+                  className="txt-l txt-l--mt000"
+                >
                   Message
                 </label>
                 <textarea
+                  id="FeedbackForm-message"
                   name="email[message]"
                   type="text"
                   className="txt-f txt-f--sm bos-contact-message"
