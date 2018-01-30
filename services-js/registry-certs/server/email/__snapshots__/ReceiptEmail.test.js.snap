@@ -20,7 +20,7 @@ Your order:
   Card processing fee*  $1.32
   Total  $141.32
 
-Your order will be shipped within 1–2 business days via USPS.
+Your order will be shipped within 1–2 business days via the U.S. Postal Service.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -28,8 +28,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/]
 
-If you have any issues or questions, contact the Registry at 
-617-635-4175 or email registry@boston.gov.
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. – 4 p.m. at 617-635-4175, or email registry@boston.gov.
 "
 `;
 
@@ -171,7 +171,7 @@ exports[`it renders an HTML body 1`] = `
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
-                </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">Your order will be shipped within 1–2 business days via USPS.</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
+                </tr></tbody></table></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">Your order will be shipped within 1–2 business days via the U.S. Postal Service.</div></td></tr><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:25px 25px 0px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;\\"><i>* You are charged an extra service fee of not more than
                 $0.25 plus 2.15%. This fee goes directly to a third party to
                 pay for the cost of card processing. Learn more about <a href=\\"https://www.boston.gov/\\">card service fees</a> at the City
                 of Boston.</i></div></td></tr></tbody></table></div><!--[if mso | IE]>
@@ -198,7 +198,7 @@ exports[`it renders an HTML body 1`] = `
       <![endif]--><div class=\\"mj-column-px-75 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.125%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:0px;\\" align=\\"left\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-collapse:collapse;border-spacing:0px;\\" align=\\"left\\" border=\\"0\\"><tbody><tr><td style=\\"width:75px;\\"><img alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/global/icons/seal.png\\" style=\\"border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;\\" width=\\"75\\"></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
             </td>
             <td style=\\"vertical-align:top;width:525px;\\">
-      <![endif]--><div class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.875%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 0px 0px 10px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">If you have any issues or questions, contact the Registry at <a href=\\"tel:617-635-4175\\">617-635-4175</a> or email <b><i><a href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.</div></td></tr></tbody></table></div><!--[if mso | IE]>
+      <![endif]--><div class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:0.875%;\\"><table role=\\"presentation\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\"><tbody><tr><td style=\\"word-wrap:break-word;font-size:0px;padding:10px 0px 0px 10px;\\" align=\\"left\\"><div style=\\"cursor:auto;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;\\">Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a href=\\"tel:618-635-4175\\">617-635-4175</a>, or email <b><i><a href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.</div></td></tr></tbody></table></div><!--[if mso | IE]>
             </td>
           </tr>
         </table>

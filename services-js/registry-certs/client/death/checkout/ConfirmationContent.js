@@ -48,12 +48,12 @@ export default class ConfirmationContent extends React.Component<Props> {
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             A copy of your receipt has been sent to{' '}
             <strong>{contactEmail}</strong>. We will mail out your order in 1–2
-            business days by USPS.
+            business days via the U.S. Postal Service.
           </p>
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
-            If you have any questions, you can call the Registry Department at{' '}
-            <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
+            Have any questions? Contact the Registry on weekdays from 9 a.m. – 4
+            p.m. at <a href="tel:617-635-4175">617-635-4175</a>, or email{' '}
             <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
           </p>
 

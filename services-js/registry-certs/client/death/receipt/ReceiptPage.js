@@ -201,7 +201,8 @@ export default class ReceiptPage extends React.Component<Props> {
 
             <div className="p-a300">
               <div className="t--cb m-v300">
-                Your order will be shipped within 1–2 business days via USPS.
+                Your order will be shipped within 1–2 business days via the U.S.
+                Postal Service.
               </div>
 
               <div className="t--subinfo m-t300">
@@ -221,8 +222,8 @@ export default class ReceiptPage extends React.Component<Props> {
             />
 
             <div className="m-l300">
-              If you have any issues or questions, contact the Registry at{' '}
-              <a href="tel:617-635-4175">617-635-4175</a> or email{' '}
+              Have any questions? Contact the Registry on weekdays from 9 a.m. –
+              4 p.m. at <a href="tel:617-635-4175">617-635-4175</a>, or email{' '}
               <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
             </div>
           </div>
