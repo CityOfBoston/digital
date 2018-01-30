@@ -7,6 +7,7 @@ import Router from 'next/router';
 import type { Context as NextContext } from 'next';
 
 import RouterListener from './lib/RouterListener';
+import SiteAnalytics from './lib/SiteAnalytics';
 
 import makeLoopbackGraphql, {
   type LoopbackGraphql,
@@ -31,12 +32,14 @@ export type ClientDependencies = {
   orderProvider: OrderProvider,
   deathCertificatesDao: DeathCertificatesDao,
   checkoutDao: CheckoutDao,
+  siteAnalytics: SiteAnalytics,
 };
 
 let browserInited = false;
 let browserDependencies: ClientDependencies;
 
 const accessibility = new Accessibility();
+const siteAnalytics = new SiteAnalytics();
 
 // Browser-only setup
 export function initBrowser() {
@@ -49,9 +52,10 @@ export function initBrowser() {
   useStrict(true);
 
   accessibility.attach();
+  siteAnalytics.attach(window.ga);
 
   const routerListener = new RouterListener();
-  routerListener.attach(Router, accessibility);
+  routerListener.attach(Router, accessibility, window.ga);
 }
 
 // Works on both server and browser. Memoizes on browser, so these dependencies
@@ -79,7 +83,7 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
   const orderProvider = new OrderProvider();
 
   if (process.browser) {
-    cart.attach(window.localStorage, deathCertificatesDao);
+    cart.attach(window.localStorage, deathCertificatesDao, siteAnalytics);
     orderProvider.attach(window.localStorage);
   }
 
@@ -91,6 +95,7 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
     deathCertificatesDao,
     checkoutDao,
     loopbackGraphql,
+    siteAnalytics,
   };
 
   if (process.browser) {

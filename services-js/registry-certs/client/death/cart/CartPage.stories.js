@@ -34,9 +34,9 @@ function makeCart(loading: boolean) {
       ]: any);
     });
   } else {
-    cart.add(TYPICAL_CERTIFICATE, 1);
-    cart.add(PENDING_CERTIFICATE, 3);
-    cart.add(NO_DATE_CERTIFICATE, 1);
+    cart.setQuantity(TYPICAL_CERTIFICATE, 1);
+    cart.setQuantity(PENDING_CERTIFICATE, 3);
+    cart.setQuantity(NO_DATE_CERTIFICATE, 1);
   }
 
   return cart;

@@ -11,16 +11,27 @@ import {
 } from '../../app';
 import type { DeathCertificateSearchResults } from '../../types';
 
+import type SiteAnalytics from '../../lib/SiteAnalytics';
+
 import AppLayout from '../../AppLayout';
 
 import Pagination from '../../common/Pagination';
 
 import SearchResult from './SearchResult';
 
-type Props = {|
+type DefaultProps = {|
+  siteAnalytics: SiteAnalytics,
+|};
+
+type InitialProps = {|
   query: string,
   page: number,
   results: ?DeathCertificateSearchResults,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  ...InitialProps,
 |};
 
 type State = {
@@ -28,12 +39,17 @@ type State = {
 };
 
 export default class SearchPage extends React.Component<Props, State> {
+  static get defaultProps(): DefaultProps {
+    const { siteAnalytics } = getDependencies();
+    return { siteAnalytics };
+  }
+
   queryField: ?HTMLInputElement;
 
   static async getInitialProps(
     ctx: ClientContext,
     dependenciesForTest?: ClientDependencies
-  ): Promise<Props> {
+  ): Promise<InitialProps> {
     const { query } = ctx;
     const { deathCertificatesDao } =
       dependenciesForTest || getDependencies(ctx);
@@ -64,6 +80,21 @@ export default class SearchPage extends React.Component<Props, State> {
     this.state = {
       query,
     };
+  }
+
+  componentWillMount() {
+    const { results, siteAnalytics } = this.props;
+
+    if (results) {
+      results.results.forEach(({ id }, idx) => {
+        siteAnalytics.addImpression(
+          id,
+          'Death certificate',
+          'Search results',
+          idx + 1
+        );
+      });
+    }
   }
 
   submitSearch = (query: string) => {

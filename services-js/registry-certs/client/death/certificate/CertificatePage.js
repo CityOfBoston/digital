@@ -15,6 +15,7 @@ import {
 import type { DeathCertificate } from '../../types';
 
 import type Cart from '../../store/Cart';
+import type SiteAnalytics from '../../lib/SiteAnalytics';
 
 import {
   CERTIFICATE_COST_STRING,
@@ -26,6 +27,7 @@ import AppLayout from '../../AppLayout';
 
 type DefaultProps = {|
   cart: Cart,
+  siteAnalytics: SiteAnalytics,
 |};
 
 type InitialProps = {|
@@ -49,8 +51,8 @@ export default class CertificatePage extends React.Component<Props, State> {
   quantityField: ?HTMLInputElement = null;
 
   static get defaultProps(): DefaultProps {
-    const { cart } = getDependencies();
-    return { cart };
+    const { cart, siteAnalytics } = getDependencies();
+    return { cart, siteAnalytics };
   }
 
   static async getInitialProps(
@@ -88,16 +90,27 @@ export default class CertificatePage extends React.Component<Props, State> {
     };
   }
 
+  componentWillMount() {
+    const { siteAnalytics, id } = this.props;
+
+    siteAnalytics.addProduct(id, 'Death certificate');
+    siteAnalytics.setProductAction('detail');
+  }
+
   setCartQuantity = action(
     'CertificatePageController setCartQuantity',
     async (quantity: number) => {
-      const { certificate, cart } = this.props;
+      const { certificate, cart, siteAnalytics } = this.props;
 
       if (certificate) {
         if (quantity === 0) {
           cart.remove(certificate.id);
+
+          siteAnalytics.sendEvent('UX', 'click', 'add to cart');
         } else {
           cart.setQuantity(certificate, quantity);
+          siteAnalytics.sendEvent('UX', 'click', 'add to cart');
+
           await Router.push('/death/cart');
           window.scrollTo(0, 0);
         }
@@ -115,7 +128,7 @@ export default class CertificatePage extends React.Component<Props, State> {
       }
     } else {
       this.setState({
-        quantity: value ? parseInt(value, 10) : null,
+        quantity: value ? Math.max(0, Math.min(parseInt(value, 10), 99)) : null,
       });
     }
   };
@@ -189,11 +202,15 @@ export default class CertificatePage extends React.Component<Props, State> {
               </div>
 
               <div className="g--7 m-v300">
-                {backUrl && (
+                {backUrl ? (
                   <Link href={backUrl}>
                     <a style={{ fontStyle: 'italic' }}>
                       ← Back to search results
                     </a>
+                  </Link>
+                ) : (
+                  <Link href="/death">
+                    <a style={{ fontStyle: 'italic' }}>← Go to search</a>
                   </Link>
                 )}
               </div>

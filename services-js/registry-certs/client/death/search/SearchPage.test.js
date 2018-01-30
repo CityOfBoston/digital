@@ -9,6 +9,7 @@ import type {
   DeathCertificateSearchResults,
 } from '../../types';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
+import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import SearchPage from './SearchPage';
 
@@ -20,6 +21,7 @@ import {
 
 jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
+jest.mock('../../lib/SiteAnalytics');
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   TYPICAL_CERTIFICATE,
@@ -37,15 +39,17 @@ const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
 
 describe('getInitialProps', () => {
   let deathCertificatesDao;
+  let siteAnalytics;
 
   beforeEach(() => {
     deathCertificatesDao = new DeathCertificatesDao((null: any));
+    siteAnalytics = new SiteAnalytics();
   });
 
   it('works with no query', async () => {
     const initialProps = await SearchPage.getInitialProps(
       ({ query: {} }: any),
-      ({ deathCertificatesDao }: any)
+      ({ deathCertificatesDao, siteAnalytics }: any)
     );
 
     expect(initialProps).toMatchSnapshot();
@@ -56,7 +60,7 @@ describe('getInitialProps', () => {
 
     const initialProps = await SearchPage.getInitialProps(
       ({ query: { q: 'Monkey Joe' } }: any),
-      ({ deathCertificatesDao }: any)
+      ({ deathCertificatesDao, siteAnalytics }: any)
     );
 
     expect(initialProps).toMatchSnapshot();

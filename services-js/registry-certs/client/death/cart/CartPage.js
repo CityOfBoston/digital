@@ -11,6 +11,7 @@ import { getDependencies } from '../../app';
 import { PERCENTAGE_CC_STRING, FIXED_CC_STRING } from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
+import type SiteAnalytics from '../../lib/SiteAnalytics';
 
 import AppLayout from '../../AppLayout';
 
@@ -19,6 +20,7 @@ import CostSummary from '../../common/CostSummary';
 
 type DefaultProps = {|
   cart: Cart,
+  siteAnalytics: SiteAnalytics,
 |};
 
 type Props = {|
@@ -28,8 +30,8 @@ type Props = {|
 @observer
 export default class CartPage extends React.Component<Props> {
   static get defaultProps(): DefaultProps {
-    const { cart } = getDependencies();
-    return { cart };
+    const { cart, siteAnalytics } = getDependencies();
+    return { cart, siteAnalytics };
   }
 
   // When we leave the cart page, remove everything that's 0-size.
@@ -42,7 +44,7 @@ export default class CartPage extends React.Component<Props> {
   );
 
   render() {
-    const { cart } = this.props;
+    const { cart, siteAnalytics } = this.props;
 
     const loading = !!cart.entries.find(({ cert }) => !cert);
 
@@ -77,6 +79,7 @@ export default class CartPage extends React.Component<Props> {
                     key={entry.id}
                     entry={entry}
                     cart={cart}
+                    siteAnalytics={siteAnalytics}
                     lastRow={i === cart.entries.length - 1}
                   />
                 ))}

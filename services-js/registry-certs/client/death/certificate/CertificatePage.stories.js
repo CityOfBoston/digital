@@ -16,7 +16,7 @@ const makeCart = (quantity: number) => {
   const cart = new Cart();
 
   if (quantity) {
-    cart.add(TYPICAL_CERTIFICATE, quantity);
+    cart.setQuantity(TYPICAL_CERTIFICATE, quantity);
   }
 
   return cart;

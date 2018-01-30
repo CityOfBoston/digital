@@ -3,7 +3,9 @@
 import Cart from './Cart';
 
 jest.mock('../dao/DeathCertificatesDao');
+jest.mock('../lib/SiteAnalytics');
 const DeathCertificatesDao = require('../dao/DeathCertificatesDao').default;
+const SiteAnalytics = require('../lib/SiteAnalytics').default;
 
 const CERT_1: any = {
   id: '00001',
@@ -15,42 +17,12 @@ const CERT_2: any = {
   pending: true,
 };
 
-describe('add and size', () => {
-  let cart;
-
-  beforeEach(() => {
-    cart = new Cart();
-  });
-
-  it('adds an item to the cart', () => {
-    cart.add(CERT_1, 1);
-    expect(cart.size).toEqual(1);
-  });
-
-  it('adds several of an item to the cart', () => {
-    cart.add(CERT_1, 3);
-    expect(cart.size).toEqual(3);
-  });
-
-  it('adds 2 entries to the cart', () => {
-    cart.add(CERT_1, 1);
-    cart.add(CERT_2, 1);
-    expect(cart.size).toEqual(2);
-  });
-
-  it('adds the same item several times to the cart', () => {
-    cart.add(CERT_1, 1);
-    cart.add(Object.assign({}, CERT_1), 3);
-    expect(cart.size).toEqual(4);
-  });
-});
-
 describe('setQuantity', () => {
   let cart;
 
   beforeEach(() => {
     cart = new Cart();
-    cart.add(CERT_1, 1);
+    cart.setQuantity(CERT_1, 1);
   });
 
   it('it changes the quantity', () => {
@@ -72,8 +44,8 @@ describe('clean', () => {
 
   beforeEach(() => {
     cart = new Cart();
-    cart.add(CERT_1, 0);
-    cart.add(CERT_2, 5);
+    cart.setQuantity(CERT_1, 0);
+    cart.setQuantity(CERT_2, 5);
   });
 
   it('removes certs with 0', () => {
@@ -90,7 +62,7 @@ describe('remove', () => {
 
   beforeEach(() => {
     cart = new Cart();
-    cart.add(CERT_1, 1);
+    cart.setQuantity(CERT_1, 1);
   });
 
   it('removes an item from the cart', () => {
@@ -113,7 +85,7 @@ describe('contains pending', () => {
 
   beforeEach(() => {
     cart = new Cart();
-    cart.add(CERT_1, 1);
+    cart.setQuantity(CERT_1, 1);
   });
 
   it('is false if there are no pending certificates', () => {
@@ -121,7 +93,7 @@ describe('contains pending', () => {
   });
 
   it('is true if there are pending certificates', () => {
-    cart.add(CERT_2, 5);
+    cart.setQuantity(CERT_2, 5);
     expect(cart.containsPending).toEqual(true);
   });
 });
@@ -130,6 +102,7 @@ describe('attach', () => {
   let resolveGraphqls;
   let localStorage: any;
   let deathCertificatesDao;
+  let siteAnalytics;
   let cart: Cart;
 
   beforeEach(() => {
@@ -139,6 +112,7 @@ describe('attach', () => {
     };
 
     deathCertificatesDao = new DeathCertificatesDao(jest.fn());
+    siteAnalytics = new SiteAnalytics();
 
     resolveGraphqls = [];
 
@@ -164,7 +138,7 @@ describe('attach', () => {
       ])
     );
 
-    cart.attach(localStorage, deathCertificatesDao);
+    cart.attach(localStorage, deathCertificatesDao, siteAnalytics);
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('00001');
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('00002');
@@ -192,9 +166,9 @@ describe('attach', () => {
   });
 
   it('updates local storage with new values', async () => {
-    cart.attach(localStorage, deathCertificatesDao);
+    cart.attach(localStorage, deathCertificatesDao, siteAnalytics);
 
-    cart.add(CERT_1, 5);
+    cart.setQuantity(CERT_1, 5);
     expect(localStorage.setItem).toHaveBeenCalledWith(
       'cart',
       JSON.stringify([{ id: CERT_1.id, quantity: 5 }])

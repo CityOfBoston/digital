@@ -19,10 +19,10 @@ import {
 function makeCart(extraCerts?: Array<DeathCertificate>) {
   const cart = new Cart();
 
-  cart.add(TYPICAL_CERTIFICATE, 1);
-  cart.add(NO_DATE_CERTIFICATE, 5);
+  cart.setQuantity(TYPICAL_CERTIFICATE, 1);
+  cart.setQuantity(NO_DATE_CERTIFICATE, 5);
 
-  (extraCerts || []).forEach(cert => cart.add(cert, 2));
+  (extraCerts || []).forEach(cert => cart.setQuantity(cert, 2));
 
   return cart;
 }

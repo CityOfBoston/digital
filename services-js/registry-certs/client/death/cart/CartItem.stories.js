@@ -4,6 +4,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Cart from '../../store/Cart';
+import SiteAnalytics from '../../lib/SiteAnalytics';
+
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
@@ -14,13 +16,15 @@ import CartItem from './CartItem';
 
 function makeProps(certificate) {
   const cart = new Cart();
+  const siteAnalytics = new SiteAnalytics();
 
-  cart.add(certificate, 1);
+  cart.setQuantity(certificate, 1);
   const entry = cart.entries[0];
 
   return {
     cart,
     entry,
+    siteAnalytics,
   };
 }
 

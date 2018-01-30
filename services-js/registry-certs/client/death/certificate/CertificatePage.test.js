@@ -8,9 +8,11 @@ import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 import CertificatePage from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
+import SiteAnalytics from '../../lib/SiteAnalytics';
 
 jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
+jest.mock('../../lib/SiteAnalytics');
 
 describe('getInitialProps', () => {
   let deathCertificatesDao;
@@ -46,14 +48,17 @@ describe('getInitialProps', () => {
   describe('operations', () => {
     describe('setCartQuantity', () => {
       let cart;
+      let siteAnalytics;
       let component;
 
       beforeEach(() => {
         cart = new Cart();
+        siteAnalytics = new SiteAnalytics();
 
         component = shallow(
           <CertificatePage
             cart={cart}
+            siteAnalytics={siteAnalytics}
             id="0002"
             certificate={TYPICAL_CERTIFICATE}
             backUrl="/search?q=jayne"
@@ -67,7 +72,7 @@ describe('getInitialProps', () => {
       });
 
       it('removes certificates when set to 0', () => {
-        cart.add(TYPICAL_CERTIFICATE, 5);
+        cart.setQuantity(TYPICAL_CERTIFICATE, 5);
         expect(cart.entries.length).toBe(1);
 
         component.setCartQuantity(0);
@@ -78,11 +83,15 @@ describe('getInitialProps', () => {
 });
 
 describe('interface', () => {
+  let siteAnalytics;
   let wrapper;
 
   beforeEach(() => {
+    siteAnalytics = new SiteAnalytics();
+
     wrapper = shallow(
       <CertificatePage
+        siteAnalytics={siteAnalytics}
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}

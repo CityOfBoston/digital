@@ -9,16 +9,26 @@ import type Accessibility from '../store/Accessibility';
 export default class RouterListener {
   accessibility: ?Accessibility = null;
   router: ?Router = null;
+  ga: any = null;
+  routeStartMs: number;
 
-  attach(router: Router, accessibility: Accessibility) {
+  attach(router: Router, accessibility: Accessibility, ga: any) {
     this.router = router;
     this.accessibility = accessibility;
+    this.ga = ga;
 
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
     router.onRouteChangeError = this.routeChangeError;
 
     NProgress.configure({ showSpinner: false });
+
+    // After setTimeout ensures that the main component's componentWillMount has
+    // been called, so any impression data that needs to be sent in pageview has
+    // been set.
+    window.setTimeout(function() {
+      ga('send', 'pageview');
+    }, 0);
   }
 
   detach() {
@@ -34,18 +44,37 @@ export default class RouterListener {
   @action.bound
   routeChangeStart() {
     NProgress.start();
+
+    this.routeStartMs = Date.now();
   }
 
   @action.bound
-  routeChangeComplete() {
+  routeChangeComplete(url: string) {
     NProgress.done();
 
-    const { accessibility } = this;
+    const { accessibility, ga } = this;
+
+    if (ga) {
+      ga('set', 'page', url);
+    }
+
     if (accessibility) {
       // we do a setTimeout so that the new title renders by the time we
       // want to see it
       setTimeout(
         action(() => {
+          if (ga) {
+            ga('send', 'pageview');
+            ga(
+              'send',
+              'timing',
+              'Router',
+              'routeChange',
+              Date.now() - this.routeStartMs,
+              url
+            );
+          }
+
           const pieces = document.title.split(/—/);
           accessibility.message = `Page loaded: ${pieces[
             pieces.length - 1

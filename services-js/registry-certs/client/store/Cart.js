@@ -4,6 +4,9 @@ import { observable, computed, action, autorun } from 'mobx';
 
 import type { DeathCertificate } from '../types';
 import type DeathCertificatesDao from '../dao/DeathCertificatesDao';
+import type SiteAnalytics from '../lib/SiteAnalytics';
+
+import { CERTIFICATE_COST } from '../../lib/costs';
 
 type LocalStorageEntry = {|
   id: string,
@@ -21,8 +24,15 @@ export default class Cart {
   @observable pendingFetches: number = 0;
 
   localStorageDisposer: ?Function;
+  siteAnalytics: ?SiteAnalytics;
 
-  attach(localStorage: Storage, deathCertificatesDao: DeathCertificatesDao) {
+  attach(
+    localStorage: Storage,
+    deathCertificatesDao: DeathCertificatesDao,
+    siteAnalytics: SiteAnalytics
+  ) {
+    this.siteAnalytics = siteAnalytics;
+
     if (localStorage) {
       try {
         const savedCart: Array<LocalStorageEntry> = JSON.parse(
@@ -81,6 +91,24 @@ export default class Cart {
       this.localStorageDisposer();
       this.localStorageDisposer = null;
     }
+
+    this.siteAnalytics = null;
+  }
+
+  trackCartItems() {
+    const { siteAnalytics } = this;
+    if (!siteAnalytics) {
+      return;
+    }
+
+    this.entries.forEach(({ id, quantity }) => {
+      siteAnalytics.addProduct(
+        id,
+        'Death certificate',
+        quantity,
+        CERTIFICATE_COST
+      );
+    });
   }
 
   @computed
@@ -97,35 +125,53 @@ export default class Cart {
     return this.pendingFetches > 0;
   }
 
-  add(cert: DeathCertificate, quantity: number) {
-    const existingItem = this.entries.find(item => item.id === cert.id);
+  setQuantity(cert: DeathCertificate, quantity: number) {
+    const { siteAnalytics } = this;
+
+    const existingItem = this.entries.find(({ id }) => id === cert.id);
+    const filteredQuantity = Math.max(0, Math.min(99, quantity));
+
+    const quantityChange = quantity - this.getQuantity(cert.id);
+
+    if (siteAnalytics) {
+      siteAnalytics.addProduct(
+        cert.id,
+        'Death certificate',
+        Math.abs(quantityChange),
+        CERTIFICATE_COST
+      );
+      siteAnalytics.setProductAction(quantityChange < 0 ? 'remove' : 'add');
+    }
+
     if (existingItem) {
-      existingItem.quantity += quantity;
+      // We don't remove items here when their quantity is 0 so that they don't
+      // disappear when you edit the values on the cart page.
+      existingItem.quantity = filteredQuantity;
     } else {
       const item = new CartEntry();
       item.id = cert.id;
       item.cert = cert;
-      item.quantity = quantity;
+      item.quantity = filteredQuantity;
 
       this.entries.push(item);
     }
   }
 
-  setQuantity(cert: DeathCertificate, quantity: number) {
-    const existingItem = this.entries.find(({ id }) => id === cert.id);
-    if (existingItem) {
-      // We don't remove items here when their quantity is 0 so that they don't
-      // disappear when you edit the values on the cart page.
-      existingItem.quantity = quantity;
-    } else {
-      this.add(cert, quantity);
-    }
-  }
-
   remove(certId: string) {
+    const { siteAnalytics } = this;
     const idx = this.entries.findIndex(({ id }) => id === certId);
 
     if (idx !== -1) {
+      if (siteAnalytics) {
+        siteAnalytics.addProduct(
+          certId,
+          'Death certificate',
+          this.getQuantity(certId),
+          CERTIFICATE_COST
+        );
+        siteAnalytics.setProductAction('remove');
+      }
+
       this.entries.splice(idx, 1);
     }
   }

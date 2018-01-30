@@ -3,7 +3,7 @@
 // Wrapper controller for the separate pages along the checkout flow
 
 import React from 'react';
-import { reaction } from 'mobx';
+import { reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
@@ -13,6 +13,7 @@ import type CheckoutDao from '../../dao/CheckoutDao';
 import type Accessibility from '../../store/Accessibility';
 import type Cart from '../../store/Cart';
 import type OrderProvider from '../../store/OrderProvider';
+import type SiteAnalytics from '../../lib/SiteAnalytics';
 
 import Order from '../../models/Order';
 
@@ -20,6 +21,7 @@ import ShippingContent from './ShippingContent';
 import PaymentContent from './PaymentContent';
 import ReviewContent from './ReviewContent';
 import ConfirmationContent from './ConfirmationContent';
+import { CERTIFICATE_COST } from '../../../lib/costs';
 
 type PageInfo =
   | {|
@@ -40,6 +42,7 @@ type PageInfo =
 type DefaultProps = {|
   accessibility: Accessibility,
   cart: Cart,
+  siteAnalytics: SiteAnalytics,
   orderProvider: OrderProvider,
   checkoutDao: CheckoutDao,
   stripe: ?StripeInstance,
@@ -63,9 +66,17 @@ export default class CheckoutPageController extends React.Component<Props> {
       orderProvider,
       checkoutDao,
       stripe,
+      siteAnalytics,
     } = getDependencies();
 
-    return { accessibility, cart, orderProvider, checkoutDao, stripe };
+    return {
+      accessibility,
+      cart,
+      orderProvider,
+      checkoutDao,
+      stripe,
+      siteAnalytics,
+    };
   }
 
   static getInitialProps({ query, res }: ClientContext): InitialProps {
@@ -128,7 +139,31 @@ export default class CheckoutPageController extends React.Component<Props> {
   errorAccessibilityDisposer: Function;
 
   componentWillMount() {
-    const { orderProvider, accessibility } = this.props;
+    const {
+      orderProvider,
+      accessibility,
+      cart,
+      siteAnalytics,
+      info,
+    } = this.props;
+
+    let checkoutStep = null;
+    switch (info.page) {
+      case 'shipping':
+        checkoutStep = 1;
+        break;
+      case 'payment':
+        checkoutStep = 2;
+        break;
+      case 'review':
+        checkoutStep = 3;
+        break;
+    }
+
+    if (checkoutStep) {
+      cart.trackCartItems();
+      siteAnalytics.setProductAction('checkout', { step: checkoutStep });
+    }
 
     // This will be populated from localStorage, and changes to it will get
     // written back there.
@@ -190,12 +225,22 @@ export default class CheckoutPageController extends React.Component<Props> {
 
   submitOrder = async () => {
     const { order } = this;
-    const { cart, checkoutDao } = this.props;
+    const { cart, checkoutDao, siteAnalytics } = this.props;
 
     const orderId = await checkoutDao.submit(cart, order);
 
     if (orderId) {
-      this.order = new Order();
+      cart.trackCartItems();
+      siteAnalytics.setProductAction('purchase', {
+        id: orderId,
+        revenue: cart.size * CERTIFICATE_COST / 100,
+      });
+      siteAnalytics.sendEvent('UX', 'click', 'submit order');
+
+      runInAction('CheckoutPage > submitOrder > success', () => {
+        cart.clear();
+        this.order = new Order();
+      });
 
       await Router.push(
         `/death/checkout?page=confirmation&orderId=${encodeURIComponent(

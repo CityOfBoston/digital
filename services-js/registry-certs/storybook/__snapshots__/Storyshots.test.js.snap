@@ -3479,7 +3479,19 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
               </div>
               <div
                 className="g--7 m-v300"
-              />
+              >
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  ← Go to search
+                </a>
+              </div>
             </div>
           </div>
           <div

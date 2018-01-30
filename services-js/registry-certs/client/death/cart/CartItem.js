@@ -5,6 +5,7 @@ import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import type Cart, { CartEntry } from '../../store/Cart';
+import type SiteAnalytics from '../../lib/SiteAnalytics';
 
 import { FREEDOM_RED, OPTIMISTIC_BLUE } from '../../common/style-constants';
 
@@ -12,6 +13,7 @@ import CertificateRow from '../../common/CertificateRow';
 
 export type Props = {
   cart: Cart,
+  siteAnalytics: SiteAnalytics,
   entry: CartEntry,
   lastRow: boolean,
 };
@@ -49,7 +51,7 @@ export default class CartItem extends React.Component<Props, State> {
   handleQuantityChange = action(
     'CartItem > handleQuantityChange',
     (ev: SyntheticInputEvent<*>) => {
-      const { cart, entry: { cert } } = this.props;
+      const { cart, siteAnalytics, entry: { cert } } = this.props;
 
       const value = ev.target.value;
       if (!cert) {
@@ -64,12 +66,15 @@ export default class CartItem extends React.Component<Props, State> {
           cart.setQuantity(cert, quantity);
         }
       }
+
+      siteAnalytics.sendEvent('UX', 'input', 'update quantity');
     }
   );
 
   handleRemove = action('CartItem > handleRemove', () => {
-    const { cart, entry } = this.props;
+    const { cart, entry, siteAnalytics } = this.props;
     cart.remove(entry.id);
+    siteAnalytics.sendEvent('UX', 'click', 'remove from cart');
   });
 
   render() {

@@ -3,14 +3,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { CartEntry } from '../../store/Cart';
+import Cart, { CartEntry } from '../../store/Cart';
+import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CartItem from './CartItem';
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
+jest.mock('../../store/Cart');
+
 describe('quantity field', () => {
   let entry: CartEntry;
   let cart;
+  let siteAnalytics;
   let wrapper;
   let quantityField;
 
@@ -20,13 +24,18 @@ describe('quantity field', () => {
     entry.cert = TYPICAL_CERTIFICATE;
     entry.quantity = 4;
 
-    cart = {
-      setQuantity: jest.fn(),
-      remove: jest.fn(),
-    };
+    cart = new Cart();
+    siteAnalytics = new SiteAnalytics();
 
     // mount because the quantity field is behind a render prop
-    wrapper = mount(<CartItem cart={(cart: any)} entry={entry} lastRow />);
+    wrapper = mount(
+      <CartItem
+        cart={cart}
+        siteAnalytics={siteAnalytics}
+        entry={entry}
+        lastRow
+      />
+    );
     quantityField = wrapper.find('input');
   });
 

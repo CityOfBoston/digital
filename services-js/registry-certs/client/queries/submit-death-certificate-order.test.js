@@ -18,7 +18,7 @@ test('submitDeathCertificateOrder', async () => {
   });
 
   const cart = new Cart();
-  cart.add(TYPICAL_CERTIFICATE, 10);
+  cart.setQuantity(TYPICAL_CERTIFICATE, 10);
 
   const order = new Order();
 

@@ -99,10 +99,6 @@ export default class CheckoutDao {
         order
       );
 
-      runInAction('CheckoutDao > submit > success', () => {
-        cart.clear();
-      });
-
       return orderId;
     } catch (err) {
       runInAction('CheckoutDao > submit > catch block', () => {
