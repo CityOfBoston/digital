@@ -244,6 +244,24 @@ export default class RegistryOrders {
       }
     }
   }
+
+  async cancelOrder(orderKey: number, reason: string): Promise<void> {
+    const transaction =
+      this.opbeat &&
+      this.opbeat.startTransaction('CancelOrder', 'Registry Orders');
+
+    try {
+      await this.pool
+        .request()
+        .input('orderKey', orderKey)
+        .input('reason', reason)
+        .execute('Commerce.sp_CancelOrder');
+    } finally {
+      if (transaction) {
+        transaction.end();
+      }
+    }
+  }
 }
 
 export class RegistryOrdersFactory {
@@ -284,6 +302,8 @@ export class FixtureRegistryOrders {
     const orderFixture = require('../../fixtures/registry-orders/order.json');
     return (orderFixture: any);
   }
+
+  async cancelOrder(): Promise<void> {}
 }
 
 export async function makeFixtureRegistryOrdersFactory(): Promise<

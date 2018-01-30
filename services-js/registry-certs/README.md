@@ -24,6 +24,8 @@ You can use GraphiQL to run GraphQL queries against the backend: <http://localho
 
 Test query for submitting an order:
 
+(You will need to update `idempotencyKey` in each request.)
+
 ```
 mutation {
   submitDeathCertificateOrder(
@@ -54,3 +56,7 @@ mutation {
   } 
 }
  ```
+
+ Stripe has a [list of card numbers and
+ tokens](https://stripe.com/docs/testing#cards) that cause different API
+ responses in test.

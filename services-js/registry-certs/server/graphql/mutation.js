@@ -239,19 +239,36 @@ export const resolvers = {
         )
       );
 
-      const charge = await stripe.charges.create({
-        amount: total,
-        currency: 'usd',
-        source: cardToken,
-        description: 'Death certificates (Registry)',
-        metadata: {
-          'order.orderId': orderId,
-          'order.orderKey': orderKey.toString(),
-          'order.source': 'registry',
-          'order.quantity': totalQuantity.toString(),
-          'order.unitPrice': CERTIFICATE_COST.toString(),
-        },
-      });
+      let charge;
+      try {
+        charge = await stripe.charges.create({
+          amount: total,
+          currency: 'usd',
+          source: cardToken,
+          description: 'Death certificates (Registry)',
+          metadata: {
+            'order.orderId': orderId,
+            'order.orderKey': orderKey.toString(),
+            'order.source': 'registry',
+            'order.quantity': totalQuantity.toString(),
+            'order.unitPrice': CERTIFICATE_COST.toString(),
+          },
+        });
+      } catch (e) {
+        try {
+          await registryOrders.cancelOrder(
+            orderKey,
+            'Stripe charge create failed'
+          );
+        } catch (e) {
+          console.log('CANCEL ORDER FAILED');
+          // Let Opbeat know, but still fail the mutation with the original
+          // error.
+          opbeat.captureError(e);
+        }
+
+        throw e;
+      }
 
       try {
         await registryOrders.addPayment(
