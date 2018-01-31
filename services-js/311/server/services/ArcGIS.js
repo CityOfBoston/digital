@@ -17,12 +17,8 @@ type SpatialReference = {
 type ReverseGeocodeResult =
   | {|
       address: {|
-        Street: string,
-        City: string,
-        State: string,
-        ZIP: string,
+        SingleKey: string,
         Match_addr: string,
-        Loc_name: string,
       |},
       location: {|
         x: number,
@@ -324,7 +320,7 @@ export default class ArcGIS {
   openSpacesUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `311/Composite_Services/MapServer/13/${path}`
+      `311/Composite_Services/MapServer/21/${path}`
     );
   }
 
