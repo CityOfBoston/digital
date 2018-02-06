@@ -9,18 +9,42 @@
   docker run --rm --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
-#### Initialization
+### Initialization
 ```
   bin/rails db:create db:migrate
-  bin/rails runner 'User.create(:name => "dev").tap {|u| u.save!; u.generate_auth_token; puts u.auth_token}'
+  bundle exec rake users:add["App Name"]
 ```
 
-### Running
+### Development
 
 `foreman start`
 
+### Production
 
-### Restoring the DB
+To post feedback to this app, use the `<cob-contact-form>` custom element
+provided in the [Fleet patterns library](https://patterns.boston.com/). The
+component documentation can be found here:
+https://patterns.boston.gov/components/detail/contact_form.html
+
+Each site that sends feedback through this app needs two things:
+
+1. Its own app token
+1. To be whitelisted by the CORS configuration
+
+To create an app token, run `bundle exec rake users:add["App Name"]`. The token
+will be written to STDERR. This should be done by running a custom task in ECS,
+with the overwritten command:
+
+`bundle,exec,rake,users:add["App Name"]`
+
+To use the token, include it as the `token` attribute in the
+`<cob-contact-form>` custom element.
+
+By default, all apps on *.boston.gov are whitelisted by CORS, so you may not
+have to do anything. To add additional domains, include them in the `ORIGINS`
+environment variable (in .env), which is a comma-separated list of domains.
+
+#### Restoring the DB
 
 1. Get a `pg_dump` custom-formatted dump file
 1. Upload it to the config bucket at `db/cob_contact.dump`
