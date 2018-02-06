@@ -77,7 +77,8 @@ export default class extends Document {
           />
 
           <script
-            src={`${process.env.WEB_COMPONENTS_URI || ''}?k=${cacheParam}`}
+            src={`${process.env.WEB_COMPONENTS_URI ||
+              'https://patterns.boston.gov/web-components/all.js'}?k=${cacheParam}`}
           />
 
           <script src="https://js.stripe.com/v3/" />
