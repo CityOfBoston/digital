@@ -213,7 +213,8 @@ export function makeServer({ opbeat }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/',
-    handler: (request, reply) => reply.redirect('/death'),
+    handler: (request, reply) =>
+      reply.redirect(process.env.ROOT_REDIRECT_URL || '/death'),
   });
 
   server.route({
