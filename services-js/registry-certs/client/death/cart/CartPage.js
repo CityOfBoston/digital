@@ -107,7 +107,10 @@ export default class CartPage extends React.Component<Props> {
                 <div className="g">
                   <div className="g--8" />
                   <div className="ta-c ta-r--large g--4 m-v500">
-                    <Link href="/death/checkout">
+                    <Link
+                      href="/death/checkout"
+                      prefetch={process.env.NODE_ENV !== 'test'}
+                    >
                       <a className="btn ta-c" style={{ display: 'block' }}>
                         Go to checkout
                       </a>
