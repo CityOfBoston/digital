@@ -50,7 +50,7 @@
     "good-squeeze": "^5.0.2",
     "hapi": "^16.4.3",
     "node-cleanup": "^2.1.2",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.0.0",
     "opbeat": "^4.14.0",
     "soap": "^0.20.0",
     "stripe": "^5.4.0"
@@ -77,7 +77,6 @@
     "gulp-ignore": "^2.0.2",
     "gulp-plumber": "^1.1.0",
     "husky": "^0.14.0",
-    "isomorphic-fetch": "^2.2.1",
     "jest": "^21.2.1",
     "lint-staged": "^4.0.0",
     "prettier": "^1.4.4",

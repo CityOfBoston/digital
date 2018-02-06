@@ -1,7 +1,7 @@
 // @flow
 /* eslint no-console: 0 */
 
-import fetch from 'isomorphic-fetch';
+import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 
 import makeStripe from 'stripe';
