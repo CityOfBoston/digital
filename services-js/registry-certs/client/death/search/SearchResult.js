@@ -20,6 +20,7 @@ export default function SearchResult({ backUrl, certificate }: Props) {
       href={`/death/certificate?id=${id}&backUrl=${encodeURIComponent(
         backUrl
       )}`}
+      prefetch={process.env.NODE_ENV !== 'test'}
       as={`/death/certificate/${id}`}
     >
       <a>

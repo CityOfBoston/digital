@@ -28,11 +28,11 @@ export default class Nav extends React.Component<Props> {
     return (
       <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
         <div className="nv-s-l bar">
-          <Link href="/death/cart">
+          <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
             <a className="nv-s-l-b back-link back-link-right">View Cart</a>
           </Link>
 
-          <Link href="/death/cart">
+          <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
             <a className="cart-link">{cart.size}</a>
           </Link>
         </div>

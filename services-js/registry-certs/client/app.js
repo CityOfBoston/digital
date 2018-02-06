@@ -74,7 +74,10 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
 
   const stripe =
     typeof Stripe !== 'undefined'
-      ? Stripe((window.__NEXT_DATA__ || {}).stripePublishableKey || '')
+      ? Stripe(
+          (window.__NEXT_DATA__ || {}).stripePublishableKey ||
+            'test-publishable-key'
+        )
       : null;
   const loopbackGraphql = makeLoopbackGraphql(req);
   const deathCertificatesDao = new DeathCertificatesDao(loopbackGraphql);

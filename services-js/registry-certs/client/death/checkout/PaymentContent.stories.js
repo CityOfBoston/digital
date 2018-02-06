@@ -16,7 +16,8 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
-const makeStripe = () => (typeof Stripe !== 'undefined' ? Stripe('') : null);
+const makeStripe = () =>
+  typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
 
 function makeCart() {
   const cart = new Cart();

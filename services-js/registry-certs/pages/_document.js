@@ -20,7 +20,9 @@ export default class extends Document {
     // This is set by our standard deployment process.
     const cacheParam =
       (process.env.GIT_REVISION && process.env.GIT_REVISION.substring(0, 8)) ||
-      '';
+      Math.random()
+        .toString(36)
+        .substr(2, 5);
 
     return { ...page, cacheParam };
   }
@@ -74,9 +76,23 @@ export default class extends Document {
             data-app-id={process.env.OPBEAT_FRONTEND_APP_ID}
           />
 
+          <script
+            src={`${process.env.WEB_COMPONENTS_URI || ''}?k=${cacheParam}`}
+          />
+
           <script src="https://js.stripe.com/v3/" />
 
           <NextScript />
+
+          <cob-contact-form
+            id="contactForm"
+            to="fin.hopkins@boston.gov"
+            defaultSubject="Death Certificates Feedback"
+            token={process.env.CONTACT_FORM_TOKEN}
+            {...(process.env.CONTACT_FORM_ACTION
+              ? { action: process.env.CONTACT_FORM_ACTION }
+              : {})}
+          />
         </body>
       </html>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Router from 'next/router';
+import { createRouter } from 'next/router';
 import '@storybook/addon-actions/register';
 
 import HeadManager from 'next/dist/client/head-manager';
@@ -10,6 +10,9 @@ import { configure, addDecorator } from '@storybook/react';
 import styleTags from '../client/common/style-tags';
 
 const headManager = new HeadManager();
+
+const router =
+  process.env.NODE_ENV === 'test' ? null : createRouter('/', null, null);
 
 const DEFAULT_STYLE = `
   body, html {
@@ -31,17 +34,14 @@ class Wrapper extends React.Component {
   getChildContext() {
     return {
       headManager: this.props.headManager,
-      router: Router,
+      router,
     };
   }
 
   render() {
     return (
       <div>
-        <Head>
-          {styleTags(DEFAULT_STYLE)}
-          <script src="https://js.stripe.com/v3/" />
-        </Head>
+        <Head>{styleTags(DEFAULT_STYLE)}</Head>
 
         {this.props.children}
       </div>
