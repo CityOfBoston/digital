@@ -81,8 +81,14 @@ async function processChargeSucceeded(
 
 export async function processStripeEvent(
   deps: Dependencies,
-  event: Event
+  webhookSecret: ?string,
+  webhookSignature: string,
+  body: string
 ): Promise<void> {
+  const event: Event = webhookSecret
+    ? deps.stripe.webhooks.constructEvent(body, webhookSignature, webhookSecret)
+    : JSON.parse(body);
+
   console.log('STRIPE WEBHOOK: ', JSON.stringify(event));
 
   switch (event.type) {

@@ -40,7 +40,9 @@ describe('processStripeEvent', () => {
 
       await processStripeEvent(
         { stripe, inovah, opbeat: ({}: any) },
-        CHARGE_SUCCEEDED
+        null,
+        '',
+        JSON.stringify(CHARGE_SUCCEEDED)
       );
 
       expect(inovah.addTransaction).toHaveBeenCalledWith(
@@ -71,7 +73,9 @@ describe('processStripeEvent', () => {
       expect(
         processStripeEvent(
           { stripe, inovah, opbeat: ({}: any) },
-          CHARGE_SUCCEEDED
+          null,
+          '',
+          JSON.stringify(CHARGE_SUCCEEDED)
         )
       ).rejects.toMatchSnapshot();
     });
@@ -93,7 +97,9 @@ describe('processStripeEvent', () => {
       expect(
         processStripeEvent(
           { stripe, inovah, opbeat: ({}: any) },
-          CHARGE_SUCCEEDED
+          null,
+          '',
+          JSON.stringify(CHARGE_SUCCEEDED)
         )
       ).rejects.toMatchSnapshot();
     });

@@ -38,6 +38,11 @@ export function makeServer({ opbeat }: ServerArgs) {
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
 
+  const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (process.env.NODE_ENV === 'production' && !stripeWebhookSecret) {
+    throw new Error('NEED A WEBHOOK SECRET IN PROD');
+  }
+
   // Add services to wait for in here.
   // Returns an async shutdown method.
   let inovahFactory: INovahFactory;
@@ -97,6 +102,12 @@ export function makeServer({ opbeat }: ServerArgs) {
   server.route({
     method: 'POST',
     path: '/stripe',
+    config: {
+      payload: {
+        output: 'data',
+        parse: false,
+      },
+    },
     handler: async (request, reply) => {
       try {
         await processStripeEvent(
@@ -107,7 +118,9 @@ export function makeServer({ opbeat }: ServerArgs) {
               process.env.INOVAH_PAYMENT_ORIGIN
             ),
           },
-          (request.payload: any)
+          stripeWebhookSecret,
+          request.headers['stripe-signature'],
+          (request.payload: any).toString()
         );
         reply().code(200);
       } catch (e) {

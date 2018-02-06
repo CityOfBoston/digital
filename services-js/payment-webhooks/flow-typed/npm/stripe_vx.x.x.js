@@ -355,6 +355,14 @@ declare module 'stripe' {
   declare export type NodeStripe = {|
     setTimeout(ms: number): void,
     setHttpAgent(agent: Agent): void,
+
+    webhooks: {|
+      constructEvent(
+        payload: string,
+        header: string,
+        secret: string,
+        tolerance?: number): Event,
+    |},
     
     balance: {|
       retrieveTransaction(

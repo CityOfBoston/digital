@@ -22,6 +22,9 @@ dotenv.config();
 
   await fetch(`http://localhost:${process.env.PORT || '5000'}/stripe`, {
     method: 'post',
+    headers: {
+      'Stripe-Signature': 'fake-stripe-signature',
+    },
     body: JSON.stringify(latestEvents.data[0]),
   });
 })().catch(err => {
