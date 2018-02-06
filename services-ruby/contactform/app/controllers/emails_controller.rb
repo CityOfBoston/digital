@@ -12,7 +12,7 @@ class EmailsController < ApplicationController
       ContactMailer.city_email(@email).deliver_later
       render :json => {email: @email.id}
     else
-      render :json => {errors: @email.errors}
+      render :status => 400, :json => {errors: @email.errors}
     end
   end
 
