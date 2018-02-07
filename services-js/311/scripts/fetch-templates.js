@@ -32,11 +32,11 @@ const TEMPLATE_URL = 'https://boston.gov/api/v1/layouts/app';
   const templateHtml = await res.text();
   const $ = cheerio.load(templateHtml);
 
-  $('a, img').each((i, el) => {
+  $('a, img, form').each((i, el) => {
     const $el = $(el);
 
     // We need to absolutize all URLs, and also strip the cache-busting attribute.
-    ['href', 'src'].forEach(attr => {
+    ['href', 'src', 'action'].forEach(attr => {
       let url = $el.attr(attr);
 
       if (!url) {

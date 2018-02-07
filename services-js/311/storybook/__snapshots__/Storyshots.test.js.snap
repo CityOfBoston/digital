@@ -820,7 +820,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -1132,7 +1132,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -4246,7 +4246,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -4536,7 +4536,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -4826,7 +4826,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -9915,7 +9915,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -10430,7 +10430,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -11008,7 +11008,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -11550,7 +11550,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -11908,7 +11908,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -12217,7 +12217,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
@@ -12532,7 +12532,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
   </ul>
 </nav>
     <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://search.boston.gov\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
       <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
