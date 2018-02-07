@@ -75,14 +75,16 @@ export default class CostSummary extends React.Component<Props, State> {
             </tr>
 
             <tr>
-              <td>Shipping within the U.S.</td>
+              <td>U.S. shipping included</td>
               <td className="cost-cell">
-                <i>included</i>
+                <i>$0.00</i>
               </td>
             </tr>
 
             <tr>
-              <td className="sh-title">Total</td>
+              <td className="sh-title">
+                <span>Total</span>
+              </td>
               <td className="cost-cell cost br br-t100 p-v200">
                 ${(total / 100).toFixed(2)}
               </td>
@@ -99,12 +101,20 @@ export default class CostSummary extends React.Component<Props, State> {
           .cost-cell {
             width: 5em;
             vertical-align: bottom;
+            // Gives us even spacing for the rows
+            line-height: 1.75;
           }
 
           .sh-title {
             padding: 0;
             line-height: 1;
             font-style: normal;
+          }
+
+          .sh-title span {
+            // We want to re-use the responsive size from sh-title but be
+            // a little bit smaller.
+            font-size: 80%;
           }
         `}</style>
       </div>
@@ -132,13 +142,17 @@ export default class CostSummary extends React.Component<Props, State> {
               </select>
             </div>
           </div>{' '}
-          service fee
+          service fee{' '}
           <a href="#service-fee" aria-label="About the service fee">
             *
           </a>
           <style jsx>{`
             label {
               white-space: nowrap;
+            }
+
+            .sel {
+              line-height: 1;
             }
 
             .sel--thin .sel-f {

@@ -148,7 +148,7 @@ export default class SearchPage extends React.Component<Props, State> {
 
             {!results && this.renderIntro()}
 
-            <div className="m-v300">
+            <div className="m-v500">
               <form
                 className="sf sf--md"
                 acceptCharset="UTF-8"
@@ -198,9 +198,9 @@ export default class SearchPage extends React.Component<Props, State> {
           listed Boston as their home.
         </p>
 
-        <p className="t--info" style={{ fontStyle: 'normal' }}>
+        <p className="t--intro">
           To order a death certificate for someone, start by searching for their
-          name:
+          name.
         </p>
       </div>
     );

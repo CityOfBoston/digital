@@ -755,10 +755,10 @@ exports[`Storyshots CartPage loading 1`] = `
               className="m-t700"
             >
               <div
-                className="jsx-4244768073 clearfix"
+                className="jsx-1889563413 clearfix"
               >
                 <table
-                  className="jsx-4244768073 t--info ta-r"
+                  className="jsx-1889563413 t--info ta-r"
                   style={
                     Object {
                       "float": "right",
@@ -766,13 +766,13 @@ exports[`Storyshots CartPage loading 1`] = `
                   }
                 >
                   <tbody
-                    className="jsx-4244768073"
+                    className="jsx-1889563413"
                   >
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         8
                          
@@ -782,23 +782,23 @@ exports[`Storyshots CartPage loading 1`] = `
                         $14.00
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         112.00
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         <div
-                          className="jsx-1411408356"
+                          className="jsx-3718848343"
                         >
                           <div
-                            className="jsx-1411408356 sel sel--thin"
+                            className="jsx-3718848343 sel sel--thin"
                             style={
                               Object {
                                 "display": "inline-block",
@@ -806,23 +806,23 @@ exports[`Storyshots CartPage loading 1`] = `
                             }
                           >
                             <div
-                              className="jsx-1411408356 sel-c"
+                              className="jsx-3718848343 sel-c"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="jsx-1411408356 sel-f"
+                                className="jsx-3718848343 sel-f"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
                               >
                                 <option
-                                  className="jsx-1411408356"
+                                  className="jsx-3718848343"
                                   value="CREDIT"
                                 >
                                   Credit card
                                 </option>
                                 <option
-                                  className="jsx-1411408356"
+                                  className="jsx-3718848343"
                                   value="DEBIT"
                                 >
                                   Debit card
@@ -832,9 +832,10 @@ exports[`Storyshots CartPage loading 1`] = `
                           </div>
                            
                           service fee
+                           
                           <a
                             aria-label="About the service fee"
-                            className="jsx-1411408356"
+                            className="jsx-3718848343"
                             href="#service-fee"
                           >
                             *
@@ -842,40 +843,44 @@ exports[`Storyshots CartPage loading 1`] = `
                         </div>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         2.66
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
-                        Shipping within the U.S.
+                        U.S. shipping included
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         <i
-                          className="jsx-4244768073"
+                          className="jsx-1889563413"
                         >
-                          included
+                          $0.00
                         </i>
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073 sh-title"
+                        className="jsx-1889563413 sh-title"
                       >
-                        Total
+                        <span
+                          className="jsx-1889563413"
+                        >
+                          Total
+                        </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
                       >
                         $
                         114.66
@@ -1389,10 +1394,10 @@ exports[`Storyshots CartPage normal page 1`] = `
               className="m-t700"
             >
               <div
-                className="jsx-4244768073 clearfix"
+                className="jsx-1889563413 clearfix"
               >
                 <table
-                  className="jsx-4244768073 t--info ta-r"
+                  className="jsx-1889563413 t--info ta-r"
                   style={
                     Object {
                       "float": "right",
@@ -1400,13 +1405,13 @@ exports[`Storyshots CartPage normal page 1`] = `
                   }
                 >
                   <tbody
-                    className="jsx-4244768073"
+                    className="jsx-1889563413"
                   >
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         5
                          
@@ -1416,23 +1421,23 @@ exports[`Storyshots CartPage normal page 1`] = `
                         $14.00
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         70.00
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         <div
-                          className="jsx-1411408356"
+                          className="jsx-3718848343"
                         >
                           <div
-                            className="jsx-1411408356 sel sel--thin"
+                            className="jsx-3718848343 sel sel--thin"
                             style={
                               Object {
                                 "display": "inline-block",
@@ -1440,23 +1445,23 @@ exports[`Storyshots CartPage normal page 1`] = `
                             }
                           >
                             <div
-                              className="jsx-1411408356 sel-c"
+                              className="jsx-3718848343 sel-c"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="jsx-1411408356 sel-f"
+                                className="jsx-3718848343 sel-f"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
                               >
                                 <option
-                                  className="jsx-1411408356"
+                                  className="jsx-3718848343"
                                   value="CREDIT"
                                 >
                                   Credit card
                                 </option>
                                 <option
-                                  className="jsx-1411408356"
+                                  className="jsx-3718848343"
                                   value="DEBIT"
                                 >
                                   Debit card
@@ -1466,9 +1471,10 @@ exports[`Storyshots CartPage normal page 1`] = `
                           </div>
                            
                           service fee
+                           
                           <a
                             aria-label="About the service fee"
-                            className="jsx-1411408356"
+                            className="jsx-3718848343"
                             href="#service-fee"
                           >
                             *
@@ -1476,40 +1482,44 @@ exports[`Storyshots CartPage normal page 1`] = `
                         </div>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         1.76
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
-                        Shipping within the U.S.
+                        U.S. shipping included
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         <i
-                          className="jsx-4244768073"
+                          className="jsx-1889563413"
                         >
-                          included
+                          $0.00
                         </i>
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073 sh-title"
+                        className="jsx-1889563413 sh-title"
                       >
-                        Total
+                        <span
+                          className="jsx-1889563413"
+                        >
+                          Total
+                        </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
                       >
                         $
                         71.76
@@ -4428,10 +4438,10 @@ exports[`Storyshots ConfirmationContent default 1`] = `
 
 exports[`Storyshots CostSummary default credit card 1`] = `
 <div
-  className="jsx-4244768073 clearfix"
+  className="jsx-1889563413 clearfix"
 >
   <table
-    className="jsx-4244768073 t--info ta-r"
+    className="jsx-1889563413 t--info ta-r"
     style={
       Object {
         "float": "right",
@@ -4439,13 +4449,13 @@ exports[`Storyshots CostSummary default credit card 1`] = `
     }
   >
     <tbody
-      className="jsx-4244768073"
+      className="jsx-1889563413"
     >
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           5
            
@@ -4455,23 +4465,23 @@ exports[`Storyshots CostSummary default credit card 1`] = `
           $14.00
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           70.00
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           <div
-            className="jsx-1411408356"
+            className="jsx-3718848343"
           >
             <div
-              className="jsx-1411408356 sel sel--thin"
+              className="jsx-3718848343 sel sel--thin"
               style={
                 Object {
                   "display": "inline-block",
@@ -4479,23 +4489,23 @@ exports[`Storyshots CostSummary default credit card 1`] = `
               }
             >
               <div
-                className="jsx-1411408356 sel-c"
+                className="jsx-3718848343 sel-c"
               >
                 <select
                   aria-label="Payment type"
-                  className="jsx-1411408356 sel-f"
+                  className="jsx-3718848343 sel-f"
                   id="serviceFeeTypeSelect"
                   onChange={[Function]}
                   value="CREDIT"
                 >
                   <option
-                    className="jsx-1411408356"
+                    className="jsx-3718848343"
                     value="CREDIT"
                   >
                     Credit card
                   </option>
                   <option
-                    className="jsx-1411408356"
+                    className="jsx-3718848343"
                     value="DEBIT"
                   >
                     Debit card
@@ -4505,9 +4515,10 @@ exports[`Storyshots CostSummary default credit card 1`] = `
             </div>
              
             service fee
+             
             <a
               aria-label="About the service fee"
-              className="jsx-1411408356"
+              className="jsx-3718848343"
               href="#service-fee"
             >
               *
@@ -4515,40 +4526,44 @@ exports[`Storyshots CostSummary default credit card 1`] = `
           </div>
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           1.76
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
-          Shipping within the U.S.
+          U.S. shipping included
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           <i
-            className="jsx-4244768073"
+            className="jsx-1889563413"
           >
-            included
+            $0.00
           </i>
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073 sh-title"
+          className="jsx-1889563413 sh-title"
         >
-          Total
+          <span
+            className="jsx-1889563413"
+          >
+            Total
+          </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+          className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
         >
           $
           71.76
@@ -4561,10 +4576,10 @@ exports[`Storyshots CostSummary default credit card 1`] = `
 
 exports[`Storyshots CostSummary default debit card 1`] = `
 <div
-  className="jsx-4244768073 clearfix"
+  className="jsx-1889563413 clearfix"
 >
   <table
-    className="jsx-4244768073 t--info ta-r"
+    className="jsx-1889563413 t--info ta-r"
     style={
       Object {
         "float": "right",
@@ -4572,13 +4587,13 @@ exports[`Storyshots CostSummary default debit card 1`] = `
     }
   >
     <tbody
-      className="jsx-4244768073"
+      className="jsx-1889563413"
     >
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           5
            
@@ -4588,23 +4603,23 @@ exports[`Storyshots CostSummary default debit card 1`] = `
           $14.00
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           70.00
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           <div
-            className="jsx-1411408356"
+            className="jsx-3718848343"
           >
             <div
-              className="jsx-1411408356 sel sel--thin"
+              className="jsx-3718848343 sel sel--thin"
               style={
                 Object {
                   "display": "inline-block",
@@ -4612,23 +4627,23 @@ exports[`Storyshots CostSummary default debit card 1`] = `
               }
             >
               <div
-                className="jsx-1411408356 sel-c"
+                className="jsx-3718848343 sel-c"
               >
                 <select
                   aria-label="Payment type"
-                  className="jsx-1411408356 sel-f"
+                  className="jsx-3718848343 sel-f"
                   id="serviceFeeTypeSelect"
                   onChange={[Function]}
                   value="DEBIT"
                 >
                   <option
-                    className="jsx-1411408356"
+                    className="jsx-3718848343"
                     value="CREDIT"
                   >
                     Credit card
                   </option>
                   <option
-                    className="jsx-1411408356"
+                    className="jsx-3718848343"
                     value="DEBIT"
                   >
                     Debit card
@@ -4638,9 +4653,10 @@ exports[`Storyshots CostSummary default debit card 1`] = `
             </div>
              
             service fee
+             
             <a
               aria-label="About the service fee"
-              className="jsx-1411408356"
+              className="jsx-3718848343"
               href="#service-fee"
             >
               *
@@ -4648,40 +4664,44 @@ exports[`Storyshots CostSummary default debit card 1`] = `
           </div>
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           1.32
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
-          Shipping within the U.S.
+          U.S. shipping included
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           <i
-            className="jsx-4244768073"
+            className="jsx-1889563413"
           >
-            included
+            $0.00
           </i>
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073 sh-title"
+          className="jsx-1889563413 sh-title"
         >
-          Total
+          <span
+            className="jsx-1889563413"
+          >
+            Total
+          </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+          className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
         >
           $
           71.32
@@ -4694,10 +4714,10 @@ exports[`Storyshots CostSummary default debit card 1`] = `
 
 exports[`Storyshots CostSummary only credit card 1`] = `
 <div
-  className="jsx-4244768073 clearfix"
+  className="jsx-1889563413 clearfix"
 >
   <table
-    className="jsx-4244768073 t--info ta-r"
+    className="jsx-1889563413 t--info ta-r"
     style={
       Object {
         "float": "right",
@@ -4705,13 +4725,13 @@ exports[`Storyshots CostSummary only credit card 1`] = `
     }
   >
     <tbody
-      className="jsx-4244768073"
+      className="jsx-1889563413"
     >
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           5
            
@@ -4721,17 +4741,17 @@ exports[`Storyshots CostSummary only credit card 1`] = `
           $14.00
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           70.00
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           <span>
             Credit card service fee 
@@ -4743,40 +4763,44 @@ exports[`Storyshots CostSummary only credit card 1`] = `
           </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           1.76
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
-          Shipping within the U.S.
+          U.S. shipping included
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           <i
-            className="jsx-4244768073"
+            className="jsx-1889563413"
           >
-            included
+            $0.00
           </i>
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073 sh-title"
+          className="jsx-1889563413 sh-title"
         >
-          Total
+          <span
+            className="jsx-1889563413"
+          >
+            Total
+          </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+          className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
         >
           $
           71.76
@@ -4789,10 +4813,10 @@ exports[`Storyshots CostSummary only credit card 1`] = `
 
 exports[`Storyshots CostSummary only debit card 1`] = `
 <div
-  className="jsx-4244768073 clearfix"
+  className="jsx-1889563413 clearfix"
 >
   <table
-    className="jsx-4244768073 t--info ta-r"
+    className="jsx-1889563413 t--info ta-r"
     style={
       Object {
         "float": "right",
@@ -4800,13 +4824,13 @@ exports[`Storyshots CostSummary only debit card 1`] = `
     }
   >
     <tbody
-      className="jsx-4244768073"
+      className="jsx-1889563413"
     >
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           5
            
@@ -4816,17 +4840,17 @@ exports[`Storyshots CostSummary only debit card 1`] = `
           $14.00
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           70.00
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
           <span>
             Debit card service fee 
@@ -4838,40 +4862,44 @@ exports[`Storyshots CostSummary only debit card 1`] = `
           </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           $
           1.32
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073"
+          className="jsx-1889563413"
         >
-          Shipping within the U.S.
+          U.S. shipping included
         </td>
         <td
-          className="jsx-4244768073 cost-cell"
+          className="jsx-1889563413 cost-cell"
         >
           <i
-            className="jsx-4244768073"
+            className="jsx-1889563413"
           >
-            included
+            $0.00
           </i>
         </td>
       </tr>
       <tr
-        className="jsx-4244768073"
+        className="jsx-1889563413"
       >
         <td
-          className="jsx-4244768073 sh-title"
+          className="jsx-1889563413 sh-title"
         >
-          Total
+          <span
+            className="jsx-1889563413"
+          >
+            Total
+          </span>
         </td>
         <td
-          className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+          className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
         >
           $
           71.32
@@ -10899,10 +10927,10 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
               className="m-v500"
             >
               <div
-                className="jsx-4244768073 clearfix"
+                className="jsx-1889563413 clearfix"
               >
                 <table
-                  className="jsx-4244768073 t--info ta-r"
+                  className="jsx-1889563413 t--info ta-r"
                   style={
                     Object {
                       "float": "right",
@@ -10910,13 +10938,13 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                   }
                 >
                   <tbody
-                    className="jsx-4244768073"
+                    className="jsx-1889563413"
                   >
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         8
                          
@@ -10926,17 +10954,17 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                         $14.00
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         112.00
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         <span>
                           Credit card service fee 
@@ -10948,40 +10976,44 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
                         </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         2.66
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
-                        Shipping within the U.S.
+                        U.S. shipping included
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         <i
-                          className="jsx-4244768073"
+                          className="jsx-1889563413"
                         >
-                          included
+                          $0.00
                         </i>
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073 sh-title"
+                        className="jsx-1889563413 sh-title"
                       >
-                        Total
+                        <span
+                          className="jsx-1889563413"
+                        >
+                          Total
+                        </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
                       >
                         $
                         114.66
@@ -11581,10 +11613,10 @@ exports[`Storyshots ReviewContent default 1`] = `
               className="m-v500"
             >
               <div
-                className="jsx-4244768073 clearfix"
+                className="jsx-1889563413 clearfix"
               >
                 <table
-                  className="jsx-4244768073 t--info ta-r"
+                  className="jsx-1889563413 t--info ta-r"
                   style={
                     Object {
                       "float": "right",
@@ -11592,13 +11624,13 @@ exports[`Storyshots ReviewContent default 1`] = `
                   }
                 >
                   <tbody
-                    className="jsx-4244768073"
+                    className="jsx-1889563413"
                   >
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         6
                          
@@ -11608,17 +11640,17 @@ exports[`Storyshots ReviewContent default 1`] = `
                         $14.00
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         84.00
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         <span>
                           Credit card service fee 
@@ -11630,40 +11662,44 @@ exports[`Storyshots ReviewContent default 1`] = `
                         </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         2.06
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
-                        Shipping within the U.S.
+                        U.S. shipping included
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         <i
-                          className="jsx-4244768073"
+                          className="jsx-1889563413"
                         >
-                          included
+                          $0.00
                         </i>
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073 sh-title"
+                        className="jsx-1889563413 sh-title"
                       >
-                        Total
+                        <span
+                          className="jsx-1889563413"
+                        >
+                          Total
+                        </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
                       >
                         $
                         86.06
@@ -12236,10 +12272,10 @@ exports[`Storyshots ReviewContent submission error 1`] = `
               className="m-v500"
             >
               <div
-                className="jsx-4244768073 clearfix"
+                className="jsx-1889563413 clearfix"
               >
                 <table
-                  className="jsx-4244768073 t--info ta-r"
+                  className="jsx-1889563413 t--info ta-r"
                   style={
                     Object {
                       "float": "right",
@@ -12247,13 +12283,13 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                   }
                 >
                   <tbody
-                    className="jsx-4244768073"
+                    className="jsx-1889563413"
                   >
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         6
                          
@@ -12263,17 +12299,17 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         $14.00
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         84.00
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
                         <span>
                           Credit card service fee 
@@ -12285,40 +12321,44 @@ exports[`Storyshots ReviewContent submission error 1`] = `
                         </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         $
                         2.06
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073"
+                        className="jsx-1889563413"
                       >
-                        Shipping within the U.S.
+                        U.S. shipping included
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell"
+                        className="jsx-1889563413 cost-cell"
                       >
                         <i
-                          className="jsx-4244768073"
+                          className="jsx-1889563413"
                         >
-                          included
+                          $0.00
                         </i>
                       </td>
                     </tr>
                     <tr
-                      className="jsx-4244768073"
+                      className="jsx-1889563413"
                     >
                       <td
-                        className="jsx-4244768073 sh-title"
+                        className="jsx-1889563413 sh-title"
                       >
-                        Total
+                        <span
+                          className="jsx-1889563413"
+                        >
+                          Total
+                        </span>
                       </td>
                       <td
-                        className="jsx-4244768073 cost-cell cost br br-t100 p-v200"
+                        className="jsx-1889563413 cost-cell cost br br-t100 p-v200"
                       >
                         $
                         86.06
@@ -12737,7 +12777,7 @@ exports[`Storyshots SearchPage no results 1`] = `
               </h1>
             </div>
             <div
-              className="m-v300"
+              className="m-v500"
             >
               <form
                 acceptCharset="UTF-8"
@@ -13136,18 +13176,13 @@ exports[`Storyshots SearchPage no search 1`] = `
                 We have death certificates for anyone who died in Boston, or who listed Boston as their home.
               </p>
               <p
-                className="t--info"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
+                className="t--intro"
               >
-                To order a death certificate for someone, start by searching for their name:
+                To order a death certificate for someone, start by searching for their name.
               </p>
             </div>
             <div
-              className="m-v300"
+              className="m-v500"
             >
               <form
                 acceptCharset="UTF-8"
@@ -13482,7 +13517,7 @@ exports[`Storyshots SearchPage with results 1`] = `
               </h1>
             </div>
             <div
-              className="m-v300"
+              className="m-v500"
             >
               <form
                 acceptCharset="UTF-8"
