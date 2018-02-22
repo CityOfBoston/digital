@@ -89,7 +89,10 @@ export async function processStripeEvent(
     ? deps.stripe.webhooks.constructEvent(body, webhookSignature, webhookSecret)
     : JSON.parse(body);
 
-  console.log('STRIPE WEBHOOK: ', JSON.stringify(event));
+  console.log(
+    'STRIPE WEBHOOK: ',
+    JSON.stringify({ ...event, data: 'REDACTED' })
+  );
 
   switch (event.type) {
     case 'charge.succeeded':
