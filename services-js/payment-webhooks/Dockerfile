@@ -11,6 +11,15 @@ RUN apk add --update python python-dev curl unzip \
   && rm awscli-bundle.zip \
   && rm -rf awscli-bundle
 
+# Gets our root enterprise cert into the OS. Needed to securely talk to .cob
+# servers.
+RUN mkdir -m 755 -p /usr/local/share/ca-certificates
+ADD https://raw.githubusercontent.com/CityOfBoston/devops-public/master/ca-certificates/CityOfBoston-Enterprise-Root-CA.crt /usr/local/share/ca-certificates/
+RUN chmod 644 /usr/local/share/ca-certificates/* && update-ca-certificates 
+
+# Tells Node to use the OS for trusted certificates
+ENV NODE_OPTIONS=--use-openssl-ca
+
 # By just bringing these in first, we can re-use the npm install layer when the
 # package.json and npm-shrinkwrap haven't changed, speeding up recompilation.
 ADD package.json npm-shrinkwrap.json /app/
