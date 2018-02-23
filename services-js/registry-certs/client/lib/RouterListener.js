@@ -27,7 +27,9 @@ export default class RouterListener {
     // been called, so any impression data that needs to be sent in pageview has
     // been set.
     window.setTimeout(function() {
-      ga('send', 'pageview');
+      if (ga) {
+        ga('send', 'pageview');
+      }
     }, 0);
   }
 

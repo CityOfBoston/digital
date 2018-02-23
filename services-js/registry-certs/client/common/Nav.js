@@ -6,6 +6,7 @@ import { observer } from 'mobx-react';
 
 import { getDependencies } from '../app';
 import type Cart from '../store/Cart';
+import { CHARLES_BLUE } from './style-constants';
 
 type DefaultProps = {|
   cart: Cart,
@@ -29,22 +30,20 @@ export default class Nav extends React.Component<Props> {
       <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
         <div className="nv-s-l bar">
           <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
-            <a className="nv-s-l-b back-link back-link-right">View Cart</a>
-          </Link>
-
-          <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
-            <a className="cart-link">{cart.size}</a>
+            <a className="nv-s-l-b back-link back-link-right">
+              View Cart <span className="cart-link">{cart.size}</span>
+            </a>
           </Link>
         </div>
 
         <style jsx>{`
           .bar {
             display: flex;
+            height: 54px;
           }
 
           .back-link {
             display: block !important;
-            flex: 1;
           }
 
           .back-link-right {
@@ -56,16 +55,18 @@ export default class Nav extends React.Component<Props> {
           }
 
           .cart-link {
-            display: block;
+            display: inline-block;
             position: relative;
             background: white;
-            color: inherit;
+            color: ${CHARLES_BLUE};
             padding: 0.5em 0;
             margin-right: 1.25rem;
             margin-left: 1.25rem;
             width: 3em;
             text-align: center;
             font-style: italic;
+            font-family: Lora, Georgia, serif;
+            font-size: 1rem;
           }
 
           .cart-link:before {

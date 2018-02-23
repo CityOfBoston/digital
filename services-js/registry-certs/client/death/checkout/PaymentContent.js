@@ -249,7 +249,10 @@ export default class PaymentContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="card-name" className="txt-l txt-l--sm">
-                  Cardholder Name <span className="t--req">Required</span>
+                  Cardholder Name{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
 
                 <input
@@ -326,7 +329,10 @@ export default class PaymentContent extends React.Component<Props, State> {
                       htmlFor="billing-address-1"
                       className="txt-l txt-l--sm"
                     >
-                      Address Line 1 <span className="t--req">Required</span>
+                      Address Line 1{' '}
+                      <span className="t--req" aria-hidden>
+                        Required
+                      </span>
                     </label>
                     <input
                       id="billing-address-1"
@@ -370,7 +376,10 @@ export default class PaymentContent extends React.Component<Props, State> {
 
                   <div className="txt">
                     <label htmlFor="billing-city" className="txt-l txt-l--sm">
-                      City <span className="t--req">Required</span>
+                      City{' '}
+                      <span className="t--req" aria-hidden>
+                        Required
+                      </span>
                     </label>
                     <input
                       id="billing-city"
@@ -392,7 +401,10 @@ export default class PaymentContent extends React.Component<Props, State> {
                   {/* Adding "txt" so that we get the bottom margin right. */}
                   <div className="sel txt">
                     <label htmlFor="billing-state" className="sel-l txt-l--sm">
-                      State / Territory <span className="t--req">Required</span>
+                      State / Territory{' '}
+                      <span className="t--req" aria-hidden>
+                        Required
+                      </span>
                     </label>
                     <div className="sel-c">
                       <select
@@ -415,7 +427,10 @@ export default class PaymentContent extends React.Component<Props, State> {
 
                   <div className="txt">
                     <label htmlFor="billing-zip" className="txt-l txt-l--sm">
-                      ZIP Code <span className="t--req">Required</span>
+                      ZIP Code{' '}
+                      <span className="t--req" aria-hidden>
+                        Required
+                      </span>
                     </label>
                     <input
                       id="billing-zip"

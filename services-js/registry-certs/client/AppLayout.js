@@ -23,7 +23,13 @@ export default function AppLayout({ children, showNav }: Props) {
   // TODO(fin): remove wrapper <div> and return an array w/ React 16
   return (
     <div>
-      <a href="#content" className="a11y--h">
+      <a
+        href="#content-start"
+        tabIndex="1"
+        className="btn a11y--h a11y--f"
+        style={{ margin: 4 }}
+        onClick={ev => ev.target.blur()}
+      >
         Jump to content
       </a>
 
@@ -31,7 +37,14 @@ export default function AppLayout({ children, showNav }: Props) {
         type="checkbox"
         id="brg-tr"
         className="brg-tr"
-        aria-hidden="true"
+        aria-label="Open Boston.gov menu"
+        onKeyDown={ev => {
+          if (ev.key === 'Tab' && !ev.shiftKey && !ev.target.checked) {
+            const a = document.querySelector('header a');
+            a && a.focus();
+            ev.preventDefault();
+          }
+        }}
       />
       <nav
         className="nv-m"
@@ -82,7 +95,7 @@ export default function AppLayout({ children, showNav }: Props) {
             </ul>
           </nav>
 
-          <a name="content" />
+          <div id="content-start" className="a11y--content-start" />
           <main className="b-ff">{children}</main>
         </div>
       </div>

@@ -142,7 +142,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="contact-name" className="txt-l txt-l--sm">
-                  Full Name <span className="t--req">Required</span>
+                  Full Name{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
 
                 <input
@@ -164,7 +167,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="contact-email" className="txt-l txt-l--sm">
-                  Email Address <span className="t--req">Required</span>
+                  Email Address{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="contact-email"
@@ -185,7 +191,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="contact-phone" className="txt-l txt-l--sm">
-                  Phone Number <span className="t--req">Required</span>
+                  Phone Number{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="contact-phone"
@@ -210,7 +219,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="shipping-name" className="txt-l txt-l--sm">
-                  Full name <span className="t--req">Required</span>
+                  Full name{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="shipping-name"
@@ -254,7 +266,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="shipping-address-1" className="txt-l txt-l--sm">
-                  Address Line 1 <span className="t--req">Required</span>
+                  Address Line 1{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="shipping-address-1"
@@ -295,7 +310,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="shipping-city" className="txt-l txt-l--sm">
-                  City <span className="t--req">Required</span>
+                  City{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="shipping-city"
@@ -317,7 +335,10 @@ export default class ShippingContent extends React.Component<Props, State> {
               {/* Adding "txt" so that we get the bottom margin right. */}
               <div className="sel txt">
                 <label htmlFor="shipping-state" className="sel-l sel-l--sm">
-                  State / Territory <span className="t--req">Required</span>
+                  State / Territory{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <div className="sel-c">
                   <select
@@ -340,7 +361,10 @@ export default class ShippingContent extends React.Component<Props, State> {
 
               <div className="txt">
                 <label htmlFor="shipping-zip" className="txt-l txt-l--sm">
-                  ZIP Code <span className="t--req">Required</span>
+                  ZIP Code{' '}
+                  <span className="t--req" aria-hidden>
+                    Required
+                  </span>
                 </label>
                 <input
                   id="shipping-zip"

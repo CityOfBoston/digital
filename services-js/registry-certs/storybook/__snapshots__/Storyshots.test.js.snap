@@ -161,15 +161,23 @@ exports[`Storyshots CartPage empty cart 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -297,24 +305,22 @@ exports[`Storyshots CartPage empty cart 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -383,9 +389,9 @@ exports[`Storyshots CartPage empty cart 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -479,15 +485,23 @@ exports[`Storyshots CartPage loading 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -615,24 +629,22 @@ exports[`Storyshots CartPage loading 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -701,9 +713,9 @@ exports[`Storyshots CartPage loading 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -976,15 +988,23 @@ exports[`Storyshots CartPage normal page 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -1112,24 +1132,22 @@ exports[`Storyshots CartPage normal page 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -1198,9 +1216,9 @@ exports[`Storyshots CartPage normal page 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -1615,15 +1633,23 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -1751,24 +1777,22 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -1837,9 +1861,9 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -2160,15 +2184,23 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -2296,24 +2328,22 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -2382,9 +2412,9 @@ exports[`Storyshots CertificatePage missing certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -2498,15 +2528,23 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -2634,24 +2672,22 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -2720,9 +2756,9 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -3031,15 +3067,23 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -3167,24 +3211,22 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -3253,9 +3295,9 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -3564,15 +3606,23 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -3700,24 +3750,22 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -3786,9 +3834,9 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -4092,15 +4140,23 @@ exports[`Storyshots ConfirmationContent default 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -4228,24 +4284,22 @@ exports[`Storyshots ConfirmationContent default 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -4314,9 +4368,9 @@ exports[`Storyshots ConfirmationContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -4913,24 +4967,22 @@ exports[`Storyshots CostSummary only debit card 1`] = `
 exports[`Storyshots Nav default 1`] = `
 <nav
   aria-label="Shopping cart"
-  className="jsx-1730659780 nv-s nv-s--sticky"
+  className="jsx-4136110597 nv-s nv-s--sticky"
 >
   <div
-    className="jsx-1730659780 nv-s-l bar"
+    className="jsx-4136110597 nv-s-l bar"
   >
     <a
-      className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+      className="jsx-4136110597 nv-s-l-b back-link back-link-right"
       href="/death/cart"
       onClick={[Function]}
     >
-      View Cart
-    </a>
-    <a
-      className="jsx-1730659780 cart-link"
-      href="/death/cart"
-      onClick={[Function]}
-    >
-      0
+      View Cart 
+      <span
+        className="jsx-4136110597 cart-link"
+      >
+        0
+      </span>
     </a>
   </div>
 </nav>
@@ -5612,15 +5664,23 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -5811,9 +5871,9 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -5942,8 +6002,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="card-name"
                 >
-                  Cardholder Name 
+                  Cardholder Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -6041,8 +6103,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-address-1"
                   >
-                    Address Line 1 
+                    Address Line 1
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -6087,8 +6151,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-city"
                   >
-                    City 
+                    City
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -6113,8 +6179,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     className="sel-l txt-l--sm"
                     htmlFor="billing-state"
                   >
-                    State / Territory 
+                    State / Territory
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -6437,8 +6505,10 @@ exports[`Storyshots PaymentContent Stripe error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-zip"
                   >
-                    ZIP Code 
+                    ZIP Code
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -6574,15 +6644,23 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -6773,9 +6851,9 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -6904,8 +6982,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="card-name"
                 >
-                  Cardholder Name 
+                  Cardholder Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -7003,8 +7083,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-address-1"
                   >
-                    Address Line 1 
+                    Address Line 1
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -7049,8 +7131,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-city"
                   >
-                    City 
+                    City
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -7075,8 +7159,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     className="sel-l txt-l--sm"
                     htmlFor="billing-state"
                   >
-                    State / Territory 
+                    State / Territory
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -7399,8 +7485,10 @@ exports[`Storyshots PaymentContent ZIP code error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-zip"
                   >
-                    ZIP Code 
+                    ZIP Code
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -7520,15 +7608,23 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -7719,9 +7815,9 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -7850,8 +7946,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="card-name"
                 >
-                  Cardholder Name 
+                  Cardholder Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -7953,8 +8051,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-address-1"
                   >
-                    Address Line 1 
+                    Address Line 1
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -7999,8 +8099,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-city"
                   >
-                    City 
+                    City
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -8025,8 +8127,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     className="sel-l txt-l--sm"
                     htmlFor="billing-state"
                   >
-                    State / Territory 
+                    State / Territory
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -8349,8 +8453,10 @@ exports[`Storyshots PaymentContent credit card error 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-zip"
                   >
-                    ZIP Code 
+                    ZIP Code
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -8462,15 +8568,23 @@ exports[`Storyshots PaymentContent default 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -8661,9 +8775,9 @@ exports[`Storyshots PaymentContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -8792,8 +8906,10 @@ exports[`Storyshots PaymentContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="card-name"
                 >
-                  Cardholder Name 
+                  Cardholder Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -8951,15 +9067,23 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -9150,9 +9274,9 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -9281,8 +9405,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="card-name"
                 >
-                  Cardholder Name 
+                  Cardholder Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -9380,8 +9506,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-address-1"
                   >
-                    Address Line 1 
+                    Address Line 1
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -9426,8 +9554,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-city"
                   >
-                    City 
+                    City
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -9452,8 +9582,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     className="sel-l txt-l--sm"
                     htmlFor="billing-state"
                   >
-                    State / Territory 
+                    State / Territory
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -9776,8 +9908,10 @@ exports[`Storyshots PaymentContent existing billing 1`] = `
                     className="txt-l txt-l--sm"
                     htmlFor="billing-zip"
                   >
-                    ZIP Code 
+                    ZIP Code
+                     
                     <span
+                      aria-hidden={true}
                       className="t--req"
                     >
                       Required
@@ -10442,15 +10576,23 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -10641,9 +10783,9 @@ exports[`Storyshots ReviewContent cart has pending certs 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -11183,15 +11325,23 @@ exports[`Storyshots ReviewContent default 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -11382,9 +11532,9 @@ exports[`Storyshots ReviewContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -11842,15 +11992,23 @@ exports[`Storyshots ReviewContent submission error 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -12041,9 +12199,9 @@ exports[`Storyshots ReviewContent submission error 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -12524,15 +12682,23 @@ exports[`Storyshots SearchPage no results 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -12660,24 +12826,22 @@ exports[`Storyshots SearchPage no results 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -12746,9 +12910,9 @@ exports[`Storyshots SearchPage no results 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -12917,15 +13081,23 @@ exports[`Storyshots SearchPage no search 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -13053,24 +13225,22 @@ exports[`Storyshots SearchPage no search 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -13139,9 +13309,9 @@ exports[`Storyshots SearchPage no search 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -13264,15 +13434,23 @@ exports[`Storyshots SearchPage with results 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -13400,24 +13578,22 @@ exports[`Storyshots SearchPage with results 1`] = `
       />
       <nav
         aria-label="Shopping cart"
-        className="jsx-1730659780 nv-s nv-s--sticky"
+        className="jsx-4136110597 nv-s nv-s--sticky"
       >
         <div
-          className="jsx-1730659780 nv-s-l bar"
+          className="jsx-4136110597 nv-s-l bar"
         >
           <a
-            className="jsx-1730659780 nv-s-l-b back-link back-link-right"
+            className="jsx-4136110597 nv-s-l-b back-link back-link-right"
             href="/death/cart"
             onClick={[Function]}
           >
-            View Cart
-          </a>
-          <a
-            className="jsx-1730659780 cart-link"
-            href="/death/cart"
-            onClick={[Function]}
-          >
-            0
+            View Cart 
+            <span
+              className="jsx-4136110597 cart-link"
+            >
+              0
+            </span>
           </a>
         </div>
       </nav>
@@ -13486,9 +13662,9 @@ exports[`Storyshots SearchPage with results 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -13922,15 +14098,23 @@ exports[`Storyshots ShippingContent default 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -14121,9 +14305,9 @@ exports[`Storyshots ShippingContent default 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -14215,8 +14399,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-name"
                 >
-                  Full Name 
+                  Full Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14241,8 +14427,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-email"
                 >
-                  Email Address 
+                  Email Address
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14267,8 +14455,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-phone"
                 >
-                  Phone Number 
+                  Phone Number
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14302,8 +14492,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-name"
                 >
-                  Full name 
+                  Full name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14348,8 +14540,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-address-1"
                 >
-                  Address Line 1 
+                  Address Line 1
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14394,8 +14588,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-city"
                 >
-                  City 
+                  City
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14420,8 +14616,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="sel-l sel-l--sm"
                   htmlFor="shipping-state"
                 >
-                  State / Territory 
+                  State / Territory
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14744,8 +14942,10 @@ exports[`Storyshots ShippingContent default 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-zip"
                 >
-                  ZIP Code 
+                  ZIP Code
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -14856,15 +15056,23 @@ exports[`Storyshots ShippingContent email error 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -15055,9 +15263,9 @@ exports[`Storyshots ShippingContent email error 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -15149,8 +15357,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-name"
                 >
-                  Full Name 
+                  Full Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15175,8 +15385,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-email"
                 >
-                  Email Address 
+                  Email Address
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15209,8 +15421,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-phone"
                 >
-                  Phone Number 
+                  Phone Number
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15244,8 +15458,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-name"
                 >
-                  Full name 
+                  Full name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15290,8 +15506,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-address-1"
                 >
-                  Address Line 1 
+                  Address Line 1
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15336,8 +15554,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-city"
                 >
-                  City 
+                  City
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15362,8 +15582,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="sel-l sel-l--sm"
                   htmlFor="shipping-state"
                 >
-                  State / Territory 
+                  State / Territory
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15686,8 +15908,10 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-zip"
                 >
-                  ZIP Code 
+                  ZIP Code
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -15798,15 +16022,23 @@ exports[`Storyshots ShippingContent existing address 1`] = `
   className="jsx-3465476614"
 >
   <a
-    className="jsx-3465476614 a11y--h"
-    href="#content"
+    className="jsx-3465476614 btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex="1"
   >
     Jump to content
   </a>
   <input
-    aria-hidden="true"
+    aria-label="Open Boston.gov menu"
     className="jsx-3465476614 brg-tr"
     id="brg-tr"
+    onKeyDown={[Function]}
     type="checkbox"
   />
   <nav
@@ -15997,9 +16229,9 @@ exports[`Storyshots ShippingContent existing address 1`] = `
           </li>
         </ul>
       </nav>
-      <a
-        className="jsx-3465476614"
-        name="content"
+      <div
+        className="jsx-3465476614 a11y--content-start"
+        id="content-start"
       />
       <main
         className="jsx-3465476614 b-ff"
@@ -16091,8 +16323,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-name"
                 >
-                  Full Name 
+                  Full Name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16117,8 +16351,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-email"
                 >
-                  Email Address 
+                  Email Address
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16143,8 +16379,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="contact-phone"
                 >
-                  Phone Number 
+                  Phone Number
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16178,8 +16416,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-name"
                 >
-                  Full name 
+                  Full name
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16224,8 +16464,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-address-1"
                 >
-                  Address Line 1 
+                  Address Line 1
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16270,8 +16512,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-city"
                 >
-                  City 
+                  City
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16296,8 +16540,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="sel-l sel-l--sm"
                   htmlFor="shipping-state"
                 >
-                  State / Territory 
+                  State / Territory
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
@@ -16620,8 +16866,10 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   className="txt-l txt-l--sm"
                   htmlFor="shipping-zip"
                 >
-                  ZIP Code 
+                  ZIP Code
+                   
                   <span
+                    aria-hidden={true}
                     className="t--req"
                   >
                     Required
