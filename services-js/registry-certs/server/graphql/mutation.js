@@ -246,6 +246,7 @@ export const resolvers = {
           currency: 'usd',
           source: cardToken,
           description: 'Death certificates (Registry)',
+          statement_descriptor: 'CITYBOSTON*REG + FEE',
           metadata: {
             'order.orderId': orderId,
             'order.orderKey': orderKey.toString(),

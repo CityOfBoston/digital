@@ -105,6 +105,7 @@ describe('Mutation resolvers', () => {
         currency: 'usd',
         source: 'tok_test',
         description: 'Death certificates (Registry)',
+        statement_descriptor: 'CITYBOSTON*REG + FEE',
         metadata: expect.objectContaining({
           'order.orderId': expect.any(String),
           'order.orderKey': '25',
