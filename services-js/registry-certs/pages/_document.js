@@ -44,6 +44,12 @@ export default class extends Document {
       <html lang="en" className="js flexbox">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link
+            rel="shortcut icon"
+            href="/assets/favicon.ico"
+            type="image/vnd.microsoft.icon"
+          />
+
           {styleTags({ cacheParam })}
           {process.env.GOOGLE_TRACKING_ID && (
             <script
