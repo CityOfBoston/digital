@@ -73,6 +73,31 @@ describe('search', () => {
 
     expect(await dao.get(TYPICAL_CERTIFICATE.id)).toEqual(TYPICAL_CERTIFICATE);
   });
+
+  it('caches results', async () => {
+    searchDeathCertificates.mockReturnValue(
+      Promise.resolve(TEST_SEARCH_RESULTS)
+    );
+    await dao.search('Banner', 1);
+
+    searchDeathCertificates.mockClear();
+
+    await dao.search('Banner', 1);
+    expect(searchDeathCertificates).not.toHaveBeenCalled();
+  });
+
+  it('clears the cache on a new search', async () => {
+    searchDeathCertificates.mockReturnValue(
+      Promise.resolve(TEST_SEARCH_RESULTS)
+    );
+    await dao.search('Banner', 1);
+    await dao.search('Logan', 1);
+
+    searchDeathCertificates.mockClear();
+
+    await dao.search('Banner', 1);
+    expect(searchDeathCertificates).toHaveBeenCalled();
+  });
 });
 
 describe('parseQuery', () => {

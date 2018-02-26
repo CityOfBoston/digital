@@ -18,6 +18,9 @@ export default class DeathCertificatesDao {
   loopbackGraphql: LoopbackGraphql;
   loader: DataLoader<string, ?DeathCertificate>;
 
+  cacheFullQuery: string;
+  cacheByPage: { [page: number]: DeathCertificateSearchResults };
+
   constructor(loopbackGraphql: LoopbackGraphql) {
     this.loopbackGraphql = loopbackGraphql;
 
@@ -35,6 +38,16 @@ export default class DeathCertificatesDao {
     fullQuery: string,
     page: number
   ): Promise<DeathCertificateSearchResults> {
+    if (fullQuery === this.cacheFullQuery) {
+      const results = this.cacheByPage[page];
+      if (results) {
+        return results;
+      }
+    } else {
+      this.cacheFullQuery = fullQuery;
+      this.cacheByPage = {};
+    }
+
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
     const results = await searchDeathCertificates(
@@ -44,6 +57,8 @@ export default class DeathCertificatesDao {
       startYear,
       endYear
     );
+
+    this.cacheByPage[page] = results;
 
     results.results.forEach(cert => {
       this.loader.prime(cert.id, cert);
