@@ -5,6 +5,7 @@ import 'isomorphic-fetch';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import faker from 'faker';
 
 import { makeRegistryDataFactory } from '../server/services/RegistryData';
 
@@ -14,11 +15,11 @@ const FIXTURE_SEARCHES = ['smith'];
 
 (async function generateFixtures() {
   const registryFactoryOpts = {
-    user: process.env.REGISTRY_DB_USER,
-    password: process.env.REGISTRY_DB_PASSWORD,
-    domain: process.env.REGISTRY_DB_DOMAIN,
-    server: process.env.REGISTRY_DB_SERVER,
-    database: process.env.REGISTRY_DB_DATABASE,
+    user: process.env.REGISTRY_DATA_DB_USER,
+    password: process.env.REGISTRY_DATA_DB_PASSWORD,
+    domain: null,
+    server: process.env.REGISTRY_DATA_DB_SERVER,
+    database: process.env.REGISTRY_DATA_DB_DATABASE,
   };
 
   const registryDataFactory = await makeRegistryDataFactory(
@@ -30,9 +31,22 @@ const FIXTURE_SEARCHES = ['smith'];
   await Promise.all(
     FIXTURE_SEARCHES.map(async search => {
       const records = await registryData.search(search, 0, 500);
+
+      const cleanedRecords = records.map(r => {
+        const firstName = faker.name.firstName().toUpperCase();
+        const lastName = faker.name.lastName().toUpperCase();
+
+        return {
+          ...r,
+          'First Name': firstName,
+          'Last Name': lastName,
+          'Decedent Name': `${firstName} ${lastName}`,
+        };
+      });
+
       fs.writeFileSync(
         path.join(__dirname, `../fixtures/registry-data/${search}.json`),
-        JSON.stringify(records, null, 2)
+        JSON.stringify(cleanedRecords, null, 2)
       );
     })
   );
