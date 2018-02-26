@@ -229,6 +229,7 @@ describe('INovah', () => {
         inovah.addTransaction(
           'REG-DC-20171214-abcd123',
           'chg_testcharge',
+          'txn_testtxn',
           {
             amountInDollars: 28.0,
             unitPriceInDollars: 14.0,

@@ -74,6 +74,7 @@ type PaymentIn = {|
   PaymentCode: string,
   PaymentAllocation: PaymentAllocationIn,
   LastName?: string,
+  StreetName?: string,
   City?: string,
   State?: string,
   Zip?: string,
@@ -384,6 +385,7 @@ export default class INovah {
   async addTransaction(
     registryOrderId: string,
     stripeChargeId: string,
+    stripeTransactionId: string,
     { quantity, amountInDollars, unitPriceInDollars }: TransactionPayment,
     {
       cardholderName,
@@ -408,7 +410,7 @@ export default class INovah {
           ForeignID:
             process.env.SKIP_IDEMPOTENCY_CHECKS === '0'
               ? undefined
-              : stripeChargeId,
+              : stripeTransactionId,
           Payment: {
             PaymentCode: 'REG13',
             PaymentAllocation: {
@@ -418,6 +420,8 @@ export default class INovah {
               UnitCharge: unitPriceInDollars.toString(),
             },
             Invoice: registryOrderId,
+            LastName: cardholderName,
+            StreetName: billingAddress1,
             City: billingCity,
             State: billingState,
             Zip: billingZip,

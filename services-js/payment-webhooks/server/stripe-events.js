@@ -47,6 +47,7 @@ async function processChargeSucceeded(
   } = await inovah.addTransaction(
     charge.metadata['order.orderId'] || 'unknown',
     charge.id,
+    balanceTransaction.id,
     {
       // Stripe works in cents, iNovah in floating-point dollars.
       amountInDollars: balanceTransaction.net / 100,
@@ -89,10 +90,12 @@ export async function processStripeEvent(
     ? deps.stripe.webhooks.constructEvent(body, webhookSignature, webhookSecret)
     : JSON.parse(body);
 
-  console.log(
-    'STRIPE WEBHOOK: ',
-    JSON.stringify({ ...event, data: 'REDACTED' })
-  );
+  if (process.env['NODE_ENV'] !== 'test') {
+    console.log(
+      'STRIPE WEBHOOK: ',
+      JSON.stringify({ ...event, data: 'REDACTED' })
+    );
+  }
 
   switch (event.type) {
     case 'charge.succeeded':
