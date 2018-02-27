@@ -8,6 +8,7 @@ import {
   CERTIFICATE_COST,
   FIXED_CC_SERVICE_FEE,
   PERCENTAGE_CC_SERVICE_FEE,
+  SERVICE_FEE_URI,
   calculateCreditCardCost,
   calculateDebitCardCost,
 } from '../../lib/costs';
@@ -323,6 +324,7 @@ export const resolvers = {
         })),
         fixedFee: FIXED_CC_SERVICE_FEE,
         percentageFee: PERCENTAGE_CC_SERVICE_FEE,
+        serviceFeeUri: SERVICE_FEE_URI,
       });
 
       return { id: orderId, contactEmail };

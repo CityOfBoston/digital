@@ -8,7 +8,11 @@ import Link from 'next/link';
 
 import { getDependencies } from '../../app';
 
-import { PERCENTAGE_CC_STRING, FIXED_CC_STRING } from '../../../lib/costs';
+import {
+  PERCENTAGE_CC_STRING,
+  FIXED_CC_STRING,
+  SERVICE_FEE_URI,
+} from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
 import type SiteAnalytics from '../../lib/SiteAnalytics';
@@ -129,8 +133,8 @@ export default class CartPage extends React.Component<Props> {
                 {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
                 directly to a third party to pay for the cost of card
                 processing. Learn more about{' '}
-                <a href="https://www.boston.gov/">card service fees</a> at the
-                City of Boston.
+                <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
+                Boston.
               </div>
             </div>
           )}

@@ -21,6 +21,7 @@ import {
   CERTIFICATE_COST_STRING,
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
+  SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
 import AppLayout from '../../AppLayout';
@@ -224,8 +225,8 @@ export default class CertificatePage extends React.Component<Props, State> {
               more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
               goes directly to a third party to pay for the cost of card
               processing. Learn more about{' '}
-              <a href="https://www.boston.gov/">card service fees</a> at the
-              City of Boston.
+              <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
+              Boston.
             </div>
           </div>
         </div>

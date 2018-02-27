@@ -1,6 +1,7 @@
 // @flow
 
 import ReceiptEmail from './ReceiptEmail';
+import { SERVICE_FEE_URI } from '../../lib/costs';
 
 const TEST_ORDER = {
   orderDate: new Date(1515438318 * 1000),
@@ -31,6 +32,7 @@ const TEST_ORDER = {
   ],
   fixedFee: 25,
   percentageFee: 0.0215,
+  serviceFeeUri: SERVICE_FEE_URI,
 };
 
 test('it renders an HTML body', () => {

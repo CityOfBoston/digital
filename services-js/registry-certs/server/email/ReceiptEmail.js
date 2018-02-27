@@ -29,6 +29,7 @@ export type TemplateData = {
   }>,
   fixedFee: number,
   percentageFee: number,
+  serviceFeeUri: string,
 };
 
 export default class ReceiptEmail {

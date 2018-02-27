@@ -7,7 +7,11 @@ import { observer } from 'mobx-react';
 
 import AppLayout from '../../AppLayout';
 
-import { PERCENTAGE_CC_STRING, FIXED_CC_STRING } from '../../../lib/costs';
+import {
+  PERCENTAGE_CC_STRING,
+  FIXED_CC_STRING,
+  SERVICE_FEE_URI,
+} from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
 import type Order from '../../models/Order';
@@ -287,8 +291,8 @@ export default class ReviewContent extends React.Component<Props, State> {
             {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
             directly to a third party to pay for the cost of credit card
             processing. Learn more about{' '}
-            <a href="https://www.boston.gov/">credit card service fees</a> at
-            the City of Boston.
+            <a href={SERVICE_FEE_URI}>credit card service fees</a> at the City
+            of Boston.
           </div>
         </div>
       </AppLayout>

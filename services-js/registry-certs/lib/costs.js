@@ -25,6 +25,8 @@ export const PERCENTAGE_CC_STRING = `${(Math.round(
 ).toFixed(2)}%`;
 export const FIXED_CC_STRING = `$${(FIXED_CC_SERVICE_FEE / 100).toFixed(2)}`;
 
+export const SERVICE_FEE_URI = 'https://www.cityofboston.gov/payments/faqs.asp';
+
 export function calculateCreditCardCost(quantity: number) {
   return calculateCost(
     quantity,

@@ -8,6 +8,7 @@ import {
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
   calculateCreditCardCost,
+  SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
 import type Cart from '../../store/Cart';
@@ -127,8 +128,8 @@ export default class OrderDetails extends React.Component<Props, State> {
                 {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
                 directly to a third party to pay for the cost of card
                 processing. Learn more about{' '}
-                <a href="https://www.boston.gov/">card service fees</a> at the
-                City of Boston.
+                <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
+                Boston.
               </div>
 
               <div className="ta-c t--subinfo b--g">
