@@ -9,105 +9,103 @@
   </mj-head>
 
   <mj-body>
-    <mj-container>
-      <mj-section padding="25 0 10">
-        <mj-column>
-          <mj-image width="200" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
+    <mj-section padding="25px 0 10px">
+      <mj-column>
+        <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
 
-        </mj-column>
-      </mj-section>
+      </mj-column>
+    </mj-section>
 
-      {{#with order}}
-        <mj-wrapper border="2px solid #091f2f" background-color="#f2f2f2" padding="10 0">
-          <mj-section padding="0">
-            <mj-column>
-              <mj-text font-size="20px" font-weight="bold" font-family="Montserrat, sans-serif" text-transform="uppercase" padding="0 25">Thank you for your order</mj-text>
+    {{#with order}}
+      <mj-wrapper border="2px solid #091f2f" background-color="#f2f2f2" padding="10px 0">
+        <mj-section padding="0">
+          <mj-column>
+            <mj-text font-size="20px" font-weight="bold" font-family="Montserrat, sans-serif" text-transform="uppercase" padding="0 25px">Thank you for your order</mj-text>
 
-              <mj-divider padding="0 25"></mj-divider>
-            </mj-column>
-          </mj-section>
-
-          <mj-section padding="10 0">
-            <mj-column>
-              <mj-text>
-                <b>Date:</b> <i>{{formatDate orderDate}}</i><br/>
-                <b>Order #:</b> <i>{{orderId}}</i>
-              </mj-text>
-            </mj-column>
-
-            <mj-column>
-              <mj-text>
-                <b>Shipping information:</b><br/>
-                <i>{{shippingName}}<br/>
-                {{#if shippingCompanyName}}{{shippingCompanyName}}<br/>{{/if}}
-                {{shippingAddress1}}<br/>
-                {{#if shippingAddress2}}{{shippingAddress2}}<br/>{{/if}}
-                {{shippingCity}}, {{shippingState}} {{shippingZip}}</i>
-              </mj-text>
-            </mj-column>
-          </mj-section>
-
-          <mj-section padding="10 0">
-            <mj-column>
-              <mj-text padding="0 25" font-size="18px">
-                <b>Order:</b>
-              </mj-text>
-
-              <mj-table padding="0">
-                {{#each items}}
-                <tr>
-                  <td style="padding: 0 25px"><i>{{quantity}} × Death certificate for {{name}} (#{{id}})</i></td>
-                  <td style="padding: 0 25px" align="right"><b>{{formatCents cost}}</b></td>
-                </tr>
-                {{/each}}
-
-                <tr>
-                  <td style="padding: 0 25px"><i>Subtotal</i></td>
-                  <td style="padding: 0 25px" align="right"><b>{{formatCents subtotal}}</b></td>
-                </tr>
-                <tr>
-                  <td style="padding: 0 25px"><i>Card service fee*</i></td>
-                  <td style="padding: 0 25px" align="right"><b>{{formatCents serviceFee}}</b></td>
-                </tr>
-                <tr>
-                  <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;">Total</td>
-                  <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;" align="right"><b>{{formatCents total}}</b></td>
-                </tr>
-              </mj-table>
-
-              <mj-text padding="25 25 0" line-height="1.5">
-                Your order will be shipped within 1–2 business days via the U.S. Postal Service.
-              </mj-text>
-
-              <mj-text padding="25 25 0" font-size="13px" line-height="1.5">
-                <i>* You are charged an extra service fee of not more than
-                {{formatCents fixedFee}} plus {{formatPercentage
-                percentageFee}}. This fee goes directly to a third party to
-                pay for the cost of card processing. Learn more about <a
-                href="{{serviceFeeUri}}">card service fees</a> at the City
-                of Boston.</i>
-              </mj-text>
-            </mj-column>
-          </mj-section>
-        </mj-wrapper>
-      {{/with}}
-
-      <mj-section padding="20 0 10">
-        <mj-group>
-          <mj-column width="75">
-            <mj-image align="left" padding="0" alt="" src="https://patterns.boston.gov/images/global/icons/seal.png"></mj-image>
+            <mj-divider padding="0 25px"></mj-divider>
           </mj-column>
+        </mj-section>
 
-          <mj-column width="525">
-            <mj-text padding="10 0 0 10" line-height="1.5">
-              Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
-              href="tel:618-635-4175">617-635-4175</a>, or email <b><i><a
-              href="mailto:registry@boston.gov">registry@boston.gov</a></i></b>.
+        <mj-section padding="10px 0">
+          <mj-column vertical-align="top">
+            <mj-text>
+              <b>Date:</b> <i>{{formatDate orderDate}}</i><br/>
+              <b>Order #:</b> <i>{{orderId}}</i>
             </mj-text>
           </mj-column>
-        </mj-group>
-      </mj-section>
 
-    </mj-container>
+          <mj-column>
+            <mj-text>
+              <b>Shipping information:</b><br/>
+              <i>{{shippingName}}<br/>
+              {{#if shippingCompanyName}}{{shippingCompanyName}}<br/>{{/if}}
+              {{shippingAddress1}}<br/>
+              {{#if shippingAddress2}}{{shippingAddress2}}<br/>{{/if}}
+              {{shippingCity}}, {{shippingState}} {{shippingZip}}</i>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section padding="10px 0">
+          <mj-column>
+            <mj-text padding="0 25px" font-size="18px">
+              <b>Order:</b>
+            </mj-text>
+
+            <mj-table padding="0">
+              {{#each items}}
+              <tr>
+                <td style="padding: 0 25px"><i>{{quantity}} × Death certificate for {{name}} (#{{id}})</i></td>
+                <td style="padding: 0 25px" align="right"><b>{{formatCents cost}}</b></td>
+              </tr>
+              {{/each}}
+
+              <tr>
+                <td style="padding: 0 25px"><i>Subtotal</i></td>
+                <td style="padding: 0 25px" align="right"><b>{{formatCents subtotal}}</b></td>
+              </tr>
+              <tr>
+                <td style="padding: 0 25px"><i>Card service fee*</i></td>
+                <td style="padding: 0 25px" align="right"><b>{{formatCents serviceFee}}</b></td>
+              </tr>
+              <tr>
+                <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;">Total</td>
+                <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;" align="right"><b>{{formatCents total}}</b></td>
+              </tr>
+            </mj-table>
+
+            <mj-text padding="25px 25px 0" line-height="1.5">
+              Your order will be shipped within 1–2 business days via the U.S. Postal Service.
+            </mj-text>
+
+            <mj-text padding="25px 25px 0" font-size="13px" line-height="1.5">
+              <i>* You are charged an extra service fee of not more than
+              {{formatCents fixedFee}} plus {{formatPercentage
+              percentageFee}}. This fee goes directly to a third party to
+              pay for the cost of card processing. Learn more about <a
+              href="{{serviceFeeUri}}">card service fees</a> at the City
+              of Boston.</i>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+      </mj-wrapper>
+    {{/with}}
+
+    <mj-section padding="20px 0 10px">
+      <mj-group>
+        <mj-column width="75px" vertical-align="middle">
+          <mj-image align="left" padding="0" alt="" src="https://patterns.boston.gov/images/global/icons/seal.png"></mj-image>
+        </mj-column>
+
+        <mj-column width="525px" vertical-align="middle">
+          <mj-text padding="0 0 0 10px" line-height="1.5">
+            Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
+            href="tel:618-635-4175">617-635-4175</a>, or email <b><i><a
+            href="mailto:registry@boston.gov">registry@boston.gov</a></i></b>.
+          </mj-text>
+        </mj-column>
+      </mj-group>
+    </mj-section>
+
   </mj-body>
 </mjml>

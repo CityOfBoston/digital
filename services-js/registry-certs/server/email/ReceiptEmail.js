@@ -4,7 +4,7 @@ import RECEIPT_MJML_TEMPLATE from './receipt.mjml.hbs';
 import RECEIPT_TEXT_TEMPLATE from './receipt.txt.hbs';
 
 import Handlebars from 'handlebars';
-import { mjml2html } from 'mjml';
+import mjml2html from 'mjml';
 
 require('./handlebars-helpers');
 
