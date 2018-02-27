@@ -3,6 +3,7 @@
 import React from 'react';
 import type { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
+import flush from 'styled-jsx/server';
 
 import styleTags from '../client/common/style-tags';
 
@@ -17,6 +18,9 @@ export default class extends Document {
   static getInitialProps({ renderPage }: DocumentContext<*>) {
     const page = renderPage();
 
+    // Need this for styled-jsx styles to appear in server-rendered content.
+    const styles = flush();
+
     // This is set by our standard deployment process.
     const cacheParam =
       (process.env.GIT_REVISION && process.env.GIT_REVISION.substring(0, 8)) ||
@@ -24,7 +28,7 @@ export default class extends Document {
         .toString(36)
         .substr(2, 5);
 
-    return { ...page, cacheParam };
+    return { ...page, styles, cacheParam };
   }
 
   constructor(props: Props) {
@@ -51,6 +55,7 @@ export default class extends Document {
           />
 
           {styleTags({ cacheParam })}
+
           {process.env.GOOGLE_TRACKING_ID && (
             <script
               type="text/javascript"
