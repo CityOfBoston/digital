@@ -194,8 +194,8 @@ export default class SearchPage extends React.Component<Props, State> {
     return (
       <div>
         <p className="t--intro">
-          We have death certificates for anyone who died in Boston, or who
-          listed Boston as their home.
+          We have death certificates for anyone who died in Boston or listed
+          Boston as their home.
         </p>
 
         <p className="t--intro">
