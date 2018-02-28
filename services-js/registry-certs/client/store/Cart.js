@@ -106,7 +106,7 @@ export default class Cart {
         id,
         'Death certificate',
         quantity,
-        CERTIFICATE_COST
+        CERTIFICATE_COST / 100
       );
     });
   }
@@ -138,7 +138,7 @@ export default class Cart {
         cert.id,
         'Death certificate',
         Math.abs(quantityChange),
-        CERTIFICATE_COST
+        CERTIFICATE_COST / 100
       );
       siteAnalytics.setProductAction(quantityChange < 0 ? 'remove' : 'add');
     }
@@ -167,7 +167,7 @@ export default class Cart {
           certId,
           'Death certificate',
           this.getQuantity(certId),
-          CERTIFICATE_COST
+          CERTIFICATE_COST / 100
         );
         siteAnalytics.setProductAction('remove');
       }
