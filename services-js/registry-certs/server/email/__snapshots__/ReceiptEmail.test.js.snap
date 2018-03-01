@@ -93,8 +93,8 @@ exports[`it renders an HTML body 1`] = `
       @media only screen and (min-width:480px) {
         .mj-column-per-100 { width:100% !important; }
 .mj-column-per-50 { width:50% !important; }
-.mj-column-px-75 { width:75px !important; }
-.mj-column-px-525 { width:525px !important; }
+.mj-column-per-12 { width:12% !important; }
+.mj-column-per-88 { width:88% !important; }
       }
     </style>
     
@@ -514,24 +514,24 @@ exports[`it renders an HTML body 1`] = `
       >
         <tr>
                 <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe (#555000)</i></td>
-                <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$56.00</b></td>
+                <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
               </tr>
               <tr>
                 <td style=\\"padding: 0 25px\\"><i>6 × Death certificate for Bruce Banner (#667123)</i></td>
-                <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$84.00</b></td>
+                <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$84.00</b></td>
               </tr>
 
               <tr>
                 <td style=\\"padding: 0 25px\\"><i>Subtotal</i></td>
-                <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$140.00</b></td>
+                <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$140.00</b></td>
               </tr>
               <tr>
                 <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
-                <td style=\\"padding: 0 25px\\" align=\\"right\\"><b>$1.32</b></td>
+                <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$1.32</b></td>
               </tr>
               <tr>
                 <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\" align=\\"right\\"><b>$141.32</b></td>
+                <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$141.32</b></td>
               </tr>
       </table>
     
@@ -648,12 +648,12 @@ exports[`it renders an HTML body 1`] = `
           <tr>
         
               <td
-                 style=\\"width:75px;\\"
+                 style=\\"width:72px;\\"
               >
               <![endif]-->
                 
       <div
-         class=\\"mj-column-px-75 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:0.125%;\\"
+         class=\\"mj-column-per-12 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:12%;\\"
       >
         
       <table
@@ -670,10 +670,10 @@ exports[`it renders an HTML body 1`] = `
       >
         <tbody>
           <tr>
-            <td  style=\\"width:75px;\\">
+            <td  style=\\"width:72px;\\">
               
       <img
-         height=\\"auto\\" src=\\"https://patterns.boston.gov/images/global/icons/seal.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;width:100%;\\" width=\\"75\\"
+         height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/seal.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;width:100%;\\" width=\\"72\\"
       />
     
             </td>
@@ -692,12 +692,12 @@ exports[`it renders an HTML body 1`] = `
               </td>
               
               <td
-                 style=\\"width:525px;\\"
+                 style=\\"width:528px;\\"
               >
               <![endif]-->
                 
       <div
-         class=\\"mj-column-px-525 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:0.875%;\\"
+         class=\\"mj-column-per-88 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:88%;\\"
       >
         
       <table
