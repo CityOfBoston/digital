@@ -139,31 +139,9 @@ export default class CheckoutPageController extends React.Component<Props> {
   errorAccessibilityDisposer: Function;
 
   componentWillMount() {
-    const {
-      orderProvider,
-      accessibility,
-      cart,
-      siteAnalytics,
-      info,
-    } = this.props;
+    const { orderProvider, accessibility } = this.props;
 
-    let checkoutStep = null;
-    switch (info.page) {
-      case 'shipping':
-        checkoutStep = 1;
-        break;
-      case 'payment':
-        checkoutStep = 2;
-        break;
-      case 'review':
-        checkoutStep = 3;
-        break;
-    }
-
-    if (checkoutStep) {
-      cart.trackCartItems();
-      siteAnalytics.setProductAction('checkout', { step: checkoutStep });
-    }
+    this.reportCheckoutStep(this.props);
 
     // This will be populated from localStorage, and changes to it will get
     // written back there.
@@ -191,6 +169,30 @@ export default class CheckoutPageController extends React.Component<Props> {
 
   componentWillReceiveProps(newProps: Props) {
     this.redirectIfMissingOrderInfo(newProps);
+
+    if (newProps.info.page !== this.props.info.page) {
+      this.reportCheckoutStep(newProps);
+    }
+  }
+
+  reportCheckoutStep({ info, cart, siteAnalytics }: Props) {
+    let checkoutStep = null;
+    switch (info.page) {
+      case 'shipping':
+        checkoutStep = 1;
+        break;
+      case 'payment':
+        checkoutStep = 2;
+        break;
+      case 'review':
+        checkoutStep = 3;
+        break;
+    }
+
+    if (checkoutStep) {
+      cart.trackCartItems();
+      siteAnalytics.setProductAction('checkout', { step: checkoutStep });
+    }
   }
 
   // In the case of reloading from the browser, for example, or clicking
