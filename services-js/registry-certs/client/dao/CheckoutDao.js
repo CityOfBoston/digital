@@ -76,6 +76,7 @@ export default class CheckoutDao {
 
       if (window._opbeat && !err._sentToOpbeat) {
         window._opbeat('captureException', err);
+        err._sentToOpbeat = true;
       }
 
       return false;
@@ -108,6 +109,7 @@ export default class CheckoutDao {
 
       if (window._opbeat && !err._sentToOpbeat) {
         window._opbeat('captureException', err);
+        err._sentToOpbeat = true;
       }
 
       return null;

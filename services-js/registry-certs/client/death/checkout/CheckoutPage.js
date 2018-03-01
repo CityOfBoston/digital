@@ -152,7 +152,7 @@ export default class CheckoutPageController extends React.Component<Props> {
       () => order.processingError,
       processingError => {
         if (processingError) {
-          accessibility.message = `There was an error: ${processingError}. You can try again. If it keeps happening, please email digital@boston.gov.`;
+          accessibility.message = `There’s a problem: ${processingError}. You can try again. If this keeps happening, please email digital@boston.gov.`;
           accessibility.interrupt = true;
         }
       }

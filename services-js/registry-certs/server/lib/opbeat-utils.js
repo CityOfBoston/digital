@@ -24,6 +24,7 @@ export const opbeatWrapGraphqlOptions = (
         },
       };
 
+      // graphql wraps the original exception
       let err;
       if (e.originalError instanceof Error) {
         err = e.originalError;
@@ -31,8 +32,9 @@ export const opbeatWrapGraphqlOptions = (
         err = e;
       }
 
-      // graphql wraps the original exception
-      opbeat.captureError(err, payload);
+      if (!err.silent) {
+        opbeat.captureError(err, payload);
+      }
 
       return oldFormatError ? oldFormatError(e) : e;
     };

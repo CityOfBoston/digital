@@ -257,6 +257,11 @@ export const resolvers = {
           },
         });
       } catch (e) {
+        if (e.type === 'StripeCardError') {
+          // Keeps us from sending customer errors to Stripe
+          e.silent = true;
+        }
+
         try {
           await registryOrders.cancelOrder(
             orderKey,

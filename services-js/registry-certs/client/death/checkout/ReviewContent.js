@@ -196,10 +196,10 @@ export default class ReviewContent extends React.Component<Props, State> {
                 id="processing-error"
               >
                 <div className="t--intro t--err">
-                  There was an error: {processingError}
+                  There’s a problem: {processingError}
                 </div>
                 <div className="t--info">
-                  You can try again. If it keeps happening, please email{' '}
+                  You can try again. If this keeps happening, please email{' '}
                   <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
                 </div>
               </div>

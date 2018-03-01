@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`client mode GraphQL failure case 1`] = `[Error: [Server] Unexpected error]`;
+exports[`client mode GraphQL failure case 1`] = `[Error: Unexpected error]`;
 
 exports[`client mode network failure case 1`] = `[TypeError: connecting blew up]`;
 

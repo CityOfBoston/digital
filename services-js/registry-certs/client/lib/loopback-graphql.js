@@ -11,11 +11,14 @@ export type LoopbackGraphql = (
 
 const makeGraphQLError = (message, errors) => {
   if (!message) {
-    message = `[Server] ${errors.map(e => e.message).join(', ')}`;
+    message = `${errors.map(e => e.message).join(', ')}`;
   }
 
   const e: Object = new Error(message);
   e.errors = errors;
+  // If the server needed to send this to Opbeat it would have, so we don't have
+  // to on the client.
+  e._sentToOpbeat = true;
   return e;
 };
 
