@@ -1,6 +1,7 @@
 // @flow
 
 import type { Client as PostmarkClient } from 'postmark';
+import { Address } from 'address-rfc2822';
 
 import ReceiptEmail, {
   type TemplateData as ReceiptTemplateData,
@@ -23,12 +24,20 @@ export default class Emails {
     this.receiptEmail = new ReceiptEmail();
   }
 
-  async sendReceiptEmail(to: string, data: ReceiptTemplateData): Promise<void> {
+  formatTo(toName: string, toEmail: string): string {
+    return new Address(toName, toEmail).format();
+  }
+
+  async sendReceiptEmail(
+    toName: string,
+    toEmail: string,
+    data: ReceiptTemplateData
+  ): Promise<void> {
     try {
       await new Promise((resolve, reject) =>
         this.postmarkClient.sendEmail(
           {
-            To: to,
+            To: this.formatTo(toName, toEmail),
             From: this.from,
             Subject: `City of Boston Death Certificates Order #${data.orderId}`,
             HtmlBody: this.receiptEmail.renderHtmlBody(data),

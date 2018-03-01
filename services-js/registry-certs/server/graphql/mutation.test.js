@@ -107,6 +107,8 @@ describe('Mutation resolvers', () => {
         description: 'Death certificates (Registry)',
         statement_descriptor: 'CITYBOSTON*REG + FEE',
         metadata: expect.objectContaining({
+          'webapp.name': 'registry-certs',
+          'webapp.nodeEnv': 'test',
           'order.orderId': expect.any(String),
           'order.orderKey': '25',
           'order.quantity': '10',

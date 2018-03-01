@@ -1,8 +1,9 @@
 // @flow
 
-import moment from 'moment';
+import moment from 'moment-timezone';
 import type { Context } from './index';
-import type {
+import type RegistryOrders from '../services/RegistryOrders';
+import type RegistryData, {
   DeathCertificateSearchResult,
   DeathCertificate as DbDeathCertificate,
 } from '../services/RegistryData';
@@ -192,6 +193,76 @@ function searchResultToDeathCertificate(
   };
 }
 
+// We export this function so that other places can take advantage of how it
+// parses out ids and amounts. That's a little wonky, since this is still fairly
+// GraphQL-specific in its return values.
+export async function loadOrder(
+  registryData: RegistryData,
+  registryOrders: RegistryOrders,
+  id: string
+): Promise<?DeathCertificateOrder> {
+  const order = await registryOrders.findOrder(id);
+  if (!order) {
+    return null;
+  }
+
+  const certificateIds = order.CertificateIDs.split(',');
+  const certificateQuantities = order.CertificateQuantities
+    .split(',')
+    .map(q => parseInt(q, 10));
+
+  const certificateCount = certificateQuantities.reduce((sum, q) => q + sum, 0);
+
+  const certificateCost = Math.floor(
+    order.CertificateCost * 100 / certificateCount
+  );
+
+  const items = certificateIds.map((id, idx) => {
+    const quantity = certificateQuantities[idx];
+
+    return {
+      id,
+      quantity,
+      cost: quantity * certificateCost,
+      // Will only be executed if dereferenced.
+      certificate: async () => {
+        const cert = await registryData.lookup(id);
+        return cert ? searchResultToDeathCertificate(cert) : null;
+      },
+    };
+  });
+
+  return {
+    id,
+    date: moment(order.OrderDate)
+      .tz('America/New_York')
+      .format('l h:mmA'),
+    contactName: order.ContactName,
+    contactEmail: order.ContactEmail,
+    contactPhone: order.ContactPhone,
+    shippingName: order.ShippingName,
+    shippingCompanyName: order.ShippingCompany,
+    shippingAddress1: order.ShippingAddr1,
+    shippingAddress2: order.ShippingAddr2,
+    shippingCity: order.ShippingCity,
+    shippingState: order.ShippingState,
+    shippingZip: order.ShippingZIP,
+    cardholderName: order.BillingName,
+    billingAddress1: order.BillingAddr1,
+    billingAddress2: order.BillingAddr2,
+    billingCity: order.BillingCity,
+    billingState: order.BillingState,
+    billingZip: order.BillingZIP,
+
+    items,
+
+    certificateCost,
+    subtotal: Math.floor(order.CertificateCost * 100),
+    serviceFee: Math.floor(order.ServiceFee * 100),
+    total: Math.floor(order.TotalCost * 100),
+  };
+}
+
 export const resolvers = {
   DeathCertificates: {
     search: async (
@@ -259,71 +330,18 @@ export const resolvers = {
       { id, contactEmail }: OrderLookupArgs,
       { registryData, registryOrders }: Context
     ): Promise<?DeathCertificateOrder> => {
-      const order = await registryOrders.findOrder(id);
+      const order = await loadOrder(registryData, registryOrders, id);
       if (!order) {
         return null;
       }
 
-      if (order.ContactEmail.toLowerCase() !== contactEmail.toLowerCase()) {
+      // Safety check so that you can't easily iterate through all the receipt
+      // IDs to get sensitive information.
+      if (order.contactEmail.toLowerCase() !== contactEmail.toLowerCase()) {
         return null;
       }
 
-      const certificateIds = order.CertificateIDs.split(',');
-      const certificateQuantities = order.CertificateQuantities
-        .split(',')
-        .map(q => parseInt(q, 10));
-
-      const certificateCount = certificateQuantities.reduce(
-        (sum, q) => q + sum,
-        0
-      );
-
-      const certificateCost = Math.floor(
-        order.CertificateCost * 100 / certificateCount
-      );
-
-      const items = certificateIds.map((id, idx) => {
-        const quantity = certificateQuantities[idx];
-
-        return {
-          id,
-          quantity,
-          cost: quantity * certificateCost,
-          // Will only be executed if dereferenced.
-          certificate: async () => {
-            const cert = await registryData.lookup(id);
-            return cert ? searchResultToDeathCertificate(cert) : null;
-          },
-        };
-      });
-
-      return {
-        id,
-        date: moment(order.OrderDate).format('l h:mmA'),
-        contactName: order.ContactName,
-        contactEmail: order.ContactEmail,
-        contactPhone: order.ContactPhone,
-        shippingName: order.ShippingName,
-        shippingCompanyName: order.ShippingCompany,
-        shippingAddress1: order.ShippingAddr1,
-        shippingAddress2: order.ShippingAddr2,
-        shippingCity: order.ShippingCity,
-        shippingState: order.ShippingState,
-        shippingZip: order.ShippingZIP,
-        cardholderName: order.BillingName,
-        billingAddress1: order.BillingAddr1,
-        billingAddress2: order.BillingAddr2,
-        billingCity: order.BillingCity,
-        billingState: order.BillingState,
-        billingZip: order.BillingZIP,
-
-        items,
-
-        certificateCost,
-        subtotal: Math.floor(order.CertificateCost * 100),
-        serviceFee: Math.floor(order.ServiceFee * 100),
-        total: Math.floor(order.TotalCost * 100),
-      };
+      return order;
     },
   },
 };

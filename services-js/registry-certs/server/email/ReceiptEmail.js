@@ -9,7 +9,8 @@ import mjml2html from 'mjml';
 require('./handlebars-helpers');
 
 export type TemplateData = {
-  orderDate: Date,
+  // already-formatted date
+  orderDate: string,
   orderId: string,
   shippingName: string,
   shippingCompanyName: string,
@@ -18,6 +19,7 @@ export type TemplateData = {
   shippingCity: string,
   shippingState: string,
   shippingZip: string,
+  // all these costs are in cents, matching Stripe
   subtotal: number,
   serviceFee: number,
   total: number,

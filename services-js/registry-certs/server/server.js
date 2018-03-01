@@ -34,6 +34,8 @@ import {
 
 import Emails from './services/Emails';
 
+import { processStripeEvent } from './stripe-events';
+
 import schema from './graphql';
 import type { Context } from './graphql';
 
@@ -81,6 +83,11 @@ export function makeServer({ opbeat }: ServerArgs) {
   };
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+  const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (process.env.NODE_ENV === 'production' && !stripeWebhookSecret) {
+    throw new Error('NEED A WEBHOOK SECRET IN PROD');
+  }
+
   const postmarkClient = new PostmarkClient(
     process.env.POSTMARK_SERVER_API_TOKEN || 'fake-postmark-key'
   );
@@ -227,6 +234,38 @@ export function makeServer({ opbeat }: ServerArgs) {
     },
   });
 
+  // Stripe webhook handler. Used to reliably complete the order process when
+  // charges succeed.
+  server.route({
+    method: 'POST',
+    path: '/stripe',
+    config: {
+      payload: {
+        output: 'data',
+        parse: false,
+      },
+    },
+    handler: async (request, reply) => {
+      try {
+        await processStripeEvent(
+          {
+            registryData: registryDataFactory.registryData(),
+            registryOrders: registryOrdersFactory.registryOrders(),
+            stripe,
+            emails,
+            opbeat,
+          },
+          stripeWebhookSecret,
+          request.headers['stripe-signature'],
+          (request.payload: any).toString()
+        );
+        reply().code(200);
+      } catch (e) {
+        opbeat.captureError(e);
+        reply(e);
+      }
+    },
+  });
   server.route({
     method: 'GET',
     path: '/death/certificate/{id}',

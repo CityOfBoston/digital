@@ -18,7 +18,7 @@
     "build": "gulp build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
-    "snapshot": "build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
+    "snapshot": "babel-node ./scripts/snapshot",
     "lint": "eslint --fix .",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-fixtures": "babel-node ./scripts/generate-fixtures",
@@ -51,6 +51,7 @@
     ]
   },
   "dependencies": {
+    "address-rfc2822": "github:CityOfBoston/node-address-rfc2822",
     "apollo-server-hapi": "^1.2.0",
     "aws-sdk": "^2.100.0",
     "babel-runtime": "^6.26.0",
@@ -74,6 +75,7 @@
     "mobx": "^3.3.0",
     "mobx-react": "^4.3.2",
     "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "mssql": "^4.0.4",
     "next": "^4.2.3",
     "node-cleanup": "^2.1.2",
@@ -133,6 +135,7 @@
     "prettier": "^1.7.0",
     "prop-types": "^15.5.10",
     "react-test-renderer": "^16.0.0",
+    "shelljs": "^0.8.1",
     "through2": "^2.0.3",
     "webpack-bundle-analyzer": "^2.8.1"
   }

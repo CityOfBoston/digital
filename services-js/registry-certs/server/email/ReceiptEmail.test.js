@@ -4,7 +4,7 @@ import ReceiptEmail from './ReceiptEmail';
 import { SERVICE_FEE_URI } from '../../lib/costs';
 
 const TEST_ORDER = {
-  orderDate: new Date(1515438318 * 1000),
+  orderDate: '1/8/2018 2:05PM',
   orderId: 'RG-DC201801-100001',
   shippingName: 'Nancy Whitehead',
   shippingCompanyName: '',

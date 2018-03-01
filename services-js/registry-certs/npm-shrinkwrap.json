@@ -948,6 +948,17 @@
           "integrity": "sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==",
           "dev": true
         },
+        "shelljs": {
+          "version": "0.7.8",
+          "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.7.8.tgz",
+          "integrity": "sha1-3svPh0sNHl+3LhSxZKloMEjprLM=",
+          "dev": true,
+          "requires": {
+            "glob": "7.1.1",
+            "interpret": "1.0.3",
+            "rechoir": "0.6.2"
+          }
+        },
         "sntp": {
           "version": "2.1.0",
           "resolved": "https://registry.npmjs.org/sntp/-/sntp-2.1.0.tgz",
@@ -1235,6 +1246,12 @@
           "integrity": "sha1-ReN/s56No/JbruP/U2niu18iAXo=",
           "dev": true
         }
+      }
+    },
+    "address-rfc2822": {
+      "version": "github:CityOfBoston/node-address-rfc2822#06b86c8fa7f5d3c655c18b84dad7d23045d16dae",
+      "requires": {
+        "email-addresses": "3.0.1"
       }
     },
     "after-all-results": {
@@ -6073,6 +6090,11 @@
         "minimalistic-assert": "1.0.0",
         "minimalistic-crypto-utils": "1.0.1"
       }
+    },
+    "email-addresses": {
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/email-addresses/-/email-addresses-3.0.1.tgz",
+      "integrity": "sha1-wfwgwYnn+W1AEtN121/qzN0kORw="
     },
     "emitter-mixin": {
       "version": "0.0.3",
@@ -13337,6 +13359,14 @@
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.20.1.tgz",
       "integrity": "sha512-Yh9y73JRljxW5QxN08Fner68eFLxM5ynNOAw2LbIB1YAGeQzZT8QFSUvkAz609Zf+IHhhaUxqZK8dG3W/+HEvg=="
     },
+    "moment-timezone": {
+      "version": "0.5.14",
+      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.14.tgz",
+      "integrity": "sha1-TrOP+VOLgBCLpGekWPPtQmjM/LE=",
+      "requires": {
+        "moment": "2.20.1"
+      }
+    },
     "ms": {
       "version": "0.7.1",
       "resolved": "https://registry.npmjs.org/ms/-/ms-0.7.1.tgz",
@@ -17606,9 +17636,9 @@
       "integrity": "sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM="
     },
     "shelljs": {
-      "version": "0.7.8",
-      "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.7.8.tgz",
-      "integrity": "sha1-3svPh0sNHl+3LhSxZKloMEjprLM=",
+      "version": "0.8.1",
+      "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.8.1.tgz",
+      "integrity": "sha512-YA/iYtZpzFe5HyWVGrb02FjPxc4EMCfpoU/Phg9fQoyMC72u9598OUBrsU8IrtwAKG0tO8IYaqbaLIw+k3IRGA==",
       "dev": true,
       "requires": {
         "glob": "7.1.1",

@@ -3,12 +3,10 @@
 
 import type { Context } from '.';
 import moment from 'moment';
+import { processChargeSucceeded } from '../stripe-events';
 
 import {
   CERTIFICATE_COST,
-  FIXED_CC_SERVICE_FEE,
-  PERCENTAGE_CC_SERVICE_FEE,
-  SERVICE_FEE_URI,
   calculateCreditCardCost,
   calculateDebitCardCost,
 } from '../../lib/costs';
@@ -102,7 +100,7 @@ export const resolvers = {
     submitDeathCertificateOrder: async (
       root: mixed,
       args: SubmitDeathCertificateOrderArgs,
-      { opbeat, stripe, registryOrders, emails }: Context
+      { opbeat, stripe, emails, registryData, registryOrders }: Context
     ): Promise<SubmittedOrder> => {
       const {
         contactName,
@@ -191,7 +189,7 @@ export const resolvers = {
       const token = await stripe.tokens.retrieve(cardToken);
 
       // These are all in cents, to match Stripe
-      const { total, serviceFee, subtotal } =
+      const { total, serviceFee } =
         token.card.funding === 'credit'
           ? calculateCreditCardCost(totalQuantity)
           : calculateDebitCardCost(totalQuantity);
@@ -249,6 +247,8 @@ export const resolvers = {
           description: 'Death certificates (Registry)',
           statement_descriptor: 'CITYBOSTON*REG + FEE',
           metadata: {
+            'webapp.name': 'registry-certs',
+            'webapp.nodeEnv': process.env.NODE_ENV || 'development',
             'order.orderId': orderId,
             'order.orderKey': orderKey.toString(),
             'order.source': 'registry',
@@ -272,60 +272,21 @@ export const resolvers = {
         throw e;
       }
 
-      try {
-        await registryOrders.addPayment(
-          orderKey,
-          // Unix epoch seconds -> milliseconds
-          new Date(charge.created * 1000),
-          charge.id,
-          charge.amount / 100
+      // The Stripe charge is the last thing in the request because if it
+      // succeeds, we consider the order to have been completed successfully.
+      // (This is certainly true from the customer’s perspective!)
+      //
+      // Sending the receipt email and marking the order as paid in the DB is
+      // handled in response to a Stripe webhook for maximum reliability
+      // (because Stripe will retry webhooks if they fail).
+
+      // We can only get the Stripe callback when in production, so we fake it for dev.
+      if (process.env.NODE_ENV === 'development') {
+        await processChargeSucceeded(
+          { opbeat, stripe, emails, registryData, registryOrders },
+          charge
         );
-      } catch (e) {
-        console.log('ADD PAYMENT FAILED, ISSUING REFUND');
-
-        try {
-          await stripe.refunds.create({
-            charge: charge.id,
-            metadata: {
-              'registry.orderId': orderId,
-              'registry.orderKey': orderKey.toString(),
-              'registry.error': e.message || e.toString(),
-            },
-          });
-        } catch (e) {
-          console.log(`ISSUING REFUND FAILED. MANUALLY REFUND ${charge.id}`);
-
-          // Let Opbeat know, but still fail the mutation with the original
-          // error.
-          opbeat.captureError(e);
-        }
-
-        throw e;
       }
-
-      emails.sendReceiptEmail(contactEmail, {
-        orderId,
-        orderDate,
-        shippingName,
-        shippingCompanyName,
-        shippingAddress1,
-        shippingAddress2,
-        shippingCity,
-        shippingState,
-        shippingZip,
-        subtotal,
-        serviceFee,
-        total,
-        items: items.map(({ id, name, quantity }) => ({
-          id,
-          name,
-          quantity,
-          cost: quantity * CERTIFICATE_COST,
-        })),
-        fixedFee: FIXED_CC_SERVICE_FEE,
-        percentageFee: PERCENTAGE_CC_SERVICE_FEE,
-        serviceFeeUri: SERVICE_FEE_URI,
-      });
 
       return { id: orderId, contactEmail };
     },
