@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
+import InputMask from 'react-input-mask';
 
 import AppLayout from '../../AppLayout';
 
@@ -196,10 +197,11 @@ export default class ShippingContent extends React.Component<Props, State> {
                     Required
                   </span>
                 </label>
-                <input
+                <InputMask
+                  mask="(999) 999-9999"
                   id="contact-phone"
                   name="phone"
-                  type="phone"
+                  type="tel"
                   placeholder="Phone number"
                   aria-required="true"
                   {...this.errorAttributes('contactPhone')}

@@ -15021,8 +15021,12 @@ exports[`Storyshots ShippingContent default 1`] = `
                   name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onPaste={[Function]}
                   placeholder="Phone number"
-                  type="phone"
+                  type="tel"
                   value=""
                 />
               </div>
@@ -15987,8 +15991,12 @@ exports[`Storyshots ShippingContent email error 1`] = `
                   name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onPaste={[Function]}
                   placeholder="Phone number"
-                  type="phone"
+                  type="tel"
                   value="(555) 123-9999"
                 />
               </div>
@@ -16945,8 +16953,12 @@ exports[`Storyshots ShippingContent existing address 1`] = `
                   name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onPaste={[Function]}
                   placeholder="Phone number"
-                  type="phone"
+                  type="tel"
                   value="(555) 123-9999"
                 />
               </div>

@@ -16614,6 +16614,11 @@
         "react-icon-base": "2.1.0"
       }
     },
+    "react-input-mask": {
+      "version": "1.2.2",
+      "resolved": "https://registry.npmjs.org/react-input-mask/-/react-input-mask-1.2.2.tgz",
+      "integrity": "sha512-bMbpt+PeErDvMYGGln8RaivWti4U3TOXLRG77dElEfdetVOSysmrVBKB6XvL1cKUMscaqcXvYhmLFjLpCH5e4Q=="
+    },
     "react-inspector": {
       "version": "2.1.6",
       "resolved": "https://registry.npmjs.org/react-inspector/-/react-inspector-2.1.6.tgz",
