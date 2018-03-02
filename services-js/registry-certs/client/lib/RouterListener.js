@@ -11,6 +11,7 @@ export default class RouterListener {
   router: ?Router = null;
   ga: any = null;
   routeStartMs: number;
+  progressStartTimeout: ?TimeoutID = null;
 
   attach(router: Router, accessibility: Accessibility, ga: any) {
     this.router = router;
@@ -45,13 +46,17 @@ export default class RouterListener {
 
   @action.bound
   routeChangeStart() {
-    NProgress.start();
+    this.progressStartTimeout = setTimeout(() => NProgress.start(), 250);
 
     this.routeStartMs = Date.now();
   }
 
   @action.bound
   routeChangeComplete(url: string) {
+    if (this.progressStartTimeout) {
+      clearTimeout(this.progressStartTimeout);
+    }
+
     NProgress.done();
 
     const { accessibility, ga } = this;
@@ -90,6 +95,10 @@ export default class RouterListener {
 
   @action.bound
   routeChangeError() {
+    if (this.progressStartTimeout) {
+      clearTimeout(this.progressStartTimeout);
+    }
+
     NProgress.done();
   }
 }
