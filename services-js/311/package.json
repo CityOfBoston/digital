@@ -16,7 +16,7 @@
     "storybook": "gulp storybook:head && start-storybook -p 9001 -s static -c storybook",
     "lint": "eslint --fix .",
     "test-ci": "jest --coverage --runInBand",
-    "snapshot": "gulp storybook:head && build-storybook -s static -c storybook && percy-storybook --widths=320,840,1280",
+    "snapshot": "babel-node ./scripts/snapshot",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "precommit": "lint-staged",
     "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace"
@@ -151,6 +151,7 @@
     "pump": "^2.0.0",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
     "react-test-renderer": "^16.0.0",
+    "shelljs": "^0.8.1",
     "svg-sprite": "^1.3.6",
     "webpack-bundle-analyzer": "^2.3.0"
   }
