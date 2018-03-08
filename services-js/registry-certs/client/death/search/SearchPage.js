@@ -181,6 +181,8 @@ export default class SearchPage extends React.Component<Props, State> {
                 </div>
               </form>
             </div>
+
+            {!results && this.renderSubintro()}
           </div>
 
           {results && results.resultCount > 0 && this.renderResults(results)}
@@ -194,13 +196,27 @@ export default class SearchPage extends React.Component<Props, State> {
     return (
       <div>
         <p className="t--intro">
-          We have death certificates for anyone who died in Boston or listed
-          Boston as their home.
-        </p>
-
-        <p className="t--intro">
           To order a death certificate for someone, start by searching for their
-          name.
+          name:
+        </p>
+      </div>
+    );
+  }
+
+  renderSubintro() {
+    return (
+      <div>
+        <p className="t--subinfo">
+          We have death certificates from 1956 to the present for anyone who
+          died in Boston or listed Boston as their home. If you need a death
+          certificate from before 1956, you will need to order{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate#by-mail">
+            by mail
+          </a>{' '}
+          or{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate#in-person">
+            in person
+          </a>.
         </p>
       </div>
     );

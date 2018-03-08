@@ -13893,12 +13893,7 @@ exports[`Storyshots SearchPage no search 1`] = `
               <p
                 className="t--intro"
               >
-                We have death certificates for anyone who died in Boston or listed Boston as their home.
-              </p>
-              <p
-                className="t--intro"
-              >
-                To order a death certificate for someone, start by searching for their name.
+                To order a death certificate for someone, start by searching for their name:
               </p>
             </div>
             <div
@@ -13944,6 +13939,28 @@ exports[`Storyshots SearchPage no search 1`] = `
                   Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
                 </div>
               </form>
+            </div>
+            <div>
+              <p
+                className="t--subinfo"
+              >
+                We have death certificates from 1956 to the present for anyone who died in Boston or listed Boston as their home. If you need a death certificate from before 1956, you will need to order
+                 
+                <a
+                  href="https://www.boston.gov/departments/registry/how-get-death-certificate#by-mail"
+                >
+                  by mail
+                </a>
+                 
+                or
+                 
+                <a
+                  href="https://www.boston.gov/departments/registry/how-get-death-certificate#in-person"
+                >
+                  in person
+                </a>
+                .
+              </p>
             </div>
           </div>
         </div>
