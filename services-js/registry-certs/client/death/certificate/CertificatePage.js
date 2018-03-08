@@ -94,7 +94,7 @@ export default class CertificatePage extends React.Component<Props, State> {
   componentWillMount() {
     const { siteAnalytics, id } = this.props;
 
-    siteAnalytics.addProduct(id, 'Death certificate');
+    siteAnalytics.addProduct(id, 'Death certificate', 'Death certificate');
     siteAnalytics.setProductAction('detail');
   }
 

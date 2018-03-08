@@ -33,6 +33,7 @@ export default class SiteAnalytics {
 
   addProduct(
     id: string,
+    name: string,
     category: ProductCategory,
     quantity?: number,
     price?: number
@@ -44,6 +45,7 @@ export default class SiteAnalytics {
 
     ga('ec:addProduct', {
       id,
+      name,
       category,
       quantity,
       price,

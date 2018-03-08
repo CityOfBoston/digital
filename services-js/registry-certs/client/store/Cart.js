@@ -105,6 +105,7 @@ export default class Cart {
       siteAnalytics.addProduct(
         id,
         'Death certificate',
+        'Death certificate',
         quantity,
         CERTIFICATE_COST / 100
       );
@@ -137,6 +138,7 @@ export default class Cart {
       siteAnalytics.addProduct(
         cert.id,
         'Death certificate',
+        'Death certificate',
         Math.abs(quantityChange),
         CERTIFICATE_COST / 100
       );
@@ -165,6 +167,7 @@ export default class Cart {
       if (siteAnalytics) {
         siteAnalytics.addProduct(
           certId,
+          'Death certificate',
           'Death certificate',
           this.getQuantity(certId),
           CERTIFICATE_COST / 100
