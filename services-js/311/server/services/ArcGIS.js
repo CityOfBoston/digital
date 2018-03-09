@@ -320,7 +320,7 @@ export default class ArcGIS {
   openSpacesUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `311/Composite_Services/MapServer/13/${path}`
+      `311/Composite_Services/MapServer/31/${path}`
     );
   }
 
@@ -438,7 +438,7 @@ export default class ArcGIS {
     // short-circuit out if it returns, not waiting for the responsePromise to
     // complete.
     const openSpaceResult = await reverseGeocodeOpenSpacePromise;
-    if (openSpaceResult) {
+    if (openSpaceResult && openSpaceResult.address) {
       // keeps us from having an uncaught promise exception
       return openSpaceResult;
     }
