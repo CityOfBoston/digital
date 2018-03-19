@@ -190,21 +190,6 @@ export default class ReviewContent extends React.Component<Props, State> {
               />
             </div>
 
-            {processingError && (
-              <div
-                className="m-v500 p-a300 br br-a100 br--r"
-                id="processing-error"
-              >
-                <div className="t--intro t--err">
-                  There’s a problem: {processingError}
-                </div>
-                <div className="t--info">
-                  You can try again. If this keeps happening, please email{' '}
-                  <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
-                </div>
-              </div>
-            )}
-
             <div className="m-v700">
               <div className="t--info">
                 {cart.containsPending
@@ -256,6 +241,21 @@ export default class ReviewContent extends React.Component<Props, State> {
               Pressing the “Submit Order” button will charge the total amount to
               your credit card and place an order with the Registry.
             </div>
+
+            {processingError && (
+              <div
+                className="m-v500 p-a300 br br-a100 br--r"
+                id="processing-error"
+              >
+                <div className="t--intro t--err">
+                  There’s a problem: {processingError}
+                </div>
+                <div className="t--info">
+                  You can try again. If this keeps happening, please email{' '}
+                  <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
+                </div>
+              </div>
+            )}
 
             <div className="m-v300">
               <button

@@ -107,6 +107,10 @@ export default class PaymentContent extends React.Component<Props, State> {
     if (ev.error) {
       order.cardElementError = ev.error.message;
       order.cardElementComplete = false;
+    } else if (ev.brand === 'amex') {
+      order.cardElementError =
+        'Unfortunately, we do not accept American Express.';
+      order.cardElementComplete = false;
     } else {
       order.cardElementError = null;
       order.cardElementComplete = ev.complete;
