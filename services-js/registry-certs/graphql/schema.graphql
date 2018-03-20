@@ -55,7 +55,7 @@ type DeathCertificates {
   order(id: String!, contactEmail: String!): DeathCertificateOrder
 }
 
-# Pages are 1-indexed to make the UI look better
+"""Pages are 1-indexed to make the UI look better"""
 type DeathCertificateSearch {
   page: Int!
   pageSize: Int!
