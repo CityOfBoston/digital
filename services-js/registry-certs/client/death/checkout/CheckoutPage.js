@@ -199,8 +199,8 @@ export default class CheckoutPageController extends React.Component<Props> {
   // "back" from the confirmation page.
   async redirectIfMissingOrderInfo(props: Props) {
     if (
-      (props.page === 'payment' && !this.order.shippingIsComplete) ||
-      (props.page === 'review' &&
+      (props.info.page === 'payment' && !this.order.shippingIsComplete) ||
+      (props.info.page === 'review' &&
         (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
     ) {
       await Router.push('/death/checkout?page=shipping', '/death/checkout');

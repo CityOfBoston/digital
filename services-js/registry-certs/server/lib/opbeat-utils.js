@@ -16,7 +16,7 @@ export const opbeatWrapGraphqlOptions = (
     const opts = await optsFn(req);
 
     const oldFormatError = opts.formatError;
-    opts.formatError = (e: Error) => {
+    opts.formatError = (e: any) => {
       const payload = {
         request: req.raw && req.raw.req,
         extra: {
