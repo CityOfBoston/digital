@@ -2,6 +2,7 @@
 
 exports[`schema is generated 1`] = `
 GraphQLSchema {
+  "__allowedLegacyNames": undefined,
   "_directives": Array [
     GraphQLDirective {
       "args": Array [
