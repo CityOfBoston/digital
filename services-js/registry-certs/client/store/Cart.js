@@ -72,17 +72,22 @@ export default class Cart {
         localStorage.removeItem('cart');
       }
 
-      this.localStorageDisposer = autorun('save cart to local storage', () => {
-        localStorage.setItem(
-          'cart',
-          JSON.stringify(
-            this.entries.map(({ id, quantity }): LocalStorageEntry => ({
-              id,
-              quantity,
-            }))
-          )
-        );
-      });
+      this.localStorageDisposer = autorun(
+        () => {
+          localStorage.setItem(
+            'cart',
+            JSON.stringify(
+              this.entries.map(({ id, quantity }): LocalStorageEntry => ({
+                id,
+                quantity,
+              }))
+            )
+          );
+        },
+        {
+          name: 'save cart to local storage',
+        }
+      );
     }
   }
 

@@ -1,7 +1,7 @@
 // @flow
 /* global Stripe */
 
-import { useStrict } from 'mobx';
+import { configure as mobxConfigure } from 'mobx';
 import Router from 'next/router';
 
 import type { Context as NextContext } from 'next';
@@ -49,7 +49,7 @@ export function initBrowser() {
 
   browserInited = true;
 
-  useStrict(true);
+  mobxConfigure({ enforceActions: true });
 
   accessibility.attach();
   siteAnalytics.attach(window.ga);

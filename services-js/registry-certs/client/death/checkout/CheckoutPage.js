@@ -239,7 +239,7 @@ export default class CheckoutPageController extends React.Component<Props> {
       });
       siteAnalytics.sendEvent('UX', 'click', 'submit order');
 
-      runInAction('CheckoutPage > submitOrder > success', () => {
+      runInAction(() => {
         cart.clear();
         this.order = new Order();
       });

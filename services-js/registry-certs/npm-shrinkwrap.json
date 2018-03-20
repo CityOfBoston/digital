@@ -9501,7 +9501,8 @@
     "hoist-non-react-statics": {
       "version": "1.2.0",
       "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz",
-      "integrity": "sha1-qkSM8JhtVcxAdzsXF0t90GbLfPs="
+      "integrity": "sha1-qkSM8JhtVcxAdzsXF0t90GbLfPs=",
+      "dev": true
     },
     "home-or-tmp": {
       "version": "2.0.0",
@@ -13326,16 +13327,23 @@
       }
     },
     "mobx": {
-      "version": "3.3.0",
-      "resolved": "https://registry.npmjs.org/mobx/-/mobx-3.3.0.tgz",
-      "integrity": "sha1-G8HdfnhUcGWvBLSb238gmMraR6o="
+      "version": "4.1.0",
+      "resolved": "https://registry.npmjs.org/mobx/-/mobx-4.1.0.tgz",
+      "integrity": "sha1-5KlnnNr74hWyDjLvk6cDGEWz8a8="
     },
     "mobx-react": {
-      "version": "4.3.2",
-      "resolved": "https://registry.npmjs.org/mobx-react/-/mobx-react-4.3.2.tgz",
-      "integrity": "sha1-Hsv/pWkMxkYNtrsWwMEQNPC3g9o=",
+      "version": "5.0.0",
+      "resolved": "https://registry.npmjs.org/mobx-react/-/mobx-react-5.0.0.tgz",
+      "integrity": "sha1-jVozvjdvoisYSm9VXUCmo6hFmhY=",
       "requires": {
-        "hoist-non-react-statics": "1.2.0"
+        "hoist-non-react-statics": "2.5.0"
+      },
+      "dependencies": {
+        "hoist-non-react-statics": {
+          "version": "2.5.0",
+          "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz",
+          "integrity": "sha512-6Bl6XsDT1ntE0lHbIhr4Kp2PGcleGZ66qu5Jqk8lc0Xc/IeG6gVLmwUGs/K0Us+L8VWoKgj0uWdPMataOsm31w=="
+        }
       }
     },
     "mockdate": {

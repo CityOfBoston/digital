@@ -48,19 +48,16 @@ export default class CheckoutDao {
       });
 
       if (tokenResult.error) {
-        runInAction(
-          'CheckoutDao > tokenizeCard > createToken error result',
-          () => {
-            order.processingError = tokenResult.error.message;
-          }
-        );
+        runInAction(() => {
+          order.processingError = tokenResult.error.message;
+        });
 
         return false;
       } else {
         const { token } = tokenResult;
         const { card } = token;
 
-        runInAction('CheckoutDao > tokenizeCard > createToken success', () => {
+        runInAction(() => {
           order.cardToken = token.id;
           order.cardFunding = card.funding;
           order.info.cardLast4 = card.last4;
@@ -69,7 +66,7 @@ export default class CheckoutDao {
         return true;
       }
     } catch (err) {
-      runInAction('CheckoutDao > tokenizeCard > catch block', () => {
+      runInAction(() => {
         order.processingError =
           err.message || `Unexpected error submitting order: ${err}`;
       });
@@ -81,7 +78,7 @@ export default class CheckoutDao {
 
       return false;
     } finally {
-      runInAction('CheckoutDao > tokenizeCard > finally', () => {
+      runInAction(() => {
         order.processing = false;
       });
     }
@@ -102,7 +99,7 @@ export default class CheckoutDao {
 
       return orderId;
     } catch (err) {
-      runInAction('CheckoutDao > submit > catch block', () => {
+      runInAction(() => {
         order.processingError =
           err.message || `Unexpected error submitting order: ${err}`;
       });
@@ -114,7 +111,7 @@ export default class CheckoutDao {
 
       return null;
     } finally {
-      runInAction('CheckoutDao > submit > finally', () => {
+      runInAction(() => {
         order.processing = false;
       });
     }
