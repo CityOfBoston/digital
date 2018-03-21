@@ -204,13 +204,13 @@ export default class CheckoutPageController extends React.Component<Props> {
         (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
     ) {
       await Router.push('/death/checkout?page=shipping', '/death/checkout');
-      window.scrollTo(0, 0);
+      window.scroll(0, 0);
     }
   }
 
   advanceToPayment = async () => {
     await Router.push('/death/checkout?page=payment', '/death/checkout');
-    window.scrollTo(0, 0);
+    window.scroll(0, 0);
   };
 
   advanceToReview = async (cardElement: ?StripeElement) => {
@@ -221,7 +221,7 @@ export default class CheckoutPageController extends React.Component<Props> {
 
     if (success) {
       await Router.push('/death/checkout?page=review', '/death/checkout');
-      window.scrollTo(0, 0);
+      window.scroll(0, 0);
     }
   };
 
@@ -251,7 +251,7 @@ export default class CheckoutPageController extends React.Component<Props> {
         '/death/checkout'
       );
 
-      window.scrollTo(0, 0);
+      window.scroll(0, 0);
 
       return true;
     } else {

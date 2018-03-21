@@ -62,7 +62,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   }
 
   const app = next({
-    dev: process.env.NODE_ENV !== 'production',
+    dev: process.env.NODE_ENV !== 'production' && !process.env.USE_BUILD,
     quiet: process.env.NODE_ENV === 'test',
   });
 

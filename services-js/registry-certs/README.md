@@ -57,6 +57,14 @@ mutation {
 }
  ```
 
- Stripe has a [list of card numbers and
- tokens](https://stripe.com/docs/testing#cards) that cause different API
- responses in test.
+Stripe has a [list of card numbers and
+tokens](https://stripe.com/docs/testing#cards) that cause different API
+responses in test.
+
+### Testing on IE11
+
+Next.js’s hot-reloading dev mode is not supported in IE11. You will need to run
+`npm run build` to compile the JS and then run `npm run dev` with the
+`USE_BUILD` environment variable set.
+
+Don’t forget to re-compile the JS when you change it.

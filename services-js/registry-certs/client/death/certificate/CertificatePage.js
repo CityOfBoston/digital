@@ -113,7 +113,7 @@ export default class CertificatePage extends React.Component<Props, State> {
           siteAnalytics.sendEvent('UX', 'click', 'add to cart');
 
           await Router.push('/death/cart');
-          window.scrollTo(0, 0);
+          window.scroll(0, 0);
         }
       }
     }

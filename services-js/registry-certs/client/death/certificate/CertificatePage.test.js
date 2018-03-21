@@ -46,6 +46,14 @@ describe('getInitialProps', () => {
   });
 
   describe('operations', () => {
+    beforeEach(() => {
+      jest.spyOn(global, 'scroll').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      global.scroll.mockRestore();
+    });
+
     describe('setCartQuantity', () => {
       let cart;
       let siteAnalytics;

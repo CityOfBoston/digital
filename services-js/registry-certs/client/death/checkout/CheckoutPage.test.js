@@ -133,6 +133,8 @@ describe('operations', () => {
   let component;
 
   beforeEach(() => {
+    jest.spyOn(global, 'scroll').mockImplementation(() => {});
+
     orderProvider = new OrderProvider();
     checkoutDao = new CheckoutDao((null: any), null);
 
@@ -145,6 +147,10 @@ describe('operations', () => {
     });
 
     component.componentWillMount();
+  });
+
+  afterEach(() => {
+    global.scroll.mockRestore();
   });
 
   describe('advanceToPayment', () => {
