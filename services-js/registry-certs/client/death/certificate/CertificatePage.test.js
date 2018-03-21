@@ -132,6 +132,15 @@ describe('interface', () => {
     expect(wrapper.instance().setCartQuantity).toHaveBeenCalledWith(5);
   });
 
+  it('disables submit if there’s no quantity', () => {
+    const quantityField = wrapper.find('[name="quantity"]');
+
+    quantityField.simulate('change', { target: { value: '' } });
+
+    const addToCartButton = wrapper.find('button[type="submit"]');
+    expect(addToCartButton.prop('disabled')).toBe(true);
+  });
+
   it('changes quantity via menu and adds to cart', () => {
     const form = wrapper.find('form');
     const quantityMenu = wrapper.find('[name="quantityMenu"]');
