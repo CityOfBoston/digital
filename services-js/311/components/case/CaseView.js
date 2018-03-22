@@ -62,6 +62,11 @@ const MAP_IMG_STYLE = css({
   right: 0,
 });
 
+const HUMANIZED_TAG_NAMES = {
+  Close: 'Closed',
+  Create: 'Opened',
+};
+
 function renderServiceNotice({
   expectedAtString,
   serviceNotice,
@@ -272,7 +277,9 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
                   <div
                     className={`${IMG_LABEL_STYLE.toString()} p-a300 t--subtitle tt-u`}
                   >
-                    {img.tags.join(', ')}
+                    {img.tags
+                      .map(tag => HUMANIZED_TAG_NAMES[tag] || tag)
+                      .join(', ')}
                   </div>}
               </a>
             </div>

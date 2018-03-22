@@ -105,6 +105,7 @@ export type ServiceRequest = {|
 
 // Returned by the single-request endpoint and posting the submission.
 export type DetailedServiceRequest = {|
+  id: string,
   service_request_id: string,
   status: string,
   long: ?number,
@@ -113,8 +114,9 @@ export type DetailedServiceRequest = {|
   // was imported.
   media_url:
     | ?Array<{|
+        id: string,
         url: string,
-        tags?: string[],
+        tags: string[],
       |}>
     | ?string,
   service_name: ?string,
@@ -125,12 +127,26 @@ export type DetailedServiceRequest = {|
   expected_datetime: ?string,
   updated_datetime: ?string,
   address: ?string,
+  address_details: ?string,
   zipcode: ?string,
+  reported_location: ?{
+    address: ?string,
+    address_id: ?string,
+    lat: ?number,
+    long: ?number,
+  },
   address_id: ?string,
   agency_responsible: ?string,
   service_notice: ?string,
   status_notes: ?string,
   service_notice: ?string,
+  duplicate_parent_service_request_id: ?string,
+  parent_service_request_id: ?string,
+  origin: ?string,
+  source: ?string,
+  priority: string,
+  service_level_agreement: Object,
+  owner: Object,
   contact: {
     first_name: ?string,
     last_name: ?string,
@@ -141,41 +157,23 @@ export type DetailedServiceRequest = {|
     reason: ?string,
     comment: ?string,
   },
-  activities: Array<Object>,
-  // [
-  //   {
-  //     code: 'NEEDRMVL-PICKUP',
-  //     order: null,
-  //     description: null,
-  //     status: 'Not Started',
-  //     completion_date: null,
-  //   },
-  // ],
+  activities: Array<ServiceRequestActivity>,
   attributes: Array<Object>,
-  // [
-  //   {
-  //     code: 'SR-NEDRMV1',
-  //     description: 'How many needles are at the location?',
-  //     order: 1,
-  //     values: [
-  //       {
-  //         answer: 'One',
-  //         answer_value: 'One',
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     code: 'ST-PROPLOC',
-  //     description: 'Property location type',
-  //     order: 2,
-  //     values: [
-  //       {
-  //         answer: 'Public',
-  //         answer_value: 'Public',
-  //       },
-  //     ],
-  //   },
-  // ],
+  events: Array<Object>,
+|};
+
+export type ServiceRequestActivity = {|
+  code: string,
+  order: number,
+  description: ?string,
+  status: 'Complete' | 'Void',
+  // 2017-08-16T14:24:02.000Z
+  completion_date: ?string,
+  media_url?: Array<{|
+    id: string,
+    url: string,
+    tags: Array<string>,
+  |}>,
 |};
 
 export type CreateServiceRequestArgs = {|

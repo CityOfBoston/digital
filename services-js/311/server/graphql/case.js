@@ -5,6 +5,7 @@ import moment from 'moment-timezone';
 import type { ServiceStub } from './service';
 import type {
   ServiceRequest,
+  ServiceRequestActivity,
   DetailedServiceRequest,
 } from '../services/Open311';
 import type { IndexedCase } from '../services/Elasticsearch';
@@ -94,6 +95,23 @@ function makeResizedImageUrls(url: string) {
   }
 }
 
+function imagesFromMediaUrl(mediaUrl): Array<CaseImage> {
+  if (!mediaUrl) {
+    return [];
+  } else if (Array.isArray(mediaUrl)) {
+    return mediaUrl.map(i => ({
+      tags: i.tags || [],
+      ...makeResizedImageUrls(i.url),
+    }));
+  } else {
+    return [
+      {
+        tags: [],
+        ...makeResizedImageUrls(mediaUrl),
+      },
+    ];
+  }
+}
 export const resolvers = {
   Case: {
     id: (r: Root) => r.service_request_id,
@@ -111,21 +129,19 @@ export const resolvers = {
       (r.closure_details && r.closure_details.comment) || null,
     address: (r: Root) => r.address,
     images: (r: Root): Array<CaseImage> => {
-      if (!r.media_url) {
-        return [];
-      } else if (Array.isArray(r.media_url)) {
-        return r.media_url.map(i => ({
-          tags: i.tags || [],
-          ...makeResizedImageUrls(i.url),
-        }));
-      } else {
-        return [
-          {
-            tags: [],
-            ...makeResizedImageUrls(r.media_url),
-          },
-        ];
-      }
+      const caseImages = imagesFromMediaUrl(r.media_url);
+
+      // "any" coercion because Flow isn't happy with finding "actitivies" from
+      // the Root type union.
+      const activitiesImages = ((r: any).activities || [])
+        .map((a: ServiceRequestActivity) => imagesFromMediaUrl(a.media_url));
+
+      // Since the activities is an array of arrays, we use reduce to flatten
+      // down to a single list of images.
+      return [caseImages, ...activitiesImages].reduce(
+        (arr, images) => [...arr, ...images],
+        []
+      );
     },
     location: (r: Root) => {
       if (r.lat != null && r.long != null) {

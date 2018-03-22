@@ -36,6 +36,7 @@
       "<rootDir>/.next/",
       "<rootDir>/coverage/"
     ],
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "{components,data,lib,pages,server}/**/*\\.js",
       "!**/*.stories.js"
