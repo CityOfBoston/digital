@@ -104,11 +104,11 @@ export default class HomeDialog extends React.Component<Props> {
       const suggestedServiceSummaries = await this
         .lastSuggestedServiceSummariesPromise;
 
-      runInAction('suggestServices result', () => {
+      (runInAction: any)('suggestServices result', () => {
         this.suggestedServiceSummaries = suggestedServiceSummaries;
       });
     } catch (e) {
-      runInAction('suggestServices error', () => {
+      (runInAction: any)('suggestServices error', () => {
         this.suggestedServiceSummaries = [];
       });
       throw e;

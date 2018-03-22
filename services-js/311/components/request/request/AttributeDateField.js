@@ -99,7 +99,7 @@ export default class AttributeDateField extends React.Component<Props> {
   @computed
   get questionDate(): ?Date {
     const { question: { value } } = this.props;
-    if (value) {
+    if (value && typeof value === 'string') {
       if (value.indexOf('T') >= 0) {
         return new Date(value);
       } else {

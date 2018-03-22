@@ -22,7 +22,7 @@ export default class AddressSearch {
   @observable highlightedPlaceIndex: number = -1;
   @observable _currentUnitIndex: number = 0;
   @observable
-  currentReverseGeocodeLocation: ?{ lat: number, lng: number } = null;
+  currentReverseGeocodeLocation: ?{| lat: number, lng: number |} = null;
   @observable currentReverseGeocodeLocationIsValid: boolean = true;
 
   @observable mode: 'search' | 'geocode' = 'search';
@@ -132,12 +132,12 @@ export default class AddressSearch {
       this.searching = true;
       const places = await searchAddress(loopbackGraphql, this.query);
 
-      runInAction('search - searchAddress success', () => {
+      (runInAction: any)('search - searchAddress success', () => {
         this.searching = false;
         this.setPlaces(places, 'search', selectFirst);
       });
     } catch (err) {
-      runInAction('search - searchAddress error', () => {
+      (runInAction: any)('search - searchAddress error', () => {
         this.searching = false;
         this.lastSearchError = err;
         window._opbeat &&
@@ -148,7 +148,7 @@ export default class AddressSearch {
   }
 
   @computed
-  get location(): ?{ lat: number, lng: number } {
+  get location(): ?{| lat: number, lng: number |} {
     return (
       this.currentReverseGeocodeLocation ||
       (this.currentPlace ? this.currentPlace.location : null)

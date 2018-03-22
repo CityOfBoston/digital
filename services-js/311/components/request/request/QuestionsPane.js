@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'emotion';
-import { action, extras } from 'mobx';
+import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
@@ -63,29 +63,30 @@ export default class QuestionsPane extends React.Component<Props> {
   imageUploader: CloudinaryImageUpload = new CloudinaryImageUpload();
   dropEl: ?Dropzone;
 
+  mediaUrlUpdaterDisposer: Function;
+
   @action
   componentWillMount() {
-    const { store, requestForm } = this.props;
+    const { store } = this.props;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(
-      requestForm,
-      'mediaUrl'
+    this.mediaUrlUpdaterDisposer = reaction(
+      () => this.imageUploader.uploadedUrl,
+      url => {
+        this.props.requestForm.mediaUrl = url || '';
+      },
+      { name: 'mediaUrl updater' }
     );
   }
 
   @action
   componentWillReceiveProps(newProps: Props) {
-    const { store, requestForm } = newProps;
+    const { store } = newProps;
     this.imageUploader.config = store.apiKeys.cloudinary;
-    this.imageUploader.adoptedUrlObservable = extras.getAtom(
-      requestForm,
-      'mediaUrl'
-    );
   }
 
   @action
   componentWillUnmount() {
-    this.imageUploader.adoptedUrlObservable = null;
+    this.mediaUrlUpdaterDisposer();
   }
 
   @action.bound
@@ -105,6 +106,7 @@ export default class QuestionsPane extends React.Component<Props> {
   @action.bound
   handleRemoveImage() {
     this.imageUploader.remove();
+    this.props.requestForm.mediaUrl = '';
   }
 
   @action.bound
@@ -214,13 +216,18 @@ export default class QuestionsPane extends React.Component<Props> {
   }
 
   renderImageUpload() {
+    const { requestForm: { mediaUrl } } = this.props;
+
     const {
       errorMessage,
-      displayUrl,
       uploading,
       uploadingProgress,
-      canRemove,
+      loaded,
+      previewUrl,
     } = this.imageUploader;
+
+    const displayUrl = previewUrl || mediaUrl;
+    const canRemove = loaded || mediaUrl;
 
     let buttonAction = null;
     let buttonTitle = null;

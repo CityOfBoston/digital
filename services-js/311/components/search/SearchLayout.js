@@ -221,11 +221,11 @@ export default class SearchLayout extends React.Component<Props> {
           }
 
           if (location) {
-            params.append('lat', location.lat);
-            params.append('lng', location.lng);
+            params.append('lat', location.lat.toString());
+            params.append('lng', location.lng.toString());
           }
 
-          params.append('zoom', zoom);
+          params.append('zoom', zoom.toString());
 
           const href = `/search?${params.toString()}`;
           Router.push(href, href, { shallow: true });

@@ -1,7 +1,6 @@
 // @flow
 
 import { observable, computed } from 'mobx';
-import type { IObservable } from 'mobx';
 import * as L from 'leaflet';
 
 import RequestSearch from '../../data/store/RequestSearch';
@@ -36,7 +35,7 @@ export const MOCK_REQUEST = {
 };
 
 let map;
-let opacityBox: IObservable<boolean>;
+let opacityBox;
 let requestSearch;
 let searchMarkerPool: SearchMarkerPool;
 let createdMarkers;
@@ -52,7 +51,7 @@ beforeEach(() => {
 
   requestSearch = new RequestSearch();
 
-  opacityBox = observable(1);
+  opacityBox = observable.box(1);
   const opacityComputed = computed(() => opacityBox.get());
   outsideClickHandler = jest.fn();
 

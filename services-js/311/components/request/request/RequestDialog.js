@@ -124,19 +124,22 @@ export default class RequestDialog extends React.Component<Props> {
   componentDidMount() {
     LoadingBuildings.preload();
 
-    this.caseLookupOnSubmitDisposer = autorun('route on case submit', () => {
-      if (
-        this.requestSubmission &&
-        this.requestSubmission.state === 'fulfilled'
-      ) {
-        const { id } = this.requestSubmission.value;
-        // We keep the first URL the same to avoid a page load, but change the
-        // "as" to match the URL for the case permalink.
-        Router.replace('/request', `/reports/${id}`, {
-          shallow: true,
-        });
-      }
-    });
+    this.caseLookupOnSubmitDisposer = autorun(
+      () => {
+        if (
+          this.requestSubmission &&
+          this.requestSubmission.state === 'fulfilled'
+        ) {
+          const { id } = this.requestSubmission.value;
+          // We keep the first URL the same to avoid a page load, but change the
+          // "as" to match the URL for the case permalink.
+          Router.replace('/request', `/reports/${id}`, {
+            shallow: true,
+          });
+        }
+      },
+      { name: 'route on case submit' }
+    );
   }
 
   componentWillUnmount() {

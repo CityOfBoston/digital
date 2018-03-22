@@ -1,6 +1,6 @@
 // @flow
 
-import { runInAction, observable, computed, autorunAsync } from 'mobx';
+import { runInAction, observable, computed, autorun } from 'mobx';
 import type RequestForm from '../store/RequestForm';
 
 export default class LocalStorageContactInfo {
@@ -10,7 +10,7 @@ export default class LocalStorageContactInfo {
 
   constructor(requestForm: RequestForm) {
     if (this.canRememberInfo) {
-      runInAction('LocalStorageContactInfo constructor', () => {
+      (runInAction: any)('LocalStorageContactInfo constructor', () => {
         this.rememberInfo =
           localStorage.getItem('ContactInfo.firstName') != null;
         requestForm.firstName =
@@ -21,8 +21,7 @@ export default class LocalStorageContactInfo {
         requestForm.phone = localStorage.getItem('ContactInfo.phone') || '';
       });
 
-      this.rememberInfoDisposer = autorunAsync(
-        'remember contact info',
+      this.rememberInfoDisposer = autorun(
         () => {
           if (this.rememberInfo) {
             localStorage.setItem(
@@ -39,7 +38,7 @@ export default class LocalStorageContactInfo {
             localStorage.removeItem('ContactInfo.phone');
           }
         },
-        250
+        { name: 'remember contact info', delay: 250 }
       );
     }
   }

@@ -1,7 +1,6 @@
 // @flow
 
 import { observable, computed } from 'mobx';
-import type { ObservableArray } from 'mobx';
 
 import type { ServiceAttributeDatatype } from '../dao/graphql/types';
 import type { ServiceAttribute } from '../types';
@@ -34,7 +33,7 @@ export default class Question {
   _validations: Array<ConditionGroupValidation>;
   _conditionalValues: ?ConditionalValuesArray;
   _dependencies: ?ConditionGroup;
-  @observable value: ?string | ObservableArray<string>;
+  @observable value: ?string | Array<string>;
 
   static buildQuestions(attributes: ServiceAttribute[]): Question[] {
     const questionMap = {};

@@ -1,8 +1,7 @@
 // @flow
 
 import 'isomorphic-fetch';
-import { observable, computed, action, reaction } from 'mobx';
-import type { IObservable } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 export type Config = {
   url: string,
@@ -44,21 +43,6 @@ export default class CloudinaryImageUpload {
 
   @observable.ref uploadResponse: ?UploadResponse = null;
   @observable errorMessage: ?string = null;
-
-  // set this to get it updated with the URL after upload
-  @observable adoptedUrlObservable: ?IObservable<?string> = null;
-
-  constructor() {
-    // reaction to update our observed mediaURL when we get a new uploadedUrl
-    reaction(
-      () => this.uploadedUrl,
-      uploadedUrl => {
-        if (this.adoptedUrlObservable) {
-          this.adoptedUrlObservable.set(uploadedUrl);
-        }
-      }
-    );
-  }
 
   // file is expected to also have a .preview field set by react-dropzone
   @action
@@ -125,14 +109,6 @@ export default class CloudinaryImageUpload {
     if (this.uploadRequest) {
       this.uploadRequest.abort();
       this.uploadRequest = null;
-    }
-
-    // In all cases, remove the adopted URL. The reaction above will only update
-    // it if we already had an uploaded file, because uploadedUrl would change.
-    // If we didn't and someone just called remove() after pressing "Back" to
-    // the form, we still need to clear the URL.
-    if (this.adoptedUrlObservable) {
-      this.adoptedUrlObservable.set(null);
     }
   }
 
@@ -211,21 +187,5 @@ export default class CloudinaryImageUpload {
   @computed
   get uploadedUrl(): ?string {
     return this.uploadResponse ? this.uploadResponse.secure_url : null;
-  }
-
-  @computed
-  get displayUrl(): ?string {
-    return (
-      this.previewUrl ||
-      (this.adoptedUrlObservable && this.adoptedUrlObservable.get())
-    );
-  }
-
-  @computed
-  get canRemove(): boolean {
-    return (
-      this.loaded ||
-      !!(this.adoptedUrlObservable && this.adoptedUrlObservable.get())
-    );
   }
 }

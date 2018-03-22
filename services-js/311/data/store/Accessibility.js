@@ -13,15 +13,20 @@ export default class Accessibility {
   attach() {
     this.el = document.getElementById('ariaLive');
 
-    this.messageListenerDisposer = autorun('a11y message listener', () => {
-      if (this.el) {
-        this.el.innerText = this.message;
-        this.el.setAttribute(
-          'aria-live',
-          this.interrupt ? 'assertive' : 'polite'
-        );
+    this.messageListenerDisposer = autorun(
+      () => {
+        if (this.el) {
+          this.el.innerText = this.message;
+          this.el.setAttribute(
+            'aria-live',
+            this.interrupt ? 'assertive' : 'polite'
+          );
+        }
+      },
+      {
+        name: 'a11y message listener',
       }
-    });
+    );
   }
 
   detatch() {

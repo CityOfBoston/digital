@@ -5,7 +5,7 @@ import type { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-import mobxReact from 'mobx-react';
+import { useStaticRendering as mobxUseStaticRendering } from 'mobx-react';
 
 import makeCss from '../lib/make-css';
 
@@ -47,7 +47,7 @@ export default class extends Document {
   constructor(props: Props) {
     super(props);
 
-    mobxReact.useStaticRendering(true);
+    mobxUseStaticRendering(true);
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {

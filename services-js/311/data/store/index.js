@@ -2,7 +2,7 @@
 /* global window */
 /* eslint no-underscore-dangle: 0 */
 
-import { observable, useStrict, action } from 'mobx';
+import { observable, configure as mobxConfigure, action } from 'mobx';
 import Router from 'next/router';
 
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
@@ -17,7 +17,7 @@ import SiteAnalytics from './SiteAnalytics';
 import RouterListener from './RouterListener';
 
 // MobX will enforce that state changes only happen in action blocks.
-useStrict(true);
+mobxConfigure({ enforceActions: true });
 
 export type LanguagePreference = {|
   code: string,

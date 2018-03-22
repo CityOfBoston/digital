@@ -1,15 +1,17 @@
 // @flow
 
-import { observable, action, runInAction, reaction } from 'mobx';
+import { observable, action, reaction } from 'mobx';
 
 import type { LoopbackGraphql } from '../dao/loopback-graphql';
 import reverseGeocode from '../dao/reverse-geocode';
+
+type Location = false | null | {| lat: number, lng: number |};
 
 export default class BrowserLocation {
   // false: not getting location
   // null: don't know location yet
   // lat/lng: browser location
-  @observable location: false | null | {| lat: number, lng: number |} = null;
+  @observable location: Location = null;
   @observable inBoston: boolean = false;
 
   watchId: ?number = null;
@@ -53,12 +55,13 @@ export default class BrowserLocation {
     // when location stays the same
     this.geocodeLocationDisposer = reaction(
       () => this.location,
-      async location => {
+      (location: Location) => {
         if (location && this.loopbackGraphql) {
-          const res = await reverseGeocode(this.loopbackGraphql, location);
-          runInAction('browser location geocode result', () => {
-            this.inBoston = !!res;
-          });
+          reverseGeocode(this.loopbackGraphql, location).then(
+            action(res => {
+              this.inBoston = !!res;
+            })
+          );
         }
       },
       {

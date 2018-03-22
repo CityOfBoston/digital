@@ -89,7 +89,7 @@ export default <Props: {}>(
       const initialProps: InitialPropsExtension = (props: any);
 
       if (initialProps.initialStoreState) {
-        runInAction('withStore initialization', () => {
+        (runInAction: any)('withStore initialization', () => {
           Object.assign(this.store, initialProps.initialStoreState);
         });
       }

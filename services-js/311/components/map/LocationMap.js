@@ -548,14 +548,17 @@ export default class LocationMap extends React.Component<Props> {
           );
 
           this.mobxDisposers.push(
-            autorun('results update', () => {
-              const source = mapboxglMap.getSource('searchResultsPoints');
-              const data = this.searchResultsGeoJsonData;
+            autorun(
+              () => {
+                const source = mapboxglMap.getSource('searchResultsPoints');
+                const data = this.searchResultsGeoJsonData;
 
-              if (source) {
-                source.setData(data);
-              }
-            })
+                if (source) {
+                  source.setData(data);
+                }
+              },
+              { name: 'results update' }
+            )
           );
         }
       });
@@ -816,7 +819,7 @@ export default class LocationMap extends React.Component<Props> {
   };
 
   maintainCurrentLocationMarker = (
-    currentLocation: ?{ lat: number, lng: number }
+    currentLocation: false | null | {| lat: number, lng: number |}
   ) => {
     const { mapboxgl } = this.props;
     const {

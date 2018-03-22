@@ -3,8 +3,7 @@
 import FakeXMLHttpRequest from 'fake-xml-http-request';
 import fetchMock from 'fetch-mock';
 
-import { observable } from 'mobx';
-import type { IObservable } from 'mobx';
+import { reaction } from 'mobx';
 
 import CloudinaryImageUpload from './CloudinaryImageUpload';
 import type { Config, UploadResponse } from './CloudinaryImageUpload';
@@ -58,32 +57,42 @@ beforeEach(() => {
 afterEach(fetchMock.restore);
 
 let imageUpload;
+let mediaUrl;
+let mediaUrlUpdaterDisposer;
 let file: any;
-let mediaUrlObservable: IObservable<?string>;
 
 beforeEach(() => {
-  mediaUrlObservable = observable.box(null);
-
   imageUpload = new CloudinaryImageUpload();
   imageUpload.config = FAKE_CONFIG;
-  imageUpload.adoptedUrlObservable = mediaUrlObservable;
 
   file = {
     preview: 'data:file-preview',
   };
+
+  mediaUrl = null;
+  mediaUrlUpdaterDisposer = reaction(
+    () => imageUpload.uploadedUrl,
+    url => {
+      mediaUrl = url;
+    }
+  );
+});
+
+afterEach(() => {
+  mediaUrlUpdaterDisposer();
 });
 
 describe('upload', () => {
   it('starts uploading', () => {
-    expect(imageUpload.canRemove).toEqual(false);
+    expect(imageUpload.loaded).toEqual(false);
 
     imageUpload.upload(file);
 
     expect(imageUpload.previewUrl).toEqual('data:file-preview');
     expect(imageUpload.uploading).toEqual(true);
-    expect(imageUpload.canRemove).toEqual(false);
+    expect(imageUpload.loaded).toEqual(false);
     expect(imageUpload.uploadedUrl).toBeNull();
-    expect(mediaUrlObservable.get()).toBeNull();
+    expect(mediaUrl).toBeNull();
   });
 
   it('updates progress', () => {
@@ -126,9 +135,8 @@ describe('upload', () => {
 
     expect(imageUpload.loaded).toEqual(true);
     expect(imageUpload.uploadedUrl).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
-    expect(mediaUrlObservable.get()).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
+    expect(mediaUrl).toEqual(FAKE_UPLOAD_RESPONSE.secure_url);
     expect(imageUpload.uploading).toEqual(false);
-    expect(imageUpload.canRemove).toEqual(true);
     expect(imageUpload.errorMessage).toEqual(null);
   });
 
@@ -158,10 +166,9 @@ describe('remove', () => {
 
     expect(imageUpload.uploading).toEqual(false);
     expect(imageUpload.loaded).toEqual(false);
-    expect(imageUpload.canRemove).toEqual(false);
     expect(imageUpload.previewUrl).toBeNull();
     expect(imageUpload.uploadedUrl).toBeNull();
-    expect(mediaUrlObservable.get()).toBeNull();
+    expect(mediaUrl).toBeNull();
   });
 
   it('deletes the image when removing', () => {
@@ -183,20 +190,8 @@ describe('remove', () => {
       true
     );
     expect(imageUpload.loaded).toEqual(false);
-    expect(imageUpload.canRemove).toEqual(false);
     expect(imageUpload.previewUrl).toBeNull();
     expect(imageUpload.uploadedUrl).toBeNull();
-    expect(mediaUrlObservable.get()).toBeNull();
-  });
-
-  it('clears an existing observed URL', () => {
-    mediaUrlObservable.set('http://image');
-
-    expect(imageUpload.canRemove).toEqual(true);
-
-    imageUpload.remove();
-
-    expect(mediaUrlObservable.get()).toEqual(null);
-    expect(imageUpload.canRemove).toEqual(false);
+    expect(mediaUrl).toBeNull();
   });
 });

@@ -98,8 +98,10 @@ class SearchMarker {
     );
 
     this.marker.on('click', this.handleClick);
-    this.updateOpacityDisposer = autorun('updateOpacity', this.updateOpacity);
-    this.updateIconDisposer = autorun('updateIcon', this.updateIcon);
+    this.updateOpacityDisposer = autorun(this.updateOpacity, {
+      name: 'updateOpacity',
+    });
+    this.updateIconDisposer = autorun(this.updateIcon, { name: 'updateIcon' });
   }
 
   dispose() {
@@ -244,10 +246,9 @@ export default class SearchMarkerPool {
       closedSelectedWaypointIcon: L.divIcon(waypointMarkers.orangeFilled),
     };
 
-    this.maintainMarkersDisposer = autorun(
-      'maintainMarkers',
-      this.maintainMarkers
-    );
+    this.maintainMarkersDisposer = autorun(this.maintainMarkers, {
+      name: 'maintainMarkers',
+    });
   }
 
   dispose() {
