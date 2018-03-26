@@ -200,7 +200,7 @@ export default class ContactPane extends React.Component<Props> {
             </label>
             <InputMask
               className="txt-f"
-              mask="(999) 999-9999"
+              mask="+1 (999) 999-9999"
               id="ContactPane-phone"
               type="tel"
               placeholder="Phone"

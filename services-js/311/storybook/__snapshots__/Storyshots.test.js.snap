@@ -4014,7 +4014,7 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
               }
             }
             type="tel"
-            value="(617) 555-1234"
+            value="+1 (617) 555-1234"
           />
         </div>
         <div
