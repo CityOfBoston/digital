@@ -3704,11 +3704,6 @@ exports[`Storyshots ContactPane Empty 1`] = `
             name="firstName"
             onChange={[Function]}
             placeholder="First Name"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="text"
             value=""
           />
@@ -3734,11 +3729,6 @@ exports[`Storyshots ContactPane Empty 1`] = `
             name="lastName"
             onChange={[Function]}
             placeholder="Last Name"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="text"
             value=""
           />
@@ -3764,11 +3754,6 @@ exports[`Storyshots ContactPane Empty 1`] = `
             name="email"
             onChange={[Function]}
             placeholder="Email"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="email"
             value=""
           />
@@ -3792,11 +3777,6 @@ exports[`Storyshots ContactPane Empty 1`] = `
             onKeyDown={[Function]}
             onPaste={[Function]}
             placeholder="Phone"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="tel"
             value=""
           />
@@ -3920,11 +3900,6 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
             name="firstName"
             onChange={[Function]}
             placeholder="First Name"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="text"
             value="Carol"
           />
@@ -3950,11 +3925,6 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
             name="lastName"
             onChange={[Function]}
             placeholder="Last Name"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="text"
             value="Danvers"
           />
@@ -3980,11 +3950,6 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
             name="email"
             onChange={[Function]}
             placeholder="Email"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="email"
             value="marvel@alphaflight.gov"
           />
@@ -4008,11 +3973,6 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
             onKeyDown={[Function]}
             onPaste={[Function]}
             placeholder="Phone"
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
             type="tel"
             value="+1 (617) 555-1234"
           />

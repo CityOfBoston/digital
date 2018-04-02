@@ -12,10 +12,6 @@ import SectionHeader from '../../common/SectionHeader';
 import { MEDIA_LARGE } from '../../style-constants';
 import type RequestForm from '../../../data/store/RequestForm';
 
-const FIELD_STYLE = {
-  width: '100%',
-};
-
 const BOTTOM_ROW_STYLE = css({
   alignItems: 'center',
 });
@@ -155,7 +151,6 @@ export default class ContactPane extends React.Component<Props> {
               name="firstName"
               value={firstName}
               onChange={this.handleChange}
-              style={FIELD_STYLE}
               aria-required
             />
           </div>
@@ -172,7 +167,6 @@ export default class ContactPane extends React.Component<Props> {
               name="lastName"
               value={lastName}
               onChange={this.handleChange}
-              style={FIELD_STYLE}
               aria-required
             />
           </div>
@@ -189,7 +183,6 @@ export default class ContactPane extends React.Component<Props> {
               name="email"
               value={email}
               onChange={this.handleChange}
-              style={FIELD_STYLE}
               aria-required
             />
           </div>
@@ -207,7 +200,6 @@ export default class ContactPane extends React.Component<Props> {
               name="phone"
               value={phone}
               onChange={this.handleChange}
-              style={FIELD_STYLE}
             />
           </div>
 
