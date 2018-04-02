@@ -48,10 +48,17 @@ const IMG_LABEL_STYLE = css({
   fontWeight: 'bold',
 });
 
-const MAP_WRAPPER_STYLE = css({
+const SQUARE_MAP_WRAPPER_STYLE = css({
   position: 'relative',
   // 1:1 aspect ratio hack. Keeps the page from jumping when the image loads
   paddingBottom: '100%',
+});
+
+const LONG_MAP_WRAPPER_STYLE = css({
+  position: 'relative',
+  // Aspect ratio hack. Keeps the page from jumping when the image loads. The
+  // 22% here is the ratio of the image we tell Mapbox to make.
+  paddingBottom: '22%',
 });
 
 const MAP_IMG_STYLE = css({
@@ -222,9 +229,9 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
       {request.location &&
         !noMap &&
         longMap &&
-        <div className={MAP_WRAPPER_STYLE}>
+        <div className={LONG_MAP_WRAPPER_STYLE}>
           <img
-            className={`br br-a150`}
+            className={`${MAP_IMG_STYLE.toString()} br br-a150`}
             src={makeMapboxUrl(store, request, 1000, 220)}
             alt={`Map of ${request.address || ''}`}
           />
@@ -239,7 +246,7 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
           !noMap &&
           !longMap &&
           <div className="g--6">
-            <div className={`${MAP_WRAPPER_STYLE.toString()} m-b500`}>
+            <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
               <img
                 className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
                 src={makeMapboxUrl(store, request, 440, 440)}
