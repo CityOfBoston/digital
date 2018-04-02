@@ -76,10 +76,27 @@ function convertCaseToDocument(
   c: DetailedServiceRequest,
   replayId: ?number
 ): IndexedCase {
+  let location = null;
+
+  // We prefer reported_location since it is not affected by any transformations
+  // the Salesforce code does to addresses.
+  if (
+    c.reported_location &&
+    c.reported_location.lat &&
+    c.reported_location.long
+  ) {
+    location = {
+      lat: c.reported_location.lat,
+      lon: c.reported_location.long,
+    };
+  } else if (c.lat && c.long) {
+    location = { lat: c.lat, lon: c.long };
+  }
+
   return {
     service_request_id: c.service_request_id,
     status: c.status,
-    location: c.lat && c.long ? { lat: c.lat, lon: c.long } : null,
+    location,
     address: c.address || '',
     description: c.description || '',
     service_name: c.service_name || '',

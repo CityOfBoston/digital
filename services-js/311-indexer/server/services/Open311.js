@@ -49,6 +49,12 @@ export type DetailedServiceRequest = {|
   updated_datetime: ?string,
   address: ?string,
   zipcode: ?string,
+  reported_location: ?{
+    address: ?string,
+    address_id: ?string,
+    lat: ?number,
+    long: ?number,
+  },
   address_id: ?string,
   agency_responsible: ?string,
   service_notice: ?string,
