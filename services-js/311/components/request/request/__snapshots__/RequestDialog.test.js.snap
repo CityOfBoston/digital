@@ -89,6 +89,11 @@ exports[`methods submitRequest graphql failure 1`] = `
             "name": "Fees and pricing",
           },
           Group {
+            "description": "You can report issues you see at restaurants and other eateries in the City.",
+            "id": "Food",
+            "name": "Food, restaurants, and eateries",
+          },
+          Group {
             "description": "Get help for a public safety or disability issue, or request a health inspection.",
             "id": "Health-Safety",
             "name": "Health, safety, and social services",
@@ -349,6 +354,11 @@ exports[`methods submitRequest success 1`] = `
             "description": "Have an issue with the price or measurement of gas, oil, or another product?",
             "id": "Fees-Pricing",
             "name": "Fees and pricing",
+          },
+          Group {
+            "description": "You can report issues you see at restaurants and other eateries in the City.",
+            "id": "Food",
+            "name": "Food, restaurants, and eateries",
           },
           Group {
             "description": "Get help for a public safety or disability issue, or request a health inspection.",
@@ -647,6 +657,11 @@ exports[`methods submitRequest success 2`] = `
             "name": "Fees and pricing",
           },
           Group {
+            "description": "You can report issues you see at restaurants and other eateries in the City.",
+            "id": "Food",
+            "name": "Food, restaurants, and eateries",
+          },
+          Group {
             "description": "Get help for a public safety or disability issue, or request a health inspection.",
             "id": "Health-Safety",
             "name": "Health, safety, and social services",
@@ -797,6 +812,11 @@ exports[`methods submitRequest success 2`] = `
                     "description": "Have an issue with the price or measurement of gas, oil, or another product?",
                     "id": "Fees-Pricing",
                     "name": "Fees and pricing",
+                  },
+                  Group {
+                    "description": "You can report issues you see at restaurants and other eateries in the City.",
+                    "id": "Food",
+                    "name": "Food, restaurants, and eateries",
                   },
                   Group {
                     "description": "Get help for a public safety or disability issue, or request a health inspection.",

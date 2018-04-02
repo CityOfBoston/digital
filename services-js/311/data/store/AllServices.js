@@ -16,6 +16,12 @@ const GROUPS = [
       'Have an issue with the price or measurement of gas, oil, or another product?',
   },
   {
+    name: 'Food, restaurants, and eateries',
+    id: 'Food',
+    description:
+      'You can report issues you see at restaurants and other eateries in the City.',
+  },
+  {
     name: 'Health, safety, and social services',
     id: 'Health-Safety',
     description:
