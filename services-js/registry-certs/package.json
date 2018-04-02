@@ -51,7 +51,7 @@
     ]
   },
   "dependencies": {
-    "address-rfc2822": "github:CityOfBoston/node-address-rfc2822",
+    "address-rfc2822": "^2.0.3",
     "apollo-server-hapi": "^1.2.0",
     "aws-sdk": "^2.100.0",
     "babel-runtime": "^6.26.0",
