@@ -72,6 +72,22 @@ type MaxReplayAggregations = {
   },
 };
 
+function findMediaUrl(c: DetailedServiceRequest) {
+  const mediaUrls = [];
+  if (c.media_url) {
+    mediaUrls.push(c.media_url);
+  }
+
+  (c.activities || []).forEach(a => {
+    mediaUrls.push(a.media_url);
+  });
+
+  const firstMediaUrl = mediaUrls[0];
+  return typeof firstMediaUrl === 'string'
+    ? [{ url: firstMediaUrl, tags: [] }]
+    : firstMediaUrl;
+}
+
 function convertCaseToDocument(
   c: DetailedServiceRequest,
   replayId: ?number
@@ -104,10 +120,7 @@ function convertCaseToDocument(
     status_notes: c.status_notes || '',
     requested_datetime: c.requested_datetime,
     updated_datetime: c.updated_datetime || c.requested_datetime,
-    media_url:
-      typeof c.media_url === 'string'
-        ? [{ url: c.media_url, tags: [] }]
-        : c.media_url,
+    media_url: findMediaUrl(c),
     replay_id: replayId,
   };
 }

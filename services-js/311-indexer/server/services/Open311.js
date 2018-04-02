@@ -28,6 +28,7 @@ export type Case = {|
 |};
 
 export type DetailedServiceRequest = {|
+  id: string,
   service_request_id: string,
   status: string,
   long: ?number,
@@ -44,10 +45,11 @@ export type DetailedServiceRequest = {|
   service_code: string,
   description: ?string,
   // 2017-08-16T14:24:02.000Z
-  requested_datetime: string,
-  expected_datetime: string,
+  requested_datetime: ?string,
+  expected_datetime: ?string,
   updated_datetime: ?string,
   address: ?string,
+  address_details: ?string,
   zipcode: ?string,
   reported_location: ?{
     address: ?string,
@@ -59,47 +61,40 @@ export type DetailedServiceRequest = {|
   agency_responsible: ?string,
   service_notice: ?string,
   status_notes: ?string,
+  service_notice: ?string,
+  duplicate_parent_service_request_id: ?string,
+  parent_service_request_id: ?string,
+  origin: ?string,
+  source: ?string,
+  priority: string,
+  service_level_agreement: Object,
+  owner: Object,
   contact: {
     first_name: ?string,
     last_name: ?string,
     phone: ?string,
     email: ?string,
   },
-  activities: Array<Object>,
-  // [
-  //   {
-  //     code: 'NEEDRMVL-PICKUP',
-  //     order: null,
-  //     description: null,
-  //     status: 'Not Started',
-  //     completion_date: null,
-  //   },
-  // ],
+  closure_details: {
+    reason: ?string,
+    comment: ?string,
+  },
+  activities: Array<ServiceRequestActivity>,
   attributes: Array<Object>,
-  // [
-  //   {
-  //     code: 'SR-NEDRMV1',
-  //     description: 'How many needles are at the location?',
-  //     order: 1,
-  //     values: [
-  //       {
-  //         answer: 'One',
-  //         answer_value: 'One',
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     code: 'ST-PROPLOC',
-  //     description: 'Property location type',
-  //     order: 2,
-  //     values: [
-  //       {
-  //         answer: 'Public',
-  //         answer_value: 'Public',
-  //       },
-  //     ],
-  //   },
-  // ],
+  events: Array<Object>,
+|};
+
+export type ServiceRequestActivity = {|
+  code: string,
+  order: number,
+  description: ?string,
+  status: 'Complete' | 'Void',
+  // 2017-08-16T14:24:02.000Z
+  completion_date: ?string,
+  media_url?: Array<{|
+    url: string,
+    tags: Array<string>,
+  |}>,
 |};
 
 async function processResponse(res): Promise<any> {
