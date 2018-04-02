@@ -144,9 +144,21 @@ export const resolvers = {
       );
     },
     location: (r: Root) => {
-      if (r.lat != null && r.long != null) {
+      if (
+        r.reported_location &&
+        r.reported_location.lat &&
+        r.reported_location.long
+      ) {
+        // This is the lat/lng from the original submitter. It's preferred over
+        // any other because it matches the submitter's intent.
+        return { lat: r.reported_location.lat, lng: r.reported_location.long };
+      } else if (r.lat != null && r.long != null) {
+        // Sometimes a lat/lng wasn't reported (e.g. just an address) so we use
+        // the geocoded version from Salesforce.
         return { lat: r.lat, lng: r.long };
       } else if (r.location) {
+        // This is the version from the search index. Will follow the above
+        // logic on the 311-indexer side.
         return { lat: r.location.lat, lng: r.location.lon };
       } else {
         return null;
