@@ -55,10 +55,6 @@ export default class extends Document {
     }
 
     __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY;
-    __NEXT_DATA__.contactForm = {
-      url: process.env.CONTACT_FORM_URL,
-      token: process.env.CONTACT_FORM_TOKEN,
-    };
     __NEXT_DATA__.assetPrefix =
       process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
         ? `https://${process.env.ASSET_HOST}`
@@ -167,7 +163,21 @@ export default class extends Document {
             data-app-id={process.env.OPBEAT_FRONTEND_APP_ID}
           />
 
+          <script
+            src={`${process.env.WEB_COMPONENTS_URI ||
+              'https://patterns.boston.gov/web-components/all.js'}?k=${cacheParam}`}
+          />
+
           <NextScript />
+
+          <cob-contact-form
+            id="contactForm"
+            default-subject="BOS:311 Feedback"
+            token={process.env.CONTACT_FORM_TOKEN}
+            {...(process.env.CONTACT_FORM_URL
+              ? { action: process.env.CONTACT_FORM_URL }
+              : {})}
+          />
 
           <script src={process.env.LIVE_AGENT_SCRIPT_SRC} />
           <script

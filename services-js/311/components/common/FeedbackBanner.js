@@ -5,8 +5,6 @@ import { css } from 'emotion';
 
 import { YELLOW, MEDIA_LARGE } from '../style-constants';
 
-import FeedbackForm from './FeedbackForm';
-
 const BANNER_STYLE = css({
   backgroundColor: YELLOW,
   marginBottom: -30,
@@ -37,21 +35,16 @@ export type Props = {|
   fit: 'DIALOG' | 'PAGE',
 |};
 
-type State = {|
-  feedbackFormVisible: boolean,
-|};
-
-export default class FeedbackBanner extends React.Component<Props, State> {
-  state: State = {
-    feedbackFormVisible: false,
+export default class FeedbackBanner extends React.Component<Props> {
+  showFeedbackForm = () => {
+    const contactFormEl: any = document.getElementById('contactForm');
+    if (contactFormEl) {
+      contactFormEl.show();
+    }
   };
-
-  showFeedbackForm = () => this.setState({ feedbackFormVisible: true });
-  hideFeedbackForm = () => this.setState({ feedbackFormVisible: false });
 
   render() {
     const { fit } = this.props;
-    const { feedbackFormVisible } = this.state;
 
     return (
       <div className={`${BANNER_STYLE.toString()}`}>
@@ -74,8 +67,6 @@ export default class FeedbackBanner extends React.Component<Props, State> {
             </a>.
           </span>
         </div>
-
-        {feedbackFormVisible && <FeedbackForm close={this.hideFeedbackForm} />}
       </div>
     );
   }
