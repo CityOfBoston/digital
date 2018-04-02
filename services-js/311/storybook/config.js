@@ -3,16 +3,21 @@
 
 import React, { type Element as ReactElement } from 'react';
 import PropTypes from 'prop-types';
+import { setConfig } from 'next/config';
 import Router from 'next/router';
 import { configure, addDecorator } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
 import svg4everybody from 'svg4everybody';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
+import makeConfig from '../lib/config';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 let env;
 
+// The shenanigans below are our way of getting the environment variables
+// from .env into the browser, where our config code can see them in.
+//
 // There's no .env on Travis, but we want to run the storybook for Percy
 // snapshot testing. So, we guard the require with a try/catch and then
 // just set the MAPBOX env variables in the Travis UI.
@@ -31,6 +36,8 @@ try {
     MAPBOX_STYLE_PATH: process.env.MAPBOX_STYLE_PATH,
   };
 }
+
+setConfig(makeConfig(env));
 
 class Wrapper extends React.Component<{
   children: ReactElement<any>,
@@ -78,14 +85,6 @@ addDecorator((story: () => ReactElement<any>) => {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =
       window.parent.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
-
-  window.API_KEYS = {
-    mapbox: {
-      accessToken: env.MAPBOX_ACCESS_TOKEN,
-      stylePath: env.MAPBOX_STYLE_PATH,
-    },
-    cloudinary: {},
-  };
 
   svg4everybody();
 

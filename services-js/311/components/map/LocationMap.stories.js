@@ -7,9 +7,7 @@ import LocationMap from './LocationMap';
 import { AppStore } from '../../data/store';
 
 const makeStore = () => {
-  const store = new AppStore();
-  store.apiKeys = window.API_KEYS;
-  return store;
+  return new AppStore();
 };
 
 const stories = storiesOf('LocationMap', module);

@@ -23,11 +23,6 @@ type Language = {|
 export type RequestAdditions = {|
   hapiInject: HapiInject,
   languages: Language[],
-  apiKeys: {|
-    cloudinary: Object,
-    mapbox: Object,
-  |},
-  liveAgentButtonId: string,
   loopbackGraphqlCache: { [key: string]: mixed },
 |};
 
@@ -38,18 +33,6 @@ export const nextHandler = (app, page, staticQuery) => async (
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
     languages: pre.language,
-    apiKeys: {
-      cloudinary: {
-        url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD ||
-          ''}`,
-        uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET || '',
-      },
-      mapbox: {
-        accessToken: process.env.MAPBOX_ACCESS_TOKEN || '',
-        stylePath: process.env.MAPBOX_STYLE_PATH || '',
-      },
-    },
-    liveAgentButtonId: process.env.LIVE_AGENT_BUTTON_ID || '',
     loopbackGraphqlCache: {},
   };
 

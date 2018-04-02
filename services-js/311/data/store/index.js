@@ -26,9 +26,6 @@ export type LanguagePreference = {|
 |};
 
 export class AppStore {
-  // Initialization data from the server
-  apiKeys: { [service: string]: any } = {};
-
   accessibility: Accessibility = new Accessibility();
   requestSearch: RequestSearch = new RequestSearch();
   ui: Ui = new Ui();

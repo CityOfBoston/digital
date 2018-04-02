@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 
 import page from '../../storybook/page';
 import type { Request } from '../../data/types';
-import { AppStore } from '../../data/store';
 import CaseLayout from './CaseLayout';
 
 const MOCK_REQUEST: Request = {
@@ -36,25 +35,19 @@ const MOCK_REQUEST: Request = {
   serviceNotice: null,
 };
 
-function makeStore() {
-  const store = new AppStore();
-  store.apiKeys = window.API_KEYS;
-  return store;
-}
-
 storiesOf('CaseLayout', module)
   .addDecorator(page)
   .add('Existing', () =>
     <CaseLayout
       id={MOCK_REQUEST.id}
       data={{ request: { ...MOCK_REQUEST, status: 'open' } }}
-      store={makeStore()}
+      store={({}: any)}
     />
   )
   .add('404', () =>
     <CaseLayout
       id={MOCK_REQUEST.id}
       data={{ request: null }}
-      store={makeStore()}
+      store={({}: any)}
     />
   );

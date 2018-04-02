@@ -3,9 +3,11 @@
 
 import React from 'react';
 import { css } from 'emotion';
+import getConfig from 'next/config';
 
 import type { Request } from '../../data/types';
-import type { AppStore } from '../../data/store';
+
+import type { Config, PublicRuntimeConfig } from '../../lib/config';
 
 import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
@@ -21,7 +23,6 @@ export type DefaultProps = {|
 
 export type Props = {|
   request: Request,
-  store: AppStore,
   submitted?: boolean,
   noMap?: boolean,
 |};
@@ -169,24 +170,25 @@ function renderStatus(req: Request) {
 }
 
 function makeMapboxUrl(
-  store: AppStore,
+  { mapboxStylePath, mapboxAccessToken }: PublicRuntimeConfig,
   request: Request,
   width: number,
   height: number
 ): string {
-  const { apiKeys: { mapbox } } = store;
   const { location } = request;
 
   if (!location) {
     return '';
   }
 
-  return `https://api.mapbox.com/styles/v1/${mapbox.stylePath}/static/${location.lng},${location.lat},15/${width}x${height}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
-    mapbox.accessToken
+  return `https://api.mapbox.com/styles/v1/${mapboxStylePath}/static/${location.lng},${location.lat},15/${width}x${height}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
+    mapboxAccessToken
   )}`;
 }
 
-export default function CaseView({ request, store, submitted, noMap }: Props) {
+export default function CaseView({ request, submitted, noMap }: Props) {
+  const { publicRuntimeConfig } = (getConfig(): Config);
+
   const waypointIcon =
     request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
 
@@ -232,7 +234,7 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
         <div className={LONG_MAP_WRAPPER_STYLE}>
           <img
             className={`${MAP_IMG_STYLE.toString()} br br-a150`}
-            src={makeMapboxUrl(store, request, 1000, 220)}
+            src={makeMapboxUrl(publicRuntimeConfig, request, 1000, 220)}
             alt={`Map of ${request.address || ''}`}
           />
           <div
@@ -249,7 +251,7 @@ export default function CaseView({ request, store, submitted, noMap }: Props) {
             <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
               <img
                 className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
-                src={makeMapboxUrl(store, request, 440, 440)}
+                src={makeMapboxUrl(publicRuntimeConfig, request, 440, 440)}
                 alt={`Map of ${request.address || ''}`}
               />
               <div

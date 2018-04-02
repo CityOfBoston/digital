@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
 
 import type { Request } from '../../data/types';
-import { AppStore } from '../../data/store';
 import CaseView from './CaseView';
 
 const IMAGE_1 = {
@@ -63,12 +62,6 @@ const MOCK_REQUEST: Request = {
   expectedAtString: 'Thursday, May 9, 2017',
 };
 
-function makeStore() {
-  const store = new AppStore();
-  store.apiKeys = window.API_KEYS;
-  return store;
-}
-
 const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
 
 storiesOf('CaseView', module)
@@ -83,7 +76,6 @@ storiesOf('CaseView', module)
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, status: 'open' }}
-        store={makeStore()}
         submitted
         noMap={suppressMap}
       />
@@ -98,7 +90,6 @@ storiesOf('CaseView', module)
           serviceNotice:
             'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
         }}
-        store={makeStore()}
         submitted
         noMap={suppressMap}
       />
@@ -117,7 +108,6 @@ storiesOf('CaseView', module)
           serviceNotice:
             'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
         }}
-        store={makeStore()}
         submitted
         noMap={suppressMap}
       />
@@ -132,7 +122,6 @@ storiesOf('CaseView', module)
           location: null,
           status: 'open',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -145,7 +134,6 @@ storiesOf('CaseView', module)
           status: 'open',
           requestedAtString: null,
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -154,7 +142,6 @@ storiesOf('CaseView', module)
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, images: [], status: 'open' }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -163,7 +150,6 @@ storiesOf('CaseView', module)
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, images: [IMAGE_1], status: 'open' }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -176,7 +162,6 @@ storiesOf('CaseView', module)
           images: [IMAGE_1, IMAGE_2],
           status: 'open',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -189,7 +174,6 @@ storiesOf('CaseView', module)
           images: [IMAGE_1, IMAGE_2, IMAGE_3],
           status: 'open',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -202,7 +186,6 @@ storiesOf('CaseView', module)
           images: [IMAGE_1, IMAGE_2, IMAGE_3, IMAGE_4],
           status: 'open',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -216,7 +199,6 @@ storiesOf('CaseView', module)
           serviceNotice:
             'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
@@ -234,25 +216,19 @@ storiesOf('CaseView', module)
           serviceNotice:
             'The Ultimates respond to cases in the order that they’re received. When your scheduled date arrives, expect a star-shaped portal to appear and help to arrive through it.',
         }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>
   )
   .add('Resolved', () =>
     <div style={{ backgroundColor: 'white' }}>
-      <CaseView
-        request={MOCK_REQUEST}
-        store={makeStore()}
-        noMap={suppressMap}
-      />
+      <CaseView request={MOCK_REQUEST} noMap={suppressMap} />
     </div>
   )
   .add('Closed without reasons', () =>
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, closureReason: null, closureComment: null }}
-        store={makeStore()}
         noMap={suppressMap}
       />
     </div>

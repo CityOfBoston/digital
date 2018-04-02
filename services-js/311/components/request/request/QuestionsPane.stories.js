@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import type { Service } from '../../../data/types';
-import { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
 
 import QuestionsPane from './QuestionsPane';
@@ -58,7 +57,6 @@ storiesOf('QuestionsPane', module)
   )
   .add('No Metadata', () =>
     <QuestionsPane
-      store={new AppStore()}
       requestForm={makeRequestForm(DEFAULT_SERVICE, true)}
       serviceName={'Cosmic Incursion'}
       serviceDescription={'Bad things getting in from other universes'}
@@ -68,7 +66,6 @@ storiesOf('QuestionsPane', module)
   )
   .add('No Description', () =>
     <QuestionsPane
-      store={new AppStore()}
       requestForm={makeRequestForm(DEFAULT_SERVICE, false)}
       serviceName={'Cosmic Incursion'}
       serviceDescription={'Bad things getting in from other universes'}
@@ -78,7 +75,6 @@ storiesOf('QuestionsPane', module)
   )
   .add('With Metadata', () =>
     <QuestionsPane
-      store={new AppStore()}
       requestForm={makeRequestForm(SERVICE_WITH_METADATA, true)}
       serviceName={'Cosmic Incursion'}
       serviceDescription={'Bad things getting in from other universes'}

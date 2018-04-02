@@ -28,6 +28,7 @@ export type InitialProps = {|
 
 export type Props = {|
   ...InitialProps,
+  // unused, but necessary for the withStore mixin
   store: AppStore,
 |};
 
@@ -54,7 +55,7 @@ export default class CaseLayout extends React.Component<Props> {
   }
 
   render() {
-    const { store, data } = this.props;
+    const { data } = this.props;
 
     return (
       <div>
@@ -67,7 +68,7 @@ export default class CaseLayout extends React.Component<Props> {
         <Nav activeSection="search" />
 
         <div className="b-c mn--full" role="main">
-          {data.request && <CaseView request={data.request} store={store} />}
+          {data.request && <CaseView request={data.request} />}
           {!data.request && this.renderNotFound()}
         </div>
 

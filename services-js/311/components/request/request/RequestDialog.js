@@ -364,7 +364,6 @@ export default class RequestDialog extends React.Component<Props> {
         const { fn, isSubmit } = this.makeNextAfterQuestions();
         return (
           <QuestionsPane
-            store={store}
             requestForm={requestForm}
             serviceName={service.name}
             serviceDescription={service.description}
@@ -404,13 +403,7 @@ export default class RequestDialog extends React.Component<Props> {
           case 'pending':
             return <SubmitPane state="submitting" ui={store.ui} />;
           case 'fulfilled':
-            return (
-              <CaseView
-                store={store}
-                request={requestSubmission.value}
-                submitted
-              />
-            );
+            return <CaseView request={requestSubmission.value} submitted />;
           case 'rejected':
             return (
               <SubmitPane

@@ -1,30 +1,32 @@
-/* eslint comma-dangle: 0, global-require: 0 */
+// @flow
+/* eslint global-require: 0 */
 
-module.exports = {
-  assetPrefix:
-    process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
-      ? `https://${process.env.ASSET_HOST}`
-      : '',
+import makeConfig, { makeAssetPrefix } from './lib/config';
 
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+
+module.exports = withBundleAnalyzer({
+  assetPrefix: makeAssetPrefix(),
+
+  ...makeConfig(),
+
+  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  bundleAnalyzerConfig: {
+    server: {
+      analyzerMode: 'static',
+      reportFilename: '../../build/server.html',
+    },
+    browser: {
+      analyzerMode: 'static',
+      reportFilename: '../build/client.html',
+    },
+  },
   webpack: config => {
-    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
-    // Perform customizations to config
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-        analyzerMode: 'disabled',
-        analyzerHost: '127.0.0.1',
-        analyzerPort: 3001,
-        openAnalyzer: false,
-        generateStatsFile: true,
-      })
-    );
-
     config.module.noParse = config.module.noParse || [];
     config.module.noParse.push(/mapbox-gl/);
 
     // Important: return the modified config
     return config;
   },
-};
+});

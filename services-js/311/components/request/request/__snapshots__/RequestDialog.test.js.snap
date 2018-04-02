@@ -150,9 +150,6 @@ exports[`methods submitRequest graphql failure 1`] = `
           "name": "Uncategorized services",
         },
       },
-      "apiKeys": Object {
-        "mapbox": Object {},
-      },
       "browserLocation": BrowserLocation {
         "watchId": null,
       },
@@ -416,9 +413,6 @@ exports[`methods submitRequest success 1`] = `
           "id": "",
           "name": "Uncategorized services",
         },
-      },
-      "apiKeys": Object {
-        "mapbox": Object {},
       },
       "browserLocation": BrowserLocation {
         "watchId": null,
@@ -718,9 +712,6 @@ exports[`methods submitRequest success 2`] = `
           "name": "Uncategorized services",
         },
       },
-      "apiKeys": Object {
-        "mapbox": Object {},
-      },
       "browserLocation": BrowserLocation {
         "watchId": null,
       },
@@ -789,117 +780,6 @@ exports[`methods submitRequest success 2`] = `
               "serviceNotice": null,
               "status": "closed",
               "updatedAtString": "April 8, 2017, 12:59 PM",
-            }
-          }
-          store={
-            AppStore {
-              "_liveAgentButtonId": "",
-              "accessibility": Accessibility {
-                "el": null,
-                "messageListenerDisposer": null,
-              },
-              "addressSearch": AddressSearch {
-                "searchPopupWidth": 0,
-              },
-              "allServices": AllServices {
-                "groups": Array [
-                  Group {
-                    "description": "Help for pet owners, or issues with animals, rodents, and pests.",
-                    "id": "Animals",
-                    "name": "Animals",
-                  },
-                  Group {
-                    "description": "Have an issue with the price or measurement of gas, oil, or another product?",
-                    "id": "Fees-Pricing",
-                    "name": "Fees and pricing",
-                  },
-                  Group {
-                    "description": "You can report issues you see at restaurants and other eateries in the City.",
-                    "id": "Food",
-                    "name": "Food, restaurants, and eateries",
-                  },
-                  Group {
-                    "description": "Get help for a public safety or disability issue, or request a health inspection.",
-                    "id": "Health-Safety",
-                    "name": "Health, safety, and social services",
-                  },
-                  Group {
-                    "description": "File requests for repairs, permits, tree plantings, and even make donations.",
-                    "id": "Parks-Public",
-                    "name": "Parks and public space",
-                  },
-                  Group {
-                    "description": "We offer help to developers, homeowners, and renters on many issues.",
-                    "id": "Property-Construction",
-                    "name": "Property, housing, and construction",
-                  },
-                  Group {
-                    "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
-                    "id": "Schools",
-                    "name": "Schools",
-                  },
-                  Group {
-                    "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
-                    "id": "Snow",
-                    "name": "Snow or weather-related concerns",
-                  },
-                  Group {
-                    "description": "You can report issues with street signs and signals, and road and sidewalk conditions.",
-                    "id": "Streets-Sidewalks",
-                    "name": "Streets and sidewalks",
-                  },
-                  Group {
-                    "description": "We can help with requests about bikes, parking, accessible spots, and more.",
-                    "id": "Traffic-Vehicles",
-                    "name": "Traffic and vehicles",
-                  },
-                  Group {
-                    "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
-                    "id": "Trash-Graffiti",
-                    "name": "Trash, recycling, and graffiti",
-                  },
-                  Group {
-                    "description": "We can help if you have a problem with your electricity, water, or gas.",
-                    "id": "Utilities",
-                    "name": "Utilities",
-                  },
-                  Group {
-                    "description": "General requests that don’t fit into a category.",
-                    "id": "Other",
-                    "name": "Other services",
-                  },
-                ],
-                "otherGroup": Group {
-                  "description": "These services have not yet been categorized",
-                  "id": "",
-                  "name": "Uncategorized services",
-                },
-              },
-              "apiKeys": Object {
-                "mapbox": Object {},
-              },
-              "browserLocation": BrowserLocation {
-                "watchId": null,
-              },
-              "languages": Array [],
-              "requestSearch": RequestSearch {
-                "boundsSet": false,
-                "boundsSetDisposer": null,
-                "debouncedSearch": [Function],
-                "mapMoved": false,
-                "searchDisposer": null,
-              },
-              "siteAnalytics": SiteAnalytics {},
-              "ui": Ui {
-                "debouncedScrollY": 0,
-                "handleResize": [Function],
-                "handleScroll": [Function],
-                "reduceMotion": false,
-                "scrollY": 0,
-                "visible": true,
-                "visibleHeight": 9007199254740991,
-                "visibleWidth": undefined,
-              },
             }
           }
           submitted={true}
@@ -1008,7 +888,7 @@ exports[`methods submitRequest success 2`] = `
                   <img
                     alt="Map of City Hall Plaza, Boston, MA 02131"
                     className="css-bitd7o css-t37t6d br br-a150"
-                    src="https://api.mapbox.com/styles/v1/undefined/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=undefined"
+                    src="https://api.mapbox.com/styles/v1/cityofboston/cj1p0mw1x000b2rmrocwwpyui/static/-71.0576853,42.359927299999995,15/440x440@2x?attribution=false&logo=false&access_token=FAKE_MAPBOX_ACCESS_TOKEN"
                   />
                   <div
                     className="css-oixmdu"

@@ -5,9 +5,12 @@ import type { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
+import getConfig from 'next/config';
+
 import { useStaticRendering as mobxUseStaticRendering } from 'mobx-react';
 
 import makeCss from '../lib/make-css';
+import type { Config } from '../lib/config';
 
 import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
@@ -16,7 +19,6 @@ type Props = {
   __NEXT_DATA__: Object,
   ids: string[],
   css: string,
-  cacheParam: string,
 };
 
 export default class extends Document {
@@ -32,15 +34,9 @@ export default class extends Document {
       styles = extractCritical(page.errorHtml);
     }
 
-    // This is set by our standard deployment process.
-    const cacheParam =
-      (process.env.GIT_REVISION && process.env.GIT_REVISION.substring(0, 8)) ||
-      '';
-
     return {
       ...page,
       ...styles,
-      cacheParam,
     };
   }
 
@@ -53,16 +49,11 @@ export default class extends Document {
     if (ids) {
       __NEXT_DATA__.ids = this.props.ids;
     }
-
-    __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY;
-    __NEXT_DATA__.assetPrefix =
-      process.env.ASSET_HOST && process.env.ASSET_HOST !== '.'
-        ? `https://${process.env.ASSET_HOST}`
-        : '';
   }
 
   render() {
-    const { css: additionalCss, cacheParam } = this.props;
+    const { css: additionalCss } = this.props;
+    const { publicRuntimeConfig: { cacheParam } } = (getConfig(): Config);
 
     return (
       <html lang="en" className="js flexbox">

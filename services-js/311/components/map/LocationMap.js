@@ -6,6 +6,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { css } from 'emotion';
 import { computed, action, reaction, autorun } from 'mobx';
 import { observer } from 'mobx-react';
+import getConfig from 'next/config';
 import debounce from 'lodash/debounce';
 import type { Map as MapboxMap, ControlZoom, DivIcon, Marker } from 'mapbox.js';
 import type {
@@ -18,6 +19,7 @@ import type {
 } from 'mapbox-gl';
 
 import type { AppStore } from '../../data/store';
+import type { Config } from '../../lib/config';
 
 import SearchMarkerPool from './SearchMarkerPool';
 import RequestPopup from './RequestPopup';
@@ -427,9 +429,10 @@ export default class LocationMap extends React.Component<Props> {
 
   @action.bound
   attachMap() {
+    const { publicRuntimeConfig } = (getConfig(): Config);
     const { L, mapboxgl, store, mode } = this.props;
-    const { apiKeys, requestSearch } = store;
-    const mapboxKeys = apiKeys.mapbox;
+    const { requestSearch } = store;
+    const { mapboxAccessToken, mapboxStylePath } = publicRuntimeConfig;
 
     if (!L && !mapboxgl) {
       return;
@@ -439,7 +442,7 @@ export default class LocationMap extends React.Component<Props> {
       throw new Error('mapEl not bound when attaching map');
     }
 
-    const style = `mapbox://styles/${mapboxKeys.stylePath}`;
+    const style = `mapbox://styles/${mapboxStylePath}`;
     const center = requestSearch.mapCenter;
 
     const commonOpts = {
@@ -454,7 +457,7 @@ export default class LocationMap extends React.Component<Props> {
     if (L) {
       const opts = {
         ...commonOpts,
-        accessToken: mapboxKeys.accessToken,
+        accessToken: mapboxAccessToken,
         maxBounds: MAX_BOUNDS,
         zoomControl: false,
       };
@@ -474,7 +477,7 @@ export default class LocationMap extends React.Component<Props> {
 
         L.mapbox
           .styleLayer(style, {
-            accessToken: mapboxKeys.accessToken,
+            accessToken: mapboxAccessToken,
           })
           .addTo(map);
       }
@@ -493,7 +496,7 @@ export default class LocationMap extends React.Component<Props> {
 
       this.mapboxMap = map;
     } else if (mapboxgl) {
-      (mapboxgl: any).accessToken = mapboxKeys.accessToken;
+      (mapboxgl: any).accessToken = mapboxAccessToken;
       const opts = {
         container: this.mapEl,
         style,

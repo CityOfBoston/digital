@@ -2,7 +2,6 @@
 /* eslint no-fallthrough: 0 */
 
 import type { Request } from '../../data/types';
-import { AppStore } from '../../data/store';
 import { makeServerContext } from '../../lib/test/make-context';
 
 import CaseLayout from './CaseLayout';
@@ -11,13 +10,6 @@ jest.mock('next/router');
 jest.mock('../../data/dao/load-case');
 
 const loadCase: JestMockFn = (require('../../data/dao/load-case'): any).default;
-
-const MOCK_API_KEYS = {
-  mapbox: {
-    accessToken: 'fake-access-token',
-    stylePath: 'fake-style-path',
-  },
-};
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',
@@ -50,12 +42,8 @@ const MOCK_REQUEST: Request = {
 
 describe('case', () => {
   let data;
-  let store;
 
   beforeEach(async () => {
-    store = new AppStore();
-    store.apiKeys = MOCK_API_KEYS;
-
     loadCase.mockReturnValue(Promise.resolve(MOCK_REQUEST));
     const ctx = makeServerContext('/reports', { id: 'case-id' });
     data = (await CaseLayout.getInitialProps(ctx)).data;

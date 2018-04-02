@@ -1,7 +1,10 @@
 // @flow
 
 import 'isomorphic-fetch';
+import getConfig from 'next/config';
+
 import type { RequestAdditions } from '../../server/next-handlers';
+import type { Config } from '../../lib/config';
 
 type QueryVariables = { [key: string]: any };
 export type LoopbackGraphqlOptions = {
@@ -53,6 +56,7 @@ async function clientGraphqlFetch(
   options: LoopbackGraphqlOptions = {}
 ) {
   const { cacheKey } = options;
+  const { publicRuntimeConfig: { graphqlApiKey } } = (getConfig(): Config);
 
   if (cacheKey && clientCache[cacheKey]) {
     return clientCache[cacheKey];
@@ -63,8 +67,7 @@ async function clientGraphqlFetch(
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      // eslint-disable-next-line no-underscore-dangle
-      'X-API-KEY': window.__NEXT_DATA__.webApiKey,
+      'X-API-KEY': graphqlApiKey,
     },
     body: JSON.stringify({
       query,
@@ -92,12 +95,13 @@ async function serverGraphqlFetch(
   options = {}
 ) {
   const { cacheKey } = options;
+  const { publicRuntimeConfig: { graphqlApiKey } } = (getConfig(): Config);
 
   const res = await hapiInject({
     url: '/graphql',
     method: 'post',
     headers: {
-      'X-API-KEY': process.env.WEB_API_KEY || '',
+      'X-API-KEY': graphqlApiKey,
     },
     payload: {
       query,

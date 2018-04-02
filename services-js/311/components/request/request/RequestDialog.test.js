@@ -137,7 +137,6 @@ describe('methods', () => {
     loopbackGraphql = jest.fn();
 
     store = new AppStore();
-    store.apiKeys.mapbox = {};
 
     // We have to use mount here so that we get the same component instance
     // across renders. Otherwise calling submitRequest won't update the same

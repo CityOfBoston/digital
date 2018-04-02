@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { css } from 'emotion';
+import getConfig from 'next/config';
 import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
@@ -12,11 +13,11 @@ import AttributeField from './AttributeField';
 
 import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
 
-import type { AppStore } from '../../../data/store';
 import type RequestForm from '../../../data/store/RequestForm';
 
+import type { Config } from '../../../lib/config';
+
 export type Props = {|
-  store: AppStore,
   requestForm: RequestForm,
   serviceName: string,
   serviceDescription: ?string,
@@ -67,8 +68,15 @@ export default class QuestionsPane extends React.Component<Props> {
 
   @action
   componentWillMount() {
-    const { store } = this.props;
-    this.imageUploader.config = store.apiKeys.cloudinary;
+    const {
+      publicRuntimeConfig: { cloudinaryUrl, cloudinaryUploadPreset },
+    } = (getConfig(): Config);
+
+    this.imageUploader.config = {
+      url: cloudinaryUrl,
+      uploadPreset: cloudinaryUploadPreset,
+    };
+
     this.mediaUrlUpdaterDisposer = reaction(
       () => this.imageUploader.uploadedUrl,
       url => {
@@ -76,12 +84,6 @@ export default class QuestionsPane extends React.Component<Props> {
       },
       { name: 'mediaUrl updater' }
     );
-  }
-
-  @action
-  componentWillReceiveProps(newProps: Props) {
-    const { store } = newProps;
-    this.imageUploader.config = store.apiKeys.cloudinary;
   }
 
   @action

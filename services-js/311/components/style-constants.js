@@ -1,6 +1,8 @@
 // @flow
-
+import getConfig from 'next/config';
 import { css } from 'emotion';
+
+import type { Config } from '../lib/config';
 
 export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
 export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';
@@ -41,10 +43,8 @@ export const CLEAR_FIX = {
 };
 
 export function assetUrl(path: string): string {
-  const assetPrefix =
-    (typeof window !== 'undefined' &&
-      window.__NEXT_DATA__ &&
-      window.__NEXT_DATA__.assetPrefix) ||
-    '';
+  const config: Config = getConfig();
+  const assetPrefix = config ? config.publicRuntimeConfig.assetPrefix : '';
+
   return `${assetPrefix}/assets/${path}`;
 }
