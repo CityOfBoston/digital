@@ -1,9 +1,8 @@
 // @flow
 /* eslint global-require: 0 */
 
-import makeConfig, { makeAssetPrefix } from './lib/config';
-
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+const { makeAssetPrefix, makeConfig } = require('./lib/config');
 
 module.exports = withBundleAnalyzer({
   assetPrefix: makeAssetPrefix(),

@@ -10,7 +10,7 @@ import inPercy from '@percy-io/in-percy';
 import svg4everybody from 'svg4everybody';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-import makeConfig from '../lib/config';
+import { makeConfig } from '../lib/config';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
 let env;
