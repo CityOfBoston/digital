@@ -21,6 +21,8 @@
 
 ### Production
 
+#### Adding a new app
+
 To post feedback to this app, use the `<cob-contact-form>` custom element
 provided in the [Fleet patterns library](https://patterns.boston.com/). The
 component documentation can be found here:
@@ -43,6 +45,17 @@ To use the token, include it as the `token` attribute in the
 By default, all apps on *.boston.gov are whitelisted by CORS, so you may not
 have to do anything. To add additional domains, include them in the `ORIGINS`
 environment variable (in .env), which is a comma-separated list of domains.
+
+#### Looking up an email
+
+To see the metadata associated with an email, you can look up all emails from a
+given address in production.
+
+Run `bundle exec rake emails:search["foo@example.com"]`. The matching email
+records will be written to STDERR as JSON objects. This should be done by
+running a custom task in ECS, with the overwritten command:
+
+`bundle,exec,rake,emails:search["foo@example.com"]`
 
 #### Restoring the DB
 
