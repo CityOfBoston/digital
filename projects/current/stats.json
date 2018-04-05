@@ -1,0 +1,64 @@
+{
+  "assetsByChunkName": {
+    "path---projects-5": [
+      "path---projects-5-7258fcd86b6c9e296388.js",
+      "path---projects-5-7258fcd86b6c9e296388.js.map"
+    ],
+    "path---projects-2": [
+      "path---projects-2-db45b3d76d990e705596.js",
+      "path---projects-2-db45b3d76d990e705596.js.map"
+    ],
+    "path---projects-8": [
+      "path---projects-8-84751cf1608b2c31d7ed.js",
+      "path---projects-8-84751cf1608b2c31d7ed.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---projects-6": [
+      "path---projects-6-1da822dfc1994f719031.js",
+      "path---projects-6-1da822dfc1994f719031.js.map"
+    ],
+    "path---projects-4": [
+      "path---projects-4-e03772dc2be0d4831238.js",
+      "path---projects-4-e03772dc2be0d4831238.js.map"
+    ],
+    "component---src-templates-project-js": [
+      "component---src-templates-project-js-2de90611db647599bb49.js",
+      "component---src-templates-project-js-2de90611db647599bb49.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-2bb839ac8c411485ad53.js",
+      "component---src-layouts-index-js-2bb839ac8c411485ad53.js.map"
+    ],
+    "path---index": [
+      "path---index-4c98caca4062e5ca0c1e.js",
+      "path---index-4c98caca4062e5ca0c1e.js.map"
+    ],
+    "path---projects-7": [
+      "path---projects-7-58c97843af7ca4a04e8b.js",
+      "path---projects-7-58c97843af7ca4a04e8b.js.map"
+    ],
+    "commons": [
+      "commons-45bdc5c486bcbca6f3de.js",
+      "commons-45bdc5c486bcbca6f3de.js.map"
+    ],
+    "path---projects-3": [
+      "path---projects-3-122e4bc2b2cc82a8061f.js",
+      "path---projects-3-122e4bc2b2cc82a8061f.js.map"
+    ],
+    "path---projects-1": [
+      "path---projects-1-1f201a9162144d1e9863.js",
+      "path---projects-1-1f201a9162144d1e9863.js.map"
+    ],
+    "component---src-templates-project-list-js": [
+      "component---src-templates-project-list-js-cbf8d425299710008627.js",
+      "component---src-templates-project-list-js-cbf8d425299710008627.js.map"
+    ],
+    "app": [
+      "app-06e9c8c5cf9731be68a1.js",
+      "app-06e9c8c5cf9731be68a1.js.map"
+    ]
+  }
+}
