@@ -1,0 +1,64 @@
+{
+  "assetsByChunkName": {
+    "path---projects-5": [
+      "path---projects-5-7258fcd86b6c9e296388.js",
+      "path---projects-5-7258fcd86b6c9e296388.js.map"
+    ],
+    "path---projects-2": [
+      "path---projects-2-9be596410f38d41435b8.js",
+      "path---projects-2-9be596410f38d41435b8.js.map"
+    ],
+    "path---projects-8": [
+      "path---projects-8-84751cf1608b2c31d7ed.js",
+      "path---projects-8-84751cf1608b2c31d7ed.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---projects-6": [
+      "path---projects-6-1da822dfc1994f719031.js",
+      "path---projects-6-1da822dfc1994f719031.js.map"
+    ],
+    "path---projects-4": [
+      "path---projects-4-e03772dc2be0d4831238.js",
+      "path---projects-4-e03772dc2be0d4831238.js.map"
+    ],
+    "component---src-templates-project-js": [
+      "component---src-templates-project-js-82211b6b22d721ad1c2e.js",
+      "component---src-templates-project-js-82211b6b22d721ad1c2e.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-2bb839ac8c411485ad53.js",
+      "component---src-layouts-index-js-2bb839ac8c411485ad53.js.map"
+    ],
+    "path---index": [
+      "path---index-4be25da280d8f785ee0e.js",
+      "path---index-4be25da280d8f785ee0e.js.map"
+    ],
+    "path---projects-7": [
+      "path---projects-7-21b07534390e1295f4d1.js",
+      "path---projects-7-21b07534390e1295f4d1.js.map"
+    ],
+    "commons": [
+      "commons-45bdc5c486bcbca6f3de.js",
+      "commons-45bdc5c486bcbca6f3de.js.map"
+    ],
+    "path---projects-3": [
+      "path---projects-3-ceec1f9d34ea0ac312fc.js",
+      "path---projects-3-ceec1f9d34ea0ac312fc.js.map"
+    ],
+    "path---projects-1": [
+      "path---projects-1-1f201a9162144d1e9863.js",
+      "path---projects-1-1f201a9162144d1e9863.js.map"
+    ],
+    "component---src-templates-project-list-js": [
+      "component---src-templates-project-list-js-d9c05a4a8edf64ba5cbf.js",
+      "component---src-templates-project-list-js-d9c05a4a8edf64ba5cbf.js.map"
+    ],
+    "app": [
+      "app-025faefc358995f42775.js",
+      "app-025faefc358995f42775.js.map"
+    ]
+  }
+}
