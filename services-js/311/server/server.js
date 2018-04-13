@@ -252,12 +252,12 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: '*',
     path: '/{p*}',
-    handler: (h => (...args) => {
+    handler: (handleNextRequest => (...args) => {
       const { raw: { res } } = args[0];
 
       res.statusCode = 404;
 
-      return h(...args);
+      return handleNextRequest(...args);
     })(nextHandler(app, '/_error')),
   });
 
@@ -318,7 +318,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/admin/ok',
-    handler: (request, h) => h('ok'),
+    handler: () => 'ok',
     options: {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
