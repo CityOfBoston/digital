@@ -8,7 +8,7 @@ import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
-import acceptLanguagePlugin from 'hapi-accept-language';
+import acceptLanguagePlugin from 'hapi-accept-language2';
 
 import decryptEnv from './lib/decrypt-env';
 import reportDeployToOpbeat from './lib/report-deploy-to-opbeat';
@@ -31,7 +31,21 @@ export default async function startServer({ opbeat }: any) {
   reportDeployToOpbeat(opbeat);
   await decryptEnv();
 
-  const server = new Hapi.Server();
+  const serverConfig = {
+    host: '0.0.0.0',
+    port,
+    tls: undefined,
+  };
+
+  if (process.env.USE_SSL) {
+    serverConfig.tls = {
+      key: fs.readFileSync('server.key'),
+      cert: fs.readFileSync('server.crt'),
+    };
+  }
+
+  const server = new Hapi.Server(serverConfig);
+
   const app = next({
     dev: process.env.NODE_ENV !== 'production',
   });
@@ -69,29 +83,20 @@ export default async function startServer({ opbeat }: any) {
     console.log('Successfully authenticated to Salesforce');
   }
 
-  if (process.env.USE_SSL) {
-    const tls = {
-      key: fs.readFileSync('server.key'),
-      cert: fs.readFileSync('server.crt'),
-    };
-
-    server.connection({ port, tls }, '0.0.0.0');
-  } else {
-    server.connection({ port }, '0.0.0.0');
-  }
-
   server.auth.scheme(
     'headerKeys',
     (s, { keys, header }: { header: string, keys: string[] }) => ({
-      authenticate: (request, reply) => {
+      authenticate: (request, h) => {
         const key = request.headers[header.toLowerCase()];
         if (!key) {
-          reply(Boom.unauthorized(`Missing ${header} header`));
-        } else if (keys.indexOf(key) === -1) {
-          reply(Boom.unauthorized(`Key ${key} is not a valid key`));
-        } else {
-          reply.continue({ credentials: key });
+          throw Boom.unauthorized(`Missing ${header} header`);
         }
+
+        if (keys.indexOf(key) === -1) {
+          throw Boom.unauthorized(`Key ${key} is not a valid key`);
+        }
+
+        return h.authenticated({ credentials: key });
       },
     })
   );
@@ -101,8 +106,8 @@ export default async function startServer({ opbeat }: any) {
     keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
   });
 
-  server.register({
-    register: Good,
+  await server.register({
+    plugin: Good,
     options: {
       reporters: {
         console: [
@@ -131,11 +136,11 @@ export default async function startServer({ opbeat }: any) {
     },
   });
 
-  server.register(Inert);
-  server.register(acceptLanguagePlugin);
+  await server.register(Inert);
+  await server.register(acceptLanguagePlugin);
 
-  server.register({
-    register: graphqlHapi,
+  await server.register({
+    plugin: graphqlHapi,
     options: {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
@@ -164,8 +169,8 @@ export default async function startServer({ opbeat }: any) {
     },
   });
 
-  server.register({
-    register: graphiqlHapi,
+  await server.register({
+    plugin: graphiqlHapi,
     options: {
       path: '/graphiql',
       graphiqlOptions: {
@@ -184,7 +189,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/request',
-    handler: (request, reply) => reply.redirect('/'),
+    handler: (request, h) => h.redirect('/'),
   });
 
   server.route({
@@ -196,8 +201,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/request/{code}/{stage}',
-    handler: (request, reply) =>
-      reply.redirect(`/request/${request.params.code}`),
+    handler: (request, h) => h.redirect(`/request/${request.params.code}`),
   });
 
   server.route({
@@ -222,7 +226,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/reports/list_services',
-    handler: (request, reply) => reply.redirect('/services').permanent(),
+    handler: (request, h) => h.redirect('/services').permanent(),
   });
 
   server.route({
@@ -278,14 +282,14 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/favicon.ico',
-    handler: (request, reply) => reply.file('static/favicon.ico'),
+    handler: (request, h) => h.file('static/favicon.ico'),
   });
 
   server.route({
     method: 'GET',
     path: '/robots.txt',
-    handler: (request, reply) =>
-      reply.file(
+    handler: (request, h) =>
+      h.file(
         process.env.HEROKU_PIPELINE === 'staging'
           ? 'static/robots-staging.txt'
           : 'static/robots-production.txt'
@@ -295,9 +299,9 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/assets/{path*}',
-    handler: (request, reply) => {
+    handler: (request, h) => {
       if (!request.params.path || request.params.path.indexOf('..') !== -1) {
-        return reply(Boom.forbidden());
+        return h(Boom.forbidden());
       }
 
       const p = Path.join(
@@ -305,7 +309,7 @@ export default async function startServer({ opbeat }: any) {
         'assets',
         ...request.params.path.split('/')
       );
-      return reply
+      return h
         .file(p)
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
     },
@@ -314,8 +318,8 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/admin/ok',
-    handler: (request, reply) => reply('ok'),
-    config: {
+    handler: (request, h) => h('ok'),
+    options: {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
     },

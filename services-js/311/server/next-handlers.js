@@ -28,7 +28,7 @@ export type RequestAdditions = {|
 
 export const nextHandler = (app, page, staticQuery) => async (
   { server, raw: { req, res }, query, params, pre },
-  reply
+  h
 ) => {
   const requestAdditions: RequestAdditions = {
     hapiInject: server.inject.bind(server),
@@ -45,14 +45,14 @@ export const nextHandler = (app, page, staticQuery) => async (
   };
 
   const html = await app.renderToHTML(req, res, page, pageQuery);
-  reply(html).code(res.statusCode);
+  return h.response(html).code(res.statusCode);
 };
 
 export const nextDefaultHandler = app => {
   const compressionMiddleware = compression();
   const handler = app.getRequestHandler();
 
-  return async ({ raw: { req, res }, url }, hapiReply) => {
+  return async ({ raw: { req, res }, url }, h) => {
     // Because Next.js writes to the raw response we don't get Hapi's built-in
     // gzipping or cache control.. So, we run an express middleware that
     // monkeypatches the raw response to gzip its output, and set our own
@@ -61,6 +61,7 @@ export const nextDefaultHandler = app => {
       compressionMiddleware(req, res, resolve);
     });
     await handler(req, res, url);
-    hapiReply.close(false);
+
+    return h.close;
   };
 };
