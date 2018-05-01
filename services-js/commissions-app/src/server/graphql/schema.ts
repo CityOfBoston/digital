@@ -3,10 +3,9 @@ import path from 'path';
 
 import { makeExecutableSchema } from 'graphql-tools';
 
-// This file is build by the "generate-schema" script and output into the
-// "build" directory.
+// This file is built by the "generate-schema" script.
 const schemaGraphql = fs.readFileSync(
-  path.resolve(__dirname, 'schema.graphql'),
+  path.resolve(__dirname, '..', '..', '..', 'graphql', 'schema.graphql'),
   'utf-8'
 );
 
