@@ -1,0 +1,22 @@
+dist: trusty
+services:
+- docker
+language: node_js
+env:
+- TZ=America/New_York
+cache: yarn
+branches:
+  only:
+  - develop
+before_install:
+- npm install -g yarn@`jq -r .engines.yarn package.json`
+jobs:
+  include:
+  - if: type IN (push)
+    script: yarn run test
+  - if: type IN (pull_request)
+    script: yarn run test:since $TRAVIS_BRANCH
+notifications:
+  slack:
+    rooms:
+      secure: DApL8Ae0kdrg4ZasLsJsvaC52AUoJyf7FEW6rD5BMEasDkdlljGMqh3egKp5qwYGxIbdhKG/j5sUE0AYSTH+Y3BFmk07NJpbjxkXuAIXEDteOgO2yLxKYTM4G2hSzCYAL3tys226fCsu9DcMetsqGEGIlzf1Get+JEalh/Q1P0pjlqL6NO1GwWlliD4mD+n4vXZClUqmKOCfJgUUzpYt+GmmTuFgPvf2Sw2jC+12BVlA9Gx2WfR7DkEmJc4TrphOpA5+2/RI4nQu/tsF1RB6J7jqrTtVznJChENEV0hRV6cSIz7BFHyQKp1yAu6KBY4d/Bxd0XXV4EL+oal6Pw3tO36QBuJIoiJX36Un+1lSaDSGGiulYNRdiAdMnzJ0UNz3P+0M1YJiLuQo+Lthcgug+D105UkK8l1almn8Fr0rBmmW6b8VtEc71JofyZi9x3xzKRgE+Mciz324gjBsm8289g2gy2GfvENXKVrBL9oNnmem9UUOXVRJKRRU6RVJEkegCvJG2G1CUhhuGyLgoAtfBl/+F4ymFQH/kAgpzuBXNsuL3VuGl7377eFGJEgaDC7ipSUqCVVcxpv8WfHPIo1xMr0XletJq0eE1Pzj0M9DPP2UsShYbJMYlAq54bee8jMVcJstEKCG7tF/scVrTMIuyguIlvsprPz7K4vPxNhey/M=

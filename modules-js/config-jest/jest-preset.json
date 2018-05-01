@@ -11,6 +11,7 @@
     "json"
   ],
   "collectCoverage": true,
+  "useStderr": true,
   "testPathIgnorePatterns": [
     "<rootDir>/build/",
     "<rootDir>/node_modules/",

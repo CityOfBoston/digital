@@ -17,3 +17,9 @@ To use this, add the folowing to your package.json file:
   }
 }
 ```
+
+The default behavior is to enable finding TypeScript tests and loading them with
+`ts-jest`.
+
+It also enables tcov and JSON test coverage. Adding `useStderr` prevents the
+Jest test coverage reporter from adding a text summary at the end of output.

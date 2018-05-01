@@ -5,13 +5,13 @@
   "private": true,
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build && npm run generate-schema",
+    "prebuild": "rimraf build && npm run generate-graphql-schema",
     "build": "tsc",
     "dev": "npm run prebuild && tsc-watch --onSuccess \"npm run start\"",
     "prepare": "npm run build",
     "start": "node build/server/start",
     "test": "jest",
-    "generate-schema": "mkdir -p build/server/graphql && ts2gql src/server/graphql/schema.d.ts > build/server/graphql/schema.graphql"
+    "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.d.ts > graphql/schema.graphql"
   },
   "jest": {
     "preset": "@cityofboston/config-jest"
@@ -24,7 +24,8 @@
     "graphql": "^0.13.2",
     "graphql-tools": "^3.0.0",
     "hapi": "^17.4.0",
-    "hapi-accept-language2": "^2.0.3"
+    "hapi-accept-language2": "^2.0.3",
+    "node-cleanup": "^2.1.2"
   },
   "devDependencies": {
     "@cityofboston/config-jest": "^0.0.0",

@@ -19,11 +19,12 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "prepublish": "lerna run --stream --sort prepublish",
-    "prepare": "lerna run --stream --sort prepare",
+    "prepublish": "lerna run --stream prepublish",
+    "prepare": "lerna run --stream prepare",
     "precommit": "lint-staged",
-    "prepush": "lerna run --since origin/develop test",
-    "test": "lerna run test"
+    "prepush": "lerna run --no-sort --stream --since origin/develop test",
+    "test": "lerna run test --no-sort",
+    "test:since": "lerna run test --no-sort --since"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --quiet"

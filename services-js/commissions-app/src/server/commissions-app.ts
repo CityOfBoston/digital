@@ -4,6 +4,7 @@ import fs from 'fs';
 
 import Hapi, { Request } from 'hapi';
 import Boom from 'boom';
+import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 
 // https://github.com/apollographql/apollo-server/issues/927
@@ -22,7 +23,7 @@ const PATH_PREFIX = '/commissions';
 const port = parseInt(process.env.PORT || '3000', 10);
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-export default async function start() {
+export async function makeServer() {
   const serverOptions = {
     host: '0.0.0.0',
     port,
@@ -50,7 +51,11 @@ export default async function start() {
   } as HeaderKeysOptions);
 
   await server.register(acceptLanguagePlugin);
-  await server.register(loggingPlugin);
+
+  // We start up the server in test, and we don’t want it logging.
+  if (process.env.NODE_ENV !== 'test') {
+    await server.register(loggingPlugin);
+  }
 
   server.route(adminOkRoute);
 
@@ -76,7 +81,35 @@ export default async function start() {
     },
   });
 
-  await server.start();
+  return {
+    server,
+    startup: async () => {
+      await server.start();
 
-  console.log(`> Ready on http://localhost:${port}${PATH_PREFIX}`);
+      console.log(`> Ready on http://localhost:${port}${PATH_PREFIX}`);
+
+      // Add more shutdown code here.
+      return () => Promise.all([server.stop()]);
+    },
+  };
+}
+
+export default async function startServer() {
+  const { startup } = await makeServer();
+  const shutdown = await startup();
+
+  cleanup(exitCode => {
+    shutdown().then(
+      () => {
+        process.exit(exitCode);
+      },
+      err => {
+        console.log('CLEAN EXIT FAILED', err);
+        process.exit(-1);
+      }
+    );
+
+    cleanup.uninstall();
+    return false;
+  });
 }

@@ -6,9 +6,9 @@
  */
 
 require('dotenv').config();
-const start = require('./commissions-app').default;
+const startServer = require('./commissions-app').default;
 
-start().catch((err: Error) => {
+startServer().catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });
