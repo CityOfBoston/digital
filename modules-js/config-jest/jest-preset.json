@@ -1,0 +1,29 @@
+{
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json"
+  ],
+  "collectCoverage": true,
+  "testPathIgnorePatterns": [
+    "<rootDir>/build/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/coverage/"
+  ],
+  "collectCoverageFrom": [
+    "{src}/**/*\\.*",
+    "!**/*.stories.*",
+    "!**/test/**/*",
+    "!**/*.d.ts"
+  ],
+  "coverageReporters": [
+    "lcov",
+    "json"
+  ]
+}

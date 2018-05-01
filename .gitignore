@@ -1,1 +1,15 @@
 node_modules
+build
+.next
+coverage
+
+schema.graphql
+
+.env
+
+lerna-debug.log
+yarn-error.log
+
+# USE YARN IN THIS REPO
+package-lock.json
+npm-shrinkwrap.json

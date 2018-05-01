@@ -1,0 +1,7 @@
+{
+  "name": "@cityofboston/config-typescript",
+  "version": "0.0.0",
+  "description": "Configuration files for TypeScript",
+  "license": "CC0-1.0",
+  "private": true
+}

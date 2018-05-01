@@ -1,0 +1,30 @@
+{
+  "name": "@cityofboston/hapi-common",
+  "version": "0.0.0",
+  "description": "Common Hapi helpers for our servers",
+  "private": true,
+  "license": "CC0-1.0",
+  "main": "build/hapi-common.js",
+  "types": "build/hapi-common.d.ts",
+  "scripts": {
+    "dev": "tsc-watch",
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "boom": "^7.2.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.0.2",
+    "hapi": "^17.3.1"
+  },
+  "devDependencies": {
+    "@cityofboston/config-typescript": "^0.0.0",
+    "rimraf": "^2.6.2",
+    "tsc-watch": "^1.0.21",
+    "typescript": "^2.8.1"
+  }
+}
