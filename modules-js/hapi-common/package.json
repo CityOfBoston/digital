@@ -11,7 +11,10 @@
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "npm run build",
-    "pretest": "npm run build"
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest"
   },
   "dependencies": {
     "boom": "^7.2.0",
@@ -21,8 +24,12 @@
     "hapi": "^17.3.1"
   },
   "devDependencies": {
+    "@cityofboston/config-jest": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
+    "@types/jest": "^22.0.0",
+    "jest": "^22.0.0",
     "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.0",
     "tsc-watch": "^1.0.21",
     "typescript": "^2.8.1"
   }

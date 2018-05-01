@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 
-import Hapi, { Request } from 'hapi';
+import { Server as HapiServer } from 'hapi';
 import Boom from 'boom';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
@@ -42,7 +42,7 @@ export async function makeServer() {
     };
   }
 
-  const server = new Hapi.Server(serverOptions);
+  const server = new HapiServer(serverOptions);
 
   server.auth.scheme('headerKeys', headerKeys);
   server.auth.strategy('apiHeaderKeys', 'headerKeys', {
@@ -63,8 +63,8 @@ export async function makeServer() {
     plugin: graphqlHapi,
     options: {
       path: `${PATH_PREFIX}/graphql`,
-      auth: 'headerKeys',
-      graphqlOptions: (req: Request) => ({
+      auth: 'apiHeaderKeys',
+      graphqlOptions: req => ({
         schema: graphqlSchema,
       }),
     },
