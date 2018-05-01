@@ -21,6 +21,7 @@
     "{src}/**/*\\.*",
     "!**/*.stories.*",
     "!**/test/**/*",
+    "!**/__snapshots__/**/*",
     "!**/*.d.ts"
   ],
   "coverageReporters": [

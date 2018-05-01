@@ -6,6 +6,9 @@ To use this, add the folowing to your package.json file:
 
 ```json
 {
+  "scripts": {
+    "test": "jest"
+  },
   "jest": {
     "preset": "@cityofboston/config-jest"
   },
