@@ -14,3 +14,10 @@ $ yarn install
 $ cd services-js/commissions-app
 $ npm run dev
 ```
+
+### Making a new package
+
+```
+$ npx khaos create -d templates <template-name> <destination>
+$ yarn install
+```

@@ -11,7 +11,9 @@
   "workspaces": {
     "packages": [
       "modules-js/*",
-      "services-js/*"
+      "services-js/*",
+      "templates/js-*",
+      "templates/js-*/build/*"
     ],
     "nohoist": [
       "**/@cityofboston/config-*"
@@ -34,6 +36,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
+    "khaos": "^0.9.3",
     "lerna": "3.0.0-beta.18",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.0",

@@ -1,0 +1,34 @@
+{
+  "name": "js-module",
+  "version": "0.0.0",
+  "description": "Khaos template for a JavaScript module",
+  "license": "CC0-1.0",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest",
+    "collectCoverage": false,
+    "testPathIgnorePatterns": [
+      "<rootDir>/template/",
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/coverage/"
+    ]
+  },
+  "devDependencies": {
+    "@cityofboston/config-jest": "^0.0.0",
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@types/jest": "^22.0.0",
+    "@types/node": "^10.0.2",
+    "jest": "^22.0.0",
+    "khaos": "^0.9.3",
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.1",
+    "tmp": "^0.0.33",
+    "ts-jest": "^22.0.0",
+    "tsc-watch": "^1.0.21",
+    "typescript": "^2.8.1"
+  }
+}
