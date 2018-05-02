@@ -1,0 +1,33 @@
+{
+  "name": "@cityofboston/graphql-common",
+  "version": "0.0.0",
+  "description": "GraphQL utilities",
+  "private": true,
+  "license": "CC0-1.0",
+  "main": "build/graphql-common.js",
+  "types": "build/graphql-common.d.ts",
+  "scripts": {
+    "dev": "tsc-watch",
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest"
+  },
+  "dependencies": {
+    "typelevel-ts": "^0.2.3"
+  },
+  "devDependencies": {
+    "@cityofboston/config-jest": "^0.0.0",
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@types/jest": "^22.0.0",
+    "@types/node": "^10.0.0",
+    "jest": "^22.0.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.0",
+    "tsc-watch": "^1.0.21",
+    "typescript": "^2.8.1"
+  }
+}

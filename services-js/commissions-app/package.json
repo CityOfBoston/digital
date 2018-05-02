@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "start": "node build/server/start",
     "test": "jest",
-    "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.d.ts > graphql/schema.graphql"
+    "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql"
   },
   "jest": {
     "preset": "@cityofboston/config-jest"
