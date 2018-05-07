@@ -19,7 +19,7 @@ const GRAPHQL_INTROSPECTION_PAYLOAD = {
 
 describe('server creation', () => {
   it('can be created', async () => {
-    const { server } = await makeServer();
+    const { server } = await makeServer(0);
     expect(server).toBeDefined();
   });
 });
@@ -34,7 +34,7 @@ describe('server', () => {
 
     process.env.API_KEYS = API_KEY;
 
-    const out = await makeServer();
+    const out = await makeServer(0);
     server = out.server;
     const startup = out.startup;
 

@@ -1,11 +1,11 @@
 {
-  "name": "@cityofboston/graphql-common",
+  "name": "@cityofboston/mssql-common",
   "version": "0.0.0",
-  "description": "GraphQL utilities",
+  "description": "Common utilities for connecting to SqlServer DBs",
   "private": true,
   "license": "CC0-1.0",
-  "main": "build/graphql-common.js",
-  "types": "build/graphql-common.d.ts",
+  "main": "build/mssql-common.js",
+  "types": "build/mssql-common.d.ts",
   "scripts": {
     "dev": "tsc-watch",
     "prebuild": "rimraf build",
@@ -17,12 +17,13 @@
     "preset": "@cityofboston/config-jest"
   },
   "dependencies": {
-    "typelevel-ts": "^0.2.3"
+    "mssql": "^4.1.0"
   },
   "devDependencies": {
     "@cityofboston/config-jest": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "^22.0.0",
+    "@types/mssql": "^4.0.7",
     "@types/node": "^10.0.0",
     "jest": "^22.0.0",
     "rimraf": "^2.6.2",

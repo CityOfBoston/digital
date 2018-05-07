@@ -3,7 +3,6 @@
 import fs from 'fs';
 
 import { Server as HapiServer } from 'hapi';
-import Boom from 'boom';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 
@@ -17,17 +16,67 @@ import {
   HeaderKeysOptions,
 } from '@cityofboston/hapi-common';
 
-import graphqlSchema from './graphql/schema';
+import { createConnectionPool } from '@cityofboston/mssql-common';
+
+import graphqlSchema, { Context } from './graphql/schema';
+import CommissionsDao from './dao/CommissionsDao';
+import CommissionsDaoFake from './dao/CommissionsDaoFake';
 
 const PATH_PREFIX = '/commissions';
-const port = parseInt(process.env.PORT || '3000', 10);
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-export async function makeServer() {
+export async function makeServer(port) {
+  let makeCommissionsDao: () => CommissionsDao;
+
+  if (
+    process.env.NODE_ENV === 'test' ||
+    (process.env.NODE_ENV !== 'production' &&
+      !process.env.COMMISSIONS_DB_SERVER)
+  ) {
+    makeCommissionsDao = () => new CommissionsDaoFake() as any;
+  } else {
+    const username = process.env.COMMISSIONS_DB_USERNAME;
+    const password = process.env.COMMISSIONS_DB_PASSWORD;
+    const database = process.env.COMMISSIONS_DB_DATABASE;
+    const domain = process.env.COMMISSIONS_DB_DOMAIN;
+    const serverName = process.env.COMMISSIONS_DB_SERVER;
+
+    if (!username) {
+      throw new Error('Must specify COMMISSIONS_DB_USERNAME');
+    }
+
+    if (!password) {
+      throw new Error('Must specify COMMISSIONS_DB_PASSWORD');
+    }
+
+    if (!database) {
+      throw new Error('Must specify COMMISSIONS_DB_DATABASE');
+    }
+
+    if (!serverName) {
+      throw new Error('Must specify COMMISSIONS_DB_SERVER');
+    }
+
+    const commissionsDbPool = await createConnectionPool(
+      {
+        username,
+        password,
+        database,
+        domain,
+        server: serverName,
+      },
+      err => {
+        console.error(err);
+        process.exit(-1);
+      }
+    );
+
+    makeCommissionsDao = () => new CommissionsDao(commissionsDbPool);
+  }
   const serverOptions = {
     host: '0.0.0.0',
     port,
-    tls: undefined,
+    tls: undefined as any,
     debug: dev
       ? {
           request: ['handler'],
@@ -64,8 +113,11 @@ export async function makeServer() {
     options: {
       path: `${PATH_PREFIX}/graphql`,
       auth: 'apiHeaderKeys',
-      graphqlOptions: req => ({
+      graphqlOptions: () => ({
         schema: graphqlSchema,
+        context: {
+          commissionsDao: makeCommissionsDao(),
+        } as Context,
       }),
     },
   });
@@ -95,7 +147,9 @@ export async function makeServer() {
 }
 
 export default async function startServer() {
-  const { startup } = await makeServer();
+  const port = parseInt(process.env.PORT || '3000', 10);
+
+  const { startup } = await makeServer(port);
   const shutdown = await startup();
 
   cleanup(exitCode => {

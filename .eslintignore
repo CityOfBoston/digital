@@ -1,3 +1,6 @@
 node_modules
 build
 coverage
+
+# ./services-js/commissions/src/server/dao/CommissionsDb.d.ts
+CommissionsDb.d.ts
