@@ -10,6 +10,15 @@
     "node": "~8.7",
     "npm": "^5.6.0"
   },
+  "labtest": {
+    "app_name": "registry-certs",
+    "host": "test",
+    "use_ssh_config": true,
+    "code_repo_url": "git@github.com:CityOfBoston/registry-certs.git",
+    "test_domain": "digital-test.boston.gov",
+    "app_build_image": "node",
+    "app_build_command": "echo 'building'"
+  },
   "scripts": {
     "dev": "babel-watch -D -w server server",
     "test": "jest --forceExit",
