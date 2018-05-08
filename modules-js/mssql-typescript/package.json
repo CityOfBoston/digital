@@ -1,0 +1,27 @@
+{
+  "name": "@cityofboston/mssql-typescript",
+  "version": "0.0.0",
+  "description": "Wrapper for sql-ts to handle version dependencies",
+  "private": true,
+  "license": "CC0-1.0",
+  "main": "build/mssql-typescript.js",
+  "types": "build/mssql-typescript.d.ts",
+  "scripts": {
+    "dev": "tsc-watch",
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@rmp135/sql-ts": "^0.3.3",
+    "mssql": "^3.3.0"
+  },
+  "devDependencies": {
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@types/knex": "^0.14.12",
+    "@types/node": "^10.0.0",
+    "rimraf": "^2.6.2",
+    "tsc-watch": "^1.0.21",
+    "typescript": "^2.8.1"
+  }
+}

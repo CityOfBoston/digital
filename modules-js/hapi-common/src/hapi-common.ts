@@ -69,7 +69,7 @@ export type HeaderKeysOptions = {
  *   keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
  * } as HeaderKeysOptions);
  */
-export function headerKeys(s, { keys, header }: HeaderKeysOptions) {
+export function headerKeys(_, { keys, header }: HeaderKeysOptions) {
   return {
     authenticate: (request, h) => {
       const key = request.headers[header.toLowerCase()];
