@@ -13,3 +13,6 @@ yarn-error.log
 # USE YARN IN THIS REPO
 package-lock.json
 npm-shrinkwrap.json
+
+server.key
+server.crt

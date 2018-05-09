@@ -30,6 +30,8 @@ export async function makeServer(port) {
 
   if (
     process.env.NODE_ENV === 'test' ||
+    // TODO(finh): Remove this when prod can talk to the actual DBs
+    process.env.NODE_ENV === 'production' ||
     (process.env.NODE_ENV !== 'production' &&
       !process.env.COMMISSIONS_DB_SERVER)
   ) {
@@ -138,7 +140,11 @@ export async function makeServer(port) {
     startup: async () => {
       await server.start();
 
-      console.log(`> Ready on http://localhost:${port}${PATH_PREFIX}`);
+      console.log(
+        `> Ready on http${
+          process.env.USE_SSL ? 's' : ''
+        }://localhost:${port}${PATH_PREFIX}`
+      );
 
       // Add more shutdown code here.
       return () => Promise.all([server.stop()]);
