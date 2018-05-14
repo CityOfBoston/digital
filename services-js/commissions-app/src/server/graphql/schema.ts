@@ -96,8 +96,11 @@ const commissionResolvers: Resolvers<Commission, Context> = {
   stipend: ({ Stipend }) => Stipend,
   seats: ({ Seats }) => Seats,
   enablingLegislation: ({ Legislation }) => Legislation,
-  members: ({ BoardID }, _args, { commissionsDao }) =>
-    commissionsDao.fetchBoardMembers(BoardID),
+  members: async ({ BoardID }, _args, { commissionsDao }) =>
+    // Some commissions have employees listed, which we want to remove.
+    (await commissionsDao.fetchBoardMembers(BoardID)).filter(
+      ({ StatusName }) => StatusName !== 'employee'
+    ),
 };
 
 const departmentResolvers: Resolvers<Department, Context> = {
