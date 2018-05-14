@@ -14,5 +14,8 @@ yarn-error.log
 package-lock.json
 npm-shrinkwrap.json
 
+# See: build-service-container.sh
+package-json.tar
+
 server.key
 server.crt

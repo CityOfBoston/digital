@@ -17,6 +17,7 @@ import {
 } from '@cityofboston/hapi-common';
 
 import { createConnectionPool } from '@cityofboston/mssql-common';
+import decryptEnv from '@cityofboston/srv-decrypt-env';
 
 import graphqlSchema, { Context } from './graphql/schema';
 import CommissionsDao from './dao/CommissionsDao';
@@ -30,8 +31,6 @@ export async function makeServer(port) {
 
   if (
     process.env.NODE_ENV === 'test' ||
-    // TODO(finh): Remove this when prod can talk to the actual DBs
-    process.env.NODE_ENV === 'production' ||
     (process.env.NODE_ENV !== 'production' &&
       !process.env.COMMISSIONS_DB_SERVER)
   ) {
@@ -153,6 +152,8 @@ export async function makeServer(port) {
 }
 
 export default async function startServer() {
+  await decryptEnv();
+
   const port = parseInt(process.env.PORT || '3000', 10);
 
   const { startup } = await makeServer(port);

@@ -1,6 +1,7 @@
 **/node_modules
 **/build
 **/.next
+**/.env
 **/Dockerfile
 **/yarn-error.log
 **/lerna-debug.log
