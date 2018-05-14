@@ -31,12 +31,13 @@
     "test:since": "lerna run test --no-sort --since"
   },
   "shippy": {
-    "build": "./scripts/build-service-container.sh"
+    "build": "./deploy/build-service-container.sh"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --quiet"
   },
   "devDependencies": {
+    "@yarnpkg/lockfile": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
