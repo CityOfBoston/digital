@@ -45,5 +45,5 @@ ENV USE_SSL 1
 
 WORKDIR /app/services-js/$WORKSPACE
 
-ENTRYPOINT ["/app/deploy/entrypoint.sh"]
+ENTRYPOINT ["/app/scripts/service-entrypoint.sh"]
 CMD ["yarn", "start"]

@@ -5,3 +5,4 @@
 **/Dockerfile
 **/yarn-error.log
 **/lerna-debug.log
+**/deploy

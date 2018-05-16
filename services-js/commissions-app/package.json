@@ -11,7 +11,8 @@
     "prepare": "npm run build",
     "start": "node build/server/start",
     "test": "jest",
-    "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql"
+    "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
+    "predeploy": "cd ../.. && ./deploy/travis-deploy-service-container.sh services-js/commissions-app/deploy/Dockerfile"
   },
   "jest": {
     "preset": "@cityofboston/config-jest"
