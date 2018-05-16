@@ -8,6 +8,7 @@ cache: yarn
 branches:
   only:
   - develop
+  - ^production-
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 jobs:
@@ -16,6 +17,13 @@ jobs:
     script: yarn run test
   - if: type IN (pull_request)
     script: yarn run test:since $TRAVIS_BRANCH
+  - stage: deploy
+    if: branch =~ ^production-
+    install: skip
+    script: skip
+    deploy:
+      provider: script
+      script: echo "DEPLOYING $TRAVIS_BRANCH"
 notifications:
   slack:
     rooms:
