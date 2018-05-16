@@ -46,6 +46,7 @@ export interface Commission extends ResolvableWith<DbBoard> {
 
 export interface Department extends ResolvableWith<DbDepartment> {
   name: string;
+  homepageUrl: string;
 }
 
 export interface Member extends ResolvableWith<DbMember> {
@@ -105,6 +106,8 @@ const commissionResolvers: Resolvers<Commission, Context> = {
 
 const departmentResolvers: Resolvers<Department, Context> = {
   name: ({ DepartmentName }) => DepartmentName || 'Unknown Department',
+  // TODO(finh): Fill in with actual homepage URL when the DB has it.
+  homepageUrl: () => 'https://www.boston.gov/',
 };
 
 const memberResolvers: Resolvers<Member, Context> = {
