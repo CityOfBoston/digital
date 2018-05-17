@@ -8,7 +8,7 @@ cache: yarn
 branches:
   only:
   - develop
-  - ^production-
+  - "/^production-/"
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 jobs:
@@ -21,9 +21,15 @@ jobs:
     if: branch =~ ^production-
     install: skip
     script: skip
+    before_deploy:
+      - pip install --upgrade --user awscli
     deploy:
       provider: script
-      script: echo "DEPLOYING $TRAVIS_BRANCH"
+      script: deploy/travis-deploy.sh
+      on:
+        # Stage’s "if" limits to the branches we want, so let everything
+        # deploy that gets this far.
+        all_branches: true
 notifications:
   slack:
     rooms:
