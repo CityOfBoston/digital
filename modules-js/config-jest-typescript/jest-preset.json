@@ -1,0 +1,32 @@
+{
+  "transform": {
+    "^.+\\.(t|j)sx?$": "ts-jest-babel-7"
+  },
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json"
+  ],
+  "collectCoverage": true,
+  "useStderr": true,
+  "testPathIgnorePatterns": [
+    "<rootDir>/build/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/coverage/",
+    "<rootDir>/scripts/"
+  ],
+  "collectCoverageFrom": [
+    "{src}/**/*\\.*",
+    "!**/*.stories.*",
+    "!**/test/**/*",
+    "!**/__snapshots__/**/*",
+    "!**/*.d.ts"
+  ],
+  "coverageReporters": [
+    "lcov",
+    "json"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "transform": {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.(j|t)sx?$": "babel-jest"
   },
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "moduleFileExtensions": [
@@ -15,7 +15,8 @@
   "testPathIgnorePatterns": [
     "<rootDir>/build/",
     "<rootDir>/node_modules/",
-    "<rootDir>/coverage/"
+    "<rootDir>/coverage/",
+    "<rootDir>/scripts/"
   ],
   "collectCoverageFrom": [
     "{src}/**/*\\.*",

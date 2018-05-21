@@ -7,9 +7,5 @@
   },
   "include": [
     "src/**/*"
-  ],
-  "exclude": [
-    "src/client/**/*",
-    "src/pages/**/*",
   ]
 }

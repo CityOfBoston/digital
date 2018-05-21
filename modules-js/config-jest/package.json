@@ -1,7 +1,0 @@
-{
-  "name": "@cityofboston/config-jest",
-  "version": "0.0.0",
-  "description": "Configuration files for Jest",
-  "license": "CC0-1.0",
-  "private": true
-}

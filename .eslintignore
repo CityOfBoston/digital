@@ -2,5 +2,8 @@ node_modules
 build
 coverage
 
+!.storybook
+!.*.js
+
 # ./services-js/commissions/src/server/dao/CommissionsDb.d.ts
 CommissionsDb.d.ts
