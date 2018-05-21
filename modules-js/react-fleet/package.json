@@ -16,7 +16,8 @@
     "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
     "prepare": "npm run build",
     "pretest": "tsc --noEmit",
-    "test": "scripts/test.js"
+    "test": "scripts/test.js",
+    "fetch-templates": "ts-node ./scripts/fetch-templates.ts"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel"
@@ -39,16 +40,24 @@
     "@storybook/addon-storyshots": "^4.0.0-alpha",
     "@storybook/addons": "^4.0.0-alpha",
     "@storybook/react": "^4.0.0-alpha",
+    "@types/cheerio": "^0.22.7",
+    "@types/fs-extra": "^5.0.0",
     "@types/jest": "^22.0.0",
+    "@types/node-fetch": "^1.6.9",
     "@types/react": "^16.3.14",
     "@types/storybook__addon-actions": "^3.0.3",
     "@types/storybook__addon-storyshots": "^3.4.1",
     "@types/storybook__react": "^3.0.7",
     "babel-core": "^7.0.0-0",
+    "cheerio": "^1.0.0-rc.2",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
+    "fs-extra": "^5.0.0",
     "jest": "^22.0.0",
+    "node-fetch": "^1.6.9",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
+    "ts-node": "^6.0.3",
     "typescript": "^2.8.1"
   }
 }

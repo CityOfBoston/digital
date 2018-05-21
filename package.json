@@ -26,7 +26,7 @@
     "prepublish": "lerna run --stream prepublish",
     "prepare": "lerna run --stream prepare",
     "precommit": "lint-staged",
-    "prepush": "lerna run --no-sort --stream --since origin/develop test",
+    "prepush": "lerna run --no-sort --stream --since origin/develop test -- --no-cache",
     "test": "lerna run test --no-sort",
     "test:since": "lerna run test --no-sort --since"
   },

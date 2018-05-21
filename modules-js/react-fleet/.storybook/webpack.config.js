@@ -12,6 +12,11 @@ module.exports = (baseConfig, env, config) => {
     }
   });
 
+  config.module.rules.push({
+    test: /\.html$/,
+    use: 'raw-loader',
+  });
+
   config.resolve.extensions.push('.ts', '.tsx');
 
   return config;

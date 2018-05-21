@@ -9,6 +9,12 @@ module.exports = function react(_, { esm }) {
           regenerator: true,
         },
       ],
+      [
+        require('babel-plugin-inline-import'),
+        {
+          extensions: ['.graphql', '.html'],
+        },
+      ],
     ],
     presets: [
       [require('@babel/preset-env'), { modules: esm ? false : undefined }],
