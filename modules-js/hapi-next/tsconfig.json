@@ -2,14 +2,9 @@
   "extends": "./node_modules/@cityofboston/config-typescript/tsconfig.default.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "build",
-    "declaration": false
+    "outDir": "build"
   },
   "include": [
     "src/**/*"
-  ],
-  "exclude": [
-    "src/client/**/*",
-    "src/pages/**/*",
   ]
 }

@@ -5,6 +5,7 @@ import fs from 'fs';
 import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
+import next from 'next';
 
 // https://github.com/apollographql/apollo-server/issues/927
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
@@ -15,6 +16,8 @@ import {
   headerKeys,
   HeaderKeysOptions,
 } from '@cityofboston/hapi-common';
+
+import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
 
 import { createConnectionPool } from '@cityofboston/mssql-common';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
@@ -74,6 +77,7 @@ export async function makeServer(port) {
 
     makeCommissionsDao = () => new CommissionsDao(commissionsDbPool);
   }
+
   const serverOptions = {
     host: '0.0.0.0',
     port,
@@ -94,6 +98,15 @@ export async function makeServer(port) {
 
   const server = new HapiServer(serverOptions);
 
+  // We don't turn on Next for test mode because it hangs Jest.
+  const nextApp =
+    process.env.NODE_ENV !== 'test'
+      ? next({
+          dev,
+          dir: 'src',
+        })
+      : null;
+
   server.auth.scheme('headerKeys', headerKeys);
   server.auth.strategy('apiHeaderKeys', 'headerKeys', {
     header: 'X-API-KEY',
@@ -108,6 +121,10 @@ export async function makeServer(port) {
   }
 
   server.route(adminOkRoute);
+
+  if (nextApp) {
+    server.route(makeRoutesForNextApp(nextApp, '/commissions/'));
+  }
 
   await server.register({
     plugin: graphqlHapi,
@@ -137,7 +154,7 @@ export async function makeServer(port) {
   return {
     server,
     startup: async () => {
-      await server.start();
+      await Promise.all([server.start(), nextApp ? nextApp.prepare() : null]);
 
       console.log(
         `> Ready on http${

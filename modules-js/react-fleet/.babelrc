@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "@cityofboston/config-babel/react",
+    "@cityofboston/config-babel/typescript"
+  ],
+  "env": {
+    "esm": {
+      "presets": [
+        [
+          "@cityofboston/config-babel/react",
+          {
+            "esm": true
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "@cityofboston/srv-decrypt-env",
+  "name": "@cityofboston/hapi-next",
   "version": "0.0.0",
-  "description": "KMS decryption for our environment variables",
+  "description": "Helpers for running Next from Hapi",
   "private": true,
   "license": "CC0-1.0",
-  "main": "build/srv-decrypt-env.js",
-  "types": "build/srv-decrypt-env.d.ts",
+  "main": "build/hapi-next.js",
+  "types": "build/hapi-next.d.ts",
   "scripts": {
     "dev": "tsc-watch",
     "prebuild": "rimraf build",
@@ -17,13 +17,17 @@
     "preset": "@cityofboston/config-jest-typescript"
   },
   "dependencies": {
-    "aws-sdk": "^2.236.1"
+    "next": "^6.0.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
+    "@types/hapi": "^17.0.12",
     "@types/jest": "^22.0.0",
     "@types/node": "^10.0.0",
+    "hapi": "^17.4.0",
     "jest": "^22.0.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.0.0",

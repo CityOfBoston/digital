@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest",
+    "preset": "@cityofboston/config-jest-typescript",
     "collectCoverage": false,
     "testPathIgnorePatterns": [
       "<rootDir>/template/",
@@ -18,7 +18,7 @@
     ]
   },
   "devDependencies": {
-    "@cityofboston/config-jest": "^0.0.0",
+    "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "^22.0.0",
     "@types/node": "^10.0.2",

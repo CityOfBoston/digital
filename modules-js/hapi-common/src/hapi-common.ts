@@ -2,6 +2,7 @@ import Good from 'good';
 import Boom from 'boom';
 import { Squeeze } from 'good-squeeze';
 import Console from 'good-console';
+import { ServerAuthScheme } from 'hapi';
 
 /**
  * Adds our preferred console logging that excludes health checks.
@@ -69,7 +70,13 @@ export type HeaderKeysOptions = {
  *   keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
  * } as HeaderKeysOptions);
  */
-export function headerKeys(_, { keys, header }: HeaderKeysOptions) {
+export const headerKeys: ServerAuthScheme = (_, options) => {
+  if (!options) {
+    throw new Error('Missing options for headerKeys auth scheme');
+  }
+
+  const { keys, header } = options as HeaderKeysOptions;
+
   return {
     authenticate: (request, h) => {
       const key = request.headers[header.toLowerCase()];
@@ -84,4 +91,4 @@ export function headerKeys(_, { keys, header }: HeaderKeysOptions) {
       return h.authenticated({ credentials: { key } });
     },
   };
-}
+};

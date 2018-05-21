@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "next/babel",
+    "@cityofboston/config-babel/typescript"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

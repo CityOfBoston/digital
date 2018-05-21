@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders 1`] = `
+<div>
+  Hello 🌏🌍🌎
+</div>
+`;

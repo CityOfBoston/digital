@@ -1,0 +1,54 @@
+{
+  "name": "@cityofboston/react-fleet",
+  "version": "0.0.0",
+  "description": "Components for using Fleet in our webapps",
+  "private": true,
+  "license": "CC0-1.0",
+  "module": "build/react-fleet.js",
+  "types": "build/react-fleet.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "npm run build:babel -- --watch",
+    "storybook": "start-storybook -p 9001",
+    "prebuild": "rimraf build",
+    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
+    "build:typescript": "tsc --emitDeclarationOnly",
+    "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
+    "prepare": "npm run build",
+    "pretest": "tsc --noEmit",
+    "test": "scripts/test.js"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest-babel"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta",
+    "prop-types": "^15.6.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta",
+    "@babel/core": "^7.0.0-beta",
+    "@cityofboston/config-babel": "^0.0.0",
+    "@cityofboston/config-jest-babel": "^0.0.0",
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@cityofboston/percy-common": "^0.0.0",
+    "@percy-io/percy-storybook": "^1.4.1",
+    "@storybook/addon-actions": "^4.0.0-alpha",
+    "@storybook/addon-storyshots": "^4.0.0-alpha",
+    "@storybook/addons": "^4.0.0-alpha",
+    "@storybook/react": "^4.0.0-alpha",
+    "@types/jest": "^22.0.0",
+    "@types/react": "^16.3.14",
+    "@types/storybook__addon-actions": "^3.0.3",
+    "@types/storybook__addon-storyshots": "^3.4.1",
+    "@types/storybook__react": "^3.0.7",
+    "babel-core": "^7.0.0-0",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.5",
+    "jest": "^22.0.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.8.1"
+  }
+}

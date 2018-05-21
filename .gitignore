@@ -2,6 +2,7 @@ node_modules
 build
 .next
 coverage
+storybook-static
 
 schema.graphql
 

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots SectionHeader default 1`] = `
+<div
+  className="sh"
+>
+  <h2
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h2>
+</div>
+`;
+
+exports[`Storyshots SectionHeader yellow 1`] = `
+<div
+  className="sh sh--y"
+>
+  <h2
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h2>
+</div>
+`;

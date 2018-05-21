@@ -1,0 +1,13 @@
+{
+  "name": "@cityofboston/config-jest-typescript",
+  "version": "0.0.0",
+  "description": "Configuration files for Jest",
+  "license": "CC0-1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta",
+    "babel-core": "^7.0.0-0",
+    "jest": "^22.0.0",
+    "ts-jest-babel-7": "^22.0.7"
+  }
+}
