@@ -136,12 +136,6 @@ export default class extends Document {
           <Main />
 
           <script
-            src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"
-            data-org-id={process.env.OPBEAT_FRONTEND_ORGANIZATION_ID}
-            data-app-id={process.env.OPBEAT_FRONTEND_APP_ID}
-          />
-
-          <script
             src={`${process.env.WEB_COMPONENTS_URI ||
               'https://patterns.boston.gov/web-components/all.js'}?k=${cacheParam}`}
           />
