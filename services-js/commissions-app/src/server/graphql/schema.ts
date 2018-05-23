@@ -22,10 +22,10 @@ import CommissionsDao, {
 
 /** @graphql schema */
 export interface Schema {
-  query: QueryRoot;
+  query: Query;
 }
 
-export interface QueryRoot {
+export interface Query {
   commissions: Commission[];
   commission(args: { id: number }): Commission | null;
 }
@@ -68,7 +68,7 @@ export interface Context {
   commissionsDao: CommissionsDao;
 }
 
-const queryRootResolvers: Resolvers<QueryRoot, Context> = {
+const queryRootResolvers: Resolvers<Query, Context> = {
   commissions: (_obj, _args, { commissionsDao }) =>
     commissionsDao.fetchBoards(),
   commission: (_obj, { id }, { commissionsDao }) =>
@@ -122,7 +122,7 @@ const memberResolvers: Resolvers<Member, Context> = {
 export default makeExecutableSchema({
   typeDefs: [schemaGraphql],
   resolvers: {
-    QueryRoot: queryRootResolvers,
+    Query: queryRootResolvers,
     Commission: commissionResolvers,
     Department: departmentResolvers,
     Member: memberResolvers,

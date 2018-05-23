@@ -1,0 +1,41 @@
+{
+  "name": "@cityofboston/{{name}}",
+  "version": "0.0.0",
+  "description": "{{description}}",
+  "private": true,
+  "license": "CC0-1.0",
+  "module": "build/{{name}}.js",
+  "types": "build/{{name}}.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "watch": "npm run build:babel -- --watch",
+    "prebuild": "rimraf build",
+    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
+    "build:typescript": "tsc --emitDeclarationOnly",
+    "build:babel": "cross-env BABEL_ENV=esm babel src --out-dir build --extensions \".ts,.tsx\"",
+    "prepare": "npm run build",
+    "pretest": "tsc --noEmit",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest-babel"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "^7.0.0-beta"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.42",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/runtime": "7.0.0-beta.42",
+    "@cityofboston/config-babel": "^0.0.0",
+    "@cityofboston/config-jest-babel": "^0.0.0",
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@types/jest": "^22.0.0",
+    "babel-core": "^7.0.0-0",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.5",
+    "jest": "^22.4.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.8.1"
+  }
+}

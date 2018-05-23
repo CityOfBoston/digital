@@ -5,20 +5,13 @@
   "license": "CC0-1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.0.0-beta",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta",
-    "@babel/preset-env": "^7.0.0-beta",
-    "@babel/preset-react": "^7.0.0-beta",
-    "@babel/preset-typescript": "^7.0.0-beta",
-    "next": "^6.0.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
-  },
-  "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.0.0-beta",
-    "@babel/preset-env": "^7.0.0-beta",
-    "@babel/preset-react": "^7.0.0-beta",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.42",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.42",
+    "@babel/plugin-transform-runtime": "7.0.0-beta.42",
+    "@babel/preset-env": "7.0.0-beta.42",
+    "@babel/preset-react": "7.0.0-beta.42",
+    "@babel/preset-typescript": "7.0.0-beta.42",
     "babel-plugin-inline-import": "^2.0.6"
   }
 }

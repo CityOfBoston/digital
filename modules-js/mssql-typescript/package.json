@@ -7,7 +7,7 @@
   "main": "build/mssql-typescript.js",
   "types": "build/mssql-typescript.d.ts",
   "scripts": {
-    "dev": "tsc-watch",
+    "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "npm run build"

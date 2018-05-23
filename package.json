@@ -26,7 +26,8 @@
     "prepublish": "lerna run --stream prepublish",
     "prepare": "lerna run --stream prepare",
     "precommit": "lint-staged",
-    "prepush": "lerna run --no-sort --stream --since origin/develop test -- --no-cache",
+    "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop test",
+    "watch": "lerna run --parallel --scope @cityofboston/* watch",
     "test": "lerna run test --no-sort",
     "test:since": "lerna run test --no-sort --since"
   },
@@ -36,12 +37,16 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --quiet"
   },
+  "resolutions": {
+    "graphql": "0.13.2"
+  },
   "devDependencies": {
     "@yarnpkg/lockfile": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
+    "jest": "^22.4.0",
     "khaos": "^0.9.3",
     "lerna": "^3.0.0-beta",
     "lint-staged": "^7.0.4",

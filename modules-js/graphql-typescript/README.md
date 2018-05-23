@@ -15,10 +15,11 @@ used by the `ts2gql` tool to make a GraphQL schema definition. For example:
 ```typescript
 /** @graphql schema */
 export interface Schema {
-  query: QueryRoot;
+  query: Query;
 }
 
-export interface QueryRoot {
+# This must be called "Query" for the GraphQL tools to find it
+export interface Query {
   commissions: Commission[];
 }
 
@@ -42,7 +43,7 @@ const schemaGraphql = fs.readFileSync(
 export default makeExecutableSchema({
   typeDefs: [schemaGraphql],
   resolvers: {
-    QueryRoot: queryRootResolvers,
+    Query: queryRootResolvers,
   },
   allowUndefinedInResolve: false,
 });
@@ -50,7 +51,7 @@ export default makeExecutableSchema({
 
 ### Writing resolvers
 
-In the above example, we need to write resolvers for the `QueryRoot` type, since
+In the above example, we need to write resolvers for the `Query` type, since
 it’s the root. To do this, use the `Resolvers` macro to generate the type that
 `makeExecutableSchema` and the GraphQL library expect.
 
@@ -63,7 +64,7 @@ interface Context {
   dao: CommissionsDao;
 }
 
-const queryRootResolvers: Resolvers<QueryRoot, Context> = {
+const queryRootResolvers: Resolvers<Query, Context> = {
   commissions: (_obj, _args, { dao }) => dao.fetchCommissions(),
 };
 ```
@@ -113,10 +114,10 @@ Here’s the full example, using `Resolvers` and `ResolvableWith` together:
 ```typescript
 /** @graphql schema */
 export interface Schema {
-  query: QueryRoot;
+  query: Query;
 }
 
-export interface QueryRoot {
+export interface Query {
   commissions: Commission[];
 }
 

@@ -11,6 +11,12 @@ import next from 'next';
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 
 import {
+  API_KEY_CONFIG_KEY,
+  GRAPHQL_PATH_KEY,
+  HAPI_INJECT_CONFIG_KEY,
+} from '@cityofboston/next-client-common';
+
+import {
   loggingPlugin,
   adminOkRoute,
   headerKeys,
@@ -33,6 +39,7 @@ export async function makeServer(port) {
   let makeCommissionsDao: () => CommissionsDao;
 
   if (
+    process.env.ALLOW_FAKES ||
     process.env.NODE_ENV === 'test' ||
     (process.env.NODE_ENV !== 'production' &&
       !process.env.COMMISSIONS_DB_SERVER)
@@ -82,6 +89,9 @@ export async function makeServer(port) {
     host: '0.0.0.0',
     port,
     tls: undefined as any,
+    router: {
+      stripTrailingSlash: true,
+    },
     debug: dev
       ? {
           request: ['handler'],
@@ -99,13 +109,32 @@ export async function makeServer(port) {
   const server = new HapiServer(serverOptions);
 
   // We don't turn on Next for test mode because it hangs Jest.
-  const nextApp =
-    process.env.NODE_ENV !== 'test'
-      ? next({
-          dev,
-          dir: 'src',
-        })
-      : null;
+  let nextApp;
+
+  if (process.env.NODE_ENV !== 'test') {
+    // We load the config ourselves so that we can modify the runtime configs
+    // from here.
+    const config = require('../../next.config.js');
+
+    config.publicRuntimeConfig = {
+      ...config.publicRuntimeConfig,
+      [GRAPHQL_PATH_KEY]: '/commissions/graphql',
+      [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY,
+    };
+
+    config.serverRuntimeConfig = {
+      ...config.serverRuntimeConfig,
+      [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
+    };
+
+    nextApp = next({
+      dev,
+      dir: 'src',
+      config,
+    });
+  } else {
+    nextApp = null;
+  }
 
   server.auth.scheme('headerKeys', headerKeys);
   server.auth.strategy('apiHeaderKeys', 'headerKeys', {
@@ -119,6 +148,12 @@ export async function makeServer(port) {
   if (process.env.NODE_ENV !== 'test') {
     await server.register(loggingPlugin);
   }
+
+  server.route({
+    method: 'GET',
+    path: '/commissions',
+    handler: (_, h) => h.redirect('/commissions/apply'),
+  });
 
   server.route(adminOkRoute);
 

@@ -15,7 +15,7 @@ To use this, add the folowing to your package.json file:
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@types/jest": "^22.0.0",
-    "jest": "^22.0.0"
+    "jest": "^22.4.0"
   }
 }
 ```

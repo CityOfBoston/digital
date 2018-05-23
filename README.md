@@ -10,9 +10,29 @@ $ yarn install
 
 ## Development
 
+### Compliation / Transpilation
+
+#### Modules
+
+This uses “watch” features to rebuild all of our modules as their source
+changes.
+
+```
+$ yarn watch
+```
+
+_Note:_ This may not necessarily capture recompiling depending modules when
+their dependencies rebuild.
+
+_Note:_ You may need to make heavy use of restarting any TypeScript server in
+your editor if types in these modules change.
+
+
+#### Services
+
 ```
 $ cd services-js/commissions-app
-$ npm run dev
+$ yarn dev
 ```
 
 ### Making a new package
@@ -27,6 +47,15 @@ $ yarn install
  * **js-module:** Server-side Node module. Uses TypeScript.
 
 ## Dev Notes
+
+### Testing
+
+#### What’s with the `toBeDefined` junk tests?
+
+A lot of modules have a single test that’s just if an exported function is
+defined. These are modules that currently don’t have anything worth testing, or
+can be usefully tested. Nevertheless, we include a test file to run in case
+something gets added that _does_ demand testing.
 
 ### TypeScript and Babel and Webpack and modules
 
@@ -85,10 +114,10 @@ that runs in the browser (and also on the server with SSR), and some library
 code that can run in both. NextJS will use Babel (and Webpack) for the client
 code, and we use `tsc` (and `tsc-watch`) for the server.
 
-We exclude the client-specific code with `tsconfig.json` so that changes to it
-won’t cause `tsc-watch` to reload the app. (NextJS handles hot-reloading client
-code.) We have a `tsconfig.check.json` file that does include that code for
-doing typechecking.
+We exclude the client-specific code with `tsconfig.server.json` so that changes
+to it won’t cause `tsc-watch` to reload the app. (NextJS handles hot-reloading
+client code.) The default `tsconfig.json` still includes all the code so that
+tooling will see and typecheck everything.
 
 In all cases the code is written in TypeScript. Do not use Babel to add syntax
 that `tsc` can’t understand. We run `tsc --noEmit` on everything as a `pretest`

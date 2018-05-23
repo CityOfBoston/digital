@@ -1,7 +1,7 @@
 {
-  "name": "js-module",
+  "name": "js-browser-module",
   "version": "0.0.0",
-  "description": "Khaos template for a JavaScript module",
+  "description": "Khaos template for a JavaScript module that runs in the browser",
   "license": "CC0-1.0",
   "private": true,
   "scripts": {
@@ -22,7 +22,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "^22.0.0",
     "@types/node": "^10.0.2",
-    "jest": "^22.0.0",
+    "jest": "^22.4.0",
     "khaos": "^0.9.3",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.1",

@@ -2,17 +2,17 @@ module.exports = function react(_, { esm }) {
   return {
     plugins: [
       [
-        require('@babel/plugin-transform-runtime'),
-        {
-          helpers: false,
-          polyfill: false,
-          regenerator: true,
-        },
-      ],
-      [
         require('babel-plugin-inline-import'),
         {
           extensions: ['.graphql', '.html'],
+        },
+      ],
+      [
+        require('@babel/plugin-transform-runtime'),
+        {
+          helpers: true,
+          polyfill: false,
+          regenerator: true,
         },
       ],
     ],
