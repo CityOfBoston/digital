@@ -17,12 +17,17 @@ const MEMBERS: vw_BoardsWithMembersEntityAll[] = require('../../../fixtures/Boar
 // nice to use the standard library.
 export default class CommissionsDaoFake implements Required<CommissionsDao> {
   fetchBoards() {
-    return Promise.resolve(BOARDS);
+    return Promise.resolve(
+      BOARDS.map(b => ({
+        ...b,
+        OpenSeats: 1,
+      }))
+    );
   }
 
-  fetchBoard(id: number) {
-    return Promise.resolve(
-      BOARDS.find(({ BoardID }) => BoardID === id) || null
+  async fetchBoard(id: number) {
+    return (
+      (await this.fetchBoards()).find(({ BoardID }) => BoardID === id) || null
     );
   }
 

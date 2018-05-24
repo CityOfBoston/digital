@@ -42,6 +42,12 @@ export interface Commission extends ResolvableWith<DbBoard> {
   seats: number;
   enablingLegislation: string | null;
   members: Member[];
+  /**
+   * Number of seats that are either vacant or occupied by a holdover whose
+   * term is up.
+   */
+  openSeats: number;
+  applyUrl: string;
 }
 
 export interface Department extends ResolvableWith<DbDepartment> {
@@ -97,6 +103,13 @@ const commissionResolvers: Resolvers<Commission, Context> = {
   stipend: ({ Stipend }) => Stipend,
   seats: ({ Seats }) => Seats,
   enablingLegislation: ({ Legislation }) => Legislation,
+  // Currently some boards have "0" for the number of seats, so the open seat
+  // calculation ends up negative.
+  openSeats: ({ OpenSeats }) => Math.max(0, OpenSeats || 0),
+  applyUrl: ({ BoardName }) =>
+    `https://www.cityofboston.gov/boardsandcommissions/application/apply.aspx?bid=${encodeURIComponent(
+      BoardName!
+    )}`,
   members: async ({ BoardID }, _args, { commissionsDao }) =>
     // Some commissions have employees listed, which we want to remove.
     (await commissionsDao.fetchBoardMembers(BoardID)).filter(
