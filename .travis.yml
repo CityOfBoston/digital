@@ -16,7 +16,11 @@ jobs:
   - if: type IN (push)
     script: yarn run test
   - if: type IN (pull_request)
-    script: yarn run test:since $TRAVIS_BRANCH
+    # TRAVIS_PULL_REQUEST_SHA is the SHA of the PR’s merge commit. Getting ^1 is
+    # the first parent, which is the SHA we’re merging into. Ideally we could
+    # just diff against $TRAVIS_PULL_REQUEST_BRANCH, except that branch refs
+    # other than the default one are not available in Travis’s checkout.
+    script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
     if: branch =~ ^production-
     install: skip
