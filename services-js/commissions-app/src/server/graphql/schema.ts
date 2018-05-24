@@ -107,7 +107,7 @@ const commissionResolvers: Resolvers<Commission, Context> = {
 const departmentResolvers: Resolvers<Department, Context> = {
   name: ({ DepartmentName }) => DepartmentName || 'Unknown Department',
   // TODO(finh): Fill in with actual homepage URL when the DB has it.
-  homepageUrl: () => 'https://www.boston.gov/',
+  homepageUrl: () => '',
 };
 
 const memberResolvers: Resolvers<Member, Context> = {
