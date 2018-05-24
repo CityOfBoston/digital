@@ -11,6 +11,8 @@ schema.graphql
 lerna-debug.log
 yarn-error.log
 
+template-test.lock
+
 # USE YARN IN THIS REPO
 package-lock.json
 npm-shrinkwrap.json
