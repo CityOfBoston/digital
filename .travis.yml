@@ -22,7 +22,7 @@ jobs:
     # other than the default one are not available in Travis’s checkout.
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
-    if: branch =~ ^production-
+    if: branch =~ ^production- AND type IN (push)
     install: skip
     script: skip
     before_deploy:
