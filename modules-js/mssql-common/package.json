@@ -7,7 +7,7 @@
   "main": "build/mssql-common.js",
   "types": "build/mssql-common.d.ts",
   "scripts": {
-    "dev": "tsc-watch",
+    "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "npm run build",
@@ -25,7 +25,7 @@
     "@types/jest": "^22.0.0",
     "@types/mssql": "^4.0.7",
     "@types/node": "^10.0.0",
-    "jest": "^22.0.0",
+    "jest": "^22.4.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.0.0",
     "tsc-watch": "^1.0.21",

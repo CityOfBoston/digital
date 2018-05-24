@@ -5,9 +5,9 @@
   "license": "CC0-1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.0.0-beta",
+    "@babel/core": "7.0.0-beta.42",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.4.4",
-    "jest": "^22.0.0"
+    "jest": "^22.4.0"
   }
 }

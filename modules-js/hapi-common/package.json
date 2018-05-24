@@ -7,7 +7,7 @@
   "main": "build/hapi-common.js",
   "types": "build/hapi-common.d.ts",
   "scripts": {
-    "dev": "tsc-watch",
+    "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "npm run build",
@@ -27,7 +27,7 @@
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "^22.0.0",
-    "jest": "^22.0.0",
+    "jest": "^22.4.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.0.0",
     "tsc-watch": "^1.0.21",

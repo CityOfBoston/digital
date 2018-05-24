@@ -1,6 +1,5 @@
 {
   "presets": [
-    "@babel/preset-react",
     "@cityofboston/config-babel/browser",
     "@cityofboston/config-babel/typescript"
   ],

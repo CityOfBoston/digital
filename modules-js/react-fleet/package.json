@@ -8,7 +8,7 @@
   "types": "build/react-fleet.d.ts",
   "sideEffects": false,
   "scripts": {
-    "dev": "npm run build:babel -- --watch",
+    "watch": "npm run build:babel -- --watch",
     "storybook": "start-storybook -p 9001",
     "prebuild": "rimraf build",
     "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
@@ -23,14 +23,18 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta",
     "prop-types": "^15.6.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
   },
+  "peerDependencies": {
+    "@babel/runtime": "^7.0.0-beta"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta",
-    "@babel/core": "^7.0.0-beta",
+    "@babel/cli": "7.0.0-beta.42",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/preset-react": "^7.0.0-beta",
+    "@babel/runtime": "7.0.0-beta.42",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
@@ -53,7 +57,7 @@
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
     "fs-extra": "^5.0.0",
-    "jest": "^22.0.0",
+    "jest": "^22.4.0",
     "node-fetch": "^1.6.9",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
