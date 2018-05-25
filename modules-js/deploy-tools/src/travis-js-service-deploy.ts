@@ -46,25 +46,25 @@ const workspaceDir = path.resolve('../..');
   );
   console.error();
 
-  console.error('🔓  Logging in…');
+  console.error('🔓 Logging in…');
   await dockerAwsLogin();
   console.error();
 
-  console.error('🎁  Creating package-json.tar…');
+  console.error('🎁 Creating package-json.tar…');
   await makePackageJsonTar(workspaceDir);
 
   const versionedTag = `${repository}:travis-${buildNum}-${commit}`;
   const buildTags = [`${repository}:${tag}`, versionedTag];
 
   console.error();
-  console.error('📻  Pulling previous image…');
+  console.error('📻 Pulling previous image…');
   const result = await pullImage(repository, tag);
   if (!result) {
     console.error('None found. Continuing without cache.');
   }
 
   console.error('');
-  console.error('📸  Building container image…');
+  console.error('📸 Building container image…');
 
   await buildImage(
     workspaceDir,
@@ -75,7 +75,7 @@ const workspaceDir = path.resolve('../..');
 
   console.error('');
 
-  console.error('🏹  Pushing image to repository…');
+  console.error('🏹 Pushing image to repository…');
 
   for (let i = 0; i < buildTags.length; ++i) {
     await pushImage(buildTags[i]);
@@ -90,7 +90,7 @@ const workspaceDir = path.resolve('../..');
 
   if (environment === 'staging') {
     const ecsServiceName = `${serviceName}${variant ? `-${variant}` : ''}`;
-    console.error(`🎟  Updating staging service ${ecsServiceName}…`);
+    console.error(`🎟 Updating staging service ${ecsServiceName}…`);
 
     const result = await updateStagingService(ecsServiceName);
     console.error();
@@ -98,7 +98,7 @@ const workspaceDir = path.resolve('../..');
     service = result.service;
     deploymentId = result.deploymentId;
   } else {
-    console.error(`🎟  Updating production service ${serviceName}…`);
+    console.error(`🎟 Updating production service ${serviceName}…`);
 
     const result = await updateProdService(serviceName, versionedTag);
     console.error();
@@ -109,7 +109,7 @@ const workspaceDir = path.resolve('../..');
     oldTaskDefinitionArn = result.oldTaskDefinitionArn;
   }
 
-  console.error(`⌛️  Waiting for deploy: ${deploymentId}…`);
+  console.error(`⌛️ Waiting for deploy: ${deploymentId}…`);
 
   try {
     await waitForDeployment(
@@ -122,7 +122,7 @@ const workspaceDir = path.resolve('../..');
   } catch (e) {
     if (oldTaskDefinitionArn) {
       console.error(e.message);
-      console.error(`😿  Rolling back deployment to ${oldTaskDefinitionArn}…`);
+      console.error(`😿 Rolling back deployment to ${oldTaskDefinitionArn}…`);
 
       try {
         const rollbackInfo = await updateServiceTaskDefinition(
@@ -139,15 +139,15 @@ const workspaceDir = path.resolve('../..');
           }
         );
       } catch (e) {
-        console.error(`🙍  Sigh. Even the rollback failed: ${e.message}`);
+        console.error(`🙍 Sigh. Even the rollback failed: ${e.message}`);
       }
       console.error();
 
-      console.error(`👋  Deregistering broken task definition…`);
+      console.error(`👋 Deregistering broken task definition…`);
       await deregisterTaskDefinition(newTaskDefinitionArn);
       console.error();
 
-      console.error(`⚰  Rollback complete. Exiting in failure.`);
+      console.error(`⚰ Rollback complete. Exiting in failure.`);
       process.exit(-1);
     }
 
@@ -156,13 +156,13 @@ const workspaceDir = path.resolve('../..');
   console.error();
 
   if (oldTaskDefinitionArn) {
-    console.error(`🚽  Deregistering previous task definition…`);
+    console.error(`🚽 Deregistering previous task definition…`);
     await deregisterTaskDefinition(oldTaskDefinitionArn);
     console.error();
   }
 
   console.error(
-    `💅  Successfully deployed ${serviceName}${
+    `💅 Successfully deployed ${serviceName}${
       variant ? ` (${variant})` : ''
     } to ${environment}.`
   );

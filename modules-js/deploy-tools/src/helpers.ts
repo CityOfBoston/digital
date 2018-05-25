@@ -14,7 +14,7 @@ export const PROD_CLUSTER = 'AppsProd';
 
 export const BANNER = `
 ┌───────────────────────────┐
-│ 🎀  Yo it’s Shippy-Toe! 🎀  │
+│ 🎀 Yo it’s Shippy-Toe! 🎀 │
 └───────────────────────────┘
 `;
 
