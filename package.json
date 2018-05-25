@@ -31,9 +31,6 @@
     "test": "lerna run test --no-sort",
     "test:since": "lerna run test --no-sort --since"
   },
-  "shippy": {
-    "build": "./deploy/build-service-container.sh"
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --quiet"
   },

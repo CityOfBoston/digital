@@ -17,13 +17,14 @@
     "test": "jest",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --target typescript --output src/client/graphql/queries.d.ts && prettier --write src/client/graphql/queries.d.ts",
-    "predeploy": "cd ../.. && ./deploy/travis-deploy-service-container.sh services-js/commissions-app/deploy/Dockerfile"
+    "travis-deploy": "travis-js-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.42",
+    "@cityofboston/deploy-tools": "^0.0.0",
     "@cityofboston/hapi-common": "^0.0.0",
     "@cityofboston/hapi-next": "^0.0.0",
     "@cityofboston/mssql-common": "^0.0.0",
