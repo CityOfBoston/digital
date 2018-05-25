@@ -12,9 +12,15 @@ branches:
   - "/^staging\\//"
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
+stages:
+  - name: test
+    if: NOT (branch =~ ^staging\/)
+  - name: deploy
+    if: branch =~ ^(production|staging)\/  AND type IN (push)
 jobs:
   include:
-  - if: type IN (push) AND NOT (branch =~ ^staging\/)
+  - stage: test
+    if: type IN (push) 
     script: yarn run test
   - if: type IN (pull_request)
     # TRAVIS_PULL_REQUEST_SHA is the SHA of the PR’s merge commit. Getting ^1 is
@@ -23,7 +29,6 @@ jobs:
     # other than the default one are not available in Travis’s checkout.
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
-    if: branch =~ ^(production|staging)\/  AND type IN (push)
     script: skip
     deploy:
       provider: script
