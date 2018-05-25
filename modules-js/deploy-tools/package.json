@@ -1,0 +1,39 @@
+{
+  "name": "@cityofboston/deploy-tools",
+  "version": "0.0.0",
+  "description": "Scripts for building and deployment of our services",
+  "private": true,
+  "license": "CC0-1.0",
+  "scripts": {
+    "watch": "tsc-watch --preserveWatchOutput",
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest --passWithNoTests"
+  },
+  "bin": {
+    "travis-js-service-deploy": "bin/travis-js-service-deploy.js"
+  },
+  "jest": {
+    "preset": "@cityofboston/config-jest-typescript"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.245.1",
+    "date-fns": "^1.29.0",
+    "shelljs": "^0.8.2",
+    "tar": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cityofboston/config-jest-typescript": "^0.0.0",
+    "@cityofboston/config-typescript": "^0.0.0",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/jest": "^22.0.0",
+    "@types/node": "^10.0.0",
+    "@types/shelljs": "^0.8.0",
+    "jest": "^22.4.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.0",
+    "tsc-watch": "^1.0.21",
+    "typescript": "^2.8.1"
+  }
+}

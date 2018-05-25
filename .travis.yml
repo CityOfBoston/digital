@@ -8,7 +8,8 @@ cache: yarn
 branches:
   only:
   - develop
-  - "/^production-/"
+  - "/^production\\//"
+  - "/^staging\\//"
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 jobs:
@@ -22,11 +23,8 @@ jobs:
     # other than the default one are not available in Travis’s checkout.
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
-    if: branch =~ ^production- AND type IN (push)
-    install: skip
+    if: branch =~ ^(production|staging)\/  AND type IN (push)
     script: skip
-    before_deploy:
-      - pip install --upgrade --user awscli
     deploy:
       provider: script
       script: deploy/travis-deploy.sh
