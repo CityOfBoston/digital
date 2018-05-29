@@ -34,6 +34,12 @@ jobs:
       provider: script
       # We need the node_modules installed to run our deploy binary
       skip_cleanup: true
+      # For speed during deploy, we don’t run scripts because we don’t need to
+      # compile any of our own packages other than deploy-tools.
+      # TODO(finh): When yarn allows scoped installs, use that
+      install:
+        - yarn install --frozen-lockfile --ignore-scripts
+        - npx lerna run --stream --scope deploy-tools prepare
       script: deploy/travis-deploy.sh
       on:
         # Stage’s "if" limits to the branches we want, so let everything
