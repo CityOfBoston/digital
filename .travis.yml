@@ -12,6 +12,8 @@ branches:
   - "/^staging\\//"
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
+# Lets us use custom installs for the individual steps
+install: false
 stages:
   - name: test
     if: branch !~ ^staging\/
@@ -21,12 +23,14 @@ jobs:
   include:
   - stage: test
     if: type IN (push) 
+    install: yarn
     script: yarn run test
   - if: type IN (pull_request)
     # TRAVIS_PULL_REQUEST_SHA is the SHA of the PR’s merge commit. Getting ^1 is
     # the first parent, which is the SHA we’re merging into. Ideally we could
     # just diff against $TRAVIS_PULL_REQUEST_BRANCH, except that branch refs
     # other than the default one are not available in Travis’s checkout.
+    install: yarn
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
     script: skip
