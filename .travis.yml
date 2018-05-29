@@ -12,8 +12,6 @@ branches:
   - "/^staging\\//"
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
-# Lets us use custom installs for the individual steps
-install: false
 stages:
   - name: test
     if: branch !~ ^staging\/
@@ -23,27 +21,28 @@ jobs:
   include:
   - stage: test
     if: type IN (push) 
-    install: yarn
+    install: yarn install --frozen-lockfile
     script: yarn run test
   - if: type IN (pull_request)
     # TRAVIS_PULL_REQUEST_SHA is the SHA of the PR’s merge commit. Getting ^1 is
     # the first parent, which is the SHA we’re merging into. Ideally we could
     # just diff against $TRAVIS_PULL_REQUEST_BRANCH, except that branch refs
     # other than the default one are not available in Travis’s checkout.
-    install: yarn
+    install:
+      - yarn install --frozen-lockfile --ignore-scripts
+      - lerna run prepare --stream --since $TRAVIS_PULL_REQUEST_SHA^1 
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
+    install:
+      # For speed during deploy, we don’t run scripts during install because we
+      # don’t need to compile any of our own packages other than deploy-tools.
+      # TODO(finh): When yarn allows scoped installs, use that, too.
+      - yarn install --frozen-lockfile --ignore-scripts
+      - npx lerna run --stream --scope @cityofboston/deploy-tools prepare
     script: skip
     deploy:
       provider: script
-      # We need the node_modules installed to run our deploy binary
       skip_cleanup: true
-      # For speed during deploy, we don’t run scripts because we don’t need to
-      # compile any of our own packages other than deploy-tools.
-      # TODO(finh): When yarn allows scoped installs, use that
-      install:
-        - yarn install --frozen-lockfile --ignore-scripts
-        - npx lerna run --stream --scope deploy-tools prepare
       script: deploy/travis-deploy.sh
       on:
         # Stage’s "if" limits to the branches we want, so let everything
