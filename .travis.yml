@@ -28,9 +28,13 @@ jobs:
     # the first parent, which is the SHA we’re merging into. Ideally we could
     # just diff against $TRAVIS_PULL_REQUEST_BRANCH, except that branch refs
     # other than the default one are not available in Travis’s checkout.
+    #
+    # We use --ignore-scripts for yarn to speed up the install process, and then
+    # do a filtered lerna run prepare in order to compile the things that have
+    # changed (and their dependencies).
     install:
       - yarn install --frozen-lockfile --ignore-scripts
-      - lerna run prepare --stream --since $TRAVIS_PULL_REQUEST_SHA^1 
+      - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies prepare
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
     install:
@@ -38,7 +42,7 @@ jobs:
       # don’t need to compile any of our own packages other than deploy-tools.
       # TODO(finh): When yarn allows scoped installs, use that, too.
       - yarn install --frozen-lockfile --ignore-scripts
-      - npx lerna run --stream --scope @cityofboston/deploy-tools prepare
+      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies prepare
     script: skip
     deploy:
       provider: script

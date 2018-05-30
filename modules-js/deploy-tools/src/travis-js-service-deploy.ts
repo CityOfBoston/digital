@@ -19,15 +19,27 @@ import {
 } from './helpers';
 
 const [dockerfilePath] = process.argv.slice(2);
-const [environment, serviceName, variant] = process.env.TRAVIS_BRANCH!.split(
-  '/'
+const branchMatch = process.env.TRAVIS_BRANCH!.match(
+  /([^/]*)\/([^@]*)(@(.*))?/
 );
 
+if (!branchMatch) {
+  throw new Error(
+    `TRAVIS_BRANCH ${
+      process.env.TRAVIS_BRANCH
+    } did not match environment/service@variant pattern`
+  );
+}
+
+const environment = branchMatch[1];
+const serviceName = branchMatch[2];
+const variant = branchMatch[4] || '';
+
 const workspaceDir = path.resolve('../..');
+const cacheTag = 'latest';
 
 (async function() {
   const repository = await getRepository(environment, serviceName);
-  const tag = variant || 'latest';
 
   const commit = (
     process.env.TRAVIS_COMMIT ||
@@ -53,12 +65,15 @@ const workspaceDir = path.resolve('../..');
   console.error('🎁 Creating package-json.tar…');
   await makePackageJsonTar(workspaceDir);
 
-  const versionedTag = `${repository}:travis-${buildNum}-${commit}`;
-  const buildTags = [`${repository}:${tag}`, versionedTag];
+  const versionedTag =
+    environment === 'production'
+      ? `${repository}:travis-${buildNum}-${commit}`
+      : `${repository}:deploy-${variant || 'default'}`;
+  const buildTags = [`${repository}:${cacheTag}`, versionedTag];
 
   console.error();
   console.error('📻 Pulling previous image…');
-  const result = await pullImage(repository, tag);
+  const result = await pullImage(repository, cacheTag);
   if (!result) {
     console.error('None found. Continuing without cache.');
   }
@@ -69,7 +84,7 @@ const workspaceDir = path.resolve('../..');
   await buildImage(
     workspaceDir,
     dockerfilePath,
-    `${repository}:${tag}`,
+    `${repository}:${cacheTag}`,
     buildTags
   );
 
