@@ -135,12 +135,13 @@ export async function updateStagingService(serviceName: string) {
       cluster: STAGING_CLUSTER,
       service: serviceName,
       forceNewDeployment: true,
+      desiredCount: 1,
     })
     .promise()).service!;
 
   const latestDeployment = (updatedService.deployments || [])[0];
   if (!latestDeployment) {
-    throw new Error('Could not find a new deployment');
+    throw new Error('Could not find the new deployment');
   }
 
   return {
@@ -162,6 +163,9 @@ export async function updateProdService(serviceName: string, image: string) {
     latestTaskDefinition.containerDefinitions || []
   ).map(c => ({
     ...c,
+    // We iterate through the containers in the task definition and update any
+    // that share the same repository. This is tolerant of task definitions that
+    // reference e.g. "mysql" containers.
     image: c.image!.startsWith(image.split(':')[0]) ? image : c.image,
   }));
 
@@ -221,7 +225,7 @@ export async function updateServiceTaskDefinition(
 
   const latestDeployment = (updatedService.deployments || [])[0];
   if (!latestDeployment) {
-    throw new Error('Could not find a new deployment');
+    throw new Error('Could not find the new deployment');
   }
 
   return { service: updatedService, deploymentId: latestDeployment.id! };
@@ -255,6 +259,9 @@ export async function waitForDeployment(
       })
       .promise()).services![0];
 
+    // We check and see if this deployment has any stopped tasks, which means
+    // that they failed for some reason. If this happens, abort the deploy as a
+    // failure.
     const stoppedTaskArns =
       (await ecs
         .listTasks({
@@ -304,6 +311,8 @@ export async function waitForDeployment(
       lastEventId = latestEvents[0].id;
       lastEventTimeMs = new Date().getTime();
     } else if (new Date().getTime() > lastEventTimeMs + 1000 * 60) {
+      // We send "still waiting…" messages every minute since the last message
+      // to keep Travis running our build.
       latestEvents.push({
         createdAt: new Date(),
         message: 'Still waiting…',
@@ -323,6 +332,8 @@ export async function waitForDeployment(
         `Deployment failed with status ${updatedDeployment.status}`
       );
     } else if (
+      // This heuristic for whether the deployment is done ("are there other
+      // deployments around?") fails for the very first deployment to a service.
       (updatedService.deployments || []).filter(
         ({ status }) => status === 'ACTIVE'
       ).length === 0
