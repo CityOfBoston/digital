@@ -1,13 +1,12 @@
-import CommissionsDao from './CommissionsDao';
+import CommissionsDao, { DbBoard } from './CommissionsDao';
 import {
-  BoardsEntityAll,
   DepartmentsEntityAll,
   AuthorityTypesEntityAll,
   vw_BoardsWithMembersEntityAll,
 } from './CommissionsDb';
 
 const AUTHORITIES: AuthorityTypesEntityAll[] = require('../../../fixtures/Authorities.json');
-const BOARDS: BoardsEntityAll[] = require('../../../fixtures/Boards.json');
+const BOARDS: DbBoard[] = require('../../../fixtures/Boards.json');
 const DEPARTMENTS: DepartmentsEntityAll[] = require('../../../fixtures/Departments.json');
 const MEMBERS: vw_BoardsWithMembersEntityAll[] = require('../../../fixtures/BoardMembers.json');
 
@@ -17,12 +16,7 @@ const MEMBERS: vw_BoardsWithMembersEntityAll[] = require('../../../fixtures/Boar
 // nice to use the standard library.
 export default class CommissionsDaoFake implements Required<CommissionsDao> {
   fetchBoards() {
-    return Promise.resolve(
-      BOARDS.map(b => ({
-        ...b,
-        OpenSeats: 1,
-      }))
-    );
+    return Promise.resolve(BOARDS);
   }
 
   async fetchBoard(id: number) {

@@ -105,7 +105,7 @@ const commissionResolvers: Resolvers<Commission, Context> = {
   enablingLegislation: ({ Legislation }) => Legislation,
   // Currently some boards have "0" for the number of seats, so the open seat
   // calculation ends up negative.
-  openSeats: ({ OpenSeats }) => Math.max(0, OpenSeats || 0),
+  openSeats: ({ ActiveCount, Seats }) => Math.max(0, Seats - ActiveCount),
   applyUrl: ({ BoardName }) =>
     `https://www.cityofboston.gov/boardsandcommissions/application/apply.aspx?bid=${encodeURIComponent(
       BoardName!

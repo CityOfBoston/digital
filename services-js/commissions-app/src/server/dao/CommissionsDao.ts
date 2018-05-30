@@ -5,14 +5,32 @@ import {
   BoardsEntityAll,
   DepartmentsEntityAll,
   AuthorityTypesEntityAll,
-  View_1EntityAll,
   vw_BoardsWithMembersEntityAll,
 } from './CommissionsDb.d';
 
-export type DbBoard = BoardsEntityAll & Pick<View_1EntityAll, 'OpenSeats'>;
+export type DbBoard = BoardsEntityAll & {
+  // Added by the BQARD_SQL below
+  ActiveCount: number;
+};
 export type DbDepartment = DepartmentsEntityAll;
 export type DbAuthority = AuthorityTypesEntityAll;
 export type DbMember = vw_BoardsWithMembersEntityAll;
+
+/**
+ * SQL statement to do a custom join that pulls in the number of "Active"
+ * membership assignments. Done so we can get counts of open seats by comparing
+ * with the "Seats" column.
+ *
+ * We do this with a join for efficiency rather than pulling in all of the
+ * members and doing a JS-side filter.
+ */
+const BOARD_SQL = `
+  SELECT * FROM dbo.Boards JOIN
+    (SELECT Assignments.BoardId, COUNT(Assignments.PersonId) as ActiveCount
+      FROM Assignments
+      WHERE Assignments.StatusId = 101
+      GROUP BY Assignments.BoardId) AS tmp
+    ON Boards.BoardID = tmp.BoardId WHERE IsLive=1`;
 
 export default class CommissionsDao {
   protected pool: ConnectionPool;
@@ -25,14 +43,7 @@ export default class CommissionsDao {
    * Named "fetchBoards" because it accesses the "Boards" table.
    */
   async fetchBoards(): Promise<Array<DbBoard>> {
-    const resp: IResult<DbBoard> = await this.pool.request().query(
-      `SELECT Boards.*, View_1.OpenSeats
-         FROM Boards JOIN View_1 ON Boards.BoardID = View_1.BoardID
-         WHERE IsLive=1`
-    );
-
-    // eslint-disable-next-line no-console
-    console.error(JSON.stringify(resp.recordset, null, 2));
+    const resp: IResult<DbBoard> = await this.pool.request().query(BOARD_SQL);
 
     return resp.recordset;
   }
@@ -41,11 +52,7 @@ export default class CommissionsDao {
     const resp: IResult<DbBoard> = await this.pool
       .request()
       .input('board_id', IntType, boardId)
-      .query(
-        `SELECT Boards.*, View_1.OpenSeats
-         FROM Boards JOIN View_1 ON Boards.BoardID = View_1.BoardID
-         WHERE Boards.BoardID=@board_id AND IsLive=1`
-      );
+      .query(`${BOARD_SQL} AND Boards.BoardID=@board_id`);
 
     return resp.recordset[0] || null;
   }
