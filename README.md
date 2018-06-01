@@ -144,8 +144,11 @@ TypeScript files.
 These are libraries of React components. We want to use Babel to build these
 libraries to take advantage of the frontend-specific Babel plugins (such as
 `@babel/env`, `emotion`, _&c._). They should output browser-compatible (ES5)
-code, but with ES2015 modules for Webpack, referenced by the `"module"`
-value in their `package.json` files.
+code, but with ES2015 modules for Webpack, referenced by the `"module"` value in
+their `package.json` files. They should also have a `"main"` that points to the
+same file as `"module"` so that it can be resolved when running `jest`. (`jest`
++ `babel-jest` seem to be able to handle the `import`/`export` statements in
+these files, they just don’t understand `"module"`.)
 
 These packages should load the `@cityofboston/config-babel/react` preset from
 their `.babelrc` files, which uses `@babel/env` to generate browser-compatible

@@ -28,7 +28,7 @@
     "precommit": "lint-staged",
     "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
-    "test": "lerna run test --no-sort",
+    "test": "lerna run  --no-sort test --",
     "test:since": "lerna run test --no-sort --since"
   },
   "lint-staged": {
