@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering renders 1`] = `
-<div>
-  Hello 🌏🌍🌎
+<div
+  className="b-c"
+>
+  <div
+    className="sh"
+  >
+    <h1
+      className="sh-title"
+    >
+      City Of Boston
+    </h1>
+    <h2
+      className="sh-title"
+    >
+      Boston Waterways Board Applications 
+    </h2>
+  </div>
 </div>
 `;
