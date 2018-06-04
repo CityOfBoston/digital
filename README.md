@@ -46,6 +46,70 @@ $ yarn install
 
  * **js-module:** Server-side Node module. Uses TypeScript.
 
+
+## Releasing
+
+### Staging
+
+Staging instances are created by adding them into the Terraform templates.
+Typically, each service will have a default staging deploy and may have other
+“variants” for special circumstances.
+
+Staging branch names follow the pattern:
+ * `staging/<service-name>`
+ * `staging/<service-name>@<variant>`
+
+Where “`<service-name>`” is the service package’s name.
+
+To deploy to staging, force-push to the staging branch. A Travis job will pick
+up the changes, update the staging container, and re-deploy the service in the
+staging cluster.
+
+Tests are not run for the staging deploy so that you can put something on
+staging even if the tests don’t pass.
+
+If you need to roll back a staging release, force-push an earlier commit.
+
+#### Example:
+
+Deploying the Commissions App service to staging:
+
+```
+$ git co my-feature-branch
+$ git push --force origin HEAD:staging/commissions-app
+```
+
+Check on the status of the deploy on Travis by looking for a test run for the
+`staging/commissions-app` branch:
+[https://travis-ci.org/CityOfBoston/commissions/branches](https://travis-ci.org/CityOfBoston/commissions/branches)
+
+When the deploy completes, the new app will be available at:
+[https://commissions-app.digital-staging.boston.gov/commissions](https://commissions-app.digital-staging.boston.gov/commissions)
+
+### Production
+
+Each service has its own production branch. These are named
+`production/<service-name>`, where “`<service-name>`” is the service package’s
+name.
+
+Deployments to production are done by opening a PR to merge `develop` into a
+`production/…` branch. Have another engineer review it, then merge it. Travis
+will run the tests and update the ECS service to create the deploy.
+
+#### Example
+
+To push the Commissions App to production, open a PR with
+`production/commissions-app` as the base:
+[https://github.com/CityOfBoston/commissions/compare/production/commissions-app...develop?expand=1](https://github.com/CityOfBoston/commissions/compare/production/commissions-app...develop?expand=1)
+
+Create it and get it reviewed by another developer, then commit it.
+
+You can follow along with the deploy by looking at the
+`production/commissions-app` branch here on Travis:
+[https://travis-ci.org/CityOfBoston/commissions/branches](https://travis-ci.org/CityOfBoston/commissions/branches)
+
+Once it’s done, the new code will be running on [https://apps.boston.gov/commissions](https://apps.boston.gov/commissions)
+
 ## Dev Notes
 
 ### Testing
