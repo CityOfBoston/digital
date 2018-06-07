@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ApplyPage default 1`] = `
+<div
+  className="mn"
+>
+  <div
+    className="b b-c"
+  >
+    <div
+      className="sh"
+    >
+      <h2
+        className="sh-title"
+      >
+        Commissions Page Scaffold 2018
+      </h2>
+    </div>
+    <form
+      action="javascript:void(0)"
+      className="m-t700"
+      method="POST"
+    >
+      <fieldset
+        className="fs m-v700"
+      >
+        <legend
+          className="fs-l"
+        >
+          Application Information
+        </legend>
+        <div
+          className="fs"
+        >
+          <div
+            className="fs-c"
+          >
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-firstName"
+              >
+                First Name
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-name"
+                name="fullName"
+                placeholder="Your Full Name"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-middleName"
+              >
+                Middle Name
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-middleName"
+                name="middleName"
+                placeholder="Your Middle Name"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-lastName"
+              >
+                Last Name
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-lastName"
+                name="lastName"
+                placeholder="Your Last Name"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-Address"
+              >
+                Address
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-Address"
+                name="address"
+                placeholder="Your Address"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-unit"
+              >
+                Unit or Suite
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-unit"
+                name="unitOrSuite"
+                placeholder="Your Unit or Suite #"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-city"
+              >
+                City
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-city"
+                name="city"
+                placeholder="Your city"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-where"
+              >
+                State
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-state"
+                name="State"
+                placeholder="Your State"
+                size={5}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-Zip"
+              >
+                "Zip"
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-zip"
+                name="zip"
+                placeholder="Your Zip Code"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-tel"
+              >
+                Phone
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-tel"
+                name="phone"
+                placeholder="Your Phone #"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-email"
+              >
+                Email
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-email"
+                name="email"
+                placeholder="Your Email"
+                size={10}
+                type="text"
+              />
+            </div>
+            <div
+              className="txt m-b300"
+            >
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="FeedbackForm-confirmEmail"
+              >
+                Confirm Email
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f txt-f--sm"
+                id="FeedbackForm-confirmEmail"
+                name="confirmEmail"
+                placeholder="Confirm Email"
+                size={10}
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="bc bc--r p-t500"
+          >
+            <button
+              className="btn btn--700"
+              type="submit"
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <ul />
+  </div>
+</div>
+`;

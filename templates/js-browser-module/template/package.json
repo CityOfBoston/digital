@@ -4,6 +4,7 @@
   "description": "{{description}}",
   "private": true,
   "license": "CC0-1.0",
+  "main": "build/{{name}}.js",
   "module": "build/{{name}}.js",
   "types": "build/{{name}}.d.ts",
   "sideEffects": false,
