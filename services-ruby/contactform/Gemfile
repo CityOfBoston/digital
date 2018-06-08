@@ -23,7 +23,7 @@ gem 'typhoeus'
 gem 'foreman'
 gem 'rack-cors'
 gem 'postmark-rails'
-gem 'opbeat', '~> 3.0.9'
+gem 'rollbar'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'

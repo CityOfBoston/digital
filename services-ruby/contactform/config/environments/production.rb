@@ -91,8 +91,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.opbeat.organization_id = ENV["OPBEAT_ORGANIZATION_ID"]
-  config.opbeat.app_id = ENV["OPBEAT_APP_ID"]
-  config.opbeat.secret_token = ENV["OPBEAT_SECRET_TOKEN"]
 end
