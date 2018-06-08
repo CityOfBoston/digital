@@ -4,15 +4,15 @@
   "description": "Components for using Fleet in our webapps",
   "private": true,
   "license": "CC0-1.0",
+  "main": "build/react-fleet.es5.js",
   "module": "build/react-fleet.js",
-  "main": "build/react-fleet.js",
   "types": "build/react-fleet.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "npm run build:babel -- --watch",
+    "watch": "concurrently \"npm run build:babel -- --watch\" \"rollup -c -w\"",
     "storybook": "start-storybook -p 9001",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
+    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
     "prepare": "npm run build",
@@ -62,6 +62,7 @@
     "node-fetch": "^1.6.9",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
+    "rollup": "^0.60.1",
     "ts-node": "^6.0.3",
     "typescript": "^2.8.1"
   }

@@ -4,14 +4,14 @@
   "description": "{{description}}",
   "private": true,
   "license": "CC0-1.0",
-  "main": "build/{{name}}.js",
+  "main": "build/{{name}}.es5.js",
   "module": "build/{{name}}.js",
   "types": "build/{{name}}.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "npm run build:babel -- --watch",
+    "watch": "concurrently \"npm run build:babel -- --watch\" \"rollup -c -w\"",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
+    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --out-dir build --extensions \".ts,.tsx\"",
     "prepare": "npm run build",
@@ -37,6 +37,7 @@
     "cross-env": "^5.1.5",
     "jest": "^22.4.0",
     "rimraf": "^2.6.2",
+    "rollup": "^0.60.1",
     "typescript": "^2.8.1"
   }
 }
