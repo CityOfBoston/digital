@@ -8316,11 +8316,6 @@ exports[`Storyshots RecentRequests no dates 1`] = `
           Cosmic Intervention
         </h4>
         <div
-          className="css-i3b0pn"
-        >
-          I think that Thanos is here
-        </div>
-        <div
           style={
             Object {
               "paddingTop": 5,
@@ -8382,11 +8377,6 @@ exports[`Storyshots RecentRequests no dates 1`] = `
         >
           Travesties
         </h4>
-        <div
-          className="css-i3b0pn"
-        >
-          Patsy Walker got cancelled. It was a really good book with interesting, diverse characters and a light-hearted sense of humor.
-        </div>
         <div
           style={
             Object {
@@ -8632,11 +8622,6 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
           Cosmic Intervention
         </h4>
         <div
-          className="css-i3b0pn"
-        >
-          I think that Thanos is here
-        </div>
-        <div
           style={
             Object {
               "paddingTop": 5,
@@ -8700,11 +8685,6 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
         >
           Travesties
         </h4>
-        <div
-          className="css-i3b0pn"
-        >
-          Patsy Walker got cancelled. It was a really good book with interesting, diverse characters and a light-hearted sense of humor.
-        </div>
         <div
           style={
             Object {
@@ -8846,11 +8826,6 @@ exports[`Storyshots RecentRequests results loaded and loading more 1`] = `
           Cosmic Intervention
         </h4>
         <div
-          className="css-i3b0pn"
-        >
-          I think that Thanos is here
-        </div>
-        <div
           style={
             Object {
               "paddingTop": 5,
@@ -8914,11 +8889,6 @@ exports[`Storyshots RecentRequests results loaded and loading more 1`] = `
         >
           Travesties
         </h4>
-        <div
-          className="css-i3b0pn"
-        >
-          Patsy Walker got cancelled. It was a really good book with interesting, diverse characters and a light-hearted sense of humor.
-        </div>
         <div
           style={
             Object {
@@ -9117,11 +9087,6 @@ exports[`Storyshots RecentRequests with selection 1`] = `
           Cosmic Intervention
         </h4>
         <div
-          className="css-i3b0pn"
-        >
-          I think that Thanos is here
-        </div>
-        <div
           style={
             Object {
               "paddingTop": 5,
@@ -9185,11 +9150,6 @@ exports[`Storyshots RecentRequests with selection 1`] = `
         >
           Travesties
         </h4>
-        <div
-          className="css-i3b0pn"
-        >
-          Patsy Walker got cancelled. It was a really good book with interesting, diverse characters and a light-hearted sense of humor.
-        </div>
         <div
           style={
             Object {

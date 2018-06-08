@@ -63,6 +63,7 @@ const REQUEST_SERVICE_NAME_STYLE = css({
   marginTop: '-.4em',
 });
 
+// eslint-disable-next-line no-unused-vars
 const DESCRIPTION_STYLE = css({
   overflow: 'hidden',
   height: '1.5em',
@@ -197,9 +198,10 @@ export default class RecentRequestRow extends React.Component<Props> {
             >
               {request.service.name}
             </h4>
-            <div className={DESCRIPTION_STYLE}>
+            {/* Removed for usability testing */}
+            {/* <div className={DESCRIPTION_STYLE}>
               {request.description}
-            </div>
+            </div> */}
             <div style={{ paddingTop: 5 }}>
               <span className={`t--upper t--sans ${statusStyle.toString()}`}>
                 {statusText}
