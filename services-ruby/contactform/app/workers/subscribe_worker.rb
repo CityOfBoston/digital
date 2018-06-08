@@ -15,7 +15,7 @@ class SubscribeWorker
         status_check = bot.check_subscriber(subscriber_details["result"]["profile_id"])
         status_response = Hash.from_xml(status_check.body)
 
-        unless status_response["subscriber"]["status"]
+        if status_response["subscriber"]["status"] == "pending"
           bot.resubscribe(subscriber_details["result"]["profile_id"])
         end
 
