@@ -1,3 +1,5 @@
+/* eslint no-debugger: 0 */
+
 import React from 'react';
 import Head from 'next/head';
 
@@ -11,52 +13,64 @@ export interface Props {
   commissions: Commission[];
 }
 
-export default class IndexPage extends React.Component<Props> {
+export interface State {
+  emailMatch: boolean;
+}
+
+export default class IndexPage extends React.Component<Props, State> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      emailMatch: true,
+    };
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   fullName: HTMLInputElement | null = null;
-
   middleName: HTMLInputElement | null = null;
-
   lastName: HTMLInputElement | null = null;
-
-  Address: HTMLInputElement | null = null;
-
+  address: HTMLInputElement | null = null;
   unit: HTMLInputElement | null = null;
-
   where: HTMLInputElement | null = null;
-
   city: HTMLInputElement | null = null;
-
   zip: HTMLInputElement | null = null;
-
   tel: HTMLInputElement | null = null;
-
   phone: HTMLInputElement | null = null;
-
   email: HTMLInputElement | null = null;
-
   confirmEmail: HTMLInputElement | null = null;
+
+  handleBlur() {
+    if (this.email === null || this.confirmEmail === null) {
+      return;
+    }
+
+    if (this.email.value != this.confirmEmail.value) {
+      this.setState({ emailMatch: false });
+    } else {
+      this.setState({ emailMatch: true });
+    }
+  }
+
+  handleSubmit() {}
 
   render() {
     const { commissions } = this.props;
-
     return (
       <div className="mn">
         <Head>
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />
         </Head>
-
         <div className="b b-c">
           <SectionHeader title="Commissions Page Scaffold 2018" />
-
           <form className="m-t700" action="javascript:void(0)" method="POST">
             <fieldset className="fs m-v700">
               <legend className="fs-l">Application Information</legend>
-
               <div className="fs">
                 <div className="fs-c">
                   <div className="txt m-b300">
@@ -80,7 +94,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Full Name"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-middleName"
@@ -102,7 +115,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Middle Name"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-lastName"
@@ -124,7 +136,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Last Name"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-Address"
@@ -137,7 +148,7 @@ export default class IndexPage extends React.Component<Props> {
                       </span>
                     </label>
                     <input
-                      ref={Address => (this.Address = Address)}
+                      ref={address => (this.address = address)}
                       id="FeedbackForm-Address"
                       name="address"
                       type="text"
@@ -146,7 +157,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Address"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-unit"
@@ -168,7 +178,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Unit or Suite #"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-city"
@@ -190,7 +199,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your city"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-where"
@@ -212,7 +220,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your State"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-Zip"
@@ -255,7 +262,6 @@ export default class IndexPage extends React.Component<Props> {
                       placeholder="Your Phone #"
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-email"
@@ -275,9 +281,9 @@ export default class IndexPage extends React.Component<Props> {
                       className="txt-f txt-f--sm"
                       size={10}
                       placeholder="Your Email"
+                      onBlur={this.handleBlur}
                     />
                   </div>
-
                   <div className="txt m-b300">
                     <label
                       htmlFor="FeedbackForm-confirmEmail"
@@ -297,25 +303,43 @@ export default class IndexPage extends React.Component<Props> {
                       className="txt-f txt-f--sm"
                       size={10}
                       placeholder="Confirm Email"
+                      onBlur={this.handleBlur}
                     />
                   </div>
                 </div>
                 <div className="bc bc--r p-t500">
-                  <button type="submit" className="btn btn--700">
+                  <button
+                    type="submit"
+                    className="btn btn--700"
+                    onSubmit={this.handleSubmit}
+                  >
                     Send Message
                   </button>
+                  {this.emailError()}
                 </div>
               </div>
             </fieldset>
           </form>
-
           <ul>
-            {commissions.map(commission => (
-              <li key={commission.id}>{commission.name}</li>
-            ))}
+            {commissions.map(commission => this.renderCommission(commission))}
           </ul>
         </div>
       </div>
     );
+  }
+  emailError() {
+    if (!this.state.emailMatch) {
+      return (
+        <div>
+          <label className="error">
+            Please Make Sure Emails Match, Thank You.
+          </label>
+        </div>
+      );
+    }
+    return null;
+  }
+  renderCommission(commission: Commission) {
+    return <li key={commission.id}>{commission.name}</li>;
   }
 }
