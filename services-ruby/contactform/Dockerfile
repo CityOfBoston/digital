@@ -31,4 +31,4 @@ ENV RACK_ENV production
 EXPOSE 5000
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["foreman", "start"]
+CMD ["bundle","exec","foreman", "start"]
