@@ -73,7 +73,7 @@
     "@types/storybook__addon-storyshots": "^3.4.1",
     "@types/storybook__react": "^3.0.7",
     "@zeit/next-typescript": "^1.0.0",
-    "apollo-codegen": "^0.19.1",
+    "apollo-codegen": "CityOfBoston/apollo-codegen#dist",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "eslint-plugin-graphql": "^2.1.1",
