@@ -1,5 +1,3 @@
-/* eslint no-debugger: 0 */
-
 import React from 'react';
 import Head from 'next/head';
 
@@ -23,14 +21,20 @@ export default class IndexPage extends React.Component<Props, State> {
     return { commissions };
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailMatch: true,
-    };
+  state: State = {
+    emailMatch: true,
+  };
+
+  handleBlur = () => {
+    if (this.email === null || this.confirmEmail === null) {
+      return;
+    }
+    this.setState({
+      emailMatch: this.email.value === this.confirmEmail.value,
+    });
     this.handleBlur = this.handleBlur.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   fullName: HTMLInputElement | null = null;
   middleName: HTMLInputElement | null = null;
@@ -44,18 +48,6 @@ export default class IndexPage extends React.Component<Props, State> {
   phone: HTMLInputElement | null = null;
   email: HTMLInputElement | null = null;
   confirmEmail: HTMLInputElement | null = null;
-
-  handleBlur() {
-    if (this.email === null || this.confirmEmail === null) {
-      return;
-    }
-
-    if (this.email.value != this.confirmEmail.value) {
-      this.setState({ emailMatch: false });
-    } else {
-      this.setState({ emailMatch: true });
-    }
-  }
 
   handleSubmit() {}
 
@@ -315,7 +307,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   >
                     Send Message
                   </button>
-                  {this.emailError()}
+                  {this.renderEmailError()}
                 </div>
               </div>
             </fieldset>
@@ -327,7 +319,7 @@ export default class IndexPage extends React.Component<Props, State> {
       </div>
     );
   }
-  emailError() {
+  renderEmailError() {
     if (!this.state.emailMatch) {
       return (
         <div>
