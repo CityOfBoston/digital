@@ -4,16 +4,16 @@
 import type { NodeStripe, Event, Charge } from 'stripe';
 import type INovah from './services/iNovah';
 
-type Opbeat = $Exports<'opbeat'>;
+import type Rollbar from 'rollbar';
 
 type Dependencies = {|
   inovah: INovah,
-  opbeat: Opbeat,
+  rollbar: Rollbar,
   stripe: NodeStripe,
 |};
 
 async function processChargeSucceeded(
-  { opbeat, stripe, inovah }: Dependencies,
+  { rollbar, stripe, inovah }: Dependencies,
   charge: Charge
 ): Promise<void> {
   // The Charge object only has the gross amount charged to the customer, so we
@@ -76,7 +76,7 @@ async function processChargeSucceeded(
     });
   } catch (e) {
     // Don't fail things if we aren't able to back-update Stripe
-    opbeat.captureError(e);
+    rollbar.error(e);
   }
 }
 

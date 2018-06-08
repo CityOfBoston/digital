@@ -8,21 +8,20 @@ import cleanup from 'node-cleanup';
 import makeStripe from 'stripe';
 
 import decryptEnv from './lib/decrypt-env';
-import { reportDeployToOpbeat } from './lib/opbeat-utils';
 
 import { makeINovahFactory, type INovahFactory } from './services/INovah';
 
 import { processStripeEvent } from './stripe-events';
 
-type Opbeat = $Exports<'opbeat'>;
+import type Rollbar from 'rollbar';
 
 type ServerArgs = {
-  opbeat: Opbeat,
+  rollbar: Rollbar,
 };
 
 const port = parseInt(process.env.PORT || '5000', 10);
 
-export function makeServer({ opbeat }: ServerArgs) {
+export function makeServer({ rollbar }: ServerArgs) {
   const server = new Hapi.Server();
 
   if (process.env.USE_SSL) {
@@ -35,6 +34,19 @@ export function makeServer({ opbeat }: ServerArgs) {
   } else {
     server.connection({ port }, '0.0.0.0');
   }
+
+  // https://docs.rollbar.com/docs/javascript#section-using-hapi
+  server.on('request-error', (request, error) => {
+    rollbar.error(
+      error instanceof Error ? error : `Error: ${error}`,
+      request,
+      rollbarErr => {
+        if (rollbarErr) {
+          console.error('Error reporting to rollbar, ignoring: ' + rollbarErr);
+        }
+      }
+    );
+  });
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
 
@@ -51,7 +63,7 @@ export function makeServer({ opbeat }: ServerArgs) {
       process.env.INOVAH_ENDPOINT,
       process.env.INOVAH_USERNAME,
       process.env.INOVAH_PASSWORD,
-      opbeat
+      rollbar
     );
 
     return async () => {};
@@ -112,7 +124,7 @@ export function makeServer({ opbeat }: ServerArgs) {
       try {
         await processStripeEvent(
           {
-            opbeat,
+            rollbar,
             stripe,
             inovah: await inovahFactory.inovah(
               process.env.INOVAH_PAYMENT_ORIGIN
@@ -124,7 +136,7 @@ export function makeServer({ opbeat }: ServerArgs) {
         );
         reply().code(200);
       } catch (e) {
-        opbeat.captureError(e);
+        rollbar.captureError(e);
         reply(e);
       }
     },
@@ -148,8 +160,6 @@ export function makeServer({ opbeat }: ServerArgs) {
 
 export default (async function startServer(args: ServerArgs) {
   await decryptEnv();
-
-  reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_APP_ID);
 
   const { server, startup } = makeServer(args);
 

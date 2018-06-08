@@ -51,7 +51,7 @@
     "hapi": "^16.4.3",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.0.0",
-    "opbeat": "^4.14.0",
+    "rollbar": "^2.4.1",
     "soap": "^0.20.0",
     "stripe": "^5.4.0"
   },

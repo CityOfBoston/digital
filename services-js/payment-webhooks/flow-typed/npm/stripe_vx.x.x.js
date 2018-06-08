@@ -100,7 +100,7 @@ declare module 'stripe' {
       address_state?: string,
       address_zip?: string,
     |},
-    statement_description?: ?string,
+    statement_descriptor?: ?string,
   |};
 
   declare export type ChargeUpdateInput = {|

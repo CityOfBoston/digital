@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 // flow-typed signature: f69763863e3f1ac17494e276084ed40f
 // flow-typed version: <<STUB>>/hapi_v^16.1.0/flow_v0.38.0
 
@@ -384,7 +386,7 @@ declare module 'hapi' {
     test(strategy: string, request: Request, next: (err: any, credentials: ?Object) => mixed): void;
   }
 
-  declare export class Server {
+  declare export class Server extends EventEmitter {
     auth: ServerAuth;
     bind(context: Object): void;
     connection(opts: ConnectionOptions, address: string): void;

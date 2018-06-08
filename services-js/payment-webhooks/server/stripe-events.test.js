@@ -39,7 +39,7 @@ describe('processStripeEvent', () => {
       inovah.addTransaction.mockReturnValue({});
 
       await processStripeEvent(
-        { stripe, inovah, opbeat: ({}: any) },
+        { stripe, inovah, rollbar: ({}: any) },
         null,
         '',
         JSON.stringify(CHARGE_SUCCEEDED)
@@ -73,7 +73,7 @@ describe('processStripeEvent', () => {
 
       expect(
         processStripeEvent(
-          { stripe, inovah, opbeat: ({}: any) },
+          { stripe, inovah, rollbar: ({}: any) },
           null,
           '',
           JSON.stringify(CHARGE_SUCCEEDED)
@@ -97,7 +97,7 @@ describe('processStripeEvent', () => {
 
       expect(
         processStripeEvent(
-          { stripe, inovah, opbeat: ({}: any) },
+          { stripe, inovah, rollbar: ({}: any) },
           null,
           '',
           JSON.stringify(CHARGE_SUCCEEDED)
