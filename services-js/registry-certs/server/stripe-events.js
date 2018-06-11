@@ -13,10 +13,7 @@ import {
   SERVICE_FEE_URI,
 } from '../lib/costs';
 
-type Opbeat = $Exports<'opbeat'>;
-
 type Dependencies = {|
-  opbeat: Opbeat,
   emails: Emails,
   stripe: NodeStripe,
   registryData: RegistryData,

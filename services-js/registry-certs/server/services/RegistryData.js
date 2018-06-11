@@ -4,13 +4,12 @@ import { ConnectionPool } from 'mssql';
 
 import fs from 'fs';
 import DataLoader from 'dataloader';
+import type Rollbar from 'rollbar';
 
 import {
   createConnectionPool,
   type DatabaseConnectionOptions,
 } from '../lib/mssql-helpers';
-
-type Opbeat = $Exports<'opbeat'>;
 
 type DbResponse<R> = {|
   recordsets: Array<Array<R>>,
@@ -69,12 +68,10 @@ export function splitKeys(
 }
 
 export default class RegistryData {
-  opbeat: ?Opbeat;
   pool: ConnectionPool;
   lookupLoader: DataLoader<string, ?DeathCertificate>;
 
-  constructor(pool: ConnectionPool, opbeat?: Opbeat) {
-    this.opbeat = opbeat;
+  constructor(pool: ConnectionPool) {
     this.pool = pool;
     this.lookupLoader = new DataLoader(keys => this.lookupLoaderFetch(keys));
   }
@@ -86,33 +83,23 @@ export default class RegistryData {
     startYear: ?string,
     endYear: ?string
   ): Promise<Array<DeathCertificateSearchResult>> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('FindCertificatesWeb', 'Registry Data');
+    const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
+      .request()
+      .input('searchFor', name)
+      .input('pageNumber', page)
+      .input('pageSize', pageSize)
+      .input('sortBy', 'dateOfDeath')
+      .input('startYear', startYear)
+      .input('endYear', endYear)
+      .execute('Registry.Death.sp_FindCertificatesWeb'): any);
 
-    try {
-      const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
-        .request()
-        .input('searchFor', name)
-        .input('pageNumber', page)
-        .input('pageSize', pageSize)
-        .input('sortBy', 'dateOfDeath')
-        .input('startYear', startYear)
-        .input('endYear', endYear)
-        .execute('Registry.Death.sp_FindCertificatesWeb'): any);
+    const { recordset } = resp;
 
-      const { recordset } = resp;
-
-      if (!recordset) {
-        throw new Error('Recordset for search came back empty');
-      }
-
-      return recordset;
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!recordset) {
+      throw new Error('Recordset for search came back empty');
     }
+
+    return recordset;
   }
 
   async lookup(id: string): Promise<?DeathCertificate> {
@@ -129,9 +116,6 @@ export default class RegistryData {
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
-        const transaction =
-          this.opbeat &&
-          this.opbeat.startTransaction('GetCertificatesWeb', 'Registry Data');
         try {
           const resp: DbResponse<DeathCertificate> = (await this.pool
             .request()
@@ -142,10 +126,6 @@ export default class RegistryData {
         } catch (err) {
           keyString.split(',').forEach(id => (idToOutputMap[id] = err));
           return [];
-        } finally {
-          if (transaction) {
-            transaction.end();
-          }
         }
       })
     );
@@ -162,15 +142,13 @@ export default class RegistryData {
 
 export class RegistryDataFactory {
   pool: ConnectionPool;
-  opbeat: Opbeat;
 
-  constructor(pool: ConnectionPool, opbeat: Opbeat) {
+  constructor(pool: ConnectionPool) {
     this.pool = pool;
-    this.opbeat = opbeat;
   }
 
   registryData() {
-    return new RegistryData(this.pool, this.opbeat);
+    return new RegistryData(this.pool);
   }
 
   cleanup(): Promise<any> {
@@ -179,11 +157,11 @@ export class RegistryDataFactory {
 }
 
 export async function makeRegistryDataFactory(
-  opbeat: Opbeat,
+  rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
 ): Promise<RegistryDataFactory> {
-  const pool = await createConnectionPool(opbeat, connectionOptions);
-  return new RegistryDataFactory(pool, opbeat);
+  const pool = await createConnectionPool(rollbar, connectionOptions);
+  return new RegistryDataFactory(pool);
 }
 
 export class FixtureRegistryData {

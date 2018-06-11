@@ -1,25 +1,24 @@
 // @flow
 
 import type { Client as PostmarkClient } from 'postmark';
+import type Rollbar from 'rollbar';
 import { Address } from 'address-rfc2822';
 
 import ReceiptEmail, {
   type TemplateData as ReceiptTemplateData,
 } from '../email/ReceiptEmail';
 
-type Opbeat = $Exports<'opbeat'>;
-
 export default class Emails {
   from: string;
   postmarkClient: PostmarkClient;
-  opbeat: Opbeat;
+  rollbar: Rollbar;
 
   receiptEmail: ReceiptEmail;
 
-  constructor(from: string, postmarkClient: PostmarkClient, opbeat: Opbeat) {
+  constructor(from: string, postmarkClient: PostmarkClient, rollbar: Rollbar) {
     this.from = from;
     this.postmarkClient = postmarkClient;
-    this.opbeat = opbeat;
+    this.rollbar = rollbar;
 
     this.receiptEmail = new ReceiptEmail();
   }
@@ -47,7 +46,8 @@ export default class Emails {
         )
       );
     } catch (e) {
-      this.opbeat.captureError(e);
+      // If we can’t send the email we don’t error out the request.
+      this.rollbar.error(e);
     }
   }
 }

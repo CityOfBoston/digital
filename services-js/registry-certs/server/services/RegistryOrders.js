@@ -2,14 +2,13 @@
 /* eslint no-console: 0 */
 
 import { ConnectionPool } from 'mssql';
+import type Rollbar from 'rollbar';
 
 import {
   createConnectionPool,
   type DatabaseConnectionOptions,
   type DbResponse,
 } from '../lib/mssql-helpers';
-
-type Opbeat = $Exports<'opbeat'>;
 
 export type AddOrderOptions = {|
   orderID: string,
@@ -70,11 +69,9 @@ export type FindOrderResult = {|
 |};
 
 export default class RegistryOrders {
-  opbeat: ?Opbeat;
   pool: ConnectionPool;
 
-  constructor(pool: ConnectionPool, opbeat?: Opbeat) {
-    this.opbeat = opbeat;
+  constructor(pool: ConnectionPool) {
     this.pool = pool;
   }
 
@@ -101,55 +98,45 @@ export default class RegistryOrders {
     serviceFee,
     idempotencyKey,
   }: AddOrderOptions): Promise<number> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('AddOrder', 'Registry Orders');
+    const resp: DbResponse<AddOrderResult> = (await this.pool
+      .request()
+      .input('orderID', orderID)
+      .input('orderType', 'DC')
+      .input('orderDate', orderDate)
+      .input('contactName', contactName)
+      .input('contactEmail', contactEmail)
+      .input('contactPhone', contactPhone)
+      .input('shippingName', shippingName)
+      .input('shippingCompany', shippingCompany)
+      .input('shippingAddr1', shippingAddr1)
+      .input('shippingAddr2', shippingAddr2)
+      .input('shippingCity', shippingCity)
+      .input('shippingState', shippingState)
+      .input('shippingZIP', shippingZIP)
+      .input('billingName', billingName)
+      .input('billingAddr1', billingAddr1)
+      .input('billingAddr2', billingAddr2)
+      .input('billingCity', billingCity)
+      .input('billingState', billingState)
+      .input('billingZIP', billingZIP)
+      .input('billingLast4', billingLast4)
+      .input('serviceFee', `$${serviceFee.toFixed(2)}`)
+      .input('idempotencyKey', idempotencyKey)
+      .execute('Commerce.sp_AddOrder'): any);
 
-    try {
-      const resp: DbResponse<AddOrderResult> = (await this.pool
-        .request()
-        .input('orderID', orderID)
-        .input('orderType', 'DC')
-        .input('orderDate', orderDate)
-        .input('contactName', contactName)
-        .input('contactEmail', contactEmail)
-        .input('contactPhone', contactPhone)
-        .input('shippingName', shippingName)
-        .input('shippingCompany', shippingCompany)
-        .input('shippingAddr1', shippingAddr1)
-        .input('shippingAddr2', shippingAddr2)
-        .input('shippingCity', shippingCity)
-        .input('shippingState', shippingState)
-        .input('shippingZIP', shippingZIP)
-        .input('billingName', billingName)
-        .input('billingAddr1', billingAddr1)
-        .input('billingAddr2', billingAddr2)
-        .input('billingCity', billingCity)
-        .input('billingState', billingState)
-        .input('billingZIP', billingZIP)
-        .input('billingLast4', billingLast4)
-        .input('serviceFee', `$${serviceFee.toFixed(2)}`)
-        .input('idempotencyKey', idempotencyKey)
-        .execute('Commerce.sp_AddOrder'): any);
+    const { recordset } = resp;
 
-      const { recordset } = resp;
-
-      if (!recordset || recordset.length === 0) {
-        throw new Error('Recordset for creating an order came back empty');
-      }
-
-      const result = recordset[0];
-
-      if (result.ErrorMessage) {
-        throw new Error(result.ErrorMessage);
-      }
-
-      return result.OrderKey;
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!recordset || recordset.length === 0) {
+      throw new Error('Recordset for creating an order came back empty');
     }
+
+    const result = recordset[0];
+
+    if (result.ErrorMessage) {
+      throw new Error(result.ErrorMessage);
+    }
+
+    return result.OrderKey;
   }
 
   async addItem(
@@ -159,32 +146,22 @@ export default class RegistryOrders {
     quantity: number,
     certificateCost: number
   ): Promise<void> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('AddOrderItem', 'Registry Orders');
+    const resp: DbResponse<Object> = (await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('orderType', 'DC')
+      .input('certificateID', certificateId)
+      .input('certificateName', certificateName)
+      .input('quantity', quantity)
+      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .execute('Commerce.sp_AddOrderItem'): any);
 
-    try {
-      const resp: DbResponse<Object> = (await this.pool
-        .request()
-        .input('orderKey', orderKey)
-        .input('orderType', 'DC')
-        .input('certificateID', certificateId)
-        .input('certificateName', certificateName)
-        .input('quantity', quantity)
-        .input('unitCost', `$${certificateCost.toFixed(2)}`)
-        .execute('Commerce.sp_AddOrderItem'): any);
+    const { recordset } = resp;
 
-      const { recordset } = resp;
-
-      if (!recordset || recordset.length === 0) {
-        throw new Error(
-          `Could not add item to order ${orderKey}. Likely no certificate ID ${certificateId} in the database.`
-        );
-      }
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!recordset || recordset.length === 0) {
+      throw new Error(
+        `Could not add item to order ${orderKey}. Likely no certificate ID ${certificateId} in the database.`
+      );
     }
   }
 
@@ -194,87 +171,55 @@ export default class RegistryOrders {
     transactionId: string,
     totalInDollars: number
   ): Promise<void> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('AddPayment', 'Registry Orders');
+    const resp: DbResponse<Object> = (await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('paymentDate', paymentDate)
+      .input('paymentDescription', '')
+      .input('transactionID', transactionId)
+      .input('paymentAmount', `$${totalInDollars.toFixed(2)}`)
+      .execute('Commerce.sp_AddPayment'): any);
 
-    try {
-      const resp: DbResponse<Object> = (await this.pool
-        .request()
-        .input('orderKey', orderKey)
-        .input('paymentDate', paymentDate)
-        .input('paymentDescription', '')
-        .input('transactionID', transactionId)
-        .input('paymentAmount', `$${totalInDollars.toFixed(2)}`)
-        .execute('Commerce.sp_AddPayment'): any);
+    const { recordset } = resp;
 
-      const { recordset } = resp;
-
-      if (!recordset || recordset.length === 0) {
-        throw new Error('Recordset for adding payment came back empty');
-      }
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!recordset || recordset.length === 0) {
+      throw new Error('Recordset for adding payment came back empty');
     }
   }
 
   async findOrder(orderId: string): Promise<?FindOrderResult> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('FindOrder', 'Registry Orders');
+    const resp: DbResponse<FindOrderResult> = (await this.pool
+      .request()
+      .input('orderID', orderId)
+      .execute('Commerce.sp_FindOrder'): any);
 
-    try {
-      const resp: DbResponse<FindOrderResult> = (await this.pool
-        .request()
-        .input('orderID', orderId)
-        .execute('Commerce.sp_FindOrder'): any);
+    const { recordset } = resp;
 
-      const { recordset } = resp;
-
-      if (!recordset || recordset.length === 0) {
-        return null;
-      }
-
-      return recordset[0];
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!recordset || recordset.length === 0) {
+      return null;
     }
+
+    return recordset[0];
   }
 
   async cancelOrder(orderKey: number, reason: string): Promise<void> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('CancelOrder', 'Registry Orders');
-
-    try {
-      await this.pool
-        .request()
-        .input('orderKey', orderKey)
-        .input('reason', reason)
-        .execute('Commerce.sp_CancelOrder');
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
-    }
+    await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('reason', reason)
+      .execute('Commerce.sp_CancelOrder');
   }
 }
 
 export class RegistryOrdersFactory {
   pool: ConnectionPool;
-  opbeat: Opbeat;
 
-  constructor(pool: ConnectionPool, opbeat: Opbeat) {
+  constructor(pool: ConnectionPool) {
     this.pool = pool;
-    this.opbeat = opbeat;
   }
 
   registryOrders() {
-    return new RegistryOrders(this.pool, this.opbeat);
+    return new RegistryOrders(this.pool);
   }
 
   cleanup(): Promise<any> {
@@ -283,11 +228,11 @@ export class RegistryOrdersFactory {
 }
 
 export async function makeRegistryOrdersFactory(
-  opbeat: Opbeat,
+  rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
 ): Promise<RegistryOrdersFactory> {
-  const pool = await createConnectionPool(opbeat, connectionOptions);
-  return new RegistryOrdersFactory(pool, opbeat);
+  const pool = await createConnectionPool(rollbar, connectionOptions);
+  return new RegistryOrdersFactory(pool);
 }
 
 export class FixtureRegistryOrders {

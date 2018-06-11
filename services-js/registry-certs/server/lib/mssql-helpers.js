@@ -1,8 +1,7 @@
 // @flow
 
+import Rollbar from 'rollbar';
 import { ConnectionPool, type ConnectionPoolConfig } from 'mssql';
-
-type Opbeat = $Exports<'opbeat'>;
 
 export type DatabaseConnectionOptions = {|
   user: ?string,
@@ -20,7 +19,7 @@ export type DbResponse<R> = {|
 |};
 
 export async function createConnectionPool(
-  opbeat: Opbeat,
+  rollbar: Rollbar,
   { user, password, server, domain, database }: DatabaseConnectionOptions
 ): Promise<ConnectionPool> {
   if (!(user && password && server && database)) {
@@ -56,7 +55,7 @@ export async function createConnectionPool(
   // errors that will filter up to the GraphQL error reporting are pool timeout
   // errors.
   pool.on('error', err => {
-    opbeat.captureError(err);
+    rollbar.error(err);
   });
 
   await pool.connect();

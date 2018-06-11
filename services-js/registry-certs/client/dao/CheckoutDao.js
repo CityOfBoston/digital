@@ -71,9 +71,9 @@ export default class CheckoutDao {
           err.message || `Unexpected error submitting order: ${err}`;
       });
 
-      if (window._opbeat && !err._sentToOpbeat) {
-        window._opbeat('captureException', err);
-        err._sentToOpbeat = true;
+      if (window.Rollbar && !err._reportedException) {
+        window.Rollbar.error(err);
+        err._reportedException = true;
       }
 
       return false;
@@ -104,9 +104,9 @@ export default class CheckoutDao {
           err.message || `Unexpected error submitting order: ${err}`;
       });
 
-      if (window._opbeat && !err._sentToOpbeat) {
-        window._opbeat('captureException', err);
-        err._sentToOpbeat = true;
+      if (window.Rollbar && !err._reportedException) {
+        window.Rollbar.error(err);
+        err._reportedException = true;
       }
 
       return null;

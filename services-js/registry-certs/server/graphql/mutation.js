@@ -100,7 +100,7 @@ export const resolvers = {
     submitDeathCertificateOrder: async (
       root: mixed,
       args: SubmitDeathCertificateOrderArgs,
-      { opbeat, stripe, emails, registryData, registryOrders }: Context
+      { rollbar, stripe, emails, registryData, registryOrders }: Context
     ): Promise<SubmittedOrder> => {
       const {
         contactName,
@@ -271,7 +271,7 @@ export const resolvers = {
           console.log('CANCEL ORDER FAILED');
           // Let Opbeat know, but still fail the mutation with the original
           // error.
-          opbeat.captureError(e);
+          rollbar.error(e);
         }
 
         throw e;
@@ -288,7 +288,7 @@ export const resolvers = {
       // We can only get the Stripe callback when in production, so we fake it for dev.
       if (process.env.NODE_ENV === 'development') {
         await processChargeSucceeded(
-          { opbeat, stripe, emails, registryData, registryOrders },
+          { stripe, emails, registryData, registryOrders },
           charge
         );
       }

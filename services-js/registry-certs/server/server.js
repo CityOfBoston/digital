@@ -15,10 +15,7 @@ import { Client as PostmarkClient } from 'postmark';
 import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
 import addRequestAdditions from './lib/request-additions';
 import decryptEnv from './lib/decrypt-env';
-import {
-  opbeatWrapGraphqlOptions,
-  reportDeployToOpbeat,
-} from './lib/opbeat-utils';
+import { rollbarWrapGraphqlOptions } from './lib/rollbar-utils';
 
 import {
   makeRegistryDataFactory,
@@ -39,15 +36,15 @@ import { processStripeEvent } from './stripe-events';
 import schema from './graphql';
 import type { Context } from './graphql';
 
-type Opbeat = $Exports<'opbeat'>;
+import type Rollbar from 'rollbar';
 
 type ServerArgs = {
-  opbeat: Opbeat,
+  rollbar: Rollbar,
 };
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export function makeServer({ opbeat }: ServerArgs) {
+export function makeServer({ rollbar }: ServerArgs) {
   const server = new Hapi.Server();
 
   if (process.env.USE_SSL) {
@@ -95,7 +92,7 @@ export function makeServer({ opbeat }: ServerArgs) {
   const emails = new Emails(
     process.env.POSTMARK_FROM_ADDRESS || 'no-reply@boston.gov',
     postmarkClient,
-    opbeat
+    rollbar
   );
 
   let registryDataFactory: RegistryDataFactory;
@@ -104,10 +101,10 @@ export function makeServer({ opbeat }: ServerArgs) {
   const startup = async () => {
     const services = await Promise.all([
       registryDataFactoryOpts.server
-        ? makeRegistryDataFactory(opbeat, registryDataFactoryOpts)
+        ? makeRegistryDataFactory(rollbar, registryDataFactoryOpts)
         : makeFixtureRegistryDataFactory('fixtures/registry-data/smith.json'),
       registryOrdersFactoryOpts.server
-        ? makeRegistryOrdersFactory(opbeat, registryOrdersFactoryOpts)
+        ? makeRegistryOrdersFactory(rollbar, registryOrdersFactoryOpts)
         : makeFixtureRegistryOrdersFactory(),
       app.prepare(),
     ]);
@@ -124,6 +121,19 @@ export function makeServer({ opbeat }: ServerArgs) {
       ]);
     };
   };
+
+  // https://docs.rollbar.com/docs/javascript#section-using-hapi
+  server.on('request-error', (request, error) => {
+    rollbar.error(
+      error instanceof Error ? error : `Error: ${error}`,
+      request,
+      rollbarErr => {
+        if (rollbarErr) {
+          console.error('Error reporting to rollbar, ignoring: ' + rollbarErr);
+        }
+      }
+    );
+  });
 
   server.auth.scheme(
     'headerKeys',
@@ -188,14 +198,14 @@ export function makeServer({ opbeat }: ServerArgs) {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
+      graphqlOptions: rollbarWrapGraphqlOptions(rollbar, () => ({
         schema,
         context: ({
           registryData: registryDataFactory.registryData(),
           registryOrders: registryOrdersFactory.registryOrders(),
           stripe,
           emails,
-          opbeat,
+          rollbar,
         }: Context),
       })),
       route: {
@@ -253,7 +263,6 @@ export function makeServer({ opbeat }: ServerArgs) {
             registryOrders: registryOrdersFactory.registryOrders(),
             stripe,
             emails,
-            opbeat,
           },
           stripeWebhookSecret,
           request.headers['stripe-signature'],
@@ -261,7 +270,7 @@ export function makeServer({ opbeat }: ServerArgs) {
         );
         reply().code(200);
       } catch (e) {
-        opbeat.captureError(e);
+        rollbar.error(e, request.raw.req);
         reply(e);
       }
     },
@@ -322,9 +331,6 @@ export function makeServer({ opbeat }: ServerArgs) {
 
 export default async function startServer(args: ServerArgs) {
   await decryptEnv();
-
-  reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_APP_ID);
-  reportDeployToOpbeat(args.opbeat, process.env.OPBEAT_FRONTEND_APP_ID);
 
   const { server, startup } = makeServer(args);
 

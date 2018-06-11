@@ -58,9 +58,9 @@ export default class Error extends React.Component<Props> {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 
-    if (process.browser && window._opbeat && err && !err._sentToOpbeat) {
-      window._opbeat('captureException', err);
-      err._sentToOpbeat = true;
+    if (process.browser && window.Rollbar && err && !err._reportedException) {
+      window.Rollbar.error(err);
+      err._reportedException = true;
     }
 
     return { statusCode };

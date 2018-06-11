@@ -18,7 +18,7 @@ const makeGraphQLError = (message, errors) => {
   e.errors = errors;
   // If the server needed to send this to Opbeat it would have, so we don't have
   // to on the client.
-  e._sentToOpbeat = true;
+  e._reportedException = true;
   return e;
 };
 

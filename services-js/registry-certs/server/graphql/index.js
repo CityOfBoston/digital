@@ -2,6 +2,7 @@
 
 import { makeExecutableSchema } from 'graphql-tools';
 import type { NodeStripe } from 'stripe';
+import type Rollbar from 'rollbar';
 
 import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
 import {
@@ -17,10 +18,8 @@ import type RegistryData from '../services/RegistryData';
 import type RegistryOrders from '../services/RegistryOrders';
 import type Emails from '../services/Emails';
 
-type Opbeat = $Exports<'opbeat'>;
-
 export type Context = {|
-  opbeat: Opbeat,
+  rollbar: Rollbar,
   registryData: RegistryData,
   registryOrders: RegistryOrders,
   stripe: NodeStripe,

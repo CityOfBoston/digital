@@ -5,13 +5,23 @@
 // and set up error reporting before getting the main server.js file going.
 
 require('dotenv').config();
-const opbeat = require('opbeat/start');
+
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+    environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+  },
+});
 
 const start = require('./server.js').default;
 
-start({ opbeat }).catch(err => {
+start({ rollbar }).catch(err => {
   console.error('Error starting server');
-  opbeat.captureError(err, () => {
+  console.error(err);
+  rollbar.error(err, () => {
     process.exit(1);
   });
 });

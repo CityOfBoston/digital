@@ -10,14 +10,12 @@ import ORDER from '../fixtures/registry-orders/order.json';
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
 
 describe('charge.created', () => {
-  let opbeat;
   let emails;
   let stripe;
   let registryData: RegistryData;
   let registryOrders: RegistryOrders;
 
   beforeEach(() => {
-    opbeat = ({}: any);
     emails = ({
       sendReceiptEmail: jest.fn(),
     }: any);
@@ -34,7 +32,6 @@ describe('charge.created', () => {
   it('marks the order as paid', async () => {
     await processStripeEvent(
       {
-        opbeat,
         emails,
         stripe,
         registryData,
@@ -56,7 +53,6 @@ describe('charge.created', () => {
   it('sends email', async () => {
     await processStripeEvent(
       {
-        opbeat,
         emails,
         stripe,
         registryData,

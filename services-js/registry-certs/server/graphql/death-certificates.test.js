@@ -32,7 +32,7 @@ describe('DeathCertificates resolvers', () => {
           registryData,
           registryOrders: ({}: any),
           stripe: ({}: any),
-          opbeat: ({}: any),
+          rollbar: ({}: any),
           emails: ({}: any),
         }
       );
@@ -50,7 +50,7 @@ describe('DeathCertificates resolvers', () => {
           registryData,
           registryOrders: ({}: any),
           stripe: ({}: any),
-          opbeat: ({}: any),
+          rollbar: ({}: any),
           emails: ({}: any),
         }
       );
@@ -70,7 +70,7 @@ describe('DeathCertificates resolvers', () => {
             registryData,
             registryOrders: ({}: any),
             stripe: ({}: any),
-            opbeat: ({}: any),
+            rollbar: ({}: any),
             emails: ({}: any),
           }
         )
@@ -86,7 +86,7 @@ describe('DeathCertificates resolvers', () => {
             registryData,
             registryOrders: ({}: any),
             stripe: ({}: any),
-            opbeat: ({}: any),
+            rollbar: ({}: any),
             emails: ({}: any),
           }
         )
@@ -109,7 +109,7 @@ describe('DeathCertificates resolvers', () => {
           registryData,
           registryOrders: ({}: any),
           stripe: ({}: any),
-          opbeat: ({}: any),
+          rollbar: ({}: any),
           emails: ({}: any),
         }
       );
