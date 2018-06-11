@@ -1,0 +1,58 @@
+[
+  {
+    "PolicyTypeId": 8,
+    "PolicyType": "Administration and Finance",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:45:32.633Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
+    "PolicyTypeId": 9,
+    "PolicyType": "Education",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:45:43.037Z",
+    "ModBy": "Unknown",
+    "ModDtTm": "2015-09-15T09:29:46.843Z"
+  },
+  {
+    "PolicyTypeId": 10,
+    "PolicyType": "Energy,Environment and Open Space",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:45:48.863Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
+    "PolicyTypeId": 11,
+    "PolicyType": "Health and Human Services",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:45:55.357Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
+    "PolicyTypeId": 12,
+    "PolicyType": "Housing and Economic Development",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:46:03.613Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
+    "PolicyTypeId": 13,
+    "PolicyType": "Transportation and Public Works",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:46:12.657Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
+    "PolicyTypeId": 14,
+    "PolicyType": "Arts and Culture",
+    "AddBy": "Unknown",
+    "AddDtTm": "2014-07-02T09:46:17.423Z",
+    "ModBy": null,
+    "ModDtTm": null
+  }
+]

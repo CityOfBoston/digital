@@ -18,6 +18,7 @@ import CommissionsDao, {
   DbBoard,
   DbDepartment,
   DbMember,
+  DbPolicyType,
 } from '../dao/CommissionsDao';
 
 /** @graphql schema */
@@ -26,14 +27,27 @@ export interface Schema {
 }
 
 export interface Query {
-  commissions: Commission[];
+  commissions(args: {
+    policyTypeId: number | undefined;
+    query: string | undefined;
+    hasOpenSeats: boolean | undefined;
+  }): Commission[];
   commission(args: { id: number }): Commission | null;
+
+  policyTypes: PolicyType[];
+}
+
+export interface PolicyType extends ResolvableWith<DbPolicyType> {
+  id: number;
+  name: string;
 }
 
 export interface Commission extends ResolvableWith<DbBoard> {
   id: number;
   name: string;
+  policyType: PolicyType | null;
   department: Department | null;
+  description: string;
   contactName: string;
   contactEmail: string;
   authority: string;
@@ -74,18 +88,57 @@ export interface Context {
   commissionsDao: CommissionsDao;
 }
 
+const caseInsensitiveSearch = (
+  query: string,
+  text: string | null | undefined
+) => text && text.toLocaleLowerCase().includes(query.toLocaleLowerCase());
+
 const queryRootResolvers: Resolvers<Query, Context> = {
-  commissions: (_obj, _args, { commissionsDao }) =>
-    commissionsDao.fetchBoards(),
+  commissions: async (
+    _obj,
+    { policyTypeId, query, hasOpenSeats },
+    { commissionsDao }
+  ) => {
+    let commissions = await commissionsDao.fetchBoards();
+
+    // typeof checks because all of the args are optional
+
+    if (typeof policyTypeId === 'number') {
+      commissions = commissions.filter(
+        ({ PolicyTypeId }) => PolicyTypeId === policyTypeId
+      );
+    }
+
+    if (typeof query === 'string' && query) {
+      commissions = commissions.filter(
+        ({ BoardName, Description }) =>
+          caseInsensitiveSearch(query, BoardName) ||
+          caseInsensitiveSearch(query, Description)
+      );
+    }
+
+    if (typeof hasOpenSeats === 'boolean') {
+      commissions = commissions.filter(
+        ({ ActiveCount, Seats }) => ActiveCount < Seats === hasOpenSeats
+      );
+    }
+
+    return commissions;
+  },
   commission: (_obj, { id }, { commissionsDao }) =>
     commissionsDao.fetchBoard(id),
+  policyTypes: (_obj, _args, { commissionsDao }) =>
+    commissionsDao.fetchPolicyTypes(),
 };
 
 const commissionResolvers: Resolvers<Commission, Context> = {
   id: ({ BoardID }) => BoardID,
   name: ({ BoardName }) => BoardName || 'Unknown Board',
+  description: ({ Description }) => Description || '',
   department: async ({ DepartmentId }, _args, { commissionsDao }) =>
     DepartmentId ? await commissionsDao.fetchDepartment(DepartmentId) : null,
+  policyType: async ({ PolicyTypeId }, _args, { commissionsDao }) =>
+    PolicyTypeId ? await commissionsDao.fetchPolicyType(PolicyTypeId) : null,
   contactName: ({ Contact }) => Contact || '',
   contactEmail: ({ Email }) => Email || '',
   authority: async ({ AuthorityId }, _args, { commissionsDao }) => {
@@ -123,6 +176,11 @@ const departmentResolvers: Resolvers<Department, Context> = {
   homepageUrl: () => '',
 };
 
+const policyTypeResolvers: Resolvers<PolicyType, Context> = {
+  id: ({ PolicyTypeId }) => PolicyTypeId,
+  name: ({ PolicyType }) => PolicyType,
+};
+
 const memberResolvers: Resolvers<Member, Context> = {
   name: ({ FirstName, LastName }) =>
     `${(FirstName || '').trim()} ${(LastName || '').trim()}`.trim(),
@@ -139,6 +197,7 @@ export default makeExecutableSchema({
     Commission: commissionResolvers,
     Department: departmentResolvers,
     Member: memberResolvers,
+    PolicyType: policyTypeResolvers,
   },
   allowUndefinedInResolve: false,
 });

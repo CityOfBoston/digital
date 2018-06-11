@@ -131,6 +131,14 @@ const FIXTURE_DIR = `fixtures`;
     'utf-8'
   );
 
+  const policyTypes = await commissionsDao.fetchPolicyTypes();
+
+  fs.writeFileSync(
+    path.join(FIXTURE_DIR, 'PolicyTypes.json'),
+    JSON.stringify(policyTypes, null, 2),
+    'utf-8'
+  );
+
   let members: DbMember[] = [];
   members = members.concat.apply(
     members,
