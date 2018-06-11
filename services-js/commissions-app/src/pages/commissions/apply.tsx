@@ -24,7 +24,7 @@ export default class IndexPage extends React.Component<Props, State> {
   state: State = {
     emailMatch: true,
   };
-
+  //
   handleBlur = () => {
     if (this.email === null || this.confirmEmail === null) {
       return;
