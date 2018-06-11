@@ -280,6 +280,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 className="txt-f txt-f--sm"
                 id="FeedbackForm-email"
                 name="email"
+                onBlur={[Function]}
                 placeholder="Your Email"
                 size={10}
                 type="text"
@@ -305,6 +306,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 className="txt-f txt-f--sm"
                 id="FeedbackForm-confirmEmail"
                 name="confirmEmail"
+                onBlur={[Function]}
                 placeholder="Confirm Email"
                 size={10}
                 type="text"
@@ -316,6 +318,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           >
             <button
               className="btn btn--700"
+              onSubmit={[Function]}
               type="submit"
             >
               Send Message
