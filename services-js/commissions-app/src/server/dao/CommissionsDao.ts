@@ -6,6 +6,7 @@ import {
   DepartmentsEntityAll,
   AuthorityTypesEntityAll,
   vw_BoardsWithMembersEntityAll,
+  PolicyTypesEntityAll,
 } from './CommissionsDb.d';
 
 export type DbBoard = BoardsEntityAll & {
@@ -15,6 +16,7 @@ export type DbBoard = BoardsEntityAll & {
 export type DbDepartment = DepartmentsEntityAll;
 export type DbAuthority = AuthorityTypesEntityAll;
 export type DbMember = vw_BoardsWithMembersEntityAll;
+export type DbPolicyType = PolicyTypesEntityAll;
 
 /**
  * SQL statement to do a custom join that pulls in the number of "Active"
@@ -66,6 +68,25 @@ export default class CommissionsDao {
     return resp.recordset;
   }
 
+  async fetchPolicyTypes(): Promise<DbPolicyType[]> {
+    const resp: IResult<DbPolicyType> = await this.pool
+      .request()
+      .query(`SELECT * FROM PolicyTypes`);
+
+    return resp.recordset;
+  }
+
+  protected policyTypeLoader = new DataLoader(async (ids: number[]) => {
+    const policyTypes = await this.fetchPolicyTypes();
+    return ids.map(
+      id => policyTypes.find(({ PolicyTypeId }) => PolicyTypeId === id) || null
+    );
+  });
+
+  async fetchPolicyType(id: number): Promise<DbPolicyType | null> {
+    return this.policyTypeLoader.load(id);
+  }
+
   protected async fetchDepartments(ids: number[]) {
     const resp: IResult<DbDepartment> = await this.pool
       .request()
@@ -78,6 +99,7 @@ export default class CommissionsDao {
         resp.recordset.find(({ DepartmentId }) => DepartmentId === id) || null
     );
   }
+
   protected departmentLoader = new DataLoader((ids: number[]) =>
     this.fetchDepartments(ids)
   );

@@ -2,7 +2,7 @@
   {
     "DepartmentId": 122,
     "DepartmentName": "Affirmative Action",
-    "Manager": "Bradley Roob",
+    "Manager": "Isidro Jenkins",
     "Title": "Director",
     "Phone": null,
     "Email": null,
@@ -18,9 +18,9 @@
   {
     "DepartmentId": 108,
     "DepartmentName": "Boston Public Schools",
-    "Manager": "Orlo Kling Sr.",
+    "Manager": "Luella Armstrong",
     "Title": "Interim Superintendent",
-    "Phone": "002.621.8819 x0007",
+    "Phone": "238.787.8603 x6185",
     "Email": null,
     "PSDeptId": null,
     "LinkPath": null,
@@ -34,7 +34,7 @@
   {
     "DepartmentId": 124,
     "DepartmentName": "Treasury",
-    "Manager": "Ms. Zander D'Amore",
+    "Manager": "Selina Herzog",
     "Title": "First Assistant Collector-Treasurer",
     "Phone": null,
     "Email": null,
@@ -50,7 +50,7 @@
   {
     "DepartmentId": 124,
     "DepartmentName": "Treasury",
-    "Manager": "Ms. Zander D'Amore",
+    "Manager": "Selina Herzog",
     "Title": "First Assistant Collector-Treasurer",
     "Phone": null,
     "Email": null,
@@ -66,7 +66,7 @@
   {
     "DepartmentId": 124,
     "DepartmentName": "Treasury",
-    "Manager": "Ms. Zander D'Amore",
+    "Manager": "Selina Herzog",
     "Title": "First Assistant Collector-Treasurer",
     "Phone": null,
     "Email": null,
@@ -82,7 +82,7 @@
   {
     "DepartmentId": 118,
     "DepartmentName": "Parks And Recreation",
-    "Manager": "Genoveva Jerde",
+    "Manager": "Dominique Koch",
     "Title": "Commissioner",
     "Phone": null,
     "Email": null,
@@ -98,7 +98,7 @@
   {
     "DepartmentId": 169,
     "DepartmentName": "Arts Commissioner",
-    "Manager": "Miss Alaina Heidenreich",
+    "Manager": "Rita Auer",
     "Title": "Arts Commissioner",
     "Phone": null,
     "Email": null,
@@ -114,7 +114,7 @@
   {
     "DepartmentId": 113,
     "DepartmentName": "Redevelopment Authority/EDIC",
-    "Manager": "Mr. Monserrat Feest",
+    "Manager": "Markus Tromp",
     "Title": "Acting Director",
     "Phone": null,
     "Email": null,
@@ -130,10 +130,10 @@
   {
     "DepartmentId": 151,
     "DepartmentName": "Fair Housing Commission",
-    "Manager": "Germaine Boehm",
+    "Manager": "Gracie Legros",
     "Title": "Executive Directir",
-    "Phone": "900-242-1863 x3782",
-    "Email": "Sofia79@boston.gov",
+    "Phone": "1-541-414-0558 x767",
+    "Email": "Hallie21@boston.gov",
     "PSDeptId": null,
     "LinkPath": null,
     "ApptDtTm": "2014-01-06T00:00:00.000Z",
@@ -146,7 +146,7 @@
   {
     "DepartmentId": 117,
     "DepartmentName": "Licensing Board",
-    "Manager": "Wilmer Steuber",
+    "Manager": "Maribel Thiel",
     "Title": "Chairwoman",
     "Phone": null,
     "Email": null,

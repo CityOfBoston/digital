@@ -31,12 +31,14 @@ import decryptEnv from '@cityofboston/srv-decrypt-env';
 import graphqlSchema, { Context } from './graphql/schema';
 import CommissionsDao from './dao/CommissionsDao';
 import CommissionsDaoFake from './dao/CommissionsDaoFake';
+import { ConnectionPool } from 'mssql';
 
 const PATH_PREFIX = '/commissions';
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 export async function makeServer(port) {
   let makeCommissionsDao: () => CommissionsDao;
+  let commissionsDbPool: ConnectionPool | null = null;
 
   if (
     process.env.ALLOW_FAKES ||
@@ -68,7 +70,7 @@ export async function makeServer(port) {
       throw new Error('Must specify COMMISSIONS_DB_SERVER');
     }
 
-    const commissionsDbPool = await createConnectionPool(
+    commissionsDbPool = await createConnectionPool(
       {
         username,
         password,
@@ -82,7 +84,7 @@ export async function makeServer(port) {
       }
     );
 
-    makeCommissionsDao = () => new CommissionsDao(commissionsDbPool);
+    makeCommissionsDao = () => new CommissionsDao(commissionsDbPool!);
   }
 
   const serverOptions = {
@@ -198,7 +200,11 @@ export async function makeServer(port) {
       );
 
       // Add more shutdown code here.
-      return () => Promise.all([server.stop()]);
+      return () =>
+        Promise.all([
+          server.stop(),
+          commissionsDbPool ? commissionsDbPool.close() : Promise.resolve(),
+        ]);
     },
   };
 }
@@ -210,6 +216,16 @@ export default async function startServer() {
 
   const { startup } = await makeServer(port);
   const shutdown = await startup();
+
+  // tsc-watch sends SIGUSR2 when it’s time to restart. That’s not caught by
+  // cleanup, so we get it ourselves so we can do a clean shutdown.
+  process.on('SIGUSR2', () => {
+    // Keeps us alive
+    process.stdin.resume();
+
+    // This will cause cleanup to run below
+    process.kill(process.pid, 'SIGINT');
+  });
 
   cleanup(exitCode => {
     shutdown().then(
