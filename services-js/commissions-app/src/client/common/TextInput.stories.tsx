@@ -19,16 +19,6 @@ storiesOf('TextInput', module)
       title="First Name"
       name="firstName"
       placeholder="First Name"
-      required
-      error="Emails did not match"
-    />
-  ))
-  .add('redBorder', () => (
-    <TextInput
-      title="First Name"
-      name="firstName"
-      placeholder="First Name"
-      required
-      error="Emails did not match"
+      error="Emails does not match"
     />
   ));

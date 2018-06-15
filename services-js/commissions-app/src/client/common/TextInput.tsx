@@ -7,6 +7,7 @@ export interface Props {
   error?: string;
   required?: boolean;
 }
+
 export default class FormWithElement extends React.Component<Props> {
   render() {
     return (
@@ -26,7 +27,9 @@ export default class FormWithElement extends React.Component<Props> {
         </label>
         <input
           name={this.props.name}
-          className="txt-f txt-f--sm txt-f--err"
+          className={
+            this.props.error ? 'txt-f txt-f--sm txt-f--err' : 'txt-f txt-f--sm'
+          }
           placeholder={this.props.placeholder}
           id="FeedbackForm-${this.props.name}"
           type="text"
