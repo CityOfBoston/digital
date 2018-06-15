@@ -36,9 +36,7 @@ export default class FormWithElement extends React.Component<Props> {
           required={this.props.required}
         />
         {this.props.error && (
-          <div className="t--subinfo t--err m-t100">
-            Please enter an email address
-          </div>
+          <div className="t--subinfo t--err m-t100">{this.props.error}</div>
         )}
       </div>
     );
