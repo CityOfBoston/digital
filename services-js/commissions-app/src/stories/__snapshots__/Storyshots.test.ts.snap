@@ -52,7 +52,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="firstName"
                 placeholder="First Name"
@@ -77,7 +77,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="middleName"
                 placeholder="Middle Name"
@@ -102,7 +102,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="lastName"
                 placeholder="Last Name"
@@ -127,7 +127,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="address"
                 placeholder="Address"
@@ -152,7 +152,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="unit"
                 placeholder="Unit or Apartment # "
@@ -177,7 +177,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="city"
                 placeholder="City"
@@ -202,7 +202,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="state"
                 placeholder="State"
@@ -227,7 +227,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="zip"
                 placeholder="Zip Code"
@@ -252,7 +252,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="phone"
                 placeholder="Phone Number"
@@ -277,7 +277,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="email"
                 placeholder="Email "
@@ -302,7 +302,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </span>
               </label>
               <input
-                className="txt-f txt-f--sm"
+                className="txt-f txt-f--sm txt-f--err"
                 id="FeedbackForm-\${this.props.name}"
                 name="Confirm Email"
                 placeholder="Confirm Email"
@@ -341,13 +341,79 @@ exports[`Storyshots TextInput default 1`] = `
     First Name
   </label>
   <input
-    className="txt-f txt-f--sm"
+    className="txt-f txt-f--sm txt-f--err"
     id="FeedbackForm-\${this.props.name}"
     name="firstName"
     placeholder="First Name"
     required={undefined}
     type="text"
   />
+</div>
+`;
+
+exports[`Storyshots TextInput error 1`] = `
+<div
+  className="txt m-b300"
+>
+  <label
+    className="txt-l txt-l--sm"
+    htmlFor="FeedbackForm-\${this.props.name}"
+  >
+    First Name
+    <span
+      aria-hidden="true"
+      className="t--req"
+    >
+       
+      Required
+    </span>
+  </label>
+  <input
+    className="txt-f txt-f--sm txt-f--err"
+    id="FeedbackForm-\${this.props.name}"
+    name="firstName"
+    placeholder="First Name"
+    required={true}
+    type="text"
+  />
+  <div
+    className="t--subinfo t--err m-t100"
+  >
+    Please enter an email address
+  </div>
+</div>
+`;
+
+exports[`Storyshots TextInput redBorder 1`] = `
+<div
+  className="txt m-b300"
+>
+  <label
+    className="txt-l txt-l--sm"
+    htmlFor="FeedbackForm-\${this.props.name}"
+  >
+    First Name
+    <span
+      aria-hidden="true"
+      className="t--req"
+    >
+       
+      Required
+    </span>
+  </label>
+  <input
+    className="txt-f txt-f--sm txt-f--err"
+    id="FeedbackForm-\${this.props.name}"
+    name="firstName"
+    placeholder="First Name"
+    required={true}
+    type="text"
+  />
+  <div
+    className="t--subinfo t--err m-t100"
+  >
+    Please enter an email address
+  </div>
 </div>
 `;
 
@@ -369,7 +435,7 @@ exports[`Storyshots TextInput required 1`] = `
     </span>
   </label>
   <input
-    className="txt-f txt-f--sm"
+    className="txt-f txt-f--sm txt-f--err"
     id="FeedbackForm-\${this.props.name}"
     name="firstName"
     placeholder="First Name"

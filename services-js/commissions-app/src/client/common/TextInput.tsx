@@ -4,6 +4,7 @@ export interface Props {
   name: string;
   placeholder: string;
   title: string;
+  error?: string;
   required?: boolean;
 }
 export default class FormWithElement extends React.Component<Props> {
@@ -25,12 +26,17 @@ export default class FormWithElement extends React.Component<Props> {
         </label>
         <input
           name={this.props.name}
-          className="txt-f txt-f--sm"
+          className="txt-f txt-f--sm txt-f--err"
           placeholder={this.props.placeholder}
           id="FeedbackForm-${this.props.name}"
           type="text"
           required={this.props.required}
         />
+        {this.props.error && (
+          <div className="t--subinfo t--err m-t100">
+            Please enter an email address
+          </div>
+        )}
       </div>
     );
   }
