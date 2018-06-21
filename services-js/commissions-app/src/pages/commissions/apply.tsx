@@ -65,106 +65,103 @@ export default class IndexPage extends React.Component<Props, State> {
               errors,
               touched,
               handleBlur,
-            }) => {
-              console.log(errors);
-              return (
-                <form onSubmit={handleSubmit}>
-                  <TextInput
-                    title="First Name"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={values.firstName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
+            }) => (
+              <form onSubmit={handleSubmit}>
+                <TextInput
+                  title="First Name"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={values.firstName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
 
-                  <TextInput
-                    title="Middle Name"
-                    name="middleName"
-                    placeholder="Middle Name"
-                    value={values.middleName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Last Name"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Address"
-                    name="address"
-                    placeholder="Address"
-                    value={values.address}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Unit"
-                    name="unit"
-                    placeholder="Unit or Apartment #"
-                    value={values.unit}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="City"
-                    name="city"
-                    placeholder="City"
-                    value={values.city}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="State"
-                    name="where"
-                    placeholder="State"
-                    value={values.state}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Zip"
-                    name="zip"
-                    placeholder="Zip Code"
-                    value={values.zip}
-                    onChange={handleChange}
-                    error={touched.zip && errors.zip}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Phone"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={values.phone}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Email"
-                    name="email"
-                    placeholder="Email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <TextInput
-                    title="Confirm Email"
-                    name="confirmEmail"
-                    placeholder="Confirm Email"
-                    value={values.confirmEmail}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <button type="submit" className="btn btn--700">
-                    Send Message
-                  </button>
-                </form>
-              );
-            }}
+                <TextInput
+                  title="Middle Name"
+                  name="middleName"
+                  placeholder="Middle Name"
+                  value={values.middleName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Last Name"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Address"
+                  name="address"
+                  placeholder="Address"
+                  value={values.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Unit"
+                  name="unit"
+                  placeholder="Unit or Apartment #"
+                  value={values.unit}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="City"
+                  name="city"
+                  placeholder="City"
+                  value={values.city}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="State"
+                  name="where"
+                  placeholder="State"
+                  value={values.state}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Zip"
+                  name="zip"
+                  placeholder="Zip Code"
+                  value={values.zip}
+                  onChange={handleChange}
+                  error={touched.zip && errors.zip}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Phone"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={values.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Email"
+                  name="email"
+                  placeholder="Email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <TextInput
+                  title="Confirm Email"
+                  name="confirmEmail"
+                  placeholder="Confirm Email"
+                  value={values.confirmEmail}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <button type="submit" className="btn btn--700">
+                  Send Message
+                </button>
+              </form>
+            )}
           />
 
           <ul>
