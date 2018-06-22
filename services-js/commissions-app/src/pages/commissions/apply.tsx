@@ -57,7 +57,7 @@ export default class IndexPage extends React.Component<Props, State> {
                 .required('Zip Code Is Required')
                 .min(5, 'Zip Codes Contains 5 Digits'),
             })}
-            onSubmit={values => console.log(values)}
+            onSubmit={() => {}}
             render={({
               handleSubmit,
               values,
@@ -118,7 +118,7 @@ export default class IndexPage extends React.Component<Props, State> {
                 />
                 <TextInput
                   title="State"
-                  name="where"
+                  name="state"
                   placeholder="State"
                   value={values.state}
                   onChange={handleChange}
