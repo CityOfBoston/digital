@@ -50,6 +50,7 @@ export interface Commission extends ResolvableWith<DbBoard> {
   description: string;
   contactName: string;
   contactEmail: string;
+  contactPhone: string;
   authority: string | null;
   term: string | null;
   stipend: number;
@@ -141,6 +142,7 @@ export const commissionResolvers: Resolvers<Commission, Context> = {
     PolicyTypeId ? await commissionsDao.fetchPolicyType(PolicyTypeId) : null,
   contactName: ({ Contact }) => Contact || '',
   contactEmail: ({ Email }) => Email || '',
+  contactPhone: ({ Phone }) => Phone || '',
   authority: async ({ AuthorityId }, _args, { commissionsDao }) => {
     if (AuthorityId == null) {
       return null;
