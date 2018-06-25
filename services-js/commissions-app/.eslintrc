@@ -3,7 +3,17 @@
     "graphql"
   ],
   "rules": {
-    "graphql/template-strings": "error",
-    "graphql/named-operations": "error"
+    "graphql/template-strings": [
+      "error",
+      {
+        "projectName": "commissions-app"
+      }
+    ],
+    "graphql/named-operations": [
+      "error",
+      {
+        "projectName": "commissions-app"
+      }
+    ]
   }
 }
