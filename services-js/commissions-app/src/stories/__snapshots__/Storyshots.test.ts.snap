@@ -17,313 +17,245 @@ exports[`Storyshots ApplyPage default 1`] = `
       </h2>
     </div>
     <form
-      action="javascript:void(0)"
-      className="m-t700"
-      method="POST"
+      onSubmit={[Function]}
     >
-      <fieldset
-        className="fs m-v700"
+      <div
+        className="txt m-b300"
       >
-        <legend
-          className="fs-l"
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
         >
-          Application Information
-        </legend>
-        <div
-          className="fs"
+          First Name
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="firstName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="First Name"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
         >
-          <div
-            className="fs-c"
-          >
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                First Name
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="firstName"
-                placeholder="First Name"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Middle Name
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="middleName"
-                placeholder="Middle Name"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Last Name
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="lastName"
-                placeholder="Last Name"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Address
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="address"
-                placeholder="Address"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Unit
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="unit"
-                placeholder="Unit or Apartment # "
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                City
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="city"
-                placeholder="City"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                State
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="state"
-                placeholder="State"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Zip
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="zip"
-                placeholder="Zip Code"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Phone
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="phone"
-                placeholder="Phone Number"
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Email
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="email"
-                placeholder="Email "
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="txt m-b300"
-            >
-              <label
-                className="txt-l txt-l--sm"
-                htmlFor="FeedbackForm-\${this.props.name}"
-              >
-                Confirm Email
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                className="txt-f txt-f--sm"
-                id="FeedbackForm-\${this.props.name}"
-                name="Confirm Email"
-                placeholder="Confirm Email"
-                required={true}
-                type="text"
-              />
-            </div>
-          </div>
-          <div
-            className="bc bc--r p-t500"
-          >
-            <button
-              className="btn btn--700"
-              onSubmit={[Function]}
-              type="submit"
-            >
-              Send Message
-            </button>
-          </div>
-        </div>
-      </fieldset>
+          Middle Name
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="middleName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Middle Name"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Last Name
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="lastName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Last Name"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Address
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="address"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Address"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Unit
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="unit"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Unit or Apartment #"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          City
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="city"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="City"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          State
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="state"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="State"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Zip
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="zip"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Zip Code"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Phone
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Email
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Confirm Email
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn--700"
+        type="submit"
+      >
+        Send Message
+      </button>
     </form>
     <ul />
   </div>
@@ -338,16 +270,55 @@ exports[`Storyshots TextInput default 1`] = `
     className="txt-l txt-l--sm"
     htmlFor="FeedbackForm-\${this.props.name}"
   >
-    First Name
+    Zip Code
   </label>
   <input
     className="txt-f txt-f--sm"
     id="FeedbackForm-\${this.props.name}"
-    name="firstName"
-    placeholder="First Name"
+    name="zip"
+    onBlur=""
+    onChange=""
+    placeholder="Zip Code"
     required={undefined}
     type="text"
+    value=""
   />
+</div>
+`;
+
+exports[`Storyshots TextInput error 1`] = `
+<div
+  className="txt m-b300"
+>
+  <label
+    className="txt-l txt-l--sm"
+    htmlFor="FeedbackForm-\${this.props.name}"
+  >
+    Zip Code
+    <span
+      aria-hidden="true"
+      className="t--req"
+    >
+       
+      Required
+    </span>
+  </label>
+  <input
+    className="txt-f txt-f--sm txt-f--err"
+    id="FeedbackForm-\${this.props.name}"
+    name="zip"
+    onBlur=""
+    onChange=""
+    placeholder="Zip Code"
+    required={true}
+    type="text"
+    value=""
+  />
+  <div
+    className="t--subinfo t--err m-t100"
+  >
+    Please Enter The Correct Zip Code, Zip Codes Contains 5 Digits.
+  </div>
 </div>
 `;
 
@@ -359,7 +330,7 @@ exports[`Storyshots TextInput required 1`] = `
     className="txt-l txt-l--sm"
     htmlFor="FeedbackForm-\${this.props.name}"
   >
-    First Name
+    Zip Code
     <span
       aria-hidden="true"
       className="t--req"
@@ -371,10 +342,13 @@ exports[`Storyshots TextInput required 1`] = `
   <input
     className="txt-f txt-f--sm"
     id="FeedbackForm-\${this.props.name}"
-    name="firstName"
-    placeholder="First Name"
+    name="zip"
+    onBlur=""
+    onChange=""
+    placeholder="Zip Code"
     required={true}
     type="text"
+    value=""
   />
 </div>
 `;
