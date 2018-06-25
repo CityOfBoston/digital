@@ -65,9 +65,9 @@ export default class IndexPage extends React.Component<Props, State> {
               address: Yup.string()
                 .required('Your Address Is Required!')
                 .min(2, 'Your Address Needs To Be Valid'),
-              unit: Yup.string().required(
-                'Your Unit or Apartment Is Required!'
-              ),
+              unit: Yup.string()
+                .required('Your Unit or Apartment Is Required!')
+                .min(1),
               city: Yup.string()
                 .required('Your City Name Is Required!')
                 .min(3),
