@@ -48,16 +48,6 @@ export default class IndexPage extends React.Component<Props, State> {
               email: '',
               confirmEmail: '',
             }}
-            validate={values => {
-              // same as above, but feel free to move this into a class method now.
-              let errors = {};
-              if (this.email.value != this.confirmEmail.value) {
-                this.setState({ emailMatch: false });
-              } else {
-                this.setState({ emailMatch: true });
-              }
-              return errors.email && errors.confirmEmail;
-            }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
                 .required('Zip Code Is Required')

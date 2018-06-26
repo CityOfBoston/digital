@@ -1,4 +1,5 @@
 import React from 'react';
+
 export interface Props {
   name: string;
   placeholder: string;
