@@ -23,10 +23,6 @@ export default class IndexPage extends React.Component<Props, State> {
     return { commissions };
   }
 
-  state: State = {
-    emailMatch: true,
-  };
-
   render() {
     const { commissions } = this.props;
     return (
@@ -51,6 +47,16 @@ export default class IndexPage extends React.Component<Props, State> {
               phone: '',
               email: '',
               confirmEmail: '',
+            }}
+            validate={values => {
+              // same as above, but feel free to move this into a class method now.
+              let errors = {};
+              if (this.email.value != this.confirmEmail.value) {
+                this.setState({ emailMatch: false });
+              } else {
+                this.setState({ emailMatch: true });
+              }
+              return errors.email && errors.confirmEmail;
             }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
