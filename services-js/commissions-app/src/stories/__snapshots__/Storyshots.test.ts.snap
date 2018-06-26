@@ -157,7 +157,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         <input
           className="txt-f txt-f--sm"
           id="FeedbackForm-\${this.props.name}"
-          name="where"
+          name="state"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="State"
