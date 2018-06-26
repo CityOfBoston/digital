@@ -50,7 +50,8 @@ export interface Commission extends ResolvableWith<DbBoard> {
   description: string;
   contactName: string;
   contactEmail: string;
-  authority: string;
+  contactPhone: string;
+  authority: string | null;
   term: string | null;
   stipend: number;
   seats: number;
@@ -131,7 +132,7 @@ const queryRootResolvers: Resolvers<Query, Context> = {
     commissionsDao.fetchPolicyTypes(),
 };
 
-const commissionResolvers: Resolvers<Commission, Context> = {
+export const commissionResolvers: Resolvers<Commission, Context> = {
   id: ({ BoardID }) => BoardID,
   name: ({ BoardName }) => BoardName || 'Unknown Board',
   description: ({ Description }) => Description || '',
@@ -141,16 +142,27 @@ const commissionResolvers: Resolvers<Commission, Context> = {
     PolicyTypeId ? await commissionsDao.fetchPolicyType(PolicyTypeId) : null,
   contactName: ({ Contact }) => Contact || '',
   contactEmail: ({ Email }) => Email || '',
+  contactPhone: ({ Phone }) => Phone || '',
   authority: async ({ AuthorityId }, _args, { commissionsDao }) => {
-    let authority;
-    if (
-      AuthorityId &&
-      (authority = await commissionsDao.fetchAuthority(AuthorityId))
-    ) {
-      return authority.AuthorityType;
-    } else {
-      return 'Unknown';
+    if (AuthorityId == null) {
+      return null;
     }
+
+    const authority = await commissionsDao.fetchAuthority(AuthorityId);
+
+    if (!authority) {
+      return null;
+    }
+
+    if (!authority.AuthorityType) {
+      return null;
+    }
+
+    if (authority.AuthorityType.toLocaleLowerCase() === 'not applicable') {
+      return null;
+    }
+
+    return authority.AuthorityType;
   },
   term: ({ Term }) => Term,
   stipend: ({ Stipend }) => Stipend,

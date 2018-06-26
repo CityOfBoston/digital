@@ -1,6 +1,5 @@
-/* eslint-disable no-debugger */
-
 import React from 'react';
+
 export interface Props {
   name: string;
   placeholder: string;
