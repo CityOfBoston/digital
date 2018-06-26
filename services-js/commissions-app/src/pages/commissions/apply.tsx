@@ -23,10 +23,6 @@ export default class IndexPage extends React.Component<Props, State> {
     return { commissions };
   }
 
-  state: State = {
-    emailMatch: true,
-  };
-
   render() {
     const { commissions } = this.props;
     return (
@@ -56,6 +52,32 @@ export default class IndexPage extends React.Component<Props, State> {
               zip: Yup.string()
                 .required('Zip Code Is Required')
                 .min(5, 'Zip Codes Contains 5 Digits'),
+              firstName: Yup.string()
+                .required('Your First Name Is Required!')
+                .min(2, 'Your First Name Needs To Be Valid'),
+              lastName: Yup.string()
+                .required('Your Last Name Is Required!')
+                .min(2, 'Your Last Name Needs To Be Valid'),
+              address: Yup.string()
+                .required('Your Address Is Required!')
+                .min(2, 'Your Address Needs To Be Valid'),
+              unit: Yup.string().min(1),
+              city: Yup.string()
+                .required('Your City Name Is Required!')
+                .min(3),
+              state: Yup.string()
+                .required('Your State Name Is Required!')
+                .min(4),
+              phone: Yup.number()
+                .required('Your Telephone Number Is Required!')
+                .positive()
+                .integer(),
+              email: Yup.string()
+                .email()
+                .required('Your Email Is Required!'),
+              confirmEmail: Yup.string()
+                .email()
+                .required('Your Confirm Email Is Required!'),
             })}
             onSubmit={() => {}}
             render={({
@@ -73,6 +95,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="First Name"
                   value={values.firstName}
                   onChange={handleChange}
+                  error={touched.firstName && errors.firstName}
                   onBlur={handleBlur}
                 />
 
@@ -82,6 +105,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Middle Name"
                   value={values.middleName}
                   onChange={handleChange}
+                  error={touched.middleName && errors.middleName}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -90,6 +114,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Last Name"
                   value={values.lastName}
                   onChange={handleChange}
+                  error={touched.lastName && errors.lastName}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -98,6 +123,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Address"
                   value={values.address}
                   onChange={handleChange}
+                  error={touched.address && errors.address}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -106,6 +132,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Unit or Apartment #"
                   value={values.unit}
                   onChange={handleChange}
+                  error={touched.unit && errors.unit}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -114,6 +141,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="City"
                   value={values.city}
                   onChange={handleChange}
+                  error={touched.city && errors.city}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -122,6 +150,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="State"
                   value={values.state}
                   onChange={handleChange}
+                  error={touched.state && errors.state}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -139,6 +168,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Phone Number"
                   value={values.phone}
                   onChange={handleChange}
+                  error={touched.phone && errors.phone}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -147,6 +177,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Email"
                   value={values.email}
                   onChange={handleChange}
+                  error={touched.email && errors.email}
                   onBlur={handleBlur}
                 />
                 <TextInput
@@ -155,6 +186,7 @@ export default class IndexPage extends React.Component<Props, State> {
                   placeholder="Confirm Email"
                   value={values.confirmEmail}
                   onChange={handleChange}
+                  error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
                 <button type="submit" className="btn btn--700">
