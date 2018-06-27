@@ -13,10 +13,6 @@ export interface Props {
   commissions: Commission[];
 }
 
-export interface State {
-  emailMatch: boolean;
-}
-
 export default class IndexPage extends React.Component<Props, State> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
