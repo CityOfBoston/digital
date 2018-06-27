@@ -77,7 +77,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 .required('Your Email Is Required!'),
               confirmEmail: Yup.string()
                 .email()
-                .required('Your Confirm Email Is Required!'),
+                .required('Your Confirm Email Is Required!')
+                .oneOf([Yup.ref('email', null)], 'Make Sure Emails Match!'),
             })}
             onSubmit={() => {}}
             render={({
