@@ -13,7 +13,7 @@ export interface Props {
   commissions: Commission[];
 }
 
-export default class IndexPage extends React.Component<Props, State> {
+export default class IndexPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
@@ -200,18 +200,7 @@ export default class IndexPage extends React.Component<Props, State> {
       </div>
     );
   }
-  renderEmailError() {
-    if (!this.state.emailMatch) {
-      return (
-        <div>
-          <label className="error">
-            Please Make Sure Emails Match, Thank You.
-          </label>
-        </div>
-      );
-    }
-    return null;
-  }
+
   renderCommission(commission: Commission) {
     return <li key={commission.id}>{commission.name}</li>;
   }
