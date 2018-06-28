@@ -194,7 +194,6 @@ export default class IndexPage extends React.Component<Props> {
           />
 
           <ul>
-            <input type="checkbox" />
             {commissions.map(commission => this.renderCommission(commission))}
           </ul>
         </div>
