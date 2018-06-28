@@ -47,7 +47,7 @@ export default class IndexPage extends React.Component<Props> {
             validationSchema={Yup.object().shape({
               zip: Yup.string()
                 .required('Zip Code Is Required')
-                .min(5, 'Zip Codes Contains 5 Digits'),
+                .matches(new RegExp(/^\d{5})$/), 'Zip Codes Contains 5 Digits'),
               firstName: Yup.string()
                 .required('Your First Name Is Required!')
                 .min(2, 'Your First Name Needs To Be Valid'),
@@ -57,7 +57,9 @@ export default class IndexPage extends React.Component<Props> {
               address: Yup.string()
                 .required('Your Address Is Required!')
                 .min(2, 'Your Address Needs To Be Valid'),
-              unit: Yup.string().min(1),
+              unit: Yup.string()
+                .required('Your Unit or Apartment Is Required!')
+                .min(1),
               city: Yup.string()
                 .required('Your City Name Is Required!')
                 .min(3),
