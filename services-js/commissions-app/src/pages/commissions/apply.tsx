@@ -13,11 +13,7 @@ export interface Props {
   commissions: Commission[];
 }
 
-export interface State {
-  emailMatch: boolean;
-}
-
-export default class IndexPage extends React.Component<Props, State> {
+export default class IndexPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
@@ -51,7 +47,7 @@ export default class IndexPage extends React.Component<Props, State> {
             validationSchema={Yup.object().shape({
               zip: Yup.string()
                 .required('Zip Code Is Required')
-                .min(5, 'Zip Codes Contains 5 Digits'),
+                .matches(new RegExp(/^\d{5}$/), 'Zip Codes Contains 5 Digits'),
               firstName: Yup.string()
                 .required('Your First Name Is Required!')
                 .min(2, 'Your First Name Needs To Be Valid'),
@@ -204,18 +200,7 @@ export default class IndexPage extends React.Component<Props, State> {
       </div>
     );
   }
-  renderEmailError() {
-    if (!this.state.emailMatch) {
-      return (
-        <div>
-          <label className="error">
-            Please Make Sure Emails Match, Thank You.
-          </label>
-        </div>
-      );
-    }
-    return null;
-  }
+
   renderCommission(commission: Commission) {
     return <li key={commission.id}>{commission.name}</li>;
   }
