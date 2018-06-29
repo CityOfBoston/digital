@@ -257,11 +257,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         Send Message
       </button>
     </form>
-    <ul>
-      <input
-        type="checkbox"
-      />
-    </ul>
+    <ul />
   </div>
 </div>
 `;
