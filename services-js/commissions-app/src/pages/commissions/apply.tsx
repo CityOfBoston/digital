@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
-import Checkboxes from '../../client/common/Checkboxes';
+import Checkbox from '../../client/common/Checkbox';
 
 import fetchCommissions, {
   Commission,
@@ -205,8 +205,8 @@ export default class IndexPage extends React.Component<Props> {
     return (
       <li key={commission.id}>
         {' '}
+        <Checkbox />
         {commission.name}
-        <Checkboxes />
       </li>
     );
   }

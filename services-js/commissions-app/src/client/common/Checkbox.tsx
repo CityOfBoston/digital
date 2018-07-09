@@ -6,16 +6,14 @@ export interface Props {
   value: string;
   onChange: any;
   onBlur: any;
+  property: any;
 }
 
-export default class CheckboxElement extends React.Component<Props> {
+export default class Checkbox extends React.Component<Props> {
   render() {
     return (
-      <div className="txt m-b300">
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="checkbox-${this.props.name}"
-        />
+      <div>
+        <label className="cb" htmlFor="checkbox-${this.props.name}" />
         <input
           id="checkbox-${this.props.name}"
           name={this.props.name}
