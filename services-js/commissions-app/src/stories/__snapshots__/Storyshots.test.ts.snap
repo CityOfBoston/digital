@@ -257,9 +257,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         Send Message
       </button>
     </form>
-    <ul
-      className="nv-m-c-l cb-l"
-    />
+    <ul />
   </div>
 </div>
 `;
