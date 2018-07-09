@@ -170,7 +170,7 @@ export async function makeServer(port) {
       route: {
         auth: 'apiHeaderKeys',
         cors: {
-          origin: ['localhost', '*.boston.gov'],
+          origin: ['localhost:*', '*.boston.gov'],
           additionalHeaders: ['X-API-KEY'],
         },
       },
