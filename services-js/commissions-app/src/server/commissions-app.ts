@@ -167,7 +167,13 @@ export async function makeServer(port) {
     plugin: graphqlHapi,
     options: {
       path: `${PATH_PREFIX}/graphql`,
-      auth: 'apiHeaderKeys',
+      route: {
+        auth: 'apiHeaderKeys',
+        cors: {
+          origin: ['localhost', '*.boston.gov'],
+          additionalHeaders: ['X-API-KEY'],
+        },
+      },
       graphqlOptions: () => ({
         schema: graphqlSchema,
         context: {
