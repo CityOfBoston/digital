@@ -168,7 +168,7 @@ export async function makeServer(port) {
     options: {
       path: `${PATH_PREFIX}/graphql`,
       route: {
-        auth: 'apiHeaderKeys',
+        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
         cors: {
           origin: [
             'http://localhost:*',
