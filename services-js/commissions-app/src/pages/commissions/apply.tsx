@@ -193,7 +193,7 @@ export default class IndexPage extends React.Component<Props> {
               </form>
             )}
           />
-          <ul className="nv-m-c-l cb-l">
+          <ul>
             {commissions.map(commission => this.renderCommission(commission))}
           </ul>
         </div>
