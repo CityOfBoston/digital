@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
+import Checkboxes from '../../client/common/Checkboxes';
 
 import fetchCommissions, {
   Commission,
@@ -192,8 +193,7 @@ export default class IndexPage extends React.Component<Props> {
               </form>
             )}
           />
-
-          <ul>
+          <ul className="nv-m-c-l cb-l">
             {commissions.map(commission => this.renderCommission(commission))}
           </ul>
         </div>
@@ -202,6 +202,12 @@ export default class IndexPage extends React.Component<Props> {
   }
 
   renderCommission(commission: Commission) {
-    return <li key={commission.id}>{commission.name}</li>;
+    return (
+      <li key={commission.id}>
+        {' '}
+        {commission.name}
+        <Checkboxes />
+      </li>
+    );
   }
 }

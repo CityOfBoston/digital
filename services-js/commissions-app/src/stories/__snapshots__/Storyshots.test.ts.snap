@@ -257,8 +257,27 @@ exports[`Storyshots ApplyPage default 1`] = `
         Send Message
       </button>
     </form>
-    <ul />
+    <ul
+      className="nv-m-c-l cb-l"
+    />
   </div>
+</div>
+`;
+
+exports[`Storyshots Checkboxes default 1`] = `
+<div
+  className="txt m-b300"
+>
+  <label
+    className="txt-l txt-l--sm"
+    htmlFor="checkbox-\${this.props.name}"
+  />
+  <input
+    className="cb-f"
+    id="B-C"
+    name="B-C"
+    type="checkbox"
+  />
 </div>
 `;
 
