@@ -1,8 +1,4 @@
 
-
-export type RequireAll<Obj extends Object> = { [Field in keyof Obj]-?: Obj[Field] };
-
-  
 export interface sysdiagramsEntity {
   name?: string
   principal_id?: number
@@ -113,6 +109,26 @@ export interface BoardsEntity {
   ModDtTm?: Date | null
 }
 
+export interface AssignmentsEntity {
+  AssignmentId?: number
+  SeatNumber?: number | null
+  AppointDtTm?: Date | null
+  ExpireDtTm?: Date | null
+  SwornDtTm?: Date | null
+  Docket?: string | null
+  PersonId?: number | null
+  BoardId?: number | null
+  StatusId?: number | null
+  Certificate?: boolean
+  TitleId?: number | null
+  Appointed?: boolean
+  DeleteReq?: boolean
+  AddBy?: string
+  AddDtTm?: Date
+  ModBy?: string | null
+  ModDtTm?: Date | null
+}
+
 export interface DepartmentsEntity {
   DepartmentId?: number
   DepartmentName?: string | null
@@ -121,6 +137,7 @@ export interface DepartmentsEntity {
   Phone?: string | null
   Email?: string | null
   PSDeptId?: number | null
+  LinkPath?: string | null
   ApptDtTm?: Date | null
   ExpireDtTm?: Date | null
   AddBy?: string | null
@@ -169,25 +186,6 @@ export interface ApplicantsEntity {
   Comments?: string | null
   Ethnicity?: string | null
   AddDtTm?: Date
-}
-
-export interface AssignmentsEntity {
-  AssignmentId?: number
-  SeatNumber?: number | null
-  AppointDtTm?: Date | null
-  ExpireDtTm?: Date | null
-  SwornDtTm?: Date | null
-  Docket?: string | null
-  PersonId?: number | null
-  BoardId?: number | null
-  StatusId?: number | null
-  Certificate?: boolean
-  TitleId?: number | null
-  Appointed?: boolean
-  AddBy?: string
-  AddDtTm?: Date
-  ModBy?: string | null
-  ModDtTm?: Date | null
 }
 
 export interface AuthorityTypesEntity {
@@ -272,25 +270,25 @@ export interface vw_BoardsWithMembersEntity {
   Stipend?: number
 }
 
-export type sysdiagramsEntityAll = RequireAll<sysdiagramsEntity>;
-export type __MigrationHistoryEntityAll = RequireAll<__MigrationHistoryEntity>;
-export type AspNetRolesEntityAll = RequireAll<AspNetRolesEntity>;
-export type AspNetUserClaimsEntityAll = RequireAll<AspNetUserClaimsEntity>;
-export type AspNetUserLoginsEntityAll = RequireAll<AspNetUserLoginsEntity>;
-export type AspNetUserRolesEntityAll = RequireAll<AspNetUserRolesEntity>;
-export type AspNetUsersEntityAll = RequireAll<AspNetUsersEntity>;
-export type PolicyTypesEntityAll = RequireAll<PolicyTypesEntity>;
-export type Dept_PSEntityAll = RequireAll<Dept_PSEntity>;
-export type BoardsEntityAll = RequireAll<BoardsEntity>;
-export type DepartmentsEntityAll = RequireAll<DepartmentsEntity>;
-export type View_1EntityAll = RequireAll<View_1Entity>;
-export type AppliedForEntityAll = RequireAll<AppliedForEntity>;
-export type ApplicantsEntityAll = RequireAll<ApplicantsEntity>;
-export type AssignmentsEntityAll = RequireAll<AssignmentsEntity>;
-export type AuthorityTypesEntityAll = RequireAll<AuthorityTypesEntity>;
-export type PeopleEntityAll = RequireAll<PeopleEntity>;
-export type GenderTypesEntityAll = RequireAll<GenderTypesEntity>;
-export type RaceTypesEntityAll = RequireAll<RaceTypesEntity>;
-export type TitleTypesEntityAll = RequireAll<TitleTypesEntity>;
-export type StatusTypesEntityAll = RequireAll<StatusTypesEntity>;
-export type vw_BoardsWithMembersEntityAll = RequireAll<vw_BoardsWithMembersEntity>;
+export type sysdiagramsEntityAll = Required<sysdiagramsEntity>;
+export type __MigrationHistoryEntityAll = Required<__MigrationHistoryEntity>;
+export type AspNetRolesEntityAll = Required<AspNetRolesEntity>;
+export type AspNetUserClaimsEntityAll = Required<AspNetUserClaimsEntity>;
+export type AspNetUserLoginsEntityAll = Required<AspNetUserLoginsEntity>;
+export type AspNetUserRolesEntityAll = Required<AspNetUserRolesEntity>;
+export type AspNetUsersEntityAll = Required<AspNetUsersEntity>;
+export type PolicyTypesEntityAll = Required<PolicyTypesEntity>;
+export type Dept_PSEntityAll = Required<Dept_PSEntity>;
+export type BoardsEntityAll = Required<BoardsEntity>;
+export type AssignmentsEntityAll = Required<AssignmentsEntity>;
+export type DepartmentsEntityAll = Required<DepartmentsEntity>;
+export type View_1EntityAll = Required<View_1Entity>;
+export type AppliedForEntityAll = Required<AppliedForEntity>;
+export type ApplicantsEntityAll = Required<ApplicantsEntity>;
+export type AuthorityTypesEntityAll = Required<AuthorityTypesEntity>;
+export type PeopleEntityAll = Required<PeopleEntity>;
+export type GenderTypesEntityAll = Required<GenderTypesEntity>;
+export type RaceTypesEntityAll = Required<RaceTypesEntity>;
+export type TitleTypesEntityAll = Required<TitleTypesEntity>;
+export type StatusTypesEntityAll = Required<StatusTypesEntity>;
+export type vw_BoardsWithMembersEntityAll = Required<vw_BoardsWithMembersEntity>;
