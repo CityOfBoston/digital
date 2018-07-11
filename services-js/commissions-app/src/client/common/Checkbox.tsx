@@ -1,28 +1,30 @@
 import React from 'react';
 
-export interface Props {
+export interface CheckboxProps {
   name: string;
-  title: string;
-  value: string;
+  id: any;
+  label: string;
+  value: any;
   onChange: any;
   onBlur: any;
-  property: any;
+  key: any;
 }
 
-export default class Checkbox extends React.Component<Props> {
+export default class Checkbox extends React.Component<CheckboxProps> {
   render() {
     return (
       <div>
-        <label className="cb" htmlFor="checkbox-${this.props.name}" />
-        <input
-          id="checkbox-${this.props.name}"
-          name={this.props.name}
-          type="checkbox"
-          className="cb-f"
-          onChange={this.props.onChange}
-          onBlur={this.props.onBlur}
-          value={this.props.value}
-        />
+        <label className="cb">
+          <input
+            id={this.props.id}
+            name="commissions"
+            value="commissions"
+            type="checkbox"
+            className="cb-f"
+            onChange={this.props.onChange}
+            onBlur={this.props.onBlur}
+          />
+        </label>
       </div>
     );
   }

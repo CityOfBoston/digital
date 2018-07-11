@@ -14,7 +14,7 @@ export interface Props {
   commissions: Commission[];
 }
 
-export default class IndexPage extends React.Component<Props> {
+export default class ApplyPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
@@ -75,7 +75,10 @@ export default class IndexPage extends React.Component<Props> {
               confirmEmail: Yup.string()
                 .email()
                 .required('Your Confirm Email Is Required!')
-                .oneOf([Yup.ref('email', null)], 'Make Sure Emails Match!'),
+                .oneOf(
+                  [Yup.ref('email', undefined)],
+                  'Make Sure Emails Match!'
+                ),
             })}
             onSubmit={() => {}}
             render={({
@@ -203,10 +206,18 @@ export default class IndexPage extends React.Component<Props> {
 
   renderCommission(commission: Commission) {
     return (
-      <li key={commission.id}>
+      <li style={{ listStyleType: 'none' }}>
         {' '}
-        <Checkbox />
-        {commission.name}
+        <Checkbox
+          name="commissions"
+          value="commission"
+          id={commission.id}
+          label=""
+          onChange={null}
+          onBlur={null}
+          key={commission.id}
+        />{' '}
+        <span className="cb-l">{commission.name}</span>
       </li>
     );
   }

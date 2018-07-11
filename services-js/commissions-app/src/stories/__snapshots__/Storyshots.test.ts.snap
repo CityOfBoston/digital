@@ -262,20 +262,21 @@ exports[`Storyshots ApplyPage default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Checkboxes default 1`] = `
-<div
-  className="txt m-b300"
->
+exports[`Storyshots Checkbox default 1`] = `
+<div>
   <label
-    className="txt-l txt-l--sm"
-    htmlFor="checkbox-\${this.props.name}"
-  />
-  <input
-    className="cb-f"
-    id="B-C"
-    name="B-C"
-    type="checkbox"
-  />
+    className="cb"
+  >
+    <input
+      className="cb-f"
+      id=""
+      name="commissions"
+      onBlur=""
+      onChange=""
+      type="checkbox"
+      value="commissions"
+    />
+  </label>
 </div>
 `;
 

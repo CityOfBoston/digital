@@ -4,12 +4,12 @@ import Checkbox from './Checkbox';
 
 storiesOf('Checkbox', module).add('default', () => (
   <Checkbox
-    name="BC"
-    type="checkbox"
-    title=""
-    className="cb-f"
+    name="commissions"
+    value="commissionsya"
+    id=""
+    label=""
     onChange=""
     onBlur=""
-    value=""
+    key=""
   />
 ));
