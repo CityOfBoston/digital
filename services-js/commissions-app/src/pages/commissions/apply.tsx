@@ -206,16 +206,16 @@ export default class ApplyPage extends React.Component<Props> {
 
   renderCommission(commission: Commission) {
     return (
-      <li style={{ listStyleType: 'none' }}>
+      <li style={{ listStyleType: 'none', display: 'inline' }}>
         {' '}
         <Checkbox
-          id={null}
+          id={commission.id}
           name="commissions"
+          title={commission.name}
           value="commission"
           onChange={null}
           onBlur={null}
         />{' '}
-        <span className="cb-l">{commission.name}</span>
       </li>
     );
   }
