@@ -28,7 +28,7 @@ export interface Schema {
 
 export interface Query {
   commissions(args: {
-    policyTypeId: number | undefined;
+    policyTypeIds: number[] | undefined;
     query: string | undefined;
     hasOpenSeats: boolean | undefined;
   }): Commission[];
@@ -98,16 +98,18 @@ const caseInsensitiveSearch = (
 const queryRootResolvers: Resolvers<Query, Context> = {
   commissions: async (
     _obj,
-    { policyTypeId, query, hasOpenSeats },
+    { policyTypeIds, query, hasOpenSeats },
     { commissionsDao }
   ) => {
     let commissions = await commissionsDao.fetchBoards();
 
     // typeof checks because all of the args are optional
 
-    if (typeof policyTypeId === 'number') {
+    if (typeof policyTypeIds !== 'undefined') {
       commissions = commissions.filter(
-        ({ PolicyTypeId }) => PolicyTypeId === policyTypeId
+        ({ PolicyTypeId }) =>
+          typeof PolicyTypeId === 'number' &&
+          policyTypeIds.includes(PolicyTypeId)
       );
     }
 
