@@ -266,15 +266,16 @@ exports[`Storyshots Checkbox default 1`] = `
 <div>
   <label
     className="cb"
+    htmlFor="Checkbox-\${this.props.name}"
   >
     <input
       className="cb-f"
-      id=""
-      name="commissions"
+      id="checkbox"
+      name="checkbox"
       onBlur=""
       onChange=""
       type="checkbox"
-      value="commissions"
+      value="checkbox"
     />
   </label>
 </div>

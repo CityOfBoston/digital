@@ -3,13 +3,5 @@ import { storiesOf } from '@storybook/react';
 import Checkbox from './Checkbox';
 
 storiesOf('Checkbox', module).add('default', () => (
-  <Checkbox
-    name="commissions"
-    value="commissionsya"
-    id=""
-    label=""
-    onChange=""
-    onBlur=""
-    key=""
-  />
+  <Checkbox name="checkbox" value="checkbox" id="" onChange="" onBlur="" />
 ));

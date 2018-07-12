@@ -51,7 +51,7 @@
     "next": "^6.0.0",
     "node-cleanup": "^2.1.2",
     "react": "^16.3.0",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.3.0",
     "yup": "^0.25.1"
   },
   "devDependencies": {

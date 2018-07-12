@@ -209,13 +209,11 @@ export default class ApplyPage extends React.Component<Props> {
       <li style={{ listStyleType: 'none' }}>
         {' '}
         <Checkbox
+          id={null}
           name="commissions"
           value="commission"
-          id={commission.id}
-          label=""
           onChange={null}
           onBlur={null}
-          key={commission.id}
         />{' '}
         <span className="cb-l">{commission.name}</span>
       </li>
