@@ -19,6 +19,7 @@
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name commissions-app --target typescript --output src/client/graphql/queries.d.ts && prettier --write src/client/graphql/queries.d.ts",
     "generate-fixtures": "ts-node ./scripts/generate-fixtures.ts",
+    "generate-db-types": "ts-node ./scripts/generate-db-types.ts",
     "travis-deploy": "travis-js-service-deploy deploy/Dockerfile"
   },
   "jest": {
