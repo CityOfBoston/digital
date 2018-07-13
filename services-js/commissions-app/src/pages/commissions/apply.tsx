@@ -99,7 +99,6 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.firstName && errors.firstName}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Middle Name"
                   name="middleName"
@@ -207,15 +206,13 @@ export default class ApplyPage extends React.Component<Props> {
   renderCommission(commission: Commission) {
     return (
       <li style={{ listStyleType: 'none' }}>
-        {' '}
         <Checkbox
-          id={commission.id}
           name="commissions"
+          value={commission.id.toString()}
           title={commission.name}
-          value="commission"
           onChange={null}
           onBlur={null}
-        />{' '}
+        />
       </li>
     );
   }

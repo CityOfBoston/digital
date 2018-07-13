@@ -266,7 +266,6 @@ exports[`Storyshots Checkbox default 1`] = `
 <div>
   <label
     className="cb"
-    htmlFor="Checkbox-\${this.props.name}"
   >
     <input
       className="cb-f"

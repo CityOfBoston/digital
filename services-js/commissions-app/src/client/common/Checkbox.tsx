@@ -2,8 +2,7 @@ import React from 'react';
 
 export interface CheckboxProps {
   name: string;
-  id: any;
-  value: any;
+  value: string;
   onChange: any;
   onBlur: any;
   title: string;
@@ -13,10 +12,10 @@ export default class Checkbox extends React.Component<CheckboxProps> {
   render() {
     return (
       <div>
-        <label className="cb" htmlFor="Checkbox-${this.props.name}">
+        <label className="cb">
           <input
-            name="checkbox"
-            value="checkbox"
+            name={this.props.name}
+            value={this.props.value}
             type="checkbox"
             className="cb-f"
             onChange={this.props.onChange}
