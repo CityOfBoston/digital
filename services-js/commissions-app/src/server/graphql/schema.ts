@@ -105,7 +105,7 @@ const queryRootResolvers: Resolvers<Query, Context> = {
 
     // typeof checks because all of the args are optional
 
-    if (typeof policyTypeIds !== 'undefined') {
+    if (Array.isArray(policyTypeIds)) {
       commissions = commissions.filter(
         ({ PolicyTypeId }) =>
           typeof PolicyTypeId === 'number' &&
