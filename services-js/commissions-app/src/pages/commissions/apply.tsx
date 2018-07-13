@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
+import Checkbox from '../../client/common/Checkbox';
 
 import fetchCommissions, {
   Commission,
@@ -13,7 +14,7 @@ export interface Props {
   commissions: Commission[];
 }
 
-export default class IndexPage extends React.Component<Props> {
+export default class ApplyPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
@@ -74,7 +75,10 @@ export default class IndexPage extends React.Component<Props> {
               confirmEmail: Yup.string()
                 .email()
                 .required('Your Confirm Email Is Required!')
-                .oneOf([Yup.ref('email', null)], 'Make Sure Emails Match!'),
+                .oneOf(
+                  [Yup.ref('email', undefined)],
+                  'Make Sure Emails Match!'
+                ),
             })}
             onSubmit={() => {}}
             render={({
@@ -95,7 +99,6 @@ export default class IndexPage extends React.Component<Props> {
                   error={touched.firstName && errors.firstName}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Middle Name"
                   name="middleName"
@@ -192,7 +195,6 @@ export default class IndexPage extends React.Component<Props> {
               </form>
             )}
           />
-
           <ul>
             {commissions.map(commission => this.renderCommission(commission))}
           </ul>
@@ -202,6 +204,16 @@ export default class IndexPage extends React.Component<Props> {
   }
 
   renderCommission(commission: Commission) {
-    return <li key={commission.id}>{commission.name}</li>;
+    return (
+      <li style={{ listStyleType: 'none' }}>
+        <Checkbox
+          name="commissions"
+          value={commission.id.toString()}
+          title={commission.name}
+          onChange={null}
+          onBlur={null}
+        />
+      </li>
+    );
   }
 }

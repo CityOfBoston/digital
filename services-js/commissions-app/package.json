@@ -37,6 +37,7 @@
     "@cityofboston/next-client-common": "^0.0.0",
     "@cityofboston/percy-common": "^0.0.0",
     "@cityofboston/srv-decrypt-env": "^0.0.0",
+    "@types/yup": "^0.24.7",
     "apollo-server-hapi": "^1.3.6",
     "boom": "^7.2.0",
     "dataloader": "^1.4.0",

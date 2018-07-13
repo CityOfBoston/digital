@@ -262,6 +262,26 @@ exports[`Storyshots ApplyPage default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Checkbox default 1`] = `
+<label
+  className="cb"
+>
+  <input
+    className="cb-f"
+    name="checkbox"
+    onBlur=""
+    onChange=""
+    type="checkbox"
+    value="checkbox"
+  />
+  <span
+    className="cb-l"
+  >
+    Community Preservation Committee
+  </span>
+</label>
+`;
+
 exports[`Storyshots TextInput default 1`] = `
 <div
   className="txt m-b300"
