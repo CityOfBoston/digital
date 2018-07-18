@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots IndexPage default 1`] = `
+<div
+  className="mn"
+>
+  <div
+    className="b b-c"
+  >
+    <div
+      className="sh"
+    >
+      <h2
+        className="sh-title"
+      >
+        Access Boston
+      </h2>
+    </div>
+  </div>
+</div>
+`;

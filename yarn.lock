@@ -1699,6 +1699,10 @@
   version "1.13.6"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.6.tgz#128d1685a7c34d31ed17010fc87d6a12c1de6976"
 
+"@types/yup@^0.24.7":
+  version "0.24.7"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.24.7.tgz#d3b6d7c5d4faf9419005a889ce4d3fddfc0e77ed"
+
 "@webassemblyjs/ast@1.5.9":
   version "1.5.9"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.5.9.tgz#b2770182678691ab4949d593105c15d4074fedb6"
