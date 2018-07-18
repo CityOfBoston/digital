@@ -26,7 +26,7 @@ export function makeRoutesForNextApp(
   app: next.Server,
   pathPrefix: string
 ): ServerRoute[] {
-  if (!pathPrefix.match(/^\/.*\/$/)) {
+  if (pathPrefix !== '/' && !pathPrefix.match(/^\/.*\/$/)) {
     throw new Error(
       `Path prefix "${pathPrefix}" must begin and end with a '/' character`
     );
