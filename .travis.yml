@@ -14,9 +14,9 @@ before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 stages:
   - name: test
-    if: branch !~ ^staging\/
+    if: branch !~ /^staging\//
   - name: deploy
-    if: branch =~ ^(production|staging)\/  AND type IN (push)
+    if: branch =~ /^(production|staging)\//  AND type IN (push)
 jobs:
   include:
   - stage: test
