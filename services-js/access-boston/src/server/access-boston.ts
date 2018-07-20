@@ -3,42 +3,30 @@
 import fs from 'fs';
 
 import { Server as HapiServer } from 'hapi';
-import Boom from 'boom';
+import cookieAuthPlugin from 'hapi-auth-cookie';
+
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
-import { IdentityProvider, ServiceProvider } from 'saml2-js';
 
-import {
-  loggingPlugin,
-  adminOkRoute,
-} from '../../../../modules-js/hapi-common/build/hapi-common';
+import { HAPI_INJECT_CONFIG_KEY } from '@cityofboston/next-client-common';
 
-import { makeRoutesForNextApp } from '../../../../modules-js/hapi-next/build/hapi-next';
+import { loggingPlugin, adminOkRoute } from '@cityofboston/hapi-common';
 
-import decryptEnv from '../../../../modules-js/srv-decrypt-env/build/srv-decrypt-env';
-import { loadSamlConfiguration } from './saml-configuration';
+import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
+
+import decryptEnv from '@cityofboston/srv-decrypt-env';
+import SamlAuth, { makeSamlAuth } from './SamlAuth';
+
+import { InfoResponse } from '../lib/api';
+import { Session } from './api';
+import SamlAuthFake from './SamlAuthFake';
 
 const PATH_PREFIX = '/';
 const METADATA_PATH = '/metadata.xml';
 const ASSERT_PATH = '/assert';
 
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-
-type SamlAssertion = {
-  response_header: {
-    version: '2.0';
-    destination: string;
-    in_response_to: string;
-    id: string;
-  };
-  type: 'authn_response';
-  user: {
-    name_id: string;
-    session_index: string;
-    attributes: object;
-  };
-};
 
 export async function makeServer(port) {
   const serverOptions = {
@@ -50,7 +38,7 @@ export async function makeServer(port) {
     },
     debug: dev
       ? {
-          request: ['handler'],
+          request: ['error'],
         }
       : {},
   };
@@ -64,34 +52,20 @@ export async function makeServer(port) {
 
   const server = new HapiServer(serverOptions);
 
-  const samlConfig =
-    process.env.NODE_ENV === 'test'
-      ? { signRequests: false, loginUrl: '', logoutUrl: '', certificates: [] }
-      : await loadSamlConfiguration('./saml-metadata.xml');
-
-  const serviceProviderOpts = {
-    entity_id: `https://${process.env.PUBLIC_HOST}${METADATA_PATH}`,
-    private_key:
-      process.env.NODE_ENV === 'test'
-        ? ''
-        : fs.readFileSync('service-provider.key').toString(),
-    certificate:
-      process.env.NODE_ENV === 'test'
-        ? ''
-        : fs.readFileSync('service-provider.crt').toString(),
-    assert_endpoint: `https://${process.env.PUBLIC_HOST}${ASSERT_PATH}`,
-    sign_get_request: samlConfig.signRequests,
-    allow_unencrypted_assertion: true,
-  };
-
-  const identityProviderOpts = {
-    sso_login_url: samlConfig.loginUrl,
-    sso_logout_url: samlConfig.logoutUrl,
-    certificates: samlConfig.certificates,
-  };
-
-  const serviceProvider = new ServiceProvider(serviceProviderOpts);
-  const identityProvider = new IdentityProvider(identityProviderOpts);
+  const samlAuth: SamlAuth =
+    process.env.NODE_ENV === 'production' || process.env.SAML_IN_DEV
+      ? await makeSamlAuth(
+          {
+            metadataPath: './saml-metadata.xml',
+            serviceProviderCertPath: './service-provider.crt',
+            serviceProviderKeyPath: './service-provider.key',
+          },
+          {
+            metadataUrl: `https://${process.env.PUBLIC_HOST}${METADATA_PATH}`,
+            assertUrl: `https://${process.env.PUBLIC_HOST}${ASSERT_PATH}`,
+          }
+        )
+      : (new SamlAuthFake(ASSERT_PATH) as any);
 
   // We don't turn on Next for test mode because it hangs Jest.
   let nextApp;
@@ -106,6 +80,7 @@ export async function makeServer(port) {
     };
 
     config.serverRuntimeConfig = {
+      [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
       ...config.serverRuntimeConfig,
     };
 
@@ -119,11 +94,33 @@ export async function makeServer(port) {
   }
 
   await server.register(acceptLanguagePlugin);
+  await server.register(cookieAuthPlugin);
 
   // We start up the server in test, and we don’t want it logging.
   if (process.env.NODE_ENV !== 'test') {
     await server.register(loggingPlugin);
   }
+
+  if (
+    process.env.NODE_ENV === 'production' &&
+    !process.env.SESSION_COOKIE_PASSWORD
+  ) {
+    throw new Error('Must set $SESSION_COOKIE_PASSWORD in production');
+  }
+
+  const cookiePassword =
+    process.env.SESSION_COOKIE_PASSWORD || 'iWIMwE69HJj9GQcHfCiu2TVyZoVxvYoU';
+
+  server.auth.strategy('session', 'cookie', {
+    password: cookiePassword,
+    cookie: 'sid',
+    redirectTo: '/login',
+    isSecure: process.env.NODE_ENV === 'production',
+    ttl: 60 * 60 * 1000,
+    keepAlive: true,
+  });
+
+  server.auth.default('session');
 
   server.route(adminOkRoute);
 
@@ -131,45 +128,65 @@ export async function makeServer(port) {
     path: METADATA_PATH,
     method: 'GET',
     handler: (_, h) =>
-      h.response(serviceProvider.create_metadata()).type('application/xml'),
+      h.response(samlAuth.getMetadata()).type('application/xml'),
   });
 
   server.route({
     path: '/login',
     method: 'GET',
-    handler: (_, h) =>
-      new Promise((resolve, reject) => {
-        serviceProvider.create_login_request_url(
-          identityProvider,
-          {},
-          (err, loginUrl) => {
-            if (err) {
-              return reject(err);
-            }
+    options: {
+      auth: { mode: 'try' },
+      plugins: { 'hapi-auth-cookie': { redirectTo: false } },
+    },
+    handler: async (_, h) => h.redirect(await samlAuth.makeLoginUrl()),
+  });
 
-            resolve(h.redirect(loginUrl));
-          }
-        );
-      }),
+  server.route({
+    path: '/logout',
+    method: 'GET',
+    handler: async (request, h) => {
+      const session: Session = request.auth.credentials as any;
+
+      return h.redirect(
+        await samlAuth.makeLogoutUrl(session.nameId, session.sessionIndex)
+      );
+    },
+  });
+
+  server.route({
+    path: '/info',
+    method: 'GET',
+    handler: (request, h) => {
+      const session: Session = request.auth.credentials as any;
+
+      const info: InfoResponse = {
+        name: session.nameId,
+      };
+
+      return h.response(info);
+    },
   });
 
   server.route({
     path: ASSERT_PATH,
-    method: 'POST',
-    handler: req =>
-      new Promise((resolve, reject) => {
-        serviceProvider.post_assert(
-          identityProvider,
-          { request_body: req.payload },
-          (err, saml: SamlAssertion) => {
-            if (err) {
-              return reject(Boom.badRequest(err.toString()));
-            }
+    // 'GET' is only useful for dev
+    method: ['POST', 'GET'],
+    options: {
+      auth: false,
+    },
+    handler: async (request, h) => {
+      const { nameId, sessionIndex } = await samlAuth.handlePostAssert(
+        request.payload as string
+      );
 
-            resolve(saml.user.name_id);
-          }
-        );
-      }),
+      const session: Session = {
+        nameId,
+        sessionIndex,
+      };
+
+      (request as any).cookieAuth.set(session);
+      return h.redirect('/');
+    },
   });
 
   if (nextApp) {

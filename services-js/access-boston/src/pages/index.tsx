@@ -1,13 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
-import {
-  SectionHeader,
-  PUBLIC_CSS_URL,
-} from '../../../../modules-js/react-fleet/build/react-fleet';
+import { fetchJson } from '@cityofboston/next-client-common';
+import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-export interface Props {}
+import { InfoResponse } from '../lib/api';
+
+export interface Props {
+  info: InfoResponse;
+}
 
 export default class IndexPage extends React.Component<Props> {
+  static async getInitialProps({ req }) {
+    return { info: await fetchJson(req, '/info') };
+  }
+
   render() {
     return (
       <div className="mn">
@@ -17,6 +23,8 @@ export default class IndexPage extends React.Component<Props> {
 
         <div className="b b-c">
           <SectionHeader title="Access Boston" />
+
+          <pre>{JSON.stringify(this.props.info, null, 2)}</pre>
         </div>
       </div>
     );
