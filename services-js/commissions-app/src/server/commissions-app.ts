@@ -191,6 +191,9 @@ export async function makeServer(port) {
     plugin: graphiqlHapi,
     options: {
       path: `${PATH_PREFIX}/graphiql`,
+      route: {
+        auth: false,
+      },
       graphiqlOptions: {
         endpointURL: `${PATH_PREFIX}/graphql`,
         passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
