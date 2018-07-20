@@ -16,6 +16,11 @@ exports[`Storyshots IndexPage default 1`] = `
         Access Boston
       </h2>
     </div>
+    <pre>
+      {
+  "name": "CON01234"
+}
+    </pre>
   </div>
 </div>
 `;

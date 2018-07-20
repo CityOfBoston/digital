@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import getConfig from 'next/config';
+import { IncomingMessage } from 'http';
 
 export const API_KEY_CONFIG_KEY = 'graphqlApiKey';
 export const HAPI_INJECT_CONFIG_KEY = 'graphqlHapiInject';
@@ -154,6 +155,72 @@ export function fetchGraphql<T>(
     return clientFetchGraphql<T>(query, variables);
   } else {
     return serverFetchGraphql<T>(query, variables);
+  }
+}
+
+async function clientFetchJson<T>(
+  path: string,
+  init?: RequestInit | undefined
+): Promise<T> {
+  const res = await fetch(path, init);
+
+  if (res.ok) {
+    // We do the res.ok check rather than passing it in so that we only call
+    // res.json() on an OK repsonse.
+    return await res.json();
+  } else {
+    throw new Error(await res.text());
+  }
+}
+
+async function serverFetchJson<T>(
+  parentRequest: IncomingMessage | null,
+  path: string,
+  init?: RequestInit | undefined
+): Promise<T> {
+  if (!parentRequest) {
+    throw new Error('parentRequest not sent in fetchJson');
+  }
+  init = init || {};
+
+  const { serverRuntimeConfig } = getConfig();
+
+  if (!serverRuntimeConfig || !serverRuntimeConfig[HAPI_INJECT_CONFIG_KEY]) {
+    throw new Error(
+      `Hapi inject not found in server config at ${HAPI_INJECT_CONFIG_KEY}`
+    );
+  }
+
+  const hapiInject = serverRuntimeConfig[HAPI_INJECT_CONFIG_KEY];
+
+  const headers = {
+    cookie: parentRequest.headers.cookie,
+    ...(init.headers || {}),
+  };
+
+  const res = await hapiInject({
+    url: path,
+    method: init.method || 'get',
+    headers,
+    payload: init.body,
+  });
+
+  if (res.statusCode !== 200) {
+    throw new Error(res.result);
+  }
+
+  return typeof res.result === 'string' ? JSON.parse(res.result) : res.result;
+}
+
+export function fetchJson<T>(
+  parentRequest: IncomingMessage | null,
+  path: string,
+  init?: RequestInit | undefined
+): Promise<T> {
+  if ((process as any).browser) {
+    return clientFetchJson<T>(path, init);
+  } else {
+    return serverFetchJson<T>(parentRequest, path, init);
   }
 }
 

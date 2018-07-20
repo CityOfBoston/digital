@@ -2,7 +2,7 @@ import Good from 'good';
 import Boom from 'boom';
 import { Squeeze } from 'good-squeeze';
 import Console from 'good-console';
-import { ServerAuthScheme } from 'hapi';
+import { ServerAuthScheme, ServerRoute } from 'hapi';
 
 /**
  * Adds our preferred console logging that excludes health checks.
@@ -43,13 +43,14 @@ export const loggingPlugin = {
  *
  * @example server.route(adminOkRoute);
  */
-export const adminOkRoute = {
+export const adminOkRoute: ServerRoute = {
   method: 'GET',
   path: '/admin/ok',
   handler: () => 'ok',
   options: {
     // mark this as a health check so that it doesn’t get logged
     tags: ['health'],
+    auth: false,
   },
 };
 
