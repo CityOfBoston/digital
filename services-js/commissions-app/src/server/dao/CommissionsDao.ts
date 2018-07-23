@@ -10,8 +10,9 @@ import {
 } from './CommissionsDb.d';
 
 export type DbBoard = BoardsEntityAll & {
-  // Added by the BQARD_SQL below
-  ActiveCount: number;
+  /** Added by the BOARD_SQL below. Can be null if there are no active members
+   * to 'COUNT' */
+  ActiveCount: number | null;
 };
 export type DbDepartment = DepartmentsEntityAll;
 export type DbAuthority = AuthorityTypesEntityAll;
@@ -25,9 +26,11 @@ export type DbPolicyType = PolicyTypesEntityAll;
  *
  * We do this with a join for efficiency rather than pulling in all of the
  * members and doing a JS-side filter.
+ *
+ * LEFT JOIN so that we get boards even with no active members.
  */
 const BOARD_SQL = `
-  SELECT * FROM dbo.Boards JOIN
+  SELECT * FROM dbo.Boards LEFT JOIN
     (SELECT Assignments.BoardId, COUNT(Assignments.PersonId) as ActiveCount
       FROM Assignments
       WHERE Assignments.StatusId = 101
