@@ -123,7 +123,7 @@ const queryRootResolvers: Resolvers<Query, Context> = {
 
     if (typeof hasOpenSeats === 'boolean') {
       commissions = commissions.filter(
-        ({ ActiveCount, Seats }) => ActiveCount < Seats === hasOpenSeats
+        ({ ActiveCount, Seats }) => (ActiveCount || 0) < Seats === hasOpenSeats
       );
     }
 
@@ -173,8 +173,9 @@ export const commissionResolvers: Resolvers<Commission, Context> = {
   seats: ({ Seats }) => Seats,
   enablingLegislation: ({ Legislation }) => Legislation,
   // Currently some boards have "0" for the number of seats, so the open seat
-  // calculation ends up negative.
-  openSeats: ({ ActiveCount, Seats }) => Math.max(0, Seats - ActiveCount),
+  // calculation ends up negative. `max 0` keeps us from looking silly.
+  openSeats: ({ ActiveCount, Seats }) =>
+    Math.max(0, Seats - (ActiveCount || 0)),
   applyUrl: ({ BoardName }) =>
     `https://www.cityofboston.gov/boardsandcommissions/application/apply.aspx?bid=${encodeURIComponent(
       BoardName!
