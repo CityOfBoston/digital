@@ -32,8 +32,8 @@ beforeEach(() => {
 });
 
 describe('server', () => {
-  it('can be created', () => {
-    const { server } = makeServer({ opbeat });
+  it('can be created', async () => {
+    const { server } = await makeServer({ opbeat });
     expect(server).toBeDefined();
   });
 });
@@ -48,7 +48,7 @@ describe('running server', () => {
 
     process.env.API_KEYS = API_KEY;
 
-    const out = makeServer({ opbeat });
+    const out = await makeServer({ opbeat });
     server = out.server;
     const startup = out.startup;
 
@@ -83,7 +83,7 @@ describe('running server', () => {
         },
         payload: GRAPHQL_INTROSPECTION_PAYLOAD,
       });
-      expect(resp.statusCode).toEqual(401);
+      expect(resp.statusCode).toEqual(403);
     });
 
     it('rejects missing auth header', async () => {

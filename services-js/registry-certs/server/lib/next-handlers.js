@@ -4,7 +4,7 @@ import compression from 'compression';
 
 export const nextHandler = (app, page = null, staticQuery = null) => async (
   { path, raw: { req, res }, query, params },
-  reply
+  h
 ) => {
   const pageQuery = {
     ...staticQuery,
@@ -13,21 +13,23 @@ export const nextHandler = (app, page = null, staticQuery = null) => async (
   };
 
   const html = await app.renderToHTML(req, res, page || path, pageQuery);
-  reply(html).code(res.statusCode);
+  return h.response(html).code(res.statusCode);
 };
 
 export const nextDefaultHandler = app => {
   const compressionMiddleware = compression();
   const handler = app.getRequestHandler();
 
-  return async ({ raw: { req, res }, url }, hapiReply) => {
+  return async ({ raw: { req, res }, url }, h) => {
     // Because Next.js writes to the raw response we don't get Hapi's built-in
     // gzipping or cache control.. So, we run an express middleware that
     // monkeypatches the raw response to gzip its output.
     await new Promise(resolve => {
       compressionMiddleware(req, res, resolve);
     });
+
     await handler(req, res, url);
-    hapiReply.close(false);
+
+    return h.close;
   };
 };

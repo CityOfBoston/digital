@@ -41,3 +41,38 @@ export const rollbarWrapGraphqlOptions = (
     throw e;
   }
 };
+
+// https://docs.rollbar.com/docs/javascript#section-using-hapi
+export const hapiPlugin = {
+  name: 'rollbar',
+
+  register: async function(server: any, { rollbar }: { rollbar: Rollbar }) {
+    const preResponse = (request, h) => {
+      const response = request.response;
+
+      if (!rollbar || !response.isBoom) {
+        return h.continue;
+      }
+
+      const cb = rollbarErr => {
+        if (rollbarErr) {
+          // eslint-disable-next-line no-console
+          console.error(`Error reporting to rollbar, ignoring: ${rollbarErr}`);
+        }
+      };
+
+      const error = response;
+
+      if (error instanceof Error) {
+        rollbar.error(error, request, cb);
+      } else {
+        rollbar.error(`Error: ${error}`, request, cb);
+      }
+
+      return h.continue;
+    };
+
+    server.ext('onPreResponse', preResponse);
+    server.expose('rollbar', rollbar);
+  },
+};

@@ -16,9 +16,9 @@ export type RequestAdditions = {|
   hapiInject: HapiInject,
 |};
 
-export default (handler: (request: mixed, reply: mixed) => mixed) => (
+export default (handler: (request: mixed, h: mixed) => mixed) => (
   request: any,
-  reply: mixed
+  h: mixed
 ) => {
   const { server, raw: { req } } = request;
 
@@ -28,5 +28,5 @@ export default (handler: (request: mixed, reply: mixed) => mixed) => (
 
   Object.assign(req, requestAdditions);
 
-  handler(request, reply);
+  return handler(request, h);
 };

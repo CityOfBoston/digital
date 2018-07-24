@@ -4,7 +4,7 @@ import Hapi from 'hapi';
 import Good from 'good';
 import next from 'next';
 import Boom from 'boom';
-import Inert, { type ReplyWithInert } from 'inert';
+import Inert from 'inert';
 import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
@@ -15,7 +15,7 @@ import { Client as PostmarkClient } from 'postmark';
 import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
 import addRequestAdditions from './lib/request-additions';
 import decryptEnv from './lib/decrypt-env';
-import { rollbarWrapGraphqlOptions } from './lib/rollbar-utils';
+import { rollbarWrapGraphqlOptions, hapiPlugin } from './lib/rollbar-utils';
 
 import {
   makeRegistryDataFactory,
@@ -44,19 +44,20 @@ type ServerArgs = {
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export function makeServer({ rollbar }: ServerArgs) {
-  const server = new Hapi.Server();
+export async function makeServer({ rollbar }: ServerArgs) {
+  const serverOptions = {
+    port,
+    ...(process.env.USE_SSL
+      ? {
+          tls: {
+            key: fs.readFileSync('server.key'),
+            cert: fs.readFileSync('server.crt'),
+          },
+        }
+      : {}),
+  };
 
-  if (process.env.USE_SSL) {
-    const tls = {
-      key: fs.readFileSync('server.key'),
-      cert: fs.readFileSync('server.crt'),
-    };
-
-    server.connection({ port, tls }, '0.0.0.0');
-  } else {
-    server.connection({ port }, '0.0.0.0');
-  }
+  const server = new Hapi.Server(serverOptions);
 
   const app = next({
     dev: process.env.NODE_ENV !== 'production' && !process.env.USE_BUILD,
@@ -122,30 +123,17 @@ export function makeServer({ rollbar }: ServerArgs) {
     };
   };
 
-  // https://docs.rollbar.com/docs/javascript#section-using-hapi
-  server.on('request-error', (request, error) => {
-    rollbar.error(
-      error instanceof Error ? error : `Error: ${error}`,
-      request,
-      rollbarErr => {
-        if (rollbarErr) {
-          console.error('Error reporting to rollbar, ignoring: ' + rollbarErr);
-        }
-      }
-    );
-  });
-
   server.auth.scheme(
     'headerKeys',
     (s, { keys, header }: { header: string, keys: string[] }) => ({
-      authenticate: (request, reply) => {
+      authenticate: async (request, h) => {
         const key = request.headers[header.toLowerCase()];
         if (!key) {
-          reply(Boom.unauthorized(`Missing ${header} header`));
+          throw Boom.unauthorized(`Missing ${header} header`);
         } else if (keys.indexOf(key) === -1) {
-          reply(Boom.unauthorized(`Key ${key} is not a valid key`));
+          throw Boom.forbidden(`Key ${key} is not a valid key`);
         } else {
-          reply.continue({ credentials: key });
+          return h.authenticated({ credentials: { key } });
         }
       },
     })
@@ -158,9 +146,14 @@ export function makeServer({ rollbar }: ServerArgs) {
       : ['test-api-key'],
   });
 
+  await server.register({
+    plugin: hapiPlugin,
+    options: { rollbar },
+  });
+
   if (process.env.NODE_ENV !== 'test') {
-    server.register({
-      register: Good,
+    await server.register({
+      plugin: Good,
       options: {
         reporters: {
           console: [
@@ -190,10 +183,10 @@ export function makeServer({ rollbar }: ServerArgs) {
     });
   }
 
-  server.register(Inert);
+  await server.register(Inert);
 
-  server.register({
-    register: graphqlHapi,
+  await server.register({
+    plugin: graphqlHapi,
     options: {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
@@ -216,7 +209,7 @@ export function makeServer({ rollbar }: ServerArgs) {
   });
 
   server.register({
-    register: graphiqlHapi,
+    plugin: graphiqlHapi,
     options: {
       path: '/graphiql',
       graphiqlOptions: {
@@ -230,14 +223,14 @@ export function makeServer({ rollbar }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/',
-    handler: (request, reply) =>
-      reply.redirect(process.env.ROOT_REDIRECT_URL || '/death'),
+    handler: (request, h) =>
+      h.redirect(process.env.ROOT_REDIRECT_URL || '/death'),
   });
 
   server.route({
     method: 'GET',
     path: '/admin/ok',
-    handler: (request, reply) => reply('ok'),
+    handler: () => 'ok',
     config: {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
@@ -255,7 +248,7 @@ export function makeServer({ rollbar }: ServerArgs) {
         parse: false,
       },
     },
-    handler: async (request, reply) => {
+    handler: async request => {
       try {
         await processStripeEvent(
           {
@@ -268,10 +261,10 @@ export function makeServer({ rollbar }: ServerArgs) {
           request.headers['stripe-signature'],
           (request.payload: any).toString()
         );
-        reply().code(200);
+        return '';
       } catch (e) {
         rollbar.error(e, request.raw.req);
-        reply(e);
+        throw e;
       }
     },
   });
@@ -296,9 +289,9 @@ export function makeServer({ rollbar }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/assets/{path*}',
-    handler: (request, reply: any) => {
+    handler: (request, h: any) => {
       if (!request.params.path || request.params.path.indexOf('..') !== -1) {
-        return reply(Boom.forbidden());
+        throw Boom.forbidden();
       }
 
       const p = Path.join(
@@ -307,7 +300,7 @@ export function makeServer({ rollbar }: ServerArgs) {
         ...request.params.path.split('/')
       );
 
-      return (reply: ReplyWithInert)
+      return h
         .file(p)
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
     },
@@ -332,7 +325,7 @@ export function makeServer({ rollbar }: ServerArgs) {
 export default async function startServer(args: ServerArgs) {
   await decryptEnv();
 
-  const { server, startup } = makeServer(args);
+  const { server, startup } = await makeServer(args);
 
   const shutdown = await startup();
   cleanup(exitCode => {
