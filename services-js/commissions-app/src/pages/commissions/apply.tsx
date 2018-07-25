@@ -24,7 +24,8 @@ export default class ApplyPage extends React.Component<Props> {
     commission: Commission,
     checkedCommissionIds: string[],
     push,
-    remove
+    remove,
+    onblur
   ) {
     const checked = checkedCommissionIds.includes(commission.id.toString());
 
@@ -231,7 +232,8 @@ export default class ApplyPage extends React.Component<Props> {
                           commission,
                           values.commissionIds,
                           push,
-                          remove
+                          remove,
+                          onblur
                         )
                       )}
                       <div className="t--subinfo t--err m-t100">
