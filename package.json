@@ -10,8 +10,8 @@
   },
   "workspaces": {
     "packages": [
-      "modules-js/*",
       "services-js/*",
+      "modules-js/*",
       "templates/js-*",
       "templates/js-*/build/*"
     ],
