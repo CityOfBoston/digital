@@ -9,5 +9,6 @@ storiesOf('Checkbox', module).add('default', () => (
     value="checkbox"
     onChange=""
     onBlur=""
+    checked={true}
   />
 ));

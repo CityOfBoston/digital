@@ -250,6 +250,12 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
       </div>
+      <ul>
+        <div
+          className="t--subinfo t--err m-t100"
+        />
+         
+      </ul>
       <button
         className="btn btn--700"
         type="submit"
@@ -257,7 +263,6 @@ exports[`Storyshots ApplyPage default 1`] = `
         Send Message
       </button>
     </form>
-    <ul />
   </div>
 </div>
 `;
@@ -267,10 +272,12 @@ exports[`Storyshots Checkbox default 1`] = `
   className="cb"
 >
   <input
+    checked={true}
     className="cb-f"
     name="checkbox"
     onBlur=""
     onChange=""
+    required={undefined}
     type="checkbox"
     value="checkbox"
   />
