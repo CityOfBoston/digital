@@ -3,6 +3,7 @@
 import fs from 'fs';
 
 import { Server as HapiServer } from 'hapi';
+import Crumb from 'crumb';
 import cookieAuthPlugin from 'hapi-auth-cookie';
 
 import cleanup from 'node-cleanup';
@@ -18,8 +19,7 @@ import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import SamlAuth, { makeSamlAuth } from './SamlAuth';
 
-import { InfoResponse } from '../lib/api';
-import { Session } from './api';
+import { Session, infoForUser } from './api';
 import SamlAuthFake from './SamlAuthFake';
 
 const PATH_PREFIX = '/';
@@ -36,11 +36,13 @@ export async function makeServer(port) {
     router: {
       stripTrailingSlash: true,
     },
-    debug: dev
-      ? {
-          request: ['error'],
-        }
-      : {},
+    debug:
+      // eslint-disable-next-line
+      dev || true
+        ? {
+            request: ['error'],
+          }
+        : {},
   };
 
   if (process.env.USE_SSL) {
@@ -95,6 +97,7 @@ export async function makeServer(port) {
 
   await server.register(acceptLanguagePlugin);
   await server.register(cookieAuthPlugin);
+  await server.register(Crumb);
 
   // We start up the server in test, and we don’t want it logging.
   if (process.env.NODE_ENV !== 'test') {
@@ -143,7 +146,7 @@ export async function makeServer(port) {
 
   server.route({
     path: '/logout',
-    method: 'GET',
+    method: 'POST',
     handler: async (request, h) => {
       const session: Session = request.auth.credentials as any;
 
@@ -156,14 +159,9 @@ export async function makeServer(port) {
   server.route({
     path: '/info',
     method: 'GET',
-    handler: (request, h) => {
+    handler: async (request, h) => {
       const session: Session = request.auth.credentials as any;
-
-      const info: InfoResponse = {
-        name: session.nameId,
-      };
-
-      return h.response(info);
+      return h.response(await infoForUser(session));
     },
   });
 
@@ -173,11 +171,17 @@ export async function makeServer(port) {
     method: ['POST', 'GET'],
     options: {
       auth: false,
+      plugins: {
+        crumb: false,
+      },
     },
     handler: async (request, h) => {
-      const { nameId, sessionIndex } = await samlAuth.handlePostAssert(
+      const assertResult = await samlAuth.handlePostAssert(
         request.payload as string
       );
+
+      console.log(JSON.stringify(assertResult, null, 2));
+      const { nameId, sessionIndex } = assertResult;
 
       const session: Session = {
         nameId,
@@ -190,7 +194,31 @@ export async function makeServer(port) {
   });
 
   if (nextApp) {
-    server.route(makeRoutesForNextApp(nextApp, '/'));
+    server.route(
+      makeRoutesForNextApp(nextApp, '/', {
+        ext: {
+          onPostAuth: {
+            // We have to manually add the CSRF token because the Next helpers
+            // only work on raw http objects and don't write out Hapi’s "state"
+            // cookies.
+            method: (request, h) => {
+              if (!request.state['crumb']) {
+                const crumb = (server.plugins as any).crumb.generate(
+                  request,
+                  h
+                );
+                request.raw.res.setHeader(
+                  'Set-Cookie',
+                  `crumb=${crumb};HttpOnly`
+                );
+              }
+
+              return h.continue;
+            },
+          },
+        },
+      })
+    );
   }
 
   return {

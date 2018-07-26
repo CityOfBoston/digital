@@ -75,7 +75,10 @@ export async function makePackageJsonTar(workspaceDir) {
     {
       file: path.join(workspaceDir, 'package-json.tar'),
       cwd: workspaceDir,
+      // We keep metadata out so that tarring across Travis deploys makes the
+      // same file, so that Docker caches things.
       portable: true,
+      noMtime: true,
     },
     packages.map(p => p.replace('../../', ''))
   );

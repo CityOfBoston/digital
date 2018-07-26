@@ -24,7 +24,9 @@ import { ServerRoute } from 'hapi';
  */
 export function makeRoutesForNextApp(
   app: next.Server,
-  pathPrefix: string
+  pathPrefix: string,
+  pageRouteOptions = {},
+  staticRouteOptions = {}
 ): ServerRoute[] {
   if (pathPrefix !== '/' && !pathPrefix.match(/^\/.*\/$/)) {
     throw new Error(
@@ -54,12 +56,14 @@ export function makeRoutesForNextApp(
         await requestHandler(req, res);
         return h.close;
       },
+      options: pageRouteOptions,
     },
     {
       path: `${assetPrefix}_next/{p*}`,
       method: 'GET',
       options: {
         auth: false,
+        ...staticRouteOptions,
       },
       handler: async ({ raw: { req, res }, params }, h) => {
         // Next always expects its "_next" stuff to be mounted at "/", so we

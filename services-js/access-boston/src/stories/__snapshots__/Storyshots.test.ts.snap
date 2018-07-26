@@ -1,26 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots IndexPage default 1`] = `
-<div
-  className="mn"
->
+Array [
   <div
-    className="b b-c"
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn"
   >
     <div
-      className="sh"
+      className="b b-c"
     >
-      <h2
-        className="sh-title"
+      <div
+        className="g"
       >
-        Access Boston
-      </h2>
+        <div
+          className="g--8"
+        >
+          <div
+            className="sh"
+          >
+            <h2
+              className="sh-title"
+            >
+              App Category
+            </h2>
+          </div>
+        </div>
+        <div
+          className="g--4 p-a200"
+          style={
+            Object {
+              "backgroundColor": "#f3f3f3",
+            }
+          }
+        >
+          <h2
+            className="css-xizy1b m-b200"
+          >
+            Account Tools
+          </h2>
+          <ul
+            className="ul"
+          >
+            <li>
+              <a
+                href="#"
+              >
+                Change password
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+              >
+                Manage device
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <pre>
-      {
-  "name": "CON01234"
-}
-    </pre>
-  </div>
-</div>
+  </div>,
+]
 `;

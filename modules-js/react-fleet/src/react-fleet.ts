@@ -30,3 +30,6 @@ export const LORA_SRC =
   'https://patterns.boston.gov/fonts/lora/lora-regular-webfont.woff2';
 export const MONSERRAT_SRC =
   'https://patterns.boston.gov/fonts/montserrat/montserrat-regular-webfont.woff2';
+
+export const SANS = 'Montserrat, Arial, sans-serif';
+export const SERIF = 'Lora, Georgia, serif';

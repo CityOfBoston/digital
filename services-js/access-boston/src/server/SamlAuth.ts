@@ -20,7 +20,9 @@ interface SamlAssertion {
   user: {
     name_id: string;
     session_index: string;
-    attributes: object;
+    attributes: {
+      groups: string[];
+    };
   };
 }
 
@@ -98,10 +100,15 @@ export async function makeServiceProvider(
   serviceProviderCert: Buffer,
   serviceProviderKey: Buffer
 ) {
+  const privateKey = serviceProviderKey.toString('utf-8');
+  const cert = serviceProviderCert.toString('utf-8');
+
   return new ServiceProvider({
     entity_id: metadataUrl,
-    private_key: serviceProviderKey.toString('utf-8'),
-    certificate: serviceProviderCert.toString('utf-8'),
+    // on Linux in the container, signing requries the cert as well as the
+    // private key.
+    private_key: [privateKey, cert].join('\n'),
+    certificate: cert,
     assert_endpoint: assertUrl,
     allow_unencrypted_assertion: true,
   });
@@ -198,6 +205,7 @@ export default class SamlAuth {
         {
           name_id: nameId,
           session_index: sessionIndex,
+          sign_get_request: true,
         },
         (err, logoutUrl) => {
           if (err) {
