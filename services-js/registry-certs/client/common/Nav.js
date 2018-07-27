@@ -6,7 +6,6 @@ import { observer } from 'mobx-react';
 
 import { getDependencies } from '../app';
 import type Cart from '../store/Cart';
-import { CHARLES_BLUE } from './style-constants';
 
 type DefaultProps = {|
   cart: Cart,
@@ -58,7 +57,7 @@ export default class Nav extends React.Component<Props> {
             display: inline-block;
             position: relative;
             background: white;
-            color: ${CHARLES_BLUE};
+            color: #091f2f;
             padding: 0.5em 0;
             margin-right: 1.25rem;
             margin-left: 1.25rem;

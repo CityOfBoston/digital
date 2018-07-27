@@ -39,7 +39,7 @@ export type OrderInfo = {|
 |};
 
 export default class Order {
-  @observable info: OrderInfo;
+  @observable info: OrderInfo = (null: any);
 
   @observable cardToken: ?string = null;
   @observable

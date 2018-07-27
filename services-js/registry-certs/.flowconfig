@@ -2,6 +2,10 @@
 flow-typed/
 flow-decl/
 
+[include]
+../../node_modules/
+
+
 [ignore]
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
 <PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/.*

@@ -15,8 +15,8 @@ type LocalStorageEntry = {|
 
 export class CartEntry {
   id: string;
-  @observable.ref cert: ?DeathCertificate;
-  @observable quantity: number;
+  @observable.ref cert: ?DeathCertificate = null;
+  @observable quantity: number = 0;
 }
 
 export default class Cart {

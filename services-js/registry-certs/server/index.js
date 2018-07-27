@@ -16,7 +16,7 @@ const rollbar = new Rollbar({
   },
 });
 
-const start = require('./server.js').default;
+const start = require('./server').default;
 
 start({ rollbar }).catch(err => {
   console.error('Error starting server');

@@ -13,11 +13,6 @@ import {
 
 import type Cart from '../../store/Cart';
 
-import {
-  GRAY_000,
-  CHARLES_BLUE,
-  OPTIMISTIC_BLUE,
-} from '../../common/style-constants';
 import CertificateRow from '../../common/CertificateRow';
 
 type Props = {|
@@ -106,8 +101,8 @@ export default class OrderDetails extends React.Component<Props, State> {
             <h2 className="stp">Order details</h2>
             <div className="t--info">
               {cart.size} {cart.size === 1 ? 'item' : 'items'} ×{' '}
-              {CERTIFICATE_COST_STRING} = ${(calculateCreditCardCost(cart.size)
-                .subtotal / 100
+              {CERTIFICATE_COST_STRING} = ${(
+                calculateCreditCardCost(cart.size).subtotal / 100
               ).toFixed(2)}{' '}
               + service fee*
             </div>
@@ -145,7 +140,7 @@ export default class OrderDetails extends React.Component<Props, State> {
 
         <style jsx>{`
           .dr {
-            background-color: ${GRAY_000};
+            background-color: #f3f3f3;
             margin-top: 0 !important;
           }
 
@@ -154,12 +149,12 @@ export default class OrderDetails extends React.Component<Props, State> {
           }
 
           .dr--open .dr-h {
-            background-color: ${GRAY_000};
-            color: ${CHARLES_BLUE};
+            background-color: #f3f3f3;
+            color: #091f2f;
           }
 
           .dr--open .dr-i {
-            fill: ${OPTIMISTIC_BLUE};
+            fill: #288be4;
           }
 
           .dr-c {

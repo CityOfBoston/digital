@@ -1,53 +1,25 @@
 {
-  "plugins": [
-    "babel-plugin-transform-decorators-legacy",
-    ["inline-import", {
-      "extensions": [
-        ".graphql",
-        ".env",
-        ".html",
-        ".mjml",
-        ".txt",
-        ".hbs"
-      ]
-    }],
-    "transform-class-properties"
-  ],
-
   "presets": [
-    ["env", { "modules": "commonjs" }],
-    "next/babel"
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": "commonjs"
+        },
+        "class-properties": {
+          "loose": true
+        }
+      }
+    ]
   ],
-
-  "env": {
-    "development": {
-      "plugins": [
-        "babel-plugin-transform-decorators-legacy",
-        ["inline-import", {
-          "extensions": [
-            ".graphql",
-            ".env",
-            ".html"
-          ]
-        }],
-        "transform-class-properties"
-      ],
-      "presets": "next/babel"
-    },
-
-    "production": {
-      "plugins": [
-        "babel-plugin-transform-decorators-legacy",
-        ["inline-import", {
-          "extensions": [
-            ".graphql",
-            ".env",
-            ".html"
-          ]
-        }],
-        "transform-class-properties"
-      ],
-      "presets": "next/babel"
-    }
-  }
+  "plugins": [
+    "@babel/plugin-transform-flow-strip-types",
+    [
+      "inline-import",
+      {
+        "extensions": [".graphql", ".env", ".html", ".mjml", ".txt", ".hbs"]
+      }
+    ],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+  ]
 }

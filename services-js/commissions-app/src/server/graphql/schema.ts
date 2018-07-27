@@ -208,12 +208,17 @@ const memberResolvers: Resolvers<Member, Context> = {
 
 export default makeExecutableSchema({
   typeDefs: [schemaGraphql],
-  resolvers: {
-    Query: queryRootResolvers,
-    Commission: commissionResolvers,
-    Department: departmentResolvers,
-    Member: memberResolvers,
-    PolicyType: policyTypeResolvers,
-  },
+  // We typecheck our own resolvers, so we set this as "any". Otherwise our
+  // precise "args" typing conflicts with the general {[argument: string]: any}
+  // type that the library gives them.
+  resolvers: [
+    {
+      Query: queryRootResolvers,
+      Commission: commissionResolvers,
+      Department: departmentResolvers,
+      Member: memberResolvers,
+      PolicyType: policyTypeResolvers,
+    },
+  ] as any,
   allowUndefinedInResolve: false,
 });

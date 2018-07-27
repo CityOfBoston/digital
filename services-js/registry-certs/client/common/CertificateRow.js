@@ -3,7 +3,7 @@
 import React, { type Element as ReactElement } from 'react';
 
 import type { DeathCertificate } from '../types';
-import { GRAY_100, CHARLES_BLUE } from './style-constants';
+import { CHARLES_BLUE } from './style-constants';
 
 export type Props = {|
   certificate: DeathCertificate,
@@ -19,9 +19,9 @@ const renderCertificate = (
 ) => (
   <div key="certificate" className="certificate-info-box">
     <div
-      className={`t--sans m-v100 ${thin
-        ? 'thin-certificate-name'
-        : 'certificate-name'}`}
+      className={`t--sans m-v100 ${
+        thin ? 'thin-certificate-name' : 'certificate-name'
+      }`}
     >
       {firstName} {lastName}
       {pending && (
@@ -58,7 +58,7 @@ const renderCertificate = (
       }
 
       .certificate-subinfo {
-        color: ${CHARLES_BLUE};
+        color: #091f2f;
         font-style: italic;
       }
     `}</style>
@@ -96,7 +96,7 @@ export default function CertificateRow({
 
       <style jsx>{`
         .row {
-          border-color: ${GRAY_100};
+          border-color: #e0e0e0;
           border-left-width: 0;
           border-right-width: 0;
 

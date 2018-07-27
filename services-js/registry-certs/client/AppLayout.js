@@ -12,7 +12,6 @@ import navigationHtml from '../templates/navigation.html';
 import footerHtml from '../templates/footer.html';
 
 import Nav from './common/Nav';
-import { FREEDOM_RED } from './common/style-constants';
 
 type Props = {|
   showNav?: boolean,
@@ -108,7 +107,7 @@ export default function AppLayout({ children, showNav }: Props) {
 
       <style jsx>{`
         .brc li:last-child a {
-          color: ${FREEDOM_RED};
+          color: #fb4d42;
         }
       `}</style>
     </div>

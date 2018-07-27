@@ -7,8 +7,6 @@ import { observer } from 'mobx-react';
 import type Cart, { CartEntry } from '../../store/Cart';
 import type SiteAnalytics from '../../lib/SiteAnalytics';
 
-import { FREEDOM_RED, OPTIMISTIC_BLUE } from '../../common/style-constants';
-
 import CertificateRow from '../../common/CertificateRow';
 
 export type Props = {
@@ -30,7 +28,9 @@ export default class CartItem extends React.Component<Props, State> {
 
   @computed
   get quantityValue(): string {
-    const { entry: { quantity } } = this.props;
+    const {
+      entry: { quantity },
+    } = this.props;
     const { quantityHasFocus } = this.state;
 
     if (quantity === 0) {
@@ -51,7 +51,11 @@ export default class CartItem extends React.Component<Props, State> {
   handleQuantityChange = action(
     'CartItem > handleQuantityChange',
     (ev: SyntheticInputEvent<*>) => {
-      const { cart, siteAnalytics, entry: { cert } } = this.props;
+      const {
+        cart,
+        siteAnalytics,
+        entry: { cert },
+      } = this.props;
 
       const value = ev.target.value;
       if (!cert) {
@@ -78,7 +82,10 @@ export default class CartItem extends React.Component<Props, State> {
   });
 
   render() {
-    const { entry: { cert }, lastRow } = this.props;
+    const {
+      entry: { cert },
+      lastRow,
+    } = this.props;
 
     if (!cert) {
       return null;
@@ -128,7 +135,7 @@ export default class CartItem extends React.Component<Props, State> {
             font-family: inherit;
             font-style: italic;
             font-size: 1rem;
-            background: ${OPTIMISTIC_BLUE};
+            background: #288be4;
             color: white;
             text-align: right;
             padding: 0.5rem;
@@ -137,7 +144,7 @@ export default class CartItem extends React.Component<Props, State> {
           .remove-button {
             border: none;
             background: transparent;
-            color: ${FREEDOM_RED};
+            color: #091f2f;
             font-size: 2.5rem;
             vertical-align: middle;
             cursor: pointer;
