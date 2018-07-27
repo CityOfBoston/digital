@@ -254,7 +254,6 @@ exports[`Storyshots ApplyPage default 1`] = `
         <div
           className="t--subinfo t--err m-t100"
         />
-         
       </ul>
       <button
         className="btn btn--700"

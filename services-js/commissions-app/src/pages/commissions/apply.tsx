@@ -25,14 +25,17 @@ export default class ApplyPage extends React.Component<Props> {
     checkedCommissionIds: string[],
     push,
     remove,
-    onblur
+    handleBlur
   ) {
     const checked = checkedCommissionIds.includes(commission.id.toString());
 
     return (
-      <li style={{ listStyleType: 'none' }}>
+      <li
+        style={{ listStyleType: 'none' }}
+        key={`commissionIds.${commission.id}`}
+      >
         <Checkbox
-          name="commissions"
+          name={`commissionIds.${commission.id}`}
           value={commission.id.toString()}
           title={commission.name}
           onChange={() => {
@@ -42,7 +45,7 @@ export default class ApplyPage extends React.Component<Props> {
               remove(checkedCommissionIds.indexOf(commission.id.toString()));
             }
           }}
-          onBlur={onblur}
+          onBlur={handleBlur}
           checked={checked}
         />
       </li>
@@ -233,12 +236,12 @@ export default class ApplyPage extends React.Component<Props> {
                           values.commissionIds,
                           push,
                           remove,
-                          onblur
+                          handleBlur
                         )
                       )}
                       <div className="t--subinfo t--err m-t100">
-                        {errors.commissionIds}
-                      </div>{' '}
+                        {touched.commissionIds && errors.commissionIds}
+                      </div>
                     </ul>
                   )}
                 />
