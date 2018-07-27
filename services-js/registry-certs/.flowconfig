@@ -1,0 +1,34 @@
+[libs]
+flow-typed/
+flow-decl/
+
+[include]
+../../node_modules/
+
+
+[ignore]
+<PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
+<PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/.*
+<PROJECT_ROOT>/node_modules/mitt/.*
+<PROJECT_ROOT>/node_modules/config-chain/test/broken.json
+<PROJECT_ROOT>/node_modules/npmconf/test/fixtures/package.json
+
+# Doesn't support 0.53
+<PROJECT_ROOT>/node_modules/radium/.*
+
+# 0.56
+<PROJECT_ROOT>/node_modules/immutable/dist/immutable.js.flow
+
+[options]
+module.file_ext=.graphql
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.html
+module.file_ext=.mjml
+module.file_ext=.hbs
+module.file_ext=.txt
+module.file_ext=.env
+module.file_ext=.snap
+module.ignore_non_literal_requires=true
+esproposal.decorators=ignore

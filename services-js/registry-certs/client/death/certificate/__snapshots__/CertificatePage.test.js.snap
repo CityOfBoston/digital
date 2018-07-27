@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getInitialProps handles a 404 1`] = `
+Object {
+  "backUrl": undefined,
+  "certificate": null,
+  "id": "000002",
+}
+`;
+
+exports[`getInitialProps loads the cert passed in query 1`] = `
+Object {
+  "backUrl": undefined,
+  "certificate": Object {
+    "age": "53",
+    "birthDate": "5/1/1962",
+    "deathDate": "3/4/2016",
+    "deathYear": "2016",
+    "firstName": "BRUCE",
+    "id": "000002",
+    "lastName": "BANNER",
+    "pending": false,
+  },
+  "id": "000002",
+}
+`;

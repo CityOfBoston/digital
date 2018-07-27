@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`client mode GraphQL failure case 1`] = `[Error: Unexpected error]`;
+
+exports[`client mode network failure case 1`] = `[TypeError: connecting blew up]`;
+
+exports[`client mode server failure case 1`] = `[Error: Everything is broken]`;
+
+exports[`server getInitialProps mode failure case 1`] = `[Error: GraphQL error]`;
+
+exports[`server render mode errors out if used during server render 1`] = `"loopbackGraphql not defined for server render. Fetch your data in getInitialProps() methods."`;

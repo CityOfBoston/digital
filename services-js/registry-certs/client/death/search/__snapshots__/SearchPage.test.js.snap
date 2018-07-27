@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getInitialProps searches when given a query 1`] = `
+Object {
+  "page": 1,
+  "query": "Monkey Joe",
+  "results": Object {
+    "page": 0,
+    "pageCount": 10,
+    "pageSize": 5,
+    "resultCount": 50,
+    "results": Array [
+      Object {
+        "age": "53",
+        "birthDate": "5/1/1962",
+        "deathDate": "3/4/2016",
+        "deathYear": "2016",
+        "firstName": "BRUCE",
+        "id": "000002",
+        "lastName": "BANNER",
+        "pending": false,
+      },
+      Object {
+        "age": "44 yrs. 2 mos. 10 dys",
+        "birthDate": null,
+        "deathDate": "4/15/2014",
+        "deathYear": "2014",
+        "firstName": "JAMES",
+        "id": "000001",
+        "lastName": "HOWLETT (LOGAN)",
+        "pending": true,
+      },
+      Object {
+        "age": "6",
+        "birthDate": null,
+        "deathDate": null,
+        "deathYear": "2004",
+        "firstName": "MONKEY",
+        "id": "000003",
+        "lastName": "JOE",
+        "pending": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`getInitialProps works with no query 1`] = `
+Object {
+  "page": 1,
+  "query": "",
+  "results": null,
+}
+`;
