@@ -6,8 +6,8 @@ const childProcess = require('child_process');
 
 travisSnapshot({
   referenceBranch: 'develop',
-  project: 'CityOfBoston/Boards-and-Commissions',
-  packageName: 'commissions-app',
+  project: 'CityOfBoston/Access-Boston',
+  packageName: 'access-boston',
 });
 
 // Pass any other args along to Jest (e.g. "--no-cache" or "-u")

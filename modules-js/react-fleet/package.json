@@ -9,7 +9,7 @@
   "types": "build/react-fleet.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "concurrently \"npm run build:babel -- --watch\" \"rollup -c -w\"",
+    "watch": "concurrently \"npm run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
     "storybook": "start-storybook -p 9001",
     "prebuild": "rimraf build",
     "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",

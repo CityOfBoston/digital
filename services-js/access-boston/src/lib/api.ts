@@ -1,3 +1,7 @@
 export interface InfoResponse {
-  name: string;
+  employeeId: string;
+  accountTools: Array<{
+    name: string;
+    url: string;
+  }>;
 }
