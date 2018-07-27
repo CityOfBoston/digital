@@ -1,0 +1,26 @@
+categories:
+  - title: For Everyone
+    apps:
+      - title: The Hub
+        url: https://hub.boston.gov
+  - title: Sponsored Accounts
+    apps:
+      - title: Create Sponsored Account
+        url: https://identity-dev.boston.gov/identityiq/createSponsor.jsf
+        groups:
+          - SG_AB_IAM_TEAM
+      - title: Extend Sponsored Account
+        url: https://identity-dev.boston.gov/identityiq/extendSponsor.jsf
+        groups:
+          - SG_AB_IAM_TEAM
+  - title: Blank Category
+    apps:
+      - title: Create Sponsored Account
+        url: https://identity-dev.boston.gov/identityiq/createSponsor.jsf
+        groups:
+          - SG_NOT_A_GROUP
+      - title: Extend Sponsored Account
+        url: https://identity-dev.boston.gov/identityiq/extendSponsor.jsf
+        groups:
+          - SG_NOT_A_GROUP
+

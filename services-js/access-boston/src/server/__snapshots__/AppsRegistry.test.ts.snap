@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`appsForUserTypeAndGroups returns apps for a group 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "description": "",
+        "groups": null,
+        "title": "The Hub",
+        "url": "https://hub.boston.gov",
+      },
+    ],
+    "title": "For Everyone",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "description": "",
+        "groups": Array [
+          "SG_AB_IAM_TEAM",
+        ],
+        "title": "Create Sponsored Account",
+        "url": "https://identity-dev.boston.gov/identityiq/createSponsor.jsf",
+      },
+      Object {
+        "description": "",
+        "groups": Array [
+          "SG_AB_IAM_TEAM",
+        ],
+        "title": "Extend Sponsored Account",
+        "url": "https://identity-dev.boston.gov/identityiq/extendSponsor.jsf",
+      },
+    ],
+    "title": "Sponsored Accounts",
+  },
+]
+`;
+
+exports[`appsForUserTypeAndGroups returns just the "everyone" category for no groups 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "description": "",
+        "groups": null,
+        "title": "The Hub",
+        "url": "https://hub.boston.gov",
+      },
+    ],
+    "title": "For Everyone",
+  },
+]
+`;
