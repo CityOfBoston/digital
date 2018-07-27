@@ -1,6 +1,6 @@
 import React from 'react';
 import TextInput from '../../client/common/TextInput';
-import { Formik } from 'formik';
+import { Formik, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
@@ -18,6 +18,38 @@ export default class ApplyPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
     return { commissions };
+  }
+
+  renderCommission(
+    commission: Commission,
+    checkedCommissionIds: string[],
+    push,
+    remove,
+    handleBlur
+  ) {
+    const checked = checkedCommissionIds.includes(commission.id.toString());
+
+    return (
+      <li
+        style={{ listStyleType: 'none' }}
+        key={`commissionIds.${commission.id}`}
+      >
+        <Checkbox
+          name={`commissionIds.${commission.id}`}
+          value={commission.id.toString()}
+          title={commission.name}
+          onChange={() => {
+            if (!checked) {
+              push(commission.id.toString());
+            } else {
+              remove(checkedCommissionIds.indexOf(commission.id.toString()));
+            }
+          }}
+          onBlur={handleBlur}
+          checked={checked}
+        />
+      </li>
+    );
   }
 
   render() {
@@ -44,6 +76,7 @@ export default class ApplyPage extends React.Component<Props> {
               phone: '',
               email: '',
               confirmEmail: '',
+              commissionIds: [] as string[],
             }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
@@ -79,6 +112,9 @@ export default class ApplyPage extends React.Component<Props> {
                   [Yup.ref('email', undefined)],
                   'Make Sure Emails Match!'
                 ),
+              commissionIds: Yup.array()
+                .max(5, 'Maximium Of Five Selections.')
+                .required('One To Five Selections Is Required.'),
             })}
             onSubmit={() => {}}
             render={({
@@ -189,31 +225,35 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
+
+                <FieldArray
+                  name="commissionIds"
+                  render={({ push, remove }) => (
+                    <ul>
+                      {commissions.map(commission =>
+                        this.renderCommission(
+                          commission,
+                          values.commissionIds,
+                          push,
+                          remove,
+                          handleBlur
+                        )
+                      )}
+                      <div className="t--subinfo t--err m-t100">
+                        {touched.commissionIds && errors.commissionIds}
+                      </div>
+                    </ul>
+                  )}
+                />
+
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>
               </form>
             )}
           />
-          <ul>
-            {commissions.map(commission => this.renderCommission(commission))}
-          </ul>
         </div>
       </div>
-    );
-  }
-
-  renderCommission(commission: Commission) {
-    return (
-      <li style={{ listStyleType: 'none' }}>
-        <Checkbox
-          name="commissions"
-          value={commission.id.toString()}
-          title={commission.name}
-          onChange={null}
-          onBlur={null}
-        />
-      </li>
     );
   }
 }
