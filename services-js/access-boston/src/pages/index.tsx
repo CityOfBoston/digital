@@ -49,13 +49,23 @@ const SIDEBAR_HEADER_STYLE = css({
   textTransform: 'uppercase',
 });
 
+const APP_ROW_STYLE = css({
+  display: 'inline-block',
+  verticalAlign: 'middle',
+});
+
 export default class IndexPage extends React.Component<Props> {
   static async getInitialProps({ req }) {
     return { info: await fetchJson(req, '/info') };
   }
 
   render() {
-    const { employeeId, accountTools } = this.props.info;
+    const {
+      employeeId,
+      accountTools,
+      requestAccessUrl,
+      categories,
+    } = this.props.info;
 
     return (
       <CrumbContext.Consumer>
@@ -81,23 +91,50 @@ export default class IndexPage extends React.Component<Props> {
               <div className="b b-c">
                 <div className="g">
                   <div className="g--8">
-                    <SectionHeader title="App Category" />
+                    {categories.map(({ title, apps }) => (
+                      <div className="m-b500" key={title}>
+                        <SectionHeader title={title} />
+                        <ul className="ul">
+                          {apps.map(({ title, url, description }) => (
+                            <li key={title}>
+                              <a
+                                href={url}
+                                className={`p-a300 ${APP_ROW_STYLE}`}
+                              >
+                                <div className="t--sans tt-u">{title}</div>
+                                <div style={{ color: CHARLES_BLUE }}>
+                                  {description}
+                                </div>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
 
-                  <div
-                    className="g--4 p-a200"
-                    style={{ backgroundColor: GRAY_000 }}
-                  >
-                    <h2 className={`${SIDEBAR_HEADER_STYLE} m-b200`}>
-                      Account Tools
-                    </h2>
-                    <ul className="ul">
-                      {accountTools.map(({ name, url }) => (
-                        <li key={name}>
-                          <a href={url}>{name}</a>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="g--4">
+                    <div
+                      className="p-a200"
+                      style={{ backgroundColor: GRAY_000 }}
+                    >
+                      <h2 className={`${SIDEBAR_HEADER_STYLE} m-b200`}>
+                        Account Tools
+                      </h2>
+                      <ul className="ul">
+                        {accountTools.map(({ name, url }) => (
+                          <li key={name}>
+                            <a href={url}>{name}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="t--subinfo p-a200 m-v300">
+                      Is there an app that you need access to that’s not shown
+                      here? Fill out the{' '}
+                      <a href={requestAccessUrl}>request access form</a>.
+                    </div>
                   </div>
                 </div>
               </div>

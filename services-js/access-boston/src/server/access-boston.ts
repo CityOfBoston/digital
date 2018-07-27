@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 
 import fs from 'fs';
+import path from 'path';
 
 import { Server as HapiServer } from 'hapi';
 import Crumb from 'crumb';
@@ -21,6 +22,7 @@ import SamlAuth, { makeSamlAuth } from './SamlAuth';
 
 import { Session, infoForUser } from './api';
 import SamlAuthFake from './SamlAuthFake';
+import { makeAppsRegistry } from './AppsRegistry';
 
 const PATH_PREFIX = '/';
 const METADATA_PATH = '/metadata.xml';
@@ -53,6 +55,11 @@ export async function makeServer(port) {
   }
 
   const server = new HapiServer(serverOptions);
+
+  const appsRegistry = await (process.env.NODE_ENV === 'production' ||
+  (dev && fs.existsSync('./apps.yaml'))
+    ? makeAppsRegistry('./apps.yaml')
+    : makeAppsRegistry(path.resolve(__dirname, '../../fixtures/apps.yaml')));
 
   const samlAuth: SamlAuth =
     process.env.NODE_ENV === 'production' || process.env.SAML_IN_DEV
@@ -130,6 +137,9 @@ export async function makeServer(port) {
   server.route({
     path: METADATA_PATH,
     method: 'GET',
+    options: {
+      auth: false,
+    },
     handler: (_, h) =>
       h.response(samlAuth.getMetadata()).type('application/xml'),
   });
@@ -161,7 +171,7 @@ export async function makeServer(port) {
     method: 'GET',
     handler: async (request, h) => {
       const session: Session = request.auth.credentials as any;
-      return h.response(await infoForUser(session));
+      return h.response(await infoForUser(appsRegistry, session));
     },
   });
 
@@ -181,11 +191,12 @@ export async function makeServer(port) {
       );
 
       console.log(JSON.stringify(assertResult, null, 2));
-      const { nameId, sessionIndex } = assertResult;
+      const { nameId, sessionIndex, groups } = assertResult;
 
       const session: Session = {
         nameId,
         sessionIndex,
+        groups,
       };
 
       (request as any).cookieAuth.set(session);

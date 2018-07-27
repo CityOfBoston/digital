@@ -21,7 +21,7 @@ interface SamlAssertion {
     name_id: string;
     session_index: string;
     attributes: {
-      groups: string[];
+      groups?: string[];
     };
   };
 }
@@ -35,6 +35,7 @@ export interface SamlLoginResult {
   type: 'login';
   nameId: string;
   sessionIndex: string;
+  groups: string[];
 }
 
 const SAML_METADATA_NAMESPACES = {
@@ -105,9 +106,7 @@ export async function makeServiceProvider(
 
   return new ServiceProvider({
     entity_id: metadataUrl,
-    // on Linux in the container, signing requries the cert as well as the
-    // private key.
-    private_key: [privateKey, cert].join('\n'),
+    private_key: privateKey,
     certificate: cert,
     assert_endpoint: assertUrl,
     allow_unencrypted_assertion: true,
@@ -158,8 +157,8 @@ export async function makeSamlAuth(
     makeIdentityProvider(await metadata),
     makeServiceProvider(
       serviceProviderConfig,
-      await serviceProviderKey,
-      await serviceProviderCert
+      await serviceProviderCert,
+      await serviceProviderKey
     ),
   ]);
 
@@ -237,6 +236,7 @@ export default class SamlAuth {
               type: 'login',
               nameId: saml.user.name_id,
               sessionIndex: saml.user.session_index,
+              groups: parseGroupsAttribute(saml.user.attributes.groups || []),
             };
 
             resolve(samlLoginResult);
@@ -247,4 +247,20 @@ export default class SamlAuth {
       );
     });
   }
+}
+
+export function parseGroupsAttribute(groupsAttribute: string[]): string[] {
+  // attr here is something like
+  // "cn=SG_AB_SERVICEDESK_USERS,cn=Groups,dc=boston,dc=cob"
+  return groupsAttribute
+    .map(attr => {
+      const firstGroupPiece = attr.split(',')[0];
+      if (!firstGroupPiece) {
+        return '';
+      }
+
+      const commonNameMatch = firstGroupPiece.match(/cn=(.*)/);
+      return (commonNameMatch && commonNameMatch[1]) || '';
+    })
+    .filter(s => !!s);
 }
