@@ -59,10 +59,8 @@ export default class ApplyPage extends React.Component<Props> {
         <Head>
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />
         </Head>
-
         <div className="b b-c">
-          <SectionHeader title="Commissions Page Scaffold" />
-
+          <SectionHeader title="Board & Commission's Application Form" />
           <Formik
             initialValues={{
               firstName: '',
@@ -126,78 +124,119 @@ export default class ApplyPage extends React.Component<Props> {
               handleBlur,
             }) => (
               <form onSubmit={handleSubmit}>
-                <TextInput
-                  title="First Name"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={values.firstName}
-                  onChange={handleChange}
-                  error={touched.firstName && errors.firstName}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="Middle Name"
-                  name="middleName"
-                  placeholder="Middle Name"
-                  value={values.middleName}
-                  onChange={handleChange}
-                  error={touched.middleName && errors.middleName}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="Last Name"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={values.lastName}
-                  onChange={handleChange}
-                  error={touched.lastName && errors.lastName}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="Address"
-                  name="address"
-                  placeholder="Address"
-                  value={values.address}
-                  onChange={handleChange}
-                  error={touched.address && errors.address}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="Unit"
-                  name="unit"
-                  placeholder="Unit or Apartment #"
-                  value={values.unit}
-                  onChange={handleChange}
-                  error={touched.unit && errors.unit}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="City"
-                  name="city"
-                  placeholder="City"
-                  value={values.city}
-                  onChange={handleChange}
-                  error={touched.city && errors.city}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="State"
-                  name="state"
-                  placeholder="State"
-                  value={values.state}
-                  onChange={handleChange}
-                  error={touched.state && errors.state}
-                  onBlur={handleBlur}
-                />
-                <TextInput
-                  title="Zip"
-                  name="zip"
-                  placeholder="Zip Code"
-                  value={values.zip}
-                  onChange={handleChange}
-                  error={touched.zip && errors.zip}
-                  onBlur={handleBlur}
-                />
+                <div className="g">
+                  <div className="sel">
+                    <label
+                      htmlFor="FeedbackForm-${this.props.name}"
+                      className="txt-l txt-l--sm"
+                    >
+                      Prefix{' '}
+                    </label>
+                    <div
+                      className="sel-c sel-c--thin"
+                      style={{ marginRight: 14 }}
+                    >
+                      <select className="sel-f sel-f--thin">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                        <option>Miss</option>
+                        <option>Mx</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="g--3 m-b300">
+                    <TextInput
+                      title="First Name"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={values.firstName}
+                      onChange={handleChange}
+                      error={touched.firstName && errors.firstName}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                  <div className="g--1 m-b300">
+                    <TextInput
+                      title="Initial"
+                      name="middleName"
+                      placeholder="Middle Initial"
+                      value={values.middleName}
+                      onChange={handleChange}
+                      error={touched.middleName && errors.middleName}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                  <div className="g--6 m-b300">
+                    <TextInput
+                      title="Last Name"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={values.lastName}
+                      onChange={handleChange}
+                      error={touched.lastName && errors.lastName}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                </div>
+                <div className="g">
+                  <div className="g--9 m-b300">
+                    <TextInput
+                      title="Street Address"
+                      name="StreetAddress"
+                      placeholder="Street Address"
+                      value={values.address}
+                      onChange={handleChange}
+                      error={touched.address && errors.address}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                  <div className="g--3 m-b300">
+                    <TextInput
+                      title="Unit"
+                      name="unit"
+                      placeholder="Unit or Apartment #"
+                      value={values.unit}
+                      onChange={handleChange}
+                      error={touched.unit && errors.unit}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                </div>
+                <div className="g">
+                  <div className="g--7 m-b300">
+                    <TextInput
+                      title="City"
+                      name="city"
+                      placeholder="City"
+                      value={values.city}
+                      onChange={handleChange}
+                      error={touched.city && errors.city}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                  <div className="g--2 m-b300">
+                    <TextInput
+                      title="State"
+                      name="state"
+                      placeholder="State"
+                      value={values.state}
+                      onChange={handleChange}
+                      error={touched.state && errors.state}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                  <div className="g--3 m-b300">
+                    <TextInput
+                      title="Zip"
+                      name="zip"
+                      placeholder="Zip Code"
+                      value={values.zip}
+                      onChange={handleChange}
+                      error={touched.zip && errors.zip}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+                </div>
                 <TextInput
                   title="Phone"
                   name="phone"
@@ -225,7 +264,7 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
-
+                <hr className="hr hr--sq" />
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -245,7 +284,6 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
-
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>
