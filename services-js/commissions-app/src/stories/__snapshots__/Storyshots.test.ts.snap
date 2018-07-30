@@ -13,179 +13,259 @@ exports[`Storyshots ApplyPage default 1`] = `
       <h2
         className="sh-title"
       >
-        Commissions Page Scaffold
+        Board & Commission's Application Form
       </h2>
     </div>
     <form
       onSubmit={[Function]}
     >
       <div
-        className="txt m-b300"
+        className="g"
       >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+        <div
+          className="sel"
         >
-          First Name
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="firstName"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="First Name"
-          required={undefined}
-          type="text"
-          value=""
-        />
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="FeedbackForm-\${this.props.name}"
+          >
+            Prefix
+             
+          </label>
+          <div
+            className="sel-c sel-c--thin"
+            style={
+              Object {
+                "marginRight": 14,
+              }
+            }
+          >
+            <select
+              className="sel-f sel-f--thin"
+            >
+              <option>
+                Mr
+              </option>
+              <option>
+                Mrs
+              </option>
+              <option>
+                Miss
+              </option>
+              <option>
+                Mx
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          className="g--3 m-b300"
+        >
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              First Name
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="g--1 m-b300"
+        >
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              Initial
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Middle Initial"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="g--6 m-b300"
+        >
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              Last Name
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="lastName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Last Name"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
       </div>
       <div
-        className="txt m-b300"
+        className="g"
       >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+        <div
+          className="g--9 m-b300"
         >
-          Middle Name
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="middleName"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Middle Name"
-          required={undefined}
-          type="text"
-          value=""
-        />
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              Street Address
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="StreetAddress"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Street Address"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="g--3 m-b300"
+        >
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              Unit
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="unit"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Unit or Apartment #"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
       </div>
       <div
-        className="txt m-b300"
+        className="g"
       >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+        <div
+          className="g--7 m-b300"
         >
-          Last Name
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="lastName"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Last Name"
-          required={undefined}
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="txt m-b300"
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              City
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="city"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="City"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="g--2 m-b300"
         >
-          Address
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="address"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Address"
-          required={undefined}
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="txt m-b300"
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              State
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="g--3 m-b300"
         >
-          Unit
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="unit"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Unit or Apartment #"
-          required={undefined}
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="txt m-b300"
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
-        >
-          City
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="city"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="City"
-          required={undefined}
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="txt m-b300"
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
-        >
-          State
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="state"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="State"
-          required={undefined}
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="txt m-b300"
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
-        >
-          Zip
-        </label>
-        <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
-          name="zip"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Zip Code"
-          required={undefined}
-          type="text"
-          value=""
-        />
+          <div
+            className="txt m-b300"
+          >
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-\${this.props.name}"
+            >
+              Zip
+            </label>
+            <input
+              className="txt-f txt-f--sm"
+              id="FeedbackForm-\${this.props.name}"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              required={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
       </div>
       <div
         className="txt m-b300"
@@ -250,6 +330,9 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
       </div>
+      <hr
+        className="hr hr--sq"
+      />
       <ul>
         <div
           className="t--subinfo t--err m-t100"
