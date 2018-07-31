@@ -60,7 +60,7 @@ export default class ApplyPage extends React.Component<Props> {
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />
         </Head>
         <div className="b b-c">
-          <SectionHeader title="Board & Commission's Application Form" />
+          <SectionHeader title="Applicant Information" />
           <Formik
             initialValues={{
               firstName: '',
@@ -75,6 +75,10 @@ export default class ApplyPage extends React.Component<Props> {
               email: '',
               confirmEmail: '',
               commissionIds: [] as string[],
+              typeOfDegree: '',
+              degreeAttained: '',
+              educationalInstitution: '',
+              otherInformation: '',
             }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
@@ -113,6 +117,19 @@ export default class ApplyPage extends React.Component<Props> {
               commissionIds: Yup.array()
                 .max(5, 'Maximium Of Five Selections.')
                 .required('One To Five Selections Is Required.'),
+              typeOfDegree: Yup.string()
+                .required('Type of Degree Is Required!')
+                .min(2, 'Type of Degree Needs To Be Valid'),
+              degreeAttained: Yup.string()
+                .required('Degree Attained Is Required!')
+                .min(2, 'Degree Attained Needs To Be Valid'),
+              educationalInstitution: Yup.string()
+                .required('EducationalInstitution Is Required!')
+                .min(2, 'Educational Institution Needs To Be Valid'),
+              otherInformation: Yup.string().min(
+                2,
+                'Other Information Needs To Be Valid'
+              ),
             })}
             onSubmit={() => {}}
             render={({
@@ -264,7 +281,10 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
+
                 <hr className="hr hr--sq" />
+                <SectionHeader title="Boards and Commissions" />
+
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -284,6 +304,53 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
+
+                <hr className="hr hr--sq" />
+                <SectionHeader title="Education and Experience" />
+
+                <TextInput
+                  title="Type of Degree"
+                  name="typeOfDegree"
+                  placeholder="Type of Degree"
+                  value={values.typeOfDegree}
+                  onChange={handleChange}
+                  error={touched.typeOfDegree && errors.typeOfDegree}
+                  onBlur={handleBlur}
+                />
+
+                <TextInput
+                  title="Degree Attained"
+                  name="degreeAttained"
+                  placeholder="Degree Attained"
+                  value={values.degreeAttained}
+                  onChange={handleChange}
+                  error={touched.degreeAttained && errors.degreeAttained}
+                  onBlur={handleBlur}
+                />
+
+                <TextInput
+                  title="Educational Institution"
+                  name="educationalInstitution"
+                  placeholder="Educational Institution"
+                  value={values.educationalInstitution}
+                  onChange={handleChange}
+                  error={
+                    touched.educationalInstitution &&
+                    errors.educationalInstitution
+                  }
+                  onBlur={handleBlur}
+                />
+
+                <TextInput
+                  title="Other Information"
+                  name="otherInformation"
+                  placeholder="Other Information"
+                  value={values.otherInformation}
+                  onChange={handleChange}
+                  error={touched.otherInformation && errors.otherInformation}
+                  onBlur={handleBlur}
+                />
+
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>
