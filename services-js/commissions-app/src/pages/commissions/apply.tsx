@@ -283,29 +283,6 @@ export default class ApplyPage extends React.Component<Props> {
                 />
 
                 <hr className="hr hr--sq" />
-                <SectionHeader title="Boards and Commissions" />
-
-                <FieldArray
-                  name="commissionIds"
-                  render={({ push, remove }) => (
-                    <ul>
-                      {commissions.map(commission =>
-                        this.renderCommission(
-                          commission,
-                          values.commissionIds,
-                          push,
-                          remove,
-                          handleBlur
-                        )
-                      )}
-                      <div className="t--subinfo t--err m-t100">
-                        {touched.commissionIds && errors.commissionIds}
-                      </div>
-                    </ul>
-                  )}
-                />
-
-                <hr className="hr hr--sq" />
                 <SectionHeader title="Education and Experience" />
 
                 <TextInput
@@ -350,6 +327,29 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.otherInformation && errors.otherInformation}
                   onBlur={handleBlur}
                 />
+                <hr className="hr hr--sq" />
+                <SectionHeader title="Boards and Commissions" />
+
+                <FieldArray
+                  name="commissionIds"
+                  render={({ push, remove }) => (
+                    <ul>
+                      {commissions.map(commission =>
+                        this.renderCommission(
+                          commission,
+                          values.commissionIds,
+                          push,
+                          remove,
+                          handleBlur
+                        )
+                      )}
+                      <div className="t--subinfo t--err m-t100">
+                        {touched.commissionIds && errors.commissionIds}
+                      </div>
+                    </ul>
+                  )}
+                />
+                <hr className="hr hr--sq" />
 
                 <button type="submit" className="btn btn--700">
                   Send Message
