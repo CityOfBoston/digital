@@ -12,6 +12,7 @@
     "test-ci": "jest --coverage --runInBand --forceExit",
     "report-coverage": "codecov",
     "build": "gulp build",
+    "prepare": "npm run build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static -c storybook",
     "snapshot": "babel-node ./scripts/snapshot",
@@ -19,7 +20,9 @@
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-fixtures": "babel-node ./scripts/generate-fixtures",
     "precommit": "lint-staged",
-    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit"
+    "prepush": "flow --quiet && jest --silent --no-cache --noStackTrace --lastCommit",
+    "travis-deploy": "travis-js-service-deploy Dockerfile",
+    "prepare-deploy": "build-storybook -s static -c storybook"
   },
   "lint-staged": {
     "*.js": "eslint --quiet"
