@@ -339,23 +339,6 @@ exports[`Storyshots ApplyPage default 1`] = `
         <h2
           className="sh-title"
         >
-          Boards and Commissions
-        </h2>
-      </div>
-      <ul>
-        <div
-          className="t--subinfo t--err m-t100"
-        />
-      </ul>
-      <hr
-        className="hr hr--sq"
-      />
-      <div
-        className="sh"
-      >
-        <h2
-          className="sh-title"
-        >
           Education and Experience
         </h2>
       </div>
@@ -443,6 +426,26 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
       </div>
+      <hr
+        className="hr hr--sq"
+      />
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Boards and Commissions
+        </h2>
+      </div>
+      <ul>
+        <div
+          className="t--subinfo t--err m-t100"
+        />
+      </ul>
+      <hr
+        className="hr hr--sq"
+      />
       <button
         className="btn btn--700"
         type="submit"
