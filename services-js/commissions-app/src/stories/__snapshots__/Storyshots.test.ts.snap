@@ -13,7 +13,7 @@ exports[`Storyshots ApplyPage default 1`] = `
       <h2
         className="sh-title"
       >
-        Board & Commission's Application Form
+        Applicant Information
       </h2>
     </div>
     <form
@@ -333,11 +333,119 @@ exports[`Storyshots ApplyPage default 1`] = `
       <hr
         className="hr hr--sq"
       />
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Type of Degree
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="typeOfDegree"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Type of Degree"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Degree Attained
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Educational Institution
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="txt m-b300"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        >
+          Other Information
+        </label>
+        <input
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other Information"
+          required={undefined}
+          type="text"
+          value=""
+        />
+      </div>
+      <hr
+        className="hr hr--sq"
+      />
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Boards and Commissions
+        </h2>
+      </div>
       <ul>
         <div
           className="t--subinfo t--err m-t100"
         />
       </ul>
+      <hr
+        className="hr hr--sq"
+      />
       <button
         className="btn btn--700"
         type="submit"
