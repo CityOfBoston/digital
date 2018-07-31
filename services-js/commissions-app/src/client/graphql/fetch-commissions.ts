@@ -6,6 +6,7 @@ const QUERY = gql`
     commissions {
       id
       name
+      openSeats
     }
   }
 `;

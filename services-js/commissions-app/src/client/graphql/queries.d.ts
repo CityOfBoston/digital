@@ -5,5 +5,6 @@ export interface FetchCommissionsQuery {
   commissions: Array<{
     id: number;
     name: string;
+    openSeats: number;
   }>;
 }
