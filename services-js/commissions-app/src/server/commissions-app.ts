@@ -174,6 +174,9 @@ export async function makeServer(port) {
             'http://localhost:*',
             'https://localhost:*',
             'https://*.boston.gov',
+            ...(process.env.CORS_ORIGINS
+              ? process.env.CORS_ORIGINS.split(',')
+              : []),
           ],
           additionalHeaders: ['X-API-KEY'],
         },
