@@ -36,7 +36,7 @@ export default class ApplyPage extends React.Component<Props> {
       >
         <Checkbox
           name={`commissionIds.${commission.id}`}
-          value={commission.id.toString()}
+          value={commission.id.toString() && commission.openSeats.toString()}
           title={commission.name}
           onChange={() => {
             if (!checked) {
@@ -54,6 +54,10 @@ export default class ApplyPage extends React.Component<Props> {
 
   render() {
     const { commissions } = this.props;
+    const commissionsWithoutOpenSeats = commissions.filter(
+      commission => commission.openSeats
+    );
+
     return (
       <div className="mn">
         <Head>
@@ -281,10 +285,8 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
-
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Education and Experience" />
-
                 <TextInput
                   title="Type of Degree"
                   name="typeOfDegree"
@@ -294,7 +296,6 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.typeOfDegree && errors.typeOfDegree}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Degree Attained"
                   name="degreeAttained"
@@ -304,7 +305,6 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.degreeAttained && errors.degreeAttained}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Educational Institution"
                   name="educationalInstitution"
@@ -317,7 +317,6 @@ export default class ApplyPage extends React.Component<Props> {
                   }
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Other Information"
                   name="otherInformation"
@@ -327,8 +326,32 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.otherInformation && errors.otherInformation}
                   onBlur={handleBlur}
                 />
+
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Boards and Commissions" />
+                <h2>
+                  "Please note that many of these Boards and Commissions require
+                  City of Boston residency."
+                </h2>
+                <FieldArray
+                  name="commissionIds"
+                  render={({ push, remove }) => (
+                    <ul>
+                      {commissionsWithoutOpenSeats.map(commission =>
+                        this.renderCommission(
+                          commission,
+                          values.commissionIds,
+                          push,
+                          remove,
+                          handleBlur
+                        )
+                      )}
+                      <div className="t--subinfo t--err m-t100">
+                        {touched.commissionIds && errors.commissionIds}
+                      </div>
+                    </ul>
+                  )}
+                />
 
                 <FieldArray
                   name="commissionIds"
@@ -349,8 +372,8 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
-                <hr className="hr hr--sq" />
 
+                <hr className="hr hr--sq" />
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>

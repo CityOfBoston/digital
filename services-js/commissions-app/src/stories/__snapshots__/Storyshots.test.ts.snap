@@ -438,6 +438,14 @@ exports[`Storyshots ApplyPage default 1`] = `
           Boards and Commissions
         </h2>
       </div>
+      <h2>
+        "Please note that many of these Boards and Commissions require City of Boston residency."
+      </h2>
+      <ul>
+        <div
+          className="t--subinfo t--err m-t100"
+        />
+      </ul>
       <ul>
         <div
           className="t--subinfo t--err m-t100"
