@@ -1,5 +1,7 @@
 FROM node:8-alpine
 
+ENV WORKSPACE=registry-certs
+
 WORKDIR /app
 
 # Install the AWS CLI
@@ -11,20 +13,33 @@ RUN apk add --update python python-dev curl unzip git \
   && rm awscli-bundle.zip \
   && rm -rf awscli-bundle
 
-# Yes. I know. https://github.com/npm/npm/issues/16807
-RUN yarn global add npm@5.6.0 && npm version
+# Need to upgrade yarn to at least 1.6
+RUN yarn global add yarn@^1.6.0
 
-# By just bringing these in first, we can re-use the npm install layer when the
-# package.json and npm-shrinkwrap haven't changed, speeding up recompilation.
-ADD package.json npm-shrinkwrap.json /app/
-RUN npm install --loglevel warn
+# This is the tar'd up collection of package.json files created by
+# build-service-container.sh. Working with it and the lockfiles means we can
+# cache the yarn install across builds when there are no dependency changes.
+ADD package-json.tar /app/
+ADD yarn.lock lerna.json /app/
 
-ADD . /app
-RUN npm run-script build \
-  && npx build-storybook -s static -c storybook
-RUN chmod a+x entrypoint.sh
+# We don’t run the scripts because they will try to build our custom packages,
+# which will fail because we don’t have the source code at this point.
+#
+# TODO(finh): Scope this down to $WORKSPACE when yarn has that capability.
+RUN yarn install --frozen-lockfile --ignore-scripts
+
+ADD . /app/
+
+RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare 
+RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare-deploy 
+
 
 EXPOSE 3000
 
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["npm", "start"]
+ENV NODE_ENV production
+ENV USE_SSL 1
+
+WORKDIR /app/services-js/$WORKSPACE
+
+ENTRYPOINT ["/app/scripts/service-entrypoint.sh"]
+CMD ["yarn", "start"]
