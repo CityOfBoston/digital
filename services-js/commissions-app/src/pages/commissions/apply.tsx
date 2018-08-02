@@ -54,6 +54,14 @@ export default class ApplyPage extends React.Component<Props> {
 
   render() {
     const { commissions } = this.props;
+
+    const commissionsWithoutOpenSeats = commissions.filter(
+      commission => commission.openSeats === 0
+    );
+    const commissionsWithOpenSeats = commissions.filter(
+      commission => commission.openSeats > 0
+    );
+
     return (
       <div className="mn">
         <Head>
@@ -281,10 +289,8 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.confirmEmail && errors.confirmEmail}
                   onBlur={handleBlur}
                 />
-
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Education and Experience" />
-
                 <TextInput
                   title="Type of Degree"
                   name="typeOfDegree"
@@ -294,7 +300,6 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.typeOfDegree && errors.typeOfDegree}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Degree Attained"
                   name="degreeAttained"
@@ -304,7 +309,6 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.degreeAttained && errors.degreeAttained}
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Educational Institution"
                   name="educationalInstitution"
@@ -317,7 +321,6 @@ export default class ApplyPage extends React.Component<Props> {
                   }
                   onBlur={handleBlur}
                 />
-
                 <TextInput
                   title="Other Information"
                   name="otherInformation"
@@ -330,11 +333,17 @@ export default class ApplyPage extends React.Component<Props> {
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Boards and Commissions" />
 
+                <h2>
+                  Please note that many of these Boards and Commissions require
+                  City of Boston residency.
+                </h2>
+                <SectionHeader title="Boards and Commissions with open positions" />
+
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
                     <ul>
-                      {commissions.map(commission =>
+                      {commissionsWithoutOpenSeats.map(commission =>
                         this.renderCommission(
                           commission,
                           values.commissionIds,
@@ -349,8 +358,34 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
-                <hr className="hr hr--sq" />
+                <SectionHeader title="Boards and Commissions with no open positions" />
 
+                <FieldArray
+                  name="commissionIds"
+                  render={({ push, remove }) => (
+                    <ul>
+                      {commissionsWithOpenSeats.map(commission =>
+                        this.renderCommission(
+                          commission,
+                          values.commissionIds,
+                          push,
+                          remove,
+                          handleBlur
+                        )
+                      )}
+
+                      <h4>
+                        You can still apply for a board or commission that does
+                        not currently have any open positions, and we will
+                        review your application when a seat opens.
+                      </h4>
+                      <div className="t--subinfo t--err m-t100">
+                        {touched.commissionIds && errors.commissionIds}
+                      </div>
+                    </ul>
+                  )}
+                />
+                <hr className="hr hr--sq" />
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>

@@ -438,7 +438,36 @@ exports[`Storyshots ApplyPage default 1`] = `
           Boards and Commissions
         </h2>
       </div>
+      <h2>
+        Please note that many of these Boards and Commissions require City of Boston residency.
+      </h2>
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Boards and Commissions with open positions
+        </h2>
+      </div>
       <ul>
+        <div
+          className="t--subinfo t--err m-t100"
+        />
+      </ul>
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Boards and Commissions with no open positions
+        </h2>
+      </div>
+      <ul>
+        <h4>
+          You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+        </h4>
         <div
           className="t--subinfo t--err m-t100"
         />
