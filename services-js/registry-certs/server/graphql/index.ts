@@ -1,20 +1,23 @@
+import fs from 'fs';
+import path from 'path';
 import { makeExecutableSchema } from 'graphql-tools';
 import { NodeStripe } from 'stripe';
 import Rollbar from 'rollbar';
 
-import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
-import {
-  Schema as MutationSchema,
-  resolvers as mutationResolvers,
-} from './mutation';
-import {
-  Schema as DeathSchema,
-  resolvers as deathResolvers,
-} from './death-certificates';
+import { Query, resolvers as queryResolvers } from './query';
+import { Mutation, resolvers as mutationResolvers } from './mutation';
+import { resolvers as deathResolvers } from './death-certificates';
 
 import RegistryData from '../services/RegistryData';
 import RegistryOrders from '../services/RegistryOrders';
 import Emails from '../services/Emails';
+
+// This file is built by the "generate-graphql-schema" script from
+// the above interfaces.
+const schemaGraphql = fs.readFileSync(
+  path.resolve('graphql', 'schema.graphql'),
+  'utf-8'
+);
 
 export interface Context {
   rollbar: Rollbar;
@@ -24,15 +27,14 @@ export interface Context {
   emails: Emails;
 }
 
-const SchemaDefinition = `
-schema {
-  query: Query,
-  mutation: Mutation,
+/** @graphql schema */
+export interface Schema {
+  query: Query;
+  mutation: Mutation;
 }
-`;
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, QuerySchema, MutationSchema, DeathSchema],
+  typeDefs: [schemaGraphql],
   resolvers: {
     ...queryResolvers,
     ...mutationResolvers,

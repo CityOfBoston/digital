@@ -15078,9 +15078,9 @@ ts-node@^6.0.5:
     source-map-support "^0.5.3"
     yn "^2.0.0"
 
-ts2gql@CityOfBoston/ts2gql#dist:
+ts2gql@CityOfBoston/ts2gql#4f10fcce:
   version "2.0.1"
-  resolved "https://codeload.github.com/CityOfBoston/ts2gql/tar.gz/421d9ffe940cc94c951311c8ae118c8cabe166c6"
+  resolved "https://codeload.github.com/CityOfBoston/ts2gql/tar.gz/4f10fcce30d74c95201ff3630569f5840622701b"
   dependencies:
     doctrine "^1.2.2"
     lodash "^4.17.4"

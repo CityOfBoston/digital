@@ -68,7 +68,7 @@ export type ResolverFunction<Output, Obj, Args, Context> = (
   obj: Obj,
   args: Args,
   context: Context,
-  info: any
+  info?: any
 ) => Output | Promise<Output>;
 
 /**
@@ -166,5 +166,12 @@ export type DefaultResolvable<Schema, Context = {}> = {
 export type DefaultResolvableFunction<Output, Args, Context> = (
   args: Args,
   context: Context,
-  info: any
+  info?: any
 ) => Output | Promise<Output>;
+
+/****** UTILITIES *********/
+
+/** @graphql Int */
+export type Int = number;
+
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;

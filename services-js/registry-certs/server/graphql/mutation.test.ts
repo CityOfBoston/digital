@@ -39,7 +39,7 @@ describe('Mutation resolvers', () => {
     it('throws if a validator fails', async () => {
       await expect(
         resolvers.Mutation.submitDeathCertificateOrder(
-          null,
+          {},
           {
             ...DEFAULT_ORDER,
             contactName: '',
@@ -52,7 +52,7 @@ describe('Mutation resolvers', () => {
     it('throws if there are no items', async () => {
       await expect(
         resolvers.Mutation.submitDeathCertificateOrder(
-          null,
+          {},
           {
             ...DEFAULT_ORDER,
             items: [],
@@ -92,11 +92,11 @@ describe('Mutation resolvers', () => {
       );
       chargesCreate.mockReturnValue(Promise.resolve({ id: 'ch_12345' }));
 
-      await resolvers.Mutation.submitDeathCertificateOrder(
-        null,
-        DEFAULT_ORDER,
-        { stripe, registryOrders, emails } as any
-      );
+      await resolvers.Mutation.submitDeathCertificateOrder({}, DEFAULT_ORDER, {
+        stripe,
+        registryOrders,
+        emails,
+      } as any);
 
       expect(chargesCreate).toHaveBeenCalledWith({
         amount: 14326,

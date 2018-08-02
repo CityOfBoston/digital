@@ -78,7 +78,7 @@
     "react-test-renderer": "^16.4.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
-    "ts2gql": "CityOfBoston/ts2gql#dist",
+    "ts2gql": "CityOfBoston/ts2gql#4f10fcce",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.0.0"
   }
