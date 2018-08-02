@@ -1,10 +1,8 @@
 {
-  "presets": [
-    "next/babel",
-    "@cityofboston/config-babel/typescript"
-  ],
+  "presets": ["next/babel", "@cityofboston/config-babel/typescript"],
   "env": {
     "test": {
+      "plugins": ["babel-plugin-require-context-hook"],
       "presets": [
         [
           "next/babel",

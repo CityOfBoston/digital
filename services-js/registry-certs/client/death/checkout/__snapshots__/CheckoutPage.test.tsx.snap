@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders confirmation 1`] = `
+<ConfirmationContent
+  contactEmail="ttoe@squirrelzone.net"
+  orderId="123-456-7"
+/>
+`;
+
+exports[`rendering renders payment 1`] = `
+<PaymentContent
+  cart={
+    Cart {
+      "localStorageDisposer": null,
+      "siteAnalytics": null,
+    }
+  }
+  order={null}
+  stripe={null}
+  submit={[Function]}
+/>
+`;
+
+exports[`rendering renders review 1`] = `
+<ReviewContent
+  cart={
+    Cart {
+      "localStorageDisposer": null,
+      "siteAnalytics": null,
+    }
+  }
+  order={null}
+  submit={[Function]}
+/>
+`;
+
+exports[`rendering renders shipping 1`] = `
+<ShippingContent
+  cart={
+    Cart {
+      "localStorageDisposer": null,
+      "siteAnalytics": null,
+    }
+  }
+  order={null}
+  submit={[Function]}
+/>
+`;

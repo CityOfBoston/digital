@@ -29,7 +29,7 @@
     "shelljs": "^0.8.1",
     "tmp": "^0.0.33",
     "ts-jest": "^22.0.0",
-    "tsc-watch": "^1.0.21",
+    "tsc-watch": "^1.0.26",
     "typescript": "^3.0.0"
   }
 }

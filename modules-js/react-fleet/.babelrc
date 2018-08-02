@@ -5,6 +5,9 @@
     "@cityofboston/config-babel/typescript"
   ],
   "env": {
+    "test": {
+      "plugins": ["babel-plugin-require-context-hook"]
+    },
     "esm": {
       "presets": [
         [

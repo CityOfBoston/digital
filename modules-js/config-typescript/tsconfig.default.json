@@ -12,6 +12,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
+    "noImplicitThis": false,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
     "lib": [
       "dom",
       "es2017",

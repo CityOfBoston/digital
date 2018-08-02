@@ -8,6 +8,7 @@
     "@babel/core": "7.0.0-beta.42",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.4.4",
-    "jest": "^22.4.0"
+    "jest": "^22.4.0",
+    "jest-raw-loader": "^1.0.1"
   }
 }

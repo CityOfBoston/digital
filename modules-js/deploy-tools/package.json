@@ -33,7 +33,7 @@
     "jest": "^22.4.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.0.0",
-    "tsc-watch": "^1.0.21",
+    "tsc-watch": "^1.0.26",
     "typescript": "^3.0.0"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "extends": "./node_modules/@cityofboston/config-typescript/tsconfig.default.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "build",
+    "allowJs": true,
+    "declaration": false
+  },
+  "include": [
+    "lib/**/*",
+    "server/**/*"
+  ]
+}

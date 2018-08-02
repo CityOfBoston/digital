@@ -11,7 +11,7 @@ export default class Header extends React.Component<Props> {
    * Makes it so that if you tab from the menu button but the menu is closed, it
    * goes to the first link in the header, rather than into the (hidden) menu.
    */
-  menuKeyDownHandler = ev => {
+  menuKeyDownHandler = (ev: React.KeyboardEvent<HTMLInputElement>) => {
     if (ev.key === 'Tab' && !ev.shiftKey && !ev.currentTarget.checked) {
       const a: HTMLAnchorElement | null = document.querySelector('header a');
       a && a.focus();
