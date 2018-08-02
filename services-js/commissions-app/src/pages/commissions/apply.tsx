@@ -36,7 +36,7 @@ export default class ApplyPage extends React.Component<Props> {
       >
         <Checkbox
           name={`commissionIds.${commission.id}`}
-          value={commission.id.toString() && commission.openSeats.toString()}
+          value={commission.id.toString()}
           title={commission.name}
           onChange={() => {
             if (!checked) {
@@ -54,8 +54,12 @@ export default class ApplyPage extends React.Component<Props> {
 
   render() {
     const { commissions } = this.props;
+
     const commissionsWithoutOpenSeats = commissions.filter(
-      commission => commission.openSeats
+      commission => commission.openSeats === 0
+    );
+    const commissionsWithOpenSeats = commissions.filter(
+      commission => commission.openSeats > 0
     );
 
     return (
@@ -326,13 +330,15 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.otherInformation && errors.otherInformation}
                   onBlur={handleBlur}
                 />
-
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Boards and Commissions" />
+
                 <h2>
-                  "Please note that many of these Boards and Commissions require
-                  City of Boston residency."
+                  Please note that many of these Boards and Commissions require
+                  City of Boston residency.
                 </h2>
+                <SectionHeader title="Boards and Commissions with open positions" />
+
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -352,12 +358,13 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
+                <SectionHeader title="Boards and Commissions with no open positions" />
 
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
                     <ul>
-                      {commissions.map(commission =>
+                      {commissionsWithOpenSeats.map(commission =>
                         this.renderCommission(
                           commission,
                           values.commissionIds,
@@ -366,13 +373,18 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
+
+                      <h4>
+                        You can still apply for a board or commission that does
+                        not currently have any open positions, and we will
+                        review your application when a seat opens.
+                      </h4>
                       <div className="t--subinfo t--err m-t100">
                         {touched.commissionIds && errors.commissionIds}
                       </div>
                     </ul>
                   )}
                 />
-
                 <hr className="hr hr--sq" />
                 <button type="submit" className="btn btn--700">
                   Send Message
