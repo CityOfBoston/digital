@@ -5,6 +5,12 @@
       "includes": [
         "./services-js/commissions-app/**/*.{graphql,ts,tsx,js,jsx}"
       ]
+    },
+    "registry-certs": {
+      "schemaPath": "./services-js/registry-certs/graphql/schema.graphql",
+      "includes": [
+        "./services-js/registry-certs/**/*.{graphql,ts,tsx,js,jsx}"
+      ]
     }
   }
 }
