@@ -447,7 +447,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         <h2
           className="sh-title"
         >
-          Boards and Commissions with open positions
+          Boards and Commissions without open positions
         </h2>
       </div>
       <ul>
@@ -461,7 +461,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         <h2
           className="sh-title"
         >
-          Boards and Commissions with no open positions
+          Boards and Commissions with open positions
         </h2>
       </div>
       <ul>
@@ -475,6 +475,44 @@ exports[`Storyshots ApplyPage default 1`] = `
       <hr
         className="hr hr--sq"
       />
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <hr
+        className="hr hr--sq"
+      />
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Comments
+        </h2>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l"
+        />
+        <textarea
+          className="txt-f txt-f--sm"
+          id="FeedbackForm-\${this.props.name}"
+          name="comments"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other Comments"
+          rows={10}
+          value=""
+        />
+      </div>
       <button
         className="btn btn--700"
         type="submit"
