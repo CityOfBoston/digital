@@ -1,6 +1,5 @@
 import React from 'react';
 import TextInput from '../../client/common/TextInput';
-import CommentInput from '../../client/common/CommentInput';
 import { Formik, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
@@ -87,7 +86,6 @@ export default class ApplyPage extends React.Component<Props> {
               degreeAttained: '',
               educationalInstitution: '',
               otherInformation: '',
-              comments: '',
             }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
@@ -139,7 +137,6 @@ export default class ApplyPage extends React.Component<Props> {
                 2,
                 'Other Information Needs To Be Valid'
               ),
-              comments: Yup.string().required(),
             })}
             onSubmit={() => {}}
             render={({
@@ -332,15 +329,15 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.otherInformation && errors.otherInformation}
                   onBlur={handleBlur}
                 />
-
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Boards and Commissions" />
+
                 <h2>
                   Please note that many of these Boards and Commissions require
                   City of Boston residency.
                 </h2>
-
                 <SectionHeader title="Boards and Commissions without open positions" />
+
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -360,8 +357,8 @@ export default class ApplyPage extends React.Component<Props> {
                     </ul>
                   )}
                 />
-
                 <SectionHeader title="Boards and Commissions with open positions" />
+
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -388,20 +385,6 @@ export default class ApplyPage extends React.Component<Props> {
                   )}
                 />
                 <hr className="hr hr--sq" />
-                <SectionHeader title="Reference Information" />
-
-                <hr className="hr hr--sq" />
-                <SectionHeader title="Comments" />
-                <CommentInput
-                  title="comments"
-                  name="comments"
-                  placeholder="Other Comments"
-                  value={values.comments}
-                  onChange={handleChange}
-                  error={touched.comments && errors.comments}
-                  onBlur={handleBlur}
-                />
-
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>
