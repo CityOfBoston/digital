@@ -3,7 +3,7 @@ import React from 'react';
 export interface Props {
   name: string;
   placeholder: string;
-  title: string;
+  title?: string;
   error?: string;
   value: string;
   onChange: any;
@@ -14,9 +14,9 @@ export default class Comments extends React.Component<Props> {
   render() {
     return (
       <div className="txt">
-        <label className="txt-l" />
         <textarea
           rows={10}
+          title={this.props.title ? this.props.title : undefined}
           name={this.props.name}
           className={
             this.props.error ? 'txt-f txt-f--sm txt-f--err' : 'txt-f txt-f--sm'
