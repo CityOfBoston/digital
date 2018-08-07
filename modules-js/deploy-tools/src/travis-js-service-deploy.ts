@@ -16,29 +16,20 @@ import {
   waitForDeployment,
   deregisterTaskDefinition,
   updateServiceTaskDefinition,
+  postToSlack,
+  parseBranch,
 } from './helpers';
 
 const [dockerfilePath] = process.argv.slice(2);
-const branchMatch = process.env.TRAVIS_BRANCH!.match(
-  /([^/]*)\/([^@]*)(@(.*))?/
-);
 
-if (!branchMatch) {
-  throw new Error(
-    `TRAVIS_BRANCH ${
-      process.env.TRAVIS_BRANCH
-    } did not match environment/service@variant pattern`
-  );
-}
-
-const environment = branchMatch[1];
-const serviceName = branchMatch[2];
-const variant = branchMatch[4] || '';
+const { environment, serviceName, variant } = parseBranch();
 
 const workspaceDir = path.resolve('../..');
 const cacheTag = 'latest';
 
 (async function() {
+  await postToSlack('start');
+
   const repository = await getRepository(environment, serviceName);
 
   const commit = (
@@ -135,6 +126,8 @@ const cacheTag = 'latest';
       }
     );
   } catch (e) {
+    await postToSlack('error', e.message);
+
     if (oldTaskDefinitionArn) {
       console.error(e.message);
       console.error(`😿 Rolling back deployment to ${oldTaskDefinitionArn}…`);
@@ -176,6 +169,8 @@ const cacheTag = 'latest';
     console.error();
   }
 
+  await postToSlack('complete');
+
   console.error(
     `💅 Successfully deployed ${serviceName}${
       variant ? ` (${variant})` : ''
@@ -183,5 +178,7 @@ const cacheTag = 'latest';
   );
 })().catch(e => {
   console.error(e);
-  process.exit(-1);
+  postToSlack('error', e.toString()).finally(() => {
+    process.exit(-1);
+  });
 });

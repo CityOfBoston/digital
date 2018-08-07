@@ -18,6 +18,7 @@
     "preset": "@cityofboston/config-jest-typescript"
   },
   "dependencies": {
+    "@slack/client": "^4.3.1",
     "aws-sdk": "^2.245.1",
     "date-fns": "^1.29.0",
     "shelljs": "^0.8.2",

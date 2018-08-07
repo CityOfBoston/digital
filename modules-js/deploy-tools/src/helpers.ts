@@ -5,6 +5,7 @@ import path from 'path';
 import AWS from 'aws-sdk';
 import shell, { ExecOutputReturnValue } from 'shelljs';
 import tar from 'tar';
+import { IncomingWebhook } from '@slack/client';
 
 export const AWS_REGION = 'us-east-1';
 AWS.config.update({ region: AWS_REGION });
@@ -17,6 +18,10 @@ export const BANNER = `
 │ 🎀 Yo it’s Shippy-Toe! 🎀 │
 └───────────────────────────┘
 `;
+
+function getRandom(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
 
 function sleep(ms) {
   return new Promise(resolve => {
@@ -243,6 +248,25 @@ export async function deregisterTaskDefinition(taskDefinitionArn: string) {
     .promise();
 }
 
+export function parseBranch() {
+  const branchMatch = process.env.TRAVIS_BRANCH!.match(
+    /([^/]*)\/([^@]*)(@(.*))?/
+  );
+
+  if (!branchMatch) {
+    throw new Error(
+      `TRAVIS_BRANCH ${
+        process.env.TRAVIS_BRANCH
+      } did not match environment/service@variant pattern`
+    );
+  }
+  const environment = branchMatch[1];
+  const serviceName = branchMatch[2];
+  const variant = branchMatch[4] || '';
+
+  return { environment, serviceName, variant };
+}
+
 export async function waitForDeployment(
   service: AWS.ECS.Service,
   deploymentId: string,
@@ -345,5 +369,111 @@ export async function waitForDeployment(
     } else {
       await sleep(3000);
     }
+  }
+}
+
+export async function postToSlack(
+  stage: 'start' | 'error' | 'complete',
+  error?: string
+) {
+  try {
+    const branch = process.env.TRAVIS_BRANCH;
+    const webhookUrl = process.env.SLACK_DEPLOY_WEBHOOK_URL;
+
+    if (!branch) {
+      console.warn('No $TRAVIS_BRANCH defined');
+    }
+
+    if (!webhookUrl) {
+      console.warn('No $SLACK_DEPLOY_WEBHOOK_URL defined');
+      return;
+    }
+
+    const { environment, serviceName, variant } = parseBranch();
+
+    const travisNum = `#${process.env.TRAVIS_BUILD_NUMBER}`;
+    const travisUrl = `https://travis-ci.org/${
+      process.env.TRAVIS_REPO_SLUG
+    }/builds/${process.env.TRAVIS_BUILD_ID}`;
+    const footer = 'travis-js-service-deploy.ts';
+    const footerIcon = 'https://twemoji.maxcdn.com/2/72x72/1f380.png';
+
+    const webhook = new IncomingWebhook(webhookUrl);
+
+    const githubUrl = `https://github.com/${
+      process.env.TRAVIS_REPO_SLUG
+    }/tree/${process.env.TRAVIS_BRANCH}`;
+
+    let color;
+    let title;
+    let text = '';
+
+    const START_EMOJI = [
+      '🤖',
+      '🕊',
+      '🍵',
+      '🏹',
+      '🚀',
+      '📡',
+      '⏳',
+      '🆕',
+      '🔜',
+      '🎁',
+    ];
+    const ERROR_EMOJI = ['😡', '💀', '🙀', '👎🏼', '🙍🏻', '💔', '⚰'];
+    const COMPLETE_EMOJI = [
+      '👍🏿',
+      '💃🏻',
+      '💅',
+      '🎂',
+      '🏅',
+      '🎯',
+      '🎉',
+      '🆒',
+      '🔛',
+      '💯',
+    ];
+
+    const ecsCluster = environment === 'staging' ? 'AppsStaging' : 'AppsProd';
+
+    const ecsService = `${serviceName}${variant ? `-${variant}` : ''}`;
+    const ecsUrl = `https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/${ecsCluster}/services/${ecsService}/details`;
+
+    let emoji;
+
+    switch (stage) {
+      case 'start':
+        color = 'warning';
+        title = 'Deploying…';
+        text = `Follow along on Travis CI: <${travisUrl}|${travisNum}>`;
+        emoji = getRandom(START_EMOJI);
+        break;
+      case 'complete':
+        color = 'good';
+        title = 'Success!';
+        text = `For more info, check ECS: <${ecsUrl}|${ecsCluster}/${ecsService}>`;
+        emoji = getRandom(COMPLETE_EMOJI);
+        break;
+      case 'error':
+        color = 'danger';
+        title = 'Errored';
+        text = error || '';
+        emoji = getRandom(ERROR_EMOJI);
+        break;
+    }
+
+    await webhook.send({
+      attachments: [
+        {
+          title: `${emoji} <${githubUrl}|${branch}>: ${title}`,
+          color,
+          text,
+          footer,
+          footer_icon: footerIcon,
+        },
+      ],
+    });
+  } catch (e) {
+    console.error('Error sending Slack message: ', e);
   }
 }
