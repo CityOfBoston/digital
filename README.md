@@ -1,8 +1,10 @@
-# Boards and Commissions
+# Digital Team
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-## Installation
+Public documentation and [wiki](https://github.com/CityOfBoston/digital/wiki) for DoIT’s Digital team
+
+## Monorepo Installation
 
 ```
 $ yarn install
