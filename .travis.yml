@@ -13,46 +13,35 @@ branches:
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 stages:
-  - name: test
-    if: branch !~ /^staging\//
-  - name: deploy
-    if: branch =~ /^(production|staging)\//  AND type IN (push)
+- name: test
+  if: branch !~ /^staging\//
+- name: deploy
+  if: branch =~ /^(production|staging)\//  AND type IN (push)
 jobs:
   include:
   - stage: test
-    if: type IN (push) 
+    if: type IN (push)
     install: yarn install --frozen-lockfile
     script: yarn run test
   - if: type IN (pull_request)
-    # TRAVIS_PULL_REQUEST_SHA is the SHA of the PR’s merge commit. Getting ^1 is
-    # the first parent, which is the SHA we’re merging into. Ideally we could
-    # just diff against $TRAVIS_PULL_REQUEST_BRANCH, except that branch refs
-    # other than the default one are not available in Travis’s checkout.
-    #
-    # We use --ignore-scripts for yarn to speed up the install process, and then
-    # do a filtered lerna run prepare in order to compile the things that have
-    # changed (and their dependencies).
     install:
-      - yarn install --frozen-lockfile --ignore-scripts
-      - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies prepare
+    - yarn install --frozen-lockfile --ignore-scripts
+    - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies
+      prepare
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
   - stage: deploy
     install:
-      # For speed during deploy, we don’t run scripts during install because we
-      # don’t need to compile any of our own packages other than deploy-tools.
-      # TODO(finh): When yarn allows scoped installs, use that, too.
-      - yarn install --frozen-lockfile --ignore-scripts
-      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies prepare
+    - yarn install --frozen-lockfile --ignore-scripts
+    - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
+      prepare
     script: skip
     deploy:
       provider: script
       skip_cleanup: true
       script: deploy/travis-deploy.sh
       on:
-        # Stage’s "if" limits to the branches we want, so let everything
-        # deploy that gets this far.
         all_branches: true
 notifications:
   slack:
     rooms:
-      secure: DApL8Ae0kdrg4ZasLsJsvaC52AUoJyf7FEW6rD5BMEasDkdlljGMqh3egKp5qwYGxIbdhKG/j5sUE0AYSTH+Y3BFmk07NJpbjxkXuAIXEDteOgO2yLxKYTM4G2hSzCYAL3tys226fCsu9DcMetsqGEGIlzf1Get+JEalh/Q1P0pjlqL6NO1GwWlliD4mD+n4vXZClUqmKOCfJgUUzpYt+GmmTuFgPvf2Sw2jC+12BVlA9Gx2WfR7DkEmJc4TrphOpA5+2/RI4nQu/tsF1RB6J7jqrTtVznJChENEV0hRV6cSIz7BFHyQKp1yAu6KBY4d/Bxd0XXV4EL+oal6Pw3tO36QBuJIoiJX36Un+1lSaDSGGiulYNRdiAdMnzJ0UNz3P+0M1YJiLuQo+Lthcgug+D105UkK8l1almn8Fr0rBmmW6b8VtEc71JofyZi9x3xzKRgE+Mciz324gjBsm8289g2gy2GfvENXKVrBL9oNnmem9UUOXVRJKRRU6RVJEkegCvJG2G1CUhhuGyLgoAtfBl/+F4ymFQH/kAgpzuBXNsuL3VuGl7377eFGJEgaDC7ipSUqCVVcxpv8WfHPIo1xMr0XletJq0eE1Pzj0M9DPP2UsShYbJMYlAq54bee8jMVcJstEKCG7tF/scVrTMIuyguIlvsprPz7K4vPxNhey/M=
+      secure: AC039Rc34u59zEiO7zmPyzd4ii9QnL0Xf6o0YGQf37GJlJCTv712I4aOFZRWIkTLZfjH3vURNvwTDoTpx6PgAMu1bIcet1LGjsoYcjN7xXqPfqi7peXANEnVZzlUpGRkP8Y6TV3nYaE0g0gpuEqORm0Bgs7zgeCNiWNT35vPtvzc9U8E/Zx4nzYEzXJr1SWwBtM/E1bhGaIKzy338AJj9ZJOnxV3Qng7LYIOmkuxwTqLfJWNBd8Wj2pAP/HQ4XfFtcgEqfYwhtjGNYfLbDVJjdiul3UJ9/C4gHkfGEhhsfgyZjqJTRsZCZABWPsqZ5a+7diNXjUOuVyG2HwBIy2/9L6UnsA1y79HOVQ8k0tj7z8iXD36OSvv7bCCVyC7ymz7ViLld/moKYHCfHTNd/g6ES1eDbNiybg6gx3eIvgDIey0GNl5kjw8vIMb/3SNMSm/zZCrv4/DUZgei8xYjsEM6j1VUVVwhn6E6yOuMRgAuXUPO/w61w+lf+rgQZNfBS8+K/lZ0OQdb1eHWmUKL4EtqFuOpsrBbt0PCT3Rygb/O+eUSba7BcvUDDoYuah2rQmylR4kPQNYmLZgukwta+CZrLb988zR/vsGV6THtnluF3/kZm9v0SMXGqZQNgILwaV4ie0WsoAArWFd2A2CtKmVx4q9LYwNylb0pDr93zfDaN8=
