@@ -395,7 +395,7 @@ export default class ApplyPage extends React.Component<Props> {
                 <SectionHeader title="Comments" />
                 <CommentInput
                   name="comments"
-                  placeholder="Other Comments"
+                  placeholder="Other Comments You Would Like Us to Know."
                   value={values.comments}
                   onChange={handleChange}
                   onBlur={handleBlur}
