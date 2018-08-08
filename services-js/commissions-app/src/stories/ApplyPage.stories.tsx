@@ -4,5 +4,5 @@ import { storiesOf } from '@storybook/react';
 import ApplyPage from '../pages/commissions/apply';
 
 storiesOf('ApplyPage', module).add('default', () => (
-  <ApplyPage commissions={[]} />
+  <ApplyPage commissions={[]} commissionID="" />
 ));

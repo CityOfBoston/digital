@@ -14,9 +14,14 @@ export default class Comments extends React.Component<Props> {
   render() {
     return (
       <div className="txt">
+        <label
+          htmlFor="FeedbackForm-${this.props.name}"
+          className="txt-l txt-l--sm"
+        >
+          {this.props.title ? this.props.title : undefined}
+        </label>
         <textarea
           rows={10}
-          title={this.props.title ? this.props.title : undefined}
           name={this.props.name}
           className={
             this.props.error ? 'txt-f txt-f--sm txt-f--err' : 'txt-f txt-f--sm'

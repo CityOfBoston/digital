@@ -499,6 +499,10 @@ exports[`Storyshots ApplyPage default 1`] = `
       <div
         className="txt"
       >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-\${this.props.name}"
+        />
         <textarea
           className="txt-f txt-f--sm"
           id="FeedbackForm-\${this.props.name}"
@@ -507,7 +511,6 @@ exports[`Storyshots ApplyPage default 1`] = `
           onChange={[Function]}
           placeholder="Other Comments"
           rows={10}
-          title="comments"
           value=""
         />
       </div>
@@ -542,6 +545,27 @@ exports[`Storyshots Checkbox default 1`] = `
     Community Preservation Committee
   </span>
 </label>
+`;
+
+exports[`Storyshots CommentInput default 1`] = `
+<div
+  className="txt"
+>
+  <label
+    className="txt-l txt-l--sm"
+    htmlFor="FeedbackForm-\${this.props.name}"
+  />
+  <textarea
+    className="txt-f txt-f--sm"
+    id="FeedbackForm-\${this.props.name}"
+    name="comments"
+    onBlur=""
+    onChange=""
+    placeholder="Other Comments"
+    rows={10}
+    value="comments"
+  />
+</div>
 `;
 
 exports[`Storyshots TextInput default 1`] = `

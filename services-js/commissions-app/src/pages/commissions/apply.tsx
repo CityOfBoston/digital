@@ -13,12 +13,13 @@ import fetchCommissions, {
 
 export interface Props {
   commissions: Commission[];
+  commissionID: string;
 }
 
 export default class ApplyPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
-    return { commissions };
+    return { commissions, commissionID: '' };
   }
 
   renderCommission(
@@ -354,6 +355,7 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
+
                       <div className="t--subinfo t--err m-t100">
                         {touched.commissionIds && errors.commissionIds}
                       </div>
@@ -375,7 +377,6 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
-
                       <h4>
                         You can still apply for a board or commission that does
                         not currently have any open positions, and we will
@@ -393,12 +394,10 @@ export default class ApplyPage extends React.Component<Props> {
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Comments" />
                 <CommentInput
-                  title="comments"
                   name="comments"
                   placeholder="Other Comments"
                   value={values.comments}
                   onChange={handleChange}
-                  error={touched.comments && errors.comments}
                   onBlur={handleBlur}
                 />
 
