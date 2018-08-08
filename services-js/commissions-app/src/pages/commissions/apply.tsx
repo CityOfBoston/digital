@@ -1,5 +1,6 @@
 import React from 'react';
 import TextInput from '../../client/common/TextInput';
+import CommentInput from '../../client/common/CommentInput';
 import { Formik, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import Head from 'next/head';
@@ -12,12 +13,13 @@ import fetchCommissions, {
 
 export interface Props {
   commissions: Commission[];
+  commissionID: string;
 }
 
 export default class ApplyPage extends React.Component<Props> {
   static async getInitialProps(): Promise<Props> {
     const commissions = await fetchCommissions();
-    return { commissions };
+    return { commissions, commissionID: '' };
   }
 
   renderCommission(
@@ -28,7 +30,6 @@ export default class ApplyPage extends React.Component<Props> {
     handleBlur
   ) {
     const checked = checkedCommissionIds.includes(commission.id.toString());
-
     return (
       <li
         style={{ listStyleType: 'none' }}
@@ -87,6 +88,7 @@ export default class ApplyPage extends React.Component<Props> {
               degreeAttained: '',
               educationalInstitution: '',
               otherInformation: '',
+              comments: '',
             }}
             validationSchema={Yup.object().shape({
               zip: Yup.string()
@@ -138,6 +140,7 @@ export default class ApplyPage extends React.Component<Props> {
                 2,
                 'Other Information Needs To Be Valid'
               ),
+              comments: Yup.string().required(),
             })}
             onSubmit={() => {}}
             render={({
@@ -330,15 +333,15 @@ export default class ApplyPage extends React.Component<Props> {
                   error={touched.otherInformation && errors.otherInformation}
                   onBlur={handleBlur}
                 />
+
                 <hr className="hr hr--sq" />
                 <SectionHeader title="Boards and Commissions" />
-
                 <h2>
                   Please note that many of these Boards and Commissions require
                   City of Boston residency.
                 </h2>
-                <SectionHeader title="Boards and Commissions with open positions" />
 
+                <SectionHeader title="Boards and Commissions without open positions" />
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -352,14 +355,15 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
+
                       <div className="t--subinfo t--err m-t100">
                         {touched.commissionIds && errors.commissionIds}
                       </div>
                     </ul>
                   )}
                 />
-                <SectionHeader title="Boards and Commissions with no open positions" />
 
+                <SectionHeader title="Boards and Commissions with open positions" />
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
@@ -373,7 +377,6 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
-
                       <h4>
                         You can still apply for a board or commission that does
                         not currently have any open positions, and we will
@@ -386,6 +389,18 @@ export default class ApplyPage extends React.Component<Props> {
                   )}
                 />
                 <hr className="hr hr--sq" />
+                <SectionHeader title="Reference Information" />
+
+                <hr className="hr hr--sq" />
+                <SectionHeader title="Comments" />
+                <CommentInput
+                  name="comments"
+                  placeholder="Other Comments You Would Like Us to Know."
+                  value={values.comments}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+
                 <button type="submit" className="btn btn--700">
                   Send Message
                 </button>
