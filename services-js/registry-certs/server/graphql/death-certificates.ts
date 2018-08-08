@@ -1,4 +1,12 @@
 import moment from 'moment-timezone';
+
+import {
+  Resolvers,
+  ResolvableWith,
+  Int,
+  Omit,
+} from '@cityofboston/graphql-typescript';
+
 import { Context } from './index';
 import RegistryOrders from '../services/RegistryOrders';
 import RegistryData, {
@@ -6,98 +14,28 @@ import RegistryData, {
   DeathCertificate as DbDeathCertificate,
 } from '../services/RegistryData';
 
-export const Schema = `
-type DeathCertificate {
-  id: String!
-  firstName: String!
-  lastName: String!
-  deathDate: String
-  deathYear: String!
-  pending: Boolean
-  age: String
-  birthDate: String
-}
-
-# Pages are 1-indexed to make the UI look better
-type DeathCertificateSearch {
-  page: Int!
-  pageSize: Int!
-  pageCount: Int!
-  results: [DeathCertificate!]!
-  resultCount: Int!
-}
-
-type CertificateOrderItem {
-  id: String!
-  quantity: Int!
-  cost: Int!
-  certificate: DeathCertificate
-}
-
-type DeathCertificateOrder {
-  id: String!
-  date: String!
-
-  contactName: String!
-  contactEmail: String!
-  contactPhone: String!
-
-  shippingName: String!
-  shippingCompanyName: String!
-  shippingAddress1: String!
-  shippingAddress2: String!
-  shippingCity: String!
-  shippingState: String!
-  shippingZip: String!
-
-  cardholderName: String!
-  billingAddress1: String!
-  billingAddress2: String!
-  billingCity: String!
-  billingState: String!
-  billingZip: String!
-
-  items: [CertificateOrderItem!]!
-
-  certificateCost: Int!
-  subtotal: Int!
-  serviceFee: Int!
-  total: Int!
-}
-
-type DeathCertificates {
-  search(query: String!, page: Int, pageSize: Int, startYear: String, endYear: String): DeathCertificateSearch!
-  certificate(id: String!): DeathCertificate
-  certificates(ids: [String!]!): [DeathCertificate]!
-  order(id: String!, contactEmail: String!): DeathCertificateOrder
-}
-`;
-
 const DEFAULT_PAGE_SIZE = 20;
 const MAX_PAGE_SIZE = 500;
 
-interface SearchArgs {
-  query: string;
-  page?: number;
-  pageSize?: number;
-  startYear?: string;
-  endYear?: string;
+export interface DeathCertificates extends ResolvableWith<{}> {
+  search(args: {
+    query: string;
+    page?: Int;
+    pageSize?: Int;
+    startYear?: string;
+    endYear?: string;
+  }): DeathCertificateSearch;
+
+  certificate(args: { id: string }): DeathCertificate | null;
+  certificates(args: { ids: string[] }): (DeathCertificate | null)[];
+
+  order(args: {
+    id: string;
+    contactEmail: string;
+  }): DeathCertificateOrder | null;
 }
 
-type CertificateArgs = {
-  id: string;
-};
-
-type CertificatesArgs = {
-  ids: string[];
-};
-
-interface OrderLookupArgs {
-  id: string;
-  contactEmail: string;
-}
-
-type DeathCertificate = {
+interface DeathCertificate {
   id: string;
   firstName: string;
   lastName: string;
@@ -106,24 +44,26 @@ type DeathCertificate = {
   pending: boolean;
   age: string | null;
   birthDate: string | null;
-};
+}
 
-type DeathCertificateSearch = {
-  page: number;
-  pageSize: number;
-  pageCount: number;
+interface DeathCertificateSearch {
+  page: Int;
+  pageSize: Int;
+  pageCount: Int;
   results: DeathCertificate[];
-  resultCount: number;
-};
+  resultCount: Int;
+}
 
-type CertificateOrderItem = {
+interface CertificateOrderItem
+  extends ResolvableWith<AsyncCertificateOrderItem> {
   id: string;
-  quantity: number;
+  quantity: Int;
   cost: number;
-  certificate: () => Promise<DeathCertificate | null | undefined>;
-};
+  certificate: DeathCertificate | null;
+}
 
-type DeathCertificateOrder = {
+interface DeathCertificateOrder
+  extends ResolvableWith<AsyncDeathCertificateOrder> {
   id: string;
   date: string;
   contactName: string;
@@ -145,13 +85,23 @@ type DeathCertificateOrder = {
   billingState: string;
   billingZip: string;
 
-  items: Array<CertificateOrderItem>;
+  items: CertificateOrderItem[];
 
   certificateCost: number;
   subtotal: number;
   serviceFee: number;
   total: number;
-};
+}
+
+interface AsyncCertificateOrderItem
+  extends Omit<CertificateOrderItem, 'certificate'> {
+  certificate: () => Promise<DeathCertificate | null>;
+}
+
+interface AsyncDeathCertificateOrder
+  extends Omit<DeathCertificateOrder, 'items'> {
+  items: AsyncCertificateOrderItem[];
+}
 
 const DATE_REGEXP = /\(?\s*(\d\d?\/\d\d?\/\d\d\d\d)\s*\)?/;
 
@@ -199,7 +149,7 @@ export async function loadOrder(
   registryData: RegistryData,
   registryOrders: RegistryOrders,
   id: string
-): Promise<DeathCertificateOrder | null> {
+) {
   const order = await registryOrders.findOrder(id);
   if (!order) {
     return null;
@@ -262,85 +212,79 @@ export async function loadOrder(
   };
 }
 
-export const resolvers = {
-  DeathCertificates: {
-    search: async (
-      _root: unknown,
-      { query, pageSize, page, startYear, endYear }: SearchArgs,
-      { registryData }: Context
-    ): Promise<DeathCertificateSearch> => {
-      const queryPageSize = Math.min(
-        pageSize || DEFAULT_PAGE_SIZE,
-        MAX_PAGE_SIZE
-      );
-      const queryPage = (page || 1) - 1;
+const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
+  search: async (
+    _root,
+    { query, pageSize, page, startYear, endYear },
+    { registryData }
+  ) => {
+    const queryPageSize = Math.min(
+      pageSize || DEFAULT_PAGE_SIZE,
+      MAX_PAGE_SIZE
+    );
+    const queryPage = (page || 1) - 1;
 
-      const results: Array<
-        DeathCertificateSearchResult
-      > = await registryData.search(
-        query,
-        queryPage,
-        queryPageSize,
-        startYear,
-        endYear
-      );
+    const results: Array<
+      DeathCertificateSearchResult
+    > = await registryData.search(
+      query,
+      queryPage,
+      queryPageSize,
+      startYear,
+      endYear
+    );
 
-      const resultCount = results.length > 0 ? results[0].ResultCount : 0;
-      const pageCount = Math.ceil(resultCount / queryPageSize);
+    const resultCount = results.length > 0 ? results[0].ResultCount : 0;
+    const pageCount = Math.ceil(resultCount / queryPageSize);
 
-      return {
-        page: queryPage + 1,
-        pageSize: queryPageSize,
-        pageCount,
-        resultCount,
-        results: results.map(searchResultToDeathCertificate),
-      };
-    },
-    certificate: async (
-      _root: unknown,
-      { id }: CertificateArgs,
-      { registryData }: Context
-    ): Promise<DeathCertificate | null> => {
-      const res = await registryData.lookup(id);
-
-      if (res) {
-        return searchResultToDeathCertificate(res);
-      } else {
-        return null;
-      }
-    },
-    certificates: (
-      _root: unknown,
-      { ids }: CertificatesArgs,
-      { registryData }: Context
-    ): Promise<Array<DeathCertificate | null>> =>
-      Promise.all(
-        ids.map(async (id): Promise<DeathCertificate | null> => {
-          const res = await registryData.lookup(id);
-          if (res) {
-            return searchResultToDeathCertificate(res);
-          } else {
-            return null;
-          }
-        })
-      ),
-    order: async (
-      _root: unknown,
-      { id, contactEmail }: OrderLookupArgs,
-      { registryData, registryOrders }: Context
-    ): Promise<DeathCertificateOrder | null> => {
-      const order = await loadOrder(registryData, registryOrders, id);
-      if (!order) {
-        return null;
-      }
-
-      // Safety check so that you can't easily iterate through all the receipt
-      // IDs to get sensitive information.
-      if (order.contactEmail.toLowerCase() !== contactEmail.toLowerCase()) {
-        return null;
-      }
-
-      return order;
-    },
+    return {
+      page: queryPage + 1,
+      pageSize: queryPageSize,
+      pageCount,
+      resultCount,
+      results: results.map(searchResultToDeathCertificate),
+    };
   },
+  certificate: async (_root, { id }, { registryData }) => {
+    const res = await registryData.lookup(id);
+
+    if (res) {
+      return searchResultToDeathCertificate(res);
+    } else {
+      return null;
+    }
+  },
+  certificates: (_root, { ids }, { registryData }) =>
+    Promise.all(
+      ids.map(async (id): Promise<DeathCertificate | null> => {
+        const res = await registryData.lookup(id);
+        if (res) {
+          return searchResultToDeathCertificate(res);
+        } else {
+          return null;
+        }
+      })
+    ),
+  order: async (
+    _root,
+    { id, contactEmail },
+    { registryData, registryOrders }
+  ) => {
+    const order = await loadOrder(registryData, registryOrders, id);
+    if (!order) {
+      return null;
+    }
+
+    // Safety check so that you can't easily iterate through all the receipt
+    // IDs to get sensitive information.
+    if (order.contactEmail.toLowerCase() !== contactEmail.toLowerCase()) {
+      return null;
+    }
+
+    return order;
+  },
+};
+
+export const resolvers = {
+  DeathCertificates: deathCertificatesResolvers,
 };

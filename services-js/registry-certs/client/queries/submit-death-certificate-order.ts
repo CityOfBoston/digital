@@ -16,7 +16,7 @@ const QUERY = gql`
     $shippingName: String!
     $shippingCompanyName: String!
     $shippingAddress1: String!
-    $shippingAddress2: String
+    $shippingAddress2: String!
     $shippingCity: String!
     $shippingState: String!
     $shippingZip: String!
@@ -24,7 +24,7 @@ const QUERY = gql`
     $cardLast4: String!
     $cardholderName: String!
     $billingAddress1: String!
-    $billingAddress2: String
+    $billingAddress2: String!
     $billingCity: String!
     $billingState: String!
     $billingZip: String!

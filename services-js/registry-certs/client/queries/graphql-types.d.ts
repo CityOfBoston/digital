@@ -19,7 +19,7 @@ export interface FetchDeathCertificatesQuery {
       lastName: string;
       deathYear: string;
       deathDate: string | null;
-      pending: boolean | null;
+      pending: boolean;
       age: string | null;
       birthDate: string | null;
     } | null>;
@@ -83,7 +83,7 @@ export interface SearchDeathCertificatesQuery {
         lastName: string;
         deathYear: string;
         deathDate: string | null;
-        pending: boolean | null;
+        pending: boolean;
         age: string | null;
         birthDate: string | null;
       }>;
@@ -98,7 +98,7 @@ export interface SubmitDeathCertificateOrderMutationVariables {
   shippingName: string;
   shippingCompanyName: string;
   shippingAddress1: string;
-  shippingAddress2?: string | null;
+  shippingAddress2: string;
   shippingCity: string;
   shippingState: string;
   shippingZip: string;
@@ -106,7 +106,7 @@ export interface SubmitDeathCertificateOrderMutationVariables {
   cardLast4: string;
   cardholderName: string;
   billingAddress1: string;
-  billingAddress2?: string | null;
+  billingAddress2: string;
   billingCity: string;
   billingState: string;
   billingZip: string;
