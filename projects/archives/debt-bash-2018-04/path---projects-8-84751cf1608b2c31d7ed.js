@@ -1,2 +1,0 @@
-webpackJsonp([39633787119315],{501:function(t,e){t.exports={data:{githubProject:{name:"Budget",columns:[{id:"Github__ProjectColumn__2388789",name:"Backlog",cards:[]},{id:"Github__ProjectColumn__2388790",name:"Next",cards:[]},{id:"Github__ProjectColumn__2388791",name:"Current",cards:[]},{id:"Github__ProjectColumn__2388792",name:"Inventory",cards:[]},{id:"Github__ProjectColumn__2388796",name:"Closed",cards:[]}]}},pathContext:{slug:"/projects/8/"}}}});
-//# sourceMappingURL=path---projects-8-84751cf1608b2c31d7ed.js.map
