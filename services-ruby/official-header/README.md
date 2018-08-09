@@ -9,3 +9,5 @@ An official header that can be included by sites that are official City websites
 It is recommended to add this to the `<head>` tag of every page for the site. 
 
 Once added, send an email to feedback@boston.gov with your domain to get added to the list of approved sites - it won't work otherwise. For testing purposes `localhost` is always allowed.
+
+[See an example of what this looks like.](https://officialheader.boston.gov/)
