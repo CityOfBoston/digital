@@ -1,0 +1,32 @@
+<script id="file-content" type="text/javascript">
+  (function() {
+    var cob_header = cob_header || {};
+    cob_header.tpl_yep = <%= templates %>;
+
+    var container = document.createElement('div');
+    container.innerHTML = cob_header.tpl_yep.header;
+
+    if (document.body) {
+      document.body.insertBefore(container, document.body.firstChild);
+    } else {
+      var check = setInterval(function() {
+        if (document.body) {
+          document.body.insertBefore(container, document.body.firstChild);
+          clearInterval(check);
+        }
+      }, 100);
+    }
+  })();
+</script>
+
+<div id="templates">
+  <div id="header">
+    <style><!-- inject:css --><!-- endinject --></style>
+    <div class="oh oh-flx oh-fac">
+      <a href="https://cityofboston.gov" title="Go to CityOfBoston.gov" class="oh-mbn oh-mls oh-w25 oh-fl oh-hsm"><!-- inject:cob_logo --><!-- endinject --></a>
+      <div class="oh-w50 oh-ttu oh-tac">An official City of Boston website</div>
+      <a class="oh-ttu oh-cr oh-fr oh-hsm" href="https://pilot.boston.gov" title="Go to Boston.gov">Boston.gov</a>
+      <span class="oh-bcr oh-psm oh-mls"><!-- inject:b_logo --><!-- endinject --></span>
+    </div>
+  </div>
+</div>

@@ -16,7 +16,7 @@
     "start": "node build/server/start",
     "pretest": "tsc --noEmit",
     "test": "scripts/test.js",
-    "travis-deploy": "travis-js-service-deploy deploy/Dockerfile"
+    "travis-deploy": "travis-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel"

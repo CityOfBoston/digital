@@ -1,7 +1,9 @@
 /* eslint no-console: 0 */
 
+import fs from 'fs';
 import path from 'path';
 import { format } from 'date-fns';
+import parseArgs from 'minimist';
 
 import {
   BANNER,
@@ -18,13 +20,21 @@ import {
   updateServiceTaskDefinition,
   postToSlack,
   parseBranch,
+  runNpmScript,
+  runScopedLernaScript,
 } from './helpers';
 
-const [dockerfilePath] = process.argv.slice(2);
+const args = parseArgs(process.argv, { boolean: true });
+
+const dockerfilePath = args._.pop()!;
 
 const { environment, serviceName, variant } = parseBranch();
 
-const workspaceDir = path.resolve('../..');
+// If true, runs Docker in the service’s own directory. Use for things like Ruby
+// apps that don't pull in the whole JS monorepo.
+const isolatedDocker = !!args['isolated-docker'];
+
+const workspaceDir = isolatedDocker ? '.' : path.resolve('../..');
 const cacheTag = 'latest';
 
 (async function() {
@@ -49,12 +59,26 @@ const cacheTag = 'latest';
   );
   console.error();
 
+  const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+  if (packageJson.scripts && packageJson.scripts.predeploy) {
+    // We do run a yarn install for the whole repo during deploy. See
+    // .travis.yml. We still do run the "prepare" script though in case
+    // "predeploy" requires packages to be compiled.
+    console.error('🌬 Running predeploy script…');
+    await runScopedLernaScript(serviceName, 'prepare');
+    await runNpmScript('predeploy');
+    console.error();
+  }
+
   console.error('🔓 Logging in…');
   await dockerAwsLogin();
   console.error();
 
-  console.error('🎁 Creating package-json.tar…');
-  await makePackageJsonTar(workspaceDir);
+  if (!isolatedDocker) {
+    console.error('🎁 Creating package-json.tar…');
+    await makePackageJsonTar(workspaceDir);
+    console.error();
+  }
 
   const versionedTag =
     environment === 'production'
@@ -62,7 +86,6 @@ const cacheTag = 'latest';
       : `${repository}:deploy-${variant || 'default'}`;
   const buildTags = [`${repository}:${cacheTag}`, versionedTag];
 
-  console.error();
   console.error('📻 Pulling previous image…');
   const result = await pullImage(repository, cacheTag);
   if (!result) {
@@ -178,7 +201,12 @@ const cacheTag = 'latest';
   );
 })().catch(e => {
   console.error(e);
-  postToSlack('error', e.toString()).finally(() => {
-    process.exit(-1);
-  });
+  postToSlack('error', e.toString()).then(
+    () => {
+      process.exit(-1);
+    },
+    () => {
+      process.exit(-1);
+    }
+  );
 });
