@@ -1,0 +1,31 @@
+<script id="file-content" type="text/javascript">
+  (function() {
+    var cob_header = cob_header || {};
+    cob_header.tpl_nope = <%= templates %>;
+
+    var container = document.createElement('div');
+    container.innerHTML = cob_header.tpl_nope.header;
+
+    if (document.body) {
+      document.body.insertBefore(container, document.body.firstChild);
+    } else {
+      var check = setInterval(function() {
+        if (document.body) {
+          document.body.insertBefore(container, document.body.firstChild);
+          clearInterval(check);
+        }
+      }, 100);
+    }
+  })();
+</script>
+
+<div id="templates">
+  <div id="header">
+    <style><!-- inject:css --><!-- endinject --></style>
+    <div class="oh">
+      <div class="oh-ttu oh-tac oh-bcftr oh-cw">
+        <p class="oh-pmd">There is a snow emergency. <a href="https://www.boston.gov/snow" title="Visit Boston.gov" class="oh-cw oh-tdu">Learn more</a></p>
+      </div>
+    </div>
+  </div>
+</div>

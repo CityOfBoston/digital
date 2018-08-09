@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    puma (3.8.2)
+    rack (2.0.1)
+    rack-attack (5.0.1)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  puma
+  rack
+  rack-attack
+
+BUNDLED WITH
+   1.14.3

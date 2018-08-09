@@ -123,6 +123,19 @@ export async function pushImage(image: string) {
   }
 }
 
+export async function runScopedLernaScript(scope: string, script: string) {
+  const command = `npx lerna run --stream --scope ${scope} --include-filtered-dependencies ${script}`;
+  if (shell.exec(command).code !== 0) {
+    throw new Error(`Error running lerna script: ${script}`);
+  }
+}
+
+export async function runNpmScript(script: string) {
+  if (shell.exec(`npm run ${script}`).code !== 0) {
+    throw new Error(`Error running npm script: ${script}`);
+  }
+}
+
 export async function getRepository(
   environment: string,
   serviceName: string
@@ -395,7 +408,7 @@ export async function postToSlack(
     const travisUrl = `https://travis-ci.org/${
       process.env.TRAVIS_REPO_SLUG
     }/builds/${process.env.TRAVIS_BUILD_ID}`;
-    const footer = 'travis-js-service-deploy.ts';
+    const footer = 'travis-service-deploy.ts';
     const footerIcon = 'https://twemoji.maxcdn.com/2/72x72/1f380.png';
 
     const webhook = new IncomingWebhook(webhookUrl);

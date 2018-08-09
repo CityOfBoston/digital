@@ -1,6 +1,6 @@
 {
-  "name": "commissions",
-  "description": "Boards and Commissions server",
+  "name": "digital",
+  "description": "Boston Digital Team monorepo",
   "version": "0.0.0",
   "license": "CC0-1.0",
   "private": true,
@@ -11,6 +11,7 @@
   "workspaces": {
     "packages": [
       "services-js/*",
+      "services-ruby/*",
       "modules-js/*",
       "templates/js-*",
       "templates/js-*/build/*"

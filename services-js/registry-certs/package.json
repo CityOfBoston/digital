@@ -19,7 +19,7 @@
     "prepare": "npm run build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static",
-    "travis-deploy": "travis-js-service-deploy Dockerfile",
+    "travis-deploy": "travis-service-deploy Dockerfile",
     "prepare-deploy": "build-storybook -s static",
     "lint": "eslint --fix .",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",

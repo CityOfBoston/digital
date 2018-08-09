@@ -1,0 +1,30 @@
+{
+  "name": "official-header",
+  "version": "0.0.0",
+  "description": "The official headers that are used by the City of Boston to demark official sites",
+  "main": "header.js",
+  "scripts": {
+    "predeploy": "gulp build",
+    "travis-deploy": "travis-service-deploy --isolated-docker deploy/Dockerfile"
+  },
+  "author": "City of Boston DoIT",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-html-js-template": "^0.1.6",
+    "gulp-inject": "^4.0.0",
+    "gulp-inline-css": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-strip-comments": "^2.4.3",
+    "gulp-stylus": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "require-dir": "^0.3.0"
+  },
+  "devDependencies": {
+    "@cityofboston/deploy-tools": "^0.0.0"
+  }
+}
