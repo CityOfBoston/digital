@@ -1,26 +1,85 @@
 categories:
-  - title: For Everyone
+  - title: Applications
+    show_request_access_link: true
+    icons: true
     apps:
       - title: The Hub
-        url: https://hub.boston.gov
-  - title: Sponsored Accounts
-    apps:
-      - title: Create Sponsored Account
-        url: https://identity-dev.boston.gov/identityiq/createSponsor.jsf
+        url: https://hub.boston.gov/
+      - title: Employee Self-Service
+        url: https://ess.boston.gov/
         groups:
-          - SG_AB_IAM_TEAM
-      - title: Extend Sponsored Account
-        url: https://identity-dev.boston.gov/identityiq/extendSponsor.jsf
+          - SG_AB_ESS
+      - title: Employee Connect
+        url: https://employeeconnect-boston.icims.com/
         groups:
-          - SG_AB_IAM_TEAM
-  - title: Blank Category
-    apps:
-      - title: Create Sponsored Account
-        url: https://identity-dev.boston.gov/identityiq/createSponsor.jsf
+          - SG_AB_ICIMS
+      - title: My Learning Plan
+        url: https://login.frontlineeducation.com/
         groups:
-          - SG_NOT_A_GROUP
-      - title: Extend Sponsored Account
-        url: https://identity-dev.boston.gov/identityiq/extendSponsor.jsf
+          - SG_AB_MLP
+      - title: BAIS FN
+        url: https://baisfn.cityhall.boston.cob/
         groups:
-          - SG_NOT_A_GROUP
+          - SG_AB_PSFIN
+      - title: BAIS HCM
+        url: https://hcm.cityhall.boston.cob/
+        groups:
+          - SG_AB_PSHCM
+      - title: Hyperion
+        url: https://login.us2.oraclecloud.com/
+        icon: /static/apps/hyperion.png
+        groups:
+          - SG_AB_HYPERION
+      - title: Boston Maps
+        url: https://boston.maps.arcgis.com/
+        icon: /static/apps/boston-maps.png
 
+  - title: Forms
+    apps:
+      - title: Building Maintenance
+        url: https://eamtst.cityhall.boston.cob:5443/WebMaint/
+      - title: FleetHub
+        url: http://boston.getlocalmotion.com/
+      - title: International Travel
+        url: https://goo.gl/forms/Xobh9aZeGXSnKH2m2
+      - title: Unblock Website Request
+        url: https://boston.seamlessdocs.com/f/geol18cumhw
+
+  - title: Account Tools
+    apps:
+      - title: Change Password
+        url: https://identity.boston.gov/identityiq/changePassword.jsf
+      - title: Change MFA Device or Email Address
+        url: https://identity.boston.gov/identityiq/changePassword.jsf
+      - title: Create Sponsored Account
+        url: https://identity.boston.gov/identityiq/createSponsor.jsf
+        groups:
+          - SG_AB_SPONSOR
+      - title: Manage Sponsored Account
+        url: https://identity.boston.gov/identityiq/extendSponsor.jsf
+        groups:
+          - SG_AB_SPONSOR
+      - title: Identity Verification
+        url: https://identity.boston.gov/identityiq/identityVerification.jsf
+        groups:
+          - SG_AB_SERVICEDESK_USERS
+      - title: Request FN Access
+        url: https://identity.boston.gov/identityiq/requestPsfn.jsf
+        groups:
+          - SG_AB_FIN_LIASONS_USERS
+      - title: Set a Delegate
+        url: https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf
+        groups:
+          - SG_AB_MANAGER
+          - SG_AB_TRAINING_TEAM
+          - SG_AB_FIN_LIASONS_USERS
+      - title: My Approvals
+        url: https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval
+        groups:
+          - SG_AB_MANAGER
+          - SG_AB_TRAINING_TEAM
+          - SG_AB_FIN_LIASONS_USERS
+      - title: Edit Group
+        url: "#"
+        groups:
+          - SG_AB_HCMSECURITY

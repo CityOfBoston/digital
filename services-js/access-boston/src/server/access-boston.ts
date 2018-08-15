@@ -59,7 +59,10 @@ export async function makeServer(port) {
   const appsRegistry = await (process.env.NODE_ENV === 'production' ||
   (dev && fs.existsSync('./apps.yaml'))
     ? makeAppsRegistry('./apps.yaml')
-    : makeAppsRegistry(path.resolve(__dirname, '../../fixtures/apps.yaml')));
+    : makeAppsRegistry(
+        path.resolve(__dirname, '../../fixtures/apps.yaml'),
+        process.env.NODE_ENV !== 'test'
+      ));
 
   const samlAuth: SamlAuth =
     process.env.NODE_ENV === 'production' || process.env.SAML_IN_DEV
