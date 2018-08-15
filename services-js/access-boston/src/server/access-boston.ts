@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Server as HapiServer } from 'hapi';
+import { Server as HapiServer, RequestQuery } from 'hapi';
 import Crumb from 'crumb';
 import cookieAuthPlugin from 'hapi-auth-cookie';
 
@@ -72,7 +72,8 @@ export async function makeServer(port) {
           {
             metadataUrl: `https://${process.env.PUBLIC_HOST}${METADATA_PATH}`,
             assertUrl: `https://${process.env.PUBLIC_HOST}${ASSERT_PATH}`,
-          }
+          },
+          process.env.SINGLE_LOGOUT_URL || ''
         )
       : (new SamlAuthFake(ASSERT_PATH) as any);
 
@@ -154,11 +155,28 @@ export async function makeServer(port) {
     handler: async (_, h) => h.redirect(await samlAuth.makeLoginUrl()),
   });
 
+  if (process.env.NODE_ENV !== 'production') {
+    server.route({
+      path: '/login-form',
+      method: 'GET',
+      options: {
+        auth: false,
+      },
+      handler: () =>
+        `<form action="/assert" method="POST"><input type="submit" value="Log In" /></form>`,
+    });
+  }
+
   server.route({
     path: '/logout',
     method: 'POST',
     handler: async (request, h) => {
       const session: Session = request.auth.credentials as any;
+
+      // We clear our cookie when you hit this button, since it's better for us
+      // to be logged out on Access Boston but logged in on the SSO side than
+      // the alternative.
+      (request as any).cookieAuth.clear();
 
       return h.redirect(
         await samlAuth.makeLogoutUrl(session.nameId, session.sessionIndex)
@@ -177,8 +195,7 @@ export async function makeServer(port) {
 
   server.route({
     path: ASSERT_PATH,
-    // 'GET' is only useful for dev
-    method: ['POST', 'GET'],
+    method: 'POST',
     options: {
       auth: false,
       plugins: {
@@ -190,7 +207,12 @@ export async function makeServer(port) {
         request.payload as string
       );
 
-      console.log(JSON.stringify(assertResult, null, 2));
+      if (assertResult.type !== 'login') {
+        throw new Error(
+          `Unexpected assert result in POST handler: ${assertResult.type}`
+        );
+      }
+
       const { nameId, sessionIndex, groups } = assertResult;
 
       const session: Session = {
@@ -201,6 +223,40 @@ export async function makeServer(port) {
 
       (request as any).cookieAuth.set(session);
       return h.redirect('/');
+    },
+  });
+
+  // Used in logout requests and development
+  server.route({
+    path: ASSERT_PATH,
+    method: 'GET',
+    options: { auth: { mode: 'try' } },
+    handler: async (request, h) => {
+      const assertResult = await samlAuth.handleGetAssert(
+        request.query as RequestQuery
+      );
+
+      if (assertResult.type !== 'logout') {
+        throw new Error(
+          `Unexpected assert result in GET handler: ${assertResult.type}`
+        );
+      }
+
+      const session: Session = (request.auth.credentials as any) || {};
+      // Check to make sure this is the session we're getting rid of. We're
+      // tolerant of the session being clear already (which happens if we’re the
+      // ones who initiate logout)
+      if (
+        (session.nameId && session.nameId !== assertResult.nameId) ||
+        (session.sessionIndex &&
+          session.sessionIndex !== assertResult.sessionIndex)
+      ) {
+        console.debug(`Logout name ID or session index doesn’t match session`);
+        return h.redirect('/');
+      } else {
+        (request as any).cookieAuth.clear();
+        return h.redirect(assertResult.successUrl);
+      }
     },
   });
 
