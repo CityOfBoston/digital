@@ -9,13 +9,15 @@ export interface SamlConfigPaths {
   metadataPath: string;
 }
 
-interface SamlAssertion {
-  response_header: {
-    version: '2.0';
-    destination: string;
-    in_response_to: string;
-    id: string;
-  };
+interface SamlResponseHeader {
+  version: '2.0';
+  destination: string;
+  in_response_to: string;
+  id: string;
+}
+
+interface SamlAuthAssertion {
+  response_header: SamlResponseHeader;
   type: 'authn_response';
   user: {
     name_id: string;
@@ -25,6 +27,16 @@ interface SamlAssertion {
     };
   };
 }
+
+interface SamlLogoutRequestAssertion {
+  response_header: SamlResponseHeader;
+  type: 'logout_request';
+  issuer: string;
+  name_id: string;
+  session_index: string;
+}
+
+type SamlAssertion = SamlAuthAssertion | SamlLogoutRequestAssertion;
 
 export interface ServiceProviderConfig {
   metadataUrl: string;
@@ -38,6 +50,15 @@ export interface SamlLoginResult {
   groups: string[];
 }
 
+export interface SamlLogoutRequestResult {
+  type: 'logout';
+  nameId: string;
+  sessionIndex: string;
+  successUrl: string;
+}
+
+export type SamlAssertResult = SamlLoginResult | SamlLogoutRequestResult;
+
 const SAML_METADATA_NAMESPACES = {
   md: 'urn:oasis:names:tc:SAML:2.0:metadata',
   ds: 'http://www.w3.org/2000/09/xmldsig#',
@@ -47,7 +68,8 @@ const REDIRECT_BINDING_URI =
   'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect';
 
 export async function makeIdentityProvider(
-  metadata: Buffer
+  metadata: Buffer,
+  logoutUrl: string | null = null
 ): Promise<IdentityProvider> {
   const parser = new DOMParser();
   const select = xpath.useNamespaces(SAML_METADATA_NAMESPACES);
@@ -90,7 +112,7 @@ export async function makeIdentityProvider(
 
   return new IdentityProvider({
     sso_login_url: redirectUrl,
-    sso_logout_url: redirectUrl,
+    sso_logout_url: logoutUrl || redirectUrl,
     sign_get_request: signRequests,
     certificates,
   });
@@ -119,7 +141,8 @@ export async function makeSamlAuth(
     serviceProviderCertPath,
     metadataPath,
   }: SamlConfigPaths,
-  serviceProviderConfig: ServiceProviderConfig
+  serviceProviderConfig: ServiceProviderConfig,
+  logoutUrl: string
 ): Promise<SamlAuth> {
   const metadata: Promise<Buffer> = new Promise((resolve, reject) => {
     fs.readFile(metadataPath, (err, buf) => {
@@ -154,7 +177,7 @@ export async function makeSamlAuth(
   );
 
   const [identityProvider, serviceProvider] = await Promise.all([
-    makeIdentityProvider(await metadata),
+    makeIdentityProvider(await metadata, logoutUrl),
     makeServiceProvider(
       serviceProviderConfig,
       await serviceProviderCert,
@@ -208,16 +231,64 @@ export default class SamlAuth {
         },
         (err, logoutUrl) => {
           if (err) {
-            return reject(err);
+            reject(err);
+          } else {
+            resolve(logoutUrl);
           }
-
-          resolve(logoutUrl);
         }
       );
     });
   }
 
-  handlePostAssert(body: string): Promise<SamlLoginResult> {
+  protected makeLogoutSuccessUrl(requestId: string): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      this.serviceProvider.create_logout_response_url(
+        this.identityProvider,
+        {
+          in_response_to: requestId,
+          sign_get_request: true,
+        },
+        (err, successUrl) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(successUrl);
+          }
+        }
+      );
+    });
+  }
+
+  protected async processSamlAssertion(
+    saml: SamlAssertion
+  ): Promise<SamlAssertResult> {
+    // eslint-disable-next-line no-console
+    console.debug('SAML RESPONSE', JSON.stringify(saml, null, 2));
+
+    switch (saml.type) {
+      case 'authn_response':
+        return {
+          type: 'login',
+          nameId: saml.user.name_id,
+          sessionIndex: saml.user.session_index,
+          groups: parseGroupsAttribute(saml.user.attributes.groups || []),
+        };
+      case 'logout_request':
+        return {
+          type: 'logout',
+          nameId: saml.name_id,
+          sessionIndex: saml.session_index,
+          successUrl: await this.makeLogoutSuccessUrl(saml.response_header.id),
+        };
+
+      default:
+        throw new Error(
+          `Unrecognized SAML assertion type: ${(saml as any).type}`
+        );
+    }
+  }
+
+  handlePostAssert(body: string): Promise<SamlAssertResult> {
     return new Promise((resolve, reject) => {
       this.serviceProvider.post_assert(
         this.identityProvider,
@@ -228,18 +299,31 @@ export default class SamlAuth {
             return;
           }
 
-          // eslint-disable-next-line no-console
-          console.log('SAML RESPONSE', JSON.stringify(saml, null, 2));
+          try {
+            resolve(this.processSamlAssertion(saml));
+          } catch (e) {
+            reject(e);
+          }
+        }
+      );
+    });
+  }
+
+  handleGetAssert(query: {
+    [key: string]: string | string[];
+  }): Promise<SamlAssertResult> {
+    return new Promise((resolve, reject) => {
+      this.serviceProvider.redirect_assert(
+        this.identityProvider,
+        { request_body: query },
+        (err, saml: SamlAssertion) => {
+          if (err) {
+            reject(err);
+            return;
+          }
 
           try {
-            const samlLoginResult: SamlLoginResult = {
-              type: 'login',
-              nameId: saml.user.name_id,
-              sessionIndex: saml.user.session_index,
-              groups: parseGroupsAttribute(saml.user.attributes.groups || []),
-            };
-
-            resolve(samlLoginResult);
+            resolve(this.processSamlAssertion(saml));
           } catch (e) {
             reject(e);
           }
