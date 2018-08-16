@@ -174,7 +174,7 @@ export async function makeServer(port) {
       const session: Session = request.auth.credentials as any;
 
       // We clear our cookie when you hit this button, since it's better for us
-      // to be logged out on Access Boston but logged in on the SSO side than
+      // to be logged out on AccessBoston but logged in on the SSO side than
       // the alternative.
       (request as any).cookieAuth.clear();
 

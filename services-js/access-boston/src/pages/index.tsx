@@ -73,11 +73,11 @@ export default class IndexPage extends React.Component<Props> {
           <>
             <Head>
               <link rel="stylesheet" href={PUBLIC_CSS_URL} />
-              <title>Access Boston</title>
+              <title>AccessBoston</title>
             </Head>
 
             <div className={`${HEADER_STYLE} p-a200`}>
-              <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>Access Boston</h1>
+              <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>AccessBoston</h1>
               <div className={`${HEADER_RIGHT_STYLE}`}>
                 <span style={{ marginRight: '1em' }}>{employeeId}</span>
                 <form action="/logout" method="POST">
