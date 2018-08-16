@@ -6,7 +6,6 @@ import {
   PUBLIC_CSS_URL,
   CHARLES_BLUE,
   SANS,
-  GRAY_000,
 } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
@@ -15,6 +14,10 @@ import CrumbContext from '../client/CrumbContext';
 
 export interface Props {
   info: InfoResponse;
+}
+
+export interface State {
+  accountMenuOpen: boolean;
 }
 
 const HEADER_STYLE = css({
@@ -43,12 +46,6 @@ const ACCESS_BOSTON_TITLE_STYLE = css({
   fontWeight: 'bold',
 });
 
-const SIDEBAR_HEADER_STYLE = css({
-  fontFamily: SANS,
-  color: CHARLES_BLUE,
-  textTransform: 'uppercase',
-});
-
 const APP_ROW_STYLE = css({
   display: 'inline-block',
   verticalAlign: 'middle',
@@ -59,13 +56,15 @@ export default class IndexPage extends React.Component<Props> {
     return { info: await fetchJson(req, '/info') };
   }
 
+  state = {
+    accountMenuOpen: false,
+  };
+
   render() {
-    const {
-      employeeId,
-      accountTools,
-      requestAccessUrl,
-      categories,
-    } = this.props.info;
+    const { employeeId, requestAccessUrl, categories } = this.props.info;
+
+    const iconCategories = categories.filter(({ icons }) => icons);
+    const listCategories = categories.filter(({ icons }) => !icons);
 
     return (
       <CrumbContext.Consumer>
@@ -89,59 +88,82 @@ export default class IndexPage extends React.Component<Props> {
 
             <div className="mn">
               <div className="b b-c">
+                {iconCategories.map(
+                  ({ title, apps, showRequestAccessLink }) => (
+                    <div className="m-b500" key={title}>
+                      <SectionHeader title={title} />
+
+                      {showRequestAccessLink && (
+                        <div className="t--subinfo p-a200 m-v300">
+                          Is there an app that you need access to that’s not
+                          shown here? Fill out the{' '}
+                          <a href={requestAccessUrl}>request access form</a>.
+                        </div>
+                      )}
+                      {this.renderAppIcons(apps)}
+                    </div>
+                  )
+                )}
+
                 <div className="g">
-                  <div className="g--8">
-                    {categories.map(({ title, apps }) => (
-                      <div className="m-b500" key={title}>
+                  {listCategories.map(
+                    ({ title, apps, showRequestAccessLink }) => (
+                      <div className="m-b500 g--6" key={title}>
                         <SectionHeader title={title} />
-                        <ul className="ul">
-                          {apps.map(({ title, url, description }) => (
-                            <li key={title}>
-                              <a
-                                href={url}
-                                className={`p-a300 ${APP_ROW_STYLE}`}
-                              >
-                                <div className="t--sans tt-u">{title}</div>
-                                <div style={{ color: CHARLES_BLUE }}>
-                                  {description}
-                                </div>
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+
+                        {showRequestAccessLink && (
+                          <div className="t--subinfo p-a200 m-v300">
+                            Is there an app that you need access to that’s not
+                            shown here? Fill out the{' '}
+                            <a href={requestAccessUrl}>request access form</a>.
+                          </div>
+                        )}
+                        {this.renderAppList(apps)}
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="g--4">
-                    <div
-                      className="p-a200"
-                      style={{ backgroundColor: GRAY_000 }}
-                    >
-                      <h2 className={`${SIDEBAR_HEADER_STYLE} m-b200`}>
-                        Account Tools
-                      </h2>
-                      <ul className="ul">
-                        {accountTools.map(({ name, url }) => (
-                          <li key={name}>
-                            <a href={url}>{name}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="t--subinfo p-a200 m-v300">
-                      Is there an app that you need access to that’s not shown
-                      here? Fill out the{' '}
-                      <a href={requestAccessUrl}>request access form</a>.
-                    </div>
-                  </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
           </>
         )}
       </CrumbContext.Consumer>
+    );
+  }
+
+  renderAppList(apps) {
+    return (
+      <ul className="ul m-v500">
+        {apps.map(({ title, url, description }) => (
+          <li key={title}>
+            <a href={url} className={`p-a300 ${APP_ROW_STYLE}`}>
+              <div className="t--info" style={{ color: 'inherit' }}>
+                {title}
+              </div>
+              <div style={{ color: CHARLES_BLUE }}>{description}</div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderAppIcons(apps) {
+    return (
+      <div className="g">
+        {apps.map(({ title, url, iconUrl }) => (
+          <a href={url} key={title} className="lwi m-t200 g--3 g--3--sl">
+            <span className="lwi-ic">
+              <img
+                src={iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'}
+                alt=""
+                className="lwi-i"
+              />
+            </span>
+            <span className="lwi-t">{title}</span>
+          </a>
+        ))}
+      </div>
     );
   }
 }

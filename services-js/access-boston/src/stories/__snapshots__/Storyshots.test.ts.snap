@@ -46,227 +46,74 @@ Array [
       className="b b-c"
     >
       <div
+        className="m-b500"
+      >
+        <div
+          className="sh"
+        >
+          <h2
+            className="sh-title"
+          >
+            Financial Software
+          </h2>
+        </div>
+        <div
+          className="g"
+        >
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="#"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i"
+                src="https://patterns.boston.gov/images/b-dark.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS FN
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="#"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i"
+                src="https://patterns.boston.gov/images/b-dark.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS HCM
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
         className="g"
       >
         <div
-          className="g--8"
+          className="m-b500 g--6"
         >
           <div
-            className="m-b500"
-          >
-            <div
-              className="sh"
-            >
-              <h2
-                className="sh-title"
-              >
-                Employee Tools
-              </h2>
-            </div>
-            <ul
-              className="ul"
-            >
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    The Hub
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    Employee directory and other information for employees.
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    Building Maintenance Form
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    Report a maintenance problem with a City building.
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    ESS
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    Employee Connect
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    My Learning Plan
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            className="m-b500"
-          >
-            <div
-              className="sh"
-            >
-              <h2
-                className="sh-title"
-              >
-                Financial Software
-              </h2>
-            </div>
-            <ul
-              className="ul"
-            >
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    BAIS FN
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-a300 css-v7ibj3"
-                  href="#"
-                >
-                  <div
-                    className="t--sans tt-u"
-                  >
-                    BAIS HCM
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "color": "#091f2f",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          className="g--4"
-        >
-          <div
-            className="p-a200"
-            style={
-              Object {
-                "backgroundColor": "#f3f3f3",
-              }
-            }
+            className="sh"
           >
             <h2
-              className="css-xizy1b m-b200"
+              className="sh-title"
             >
-              Account Tools
+              Employee Tools
             </h2>
-            <ul
-              className="ul"
-            >
-              <li>
-                <a
-                  href="#"
-                >
-                  Change password
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                >
-                  Manage device
-                </a>
-              </li>
-            </ul>
           </div>
           <div
             className="t--subinfo p-a200 m-v300"
@@ -280,6 +127,140 @@ Array [
             </a>
             .
           </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  The Hub
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  Employee directory and other information for employees.
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Building Maintenance Form
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  Report a maintenance problem with a City building.
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  ESS
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Employee Connect
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  My Learning Plan
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

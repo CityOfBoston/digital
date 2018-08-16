@@ -7,19 +7,11 @@ import { InfoResponse } from '../lib/api';
 const INFO: InfoResponse = {
   employeeId: 'CON01234',
   requestAccessUrl: '#',
-  accountTools: [
-    {
-      name: 'Change password',
-      url: '#',
-    },
-    {
-      name: 'Manage device',
-      url: '#',
-    },
-  ],
   categories: [
     {
       title: 'Employee Tools',
+      showRequestAccessLink: true,
+      icons: false,
       apps: [
         {
           title: 'The Hub',
@@ -51,6 +43,8 @@ const INFO: InfoResponse = {
     },
     {
       title: 'Financial Software',
+      showRequestAccessLink: false,
+      icons: true,
       apps: [
         {
           title: 'BAIS FN',
