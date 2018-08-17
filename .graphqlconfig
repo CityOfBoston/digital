@@ -1,5 +1,11 @@
 {
   "projects": {
+    "access-boston": {
+      "schemaPath": "./services-js/access-boston/graphql/schema.graphql",
+      "includes": [
+        "./services-js/access-boston/**/*.{graphql,ts,tsx,js,jsx}"
+      ]
+    },
     "commissions-app": {
       "schemaPath": "./services-js/commissions-app/graphql/schema.graphql",
       "includes": [

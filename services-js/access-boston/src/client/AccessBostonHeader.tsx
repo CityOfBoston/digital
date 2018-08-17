@@ -2,8 +2,8 @@ import React from 'react';
 import { CHARLES_BLUE, SANS } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
-import { InfoResponse } from '../lib/api';
 import CrumbContext from '../client/CrumbContext';
+import { Account } from './graphql/fetch-account';
 
 const HEADER_STYLE = css({
   display: 'flex',
@@ -32,12 +32,12 @@ const ACCESS_BOSTON_TITLE_STYLE = css({
 });
 
 interface Props {
-  info: InfoResponse;
+  account: Account;
 }
 
 export default class AccessBostonHeader extends React.Component<Props> {
   render() {
-    const { employeeId } = this.props.info;
+    const { employeeId } = this.props.account;
 
     return (
       <CrumbContext.Consumer>

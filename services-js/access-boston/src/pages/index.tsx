@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { fetchJson } from '@cityofboston/next-client-common';
+
 import {
   SectionHeader,
   PUBLIC_CSS_URL,
@@ -9,11 +9,15 @@ import {
 } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
-import { InfoResponse } from '../lib/api';
 import AccessBostonHeader from '../client/AccessBostonHeader';
+import fetchAccountAndApps, {
+  Account,
+  Apps,
+} from '../client/graphql/fetch-account-and-apps';
 
 interface Props {
-  info: InfoResponse;
+  account: Account;
+  apps: Apps;
 }
 
 const APP_ROW_STYLE = css({
@@ -23,7 +27,9 @@ const APP_ROW_STYLE = css({
 
 export default class IndexPage extends React.Component<Props> {
   static async getInitialProps({ req }) {
-    return { info: await fetchJson(req, '/info') };
+    return {
+      ...(await fetchAccountAndApps(req)),
+    };
   }
 
   state = {
@@ -31,10 +37,10 @@ export default class IndexPage extends React.Component<Props> {
   };
 
   render() {
-    const { requestAccessUrl, categories } = this.props.info;
+    const { categories } = this.props.apps;
 
-    const iconCategories = categories.filter(({ icons }) => icons);
-    const listCategories = categories.filter(({ icons }) => !icons);
+    const iconCategories = categories.filter(({ showIcons }) => showIcons);
+    const listCategories = categories.filter(({ showIcons }) => !showIcons);
 
     return (
       <>
@@ -43,15 +49,15 @@ export default class IndexPage extends React.Component<Props> {
           <title>Access Boston</title>
         </Head>
 
-        <AccessBostonHeader info={this.props.info} />
+        <AccessBostonHeader account={this.props.account} />
 
         <div className="mn">
           <div className="b b-c">
-            {iconCategories.map(({ title, apps, showRequestAccessLink }) => (
+            {iconCategories.map(({ title, apps, requestAccessUrl }) => (
               <div className="m-b500" key={title}>
                 <SectionHeader title={title} />
 
-                {showRequestAccessLink && (
+                {requestAccessUrl && (
                   <div className="t--subinfo p-a200 m-v300">
                     Is there an app that you need access to that’s not shown
                     here? Fill out the{' '}
@@ -63,11 +69,11 @@ export default class IndexPage extends React.Component<Props> {
             ))}
 
             <div className="g">
-              {listCategories.map(({ title, apps, showRequestAccessLink }) => (
+              {listCategories.map(({ title, apps, requestAccessUrl }) => (
                 <div className="m-b500 g--6" key={title}>
                   <SectionHeader title={title} />
 
-                  {showRequestAccessLink && (
+                  {requestAccessUrl && (
                     <div className="t--subinfo p-a200 m-v300">
                       Is there an app that you need access to that’s not shown
                       here? Fill out the{' '}

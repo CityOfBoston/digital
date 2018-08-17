@@ -10,7 +10,7 @@ describe('appsForUserTypeAndGroups', () => {
   beforeEach(() => {
     const yamlFixture = yaml.safeLoad(
       fs.readFileSync(
-        path.resolve(__dirname, '../../fixtures/apps.yaml'),
+        path.resolve(__dirname, '../../../fixtures/apps.yaml'),
         'utf-8'
       )
     );

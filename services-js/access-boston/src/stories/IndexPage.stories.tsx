@@ -2,58 +2,67 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import IndexPage from '../pages/index';
-import { InfoResponse } from '../lib/api';
+import { Account, Apps } from '../client/graphql/fetch-account-and-apps';
 
-const INFO: InfoResponse = {
+const ACCOUNT: Account = {
   employeeId: 'CON01234',
-  requestAccessUrl: '#',
+};
+
+const APPS: Apps = {
   categories: [
     {
       title: 'Employee Tools',
-      showRequestAccessLink: true,
-      icons: false,
+      requestAccessUrl: '#',
+      showIcons: false,
       apps: [
         {
           title: 'The Hub',
           url: '#',
+          iconUrl: null,
           description:
             'Employee directory and other information for employees.',
         },
         {
           title: 'Building Maintenance Form',
           url: '#',
+          iconUrl: null,
           description: 'Report a maintenance problem with a City building.',
         },
         {
           title: 'ESS',
           url: '#',
+          iconUrl: null,
           description: '',
         },
         {
           title: 'Employee Connect',
           url: '#',
+          iconUrl: null,
           description: '',
         },
         {
           title: 'My Learning Plan',
           url: '#',
+          iconUrl: null,
           description: '',
         },
       ],
     },
     {
       title: 'Financial Software',
-      showRequestAccessLink: false,
-      icons: true,
+      requestAccessUrl: null,
+      showIcons: true,
       apps: [
         {
           title: 'BAIS FN',
           url: '#',
+          iconUrl: null,
           description: '',
         },
         {
           title: 'BAIS HCM',
           url: '#',
+          iconUrl: null,
           description: '',
         },
       ],
@@ -61,4 +70,6 @@ const INFO: InfoResponse = {
   ],
 };
 
-storiesOf('IndexPage', module).add('default', () => <IndexPage info={INFO} />);
+storiesOf('IndexPage', module).add('default', () => (
+  <IndexPage account={ACCOUNT} apps={APPS} />
+));

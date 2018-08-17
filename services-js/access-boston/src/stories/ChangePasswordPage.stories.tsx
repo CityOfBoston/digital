@@ -2,14 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ChangePasswordPage from '../pages/change-password';
-import { InfoResponse } from '../lib/api';
+import { Account } from '../client/graphql/fetch-account';
 
-const INFO: InfoResponse = {
+const ACCOUNT: Account = {
   employeeId: 'CON01234',
-  requestAccessUrl: '#',
-  categories: [],
 };
 
 storiesOf('ChangePasswordPage', module).add('default', () => (
-  <ChangePasswordPage info={INFO} />
+  <ChangePasswordPage account={ACCOUNT} />
 ));

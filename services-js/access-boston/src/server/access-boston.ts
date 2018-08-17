@@ -11,20 +11,33 @@ import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
 
-import { HAPI_INJECT_CONFIG_KEY } from '@cityofboston/next-client-common';
+// https://github.com/apollographql/apollo-server/issues/927
+const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 
-import { loggingPlugin, adminOkRoute } from '@cityofboston/hapi-common';
+import {
+  API_KEY_CONFIG_KEY,
+  GRAPHQL_PATH_KEY,
+  HAPI_INJECT_CONFIG_KEY,
+} from '@cityofboston/next-client-common';
+
+import {
+  loggingPlugin,
+  adminOkRoute,
+  headerKeysPlugin,
+} from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
-import SamlAuth, { makeSamlAuth } from './SamlAuth';
+import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 
-import { Session, infoForUser } from './api';
-import SamlAuthFake from './SamlAuthFake';
-import { makeAppsRegistry } from './AppsRegistry';
+import graphqlSchema, { Context } from './graphql/schema';
 
-const PATH_PREFIX = '/';
+import SessionAuth, { Session } from './SessionAuth';
+import SamlAuthFake from './services/SamlAuthFake';
+import { makeAppsRegistry } from './services/AppsRegistry';
+
+const PATH_PREFIX = '';
 const METADATA_PATH = '/metadata.xml';
 const ASSERT_PATH = '/assert';
 
@@ -90,6 +103,8 @@ export async function makeServer(port) {
 
     config.publicRuntimeConfig = {
       ...config.publicRuntimeConfig,
+      [GRAPHQL_PATH_KEY]: '/graphql',
+      [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY,
     };
 
     config.serverRuntimeConfig = {
@@ -122,6 +137,10 @@ export async function makeServer(port) {
     throw new Error('Must set $SESSION_COOKIE_PASSWORD in production');
   }
 
+  if (process.env.NODE_ENV === 'production' && !process.env.API_KEYS) {
+    throw new Error('Must set $API_KEYS in production');
+  }
+
   const cookiePassword =
     process.env.SESSION_COOKIE_PASSWORD || 'iWIMwE69HJj9GQcHfCiu2TVyZoVxvYoU';
 
@@ -135,6 +154,14 @@ export async function makeServer(port) {
   });
 
   server.auth.default('session');
+
+  await server.register({
+    plugin: headerKeysPlugin,
+    options: {
+      header: 'X-API-KEY',
+      keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
+    },
+  });
 
   server.route(adminOkRoute);
 
@@ -174,12 +201,13 @@ export async function makeServer(port) {
     path: '/logout',
     method: 'POST',
     handler: async (request, h) => {
-      const session: Session = request.auth.credentials as any;
+      const sessionAuth = new SessionAuth(request);
+      const session = sessionAuth.get();
 
       // We clear our cookie when you hit this button, since it's better for us
       // to be logged out on AccessBoston but logged in on the SSO side than
       // the alternative.
-      (request as any).cookieAuth.clear();
+      sessionAuth.clear();
 
       return h.redirect(
         await samlAuth.makeLogoutUrl(session.nameId, session.sessionIndex)
@@ -187,12 +215,45 @@ export async function makeServer(port) {
     },
   });
 
-  server.route({
-    path: '/info',
-    method: 'GET',
-    handler: async (request, h) => {
-      const session: Session = request.auth.credentials as any;
-      return h.response(await infoForUser(appsRegistry, session));
+  await server.register({
+    plugin: graphqlHapi,
+    options: {
+      path: `${PATH_PREFIX}/graphql`,
+      route: {
+        auth: { mode: 'try' },
+        plugins: {
+          // We auth with a header, which can't be set via CSRF, so it's safe to
+          // avoid checking the crumb cookie.
+          crumb: false,
+          headerKeys: !!process.env.API_KEYS,
+        },
+      },
+      graphqlOptions: request => {
+        const context: Context = {
+          sessionAuth: new SessionAuth(request),
+          samlAuth,
+          appsRegistry,
+        };
+
+        return {
+          schema: graphqlSchema,
+          context,
+        };
+      },
+    },
+  });
+
+  await server.register({
+    plugin: graphiqlHapi,
+    options: {
+      path: `${PATH_PREFIX}/graphiql`,
+      route: {
+        auth: false,
+      },
+      graphiqlOptions: {
+        endpointURL: `${PATH_PREFIX}/graphql`,
+        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
+      },
     },
   });
 
@@ -218,13 +279,12 @@ export async function makeServer(port) {
 
       const { nameId, sessionIndex, groups } = assertResult;
 
-      const session: Session = {
+      new SessionAuth(request).set({
         nameId,
         sessionIndex,
         groups,
-      };
+      });
 
-      (request as any).cookieAuth.set(session);
       return h.redirect('/');
     },
   });

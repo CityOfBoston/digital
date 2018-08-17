@@ -2,24 +2,23 @@ import React from 'react';
 import Head from 'next/head';
 import { Formik } from 'formik';
 
-import { fetchJson } from '@cityofboston/next-client-common';
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import { InfoResponse } from '../lib/api';
 import CrumbContext from '../client/CrumbContext';
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
 import TextInputWrapper from '../client/TextInputWrapper';
 
 import { changePasswordSchema } from '../lib/validation';
+import fetchAccount, { Account } from '../client/graphql/fetch-account';
 
 interface Props {
-  info: InfoResponse;
+  account: Account;
 }
 
 export default class ForgotPassword extends React.Component<Props> {
   static async getInitialProps({ req }) {
-    return { info: await fetchJson(req, '/info') };
+    return { account: await fetchAccount(req) };
   }
 
   render() {
@@ -31,7 +30,7 @@ export default class ForgotPassword extends React.Component<Props> {
               <link rel="stylesheet" href={PUBLIC_CSS_URL} />
               <title>Access Boston: Change Password</title>
             </Head>
-            <AccessBostonHeader info={this.props.info} />
+            <AccessBostonHeader account={this.props.account} />
 
             <div className="mn">
               <div className="b b-c b-c--hsm">
