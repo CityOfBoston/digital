@@ -65,7 +65,7 @@ Array [
         "groups": null,
         "iconUrl": undefined,
         "title": "Change Password",
-        "url": "https://identity.boston.gov/identityiq/changePassword.jsf",
+        "url": "/change-password",
       },
       Object {
         "description": "",
@@ -147,7 +147,7 @@ Array [
         "groups": null,
         "iconUrl": undefined,
         "title": "Change Password",
-        "url": "https://identity.boston.gov/identityiq/changePassword.jsf",
+        "url": "/change-password",
       },
       Object {
         "description": "",
