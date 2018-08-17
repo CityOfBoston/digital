@@ -2,7 +2,12 @@ import Good from 'good';
 import Boom from 'boom';
 import { Squeeze } from 'good-squeeze';
 import Console from 'good-console';
-import { ServerAuthScheme, ServerRoute } from 'hapi';
+import {
+  ServerAuthScheme,
+  ServerRoute,
+  Plugin,
+  Request as HapiRequest,
+} from 'hapi';
 
 /**
  * Adds our preferred console logging that excludes health checks.
@@ -59,6 +64,21 @@ export type HeaderKeysOptions = {
   keys: string[];
 };
 
+function checkHeaderKey(options: HeaderKeysOptions, request: HapiRequest) {
+  const { header, keys } = options;
+  const key = request.headers[header.toLowerCase()];
+
+  if (!key) {
+    throw Boom.unauthorized(`Missing ${header} header`);
+  }
+
+  if (keys.indexOf(key) === -1) {
+    throw Boom.unauthorized(`Key ${key} is not a valid key`);
+  }
+
+  return key;
+}
+
 /**
  * Hapi auth scheme for checking a specific header to see if it has a key that’s
  * in a list.
@@ -76,20 +96,31 @@ export const headerKeys: ServerAuthScheme = (_, options) => {
     throw new Error('Missing options for headerKeys auth scheme');
   }
 
-  const { keys, header } = options as HeaderKeysOptions;
-
   return {
     authenticate: (request, h) => {
-      const key = request.headers[header.toLowerCase()];
-      if (!key) {
-        throw Boom.unauthorized(`Missing ${header} header`);
-      }
-
-      if (keys.indexOf(key) === -1) {
-        throw Boom.unauthorized(`Key ${key} is not a valid key`);
-      }
+      const key = checkHeaderKey(options as HeaderKeysOptions, request);
 
       return h.authenticated({ credentials: { key } });
     },
   };
+};
+
+// Plugin that errors when the header doesn't have a correct key. This is very
+// similar to the auth plugin version, but can be used when you want to also
+// apply another auth strategy to the requests (like checking a session).
+//
+// To use this, add a "headerKeys: true" to the route's plugin options.
+export const headerKeysPlugin: Plugin<HeaderKeysOptions> = {
+  name: 'HeaderKeys',
+  register: async (server, options) => {
+    server.ext('onPreAuth', (request, h) => {
+      const pluginOptions = request.route.settings.plugins;
+
+      if (pluginOptions && (pluginOptions as any).headerKeys) {
+        checkHeaderKey(options, request);
+      }
+
+      return h.continue;
+    });
+  },
 };

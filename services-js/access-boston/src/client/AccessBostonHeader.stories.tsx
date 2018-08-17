@@ -2,15 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import AccessBostonHeader from './AccessBostonHeader';
+import { Account } from './graphql/fetch-account';
 
-import { InfoResponse } from '../lib/api';
-
-const INFO: InfoResponse = {
+const ACCOUNT: Account = {
   employeeId: 'CON01234',
-  requestAccessUrl: '#',
-  categories: [],
 };
 
 storiesOf('AccessBostonHeader', module).add('default', () => (
-  <AccessBostonHeader info={INFO} />
+  <AccessBostonHeader account={ACCOUNT} />
 ));

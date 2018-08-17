@@ -8,7 +8,7 @@ describe('makeIdentityProvider', () => {
 
   beforeEach(() => {
     samlMetadata = fs.readFileSync(
-      path.join(__dirname, '../../fixtures/saml-metadata.xml')
+      path.join(__dirname, '../../../fixtures/saml-metadata.xml')
     );
   });
 
