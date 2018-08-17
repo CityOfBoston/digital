@@ -48,7 +48,7 @@ categories:
   - title: Account Tools
     apps:
       - title: Change Password
-        url: https://identity.boston.gov/identityiq/changePassword.jsf
+        url: /change-password
       - title: Change MFA Device or Email Address
         url: https://identity.boston.gov/identityiq/changePassword.jsf
       - title: Create Sponsored Account

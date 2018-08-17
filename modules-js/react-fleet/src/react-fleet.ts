@@ -25,6 +25,7 @@ export const GRAY_300 = '#828282';
 export const OPTIMISTIC_BLUE = '#288be4';
 export const CHARLES_BLUE = '#091f2f';
 export const FREEDOM_RED = '#fb4d42';
+export const DEFAULT_TEXT = '#58585b';
 
 export const LORA_SRC =
   'https://patterns.boston.gov/fonts/lora/lora-regular-webfont.woff2';

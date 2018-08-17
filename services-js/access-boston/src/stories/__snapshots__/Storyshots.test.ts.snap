@@ -1,5 +1,307 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots AccessBostonHeader default 1`] = `
+<div
+  className="css-1gni7w7 p-a200"
+>
+  <h1
+    className="css-e3scnp"
+  >
+    Access Boston
+  </h1>
+  <div
+    className="css-n9ftlz"
+  >
+    <span
+      style={
+        Object {
+          "marginRight": "1em",
+        }
+      }
+    >
+      CON01234
+    </span>
+    <form
+      action="/logout"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+      <button
+        className="btn btn--sm btn--100"
+      >
+        Logout
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChangePasswordPage default 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh"
+      >
+        <h2
+          className="sh-title"
+        >
+          Change Password
+        </h2>
+      </div>
+      <form
+        action="javascript:void(0)"
+        className="m-v500"
+      >
+        <div
+          className="g m-v200"
+        >
+          <div
+            className="g--6"
+          >
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="text-input-0"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Current Password
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="current-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className="txt-f"
+                id="text-input-0"
+                name="password"
+                onBlur={[Function]}
+                onChange={[Function]}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="text-input-1"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                New Password
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className="txt-f"
+                id="text-input-1"
+                name="newPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="text-input-2"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Confirm Password
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className="txt-f"
+                id="text-input-2"
+                name="confirmPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
+            </div>
+          </div>
+          <div
+            className="g--6"
+          >
+            <div
+              className="t--info m-b200"
+            >
+              New passwords must:
+            </div>
+            <ul
+              className="ul"
+              style={
+                Object {
+                  "lineHeight": 1.6,
+                }
+              }
+            >
+              <li
+                className=""
+              >
+                Be at least 10 characters long
+              </li>
+              <li
+                className=""
+              >
+                Use at least 3 of these:
+                <ul
+                  className="ul"
+                >
+                  <li
+                    className=""
+                  >
+                    A lowercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    An uppercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A number
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A special character
+                  </li>
+                </ul>
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not have spaces
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not be longer than 32 characters
+              </li>
+            </ul>
+            <div
+              className="t--subinfo m-v300 m-b200"
+            >
+              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn"
+          type="submit"
+        >
+          Change Password
+        </button>
+      </form>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots IndexPage default 1`] = `
 Array [
   <div
@@ -8,7 +310,7 @@ Array [
     <h1
       className="css-e3scnp"
     >
-      AccessBoston
+      Access Boston
     </h1>
     <div
       className="css-n9ftlz"
@@ -63,6 +365,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
+            onClick={[Function]}
           >
             <span
               className="lwi-ic"
@@ -82,6 +385,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
+            onClick={[Function]}
           >
             <span
               className="lwi-ic"
@@ -264,6 +568,346 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots PasswordPolicy blank 1`] = `
+Array [
+  <div
+    className="t--info m-b200"
+  >
+    New passwords must:
+  </div>,
+  <ul
+    className="ul"
+    style={
+      Object {
+        "lineHeight": 1.6,
+      }
+    }
+  >
+    <li
+      className=""
+    >
+      Be at least 10 characters long
+    </li>
+    <li
+      className=""
+    >
+      Use at least 3 of these:
+      <ul
+        className="ul"
+      >
+        <li
+          className=""
+        >
+          A lowercase letter
+        </li>
+        <li
+          className=""
+        >
+          An uppercase letter
+        </li>
+        <li
+          className=""
+        >
+          A number
+        </li>
+        <li
+          className=""
+        >
+          A special character
+        </li>
+      </ul>
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not have spaces
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not be longer than 32 characters
+    </li>
+  </ul>,
+  <div
+    className="t--subinfo m-v300 m-b200"
+  >
+    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+  </div>,
+]
+`;
+
+exports[`Storyshots PasswordPolicy complex enough 1`] = `
+Array [
+  <div
+    className="t--info m-b200"
+  >
+    New passwords must:
+  </div>,
+  <ul
+    className="ul"
+    style={
+      Object {
+        "lineHeight": 1.6,
+      }
+    }
+  >
+    <li
+      className=""
+    >
+      Be at least 10 characters long
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Use at least 3 of these:
+      <ul
+        className="ul"
+      >
+        <li
+          className=""
+        >
+          A lowercase letter
+        </li>
+        <li
+          className="css-5qhwje"
+        >
+          An uppercase letter
+        </li>
+        <li
+          className="css-5qhwje"
+        >
+          A number
+        </li>
+        <li
+          className="css-5qhwje"
+        >
+          A special character
+        </li>
+      </ul>
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not have spaces
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not be longer than 32 characters
+    </li>
+  </ul>,
+  <div
+    className="t--subinfo m-v300 m-b200"
+  >
+    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+  </div>,
+]
+`;
+
+exports[`Storyshots PasswordPolicy failed are errors 1`] = `
+Array [
+  <div
+    className="t--info m-b200"
+  >
+    New passwords must:
+  </div>,
+  <ul
+    className="ul"
+    style={
+      Object {
+        "lineHeight": 1.6,
+      }
+    }
+  >
+    <li
+      className="css-1ckn7fc"
+    >
+      Be at least 10 characters long
+    </li>
+    <li
+      className="css-1ckn7fc"
+    >
+      Use at least 3 of these:
+      <ul
+        className="ul"
+      >
+        <li
+          className="css-5qhwje"
+        >
+          A lowercase letter
+        </li>
+        <li
+          className=""
+        >
+          An uppercase letter
+        </li>
+        <li
+          className=""
+        >
+          A number
+        </li>
+        <li
+          className=""
+        >
+          A special character
+        </li>
+      </ul>
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not have spaces
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not be longer than 32 characters
+    </li>
+  </ul>,
+  <div
+    className="t--subinfo m-v300 m-b200"
+  >
+    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+  </div>,
+]
+`;
+
+exports[`Storyshots PasswordPolicy long enough 1`] = `
+Array [
+  <div
+    className="t--info m-b200"
+  >
+    New passwords must:
+  </div>,
+  <ul
+    className="ul"
+    style={
+      Object {
+        "lineHeight": 1.6,
+      }
+    }
+  >
+    <li
+      className="css-5qhwje"
+    >
+      Be at least 10 characters long
+    </li>
+    <li
+      className=""
+    >
+      Use at least 3 of these:
+      <ul
+        className="ul"
+      >
+        <li
+          className=""
+        >
+          A lowercase letter
+        </li>
+        <li
+          className=""
+        >
+          An uppercase letter
+        </li>
+        <li
+          className="css-5qhwje"
+        >
+          A number
+        </li>
+        <li
+          className=""
+        >
+          A special character
+        </li>
+      </ul>
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not have spaces
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not be longer than 32 characters
+    </li>
+  </ul>,
+  <div
+    className="t--subinfo m-v300 m-b200"
+  >
+    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+  </div>,
+]
+`;
+
+exports[`Storyshots PasswordPolicy spaces error 1`] = `
+Array [
+  <div
+    className="t--info m-b200"
+  >
+    New passwords must:
+  </div>,
+  <ul
+    className="ul"
+    style={
+      Object {
+        "lineHeight": 1.6,
+      }
+    }
+  >
+    <li
+      className=""
+    >
+      Be at least 10 characters long
+    </li>
+    <li
+      className=""
+    >
+      Use at least 3 of these:
+      <ul
+        className="ul"
+      >
+        <li
+          className="css-5qhwje"
+        >
+          A lowercase letter
+        </li>
+        <li
+          className=""
+        >
+          An uppercase letter
+        </li>
+        <li
+          className=""
+        >
+          A number
+        </li>
+        <li
+          className=""
+        >
+          A special character
+        </li>
+      </ul>
+    </li>
+    <li
+      className="css-1ckn7fc"
+    >
+      Not have spaces
+    </li>
+    <li
+      className="css-5qhwje"
+    >
+      Not be longer than 32 characters
+    </li>
+  </ul>,
+  <div
+    className="t--subinfo m-v300 m-b200"
+  >
+    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
