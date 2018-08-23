@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import IndexPage from '../pages/index';
+import IndexPage, { Message } from '../pages/index';
 import { Account, Apps } from '../client/graphql/fetch-account-and-apps';
 
 const ACCOUNT: Account = {
@@ -70,6 +70,12 @@ const APPS: Apps = {
   ],
 };
 
-storiesOf('IndexPage', module).add('default', () => (
-  <IndexPage account={ACCOUNT} apps={APPS} />
-));
+storiesOf('IndexPage', module)
+  .add('default', () => <IndexPage account={ACCOUNT} apps={APPS} />)
+  .add('change password success', () => (
+    <IndexPage
+      account={ACCOUNT}
+      apps={APPS}
+      message={Message.CHANGE_PASSWORD_SUCCESS}
+    />
+  ));

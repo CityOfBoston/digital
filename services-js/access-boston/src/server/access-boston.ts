@@ -29,13 +29,16 @@ import {
 import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
-import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 
 import graphqlSchema, { Context } from './graphql/schema';
 
-import SessionAuth, { Session } from './SessionAuth';
+import IdentityIq from './services/IdentityIq';
+import IdentityIqFake from './services/IdentityIqFake';
+import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 import SamlAuthFake from './services/SamlAuthFake';
 import { makeAppsRegistry } from './services/AppsRegistry';
+
+import SessionAuth, { Session } from './SessionAuth';
 
 const PATH_PREFIX = '';
 const METADATA_PATH = '/metadata.xml';
@@ -91,7 +94,16 @@ export async function makeServer(port) {
           },
           process.env.SINGLE_LOGOUT_URL || ''
         )
-      : (new SamlAuthFake(ASSERT_PATH) as any);
+      : (new SamlAuthFake(ASSERT_PATH, process.env.SAML_FAKE_USER_ID) as any);
+
+  const identityIq: IdentityIq =
+    process.env.NODE_ENV === 'production' || process.env.IDENTITYIQ_URL
+      ? new IdentityIq(
+          process.env.IDENTITYIQ_URL,
+          process.env.IDENTITYIQ_USERNAME,
+          process.env.IDENTITYIQ_PASSWORD
+        )
+      : (new IdentityIqFake() as any);
 
   // We don't turn on Next for test mode because it hangs Jest.
   let nextApp;
@@ -233,6 +245,7 @@ export async function makeServer(port) {
           sessionAuth: new SessionAuth(request),
           samlAuth,
           appsRegistry,
+          identityIq,
         };
 
         return {

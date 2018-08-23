@@ -56,6 +56,7 @@ export const changePasswordSchema = yup.object().shape({
     .required('Please put in a new password'),
   confirmPassword: yup
     .string()
+    .required('Please confirm your new password')
     .oneOf(
       [yup.ref('newPassword')],
       'The password confirmation does not match your new password'
