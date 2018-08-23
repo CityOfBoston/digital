@@ -1,155 +1,336 @@
 import React from 'react';
 import Head from 'next/head';
-import { Formik } from 'formik';
+import Router from 'next/router';
+import { Formik, FormikProps } from 'formik';
+import { ValidationError } from 'yup';
+import { css } from 'emotion';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
+import { FetchGraphql } from '@cityofboston/next-client-common';
 
 import CrumbContext from '../client/CrumbContext';
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
-import TextInputWrapper from '../client/TextInputWrapper';
+import TextInput from '../client/TextInput';
 
 import { changePasswordSchema } from '../lib/validation';
+
+import { MAIN_CLASS } from '../client/styles';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
+import changePassword from '../client/graphql/change-password';
+import { ChangePasswordError } from '../client/graphql/queries';
+
+import { Message } from './index';
+import { AppDependencies } from './_app';
+
+const SUBMITTING_MODAL_STYLE = css({
+  paddingTop: 0,
+  maxWidth: 500,
+  top: '15%',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+});
 
 interface Props {
   account: Account;
+  serverErrors: { [key: string]: string };
+  fetchGraphql: FetchGraphql;
+  testSubmittingModal?: boolean;
 }
 
-export default class ForgotPassword extends React.Component<Props> {
-  static async getInitialProps({ req }) {
-    return { account: await fetchAccount(req) };
+interface State {
+  showSubmittingModal: boolean;
+}
+
+interface FormValues {
+  username: string;
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
+  crumb: string;
+}
+
+function changePasswordErrorToFormErrors(error: ChangePasswordError | null) {
+  if (!error) {
+    return {};
   }
 
+  switch (error) {
+    case 'CURRENT_PASSWORD_WRONG':
+      return { password: 'Your current password is incorrect' };
+    case 'NEW_PASSWORDS_DONT_MATCH':
+      return { confirmPassword: 'Password confirmation didn’t match' };
+    default:
+      return { password: 'An unknown error occurred' };
+  }
+}
+
+function addValidationError(
+  serverErrors: { [key: string]: string },
+  err: ValidationError
+) {
+  if (err.path) {
+    serverErrors[err.path] = err.message;
+  }
+
+  err.inner.forEach(innerErr => {
+    addValidationError(serverErrors, innerErr);
+  });
+}
+
+export default class ChangePassword extends React.Component<Props, State> {
+  static async getInitialProps(
+    { req },
+    { fetchGraphql }: AppDependencies
+  ): Promise<Props> {
+    const serverErrors: { [key: string]: string } = {};
+
+    // This is the no-JavaScript case. We still want to be able to change
+    // passwords and such.
+    if (req && req.method === 'POST') {
+      const values: FormValues = req.payload || ({} as any);
+
+      try {
+        await changePasswordSchema.validate(values, { abortEarly: false });
+
+        const { status, error } = await changePassword(
+          fetchGraphql,
+          values.password,
+          values.newPassword,
+          values.confirmPassword
+        );
+
+        if (status === 'ERROR') {
+          Object.assign(serverErrors, changePasswordErrorToFormErrors(error));
+        }
+      } catch (err) {
+        if (err instanceof ValidationError) {
+          addValidationError(serverErrors, err);
+        } else {
+          serverErrors.form = err.message;
+        }
+      }
+    }
+
+    return {
+      account: await fetchAccount(fetchGraphql),
+      serverErrors,
+      fetchGraphql,
+    };
+  }
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      showSubmittingModal: !!props.testSubmittingModal,
+    };
+  }
+
+  private handleSubmit = async (
+    { password, newPassword, confirmPassword }: FormValues,
+    { setSubmitting, setErrors }
+  ) => {
+    this.setState({ showSubmittingModal: true });
+
+    try {
+      const { status, error } = await changePassword(
+        this.props.fetchGraphql,
+        password,
+        newPassword,
+        confirmPassword
+      );
+
+      switch (status) {
+        case 'ERROR':
+          // TODO(finh): Maybe show server errors in the modal?
+          setErrors(changePasswordErrorToFormErrors(error));
+          scrollTo(0, 0);
+          break;
+
+        case 'SUCCESS':
+          Router.push({
+            pathname: '/',
+            query: { message: Message.CHANGE_PASSWORD_SUCCESS },
+          });
+          break;
+      }
+    } finally {
+      this.setState({ showSubmittingModal: false });
+      setSubmitting(false);
+    }
+  };
+
   render() {
+    const { account } = this.props;
+    const { showSubmittingModal } = this.state;
+
     return (
       <CrumbContext.Consumer>
-        {_crumb => (
-          <>
-            <Head>
-              <link rel="stylesheet" href={PUBLIC_CSS_URL} />
-              <title>Access Boston: Change Password</title>
-            </Head>
-            <AccessBostonHeader account={this.props.account} />
+        {crumb => {
+          const initialValues: FormValues = {
+            username: account.employeeId,
+            password: '',
+            newPassword: '',
+            confirmPassword: '',
+            crumb,
+          };
 
-            <div className="mn">
-              <div className="b b-c b-c--hsm">
-                <SectionHeader title="Change Password" />
+          return (
+            <>
+              <Head>
+                <link rel="stylesheet" href={PUBLIC_CSS_URL} />
+                <title>Access Boston: Change Password</title>
+              </Head>
 
-                <form action="javascript:void(0)" className="m-v500">
+              <AccessBostonHeader account={account} />
+
+              <div className={MAIN_CLASS}>
+                <div className="b b-c b-c--hsm">
+                  <SectionHeader title="Change Password" />
+
                   <Formik
-                    initialValues={{
-                      password: '',
-                      newPassword: '',
-                      confirmPassword: '',
-                    }}
+                    initialValues={initialValues}
                     validationSchema={changePasswordSchema}
-                    onSubmit={() => {}}
-                    render={({
-                      values,
-                      errors,
-                      touched,
-                      handleBlur,
-                      handleChange,
-                    }) => (
-                      <>
-                        <div className="g m-v200">
-                          <div className="g--6">
-                            <TextInputWrapper
-                              title="Current Password"
-                              error={
-                                touched.password && (errors.password as any)
-                              }
-                            >
-                              {({ id, className }) => (
-                                <input
-                                  id={id}
-                                  className={className}
-                                  type="password"
-                                  autoComplete="current-password"
-                                  spellCheck={false}
-                                  name="password"
-                                  value={values.password}
-                                  autoFocus={false}
-                                  autoCapitalize="off"
-                                  autoCorrect="off"
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                />
-                              )}
-                            </TextInputWrapper>
-
-                            <TextInputWrapper
-                              title="New Password"
-                              error={
-                                touched.newPassword &&
-                                (errors.newPassword as any)
-                              }
-                            >
-                              {({ id, className }) => (
-                                <input
-                                  id={id}
-                                  className={className}
-                                  type="password"
-                                  autoComplete="new-password"
-                                  spellCheck={false}
-                                  name="newPassword"
-                                  value={values.newPassword}
-                                  autoFocus={false}
-                                  autoCapitalize="off"
-                                  autoCorrect="off"
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                />
-                              )}
-                            </TextInputWrapper>
-
-                            <TextInputWrapper
-                              title="Confirm Password"
-                              error={
-                                touched.confirmPassword &&
-                                (errors.confirmPassword as any)
-                              }
-                            >
-                              {({ id, className }) => (
-                                <input
-                                  id={id}
-                                  className={className}
-                                  type="password"
-                                  autoComplete="new-password"
-                                  spellCheck={false}
-                                  name="confirmPassword"
-                                  value={values.confirmPassword}
-                                  autoFocus={false}
-                                  autoCapitalize="off"
-                                  autoCorrect="off"
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                />
-                              )}
-                            </TextInputWrapper>
-                          </div>
-
-                          <div className="g--6">
-                            <PasswordPolicy
-                              password={values.newPassword}
-                              showFailedAsErrors={touched.newPassword}
-                            />
-                          </div>
-                        </div>
-
-                        <button type="submit" className="btn">
-                          Change Password
-                        </button>
-                      </>
-                    )}
+                    onSubmit={this.handleSubmit}
+                    render={this.renderForm}
                   />
-                </form>
+                </div>
               </div>
+
+              {showSubmittingModal && this.renderSubmitting()}
+            </>
+          );
+        }}
+      </CrumbContext.Consumer>
+    );
+  }
+
+  private renderForm = ({
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    isValid,
+  }: FormikProps<FormValues>) => {
+    const { serverErrors } = this.props;
+
+    const commonPasswordProps = {
+      type: 'password',
+      required: true,
+      spellCheck: false,
+      autoFocus: false,
+      autoCapitalize: 'off',
+      autoCorrect: 'off',
+      onChange: handleChange,
+      onBlur: handleBlur,
+    };
+
+    // We show server errors (from the non-JS implementation), though if the
+    // field gets touched we hide those (this is unlikely, though, if JavaScript
+    // is off.) Otherwise, we show validation errors only if the form has been
+    // touched.
+    const lookupFormError = (key: keyof FormValues) =>
+      (!touched[key] && serverErrors[key]) ||
+      (touched[key] && (errors[key] as any));
+
+    return (
+      <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
+        <input type="hidden" name="crumb" value={values.crumb} />
+
+        {/*
+          This is here for the benefit of password managers, so they can pick
+          up the username associated with the change of password.
+          
+          See: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
+        */}
+        <input
+          type="hidden"
+          name="username"
+          autoComplete="username"
+          value={values.username}
+        />
+
+        {/* "g--r" so that we can put the policy first on mobile */}
+        <div className="g g--r m-v200">
+          <div className="g--6 m-b500">
+            <PasswordPolicy
+              password={values.newPassword}
+              showFailedAsErrors={touched.newPassword}
+            />
+          </div>
+
+          <div className="g--6">
+            <TextInput
+              label="Current Password"
+              error={lookupFormError('password')}
+              name="password"
+              autoComplete="current-password"
+              value={values.password}
+              {...commonPasswordProps}
+            />
+
+            <TextInput
+              label="New Password"
+              error={lookupFormError('newPassword')}
+              name="newPassword"
+              autoComplete="new-password"
+              value={values.newPassword}
+              {...commonPasswordProps}
+            />
+
+            <TextInput
+              label="Confirm Password"
+              error={lookupFormError('confirmPassword')}
+              name="confirmPassword"
+              autoComplete="new-password"
+              value={values.confirmPassword}
+              {...commonPasswordProps}
+            />
+          </div>
+        </div>
+
+        {this.props.serverErrors.form && (
+          <>
+            <div className="t--info t--err m-b500">
+              There was a problem changing your password:{' '}
+              {this.props.serverErrors.form}
+            </div>
+
+            <div className="t--info t--err m-b500">
+              You can try again. If this keeps happening, please call the Help
+              Desk.
             </div>
           </>
         )}
-      </CrumbContext.Consumer>
+
+        <button
+          type="submit"
+          className="btn"
+          disabled={(process as any).browser && (!isValid || isSubmitting)}
+        >
+          Change Password
+        </button>
+      </form>
+    );
+  };
+
+  renderSubmitting() {
+    return (
+      <div className="md">
+        <div className={`md-c br br-t400 ${SUBMITTING_MODAL_STYLE}`}>
+          <div className="md-b p-a300">
+            <div className="t--intro">Saving your new password…</div>
+            <div className="t--info m-t300">
+              Please be patient and don’t refresh your browser. This might take
+              a bit.
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

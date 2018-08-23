@@ -17,7 +17,7 @@
     "preset": "@cityofboston/config-jest-typescript"
   },
   "dependencies": {
-    "next": "^6.1.1",
+    "next": "6.1.1-canary.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },

@@ -16,15 +16,26 @@ import { Resolvers } from '@cityofboston/graphql-typescript';
 import AppsRegistry from '../services/AppsRegistry';
 import SamlAuth from '../services/SamlAuth';
 import SessionAuth from '../SessionAuth';
+import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
 
 /** @graphql schema */
 export interface Schema {
   query: Query;
+  mutation: Mutation;
 }
 
 export interface Query {
   account: Account;
   apps: Apps;
+  workflow(args: { caseId: string }): Workflow;
+}
+
+export interface Mutation {
+  changePassword(args: {
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }): Workflow;
 }
 
 export interface Account {
@@ -50,6 +61,26 @@ export interface App {
   description: string;
 }
 
+export enum WorkflowStatus {
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
+  UNKNOWN = 'UNKNOWN',
+}
+
+export enum ChangePasswordError {
+  NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
+  CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
+  NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
+  UNKNOWN_ERROR = 'UNKNOWN_ERROR',
+}
+
+export interface Workflow {
+  caseId: string | null;
+  status: WorkflowStatus;
+  messages: string[];
+  error: ChangePasswordError | null;
+}
+
 // This file is built by the "generate-graphql-schema" script from
 // the above interfaces.
 const schemaGraphql = fs.readFileSync(
@@ -61,6 +92,7 @@ export interface Context {
   sessionAuth: SessionAuth;
   appsRegistry: AppsRegistry;
   samlAuth: SamlAuth;
+  identityIq: IdentityIq;
 }
 
 const queryRootResolvers: Resolvers<Query, Context> = {
@@ -87,6 +119,34 @@ const queryRootResolvers: Resolvers<Query, Context> = {
         })),
       })),
   }),
+
+  workflow: async (_root, { caseId }, { identityIq }) =>
+    launchedWorkflowResponseToWorkflow(await identityIq.fetchWorkflow(caseId)),
+};
+
+const mutationResolvers: Resolvers<Mutation, Context> = {
+  changePassword: async (
+    _root,
+    { currentPassword, newPassword, confirmPassword },
+    { identityIq, sessionAuth }
+  ) => {
+    if (newPassword !== confirmPassword) {
+      return {
+        caseId: null,
+        error: ChangePasswordError.NEW_PASSWORDS_DONT_MATCH,
+        messages: [],
+        status: WorkflowStatus.ERROR,
+      };
+    }
+
+    const workflowResponse = await identityIq.changePassword(
+      sessionAuth.get().nameId,
+      currentPassword,
+      newPassword
+    );
+
+    return launchedWorkflowResponseToWorkflow(workflowResponse);
+  },
 };
 
 export default makeExecutableSchema({
@@ -97,7 +157,47 @@ export default makeExecutableSchema({
   resolvers: [
     {
       Query: queryRootResolvers,
+      Mutation: mutationResolvers,
     },
   ] as any,
   allowUndefinedInResolve: false,
 });
+
+function launchedWorkflowResponseToWorkflow(
+  workflowResponse: LaunchedWorkflowResponse
+): Workflow {
+  let status: WorkflowStatus;
+
+  switch (workflowResponse.completionStatus) {
+    case 'Error':
+      status = WorkflowStatus.ERROR;
+      break;
+    case 'Success':
+      status = WorkflowStatus.SUCCESS;
+      break;
+    default:
+      status = WorkflowStatus.UNKNOWN;
+  }
+
+  const messages = workflowResponse.messages;
+  let error: ChangePasswordError | null = null;
+
+  if (status === WorkflowStatus.ERROR) {
+    if (messages.find(m => m === 'Current Password Check Failure')) {
+      error = ChangePasswordError.CURRENT_PASSWORD_WRONG;
+    } else if (
+      messages.find(m => m.includes('Password Policy Compliance Failure'))
+    ) {
+      error = ChangePasswordError.NEW_PASSWORD_POLICY_VIOLATION;
+    } else {
+      error = ChangePasswordError.UNKNOWN_ERROR;
+    }
+  }
+
+  return {
+    caseId: workflowResponse.id,
+    messages,
+    error,
+    status,
+  };
+}

@@ -45,11 +45,25 @@ export function makeRoutesForNextApp(
 
   const requestHandler = app.getRequestHandler();
 
+  // Next does not handle POSTs by default. We add this route so that it will
+  // pass them in the normal render pipeline.
+  app.router.add('POST', '/:path*', (req, res, _params, parsedUrl) =>
+    app.render(req, res, parsedUrl.pathname, parsedUrl.query, parsedUrl)
+  );
+
   const routes: ServerRoute[] = [
     {
       path: `${pathPrefix}{p*}`,
       method: ['GET', 'POST'],
-      handler: async ({ raw: { req, res } }, h) => {
+      handler: async (request, h) => {
+        const {
+          raw: { req, res },
+        } = request;
+
+        // Pass any Hapi payload along so we can handle form POSTs in
+        // getInitialProps if we want to.
+        (req as any).payload = request.payload;
+
         // Our actual pages are mounted at their expected paths (e.g.
         // /commissions/apply in the commissions app, not /apply) so we don’t
         // need to do any URL transforming.

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { CHARLES_BLUE, SANS } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
@@ -43,7 +44,11 @@ export default class AccessBostonHeader extends React.Component<Props> {
       <CrumbContext.Consumer>
         {crumb => (
           <div className={`${HEADER_STYLE} p-a200`}>
-            <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>Access Boston</h1>
+            <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>
+              <Link href="/">
+                <a style={{ color: 'inherit' }}>Access Boston</a>
+              </Link>
+            </h1>
             <div className={`${HEADER_RIGHT_STYLE}`}>
               <span style={{ marginRight: '1em' }}>{employeeId}</span>
               <form action="/logout" method="POST">

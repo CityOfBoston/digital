@@ -6,9 +6,11 @@ import SamlAuth, {
 
 export default class SamlAuthFake implements Required<SamlAuth> {
   private assertUrl: string;
+  private userId: string;
 
-  constructor(assertUrl: string) {
+  constructor(assertUrl: string, userId: string = 'CON01234') {
     this.assertUrl = assertUrl;
+    this.userId = userId;
   }
 
   getMetadata(): string {
@@ -26,7 +28,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
   handlePostAssert(): Promise<SamlAssertResult> {
     const result: SamlLoginResult = {
       type: 'login',
-      nameId: 'CON01234',
+      nameId: this.userId,
       sessionIndex: 'session',
       groups: [
         'COB-Group-TestGrp01',
@@ -40,7 +42,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
   handleGetAssert(): Promise<SamlAssertResult> {
     const result: SamlLogoutRequestResult = {
       type: 'logout',
-      nameId: 'CON01234',
+      nameId: this.userId,
       sessionIndex: 'session',
       successUrl: '/',
     };
