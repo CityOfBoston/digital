@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import IndexPage, { Message } from '../pages/index';
+import IndexPage, { FlashMessage } from '../pages/index';
 import { Account, Apps } from '../client/graphql/fetch-account-and-apps';
 
 const ACCOUNT: Account = {
@@ -76,6 +76,6 @@ storiesOf('IndexPage', module)
     <IndexPage
       account={ACCOUNT}
       apps={APPS}
-      message={Message.CHANGE_PASSWORD_SUCCESS}
+      flashMessage={FlashMessage.CHANGE_PASSWORD_SUCCESS}
     />
   ));

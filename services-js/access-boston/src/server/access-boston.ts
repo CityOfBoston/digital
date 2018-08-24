@@ -44,6 +44,9 @@ const PATH_PREFIX = '';
 const METADATA_PATH = '/metadata.xml';
 const ASSERT_PATH = '/assert';
 
+const FORGOT_METADATA_PATH = '/metadata-forgot.xml';
+const FORGOT_ASSERT_PATH = '/assert-forgot';
+
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 export async function makeServer(port) {
@@ -91,6 +94,26 @@ export async function makeServer(port) {
           {
             metadataUrl: `https://${process.env.PUBLIC_HOST}${METADATA_PATH}`,
             assertUrl: `https://${process.env.PUBLIC_HOST}${ASSERT_PATH}`,
+          },
+          process.env.SINGLE_LOGOUT_URL || ''
+        )
+      : (new SamlAuthFake(ASSERT_PATH, process.env.SAML_FAKE_USER_ID) as any);
+
+  const forgotPasswordSamlAuth: SamlAuth =
+    process.env.NODE_ENV === 'production' || process.env.SAML_IN_DEV
+      ? await makeSamlAuth(
+          {
+            metadataPath: './saml-metadata.xml',
+            serviceProviderCertPath: './service-provider-forgot.crt',
+            serviceProviderKeyPath: './service-provider-forgot.key',
+          },
+          {
+            metadataUrl: `https://${
+              process.env.PUBLIC_HOST
+            }${FORGOT_METADATA_PATH}`,
+            assertUrl: `https://${
+              process.env.PUBLIC_HOST
+            }${FORGOT_ASSERT_PATH}`,
           },
           process.env.SINGLE_LOGOUT_URL || ''
         )
@@ -185,6 +208,16 @@ export async function makeServer(port) {
     },
     handler: (_, h) =>
       h.response(samlAuth.getMetadata()).type('application/xml'),
+  });
+
+  server.route({
+    path: FORGOT_METADATA_PATH,
+    method: 'GET',
+    options: {
+      auth: false,
+    },
+    handler: (_, h) =>
+      h.response(forgotPasswordSamlAuth.getMetadata()).type('application/xml'),
   });
 
   server.route({

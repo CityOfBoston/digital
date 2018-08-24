@@ -14,21 +14,21 @@ import fetchAccountAndApps, {
   Account,
   Apps,
 } from '../client/graphql/fetch-account-and-apps';
-import { AppDependencies } from './_app';
+import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import { MAIN_CLASS } from '../client/styles';
 
-export enum Message {
+export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
 }
 
-const MESSAGE_STRINGS = {
-  [Message.CHANGE_PASSWORD_SUCCESS]: 'Your password has been changed!',
+const FLASH_MESSAGE_STRINGS = {
+  [FlashMessage.CHANGE_PASSWORD_SUCCESS]: 'Your password has been changed!',
 };
 
 interface Props {
   account: Account;
   apps: Apps;
-  message?: Message | null;
+  flashMessage?: FlashMessage;
 }
 
 const APP_ROW_STYLE = css({
@@ -37,15 +37,15 @@ const APP_ROW_STYLE = css({
 });
 
 export default class IndexPage extends React.Component<Props> {
-  static async getInitialProps(
+  static getInitialProps: GetInitialProps<Props> = async (
     { query },
-    { fetchGraphql }: AppDependencies
-  ): Promise<Props> {
+    { fetchGraphql }: GetInitialPropsDependencies
+  ): Promise<Props> => {
     return {
-      message: query.message || null,
+      flashMessage: query.message as FlashMessage | undefined,
       ...(await fetchAccountAndApps(fetchGraphql)),
     };
-  }
+  };
 
   state = {
     accountMenuOpen: false,
@@ -54,7 +54,7 @@ export default class IndexPage extends React.Component<Props> {
   render() {
     const {
       account,
-      message,
+      flashMessage,
       apps: { categories },
     } = this.props;
 
@@ -71,10 +71,10 @@ export default class IndexPage extends React.Component<Props> {
         <AccessBostonHeader account={account} />
 
         <div className={MAIN_CLASS}>
-          {message && (
+          {flashMessage && (
             <div className="b--g">
               <div className="t--intro p-a300 m-b300">
-                {MESSAGE_STRINGS[message]}
+                {FLASH_MESSAGE_STRINGS[flashMessage]}
               </div>
             </div>
           )}
@@ -117,7 +117,7 @@ export default class IndexPage extends React.Component<Props> {
     );
   }
 
-  renderAppList(apps) {
+  private renderAppList(apps) {
     return (
       <ul className="ul m-v500">
         {apps.map(({ title, url, description }) => (
@@ -136,7 +136,7 @@ export default class IndexPage extends React.Component<Props> {
     );
   }
 
-  renderAppIcons(apps) {
+  private renderAppIcons(apps) {
     return (
       <div className="g">
         {apps.map(({ title, url, iconUrl }) => (

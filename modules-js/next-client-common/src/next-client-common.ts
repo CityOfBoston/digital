@@ -1,12 +1,19 @@
 import fetch from 'isomorphic-fetch';
 import getConfig from 'next/config';
-import { IncomingMessage } from 'http';
+import { IncomingMessage, ServerResponse } from 'http';
 
+export { default as RouterListener } from './RouterListener';
 export * from './RouterListener';
 
 export const API_KEY_CONFIG_KEY = 'graphqlApiKey';
 export const HAPI_INJECT_CONFIG_KEY = 'graphqlHapiInject';
 export const GRAPHQL_PATH_KEY = 'graphqlPath';
+
+export interface NextContext<Req> {
+  query: { [key: string]: string };
+  req?: Req;
+  resp?: ServerResponse;
+}
 
 export interface PublicRuntimeConfig {
   [API_KEY_CONFIG_KEY]: string;
@@ -188,7 +195,7 @@ export type FetchGraphql = (
 
 export function makeFetchGraphql(
   runtimeConfig: RuntimeConfig,
-  parentRequest: IncomingMessage | undefined
+  parentRequest?: IncomingMessage
 ): FetchGraphql {
   if ((process as any).browser) {
     return clientFetchGraphql.bind(null, runtimeConfig);
