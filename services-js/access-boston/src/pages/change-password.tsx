@@ -6,7 +6,6 @@ import { ValidationError } from 'yup';
 import { css } from 'emotion';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
-import { FetchGraphql } from '@cityofboston/next-client-common';
 
 import CrumbContext from '../client/CrumbContext';
 import AccessBostonHeader from '../client/AccessBostonHeader';
@@ -20,8 +19,13 @@ import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import changePassword from '../client/graphql/change-password';
 import { ChangePasswordError } from '../client/graphql/queries';
 
-import { Message } from './index';
-import { AppDependencies } from './_app';
+import { FlashMessage } from './index';
+
+import {
+  GetInitialPropsDependencies,
+  GetInitialProps,
+  PageDependencies,
+} from './_app';
 
 const SUBMITTING_MODAL_STYLE = css({
   paddingTop: 0,
@@ -31,10 +35,12 @@ const SUBMITTING_MODAL_STYLE = css({
   marginLeft: 'auto',
 });
 
-interface Props {
+interface InitialProps {
   account: Account;
   serverErrors: { [key: string]: string };
-  fetchGraphql: FetchGraphql;
+}
+
+interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
 }
 
@@ -50,39 +56,11 @@ interface FormValues {
   crumb: string;
 }
 
-function changePasswordErrorToFormErrors(error: ChangePasswordError | null) {
-  if (!error) {
-    return {};
-  }
-
-  switch (error) {
-    case 'CURRENT_PASSWORD_WRONG':
-      return { password: 'Your current password is incorrect' };
-    case 'NEW_PASSWORDS_DONT_MATCH':
-      return { confirmPassword: 'Password confirmation didn’t match' };
-    default:
-      return { password: 'An unknown error occurred' };
-  }
-}
-
-function addValidationError(
-  serverErrors: { [key: string]: string },
-  err: ValidationError
-) {
-  if (err.path) {
-    serverErrors[err.path] = err.message;
-  }
-
-  err.inner.forEach(innerErr => {
-    addValidationError(serverErrors, innerErr);
-  });
-}
-
-export default class ChangePassword extends React.Component<Props, State> {
-  static async getInitialProps(
+export default class ChangePasswordPage extends React.Component<Props, State> {
+  static getInitialProps: GetInitialProps<InitialProps> = async (
     { req },
-    { fetchGraphql }: AppDependencies
-  ): Promise<Props> {
+    { fetchGraphql }: GetInitialPropsDependencies
+  ) => {
     const serverErrors: { [key: string]: string } = {};
 
     // This is the no-JavaScript case. We still want to be able to change
@@ -115,9 +93,8 @@ export default class ChangePassword extends React.Component<Props, State> {
     return {
       account: await fetchAccount(fetchGraphql),
       serverErrors,
-      fetchGraphql,
     };
-  }
+  };
 
   constructor(props: Props) {
     super(props);
@@ -151,7 +128,7 @@ export default class ChangePassword extends React.Component<Props, State> {
         case 'SUCCESS':
           Router.push({
             pathname: '/',
-            query: { message: Message.CHANGE_PASSWORD_SUCCESS },
+            query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
           });
           break;
       }
@@ -318,7 +295,7 @@ export default class ChangePassword extends React.Component<Props, State> {
     );
   };
 
-  renderSubmitting() {
+  private renderSubmitting() {
     return (
       <div className="md">
         <div className={`md-c br br-t400 ${SUBMITTING_MODAL_STYLE}`}>
@@ -333,4 +310,32 @@ export default class ChangePassword extends React.Component<Props, State> {
       </div>
     );
   }
+}
+
+function changePasswordErrorToFormErrors(error: ChangePasswordError | null) {
+  if (!error) {
+    return {};
+  }
+
+  switch (error) {
+    case 'CURRENT_PASSWORD_WRONG':
+      return { password: 'Your current password is incorrect' };
+    case 'NEW_PASSWORDS_DONT_MATCH':
+      return { confirmPassword: 'Password confirmation didn’t match' };
+    default:
+      return { password: 'An unknown error occurred' };
+  }
+}
+
+function addValidationError(
+  serverErrors: { [key: string]: string },
+  err: ValidationError
+) {
+  if (err.path) {
+    serverErrors[err.path] = err.message;
+  }
+
+  err.inner.forEach(innerErr => {
+    addValidationError(serverErrors, innerErr);
+  });
 }

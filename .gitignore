@@ -20,6 +20,6 @@ npm-shrinkwrap.json
 # See: build-service-container.sh
 package-json.tar
 
-server.key
-server.crt
+*.key
+*.crt
 .DS_Store
