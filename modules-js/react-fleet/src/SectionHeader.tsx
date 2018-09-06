@@ -3,6 +3,7 @@ import React from 'react';
 export type Props = {
   title: string;
   yellow?: boolean;
+  subheader?: boolean;
 };
 
 export default class SectionHeader extends React.Component<Props> {
@@ -11,16 +12,29 @@ export default class SectionHeader extends React.Component<Props> {
   };
 
   render() {
-    const { title, yellow } = this.props;
+    const { title, yellow, subheader } = this.props;
 
-    const classes = ['sh'];
+    const classes = [
+      'sh',
+      'm-b300'
+    ];
+
     if (yellow!) {
       classes.push('sh--y');
     }
 
+    if (subheader) {
+      classes.push('sh--sm');
+    }
+
     return (
       <div className={classes.join(' ')}>
-        <h2 className="sh-title">{title}</h2>
+        {this.props.subheader ?
+
+          <h3 className="sh-title">{title}</h3>
+          :
+          <h2 className="sh-title">{title}</h2>
+        }
       </div>
     );
   }

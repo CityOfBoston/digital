@@ -106,7 +106,7 @@ Array [
       className="b b-c b-c--hsm"
     >
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -416,7 +416,7 @@ Array [
       className="b b-c b-c--hsm"
     >
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -726,7 +726,7 @@ Array [
       className="b b-c b-c--hsm"
     >
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -1070,7 +1070,7 @@ Array [
         className="m-b500"
       >
         <div
-          className="sh"
+          className="sh m-b300"
         >
           <h2
             className="sh-title"
@@ -1140,7 +1140,7 @@ Array [
           className="m-b500 g--6"
         >
           <div
-            className="sh"
+            className="sh m-b300"
           >
             <h2
               className="sh-title"
@@ -1365,7 +1365,7 @@ Array [
         className="m-b500"
       >
         <div
-          className="sh"
+          className="sh m-b300"
         >
           <h2
             className="sh-title"
@@ -1435,7 +1435,7 @@ Array [
           className="m-b500 g--6"
         >
           <div
-            className="sh"
+            className="sh m-b300"
           >
             <h2
               className="sh-title"
