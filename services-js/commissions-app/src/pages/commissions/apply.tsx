@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { Formik, FieldArray } from 'formik';
 import * as Yup from 'yup';
+import { css } from 'emotion';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -11,6 +12,14 @@ import TextInput from '../../client/common/TextInput';
 import CommentInput from '../../client/common/CommentInput';
 import Checkbox from '../../client/common/Checkbox';
 
+const NAME_PREFIX_STYLE = css({
+  display: 'flex',
+  justifyContent: 'space-between'
+});
+
+const NAME_STYLE = css({
+  flexGrow: 1
+});
 
 export interface Props {
   commissions: Commission[];
@@ -89,7 +98,7 @@ export default class ApplyPage extends React.Component<Props> {
               phone: '',
               email: '',
               confirmEmail: '',
-              commissionIds: [commissionID] as string[],
+              commissionIds: commissionID ? [commissionID] : [],
               typeOfDegree: '',
               degreeAttained: '',
               educationalInstitution: '',
@@ -160,12 +169,7 @@ export default class ApplyPage extends React.Component<Props> {
               <form onSubmit={handleSubmit}>
                 <div className="g">
 
-                  <div className="g--6 m-b300"
-                       style={{
-                         display: 'flex',
-                         justifyContent: 'space-between'
-                       }}
-                  >
+                  <div className={`g--6 m-b300 ${NAME_PREFIX_STYLE}`}>
                     <div style={{ marginRight: '1.5em' }}>
                       <label
                         htmlFor="FeedbackForm-prefix"
@@ -193,7 +197,7 @@ export default class ApplyPage extends React.Component<Props> {
                       error={touched.firstName && errors.firstName}
                       onBlur={handleBlur}
                       required
-                      style={{ flexGrow: 1 }}
+                      className={NAME_STYLE}
                     />
                   </div>
 

@@ -10,12 +10,13 @@ export interface Props {
   onChange: any;
   onBlur: any;
   style?: object;
+  className?: string;
 }
 
 export default class FormWithElement extends React.Component<Props> {
   render() {
     return (
-      <div className="txt m-b300" style={this.props.style}>
+      <div className={`txt m-b300 ${this.props.className || ''}`} style={this.props.style}>
         <label
           htmlFor={`FeedbackForm-${this.props.name}`}
           className="txt-l txt-l--sm"

@@ -23,13 +23,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="g"
       >
         <div
-          className="g--6 m-b300"
-          style={
-            Object {
-              "display": "flex",
-              "justifyContent": "space-between",
-            }
-          }
+          className="g--6 m-b300 css-gg4vpm"
         >
           <div
             style={
@@ -67,12 +61,8 @@ exports[`Storyshots ApplyPage default 1`] = `
             </div>
           </div>
           <div
-            className="txt m-b300"
-            style={
-              Object {
-                "flexGrow": 1,
-              }
-            }
+            className="txt m-b300 css-i9gxme"
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
@@ -107,7 +97,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--1 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -136,7 +126,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--5 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -176,7 +166,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--9 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -212,7 +202,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -245,7 +235,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--7 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -281,7 +271,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--2 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -317,7 +307,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
             style={undefined}
           >
             <label
@@ -351,7 +341,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -376,7 +366,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -408,7 +398,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -452,7 +442,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         </h2>
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -477,7 +467,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -502,7 +492,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -527,7 +517,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
         style={undefined}
       >
         <label
@@ -711,7 +701,7 @@ exports[`Storyshots CommentInput default 1`] = `
 
 exports[`Storyshots TextInput default 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
   style={undefined}
 >
   <label
@@ -739,7 +729,7 @@ exports[`Storyshots TextInput default 1`] = `
 
 exports[`Storyshots TextInput error 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
   style={undefined}
 >
   <label
@@ -779,7 +769,7 @@ exports[`Storyshots TextInput error 1`] = `
 
 exports[`Storyshots TextInput required 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
   style={undefined}
 >
   <label
