@@ -49,8 +49,9 @@ export type FindAddressCandidate = {|
     User_fld: string,
     Addr_type: string,
     SubAddrUnit: string,
-    // This is where building ID is currently stored
-    Street_ID: string,
+    // This is where building ID is currently stored, since we can assume
+    // all of the addresses are Massachusetts. #hacksonhacks
+    State: string,
   |},
   extent?: {|
     xmin: number,
@@ -228,7 +229,7 @@ export function sortAddressCandidates(
       // if two elements have the same building id we only want one. If
       // there's no building id, we want to keep it, so we return a "guaranteed"
       // unique value.
-      .uniqBy(c => c.attributes.Street_ID || Math.random())
+      .uniqBy(c => c.attributes.State || Math.random())
       .sort(
         (a, b) =>
           // Most importantly, sort by score
@@ -513,7 +514,7 @@ export default class ArcGIS {
         addressId: candidate.attributes.Ref_ID
           ? candidate.attributes.Ref_ID.toString()
           : null,
-        buildingId: candidate.attributes.Street_ID || null,
+        buildingId: candidate.attributes.State || null,
         exact: true,
         alwaysUseLatLng: isAddressUnsearchable(candidate),
       };
