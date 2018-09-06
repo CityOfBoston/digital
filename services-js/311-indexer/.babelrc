@@ -1,11 +1,11 @@
 {
   "presets": [
-    ["env", { "modules": "commonjs" }],
-    "flow"
+    ["@babel/preset-env", { "modules": "commonjs" }],
+    "@babel/preset-flow"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    ["transform-runtime", { "polyfill": false, "regenerator": true }]
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    ["@babel/plugin-transform-runtime", { "polyfill": false, "regenerator": true }]
   ]  
 }
