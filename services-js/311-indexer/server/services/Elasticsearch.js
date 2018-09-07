@@ -156,8 +156,44 @@ export default class Elasticsearch {
     AWS.config.update({ region });
   }
 
-  initIndex(): Promise<void> {
-    return new Promise((resolve, reject) => {
+  async initIndex(): Promise<void> {
+    const index = await new Promise((resolve, reject) => {
+      this.client.indices.get(
+        {
+          index: this.index,
+        },
+        (err, resp) => {
+          if (err) {
+            if (err.statusCode === 404) {
+              resolve(null);
+            } else {
+              reject(err);
+            }
+          } else {
+            resolve(resp);
+          }
+        }
+      );
+    });
+
+    if (index) {
+      await new Promise((resolve, reject) => {
+        this.client.indices.delete(
+          {
+            index: this.index,
+          },
+          err => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          }
+        );
+      });
+    }
+
+    await new Promise((resolve, reject) => {
       this.client.indices.create(
         {
           index: this.index,
