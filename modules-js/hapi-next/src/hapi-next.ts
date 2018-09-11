@@ -60,21 +60,7 @@ export function makeRoutesForNextApp(
     {
       path: `${pathPrefix}{p*}`,
       method: ['GET', 'POST'],
-      handler: async (request, h) => {
-        const {
-          raw: { req, res },
-        } = request;
-
-        // Pass any Hapi payload along so we can handle form POSTs in
-        // getInitialProps if we want to.
-        (req as ExtendedIncomingMessage).payload = request.payload;
-
-        // Our actual pages are mounted at their expected paths (e.g.
-        // /commissions/apply in the commissions app, not /apply) so we don’t
-        // need to do any URL transforming.
-        await requestHandler(req, res);
-        return h.close;
-      },
+      handler: makeNextHandler(app),
       options: pageRouteOptions,
     },
     {
@@ -94,4 +80,24 @@ export function makeRoutesForNextApp(
   ];
 
   return routes;
+}
+
+export function makeNextHandler(app: next.Server) {
+  const requestHandler = app.getRequestHandler();
+
+  return async (request, h) => {
+    const {
+      raw: { req, res },
+    } = request;
+
+    // Pass any Hapi payload along so we can handle form POSTs in
+    // getInitialProps if we want to.
+    (req as ExtendedIncomingMessage).payload = request.payload;
+
+    // Our actual pages are mounted at their expected paths (e.g.
+    // /commissions/apply in the commissions app, not /apply) so we don’t
+    // need to do any URL transforming.
+    await requestHandler(req, res);
+    return h.close;
+  };
 }

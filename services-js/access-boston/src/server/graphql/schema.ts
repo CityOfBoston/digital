@@ -14,7 +14,6 @@ import path from 'path';
 import { makeExecutableSchema } from 'graphql-tools';
 import { Resolvers } from '@cityofboston/graphql-typescript';
 import AppsRegistry from '../services/AppsRegistry';
-import SamlAuth from '../services/SamlAuth';
 import SessionAuth from '../SessionAuth';
 import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
 
@@ -91,7 +90,6 @@ const schemaGraphql = fs.readFileSync(
 export interface Context {
   sessionAuth: SessionAuth;
   appsRegistry: AppsRegistry;
-  samlAuth: SamlAuth;
   identityIq: IdentityIq;
 }
 

@@ -1,7 +1,2 @@
-/flow-typed
 /client/queries/graphql-types.js
-/graphql
-/build
-/coverage
-/node_modules
 /storybook-static

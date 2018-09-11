@@ -29,8 +29,7 @@ export function analyzePassword(password: string) {
   };
 }
 
-export const changePasswordSchema = yup.object().shape({
-  password: yup.string().required('Your current password is required'),
+const NEW_PASSWORD_SHAPE = {
   newPassword: yup
     .string()
     .test(
@@ -61,4 +60,13 @@ export const changePasswordSchema = yup.object().shape({
       [yup.ref('newPassword')],
       'The password confirmation does not match your new password'
     ),
+};
+
+export const changePasswordSchema = yup.object().shape({
+  password: yup.string().required('Your current password is required'),
+  ...NEW_PASSWORD_SHAPE,
+});
+
+export const forgotPasswordSchema = yup.object().shape({
+  ...NEW_PASSWORD_SHAPE,
 });
