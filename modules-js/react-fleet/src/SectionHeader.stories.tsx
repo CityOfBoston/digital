@@ -5,4 +5,5 @@ import SectionHeader from './SectionHeader';
 
 storiesOf('SectionHeader', module)
   .add('default', () => <SectionHeader title="Boards and Commissions" />)
-  .add('yellow', () => <SectionHeader title="Boards and Commissions" yellow />);
+  .add('yellow', () => <SectionHeader title="Boards and Commissions" yellow />)
+  .add('subheader', () => <SectionHeader title="Boards and Commissions" subheader />);

@@ -2,7 +2,7 @@
 
 exports[`rendering renders 1`] = `
 <div
-  className="sh"
+  className="sh m-b300"
 >
   <h2
     className="sh-title"

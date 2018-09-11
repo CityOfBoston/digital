@@ -8,7 +8,7 @@ exports[`Storyshots ApplyPage default 1`] = `
     className="b b-c"
   >
     <div
-      className="sh"
+      className="sh m-b300"
     >
       <h2
         className="sh-title"
@@ -23,61 +23,71 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="g"
       >
         <div
-          className="sel"
+          className="g--6 m-b300 css-gg4vpm"
         >
-          <label
-            className="txt-l txt-l--sm"
-            htmlFor="FeedbackForm-\${this.props.name}"
-          >
-            Prefix
-             
-          </label>
           <div
-            className="sel-c sel-c--thin"
             style={
               Object {
-                "marginRight": 14,
+                "marginRight": "1.5em",
               }
             }
           >
-            <select
-              className="sel-f sel-f--thin"
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="FeedbackForm-prefix"
             >
-              <option>
-                Mr
-              </option>
-              <option>
-                Mrs
-              </option>
-              <option>
-                Miss
-              </option>
-              <option>
-                Mx
-              </option>
-            </select>
+              Prefix
+            </label>
+            <div
+              className="sel-c sel-c--thin"
+            >
+              <select
+                className="sel-f sel-f--thin"
+                id="FeedbackForm-prefix"
+              >
+                <option>
+                  Mr
+                </option>
+                <option>
+                  Mrs
+                </option>
+                <option>
+                  Miss
+                </option>
+                <option>
+                  Mx
+                </option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div
-          className="g--3 m-b300"
-        >
           <div
-            className="txt m-b300"
+            className="txt m-b300 css-i9gxme"
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-firstName"
             >
               First Name
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-firstName"
               name="firstName"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="First Name"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -87,21 +97,25 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--1 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-middleName"
             >
               Initial
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-middleName"
               name="middleName"
               onBlur={[Function]}
               onChange={[Function]}
-              placeholder="Middle Initial"
+              placeholder=""
               required={undefined}
               type="text"
               value=""
@@ -109,25 +123,36 @@ exports[`Storyshots ApplyPage default 1`] = `
           </div>
         </div>
         <div
-          className="g--6 m-b300"
+          className="g--5 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-lastName"
             >
               Last Name
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-lastName"
               name="lastName"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Last Name"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -141,22 +166,33 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--9 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-StreetAddress"
             >
               Street Address
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-StreetAddress"
               name="StreetAddress"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Street Address"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -166,17 +202,21 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-unit"
             >
               Unit
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-unit"
               name="unit"
               onBlur={[Function]}
               onChange={[Function]}
@@ -195,22 +235,33 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--7 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-city"
             >
               City
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-city"
               name="city"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="City"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -220,22 +271,33 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--2 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-state"
             >
               State
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-state"
               name="state"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="State"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -245,22 +307,33 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300"
+            className="txt m-b300 "
+            style={undefined}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-\${this.props.name}"
+              htmlFor="FeedbackForm-zip"
             >
               Zip
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
             </label>
             <input
-              className="txt-f txt-f--sm"
-              id="FeedbackForm-\${this.props.name}"
+              className="
+            txt-f txt-f--sm
+            
+          "
+              id="FeedbackForm-zip"
               name="zip"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Zip Code"
-              required={undefined}
+              required={true}
               type="text"
               value=""
             />
@@ -268,17 +341,21 @@ exports[`Storyshots ApplyPage default 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-phone"
         >
           Phone
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-phone"
           name="phone"
           onBlur={[Function]}
           onChange={[Function]}
@@ -289,43 +366,65 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-email"
         >
           Email
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-email"
           name="email"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Email"
-          required={undefined}
+          required={true}
           type="text"
           value=""
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-confirmEmail"
         >
           Confirm Email
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-confirmEmail"
           name="confirmEmail"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Confirm Email"
-          required={undefined}
+          required={true}
           type="text"
           value=""
         />
@@ -334,7 +433,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -343,17 +442,21 @@ exports[`Storyshots ApplyPage default 1`] = `
         </h2>
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-typeOfDegree"
         >
           Type of Degree
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-typeOfDegree"
           name="typeOfDegree"
           onBlur={[Function]}
           onChange={[Function]}
@@ -364,17 +467,21 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-degreeAttained"
         >
           Degree Attained
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-degreeAttained"
           name="degreeAttained"
           onBlur={[Function]}
           onChange={[Function]}
@@ -385,17 +492,21 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-educationalInstitution"
         >
           Educational Institution
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-educationalInstitution"
           name="educationalInstitution"
           onBlur={[Function]}
           onChange={[Function]}
@@ -406,17 +517,21 @@ exports[`Storyshots ApplyPage default 1`] = `
         />
       </div>
       <div
-        className="txt m-b300"
+        className="txt m-b300 "
+        style={undefined}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
+          htmlFor="FeedbackForm-otherInformation"
         >
           Other Information
         </label>
         <input
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          className="
+            txt-f txt-f--sm
+            
+          "
+          id="FeedbackForm-otherInformation"
           name="otherInformation"
           onBlur={[Function]}
           onChange={[Function]}
@@ -430,7 +545,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -438,36 +553,52 @@ exports[`Storyshots ApplyPage default 1`] = `
           Boards and Commissions
         </h2>
       </div>
-      <h2>
-        Please note that many of these Boards and Commissions require City of Boston residency.
-      </h2>
-      <div
-        className="sh"
+      <p
+        className="m-b500"
       >
-        <h2
+        Please note that many of these Boards and Commissions require City of Boston residency.
+      </p>
+      <div
+        className="sh m-b300 sh--sm"
+      >
+        <h3
           className="sh-title"
         >
           Boards and Commissions without open positions
-        </h2>
+        </h3>
       </div>
-      <ul>
+      <ul
+        style={
+          Object {
+            "margin": 0,
+            "padding": 0,
+          }
+        }
+      >
         <div
           className="t--subinfo t--err m-t100"
         />
       </ul>
       <div
-        className="sh"
+        className="sh m-b300 sh--sm"
       >
-        <h2
+        <h3
           className="sh-title"
         >
           Boards and Commissions with open positions
-        </h2>
+        </h3>
       </div>
-      <ul>
-        <h4>
+      <ul
+        style={
+          Object {
+            "margin": 0,
+            "padding": 0,
+          }
+        }
+      >
+        <p>
           You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
-        </h4>
+        </p>
         <div
           className="t--subinfo t--err m-t100"
         />
@@ -476,7 +607,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -488,7 +619,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh"
+        className="sh m-b300"
       >
         <h2
           className="sh-title"
@@ -570,17 +701,21 @@ exports[`Storyshots CommentInput default 1`] = `
 
 exports[`Storyshots TextInput default 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
+  style={undefined}
 >
   <label
     className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-\${this.props.name}"
+    htmlFor="FeedbackForm-zip"
   >
     Zip Code
   </label>
   <input
-    className="txt-f txt-f--sm"
-    id="FeedbackForm-\${this.props.name}"
+    className="
+            txt-f txt-f--sm
+            
+          "
+    id="FeedbackForm-zip"
     name="zip"
     onBlur=""
     onChange=""
@@ -594,11 +729,12 @@ exports[`Storyshots TextInput default 1`] = `
 
 exports[`Storyshots TextInput error 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
+  style={undefined}
 >
   <label
     className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-\${this.props.name}"
+    htmlFor="FeedbackForm-zip"
   >
     Zip Code
     <span
@@ -610,8 +746,11 @@ exports[`Storyshots TextInput error 1`] = `
     </span>
   </label>
   <input
-    className="txt-f txt-f--sm txt-f--err"
-    id="FeedbackForm-\${this.props.name}"
+    className="
+            txt-f txt-f--sm
+             txt-f--err
+          "
+    id="FeedbackForm-zip"
     name="zip"
     onBlur=""
     onChange=""
@@ -630,11 +769,12 @@ exports[`Storyshots TextInput error 1`] = `
 
 exports[`Storyshots TextInput required 1`] = `
 <div
-  className="txt m-b300"
+  className="txt m-b300 "
+  style={undefined}
 >
   <label
     className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-\${this.props.name}"
+    htmlFor="FeedbackForm-zip"
   >
     Zip Code
     <span
@@ -646,8 +786,11 @@ exports[`Storyshots TextInput required 1`] = `
     </span>
   </label>
   <input
-    className="txt-f txt-f--sm"
-    id="FeedbackForm-\${this.props.name}"
+    className="
+            txt-f txt-f--sm
+            
+          "
+    id="FeedbackForm-zip"
     name="zip"
     onBlur=""
     onChange=""

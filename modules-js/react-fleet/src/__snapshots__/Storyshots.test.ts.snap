@@ -152,7 +152,7 @@ exports[`Storyshots AppLayout default 1`] = `
           className="b b-c"
         >
           <div
-            className="sh"
+            className="sh m-b300"
           >
             <h2
               className="sh-title"
@@ -404,7 +404,7 @@ exports[`Storyshots AppLayout secondary nav 1`] = `
           className="b b-c"
         >
           <div
-            className="sh"
+            className="sh m-b300"
           >
             <h2
               className="sh-title"
@@ -895,7 +895,7 @@ Array [
 
 exports[`Storyshots SectionHeader default 1`] = `
 <div
-  className="sh"
+  className="sh m-b300"
 >
   <h2
     className="sh-title"
@@ -905,9 +905,21 @@ exports[`Storyshots SectionHeader default 1`] = `
 </div>
 `;
 
+exports[`Storyshots SectionHeader subheader 1`] = `
+<div
+  className="sh m-b300 sh--sm"
+>
+  <h3
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h3>
+</div>
+`;
+
 exports[`Storyshots SectionHeader yellow 1`] = `
 <div
-  className="sh sh--y"
+  className="sh m-b300 sh--y"
 >
   <h2
     className="sh-title"
