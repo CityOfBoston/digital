@@ -4,13 +4,21 @@ import SamlAuth, {
   SamlLogoutRequestResult,
 } from './SamlAuth';
 
+export interface SamlAuthFakeOptions {
+  assertUrl: string;
+  loginFormUrl: string;
+  userId?: string;
+}
+
 export default class SamlAuthFake implements Required<SamlAuth> {
   private assertUrl: string;
+  private loginFormUrl: string;
   private userId: string;
 
-  constructor(assertUrl: string, userId: string = 'CON01234') {
+  constructor({ assertUrl, loginFormUrl, userId }: SamlAuthFakeOptions) {
     this.assertUrl = assertUrl;
-    this.userId = userId;
+    this.loginFormUrl = loginFormUrl;
+    this.userId = userId || 'CON01234';
   }
 
   getMetadata(): string {
@@ -18,7 +26,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
   }
 
   makeLoginUrl(): Promise<string> {
-    return Promise.resolve('/login-form');
+    return Promise.resolve(this.loginFormUrl);
   }
 
   makeLogoutUrl(): Promise<string> {

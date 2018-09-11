@@ -8,10 +8,12 @@ export interface Session {
 }
 
 export default class SessionAuth {
-  request: HapiRequest;
+  private request: HapiRequest;
+  private decoratorName: string;
 
-  constructor(request: HapiRequest) {
+  constructor(request: HapiRequest, decoratorName: string) {
     this.request = request;
+    this.decoratorName = decoratorName;
   }
 
   get(): Session {
@@ -25,10 +27,10 @@ export default class SessionAuth {
   }
 
   set(session: Session) {
-    (this.request as any).cookieAuth.set(session);
+    (this.request as any)[this.decoratorName].set(session);
   }
 
   clear() {
-    (this.request as any).cookieAuth.clear();
+    (this.request as any)[this.decoratorName].clear();
   }
 }
