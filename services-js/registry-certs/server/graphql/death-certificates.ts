@@ -106,17 +106,23 @@ interface AsyncDeathCertificateOrder
 const DATE_REGEXP = /\(?\s*(\d\d?\/\d\d?\/\d\d\d\d)\s*\)?/;
 
 export function parseAgeOrDateOfBirth(
+  deathDate: string | null,
   str: string | null
 ): { age: string | null; birthDate: string | null } {
   const dateMatch = (str || '').match(DATE_REGEXP);
+  const deathDateMatch = (deathDate || '').match(DATE_REGEXP);
+
+  const deathMoment = deathDateMatch
+    ? moment(deathDateMatch[1], 'MM/DD/YYYY')
+    : null;
 
   let age = (str || '')
     .replace(/^0+/, '')
     .replace(DATE_REGEXP, '')
     .trim();
 
-  if (dateMatch && !age) {
-    age = moment().diff(moment(dateMatch[1], 'MM/DD/YYYY'), 'years');
+  if (dateMatch && !age && deathMoment) {
+    age = deathMoment.diff(moment(dateMatch[1], 'MM/DD/YYYY'), 'years');
   }
 
   return {
@@ -128,7 +134,10 @@ export function parseAgeOrDateOfBirth(
 function searchResultToDeathCertificate(
   res: DeathCertificateSearchResult | DbDeathCertificate
 ): DeathCertificate {
-  const { age, birthDate } = parseAgeOrDateOfBirth(res.AgeOrDateOfBirth);
+  const { age, birthDate } = parseAgeOrDateOfBirth(
+    res['Date of Death'],
+    res.AgeOrDateOfBirth
+  );
 
   return {
     id: res.CertificateID.toString(),
