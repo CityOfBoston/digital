@@ -5,8 +5,7 @@ import path from 'path';
 
 import { Server as HapiServer } from 'hapi';
 import Crumb from 'crumb';
-import cookieAuthPlugin from 'hapi-auth-cookie';
-
+import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
@@ -24,6 +23,7 @@ import {
   loggingPlugin,
   adminOkRoute,
   headerKeysPlugin,
+  browserAuthPlugin,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -36,7 +36,7 @@ import IdentityIq from './services/IdentityIq';
 import IdentityIqFake from './services/IdentityIqFake';
 import AppsRegistry, { makeAppsRegistry } from './services/AppsRegistry';
 
-import { addLoginAuth, getLoginSessionAuth } from './login-auth';
+import { addLoginAuth, getLoginSession } from './login-auth';
 import { addForgotPasswordAuth } from './forgot-password-auth';
 
 const PATH_PREFIX = '';
@@ -90,8 +90,32 @@ export async function makeServer(port) {
   await server.register(acceptLanguagePlugin);
   await server.register(Crumb);
 
-  // Required by both auth schemes
-  await server.register(cookieAuthPlugin);
+  if (
+    process.env.NODE_ENV === 'production' &&
+    !process.env.SESSION_COOKIE_PASSWORD
+  ) {
+    throw new Error('Must set $SESSION_COOKIE_PASSWORD in production');
+  }
+
+  // TODO(finh): Add Redis support for session storage
+  await server.register({
+    plugin: yar,
+    options: {
+      // Always stores everything in the cache, so we can clear out sessions
+      // unilaterally rather than relying on cookie expiration and being
+      // vulnerable to replays.
+      maxCookieSize: 0,
+      cookieOptions: {
+        password:
+          process.env.SESSION_COOKIE_PASSWORD ||
+          'test-fake-key-iWIMwE69HJj9GQcHfCiu2TVyZoVxvYoU',
+        isSecure: !dev,
+        isHttpOnly: true,
+      },
+    },
+  });
+
+  await server.register(browserAuthPlugin);
 
   await addLoginAuth(server, {
     loginPath: '/login',
@@ -157,7 +181,10 @@ async function addGraphQl(
     options: {
       path: `${PATH_PREFIX}/graphql`,
       route: {
-        auth: { mode: 'try' },
+        auth: {
+          mode: 'try',
+          strategies: ['login', 'forgot-password'],
+        },
         plugins: {
           // We auth with a header, which can't be set via CSRF, so it's safe to
           // avoid checking the crumb cookie.
@@ -167,7 +194,14 @@ async function addGraphQl(
       },
       graphqlOptions: request => {
         const context: Context = {
-          sessionAuth: getLoginSessionAuth(request),
+          // We pass the credentials as separate elements of the context so that
+          // type checking in the resolvers will ensure that we're doing
+          // authorization. E.g. if loginAuth is undefined then the user isn't
+          // logged in with that scheme. TypeScript won't let you pull values
+          // off of "loginAuth" until you've ensured that it's defined.
+          loginAuth: request.auth.credentials.loginAuth,
+          forgotPasswordAuth: request.auth.credentials.forgotPasswordAuth,
+          session: getLoginSession(request),
           appsRegistry,
           identityIq,
         };
@@ -241,13 +275,21 @@ async function addNext(server: HapiServer) {
   });
 
   server.route(
-    makeRoutesForNextApp(nextApp, '/', {
-      ext: {
-        onPostAuth: {
-          method: addCrumbCookie,
+    makeRoutesForNextApp(
+      nextApp,
+      '/',
+      {
+        ext: {
+          onPostAuth: {
+            method: addCrumbCookie,
+          },
         },
       },
-    })
+      {
+        // Keeps us from doing session stuff on the static routes.
+        plugins: { yar: { skip: true } },
+      }
+    )
   );
 
   await nextApp.prepare();

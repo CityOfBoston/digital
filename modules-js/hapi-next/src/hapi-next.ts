@@ -1,6 +1,6 @@
 import url from 'url';
 import next from 'next';
-import { ServerRoute } from 'hapi';
+import { Server as HapiServer, ServerRoute, RouteOptions } from 'hapi';
 import { IncomingMessage } from 'http';
 
 export interface ExtendedIncomingMessage extends IncomingMessage {
@@ -30,8 +30,8 @@ export interface ExtendedIncomingMessage extends IncomingMessage {
 export function makeRoutesForNextApp(
   app: next.Server,
   pathPrefix: string,
-  pageRouteOptions = {},
-  staticRouteOptions = {}
+  pageRouteOptions: RouteOptions | ((server: HapiServer) => RouteOptions) = {},
+  staticRouteOptions: RouteOptions | ((server: HapiServer) => RouteOptions) = {}
 ): ServerRoute[] {
   if (pathPrefix !== '/' && !pathPrefix.match(/^\/.*\/$/)) {
     throw new Error(

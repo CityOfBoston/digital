@@ -14,8 +14,9 @@ import path from 'path';
 import { makeExecutableSchema } from 'graphql-tools';
 import { Resolvers } from '@cityofboston/graphql-typescript';
 import AppsRegistry from '../services/AppsRegistry';
-import SessionAuth from '../SessionAuth';
+import { LoginSession, LoginAuth, ForgotPasswordAuth } from '../sessions';
 import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
+import Boom from 'boom';
 
 /** @graphql schema */
 export interface Schema {
@@ -88,35 +89,51 @@ const schemaGraphql = fs.readFileSync(
 );
 
 export interface Context {
-  sessionAuth: SessionAuth;
+  // By making these optionally undefined we can use type checking to ensure
+  // that we're making auth checks in our resolvers. If you want to use one of
+  // these but it's not null then it's time to throw a Forbidden error.
+  //
+  // The client may detect Forbidden responses and bring the user to a login
+  // form.
+  loginAuth: LoginAuth | undefined;
+  forgotPasswordAuth: ForgotPasswordAuth | undefined;
+  session: LoginSession | undefined;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
 }
 
 const queryRootResolvers: Resolvers<Query, Context> = {
-  account: (_root, _args, { sessionAuth }) => {
-    const session = sessionAuth.get();
+  account: (_root, _args, { loginAuth }) => {
+    if (!loginAuth) {
+      throw Boom.forbidden();
+    }
 
     return {
-      employeeId: session.nameId,
+      employeeId: loginAuth.userId,
     };
   },
 
-  apps: (_root, _args, { appsRegistry, sessionAuth }) => ({
-    categories: appsRegistry
-      .appsForGroups(sessionAuth.get().groups)
-      .map(({ apps, icons, showRequestAccessLink, title }) => ({
-        title,
-        showIcons: icons,
-        requestAccessUrl: showRequestAccessLink ? '#' : null,
-        apps: apps.map(({ title, iconUrl, url, description }) => ({
+  apps: (_root, _args, { appsRegistry, session }) => {
+    if (!session) {
+      throw Boom.forbidden();
+    }
+
+    return {
+      categories: appsRegistry
+        .appsForGroups(session.groups)
+        .map(({ apps, icons, showRequestAccessLink, title }) => ({
           title,
-          iconUrl: iconUrl || null,
-          url,
-          description,
+          showIcons: icons,
+          requestAccessUrl: showRequestAccessLink ? '#' : null,
+          apps: apps.map(({ title, iconUrl, url, description }) => ({
+            title,
+            iconUrl: iconUrl || null,
+            url,
+            description,
+          })),
         })),
-      })),
-  }),
+    };
+  },
 
   workflow: async (_root, { caseId }, { identityIq }) =>
     launchedWorkflowResponseToWorkflow(await identityIq.fetchWorkflow(caseId)),
@@ -126,8 +143,12 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
   changePassword: async (
     _root,
     { currentPassword, newPassword, confirmPassword },
-    { identityIq, sessionAuth }
+    { identityIq, loginAuth }
   ) => {
+    if (!loginAuth) {
+      throw Boom.forbidden();
+    }
+
     if (newPassword !== confirmPassword) {
       return {
         caseId: null,
@@ -138,7 +159,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     }
 
     const workflowResponse = await identityIq.changePassword(
-      sessionAuth.get().nameId,
+      loginAuth.userId,
       currentPassword,
       newPassword
     );
