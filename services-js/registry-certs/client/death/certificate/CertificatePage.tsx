@@ -231,7 +231,6 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
   }
 
   renderCertificate({
-    id,
     firstName,
     lastName,
     age,
@@ -242,10 +241,6 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
     return (
       <div className="certificate">
         <ul className="dl">
-          <li className="dl-i">
-            <span className="dl-t">Certificate #</span>
-            <span className="dl-d">{id}</span>
-          </li>
           <li className="dl-i">
             <span className="dl-t">First name</span>
             <span className="dl-d">{firstName}</span>

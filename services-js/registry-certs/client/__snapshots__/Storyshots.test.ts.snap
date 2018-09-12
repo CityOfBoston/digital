@@ -1907,20 +1907,6 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
                       <span
                         className="jsx-2730222605 dl-t"
                       >
-                        Certificate #
-                      </span>
-                      <span
-                        className="jsx-2730222605 dl-d"
-                      >
-                        000002
-                      </span>
-                    </li>
-                    <li
-                      className="jsx-2730222605 dl-i"
-                    >
-                      <span
-                        className="jsx-2730222605 dl-t"
-                      >
                         First name
                       </span>
                       <span
@@ -2806,20 +2792,6 @@ exports[`Storyshots CertificatePage normal certificate 1`] = `
                       <span
                         className="jsx-2730222605 dl-t"
                       >
-                        Certificate #
-                      </span>
-                      <span
-                        className="jsx-2730222605 dl-d"
-                      >
-                        000002
-                      </span>
-                    </li>
-                    <li
-                      className="jsx-2730222605 dl-i"
-                    >
-                      <span
-                        className="jsx-2730222605 dl-t"
-                      >
                         First name
                       </span>
                       <span
@@ -3341,20 +3313,6 @@ exports[`Storyshots CertificatePage normal certificate — not from search 1`] =
                   <ul
                     className="jsx-2730222605 dl"
                   >
-                    <li
-                      className="jsx-2730222605 dl-i"
-                    >
-                      <span
-                        className="jsx-2730222605 dl-t"
-                      >
-                        Certificate #
-                      </span>
-                      <span
-                        className="jsx-2730222605 dl-d"
-                      >
-                        000002
-                      </span>
-                    </li>
                     <li
                       className="jsx-2730222605 dl-i"
                     >
@@ -3891,20 +3849,6 @@ exports[`Storyshots CertificatePage pending certificate 1`] = `
                   <ul
                     className="jsx-2730222605 dl"
                   >
-                    <li
-                      className="jsx-2730222605 dl-i"
-                    >
-                      <span
-                        className="jsx-2730222605 dl-t"
-                      >
-                        Certificate #
-                      </span>
-                      <span
-                        className="jsx-2730222605 dl-d"
-                      >
-                        000001
-                      </span>
-                    </li>
                     <li
                       className="jsx-2730222605 dl-i"
                     >
@@ -10567,11 +10511,11 @@ exports[`Storyshots ReceiptEmail HTML 1`] = `
          cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\" style=\\"cellspacing:0;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;width:100%;\\"
       >
         <tr>
-                <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe (#555000)</i></td>
+                <td style=\\"padding: 0 25px\\"><i>4 × Death certificate for Monkey Joe</i></td>
                 <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
               </tr>
               <tr>
-                <td style=\\"padding: 0 25px\\"><i>6 × Death certificate for Bruce Banner (#667123)</i></td>
+                <td style=\\"padding: 0 25px\\"><i>6 × Death certificate for Bruce Banner</i></td>
                 <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$84.00</b></td>
               </tr>
 
@@ -10835,8 +10779,8 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Death certificate for Monkey Joe (#555000)  $56.00
-  6 x Death certificate for Bruce Banner (#667123)  $84.00
+  4 x Death certificate for Monkey Joe $56.00
+  6 x Death certificate for Bruce Banner $84.00
   Subtotal  $140.00
   Card processing fee*  $1.32
   Total  $141.32
@@ -11007,10 +10951,6 @@ exports[`Storyshots ReceiptPage default 1`] = `
                       JAMES
                        
                       HOWLETT (LOGAN)
-                       
-                      (#
-                      640768
-                      )
                     </td>
                     <td
                       className="jsx-833761660 ta-r"
@@ -11036,10 +10976,6 @@ exports[`Storyshots ReceiptPage default 1`] = `
                       BRUCE
                        
                       BANNER
-                       
-                      (#
-                      639896
-                      )
                     </td>
                     <td
                       className="jsx-833761660 ta-r"
