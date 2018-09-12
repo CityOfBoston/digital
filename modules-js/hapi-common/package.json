@@ -21,11 +21,13 @@
     "good": "^8.1.1",
     "good-console": "^7.1.0",
     "good-squeeze": "^5.0.2",
-    "hapi": "^17.4.0"
+    "hapi": "^17.4.0",
+    "hoek": "5.x.x"
   },
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
+    "@types/hoek": "^4.1.3",
     "@types/jest": "^22.0.0",
     "jest": "^22.4.0",
     "rimraf": "^2.6.2",
