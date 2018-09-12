@@ -58,3 +58,34 @@ export function getSessionAuth(
 
   return request.yar.get(SESSION_AUTH_KEY);
 }
+
+export default class Session {
+  private request: HapiRequest;
+
+  // By making these optionally undefined we can use type checking to ensure
+  // that we're making auth checks in our resolvers. If you want to use one of
+  // these but it's undefined then it's time to throw a Forbidden error.
+  public readonly loginAuth: LoginAuth | undefined;
+  public readonly forgotPasswordAuth: ForgotPasswordAuth | undefined;
+
+  public readonly loginSession: LoginSession | undefined;
+
+  constructor(request: HapiRequest) {
+    this.request = request;
+
+    // TODO(finh): It may be a bit confusing to round-trip these credentials in
+    // and out of request.auth when they're already in the Yar session. Possibly
+    // clean that up?
+    const { isAuthenticated, credentials } = request.auth;
+    if (isAuthenticated && credentials) {
+      this.loginAuth = credentials.loginAuth;
+      this.forgotPasswordAuth = credentials.forgotPasswordAuth;
+    }
+
+    this.loginSession = request.yar.get(LOGIN_SESSION_KEY);
+  }
+
+  reset() {
+    this.request.yar.reset();
+  }
+}

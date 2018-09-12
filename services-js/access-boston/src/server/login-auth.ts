@@ -1,10 +1,6 @@
 /* eslint no-console: 0 */
 
-import {
-  Server as HapiServer,
-  Request as HapiRequest,
-  RequestQuery,
-} from 'hapi';
+import { Server as HapiServer, RequestQuery } from 'hapi';
 
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 import SamlAuthFake from './services/SamlAuthFake';
@@ -15,7 +11,7 @@ import {
   setSessionAuth,
   getSessionAuth,
   LOGIN_SESSION_KEY,
-} from './sessions';
+} from './Session';
 
 import { BrowserAuthOptions } from '@cityofboston/hapi-common';
 
@@ -221,8 +217,4 @@ export async function addLoginAuth(
       return h.redirect(assertResult.successUrl);
     },
   });
-}
-
-export function getLoginSession(request: HapiRequest): LoginSession {
-  return request.yar.get(LOGIN_SESSION_KEY);
 }

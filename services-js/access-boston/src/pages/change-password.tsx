@@ -14,10 +14,10 @@ import TextInput from '../client/TextInput';
 
 import { changePasswordSchema } from '../lib/validation';
 
-import { MAIN_CLASS } from '../client/styles';
+import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import changePassword from '../client/graphql/change-password';
-import { ChangePasswordError } from '../client/graphql/queries';
+import { PasswordError } from '../client/graphql/queries';
 
 import { FlashMessage } from './index';
 
@@ -196,12 +196,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     const { serverErrors } = this.props;
 
     const commonPasswordProps = {
-      type: 'password',
-      required: true,
-      spellCheck: false,
-      autoFocus: false,
-      autoCapitalize: 'off',
-      autoCorrect: 'off',
+      ...DEFAULT_PASSWORD_ATTRIBUTES,
       onChange: handleChange,
       onBlur: handleBlur,
     };
@@ -312,7 +307,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   }
 }
 
-function changePasswordErrorToFormErrors(error: ChangePasswordError | null) {
+function changePasswordErrorToFormErrors(error: PasswordError | null) {
   if (!error) {
     return {};
   }

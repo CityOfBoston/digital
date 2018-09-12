@@ -34,28 +34,36 @@ const ACCESS_BOSTON_TITLE_STYLE = css({
 
 interface Props {
   account?: Account;
+  noLinks?: boolean;
 }
 
 export default class AccessBostonHeader extends React.Component<Props> {
   render() {
-    const { account } = this.props;
+    const { account, noLinks } = this.props;
 
     return (
       <CrumbContext.Consumer>
         {crumb => (
           <div className={`${HEADER_STYLE} p-a200`}>
             <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>
-              <Link href="/">
-                <a style={{ color: 'inherit' }}>Access Boston</a>
-              </Link>
+              {noLinks ? (
+                'Access Boston'
+              ) : (
+                <Link href="/">
+                  <a style={{ color: 'inherit' }}>Access Boston</a>
+                </Link>
+              )}
             </h1>
             {account && (
               <div className={`${HEADER_RIGHT_STYLE}`}>
                 <span style={{ marginRight: '1em' }}>{account.employeeId}</span>
-                <form action="/logout" method="POST">
-                  <input type="hidden" name="crumb" value={crumb} />
-                  <button className="btn btn--sm btn--100">Logout</button>
-                </form>
+
+                {!noLinks && (
+                  <form action="/logout" method="POST">
+                    <input type="hidden" name="crumb" value={crumb} />
+                    <button className="btn btn--sm btn--100">Logout</button>
+                  </form>
+                )}
               </div>
             )}
           </div>

@@ -10,9 +10,18 @@ import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
 import TextInput from '../client/TextInput';
 
+import fetchAccount, { Account } from '../client/graphql/fetch-account';
+
 import { forgotPasswordSchema } from '../lib/validation';
 
-import { MAIN_CLASS } from '../client/styles';
+import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
+import {
+  GetInitialProps,
+  GetInitialPropsDependencies,
+  PageDependencies,
+} from './_app';
+import resetPassword from '../client/graphql/reset-password';
+import { PasswordError } from '../client/graphql/queries';
 
 const SUBMITTING_MODAL_STYLE = css({
   paddingTop: 0,
@@ -23,18 +32,22 @@ const SUBMITTING_MODAL_STYLE = css({
 });
 
 interface InitialProps {
+  account: Account;
   serverErrors: { [key: string]: string };
+  showSuccessMessage: boolean;
 }
 
-interface Props extends InitialProps {
+interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
 }
 
 interface State {
   showSubmittingModal: boolean;
+  showSuccessMessage: boolean;
 }
 
 interface FormValues {
+  username: string;
   newPassword: string;
   confirmPassword: string;
   crumb: string;
@@ -45,21 +58,69 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     serverErrors: {},
   };
 
+  static getInitialProps: GetInitialProps<InitialProps> = async (
+    _,
+    { fetchGraphql }: GetInitialPropsDependencies
+  ) => {
+    const serverErrors: { [key: string]: string } = {};
+
+    return {
+      account: await fetchAccount(fetchGraphql),
+      serverErrors,
+      showSuccessMessage: false,
+    };
+  };
+
   constructor(props: Props) {
     super(props);
 
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
+      showSuccessMessage: !!props.showSuccessMessage,
     };
   }
 
+  private handleSubmit = async (
+    { newPassword, confirmPassword }: FormValues,
+    { setSubmitting, setErrors }
+  ) => {
+    this.setState({ showSubmittingModal: true });
+
+    try {
+      const { status, error } = await resetPassword(
+        this.props.fetchGraphql,
+        newPassword,
+        confirmPassword
+      );
+
+      switch (status) {
+        case 'ERROR':
+          // TODO(finh): Maybe show server errors in the modal?
+          setErrors(passwordErrorToFormErrors(error));
+          scrollTo(0, 0);
+          break;
+
+        case 'SUCCESS':
+          // If things succeeded, heads up that the user's session is no longer
+          // valid.
+          this.setState({ showSuccessMessage: true });
+          break;
+      }
+    } finally {
+      this.setState({ showSubmittingModal: false });
+      setSubmitting(false);
+    }
+  };
+
   render() {
-    const { showSubmittingModal } = this.state;
+    const { account } = this.props;
+    const { showSubmittingModal, showSuccessMessage } = this.state;
 
     return (
       <CrumbContext.Consumer>
         {crumb => {
           const initialValues: FormValues = {
+            username: account.employeeId,
             newPassword: '',
             confirmPassword: '',
             crumb,
@@ -72,18 +133,24 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
                 <title>Access Boston: Forgot Password</title>
               </Head>
 
-              <AccessBostonHeader />
+              <AccessBostonHeader noLinks />
 
               <div className={MAIN_CLASS}>
                 <div className="b b-c b-c--hsm">
-                  <SectionHeader title="Forgot Password" />
+                  {showSuccessMessage ? (
+                    this.renderSuccessMessage()
+                  ) : (
+                    <>
+                      <SectionHeader title="Forgot Password" />
 
-                  <Formik
-                    initialValues={initialValues}
-                    validationSchema={forgotPasswordSchema}
-                    onSubmit={() => {}}
-                    render={this.renderForm}
-                  />
+                      <Formik
+                        initialValues={initialValues}
+                        validationSchema={forgotPasswordSchema}
+                        onSubmit={this.handleSubmit}
+                        render={this.renderForm}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -108,12 +175,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     const { serverErrors } = this.props;
 
     const commonPasswordProps = {
-      type: 'password',
-      required: true,
-      spellCheck: false,
-      autoFocus: false,
-      autoCapitalize: 'off',
-      autoCorrect: 'off',
+      ...DEFAULT_PASSWORD_ATTRIBUTES,
       onChange: handleChange,
       onBlur: handleBlur,
     };
@@ -129,6 +191,19 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
         <input type="hidden" name="crumb" value={values.crumb} />
+
+        {/*
+          This is here for the benefit of password managers, so they can pick
+          up the username associated with the change of password.
+          
+          See: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
+        */}
+        <input
+          type="hidden"
+          name="username"
+          autoComplete="username"
+          value={values.username}
+        />
 
         {/* "g--r" so that we can put the policy first on mobile */}
         <div className="g g--r m-v200">
@@ -163,7 +238,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
         {this.props.serverErrors.form && (
           <>
             <div className="t--info t--err m-b500">
-              There was a problem changing your password:{' '}
+              There was a problem resetting your password:{' '}
               {this.props.serverErrors.form}
             </div>
 
@@ -199,5 +274,37 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
         </div>
       </div>
     );
+  }
+
+  private renderSuccessMessage() {
+    return (
+      <>
+        <SectionHeader title="Reset successful!" />
+
+        <div className="t--intro">
+          Your password change has gone through. Log in now with your new
+          password.
+        </div>
+
+        <div className="m-v500">
+          <a href="/login" className="btn">
+            Log in
+          </a>
+        </div>
+      </>
+    );
+  }
+}
+
+function passwordErrorToFormErrors(error: PasswordError | null) {
+  if (!error) {
+    return {};
+  }
+
+  switch (error) {
+    case 'NEW_PASSWORDS_DONT_MATCH':
+      return { confirmPassword: 'Password confirmation didn’t match' };
+    default:
+      return { password: 'An unknown error occurred' };
   }
 }
