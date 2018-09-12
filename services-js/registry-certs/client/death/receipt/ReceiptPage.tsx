@@ -144,8 +144,7 @@ export default class ReceiptPage extends React.Component<Props> {
                             <tr key={certificate.id}>
                               <td className="receipt-value">
                                 {quantity} × Death certificate for{' '}
-                                {certificate.firstName} {certificate.lastName}{' '}
-                                (#{certificate.id})
+                                {certificate.firstName} {certificate.lastName}
                               </td>
                               <td
                                 className="ta-r"
