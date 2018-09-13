@@ -1,4 +1,3 @@
-// @flow
 /* eslint no-console: 0 */
 
 import 'isomorphic-fetch';
@@ -17,20 +16,20 @@ const FIXTURE_SEARCHES = ['smith'];
   const registryFactoryOpts = {
     user: process.env.REGISTRY_DATA_DB_USER,
     password: process.env.REGISTRY_DATA_DB_PASSWORD,
-    domain: null,
+    domain: undefined,
     server: process.env.REGISTRY_DATA_DB_SERVER,
     database: process.env.REGISTRY_DATA_DB_DATABASE,
   };
 
   const registryDataFactory = await makeRegistryDataFactory(
-    (null: any),
+    null as any,
     registryFactoryOpts
   );
   const registryData = registryDataFactory.registryData();
 
   await Promise.all(
     FIXTURE_SEARCHES.map(async search => {
-      const records = await registryData.search(search, 0, 500);
+      const records = await registryData.search(search, 0, 500, null, null);
 
       const cleanedRecords = records.map(r => {
         const firstName = faker.name.firstName().toUpperCase();
