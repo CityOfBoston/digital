@@ -23,7 +23,7 @@
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate client/queries/*.ts --project-name registry-certs --target typescript --output client/queries/graphql-types.d.ts && prettier --write client/queries/graphql-types.d.ts",
-    "generate-fixtures": "babel-node ./scripts/generate-fixtures"
+    "generate-fixtures": "ts-node ./scripts/generate-fixtures"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel",
@@ -63,7 +63,7 @@
     "mobx-react": "^5.2.0",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
-    "mssql": "^4.0.4",
+    "mssql": "^4.2.1",
     "next": "6.1.1-canary.5",
     "node-cleanup": "^2.1.2",
     "nprogress": "^0.2.0",
@@ -95,7 +95,7 @@
     "@storybook/addon-storyshots": "^4.0.0-alpha.16",
     "@storybook/addons": "^4.0.0-alpha.16",
     "@storybook/react": "^4.0.0-alpha.16",
-    "@types/mssql": "^4.0.8",
+    "@types/mssql": "^4.0.10",
     "@types/stripe-v3": "^3.0.8",
     "@types/styled-jsx": "^2.2.3",
     "@zeit/next-typescript": "^1.1.0",

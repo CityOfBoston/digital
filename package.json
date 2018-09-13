@@ -16,9 +16,7 @@
       "templates/js-*/build/*"
     ],
     "nohoist": [
-      "**/@cityofboston/config-*",
-      "**/knex",
-      "**/@rmp135/sql-ts"
+      "**/@cityofboston/config-*"
     ]
   },
   "scripts": {
