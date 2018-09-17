@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export interface Props {
   name: string;
   placeholder: string;
@@ -10,29 +11,27 @@ export interface Props {
   onBlur: any;
 }
 
-export default class Comments extends React.Component<Props> {
-  render() {
-    return (
-      <div className="txt">
-        <label
-          htmlFor="FeedbackForm-${this.props.name}"
-          className="txt-l txt-l--sm"
-        >
-          {this.props.title ? this.props.title : undefined}
-        </label>
-        <textarea
-          rows={10}
-          name={this.props.name}
-          className={
-            this.props.error ? 'txt-f txt-f--sm txt-f--err' : 'txt-f txt-f--sm'
-          }
-          placeholder={this.props.placeholder}
-          value={this.props.value}
-          id="FeedbackForm-${this.props.name}"
-          onChange={this.props.onChange}
-          onBlur={this.props.onBlur}
-        />
-      </div>
-    );
-  }
+export default function Comments(props: Props): JSX.Element {
+  return (
+    <div className="txt">
+      <label
+        htmlFor={`FeedbackForm-${props.name}`}
+        className="txt-l txt-l--sm"
+      >
+        {props.title ? props.title : undefined}
+      </label>
+
+      <textarea
+        rows={10}
+        name={props.name}
+        className={`txt-f txt-f--sm ${props.error ? 'txt-f--err' : ''} `}
+
+        placeholder={props.placeholder}
+        value={props.value}
+        id={`FeedbackForm-${props.name}`}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+      />
+    </div>
+  );
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import AppLayout from './AppLayout';
-import SectionHeader from './SectionHeader';
-import SecondaryNav from './SecondaryNav';
+import SectionHeader from '../elements/SectionHeader';
+import SecondaryNav from '../components/SecondaryNav';
 
-storiesOf('AppLayout', module)
+storiesOf('Layouts/App Layout', module)
   .add('default', () => (
     <AppLayout>
       <div className="b b-c">

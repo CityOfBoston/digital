@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 
 import Header from './Header';
 import Menu from './Menu';
-import { OPTIMISTIC_BLUE } from './react-fleet';
+
+import { OPTIMISTIC_BLUE } from '../react-fleet';
 
 const render = (headerProps, menuProps) => (
   <>
@@ -14,7 +15,7 @@ const render = (headerProps, menuProps) => (
   </>
 );
 
-storiesOf('Header and Menu', module)
+storiesOf('Components/Header and Menu', module)
   .add('default', () => render({}, {}))
   .add('menu open', () => render({}, { open: true }))
   .add('header custom elements', () =>

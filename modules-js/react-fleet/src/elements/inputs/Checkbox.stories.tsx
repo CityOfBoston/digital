@@ -2,13 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from './Checkbox';
 
-storiesOf('Checkbox', module).add('default', () => (
+storiesOf('Elements/Inputs', module).add('Checkbox', () => (
   <Checkbox
     name="checkbox"
     title="Community Preservation Committee"
     value="checkbox"
-    onChange=""
-    onBlur=""
+    onChange={() => {}}
+    onBlur={() => {}}
     checked={true}
   />
 ));
