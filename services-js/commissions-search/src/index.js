@@ -1,0 +1,49 @@
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { createHttpLink } from 'apollo-link-http';
+
+// Outside of a Drupal environment create a mock Drupal object
+if (typeof Drupal === 'undefined') {
+  var Drupal = {
+    settings: {
+      bos_commissions_search: {
+        bos_commissions_search_graphql_api_key: null,
+        bos_commissions_search_graphql_endpoint:
+          'https://commissions-app.digital-staging.boston.gov/commissions/graphql',
+      },
+    },
+  };
+}
+
+const client = new ApolloClient({
+  link: new createHttpLink({
+    uri:
+      Drupal.settings.bos_commissions_search
+        .bos_commissions_search_graphql_endpoint,
+    headers: {
+      accept: '*/*',
+      'content-type': 'application/json',
+      'x-api-key':
+        Drupal.settings.bos_commissions_search
+          .bos_commissions_search_graphql_api_key,
+    },
+  }),
+  cache: new InMemoryCache(),
+});
+
+function ApolloWrapperComponent() {
+  return (
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  );
+}
+
+ReactDOM.render(<ApolloWrapperComponent />, document.getElementById('root'));
+/* eslint-enable no-unused-vars */
