@@ -1,11 +1,21 @@
 /* eslint no-console: 0 */
 
 import path from 'path';
+import fs from 'fs';
+import { promisify } from 'util';
 
 import AWS from 'aws-sdk';
 import shell, { ExecOutputReturnValue } from 'shelljs';
 import tar from 'tar';
 import { IncomingWebhook } from '@slack/client';
+
+import mime from 'mime-types';
+
+const readdir = promisify(fs.readdir);
+const stat = promisify(fs.stat);
+const readFile = promisify(fs.readFile);
+const lstat = promisify(fs.lstat);
+const realpath = promisify(fs.realpath);
 
 export const AWS_REGION = 'us-east-1';
 AWS.config.update({ region: AWS_REGION });
@@ -386,7 +396,7 @@ export async function waitForDeployment(
 }
 
 export async function postToSlack(
-  stage: 'start' | 'error' | 'complete',
+  stage: 'start' | 'error' | 'complete' | 's3-complete',
   error?: string
 ) {
   try {
@@ -452,6 +462,11 @@ export async function postToSlack(
     const ecsService = `${serviceName}${variant ? `-${variant}` : ''}`;
     const ecsUrl = `https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/${ecsCluster}/services/${ecsService}/details`;
 
+    const s3Url = `https://${
+      environment === 'staging'
+        ? 'apps.digital-staging.boston.gov'
+        : 'apps.boston.gov'
+    }/${serviceName}/`;
     let emoji;
 
     switch (stage) {
@@ -465,6 +480,12 @@ export async function postToSlack(
         color = 'good';
         title = 'Success!';
         text = `For more info, check ECS: <${ecsUrl}|${ecsCluster}/${ecsService}>`;
+        emoji = getRandom(COMPLETE_EMOJI);
+        break;
+      case 's3-complete':
+        color = 'good';
+        title = 'Success!';
+        text = `View now: <${s3Url}|${s3Url}>`;
         emoji = getRandom(COMPLETE_EMOJI);
         break;
       case 'error':
@@ -489,4 +510,73 @@ export async function postToSlack(
   } catch (e) {
     console.error('Error sending Slack message: ', e);
   }
+}
+
+// https://stackoverflow.com/a/45130990/51835
+async function getFiles(dir): Promise<Array<string>> {
+  const contents = await readdir(dir);
+
+  const files = await Promise.all(
+    contents.map(async f => {
+      const p = path.resolve(dir, f);
+      return (await stat(p)).isDirectory() ? getFiles(p) : p;
+    })
+  );
+
+  return files.reduce((a: string[], f) => a.concat(f), []);
+}
+
+export async function uploadToS3(buildDir, bucket, keyPrefix) {
+  const s3 = new AWS.S3();
+  const files = await getFiles(buildDir);
+
+  await Promise.all(
+    files.map(async f => {
+      const key = path.join(
+        keyPrefix,
+        path.relative(path.resolve(buildDir), f)
+      );
+
+      // We convert symlinks into HTTP redirects on S3, as a way to handle cases
+      // where a file may have a hash in it, but we need to link to it from a
+      // fixed place.
+      const fileStats = await lstat(f);
+      if (fileStats.isSymbolicLink()) {
+        const location =
+          '/' +
+          path.join(
+            keyPrefix,
+            path.relative(path.resolve(buildDir), await realpath(f))
+          );
+
+        await s3
+          .putObject({
+            Bucket: bucket,
+            Key: key,
+            ACL: 'public-read',
+            WebsiteRedirectLocation: location,
+          })
+          .promise();
+      } else {
+        await s3
+          .upload(
+            {
+              Bucket: bucket,
+              Key: key,
+              Body: await readFile(f),
+              ContentType: mime.lookup(f) || 'application/octet-stream',
+              ContentEncoding: mime.charset(f) || 'identity',
+              // 1 hour cache time. Most of these resources should have unique
+              // names, but in case they don’t this will expire them eventually.
+              CacheControl: `public, max-age=${60 * 60}`,
+              ACL: 'public-read',
+            },
+            {
+              queueSize: 10,
+            }
+          )
+          .promise();
+      }
+    })
+  );
 }

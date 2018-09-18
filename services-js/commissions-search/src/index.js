@@ -9,6 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 
 // Outside of a Drupal environment create a mock Drupal object
+// eslint-disable-next-line no-use-before-define
 if (typeof Drupal === 'undefined') {
   var Drupal = {
     settings: {
