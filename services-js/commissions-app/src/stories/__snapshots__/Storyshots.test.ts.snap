@@ -609,7 +609,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="t--subinfo t--err"
         style={
           Object {
-            "color": "#a32e26",
+            "color": "#fb4d42",
             "marginTop": "-0.5em",
           }
         }
@@ -641,7 +641,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="t--subinfo t--err"
         style={
           Object {
-            "color": "#a32e26",
+            "color": "#fb4d42",
             "marginTop": "-0.5em",
           }
         }
@@ -744,13 +744,8 @@ exports[`Storyshots ApplyPage default 1`] = `
       <div
         className="txt"
       >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-comments"
-        >
-           Additional Comments
-        </label>
         <textarea
+          aria-label="Additional Comments"
           className="txt-f txt-f--sm  "
           id="FeedbackForm-comments"
           name="comments"
@@ -772,26 +767,5 @@ exports[`Storyshots ApplyPage default 1`] = `
       </button>
     </form>
   </div>
-</div>
-`;
-
-exports[`Storyshots CommentInput default 1`] = `
-<div
-  className="txt"
->
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-comments"
-  />
-  <textarea
-    className="txt-f txt-f--sm  "
-    id="FeedbackForm-comments"
-    name="comments"
-    onBlur=""
-    onChange=""
-    placeholder="Other Comments"
-    rows={10}
-    value="comments"
-  />
 </div>
 `;

@@ -58,17 +58,16 @@ const DEFAULT_PREVIEW_TEXT = 'No file selected';
 interface Props {
   name: string;
   title: string;
-  fileTypes: string;
-  sizeLimit: fileSize;
-  // parentFileHandler: any;
+  fileTypes: string[];
+  sizeLimit: FileSize;
 }
 
 interface State {
-  selectedFile: any;
+  selectedFile: File | null;
   isFocused: boolean;
 }
 
-interface fileSize {
+interface FileSize {
   quantity: string | number;
   unit: string;
 }
@@ -78,7 +77,7 @@ export default class FileInput extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      selectedFile: {},
+      selectedFile: null,
       isFocused: false
     }
   }
@@ -88,12 +87,13 @@ export default class FileInput extends React.Component<Props, State> {
   /**
    * Only accept the file if it doesn’t exceed the specified limit
    */
-  private checkSize = (file: any) => {
+  private checkSize = (file: File) => {
     const { quantity, unit } = this.props.sizeLimit;
     const result = formatBytes(file.size);
 
     if (result.unit === unit && +quantity >= +quantity) {
       // todo: should this be a modal/notification component?
+      // todo: handle via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
       return alert(`File size limit of ${quantity}${unit} exceeded.\n\nYour file is ${result.quantity + result.unit}. Please select a different file.`);
     }
 
@@ -105,7 +105,7 @@ export default class FileInput extends React.Component<Props, State> {
    */
   private clearFile = () => {
     // @ts-ignore
-    this.setState({ selectedFile: {} }, () => this.inputRef.current.value = '');
+    this.setState({ selectedFile: null }, () => this.inputRef.current.value = null);
   };
 
   private setFocus = (isFocused: boolean) => {
@@ -123,13 +123,6 @@ export default class FileInput extends React.Component<Props, State> {
     }
   };
 
-  private handleBlur = () => {
-    // todo: parent passes down handler method to collect the file?
-    // todo: or formik will manage?
-    // this.props.parentFileHandler(this.state.selectedFile);
-
-    this.setFocus(false);
-  };
 
   render() {
     return (
@@ -138,11 +131,11 @@ export default class FileInput extends React.Component<Props, State> {
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
           type="file"
-          accept={this.props.fileTypes}
+          accept={this.props.fileTypes.join(', ')}
           id={`FileInput-${this.props.name}`}
           name={this.props.name}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}
+          onBlur={() => this.setFocus(false)}
           onFocus={() => this.setFocus(checkFocus(this.props.name))}
         />
 
@@ -155,10 +148,10 @@ export default class FileInput extends React.Component<Props, State> {
         </label>
 
         <div className={FILE_PREVIEW_STYLE}>
-          <span>{this.state.selectedFile.name || DEFAULT_PREVIEW_TEXT}</span>
+          <span>{this.state.selectedFile ? this.state.selectedFile.name : DEFAULT_PREVIEW_TEXT}</span>
         </div>
 
-        {this.state.selectedFile.name && (
+        {this.state.selectedFile && (
           <CloseButton
             className={DELETE_BUTTON_STYLE}
             size="1.8em"
@@ -176,15 +169,15 @@ function checkFocus(fieldName: string): boolean {
   return document.activeElement.getAttribute('name') === fieldName;
 }
 
-export function formatBytes(bytes: number): fileSize {
-  const returnObject: fileSize = {
+export function formatBytes(bytes: number): FileSize {
+  const returnObject: FileSize = {
     quantity: '',
     unit: ''
   };
 
   if (bytes < 1024) {
     returnObject.quantity = bytes.toString();
-    returnObject.unit = 'bytes';
+    returnObject.unit = 'B';
 
   } else if (bytes < 1048576) {
     returnObject.quantity = (bytes / 1024).toFixed(2);
