@@ -15,8 +15,6 @@
     "elasticsearch-init": "babel-node ./server/scripts/elasticsearch-init.js"
   },
   "license": "CC0-1.0",
-  "engines": {
-  },
   "jest": {
     "preset": "@cityofboston/config-jest-babel",
     "collectCoverage": false
