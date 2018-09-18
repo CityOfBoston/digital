@@ -82,7 +82,7 @@ export default class FileInput extends React.Component<Props, State> {
     }
   }
 
-  private inputRef = React.createRef<HTMLInputElement>();
+  private inputRef: any = React.createRef<HTMLInputElement>();
 
   /**
    * Only accept the file if it doesn’t exceed the specified limit
@@ -104,7 +104,6 @@ export default class FileInput extends React.Component<Props, State> {
    * Ensure file is cleared in the state, as well as in the input element itself
    */
   private clearFile = () => {
-    // @ts-ignore
     this.setState({ selectedFile: null }, () => this.inputRef.current.value = null);
   };
 
@@ -113,12 +112,10 @@ export default class FileInput extends React.Component<Props, State> {
   };
 
   private handleChange = () => {
-    // @ts-ignore
     if (!this.inputRef.current.files.length) {
       this.clearFile();
 
     } else {
-      // @ts-ignore
       this.checkSize(this.inputRef.current.files[0]);
     }
   };
