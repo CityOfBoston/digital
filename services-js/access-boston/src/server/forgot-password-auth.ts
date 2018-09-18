@@ -4,7 +4,7 @@ import { Server as HapiServer } from 'hapi';
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 import SamlAuthFake from './services/SamlAuthFake';
 import { BrowserAuthOptions } from '@cityofboston/hapi-common';
-import { getSessionAuth, setSessionAuth } from './sessions';
+import { getSessionAuth, setSessionAuth } from './Session';
 
 const FORGOT_METADATA_PATH = '/metadata-forgot.xml';
 const FORGOT_ASSERT_PATH = '/assert-forgot';

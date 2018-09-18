@@ -52,8 +52,7 @@ const browserAuthSchema = (
           .takeover()
           .redirect(settings.redirectTo);
       } else {
-        h.unauthenticated(Boom.unauthorized(null, 'yar-auth'));
-        return h.continue;
+        throw Boom.unauthorized(null, 'browser-auth');
       }
     },
   };

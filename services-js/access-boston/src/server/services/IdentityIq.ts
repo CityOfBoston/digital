@@ -7,6 +7,8 @@ const LAUNCHED_WORKFLOW_SCHEMA =
   'urn:ietf:params:scim:schemas:sailpoint:1.0:LaunchedWorkflow';
 
 const CHANGE_PASSWORD_WORKFLOW = 'COB-RESTAPI-Workflow-ChangePassword';
+// TODO(finh): Update when the final workflow is done
+const RESET_PASSWORD_WORKFLOW = 'REST_API_TEST2_WORKFLOW';
 
 export interface WorkflowResponse {
   totalResults: number;
@@ -49,7 +51,7 @@ interface LaunchWorkflowRequest {
 
 export interface LaunchedWorkflowResponse {
   partitioned: boolean;
-  completed: string;
+  completed?: string;
   type: 'Workflow';
   launched: string;
   pendingSignoffs: number;
@@ -78,7 +80,7 @@ export interface LaunchedWorkflowResponse {
     type?: string;
   }>;
   id: string;
-  completionStatus: 'Error' | 'Success';
+  completionStatus?: 'Error' | 'Success';
   taskDefinition: string;
   terminated: boolean;
   launcher: string;
@@ -172,7 +174,51 @@ export default class IdentityIq {
 
     const output = await response.json();
     // eslint-disable-next-line no-console
-    console.log(JSON.stringify(output, null, 2));
+    console.debug(JSON.stringify(output, null, 2));
+    return output;
+  }
+
+  async resetPassword(
+    userId: string,
+    newPassword: string
+  ): Promise<LaunchedWorkflowResponse> {
+    const requestBody: LaunchWorkflowRequest = {
+      schemas: [LAUNCHED_WORKFLOW_SCHEMA, TASK_RESULT_SCHEMA],
+      [LAUNCHED_WORKFLOW_SCHEMA]: {
+        workflowName: RESET_PASSWORD_WORKFLOW,
+        input: [
+          {
+            key: 'newSecret',
+            value: newPassword,
+          },
+          {
+            key: 'launcher',
+            value: userId,
+          },
+          {
+            key: 'transient',
+            value: 'false',
+          },
+        ],
+      },
+    };
+
+    const response = await fetch(this.makeScimUrl('LaunchedWorkflows'), {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+      headers: {
+        ...this.makeDefaultHeaders(),
+      },
+    });
+
+    if (response.status !== 201) {
+      const apiError: ApiError = await response.json();
+      throw new Error(apiError.detail);
+    }
+
+    const output = await response.json();
+    // eslint-disable-next-line no-console
+    console.debug(JSON.stringify(output, null, 2));
     return output;
   }
 

@@ -36,8 +36,9 @@ import IdentityIq from './services/IdentityIq';
 import IdentityIqFake from './services/IdentityIqFake';
 import AppsRegistry, { makeAppsRegistry } from './services/AppsRegistry';
 
-import { addLoginAuth, getLoginSession } from './login-auth';
+import { addLoginAuth } from './login-auth';
 import { addForgotPasswordAuth } from './forgot-password-auth';
+import Session from './Session';
 
 const PATH_PREFIX = '';
 const FORGOT_PASSWORD_PATH = '/forgot';
@@ -182,7 +183,13 @@ async function addGraphQl(
       path: `${PATH_PREFIX}/graphql`,
       route: {
         auth: {
-          mode: 'try',
+          // It’s the resolvers’ responsibility to throw Forbidden exceptions if
+          // they’re trying to do something that needs authorization but it’s
+          // not there.
+          //
+          // Since this is an API, it’s fine to send a Forbidden response,
+          // there’s no need to 300 to a login page.
+          mode: 'optional',
           strategies: ['login', 'forgot-password'],
         },
         plugins: {
@@ -194,14 +201,7 @@ async function addGraphQl(
       },
       graphqlOptions: request => {
         const context: Context = {
-          // We pass the credentials as separate elements of the context so that
-          // type checking in the resolvers will ensure that we're doing
-          // authorization. E.g. if loginAuth is undefined then the user isn't
-          // logged in with that scheme. TypeScript won't let you pull values
-          // off of "loginAuth" until you've ensured that it's defined.
-          loginAuth: request.auth.credentials.loginAuth,
-          forgotPasswordAuth: request.auth.credentials.forgotPasswordAuth,
-          session: getLoginSession(request),
+          session: new Session(request),
           appsRegistry,
           identityIq,
         };

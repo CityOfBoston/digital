@@ -14,7 +14,7 @@ import path from 'path';
 import { makeExecutableSchema } from 'graphql-tools';
 import { Resolvers } from '@cityofboston/graphql-typescript';
 import AppsRegistry from '../services/AppsRegistry';
-import { LoginSession, LoginAuth, ForgotPasswordAuth } from '../sessions';
+import Session from '../Session';
 import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
 import Boom from 'boom';
 
@@ -33,6 +33,15 @@ export interface Query {
 export interface Mutation {
   changePassword(args: {
     currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }): Workflow;
+
+  /**
+   * Resets the password. Requires that the user be logged in with the "forgot
+   * password" authentication.
+   */
+  resetPassword(args: {
     newPassword: string;
     confirmPassword: string;
   }): Workflow;
@@ -67,7 +76,7 @@ export enum WorkflowStatus {
   UNKNOWN = 'UNKNOWN',
 }
 
-export enum ChangePasswordError {
+export enum PasswordError {
   NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
   CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
   NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
@@ -78,7 +87,7 @@ export interface Workflow {
   caseId: string | null;
   status: WorkflowStatus;
   messages: string[];
-  error: ChangePasswordError | null;
+  error: PasswordError | null;
 }
 
 // This file is built by the "generate-graphql-schema" script from
@@ -89,38 +98,36 @@ const schemaGraphql = fs.readFileSync(
 );
 
 export interface Context {
-  // By making these optionally undefined we can use type checking to ensure
-  // that we're making auth checks in our resolvers. If you want to use one of
-  // these but it's not null then it's time to throw a Forbidden error.
-  //
-  // The client may detect Forbidden responses and bring the user to a login
-  // form.
-  loginAuth: LoginAuth | undefined;
-  forgotPasswordAuth: ForgotPasswordAuth | undefined;
-  session: LoginSession | undefined;
+  session: Session;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
 }
 
 const queryRootResolvers: Resolvers<Query, Context> = {
-  account: (_root, _args, { loginAuth }) => {
-    if (!loginAuth) {
+  account: (_root, _args, { session: { loginAuth, forgotPasswordAuth } }) => {
+    let employeeId;
+
+    if (loginAuth) {
+      employeeId = loginAuth.userId;
+    } else if (forgotPasswordAuth) {
+      employeeId = forgotPasswordAuth.userId;
+    } else {
       throw Boom.forbidden();
     }
 
     return {
-      employeeId: loginAuth.userId,
+      employeeId,
     };
   },
 
-  apps: (_root, _args, { appsRegistry, session }) => {
-    if (!session) {
+  apps: (_root, _args, { appsRegistry, session: { loginSession } }) => {
+    if (!loginSession) {
       throw Boom.forbidden();
     }
 
     return {
       categories: appsRegistry
-        .appsForGroups(session.groups)
+        .appsForGroups(loginSession.groups)
         .map(({ apps, icons, showRequestAccessLink, title }) => ({
           title,
           showIcons: icons,
@@ -143,7 +150,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
   changePassword: async (
     _root,
     { currentPassword, newPassword, confirmPassword },
-    { identityIq, loginAuth }
+    { identityIq, session: { loginAuth } }
   ) => {
     if (!loginAuth) {
       throw Boom.forbidden();
@@ -152,7 +159,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     if (newPassword !== confirmPassword) {
       return {
         caseId: null,
-        error: ChangePasswordError.NEW_PASSWORDS_DONT_MATCH,
+        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
         messages: [],
         status: WorkflowStatus.ERROR,
       };
@@ -163,6 +170,40 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       currentPassword,
       newPassword
     );
+
+    return launchedWorkflowResponseToWorkflow(workflowResponse);
+  },
+
+  resetPassword: async (
+    _root,
+    { newPassword, confirmPassword },
+    { identityIq, session }
+  ) => {
+    const { forgotPasswordAuth } = session;
+
+    if (!forgotPasswordAuth) {
+      throw Boom.forbidden();
+    }
+
+    if (newPassword !== confirmPassword) {
+      return {
+        caseId: null,
+        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
+        messages: [],
+        status: WorkflowStatus.ERROR,
+      };
+    }
+
+    const workflowResponse = await identityIq.resetPassword(
+      forgotPasswordAuth.userId,
+      newPassword
+    );
+
+    if (workflowResponse.completionStatus === 'Success') {
+      // If the password was changed successfully, clear the session so they
+      // can't reset again.
+      session.reset();
+    }
 
     return launchedWorkflowResponseToWorkflow(workflowResponse);
   },
@@ -199,17 +240,17 @@ function launchedWorkflowResponseToWorkflow(
   }
 
   const messages = workflowResponse.messages;
-  let error: ChangePasswordError | null = null;
+  let error: PasswordError | null = null;
 
   if (status === WorkflowStatus.ERROR) {
     if (messages.find(m => m === 'Current Password Check Failure')) {
-      error = ChangePasswordError.CURRENT_PASSWORD_WRONG;
+      error = PasswordError.CURRENT_PASSWORD_WRONG;
     } else if (
       messages.find(m => m.includes('Password Policy Compliance Failure'))
     ) {
-      error = ChangePasswordError.NEW_PASSWORD_POLICY_VIOLATION;
+      error = PasswordError.NEW_PASSWORD_POLICY_VIOLATION;
     } else {
-      error = ChangePasswordError.UNKNOWN_ERROR;
+      error = PasswordError.UNKNOWN_ERROR;
     }
   }
 

@@ -23,6 +23,10 @@ export default class IdentityIqFake implements Required<IdentityIq> {
     return this.loadFixture('LaunchWorkflow-ChangePassword-failure');
   }
 
+  async resetPassword(): Promise<LaunchedWorkflowResponse> {
+    return this.loadFixture('LaunchWorkflow-ChangePassword-failure');
+  }
+
   async fetchWorkflow(): Promise<LaunchedWorkflowResponse> {
     return this.loadFixture('LaunchWorkflow-ChangePassword-failure');
   }

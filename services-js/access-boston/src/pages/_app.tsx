@@ -95,14 +95,37 @@ export default class AccessBostonApp extends App {
     // server.
     const { crumb } = ctx.req ? cookies(ctx) : { crumb: '' };
 
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx, initialPageDependencies)
-      : {};
+    try {
+      const pageProps = Component.getInitialProps
+        ? await Component.getInitialProps(ctx, initialPageDependencies)
+        : {};
 
-    return {
-      pageProps,
-      serverCrumb: crumb || '',
-    };
+      return {
+        pageProps,
+        serverCrumb: crumb || '',
+      };
+    } catch (e) {
+      // TODO(finh): Be more pedantic about detecting these, possibly by
+      // checking the status code when doing GraphQL fetches.
+      if (e.message === 'Forbidden') {
+        const { res } = ctx;
+        if (res) {
+          res.writeHead(302, {
+            Location: '/login',
+          });
+          res.end();
+        } else {
+          Router.push('/login');
+        }
+
+        return {
+          pageProps: {},
+          serverCrumb: '',
+        };
+      } else {
+        throw e;
+      }
+    }
   }
 
   constructor(props: Props) {
