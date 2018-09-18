@@ -738,6 +738,88 @@ exports[`Storyshots Elements/Inputs/File Input small size limit; no file restric
 </div>
 `;
 
+exports[`Storyshots Elements/Inputs/Textarea hidden label 1`] = `
+Array [
+  <div
+    className="txt"
+  >
+    <textarea
+      aria-label="Other Comments"
+      className="txt-f false  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Other Comments"
+      rows={10}
+      value=""
+    />
+  </div>,
+  <div
+    className="txt"
+  >
+    <textarea
+      aria-label="Small Variant"
+      className="txt-f txt-f--sm  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Small Variant"
+      rows={10}
+      value=""
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Elements/Inputs/Textarea visible label 1`] = `
+Array [
+  <div
+    className="txt"
+  >
+    <label
+      className="txt-l false"
+      htmlFor="FeedbackForm-comments"
+    >
+      Other Comments
+    </label>
+    <textarea
+      aria-label=""
+      className="txt-f false  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Other Comments"
+      rows={10}
+      value=""
+    />
+  </div>,
+  <div
+    className="txt"
+  >
+    <label
+      className="txt-l txt-l--sm"
+      htmlFor="FeedbackForm-comments"
+    >
+      Small Variant
+    </label>
+    <textarea
+      aria-label=""
+      className="txt-f txt-f--sm  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Small Variant"
+      rows={10}
+      value=""
+    />
+  </div>,
+]
+`;
+
 exports[`Storyshots Elements/Section Header default 1`] = `
 <div
   className="sh m-b300"

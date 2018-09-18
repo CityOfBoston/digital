@@ -8,7 +8,7 @@ storiesOf('Elements/Inputs/File Input', module)
     <FileInput
       name="resume"
       title="Resumé"
-      fileTypes="application/pdf"
+      fileTypes={['application/pdf']}
       sizeLimit={{quantity: 28, unit: 'MB'}}
     />
   ))
@@ -16,7 +16,7 @@ storiesOf('Elements/Inputs/File Input', module)
     <FileInput
       name="coverLetter"
       title="Cover Letter"
-      fileTypes="*"
+      fileTypes={['*']}
       sizeLimit={{quantity: 10, unit: 'KB'}}
     />
   ));

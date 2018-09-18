@@ -4,18 +4,17 @@ import { Formik, FormikProps, Form, FieldArray, Field } from 'formik';
 import { css } from 'emotion';
 
 import fetchCommissions, { Commission } from '../../client/graphql/fetch-commissions';
-
-import { default as validationSchema } from './validationSchema';
+import { applicationForm as validationSchema } from '../../lib/validationSchema';
 
 import {
   Checkbox,
   FileInput,
   SectionHeader,
-  A11Y_RED,
+  Textarea,
+  FREEDOM_RED as A11Y_RED,
   PUBLIC_CSS_URL
 } from '@cityofboston/react-fleet';
 
-import CommentInput from '../../client/common/CommentInput';
 import TextInputContainer from '../../client/common/TextInputContainer';
 
 
@@ -46,7 +45,7 @@ interface FormValues {
   phone: string;
   email: string;
   confirmEmail: string;
-  commissionIds: any[],
+  commissionIds: string[],
   typeOfDegree: string;
   degreeAttained: string;
   educationalInstitution: string;
@@ -363,14 +362,14 @@ export default class ApplyPage extends React.Component<Props> {
                 <FileInput
                   name="coverLetter"
                   title="Cover Letter"
-                  fileTypes="application/pdf"
+                  fileTypes={['application/pdf']}
                   sizeLimit={{ quantity: 28, unit: 'MB' }}
                 />
 
                 <FileInput
                   name="resume"
                   title="Resumé"
-                  fileTypes="application/pdf"
+                  fileTypes={['application/pdf']}
                   sizeLimit={{ quantity: 28, unit: 'MB' }}
                 />
 
@@ -378,13 +377,15 @@ export default class ApplyPage extends React.Component<Props> {
 
                 <SectionHeader title="Comments" />
 
-                <CommentInput
+                <Textarea
                   name="comments"
-                  title=" Additional Comments"
+                  label="Additional Comments"
                   placeholder="Other Comments You Would Like Us to Know."
                   value={values.comments}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="small"
+                  hideLabel
                 />
 
                 <p>

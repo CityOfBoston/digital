@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
-export default Yup.object().shape({
+
+export const applicationForm = Yup.object().shape({
   zip: Yup.string()
     .required('Zip Code Is Required')
     .matches(new RegExp(/^\d{5}$/), 'Zip Codes Should Have 5 Digits'),
