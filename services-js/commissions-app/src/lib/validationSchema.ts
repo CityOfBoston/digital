@@ -2,9 +2,6 @@ import * as Yup from 'yup';
 
 
 export const applicationForm = Yup.object().shape({
-  zip: Yup.string()
-    .required('Zip Code Is Required')
-    .matches(new RegExp(/^\d{5}$/), 'Zip Codes Should Have 5 Digits'),
   firstName: Yup.string()
     .required('First Name Is Required'),
   lastName: Yup.string()
@@ -15,8 +12,10 @@ export const applicationForm = Yup.object().shape({
     .required('City Is Required'),
   state: Yup.string()
     .required('State Is Required'),
+  zip: Yup.string()
+    .required('Zip Code Is Required')
+    .matches(new RegExp(/^\d{5}$/), 'Zip Codes Should Have 5 Digits'),
   phone: Yup.number()
-    .required('Phone Number Is Required')
     .positive()
     .integer(),
   email: Yup.string()

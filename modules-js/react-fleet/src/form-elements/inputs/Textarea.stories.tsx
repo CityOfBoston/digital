@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Textarea from './Textarea';
 
-storiesOf('Elements/Inputs/Textarea', module)
+storiesOf('Form Elements/Textarea', module)
   .add('visible label', () => (
     <React.Fragment>
       <Textarea

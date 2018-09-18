@@ -133,7 +133,7 @@ export default class FileInput extends React.Component<Props, State> {
           name={this.props.name}
           onChange={this.handleChange}
           onBlur={() => this.setFocus(false)}
-          onFocus={() => this.setFocus(checkFocus(this.props.name))}
+          onFocus={() => this.setFocus(true)}
         />
 
         <label
@@ -159,11 +159,6 @@ export default class FileInput extends React.Component<Props, State> {
       </div>
     );
   }
-}
-
-
-function checkFocus(fieldName: string): boolean {
-  return document.activeElement.getAttribute('name') === fieldName;
 }
 
 export function formatBytes(bytes: number): FileSize {
