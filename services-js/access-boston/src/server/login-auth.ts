@@ -1,9 +1,7 @@
-/* eslint no-console: 0 */
-
 import { Server as HapiServer, RequestQuery } from 'hapi';
 
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
-import SamlAuthFake from './services/SamlAuthFake';
+import SamlAuthFake, { makeFakeLoginHandler } from './services/SamlAuthFake';
 
 import {
   LoginSession,
@@ -76,7 +74,6 @@ export async function addLoginAuth(
     samlAuth = new SamlAuthFake({
       assertUrl: LOGIN_ASSERT_PATH,
       loginFormUrl: FAKE_LOGIN_FORM_PATH,
-      userId: process.env.SAML_FAKE_USER_ID,
     }) as any;
   }
 
@@ -106,10 +103,10 @@ export async function addLoginAuth(
       options: {
         auth: false,
       },
-      handler: () =>
-        `<form action="${LOGIN_ASSERT_PATH}" method="POST">
-          <input type="submit" value="Log In" />
-        </form>`,
+      handler: makeFakeLoginHandler(
+        LOGIN_ASSERT_PATH,
+        process.env.SAML_FAKE_USER_ID || 'CON01234'
+      ),
     });
   }
 
@@ -208,8 +205,6 @@ export async function addLoginAuth(
         loginAuth.sessionIndex === assertResult.sessionIndex
       ) {
         request.yar.reset();
-      } else {
-        console.debug(`Logout name ID or session index doesn’t match session`);
       }
 
       // We always go back to the SAML provider regardless of whether we cleared

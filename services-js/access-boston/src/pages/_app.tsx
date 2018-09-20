@@ -58,6 +58,11 @@ export interface PageDependencies {
   fetchGraphql: FetchGraphql;
 }
 
+interface AppInitialProps {
+  ctx: NextContext<ExtendedIncomingMessage>;
+  Component: any;
+}
+
 interface InitialProps {
   pageProps: any;
   serverCrumb: string;
@@ -86,7 +91,10 @@ export default class AccessBostonApp extends App {
 
   private pageDependencies: PageDependencies;
 
-  static async getInitialProps({ Component, ctx }): Promise<InitialProps> {
+  static async getInitialProps({
+    Component,
+    ctx,
+  }: AppInitialProps): Promise<InitialProps> {
     const initialPageDependencies: GetInitialPropsDependencies = {
       fetchGraphql: makeFetchGraphql(getConfig(), ctx.req),
     };
@@ -115,7 +123,7 @@ export default class AccessBostonApp extends App {
           });
           res.end();
         } else {
-          Router.push('/login');
+          window.location.href = '/login';
         }
 
         return {

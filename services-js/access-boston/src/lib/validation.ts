@@ -70,3 +70,22 @@ export const changePasswordSchema = yup.object().shape({
 export const forgotPasswordSchema = yup.object().shape({
   ...NEW_PASSWORD_SHAPE,
 });
+
+/**
+ * Helper method to pull errors out of a Yup ValidationError and add them to a
+ * map of key -> error strings.
+ *
+ * Recursively traverses the Validation error to find everything inside.
+ */
+export function addValidationError(
+  errorMap: { [key: string]: string },
+  err: yup.ValidationError
+) {
+  if (err.path) {
+    errorMap[err.path] = err.message;
+  }
+
+  err.inner.forEach(innerErr => {
+    addValidationError(errorMap, innerErr);
+  });
+}

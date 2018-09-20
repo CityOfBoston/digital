@@ -27,7 +27,8 @@
     "emotion": "^9.2.9",
     "prop-types": "^15.6.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "string-hash": "^1.1.3"
   },
   "peerDependencies": {
     "@babel/runtime": "^7.0.0-beta"

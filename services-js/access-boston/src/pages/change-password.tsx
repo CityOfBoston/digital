@@ -12,7 +12,7 @@ import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
 import TextInput from '../client/TextInput';
 
-import { changePasswordSchema } from '../lib/validation';
+import { changePasswordSchema, addValidationError } from '../lib/validation';
 
 import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
@@ -38,6 +38,9 @@ const SUBMITTING_MODAL_STYLE = css({
 interface InitialProps {
   account: Account;
   serverErrors: { [key: string]: string };
+  // Disables JS submission so we can test non-JavaScript cases in the
+  // integration tests.
+  noJs?: boolean;
 }
 
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
@@ -58,10 +61,12 @@ interface FormValues {
 
 export default class ChangePasswordPage extends React.Component<Props, State> {
   static getInitialProps: GetInitialProps<InitialProps> = async (
-    { req },
+    { req, res, query },
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
     const serverErrors: { [key: string]: string } = {};
+
+    const noJs = (req && req.method === 'POST') || !!query['noJs'];
 
     // This is the no-JavaScript case. We still want to be able to change
     // passwords and such.
@@ -80,6 +85,12 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
         if (status === 'ERROR') {
           Object.assign(serverErrors, changePasswordErrorToFormErrors(error));
+        } else {
+          // res will be non-null because req was set.
+          res!.writeHead(302, {
+            Location: `/?message=${FlashMessage.CHANGE_PASSWORD_SUCCESS}`,
+          });
+          res!.end();
         }
       } catch (err) {
         if (err instanceof ValidationError) {
@@ -93,6 +104,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     return {
       account: await fetchAccount(fetchGraphql),
       serverErrors,
+      noJs,
     };
   };
 
@@ -193,7 +205,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     isSubmitting,
     isValid,
   }: FormikProps<FormValues>) => {
-    const { serverErrors } = this.props;
+    const { serverErrors, noJs } = this.props;
 
     const commonPasswordProps = {
       ...DEFAULT_PASSWORD_ATTRIBUTES,
@@ -207,10 +219,15 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       (!touched[key] && serverErrors[key]) ||
-      (touched[key] && (errors[key] as any));
+      (!noJs && touched[key] && (errors[key] as any));
 
     return (
-      <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
+      <form
+        action=""
+        method="POST"
+        className="m-v500"
+        onSubmit={noJs ? () => {} : handleSubmit}
+      >
         <input type="hidden" name="crumb" value={values.crumb} />
 
         {/*
@@ -282,7 +299,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
         <button
           type="submit"
           className="btn"
-          disabled={(process as any).browser && (!isValid || isSubmitting)}
+          disabled={
+            (process as any).browser && !noJs && (!isValid || isSubmitting)
+          }
         >
           Change Password
         </button>
@@ -320,17 +339,4 @@ function changePasswordErrorToFormErrors(error: PasswordError | null) {
     default:
       return { password: 'An unknown error occurred' };
   }
-}
-
-function addValidationError(
-  serverErrors: { [key: string]: string },
-  err: ValidationError
-) {
-  if (err.path) {
-    serverErrors[err.path] = err.message;
-  }
-
-  err.inner.forEach(innerErr => {
-    addValidationError(serverErrors, innerErr);
-  });
 }

@@ -202,6 +202,12 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     if (workflowResponse.completionStatus === 'Success') {
       // If the password was changed successfully, clear the session so they
       // can't reset again.
+      //
+      // Note that in the non-JS case, this "clear" doesn't actually delete the
+      // cookie, since it's called via an "inject" and we don't attempt to
+      // propagate Set-Cookie headers back up. But, since the session is stored
+      // server-side, we can still invalidate it. The cookie will match to
+      // nothing.
       session.reset();
     }
 
