@@ -73,13 +73,13 @@ export default class ApplyPage extends React.Component<Props> {
   render() {
     const { commissions, commissionID } = this.props;
 
-    const commissionsWithoutOpenSeats = commissions.filter(
-      commission => commission.openSeats === 0
-    ).sort((current, next) => current.name.localeCompare(next.name));
+    const commissionsWithoutOpenSeats = commissions
+      .filter(commission => commission.openSeats === 0)
+      .sort((current, next) => current.name.localeCompare(next.name));
 
-    const commissionsWithOpenSeats = commissions.filter(
-      commission => commission.openSeats > 0
-    ).sort((current, next) => current.name.localeCompare(next.name));
+    const commissionsWithOpenSeats = commissions
+      .filter(commission => commission.openSeats > 0)
+      .sort((current, next) => current.name.localeCompare(next.name));
 
     return (
       <div className="mn">
