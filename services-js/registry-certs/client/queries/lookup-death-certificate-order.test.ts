@@ -1,4 +1,4 @@
-import { LookupDeathCertificateOrderQueryVariables } from './graphql-types';
+import { LookupDeathCertificateOrderVariables } from './graphql-types';
 
 import lookupDeathCertificateOrder from './lookup-death-certificate-order';
 
@@ -15,7 +15,7 @@ test('lookupDeathCertificateOrder', async () => {
     'nancy@mew.org'
   );
 
-  const queryVariables: LookupDeathCertificateOrderQueryVariables = {
+  const queryVariables: LookupDeathCertificateOrderVariables = {
     id: 'RG-DC201801-999888',
     contactEmail: 'nancy@mew.org',
   };

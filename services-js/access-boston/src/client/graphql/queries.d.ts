@@ -1,5 +1,105 @@
 /* tslint:disable */
-//  This file was automatically generated and should not be edited.
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: ChangePassword
+// ====================================================
+
+export interface ChangePassword_changePassword {
+  caseId: string | null;
+  status: WorkflowStatus;
+  error: PasswordError | null;
+  messages: string[];
+}
+
+export interface ChangePassword {
+  changePassword: ChangePassword_changePassword;
+}
+
+export interface ChangePasswordVariables {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: FetchAccountAndApps
+// ====================================================
+
+export interface FetchAccountAndApps_account {
+  employeeId: string;
+}
+
+export interface FetchAccountAndApps_apps_categories_apps {
+  title: string;
+  url: string;
+  iconUrl: string | null;
+  description: string;
+}
+
+export interface FetchAccountAndApps_apps_categories {
+  title: string;
+  showIcons: boolean;
+  requestAccessUrl: string | null;
+  apps: FetchAccountAndApps_apps_categories_apps[];
+}
+
+export interface FetchAccountAndApps_apps {
+  categories: FetchAccountAndApps_apps_categories[];
+}
+
+export interface FetchAccountAndApps {
+  account: FetchAccountAndApps_account;
+  apps: FetchAccountAndApps_apps;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: FetchAccount
+// ====================================================
+
+export interface FetchAccount_account {
+  employeeId: string;
+}
+
+export interface FetchAccount {
+  account: FetchAccount_account;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: ResetPassword
+// ====================================================
+
+export interface ResetPassword_resetPassword {
+  caseId: string | null;
+  status: WorkflowStatus;
+  error: PasswordError | null;
+  messages: string[];
+}
+
+export interface ResetPassword {
+  resetPassword: ResetPassword_resetPassword;
+}
+
+export interface ResetPasswordVariables {
+  newPassword: string;
+  confirmPassword: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+//==============================================================
+// START Enums and Input Objects
+//==============================================================
 
 export enum WorkflowStatus {
   ERROR = 'ERROR',
@@ -14,56 +114,6 @@ export enum PasswordError {
   UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
 
-export interface ChangePasswordMutationVariables {
-  currentPassword: string;
-  newPassword: string;
-  confirmPassword: string;
-}
-
-export interface ChangePasswordMutation {
-  changePassword: {
-    caseId: string | null;
-    status: WorkflowStatus;
-    error: PasswordError | null;
-    messages: Array<string>;
-  };
-}
-
-export interface FetchAccountAndAppsQuery {
-  account: {
-    employeeId: string;
-  };
-  apps: {
-    categories: Array<{
-      title: string;
-      showIcons: boolean;
-      requestAccessUrl: string | null;
-      apps: Array<{
-        title: string;
-        url: string;
-        iconUrl: string | null;
-        description: string;
-      }>;
-    }>;
-  };
-}
-
-export interface FetchAccountQuery {
-  account: {
-    employeeId: string;
-  };
-}
-
-export interface ResetPasswordMutationVariables {
-  newPassword: string;
-  confirmPassword: string;
-}
-
-export interface ResetPasswordMutation {
-  resetPassword: {
-    caseId: string | null;
-    status: WorkflowStatus;
-    error: PasswordError | null;
-    messages: Array<string>;
-  };
-}
+//==============================================================
+// END Enums and Input Objects
+//==============================================================

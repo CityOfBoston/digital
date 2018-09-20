@@ -16,7 +16,7 @@
       "templates/js-*/build/*"
     ],
     "nohoist": [
-      "**/@cityofboston/config-*"
+      "**/@cityofboston/config-typescript"
     ]
   },
   "scripts": {
@@ -39,9 +39,9 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
-    "jest": "^22.4.0",
+    "jest": "23.6.0",
     "khaos": "^0.9.3",
-    "lerna": "^3.0.0-beta",
+    "lerna": "3.4.0",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.0",
     "typescript": "^3.0.0",

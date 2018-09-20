@@ -3,7 +3,7 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 import cookies from 'next-cookies';
-import { hydrate } from 'react-emotion';
+import { hydrate } from 'emotion';
 
 import {
   FetchGraphql,

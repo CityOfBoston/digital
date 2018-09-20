@@ -3,7 +3,7 @@ import Order from '../models/Order';
 
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
 
-import { SubmitDeathCertificateOrderMutationVariables } from './graphql-types';
+import { SubmitDeathCertificateOrderVariables } from './graphql-types';
 
 import submitDeathCertificateOrder from './submit-death-certificate-order';
 
@@ -52,7 +52,7 @@ test('submitDeathCertificateOrder', async () => {
 
   await submitDeathCertificateOrder(loopbackGraphql, cart, order);
 
-  const queryVariables: SubmitDeathCertificateOrderMutationVariables = {
+  const queryVariables: SubmitDeathCertificateOrderVariables = {
     contactName: 'Squirrel Girl',
     contactEmail: 'squirrel.girl@avengers.org',
     contactPhone: '(555) 123-9999',

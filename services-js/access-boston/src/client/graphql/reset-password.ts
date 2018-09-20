@@ -1,8 +1,5 @@
 import { FetchGraphql, gql } from '@cityofboston/next-client-common';
-import {
-  ResetPasswordMutation,
-  ResetPasswordMutationVariables,
-} from './queries';
+import { ResetPassword, ResetPasswordVariables } from './queries';
 
 const QUERY = gql`
   mutation ResetPassword($newPassword: String!, $confirmPassword: String!) {
@@ -23,11 +20,10 @@ export default async function resetPassword(
   newPassword,
   confirmPassword
 ) {
-  const args: ResetPasswordMutationVariables = {
+  const args: ResetPasswordVariables = {
     newPassword,
     confirmPassword,
   };
 
-  return ((await fetchGraphql(QUERY, args)) as ResetPasswordMutation)
-    .resetPassword;
+  return ((await fetchGraphql(QUERY, args)) as ResetPassword).resetPassword;
 }

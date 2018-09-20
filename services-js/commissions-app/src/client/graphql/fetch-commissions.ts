@@ -1,5 +1,5 @@
 import { fetchGraphql, gql } from '@cityofboston/next-client-common';
-import { FetchCommissionsQuery } from './queries';
+import { FetchCommissions } from './queries';
 
 const QUERY = gql`
   query FetchCommissions {
@@ -11,8 +11,8 @@ const QUERY = gql`
   }
 `;
 
-export type Commission = FetchCommissionsQuery['commissions'][0];
+export type Commission = FetchCommissions['commissions'][0];
 
 export default async function fetchCommissions(): Promise<Commission[]> {
-  return (await fetchGraphql<FetchCommissionsQuery>(QUERY)).commissions;
+  return (await fetchGraphql<FetchCommissions>(QUERY)).commissions;
 }

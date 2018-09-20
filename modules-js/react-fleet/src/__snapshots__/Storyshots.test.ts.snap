@@ -55,7 +55,6 @@ exports[`Storyshots Components/Header and Menu default 1`] = `
 Array [
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -184,7 +183,6 @@ exports[`Storyshots Components/Header and Menu header custom elements 1`] = `
 Array [
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -509,7 +507,6 @@ exports[`Storyshots Elements/Inputs Checkbox 1`] = `
     name="checkbox"
     onBlur={[Function]}
     onChange={[Function]}
-    required={undefined}
     type="checkbox"
     value="checkbox"
   />
@@ -873,7 +870,6 @@ exports[`Storyshots Layouts/App Layout default 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -1071,7 +1067,6 @@ exports[`Storyshots Layouts/App Layout secondary nav 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
