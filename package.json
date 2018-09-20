@@ -24,9 +24,10 @@
     "prepublish": "lerna run --stream prepublish",
     "prepare": "lerna run --stream prepare",
     "precommit": "lint-staged",
-    "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop test",
+    "prepush": "jest --clearCache && npm run test:reset && lerna run --no-sort --stream --since origin/develop test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
-    "test": "lerna run  --no-sort test --",
+    "test": "npm run test:reset && lerna run --no-sort test --",
+    "test:reset": "lerna run --parallel test:reset",
     "test:since": "lerna run test --no-sort --since"
   },
   "lint-staged": {

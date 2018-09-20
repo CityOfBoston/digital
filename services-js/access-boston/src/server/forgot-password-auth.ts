@@ -1,8 +1,6 @@
-/* eslint no-console: 0 */
-
 import { Server as HapiServer } from 'hapi';
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
-import SamlAuthFake from './services/SamlAuthFake';
+import SamlAuthFake, { makeFakeLoginHandler } from './services/SamlAuthFake';
 import { BrowserAuthOptions } from '@cityofboston/hapi-common';
 import { getSessionAuth, setSessionAuth } from './Session';
 
@@ -74,7 +72,6 @@ export async function addForgotPasswordAuth(
     samlAuth = new SamlAuthFake({
       assertUrl: FORGOT_ASSERT_PATH,
       loginFormUrl: FAKE_FORGOT_LOGIN_FORM_PATH,
-      userId: process.env.SAML_FAKE_USER_ID,
     }) as any;
   }
 
@@ -101,10 +98,10 @@ export async function addForgotPasswordAuth(
       path: FAKE_FORGOT_LOGIN_FORM_PATH,
       method: 'GET',
       options: { auth: false },
-      handler: () =>
-        `<form action="${FORGOT_ASSERT_PATH}" method="POST">
-          <input type="submit" value="Log In" />
-         </form>`,
+      handler: makeFakeLoginHandler(
+        FORGOT_ASSERT_PATH,
+        process.env.SAML_FAKE_USER_ID || 'CON01234'
+      ),
     });
   }
 

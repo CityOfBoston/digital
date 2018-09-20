@@ -12,6 +12,7 @@
   "exclude": [
     "src/client/**/*",
     "src/pages/**/*",
-    "src/stories/**/*"
+    "src/stories/**/*",
+    "src/integration/**/*"
   ]
 }

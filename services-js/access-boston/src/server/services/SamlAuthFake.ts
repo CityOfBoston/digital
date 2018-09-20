@@ -1,24 +1,24 @@
+import querystring from 'querystring';
+
 import SamlAuth, {
   SamlLoginResult,
   SamlAssertResult,
   SamlLogoutRequestResult,
 } from './SamlAuth';
+import { RequestQuery } from 'hapi';
 
 export interface SamlAuthFakeOptions {
   assertUrl: string;
   loginFormUrl: string;
-  userId?: string;
 }
 
 export default class SamlAuthFake implements Required<SamlAuth> {
   private assertUrl: string;
   private loginFormUrl: string;
-  private userId: string;
 
-  constructor({ assertUrl, loginFormUrl, userId }: SamlAuthFakeOptions) {
+  constructor({ assertUrl, loginFormUrl }: SamlAuthFakeOptions) {
     this.assertUrl = assertUrl;
     this.loginFormUrl = loginFormUrl;
-    this.userId = userId || 'CON01234';
   }
 
   getMetadata(): string {
@@ -29,14 +29,20 @@ export default class SamlAuthFake implements Required<SamlAuth> {
     return Promise.resolve(this.loginFormUrl);
   }
 
-  makeLogoutUrl(): Promise<string> {
-    return Promise.resolve(this.assertUrl);
+  makeLogoutUrl(userId: string): Promise<string> {
+    return Promise.resolve(
+      this.assertUrl + `?userId=${encodeURIComponent(userId)}`
+    );
   }
 
-  handlePostAssert(): Promise<SamlAssertResult> {
+  handlePostAssert(body: string): Promise<SamlAssertResult> {
+    const payload = querystring.parse(body.trim());
+
     const result: SamlLoginResult = {
       type: 'login',
-      nameId: this.userId,
+      nameId: Array.isArray(payload.userId)
+        ? payload.userId[0]
+        : payload.userId,
       sessionIndex: 'session',
       groups: [
         'COB-Group-TestGrp01',
@@ -47,13 +53,22 @@ export default class SamlAuthFake implements Required<SamlAuth> {
     return Promise.resolve(result);
   }
 
-  handleGetAssert(): Promise<SamlAssertResult> {
+  handleGetAssert(query: RequestQuery): Promise<SamlAssertResult> {
     const result: SamlLogoutRequestResult = {
       type: 'logout',
-      nameId: this.userId,
+      nameId: Array.isArray(query.userId) ? query.userId[0] : query.userId,
       sessionIndex: 'session',
       successUrl: '/',
     };
     return Promise.resolve(result);
   }
+}
+
+export function makeFakeLoginHandler(path: string, userId: string) {
+  return () =>
+    `<form action="${path}" method="POST" enctype="text/plain">
+          <div>${path}</div>
+          <input type="text" name="userId" value="${userId}" />
+          <input type="submit" value="Log In" />
+        </form>`;
 }

@@ -110,7 +110,7 @@ export async function makeServer(port) {
         password:
           process.env.SESSION_COOKIE_PASSWORD ||
           'test-fake-key-iWIMwE69HJj9GQcHfCiu2TVyZoVxvYoU',
-        isSecure: !dev,
+        isSecure: process.env.NODE_ENV === 'production',
         isHttpOnly: true,
       },
     },
@@ -270,6 +270,11 @@ async function addNext(server: HapiServer) {
     path: FORGOT_PASSWORD_PATH,
     options: {
       auth: 'forgot-password',
+      ext: {
+        onPostAuth: {
+          method: addCrumbCookie,
+        },
+      },
     },
     handler: makeNextHandler(nextApp),
   });

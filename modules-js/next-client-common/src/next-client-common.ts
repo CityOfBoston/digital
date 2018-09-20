@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import getConfig from 'next/config';
 import { IncomingMessage, ServerResponse } from 'http';
+import { ServerInjectResponse } from 'hapi';
 
 export { default as RouterListener } from './RouterListener';
 export * from './RouterListener';
@@ -9,10 +10,17 @@ export const API_KEY_CONFIG_KEY = 'graphqlApiKey';
 export const HAPI_INJECT_CONFIG_KEY = 'graphqlHapiInject';
 export const GRAPHQL_PATH_KEY = 'graphqlPath';
 
+// We parameterize the Request type because it’s common to pass extra things
+// into the server-side getInitialProps methods by attaching them as properties
+// on the request. This is typically "IncomingMessage & CustomType"
 export interface NextContext<Req> {
   query: { [key: string]: string };
+  pathname: string;
+  asPath: string;
+  jsonPageRes?: Response;
   req?: Req;
-  resp?: ServerResponse;
+  res?: ServerResponse;
+  err: any;
 }
 
 export interface PublicRuntimeConfig {
@@ -99,6 +107,9 @@ async function clientFetchGraphql<T>(
     {
       method: 'POST',
       headers,
+      // Needed because Hammerhead (used by TestCafe) can default to "omit", at
+      // least on Chrome 62 (the version we get on Travis).
+      credentials: 'same-origin',
       body: JSON.stringify({
         query,
         variables,
@@ -139,7 +150,7 @@ async function serverFetchGraphql<T>(
 
   const hapiInject = serverRuntimeConfig[HAPI_INJECT_CONFIG_KEY];
 
-  const res = await hapiInject({
+  const res: ServerInjectResponse = await hapiInject({
     url:
       (publicRuntimeConfig && publicRuntimeConfig[GRAPHQL_PATH_KEY]) ||
       '/graphql',
@@ -208,7 +219,7 @@ async function clientFetchJson<T>(
   path: string,
   init?: RequestInit | undefined
 ): Promise<T> {
-  const res = await fetch(path, init);
+  const res = await fetch(path, { credentials: 'same-origin', ...init });
 
   if (res.ok) {
     // We do the res.ok check rather than passing it in so that we only call
