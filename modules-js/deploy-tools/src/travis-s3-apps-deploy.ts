@@ -16,7 +16,8 @@ const args = parseArgs(process.argv, { boolean: true });
 const buildDirPath = args._.pop()!;
 
 const { environment, serviceName, variant } = parseBranch();
-const bucket = `cob-digital-apps-${environment}-static`;
+const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
+const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
 
 (async function() {
   await postToSlack('start');
