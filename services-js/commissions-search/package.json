@@ -1,5 +1,5 @@
 {
-  "name": "commissions-search-ui",
+  "name": "commissions-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,11 +16,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/add-symlinks.js",
     "test": "CI=true react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "travis-deploy": "travis-s3-apps-deploy build",
+    "prepare": "npm run build"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0"
-  }
+    "@cityofboston/deploy-tools": "0.0.0",
+    "babel-eslint": "^9.0.0",
+    "shelljs": "^0.8.2"
+  },
+  "homepage": "/commissions-search"
 }
