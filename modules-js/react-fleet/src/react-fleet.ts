@@ -1,36 +1,12 @@
-export { default as SectionHeader } from './SectionHeader';
-export { default as Menu } from './Menu';
-export { default as Header } from './Header';
-export { default as Footer } from './Footer';
-export { default as AppLayout } from './AppLayout';
+export * from './utilities/constants';
 
-export const PUBLIC_CSS_URL = 'https://patterns.boston.gov/css/public.css';
+export { default as SectionHeader } from './elements/SectionHeader';
+export { default as Menu } from './components/Menu';
+export { default as Header } from './components/Header';
+export { default as Footer } from './components/Footer';
+export { default as AppLayout } from './layouts/AppLayout';
 
-export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
-export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';
-export const MEDIA_LARGE = '@media screen and (min-width: 840px)';
-export const MEDIA_LARGE_MAX = '@media screen and (max-width: 840px)';
-export const MEDIA_X_LARGE = '@media screen and (min-width: 980px)';
-export const MEDIA_XX_LARGE = '@media screen and (min-width: 1280px)';
-
-export const HEADER_HEIGHT = 119;
-export const IPHONE_FOOTER_HEIGHT = 64;
-
-export const YELLOW = '#fcb61a';
-export const GREEN = '#62A744';
-export const GRAY_000 = '#f3f3f3';
-export const GRAY_100 = '#e0e0e0';
-export const GRAY_200 = '#C8C8C8';
-export const GRAY_300 = '#828282';
-export const OPTIMISTIC_BLUE = '#288be4';
-export const CHARLES_BLUE = '#091f2f';
-export const FREEDOM_RED = '#fb4d42';
-export const DEFAULT_TEXT = '#58585b';
-
-export const LORA_SRC =
-  'https://patterns.boston.gov/fonts/lora/lora-regular-webfont.woff2';
-export const MONSERRAT_SRC =
-  'https://patterns.boston.gov/fonts/montserrat/montserrat-regular-webfont.woff2';
-
-export const SANS = 'Montserrat, Arial, sans-serif';
-export const SERIF = 'Lora, Georgia, serif';
+export { default as Checkbox } from './elements/inputs/Checkbox';
+export { default as FileInput } from './elements/inputs/FileInput';
+export { default as Textarea } from './elements/inputs/Textarea';
+export { default as TextInput } from './elements/inputs/TextInput';

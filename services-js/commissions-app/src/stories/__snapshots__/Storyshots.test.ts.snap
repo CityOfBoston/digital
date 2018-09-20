@@ -61,12 +61,12 @@ exports[`Storyshots ApplyPage default 1`] = `
             </div>
           </div>
           <div
-            className="txt m-b300 css-i9gxme"
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-firstName"
+              htmlFor="firstName"
             >
               First Name
               <span
@@ -78,60 +78,62 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-firstName"
-              name="firstName"
+              className="css-i9gxme txt-f txt-f--sm "
+              id="firstName"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="First Name"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
         <div
           className="g--1 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-middleName"
+              htmlFor="middleName"
             >
               Initial
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-middleName"
-              name="middleName"
+              className=" txt-f txt-f--sm "
+              id="middleName"
               onBlur={[Function]}
               onChange={[Function]}
-              placeholder=""
-              required={undefined}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
         <div
           className="g--5 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-lastName"
+              htmlFor="lastName"
             >
               Last Name
               <span
@@ -143,19 +145,21 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-lastName"
-              name="lastName"
+              className=" txt-f txt-f--sm "
+              id="lastName"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Last Name"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
       </div>
@@ -166,12 +170,12 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--9 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-StreetAddress"
+              htmlFor="streetAddress"
             >
               Street Address
               <span
@@ -183,48 +187,51 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-StreetAddress"
-              name="StreetAddress"
+              className=" txt-f txt-f--sm "
+              id="streetAddress"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Street Address"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
         <div
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-unit"
+              htmlFor="unit"
             >
               Unit
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-unit"
-              name="unit"
+              className=" txt-f txt-f--sm "
+              id="unit"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Unit or Apartment #"
-              required={undefined}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
       </div>
@@ -235,12 +242,12 @@ exports[`Storyshots ApplyPage default 1`] = `
           className="g--7 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-city"
+              htmlFor="city"
             >
               City
               <span
@@ -252,31 +259,33 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-city"
-              name="city"
+              className=" txt-f txt-f--sm "
+              id="city"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="City"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
         <div
           className="g--2 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-state"
+              htmlFor="state"
             >
               State
               <span
@@ -288,31 +297,33 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-state"
-              name="state"
+              className=" txt-f txt-f--sm "
+              id="state"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="State"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
         <div
           className="g--3 m-b300"
         >
           <div
-            className="txt m-b300 "
-            style={undefined}
+            className="txt"
+            style={Object {}}
           >
             <label
               className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-zip"
+              htmlFor="zip"
             >
               Zip
               <span
@@ -324,54 +335,65 @@ exports[`Storyshots ApplyPage default 1`] = `
               </span>
             </label>
             <input
-              className="
-            txt-f txt-f--sm
-            
-          "
-              id="FeedbackForm-zip"
-              name="zip"
+              className=" txt-f txt-f--sm "
+              id="zip"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Zip Code"
               required={true}
               type="text"
               value=""
+              variant="small"
             />
+            <div
+              className="t--subinfo t--err m-t100"
+            >
+               
+            </div>
           </div>
         </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-phone"
+          htmlFor="phone"
         >
           Phone
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-phone"
-          name="phone"
+          className=" txt-f txt-f--sm "
+          id="phone"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Phone Number"
-          required={undefined}
+          required={true}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-email"
+          htmlFor="email"
         >
           Email
           <span
@@ -383,27 +405,29 @@ exports[`Storyshots ApplyPage default 1`] = `
           </span>
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-email"
-          name="email"
+          className=" txt-f txt-f--sm "
+          id="email"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Email"
           required={true}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-confirmEmail"
+          htmlFor="confirmEmail"
         >
           Confirm Email
           <span
@@ -415,19 +439,21 @@ exports[`Storyshots ApplyPage default 1`] = `
           </span>
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-confirmEmail"
-          name="confirmEmail"
+          className=" txt-f txt-f--sm "
+          id="confirmEmail"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Confirm Email"
           required={true}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <hr
         className="hr hr--sq"
@@ -442,104 +468,108 @@ exports[`Storyshots ApplyPage default 1`] = `
         </h2>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-typeOfDegree"
+          htmlFor="typeOfDegree"
         >
           Type of Degree
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-typeOfDegree"
-          name="typeOfDegree"
+          className=" txt-f txt-f--sm "
+          id="typeOfDegree"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Type of Degree"
-          required={undefined}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-degreeAttained"
+          htmlFor="degreeAttained"
         >
           Degree Attained
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-degreeAttained"
-          name="degreeAttained"
+          className=" txt-f txt-f--sm "
+          id="degreeAttained"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Degree Attained"
-          required={undefined}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-educationalInstitution"
+          htmlFor="educationalInstitution"
         >
           Educational Institution
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-educationalInstitution"
-          name="educationalInstitution"
+          className=" txt-f txt-f--sm "
+          id="educationalInstitution"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Educational Institution"
-          required={undefined}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <div
-        className="txt m-b300 "
-        style={undefined}
+        className="txt"
+        style={Object {}}
       >
         <label
           className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-otherInformation"
+          htmlFor="otherInformation"
         >
           Other Information
         </label>
         <input
-          className="
-            txt-f txt-f--sm
-            
-          "
-          id="FeedbackForm-otherInformation"
-          name="otherInformation"
+          className=" txt-f txt-f--sm "
+          id="otherInformation"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Other Information"
-          required={undefined}
           type="text"
           value=""
+          variant="small"
         />
+        <div
+          className="t--subinfo t--err m-t100"
+        >
+           
+        </div>
       </div>
       <hr
         className="hr hr--sq"
@@ -564,27 +594,6 @@ exports[`Storyshots ApplyPage default 1`] = `
         <h3
           className="sh-title"
         >
-          Boards and Commissions without open positions
-        </h3>
-      </div>
-      <ul
-        style={
-          Object {
-            "margin": 0,
-            "padding": 0,
-          }
-        }
-      >
-        <div
-          className="t--subinfo t--err m-t100"
-        />
-      </ul>
-      <div
-        className="sh m-b300 sh--sm"
-      >
-        <h3
-          className="sh-title"
-        >
           Boards and Commissions with open positions
         </h3>
       </div>
@@ -595,14 +604,48 @@ exports[`Storyshots ApplyPage default 1`] = `
             "padding": 0,
           }
         }
+      />
+      <p
+        className="t--subinfo t--err"
+        style={
+          Object {
+            "color": "#fb4d42",
+            "marginTop": "-0.5em",
+          }
+        }
+      />
+      <hr
+        className="hr hr--sq"
+      />
+      <div
+        className="sh m-b300 sh--sm"
       >
-        <p>
-          You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
-        </p>
-        <div
-          className="t--subinfo t--err m-t100"
-        />
-      </ul>
+        <h3
+          className="sh-title"
+        >
+          Boards and Commissions without open positions
+        </h3>
+      </div>
+      <p>
+        You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+      </p>
+      <ul
+        style={
+          Object {
+            "margin": 0,
+            "padding": 0,
+          }
+        }
+      />
+      <p
+        className="t--subinfo t--err"
+        style={
+          Object {
+            "color": "#fb4d42",
+            "marginTop": "-0.5em",
+          }
+        }
+      />
       <hr
         className="hr hr--sq"
       />
@@ -614,6 +657,77 @@ exports[`Storyshots ApplyPage default 1`] = `
         >
           Reference Information
         </h2>
+      </div>
+      <p>
+        Files must be in PDF format, and under 28MB in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-pnlt3a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-pnlt3a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
       </div>
       <hr
         className="hr hr--sq"
@@ -630,13 +744,10 @@ exports[`Storyshots ApplyPage default 1`] = `
       <div
         className="txt"
       >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="FeedbackForm-\${this.props.name}"
-        />
         <textarea
-          className="txt-f txt-f--sm"
-          id="FeedbackForm-\${this.props.name}"
+          aria-label="Additional Comments"
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-comments"
           name="comments"
           onBlur={[Function]}
           onChange={[Function]}
@@ -645,159 +756,16 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
       </div>
+      <p>
+        Please note that many Boards and Commissions require specifically prescribed qualifications for members. You should familiarize yourself with the Enabling Legislation before applying.
+      </p>
       <button
         className="btn btn--700"
         type="submit"
       >
-        Send Message
+        Submit Application
       </button>
     </form>
   </div>
-</div>
-`;
-
-exports[`Storyshots Checkbox default 1`] = `
-<label
-  className="cb"
->
-  <input
-    checked={true}
-    className="cb-f"
-    name="checkbox"
-    onBlur=""
-    onChange=""
-    required={undefined}
-    type="checkbox"
-    value="checkbox"
-  />
-  <span
-    className="cb-l"
-  >
-    Community Preservation Committee
-  </span>
-</label>
-`;
-
-exports[`Storyshots CommentInput default 1`] = `
-<div
-  className="txt"
->
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-\${this.props.name}"
-  />
-  <textarea
-    className="txt-f txt-f--sm"
-    id="FeedbackForm-\${this.props.name}"
-    name="comments"
-    onBlur=""
-    onChange=""
-    placeholder="Other Comments"
-    rows={10}
-    value="comments"
-  />
-</div>
-`;
-
-exports[`Storyshots TextInput default 1`] = `
-<div
-  className="txt m-b300 "
-  style={undefined}
->
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-zip"
-  >
-    Zip Code
-  </label>
-  <input
-    className="
-            txt-f txt-f--sm
-            
-          "
-    id="FeedbackForm-zip"
-    name="zip"
-    onBlur=""
-    onChange=""
-    placeholder="Zip Code"
-    required={undefined}
-    type="text"
-    value=""
-  />
-</div>
-`;
-
-exports[`Storyshots TextInput error 1`] = `
-<div
-  className="txt m-b300 "
-  style={undefined}
->
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-zip"
-  >
-    Zip Code
-    <span
-      aria-hidden="true"
-      className="t--req"
-    >
-       
-      Required
-    </span>
-  </label>
-  <input
-    className="
-            txt-f txt-f--sm
-             txt-f--err
-          "
-    id="FeedbackForm-zip"
-    name="zip"
-    onBlur=""
-    onChange=""
-    placeholder="Zip Code"
-    required={true}
-    type="text"
-    value=""
-  />
-  <div
-    className="t--subinfo t--err m-t100"
-  >
-    Please Enter The Correct Zip Code, Zip Codes Contains 5 Digits.
-  </div>
-</div>
-`;
-
-exports[`Storyshots TextInput required 1`] = `
-<div
-  className="txt m-b300 "
-  style={undefined}
->
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="FeedbackForm-zip"
-  >
-    Zip Code
-    <span
-      aria-hidden="true"
-      className="t--req"
-    >
-       
-      Required
-    </span>
-  </label>
-  <input
-    className="
-            txt-f txt-f--sm
-            
-          "
-    id="FeedbackForm-zip"
-    name="zip"
-    onBlur=""
-    onChange=""
-    placeholder="Zip Code"
-    required={true}
-    type="text"
-    value=""
-  />
 </div>
 `;

@@ -1,16 +1,22 @@
 import React from 'react';
 import Head from 'next/head';
-import { Formik, FieldArray } from 'formik';
-import * as Yup from 'yup';
+import { Formik, FormikProps, Form, FieldArray, Field } from 'formik';
 import { css } from 'emotion';
 
-import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
-
 import fetchCommissions, { Commission } from '../../client/graphql/fetch-commissions';
+import { applicationForm as validationSchema } from '../../lib/validationSchema';
 
-import TextInput from '../../client/common/TextInput';
-import CommentInput from '../../client/common/CommentInput';
-import Checkbox from '../../client/common/Checkbox';
+import {
+  Checkbox,
+  FileInput,
+  SectionHeader,
+  Textarea,
+  FREEDOM_RED as A11Y_RED,
+  PUBLIC_CSS_URL
+} from '@cityofboston/react-fleet';
+
+import TextInputContainer from '../../client/common/TextInputContainer';
+
 
 const NAME_PREFIX_STYLE = css({
   display: 'flex',
@@ -21,49 +27,46 @@ const NAME_STYLE = css({
   flexGrow: 1
 });
 
-export interface Props {
+
+interface Props {
   commissions: Commission[];
   commissionID: string | undefined;
 }
 
+interface FormValues {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  streetAddress: string;
+  unit: string;
+  state: string;
+  city: string;
+  zip: string;
+  phone: string;
+  email: string;
+  confirmEmail: string;
+  commissionIds: string[],
+  typeOfDegree: string;
+  degreeAttained: string;
+  educationalInstitution: string;
+  otherInformation: string;
+  comments: string;
+}
+
 export default class ApplyPage extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      sendingFiles: false,
+      submittingForm: false
+    };
+  }
+
   static async getInitialProps({ query: { commissionID } }): Promise<Props> {
     const commissions = await fetchCommissions();
 
     return { commissions, commissionID };
-  }
-
-  renderCommission(
-    commission: Commission,
-    checkedCommissionIds: string[],
-    push,
-    remove,
-    handleBlur
-  ) {
-    const checked = checkedCommissionIds.includes(commission.id.toString());
-
-    return (
-      <li
-        style={{ listStyleType: 'none' }}
-        key={`commissionIds.${commission.id}`}
-        className="m-b500"
-      >
-        <Checkbox
-          name={`commissionIds.${commission.id}`}
-          value={commission.id.toString()}
-          title={commission.name}
-          onChange={() => {
-            if (!checked) {
-              push(commission.id.toString());
-            } else {
-              remove(checkedCommissionIds.indexOf(commission.id.toString()));
-            }
-          }}
-          onBlur={handleBlur}
-          checked={checked}
-        />
-      </li>
-    );
   }
 
   render() {
@@ -80,6 +83,9 @@ export default class ApplyPage extends React.Component<Props> {
       <div className="mn">
         <Head>
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />
+          {/* todo: remove meta tag; for dev purposes only */}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         </Head>
 
         <div className="b b-c">
@@ -90,7 +96,7 @@ export default class ApplyPage extends React.Component<Props> {
               firstName: '',
               middleName: '',
               lastName: '',
-              address: '',
+              streetAddress: '',
               unit: '',
               state: '',
               city: '',
@@ -105,68 +111,16 @@ export default class ApplyPage extends React.Component<Props> {
               otherInformation: '',
               comments: '',
             }}
-            validationSchema={Yup.object().shape({
-              zip: Yup.string()
-                .required('Zip Code Is Required')
-                .matches(new RegExp(/^\d{5}$/), 'Zip Codes Contains 5 Digits'),
-              firstName: Yup.string()
-                .required('Your First Name Is Required!')
-                .min(2, 'Your First Name Needs To Be Valid'),
-              lastName: Yup.string()
-                .required('Your Last Name Is Required!')
-                .min(2, 'Your Last Name Needs To Be Valid'),
-              address: Yup.string()
-                .required('Your Address Is Required!')
-                .min(2, 'Your Address Needs To Be Valid'),
-              unit: Yup.string().min(1),
-              city: Yup.string()
-                .required('Your City Name Is Required!')
-                .min(3),
-              state: Yup.string()
-                .required('Your State Name Is Required!')
-                .min(4),
-              phone: Yup.number()
-                .required('Your Telephone Number Is Required!')
-                .positive()
-                .integer(),
-              email: Yup.string()
-                .email()
-                .required('Your Email Is Required!'),
-              confirmEmail: Yup.string()
-                .email()
-                .required('Your Confirm Email Is Required!')
-                .oneOf(
-                  [Yup.ref('email', undefined)],
-                  'Make Sure Emails Match!'
-                ),
-              commissionIds: Yup.array()
-                .max(5, 'Maximum Of Five Selections.')
-                .required('One To Five Selections Is Required.'),
-              typeOfDegree: Yup.string()
-                .required('Type of Degree Is Required!')
-                .min(2, 'Type of Degree Needs To Be Valid'),
-              degreeAttained: Yup.string()
-                .required('Degree Attained Is Required!')
-                .min(2, 'Degree Attained Needs To Be Valid'),
-              educationalInstitution: Yup.string()
-                .required('EducationalInstitution Is Required!')
-                .min(2, 'Educational Institution Needs To Be Valid'),
-              otherInformation: Yup.string().min(
-                2,
-                'Other Information Needs To Be Valid'
-              ),
-              comments: Yup.string().required(),
-            })}
+            validationSchema={validationSchema}
             onSubmit={() => {}}
             render={({
-              handleSubmit,
-              values,
-              handleChange,
-              errors,
-              touched,
-              handleBlur,
-            }) => (
-              <form onSubmit={handleSubmit}>
+               values,
+               errors,
+               touched,
+               handleBlur,
+               handleChange,
+            }: FormikProps<FormValues>) => (
+              <Form>
                 <div className="g">
 
                   <div className={`g--6 m-b300 ${NAME_PREFIX_STYLE}`}>
@@ -188,39 +142,32 @@ export default class ApplyPage extends React.Component<Props> {
                       </div>
                     </div>
 
-                    <TextInput
-                      title="First Name"
+                    <Field
+                      component={TextInputContainer}
+                      label="First Name"
                       name="firstName"
+
                       placeholder="First Name"
-                      value={values.firstName}
-                      onChange={handleChange}
-                      error={touched.firstName && errors.firstName}
-                      onBlur={handleBlur}
                       required
                       className={NAME_STYLE}
                     />
                   </div>
 
                   <div className="g--1 m-b300">
-                    <TextInput
-                      title="Initial"
+                    <Field
+                      component={TextInputContainer}
+                      label="Initial"
                       name="middleName"
-                      value={values.middleName}
-                      onChange={handleChange}
-                      error={touched.middleName && errors.middleName}
-                      onBlur={handleBlur}
                     />
                   </div>
 
                   <div className="g--5 m-b300">
-                    <TextInput
-                      title="Last Name"
+                    <Field
+                      component={TextInputContainer}
+                      label="Last Name"
                       name="lastName"
+
                       placeholder="Last Name"
-                      value={values.lastName}
-                      onChange={handleChange}
-                      error={touched.lastName && errors.lastName}
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
@@ -228,101 +175,85 @@ export default class ApplyPage extends React.Component<Props> {
 
                 <div className="g">
                   <div className="g--9 m-b300">
-                    <TextInput
-                      title="Street Address"
-                      name="StreetAddress"
+                    <Field
+                      component={TextInputContainer}
+                      label="Street Address"
+                      name="streetAddress"
+
                       placeholder="Street Address"
-                      value={values.address}
-                      onChange={handleChange}
-                      error={touched.address && errors.address}
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
 
                   <div className="g--3 m-b300">
-                    <TextInput
-                      title="Unit"
+                    <Field
+                      component={TextInputContainer}
+                      label="Unit"
                       name="unit"
                       placeholder="Unit or Apartment #"
-                      value={values.unit}
-                      onChange={handleChange}
-                      error={touched.unit && errors.unit}
-                      onBlur={handleBlur}
                     />
                   </div>
                 </div>
 
                 <div className="g">
                   <div className="g--7 m-b300">
-                    <TextInput
-                      title="City"
+                    <Field
+                      component={TextInputContainer}
+                      label="City"
                       name="city"
+
                       placeholder="City"
-                      value={values.city}
-                      onChange={handleChange}
-                      error={touched.city && errors.city}
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
 
                   <div className="g--2 m-b300">
-                    <TextInput
-                      title="State"
+                    <Field
+                      component={TextInputContainer}
+                      label="State"
                       name="state"
+
                       placeholder="State"
-                      value={values.state}
-                      onChange={handleChange}
-                      error={touched.state && errors.state}
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
 
                   <div className="g--3 m-b300">
-                    <TextInput
-                      title="Zip"
+                    <Field
+                      component={TextInputContainer}
+                      label="Zip"
                       name="zip"
+
                       placeholder="Zip Code"
-                      value={values.zip}
-                      onChange={handleChange}
-                      error={touched.zip && errors.zip}
-                      onBlur={handleBlur}
                       required
                     />
                   </div>
                 </div>
 
-                <TextInput
-                  title="Phone"
+                <Field
+                  component={TextInputContainer}
+                  label="Phone"
                   name="phone"
+
                   placeholder="Phone Number"
-                  value={values.phone}
-                  onChange={handleChange}
-                  error={touched.phone && errors.phone}
-                  onBlur={handleBlur}
-                />
-
-                <TextInput
-                  title="Email"
-                  name="email"
-                  placeholder="Email"
-                  value={values.email}
-                  onChange={handleChange}
-                  error={touched.email && errors.email}
                   required
-                  onBlur={handleBlur}
                 />
 
-                <TextInput
-                  title="Confirm Email"
+                <Field
+                  component={TextInputContainer}
+                  label="Email"
+                  name="email"
+
+                  placeholder="Email"
+                  required
+                />
+
+                <Field
+                  component={TextInputContainer}
+                  label="Confirm Email"
                   name="confirmEmail"
+
                   placeholder="Confirm Email"
-                  value={values.confirmEmail}
-                  onChange={handleChange}
-                  error={touched.confirmEmail && errors.confirmEmail}
-                  onBlur={handleBlur}
                   required
                 />
 
@@ -330,44 +261,36 @@ export default class ApplyPage extends React.Component<Props> {
 
                 <SectionHeader title="Education and Experience" />
 
-                <TextInput
-                  title="Type of Degree"
+                <Field
+                  component={TextInputContainer}
+                  label="Type of Degree"
                   name="typeOfDegree"
+
                   placeholder="Type of Degree"
-                  value={values.typeOfDegree}
-                  onChange={handleChange}
-                  error={touched.typeOfDegree && errors.typeOfDegree}
-                  onBlur={handleBlur}
                 />
 
-                <TextInput
-                  title="Degree Attained"
+                <Field
+                  component={TextInputContainer}
+                  label="Degree Attained"
                   name="degreeAttained"
+
                   placeholder="Degree Attained"
-                  value={values.degreeAttained}
-                  onChange={handleChange}
-                  error={touched.degreeAttained && errors.degreeAttained}
-                  onBlur={handleBlur}
                 />
 
-                <TextInput
-                  title="Educational Institution"
+                <Field
+                  component={TextInputContainer}
+                  label="Educational Institution"
                   name="educationalInstitution"
+
                   placeholder="Educational Institution"
-                  value={values.educationalInstitution}
-                  onChange={handleChange}
-                  error={touched.educationalInstitution && errors.educationalInstitution}
-                  onBlur={handleBlur}
                 />
 
-                <TextInput
-                  title="Other Information"
+                <Field
+                  component={TextInputContainer}
+                  label="Other Information"
                   name="otherInformation"
+
                   placeholder="Other Information"
-                  value={values.otherInformation}
-                  onChange={handleChange}
-                  error={touched.otherInformation && errors.otherInformation}
-                  onBlur={handleBlur}
                 />
 
                 <hr className="hr hr--sq" />
@@ -378,28 +301,6 @@ export default class ApplyPage extends React.Component<Props> {
                   Please note that many of these Boards and Commissions require City of Boston residency.
                 </p>
 
-                <SectionHeader title="Boards and Commissions without open positions" subheader />
-
-                <FieldArray
-                  name="commissionIds"
-                  render={({ push, remove }) => (
-                    <ul style={{ margin: 0, padding: 0 }}>
-                      {commissionsWithoutOpenSeats.map(commission =>
-                        this.renderCommission(
-                          commission,
-                          values.commissionIds,
-                          push,
-                          remove,
-                          handleBlur
-                        )
-                      )}
-
-                      <div className="t--subinfo t--err m-t100">
-                        {touched.commissionIds && errors.commissionIds}
-                      </div>
-                    </ul>
-                  )}
-                />
 
                 <SectionHeader title="Boards and Commissions with open positions" subheader />
 
@@ -408,7 +309,7 @@ export default class ApplyPage extends React.Component<Props> {
                   render={({ push, remove }) => (
                     <ul style={{ margin: 0, padding: 0 }}>
                       {commissionsWithOpenSeats.map(commission =>
-                        this.renderCommission(
+                        renderCommission(
                           commission,
                           values.commissionIds,
                           push,
@@ -416,40 +317,129 @@ export default class ApplyPage extends React.Component<Props> {
                           handleBlur
                         )
                       )}
-                      <p>
-                        You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
-                      </p>
-                      <div className="t--subinfo t--err m-t100">
-                        {touched.commissionIds && errors.commissionIds}
-                      </div>
                     </ul>
                   )}
                 />
+
+                {commissionsSelectionError(touched, errors)}
+
+                <hr className="hr hr--sq" />
+
+                <SectionHeader title="Boards and Commissions without open positions" subheader />
+
+                <p>
+                  You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+                </p>
+
+                <FieldArray
+                  name="commissionIds"
+                  render={({ push, remove }) => (
+                    <ul style={{ margin: 0, padding: 0 }}>
+                      {commissionsWithoutOpenSeats.map(commission =>
+                        renderCommission(
+                          commission,
+                          values.commissionIds,
+                          push,
+                          remove,
+                          handleBlur
+                        )
+                      )}
+                    </ul>
+                  )}
+                />
+
+                {commissionsSelectionError(touched, errors)}
 
                 <hr className="hr hr--sq" />
 
                 <SectionHeader title="Reference Information" />
 
+                <p>
+                  Files must be in PDF format, and under 28MB in size.
+                </p>
+
+                <FileInput
+                  name="coverLetter"
+                  title="Cover Letter"
+                  fileTypes={['application/pdf']}
+                  sizeLimit={{ quantity: 28, unit: 'MB' }}
+                />
+
+                <FileInput
+                  name="resume"
+                  title="Resumé"
+                  fileTypes={['application/pdf']}
+                  sizeLimit={{ quantity: 28, unit: 'MB' }}
+                />
+
                 <hr className="hr hr--sq" />
 
                 <SectionHeader title="Comments" />
 
-                <CommentInput
+                <Textarea
                   name="comments"
+                  label="Additional Comments"
                   placeholder="Other Comments You Would Like Us to Know."
                   value={values.comments}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="small"
+                  hideLabel
                 />
 
+                <p>
+                  Please note that many Boards and Commissions require specifically prescribed qualifications for members. You should familiarize yourself with the Enabling Legislation before applying.
+                </p>
+
                 <button type="submit" className="btn btn--700">
-                  Send Message
+                  Submit Application
                 </button>
-              </form>
+              </Form>
             )}
           />
         </div>
       </div>
     );
   }
+}
+
+function renderCommission(
+  commission: Commission,
+  checkedCommissionIds: string[],
+  push,
+  remove,
+  handleBlur
+) {
+  const checked = checkedCommissionIds.includes(commission.id.toString());
+
+  return (
+    <li
+      style={{ listStyleType: 'none' }}
+      key={`commissionIds.${commission.id}`}
+      className="m-b500"
+    >
+      <Checkbox
+        name={`commissionIds.${commission.id}`}
+        value={commission.id.toString()}
+        title={commission.name}
+        onChange={() => {
+          if (!checked) {
+            push(commission.id.toString());
+          } else {
+            remove(checkedCommissionIds.indexOf(commission.id.toString()));
+          }
+        }}
+        onBlur={handleBlur}
+        checked={checked}
+      />
+    </li>
+  );
+}
+
+function commissionsSelectionError(touched, errors) {
+  return (
+    <p className="t--subinfo t--err" style={{ marginTop: '-0.5em', color: A11Y_RED }}>
+      {touched.commissionIds && errors.commissionIds}
+    </p>
+  );
 }

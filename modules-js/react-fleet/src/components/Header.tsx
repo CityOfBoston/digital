@@ -1,6 +1,6 @@
 import React from 'react';
 
-import headerHtml from '../templates/header.html';
+import headerHtml from '../../templates/header.html';
 
 export default function Header(
   props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>

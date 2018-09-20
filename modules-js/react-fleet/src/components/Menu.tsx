@@ -1,6 +1,6 @@
 import React from 'react';
 
-import navigationHtml from '../templates/navigation.html';
+import navigationHtml from '../../templates/navigation.html';
 
 export interface Props {
   open?: boolean;

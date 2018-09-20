@@ -1,6 +1,862 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots AppLayout default 1`] = `
+exports[`Storyshots Components/Footer custom attributes 1`] = `
+<footer
+  className="ft br br-a300"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#e0e0e0",
+    }
+  }
+/>
+`;
+
+exports[`Storyshots Components/Footer default 1`] = `
+<footer
+  className="ft"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+    }
+  }
+/>
+`;
+
+exports[`Storyshots Components/Header and Menu default 1`] = `
+Array [
+  <input
+    aria-label="Open Boston.gov menu"
+    checked={undefined}
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn"
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+        }
+      }
+      role="banner"
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Components/Header and Menu header custom elements 1`] = `
+Array [
+  <input
+    aria-label="Open Boston.gov menu"
+    checked={undefined}
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn"
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h br br-a300"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+        }
+      }
+      role="banner"
+      style={
+        Object {
+          "backgroundColor": "#288be4",
+        }
+      }
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Components/Header and Menu menu open 1`] = `
+Array [
+  <input
+    aria-label="Open Boston.gov menu"
+    checked={true}
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn"
+  >
+    <input
+      aria-hidden="true"
+      className="s-tr"
+      id="s-tr"
+      type="checkbox"
+    />
+    <header
+      className="h"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+        }
+      }
+      role="banner"
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Elements/Buttons close 1`] = `
+<button
+  className="css-14581tj undefined"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": "50px",
+      "overflow": "visible",
+      "width": "50px",
+    }
+  }
+  title="Close"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    height="50px"
+    overflow="visible"
+    viewBox="0 0 24 24"
+    width="50px"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      fill="#fb4d42"
+      r="12"
+      stroke="none"
+    />
+    <g
+      transform="rotate(45, 12, 12)"
+    >
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeWidth="3"
+        x1="12"
+        x2="12"
+        y1="4"
+        y2="20"
+      />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeWidth="3"
+        x1="4"
+        x2="20"
+        y1="12"
+        y2="12"
+      />
+    </g>
+  </svg>
+</button>
+`;
+
+exports[`Storyshots Elements/Inputs Checkbox 1`] = `
+<label
+  className="cb"
+>
+  <input
+    checked={true}
+    className="cb-f"
+    name="checkbox"
+    onBlur={[Function]}
+    onChange={[Function]}
+    required={undefined}
+    type="checkbox"
+    value="checkbox"
+  />
+  <span
+    className="cb-l"
+  >
+    Community Preservation Committee
+  </span>
+</label>
+`;
+
+exports[`Storyshots Elements/Inputs Text Input 1`] = `
+Array [
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l false"
+      htmlFor="input-240483872"
+    >
+      Normal Input
+    </label>
+    <input
+      className=" txt-f false "
+      id="input-240483872"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+       
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l false"
+      htmlFor="input-1357588218"
+    >
+      Required Input
+      <span
+        aria-hidden="true"
+        className="t--req"
+      >
+         
+        Required
+      </span>
+    </label>
+    <input
+      className=" txt-f false "
+      id="input-1357588218"
+      required={true}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+       
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l false"
+      htmlFor="input-423803610"
+    >
+      Password
+    </label>
+    <input
+      className=" txt-f false "
+      id="input-423803610"
+      onChange={[Function]}
+      type="password"
+      value="password"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+       
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l false"
+      htmlFor="input-2348632648"
+    >
+      String error
+    </label>
+    <input
+      className=" txt-f false txt-f--err"
+      id="input-2348632648"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+      Value is not correct
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l false"
+      htmlFor="input-3077581017"
+    >
+      Boolean error
+    </label>
+    <input
+      className=" txt-f false txt-f--err"
+      id="input-3077581017"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+       
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={Object {}}
+  >
+    <label
+      className="txt-l txt-l--sm"
+      htmlFor="input-472033325"
+    >
+      Small Variant
+    </label>
+    <input
+      className=" txt-f txt-f--sm "
+      id="input-472033325"
+      placeholder="Placeholder Text"
+      type="text"
+      variant="small"
+    />
+    <div
+      className="t--subinfo t--err m-t100"
+    >
+       
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Elements/Inputs/File Input default 1`] = `
+<div
+  className="txt m-b300 css-1mxs0p5"
+>
+  <input
+    accept="application/pdf"
+    className="css-1dv1kvn"
+    id="FileInput-resume"
+    name="resume"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="file"
+  />
+  <label
+    className="btn btn--sm btn--100 false"
+    htmlFor="FileInput-resume"
+    style={
+      Object {
+        "whiteSpace": "nowrap",
+      }
+    }
+  >
+    Choose 
+    Resumé
+     file
+  </label>
+  <div
+    className="css-pnlt3a"
+  >
+    <span>
+      No file selected
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/Inputs/File Input small size limit; no file restrictions 1`] = `
+<div
+  className="txt m-b300 css-1mxs0p5"
+>
+  <input
+    accept="*"
+    className="css-1dv1kvn"
+    id="FileInput-coverLetter"
+    name="coverLetter"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="file"
+  />
+  <label
+    className="btn btn--sm btn--100 false"
+    htmlFor="FileInput-coverLetter"
+    style={
+      Object {
+        "whiteSpace": "nowrap",
+      }
+    }
+  >
+    Choose 
+    Cover Letter
+     file
+  </label>
+  <div
+    className="css-pnlt3a"
+  >
+    <span>
+      No file selected
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/Inputs/Textarea hidden label 1`] = `
+Array [
+  <div
+    className="txt"
+  >
+    <textarea
+      aria-label="Other Comments"
+      className="txt-f false  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Other Comments"
+      rows={10}
+      value=""
+    />
+  </div>,
+  <div
+    className="txt"
+  >
+    <textarea
+      aria-label="Small Variant"
+      className="txt-f txt-f--sm  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Small Variant"
+      rows={10}
+      value=""
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Elements/Inputs/Textarea visible label 1`] = `
+Array [
+  <div
+    className="txt"
+  >
+    <label
+      className="txt-l false"
+      htmlFor="FeedbackForm-comments"
+    >
+      Other Comments
+    </label>
+    <textarea
+      aria-label=""
+      className="txt-f false  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Other Comments"
+      rows={10}
+      value=""
+    />
+  </div>,
+  <div
+    className="txt"
+  >
+    <label
+      className="txt-l txt-l--sm"
+      htmlFor="FeedbackForm-comments"
+    >
+      Small Variant
+    </label>
+    <textarea
+      aria-label=""
+      className="txt-f txt-f--sm  "
+      id="FeedbackForm-comments"
+      name="comments"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Small Variant"
+      rows={10}
+      value=""
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Elements/Section Header default 1`] = `
+<div
+  className="sh m-b300"
+>
+  <h2
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h2>
+</div>
+`;
+
+exports[`Storyshots Elements/Section Header subheader 1`] = `
+<div
+  className="sh m-b300 sh--sm"
+>
+  <h3
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h3>
+</div>
+`;
+
+exports[`Storyshots Elements/Section Header yellow 1`] = `
+<div
+  className="sh m-b300 sh--y"
+>
+  <h2
+    className="sh-title"
+  >
+    Boards and Commissions
+  </h2>
+</div>
+`;
+
+exports[`Storyshots Layouts/App Layout default 1`] = `
 <div>
   <a
     className="btn a11y--h a11y--f"
@@ -198,7 +1054,7 @@ exports[`Storyshots AppLayout default 1`] = `
 </div>
 `;
 
-exports[`Storyshots AppLayout secondary nav 1`] = `
+exports[`Storyshots Layouts/App Layout secondary nav 1`] = `
 <div>
   <a
     className="btn a11y--h a11y--f"
@@ -447,484 +1303,5 @@ exports[`Storyshots AppLayout secondary nav 1`] = `
       }
     }
   />
-</div>
-`;
-
-exports[`Storyshots Footer custom attributes 1`] = `
-<footer
-  className="ft br br-a300"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
-
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
-    }
-  }
-  style={
-    Object {
-      "backgroundColor": "#e0e0e0",
-    }
-  }
-/>
-`;
-
-exports[`Storyshots Footer default 1`] = `
-<footer
-  className="ft"
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
-
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
-    }
-  }
-/>
-`;
-
-exports[`Storyshots Header and Menu default 1`] = `
-Array [
-  <input
-    aria-label="Open Boston.gov menu"
-    checked={undefined}
-    className="brg-tr"
-    id="brg-tr"
-    onKeyDown={[Function]}
-    type="checkbox"
-  />,
-  <nav
-    aria-label="Boston.gov menu"
-    className="nv-m"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-  <div class=\\"nv-m-h\\">
-      <div class=\\"nv-m-h-ic\\">
-        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
-        </a>
-      </div>
-      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
-  </div>
-  <div class=\\"nv-m-c\\">
-    
-
-<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
-<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
-</ul></li>
-<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
-</ul></li>
-</ul>  </div>
-",
-      }
-    }
-  />,
-  <div
-    className="mn"
-  >
-    <input
-      aria-hidden="true"
-      className="s-tr"
-      id="s-tr"
-      type="checkbox"
-    />
-    <header
-      className="h"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-    <label for=\\"brg-tr\\" class=\\"brg-b\\">
-  <div class=\\"brg\\">
-    <span class=\\"brg-c\\">
-      <span class=\\"brg-c-i\\"></span>
-    </span>
-    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-  </div>
-</label>
-      <div class=\\"lo lo--abs\\">
-    <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
-      </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
-          </div>
-  </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
-</a>
-    <nav class=\\"nv-h\\">
-  <ul class=\\"nv-h-l\\">
-              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-        <li class=\\"tr nv-h-l-i\\">
-      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
-      <ul class=\\"tr-dd\\">
-        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
-      </ul>
-    </li>
-    <li class=\\"nv-h-l-i\\">
-      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
-      </label>
-    </li>
-  </ul>
-</nav>
-    <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
-    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
-    <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
-      <button class=\\"sf-i-b\\">Search</button>
-    </div>
-  </form>
-</div>
-  ",
-        }
-      }
-      role="banner"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Header and Menu header custom elements 1`] = `
-Array [
-  <input
-    aria-label="Open Boston.gov menu"
-    checked={undefined}
-    className="brg-tr"
-    id="brg-tr"
-    onKeyDown={[Function]}
-    type="checkbox"
-  />,
-  <nav
-    aria-label="Boston.gov menu"
-    className="nv-m"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-  <div class=\\"nv-m-h\\">
-      <div class=\\"nv-m-h-ic\\">
-        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
-        </a>
-      </div>
-      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
-  </div>
-  <div class=\\"nv-m-c\\">
-    
-
-<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
-<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
-</ul></li>
-<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
-</ul></li>
-</ul>  </div>
-",
-      }
-    }
-  />,
-  <div
-    className="mn"
-  >
-    <input
-      aria-hidden="true"
-      className="s-tr"
-      id="s-tr"
-      type="checkbox"
-    />
-    <header
-      className="h br br-a300"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-    <label for=\\"brg-tr\\" class=\\"brg-b\\">
-  <div class=\\"brg\\">
-    <span class=\\"brg-c\\">
-      <span class=\\"brg-c-i\\"></span>
-    </span>
-    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-  </div>
-</label>
-      <div class=\\"lo lo--abs\\">
-    <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
-      </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
-          </div>
-  </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
-</a>
-    <nav class=\\"nv-h\\">
-  <ul class=\\"nv-h-l\\">
-              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-        <li class=\\"tr nv-h-l-i\\">
-      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
-      <ul class=\\"tr-dd\\">
-        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
-      </ul>
-    </li>
-    <li class=\\"nv-h-l-i\\">
-      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
-      </label>
-    </li>
-  </ul>
-</nav>
-    <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
-    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
-    <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
-      <button class=\\"sf-i-b\\">Search</button>
-    </div>
-  </form>
-</div>
-  ",
-        }
-      }
-      role="banner"
-      style={
-        Object {
-          "backgroundColor": "#288be4",
-        }
-      }
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Header and Menu menu open 1`] = `
-Array [
-  <input
-    aria-label="Open Boston.gov menu"
-    checked={true}
-    className="brg-tr"
-    id="brg-tr"
-    onKeyDown={[Function]}
-    type="checkbox"
-  />,
-  <nav
-    aria-label="Boston.gov menu"
-    className="nv-m"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-  <div class=\\"nv-m-h\\">
-      <div class=\\"nv-m-h-ic\\">
-        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
-        </a>
-      </div>
-      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
-  </div>
-  <div class=\\"nv-m-c\\">
-    
-
-<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
-<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
-</ul></li>
-<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
-</ul></li>
-</ul>  </div>
-",
-      }
-    }
-  />,
-  <div
-    className="mn"
-  >
-    <input
-      aria-hidden="true"
-      className="s-tr"
-      id="s-tr"
-      type="checkbox"
-    />
-    <header
-      className="h"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-    <label for=\\"brg-tr\\" class=\\"brg-b\\">
-  <div class=\\"brg\\">
-    <span class=\\"brg-c\\">
-      <span class=\\"brg-c-i\\"></span>
-    </span>
-    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-  </div>
-</label>
-      <div class=\\"lo lo--abs\\">
-    <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
-      </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
-          </div>
-  </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
-</a>
-    <nav class=\\"nv-h\\">
-  <ul class=\\"nv-h-l\\">
-              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-        <li class=\\"tr nv-h-l-i\\">
-      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
-      <ul class=\\"tr-dd\\">
-        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
-      </ul>
-    </li>
-    <li class=\\"nv-h-l-i\\">
-      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
-      </label>
-    </li>
-  </ul>
-</nav>
-    <div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
-    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
-    <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
-      <button class=\\"sf-i-b\\">Search</button>
-    </div>
-  </form>
-</div>
-  ",
-        }
-      }
-      role="banner"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots SectionHeader default 1`] = `
-<div
-  className="sh m-b300"
->
-  <h2
-    className="sh-title"
-  >
-    Boards and Commissions
-  </h2>
-</div>
-`;
-
-exports[`Storyshots SectionHeader subheader 1`] = `
-<div
-  className="sh m-b300 sh--sm"
->
-  <h3
-    className="sh-title"
-  >
-    Boards and Commissions
-  </h3>
-</div>
-`;
-
-exports[`Storyshots SectionHeader yellow 1`] = `
-<div
-  className="sh m-b300 sh--y"
->
-  <h2
-    className="sh-title"
-  >
-    Boards and Commissions
-  </h2>
 </div>
 `;

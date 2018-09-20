@@ -24,6 +24,7 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
+    "emotion": "^9.2.9",
     "prop-types": "^15.6.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
