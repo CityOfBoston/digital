@@ -4,8 +4,8 @@ import Cart from '../store/Cart';
 import Order from '../models/Order';
 
 import {
-  SubmitDeathCertificateOrderMutation,
-  SubmitDeathCertificateOrderMutationVariables,
+  SubmitDeathCertificateOrder,
+  SubmitDeathCertificateOrderVariables,
 } from './graphql-types';
 
 const QUERY = gql`
@@ -99,7 +99,7 @@ export default async function submitDeathCertificateOrder(
     );
   }
 
-  const queryVariables: SubmitDeathCertificateOrderMutationVariables = {
+  const queryVariables: SubmitDeathCertificateOrderVariables = {
     contactName,
     contactEmail,
     contactPhone,
@@ -126,7 +126,7 @@ export default async function submitDeathCertificateOrder(
     idempotencyKey,
   };
 
-  const response: SubmitDeathCertificateOrderMutation = await loopbackGraphql(
+  const response: SubmitDeathCertificateOrder = await loopbackGraphql(
     QUERY,
     queryVariables
   );

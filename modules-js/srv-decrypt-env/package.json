@@ -22,11 +22,11 @@
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
-    "@types/jest": "^22.0.0",
+    "@types/jest": "23.x.x",
     "@types/node": "^10.0.0",
-    "jest": "^22.4.0",
+    "jest": "23.6.0",
     "rimraf": "^2.6.2",
-    "ts-jest": "^22.0.0",
+    "ts-jest": "23.10.0",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.0.0"
   }

@@ -5,10 +5,10 @@
   "license": "CC0-1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.0.0-beta.42",
+    "@babel/core": "7.0.0",
     "babel-core": "^7.0.0-0",
     "html-loader-jest": "^0.2.1",
-    "jest": "^22.4.0",
-    "ts-jest-babel-7": "^22.0.0"
+    "jest": "23.6.0",
+    "ts-jest-babel-7": "22.0.7"
   }
 }

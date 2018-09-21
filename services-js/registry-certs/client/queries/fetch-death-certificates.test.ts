@@ -1,4 +1,4 @@
-import { FetchDeathCertificatesQueryVariables } from './graphql-types';
+import { FetchDeathCertificatesVariables } from './graphql-types';
 
 import fetchDeathCertificates from './fetch-death-certificates';
 
@@ -11,7 +11,7 @@ test('fetchDeathCertificates', async () => {
 
   await fetchDeathCertificates(loopbackGraphql, ['000001']);
 
-  const queryVariables: FetchDeathCertificatesQueryVariables = {
+  const queryVariables: FetchDeathCertificatesVariables = {
     ids: ['000001'],
   };
 

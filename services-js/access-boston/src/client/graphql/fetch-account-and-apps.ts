@@ -1,8 +1,8 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import { FetchAccountAndAppsQuery } from './queries';
+import { FetchAccountAndApps } from './queries';
 
-export type Account = FetchAccountAndAppsQuery['account'];
-export type Apps = FetchAccountAndAppsQuery['apps'];
+export type Account = FetchAccountAndApps['account'];
+export type Apps = FetchAccountAndApps['apps'];
 
 const QUERY = gql`
   query FetchAccountAndApps {
@@ -29,6 +29,6 @@ const QUERY = gql`
 // We have the req because we need to do cookie auth to get the account info.
 export default async function fetchAccountAndApps(
   fetchGraphql: FetchGraphql
-): Promise<FetchAccountAndAppsQuery> {
+): Promise<FetchAccountAndApps> {
   return await fetchGraphql(QUERY);
 }

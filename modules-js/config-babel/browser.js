@@ -11,7 +11,6 @@ module.exports = function react(_, { esm }) {
         require('@babel/plugin-transform-runtime'),
         {
           helpers: true,
-          polyfill: false,
           regenerator: true,
         },
       ],
