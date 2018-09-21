@@ -10,8 +10,8 @@ import { createHttpLink } from 'apollo-link-http';
 
 // Outside of a Drupal environment create a mock Drupal object
 // eslint-disable-next-line no-use-before-define
-if (typeof Drupal === 'undefined') {
-  var Drupal = {
+if (typeof window.Drupal === 'undefined') {
+  window.Drupal = {
     settings: {
       bos_commissions_search: {
         bos_commissions_search_graphql_api_key: null,
@@ -25,13 +25,13 @@ if (typeof Drupal === 'undefined') {
 const client = new ApolloClient({
   link: new createHttpLink({
     uri:
-      Drupal.settings.bos_commissions_search
+      window.Drupal.settings.bos_commissions_search
         .bos_commissions_search_graphql_endpoint,
     headers: {
       accept: '*/*',
       'content-type': 'application/json',
       'x-api-key':
-        Drupal.settings.bos_commissions_search
+        window.Drupal.settings.bos_commissions_search
           .bos_commissions_search_graphql_api_key,
     },
   }),
