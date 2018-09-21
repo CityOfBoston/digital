@@ -25,12 +25,6 @@ const headManager = new HeadManager();
 const router =
   process.env.NODE_ENV === 'test' ? null : createRouter('/', null, null);
 
-const DEFAULT_STYLE = `
-  body, html {
-    background-color: #eee;
-  }
-`;
-
 class Wrapper extends React.Component {
   getChildContext() {
     return {
@@ -42,7 +36,8 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        <Head>{styleTags(DEFAULT_STYLE)}</Head>
+        {/* no stylesheets because they come in preview-head.html */}
+        <Head>{styleTags({ noStylesheets: true })}</Head>
 
         {this.props.children}
       </div>

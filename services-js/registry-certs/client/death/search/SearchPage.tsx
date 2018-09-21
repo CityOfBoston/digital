@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
+import { css } from 'emotion';
 
 import { getDependencies, ClientContext, ClientDependencies } from '../../app';
 import { DeathCertificateSearchResults } from '../../types';
@@ -28,6 +29,14 @@ interface Props extends InitialProps, Partial<DefaultProps> {}
 interface State {
   query: string;
 }
+
+const HELP_LIST_STYLE = css({
+  fontStyle: 'normal',
+
+  '&>li': {
+    marginTop: '0.5em',
+  },
+});
 
 class SearchPage extends React.Component<Props & DefaultProps, State> {
   static get defaultProps(): DefaultProps {
@@ -265,7 +274,7 @@ class SearchPage extends React.Component<Props & DefaultProps, State> {
 
   renderHelp() {
     return (
-      <ul className="ul t--subinfo" style={{ fontStyle: 'normal' }}>
+      <ul className={`ul t--subinfo ${HELP_LIST_STYLE}`}>
         <li>
           We only have death records for people who either died in the City of
           Boston or who had Boston as their residence on their death
@@ -299,14 +308,6 @@ class SearchPage extends React.Component<Props & DefaultProps, State> {
           Add a 4-digit year of death. You can also search for a range of death
           years, like “smith 1960–1965”
         </li>
-
-        <style jsx>
-          {`
-            & > li {
-              margin-top: 0.5em;
-            }
-          `}
-        </style>
       </ul>
     );
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { DeathCertificate } from '../types';
-import { CHARLES_BLUE } from './style-constants';
+import { css } from 'emotion';
+import { CHARLES_BLUE, GRAY_100 } from './style-constants';
 
 export interface Props {
   certificate: DeathCertificate;
@@ -13,14 +14,40 @@ export interface Props {
   thin?: boolean;
 }
 
+const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
+
+const CERTIFICATE_NAME_STYLE = css({
+  fontStyle: 'normal',
+  fontWeight: 'bold',
+  letterSpacing: '1.4px',
+});
+
+const THIN_CERTIFICATE_NAME_STYLE = css({
+  fontStyle: 'normal',
+});
+
+const CERTIFICATE_SUBINFO_STYLE = css({
+  color: CHARLES_BLUE,
+  fontStyle: 'italic',
+});
+
+const CERTIFICATE_ROW_STYLE = css({
+  borderColor: GRAY_100,
+  borderLeftWidth: 0,
+  borderRightWidth: 0,
+
+  display: 'flex',
+  alignItems: 'center',
+});
+
 const renderCertificate = (
   { firstName, lastName, deathDate, deathYear, age, pending }: DeathCertificate,
   thin: boolean
 ) => (
-  <div key="certificate" className="certificate-info-box">
+  <div key="certificate" className={CERTIFICATE_INFO_BOX_STYLE}>
     <div
       className={`t--sans m-v100 ${
-        thin ? 'thin-certificate-name' : 'certificate-name'
+        thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE
       }`}
     >
       {firstName} {lastName}
@@ -37,31 +64,10 @@ const renderCertificate = (
       )}
     </div>
 
-    <div className="certificate-subinfo">
+    <div className={CERTIFICATE_SUBINFO_STYLE}>
       Died: {deathDate || deathYear}
       {age && ` — Age: ${age}`}
     </div>
-
-    <style jsx>{`
-      .certificate-info-box {
-        flex: 1;
-      }
-
-      .certificate-name {
-        font-style: normal;
-        font-weight: bold;
-        letter-spacing: 1.4px;
-      }
-
-      .thin-certificate-name {
-        font-style: normal;
-      }
-
-      .certificate-subinfo {
-        color: #091f2f;
-        font-style: italic;
-      }
-    `}</style>
   </div>
 );
 
@@ -89,21 +95,14 @@ export default function CertificateRow({
   }
 
   return (
-    <div className={`${thin ? 'p-v200' : 'p-v300'} br b--w row ${borderClass}`}>
+    <div
+      className={`${
+        thin ? 'p-v200' : 'p-v300'
+      } br b--w ${CERTIFICATE_ROW_STYLE} ${borderClass}`}
+    >
       {children
         ? children(renderCertificate(certificate, !!thin))
         : renderCertificate(certificate, !!thin)}
-
-      <style jsx>{`
-        .row {
-          border-color: #e0e0e0;
-          border-left-width: 0;
-          border-right-width: 0;
-
-          display: flex;
-          align-items: center;
-        }
-      `}</style>
     </div>
   );
 }
