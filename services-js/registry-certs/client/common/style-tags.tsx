@@ -7,14 +7,17 @@ import stylesheetHrefs from '../../templates/stylesheets.json';
 interface CssOpts {
   cacheParam?: string;
   additionalCss?: string;
+  noStylesheets?: boolean;
 }
 
 export default function styleTags(opts: CssOpts = {}) {
-  const { cacheParam, additionalCss } = opts;
+  const { cacheParam, additionalCss, noStylesheets } = opts;
 
-  const cacheBustedCssHrefs = stylesheetHrefs.map(
-    href => (cacheParam ? `${href}?k=${cacheParam}` : href)
-  );
+  const cacheBustedCssHrefs = noStylesheets
+    ? []
+    : stylesheetHrefs.map(
+        href => (cacheParam ? `${href}?k=${cacheParam}` : href)
+      );
 
   return [
     ...cacheBustedCssHrefs.map(href => (

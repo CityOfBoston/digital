@@ -1,11 +1,13 @@
 import React from 'react';
 import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
+import { css } from 'emotion';
 
 import Cart, { CartEntry } from '../../store/Cart';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CertificateRow from '../../common/CertificateRow';
+import { OPTIMISTIC_BLUE, FREEDOM_RED } from '../../common/style-constants';
 
 export interface Props {
   cart: Cart;
@@ -17,6 +19,29 @@ export interface Props {
 interface State {
   quantityHasFocus: boolean;
 }
+
+const QUANTITY_BOX_STYLE = css({
+  width: '2.5rem',
+  height: '2.5rem',
+  marginRight: '1rem',
+  fontFamily: 'inherit',
+  fontStyle: 'italic',
+  fontSize: '1rem',
+  background: OPTIMISTIC_BLUE,
+  color: 'white',
+  textAlign: 'right',
+  padding: '0.5rem',
+});
+
+const REMOVE_BUTTON_STYLE = css({
+  border: 'none',
+  background: 'transparent',
+  color: FREEDOM_RED,
+  fontSize: '2.5rem',
+  verticalAlign: 'middle',
+  cursor: 'pointer',
+  padding: '0 0 0.2em',
+});
 
 @observer
 export default class CartItem extends React.Component<Props, State> {
@@ -108,14 +133,14 @@ export default class CartItem extends React.Component<Props, State> {
               onChange={this.handleQuantityChange}
               onFocus={this.handleQuantityFocus}
               onBlur={this.handleQuantityBlur}
-              className="br br-a150 quantity-box"
+              className={`br br-a150 ${QUANTITY_BOX_STYLE}`}
             />,
 
             certificateDiv,
 
             <button
               key="removeButton"
-              className="remove-button"
+              className={REMOVE_BUTTON_STYLE}
               type="button"
               onClick={this.handleRemove}
               aria-label={`Remove ${cert.firstName} ${cert.lastName}`}
@@ -124,31 +149,6 @@ export default class CartItem extends React.Component<Props, State> {
             </button>,
           ]}
         </CertificateRow>
-
-        <style jsx key="style">{`
-          .quantity-box {
-            width: 2.5rem;
-            height: 2.5rem;
-            margin-right: 1rem;
-            font-family: inherit;
-            font-style: italic;
-            font-size: 1rem;
-            background: #288be4;
-            color: white;
-            text-align: right;
-            padding: 0.5rem;
-          }
-
-          .remove-button {
-            border: none;
-            background: transparent;
-            color: #091f2f;
-            font-size: 2.5rem;
-            vertical-align: middle;
-            cursor: pointer;
-            padding: 0 0 0.2em;
-          }
-        `}</style>
       </div>
     );
   }

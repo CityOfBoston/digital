@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+import { css } from 'emotion';
+
 import {
   CERTIFICATE_COST_STRING,
   PERCENTAGE_CC_STRING,
@@ -12,6 +14,11 @@ import {
 import Cart from '../../store/Cart';
 
 import CertificateRow from '../../common/CertificateRow';
+import {
+  GRAY_000,
+  CHARLES_BLUE,
+  OPTIMISTIC_BLUE,
+} from '../../common/style-constants';
 
 interface Props {
   cart: Cart;
@@ -22,6 +29,34 @@ interface Props {
 interface State {
   open: boolean;
 }
+
+const DRAWER_STYLE = css({
+  backgroundColor: GRAY_000,
+  marginTop: '0 !important',
+});
+
+const DRAWER_HEADER_STYLE = css({
+  padding: 0,
+});
+
+const DRAWER_ICON_STYLE = css({});
+
+const DRAWER_CONTENT_STYLE = css({
+  padding: 0,
+  display: 'block',
+});
+
+const OPEN_DRAWER_STYLE = css({
+  [` .${DRAWER_HEADER_STYLE}`]: {
+    backgroundColor: GRAY_000,
+    color: CHARLES_BLUE,
+  },
+
+  [` .${DRAWER_ICON_STYLE}`]: {
+    // This is forced only on "open" so that it can go to white on hover.
+    fill: `${OPTIMISTIC_BLUE} !important`,
+  },
+});
 
 export default class OrderDetails extends React.Component<Props, State> {
   static defaultProps = {
@@ -80,9 +115,13 @@ export default class OrderDetails extends React.Component<Props, State> {
     const { open } = this.state;
 
     return (
-      <div className={`dr ${open ? 'dr--open' : ''}`}>
+      <div
+        className={`dr ${DRAWER_STYLE} ${
+          open ? `dr--open ${OPEN_DRAWER_STYLE}` : ''
+        }`}
+      >
         <button
-          className="dr-h"
+          className={`dr-h ${DRAWER_HEADER_STYLE}`}
           type="button"
           onClick={this.toggleOpen}
           aria-expanded={open}
@@ -91,7 +130,7 @@ export default class OrderDetails extends React.Component<Props, State> {
             <div className="dr-ic">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 8.5 18 25">
                 <path
-                  className="dr-i"
+                  className={`dr-i ${DRAWER_ICON_STYLE}`}
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
                 />
               </svg>
@@ -113,7 +152,7 @@ export default class OrderDetails extends React.Component<Props, State> {
           role="region"
         >
           {open && (
-            <div className="dr-c" style={{ display: 'block' }}>
+            <div className={`dr-c ${DRAWER_CONTENT_STYLE}`}>
               {this.renderCart(cart, false)}
 
               <div className="t--subinfo p-a300">
@@ -135,30 +174,6 @@ export default class OrderDetails extends React.Component<Props, State> {
             </div>
           )}
         </VelocityTransitionGroup>
-
-        <style jsx>{`
-          .dr {
-            background-color: #f3f3f3;
-            margin-top: 0 !important;
-          }
-
-          .dr-h {
-            padding: 0;
-          }
-
-          .dr--open .dr-h {
-            background-color: #f3f3f3;
-            color: #091f2f;
-          }
-
-          .dr--open .dr-i {
-            fill: #288be4;
-          }
-
-          .dr-c {
-            padding: 0;
-          }
-        `}</style>
       </div>
     );
   }

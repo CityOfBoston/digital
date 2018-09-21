@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { css } from 'emotion';
 
 import {
   calculateCreditCardCost,
@@ -20,6 +21,49 @@ interface Props {
 interface State {
   serviceFeeType: ServiceFeeType;
 }
+
+const CLEARFIX_STYLE = css({
+  '&:after': {
+    content: "''",
+    display: 'table',
+    clear: 'both',
+  },
+});
+
+const COST_CELL_STYLE = css({
+  width: '5em',
+  verticalAlign: 'bottom',
+  // Gives us even spacing for the rows
+  lineHeight: 1.75,
+});
+
+const TOTAL_STYLE = css({
+  padding: '0',
+  lineHeight: 1,
+  fontStyle: 'normal',
+});
+
+const TOTAL_TEXT_STYLE = css({
+  // We want to re-use the responsive size from sh-title but be
+  // a little bit smaller.
+  fontSize: '80%',
+});
+
+const CARD_SELECT_STYLE = css({
+  lineHeight: 1,
+  display: 'inline-block',
+});
+
+const CARD_SELECT_FIELD_STYLE = css({
+  height: '2rem',
+  paddingRight: '3rem',
+});
+
+const CARD_SELECT_CONTAINER_STYLE = css({
+  '&:after': {
+    width: '2rem',
+  },
+});
 
 // Component to display the subtotal / service fee / shipping / total UI from
 // the cart and order review screens.
@@ -57,7 +101,7 @@ export default class CostSummary extends React.Component<Props, State> {
     const { total, subtotal, serviceFee } = this.calculateCost();
 
     return (
-      <div className="clearfix">
+      <div className={CLEARFIX_STYLE}>
         <table className="t--info ta-r" style={{ float: 'right' }}>
           <tbody>
             <tr>
@@ -65,24 +109,28 @@ export default class CostSummary extends React.Component<Props, State> {
                 {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
                 {CERTIFICATE_COST_STRING}
               </td>
-              <td className="cost-cell">${(subtotal / 100).toFixed(2)}</td>
+              <td className={COST_CELL_STYLE}>
+                ${(subtotal / 100).toFixed(2)}
+              </td>
             </tr>
 
             <tr>
               <td>{this.renderServiceFeeLabel()}</td>
-              <td className="cost-cell">${(serviceFee / 100).toFixed(2)}</td>
+              <td className={COST_CELL_STYLE}>
+                ${(serviceFee / 100).toFixed(2)}
+              </td>
             </tr>
 
             <tr>
               <td>U.S. shipping included</td>
-              <td className="cost-cell">
+              <td className={COST_CELL_STYLE}>
                 <i>$0.00</i>
               </td>
             </tr>
 
             <tr>
-              <td className="sh-title">
-                <span>Total</span>
+              <td className={`sh-title ${TOTAL_STYLE}`}>
+                <span className={TOTAL_TEXT_STYLE}>Total</span>
               </td>
               <td className="cost-cell cost br br-t100 p-v200">
                 ${(total / 100).toFixed(2)}
@@ -90,32 +138,6 @@ export default class CostSummary extends React.Component<Props, State> {
             </tr>
           </tbody>
         </table>
-        <style jsx>{`
-          .clearfix:after {
-            content: '';
-            display: table;
-            clear: both;
-          }
-
-          .cost-cell {
-            width: 5em;
-            vertical-align: bottom;
-            // Gives us even spacing for the rows
-            line-height: 1.75;
-          }
-
-          .sh-title {
-            padding: 0;
-            line-height: 1;
-            font-style: normal;
-          }
-
-          .sh-title span {
-            // We want to re-use the responsive size from sh-title but be
-            // a little bit smaller.
-            font-size: 80%;
-          }
-        `}</style>
       </div>
     );
   }
@@ -127,11 +149,11 @@ export default class CostSummary extends React.Component<Props, State> {
     if (allowServiceFeeTypeChoice) {
       return (
         <div>
-          <div className="sel sel--thin" style={{ display: 'inline-block' }}>
-            <div className="sel-c">
+          <div className={`sel sel--thin ${CARD_SELECT_STYLE}`}>
+            <div className={`sel-c ${CARD_SELECT_CONTAINER_STYLE}`}>
               <select
                 id="serviceFeeTypeSelect"
-                className="sel-f"
+                className={`sel-f ${CARD_SELECT_FIELD_STYLE}`}
                 onChange={this.handleCardOptionChanged}
                 value={serviceFeeType}
                 aria-label="Payment type"
@@ -145,24 +167,6 @@ export default class CostSummary extends React.Component<Props, State> {
           <a href="#service-fee" aria-label="About the service fee">
             *
           </a>
-          <style jsx>{`
-            label {
-              white-space: nowrap;
-            }
-
-            .sel {
-              line-height: 1;
-            }
-
-            .sel--thin .sel-f {
-              height: 2rem;
-              padding-right: 3rem;
-            }
-
-            .sel-c:after {
-              width: 2rem;
-            }
-          `}</style>
         </div>
       );
     } else {

@@ -2,6 +2,7 @@
 
 import { configure as mobxConfigure } from 'mobx';
 import Router from 'next/router';
+import { hydrate } from 'emotion';
 
 import { Context as NextContext } from 'next';
 
@@ -45,6 +46,12 @@ export function initBrowser() {
   }
 
   browserInited = true;
+
+  // Adds server generated styles to emotion cache.
+  // '__NEXT_DATA__.ids' is set in '_document.js'
+  if (typeof window !== 'undefined') {
+    hydrate((window as any).__NEXT_DATA__.ids);
+  }
 
   mobxConfigure({ enforceActions: true });
 

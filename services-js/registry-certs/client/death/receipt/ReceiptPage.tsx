@@ -1,15 +1,69 @@
 import React from 'react';
 import Head from 'next/head';
+import { css } from 'emotion';
 
 import { DeathCertificateOrder } from '../../types';
 
 import { getDependencies, ClientContext, ClientDependencies } from '../../app';
 
-import { GRAY_200 } from '../../common/style-constants';
+import { GRAY_200, MEDIA_PRINT } from '../../common/style-constants';
 
 interface Props {
   order: DeathCertificateOrder | null;
 }
+
+const PAGE_STYLE = css({
+  [MEDIA_PRINT]: {
+    ' *': {
+      color: '#000 !important',
+    },
+  },
+});
+
+const MAIN_BLOCK_STYLE = css({
+  [MEDIA_PRINT]: {
+    minWidth: '100% !important',
+    padding: '0 !important',
+  },
+});
+
+const PRINT_BUTTON_STYLE = css({
+  fontStyle: 'italic',
+  [MEDIA_PRINT]: {
+    display: 'none',
+  },
+});
+
+const RECEIPT_CONTENT_STYLE = css({
+  [MEDIA_PRINT]: {
+    backgroundColor: 'white !important',
+  },
+});
+
+const LOGO_HOLDER_STYLE = css({
+  display: 'flex',
+  justifyContent: 'space-between',
+});
+
+const RECEIPT_TITLE_STYLE = css({
+  fontWeight: 'bold',
+  lineHeight: 1.4,
+});
+
+const RECEIPT_VALUE_STYLE = css({
+  fontStyle: 'italic',
+  lineHeight: 1.4,
+});
+
+const ITEMS_TABLE_STYLE = css({
+  width: '100%',
+  lineHeight: 1.4,
+});
+
+const SEAL_HOLDER_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+});
 
 export default class ReceiptPage extends React.Component<Props> {
   static async getInitialProps(
@@ -66,13 +120,13 @@ export default class ReceiptPage extends React.Component<Props> {
     } = order;
 
     return (
-      <div className="b-ff">
+      <div className={`b-ff ${PAGE_STYLE}`}>
         <Head>
           <title>Boston.gov — Death Certificates — Order #{order.id}</title>
         </Head>
 
-        <div className="b-c b-c--hsm b-ff">
-          <div className="lo m-b300 logo-holder">
+        <div className={`b-c b-c--hsm b-ff ${MAIN_BLOCK_STYLE}`}>
+          <div className={`lo m-b300 ${LOGO_HOLDER_STYLE}`}>
             <span className="lo-l">
               <img
                 src="https://patterns.boston.gov/images/public/logo.svg"
@@ -81,16 +135,15 @@ export default class ReceiptPage extends React.Component<Props> {
               />
             </span>
             <a
-              className="print-button"
+              className={PRINT_BUTTON_STYLE}
               href="javascript:void(0)"
               onClick={() => window.print()}
-              style={{ fontStyle: 'italic' }}
             >
               Print this page
             </a>
           </div>
 
-          <div className="b--g br br-a200">
+          <div className={`b--g br br-a200 ${RECEIPT_CONTENT_STYLE}`}>
             <div className="p-a300" style={{ paddingBottom: 0 }}>
               <div className="sh sh--sm">
                 <h1 className="sh-title">Thank you for your order</h1>
@@ -100,20 +153,20 @@ export default class ReceiptPage extends React.Component<Props> {
                 <div className="g">
                   <div className="g--6">
                     <div className="m-t200">
-                      <span className="receipt-title">Date:</span>{' '}
-                      <span className="receipt-value">{date}</span>
+                      <span className={RECEIPT_TITLE_STYLE}>Date:</span>{' '}
+                      <span className={RECEIPT_VALUE_STYLE}>{date}</span>
                     </div>
                     <div className="m-t200">
-                      <span className="receipt-title">Order #:</span>{' '}
-                      <span className="receipt-value">{id}</span>
+                      <span className={RECEIPT_TITLE_STYLE}>Order #:</span>{' '}
+                      <span className={RECEIPT_VALUE_STYLE}>{id}</span>
                     </div>
                   </div>
 
                   <div className="g--6">
-                    <div className="m-t200 receipt-title">
+                    <div className={`m-t200 ${RECEIPT_TITLE_STYLE}`}>
                       Shipping information:
                     </div>
-                    <div className="receipt-value">
+                    <div className={RECEIPT_VALUE_STYLE}>
                       {shippingName}
                       <br />
                       {shippingCompanyName
@@ -131,18 +184,18 @@ export default class ReceiptPage extends React.Component<Props> {
 
                 <div className="m-t700">
                   <div
-                    className="receipt-title"
+                    className={RECEIPT_TITLE_STYLE}
                     style={{ fontSize: '1.333rem' }}
                   >
                     Order:
                   </div>
-                  <table>
+                  <table className={ITEMS_TABLE_STYLE}>
                     <tbody>
                       {items.map(
                         ({ certificate, quantity, cost }) =>
                           certificate && (
                             <tr key={certificate.id}>
-                              <td className="receipt-value">
+                              <td className={RECEIPT_VALUE_STYLE}>
                                 {quantity} × Death certificate for{' '}
                                 {certificate.firstName} {certificate.lastName}
                               </td>
@@ -157,14 +210,16 @@ export default class ReceiptPage extends React.Component<Props> {
                       )}
 
                       <tr>
-                        <td className="receipt-value">Subtotal</td>
+                        <td className={RECEIPT_VALUE_STYLE}>Subtotal</td>
                         <td className="ta-r" style={{ fontWeight: 'bold' }}>
                           ${(subtotal / 100).toFixed(2)}
                         </td>
                       </tr>
 
                       <tr>
-                        <td className="receipt-value">Card service fee*</td>
+                        <td className={RECEIPT_VALUE_STYLE}>
+                          Card service fee*
+                        </td>
                         <td className="ta-r" style={{ fontWeight: 'bold' }}>
                           ${(serviceFee / 100).toFixed(2)}
                         </td>
@@ -183,7 +238,7 @@ export default class ReceiptPage extends React.Component<Props> {
                 backgroundColor: GRAY_200,
               }}
             >
-              <table>
+              <table className={ITEMS_TABLE_STYLE}>
                 <tbody>
                   <tr className="total-row t--sans sh--sm">
                     <td className="sh-title">Total</td>
@@ -209,7 +264,7 @@ export default class ReceiptPage extends React.Component<Props> {
             </div>
           </div>
 
-          <div className="t--info m-v300 seal-holder">
+          <div className={`t--info m-v300 ${SEAL_HOLDER_STYLE}`}>
             <img
               src="https://patterns.boston.gov/images/public/seal.svg"
               alt=""
@@ -224,54 +279,6 @@ export default class ReceiptPage extends React.Component<Props> {
             </div>
           </div>
         </div>
-
-        <style jsx>
-          {`
-            @media print {
-              .print-button {
-                display: none;
-              }
-
-              * {
-                color: #000 !important;
-              }
-
-              .b-c--hsm {
-                min-width: 100% !important;
-                padding: 0 !important;
-              }
-
-              .b--g {
-                background-color: white !important;
-              }
-            }
-
-            .logo-holder {
-              display: flex;
-              justify-content: space-between;
-            }
-
-            .receipt-title {
-              font-weight: bold;
-              line-height: 1.4;
-            }
-
-            .receipt-value {
-              font-style: italic;
-              line-height: 1.4;
-            }
-
-            table {
-              width: 100%;
-              line-height: 1.4;
-            }
-
-            .seal-holder {
-              display: flex;
-              align-items: center;
-            }
-          `}
-        </style>
       </div>
     );
   }
