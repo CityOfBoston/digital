@@ -396,6 +396,7 @@ export async function waitForDeployment(
 }
 
 export async function postToSlack(
+  scriptPath: string,
   stage: 'start' | 'error' | 'complete' | 's3-complete',
   error?: string
 ) {
@@ -418,7 +419,7 @@ export async function postToSlack(
     const travisUrl = `https://travis-ci.org/${
       process.env.TRAVIS_REPO_SLUG
     }/builds/${process.env.TRAVIS_BUILD_ID}`;
-    const footer = 'travis-service-deploy.ts';
+    const footer = path.basename(scriptPath);
     const footerIcon = 'https://twemoji.maxcdn.com/2/72x72/1f380.png';
 
     const webhook = new IncomingWebhook(webhookUrl);
