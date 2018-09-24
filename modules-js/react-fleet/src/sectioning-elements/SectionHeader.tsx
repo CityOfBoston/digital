@@ -14,7 +14,7 @@ export default function SectionHeader(props: Props): JSX.Element {
     'm-b300'
   ];
 
-  if (yellow!) {
+  if (yellow) {
     classes.push('sh--y');
   }
 

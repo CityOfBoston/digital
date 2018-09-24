@@ -1,15 +1,28 @@
-import React, { SelectHTMLAttributes } from 'react';
+import React from 'react';
 import hash from 'string-hash';
 
 
-interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
+interface Props {
   label: string;
+  small?: boolean;
+  hideLabel?: boolean;
+  hideBlankOption?: boolean;
+  options: string[];
+
+  id?: string;
+  className?: string;
+  style?: object;
+  name?: string;
+  defaultValue?: string;
+  required?: boolean;
+
+  value?: string;
+  disabled?: boolean;
   error?: string | boolean;
 
-  variant?: 'small';
-  hideLabel?: boolean;
-  hideBlank?: boolean;
-  options: string[];
+  onBlur?(e: any): void;
+  onChange?(e: any): void;
+  onFocus?(e: any): void;
 }
 
 /**
@@ -25,13 +38,12 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
  * todo: currently assumes it will receive an array of strings to create its <option>s; there may be cases when we want an option to have a different value from its displayed text, and pass in an array of objects instead. - 9/21 jm
  */
 export default function SelectDropdown(props: Props): JSX.Element {
-  const { error, hideLabel, label, required, variant } = props;
-  const id = props.id || `select-${hash(label)}`;
+  const id = props.id || `select-${hash(props.label)}`;
 
   const classNames = {
-    label: `txt-l ${variant === 'small' ? 'txt-l--sm' : ''}`,
-    container: `sel-c ${variant === 'small' ? 'sel-c--thin' : ''} ${error ? 'sel-c--err' : ''}`,
-    select: `sel-f ${variant === 'small' ? 'sel-f--thin' : ''} ${error ? 'sel-f--err' : ''}`
+    label: `txt-l ${ props.small ? 'txt-l--sm' : ''}`,
+    container: `sel-c ${ props.small ? 'sel-c--thin' : ''} ${props.error ? 'sel-c--err' : ''}`,
+    select: `sel-f ${ props.small ? 'sel-f--thin' : ''} ${props.error ? 'sel-f--err' : ''}`
   };
 
   return (
@@ -40,36 +52,36 @@ export default function SelectDropdown(props: Props): JSX.Element {
         htmlFor={id}
         className={classNames.label}
       >
-        {hideLabel ?
-          <React.Fragment>&nbsp;</React.Fragment>
+        {props.hideLabel ?
+          <>&nbsp;</>
 
           :
 
           <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
-            {label}
+            {props.label}
           </span>
         }
 
-        {required && <span className="t--req">Required</span>}
+        {props.required && <span className="t--req">Required</span>}
       </label>
 
       <div className={classNames.container}>
         <select
           id={id}
           className={classNames.select}
-          aria-label={hideLabel ? label : ''}
+          aria-label={props.hideLabel ? props.label : ''}
           name={props.name}
 
           value={props.value}
           defaultValue={props.defaultValue}
           disabled={props.disabled}
-          required={required}
+          required={props.required}
 
           onBlur={props.onBlur}
           onChange={props.onChange}
           onFocus={props.onFocus}
         >
-          {!props.hideBlank && <option />}
+          {!props.hideBlankOption && <option />}
 
           {props.options.map(option => (
             <option key={`${id}_${option}`}>{option}</option>

@@ -248,7 +248,7 @@ export default class ApplyPage extends React.Component<Props> {
                   value={values.comments}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  variant="small"
+                  small
                   hideLabel
                 />
 

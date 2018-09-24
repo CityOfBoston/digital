@@ -55,12 +55,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                 onChange={[Function]}
                 placeholder="First Name"
                 required={true}
-                style={
-                  Object {
-                    "paddingLeft": "0.5rem",
-                    "paddingRight": "0.5rem",
-                  }
-                }
                 type="text"
                 value=""
               />
@@ -92,12 +86,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                 id="middleName"
                 onBlur={[Function]}
                 onChange={[Function]}
-                style={
-                  Object {
-                    "paddingLeft": "0.5rem",
-                    "paddingRight": "0.5rem",
-                  }
-                }
                 type="text"
                 value=""
               />
@@ -137,12 +125,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               onChange={[Function]}
               placeholder="Last Name"
               required={true}
-              style={
-                Object {
-                  "paddingLeft": "0.5rem",
-                  "paddingRight": "0.5rem",
-                }
-              }
               type="text"
               value=""
             />
@@ -185,12 +167,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               onChange={[Function]}
               placeholder="Street Address"
               required={true}
-              style={
-                Object {
-                  "paddingLeft": "0.5rem",
-                  "paddingRight": "0.5rem",
-                }
-              }
               type="text"
               value=""
             />
@@ -223,12 +199,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Unit or Apartment #"
-              style={
-                Object {
-                  "paddingLeft": "0.5rem",
-                  "paddingRight": "0.5rem",
-                }
-              }
               type="text"
               value=""
             />
@@ -271,12 +241,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               onChange={[Function]}
               placeholder="City"
               required={true}
-              style={
-                Object {
-                  "paddingLeft": "0.5rem",
-                  "paddingRight": "0.5rem",
-                }
-              }
               type="text"
               value=""
             />
@@ -287,7 +251,7 @@ exports[`Storyshots ApplyPage default 1`] = `
             </div>
           </div>
           <div
-            className="css-12qrxy2"
+            className="css-tin11h"
           >
             <div>
               <label
@@ -318,12 +282,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                 onChange={[Function]}
                 placeholder="State"
                 required={true}
-                style={
-                  Object {
-                    "paddingLeft": "0.5rem",
-                    "paddingRight": "0.5rem",
-                  }
-                }
                 type="text"
                 value=""
               />
@@ -362,12 +320,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                 onChange={[Function]}
                 placeholder="Zip Code"
                 required={true}
-                style={
-                  Object {
-                    "paddingLeft": "0.5rem",
-                    "paddingRight": "0.5rem",
-                  }
-                }
                 type="text"
                 value=""
               />
@@ -408,12 +360,6 @@ exports[`Storyshots ApplyPage default 1`] = `
             onChange={[Function]}
             placeholder="Phone Number"
             required={true}
-            style={
-              Object {
-                "paddingLeft": "0.5rem",
-                "paddingRight": "0.5rem",
-              }
-            }
             type="text"
             value=""
           />
@@ -452,12 +398,6 @@ exports[`Storyshots ApplyPage default 1`] = `
             onChange={[Function]}
             placeholder="Email"
             required={true}
-            style={
-              Object {
-                "paddingLeft": "0.5rem",
-                "paddingRight": "0.5rem",
-              }
-            }
             type="text"
             value=""
           />
@@ -496,12 +436,6 @@ exports[`Storyshots ApplyPage default 1`] = `
             onChange={[Function]}
             placeholder="Confirm Email"
             required={true}
-            style={
-              Object {
-                "paddingLeft": "0.5rem",
-                "paddingRight": "0.5rem",
-              }
-            }
             type="text"
             value=""
           />
@@ -547,12 +481,6 @@ exports[`Storyshots ApplyPage default 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Type of Degree"
-          style={
-            Object {
-              "paddingLeft": "0.5rem",
-              "paddingRight": "0.5rem",
-            }
-          }
           type="text"
           value=""
         />
@@ -585,12 +513,6 @@ exports[`Storyshots ApplyPage default 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Degree Attained"
-          style={
-            Object {
-              "paddingLeft": "0.5rem",
-              "paddingRight": "0.5rem",
-            }
-          }
           type="text"
           value=""
         />
@@ -623,12 +545,6 @@ exports[`Storyshots ApplyPage default 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Educational Institution"
-          style={
-            Object {
-              "paddingLeft": "0.5rem",
-              "paddingRight": "0.5rem",
-            }
-          }
           type="text"
           value=""
         />
@@ -661,12 +577,6 @@ exports[`Storyshots ApplyPage default 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Other Information"
-          style={
-            Object {
-              "paddingLeft": "0.5rem",
-              "paddingRight": "0.5rem",
-            }
-          }
           type="text"
           value=""
         />

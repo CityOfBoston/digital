@@ -7,22 +7,29 @@ import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
 import TextInputContainer from './common/TextInputContainer';
 
 
-const COMMON_MARGIN = 0.75;
+/**
+ * Fleet grid classes behave as block elements at narrow viewports, which
+ * prevents fields from being positioned in the same row when on mobile.
+ *
+ * If flexbox support is not available, fields will be treated as block elements.
+ */
 
-const COMMON_STYLING = `
+const COLUMN_GAP = 0.75;
+
+const COMMON_GROUP_STYLING = `
   display: flex;
   
   > div:not(:last-of-type) {
-    margin-right: ${COMMON_MARGIN}rem;
+    margin-right: ${COLUMN_GAP}rem;
     
     ${MEDIA_MEDIUM} {
-      margin-right: ${COMMON_MARGIN * 2}rem;  
+      margin-right: ${COLUMN_GAP * 2}rem;  
     }
   }
 `;
 
 const NAME_STREET_STYLING = css(`
-  ${COMMON_STYLING}
+  ${COMMON_GROUP_STYLING}
   
   > div {
     &:first-of-type {
@@ -36,11 +43,11 @@ const NAME_STREET_STYLING = css(`
 `);
 
 const STATE_ZIP_STYLING = css(`
-  ${COMMON_STYLING}
+  ${COMMON_GROUP_STYLING}
   
   > div {
     &:first-of-type {
-      flex-basis: 8rem;
+      flex-basis: 7rem;
     }
     
     &:last-of-type {
@@ -57,7 +64,7 @@ const SPLIT_STYLING = css(`
       flex-basis: 50%;
       
       &:first-of-type {
-        margin-right: ${COMMON_MARGIN * 2}rem;
+        margin-right: ${COLUMN_GAP * 2}rem;
       }
     }
   }

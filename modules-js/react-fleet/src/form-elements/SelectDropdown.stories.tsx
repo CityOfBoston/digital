@@ -5,7 +5,7 @@ import SelectDropdown from './SelectDropdown';
 
 storiesOf('Form Elements/Select', module)
   .add('Default Dropdown', () => (
-    <React.Fragment>
+    <>
       <SelectDropdown
         label="Default Dropdown"
         options={[
@@ -36,11 +36,12 @@ storiesOf('Form Elements/Select', module)
           'Tetris'
         ]}
       />
-    </React.Fragment>
+    </>
   ))
   .add('Small Dropdown', () => (
     <SelectDropdown
-      variant="small"
+      small
+      hideBlankOption
       label="Small Dropdown"
       options={[
         'Ash',

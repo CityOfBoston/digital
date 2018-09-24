@@ -5,7 +5,7 @@ import Textarea from './Textarea';
 
 storiesOf('Form Elements/Textarea', module)
   .add('visible label', () => (
-    <React.Fragment>
+    <>
       <Textarea
         name="comments"
         label="Other Comments"
@@ -22,12 +22,12 @@ storiesOf('Form Elements/Textarea', module)
         value=""
         onChange={() => {}}
         onBlur={() => {}}
-        variant="small"
+        small
       />
-    </React.Fragment>
+    </>
   ))
   .add('hidden label', () => (
-    <React.Fragment>
+    <>
       <Textarea
         name="comments"
         label="Other Comments"
@@ -46,7 +46,7 @@ storiesOf('Form Elements/Textarea', module)
         onChange={() => {}}
         onBlur={() => {}}
         hideLabel
-        variant="small"
+        small
       />
-    </React.Fragment>
+    </>
   ));

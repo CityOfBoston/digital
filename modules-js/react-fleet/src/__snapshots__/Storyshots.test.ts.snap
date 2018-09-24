@@ -540,12 +540,6 @@ Array [
       aria-label=""
       className="txt-f  "
       id="input-240483872"
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="text"
     />
     <div
@@ -580,12 +574,6 @@ Array [
       className="txt-f  "
       id="input-1357588218"
       required={true}
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="text"
     />
     <div
@@ -615,12 +603,6 @@ Array [
       className="txt-f  "
       id="input-423803610"
       onChange={[Function]}
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="password"
       value="password"
     />
@@ -650,12 +632,6 @@ Array [
       aria-label=""
       className="txt-f  txt-f--err"
       id="input-2348632648"
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="text"
     />
     <div
@@ -684,12 +660,6 @@ Array [
       aria-label=""
       className="txt-f  txt-f--err"
       id="input-3077581017"
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="text"
     />
     <div
@@ -719,12 +689,6 @@ Array [
       className="txt-f txt-f--sm "
       id="input-472033325"
       placeholder="Placeholder Text"
-      style={
-        Object {
-          "paddingLeft": "0.5rem",
-          "paddingRight": "0.5rem",
-        }
-      }
       type="text"
     />
     <div
@@ -964,7 +928,6 @@ exports[`Storyshots Form Elements/Select Small Dropdown 1`] = `
       className="sel-f sel-f--thin "
       id="select-4045240769"
     >
-      <option />
       <option>
         Ash
       </option>
@@ -986,7 +949,7 @@ Array [
   >
     <textarea
       aria-label="Other Comments"
-      className="txt-f false  "
+      className="txt-f   "
       id="FeedbackForm-comments"
       name="comments"
       onBlur={[Function]}
@@ -1020,14 +983,14 @@ Array [
     className="txt"
   >
     <label
-      className="txt-l false"
+      className="txt-l "
       htmlFor="FeedbackForm-comments"
     >
       Other Comments
     </label>
     <textarea
       aria-label=""
-      className="txt-f false  "
+      className="txt-f   "
       id="FeedbackForm-comments"
       name="comments"
       onBlur={[Function]}

@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 import hash from 'string-hash';
 
 
@@ -13,21 +13,39 @@ import hash from 'string-hash';
  * If hideLabel is specified, the label text will be added as an aria-label
  * attribute on the input element.
  */
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props {
   label: string;
+  type?: string;
+  small?: boolean;
+  hideLabel?: boolean;
+
+  id?: string;
+  className?: string;
+  style?: object;
+  name?: string;
+  defaultValue?: string;
+  placeholder?: string;
+
+  required?: boolean;
+  inputMode?: string;
+  maxLength?: number;
+  minLength?: number;
+
+  value?: string;
+  disabled?: boolean;
   error?: string | boolean;
 
-  variant?: 'small';
-  hideLabel?: boolean;
+  onBlur?(e: any): void;
+  onChange?(e: any): void;
+  onFocus?(e: any): void;
 }
 
 export default function TextInput(props: Props): JSX.Element {
-  const { error, hideLabel, label, required, variant } = props;
-  const id = props.id || `input-${hash(label)}`;
+  const id = props.id || `input-${hash(props.label)}`;
 
   const classNames = {
-    label: `txt-l ${variant === 'small' ? 'txt-l--sm' : ''}`,
-    input: `txt-f ${variant === 'small' ? 'txt-f--sm' : ''} ${error ? 'txt-f--err' : ''}`
+    label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
+    input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${props.error ? 'txt-f--err' : ''}`
   };
 
   return (
@@ -36,24 +54,23 @@ export default function TextInput(props: Props): JSX.Element {
         htmlFor={id}
         className={classNames.label}
       >
-        {hideLabel ?
-          <React.Fragment>&nbsp;</React.Fragment>
+        {props.hideLabel ?
+          <>&nbsp;</>
 
           :
 
           <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
-            {label}
+            {props.label}
           </span>
         }
 
-        {required && <span className="t--req">Required</span>}
+        {props.required && <span className="t--req">Required</span>}
       </label>
 
       <input
-        style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem' }}
         className={classNames.input}
         id={id}
-        aria-label={hideLabel ? label : ''}
+        aria-label={props.hideLabel ? props.label : ''}
         type={props.type || 'text'}
         name={props.name}
         placeholder={props.placeholder}
@@ -62,7 +79,7 @@ export default function TextInput(props: Props): JSX.Element {
         defaultValue={props.defaultValue}
         disabled={props.disabled}
 
-        required={required}
+        required={props.required}
         inputMode={props.inputMode}
         maxLength={props.maxLength}
         minLength={props.minLength}
@@ -75,12 +92,12 @@ export default function TextInput(props: Props): JSX.Element {
 
       <div className="t--subinfo t--err m-t100">
         {/* The &nbsp; is to keep space for the error so the form doesn't jump when one is added. */}
-        {error && typeof error === 'string' ?
-          error
+        {props.error && typeof props.error === 'string' ?
+          props.error
 
           :
 
-          <React.Fragment>&nbsp;</React.Fragment>
+          <>&nbsp;</>
         }
       </div>
     </div>
