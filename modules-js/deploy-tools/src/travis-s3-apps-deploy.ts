@@ -20,7 +20,7 @@ const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
 const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
 
 (async function() {
-  await postToSlack('start');
+  await postToSlack(__filename, 'start');
 
   console.error(BANNER);
 
@@ -50,7 +50,7 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
   await uploadToS3(buildDirPath, bucket, serviceName);
   console.error();
 
-  await postToSlack('s3-complete');
+  await postToSlack(__filename, 's3-complete');
 
   console.error(`💅 Successfully uploaded ${serviceName} to ${bucket}.`);
 })().catch(e => {

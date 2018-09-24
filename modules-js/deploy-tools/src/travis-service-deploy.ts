@@ -38,7 +38,7 @@ const workspaceDir = isolatedDocker ? '.' : path.resolve('../..');
 const cacheTag = 'latest';
 
 (async function() {
-  await postToSlack('start');
+  await postToSlack(__filename, 'start');
 
   const repository = await getRepository(environment, serviceName);
 
@@ -192,7 +192,7 @@ const cacheTag = 'latest';
     console.error();
   }
 
-  await postToSlack('complete');
+  await postToSlack(__filename, 'complete');
 
   console.error(
     `💅 Successfully deployed ${serviceName}${
