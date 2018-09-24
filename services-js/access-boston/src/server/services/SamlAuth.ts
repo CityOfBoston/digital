@@ -48,6 +48,8 @@ export interface SamlLoginResult {
   nameId: string;
   sessionIndex: string;
   groups: string[];
+  needsNewPassword: boolean;
+  needsMfaDevice: boolean;
 }
 
 export interface SamlLogoutRequestResult {
@@ -272,6 +274,10 @@ export default class SamlAuth {
           nameId: saml.user.name_id,
           sessionIndex: saml.user.session_index,
           groups: parseGroupsAttribute(saml.user.attributes.groups || []),
+          // TODO(finh): Switch these to the real values once IAM is able to
+          // send that data in the assertion.
+          needsNewPassword: false,
+          needsMfaDevice: false,
         };
       case 'logout_request':
         return {

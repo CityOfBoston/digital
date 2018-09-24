@@ -149,7 +149,13 @@ export async function addLoginAuth(
         );
       }
 
-      const { nameId, sessionIndex, groups } = assertResult;
+      const {
+        nameId,
+        sessionIndex,
+        groups,
+        needsMfaDevice,
+        needsNewPassword,
+      } = assertResult;
 
       // This will be read by the validate method above when doing authentication.
       const loginAuth: LoginAuth = {
@@ -163,6 +169,8 @@ export async function addLoginAuth(
       const session: LoginSession = {
         type: 'login',
         groups,
+        needsNewPassword,
+        needsMfaDevice,
       };
 
       request.yar.set(LOGIN_SESSION_KEY, session);

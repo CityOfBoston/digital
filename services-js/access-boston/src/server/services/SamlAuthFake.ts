@@ -37,19 +37,25 @@ export default class SamlAuthFake implements Required<SamlAuth> {
 
   handlePostAssert(body: string): Promise<SamlAssertResult> {
     const payload = querystring.parse(body.trim());
+    const userId = Array.isArray(payload.userId)
+      ? payload.userId[0]
+      : payload.userId;
+
+    const isNewUser = userId.startsWith('NEW');
 
     const result: SamlLoginResult = {
       type: 'login',
-      nameId: Array.isArray(payload.userId)
-        ? payload.userId[0]
-        : payload.userId,
+      nameId: userId,
       sessionIndex: 'session',
       groups: [
         'COB-Group-TestGrp01',
         'SG_AB_IAM_TEAM',
         'SG_AB_SERVICEDESK_USERS',
       ],
+      needsNewPassword: isNewUser,
+      needsMfaDevice: isNewUser,
     };
+
     return Promise.resolve(result);
   }
 

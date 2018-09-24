@@ -64,7 +64,9 @@ export default function PasswordPolicy({
 
   return (
     <>
-      <div className="t--info m-b200">New passwords must:</div>
+      <div className="txt-l m-b200" style={{ marginTop: 1 }}>
+        New passwords must:
+      </div>
 
       <ul className="ul" style={{ lineHeight: 1.6 }}>
         <li className={longEnough ? OK_PASSWORD_ROW : failedClassName}>
