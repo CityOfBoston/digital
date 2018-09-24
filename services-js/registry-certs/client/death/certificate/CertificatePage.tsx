@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
+import { css } from 'emotion';
 
 import { getDependencies, ClientContext, ClientDependencies } from '../../app';
 import { DeathCertificate } from '../../types';
@@ -36,6 +37,40 @@ interface Props extends InitialProps, Partial<DefaultProps> {}
 interface State {
   quantity: number | null;
 }
+
+const CERTIFICATE_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  justifyContent: 'space-between',
+});
+
+const LIST_ITEM_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+});
+
+const LIST_ITEM_ELEMENT_STYLE = css({
+  lineHeight: '1rem',
+  verticalAlign: 'center',
+});
+
+const LIST_ITEM_TITLE_STYLE = css(LIST_ITEM_ELEMENT_STYLE, {
+  paddingRight: '1em',
+  width: '30%',
+});
+
+const ADD_TO_CART_FORM_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+const QUANTITY_DROPDOWN_STYLE = css({
+  '&:after': {
+    content: "'Qty,'",
+  },
+});
 
 @observer
 class CertificatePage extends React.Component<Props & DefaultProps, State> {
@@ -231,7 +266,6 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
   }
 
   renderCertificate({
-    id,
     firstName,
     lastName,
     age,
@@ -240,60 +274,45 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
     birthDate,
   }: DeathCertificate) {
     return (
-      <div className="certificate">
+      <div className={CERTIFICATE_STYLE}>
         <ul className="dl">
-          <li className="dl-i">
-            <span className="dl-t">Certificate #</span>
-            <span className="dl-d">{id}</span>
+          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
+            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>First name</span>
+            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+              {firstName}
+            </span>
           </li>
-          <li className="dl-i">
-            <span className="dl-t">First name</span>
-            <span className="dl-d">{firstName}</span>
-          </li>
-          <li className="dl-i">
-            <span className="dl-t">Last name</span>
-            <span className="dl-d">{lastName}</span>
+          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
+            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>Last name</span>
+            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+              {lastName}
+            </span>
           </li>
           {birthDate && (
-            <li className="dl-i">
-              <span className="dl-t">Date of birth</span>
-              <span className="dl-d">{birthDate}</span>
+            <li className={`dl-i ${LIST_ITEM_STYLE}`}>
+              <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>
+                Date of birth
+              </span>
+              <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+                {birthDate}
+              </span>
             </li>
           )}
-          <li className="dl-i">
-            <span className="dl-t">Date of death</span>
-            <span className="dl-d">{deathDate || deathYear}</span>
+          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
+            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>
+              Date of death
+            </span>
+            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+              {deathDate || deathYear}
+            </span>
           </li>
           {age && (
-            <li className="dl-i">
-              <span className="dl-t">Age</span>
-              <span className="dl-d">{age}</span>
+            <li className={`dl-i ${LIST_ITEM_STYLE}`}>
+              <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>Age</span>
+              <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>{age}</span>
             </li>
           )}
         </ul>
-
-        <style jsx>{`
-          .certificate {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-          }
-          .dl-i {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-          }
-          .dl-t {
-            padding-right: 1em;
-            width: 30%;
-          }
-          .dl-t,
-          .dl-d {
-            line-height: 1rem;
-            vertical-align: center;
-          }
-        `}</style>
       </div>
     );
   }
@@ -305,7 +324,7 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
     const cartQuantity = cart.getQuantity(id);
 
     return (
-      <form onSubmit={this.handleAddToCart} className="js-add-to-cart-form">
+      <form onSubmit={this.handleAddToCart} className={ADD_TO_CART_FORM_STYLE}>
         <div className="m-r100">
           <input
             ref={this.setQuantityField}
@@ -319,7 +338,7 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
             }
             onChange={this.handleQuantityChange}
           />
-          <div className="sel-c sel-c--sq quantity-dropdown">
+          <div className={`sel-c sel-c--sq ${QUANTITY_DROPDOWN_STYLE}`}>
             <select
               name="quantityMenu"
               aria-label="Quantity menu"
@@ -363,16 +382,6 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
         >
           {cartQuantity ? 'Update Cart' : 'Add to Cart'}
         </button>
-        <style jsx>{`
-          form {
-            display: flex;
-            align-items: center;
-          }
-
-          .quantity-dropdown:after {
-            content: 'Qty.';
-          }
-        `}</style>
       </form>
     );
   }

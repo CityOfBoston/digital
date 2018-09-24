@@ -5,6 +5,8 @@ export const MEDIA_LARGE_MAX = '@media screen and (max-width: 840px)';
 export const MEDIA_X_LARGE = '@media screen and (min-width: 980px)';
 export const MEDIA_XX_LARGE = '@media screen and (min-width: 1280px)';
 
+export const MEDIA_PRINT = '@media print';
+
 export const HEADER_HEIGHT = 119;
 export const IPHONE_FOOTER_HEIGHT = 64;
 
@@ -17,6 +19,8 @@ export const GRAY_300 = '#828282';
 export const OPTIMISTIC_BLUE = '#288be4';
 export const CHARLES_BLUE = '#091f2f';
 export const FREEDOM_RED = '#fb4d42';
+
+export const SERIF = 'Lora, Georgia, serif';
 
 export const LORA_SRC =
   'https://patterns.boston.gov/fonts/lora/lora-regular-webfont.woff2';

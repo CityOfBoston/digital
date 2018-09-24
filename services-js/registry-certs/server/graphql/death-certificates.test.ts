@@ -6,8 +6,10 @@ import RegistryData from '../services/RegistryData';
 
 import fixtureData from '../../fixtures/registry-data/smith.json';
 
+const DEATH_DATE = '10/20/2016';
+
 beforeEach(() => {
-  MockDate.set('10/20/2016');
+  MockDate.set('09/12/2018');
 });
 
 afterEach(() => {
@@ -120,47 +122,56 @@ describe('DeathCertificates resolvers', () => {
 
 describe('parseAgeOrDateOfBirth', () => {
   test('null', () => {
-    expect(parseAgeOrDateOfBirth(null)).toEqual({ age: null, birthDate: null });
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, null)).toEqual({
+      age: null,
+      birthDate: null,
+    });
   });
 
   test('empty', () => {
-    expect(parseAgeOrDateOfBirth('')).toEqual({ age: null, birthDate: null });
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '')).toEqual({
+      age: null,
+      birthDate: null,
+    });
   });
 
   test('just age', () => {
-    expect(parseAgeOrDateOfBirth('45')).toEqual({ age: '45', birthDate: null });
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '45')).toEqual({
+      age: '45',
+      birthDate: null,
+    });
   });
 
   test('age with leading 0', () => {
-    expect(parseAgeOrDateOfBirth('045')).toEqual({
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '045')).toEqual({
       age: '45',
       birthDate: null,
     });
   });
 
   test('freeform age', () => {
-    expect(parseAgeOrDateOfBirth('2 mos. 11 dys')).toEqual({
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '2 mos. 11 dys')).toEqual({
       age: '2 mos. 11 dys',
       birthDate: null,
     });
   });
 
   test('just date', () => {
-    expect(parseAgeOrDateOfBirth('11/20/1970')).toEqual({
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '11/20/1970')).toEqual({
       age: '45',
       birthDate: '11/20/1970',
     });
   });
 
   test('just date with single digits', () => {
-    expect(parseAgeOrDateOfBirth('1/2/1970')).toEqual({
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '1/2/1970')).toEqual({
       age: '46',
       birthDate: '1/2/1970',
     });
   });
 
   test('combined age and date', () => {
-    expect(parseAgeOrDateOfBirth('46 YRS. (11/20/1970 )')).toEqual({
+    expect(parseAgeOrDateOfBirth(DEATH_DATE, '46 YRS. (11/20/1970 )')).toEqual({
       age: '46 YRS.',
       birthDate: '11/20/1970',
     });

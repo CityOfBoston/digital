@@ -1,7 +1,7 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import { FetchAccountQuery } from './queries';
+import { FetchAccount } from './queries';
 
-export type Account = FetchAccountQuery['account'];
+export type Account = FetchAccount['account'];
 
 const QUERY = gql`
   query FetchAccount {
@@ -12,5 +12,5 @@ const QUERY = gql`
 `;
 
 export default async function fetchAccount(fetchGraphql: FetchGraphql) {
-  return ((await fetchGraphql(QUERY)) as FetchAccountQuery).account;
+  return ((await fetchGraphql(QUERY)) as FetchAccount).account;
 }

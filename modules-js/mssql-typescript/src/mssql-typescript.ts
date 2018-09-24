@@ -1,17 +1,15 @@
 /**
  * @fileOverview
  *
- * This file exports functions from `sql-ts`. We make it its own module because
- * its dependencies fail on the latest version of `mssql`.
+ * This file exports functions from `sql-ts`. It was historically its own module
+ * because of versioning conflicts with knex and mssql.
  *
- * There are some "nohoist" shenannigans in the top-level package.json to force
- * this package to have its own local install of knex, to keep that library from
- * finding an mssql it’s incompatible with.
- *
- * knex@0.14.4 should solve this issue, but sql-ts is pegged at ^0.13.
+ * We have dependencies on mssql because knex dynamically depends on it. We also
+ * pull in the knex TypeScript types because sql-ts uses them.
  */
 
-import sqlts, { Database, Config } from '@rmp135/sql-ts';
+import sqlts, { Config } from '@rmp135/sql-ts';
+import { DecoratedDatabase } from '@rmp135/sql-ts/dist/Typings';
 
 const makeConfig = (connection: Config['connection']) => ({
   dialect: 'mssql',
@@ -21,7 +19,7 @@ const makeConfig = (connection: Config['connection']) => ({
 
 export async function toObject(
   connection: Config['connection']
-): Promise<Database> {
+): Promise<DecoratedDatabase> {
   return await sqlts.toObject(makeConfig(connection));
 }
 

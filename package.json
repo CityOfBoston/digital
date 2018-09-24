@@ -16,9 +16,7 @@
       "templates/js-*/build/*"
     ],
     "nohoist": [
-      "**/@cityofboston/config-*",
-      "**/knex",
-      "**/@rmp135/sql-ts"
+      "**/@cityofboston/config-typescript"
     ]
   },
   "scripts": {
@@ -26,9 +24,10 @@
     "prepublish": "lerna run --stream prepublish",
     "prepare": "lerna run --stream prepare",
     "precommit": "lint-staged",
-    "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop test",
+    "prepush": "jest --clearCache && npm run test:reset && lerna run --no-sort --stream --since origin/develop test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
-    "test": "lerna run  --no-sort test --",
+    "test": "npm run test:reset && lerna run --no-sort test --",
+    "test:reset": "lerna run --parallel test:reset",
     "test:since": "lerna run test --no-sort --since"
   },
   "lint-staged": {
@@ -40,9 +39,9 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
-    "jest": "^22.4.0",
+    "jest": "23.6.0",
     "khaos": "^0.9.3",
-    "lerna": "^3.0.0-beta",
+    "lerna": "3.4.0",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.0",
     "typescript": "^3.0.0",

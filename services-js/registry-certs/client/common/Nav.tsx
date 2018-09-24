@@ -1,15 +1,60 @@
 import React from 'react';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
+import { css } from 'emotion';
 
 import { getDependencies } from '../app';
 import Cart from '../store/Cart';
+import { CHARLES_BLUE, SERIF } from './style-constants';
 
 interface DefaultProps {
   cart: Cart;
 }
 
 interface Props extends Partial<DefaultProps> {}
+
+const BAR_STYLE = css({
+  display: 'flex',
+  height: 54,
+});
+
+const VIEW_CART_LINK_STYLE = css({
+  display: 'block !important',
+  textAlign: 'right',
+
+  // Remove the chevron for when 2ndary nav is a menu.
+  '&:after': {
+    display: 'none !important',
+  },
+});
+
+const CART_STYLE = css({
+  display: 'inline-block',
+  position: 'relative',
+  background: 'white',
+  color: CHARLES_BLUE,
+  padding: '0.5em 0',
+  marginRight: '1.25rem',
+  marginLeft: '1.25rem',
+  width: '3em',
+  textAlign: 'center',
+  fontStyle: 'italic',
+  fontFamily: SERIF,
+  fontSize: '1rem',
+
+  '&:before': {
+    content: "''",
+    display: 'block',
+    borderColor: 'transparent white transparent transparent',
+    borderWidth: '5px 10px',
+    borderStyle: 'solid',
+    position: 'absolute',
+    width: 0,
+    height: 0,
+    left: -20,
+    top: 12,
+  },
+});
 
 @observer
 class Nav extends React.Component<Props & DefaultProps> {
@@ -23,60 +68,13 @@ class Nav extends React.Component<Props & DefaultProps> {
 
     return (
       <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
-        <div className="nv-s-l bar">
+        <div className={`nv-s-l ${BAR_STYLE}`}>
           <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
-            <a className="nv-s-l-b back-link back-link-right">
-              View Cart <span className="cart-link">{cart.size}</span>
+            <a className={`nv-s-l-b ${VIEW_CART_LINK_STYLE}`}>
+              View Cart <span className={CART_STYLE}>{cart.size}</span>
             </a>
           </Link>
         </div>
-
-        <style jsx>{`
-          .bar {
-            display: flex;
-            height: 54px;
-          }
-
-          .back-link {
-            display: block !important;
-          }
-
-          .back-link-right {
-            text-align: right;
-          }
-
-          .back-link:after {
-            display: none !important;
-          }
-
-          .cart-link {
-            display: inline-block;
-            position: relative;
-            background: white;
-            color: #091f2f;
-            padding: 0.5em 0;
-            margin-right: 1.25rem;
-            margin-left: 1.25rem;
-            width: 3em;
-            text-align: center;
-            font-style: italic;
-            font-family: Lora, Georgia, serif;
-            font-size: 1rem;
-          }
-
-          .cart-link:before {
-            content: '';
-            display: block;
-            border-color: transparent white transparent transparent;
-            border-width: 5px 10px;
-            border-style: solid;
-            position: absolute;
-            width: 0;
-            height: 0;
-            left: -20px;
-            top: 12px;
-          }
-        `}</style>
       </nav>
     );
   }

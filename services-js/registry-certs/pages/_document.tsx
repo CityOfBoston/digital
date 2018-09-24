@@ -2,7 +2,7 @@
 import React from 'react';
 import { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
-import flush from 'styled-jsx/server';
+import { extractCritical } from 'emotion-server';
 
 import styleTags from '../client/common/style-tags';
 
@@ -19,6 +19,7 @@ declare global {
 
 type Props = {
   __NEXT_DATA__: any;
+  ids?: string[];
   cacheParam: string;
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string;
@@ -29,9 +30,7 @@ export default class extends Document {
 
   static getInitialProps({ renderPage }: DocumentContext): Props {
     const page = renderPage();
-
-    // Need this for styled-jsx styles to appear in server-rendered content.
-    const styles = flush();
+    const styles = extractCritical(page.html);
 
     // This is set by our standard deployment process.
     const cacheParam =
@@ -42,7 +41,7 @@ export default class extends Document {
 
     return {
       ...page,
-      styles,
+      ...styles,
       cacheParam,
       rollbarAccessToken: process.env.ROLLBAR_BROWSER_ACCESS_TOKEN,
       rollbarEnvironment:
@@ -54,7 +53,12 @@ export default class extends Document {
     super(props);
     this.props = props;
 
-    const { __NEXT_DATA__ } = props;
+    const { __NEXT_DATA__, ids } = props;
+
+    // These are the ids for Emotion classes already on the page.
+    if (ids) {
+      __NEXT_DATA__.ids = ids;
+    }
 
     __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY || 'test-api-key';
     __NEXT_DATA__.stripePublishableKey =

@@ -1,6 +1,8 @@
 dist: trusty
 services:
 - docker
+addons:
+- chrome: beta
 language: node_js
 env:
 - TZ=America/New_York
@@ -25,10 +27,14 @@ jobs:
     script: yarn run test
   - if: type IN (pull_request)
     install:
+    - gem install travis-artifacts
     - yarn install --frozen-lockfile --ignore-scripts
     - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies
       prepare
     script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
+    after_failure:
+    - travis-artifacts upload --path services-js/access-boston/screenshots --target-path
+      travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID
   - stage: deploy
     install:
     - yarn install --frozen-lockfile --ignore-scripts
@@ -43,5 +49,7 @@ jobs:
         all_branches: true
 notifications:
   slack:
+    on_success: always
+    on_failure: always
     rooms:
-      secure: AC039Rc34u59zEiO7zmPyzd4ii9QnL0Xf6o0YGQf37GJlJCTv712I4aOFZRWIkTLZfjH3vURNvwTDoTpx6PgAMu1bIcet1LGjsoYcjN7xXqPfqi7peXANEnVZzlUpGRkP8Y6TV3nYaE0g0gpuEqORm0Bgs7zgeCNiWNT35vPtvzc9U8E/Zx4nzYEzXJr1SWwBtM/E1bhGaIKzy338AJj9ZJOnxV3Qng7LYIOmkuxwTqLfJWNBd8Wj2pAP/HQ4XfFtcgEqfYwhtjGNYfLbDVJjdiul3UJ9/C4gHkfGEhhsfgyZjqJTRsZCZABWPsqZ5a+7diNXjUOuVyG2HwBIy2/9L6UnsA1y79HOVQ8k0tj7z8iXD36OSvv7bCCVyC7ymz7ViLld/moKYHCfHTNd/g6ES1eDbNiybg6gx3eIvgDIey0GNl5kjw8vIMb/3SNMSm/zZCrv4/DUZgei8xYjsEM6j1VUVVwhn6E6yOuMRgAuXUPO/w61w+lf+rgQZNfBS8+K/lZ0OQdb1eHWmUKL4EtqFuOpsrBbt0PCT3Rygb/O+eUSba7BcvUDDoYuah2rQmylR4kPQNYmLZgukwta+CZrLb988zR/vsGV6THtnluF3/kZm9v0SMXGqZQNgILwaV4ie0WsoAArWFd2A2CtKmVx4q9LYwNylb0pDr93zfDaN8=
+      secure: OUQAVcn1mSgqCdIX/3w7b/G1DFtxLR8OEBnWB4tTSHSfsu8I9t0z1P+G7Tya8nlz0mxjImJhnv/Ebp8ix0iPgq+e/HlSJeUV0IitTftdNLs0qbiSeM/z6qSpEFV/QP0ewnIDMbfNsotpinqLiTDJswMhwH7roD/TTbhJdxXKeHeIhDCPV25WUFgbaBC2z0np3bTQa21TcCUIjjgy5KKDrBOfXK78dnTE1JvqrTM1Sz+namIQ/YMOqkTRBU0IMX+jHSavigFSTbO16mzRBh2GgEYKBZYGURcEiLFpiD82jVevpHj4Qs3PV7BG4Gy9nFLjgJFH4Zfa3xYEU72nzjNCIgucxFPYK4PzEU5vo/mEbJQvDdiDlbgOfgyZWCtoFicIxYn/E+xy4NdnRvRR1ZmgVwtQZVG23qlWbqYHsjW2UopMyCHaBsoGIgX19CvZLS5/erBg/1YiQJAP37UB8wHguys+onlSpgg7OiBxqBGoyeyxnOdXG9D4TGyrBD9ReUJzGbyDnFzFTzsUMOf62JHPXN/b8JnfGmThqDYxTF0FXwOiG9pbVdI7sk36lIVRK2loR0veo18y4HwhxKfrOm38eldSUktIBggXBuoufveDWljbqm++EBLFT9PQy6unOpf3T03T7Im55/apfZIEjVqF2bXjauu/XaroJcS2RXwvPLQ=

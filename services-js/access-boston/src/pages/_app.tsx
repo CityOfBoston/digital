@@ -3,7 +3,7 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 import cookies from 'next-cookies';
-import { hydrate } from 'react-emotion';
+import { hydrate } from 'emotion';
 
 import {
   FetchGraphql,
@@ -58,6 +58,11 @@ export interface PageDependencies {
   fetchGraphql: FetchGraphql;
 }
 
+interface AppInitialProps {
+  ctx: NextContext<ExtendedIncomingMessage>;
+  Component: any;
+}
+
 interface InitialProps {
   pageProps: any;
   serverCrumb: string;
@@ -86,7 +91,10 @@ export default class AccessBostonApp extends App {
 
   private pageDependencies: PageDependencies;
 
-  static async getInitialProps({ Component, ctx }): Promise<InitialProps> {
+  static async getInitialProps({
+    Component,
+    ctx,
+  }: AppInitialProps): Promise<InitialProps> {
     const initialPageDependencies: GetInitialPropsDependencies = {
       fetchGraphql: makeFetchGraphql(getConfig(), ctx.req),
     };
@@ -95,14 +103,37 @@ export default class AccessBostonApp extends App {
     // server.
     const { crumb } = ctx.req ? cookies(ctx) : { crumb: '' };
 
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx, initialPageDependencies)
-      : {};
+    try {
+      const pageProps = Component.getInitialProps
+        ? await Component.getInitialProps(ctx, initialPageDependencies)
+        : {};
 
-    return {
-      pageProps,
-      serverCrumb: crumb || '',
-    };
+      return {
+        pageProps,
+        serverCrumb: crumb || '',
+      };
+    } catch (e) {
+      // TODO(finh): Be more pedantic about detecting these, possibly by
+      // checking the status code when doing GraphQL fetches.
+      if (e.message === 'Forbidden') {
+        const { res } = ctx;
+        if (res) {
+          res.writeHead(302, {
+            Location: '/login',
+          });
+          res.end();
+        } else {
+          window.location.href = '/login';
+        }
+
+        return {
+          pageProps: {},
+          serverCrumb: '',
+        };
+      } else {
+        throw e;
+      }
+    }
   }
 
   constructor(props: Props) {

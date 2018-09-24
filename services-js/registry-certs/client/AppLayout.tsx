@@ -2,16 +2,22 @@
 
 import React, { KeyboardEvent, MouseEvent } from 'react';
 import Link from 'next/link';
+import { css } from 'emotion';
 
 const headerHtml: string = require('../templates/header.html');
 const navigationHtml: string = require('../templates/navigation.html');
 const footerHtml: string = require('../templates/footer.html');
 
 import Nav from './common/Nav';
+import { FREEDOM_RED } from './common/style-constants';
 
 interface Props {
   showNav?: boolean;
 }
+
+const LAST_BREADCRUMB_STYLE = css({
+  color: FREEDOM_RED,
+});
 
 const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
   <div>
@@ -76,7 +82,7 @@ const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
             </li>
             <li className="brc-l-i">
               <Link href="/death">
-                <a>Death certificates</a>
+                <a className={LAST_BREADCRUMB_STYLE}>Death certificates</a>
               </Link>
             </li>
           </ul>
@@ -92,12 +98,6 @@ const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
       style={{ position: 'relative', zIndex: 2 }}
       dangerouslySetInnerHTML={{ __html: footerHtml }}
     />
-
-    <style jsx>{`
-      .brc li:last-child a {
-        color: #fb4d42;
-      }
-    `}</style>
   </div>
 );
 export default AppLayout;

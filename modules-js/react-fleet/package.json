@@ -24,31 +24,32 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
-    "emotion": "^9.2.9",
+    "emotion": "9.2.10",
     "prop-types": "^15.6.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "string-hash": "^1.1.3"
   },
   "peerDependencies": {
-    "@babel/runtime": "^7.0.0-beta"
+    "@babel/runtime": "7.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.42",
-    "@babel/core": "7.0.0-beta.42",
-    "@babel/preset-react": "^7.0.0-beta",
-    "@babel/runtime": "7.0.0-beta.42",
+    "@babel/cli": "7.0.0",
+    "@babel/core": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/runtime": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/percy-common": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
-    "@storybook/addon-actions": "^4.0.0-alpha.16",
-    "@storybook/addon-storyshots": "^4.0.0-alpha.16",
-    "@storybook/addons": "^4.0.0-alpha.16",
-    "@storybook/react": "^4.0.0-alpha.16",
+    "@storybook/addon-actions": "4.0.0-alpha.22",
+    "@storybook/addon-storyshots": "4.0.0-alpha.22",
+    "@storybook/addons": "4.0.0-alpha.22",
+    "@storybook/react": "4.0.0-alpha.22",
     "@types/cheerio": "^0.22.7",
     "@types/fs-extra": "^5.0.0",
-    "@types/jest": "^22.0.0",
+    "@types/jest": "23.x.x",
     "@types/node-fetch": "^1.6.9",
     "@types/react": "^16.4.7",
     "@types/storybook__addon-actions": "^3.0.3",
@@ -60,7 +61,7 @@
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
     "fs-extra": "^5.0.0",
-    "jest": "^22.4.0",
+    "jest": "23.6.0",
     "node-fetch": "^1.6.9",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",

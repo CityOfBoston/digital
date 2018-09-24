@@ -2,7 +2,26 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ForgotPasswordPage from '../pages/forgot';
+import { Account } from '../client/graphql/fetch-account';
 
-storiesOf('ForgotPasswordPage', module).add('default', () => (
-  <ForgotPasswordPage serverErrors={{}} />
-));
+const ACCOUNT: Account = {
+  employeeId: 'CON01234',
+};
+
+storiesOf('ForgotPasswordPage', module)
+  .add('default', () => (
+    <ForgotPasswordPage
+      account={ACCOUNT}
+      serverErrors={{}}
+      fetchGraphql={null as any}
+      showSuccessMessage={false}
+    />
+  ))
+  .add('success', () => (
+    <ForgotPasswordPage
+      account={ACCOUNT}
+      serverErrors={{}}
+      fetchGraphql={null as any}
+      showSuccessMessage
+    />
+  ));

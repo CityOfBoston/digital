@@ -2,8 +2,8 @@ import { gql } from '@cityofboston/next-client-common';
 import { LoopbackGraphql } from '../lib/loopback-graphql';
 
 import {
-  SearchDeathCertificatesQuery,
-  SearchDeathCertificatesQueryVariables,
+  SearchDeathCertificates,
+  SearchDeathCertificatesVariables,
 } from './graphql-types';
 
 import { DeathCertificateSearchResults } from '../types';
@@ -49,13 +49,13 @@ export default async function searchDeathCertificates(
   startYear: string | null,
   endYear: string | null
 ): Promise<DeathCertificateSearchResults> {
-  const queryVariables: SearchDeathCertificatesQueryVariables = {
+  const queryVariables: SearchDeathCertificatesVariables = {
     query,
     page,
     startYear,
     endYear,
   };
-  const response: SearchDeathCertificatesQuery = await loopbackGraphql(
+  const response: SearchDeathCertificates = await loopbackGraphql(
     QUERY,
     queryVariables
   );

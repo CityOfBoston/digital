@@ -1,17 +1,13 @@
-/* eslint no-console: 0 */
-
 import { Server as HapiServer } from 'hapi';
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
-import SamlAuthFake from './services/SamlAuthFake';
-
-import SessionAuth from './SessionAuth';
+import SamlAuthFake, { makeFakeLoginHandler } from './services/SamlAuthFake';
+import { BrowserAuthOptions } from '@cityofboston/hapi-common';
+import { getSessionAuth, setSessionAuth } from './Session';
 
 const FORGOT_METADATA_PATH = '/metadata-forgot.xml';
 const FORGOT_ASSERT_PATH = '/assert-forgot';
 const FORGOT_REDIRECT_PATH = '/forgot-redirect';
 const FAKE_FORGOT_LOGIN_FORM_PATH = '/fake-forgot-login-form';
-
-const FORGOT_COOKIE_AUTH_DECORATOR = 'forgotCookieAuth';
 
 interface Paths {
   forgotPath: string;
@@ -24,33 +20,29 @@ interface Paths {
  * auth with an MFA token. That difference means that the Ping configuration has
  * to separate it as a different app.
  *
- * We use a different everything from normal login to reduce the chances that we
- * "cross streams" and allow forgot password auth to authorize normal login
- * operations and vice-versa.
+ * We try to use a different everything from normal login to reduce the chances
+ * that we "cross streams" and allow forgot password auth to authorize normal
+ * login operations and vice-versa.
  */
 export async function addForgotPasswordAuth(
   server: HapiServer,
   { forgotPath }: Paths
 ) {
-  if (
-    process.env.NODE_ENV === 'production' &&
-    !process.env.FORGOT_COOKIE_PASSWORD
-  ) {
-    throw new Error('Must set $FORGOT_COOKIE_PASSWORD in production');
-  }
-
-  server.auth.strategy('forgot-password', 'cookie', {
-    // Fallback password so this runs in dev / test w/o extra configuration.
-    password:
-      process.env.FORGOT_COOKIE_PASSWORD || 'mnNNmmjr9Xfe9rWWqatKK7zesS9vvhdz',
-    cookie: 'fsid',
+  const authStrategyOptions: BrowserAuthOptions = {
     redirectTo: FORGOT_REDIRECT_PATH,
-    isSecure: process.env.NODE_ENV === 'production',
-    ttl: 60 * 60 * 1000,
-    clearInvalid: true,
-    keepAlive: false,
-    requestDecoratorName: FORGOT_COOKIE_AUTH_DECORATOR,
-  });
+
+    validate: request => {
+      const auth = getSessionAuth(request);
+
+      if (auth && auth.type === 'forgotPassword') {
+        return { credentials: { forgotPasswordAuth: auth } };
+      } else {
+        return null;
+      }
+    },
+  };
+
+  server.auth.strategy('forgot-password', 'browser', authStrategyOptions);
 
   // For the forgot password workflow, we use a separate SAML app because the
   // backend auth setup has to require the MFA at all times for these logins.
@@ -80,7 +72,6 @@ export async function addForgotPasswordAuth(
     samlAuth = new SamlAuthFake({
       assertUrl: FORGOT_ASSERT_PATH,
       loginFormUrl: FAKE_FORGOT_LOGIN_FORM_PATH,
-      userId: process.env.SAML_FAKE_USER_ID,
     }) as any;
   }
 
@@ -107,10 +98,10 @@ export async function addForgotPasswordAuth(
       path: FAKE_FORGOT_LOGIN_FORM_PATH,
       method: 'GET',
       options: { auth: false },
-      handler: () =>
-        `<form action="${FORGOT_ASSERT_PATH}" method="POST">
-          <input type="submit" value="Log In" />
-         </form>`,
+      handler: makeFakeLoginHandler(
+        FORGOT_ASSERT_PATH,
+        process.env.SAML_FAKE_USER_ID || 'CON01234'
+      ),
     });
   }
 
@@ -134,14 +125,9 @@ export async function addForgotPasswordAuth(
         );
       }
 
-      // TODO(finh): Will probably need to change this around for the different
-      // values we'll get from the separate login process.
-      const { nameId, sessionIndex, groups } = assertResult;
-
-      new SessionAuth(request, FORGOT_COOKIE_AUTH_DECORATOR).set({
-        nameId,
-        sessionIndex,
-        groups,
+      setSessionAuth(request, {
+        type: 'forgotPassword',
+        userId: assertResult.nameId,
       });
 
       return h.redirect(forgotPath);

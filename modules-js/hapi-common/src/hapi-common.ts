@@ -9,6 +9,8 @@ import {
   Request as HapiRequest,
 } from 'hapi';
 
+export * from './browser-auth-plugin';
+
 /**
  * Adds our preferred console logging that excludes health checks.
  *

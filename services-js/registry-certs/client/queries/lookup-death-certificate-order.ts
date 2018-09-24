@@ -3,8 +3,8 @@ import { DeathCertificateOrder } from '../types';
 import { LoopbackGraphql } from '../lib/loopback-graphql';
 
 import {
-  LookupDeathCertificateOrderQuery,
-  LookupDeathCertificateOrderQueryVariables,
+  LookupDeathCertificateOrder,
+  LookupDeathCertificateOrderVariables,
 } from './graphql-types';
 
 const QUERY = gql`
@@ -47,11 +47,11 @@ export default async function lookupDeathCertificateOrder(
   id: string,
   contactEmail: string
 ): Promise<DeathCertificateOrder | null> {
-  const queryVariables: LookupDeathCertificateOrderQueryVariables = {
+  const queryVariables: LookupDeathCertificateOrderVariables = {
     id,
     contactEmail,
   };
-  const response: LookupDeathCertificateOrderQuery = await loopbackGraphql(
+  const response: LookupDeathCertificateOrder = await loopbackGraphql(
     QUERY,
     queryVariables
   );

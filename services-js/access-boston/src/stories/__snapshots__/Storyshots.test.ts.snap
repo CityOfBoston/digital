@@ -349,7 +349,6 @@ Array [
         </div>
         <button
           className="btn"
-          disabled={undefined}
           type="submit"
         >
           Change Password
@@ -659,7 +658,6 @@ Array [
         </div>
         <button
           className="btn"
-          disabled={undefined}
           type="submit"
         >
           Change Password
@@ -969,7 +967,6 @@ Array [
         </div>
         <button
           className="btn"
-          disabled={undefined}
           type="submit"
         >
           Change Password
@@ -1010,17 +1007,7 @@ Array [
     <h1
       className="css-e3scnp"
     >
-      <a
-        href="/"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Access Boston
-      </a>
+      Access Boston
     </h1>
   </div>,
   <div
@@ -1048,6 +1035,12 @@ Array [
           name="crumb"
           type="hidden"
           value=""
+        />
+        <input
+          autoComplete="username"
+          name="username"
+          type="hidden"
+          value="CON01234"
         />
         <div
           className="g g--r m-v200"
@@ -1220,12 +1213,57 @@ Array [
         </div>
         <button
           className="btn"
-          disabled={undefined}
           type="submit"
         >
           Reset Password
         </button>
       </form>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots ForgotPasswordPage success 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300"
+      >
+        <h2
+          className="sh-title"
+        >
+          Reset successful!
+        </h2>
+      </div>
+      <div
+        className="t--intro"
+      >
+        Your password change has gone through. Log in now with your new password.
+      </div>
+      <div
+        className="m-v500"
+      >
+        <a
+          className="btn"
+          href="/login"
+        >
+          Log in
+        </a>
+      </div>
     </div>
   </div>,
 ]

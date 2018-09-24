@@ -14,8 +14,9 @@ import path from 'path';
 import { makeExecutableSchema } from 'graphql-tools';
 import { Resolvers } from '@cityofboston/graphql-typescript';
 import AppsRegistry from '../services/AppsRegistry';
-import SessionAuth from '../SessionAuth';
+import Session from '../Session';
 import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
+import Boom from 'boom';
 
 /** @graphql schema */
 export interface Schema {
@@ -32,6 +33,15 @@ export interface Query {
 export interface Mutation {
   changePassword(args: {
     currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }): Workflow;
+
+  /**
+   * Resets the password. Requires that the user be logged in with the "forgot
+   * password" authentication.
+   */
+  resetPassword(args: {
     newPassword: string;
     confirmPassword: string;
   }): Workflow;
@@ -66,7 +76,7 @@ export enum WorkflowStatus {
   UNKNOWN = 'UNKNOWN',
 }
 
-export enum ChangePasswordError {
+export enum PasswordError {
   NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
   CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
   NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
@@ -77,7 +87,7 @@ export interface Workflow {
   caseId: string | null;
   status: WorkflowStatus;
   messages: string[];
-  error: ChangePasswordError | null;
+  error: PasswordError | null;
 }
 
 // This file is built by the "generate-graphql-schema" script from
@@ -88,35 +98,49 @@ const schemaGraphql = fs.readFileSync(
 );
 
 export interface Context {
-  sessionAuth: SessionAuth;
+  session: Session;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
 }
 
 const queryRootResolvers: Resolvers<Query, Context> = {
-  account: (_root, _args, { sessionAuth }) => {
-    const session = sessionAuth.get();
+  account: (_root, _args, { session: { loginAuth, forgotPasswordAuth } }) => {
+    let employeeId;
+
+    if (loginAuth) {
+      employeeId = loginAuth.userId;
+    } else if (forgotPasswordAuth) {
+      employeeId = forgotPasswordAuth.userId;
+    } else {
+      throw Boom.forbidden();
+    }
 
     return {
-      employeeId: session.nameId,
+      employeeId,
     };
   },
 
-  apps: (_root, _args, { appsRegistry, sessionAuth }) => ({
-    categories: appsRegistry
-      .appsForGroups(sessionAuth.get().groups)
-      .map(({ apps, icons, showRequestAccessLink, title }) => ({
-        title,
-        showIcons: icons,
-        requestAccessUrl: showRequestAccessLink ? '#' : null,
-        apps: apps.map(({ title, iconUrl, url, description }) => ({
+  apps: (_root, _args, { appsRegistry, session: { loginSession } }) => {
+    if (!loginSession) {
+      throw Boom.forbidden();
+    }
+
+    return {
+      categories: appsRegistry
+        .appsForGroups(loginSession.groups)
+        .map(({ apps, icons, showRequestAccessLink, title }) => ({
           title,
-          iconUrl: iconUrl || null,
-          url,
-          description,
+          showIcons: icons,
+          requestAccessUrl: showRequestAccessLink ? '#' : null,
+          apps: apps.map(({ title, iconUrl, url, description }) => ({
+            title,
+            iconUrl: iconUrl || null,
+            url,
+            description,
+          })),
         })),
-      })),
-  }),
+    };
+  },
 
   workflow: async (_root, { caseId }, { identityIq }) =>
     launchedWorkflowResponseToWorkflow(await identityIq.fetchWorkflow(caseId)),
@@ -126,22 +150,66 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
   changePassword: async (
     _root,
     { currentPassword, newPassword, confirmPassword },
-    { identityIq, sessionAuth }
+    { identityIq, session: { loginAuth } }
   ) => {
+    if (!loginAuth) {
+      throw Boom.forbidden();
+    }
+
     if (newPassword !== confirmPassword) {
       return {
         caseId: null,
-        error: ChangePasswordError.NEW_PASSWORDS_DONT_MATCH,
+        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
         messages: [],
         status: WorkflowStatus.ERROR,
       };
     }
 
     const workflowResponse = await identityIq.changePassword(
-      sessionAuth.get().nameId,
+      loginAuth.userId,
       currentPassword,
       newPassword
     );
+
+    return launchedWorkflowResponseToWorkflow(workflowResponse);
+  },
+
+  resetPassword: async (
+    _root,
+    { newPassword, confirmPassword },
+    { identityIq, session }
+  ) => {
+    const { forgotPasswordAuth } = session;
+
+    if (!forgotPasswordAuth) {
+      throw Boom.forbidden();
+    }
+
+    if (newPassword !== confirmPassword) {
+      return {
+        caseId: null,
+        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
+        messages: [],
+        status: WorkflowStatus.ERROR,
+      };
+    }
+
+    const workflowResponse = await identityIq.resetPassword(
+      forgotPasswordAuth.userId,
+      newPassword
+    );
+
+    if (workflowResponse.completionStatus === 'Success') {
+      // If the password was changed successfully, clear the session so they
+      // can't reset again.
+      //
+      // Note that in the non-JS case, this "clear" doesn't actually delete the
+      // cookie, since it's called via an "inject" and we don't attempt to
+      // propagate Set-Cookie headers back up. But, since the session is stored
+      // server-side, we can still invalidate it. The cookie will match to
+      // nothing.
+      session.reset();
+    }
 
     return launchedWorkflowResponseToWorkflow(workflowResponse);
   },
@@ -178,17 +246,17 @@ function launchedWorkflowResponseToWorkflow(
   }
 
   const messages = workflowResponse.messages;
-  let error: ChangePasswordError | null = null;
+  let error: PasswordError | null = null;
 
   if (status === WorkflowStatus.ERROR) {
     if (messages.find(m => m === 'Current Password Check Failure')) {
-      error = ChangePasswordError.CURRENT_PASSWORD_WRONG;
+      error = PasswordError.CURRENT_PASSWORD_WRONG;
     } else if (
       messages.find(m => m.includes('Password Policy Compliance Failure'))
     ) {
-      error = ChangePasswordError.NEW_PASSWORD_POLICY_VIOLATION;
+      error = PasswordError.NEW_PASSWORD_POLICY_VIOLATION;
     } else {
-      error = ChangePasswordError.UNKNOWN_ERROR;
+      error = PasswordError.UNKNOWN_ERROR;
     }
   }
 
