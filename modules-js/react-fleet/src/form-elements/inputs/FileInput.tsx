@@ -68,7 +68,7 @@ interface State {
 }
 
 interface FileSize {
-  quantity: string | number;
+  amount: string | number;
   unit: string;
 }
 
@@ -88,13 +88,13 @@ export default class FileInput extends React.Component<Props, State> {
    * Only accept the file if it doesn’t exceed the specified limit
    */
   private checkSize = (file: File) => {
-    const { quantity, unit } = this.props.sizeLimit;
+    const { amount, unit } = this.props.sizeLimit;
     const result = formatBytes(file.size);
 
-    if (result.unit === unit && +quantity >= +quantity) {
+    if (result.unit === unit && +amount >= +amount) {
       // todo: should this be a modal/notification component?
       // todo: handle via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
-      return alert(`File size limit of ${quantity}${unit} exceeded.\n\nYour file is ${result.quantity + result.unit}. Please select a different file.`);
+      return alert(`File size limit of ${amount}${unit} exceeded.\n\nYour file is ${result.amount + result.unit}. Please select a different file.`);
     }
 
     this.setState({ selectedFile: file });
@@ -168,24 +168,24 @@ function checkFocus(fieldName: string): boolean {
 
 export function formatBytes(bytes: number): FileSize {
   const returnObject: FileSize = {
-    quantity: '',
+    amount: '',
     unit: ''
   };
 
   if (bytes < 1024) {
-    returnObject.quantity = bytes.toString();
+    returnObject.amount = bytes.toString();
     returnObject.unit = 'B';
 
   } else if (bytes < 1048576) {
-    returnObject.quantity = (bytes / 1024).toFixed(2);
+    returnObject.amount = (bytes / 1024).toFixed(2);
     returnObject.unit = 'KB';
 
   } else if (bytes < 1073741824) {
-    returnObject.quantity = (bytes / 1048576).toFixed(2);
+    returnObject.amount = (bytes / 1048576).toFixed(2);
     returnObject.unit = 'MB';
 
   } else  {
-    returnObject.quantity = (bytes / 1073741824).toFixed(2);
+    returnObject.amount = (bytes / 1073741824).toFixed(2);
     returnObject.unit = 'GB';
   }
 
