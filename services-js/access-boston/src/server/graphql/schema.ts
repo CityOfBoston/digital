@@ -49,6 +49,9 @@ export interface Mutation {
 
 export interface Account {
   employeeId: string;
+  registered: boolean;
+  needsNewPassword: boolean;
+  needsMfaDevice: boolean;
 }
 
 export interface Apps {
@@ -104,20 +107,35 @@ export interface Context {
 }
 
 const queryRootResolvers: Resolvers<Query, Context> = {
-  account: (_root, _args, { session: { loginAuth, forgotPasswordAuth } }) => {
-    let employeeId;
-
+  account: (
+    _root,
+    _args,
+    { session: { loginAuth, forgotPasswordAuth, loginSession } }
+  ) => {
     if (loginAuth) {
-      employeeId = loginAuth.userId;
+      const { userId } = loginAuth;
+      const { needsMfaDevice, needsNewPassword } = loginSession!;
+
+      return {
+        employeeId: userId,
+        // We set this explicitly rather than have all places that need it have
+        // to derive it from the other two booleans.
+        registered: !needsMfaDevice && !needsNewPassword,
+        needsMfaDevice,
+        needsNewPassword,
+      };
     } else if (forgotPasswordAuth) {
-      employeeId = forgotPasswordAuth.userId;
+      return {
+        employeeId: forgotPasswordAuth.userId,
+        // These aren't used in forgot password states, so it doesn’t matter
+        // what we return here.
+        registered: false,
+        needsMfaDevice: false,
+        needsNewPassword: false,
+      };
     } else {
       throw Boom.forbidden();
     }
-
-    return {
-      employeeId,
-    };
   },
 
   apps: (_root, _args, { appsRegistry, session: { loginSession } }) => {

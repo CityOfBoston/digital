@@ -15,6 +15,7 @@ import {
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 
 import CrumbContext from '../client/CrumbContext';
+import { RedirectError } from '../client/auth-helpers';
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -113,17 +114,25 @@ export default class AccessBostonApp extends App {
         serverCrumb: crumb || '',
       };
     } catch (e) {
-      // TODO(finh): Be more pedantic about detecting these, possibly by
-      // checking the status code when doing GraphQL fetches.
-      if (e.message === 'Forbidden') {
+      let redirectUrl;
+
+      if (e instanceof RedirectError) {
+        redirectUrl = e.url;
+      } else if (e.message === 'Forbidden') {
+        // TODO(finh): Be more pedantic about detecting these, possibly by
+        // checking the status code when doing GraphQL fetches.
+        redirectUrl = '/login';
+      } else {
+        redirectUrl = null;
+      }
+
+      if (redirectUrl) {
         const { res } = ctx;
         if (res) {
-          res.writeHead(302, {
-            Location: '/login',
-          });
+          res.writeHead(302, { Location: redirectUrl });
           res.end();
         } else {
-          window.location.href = '/login';
+          window.location.href = redirectUrl;
         }
 
         return {

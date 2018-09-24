@@ -6,6 +6,9 @@ import { Account } from '../client/graphql/fetch-account';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
+  registered: true,
+  needsMfaDevice: false,
+  needsNewPassword: false,
 };
 
 storiesOf('ForgotPasswordPage', module)

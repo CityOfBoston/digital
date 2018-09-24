@@ -6,6 +6,9 @@ import { Account } from '../client/graphql/fetch-account';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
+  registered: true,
+  needsMfaDevice: false,
+  needsNewPassword: false,
 };
 
 storiesOf('ChangePasswordPage', module)
@@ -16,6 +19,14 @@ storiesOf('ChangePasswordPage', module)
       fetchGraphql={null as any}
     />
   ))
+  .add('first time registration', () => (
+    <ChangePasswordPage
+      account={{ ...ACCOUNT, registered: false, needsNewPassword: true }}
+      serverErrors={{}}
+      fetchGraphql={null as any}
+    />
+  ))
+
   .add('submitting', () => (
     <ChangePasswordPage
       account={ACCOUNT}

@@ -6,6 +6,9 @@ import { Account, Apps } from '../client/graphql/fetch-account-and-apps';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
+  registered: true,
+  needsMfaDevice: false,
+  needsNewPassword: false,
 };
 
 const APPS: Apps = {
