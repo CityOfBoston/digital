@@ -19,10 +19,12 @@ declare global {
 
 type Props = {
   __NEXT_DATA__: any;
-  ids?: string[];
   cacheParam: string;
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string;
+  // From Emotion’s hydration
+  ids?: string[];
+  css: string;
 };
 
 export default class extends Document {
@@ -66,7 +68,12 @@ export default class extends Document {
   }
 
   render() {
-    const { cacheParam, rollbarAccessToken, rollbarEnvironment } = this.props;
+    const {
+      cacheParam,
+      rollbarAccessToken,
+      rollbarEnvironment,
+      css,
+    } = this.props;
 
     return (
       <html lang="en" className="js flexbox">
@@ -153,7 +160,7 @@ export default class extends Document {
             }}
           />
 
-          {styleTags({ cacheParam })}
+          {styleTags({ cacheParam, additionalCss: css })}
 
           {process.env.GOOGLE_TRACKING_ID && (
             <script
