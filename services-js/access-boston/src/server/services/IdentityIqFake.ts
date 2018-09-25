@@ -1,22 +1,18 @@
+import { promisify } from 'util';
 import fs from 'fs';
 import path from 'path';
 import IdentityIq, { LaunchedWorkflowResponse } from './IdentityIq';
 
+const readFile = promisify(fs.readFile);
+
 export default class IdentityIqFake implements Required<IdentityIq> {
-  private loadFixture(name: string): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      fs.readFile(
+  private async loadFixture(name: string): Promise<any> {
+    return JSON.parse(
+      await readFile(
         path.join(__dirname, `../../../fixtures/identityiq/${name}.json`),
-        'utf-8',
-        (err, str) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(JSON.parse(str));
-          }
-        }
-      );
-    });
+        'utf-8'
+      )
+    );
   }
 
   async changePassword(_userId, password): Promise<LaunchedWorkflowResponse> {

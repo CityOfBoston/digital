@@ -39,9 +39,13 @@ import AppsRegistry, { makeAppsRegistry } from './services/AppsRegistry';
 import { addLoginAuth } from './login-auth';
 import { addForgotPasswordAuth } from './forgot-password-auth';
 import Session from './Session';
+import PingId, { pingIdFromProperties } from './services/PingId';
+import PingIdFake from './services/PingIdFake';
 
 const PATH_PREFIX = '';
 const FORGOT_PASSWORD_PATH = '/forgot';
+
+const PINGID_PROPERTIES_FILE = 'pingid.properties';
 
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -87,6 +91,12 @@ export async function makeServer(port) {
           process.env.IDENTITYIQ_PASSWORD
         )
       : (new IdentityIqFake() as any);
+
+  const pingId: PingId =
+    process.env.NODE_ENV === 'production' ||
+    (dev && fs.existsSync(PINGID_PROPERTIES_FILE))
+      ? await pingIdFromProperties(PINGID_PROPERTIES_FILE)
+      : (new PingIdFake() as any);
 
   await server.register(acceptLanguagePlugin);
   await server.register(Crumb);
@@ -136,7 +146,7 @@ export async function makeServer(port) {
 
   server.route(adminOkRoute);
 
-  await addGraphQl(server, appsRegistry, identityIq);
+  await addGraphQl(server, appsRegistry, identityIq, pingId);
 
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
@@ -163,7 +173,8 @@ export async function makeServer(port) {
 async function addGraphQl(
   server: HapiServer,
   appsRegistry: AppsRegistry,
-  identityIq: IdentityIq
+  identityIq: IdentityIq,
+  pingId: PingId
 ) {
   if (process.env.NODE_ENV === 'production' && !process.env.API_KEYS) {
     throw new Error('Must set $API_KEYS in production');
@@ -204,6 +215,7 @@ async function addGraphQl(
           session: new Session(request),
           appsRegistry,
           identityIq,
+          pingId,
         };
 
         return {

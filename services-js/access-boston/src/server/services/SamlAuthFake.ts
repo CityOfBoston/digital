@@ -47,6 +47,9 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       type: 'login',
       nameId: userId,
       sessionIndex: 'session',
+      firstName: 'Test',
+      lastName: 'User',
+      email: 'test@boston.gov',
       groups: [
         'COB-Group-TestGrp01',
         'SG_AB_IAM_TEAM',

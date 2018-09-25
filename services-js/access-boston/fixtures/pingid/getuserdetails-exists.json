@@ -1,0 +1,27 @@
+{
+  "responseBody": {
+    "userDetails": {
+      "userName": "123456",
+      "email": null,
+      "lname": "",
+      "userId": 0,
+      "userInBypass": false,
+      "userEnabled": true,
+      "fname": "",
+      "picURL": "IZIWUVWM6ZZPI37PRVXTBMWXM4SKLUBTT5YBLQNPLSV2T6HBKAAKPFY=",
+      "spList": [],
+      "lastLogin": 1537794525886,
+      "bypassExpiration": null,
+      "deviceDetails": [],
+      "lastTransactions": [],
+      "devicesDetails": [],
+      "status": "ACTIVE",
+      "role": "REGULAR"
+    },
+    "sameDeviceUsersDetails": [],
+    "errorMsg": "ok",
+    "uniqueMsgId": "webs_omTAYBPZhxcjOJaLEhruSAdIMgdJqatjjOiliCIigtI",
+    "errorId": 200,
+    "clientData": null
+  }
+}

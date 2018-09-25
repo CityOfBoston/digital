@@ -1,0 +1,10 @@
+{
+  "responseBody": {
+    "userDetails": null,
+    "sameDeviceUsersDetails": [],
+    "uniqueMsgId": "webs_wh3RS0Uobz-UOEiIgdCiicZlxGV7EXJDny2z4_fBgyw",
+    "errorMsg": "User not exists.",
+    "errorId": 10564,
+    "clientData": null
+  }
+}
