@@ -59,7 +59,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--subinfo t--err m-b100"
               >
                  
               </div>
@@ -90,7 +90,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--subinfo t--err m-b100"
               >
                  
               </div>
@@ -129,7 +129,7 @@ exports[`Storyshots ApplyPage default 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-t100"
+              className="t--subinfo t--err m-b100"
             >
                
             </div>
@@ -171,7 +171,7 @@ exports[`Storyshots ApplyPage default 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-t100"
+              className="t--subinfo t--err m-b100"
             >
                
             </div>
@@ -203,7 +203,7 @@ exports[`Storyshots ApplyPage default 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-t100"
+              className="t--subinfo t--err m-b100"
             >
                
             </div>
@@ -245,13 +245,13 @@ exports[`Storyshots ApplyPage default 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-t100"
+              className="t--subinfo t--err m-b100"
             >
                
             </div>
           </div>
           <div
-            className="css-tin11h"
+            className="css-vke4cr"
           >
             <div>
               <label
@@ -286,7 +286,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--subinfo t--err m-b100"
               >
                  
               </div>
@@ -324,7 +324,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--subinfo t--err m-b100"
               >
                  
               </div>
@@ -346,11 +346,6 @@ exports[`Storyshots ApplyPage default 1`] = `
             >
               Phone
             </span>
-            <span
-              className="t--req"
-            >
-              Required
-            </span>
           </label>
           <input
             aria-label=""
@@ -359,12 +354,11 @@ exports[`Storyshots ApplyPage default 1`] = `
             onBlur={[Function]}
             onChange={[Function]}
             placeholder="Phone Number"
-            required={true}
             type="text"
             value=""
           />
           <div
-            className="t--subinfo t--err m-t100"
+            className="t--subinfo t--err m-b100"
           >
              
           </div>
@@ -402,7 +396,7 @@ exports[`Storyshots ApplyPage default 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-t100"
+            className="t--subinfo t--err m-b100"
           >
              
           </div>
@@ -440,7 +434,7 @@ exports[`Storyshots ApplyPage default 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-t100"
+            className="t--subinfo t--err m-b100"
           >
              
           </div>
@@ -485,7 +479,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-t100"
+          className="t--subinfo t--err m-b100"
         >
            
         </div>
@@ -517,7 +511,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-t100"
+          className="t--subinfo t--err m-b100"
         >
            
         </div>
@@ -549,7 +543,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-t100"
+          className="t--subinfo t--err m-b100"
         >
            
         </div>
@@ -581,7 +575,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-t100"
+          className="t--subinfo t--err m-b100"
         >
            
         </div>
@@ -685,6 +679,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           htmlFor="FileInput-coverLetter"
           style={
             Object {
+              "fontWeight": "bold",
               "whiteSpace": "nowrap",
             }
           }
@@ -719,6 +714,7 @@ exports[`Storyshots ApplyPage default 1`] = `
           htmlFor="FileInput-resume"
           style={
             Object {
+              "fontWeight": "bold",
               "whiteSpace": "nowrap",
             }
           }

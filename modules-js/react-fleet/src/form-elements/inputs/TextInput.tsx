@@ -90,7 +90,7 @@ export default function TextInput(props: Props): JSX.Element {
         onFocus={props.onFocus}
       />
 
-      <div className="t--subinfo t--err m-t100">
+      <div className="t--subinfo t--err m-b100">
         {/* The &nbsp; is to keep space for the error so the form doesn't jump when one is added. */}
         {props.error && typeof props.error === 'string' ?
           props.error

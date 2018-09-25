@@ -48,9 +48,16 @@ const FILE_PREVIEW_STYLE = css({
   textOverflow: 'ellipsis'
 });
 
-const DELETE_BUTTON_STYLE = css({
-  marginLeft: '0.2em'
-});
+const DELETE_BUTTON_STYLE = css(`
+  margin-left: 0.2em;
+  
+  opacity: 0.6;
+  transition: opacity 0.15s;
+  
+  &:hover {
+    opacity: 1;
+  }
+`);
 
 const DEFAULT_PREVIEW_TEXT = 'No file selected';
 
@@ -139,7 +146,7 @@ export default class FileInput extends React.Component<Props, State> {
         <label
           htmlFor={`FileInput-${this.props.name}`}
           className={`btn btn--sm btn--100 ${this.state.isFocused && LABEL_FOCUSED_STYLE}`}
-          style={{ whiteSpace: 'nowrap' }}
+          style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
         >
           Choose {this.props.title} file
         </label>

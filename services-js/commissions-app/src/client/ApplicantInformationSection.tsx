@@ -47,7 +47,8 @@ const STATE_ZIP_STYLING = css(`
   
   > div {
     &:first-of-type {
-      flex-basis: 7rem;
+      flex-basis: 8rem;
+      white-space: nowrap;
     }
     
     &:last-of-type {
@@ -157,7 +158,6 @@ export default function ApplicantInformationSection(): JSX.Element {
         name="phone"
 
         placeholder="Phone Number"
-        required
       />
 
       <Field

@@ -543,7 +543,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
        
     </div>
@@ -577,7 +577,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
        
     </div>
@@ -607,7 +607,7 @@ Array [
       value="password"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
        
     </div>
@@ -635,7 +635,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
       Value is not correct
     </div>
@@ -663,7 +663,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
        
     </div>
@@ -692,7 +692,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--subinfo t--err m-b100"
     >
        
     </div>
@@ -719,6 +719,7 @@ exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
     htmlFor="FileInput-resume"
     style={
       Object {
+        "fontWeight": "bold",
         "whiteSpace": "nowrap",
       }
     }
@@ -756,6 +757,7 @@ exports[`Storyshots Form Elements/Inputs/File Input small size limit; no file re
     htmlFor="FileInput-coverLetter"
     style={
       Object {
+        "fontWeight": "bold",
         "whiteSpace": "nowrap",
       }
     }
