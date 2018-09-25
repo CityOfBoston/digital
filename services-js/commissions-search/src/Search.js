@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 /* eslint-enable no-unused-vars */
 
 class Search extends Component {
-  _handleKeyPress(event) {
+  _handleKeyPress = event => {
     if (event.keyCode === 13) {
       this.props.handleKeywordSubmit(event);
     }
-  }
+  };
 
   render() {
     return (
