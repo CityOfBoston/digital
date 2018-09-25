@@ -7,6 +7,9 @@ const QUERY = gql`
   query FetchAccount {
     account {
       employeeId
+      registered
+      needsMfaDevice
+      needsNewPassword
     }
   }
 `;

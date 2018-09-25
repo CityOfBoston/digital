@@ -16,6 +16,7 @@ import fetchAccountAndApps, {
 } from '../client/graphql/fetch-account-and-apps';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import { MAIN_CLASS } from '../client/styles';
+import { requireRegistration } from '../client/auth-helpers';
 
 export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
@@ -41,14 +42,15 @@ export default class IndexPage extends React.Component<Props> {
     { query },
     { fetchGraphql }: GetInitialPropsDependencies
   ): Promise<Props> => {
+    const { account, apps } = await fetchAccountAndApps(fetchGraphql);
+
+    requireRegistration(account);
+
     return {
       flashMessage: query.message as FlashMessage | undefined,
-      ...(await fetchAccountAndApps(fetchGraphql)),
+      account,
+      apps,
     };
-  };
-
-  state = {
-    accountMenuOpen: false,
   };
 
   render() {

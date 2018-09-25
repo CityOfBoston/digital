@@ -59,13 +59,20 @@ interface FormValues {
   crumb: string;
 }
 
+function successUrl(account): string {
+  return account.needsMfaDevice
+    ? `/mfa?message=${FlashMessage.CHANGE_PASSWORD_SUCCESS}`
+    : `/?message=${FlashMessage.CHANGE_PASSWORD_SUCCESS}`;
+}
+
 export default class ChangePasswordPage extends React.Component<Props, State> {
   static getInitialProps: GetInitialProps<InitialProps> = async (
     { req, res, query },
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
-    const serverErrors: { [key: string]: string } = {};
+    const account = await fetchAccount(fetchGraphql);
 
+    const serverErrors: { [key: string]: string } = {};
     const noJs = (req && req.method === 'POST') || !!query['noJs'];
 
     // This is the no-JavaScript case. We still want to be able to change
@@ -88,7 +95,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
         } else {
           // res will be non-null because req was set.
           res!.writeHead(302, {
-            Location: `/?message=${FlashMessage.CHANGE_PASSWORD_SUCCESS}`,
+            Location: successUrl(account),
           });
           res!.end();
         }
@@ -102,7 +109,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     }
 
     return {
-      account: await fetchAccount(fetchGraphql),
+      account,
       serverErrors,
       noJs,
     };
@@ -120,6 +127,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     { password, newPassword, confirmPassword }: FormValues,
     { setSubmitting, setErrors }
   ) => {
+    const { account } = this.props;
+
     this.setState({ showSubmittingModal: true });
 
     try {
@@ -139,7 +148,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
         case 'SUCCESS':
           Router.push({
-            pathname: '/',
+            // clears out any query param since we're setting it below
+            pathname: successUrl(account).replace(/\?.*/, ''),
             query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
           });
           break;
@@ -154,6 +164,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     const { account } = this.props;
     const { showSubmittingModal } = this.state;
 
+    const setNewPassword = account.needsNewPassword;
+
     return (
       <CrumbContext.Consumer>
         {crumb => {
@@ -164,6 +176,15 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
             confirmPassword: '',
             crumb,
           };
+
+          const formikEl = (
+            <Formik
+              initialValues={initialValues}
+              validationSchema={changePasswordSchema}
+              onSubmit={this.handleSubmit}
+              render={this.renderForm}
+            />
+          );
 
           return (
             <>
@@ -176,15 +197,35 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
               <div className={MAIN_CLASS}>
                 <div className="b b-c b-c--hsm">
-                  <SectionHeader title="Change Password" />
-
-                  <Formik
-                    initialValues={initialValues}
-                    validationSchema={changePasswordSchema}
-                    onSubmit={this.handleSubmit}
-                    render={this.renderForm}
+                  <SectionHeader
+                    title={
+                      setNewPassword ? 'Make a New Password' : 'Change Password'
+                    }
                   />
+
+                  {setNewPassword && (
+                    <>
+                      <p className="t--info m-t500 m-v300">
+                        You’ll need to create a new, secure password to set up
+                        your Access Boston account.
+                      </p>
+
+                      <p className="t--info m-v300">
+                        This password will be good for a{' '}
+                        <strong>whole year</strong>, though you can change it
+                        any time you like.
+                      </p>
+                    </>
+                  )}
+
+                  {!setNewPassword && formikEl}
                 </div>
+
+                {setNewPassword && (
+                  <div className="m-b500 b--g">
+                    <div className="b b-c b-c--hsm">{formikEl}</div>
+                  </div>
+                )}
               </div>
 
               {showSubmittingModal && this.renderSubmitting()}
@@ -205,7 +246,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     isSubmitting,
     isValid,
   }: FormikProps<FormValues>) => {
-    const { serverErrors, noJs } = this.props;
+    const { serverErrors, noJs, account } = this.props;
 
     const commonPasswordProps = {
       ...DEFAULT_PASSWORD_ATTRIBUTES,
@@ -303,7 +344,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
             (process as any).browser && !noJs && (!isValid || isSubmitting)
           }
         >
-          Change Password
+          {account.needsNewPassword ? 'Set new password' : 'Change Password'}
         </button>
       </form>
     );

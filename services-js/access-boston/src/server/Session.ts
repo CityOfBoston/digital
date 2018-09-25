@@ -28,6 +28,8 @@ declare module 'hapi' {
 export interface LoginSession {
   type: 'login';
   groups: string[];
+  needsNewPassword: boolean;
+  needsMfaDevice: boolean;
 }
 
 export type SessionAuth = LoginAuth | ForgotPasswordAuth;
