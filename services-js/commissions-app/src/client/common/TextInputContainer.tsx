@@ -20,7 +20,7 @@ function TextInputContainer({
 
   return (
     <TextInput
-      variant="small"
+      small
       label={props.label}
       error={touched[name] && errors[name]}
       value={value}

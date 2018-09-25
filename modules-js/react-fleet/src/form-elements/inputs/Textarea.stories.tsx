@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import Textarea from './Textarea';
 
-storiesOf('Elements/Inputs/Textarea', module)
+storiesOf('Form Elements/Textarea', module)
   .add('visible label', () => (
-    <React.Fragment>
+    <>
       <Textarea
         name="comments"
         label="Other Comments"
@@ -22,12 +22,12 @@ storiesOf('Elements/Inputs/Textarea', module)
         value=""
         onChange={() => {}}
         onBlur={() => {}}
-        variant="small"
+        small
       />
-    </React.Fragment>
+    </>
   ))
   .add('hidden label', () => (
-    <React.Fragment>
+    <>
       <Textarea
         name="comments"
         label="Other Comments"
@@ -46,7 +46,7 @@ storiesOf('Elements/Inputs/Textarea', module)
         onChange={() => {}}
         onBlur={() => {}}
         hideLabel
-        variant="small"
+        small
       />
-    </React.Fragment>
+    </>
   ));

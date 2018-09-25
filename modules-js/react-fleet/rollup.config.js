@@ -1,4 +1,4 @@
-const EXTERNALS = ['react', 'emotion'];
+const EXTERNALS = ['react', 'emotion', 'string-hash'];
 
 export default {
   input: 'build/react-fleet.js',

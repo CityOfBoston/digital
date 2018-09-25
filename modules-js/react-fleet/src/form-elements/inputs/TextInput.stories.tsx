@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import TextInput from './TextInput';
 
-storiesOf('Elements/Inputs', module).add('Text Input', () => (
+storiesOf('Form Elements/Inputs', module).add('Text Input', () => (
   <>
     <TextInput label="Normal Input" />
     <TextInput label="Required Input" required />
@@ -11,6 +11,6 @@ storiesOf('Elements/Inputs', module).add('Text Input', () => (
     <TextInput label="String error" error="Value is not correct" />
     <TextInput label="Boolean error" error />
 
-    <TextInput variant="small" label="Small Variant" placeholder="Placeholder Text" />
+    <TextInput small label="Small Variant" placeholder="Placeholder Text" />
   </>
 ));

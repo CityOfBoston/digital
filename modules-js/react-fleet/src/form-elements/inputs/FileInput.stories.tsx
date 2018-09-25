@@ -3,13 +3,13 @@ import { storiesOf } from '@storybook/react';
 
 import FileInput from './FileInput';
 
-storiesOf('Elements/Inputs/File Input', module)
+storiesOf('Form Elements/Inputs/File Input', module)
   .add('default', () => (
     <FileInput
       name="resume"
       title="Resumé"
       fileTypes={['application/pdf']}
-      sizeLimit={{quantity: 28, unit: 'MB'}}
+      sizeLimit={{amount: 28, unit: 'MB'}}
     />
   ))
   .add('small size limit; no file restrictions', () => (
@@ -17,6 +17,6 @@ storiesOf('Elements/Inputs/File Input', module)
       name="coverLetter"
       title="Cover Letter"
       fileTypes={['*']}
-      sizeLimit={{quantity: 10, unit: 'KB'}}
+      sizeLimit={{amount: 10, unit: 'KB'}}
     />
   ));

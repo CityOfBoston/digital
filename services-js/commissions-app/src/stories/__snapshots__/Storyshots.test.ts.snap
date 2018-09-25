@@ -7,145 +7,119 @@ exports[`Storyshots ApplyPage default 1`] = `
   <div
     className="b b-c"
   >
-    <div
-      className="sh m-b300"
-    >
-      <h2
-        className="sh-title"
-      >
-        Applicant Information
-      </h2>
-    </div>
     <form
       onSubmit={[Function]}
     >
       <div
-        className="g"
+        className="sh m-b300 "
       >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <section>
         <div
-          className="g--6 m-b300 css-gg4vpm"
+          className="css-pefnot"
         >
           <div
-            style={
-              Object {
-                "marginRight": "1.5em",
-              }
-            }
+            className="css-c3kz39"
           >
-            <label
-              className="txt-l txt-l--sm"
-              htmlFor="FeedbackForm-prefix"
-            >
-              Prefix
-            </label>
-            <div
-              className="sel-c sel-c--thin"
-            >
-              <select
-                className="sel-f sel-f--thin"
-                id="FeedbackForm-prefix"
+            <div>
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="firstName"
               >
-                <option>
-                  Mr
-                </option>
-                <option>
-                  Mrs
-                </option>
-                <option>
-                  Miss
-                </option>
-                <option>
-                  Mx
-                </option>
-              </select>
-            </div>
-          </div>
-          <div
-            className="txt"
-            style={Object {}}
-          >
-            <label
-              className="txt-l txt-l--sm"
-              htmlFor="firstName"
-            >
-              First Name
-              <span
-                aria-hidden="true"
-                className="t--req"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.5em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  First Name
+                </span>
+                <span
+                  className="t--req"
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                aria-label=""
+                className="txt-f txt-f--sm "
+                id="firstName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="First Name"
+                required={true}
+                type="text"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
               >
-                 
-                Required
-              </span>
-            </label>
-            <input
-              className="css-i9gxme txt-f txt-f--sm "
-              id="firstName"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="First Name"
-              required={true}
-              type="text"
-              value=""
-              variant="small"
-            />
-            <div
-              className="t--subinfo t--err m-t100"
-            >
-               
+                 
+              </div>
+            </div>
+            <div>
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="middleName"
+              >
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.5em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  Initial
+                </span>
+              </label>
+              <input
+                aria-label=""
+                className="txt-f txt-f--sm "
+                id="middleName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className="g--1 m-b300"
-        >
-          <div
-            className="txt"
-            style={Object {}}
-          >
-            <label
-              className="txt-l txt-l--sm"
-              htmlFor="middleName"
-            >
-              Initial
-            </label>
-            <input
-              className=" txt-f txt-f--sm "
-              id="middleName"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="text"
-              value=""
-              variant="small"
-            />
-            <div
-              className="t--subinfo t--err m-t100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="g--5 m-b300"
-        >
-          <div
-            className="txt"
-            style={Object {}}
-          >
+          <div>
             <label
               className="txt-l txt-l--sm"
               htmlFor="lastName"
             >
-              Last Name
               <span
-                aria-hidden="true"
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Last Name
+              </span>
+              <span
                 className="t--req"
               >
-                 
                 Required
               </span>
             </label>
             <input
-              className=" txt-f txt-f--sm "
+              aria-label=""
+              className="txt-f txt-f--sm "
               id="lastName"
               onBlur={[Function]}
               onChange={[Function]}
@@ -153,7 +127,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               required={true}
               type="text"
               value=""
-              variant="small"
             />
             <div
               className="t--subinfo t--err m-t100"
@@ -162,32 +135,33 @@ exports[`Storyshots ApplyPage default 1`] = `
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="g"
-      >
         <div
-          className="g--9 m-b300"
+          className="css-c3kz39"
         >
-          <div
-            className="txt"
-            style={Object {}}
-          >
+          <div>
             <label
               className="txt-l txt-l--sm"
               htmlFor="streetAddress"
             >
-              Street Address
               <span
-                aria-hidden="true"
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Street Address
+              </span>
+              <span
                 className="t--req"
               >
-                 
                 Required
               </span>
             </label>
             <input
-              className=" txt-f txt-f--sm "
+              aria-label=""
+              className="txt-f txt-f--sm "
               id="streetAddress"
               onBlur={[Function]}
               onChange={[Function]}
@@ -195,7 +169,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               required={true}
               type="text"
               value=""
-              variant="small"
             />
             <div
               className="t--subinfo t--err m-t100"
@@ -203,29 +176,31 @@ exports[`Storyshots ApplyPage default 1`] = `
                
             </div>
           </div>
-        </div>
-        <div
-          className="g--3 m-b300"
-        >
-          <div
-            className="txt"
-            style={Object {}}
-          >
+          <div>
             <label
               className="txt-l txt-l--sm"
               htmlFor="unit"
             >
-              Unit
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Unit
+              </span>
             </label>
             <input
-              className=" txt-f txt-f--sm "
+              aria-label=""
+              className="txt-f txt-f--sm "
               id="unit"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Unit or Apartment #"
               type="text"
               value=""
-              variant="small"
             />
             <div
               className="t--subinfo t--err m-t100"
@@ -234,32 +209,33 @@ exports[`Storyshots ApplyPage default 1`] = `
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="g"
-      >
         <div
-          className="g--7 m-b300"
+          className="css-pefnot"
         >
-          <div
-            className="txt"
-            style={Object {}}
-          >
+          <div>
             <label
               className="txt-l txt-l--sm"
               htmlFor="city"
             >
-              City
               <span
-                aria-hidden="true"
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                City
+              </span>
+              <span
                 className="t--req"
               >
-                 
                 Required
               </span>
             </label>
             <input
-              className=" txt-f txt-f--sm "
+              aria-label=""
+              className="txt-f txt-f--sm "
               id="city"
               onBlur={[Function]}
               onChange={[Function]}
@@ -267,7 +243,6 @@ exports[`Storyshots ApplyPage default 1`] = `
               required={true}
               type="text"
               value=""
-              variant="small"
             />
             <div
               className="t--subinfo t--err m-t100"
@@ -275,191 +250,207 @@ exports[`Storyshots ApplyPage default 1`] = `
                
             </div>
           </div>
-        </div>
-        <div
-          className="g--2 m-b300"
-        >
           <div
-            className="txt"
-            style={Object {}}
+            className="css-tin11h"
           >
-            <label
-              className="txt-l txt-l--sm"
-              htmlFor="state"
-            >
-              State
-              <span
-                aria-hidden="true"
-                className="t--req"
+            <div>
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="state"
               >
-                 
-                Required
-              </span>
-            </label>
-            <input
-              className=" txt-f txt-f--sm "
-              id="state"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="State"
-              required={true}
-              type="text"
-              value=""
-              variant="small"
-            />
-            <div
-              className="t--subinfo t--err m-t100"
-            >
-               
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.5em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  State
+                </span>
+                <span
+                  className="t--req"
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                aria-label=""
+                className="txt-f txt-f--sm "
+                id="state"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="State"
+                required={true}
+                type="text"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
+            </div>
+            <div>
+              <label
+                className="txt-l txt-l--sm"
+                htmlFor="zip"
+              >
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.5em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  Zip
+                </span>
+                <span
+                  className="t--req"
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                aria-label=""
+                className="txt-f txt-f--sm "
+                id="zip"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Zip Code"
+                required={true}
+                type="text"
+                value=""
+              />
+              <div
+                className="t--subinfo t--err m-t100"
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
-        <div
-          className="g--3 m-b300"
-        >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="phone"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Phone
+            </span>
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="phone"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Phone Number"
+            required={true}
+            type="text"
+            value=""
+          />
           <div
-            className="txt"
-            style={Object {}}
+            className="t--subinfo t--err m-t100"
           >
-            <label
-              className="txt-l txt-l--sm"
-              htmlFor="zip"
-            >
-              Zip
-              <span
-                aria-hidden="true"
-                className="t--req"
-              >
-                 
-                Required
-              </span>
-            </label>
-            <input
-              className=" txt-f txt-f--sm "
-              id="zip"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="Zip Code"
-              required={true}
-              type="text"
-              value=""
-              variant="small"
-            />
-            <div
-              className="t--subinfo t--err m-t100"
-            >
-               
-            </div>
+             
           </div>
         </div>
-      </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="phone"
-        >
-          Phone
-          <span
-            aria-hidden="true"
-            className="t--req"
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="email"
           >
-             
-            Required
-          </span>
-        </label>
-        <input
-          className=" txt-f txt-f--sm "
-          id="phone"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Phone Number"
-          required={true}
-          type="text"
-          value=""
-          variant="small"
-        />
-        <div
-          className="t--subinfo t--err m-t100"
-        >
-           
-        </div>
-      </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="email"
-        >
-          Email
-          <span
-            aria-hidden="true"
-            className="t--req"
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Email
+            </span>
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Email"
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-t100"
           >
-             
-            Required
-          </span>
-        </label>
-        <input
-          className=" txt-f txt-f--sm "
-          id="email"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Email"
-          required={true}
-          type="text"
-          value=""
-          variant="small"
-        />
-        <div
-          className="t--subinfo t--err m-t100"
-        >
-           
+             
+          </div>
         </div>
-      </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
-        <label
-          className="txt-l txt-l--sm"
-          htmlFor="confirmEmail"
-        >
-          Confirm Email
-          <span
-            aria-hidden="true"
-            className="t--req"
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="confirmEmail"
           >
-             
-            Required
-          </span>
-        </label>
-        <input
-          className=" txt-f txt-f--sm "
-          id="confirmEmail"
-          onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Confirm Email"
-          required={true}
-          type="text"
-          value=""
-          variant="small"
-        />
-        <div
-          className="t--subinfo t--err m-t100"
-        >
-           
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Confirm Email
+            </span>
+            <span
+              className="t--req"
+            >
+              Required
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="confirmEmail"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Confirm Email"
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-t100"
+          >
+             
+          </div>
         </div>
-      </div>
+      </section>
       <hr
         className="hr hr--sq"
       />
       <div
-        className="sh m-b300"
+        className="sh m-b300 "
       >
         <h2
           className="sh-title"
@@ -467,25 +458,31 @@ exports[`Storyshots ApplyPage default 1`] = `
           Education and Experience
         </h2>
       </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
+      <div>
         <label
           className="txt-l txt-l--sm"
           htmlFor="typeOfDegree"
         >
-          Type of Degree
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Type of Degree
+          </span>
         </label>
         <input
-          className=" txt-f txt-f--sm "
+          aria-label=""
+          className="txt-f txt-f--sm "
           id="typeOfDegree"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Type of Degree"
           type="text"
           value=""
-          variant="small"
         />
         <div
           className="t--subinfo t--err m-t100"
@@ -493,25 +490,31 @@ exports[`Storyshots ApplyPage default 1`] = `
            
         </div>
       </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
+      <div>
         <label
           className="txt-l txt-l--sm"
           htmlFor="degreeAttained"
         >
-          Degree Attained
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
         </label>
         <input
-          className=" txt-f txt-f--sm "
+          aria-label=""
+          className="txt-f txt-f--sm "
           id="degreeAttained"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Degree Attained"
           type="text"
           value=""
-          variant="small"
         />
         <div
           className="t--subinfo t--err m-t100"
@@ -519,25 +522,31 @@ exports[`Storyshots ApplyPage default 1`] = `
            
         </div>
       </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
+      <div>
         <label
           className="txt-l txt-l--sm"
           htmlFor="educationalInstitution"
         >
-          Educational Institution
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
         </label>
         <input
-          className=" txt-f txt-f--sm "
+          aria-label=""
+          className="txt-f txt-f--sm "
           id="educationalInstitution"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Educational Institution"
           type="text"
           value=""
-          variant="small"
         />
         <div
           className="t--subinfo t--err m-t100"
@@ -545,25 +554,31 @@ exports[`Storyshots ApplyPage default 1`] = `
            
         </div>
       </div>
-      <div
-        className="txt"
-        style={Object {}}
-      >
+      <div>
         <label
           className="txt-l txt-l--sm"
           htmlFor="otherInformation"
         >
-          Other Information
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Other Information
+          </span>
         </label>
         <input
-          className=" txt-f txt-f--sm "
+          aria-label=""
+          className="txt-f txt-f--sm "
           id="otherInformation"
           onBlur={[Function]}
           onChange={[Function]}
           placeholder="Other Information"
           type="text"
           value=""
-          variant="small"
         />
         <div
           className="t--subinfo t--err m-t100"
@@ -575,7 +590,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh m-b300"
+        className="sh m-b300 "
       >
         <h2
           className="sh-title"
@@ -584,12 +599,12 @@ exports[`Storyshots ApplyPage default 1`] = `
         </h2>
       </div>
       <p
-        className="m-b500"
+        className="css-17qmlmg"
       >
         Please note that many of these Boards and Commissions require City of Boston residency.
       </p>
       <div
-        className="sh m-b300 sh--sm"
+        className="sh m-b300 sh--sm "
       >
         <h3
           className="sh-title"
@@ -598,12 +613,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         </h3>
       </div>
       <ul
-        style={
-          Object {
-            "margin": 0,
-            "padding": 0,
-          }
-        }
+        className="css-11o9ovx"
       />
       <p
         className="t--subinfo t--err"
@@ -614,11 +624,8 @@ exports[`Storyshots ApplyPage default 1`] = `
           }
         }
       />
-      <hr
-        className="hr hr--sq"
-      />
       <div
-        className="sh m-b300 sh--sm"
+        className="sh m-b300 sh--sm "
       >
         <h3
           className="sh-title"
@@ -626,16 +633,13 @@ exports[`Storyshots ApplyPage default 1`] = `
           Boards and Commissions without open positions
         </h3>
       </div>
-      <p>
+      <p
+        className="css-17qmlmg"
+      >
         You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
       </p>
       <ul
-        style={
-          Object {
-            "margin": 0,
-            "padding": 0,
-          }
-        }
+        className="css-11o9ovx"
       />
       <p
         className="t--subinfo t--err"
@@ -650,7 +654,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="hr hr--sq"
       />
       <div
-        className="sh m-b300"
+        className="sh m-b300 "
       >
         <h2
           className="sh-title"
@@ -658,7 +662,9 @@ exports[`Storyshots ApplyPage default 1`] = `
           Reference Information
         </h2>
       </div>
-      <p>
+      <p
+        className="m-b400"
+      >
         Files must be in PDF format, and under 28MB in size.
       </p>
       <div
@@ -731,9 +737,14 @@ exports[`Storyshots ApplyPage default 1`] = `
       </div>
       <hr
         className="hr hr--sq"
+        style={
+          Object {
+            "marginTop": "3rem",
+          }
+        }
       />
       <div
-        className="sh m-b300"
+        className="sh m-b300 "
       >
         <h2
           className="sh-title"
@@ -756,7 +767,9 @@ exports[`Storyshots ApplyPage default 1`] = `
           value=""
         />
       </div>
-      <p>
+      <p
+        className="css-17qmlmg"
+      >
         Please note that many Boards and Commissions require specifically prescribed qualifications for members. You should familiarize yourself with the Enabling Legislation before applying.
       </p>
       <button

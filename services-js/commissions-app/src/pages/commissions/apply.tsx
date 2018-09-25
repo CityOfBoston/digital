@@ -16,16 +16,7 @@ import {
 } from '@cityofboston/react-fleet';
 
 import TextInputContainer from '../../client/common/TextInputContainer';
-
-
-const NAME_PREFIX_STYLE = css({
-  display: 'flex',
-  justifyContent: 'space-between'
-});
-
-const NAME_STYLE = css({
-  flexGrow: 1
-});
+import ApplicantInformationSection from '../../client/ApplicantInformationSection';
 
 
 interface Props {
@@ -53,6 +44,16 @@ interface FormValues {
   comments: string;
 }
 
+const LIST_STYLING = css({
+  padding: 0,
+  marginBottom: '3rem'
+});
+
+const PARAGRAPH_STYLING = css({
+  marginTop: '1.25rem',
+  marginBottom: '2rem'
+});
+
 export default class ApplyPage extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -72,13 +73,12 @@ export default class ApplyPage extends React.Component<Props> {
   render() {
     const { commissions, commissionID } = this.props;
 
-    const commissionsWithoutOpenSeats = commissions
-      .filter(commission => commission.openSeats === 0)
-      .sort((current, next) => current.name.localeCompare(next.name));
-
-    const commissionsWithOpenSeats = commissions
-      .filter(commission => commission.openSeats > 0)
-      .sort((current, next) => current.name.localeCompare(next.name));
+    const commissionsWithoutOpenSeats = commissions.filter(
+      commission => commission.openSeats === 0
+    );
+    const commissionsWithOpenSeats = commissions.filter(
+      commission => commission.openSeats > 0
+    );
 
     return (
       <div className="mn">
@@ -90,8 +90,6 @@ export default class ApplyPage extends React.Component<Props> {
         </Head>
 
         <div className="b b-c">
-          <SectionHeader title="Applicant Information" />
-
           <Formik
             initialValues={{
               firstName: '',
@@ -99,8 +97,8 @@ export default class ApplyPage extends React.Component<Props> {
               lastName: '',
               streetAddress: '',
               unit: '',
-              state: '',
               city: '',
+              state: '',
               zip: '',
               phone: '',
               email: '',
@@ -122,141 +120,9 @@ export default class ApplyPage extends React.Component<Props> {
                handleChange,
             }: FormikProps<FormValues>) => (
               <Form>
-                <div className="g">
+                <SectionHeader title="Applicant Information" />
 
-                  <div className={`g--6 m-b300 ${NAME_PREFIX_STYLE}`}>
-                    <div style={{ marginRight: '1.5em' }}>
-                      <label
-                        htmlFor="FeedbackForm-prefix"
-                        className="txt-l txt-l--sm"
-                      >
-                        Prefix
-                      </label>
-
-                      <div className="sel-c sel-c--thin">
-                        <select id="FeedbackForm-prefix" className="sel-f sel-f--thin">
-                          <option>Mr</option>
-                          <option>Mrs</option>
-                          <option>Miss</option>
-                          <option>Mx</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <Field
-                      component={TextInputContainer}
-                      label="First Name"
-                      name="firstName"
-
-                      placeholder="First Name"
-                      required
-                      className={NAME_STYLE}
-                    />
-                  </div>
-
-                  <div className="g--1 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="Initial"
-                      name="middleName"
-                    />
-                  </div>
-
-                  <div className="g--5 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="Last Name"
-                      name="lastName"
-
-                      placeholder="Last Name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="g">
-                  <div className="g--9 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="Street Address"
-                      name="streetAddress"
-
-                      placeholder="Street Address"
-                      required
-                    />
-                  </div>
-
-                  <div className="g--3 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="Unit"
-                      name="unit"
-                      placeholder="Unit or Apartment #"
-                    />
-                  </div>
-                </div>
-
-                <div className="g">
-                  <div className="g--7 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="City"
-                      name="city"
-
-                      placeholder="City"
-                      required
-                    />
-                  </div>
-
-                  <div className="g--2 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="State"
-                      name="state"
-
-                      placeholder="State"
-                      required
-                    />
-                  </div>
-
-                  <div className="g--3 m-b300">
-                    <Field
-                      component={TextInputContainer}
-                      label="Zip"
-                      name="zip"
-
-                      placeholder="Zip Code"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <Field
-                  component={TextInputContainer}
-                  label="Phone"
-                  name="phone"
-
-                  placeholder="Phone Number"
-                  required
-                />
-
-                <Field
-                  component={TextInputContainer}
-                  label="Email"
-                  name="email"
-
-                  placeholder="Email"
-                  required
-                />
-
-                <Field
-                  component={TextInputContainer}
-                  label="Confirm Email"
-                  name="confirmEmail"
-
-                  placeholder="Confirm Email"
-                  required
-                />
+                <ApplicantInformationSection />
 
                 <hr className="hr hr--sq" />
 
@@ -298,7 +164,7 @@ export default class ApplyPage extends React.Component<Props> {
 
                 <SectionHeader title="Boards and Commissions" />
 
-                <p className="m-b500">
+                <p className={PARAGRAPH_STYLING}>
                   Please note that many of these Boards and Commissions require City of Boston residency.
                 </p>
 
@@ -308,7 +174,7 @@ export default class ApplyPage extends React.Component<Props> {
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
-                    <ul style={{ margin: 0, padding: 0 }}>
+                    <ul className={LIST_STYLING}>
                       {commissionsWithOpenSeats.map(commission =>
                         renderCommission(
                           commission,
@@ -324,18 +190,16 @@ export default class ApplyPage extends React.Component<Props> {
 
                 {commissionsSelectionError(touched, errors)}
 
-                <hr className="hr hr--sq" />
-
                 <SectionHeader title="Boards and Commissions without open positions" subheader />
 
-                <p>
+                <p className={PARAGRAPH_STYLING}>
                   You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
                 </p>
 
                 <FieldArray
                   name="commissionIds"
                   render={({ push, remove }) => (
-                    <ul style={{ margin: 0, padding: 0 }}>
+                    <ul className={LIST_STYLING}>
                       {commissionsWithoutOpenSeats.map(commission =>
                         renderCommission(
                           commission,
@@ -355,7 +219,7 @@ export default class ApplyPage extends React.Component<Props> {
 
                 <SectionHeader title="Reference Information" />
 
-                <p>
+                <p className="m-b400">
                   Files must be in PDF format, and under 28MB in size.
                 </p>
 
@@ -363,17 +227,17 @@ export default class ApplyPage extends React.Component<Props> {
                   name="coverLetter"
                   title="Cover Letter"
                   fileTypes={['application/pdf']}
-                  sizeLimit={{ quantity: 28, unit: 'MB' }}
+                  sizeLimit={{ amount: 28, unit: 'MB' }}
                 />
 
                 <FileInput
                   name="resume"
                   title="Resumé"
                   fileTypes={['application/pdf']}
-                  sizeLimit={{ quantity: 28, unit: 'MB' }}
+                  sizeLimit={{ amount: 28, unit: 'MB' }}
                 />
 
-                <hr className="hr hr--sq" />
+                <hr className="hr hr--sq" style={{ marginTop: '3rem' }} />
 
                 <SectionHeader title="Comments" />
 
@@ -384,11 +248,11 @@ export default class ApplyPage extends React.Component<Props> {
                   value={values.comments}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  variant="small"
+                  small
                   hideLabel
                 />
 
-                <p>
+                <p className={PARAGRAPH_STYLING}>
                   Please note that many Boards and Commissions require specifically prescribed qualifications for members. You should familiarize yourself with the Enabling Legislation before applying.
                 </p>
 

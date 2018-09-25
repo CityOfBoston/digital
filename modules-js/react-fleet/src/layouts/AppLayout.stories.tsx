@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import AppLayout from './AppLayout';
-import SectionHeader from '../elements/SectionHeader';
+import SectionHeader from '../sectioning-elements/SectionHeader';
 import SecondaryNav from '../components/SecondaryNav';
 
 storiesOf('Layouts/App Layout', module)
