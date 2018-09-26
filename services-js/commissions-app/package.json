@@ -51,8 +51,8 @@
     "mssql": "^4.2.1",
     "next": "7.0.0",
     "node-cleanup": "^2.1.2",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
     "yup": "0.26.6"
   },
   "devDependencies": {
@@ -87,7 +87,7 @@
     "jest": "23.6.0",
     "prettier": "^1.12.0",
     "raw-loader": "^0.5.1",
-    "react-test-renderer": "^16.4.0",
+    "react-test-renderer": "16.5.2",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
     "ts2gql": "CityOfBoston/ts2gql#4f10fcce",

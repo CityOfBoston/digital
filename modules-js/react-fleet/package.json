@@ -26,8 +26,8 @@
   "dependencies": {
     "emotion": "9.2.10",
     "prop-types": "^15.6.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
     "string-hash": "^1.1.3"
   },
   "peerDependencies": {
