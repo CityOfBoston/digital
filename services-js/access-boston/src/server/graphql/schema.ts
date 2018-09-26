@@ -12,11 +12,28 @@ import fs from 'fs';
 import path from 'path';
 
 import { makeExecutableSchema } from 'graphql-tools';
+import Boom from 'boom';
+
 import { Resolvers } from '@cityofboston/graphql-typescript';
+
 import AppsRegistry from '../services/AppsRegistry';
 import Session from '../Session';
-import IdentityIq, { LaunchedWorkflowResponse } from '../services/IdentityIq';
-import Boom from 'boom';
+import IdentityIq from '../services/IdentityIq';
+import PingId, { VerificationType } from '../services/PingId';
+
+import {
+  changePasswordMutation,
+  resetPasswordMutation,
+  Workflow,
+  workflowQuery,
+} from './workflows';
+
+import {
+  addMfaDeviceMutation,
+  AddMfaDeviceResponse,
+  VerifyMfaDeviceResponse,
+  verifyMfaDeviceMutation,
+} from './mfa';
 
 /** @graphql schema */
 export interface Schema {
@@ -45,6 +62,17 @@ export interface Mutation {
     newPassword: string;
     confirmPassword: string;
   }): Workflow;
+
+  addMfaDevice(args: {
+    phoneNumber?: string;
+    email?: string;
+    type: VerificationType;
+  }): AddMfaDeviceResponse;
+
+  verifyMfaDevice(args: {
+    sessionId: string;
+    pairingCode: string;
+  }): VerifyMfaDeviceResponse;
 }
 
 export interface Account {
@@ -73,26 +101,6 @@ export interface App {
   description: string;
 }
 
-export enum WorkflowStatus {
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR',
-  UNKNOWN = 'UNKNOWN',
-}
-
-export enum PasswordError {
-  NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
-  CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
-  NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
-  UNKNOWN_ERROR = 'UNKNOWN_ERROR',
-}
-
-export interface Workflow {
-  caseId: string | null;
-  status: WorkflowStatus;
-  messages: string[];
-  error: PasswordError | null;
-}
-
 // This file is built by the "generate-graphql-schema" script from
 // the above interfaces.
 const schemaGraphql = fs.readFileSync(
@@ -104,9 +112,13 @@ export interface Context {
   session: Session;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
+  pingId: PingId;
 }
 
-const queryRootResolvers: Resolvers<Query, Context> = {
+export type QueryRootResolvers = Resolvers<Query, Context>;
+export type MutationResolvers = Resolvers<Mutation, Context>;
+
+const queryRootResolvers: QueryRootResolvers = {
   account: (
     _root,
     _args,
@@ -160,77 +172,14 @@ const queryRootResolvers: Resolvers<Query, Context> = {
     };
   },
 
-  workflow: async (_root, { caseId }, { identityIq }) =>
-    launchedWorkflowResponseToWorkflow(await identityIq.fetchWorkflow(caseId)),
+  workflow: workflowQuery,
 };
 
-const mutationResolvers: Resolvers<Mutation, Context> = {
-  changePassword: async (
-    _root,
-    { currentPassword, newPassword, confirmPassword },
-    { identityIq, session: { loginAuth } }
-  ) => {
-    if (!loginAuth) {
-      throw Boom.forbidden();
-    }
-
-    if (newPassword !== confirmPassword) {
-      return {
-        caseId: null,
-        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
-        messages: [],
-        status: WorkflowStatus.ERROR,
-      };
-    }
-
-    const workflowResponse = await identityIq.changePassword(
-      loginAuth.userId,
-      currentPassword,
-      newPassword
-    );
-
-    return launchedWorkflowResponseToWorkflow(workflowResponse);
-  },
-
-  resetPassword: async (
-    _root,
-    { newPassword, confirmPassword },
-    { identityIq, session }
-  ) => {
-    const { forgotPasswordAuth } = session;
-
-    if (!forgotPasswordAuth) {
-      throw Boom.forbidden();
-    }
-
-    if (newPassword !== confirmPassword) {
-      return {
-        caseId: null,
-        error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
-        messages: [],
-        status: WorkflowStatus.ERROR,
-      };
-    }
-
-    const workflowResponse = await identityIq.resetPassword(
-      forgotPasswordAuth.userId,
-      newPassword
-    );
-
-    if (workflowResponse.completionStatus === 'Success') {
-      // If the password was changed successfully, clear the session so they
-      // can't reset again.
-      //
-      // Note that in the non-JS case, this "clear" doesn't actually delete the
-      // cookie, since it's called via an "inject" and we don't attempt to
-      // propagate Set-Cookie headers back up. But, since the session is stored
-      // server-side, we can still invalidate it. The cookie will match to
-      // nothing.
-      session.reset();
-    }
-
-    return launchedWorkflowResponseToWorkflow(workflowResponse);
-  },
+const mutationResolvers: MutationResolvers = {
+  changePassword: changePasswordMutation,
+  resetPassword: resetPasswordMutation,
+  addMfaDevice: addMfaDeviceMutation,
+  verifyMfaDevice: verifyMfaDeviceMutation,
 };
 
 export default makeExecutableSchema({
@@ -246,42 +195,3 @@ export default makeExecutableSchema({
   ] as any,
   allowUndefinedInResolve: false,
 });
-
-function launchedWorkflowResponseToWorkflow(
-  workflowResponse: LaunchedWorkflowResponse
-): Workflow {
-  let status: WorkflowStatus;
-
-  switch (workflowResponse.completionStatus) {
-    case 'Error':
-      status = WorkflowStatus.ERROR;
-      break;
-    case 'Success':
-      status = WorkflowStatus.SUCCESS;
-      break;
-    default:
-      status = WorkflowStatus.UNKNOWN;
-  }
-
-  const messages = workflowResponse.messages;
-  let error: PasswordError | null = null;
-
-  if (status === WorkflowStatus.ERROR) {
-    if (messages.find(m => m === 'Current Password Check Failure')) {
-      error = PasswordError.CURRENT_PASSWORD_WRONG;
-    } else if (
-      messages.find(m => m.includes('Password Policy Compliance Failure'))
-    ) {
-      error = PasswordError.NEW_PASSWORD_POLICY_VIOLATION;
-    } else {
-      error = PasswordError.UNKNOWN_ERROR;
-    }
-  }
-
-  return {
-    caseId: workflowResponse.id,
-    messages,
-    error,
-    status,
-  };
-}

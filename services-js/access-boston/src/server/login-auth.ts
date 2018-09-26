@@ -152,6 +152,9 @@ export async function addLoginAuth(
       const {
         nameId,
         sessionIndex,
+        firstName,
+        lastName,
+        email,
         groups,
         needsMfaDevice,
         needsNewPassword,
@@ -168,6 +171,9 @@ export async function addLoginAuth(
 
       const session: LoginSession = {
         type: 'login',
+        firstName,
+        lastName,
+        email,
         groups,
         needsNewPassword,
         needsMfaDevice,

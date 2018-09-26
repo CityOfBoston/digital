@@ -2,4 +2,5 @@
 /saml-forgot-metadata.xml
 service-provider.crt
 service-provider.key
+/pingid.properties
 /apps.yaml

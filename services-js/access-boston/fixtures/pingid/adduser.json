@@ -1,0 +1,25 @@
+{
+  "activationCode": "260453805723",
+  "userDetails": {
+    "userName": "123456",
+    "userInBypass": false,
+    "userId": 0,
+    "email": "test@boston.gov",
+    "lname": "User",
+    "userEnabled": false,
+    "fname": "Test",
+    "picURL": "IZIWUVWM6ZZPI37PRVXTBMWXM4SKLUBTT5YBLQNPLSV2T6HBKAAKPFY=",
+    "spList": [],
+    "lastLogin": null,
+    "bypassExpiration": null,
+    "deviceDetails": null,
+    "lastTransactions": [],
+    "devicesDetails": null,
+    "status": "PENDING_ACTIVATION",
+    "role": "REGULAR"
+  },
+  "errorId": 200,
+  "errorMsg": "ok",
+  "uniqueMsgId": "webs_h1PGC2qbi2uVujF1SWU4m2RI9Qw5vCL7dd7wZXvgrow",
+  "clientData": null
+}

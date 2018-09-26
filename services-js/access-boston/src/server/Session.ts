@@ -27,6 +27,11 @@ declare module 'hapi' {
 
 export interface LoginSession {
   type: 'login';
+
+  firstName: string;
+  lastName: string;
+  email: string;
+
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
