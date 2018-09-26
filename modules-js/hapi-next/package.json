@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "next": "7.0.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react": "16.5.2",
+    "react-dom": "16.5.2"
   },
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",

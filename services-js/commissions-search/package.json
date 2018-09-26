@@ -9,9 +9,9 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "immutability-helper": "^2.7.1",
-    "react": "^16.4.1",
+    "react": "16.5.2",
     "react-apollo": "^2.1.9",
-    "react-dom": "^16.4.1",
+    "react-dom": "16.5.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
