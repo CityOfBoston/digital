@@ -1,20 +1,25 @@
 import React from 'react';
 
 
-export interface Props {
+interface Props {
   name: string;
-  value: string;
+  title: string;
   onChange: any;
+  onBlur?: any;
   required?: boolean;
   error?: string;
-  onBlur: any;
-  title: string;
-  checked: boolean;
+  value?: string;
+  checked?: boolean;
+  style?: object;
+  className?: string;
 }
 
 export default function Checkbox(props: Props): JSX.Element {
   return (
-    <label className="cb">
+    <label
+      className={`cb ${props.className || ''}`}
+      style={props.style}
+    >
       <input
         name={props.name}
         value={props.value}

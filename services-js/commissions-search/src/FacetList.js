@@ -1,9 +1,12 @@
-/* eslint-disable no-unused-vars */
-import React, { Component } from 'react';
-import './FacetList.css';
+/* eslint-disable no-undef */
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+
+import { Checkbox, RadioGroup } from '@cityofboston/react-fleet';
+
 
 const GET_AREAS = gql`
   {
@@ -14,47 +17,63 @@ const GET_AREAS = gql`
   }
 `;
 
-class FacetList extends Component {
-  renderArea() {
-    function Area(props) {
-      return (
-        <label className="cb">
-          <input
-            id={`checkbox-area-${props.id}`}
-            name={props.id}
-            type="checkbox"
-            value={props.id}
-            className="cb-f"
-            checked={props.checked}
-            onChange={props.handleCheckChange}
-          />
-          <span className="cb-l">{props.name}</span>
-        </label>
-      );
-    }
+function returnArea(props, policy_area) {
+  // to conserve horizontal space, convert "and" to an ampersand; Oxford comma
+  // looks odd in this case, and the Chicago Manual of Style agrees - jm
+  const labelText = policy_area.name.replace(/(and|, and)/, '&');
 
-    const PolicyAreaComponents = () => (
-      <Query query={GET_AREAS}>
-        {({ loading, error, data }) => {
-          if (loading) return 'Loading…';
-          if (error) return `Error! ${error.message}`;
+  return (
+    <Checkbox
+      key={`checkbox-area-${policy_area.id}`}
+      name={policy_area.id}
+      onChange={props.handleCheckChange}
+      title={labelText}
+      style={{
+        marginBottom: '1.5rem',
+        letterSpacing: 'initial'
+      }}
+    />
+  );
+}
 
-          return data.policyTypes.map(policy_area => (
-            <Area
-              key={policy_area.id}
-              id={policy_area.id}
-              name={policy_area.name}
-              checked={this.props.currentAreas[policy_area.id]}
-              handleCheckChange={this.props.handleCheckChange}
-            />
-          ));
-        }}
-      </Query>
-    );
+/**
+ * This component controls the filtering options for commissions results.
+ */
+class FacetList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.filterVisibilityRef = React.createRef();
+  }
+
+  handleSubmit = e => {
+    this.props.handleFacetSubmit(e);
+
+    // If visible, close drawer after applying filters;
+    // this is only relevant with narrow/mobile viewports.
+    this.filterVisibilityRef.current.checked = false;
+  };
+
+  render() {
+    const { currentSeats, handleOptionChange } = this.props;
+
+    const radioGroup = [
+      {
+        labelText: 'All',
+        value: 'seats-all',
+        checked: currentSeats === 'seats-all'
+      },
+      {
+        labelText: 'Have open seats',
+        value: 'seats-open',
+        checked: currentSeats === 'seats-open'
+      }
+    ];
 
     return (
       <div className="co">
         <input
+          ref={this.filterVisibilityRef}
           id="collapsible"
           type="checkbox"
           className="co-f d-n"
@@ -63,42 +82,35 @@ class FacetList extends Component {
         <label htmlFor="collapsible" className="co-t">
           Filter
         </label>
+
         <div className="co-b co-b--pl">
           <div className="t--intro m-b200">Policy Area</div>
-          <div className="m-b300">
-            <PolicyAreaComponents />
 
-            <div className="t--intro m-b200">Open Seats</div>
-            <div className="m-b300">
-              <label className="cb">
-                <input
-                  id="checkbox-seats-all"
-                  name="seats"
-                  type="radio"
-                  value="seats-all"
-                  checked={this.props.currentSeats === 'seats-all'}
-                  className="cb-f"
-                  onChange={this.props.handleOptionChange}
-                />
-                <span className="cb-l">All</span>
-              </label>
-              <label className="cb">
-                <input
-                  id="checkbox-seats-open"
-                  name="seats"
-                  type="radio"
-                  value="seats-open"
-                  checked={this.props.currentSeats === 'seats-open'}
-                  className="cb-f"
-                  onChange={this.props.handleOptionChange}
-                />
-                <span className="cb-l">Have open seats</span>
-              </label>
-            </div>
+          <div className="m-b300">
+            <Query query={GET_AREAS}>
+              {({ loading, error, data }) => {
+                if (loading) return 'Loading…';
+                if (error) return `Error! ${error.message}`;
+
+                return data.policyTypes
+                  .sort((current, next) => current.name.localeCompare(next.name))
+                  .map(policy_area => returnArea(this.props, policy_area));
+              }}
+            </Query>
+
+            <div className="t--intro m-b200 m-t500">Open Seats</div>
+
+            <RadioGroup
+              items={radioGroup}
+              name="seats"
+              className="m-b200"
+              handleChange={handleOptionChange}
+            />
+
             <button
               type="submit"
-              onClick={this.props.handleFacetSubmit}
               className="btn btn--sb"
+              onClick={e => this.handleSubmit(e)}
             >
               Apply
             </button>
@@ -107,11 +119,14 @@ class FacetList extends Component {
       </div>
     );
   }
-
-  render() {
-    return this.renderArea();
-  }
 }
 
+FacetList.propTypes = {
+  handleCheckChange: PropTypes.func.isRequired,
+  handleOptionChange: PropTypes.func.isRequired,
+  handleFacetSubmit: PropTypes.func.isRequired,
+  currentAreas: PropTypes.object.isRequired,
+  currentSeats: PropTypes.string.isRequired
+};
+
 export default FacetList;
-/* eslint-enable no-unused-vars */

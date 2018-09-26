@@ -499,7 +499,7 @@ exports[`Storyshots Form Elements/Buttons close 1`] = `
 
 exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
 <label
-  className="cb"
+  className="cb "
 >
   <input
     checked={true}
@@ -773,6 +773,79 @@ exports[`Storyshots Form Elements/Inputs/File Input small size limit; no file re
       No file selected
     </span>
   </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements/Inputs/Radio Input Element 1`] = `
+<label
+  className="ra "
+>
+  <input
+    className="ra-f"
+    name="single"
+    type="radio"
+  />
+  <span
+    className="ra-l"
+  >
+    Single Option
+  </span>
+</label>
+`;
+
+exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
+<div
+  aria-label="favorite-flower"
+  role="group"
+>
+  <label
+    className="ra p-b200"
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      onChange={[Function]}
+      type="radio"
+      value="cosmos"
+    />
+    <span
+      className="ra-l"
+    >
+      Cosmos
+    </span>
+  </label>
+  <label
+    className="ra p-b200"
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      onChange={[Function]}
+      type="radio"
+      value="foxglove"
+    />
+    <span
+      className="ra-l"
+    >
+      Foxglove
+    </span>
+  </label>
+  <label
+    className="ra p-b200"
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      onChange={[Function]}
+      type="radio"
+      value="zinnia"
+    />
+    <span
+      className="ra-l"
+    >
+      Zinnia
+    </span>
+  </label>
 </div>
 `;
 

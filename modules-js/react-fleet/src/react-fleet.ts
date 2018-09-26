@@ -8,5 +8,6 @@ export { default as AppLayout } from './layouts/AppLayout';
 
 export { default as Checkbox } from './form-elements/inputs/Checkbox';
 export { default as FileInput } from './form-elements/inputs/FileInput';
+export { default as Radio, RadioGroup } from './form-elements/inputs/Radio';
 export { default as Textarea } from './form-elements/inputs/Textarea';
 export { default as TextInput } from './form-elements/inputs/TextInput';
