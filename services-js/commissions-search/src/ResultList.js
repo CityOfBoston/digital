@@ -1,128 +1,100 @@
-/* eslint-disable no-unused-vars */
-import React, { Component } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-/* eslint-enable no-unused-vars */
 
-class ResultList extends Component {
+
+/**
+ * This component will render the list of commissions based on the user's
+ * current search or filter parameters.
+ */
+class ResultList extends React.Component {
   makeSearchQuery() {
-    let getResults;
-
     // need to construct query based on policy ids
     // if the facet array is empty then send null else send array of keys
-    if (
-      Object.keys(this.props.submittedAreas) === undefined ||
-      Object.keys(this.props.submittedAreas).length === 0
-    ) {
-      getResults = gql`{
-          commissions(query: "${
-            this.props.submittedKeywords
-          }", policyTypeIds: ${null}, hasOpenSeats: ${
-        this.props.submittedSeats === 'seats-open' ? true : null
-      }) {
+    const submittedItems =
+      this.props.submittedAreas && Object.keys(this.props.submittedAreas).length > 0 ?
+        `[${Object.keys(this.props.submittedAreas)}]` : null
+    ;
+
+    return gql`{
+        commissions(query: 
+            "${this.props.submittedKeywords}",
+            policyTypeIds: ${submittedItems},
+            hasOpenSeats: ${this.props.submittedSeats === 'seats-open' ? true : null}
+        ) {
             id
             name
             policyType {
-              name
+                name
             }
             homepageUrl
-          }
-        }`;
-    } else {
-      getResults = gql`{
-          commissions(query: "${
-            this.props.submittedKeywords
-          }", policyTypeIds: [${Object.keys(
-        this.props.submittedAreas
-      )}], hasOpenSeats: ${
-        this.props.submittedSeats === 'seats-open' ? true : null
-      }) {
-            id
-            name
-            policyType {
-              name
-            }
-            homepageUrl
-          }
-        }`;
-    }
-    return getResults;
+        }
+    }`;
   }
 
-  render() {
-    /* eslint-disable no-unused-vars */
-    function Result(props) {
-      // Check for null policyType
-      if (!props.policyName) {
-        return (
-          <li className="n-li">
-            <a
-              className="n-li-b n-li-b--r n-li-b--c n-li-b--fw n-li--in g g--mt0"
-              href={props.homepageUrl}
-            >
-              <div className="n-li-t g--8">{props.name}</div>
-              <div className="n-li-ty n-li-ty--r g--44" />
-            </a>
-          </li>
-        );
-      } else {
-        return (
-          <li className="n-li">
-            <a
-              className="n-li-b n-li-b--r n-li-b--c n-li-b--fw n-li--in g g--mt0"
-              href={props.homepageUrl}
-            >
-              <div className="n-li-t g--8">{props.name}</div>
-              <div className="n-li-ty n-li-ty--r g--44">
-                {props.policyName.name}
-              </div>
-            </a>
-          </li>
-        );
-      }
-    }
+  renderCommissionItem = ({ id, name, policyType, homepageUrl }) => {
+    return (
+      <li
+        key={'commission-' + id}
+        className="n-li"
+        id={id}
+      >
+        <a
+          className="n-li-b n-li-b--r n-li-b--c n-li-b--fw n-li--in g g--mt0"
+          href={homepageUrl}
+        >
+          <div className="n-li-t g--8">{name}</div>
+          <div className="n-li-ty n-li-ty--r">
+            {policyType ? policyType.name : ''}
+          </div>
+        </a>
+      </li>
+    );
+  };
 
-    const ResultComponents = () => (
+  render() {
+    return (
       <Query query={this.makeSearchQuery()}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading…';
+
           if (error) return `Error! ${error.message}`;
 
-          if (data.commissions.length === 0) {
+          if (data.commissions.length > 0) {
+            return (
+              <ul className="p-a000" style={{ marginTop: 0 }}>
+                {data.commissions
+                  .sort((current, next) => current.name.localeCompare(next.name))
+                  .map(commission => this.renderCommissionItem(commission))}
+              </ul>
+            );
+
+          } else {
             return (
               <div className="b-c b-c--mh">
                 <h2 className="h2 m-t000 m-b300">No Results Found</h2>
+
                 <div className="intro-text supporting-text lh--200">
-                  Thomas Paine noted "These are the times that try men's souls."
-                  Well this is a time to try another search.
+                  <p>Thomas Paine noted <q style={{ fontStyle: 'italic' }}>These are the times that try men’s souls.</q></p>
+
+                  <p>Well, this is a time to try another search.</p>
                 </div>
               </div>
             );
-          } else {
-            return data.commissions.map(commission => (
-              <Result
-                key={'commission-' + commission.id}
-                id={commission.id}
-                name={commission.name}
-                homepageUrl={commission.homepageUrl}
-                policyName={commission.policyType}
-              />
-            ));
           }
         }}
       </Query>
     );
-    /* eslint-enable no-unused-vars */
-
-    return (
-      <div>
-        <ul className="m-a000 p-a000">
-          <ResultComponents />
-        </ul>
-      </div>
-    );
   }
 }
+
+ResultList.propTypes = {
+  submittedSeats: PropTypes.string.isRequired,
+  submittedKeywords: PropTypes.string.isRequired,
+  submittedAreas: PropTypes.object.isRequired
+};
 
 export default ResultList;
