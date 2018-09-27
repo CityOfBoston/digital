@@ -33,7 +33,7 @@ class App extends React.Component {
     const checked = target.checked;
     const name = target.name; //area id
 
-    let currentAreas = null;
+    let currentAreas;
 
     if (checked === false || checked === null) {
       // remove unchecked key

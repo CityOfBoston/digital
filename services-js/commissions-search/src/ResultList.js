@@ -35,7 +35,7 @@ class ResultList extends React.Component {
     }`;
   }
 
-  returnResult = ({ id, name, policyType, homepageUrl }) => {
+  renderCommissionItem = ({ id, name, policyType, homepageUrl }) => {
     return (
       <li
         key={'commission-' + id}
@@ -68,7 +68,7 @@ class ResultList extends React.Component {
               <ul className="p-a000" style={{ marginTop: 0 }}>
                 {data.commissions
                   .sort((current, next) => current.name.localeCompare(next.name))
-                  .map(commission => this.returnResult(commission))}
+                  .map(commission => this.renderCommissionItem(commission))}
               </ul>
             );
 

@@ -17,15 +17,15 @@ const GET_AREAS = gql`
   }
 `;
 
-function returnArea(props, policy_area) {
+function renderAreaCheckbox(props, policyArea) {
   // to conserve horizontal space, convert "and" to an ampersand; Oxford comma
   // looks odd in this case, and the Chicago Manual of Style agrees - jm
-  const labelText = policy_area.name.replace(/(and|, and)/, '&');
+  const labelText = policyArea.name.replace(/( and|, and)/, ' &');
 
   return (
     <Checkbox
-      key={`checkbox-area-${policy_area.id}`}
-      name={policy_area.id}
+      key={`checkbox-area-${policyArea.id}`}
+      name={policyArea.id}
       onChange={props.handleCheckChange}
       title={labelText}
       style={{
@@ -55,18 +55,14 @@ class FacetList extends React.Component {
   };
 
   render() {
-    const { currentSeats, handleOptionChange } = this.props;
-
     const radioGroup = [
       {
-        labelText: 'All',
-        value: 'seats-all',
-        checked: currentSeats === 'seats-all'
+        label: 'All',
+        value: 'seats-all'
       },
       {
-        labelText: 'Have open seats',
-        value: 'seats-open',
-        checked: currentSeats === 'seats-open'
+        label: 'Have open seats',
+        value: 'seats-open'
       }
     ];
 
@@ -94,7 +90,7 @@ class FacetList extends React.Component {
 
                 return data.policyTypes
                   .sort((current, next) => current.name.localeCompare(next.name))
-                  .map(policy_area => returnArea(this.props, policy_area));
+                  .map(policyArea => renderAreaCheckbox(this.props, policyArea));
               }}
             </Query>
 
@@ -103,8 +99,9 @@ class FacetList extends React.Component {
             <RadioGroup
               items={radioGroup}
               name="seats"
+              checkedValue={this.props.currentSeats}
               className="m-b200"
-              handleChange={handleOptionChange}
+              handleItemChange={this.props.handleOptionChange}
             />
 
             <button

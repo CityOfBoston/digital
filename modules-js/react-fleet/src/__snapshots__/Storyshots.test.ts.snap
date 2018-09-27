@@ -784,6 +784,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Input Element 1`] = `
     className="ra-f"
     name="single"
     type="radio"
+    value="single"
   />
   <span
     className="ra-l"
@@ -795,16 +796,21 @@ exports[`Storyshots Form Elements/Inputs/Radio Input Element 1`] = `
 
 exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
 <div
-  aria-label="favorite-flower"
+  aria-labelledby="favorite-flower-groupLabel"
   role="group"
 >
+  <div
+    className="txt-l"
+    id="favorite-flower-groupLabel"
+  >
+    Favorite Flower
+  </div>
   <label
-    className="ra p-b200"
+    className="ra p-b200  "
   >
     <input
       className="ra-f"
       name="favorite-flower"
-      onChange={[Function]}
       type="radio"
       value="cosmos"
     />
@@ -815,12 +821,11 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     </span>
   </label>
   <label
-    className="ra p-b200"
+    className="ra p-b200  "
   >
     <input
       className="ra-f"
       name="favorite-flower"
-      onChange={[Function]}
       type="radio"
       value="foxglove"
     />
@@ -831,12 +836,11 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     </span>
   </label>
   <label
-    className="ra p-b200"
+    className="ra p-b200  "
   >
     <input
       className="ra-f"
       name="favorite-flower"
-      onChange={[Function]}
       type="radio"
       value="zinnia"
     />
@@ -845,6 +849,118 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     >
       Zinnia
     </span>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Hidden Group Label 1`] = `
+<div
+  aria-label="Favorite Flower"
+  role="group"
+>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      type="radio"
+      value="cosmos"
+    />
+    <span
+      className="ra-l"
+    >
+      Cosmos
+    </span>
+  </label>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      type="radio"
+      value="foxglove"
+    />
+    <span
+      className="ra-l"
+    >
+      Foxglove
+    </span>
+  </label>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="favorite-flower"
+      type="radio"
+      value="zinnia"
+    />
+    <span
+      className="ra-l"
+    >
+      Zinnia
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Labels as Markup 1`] = `
+<div
+  aria-labelledby="time-of-day-groupLabel"
+  role="group"
+>
+  <div
+    className="txt-l"
+    id="time-of-day-groupLabel"
+  >
+    Time of Day
+  </div>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="morning"
+    />
+    <h2
+      className="m-l200"
+    >
+      Morning
+    </h2>
+  </label>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="afternoon"
+    />
+    <h2
+      className="m-l200"
+    >
+      Afternoon
+    </h2>
+  </label>
+  <label
+    className="ra p-b200  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="evening"
+    />
+    <h2
+      className="m-l200"
+    >
+      Evening
+    </h2>
   </label>
 </div>
 `;

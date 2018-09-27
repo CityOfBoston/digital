@@ -5,16 +5,31 @@ import Radio, { RadioGroup } from './Radio';
 
 const radioGroup = [
   {
-    labelText: 'Cosmos',
+    label: 'Cosmos',
     value: 'cosmos'
   },
   {
-    labelText: 'Foxglove',
+    label: 'Foxglove',
     value: 'foxglove'
   },
   {
-    labelText: 'Zinnia',
+    label: 'Zinnia',
     value: 'zinnia'
+  }
+];
+
+const radioGroupAltLabels = [
+  {
+    label: <h2 className="m-l200">Morning</h2>,
+    value: 'morning'
+  },
+  {
+    label: <h2 className="m-l200">Afternoon</h2>,
+    value: 'afternoon'
+  },
+  {
+    label: <h2 className="m-l200">Evening</h2>,
+    value: 'evening'
   }
 ];
 
@@ -22,13 +37,30 @@ storiesOf('Form Elements/Inputs/Radio', module)
   .add('Input Element', () => (
     <Radio
       name="single"
-      labelText="Single Option"
+      value="single"
+      label="Single Option"
     />
   ))
   .add('Radio Group', () => (
     <RadioGroup
       items={radioGroup}
       name="favorite-flower"
-      handleChange={() => {}}
+      groupLabel="Favorite Flower"
     />
-  ));
+  ))
+  .add('Radio Group, Hidden Group Label', () => (
+    <RadioGroup
+      items={radioGroup}
+      name="favorite-flower"
+      groupLabel="Favorite Flower"
+      hideLabel
+    />
+  ))
+  .add('Radio Group, Labels as Markup', () => (
+    <RadioGroup
+      items={radioGroupAltLabels}
+      name="time-of-day"
+      groupLabel="Time of Day"
+    />
+  ))
+;
