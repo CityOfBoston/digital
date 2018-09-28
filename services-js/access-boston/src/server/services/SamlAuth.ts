@@ -24,8 +24,8 @@ interface SamlAuthAssertion {
     session_index: string;
     attributes: {
       groups?: string[];
-      FirstName: string[];
-      LastName: string[];
+      FirstName?: string[];
+      LastName?: string[];
       email?: string[];
     };
   };
@@ -282,8 +282,8 @@ export default class SamlAuth {
           type: 'login',
           nameId: user.name_id,
           sessionIndex: user.session_index,
-          firstName: attributes.FirstName[0] || '',
-          lastName: attributes.LastName[0] || '',
+          firstName: (attributes.FirstName && attributes.FirstName[0]) || '',
+          lastName: (attributes.LastName && attributes.LastName[0]) || '',
           email: (attributes.email && attributes.email[0]) || '',
           groups: parseGroupsAttribute(attributes.groups || []),
           // TODO(finh): Switch these to the real values once IAM is able to
