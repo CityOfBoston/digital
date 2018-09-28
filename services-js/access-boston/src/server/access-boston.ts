@@ -8,6 +8,7 @@ import Crumb from 'crumb';
 import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
+import hapiDevErrors from 'hapi-dev-errors';
 import next from 'next';
 
 // https://github.com/apollographql/apollo-server/issues/927
@@ -100,6 +101,18 @@ export async function makeServer(port) {
 
   await server.register(acceptLanguagePlugin);
   await server.register(Crumb);
+
+  await server.register({
+    plugin: hapiDevErrors,
+    options: {
+      // AWS_S3_CONFIG_URL is a hack to see if we’re running in staging, since
+      // we don’t expose that as an env variable otherwise.
+      showErrors:
+        dev ||
+        (process.env.NODE_ENV === 'production' &&
+          (process.env.AWS_S3_CONFIG_URL || '').includes('staging')),
+    },
+  });
 
   if (
     process.env.NODE_ENV === 'production' &&
