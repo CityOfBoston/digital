@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,6 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 import { Checkbox, RadioGroup } from '@cityofboston/react-fleet';
-
 
 const GET_AREAS = gql`
   {
@@ -30,7 +29,7 @@ function renderAreaCheckbox(props, policyArea) {
       title={labelText}
       style={{
         marginBottom: '1.5rem',
-        letterSpacing: 'initial'
+        letterSpacing: 'initial',
       }}
     />
   );
@@ -58,12 +57,12 @@ class FacetList extends React.Component {
     const radioGroup = [
       {
         label: 'All',
-        value: 'seats-all'
+        value: 'seats-all',
       },
       {
         label: 'Have open seats',
-        value: 'seats-open'
-      }
+        value: 'seats-open',
+      },
     ];
 
     return (
@@ -89,8 +88,12 @@ class FacetList extends React.Component {
                 if (error) return `Error! ${error.message}`;
 
                 return data.policyTypes
-                  .sort((current, next) => current.name.localeCompare(next.name))
-                  .map(policyArea => renderAreaCheckbox(this.props, policyArea));
+                  .sort((current, next) =>
+                    current.name.localeCompare(next.name)
+                  )
+                  .map(policyArea =>
+                    renderAreaCheckbox(this.props, policyArea)
+                  );
               }}
             </Query>
 
@@ -101,6 +104,7 @@ class FacetList extends React.Component {
               name="seats"
               checkedValue={this.props.currentSeats}
               className="m-b200"
+              itemsClassName="p-b200"
               handleItemChange={this.props.handleOptionChange}
             />
 
@@ -123,7 +127,7 @@ FacetList.propTypes = {
   handleOptionChange: PropTypes.func.isRequired,
   handleFacetSubmit: PropTypes.func.isRequired,
   currentAreas: PropTypes.object.isRequired,
-  currentSeats: PropTypes.string.isRequired
+  currentSeats: PropTypes.string.isRequired,
 };
 
 export default FacetList;

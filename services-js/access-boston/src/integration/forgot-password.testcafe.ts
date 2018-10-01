@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 
-import LoginFormModel from './LoginFormModel';
-import PasswordPageModel from './PasswordPageModel';
+import LoginFormModel from './models/LoginFormModel';
+import PasswordPageModel from './models/PasswordPageModel';
 import { fixtureUrl } from './testcafe-helpers';
-import PageModel from './PageModel';
+import PageModel from './models/PageModel';
 
 fixture('Forgot password').page(fixtureUrl('/forgot'));
 

@@ -6,40 +6,36 @@ import Radio, { RadioGroup } from './Radio';
 const radioGroup = [
   {
     label: 'Cosmos',
-    value: 'cosmos'
+    value: 'cosmos',
   },
   {
     label: 'Foxglove',
-    value: 'foxglove'
+    value: 'foxglove',
   },
   {
     label: 'Zinnia',
-    value: 'zinnia'
-  }
+    value: 'zinnia',
+  },
 ];
 
 const radioGroupAltLabels = [
   {
     label: <h2 className="m-l200">Morning</h2>,
-    value: 'morning'
+    value: 'morning',
   },
   {
     label: <h2 className="m-l200">Afternoon</h2>,
-    value: 'afternoon'
+    value: 'afternoon',
   },
   {
     label: <h2 className="m-l200">Evening</h2>,
-    value: 'evening'
-  }
+    value: 'evening',
+  },
 ];
 
 storiesOf('Form Elements/Inputs/Radio', module)
   .add('Input Element', () => (
-    <Radio
-      name="single"
-      value="single"
-      label="Single Option"
-    />
+    <Radio name="single" value="single" label="Single Option" />
   ))
   .add('Radio Group', () => (
     <RadioGroup
@@ -62,5 +58,4 @@ storiesOf('Form Elements/Inputs/Radio', module)
       name="time-of-day"
       groupLabel="Time of Day"
     />
-  ))
-;
+  ));

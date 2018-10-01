@@ -89,3 +89,19 @@ export function addValidationError(
     addValidationError(errorMap, innerErr);
   });
 }
+
+const CITY_DOMAINS = [
+  'boston.gov',
+  'cityofboston.gov',
+  'bpl.org',
+  'bostonpublicschools.org',
+];
+
+const CITY_DOMAIN_REGEXPS = CITY_DOMAINS.map(
+  d => new RegExp(`[@.]${d.replace(/\./g, '\\.')}$`, 'i')
+);
+
+// This can get called w/ an undefined value, apparently.
+export function testNotCityEmailAddress(val: string | undefined): boolean {
+  return !val || !CITY_DOMAIN_REGEXPS.find(r => !!val.match(r));
+}

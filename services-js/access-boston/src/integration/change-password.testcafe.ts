@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
-import LoginFormModel from './LoginFormModel';
-import PasswordPageModel from './PasswordPageModel';
+import LoginFormModel from './models/LoginFormModel';
+import PasswordPageModel from './models/PasswordPageModel';
 import { fixtureUrl } from './testcafe-helpers';
 
 fixture('Change password').page(fixtureUrl('/'));
@@ -86,6 +86,6 @@ test('Change password (no JS)', async t => {
     .click(passwordPage.submitButton);
 
   await t
-    .expect(Selector('body').innerText)
-    .contains('Your password has been changed!');
+    .expect(Selector('div').withText('Your password has been changed!'))
+    .ok();
 });

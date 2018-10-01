@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import { Formik, FormikProps } from 'formik';
-import { css } from 'emotion';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -20,17 +19,11 @@ import {
   GetInitialPropsDependencies,
   PageDependencies,
 } from './_app';
+import StatusModal from '../client/StatusModal';
+
 import resetPassword from '../client/graphql/reset-password';
 import { PasswordError } from '../client/graphql/queries';
 import { ValidationError } from 'yup';
-
-const SUBMITTING_MODAL_STYLE = css({
-  paddingTop: 0,
-  maxWidth: 500,
-  top: '15%',
-  marginRight: 'auto',
-  marginLeft: 'auto',
-});
 
 interface InitialProps {
   account: Account;
@@ -310,17 +303,13 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
   private renderSubmitting() {
     return (
-      <div className="md">
-        <div className={`md-c br br-t400 ${SUBMITTING_MODAL_STYLE}`}>
-          <div className="md-b p-a300">
-            <div className="t--intro">Saving your new password…</div>
-            <div className="t--info m-t300">
-              Please be patient and don’t refresh your browser. This might take
-              a bit.
-            </div>
-          </div>
+      <StatusModal>
+        <div className="t--intro">Saving your new password…</div>
+        <div className="t--info m-t300">
+          Please be patient and don’t refresh your browser. This might take a
+          bit.
         </div>
-      </div>
+      </StatusModal>
     );
   }
 

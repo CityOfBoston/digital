@@ -1,4 +1,4 @@
-import { analyzePassword } from './validation';
+import { analyzePassword, testNotCityEmailAddress } from './validation';
 
 describe('analyzePassword', () => {
   test('long enough', () => {
@@ -45,5 +45,31 @@ describe('analyzePassword', () => {
   test('has spaces', () => {
     expect(analyzePassword('a b').hasSpaces).toBe(true);
     expect(analyzePassword('abc').hasSpaces).toBe(false);
+  });
+});
+
+describe('testNotCityEmailAddress', () => {
+  test('GMail', () => {
+    expect(testNotCityEmailAddress('test@gmail.com')).toBe(true);
+  });
+
+  test('Boston.gov', () => {
+    expect(testNotCityEmailAddress('test@boston.gov')).toBe(false);
+  });
+
+  test('BOSTON.GOV', () => {
+    expect(testNotCityEmailAddress('test@BOSTON.GOV')).toBe(false);
+  });
+
+  test('Boston.gov subdomain', () => {
+    expect(testNotCityEmailAddress('test@staging.boston.gov')).toBe(false);
+  });
+
+  test('Notboston.gov', () => {
+    expect(testNotCityEmailAddress('test@notboston.gov')).toBe(true);
+  });
+
+  test('cityofboston.gov', () => {
+    expect(testNotCityEmailAddress('test@cityofboston.gov')).toBe(false);
   });
 });
