@@ -172,6 +172,10 @@ export default class AccessBostonApp extends App {
   componentDidMount() {
     const { routerListener } = this.pageDependencies;
     routerListener.attach(Router, (window as any).ga);
+    // Used by testcafe-helpers as a signal that React is running and has
+    // rendered the page. Used to ensure we don’t try to interact before the JS
+    // has loaded.
+    (window as any).APP_RUNNING = true;
   }
 
   componentWillUnmount() {

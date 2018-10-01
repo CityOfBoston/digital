@@ -1,9 +1,11 @@
 import { Selector } from 'testcafe';
 
-import LoginFormModel from './LoginFormModel';
-import PasswordPageModel from './PasswordPageModel';
+import LoginFormModel from './models/LoginFormModel';
+import PasswordPageModel from './models/PasswordPageModel';
+import PageModel from './models/PageModel';
+import DeviceRegistrationPageModel from './models/DeviceRegistrationPageModel';
+
 import { fixtureUrl } from './testcafe-helpers';
-import PageModel from './PageModel';
 
 // Starting at "/" will give us a redirect to "/register" once the frontend
 // realizes that the user hasn’t been registered.
@@ -34,8 +36,16 @@ test('Registration with new password and MFA', async t => {
     })
     .click(passwordPage.submitButton);
 
-  // TODO(finh): Implement MFA device registration
+  const mfaPage = new DeviceRegistrationPageModel();
+
+  await t
+    .typeText(mfaPage.phoneNumberField, '617 555-1212')
+    .click(mfaPage.submitButton)
+    .typeText(mfaPage.codeField, '555555')
+    .click(mfaPage.codeSubmitButton);
+
+  // TODO(finh): Continue this when more of the flow is implemented.
   await t
     .expect(Selector('body').innerText)
-    .contains('This page could not be found');
+    .contains('WELCOME TO ACCESS BOSTON');
 });

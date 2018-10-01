@@ -1,9 +1,8 @@
-import React from 'react';
-
+import React, { ReactNode } from 'react';
 
 interface Props {
   name: string;
-  title: string;
+  title: ReactNode;
   onChange: any;
   onBlur?: any;
   required?: boolean;
@@ -16,10 +15,7 @@ interface Props {
 
 export default function Checkbox(props: Props): JSX.Element {
   return (
-    <label
-      className={`cb ${props.className || ''}`}
-      style={props.style}
-    >
+    <label className={`cb ${props.className || ''}`} style={props.style}>
       <input
         name={props.name}
         value={props.value}

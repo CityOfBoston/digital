@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FocusEvent, ReactNode } from 'react';
 
-
 interface RadioProps {
   name: string;
   label: string | ReactNode;
@@ -22,10 +21,7 @@ interface RadioProps {
  */
 export default function Radio(props: RadioProps): JSX.Element {
   return (
-    <label
-      className={`ra ${props.className || ''}`}
-      style={props.style}
-    >
+    <label className={`ra ${props.className || ''}`} style={props.style}>
       <input
         name={props.name}
         value={props.value}
@@ -36,17 +32,14 @@ export default function Radio(props: RadioProps): JSX.Element {
         onBlur={props.onBlur}
       />
 
-      {typeof props.label === 'string' ?
+      {typeof props.label === 'string' ? (
         <span className="ra-l">{props.label}</span>
-
-        :
-
+      ) : (
         props.label
-      }
+      )}
     </label>
   );
 }
-
 
 interface RadioItem {
   label: string | ReactNode;
@@ -80,15 +73,17 @@ interface RadioGroupProps {
 export function RadioGroup(props: RadioGroupProps): JSX.Element {
   const ariaProps = {};
 
-  props.hideLabel ? ariaProps['aria-label'] = props.groupLabel : ariaProps['aria-labelledby'] = `${props.name}-groupLabel`;
+  props.hideLabel
+    ? (ariaProps['aria-label'] = props.groupLabel)
+    : (ariaProps['aria-labelledby'] = `${props.name}-groupLabel`);
 
   return (
-    <div
-      role="group"
-      className={props.className}
-      { ...ariaProps }
-    >
-      {!props.hideLabel && <div className="txt-l" id={`${props.name}-groupLabel`}>{props.groupLabel}</div>}
+    <div role="group" className={props.className} {...ariaProps}>
+      {!props.hideLabel && (
+        <div className="txt-l" id={`${props.name}-groupLabel`}>
+          {props.groupLabel}
+        </div>
+      )}
 
       {props.items.map((item: RadioItem, index: number) => (
         <Radio
@@ -96,10 +91,14 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
           name={props.name}
           label={item.label}
           value={item.value}
-          checked={props.checkedValue ? item.value === props.checkedValue : item.checked}
+          checked={
+            props.checkedValue
+              ? item.value === props.checkedValue
+              : item.checked
+          }
           onChange={props.handleItemChange}
           onBlur={props.handleItemBlur}
-          className={`p-b200 ${props.itemsClassName || ''} ${item.className || ''}`}
+          className={`${props.itemsClassName || ''} ${item.className || ''}`}
         />
       ))}
     </div>

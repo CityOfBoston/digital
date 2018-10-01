@@ -251,7 +251,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -298,7 +298,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -345,7 +345,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -587,7 +587,7 @@ Array [
                   value=""
                 />
                 <div
-                  className="t--subinfo t--err m-t100"
+                  className="t--info t--err m-v100"
                 >
                    
                 </div>
@@ -634,7 +634,7 @@ Array [
                   value=""
                 />
                 <div
-                  className="t--subinfo t--err m-t100"
+                  className="t--info t--err m-v100"
                 >
                    
                 </div>
@@ -681,7 +681,7 @@ Array [
                   value=""
                 />
                 <div
-                  className="t--subinfo t--err m-t100"
+                  className="t--info t--err m-v100"
                 >
                    
                 </div>
@@ -902,7 +902,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                 Current password is incorrect
               </div>
@@ -949,7 +949,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -996,7 +996,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -1216,7 +1216,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -1263,7 +1263,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -1310,7 +1310,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -1514,7 +1514,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -1561,7 +1561,7 @@ Array [
                 value=""
               />
               <div
-                className="t--subinfo t--err m-t100"
+                className="t--info t--err m-v100"
               >
                  
               </div>
@@ -2590,6 +2590,551 @@ Array [
 ]
 `;
 
+exports[`Storyshots RegisterMfaPage form 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Add Security Noun
+        </h2>
+      </div>
+      <div
+        className="t--intro m-v300"
+      >
+        You will need to register a security noun to protect your Access Boston account.
+      </div>
+      <div
+        className="t--info m-v300"
+      >
+        Access Boston will send a code to your phone or email whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      </div>
+      <hr
+        className="hr hr--sq"
+      />
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <div
+          className="m-b500"
+        >
+          <div
+            aria-labelledby="phoneOrEmail-groupLabel"
+            role="group"
+          >
+            <div
+              className="txt-l"
+              id="phoneOrEmail-groupLabel"
+            >
+              Where do you want to get your security codes?
+            </div>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={true}
+                className="ra-f"
+                name="phoneOrEmail"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="phone"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="phoneOrEmail"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="email"
+              />
+              <span
+                className="ra-l"
+              >
+                Email
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-1267882554"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Phone Number
+            <span
+              aria-hidden="true"
+              className="t--req"
+            >
+               
+              Required
+            </span>
+          </label>
+          <div
+            className="g"
+          >
+            <div
+              className="g--6"
+            >
+              <input
+                className=" txt-f "
+                id="input-1267882554"
+                name="phoneNumber"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="(XXX) XXX-XXXX"
+                required={true}
+                type="tel"
+                value=""
+              />
+            </div>
+            <div
+              className="g--6 css-70qvj9"
+            >
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+          </div>
+          <div
+            className="t--subinfo m-t100"
+          >
+            You should use your cell phone number if you have one.
+          </div>
+        </div>
+        <div
+          aria-labelledby="smsOrVoice-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="smsOrVoice-groupLabel"
+          >
+            How should we send the codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="smsOrVoice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="sms"
+            />
+            <span
+              className="ra-l"
+            >
+              Text message — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="smsOrVoice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="voice"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone call
+            </span>
+          </label>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <button
+            className="btn"
+            disabled={true}
+            type="submit"
+          >
+            Send verification code
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots RegisterMfaPage modal 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Add Security Noun
+        </h2>
+      </div>
+      <div
+        className="t--intro m-v300"
+      >
+        You will need to register a security noun to protect your Access Boston account.
+      </div>
+      <div
+        className="t--info m-v300"
+      >
+        Access Boston will send a code to your phone or email whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      </div>
+      <hr
+        className="hr hr--sq"
+      />
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <div
+          className="m-b500"
+        >
+          <div
+            aria-labelledby="phoneOrEmail-groupLabel"
+            role="group"
+          >
+            <div
+              className="txt-l"
+              id="phoneOrEmail-groupLabel"
+            >
+              Where do you want to get your security codes?
+            </div>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={true}
+                className="ra-f"
+                name="phoneOrEmail"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="phone"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="phoneOrEmail"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="email"
+              />
+              <span
+                className="ra-l"
+              >
+                Email
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-1267882554"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Phone Number
+            <span
+              aria-hidden="true"
+              className="t--req"
+            >
+               
+              Required
+            </span>
+          </label>
+          <div
+            className="g"
+          >
+            <div
+              className="g--6"
+            >
+              <input
+                className=" txt-f "
+                id="input-1267882554"
+                name="phoneNumber"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="(XXX) XXX-XXXX"
+                required={true}
+                type="tel"
+                value=""
+              />
+            </div>
+            <div
+              className="g--6 css-70qvj9"
+            >
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+          </div>
+          <div
+            className="t--subinfo m-t100"
+          >
+            You should use your cell phone number if you have one.
+          </div>
+        </div>
+        <div
+          aria-labelledby="smsOrVoice-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="smsOrVoice-groupLabel"
+          >
+            How should we send the codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="smsOrVoice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="sms"
+            />
+            <span
+              className="ra-l"
+            >
+              Text message — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="smsOrVoice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="voice"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone call
+            </span>
+          </label>
+        </div>
+        <div
+          className="m-v500"
+        >
+          <button
+            className="btn"
+            disabled={true}
+            type="submit"
+          >
+            Send verification code
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="md"
+  >
+    <div
+      className="md-c br br-t400 css-1y2scv5"
+    >
+      <div
+        className="md-b p-a300"
+      >
+        <div
+          className="t--intro"
+        >
+          We’re sending your authentication code…
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots RegisterPage needs password and MFA 1`] = `
 Array [
   <div
@@ -2717,7 +3262,42 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--info t--err m-v100"
+    >
+       
+    </div>
+  </div>,
+  <div
+    className="txt"
+    style={
+      Object {
+        "marginBottom": "0.5rem",
+      }
+    }
+  >
+    <label
+      className="txt-l"
+      htmlFor="input-104712524"
+      style={
+        Object {
+          "marginTop": 0,
+        }
+      }
+    >
+      Normal Input with Info
+    </label>
+    <input
+      className=" txt-f "
+      id="input-104712524"
+      type="text"
+    />
+    <div
+      className="t--subinfo m-t100"
+    >
+      This field is important to get right
+    </div>
+    <div
+      className="t--info t--err m-v100"
     >
        
     </div>
@@ -2755,7 +3335,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--info t--err m-v100"
     >
        
     </div>
@@ -2786,7 +3366,7 @@ Array [
       value="password"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--info t--err m-v100"
     >
        
     </div>
@@ -2816,7 +3396,7 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--info t--err m-v100"
     >
       Value is not correct
     </div>
@@ -2846,10 +3426,1174 @@ Array [
       type="text"
     />
     <div
-      className="t--subinfo t--err m-t100"
+      className="t--info t--err m-v100"
     >
        
     </div>
   </div>,
+  <div
+    className="txt"
+    style={
+      Object {
+        "marginBottom": "0.5rem",
+      }
+    }
+  >
+    <label
+      className="txt-l"
+      htmlFor="input-3965547479"
+      style={
+        Object {
+          "marginTop": 0,
+        }
+      }
+    >
+      Error next to input
+    </label>
+    <div
+      className="g"
+    >
+      <div
+        className="g--6"
+      >
+        <input
+          className=" txt-f txt-f--err"
+          id="input-3965547479"
+          type="text"
+        />
+      </div>
+      <div
+        className="g--6 css-70qvj9"
+      >
+        <div
+          className="t--info t--err m-v100"
+        >
+          Error is over here
+        </div>
+      </div>
+    </div>
+    <div
+      className="t--subinfo m-t100"
+    >
+      We sent you this in a card in the mail
+    </div>
+  </div>,
 ]
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationForm code sending error 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Add Security Noun
+      </h2>
+    </div>
+    <div
+      className="t--intro m-v300"
+    >
+      You will need to register a security noun to protect your Access Boston account.
+    </div>
+    <div
+      className="t--info m-v300"
+    >
+      Access Boston will send a code to your phone or email whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </div>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      action=""
+      className="m-v500"
+      method="POST"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            Where do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f "
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          You should use your cell phone number if you have one.
+        </div>
+      </div>
+      <div
+        aria-labelledby="smsOrVoice-groupLabel"
+        role="group"
+      >
+        <div
+          className="txt-l"
+          id="smsOrVoice-groupLabel"
+        >
+          How should we send the codes?
+        </div>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={true}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="sms"
+          />
+          <span
+            className="ra-l"
+          >
+            Text message — 
+            <i>
+              recommended
+            </i>
+          </span>
+        </label>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={false}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="voice"
+          />
+          <span
+            className="ra-l"
+          >
+            Phone call
+          </span>
+        </label>
+      </div>
+      <div
+        className="m-v500 t--intro t--err"
+      >
+        We weren’t able to send to that address. Please try something else.
+      </div>
+      <div
+        className="m-v500"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Send verification code
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationForm email with error 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Add Security Noun
+      </h2>
+    </div>
+    <div
+      className="t--intro m-v300"
+    >
+      You will need to register a security noun to protect your Access Boston account.
+    </div>
+    <div
+      className="t--info m-v300"
+    >
+      Access Boston will send a code to your phone or email whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </div>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      action=""
+      className="m-v500"
+      method="POST"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            Where do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-3734019359"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Email address
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f txt-f--err"
+              id="input-3734019359"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="you@example.com"
+              required={true}
+              type="email"
+              value="notanemail.com"
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+              This doesn’t look like an email address.
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          Choose a personal address, not a City of Boston one.
+        </div>
+      </div>
+      <div
+        className="m-v500"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Send verification code
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationForm phone 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Add Security Noun
+      </h2>
+    </div>
+    <div
+      className="t--intro m-v300"
+    >
+      You will need to register a security noun to protect your Access Boston account.
+    </div>
+    <div
+      className="t--info m-v300"
+    >
+      Access Boston will send a code to your phone or email whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </div>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      action=""
+      className="m-v500"
+      method="POST"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            Where do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f "
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          You should use your cell phone number if you have one.
+        </div>
+      </div>
+      <div
+        aria-labelledby="smsOrVoice-groupLabel"
+        role="group"
+      >
+        <div
+          className="txt-l"
+          id="smsOrVoice-groupLabel"
+        >
+          How should we send the codes?
+        </div>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={true}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="sms"
+          />
+          <span
+            className="ra-l"
+          >
+            Text message — 
+            <i>
+              recommended
+            </i>
+          </span>
+        </label>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={false}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="voice"
+          />
+          <span
+            className="ra-l"
+          >
+            Phone call
+          </span>
+        </label>
+      </div>
+      <div
+        className="m-v500"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Send verification code
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal checking the code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Please pick up! We’re making a phone call to
+         
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value="133789"
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Checking…
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Resend the code
+        </a>
+         
+        or
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          try a different number or email
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal incorrect code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        <span
+          className="t--err"
+        >
+          That code didn’t seem right. Can you try again?
+        </span>
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Resend the code
+        </a>
+         
+        or
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          try a different number or email
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal sending 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        We’re sending your authentication code…
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal waiting for SMS code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Check your phone! We’ve sent a text to 
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Resend the code
+        </a>
+         
+        or
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          try a different number or email
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal waiting for email code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Check your inbox! We’ve sent an email to 
+        <strong>
+          test@boston.gov
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value="133789"
+            />
+            <button
+              className="btn"
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Resend the code
+        </a>
+         
+        or
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          try a different number or email
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal waiting for voice code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Please pick up! We’re making a phone call to
+         
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          Resend the code
+        </a>
+         
+        or
+         
+        <a
+          href="javascript:void(0)"
+          onClick={[Function]}
+        >
+          try a different number or email
+        </a>
+        .
+      </div>
+    </div>
+  </div>
+</div>
 `;

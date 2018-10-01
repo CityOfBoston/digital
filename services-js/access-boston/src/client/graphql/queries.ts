@@ -2,6 +2,28 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: AddMfaDevice
+// ====================================================
+
+export interface AddMfaDevice_addMfaDevice {
+  sessionId: string | null;
+  error: MfaError | null;
+}
+
+export interface AddMfaDevice {
+  addMfaDevice: AddMfaDevice_addMfaDevice;
+}
+
+export interface AddMfaDeviceVariables {
+  phoneNumber?: string | null;
+  email?: string | null;
+  type: VerificationType;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: ChangePassword
 // ====================================================
 
@@ -106,6 +128,18 @@ export interface ResetPasswordVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export enum VerificationType {
+  EMAIL = 'EMAIL',
+  SMS = 'SMS',
+  VOICE = 'VOICE',
+}
+
+export enum MfaError {
+  INVALID_EMAIL = 'INVALID_EMAIL',
+  INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER',
+  WRONG_PASSWORD = 'WRONG_PASSWORD',
+}
 
 export enum WorkflowStatus {
   ERROR = 'ERROR',

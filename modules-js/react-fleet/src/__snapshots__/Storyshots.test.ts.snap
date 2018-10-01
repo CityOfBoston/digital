@@ -806,7 +806,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     Favorite Flower
   </div>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -821,7 +821,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     </span>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -836,7 +836,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group 1`] = `
     </span>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -859,7 +859,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Hidden Group Label 1
   role="group"
 >
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -874,7 +874,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Hidden Group Label 1
     </span>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -889,7 +889,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Hidden Group Label 1
     </span>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -918,7 +918,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Labels as Markup 1`]
     Time of Day
   </div>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -933,7 +933,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Labels as Markup 1`]
     </h2>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"
@@ -948,7 +948,7 @@ exports[`Storyshots Form Elements/Inputs/Radio Radio Group, Labels as Markup 1`]
     </h2>
   </label>
   <label
-    className="ra p-b200  "
+    className="ra  "
   >
     <input
       className="ra-f"

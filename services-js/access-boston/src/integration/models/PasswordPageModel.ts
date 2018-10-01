@@ -6,7 +6,7 @@ import PageModel from './PageModel';
  * fields.
  */
 export default class PasswordPageModel extends PageModel {
-  form = Selector('form');
+  form = Selector('.mn form');
 
   currentPasswordField = this.form.find('input[name=password]');
   newPasswordField = this.form.find('input[name=newPassword]');
