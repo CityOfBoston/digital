@@ -361,6 +361,16 @@ Array [
       </form>
     </div>
   </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -698,6 +708,16 @@ Array [
       </div>
     </div>
   </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -1012,6 +1032,16 @@ Array [
       </form>
     </div>
   </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -1348,6 +1378,16 @@ Array [
       </div>
     </div>
   </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -2851,6 +2891,16 @@ Array [
       </form>
     </div>
   </div>,
+  <form
+    action="/done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -3127,11 +3177,102 @@ Array [
         <div
           className="t--intro"
         >
-          We’re sending your authentication code…
+          Check your phone! We’ve sent a text to 
+          <strong>
+            
+          </strong>
+          .
+        </div>
+        <div
+          className="m-v500"
+        >
+          <div
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
+          >
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-1e1yraf txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn"
+                disabled={true}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="button"
+              >
+                Activate
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo ta-c"
+        >
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
         </div>
       </div>
     </div>
   </div>,
+  <form
+    action="/done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
 ]
 `;
 
@@ -4159,21 +4300,23 @@ exports[`Storyshots device-verification/DeviceVerificationModal checking the cod
       >
         Didn’t get it?
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           Resend the code
-        </a>
+        </button>
          
         or
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           try a different number or email
-        </a>
+        </button>
         .
       </div>
     </div>
@@ -4258,22 +4401,75 @@ exports[`Storyshots device-verification/DeviceVerificationModal incorrect code 1
       >
         Didn’t get it?
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           Resend the code
-        </a>
+        </button>
          
         or
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           try a different number or email
-        </a>
+        </button>
         .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots device-verification/DeviceVerificationModal other error 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        <span
+          className="t--err"
+        >
+          Something went wrong.
+        </span>
+      </div>
+      <div
+        className="m-v400"
+      >
+        We had a problem verifying that code. You can try to
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          get a new code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          use a different number or email
+        </button>
+        .
+      </div>
+      <div>
+        Please get in touch with the helpdesk if this keeps happening.
       </div>
     </div>
   </div>
@@ -4377,21 +4573,23 @@ exports[`Storyshots device-verification/DeviceVerificationModal waiting for SMS 
       >
         Didn’t get it?
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           Resend the code
-        </a>
+        </button>
          
         or
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           try a different number or email
-        </a>
+        </button>
         .
       </div>
     </div>
@@ -4476,21 +4674,23 @@ exports[`Storyshots device-verification/DeviceVerificationModal waiting for emai
       >
         Didn’t get it?
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           Resend the code
-        </a>
+        </button>
          
         or
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           try a different number or email
-        </a>
+        </button>
         .
       </div>
     </div>
@@ -4576,21 +4776,23 @@ exports[`Storyshots device-verification/DeviceVerificationModal waiting for voic
       >
         Didn’t get it?
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           Resend the code
-        </a>
+        </button>
          
         or
          
-        <a
-          href="javascript:void(0)"
+        <button
+          className="lnk"
           onClick={[Function]}
+          type="button"
         >
           try a different number or email
-        </a>
+        </button>
         .
       </div>
     </div>

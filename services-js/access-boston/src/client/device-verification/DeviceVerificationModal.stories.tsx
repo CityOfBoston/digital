@@ -81,4 +81,15 @@ storiesOf('device-verification/DeviceVerificationModal', module)
       resetVerification={resetVerification}
       validateCode={validateCode}
     />
+  ))
+  .add('other error', () => (
+    <DeviceVerificationModal
+      status={VerificationStatus.OTHER_ERROR}
+      type={VerificationType.VOICE}
+      phoneNumber="(617) 555-1234"
+      email={null}
+      resendVerification={resendVerification}
+      resetVerification={resetVerification}
+      validateCode={validateCode}
+    />
   ));

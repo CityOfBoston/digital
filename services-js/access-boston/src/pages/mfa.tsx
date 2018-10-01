@@ -25,6 +25,10 @@ import DeviceVerificationForm, {
 import DeviceVerificationModal, {
   VerificationStatus,
 } from '../client/device-verification/DeviceVerificationModal';
+import verifyMfaDevice from '../client/graphql/verify-mfa-device';
+
+import { MfaError } from '../client/graphql/queries';
+import RedirectForm from '../client/RedirectForm';
 
 interface InitialProps {
   account: Account;
@@ -36,19 +40,20 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
 }
 
 interface State {
+  status: VerificationStatus;
   verificationError: string | null;
   sessionId: string | null;
 }
 
 export default class RegisterMfaPage extends React.Component<Props, State> {
-  formikRef: React.RefObject<Formik<FormValues>>;
+  private readonly formikRef = React.createRef<Formik<FormValues>>();
+  private readonly doneRedirectRef = React.createRef<RedirectForm>();
 
   constructor(props: Props) {
     super(props);
 
-    this.formikRef = React.createRef();
-
     this.state = {
+      status: VerificationStatus.NONE,
       verificationError: null,
       sessionId: null,
     };
@@ -89,6 +94,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
   private handleSubmit = async (values: FormValues, { setSubmitting }) => {
     try {
       this.setState({
+        status: VerificationStatus.SENDING,
         verificationError: null,
         sessionId: null,
       });
@@ -102,12 +108,17 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
         // Will get caught below.
         throw new Error(error);
       } else {
-        this.setState({ sessionId });
+        this.setState({
+          status: VerificationStatus.SENT,
+          sessionId,
+        });
       }
     } catch (e) {
+      // Stopping the submission process closes the modal.
       setSubmitting(false);
 
       this.setState({
+        status: VerificationStatus.NONE,
         verificationError: e.toString(),
       });
     }
@@ -130,28 +141,47 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
     }
 
     this.setState({
+      status: VerificationStatus.NONE,
       sessionId: null,
       verificationError: null,
     });
   };
 
-  validateCode = async () => {
-    const formik = this.formikRef.current;
+  validateCode = async (code: string) => {
+    const { fetchGraphql } = this.props;
+    const { status, sessionId } = this.state;
 
-    if (formik) {
-      formik.resetForm();
+    if (!sessionId || status === VerificationStatus.CHECKING) {
+      return;
     }
 
-    window.location.href = '/';
+    this.setState({
+      status: VerificationStatus.CHECKING,
+      verificationError: null,
+    });
+
+    try {
+      const { success, error } = await verifyMfaDevice(
+        fetchGraphql,
+        sessionId,
+        code
+      );
+
+      if (success) {
+        this.doneRedirectRef.current!.redirect();
+      } else if (error === MfaError.WRONG_PASSWORD) {
+        this.setState({ status: VerificationStatus.INCORRECT_CODE });
+      } else {
+        this.setState({ status: VerificationStatus.OTHER_ERROR });
+      }
+    } catch (e) {
+      this.setState({ status: VerificationStatus.OTHER_ERROR });
+    }
   };
 
   render() {
     const { account, testVerificationCodeModal } = this.props;
-    const {
-      verificationError,
-
-      sessionId,
-    } = this.state;
+    const { status, verificationError } = this.state;
 
     const initialValues: FormValues = {
       phoneOrEmail: 'phone',
@@ -184,11 +214,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
 
               {(formikProps.isSubmitting || testVerificationCodeModal) && (
                 <DeviceVerificationModal
-                  status={
-                    sessionId
-                      ? VerificationStatus.SENT
-                      : VerificationStatus.SENDING
-                  }
+                  status={status}
                   {...this.formValuesToAddDeviceArgs(formikProps.values)}
                   resendVerification={this.resendVerification}
                   resetVerification={this.resetVerification}
@@ -198,6 +224,8 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
             </>
           )}
         />
+
+        <RedirectForm ref={this.doneRedirectRef} path="/done" />
       </>
     );
   }

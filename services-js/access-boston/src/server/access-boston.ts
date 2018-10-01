@@ -304,6 +304,29 @@ async function addNext(server: HapiServer) {
     handler: makeNextHandler(nextApp),
   });
 
+  // The /done route is special because that's where we send people after
+  // they’re done filling out their registration. It needs to clear the local
+  // session so that the user is prompted to log in again.
+  //
+  // (The user is logged out of SAML during registration, we only have the local
+  // session.)
+  server.route({
+    method: ['POST'],
+    path: '/done',
+    options: {
+      ext: {
+        onPostAuth: {
+          method: addCrumbCookie,
+        },
+      },
+    },
+    handler: (nextHandler => (request, h) => {
+      request.yar.reset();
+
+      return nextHandler(request, h);
+    })(makeNextHandler(nextApp)),
+  });
+
   server.route(
     makeRoutesForNextApp(
       nextApp,

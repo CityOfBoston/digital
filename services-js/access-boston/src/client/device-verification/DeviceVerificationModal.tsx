@@ -9,10 +9,12 @@ import TextInput from '../TextInput';
 import { SANS } from '@cityofboston/react-fleet';
 
 export enum VerificationStatus {
+  NONE,
   SENDING,
   SENT,
   CHECKING,
   INCORRECT_CODE,
+  OTHER_ERROR,
 }
 
 interface Props {
@@ -70,6 +72,10 @@ export default class DeviceVerificationModal extends React.Component<Props> {
 
     let header: ReactNode = null;
 
+    if (status === VerificationStatus.OTHER_ERROR) {
+      return this.renderGenericError();
+    }
+
     if (status === VerificationStatus.INCORRECT_CODE) {
       header = (
         <span className="t--err">
@@ -121,6 +127,33 @@ export default class DeviceVerificationModal extends React.Component<Props> {
     );
   }
 
+  renderGenericError() {
+    const { resendVerification, resetVerification } = this.props;
+
+    return (
+      <>
+        <div className="t--intro">
+          <span className="t--err">Something went wrong.</span>
+        </div>
+
+        <div className="m-v400">
+          We had a problem verifying that code. You can try to{' '}
+          <button type="button" className="lnk" onClick={resendVerification}>
+            get a new code
+          </button>{' '}
+          or{' '}
+          <button type="button" className="lnk" onClick={resetVerification}>
+            use a different number or email
+          </button>.
+        </div>
+
+        <div>
+          Please get in touch with the helpdesk if this keeps happening.
+        </div>
+      </>
+    );
+  }
+
   renderFormContents = ({
     values: { code },
     handleChange,
@@ -167,13 +200,13 @@ export default class DeviceVerificationModal extends React.Component<Props> {
 
         <div className="t--subinfo ta-c">
           Didn’t get it?{' '}
-          <a href="javascript:void(0)" onClick={resendVerification}>
+          <button type="button" className="lnk" onClick={resendVerification}>
             Resend the code
-          </a>{' '}
+          </button>{' '}
           or{' '}
-          <a href="javascript:void(0)" onClick={resetVerification}>
+          <button type="button" className="lnk" onClick={resetVerification}>
             try a different number or email
-          </a>.
+          </button>.
         </div>
       </>
     );
