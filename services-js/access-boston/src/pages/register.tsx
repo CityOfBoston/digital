@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import getConfig from 'next/config';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -32,6 +33,11 @@ export default class RegisterPage extends React.Component<Props> {
 
   render() {
     const { account } = this.props;
+
+    const { publicRuntimeConfig } = getConfig() || { publicRuntimeConfig: {} };
+    const logoutImgSrc = `https://${
+      publicRuntimeConfig.PING_HOST
+    }/ext/idplogout`;
 
     return (
       <>
@@ -65,6 +71,8 @@ export default class RegisterPage extends React.Component<Props> {
                 </Link>
               )}
             </div>
+
+            <img src={logoutImgSrc} alt="" width="1" height="1" />
           </div>
         </div>
       </>

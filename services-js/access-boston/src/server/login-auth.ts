@@ -68,7 +68,9 @@ export async function addLoginAuth(
         metadataUrl,
         assertUrl,
       },
-      process.env.SINGLE_LOGOUT_URL || ''
+      process.env.PING_HOST
+        ? `https://${process.env.PING_HOST}/idp/startSLO.ping`
+        : ''
     );
   } else {
     samlAuth = new SamlAuthFake({
