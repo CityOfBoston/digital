@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { CHARLES_BLUE, SANS } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
-import CrumbContext from '../client/CrumbContext';
 import { Account } from './graphql/fetch-account';
+import RedirectForm from './RedirectForm';
 
 const HEADER_STYLE = css({
   display: 'flex',
@@ -42,33 +42,28 @@ export default class AccessBostonHeader extends React.Component<Props> {
     const { account, noLinks } = this.props;
 
     return (
-      <CrumbContext.Consumer>
-        {crumb => (
-          <div className={`${HEADER_STYLE} p-a200`}>
-            <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>
-              {noLinks ? (
-                'Access Boston'
-              ) : (
-                <Link href="/">
-                  <a style={{ color: 'inherit' }}>Access Boston</a>
-                </Link>
-              )}
-            </h1>
-            {account && (
-              <div className={`${HEADER_RIGHT_STYLE}`}>
-                <span style={{ marginRight: '1em' }}>{account.employeeId}</span>
+      <div className={`${HEADER_STYLE} p-a200`}>
+        <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>
+          {noLinks ? (
+            'Access Boston'
+          ) : (
+            <Link href="/">
+              <a style={{ color: 'inherit' }}>Access Boston</a>
+            </Link>
+          )}
+        </h1>
+        {account && (
+          <div className={`${HEADER_RIGHT_STYLE}`}>
+            <span style={{ marginRight: '1em' }}>{account.employeeId}</span>
 
-                {!noLinks && (
-                  <form action="/logout" method="POST">
-                    <input type="hidden" name="crumb" value={crumb} />
-                    <button className="btn btn--sm btn--100">Logout</button>
-                  </form>
-                )}
-              </div>
+            {!noLinks && (
+              <RedirectForm path="/logout">
+                <button className="btn btn--sm btn--100">Logout</button>
+              </RedirectForm>
             )}
           </div>
         )}
-      </CrumbContext.Consumer>
+      </div>
     );
   }
 }

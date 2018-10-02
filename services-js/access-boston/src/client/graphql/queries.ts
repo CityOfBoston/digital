@@ -125,6 +125,27 @@ export interface ResetPasswordVariables {
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: VerifyMfaDevice
+// ====================================================
+
+export interface VerifyMfaDevice_verifyMfaDevice {
+  success: boolean;
+  error: MfaError | null;
+}
+
+export interface VerifyMfaDevice {
+  verifyMfaDevice: VerifyMfaDevice_verifyMfaDevice;
+}
+
+export interface VerifyMfaDeviceVariables {
+  sessionId: string;
+  pairingCode: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================

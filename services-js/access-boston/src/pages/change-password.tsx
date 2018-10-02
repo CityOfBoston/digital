@@ -26,6 +26,7 @@ import {
   GetInitialProps,
   PageDependencies,
 } from './_app';
+import RedirectForm from '../client/RedirectForm';
 
 interface InitialProps {
   account: Account;
@@ -107,6 +108,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     };
   };
 
+  private readonly doneRedirectRef = React.createRef<RedirectForm>();
+
   constructor(props: Props) {
     super(props);
 
@@ -139,11 +142,17 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           break;
 
         case 'SUCCESS':
-          Router.push({
-            // clears out any query param since we're setting it below
-            pathname: successUrl(account).replace(/\?.*/, ''),
-            query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
-          });
+          if (account.needsNewPassword && !account.needsMfaDevice) {
+            // we were doing registration, but if we don't need an MFA device
+            // then we can go straight to done.
+            this.doneRedirectRef.current!.redirect();
+          } else {
+            Router.push({
+              // clears out any query param since we're setting it below
+              pathname: successUrl(account).replace(/\?.*/, ''),
+              query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
+            });
+          }
           break;
       }
     } finally {
@@ -221,6 +230,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               </div>
 
               {showSubmittingModal && this.renderSubmitting()}
+
+              <RedirectForm path="done" ref={this.doneRedirectRef} />
             </>
           );
         }}

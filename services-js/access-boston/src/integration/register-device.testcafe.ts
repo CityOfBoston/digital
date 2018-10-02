@@ -1,13 +1,15 @@
 import { Selector } from 'testcafe';
 
 import LoginFormModel from './models/LoginFormModel';
+import DeviceRegistrationPageModel from './models/DeviceRegistrationPageModel';
+import PageModel from './models/PageModel';
+
 import {
   fixtureUrl,
   makeGraphQlLogger,
   requestBodyPredicate,
   isReactRunning,
 } from './testcafe-helpers';
-import DeviceRegistrationPageModel from './models/DeviceRegistrationPageModel';
 
 const graphqlLogger: RequestLogger = makeGraphQlLogger();
 
@@ -52,24 +54,39 @@ test('Device registration', async t => {
   graphqlLogger.clear();
 
   await t
-    .click(Selector('a').withText('Resend the code'))
+    .click(Selector('button').withText('Resend the code'))
     .expect(
       graphqlLogger.contains(requestBodyPredicate('mutation AddMfaDevice'))
     )
     .ok('Resend link makes a second server call');
 
   await t
-    .click(Selector('a').withText('try a different number or email'))
+    .click(Selector('button').withText('try a different number or email'))
     .typeText(mfaPage.phoneNumberField, '617 555-1212')
     .click(mfaPage.voiceRadioButton)
     .click(mfaPage.submitButton)
     .expect(mfaPage.modal.innerText)
     .contains('Please pick up!', 'Can switch to voice code');
 
-  // TODO(finh): Continue this when more of the flow is implemented.
+  await mfaPage
+    .submitVerificationCode(t, '999999')
+    .expect(
+      mfaPage.modal.withText('That code didn’t seem right. Can you try again?')
+        .exists
+    )
+    .ok('Error message from 999999 code appears');
+
+  await mfaPage.submitVerificationCode(t, '123456');
+
+  const donePage = new PageModel();
   await t
-    .typeText(mfaPage.codeField, '999999')
-    .click(mfaPage.codeSubmitButton)
-    .expect(Selector('body').innerText)
-    .contains('WELCOME TO ACCESS BOSTON');
+    .expect(donePage.sectionHeader.withText('YOU’RE ALL SET!').exists)
+    .ok('On done page');
+
+  // Now we go home to make sure that the session was destroyed. This should
+  // redirect to login.
+  await t.navigateTo('/');
+
+  const loginPage = new LoginFormModel();
+  await t.expect(loginPage.userIdField.exists).ok('On login page');
 });

@@ -20,4 +20,7 @@ export default class DeviceRegistrationPageModel extends PageModel {
   modal = Selector('.md');
   codeField = this.modal.find('input[name=code]');
   codeSubmitButton = this.modal.find('button');
+
+  submitVerificationCode = (t: TestController, code: string) =>
+    t.typeText(this.codeField, code).click(this.codeSubmitButton);
 }

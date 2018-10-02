@@ -56,7 +56,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         'SG_AB_SERVICEDESK_USERS',
       ],
       needsNewPassword: isNewUser,
-      needsMfaDevice: isNewUser,
+      needsMfaDevice: isNewUser && userId !== 'NEW88888',
     };
 
     return Promise.resolve(result);

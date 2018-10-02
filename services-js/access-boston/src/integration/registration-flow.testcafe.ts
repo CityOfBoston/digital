@@ -25,15 +25,9 @@ test('Registration with new password and MFA', async t => {
 
   const passwordPage = new PasswordPageModel();
   await t
-    .typeText(passwordPage.currentPasswordField, 'correct-password', {
-      replace: true,
-    })
-    .typeText(passwordPage.newPasswordField, 'newPassword2018', {
-      replace: true,
-    })
-    .typeText(passwordPage.confirmPasswordField, 'newPassword2018', {
-      replace: true,
-    })
+    .typeText(passwordPage.currentPasswordField, 'correct-password')
+    .typeText(passwordPage.newPasswordField, 'newPassword2018')
+    .typeText(passwordPage.confirmPasswordField, 'newPassword2018')
     .click(passwordPage.submitButton);
 
   const mfaPage = new DeviceRegistrationPageModel();
@@ -44,8 +38,33 @@ test('Registration with new password and MFA', async t => {
     .typeText(mfaPage.codeField, '555555')
     .click(mfaPage.codeSubmitButton);
 
-  // TODO(finh): Continue this when more of the flow is implemented.
+  const donePage = new PageModel();
   await t
-    .expect(Selector('body').innerText)
-    .contains('WELCOME TO ACCESS BOSTON');
+    .expect(donePage.sectionHeader.withText('YOU’RE ALL SET!').exists)
+    .ok('On done page');
+});
+
+test('Registration with just new password', async t => {
+  const loginPage = new LoginFormModel();
+  // This is a special login that doesn't need an MFA device
+  await loginPage.logIn(t, 'NEW88888');
+
+  const registerPage = new PageModel();
+  await t
+    .expect(registerPage.sectionHeader.innerText)
+    .contains('WELCOME TO ACCESS BOSTON!');
+
+  await t.click(Selector('.btn').withText('SET PASSWORD'));
+
+  const passwordPage = new PasswordPageModel();
+  await t
+    .typeText(passwordPage.currentPasswordField, 'correct-password')
+    .typeText(passwordPage.newPasswordField, 'newPassword2018')
+    .typeText(passwordPage.confirmPasswordField, 'newPassword2018')
+    .click(passwordPage.submitButton);
+
+  const donePage = new PageModel();
+  await t
+    .expect(donePage.sectionHeader.withText('YOU’RE ALL SET!').exists)
+    .ok('On done page');
 });
