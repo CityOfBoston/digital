@@ -13,18 +13,12 @@ const ACCOUNT: Account = {
 
 storiesOf('ForgotPasswordPage', module)
   .add('default', () => (
-    <ForgotPasswordPage
-      account={ACCOUNT}
-      serverErrors={{}}
-      fetchGraphql={null as any}
-      showSuccessMessage={false}
-    />
+    <ForgotPasswordPage account={ACCOUNT} fetchGraphql={null as any} />
   ))
   .add('success', () => (
     <ForgotPasswordPage
       account={ACCOUNT}
-      serverErrors={{}}
       fetchGraphql={null as any}
-      showSuccessMessage
+      testSuccessMessage
     />
   ));

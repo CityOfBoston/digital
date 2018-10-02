@@ -13,16 +13,11 @@ const ACCOUNT: Account = {
 
 storiesOf('ChangePasswordPage', module)
   .add('default', () => (
-    <ChangePasswordPage
-      account={ACCOUNT}
-      serverErrors={{}}
-      fetchGraphql={null as any}
-    />
+    <ChangePasswordPage account={ACCOUNT} fetchGraphql={null as any} />
   ))
   .add('first time registration', () => (
     <ChangePasswordPage
       account={{ ...ACCOUNT, registered: false, needsNewPassword: true }}
-      serverErrors={{}}
       fetchGraphql={null as any}
     />
   ))
@@ -30,15 +25,7 @@ storiesOf('ChangePasswordPage', module)
   .add('submitting', () => (
     <ChangePasswordPage
       account={ACCOUNT}
-      serverErrors={{}}
       fetchGraphql={null as any}
       testSubmittingModal
-    />
-  ))
-  .add('server errors', () => (
-    <ChangePasswordPage
-      account={ACCOUNT}
-      serverErrors={{ password: 'Current password is incorrect' }}
-      fetchGraphql={null as any}
     />
   ));

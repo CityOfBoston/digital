@@ -11,7 +11,7 @@ import TextInput from '../client/TextInput';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 
-import { forgotPasswordSchema, addValidationError } from '../lib/validation';
+import { forgotPasswordSchema } from '../lib/validation';
 
 import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import {
@@ -23,17 +23,14 @@ import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
 import { PasswordError } from '../client/graphql/queries';
-import { ValidationError } from 'yup';
 
 interface InitialProps {
   account: Account;
-  serverErrors: { [key: string]: string };
-  showSuccessMessage: boolean;
-  noJs?: boolean;
 }
 
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
+  testSuccessMessage?: boolean;
 }
 
 interface State {
@@ -54,54 +51,15 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   };
 
   static getInitialProps: GetInitialProps<InitialProps> = async (
-    { req, query },
+    _ctx,
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
     // We need to do this up top because if the forgot password succeeds on a
     // POST it torches the session.
     const account = await fetchAccount(fetchGraphql);
 
-    const serverErrors: { [key: string]: string } = {};
-
-    const noJs = (req && req.method === 'POST') || !!query['noJs'];
-    let showSuccessMessage = false;
-
-    // This is the no-JavaScript case. We still want to be able to reset
-    // passwords and such.
-    if (req && req.method === 'POST') {
-      const values: FormValues = req.payload || ({} as any);
-
-      try {
-        await forgotPasswordSchema.validate(values, { abortEarly: false });
-
-        const { status, error } = await resetPassword(
-          fetchGraphql,
-          values.newPassword,
-          values.confirmPassword
-        );
-
-        if (status === 'ERROR') {
-          Object.assign(serverErrors, passwordErrorToFormErrors(error));
-        } else {
-          // We show "success" in the POST response rather than do a redirect
-          // because the session is invalid as soon as the above GraphQL method
-          // succeeds.
-          showSuccessMessage = true;
-        }
-      } catch (err) {
-        if (err instanceof ValidationError) {
-          addValidationError(serverErrors, err);
-        } else {
-          serverErrors.form = err.message;
-        }
-      }
-    }
-
     return {
       account,
-      serverErrors,
-      showSuccessMessage,
-      noJs,
     };
   };
 
@@ -110,7 +68,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
-      showSuccessMessage: !!props.showSuccessMessage,
+      showSuccessMessage: !!props.testSuccessMessage,
     };
   }
 
@@ -206,8 +164,6 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     isSubmitting,
     isValid,
   }: FormikProps<FormValues>) => {
-    const { serverErrors, noJs } = this.props;
-
     const commonPasswordProps = {
       ...DEFAULT_PASSWORD_ATTRIBUTES,
       onChange: handleChange,
@@ -219,16 +175,10 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     // is off.) Otherwise, we show validation errors only if the form has been
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
-      (!touched[key] && serverErrors[key]) ||
-      (!noJs && touched[key] && (errors[key] as any));
+      touched[key] && (errors[key] as any);
 
     return (
-      <form
-        action=""
-        method="POST"
-        className="m-v500"
-        onSubmit={noJs ? () => {} : handleSubmit}
-      >
+      <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
         <input type="hidden" name="crumb" value={values.crumb} />
 
         {/*
@@ -274,26 +224,10 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
           </div>
         </div>
 
-        {this.props.serverErrors.form && (
-          <>
-            <div className="t--info t--err m-b500">
-              There was a problem resetting your password:{' '}
-              {this.props.serverErrors.form}
-            </div>
-
-            <div className="t--info t--err m-b500">
-              You can try again. If this keeps happening, please call the Help
-              Desk.
-            </div>
-          </>
-        )}
-
         <button
           type="submit"
           className="btn"
-          disabled={
-            (process as any).browser && !noJs && (!isValid || isSubmitting)
-          }
+          disabled={(process as any).browser && (!isValid || isSubmitting)}
         >
           Reset Password
         </button>
