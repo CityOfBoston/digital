@@ -53,7 +53,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
         {status !== VerificationStatus.SENDING && this.renderEnterCode()}
         {status === VerificationStatus.SENDING && (
           <div className="t--intro">
-            We’re sending your authentication code…
+            We’re sending you an authentication code…
           </div>
         )}
       </StatusModal>
@@ -136,7 +136,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
           <span className="t--err">Something went wrong.</span>
         </div>
 
-        <div className="m-v400">
+        <div className="m-v400 t--s400 lh--300">
           We had a problem verifying that code. You can try to{' '}
           <button type="button" className="lnk" onClick={resendVerification}>
             get a new code
@@ -147,7 +147,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
           </button>.
         </div>
 
-        <div>
+        <div className="t--s400 lh--300">
           Please get in touch with the helpdesk if this keeps happening.
         </div>
       </>

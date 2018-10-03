@@ -21,6 +21,13 @@ storiesOf('ChangePasswordPage', module)
       fetchGraphql={null as any}
     />
   ))
+  .add('first time registration w/ temp password', () => (
+    <ChangePasswordPage
+      account={{ ...ACCOUNT, registered: false, needsNewPassword: true }}
+      fetchGraphql={null as any}
+      hasTemporaryPassword
+    />
+  ))
 
   .add('submitting', () => (
     <ChangePasswordPage
