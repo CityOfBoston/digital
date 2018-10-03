@@ -18,7 +18,6 @@ describe('getInitialProps', () => {
     res = {
       writeHead: jest.fn(),
       end: jest.fn(),
-      finished: false,
     };
   });
 
@@ -43,7 +42,6 @@ describe('getInitialProps', () => {
     CheckoutPage.getInitialProps({ res, query: { page: 'payment' } } as any);
 
     expect(res.writeHead).toHaveBeenCalled();
-    expect(res.finished).toBe(true);
   });
 
   it('redirects unknown page query param to shipping on server', () => {
@@ -53,7 +51,6 @@ describe('getInitialProps', () => {
     } as any);
 
     expect(res.writeHead).toHaveBeenCalled();
-    expect(res.finished).toBe(true);
   });
 
   it('treats unknown page query param as shipping on client', () => {

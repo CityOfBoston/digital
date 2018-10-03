@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line no-unused-vars
 import Head from 'next/head';
+import { setConfig } from 'next/config';
 import { createRouter } from 'next/router';
 import createPercyAddon from '@percy-io/percy-storybook';
 
@@ -76,6 +77,13 @@ function loadStories() {
 }
 
 addDecorator(story => {
+  setConfig({
+    publicRuntimeConfig: {
+      stripePublishableKey: 'test-key',
+    },
+    serverRuntimeConfig: {},
+  });
+
   if (window.parent) {
     // eslint-disable-next-line no-underscore-dangle
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =

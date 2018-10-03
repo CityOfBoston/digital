@@ -3,14 +3,14 @@ import { LookupDeathCertificateOrderVariables } from './graphql-types';
 import lookupDeathCertificateOrder from './lookup-death-certificate-order';
 
 test('lookupDeathCertificateOrder', async () => {
-  const loopbackGraphql: any = jest.fn().mockReturnValue({
+  const fetchGraphql: any = jest.fn().mockReturnValue({
     deathCertificates: {
       order: {},
     },
   });
 
   await lookupDeathCertificateOrder(
-    loopbackGraphql,
+    fetchGraphql,
     'RG-DC201801-999888',
     'nancy@mew.org'
   );
@@ -20,8 +20,5 @@ test('lookupDeathCertificateOrder', async () => {
     contactEmail: 'nancy@mew.org',
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(
-    expect.any(String),
-    queryVariables
-  );
+  expect(fetchGraphql).toHaveBeenCalledWith(expect.any(String), queryVariables);
 });

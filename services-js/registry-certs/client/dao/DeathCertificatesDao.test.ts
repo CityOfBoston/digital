@@ -1,6 +1,6 @@
+import { FetchGraphql } from '@cityofboston/next-client-common';
 import DeathCertificatesDao from './DeathCertificatesDao';
 
-import { LoopbackGraphql } from '../lib/loopback-graphql';
 import { DeathCertificateSearchResults } from '../types';
 
 import { TYPICAL_CERTIFICATE } from '../../fixtures/client/death-certificates';
@@ -21,12 +21,12 @@ const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
   resultCount: 1,
 };
 
-let loopbackGraphql: LoopbackGraphql;
+let fetchGraphql: FetchGraphql;
 let dao: DeathCertificatesDao;
 
 beforeEach(() => {
-  loopbackGraphql = jest.fn();
-  dao = new DeathCertificatesDao(loopbackGraphql);
+  fetchGraphql = jest.fn();
+  dao = new DeathCertificatesDao(fetchGraphql);
 });
 
 describe('get', () => {

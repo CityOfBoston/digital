@@ -91,9 +91,6 @@ export async function makeServer(port) {
     host: '0.0.0.0',
     port,
     tls: undefined as any,
-    router: {
-      stripTrailingSlash: true,
-    },
     debug: dev
       ? {
           request: ['handler'],

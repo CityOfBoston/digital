@@ -4,14 +4,16 @@ import { configure as mobxConfigure } from 'mobx';
 import Router from 'next/router';
 import { hydrate } from 'emotion';
 
-import { Context as NextContext } from 'next';
+import getConfig from 'next/config';
+
+import {
+  makeFetchGraphql,
+  NextContext,
+  FetchGraphql,
+} from '@cityofboston/next-client-common';
 
 import RouterListener from './lib/RouterListener';
 import SiteAnalytics from './lib/SiteAnalytics';
-
-import makeLoopbackGraphql, { LoopbackGraphql } from './lib/loopback-graphql';
-
-import { RequestAdditions } from '../server/lib/request-additions';
 
 import Cart from './store/Cart';
 import OrderProvider from './store/OrderProvider';
@@ -20,11 +22,11 @@ import Accessibility from './store/Accessibility';
 import DeathCertificatesDao from './dao/DeathCertificatesDao';
 import CheckoutDao from './dao/CheckoutDao';
 
-export type ClientContext = NextContext<RequestAdditions>;
+export type ClientContext = NextContext<Request>;
 
 export type ClientDependencies = {
   stripe: stripe.Stripe | null;
-  loopbackGraphql: LoopbackGraphql;
+  fetchGraphql: FetchGraphql;
   cart: Cart;
   accessibility: Accessibility;
   orderProvider: OrderProvider;
@@ -67,25 +69,20 @@ export function initBrowser() {
 //
 // Typically called from a wrapper function or controller component to inject
 // these into a component's props.
-export function getDependencies(ctx?: ClientContext): ClientDependencies {
+export function getDependencies(): ClientDependencies {
   if ((process as any).browser && browserDependencies) {
     return browserDependencies;
   }
 
-  // req will exist only when this function is called for getInitialProps on the
-  // server.
-  const req = ctx && ctx.req;
+  const config = getConfig();
 
   const stripe =
     typeof Stripe !== 'undefined'
-      ? Stripe(
-          ((window as any).__NEXT_DATA__ || {}).stripePublishableKey ||
-            'test-publishable-key'
-        )
+      ? Stripe(config.publicRuntimeConfig.stripePublishableKey)
       : null;
-  const loopbackGraphql = makeLoopbackGraphql(req);
-  const deathCertificatesDao = new DeathCertificatesDao(loopbackGraphql);
-  const checkoutDao = new CheckoutDao(loopbackGraphql, stripe);
+  const fetchGraphql = makeFetchGraphql(config);
+  const deathCertificatesDao = new DeathCertificatesDao(fetchGraphql);
+  const checkoutDao = new CheckoutDao(fetchGraphql, stripe);
   const cart = new Cart();
   const orderProvider = new OrderProvider();
 
@@ -101,7 +98,7 @@ export function getDependencies(ctx?: ClientContext): ClientDependencies {
     orderProvider,
     deathCertificatesDao,
     checkoutDao,
-    loopbackGraphql,
+    fetchGraphql,
     siteAnalytics,
   };
 

@@ -1,6 +1,5 @@
-import { gql } from '@cityofboston/next-client-common';
+import { gql, FetchGraphql } from '@cityofboston/next-client-common';
 import { DeathCertificateOrder } from '../types';
-import { LoopbackGraphql } from '../lib/loopback-graphql';
 
 import {
   LookupDeathCertificateOrder,
@@ -43,7 +42,7 @@ const QUERY = gql`
 
 // Look up a death certificate order by id and email address
 export default async function lookupDeathCertificateOrder(
-  loopbackGraphql: LoopbackGraphql,
+  fetchGraphql: FetchGraphql,
   id: string,
   contactEmail: string
 ): Promise<DeathCertificateOrder | null> {
@@ -51,7 +50,7 @@ export default async function lookupDeathCertificateOrder(
     id,
     contactEmail,
   };
-  const response: LookupDeathCertificateOrder = await loopbackGraphql(
+  const response: LookupDeathCertificateOrder = await fetchGraphql(
     QUERY,
     queryVariables
   );

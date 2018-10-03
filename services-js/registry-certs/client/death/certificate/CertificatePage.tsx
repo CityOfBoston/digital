@@ -90,8 +90,7 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
       query: { id, backUrl },
       res,
     } = ctx;
-    const { deathCertificatesDao } =
-      dependenciesForTest || getDependencies(ctx);
+    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
 
     if (!id) {
       throw new Error('Missing id');

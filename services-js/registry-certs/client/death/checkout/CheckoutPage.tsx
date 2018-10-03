@@ -118,7 +118,6 @@ class CheckoutPageController extends React.Component<Props & DefaultProps> {
         Location: '/death/checkout',
       });
       res.end();
-      res.finished = true;
     }
 
     return { info };

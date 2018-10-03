@@ -8,7 +8,7 @@ import { SubmitDeathCertificateOrderVariables } from './graphql-types';
 import submitDeathCertificateOrder from './submit-death-certificate-order';
 
 test('submitDeathCertificateOrder', async () => {
-  const loopbackGraphql: any = jest.fn().mockReturnValue({
+  const fetchGraphql: any = jest.fn().mockReturnValue({
     submitDeathCertificateOrder: {
       id: 'test-id',
     },
@@ -50,7 +50,7 @@ test('submitDeathCertificateOrder', async () => {
   order.cardToken = 'tok_testtoken';
   order.idempotencyKey = '1234abcd';
 
-  await submitDeathCertificateOrder(loopbackGraphql, cart, order);
+  await submitDeathCertificateOrder(fetchGraphql, cart, order);
 
   const queryVariables: SubmitDeathCertificateOrderVariables = {
     contactName: 'Squirrel Girl',
@@ -86,8 +86,5 @@ test('submitDeathCertificateOrder', async () => {
     idempotencyKey: '1234abcd',
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(
-    expect.any(String),
-    queryVariables
-  );
+  expect(fetchGraphql).toHaveBeenCalledWith(expect.any(String), queryVariables);
 });

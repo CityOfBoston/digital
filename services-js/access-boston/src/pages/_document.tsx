@@ -26,6 +26,12 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <link
+            rel="shortcut icon"
+            href="/assets/favicon.ico"
+            type="image/vnd.microsoft.icon"
+          />
+
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <style
             dangerouslySetInnerHTML={{

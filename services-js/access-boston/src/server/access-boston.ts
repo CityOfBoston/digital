@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { Server as HapiServer } from 'hapi';
+import Inert from 'inert';
 import Crumb from 'crumb';
 import yar from 'yar';
 import cleanup from 'node-cleanup';
@@ -22,6 +23,7 @@ import {
 
 import {
   loggingPlugin,
+  makeStaticAssetRoutes,
   adminOkRoute,
   headerKeysPlugin,
   browserAuthPlugin,
@@ -55,9 +57,6 @@ export async function makeServer(port) {
     host: '0.0.0.0',
     port,
     tls: undefined as any,
-    router: {
-      stripTrailingSlash: true,
-    },
     debug:
       // eslint-disable-next-line
       dev || true
@@ -100,6 +99,7 @@ export async function makeServer(port) {
       : (new PingIdFake() as any);
 
   await server.register(acceptLanguagePlugin);
+  await server.register(Inert);
   await server.register(Crumb);
 
   await server.register({
@@ -158,6 +158,7 @@ export async function makeServer(port) {
   }
 
   server.route(adminOkRoute);
+  server.route(makeStaticAssetRoutes());
 
   await addGraphQl(server, appsRegistry, identityIq, pingId);
 

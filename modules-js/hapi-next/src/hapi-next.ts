@@ -1,7 +1,17 @@
 import url from 'url';
 import next from 'next';
-import { Server as HapiServer, ServerRoute, RouteOptions } from 'hapi';
+import compression from 'compression';
+import {
+  Server as HapiServer,
+  ServerRoute,
+  RouteOptions,
+  Request as HapiRequest,
+  Lifecycle,
+  ResponseToolkit,
+  RequestQuery,
+} from 'hapi';
 import { IncomingMessage } from 'http';
+import { promisify } from 'util';
 
 export interface ExtendedIncomingMessage extends IncomingMessage {
   payload: any;
@@ -29,7 +39,7 @@ export interface ExtendedIncomingMessage extends IncomingMessage {
  */
 export function makeRoutesForNextApp(
   app: next.Server,
-  pathPrefix: string,
+  pathPrefix: string = '/',
   pageRouteOptions: RouteOptions | ((server: HapiServer) => RouteOptions) = {},
   staticRouteOptions: RouteOptions | ((server: HapiServer) => RouteOptions) = {}
 ): ServerRoute[] {
@@ -49,6 +59,9 @@ export function makeRoutesForNextApp(
   app.setAssetPrefix(assetPrefix);
 
   const requestHandler = app.getRequestHandler();
+  // compression returns a Next middleware, so we can use Promisify to turn its
+  // "next" callback into a resolve.
+  const compressionMiddleware = promisify(compression());
 
   // Next does not handle POSTs by default. We add this route so that it will
   // pass them in the normal render pipeline.
@@ -71,6 +84,11 @@ export function makeRoutesForNextApp(
         ...staticRouteOptions,
       },
       handler: async ({ raw: { req, res }, params }, h) => {
+        // Because Next.js writes to the raw response we don't get Hapi's built-in
+        // gzipping or cache control.. So, we run an express middleware that
+        // monkeypatches the raw response to gzip its output.
+        await compressionMiddleware(req, res);
+
         // Next always expects its "_next" stuff to be mounted at "/", so we
         // pass a custom URL that emulates that.
         await requestHandler(req, res, url.parse(`/_next/${params.p}`));
@@ -82,13 +100,40 @@ export function makeRoutesForNextApp(
   return routes;
 }
 
-export function makeNextHandler(app: next.Server) {
-  const requestHandler = app.getRequestHandler();
-
-  return async (request, h) => {
+/**
+ * Creates a Hapi handler method to generate HTML from Next. If the Hapi route
+ * has any path parameters, those are merged into the query parameters and
+ * passed to Next.
+ *
+ * @param app Next app
+ * @param page If provided, the Next page that should be rendered. Used if this
+ * is different from the request path, for example when we’re using a REST-like
+ * path. E.g.: /certificates/12345 should be handled by the "certificates" page.
+ */
+export function makeNextHandler(
+  app: next.Server,
+  page: string | null = null
+): Lifecycle.Method {
+  return async (request: HapiRequest, h: ResponseToolkit) => {
     const {
       raw: { req, res },
+      query,
+      path,
+      params,
     } = request;
+
+    // Be consistent about having Next pages not having a slash. Unless it’s
+    // only a slash.
+    if (path.endsWith('/') && path !== '/' && request.method === 'get') {
+      return h.redirect(path.slice(0, -1));
+    }
+
+    // We put the query hash together with Next’s route params and pass the
+    // whole thing to Next.
+    const combinedQuery = {
+      ...(query as RequestQuery),
+      ...params,
+    };
 
     // Pass any Hapi payload along so we can handle form POSTs in
     // getInitialProps if we want to.
@@ -97,7 +142,7 @@ export function makeNextHandler(app: next.Server) {
     // Our actual pages are mounted at their expected paths (e.g.
     // /commissions/apply in the commissions app, not /apply) so we don’t
     // need to do any URL transforming.
-    await requestHandler(req, res);
-    return h.close;
+    const html = await app.renderToHTML(req, res, page || path, combinedQuery);
+    return h.response(html).code(res.statusCode);
   };
 }

@@ -38,6 +38,7 @@ RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 # the initial install because we didn’t have source. The scope keeps us from
 # building unnecessary packages.
 RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare 
+RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare-deploy
 
 EXPOSE 3000
 

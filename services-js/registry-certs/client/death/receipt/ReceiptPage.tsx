@@ -74,8 +74,7 @@ export default class ReceiptPage extends React.Component<Props> {
       query: { id, contactEmail },
       res,
     } = ctx;
-    const { deathCertificatesDao } =
-      dependenciesForTest || getDependencies(ctx);
+    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
 
     if (!id) {
       throw new Error('Missing id');
