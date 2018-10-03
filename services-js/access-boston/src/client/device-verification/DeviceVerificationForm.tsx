@@ -79,17 +79,17 @@ export default function DeviceVerificationForm(props: Props) {
     <>
       <div className={MAIN_CLASS}>
         <div className="b b-c b-c--hsm">
-          <SectionHeader title="Add Security Noun" />
+          <SectionHeader title="Set up MFA/mobile device" />
 
           <div className="t--intro m-v300">
-            You will need to register a security noun to protect your Access
+            You will need to register a mobile device to protect your Access
             Boston account.
           </div>
 
-          <div className="t--info m-v300">
-            Access Boston will send a code to your phone or email whenever you
-            log in on a new computer. You’ll also need a code to reset your
-            password if you forget it.
+          <div className="m-v300 lh--400 t--s400">
+            Access Boston will send you a code whenever you log in on a new
+            computer. You’ll also need a code to reset your password if you
+            forget it.
           </div>
 
           <hr className="hr hr--sq" />
@@ -190,7 +190,9 @@ export default function DeviceVerificationForm(props: Props) {
                 className="btn"
                 disabled={!(process as any).browser || !isValid || isSubmitting}
               >
-                Send verification code
+                {phoneOrEmail === 'phone'
+                  ? 'Register Phone Number'
+                  : 'Register Email'}
               </button>
             </div>
           </form>

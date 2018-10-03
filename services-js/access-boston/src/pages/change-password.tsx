@@ -33,6 +33,7 @@ interface InitialProps {
 
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
+  hasTemporaryPassword?: boolean;
 }
 
 interface State {
@@ -119,7 +120,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { account } = this.props;
+    const { account, hasTemporaryPassword } = this.props;
     const { showSubmittingModal } = this.state;
 
     const setNewPassword = account.needsNewPassword;
@@ -135,15 +136,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
             crumb,
           };
 
-          const formikEl = (
-            <Formik
-              initialValues={initialValues}
-              validationSchema={changePasswordSchema}
-              onSubmit={this.handleSubmit}
-              render={this.renderForm}
-            />
-          );
-
           return (
             <>
               <Head>
@@ -157,33 +149,43 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                 <div className="b b-c b-c--hsm">
                   <SectionHeader
                     title={
-                      setNewPassword ? 'Make a New Password' : 'Change Password'
+                      setNewPassword
+                        ? 'Welcome to Access Boston!'
+                        : 'Change Password'
                     }
                   />
 
                   {setNewPassword && (
                     <>
-                      <p className="t--info m-t500 m-v300">
-                        You’ll need to create a new, secure password to set up
-                        your Access Boston account.
+                      <p className="t--s400 lh--400">
+                        We will walk you through the steps to register for your
+                        new account. You will need to create a strong password
+                        and set up multi-factor authentication.{' '}
+                        {hasTemporaryPassword &&
+                          `
+                           Please look for an email from us with your temporary
+                           password, which you need to get started. 
+                        `}
                       </p>
 
-                      <p className="t--info m-v300">
-                        This password will be good for a{' '}
-                        <strong>whole year</strong>, though you can change it
-                        any time you like.
+                      <p className="t--s400 lh--400">
+                        If you need extra help, please contact the DoIT Service
+                        Desk via <a href="tel:6176357378">(617) 635-7378</a> or
+                        BPS Technology Help Desk Support at{' '}
+                        <a href="tel:6176359200">(617) 635-9200</a>.
                       </p>
+
+                      <hr className="hr hr--sq" />
                     </>
                   )}
 
-                  {!setNewPassword && formikEl}
+                  <Formik
+                    initialValues={initialValues}
+                    validationSchema={changePasswordSchema}
+                    onSubmit={this.handleSubmit}
+                    render={this.renderForm}
+                  />
                 </div>
-
-                {setNewPassword && (
-                  <div className="m-b500 b--g">
-                    <div className="b b-c b-c--hsm">{formikEl}</div>
-                  </div>
-                )}
               </div>
 
               {showSubmittingModal && this.renderSubmitting()}
@@ -206,7 +208,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     isSubmitting,
     isValid,
   }: FormikProps<FormValues>) => {
-    const { account } = this.props;
+    const { account, hasTemporaryPassword } = this.props;
 
     const commonPasswordProps = {
       ...DEFAULT_PASSWORD_ATTRIBUTES,
@@ -249,7 +251,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
           <div className="g--6">
             <TextInput
-              label="Current Password"
+              label={
+                hasTemporaryPassword ? 'Temporary Password' : 'Current Password'
+              }
               error={lookupFormError('password')}
               name="password"
               autoComplete="current-password"
