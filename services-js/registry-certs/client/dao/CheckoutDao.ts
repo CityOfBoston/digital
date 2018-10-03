@@ -1,17 +1,18 @@
 import { action, runInAction } from 'mobx';
 
-import { LoopbackGraphql } from '../lib/loopback-graphql';
+import { FetchGraphql } from '@cityofboston/next-client-common';
+
 import Cart from '../store/Cart';
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
 
 export default class CheckoutDao {
-  loopbackGraphql: LoopbackGraphql;
+  fetchGraphql: FetchGraphql;
   stripe: stripe.Stripe | null;
 
-  constructor(loopbackGraphql: LoopbackGraphql, stripe: stripe.Stripe | null) {
-    this.loopbackGraphql = loopbackGraphql;
+  constructor(fetchGraphql: FetchGraphql, stripe: stripe.Stripe | null) {
+    this.fetchGraphql = fetchGraphql;
     this.stripe = stripe;
   }
 
@@ -101,7 +102,7 @@ export default class CheckoutDao {
       order.processingError = null;
 
       const orderId = await submitDeathCertificateOrder(
-        this.loopbackGraphql,
+        this.fetchGraphql,
         cart,
         order
       );

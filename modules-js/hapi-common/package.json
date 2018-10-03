@@ -24,6 +24,9 @@
     "hapi": "^17.4.0",
     "hoek": "5.x.x"
   },
+  "peerDependencies": {
+    "inert": "5.x.x"
+  },
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",

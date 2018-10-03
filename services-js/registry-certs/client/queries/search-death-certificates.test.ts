@@ -3,13 +3,13 @@ import { SearchDeathCertificatesVariables } from './graphql-types';
 import searchDeathCertificates from './search-death-certificates';
 
 test('searchDeathCertificates', async () => {
-  const loopbackGraphql: any = jest.fn().mockReturnValue({
+  const fetchGraphql: any = jest.fn().mockReturnValue({
     deathCertificates: {
       search: [],
     },
   });
 
-  await searchDeathCertificates(loopbackGraphql, 'Monkey Joe', 1, '1988', null);
+  await searchDeathCertificates(fetchGraphql, 'Monkey Joe', 1, '1988', null);
 
   const queryVariables: SearchDeathCertificatesVariables = {
     query: 'Monkey Joe',
@@ -18,8 +18,5 @@ test('searchDeathCertificates', async () => {
     endYear: null,
   };
 
-  expect(loopbackGraphql).toHaveBeenCalledWith(
-    expect.any(String),
-    queryVariables
-  );
+  expect(fetchGraphql).toHaveBeenCalledWith(expect.any(String), queryVariables);
 });

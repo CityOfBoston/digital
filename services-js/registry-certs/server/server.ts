@@ -1,26 +1,32 @@
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
 import next from 'next';
-import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
-import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import makeStripe from 'stripe';
 import { Client as PostmarkClient } from 'postmark';
+import Rollbar from 'rollbar';
 
 import {
   loggingPlugin,
   adminOkRoute,
+  makeStaticAssetRoutes,
   headerKeys,
   HeaderKeysOptions,
 } from '@cityofboston/hapi-common';
 
+import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
+
+import {
+  GRAPHQL_PATH_KEY,
+  API_KEY_CONFIG_KEY,
+  HAPI_INJECT_CONFIG_KEY,
+} from '@cityofboston/next-client-common';
+
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
-import { nextHandler, nextDefaultHandler } from './lib/next-handlers';
-import addRequestAdditions from './lib/request-additions';
 import { rollbarWrapGraphqlOptions, hapiPlugin } from './lib/rollbar-utils';
 
 import {
@@ -39,10 +45,7 @@ import Emails from './services/Emails';
 
 import { processStripeEvent } from './stripe-events';
 
-import schema from './graphql';
-import { Context } from './graphql';
-
-import Rollbar from 'rollbar';
+import schema, { Context } from './graphql';
 
 type ServerArgs = {
   rollbar: Rollbar;
@@ -65,9 +68,27 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
   const server = new Hapi.Server(serverOptions);
 
+  // We load the config ourselves so that we can modify the runtime configs
+  // from here.
+  const config = require('../../next.config.js');
+
+  config.publicRuntimeConfig = {
+    ...config.publicRuntimeConfig,
+    [GRAPHQL_PATH_KEY]: '/graphql',
+    [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY || '',
+    stripePublishableKey:
+      process.env.STRIPE_PUBLISHABLE_KEY || 'fake-stripe-key',
+  };
+
+  config.serverRuntimeConfig = {
+    ...config.serverRuntimeConfig,
+    [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
+  };
+
   const app = next({
     dev: process.env.NODE_ENV !== 'production' && !process.env.USE_BUILD,
     quiet: process.env.NODE_ENV === 'test',
+    config,
   });
 
   const registryDataFactoryOpts = {
@@ -175,8 +196,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       path: '/graphiql',
       graphiqlOptions: {
         endpointURL: '/graphql',
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY ||
-          'test-api-key'}'`,
+        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
       },
     },
   });
@@ -220,53 +240,15 @@ export async function makeServer({ rollbar }: ServerArgs) {
       }
     },
   });
+
+  server.route(makeRoutesForNextApp(app));
   server.route({
     method: 'GET',
     path: '/death/certificate/{id}',
-    handler: addRequestAdditions(nextHandler(app, '/death/certificate')),
+    handler: makeNextHandler(app, '/death/certificate'),
   });
 
-  server.route({
-    method: 'GET',
-    path: '/{p*}',
-    handler: addRequestAdditions(nextHandler(app)),
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/_next/{p*}',
-    handler: nextDefaultHandler(app),
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/assets/{path*}',
-    handler: (request, h: any) => {
-      if (!request.params.path || request.params.path.indexOf('..') !== -1) {
-        throw Boom.forbidden();
-      }
-
-      const p = Path.join(
-        'static',
-        'assets',
-        ...request.params.path.split('/')
-      );
-
-      return h
-        .file(p)
-        .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
-    },
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/storybook/{path*}',
-    handler: {
-      directory: {
-        path: 'storybook-static',
-      },
-    },
-  });
+  server.route(makeStaticAssetRoutes());
 
   return {
     server,

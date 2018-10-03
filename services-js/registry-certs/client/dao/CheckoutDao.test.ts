@@ -1,6 +1,5 @@
-// @flow
+import { FetchGraphql } from '@cityofboston/next-client-common';
 
-import { LoopbackGraphql } from '../lib/loopback-graphql';
 import Cart from '../store/Cart';
 import Order from '../models/Order';
 
@@ -10,7 +9,7 @@ jest.mock('../queries/submit-death-certificate-order');
 const submitDeathCertificateOrder: jest.Mock = (require('../queries/submit-death-certificate-order') as any)
   .default;
 
-let loopbackGraphql: LoopbackGraphql;
+let fetchGraphql: FetchGraphql;
 let stripe: stripe.Stripe;
 let dao: CheckoutDao;
 
@@ -18,12 +17,12 @@ let cart: Cart;
 let order: Order;
 
 beforeEach(() => {
-  loopbackGraphql = jest.fn();
+  fetchGraphql = jest.fn();
   stripe = {
     createToken: jest.fn(),
   } as any;
 
-  dao = new CheckoutDao(loopbackGraphql, stripe);
+  dao = new CheckoutDao(fetchGraphql, stripe);
 
   cart = new Cart();
   order = new Order();

@@ -1,27 +1,27 @@
 import DataLoader from 'dataloader';
-import { LoopbackGraphql } from '../lib/loopback-graphql';
 import { DeathCertificate } from '../types';
 
 import fetchDeathCertificates from '../queries/fetch-death-certificates';
 import searchDeathCertificates from '../queries/search-death-certificates';
 import lookupDeathCertificateOrder from '../queries/lookup-death-certificate-order';
 import { DeathCertificateSearchResults, DeathCertificateOrder } from '../types';
+import { FetchGraphql } from '@cityofboston/next-client-common';
 
 export type DeathCertificateCache = { [id: string]: DeathCertificate };
 
 export default class DeathCertificatesDao {
-  loopbackGraphql: LoopbackGraphql;
+  fetchGraphql: FetchGraphql;
   loader: DataLoader<string, DeathCertificate | null>;
 
   cacheFullQuery: string | null = null;
   cacheByPage: { [page: number]: DeathCertificateSearchResults } = {};
 
-  constructor(loopbackGraphql: LoopbackGraphql) {
-    this.loopbackGraphql = loopbackGraphql;
+  constructor(fetchGraphql: FetchGraphql) {
+    this.fetchGraphql = fetchGraphql;
 
     // create new array shenanigans to get Flow to accept that we're not returning Errors
     this.loader = new DataLoader(ids =>
-      fetchDeathCertificates(loopbackGraphql, ids).then(a => [...a])
+      fetchDeathCertificates(fetchGraphql, ids).then(a => [...a])
     );
   }
 
@@ -46,7 +46,7 @@ export default class DeathCertificatesDao {
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
     const results = await searchDeathCertificates(
-      this.loopbackGraphql,
+      this.fetchGraphql,
       query,
       page,
       startYear,
@@ -66,7 +66,7 @@ export default class DeathCertificatesDao {
     id: string,
     contactEmail: string
   ): Promise<DeathCertificateOrder | null> {
-    return lookupDeathCertificateOrder(this.loopbackGraphql, id, contactEmail);
+    return lookupDeathCertificateOrder(this.fetchGraphql, id, contactEmail);
   }
 
   parseQuery(

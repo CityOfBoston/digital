@@ -1,5 +1,4 @@
-import { gql } from '@cityofboston/next-client-common';
-import { LoopbackGraphql } from '../lib/loopback-graphql';
+import { gql, FetchGraphql } from '@cityofboston/next-client-common';
 import Cart from '../store/Cart';
 import Order from '../models/Order';
 
@@ -59,7 +58,7 @@ const QUERY = gql`
 `;
 
 export default async function submitDeathCertificateOrder(
-  loopbackGraphql: LoopbackGraphql,
+  fetchGraphql: FetchGraphql,
   cart: Cart,
   order: Order
 ): Promise<string> {
@@ -126,7 +125,7 @@ export default async function submitDeathCertificateOrder(
     idempotencyKey,
   };
 
-  const response: SubmitDeathCertificateOrder = await loopbackGraphql(
+  const response: SubmitDeathCertificateOrder = await fetchGraphql(
     QUERY,
     queryVariables
   );

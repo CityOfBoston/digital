@@ -51,8 +51,7 @@ class SearchPage extends React.Component<Props & DefaultProps, State> {
     dependenciesForTest?: ClientDependencies
   ): Promise<InitialProps> {
     const { query } = ctx;
-    const { deathCertificatesDao } =
-      dependenciesForTest || getDependencies(ctx);
+    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
 
     let q = query.q || '';
     let page = 1;

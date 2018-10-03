@@ -17,6 +17,7 @@
     "preset": "@cityofboston/config-jest-typescript"
   },
   "dependencies": {
+    "compression": "^1.6.2",
     "next": "7.0.0",
     "react": "16.5.2",
     "react-dom": "16.5.2"

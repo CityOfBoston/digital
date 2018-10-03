@@ -1,3 +1,4 @@
+import Path from 'path';
 import Good from 'good';
 import Boom from 'boom';
 import { Squeeze } from 'good-squeeze';
@@ -60,6 +61,54 @@ export const adminOkRoute: ServerRoute = {
     auth: false,
   },
 };
+
+/**
+ * Generate routes to serve ./static/assets at /pathPrefix/assets and
+ * ./storybook-static at /pathPrefix/storybook.
+ *
+ * Requires Inert to be registered.
+ *
+ * @param pathPrefix Must start and end with a slash
+ */
+export function makeStaticAssetRoutes(pathPrefix: string = '/'): ServerRoute[] {
+  return [
+    {
+      method: 'GET',
+      path: `${pathPrefix}assets/{path*}`,
+      options: {
+        auth: false,
+      },
+      handler: (request, h: any) => {
+        if (!request.params.path || request.params.path.indexOf('..') !== -1) {
+          throw Boom.forbidden();
+        }
+
+        const p = Path.join(
+          'static',
+          'assets',
+          ...request.params.path.split('/')
+        );
+
+        return h
+          .file(p)
+          .header('Cache-Control', 'public, max-age=3600, s-maxage=600');
+      },
+    },
+    {
+      method: 'GET',
+      path: `${pathPrefix}storybook/{path*}`,
+      options: {
+        auth: false,
+      },
+      handler: {
+        directory: {
+          path: 'storybook-static',
+          redirectToSlash: true,
+        },
+      },
+    },
+  ];
+}
 
 export type HeaderKeysOptions = {
   header: string;

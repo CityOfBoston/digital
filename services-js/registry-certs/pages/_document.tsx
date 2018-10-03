@@ -61,10 +61,6 @@ export default class extends Document {
     if (ids) {
       __NEXT_DATA__.ids = ids;
     }
-
-    __NEXT_DATA__.webApiKey = process.env.WEB_API_KEY || 'test-api-key';
-    __NEXT_DATA__.stripePublishableKey =
-      process.env.STRIPE_PUBLISHABLE_KEY || 'fake-stripe-key';
   }
 
   render() {
