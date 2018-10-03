@@ -21,7 +21,7 @@ test('Registration with new password and MFA', async t => {
     .expect(registerPage.sectionHeader.innerText)
     .contains('WELCOME TO ACCESS BOSTON!');
 
-  await t.click(Selector('.btn').withText('SET PASSWORD'));
+  await t.click(Selector('.btn').withText('GET STARTED'));
 
   const passwordPage = new PasswordPageModel();
   await t
@@ -54,7 +54,7 @@ test('Registration with just new password', async t => {
     .expect(registerPage.sectionHeader.innerText)
     .contains('WELCOME TO ACCESS BOSTON!');
 
-  await t.click(Selector('.btn').withText('SET PASSWORD'));
+  await t.click(Selector('.btn').withText('GET STARTED'));
 
   const passwordPage = new PasswordPageModel();
   await t

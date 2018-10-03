@@ -3,13 +3,24 @@ import { storiesOf } from '@storybook/react';
 
 import RegisterPage from '../pages/register';
 
-storiesOf('RegisterPage', module).add('needs password and MFA', () => (
-  <RegisterPage
-    account={{
-      employeeId: 'CON01234',
-      registered: false,
-      needsMfaDevice: true,
-      needsNewPassword: true,
-    }}
-  />
-));
+storiesOf('RegisterPage', module)
+  .add('default', () => (
+    <RegisterPage
+      account={{
+        employeeId: 'CON01234',
+        registered: false,
+        needsMfaDevice: true,
+        needsNewPassword: true,
+      }}
+    />
+  ))
+  .add('password already ok', () => (
+    <RegisterPage
+      account={{
+        employeeId: 'CON01234',
+        registered: false,
+        needsMfaDevice: true,
+        needsNewPassword: false,
+      }}
+    />
+  ));

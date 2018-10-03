@@ -350,14 +350,18 @@ Array [
                  
               </div>
             </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                type="submit"
+              >
+                Change Password
+              </button>
+            </div>
           </div>
         </div>
-        <button
-          className="btn"
-          type="submit"
-        >
-          Change Password
-        </button>
       </form>
     </div>
   </div>,
@@ -435,32 +439,18 @@ Array [
         <h2
           className="sh-title"
         >
-          Welcome to Access Boston!
+          Create a New Password
         </h2>
       </div>
       <p
         className="t--s400 lh--400"
       >
-        We will walk you through the steps to register for your new account. You will need to create a strong password and set up multi-factor authentication.
-         
+        You’ll need a new password for Access Boston. We’ve changed the requirements for passwords to make sure that they’re strong enough.
       </p>
       <p
         className="t--s400 lh--400"
       >
-        If you need extra help, please contact the DoIT Service Desk via 
-        <a
-          href="tel:6176357378"
-        >
-          (617) 635-7378
-        </a>
-         or BPS Technology Help Desk Support at
-         
-        <a
-          href="tel:6176359200"
-        >
-          (617) 635-9200
-        </a>
-        .
+        You’ll use this password when logging in to Access Boston websites like The Hub. If you work in City Hall or for BPS you’ll also use it for your desktop computer.
       </p>
       <hr
         className="hr hr--sq"
@@ -701,14 +691,18 @@ Array [
                  
               </div>
             </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                type="submit"
+              >
+                Set new password
+              </button>
+            </div>
           </div>
         </div>
-        <button
-          className="btn"
-          type="submit"
-        >
-          Set new password
-        </button>
       </form>
     </div>
   </div>,
@@ -786,36 +780,23 @@ Array [
         <h2
           className="sh-title"
         >
-          Welcome to Access Boston!
+          Create a New Password
         </h2>
       </div>
       <p
         className="t--s400 lh--400"
       >
-        We will walk you through the steps to register for your new account. You will need to create a strong password and set up multi-factor authentication.
-         
-        
-                           Please look for an email from us with your temporary
-                           password, which you need to get started. 
-                        
+        You’ll need a new password for Access Boston. We’ve changed the requirements for passwords to make sure that they’re strong enough.
       </p>
       <p
         className="t--s400 lh--400"
       >
-        If you need extra help, please contact the DoIT Service Desk via 
-        <a
-          href="tel:6176357378"
-        >
-          (617) 635-7378
-        </a>
-         or BPS Technology Help Desk Support at
-         
-        <a
-          href="tel:6176359200"
-        >
-          (617) 635-9200
-        </a>
-        .
+        You’ll use this password when logging in to Access Boston websites like The Hub. If you work in City Hall or for BPS you’ll also use it for your desktop computer.
+      </p>
+      <p
+        className="t--s400 lh--400"
+      >
+        Please look for an email from us with your temporary password.
       </p>
       <hr
         className="hr hr--sq"
@@ -1056,14 +1037,18 @@ Array [
                  
               </div>
             </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                type="submit"
+              >
+                Set new password
+              </button>
+            </div>
           </div>
         </div>
-        <button
-          className="btn"
-          type="submit"
-        >
-          Set new password
-        </button>
       </form>
     </div>
   </div>,
@@ -1380,14 +1365,18 @@ Array [
                  
               </div>
             </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                type="submit"
+              >
+                Change Password
+              </button>
+            </div>
           </div>
         </div>
-        <button
-          className="btn"
-          type="submit"
-        >
-          Change Password
-        </button>
       </form>
     </div>
   </div>,
@@ -2665,7 +2654,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots RegisterMfaPage form 1`] = `
+exports[`Storyshots RegisterMfaPage default 1`] = `
 Array [
   <div
     className="css-1gni7w7 p-a200"
@@ -2726,26 +2715,29 @@ Array [
         <h2
           className="sh-title"
         >
-          Set up MFA/mobile device
+          Set up security codes
         </h2>
       </div>
-      <div
-        className="t--intro m-v300"
+      <p
+        className="lh--400 t--s400"
       >
-        You will need to register a mobile device to protect your Access Boston account.
-      </div>
-      <div
-        className="m-v300 lh--400 t--s400"
+        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      </p>
+      <p
+        className="lh--400 t--s400"
       >
-        Access Boston will send you a code whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
-      </div>
+        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+      </p>
+      <p
+        className="lh--400 t--s400"
+      >
+        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      </p>
       <hr
         className="hr hr--sq"
       />
       <form
-        action=""
         className="m-v500"
-        method="POST"
         onSubmit={[Function]}
       >
         <div
@@ -2759,7 +2751,7 @@ Array [
               className="txt-l"
               id="phoneOrEmail-groupLabel"
             >
-              Where do you want to get your security codes?
+              How do you want to get your security codes?
             </div>
             <label
               className="ra  "
@@ -2859,7 +2851,7 @@ Array [
           <div
             className="t--subinfo m-t100"
           >
-            You should use your cell phone number if you have one.
+            You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
           </div>
         </div>
         <div
@@ -2870,7 +2862,7 @@ Array [
             className="txt-l"
             id="smsOrVoice-groupLabel"
           >
-            How should we send the codes?
+            How should we send them?
           </div>
           <label
             className="ra  "
@@ -2913,14 +2905,14 @@ Array [
           </label>
         </div>
         <div
-          className="m-v500"
+          className="m-v500 ta-r"
         >
           <button
             className="btn"
             disabled={true}
             type="submit"
           >
-            Register Phone Number
+            Next Step
           </button>
         </div>
       </form>
@@ -2939,7 +2931,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots RegisterMfaPage modal 1`] = `
+exports[`Storyshots RegisterMfaPage modal open 1`] = `
 Array [
   <div
     className="css-1gni7w7 p-a200"
@@ -3000,26 +2992,29 @@ Array [
         <h2
           className="sh-title"
         >
-          Set up MFA/mobile device
+          Set up security codes
         </h2>
       </div>
-      <div
-        className="t--intro m-v300"
+      <p
+        className="lh--400 t--s400"
       >
-        You will need to register a mobile device to protect your Access Boston account.
-      </div>
-      <div
-        className="m-v300 lh--400 t--s400"
+        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      </p>
+      <p
+        className="lh--400 t--s400"
       >
-        Access Boston will send you a code whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
-      </div>
+        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+      </p>
+      <p
+        className="lh--400 t--s400"
+      >
+        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      </p>
       <hr
         className="hr hr--sq"
       />
       <form
-        action=""
         className="m-v500"
-        method="POST"
         onSubmit={[Function]}
       >
         <div
@@ -3033,7 +3028,7 @@ Array [
               className="txt-l"
               id="phoneOrEmail-groupLabel"
             >
-              Where do you want to get your security codes?
+              How do you want to get your security codes?
             </div>
             <label
               className="ra  "
@@ -3133,7 +3128,7 @@ Array [
           <div
             className="t--subinfo m-t100"
           >
-            You should use your cell phone number if you have one.
+            You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
           </div>
         </div>
         <div
@@ -3144,7 +3139,7 @@ Array [
             className="txt-l"
             id="smsOrVoice-groupLabel"
           >
-            How should we send the codes?
+            How should we send them?
           </div>
           <label
             className="ra  "
@@ -3187,14 +3182,14 @@ Array [
           </label>
         </div>
         <div
-          className="m-v500"
+          className="m-v500 ta-r"
         >
           <button
             className="btn"
             disabled={true}
             type="submit"
           >
-            Register Phone Number
+            Next Step
           </button>
         </div>
       </form>
@@ -3311,7 +3306,1196 @@ Array [
 ]
 `;
 
-exports[`Storyshots RegisterPage needs password and MFA 1`] = `
+exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Set up security codes
+      </h2>
+    </div>
+    <p
+      className="lh--400 t--s400"
+    >
+      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      className="m-v500"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            How do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f "
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+        </div>
+      </div>
+      <div
+        aria-labelledby="smsOrVoice-groupLabel"
+        role="group"
+      >
+        <div
+          className="txt-l"
+          id="smsOrVoice-groupLabel"
+        >
+          How should we send them?
+        </div>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={true}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="sms"
+          />
+          <span
+            className="ra-l"
+          >
+            Text message — 
+            <i>
+              recommended
+            </i>
+          </span>
+        </label>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={false}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="voice"
+          />
+          <span
+            className="ra-l"
+          >
+            Phone call
+          </span>
+        </label>
+      </div>
+      <div
+        className="m-v500 t--intro t--err"
+      >
+        We weren’t able to send to that address. Please try something else.
+      </div>
+      <div
+        className="m-v500 ta-r"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Next Step
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Set up security codes
+      </h2>
+    </div>
+    <p
+      className="lh--400 t--s400"
+    >
+      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      className="m-v500"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            How do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-3734019359"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Email address
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f txt-f--err"
+              id="input-3734019359"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="you@example.com"
+              required={true}
+              type="email"
+              value="notanemail.com"
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+              This doesn’t look like an email address.
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          Choose a personal address, not a City of Boston one.
+        </div>
+      </div>
+      <div
+        className="m-v500 ta-r"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Next Step
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
+<div
+  className="mn css-1jubgvi"
+>
+  <div
+    className="b b-c b-c--hsm"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Set up security codes
+      </h2>
+    </div>
+    <p
+      className="lh--400 t--s400"
+    >
+      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+    </p>
+    <p
+      className="lh--400 t--s400"
+    >
+      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <form
+      className="m-v500"
+      onSubmit={[Function]}
+    >
+      <div
+        className="m-b500"
+      >
+        <div
+          aria-labelledby="phoneOrEmail-groupLabel"
+          role="group"
+        >
+          <div
+            className="txt-l"
+            id="phoneOrEmail-groupLabel"
+          >
+            How do you want to get your security codes?
+          </div>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={true}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="phone"
+            />
+            <span
+              className="ra-l"
+            >
+              Phone — 
+              <i>
+                recommended
+              </i>
+            </span>
+          </label>
+          <label
+            className="ra  "
+          >
+            <input
+              checked={false}
+              className="ra-f"
+              name="phoneOrEmail"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="radio"
+              value="email"
+            />
+            <span
+              className="ra-l"
+            >
+              Email
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="txt"
+        style={
+          Object {
+            "marginBottom": "0.5rem",
+          }
+        }
+      >
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
+        >
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+        <div
+          className="g"
+        >
+          <div
+            className="g--6"
+          >
+            <input
+              className=" txt-f "
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 css-70qvj9"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-t100"
+        >
+          You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+        </div>
+      </div>
+      <div
+        aria-labelledby="smsOrVoice-groupLabel"
+        role="group"
+      >
+        <div
+          className="txt-l"
+          id="smsOrVoice-groupLabel"
+        >
+          How should we send them?
+        </div>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={true}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="sms"
+          />
+          <span
+            className="ra-l"
+          >
+            Text message — 
+            <i>
+              recommended
+            </i>
+          </span>
+        </label>
+        <label
+          className="ra  "
+        >
+          <input
+            checked={false}
+            className="ra-f"
+            name="smsOrVoice"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="radio"
+            value="voice"
+          />
+          <span
+            className="ra-l"
+          >
+            Phone call
+          </span>
+        </label>
+      </div>
+      <div
+        className="m-v500 ta-r"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          type="submit"
+        >
+          Next Step
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Please pick up! We’re making a phone call to
+         
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value="133789"
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Checking…
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          Resend the code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          try a different number or email
+        </button>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        <span
+          className="t--err"
+        >
+          That code didn’t seem right. Can you try again?
+        </span>
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          Resend the code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          try a different number or email
+        </button>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal other error 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        <span
+          className="t--err"
+        >
+          Something went wrong.
+        </span>
+      </div>
+      <div
+        className="m-v400 t--s400 lh--300"
+      >
+        We had a problem verifying that code. You can try to
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          get a new code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          use a different number or email
+        </button>
+        .
+      </div>
+      <div
+        className="t--s400 lh--300"
+      >
+        Please get in touch with the helpdesk if this keeps happening.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal sending 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        We’re sending you an authentication code…
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Check your phone! We’ve sent a text to 
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          Resend the code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          try a different number or email
+        </button>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Check your inbox! We’ve sent an email to 
+        <strong>
+          test@boston.gov
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value="133789"
+            />
+            <button
+              className="btn"
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          Resend the code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          try a different number or email
+        </button>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice code 1`] = `
+<div
+  className="md"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+      >
+        Please pick up! We’re making a phone call to
+         
+        <strong>
+          (617) 555-1234
+        </strong>
+        .
+      </div>
+      <div
+        className="m-v500"
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3718645000"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Authentication code
+          </label>
+          <div
+            className="css-70qvj9"
+          >
+            <input
+              autoFocus={true}
+              className="css-1e1yraf txt-f "
+              id="input-3718645000"
+              maxLength={6}
+              name="code"
+              onChange={[Function]}
+              pattern="[0-9]*"
+              type="text"
+              value=""
+            />
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "1em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+              type="button"
+            >
+              Activate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="t--subinfo ta-c"
+      >
+        Didn’t get it?
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          Resend the code
+        </button>
+         
+        or
+         
+        <button
+          className="lnk"
+          onClick={[Function]}
+          type="button"
+        >
+          try a different number or email
+        </button>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots RegisterPage default 1`] = `
 Array [
   <div
     className="css-1gni7w7 p-a200"
@@ -3364,7 +4548,7 @@ Array [
     className="mn css-1jubgvi"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="b b-c"
     >
       <div
         className="sh m-b300 "
@@ -3376,40 +4560,245 @@ Array [
         </h2>
       </div>
       <div
-        className="t--intro m-v500"
+        className="g"
       >
-        Access Boston is the new place to log into your City of Boston employee account.
-      </div>
-      <div
-        style={
-          Object {
-            "textAlign": "right",
-          }
-        }
-      >
-        <span
-          className="t--info"
-          style={
-            Object {
-              "paddingRight": "1em",
+        <div
+          className="g--8"
+        >
+          <div
+            className="t--intro m-v300"
+          >
+            Access Boston is the new place to log into your City of Boston employee account.
+          </div>
+          <p
+            className="t--s400 lh--400"
+          >
+            We’ve made a few changes to make things more secure:
+          </p>
+          <ul
+            className="ul t--s400 lh--400"
+          >
+            <li>
+              Passwords need to be a bit longer and a bit stronger. But you only have to change them once a year!
+            </li>
+            <li>
+              We’ll need a mobile phone number or personal email address to send security codes to. You’ll need a security code when you use a new computer or forget your password.
+            </li>
+          </ul>
+          <p
+            className="t--s400 lh--400"
+          >
+            We’ll walk you through everything you need to do to get set up.
+             
+          </p>
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+              }
             }
-          }
+          >
+            <a
+              className="btn"
+              href="/change-password"
+              onClick={[Function]}
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+        <div
+          className="g--4"
         >
-          Next step:
-        </span>
-         
-        <a
-          className="btn"
-          href="/change-password"
-          onClick={[Function]}
-        >
-          Set Password
-        </a>
+          <div
+            className="txt-l"
+          >
+            If you need extra help, give us a call:
+          </div>
+          <ul
+            className="ul t--s300 lh--400"
+          >
+            <li>
+              DoIT Service Desk
+              <br />
+              <a
+                href="tel:6176357378"
+              >
+                (617) 635-7378
+              </a>
+            </li>
+            <li>
+              BPS Technology Help Desk Support
+              <br />
+              <a
+                href="tel:6176359200"
+              >
+                (617) 635-9200
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <img
         alt=""
         height="1"
-        src="https://undefined/ext/idplogout"
+        src="https://[object Object]/ext/idplogout"
+        width="1"
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots RegisterPage password already ok 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Welcome to Access Boston!
+        </h2>
+      </div>
+      <div
+        className="g"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="t--intro m-v300"
+          >
+            Access Boston is the new place to log into your City of Boston employee account.
+          </div>
+          <p
+            className="t--s400 lh--400"
+          >
+            We’ve made a few changes to make things more secure:
+          </p>
+          <ul
+            className="ul t--s400 lh--400"
+          >
+            <li>
+              Passwords need to be a bit longer and a bit stronger. But you only have to change them once a year!
+            </li>
+            <li>
+              We’ll need a mobile phone number or personal email address to send security codes to. You’ll need a security code when you use a new computer or forget your password.
+            </li>
+          </ul>
+          <p
+            className="t--s400 lh--400"
+          >
+            We’ll walk you through everything you need to do to get set up.
+             
+            Your password is already strong enough, so we just need to set you up for security codes.
+          </p>
+          <div
+            style={
+              Object {
+                "textAlign": "right",
+              }
+            }
+          >
+            <a
+              className="btn"
+              href="/mfa"
+              onClick={[Function]}
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+        <div
+          className="g--4"
+        >
+          <div
+            className="txt-l"
+          >
+            If you need extra help, give us a call:
+          </div>
+          <ul
+            className="ul t--s300 lh--400"
+          >
+            <li>
+              DoIT Service Desk
+              <br />
+              <a
+                href="tel:6176357378"
+              >
+                (617) 635-7378
+              </a>
+            </li>
+            <li>
+              BPS Technology Help Desk Support
+              <br />
+              <a
+                href="tel:6176359200"
+              >
+                (617) 635-9200
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <img
+        alt=""
+        height="1"
+        src="https://[object Object]/ext/idplogout"
         width="1"
       />
     </div>
@@ -3661,1184 +5050,4 @@ Array [
     </div>
   </div>,
 ]
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationForm code sending error 1`] = `
-<div
-  className="mn css-1jubgvi"
->
-  <div
-    className="b b-c b-c--hsm"
-  >
-    <div
-      className="sh m-b300 "
-    >
-      <h2
-        className="sh-title"
-      >
-        Set up MFA/mobile device
-      </h2>
-    </div>
-    <div
-      className="t--intro m-v300"
-    >
-      You will need to register a mobile device to protect your Access Boston account.
-    </div>
-    <div
-      className="m-v300 lh--400 t--s400"
-    >
-      Access Boston will send you a code whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
-    </div>
-    <hr
-      className="hr hr--sq"
-    />
-    <form
-      action=""
-      className="m-v500"
-      method="POST"
-      onSubmit={[Function]}
-    >
-      <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            Where do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="txt"
-        style={
-          Object {
-            "marginBottom": "0.5rem",
-          }
-        }
-      >
-        <label
-          className="txt-l"
-          htmlFor="input-1267882554"
-          style={
-            Object {
-              "marginTop": 0,
-            }
-          }
-        >
-          Phone Number
-          <span
-            aria-hidden="true"
-            className="t--req"
-          >
-             
-            Required
-          </span>
-        </label>
-        <div
-          className="g"
-        >
-          <div
-            className="g--6"
-          >
-            <input
-              className=" txt-f "
-              id="input-1267882554"
-              name="phoneNumber"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="(XXX) XXX-XXXX"
-              required={true}
-              type="tel"
-              value=""
-            />
-          </div>
-          <div
-            className="g--6 css-70qvj9"
-          >
-            <div
-              className="t--info t--err m-v100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="t--subinfo m-t100"
-        >
-          You should use your cell phone number if you have one.
-        </div>
-      </div>
-      <div
-        aria-labelledby="smsOrVoice-groupLabel"
-        role="group"
-      >
-        <div
-          className="txt-l"
-          id="smsOrVoice-groupLabel"
-        >
-          How should we send the codes?
-        </div>
-        <label
-          className="ra  "
-        >
-          <input
-            checked={true}
-            className="ra-f"
-            name="smsOrVoice"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="radio"
-            value="sms"
-          />
-          <span
-            className="ra-l"
-          >
-            Text message — 
-            <i>
-              recommended
-            </i>
-          </span>
-        </label>
-        <label
-          className="ra  "
-        >
-          <input
-            checked={false}
-            className="ra-f"
-            name="smsOrVoice"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="radio"
-            value="voice"
-          />
-          <span
-            className="ra-l"
-          >
-            Phone call
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v500 t--intro t--err"
-      >
-        We weren’t able to send to that address. Please try something else.
-      </div>
-      <div
-        className="m-v500"
-      >
-        <button
-          className="btn"
-          disabled={true}
-          type="submit"
-        >
-          Register Phone Number
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationForm email with error 1`] = `
-<div
-  className="mn css-1jubgvi"
->
-  <div
-    className="b b-c b-c--hsm"
-  >
-    <div
-      className="sh m-b300 "
-    >
-      <h2
-        className="sh-title"
-      >
-        Set up MFA/mobile device
-      </h2>
-    </div>
-    <div
-      className="t--intro m-v300"
-    >
-      You will need to register a mobile device to protect your Access Boston account.
-    </div>
-    <div
-      className="m-v300 lh--400 t--s400"
-    >
-      Access Boston will send you a code whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
-    </div>
-    <hr
-      className="hr hr--sq"
-    />
-    <form
-      action=""
-      className="m-v500"
-      method="POST"
-      onSubmit={[Function]}
-    >
-      <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            Where do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="txt"
-        style={
-          Object {
-            "marginBottom": "0.5rem",
-          }
-        }
-      >
-        <label
-          className="txt-l"
-          htmlFor="input-3734019359"
-          style={
-            Object {
-              "marginTop": 0,
-            }
-          }
-        >
-          Email address
-          <span
-            aria-hidden="true"
-            className="t--req"
-          >
-             
-            Required
-          </span>
-        </label>
-        <div
-          className="g"
-        >
-          <div
-            className="g--6"
-          >
-            <input
-              className=" txt-f txt-f--err"
-              id="input-3734019359"
-              name="email"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="you@example.com"
-              required={true}
-              type="email"
-              value="notanemail.com"
-            />
-          </div>
-          <div
-            className="g--6 css-70qvj9"
-          >
-            <div
-              className="t--info t--err m-v100"
-            >
-              This doesn’t look like an email address.
-            </div>
-          </div>
-        </div>
-        <div
-          className="t--subinfo m-t100"
-        >
-          Choose a personal address, not a City of Boston one.
-        </div>
-      </div>
-      <div
-        className="m-v500"
-      >
-        <button
-          className="btn"
-          disabled={true}
-          type="submit"
-        >
-          Register Email
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationForm phone 1`] = `
-<div
-  className="mn css-1jubgvi"
->
-  <div
-    className="b b-c b-c--hsm"
-  >
-    <div
-      className="sh m-b300 "
-    >
-      <h2
-        className="sh-title"
-      >
-        Set up MFA/mobile device
-      </h2>
-    </div>
-    <div
-      className="t--intro m-v300"
-    >
-      You will need to register a mobile device to protect your Access Boston account.
-    </div>
-    <div
-      className="m-v300 lh--400 t--s400"
-    >
-      Access Boston will send you a code whenever you log in on a new computer. You’ll also need a code to reset your password if you forget it.
-    </div>
-    <hr
-      className="hr hr--sq"
-    />
-    <form
-      action=""
-      className="m-v500"
-      method="POST"
-      onSubmit={[Function]}
-    >
-      <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            Where do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
-        className="txt"
-        style={
-          Object {
-            "marginBottom": "0.5rem",
-          }
-        }
-      >
-        <label
-          className="txt-l"
-          htmlFor="input-1267882554"
-          style={
-            Object {
-              "marginTop": 0,
-            }
-          }
-        >
-          Phone Number
-          <span
-            aria-hidden="true"
-            className="t--req"
-          >
-             
-            Required
-          </span>
-        </label>
-        <div
-          className="g"
-        >
-          <div
-            className="g--6"
-          >
-            <input
-              className=" txt-f "
-              id="input-1267882554"
-              name="phoneNumber"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="(XXX) XXX-XXXX"
-              required={true}
-              type="tel"
-              value=""
-            />
-          </div>
-          <div
-            className="g--6 css-70qvj9"
-          >
-            <div
-              className="t--info t--err m-v100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="t--subinfo m-t100"
-        >
-          You should use your cell phone number if you have one.
-        </div>
-      </div>
-      <div
-        aria-labelledby="smsOrVoice-groupLabel"
-        role="group"
-      >
-        <div
-          className="txt-l"
-          id="smsOrVoice-groupLabel"
-        >
-          How should we send the codes?
-        </div>
-        <label
-          className="ra  "
-        >
-          <input
-            checked={true}
-            className="ra-f"
-            name="smsOrVoice"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="radio"
-            value="sms"
-          />
-          <span
-            className="ra-l"
-          >
-            Text message — 
-            <i>
-              recommended
-            </i>
-          </span>
-        </label>
-        <label
-          className="ra  "
-        >
-          <input
-            checked={false}
-            className="ra-f"
-            name="smsOrVoice"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="radio"
-            value="voice"
-          />
-          <span
-            className="ra-l"
-          >
-            Phone call
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v500"
-      >
-        <button
-          className="btn"
-          disabled={true}
-          type="submit"
-        >
-          Register Phone Number
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal checking the code 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        Please pick up! We’re making a phone call to
-         
-        <strong>
-          (617) 555-1234
-        </strong>
-        .
-      </div>
-      <div
-        className="m-v500"
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-1e1yraf txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              type="text"
-              value="133789"
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
-              style={
-                Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-              type="button"
-            >
-              Checking…
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal incorrect code 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        <span
-          className="t--err"
-        >
-          That code didn’t seem right. Can you try again?
-        </span>
-      </div>
-      <div
-        className="m-v500"
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-1e1yraf txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
-              style={
-                Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-              type="button"
-            >
-              Activate
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal other error 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        <span
-          className="t--err"
-        >
-          Something went wrong.
-        </span>
-      </div>
-      <div
-        className="m-v400 t--s400 lh--300"
-      >
-        We had a problem verifying that code. You can try to
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          get a new code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          use a different number or email
-        </button>
-        .
-      </div>
-      <div
-        className="t--s400 lh--300"
-      >
-        Please get in touch with the helpdesk if this keeps happening.
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal sending 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        We’re sending you an authentication code…
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal waiting for SMS code 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        Check your phone! We’ve sent a text to 
-        <strong>
-          (617) 555-1234
-        </strong>
-        .
-      </div>
-      <div
-        className="m-v500"
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-1e1yraf txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
-              style={
-                Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-              type="button"
-            >
-              Activate
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal waiting for email code 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        Check your inbox! We’ve sent an email to 
-        <strong>
-          test@boston.gov
-        </strong>
-        .
-      </div>
-      <div
-        className="m-v500"
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-1e1yraf txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              type="text"
-              value="133789"
-            />
-            <button
-              className="btn"
-              disabled={false}
-              onClick={[Function]}
-              style={
-                Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-              type="button"
-            >
-              Activate
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots device-verification/DeviceVerificationModal waiting for voice code 1`] = `
-<div
-  className="md"
->
-  <div
-    className="md-c br br-t400 css-1y2scv5"
-  >
-    <div
-      className="md-b p-a300"
-    >
-      <div
-        className="t--intro"
-      >
-        Please pick up! We’re making a phone call to
-         
-        <strong>
-          (617) 555-1234
-        </strong>
-        .
-      </div>
-      <div
-        className="m-v500"
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-1e1yraf txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
-              style={
-                Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-              type="button"
-            >
-              Activate
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
-    </div>
-  </div>
-</div>
 `;

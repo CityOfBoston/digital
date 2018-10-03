@@ -79,30 +79,31 @@ export default function DeviceVerificationForm(props: Props) {
     <>
       <div className={MAIN_CLASS}>
         <div className="b b-c b-c--hsm">
-          <SectionHeader title="Set up MFA/mobile device" />
+          <SectionHeader title="Set up security codes" />
 
-          <div className="t--intro m-v300">
-            You will need to register a mobile device to protect your Access
-            Boston account.
-          </div>
-
-          <div className="m-v300 lh--400 t--s400">
-            Access Boston will send you a code whenever you log in on a new
+          <p className="lh--400 t--s400">
+            Access Boston will send you a security code when you log in on a new
             computer. You’ll also need a code to reset your password if you
             forget it.
-          </div>
+          </p>
+
+          <p className="lh--400 t--s400">
+            This is called multi-factor authentication. It keeps your account
+            secure even if someone steals your password.
+          </p>
+
+          <p className="lh--400 t--s400">
+            Use your cell phone number if you have one. You can choose between
+            getting codes via text message or phone call. If you don’t have a
+            cell phone you can use a personal email address instead.
+          </p>
 
           <hr className="hr hr--sq" />
 
-          <form
-            action=""
-            method="POST"
-            className="m-v500"
-            onSubmit={handleSubmit}
-          >
+          <form className="m-v500" onSubmit={handleSubmit}>
             <div className="m-b500">
               <RadioGroup
-                groupLabel="Where do you want to get your security codes?"
+                groupLabel="How do you want to get your security codes?"
                 name="phoneOrEmail"
                 checkedValue={phoneOrEmail}
                 handleItemChange={handleChange}
@@ -132,13 +133,13 @@ export default function DeviceVerificationForm(props: Props) {
                   value={phoneNumber}
                   error={touched.phoneNumber && (errors.phoneNumber as any)}
                   required
-                  info="You should use your cell phone number if you have one."
+                  info="You should use your cell phone number if you have one. Note: normal cell phone charges will apply."
                   renderInputFunc={renderErrorNextToInput}
                   hideErrorMessage
                 />
 
                 <RadioGroup
-                  groupLabel="How should we send the codes?"
+                  groupLabel="How should we send them?"
                   name="smsOrVoice"
                   checkedValue={smsOrVoice}
                   handleItemChange={handleChange}
@@ -184,15 +185,13 @@ export default function DeviceVerificationForm(props: Props) {
               <div className="m-v500 t--intro t--err">{serverError}</div>
             )}
 
-            <div className="m-v500">
+            <div className="m-v500 ta-r">
               <button
                 type="submit"
                 className="btn"
                 disabled={!(process as any).browser || !isValid || isSubmitting}
               >
-                {phoneOrEmail === 'phone'
-                  ? 'Register Phone Number'
-                  : 'Register Email'}
+                Next Step
               </button>
             </div>
           </form>

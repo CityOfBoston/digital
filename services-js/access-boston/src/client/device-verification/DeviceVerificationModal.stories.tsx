@@ -13,7 +13,7 @@ const resetVerification = action('resetVerification');
 const validateCode = (...args) =>
   action('validateCode')(args) || Promise.resolve(true);
 
-storiesOf('device-verification/DeviceVerificationModal', module)
+storiesOf('RegisterMfaPage/DeviceVerificationModal', module)
   .add('sending', () => (
     <DeviceVerificationModal
       status={VerificationStatus.SENDING}
