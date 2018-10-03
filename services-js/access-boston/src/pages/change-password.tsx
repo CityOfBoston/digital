@@ -149,8 +149,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                 <div className="b b-c b-c--hsm">
                   <SectionHeader
                     title={
-                      setNewPassword
-                        ? 'Welcome to Access Boston!'
+                      account.needsNewPassword
+                        ? 'Create a New Password'
                         : 'Change Password'
                     }
                   />
@@ -158,22 +158,23 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                   {setNewPassword && (
                     <>
                       <p className="t--s400 lh--400">
-                        We will walk you through the steps to register for your
-                        new account. You will need to create a strong password
-                        and set up multi-factor authentication.{' '}
-                        {hasTemporaryPassword &&
-                          `
-                           Please look for an email from us with your temporary
-                           password, which you need to get started. 
-                        `}
+                        You’ll need a new password for Access Boston. We’ve
+                        changed the requirements for passwords to make sure that
+                        they’re strong enough.
                       </p>
 
                       <p className="t--s400 lh--400">
-                        If you need extra help, please contact the DoIT Service
-                        Desk via <a href="tel:6176357378">(617) 635-7378</a> or
-                        BPS Technology Help Desk Support at{' '}
-                        <a href="tel:6176359200">(617) 635-9200</a>.
+                        You’ll use this password when logging in to Access
+                        Boston websites like The Hub. If you work in City Hall
+                        or for BPS you’ll also use it for your desktop computer.
                       </p>
+
+                      {hasTemporaryPassword && (
+                        <p className="t--s400 lh--400">
+                          Please look for an email from us with your temporary
+                          password.
+                        </p>
+                      )}
 
                       <hr className="hr hr--sq" />
                     </>
@@ -278,16 +279,22 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               value={values.confirmPassword}
               {...commonPasswordProps}
             />
+
+            <div className="ta-r">
+              <button
+                type="submit"
+                className="btn"
+                disabled={
+                  (process as any).browser && (!isValid || isSubmitting)
+                }
+              >
+                {account.needsNewPassword
+                  ? 'Set new password'
+                  : 'Change Password'}
+              </button>
+            </div>
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="btn"
-          disabled={(process as any).browser && (!isValid || isSubmitting)}
-        >
-          {account.needsNewPassword ? 'Set new password' : 'Change Password'}
-        </button>
       </form>
     );
   };

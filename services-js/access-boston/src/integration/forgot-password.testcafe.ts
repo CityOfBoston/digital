@@ -42,5 +42,5 @@ test('Reset password', async t => {
     })
     .click(passwordPage.submitButton);
 
-  await t.expect(Selector('body').innerText).contains('RESET SUCCESSFUL!');
+  await t.expect(Selector('body').withText('RESET SUCCESSFUL').exists).ok();
 });

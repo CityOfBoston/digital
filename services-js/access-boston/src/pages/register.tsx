@@ -34,10 +34,8 @@ export default class RegisterPage extends React.Component<Props> {
   render() {
     const { account } = this.props;
 
-    const { publicRuntimeConfig } = getConfig() || { publicRuntimeConfig: {} };
-    const logoutImgSrc = `https://${
-      publicRuntimeConfig.PING_HOST
-    }/ext/idplogout`;
+    const { publicRuntimeConfig: PING_HOST } = getConfig();
+    const logoutImgSrc = `https://${PING_HOST}/ext/idplogout`;
 
     return (
       <>
@@ -49,27 +47,73 @@ export default class RegisterPage extends React.Component<Props> {
         <AccessBostonHeader account={account} />
 
         <div className={MAIN_CLASS}>
-          <div className="b b-c b-c--hsm">
+          <div className="b b-c">
             <SectionHeader title="Welcome to Access Boston!" />
 
-            <div className="t--intro m-v500">
-              Access Boston is the new place to log into your City of Boston
-              employee account.
-            </div>
+            <div className="g">
+              <div className="g--8">
+                <div className="t--intro m-v300">
+                  Access Boston is the new place to log into your City of Boston
+                  employee account.
+                </div>
 
-            <div style={{ textAlign: 'right' }}>
-              <span className="t--info" style={{ paddingRight: '1em' }}>
-                Next step:
-              </span>{' '}
-              {account.needsNewPassword ? (
-                <Link href="/change-password">
-                  <a className="btn">Set Password</a>
-                </Link>
-              ) : (
-                <Link href="/mfa">
-                  <a className="btn">Add MFA Device</a>
-                </Link>
-              )}
+                <p className="t--s400 lh--400">
+                  We’ve made a few changes to make things more secure:
+                </p>
+
+                <ul className="ul t--s400 lh--400">
+                  <li>
+                    Passwords need to be a bit longer and a bit stronger. But
+                    you only have to change them once a year!
+                  </li>
+
+                  <li>
+                    We’ll need a mobile phone number or personal email address
+                    to send security codes to. You’ll need a security code when
+                    you use a new computer or forget your password.
+                  </li>
+                </ul>
+
+                <p className="t--s400 lh--400">
+                  We’ll walk you through everything you need to do to get set
+                  up.{' '}
+                  {!account.needsNewPassword && (
+                    <>
+                      Your password is already strong enough, so we just need to
+                      set you up for security codes.
+                    </>
+                  )}
+                </p>
+
+                <div style={{ textAlign: 'right' }}>
+                  {account.needsNewPassword ? (
+                    <Link href="/change-password">
+                      <a className="btn">Get Started</a>
+                    </Link>
+                  ) : (
+                    <Link href="/mfa">
+                      <a className="btn">Get Started</a>
+                    </Link>
+                  )}
+                </div>
+              </div>
+
+              <div className="g--4">
+                <div className="txt-l">
+                  If you need extra help, give us a call:
+                </div>
+
+                <ul className="ul t--s300 lh--400">
+                  <li>
+                    DoIT Service Desk<br />
+                    <a href="tel:6176357378">(617) 635-7378</a>
+                  </li>
+                  <li>
+                    BPS Technology Help Desk Support<br />
+                    <a href="tel:6176359200">(617) 635-9200</a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <img src={logoutImgSrc} alt="" width="1" height="1" />

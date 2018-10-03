@@ -12,10 +12,10 @@ const ACCOUNT: Account = {
 };
 
 storiesOf('RegisterMfaPage', module)
-  .add('form', () => (
+  .add('default', () => (
     <RegisterMfaPage account={ACCOUNT} fetchGraphql={null as any} />
   ))
-  .add('modal', () => (
+  .add('modal open', () => (
     <RegisterMfaPage
       account={ACCOUNT}
       fetchGraphql={null as any}

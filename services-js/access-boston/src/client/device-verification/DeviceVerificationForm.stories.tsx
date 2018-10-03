@@ -22,7 +22,7 @@ const DEFAULT_PROPS = {
   serverError: null,
 };
 
-storiesOf('device-verification/DeviceVerificationForm', module)
+storiesOf('RegisterMfaPage/DeviceVerificationForm', module)
   .add('phone', () => <DeviceVerificationForm {...DEFAULT_PROPS} />)
   .add('email with error', () => (
     <DeviceVerificationForm
