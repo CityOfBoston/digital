@@ -263,6 +263,7 @@ async function addNext(server: HapiServer) {
     ...config.publicRuntimeConfig,
     [GRAPHQL_PATH_KEY]: '/graphql',
     [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY,
+    PING_HOST: process.env.PING_HOST,
   };
 
   config.serverRuntimeConfig = {

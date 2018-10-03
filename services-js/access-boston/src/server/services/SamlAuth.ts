@@ -27,6 +27,8 @@ interface SamlAuthAssertion {
       FirstName?: string[];
       LastName?: string[];
       email?: string[];
+      changePasswordRequired?: string[];
+      mfaRegistrationRequired?: string[];
     };
   };
 }
@@ -286,10 +288,8 @@ export default class SamlAuth {
           lastName: (attributes.LastName && attributes.LastName[0]) || '',
           email: (attributes.email && attributes.email[0]) || '',
           groups: parseGroupsAttribute(attributes.groups || []),
-          // TODO(finh): Switch these to the real values once IAM is able to
-          // send that data in the assertion.
-          needsNewPassword: false,
-          needsMfaDevice: false,
+          needsNewPassword: attributeIsTrue(attributes.changePasswordRequired),
+          needsMfaDevice: attributeIsTrue(attributes.mfaRegistrationRequired),
         };
       }
       case 'logout_request':
@@ -367,3 +367,6 @@ export function parseGroupsAttribute(groupsAttribute: string[]): string[] {
     })
     .filter(s => !!s);
 }
+
+const attributeIsTrue = (attr: string[] | undefined): boolean =>
+  !!(attr && attr[0] && attr[0].toLowerCase() === 'true');
