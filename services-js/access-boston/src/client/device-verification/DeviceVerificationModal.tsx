@@ -37,7 +37,6 @@ const VERIFICATION_CODE_ROW_STYLE = css({
 });
 
 const VERIFICATION_CODE_INPUT_STYLE = css({
-  flexGrow: 1,
   fontSize: '30px',
   letterSpacing: '3px',
   fontFamily: SANS,
@@ -170,6 +169,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
             name="code"
             value={code}
             maxLength={6}
+            size={6}
             pattern="[0-9]*"
             onChange={handleChange}
             className={VERIFICATION_CODE_INPUT_STYLE}
@@ -178,7 +178,6 @@ export default class DeviceVerificationModal extends React.Component<Props> {
             renderInputFunc={({ inputEl }) => (
               <div className={VERIFICATION_CODE_ROW_STYLE}>
                 {inputEl}
-
                 <button
                   type="button"
                   className="btn"
