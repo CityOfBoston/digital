@@ -2851,7 +2851,9 @@ Array [
           <div
             className="t--subinfo m-t100"
           >
-            You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+            You should use your cell phone number if you have one.
+            <br />
+            Note: normal cell phone charges will apply.
           </div>
         </div>
         <div
@@ -3128,7 +3130,9 @@ Array [
           <div
             className="t--subinfo m-t100"
           >
-            You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+            You should use your cell phone number if you have one.
+            <br />
+            Note: normal cell phone charges will apply.
           </div>
         </div>
         <div
@@ -3456,7 +3460,9 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
         <div
           className="t--subinfo m-t100"
         >
-          You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+          You should use your cell phone number if you have one.
+          <br />
+          Note: normal cell phone charges will apply.
         </div>
       </div>
       <div
@@ -3847,7 +3853,9 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
         <div
           className="t--subinfo m-t100"
         >
-          You should use your cell phone number if you have one. Note: normal cell phone charges will apply.
+          You should use your cell phone number if you have one.
+          <br />
+          Note: normal cell phone charges will apply.
         </div>
       </div>
       <div

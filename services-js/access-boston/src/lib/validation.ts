@@ -105,3 +105,30 @@ const CITY_DOMAIN_REGEXPS = CITY_DOMAINS.map(
 export function testNotCityEmailAddress(val: string | undefined): boolean {
   return !val || !CITY_DOMAIN_REGEXPS.find(r => !!val.match(r));
 }
+
+// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
+const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+export const registerDeviceSchema = yup.object().shape({
+  phoneOrEmail: yup.string().oneOf(['phone', 'email']),
+  smsOrVoice: yup.string().oneOf(['sms', 'voice']),
+  phoneNumber: yup.string().when('phoneOrEmail', {
+    is: 'phone',
+    then: yup
+      .string()
+      .required('Please put in your phone number.')
+      .matches(PHONE_REGEXP, 'That doesn’t look like a phone number.'),
+  }),
+  email: yup.string().when('phoneOrEmail', {
+    is: 'email',
+    then: yup
+      .string()
+      .required('Please put in an email address.')
+      .email('This doesn’t look like an email address.')
+      .test(
+        'not-cob',
+        'Please use a personal email, not a work email.',
+        testNotCityEmailAddress
+      ),
+  }),
+});

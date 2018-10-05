@@ -159,6 +159,7 @@ export enum VerificationType {
 export enum MfaError {
   INVALID_EMAIL = 'INVALID_EMAIL',
   INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER',
+  WRONG_CODE = 'WRONG_CODE',
   WRONG_PASSWORD = 'WRONG_PASSWORD',
 }
 

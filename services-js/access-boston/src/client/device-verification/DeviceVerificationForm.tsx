@@ -1,12 +1,10 @@
 import React from 'react';
 import { FormikProps } from 'formik';
-import * as yup from 'yup';
 
 import { SectionHeader, RadioGroup } from '@cityofboston/react-fleet';
 
 import { MAIN_CLASS } from '../styles';
 import TextInput, { renderErrorNextToInput } from '../TextInput';
-import { testNotCityEmailAddress } from '../../lib/validation';
 
 // Pull of only the FormikProps we actually use. This keeps us from needing to
 // pass fake versions of everything in our Storybook stories.
@@ -33,27 +31,6 @@ export interface FormValues {
   email: string;
   phoneNumber: string;
 }
-
-export const validationSchema = yup.object<FormValues>().shape({
-  phoneOrEmail: yup.string().oneOf(['phone', 'email']),
-  smsOrVoice: yup.string().oneOf(['sms', 'voice']),
-  phoneNumber: yup.string().when('phoneOrEmail', {
-    is: 'phone',
-    then: yup.string().required('Please put in your phone number.'),
-  }),
-  email: yup.string().when('phoneOrEmail', {
-    is: 'email',
-    then: yup
-      .string()
-      .required('Please put in an email address.')
-      .email('This doesn’t look like an email address.')
-      .test(
-        'not-cob',
-        'Please use a personal email, not a work email.',
-        testNotCityEmailAddress
-      ),
-  }),
-});
 
 /**
  * Formik form component to render the UI for adding a phone or email address as
@@ -133,7 +110,12 @@ export default function DeviceVerificationForm(props: Props) {
                   value={phoneNumber}
                   error={touched.phoneNumber && (errors.phoneNumber as any)}
                   required
-                  info="You should use your cell phone number if you have one. Note: normal cell phone charges will apply."
+                  info={
+                    <>
+                      You should use your cell phone number if you have one.<br />
+                      Note: normal cell phone charges will apply.
+                    </>
+                  }
                   renderInputFunc={renderErrorNextToInput}
                   hideErrorMessage
                 />

@@ -6,6 +6,7 @@ export enum MfaError {
   INVALID_EMAIL = 'INVALID_EMAIL',
   INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER',
   WRONG_PASSWORD = 'WRONG_PASSWORD',
+  WRONG_CODE = 'WRONG_CODE',
 }
 
 export interface AddMfaDeviceResponse {
@@ -43,8 +44,6 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     });
   }
 
-  // TODO(finh): validate email and phone number formats
-
   let phoneOrEmail: string;
   switch (type) {
     case 'EMAIL':
@@ -72,6 +71,8 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
       throw new Error(`Unknown verification type: ${type}`);
   }
 
+  // The combination of the frontend and PingID handles input validation, so we
+  // don't have to here.
   const sessionId = await pingId.startPairing(userId, type, phoneOrEmail);
 
   loginSession.mfaSessionId = sessionId;
@@ -107,8 +108,7 @@ export const verifyMfaDeviceMutation: MutationResolvers['verifyMfaDevice'] = asy
   if (result !== true) {
     return {
       success: false,
-      error:
-        result === PingErrorId.WRONG_PASSWORD ? MfaError.WRONG_PASSWORD : null,
+      error: result === PingErrorId.WRONG_PASSWORD ? MfaError.WRONG_CODE : null,
     };
   }
 
