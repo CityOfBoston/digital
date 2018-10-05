@@ -56,6 +56,8 @@ interface RadioGroupProps {
   checkedValue?: string;
   className?: string;
   itemsClassName?: string;
+  style?: object;
+  itemsStyle?: object;
 
   handleItemChange?(e: ChangeEvent<HTMLInputElement>): void;
   handleItemBlur?(e: FocusEvent<HTMLInputElement>): void;
@@ -78,7 +80,7 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
     : (ariaProps['aria-labelledby'] = `${props.name}-groupLabel`);
 
   return (
-    <div role="group" className={props.className} {...ariaProps}>
+    <div role="group" className={props.className} style={props.style} {...ariaProps}>
       {!props.hideLabel && (
         <div className="txt-l" id={`${props.name}-groupLabel`}>
           {props.groupLabel}
@@ -99,6 +101,7 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
           onChange={props.handleItemChange}
           onBlur={props.handleItemBlur}
           className={`${props.itemsClassName || ''} ${item.className || ''}`}
+          style={props.itemsStyle}
         />
       ))}
     </div>

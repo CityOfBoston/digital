@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function Search(props) {
   const handleKeyUp = event => {
     if (event.keyCode === 13) {
@@ -36,7 +35,7 @@ function Search(props) {
 Search.propTypes = {
   keywords: PropTypes.string.isRequired,
   handleKeywordChange: PropTypes.func.isRequired,
-  handleKeywordSubmit: PropTypes.func.isRequired
+  handleKeywordSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;
