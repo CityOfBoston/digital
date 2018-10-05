@@ -179,6 +179,9 @@ export async function addLoginAuth(
         groups,
         needsNewPassword,
         needsMfaDevice,
+        mfaSessionId: null,
+        mfaEmail: null,
+        mfaPhoneNumber: null,
       };
 
       request.yar.set(LOGIN_SESSION_KEY, session);

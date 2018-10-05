@@ -35,6 +35,12 @@ export interface LoginSession {
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+
+  // We want these in the session because we need to update IIQ with the email
+  // or phone number that was used, once device verification succeeds.
+  mfaSessionId: string | null;
+  mfaEmail: string | null;
+  mfaPhoneNumber: string | null;
 }
 
 export type SessionAuth = LoginAuth | ForgotPasswordAuth;
@@ -94,5 +100,9 @@ export default class Session {
 
   reset() {
     this.request.yar.reset();
+  }
+
+  save() {
+    this.request.yar.set(LOGIN_SESSION_KEY, { ...this.loginSession });
   }
 }

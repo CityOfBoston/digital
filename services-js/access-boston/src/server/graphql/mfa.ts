@@ -24,6 +24,7 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
   { pingId, session }
 ) => {
   const { loginAuth, loginSession } = session;
+
   if (!loginAuth || !loginSession) {
     throw Boom.forbidden();
   }
@@ -49,6 +50,8 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     case 'EMAIL':
       if (email) {
         phoneOrEmail = email;
+        loginSession.mfaEmail = email;
+        loginSession.mfaPhoneNumber = null;
       } else {
         throw new Error('Missing email address for EMAIL verification type');
       }
@@ -58,6 +61,8 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     case 'SMS':
       if (phoneNumber) {
         phoneOrEmail = phoneNumber;
+        loginSession.mfaEmail = null;
+        loginSession.mfaPhoneNumber = phoneNumber;
       } else {
         throw new Error(`Missing phone number for ${type} verification type`);
       }
@@ -69,6 +74,9 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
 
   const sessionId = await pingId.startPairing(userId, type, phoneOrEmail);
 
+  loginSession.mfaSessionId = sessionId;
+  session.save();
+
   return {
     sessionId,
     error: null,
@@ -78,20 +86,42 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
 export const verifyMfaDeviceMutation: MutationResolvers['verifyMfaDevice'] = async (
   _root,
   { sessionId, pairingCode },
-  { pingId, session: { loginAuth } }
+  { pingId, identityIq, session }
 ) => {
-  // This is not strictly necessary, since the PingID pairing session ID is
-  // enough to validate the user, but it doesn’t really hurt to enforce the
-  // login.
-  if (!loginAuth) {
+  const { loginAuth, loginSession } = session;
+
+  if (!loginAuth || !loginSession) {
     throw Boom.forbidden();
+  }
+
+  // Small safety check to ensure that the email address or phone number in the
+  // session is the one that corresponds to this verification check.
+  if (loginSession.mfaSessionId !== sessionId) {
+    throw Boom.badRequest(
+      'MFA session ID does not match the stored session ID'
+    );
   }
 
   const result = await pingId.finalizePairing(sessionId, pairingCode);
 
+  if (result !== true) {
+    return {
+      success: false,
+      error:
+        result === PingErrorId.WRONG_PASSWORD ? MfaError.WRONG_PASSWORD : null,
+    };
+  }
+
+  loginSession.mfaSessionId = null;
+  session.save();
+
+  await identityIq.updateUserRegistration(loginAuth.userId, {
+    email: loginSession.mfaEmail || undefined,
+    phoneNumber: loginSession.mfaPhoneNumber || undefined,
+  });
+
   return {
-    success: result === true ? true : false,
-    error:
-      result === PingErrorId.WRONG_PASSWORD ? MfaError.WRONG_PASSWORD : null,
+    success: true,
+    error: null,
   };
 };
