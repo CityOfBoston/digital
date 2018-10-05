@@ -18,7 +18,6 @@ import {
 } from './_app';
 
 import DeviceVerificationForm, {
-  validationSchema,
   FormValues,
 } from '../client/device-verification/DeviceVerificationForm';
 
@@ -29,6 +28,7 @@ import verifyMfaDevice from '../client/graphql/verify-mfa-device';
 
 import { MfaError } from '../client/graphql/queries';
 import RedirectForm from '../client/RedirectForm';
+import { registerDeviceSchema } from '../lib/validation';
 
 interface InitialProps {
   account: Account;
@@ -169,7 +169,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
 
       if (success) {
         this.doneRedirectRef.current!.redirect();
-      } else if (error === MfaError.WRONG_PASSWORD) {
+      } else if (error === MfaError.WRONG_CODE) {
         this.setState({ status: VerificationStatus.INCORRECT_CODE });
       } else {
         this.setState({ status: VerificationStatus.OTHER_ERROR });
@@ -203,7 +203,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
           ref={this.formikRef as any}
           initialValues={initialValues}
           isInitialValid={false}
-          validationSchema={validationSchema}
+          validationSchema={registerDeviceSchema}
           onSubmit={this.handleSubmit}
           render={formikProps => (
             <>
