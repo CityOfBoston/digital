@@ -52,11 +52,28 @@ const PINGID_PROPERTIES_FILE = 'pingid.properties';
 
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
+if (
+  process.env.NODE_ENV === 'production' &&
+  !process.env.HAPI_REDIS_CACHE_HOST
+) {
+  throw new Error('$HAPI_REDIS_CACHE_HOST is not defined');
+}
+
 export async function makeServer(port) {
   const serverOptions = {
     host: '0.0.0.0',
     port,
     tls: undefined as any,
+    cache: process.env.HAPI_REDIS_CACHE_HOST
+      ? {
+          engine: require('catbox-redis'),
+          host: process.env.HAPI_REDIS_CACHE_HOST,
+          port: parseInt(process.env.HAPI_REDIS_CACHE_PORT || '6379'),
+          database: parseInt(process.env.HAPI_REDIS_CACHE_DATABASE || '0'),
+          partition: `${process.env.DEPLOY_VARIANT}-`,
+        }
+      : undefined,
+
     debug:
       // eslint-disable-next-line
       dev || true
@@ -121,7 +138,6 @@ export async function makeServer(port) {
     throw new Error('Must set $SESSION_COOKIE_PASSWORD in production');
   }
 
-  // TODO(finh): Add Redis support for session storage
   await server.register({
     plugin: yar,
     options: {
