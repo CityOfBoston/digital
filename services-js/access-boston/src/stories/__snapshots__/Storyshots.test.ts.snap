@@ -3240,12 +3240,13 @@ Array [
             >
               <input
                 autoFocus={true}
-                className="css-1e1yraf txt-f "
+                className="css-15p77ot txt-f "
                 id="input-3718645000"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}
                 pattern="[0-9]*"
+                size={6}
                 type="text"
                 value=""
               />
@@ -3962,12 +3963,13 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
           >
             <input
               autoFocus={true}
-              className="css-1e1yraf txt-f "
+              className="css-15p77ot txt-f "
               id="input-3718645000"
               maxLength={6}
               name="code"
               onChange={[Function]}
               pattern="[0-9]*"
+              size={6}
               type="text"
               value="133789"
             />
@@ -4063,12 +4065,13 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
           >
             <input
               autoFocus={true}
-              className="css-1e1yraf txt-f "
+              className="css-15p77ot txt-f "
               id="input-3718645000"
               maxLength={6}
               name="code"
               onChange={[Function]}
               pattern="[0-9]*"
+              size={6}
               type="text"
               value=""
             />
@@ -4237,12 +4240,13 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
           >
             <input
               autoFocus={true}
-              className="css-1e1yraf txt-f "
+              className="css-15p77ot txt-f "
               id="input-3718645000"
               maxLength={6}
               name="code"
               onChange={[Function]}
               pattern="[0-9]*"
+              size={6}
               type="text"
               value=""
             />
@@ -4338,12 +4342,13 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
           >
             <input
               autoFocus={true}
-              className="css-1e1yraf txt-f "
+              className="css-15p77ot txt-f "
               id="input-3718645000"
               maxLength={6}
               name="code"
               onChange={[Function]}
               pattern="[0-9]*"
+              size={6}
               type="text"
               value="133789"
             />
@@ -4440,12 +4445,13 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
           >
             <input
               autoFocus={true}
-              className="css-1e1yraf txt-f "
+              className="css-15p77ot txt-f "
               id="input-3718645000"
               maxLength={6}
               name="code"
               onChange={[Function]}
               pattern="[0-9]*"
+              size={6}
               type="text"
               value=""
             />
