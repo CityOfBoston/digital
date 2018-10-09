@@ -103,9 +103,10 @@ class FacetList extends React.Component {
               items={radioGroup}
               name="seats"
               checkedValue={this.props.currentSeats}
-              className="m-b200"
-              itemsClassName="p-b200"
+              className="m-b400"
               handleItemChange={this.props.handleOptionChange}
+              itemsClassName={'m-t300'}
+              itemsStyle={{ marginBottom: 0 }}
             />
 
             <button

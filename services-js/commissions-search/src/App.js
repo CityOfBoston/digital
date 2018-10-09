@@ -6,7 +6,6 @@ import Search from './Search';
 import FacetList from './FacetList';
 import ResultList from './ResultList';
 
-
 class App extends React.Component {
   /*
   Current state properties act as a buffer, holding changes made.   When the user clicks
@@ -25,7 +24,6 @@ class App extends React.Component {
       currentSeats: 'seats-all',
       submittedSeats: 'seats-all',
     };
-
   }
 
   handleCheckChange = event => {
@@ -38,7 +36,6 @@ class App extends React.Component {
     if (checked === false || checked === null) {
       // remove unchecked key
       currentAreas = update(this.state.currentAreas, { $unset: [name] });
-
     } else {
       // add checked key
       currentAreas = update(this.state.currentAreas, {
@@ -58,12 +55,12 @@ class App extends React.Component {
 
     this.setState({
       submittedAreas: this.state.currentAreas,
-      submittedSeats: this.state.currentSeats
+      submittedSeats: this.state.currentSeats,
     });
   };
 
   handleKeywordChange = event => {
-    this.setState({ currentKeywords: event.target.value, });
+    this.setState({ currentKeywords: event.target.value });
   };
 
   handleKeywordSubmit = event => {
@@ -77,7 +74,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="b-c b-c--ntp m-b300">
+        <div className="b-c b-c--ntp m-b300 b--fw">
           <Search
             keywords={this.state.currentKeywords}
             handleKeywordChange={this.handleKeywordChange}
@@ -85,7 +82,7 @@ class App extends React.Component {
           />
         </div>
 
-        <div className="b--g">
+        <div className="b--g b--fw">
           <div className="b-c b-c--mh g">
             <div className="g--3">
               <FacetList
