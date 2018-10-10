@@ -2,15 +2,18 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 import { makeNProgressStyle } from '@cityofboston/next-client-common';
+import { CompatibilityWarning } from '@cityofboston/react-fleet';
+
 import { HEADER_HEIGHT } from '../client/styles';
 
 export default class MyDocument extends Document {
   props: any;
 
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage, req }) {
     const page = renderPage();
     const styles = extractCritical(page.html);
-    return { ...page, ...styles };
+    const userAgent = req.headers['user-agent'];
+    return { ...page, ...styles, userAgent };
   }
 
   constructor(props) {
@@ -23,6 +26,8 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const { userAgent } = this.props;
+
     return (
       <html>
         <Head>
@@ -42,6 +47,7 @@ export default class MyDocument extends Document {
 
         <body>
           <Main />
+          <CompatibilityWarning userAgent={userAgent} />
           <NextScript />
         </body>
       </html>

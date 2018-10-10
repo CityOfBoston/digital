@@ -24,14 +24,15 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
+  },
+  "peerDependencies": {
+    "@babel/runtime": "7.0.0",
+    "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
     "prop-types": "^15.6.0",
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "string-hash": "^1.1.3"
-  },
-  "peerDependencies": {
-    "@babel/runtime": "7.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
@@ -60,12 +61,18 @@
     "cheerio": "^1.0.0-rc.2",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
+    "detect-browser": "^3.0.1",
+    "emotion": "9.2.10",
     "fs-extra": "^5.0.0",
     "jest": "23.6.0",
     "node-fetch": "^1.6.9",
+    "prop-types": "^15.6.0",
     "raw-loader": "^0.5.1",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
+    "string-hash": "^1.1.3",
     "ts-node": "^6.0.3",
     "typescript": "^3.0.0"
   }

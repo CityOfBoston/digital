@@ -22,7 +22,9 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "peerDependencies": {
-    "@babel/runtime": "7.0.0"
+    "@babel/runtime": "7.0.0",
+    "emotion": "9.2.10",
+    "react": "16.5.2"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
@@ -35,7 +37,9 @@
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
+    "emotion": "9.2.10",
     "jest": "23.6.0",
+    "react": "16.5.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
     "typescript": "^3.0.0"
