@@ -121,14 +121,16 @@ Array [
         onSubmit={[Function]}
       >
         <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <input
           autoComplete="username"
           name="username"
-          type="hidden"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
           value="CON01234"
         />
         <div
@@ -355,6 +357,7 @@ Array [
             >
               <button
                 className="btn"
+                disabled={true}
                 type="submit"
               >
                 Change Password
@@ -462,14 +465,16 @@ Array [
         onSubmit={[Function]}
       >
         <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <input
           autoComplete="username"
           name="username"
-          type="hidden"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
           value="CON01234"
         />
         <div
@@ -696,6 +701,7 @@ Array [
             >
               <button
                 className="btn"
+                disabled={true}
                 type="submit"
               >
                 Set new password
@@ -808,14 +814,16 @@ Array [
         onSubmit={[Function]}
       >
         <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <input
           autoComplete="username"
           name="username"
-          type="hidden"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
           value="CON01234"
         />
         <div
@@ -1042,6 +1050,7 @@ Array [
             >
               <button
                 className="btn"
+                disabled={true}
                 type="submit"
               >
                 Set new password
@@ -1065,7 +1074,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots ChangePasswordPage submitting 1`] = `
+exports[`Storyshots ChangePasswordPage network error 1`] = `
 Array [
   <div
     className="css-1gni7w7 p-a200"
@@ -1136,14 +1145,16 @@ Array [
         onSubmit={[Function]}
       >
         <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <input
           autoComplete="username"
           name="username"
-          type="hidden"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
           value="CON01234"
         />
         <div
@@ -1370,6 +1381,393 @@ Array [
             >
               <button
                 className="btn"
+                disabled={true}
+                type="submit"
+              >
+                Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="md"
+  >
+    <div
+      className="md-c br br-t400 css-1y2scv5"
+    >
+      <div
+        className="md-b p-a300"
+      >
+        <div
+          className="t--intro t--err"
+        >
+          There was a network problem
+        </div>
+        <div
+          className="t--info m-v300"
+        >
+          Your password was probably not changed. If this keeps happening, please get in touch:
+        </div>
+        <ul
+          className="ul t--s300 lh--400"
+        >
+          <li>
+            DoIT Service Desk
+            <br />
+            <a
+              href="tel:6176357378"
+            >
+              (617) 635-7378
+            </a>
+          </li>
+          <li>
+            BPS Technology Help Desk Support
+            <br />
+            <a
+              href="tel:6176359200"
+            >
+              (617) 635-9200
+            </a>
+          </li>
+        </ul>
+        <div
+          className="ta-r"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
+]
+`;
+
+exports[`Storyshots ChangePasswordPage submitting 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Change Password
+        </h2>
+      </div>
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="username"
+          name="username"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
+          value="CON01234"
+        />
+        <div
+          className="g g--r m-v200"
+        >
+          <div
+            className="g--6 m-b500"
+          >
+            <div
+              className="txt-l m-b200"
+              style={
+                Object {
+                  "marginTop": 1,
+                }
+              }
+            >
+              New passwords must:
+            </div>
+            <ul
+              className="ul"
+              style={
+                Object {
+                  "lineHeight": 1.6,
+                }
+              }
+            >
+              <li
+                className=""
+              >
+                Be at least 10 characters long
+              </li>
+              <li
+                className=""
+              >
+                Use at least 3 of these:
+                <ul
+                  className="ul"
+                >
+                  <li
+                    className=""
+                  >
+                    A lowercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    An uppercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A number
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A special character
+                  </li>
+                </ul>
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not have spaces
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not be longer than 32 characters
+              </li>
+            </ul>
+            <div
+              className="t--subinfo m-v300 m-b200"
+            >
+              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+            </div>
+          </div>
+          <div
+            className="g--6"
+          >
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2099349523"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Current Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="current-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2099349523"
+                name="password"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-529028998"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                New Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-529028998"
+                name="newPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2475388040"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Confirm Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2475388040"
+                name="confirmPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                disabled={true}
                 type="submit"
               >
                 Change Password
@@ -1448,14 +1846,16 @@ Array [
         onSubmit={[Function]}
       >
         <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <input
           autoComplete="username"
           name="username"
-          type="hidden"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
           value="CON01234"
         />
         <div
@@ -1630,15 +2030,311 @@ Array [
                  
               </div>
             </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                disabled={true}
+                type="submit"
+              >
+                Reset Password
+              </button>
+            </div>
           </div>
         </div>
-        <button
-          className="btn"
-          type="submit"
-        >
-          Reset Password
-        </button>
       </form>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots ForgotPasswordPage network error 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Forgot Password
+        </h2>
+      </div>
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="username"
+          name="username"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
+          value="CON01234"
+        />
+        <div
+          className="g g--r m-v200"
+        >
+          <div
+            className="g--6 m-b500"
+          >
+            <div
+              className="txt-l m-b200"
+              style={
+                Object {
+                  "marginTop": 1,
+                }
+              }
+            >
+              New passwords must:
+            </div>
+            <ul
+              className="ul"
+              style={
+                Object {
+                  "lineHeight": 1.6,
+                }
+              }
+            >
+              <li
+                className=""
+              >
+                Be at least 10 characters long
+              </li>
+              <li
+                className=""
+              >
+                Use at least 3 of these:
+                <ul
+                  className="ul"
+                >
+                  <li
+                    className=""
+                  >
+                    A lowercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    An uppercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A number
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A special character
+                  </li>
+                </ul>
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not have spaces
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not be longer than 32 characters
+              </li>
+            </ul>
+            <div
+              className="t--subinfo m-v300 m-b200"
+            >
+              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+            </div>
+          </div>
+          <div
+            className="g--6"
+          >
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-529028998"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                New Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-529028998"
+                name="newPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2475388040"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Confirm Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2475388040"
+                name="confirmPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                disabled={true}
+                type="submit"
+              >
+                Reset Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="md"
+  >
+    <div
+      className="md-c br br-t400 css-1y2scv5"
+    >
+      <div
+        className="md-b p-a300"
+      >
+        <div
+          className="t--intro t--err"
+        >
+          There was a network problem
+        </div>
+        <div
+          className="t--info m-v300"
+        >
+          Your password was probably not changed. If this keeps happening, please get in touch:
+        </div>
+        <ul
+          className="ul t--s300 lh--400"
+        >
+          <li>
+            DoIT Service Desk
+            <br />
+            <a
+              href="tel:6176357378"
+            >
+              (617) 635-7378
+            </a>
+          </li>
+          <li>
+            BPS Technology Help Desk Support
+            <br />
+            <a
+              href="tel:6176359200"
+            >
+              (617) 635-9200
+            </a>
+          </li>
+        </ul>
+        <div
+          className="ta-r"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
 ]

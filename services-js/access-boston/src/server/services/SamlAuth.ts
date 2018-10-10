@@ -314,6 +314,9 @@ export default class SamlAuth {
         { request_body: body },
         (err, saml: SamlAssertion) => {
           if (err) {
+            // eslint-disable-next-line no-console
+            console.debug('SAML assert error', body);
+
             reject(err);
             return;
           }
@@ -337,6 +340,8 @@ export default class SamlAuth {
         { request_body: query },
         (err, saml: SamlAssertion) => {
           if (err) {
+            // eslint-disable-next-line no-console
+            console.debug('SAML assert error', query);
             reject(err);
             return;
           }

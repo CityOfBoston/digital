@@ -10,6 +10,7 @@ import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import { MAIN_CLASS } from '../client/styles';
 import { RedirectError } from '../client/auth-helpers';
+import HelpContactInfo from '../client/HelpContactInfo';
 
 interface Props {
   account: Account;
@@ -103,16 +104,7 @@ export default class RegisterPage extends React.Component<Props> {
                   If you need extra help, give us a call:
                 </div>
 
-                <ul className="ul t--s300 lh--400">
-                  <li>
-                    DoIT Service Desk<br />
-                    <a href="tel:6176357378">(617) 635-7378</a>
-                  </li>
-                  <li>
-                    BPS Technology Help Desk Support<br />
-                    <a href="tel:6176359200">(617) 635-9200</a>
-                  </li>
-                </ul>
+                <HelpContactInfo />
               </div>
             </div>
 

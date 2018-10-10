@@ -5,7 +5,6 @@ import { Formik, FormikProps } from 'formik';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import CrumbContext from '../client/CrumbContext';
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
 import TextInput from '../client/TextInput';
@@ -26,6 +25,7 @@ import {
   PageDependencies,
 } from './_app';
 import RedirectForm from '../client/RedirectForm';
+import HelpContactInfo from '../client/HelpContactInfo';
 
 interface InitialProps {
   account: Account;
@@ -33,11 +33,13 @@ interface InitialProps {
 
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
+  testNetworkError?: boolean;
   hasTemporaryPassword?: boolean;
 }
 
 interface State {
   showSubmittingModal: boolean;
+  showNetworkError: boolean;
 }
 
 interface FormValues {
@@ -45,7 +47,6 @@ interface FormValues {
   password: string;
   newPassword: string;
   confirmPassword: string;
-  crumb: string;
 }
 
 function successUrl(account): string {
@@ -59,10 +60,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     _ctx,
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
-    const account = await fetchAccount(fetchGraphql);
-
     return {
-      account,
+      account: await fetchAccount(fetchGraphql),
     };
   };
 
@@ -73,6 +72,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
+      showNetworkError: !!props.testNetworkError,
     };
   }
 
@@ -82,7 +82,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   ) => {
     const { account } = this.props;
 
-    this.setState({ showSubmittingModal: true });
+    this.setState({ showSubmittingModal: true, showNetworkError: false });
 
     try {
       const { status, error } = await changePassword(
@@ -113,8 +113,11 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           }
           break;
       }
-    } finally {
+
       this.setState({ showSubmittingModal: false });
+    } catch {
+      this.setState({ showNetworkError: true });
+    } finally {
       setSubmitting(false);
     }
   };
@@ -125,77 +128,70 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
     const setNewPassword = account.needsNewPassword;
 
+    const initialValues: FormValues = {
+      username: account.employeeId,
+      password: '',
+      newPassword: '',
+      confirmPassword: '',
+    };
+
     return (
-      <CrumbContext.Consumer>
-        {crumb => {
-          const initialValues: FormValues = {
-            username: account.employeeId,
-            password: '',
-            newPassword: '',
-            confirmPassword: '',
-            crumb,
-          };
+      <>
+        <Head>
+          <link rel="stylesheet" href={PUBLIC_CSS_URL} />
+          <title>Access Boston: Change Password</title>
+        </Head>
 
-          return (
-            <>
-              <Head>
-                <link rel="stylesheet" href={PUBLIC_CSS_URL} />
-                <title>Access Boston: Change Password</title>
-              </Head>
+        <AccessBostonHeader account={account} />
 
-              <AccessBostonHeader account={account} />
+        <div className={MAIN_CLASS}>
+          <div className="b b-c b-c--hsm">
+            <SectionHeader
+              title={
+                account.needsNewPassword
+                  ? 'Create a New Password'
+                  : 'Change Password'
+              }
+            />
 
-              <div className={MAIN_CLASS}>
-                <div className="b b-c b-c--hsm">
-                  <SectionHeader
-                    title={
-                      account.needsNewPassword
-                        ? 'Create a New Password'
-                        : 'Change Password'
-                    }
-                  />
+            {setNewPassword && (
+              <>
+                <p className="t--s400 lh--400">
+                  You’ll need a new password for Access Boston. We’ve changed
+                  the requirements for passwords to make sure that they’re
+                  strong enough.
+                </p>
 
-                  {setNewPassword && (
-                    <>
-                      <p className="t--s400 lh--400">
-                        You’ll need a new password for Access Boston. We’ve
-                        changed the requirements for passwords to make sure that
-                        they’re strong enough.
-                      </p>
+                <p className="t--s400 lh--400">
+                  You’ll use this password when logging in to Access Boston
+                  websites like The Hub. If you work in City Hall or for BPS
+                  you’ll also use it for your desktop computer.
+                </p>
 
-                      <p className="t--s400 lh--400">
-                        You’ll use this password when logging in to Access
-                        Boston websites like The Hub. If you work in City Hall
-                        or for BPS you’ll also use it for your desktop computer.
-                      </p>
+                {hasTemporaryPassword && (
+                  <p className="t--s400 lh--400">
+                    Please look for an email from us with your temporary
+                    password.
+                  </p>
+                )}
 
-                      {hasTemporaryPassword && (
-                        <p className="t--s400 lh--400">
-                          Please look for an email from us with your temporary
-                          password.
-                        </p>
-                      )}
+                <hr className="hr hr--sq" />
+              </>
+            )}
 
-                      <hr className="hr hr--sq" />
-                    </>
-                  )}
+            <Formik
+              initialValues={initialValues}
+              validationSchema={changePasswordSchema}
+              onSubmit={this.handleSubmit}
+              render={this.renderForm}
+            />
+          </div>
+        </div>
 
-                  <Formik
-                    initialValues={initialValues}
-                    validationSchema={changePasswordSchema}
-                    onSubmit={this.handleSubmit}
-                    render={this.renderForm}
-                  />
-                </div>
-              </div>
+        {showSubmittingModal && this.renderSubmitting()}
 
-              {showSubmittingModal && this.renderSubmitting()}
-
-              <RedirectForm path="done" ref={this.doneRedirectRef} />
-            </>
-          );
-        }}
-      </CrumbContext.Consumer>
+        <RedirectForm path="done" ref={this.doneRedirectRef} />
+      </>
     );
   }
 
@@ -226,8 +222,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
-        <input type="hidden" name="crumb" value={values.crumb} />
-
         {/*
           This is here for the benefit of password managers, so they can pick
           up the username associated with the change of password.
@@ -235,10 +229,15 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           See: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
         */}
         <input
-          type="hidden"
+          type="text"
           name="username"
+          style={{
+            position: 'absolute',
+            visibility: 'hidden',
+          }}
           autoComplete="username"
           value={values.username}
+          readOnly
         />
 
         {/* "g--r" so that we can put the policy first on mobile */}
@@ -284,9 +283,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               <button
                 type="submit"
                 className="btn"
-                disabled={
-                  (process as any).browser && (!isValid || isSubmitting)
-                }
+                disabled={!isValid || isSubmitting}
               >
                 {account.needsNewPassword
                   ? 'Set new password'
@@ -300,13 +297,45 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   };
 
   private renderSubmitting() {
+    const { showNetworkError } = this.state;
+
     return (
       <StatusModal>
-        <div className="t--intro">Saving your new password…</div>
-        <div className="t--info m-t300">
-          Please be patient and don’t refresh your browser. This might take a
-          bit.
-        </div>
+        {!showNetworkError && (
+          <>
+            <div className="t--intro">Saving your new password…</div>
+            <div className="t--info m-t300">
+              Please be patient and don’t refresh your browser. This might take
+              a bit.
+            </div>
+          </>
+        )}
+        {showNetworkError && (
+          <>
+            <div className="t--intro t--err">There was a network problem</div>
+            <div className="t--info m-v300">
+              Your password was probably not changed. If this keeps happening,
+              please get in touch:
+            </div>
+
+            <HelpContactInfo />
+
+            <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() =>
+                  this.setState({
+                    showSubmittingModal: false,
+                    showNetworkError: false,
+                  })
+                }
+              >
+                Try Again
+              </button>
+            </div>
+          </>
+        )}
       </StatusModal>
     );
   }
