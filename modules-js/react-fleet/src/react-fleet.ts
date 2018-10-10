@@ -5,6 +5,9 @@ export { default as Menu } from './components/Menu';
 export { default as Header } from './components/Header';
 export { default as Footer } from './components/Footer';
 export { default as AppLayout } from './layouts/AppLayout';
+export {
+  default as CompatibilityWarning,
+} from './components/CompatibilityWarning';
 
 export { default as Checkbox } from './form-elements/inputs/Checkbox';
 export { default as FileInput } from './form-elements/inputs/FileInput';

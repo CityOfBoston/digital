@@ -1,5 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Components/CompatibilityWarning no script 1`] = `
+Array [
+  <input
+    className="bwarning-cb"
+    defaultChecked={true}
+    id="compat-warning-0"
+    type="checkbox"
+  />,
+  <div
+    className="bwarning-b"
+  >
+    <label
+      className="bwarning-x"
+      htmlFor="compat-warning-0"
+    >
+      x
+    </label>
+    <h3
+      className="txt-l txt-l--mt000"
+    >
+      Browser Warning
+    </h3>
+    You have JavaScript turned off in your browser. This site won’t work right without it.
+  </div>,
+]
+`;
+
+exports[`Storyshots Components/CompatibilityWarning old browser 1`] = `
+Array [
+  <input
+    className="bwarning-cb"
+    defaultChecked={true}
+    id="compat-warning-1"
+    type="checkbox"
+  />,
+  <div
+    className="bwarning-b"
+  >
+    <label
+      className="bwarning-x"
+      htmlFor="compat-warning-1"
+    >
+      x
+    </label>
+    <h3
+      className="txt-l txt-l--mt000"
+    >
+      Browser Warning
+    </h3>
+    <div>
+      Your web browser is a little out-of-date. This site may not look or work right.
+    </div>
+    <div
+      className="m-t100"
+    >
+      We recommend using the latest version of Chrome, Firefox, IE Edge, or Safari.
+    </div>
+  </div>,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+              (function() {
+                var id = \\"compat-warning-1\\";
+                var cookieName = \\"compat-warning\\";
+
+                var getCookie = function(name) {
+                  var value = \\"; \\" + document.cookie;
+                  var parts = value.split(\\"; \\" + name + \\"=\\");
+                  if (parts.length == 2) return parts.pop().split(\\";\\").shift();
+                };
+
+                var checkbox = document.getElementById(id);
+                if (!checkbox) {
+                  return;
+                }
+
+                if (getCookie(cookieName)) {
+                  checkbox.checked = false;
+                }
+
+                checkbox.onChange = function() {
+                  document.cookie = 'compat-warning=1; expires=Fri, 09 Nov 2018 14:47:00 GMT';
+                }
+              })();
+            ",
+      }
+    }
+    type="text/javascript"
+  />,
+]
+`;
+
 exports[`Storyshots Components/Footer custom attributes 1`] = `
 <footer
   className="ft br br-a300"
