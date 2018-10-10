@@ -6,9 +6,20 @@
  */
 
 require('dotenv').config();
+
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+    environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+  },
+});
+
 const startServer = require('./commissions-app').default;
 
-startServer().catch((err: Error) => {
+startServer(rollbar).catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });

@@ -6,6 +6,7 @@ import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
+import Rollbar from 'rollbar';
 
 // https://github.com/apollographql/apollo-server/issues/927
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
@@ -21,6 +22,8 @@ import {
   adminOkRoute,
   headerKeys,
   HeaderKeysOptions,
+  rollbarPlugin,
+  graphqlOptionsWithRollbar,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
@@ -36,7 +39,7 @@ import { ConnectionPool } from 'mssql';
 const PATH_PREFIX = '/commissions';
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-export async function makeServer(port) {
+export async function makeServer(port, rollbar: Rollbar) {
   let makeCommissionsDao: () => CommissionsDao;
   let commissionsDbPool: ConnectionPool | null = null;
 
@@ -80,6 +83,7 @@ export async function makeServer(port) {
       },
       err => {
         console.error(err);
+        rollbar.error(err);
         process.exit(-1);
       }
     );
@@ -142,6 +146,7 @@ export async function makeServer(port) {
   } as HeaderKeysOptions);
 
   await server.register(acceptLanguagePlugin);
+  await server.register({ plugin: rollbarPlugin, options: { rollbar } });
 
   // We start up the server in test, and we don’t want it logging.
   if (process.env.NODE_ENV !== 'test') {
@@ -178,12 +183,12 @@ export async function makeServer(port) {
           additionalHeaders: ['X-API-KEY'],
         },
       },
-      graphqlOptions: () => ({
+      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
         schema: graphqlSchema,
         context: {
           commissionsDao: makeCommissionsDao(),
         } as Context,
-      }),
+      })),
     },
   });
 
@@ -222,12 +227,12 @@ export async function makeServer(port) {
   };
 }
 
-export default async function startServer() {
+export default async function startServer(rollbar: Rollbar) {
   await decryptEnv();
 
   const port = parseInt(process.env.PORT || '3000', 10);
 
-  const { startup } = await makeServer(port);
+  const { startup } = await makeServer(port, rollbar);
   const shutdown = await startup();
 
   // tsc-watch sends SIGUSR2 when it’s time to restart. That’s not caught by
@@ -246,6 +251,7 @@ export default async function startServer() {
         process.exit(exitCode);
       },
       err => {
+        rollbar.error(err);
         console.log('CLEAN EXIT FAILED', err);
         process.exit(-1);
       }

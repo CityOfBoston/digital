@@ -8,7 +8,7 @@ const API_KEY = 'test-api-key';
 
 describe('server creation', () => {
   it('can be created', async () => {
-    const { server } = await makeServer(0);
+    const { server } = await makeServer(0, null as any);
     expect(server).toBeDefined();
   });
 });
@@ -23,7 +23,7 @@ describe('server', () => {
 
     process.env.API_KEYS = API_KEY;
 
-    const out = await makeServer(0);
+    const out = await makeServer(0, null as any);
     server = out.server;
     const startup = out.startup;
 

@@ -8,7 +8,9 @@ import {
   ServerRoute,
   Plugin,
   Request as HapiRequest,
+  Server,
 } from 'hapi';
+import Rollbar from 'rollbar';
 
 export * from './browser-auth-plugin';
 
@@ -174,4 +176,89 @@ export const headerKeysPlugin: Plugin<HeaderKeysOptions> = {
       return h.continue;
     });
   },
+};
+
+/**
+ * Hapi plugin to report exceptions to Rollbar. Pass "rollbar" in the options
+ * hash.
+ *
+ * @see https://docs.rollbar.com/docs/javascript#section-using-hapi
+ */
+export const rollbarPlugin = {
+  name: 'rollbar',
+
+  register: async function(server: Server, { rollbar }: { rollbar: Rollbar }) {
+    const preResponse = (request, h) => {
+      const response = request.response;
+
+      if (!rollbar || !response.isBoom) {
+        return h.continue;
+      }
+
+      const cb = rollbarErr => {
+        if (rollbarErr) {
+          // eslint-disable-next-line no-console
+          console.error(`Error reporting to rollbar, ignoring: ${rollbarErr}`);
+        }
+      };
+
+      const error = response;
+
+      if (error instanceof Error) {
+        rollbar.error(error, request, cb);
+      } else {
+        rollbar.error(`Error: ${error}`, request, cb);
+      }
+
+      return h.continue;
+    };
+
+    server.ext('onPreResponse', preResponse);
+    server.expose('rollbar', rollbar);
+  },
+};
+
+/**
+ * Function to wrap a GraphQL options function such that errors in GraphQL
+ * responses are sent to Rollbar.
+ */
+export const graphqlOptionsWithRollbar = (
+  rollbar: Rollbar,
+  optsFn: ((req: HapiRequest) => any) | Object
+) => async (req: HapiRequest) => {
+  try {
+    const opts = await (optsFn instanceof Function ? optsFn(req) : optsFn);
+
+    const oldFormatError = opts.formatError;
+    opts.formatError = (e: any) => {
+      const request = req.raw && req.raw.req;
+      const extra = {
+        graphql: req.payload,
+      };
+
+      // GraphQL wraps the original exception, so we pull it back out from
+      // originalError since it has the right type and stacktrace and
+      // everything.
+      let err;
+      if (e.originalError instanceof Error) {
+        err = e.originalError;
+      } else {
+        err = e;
+      }
+
+      if (!err.silent) {
+        rollbar.error(err, request, extra);
+      }
+
+      return oldFormatError ? oldFormatError(e) : e;
+    };
+
+    return opts;
+  } catch (e2) {
+    // This mostly catches exceptions that come from calling the optsFn. We want
+    // to report them here because they lose stack trace and other info when
+    // they’re handled by the Hapi GraphQL plugin.
+    rollbar.error(e2);
+    throw e2;
+  }
 };

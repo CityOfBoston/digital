@@ -15,6 +15,8 @@ import {
   makeStaticAssetRoutes,
   headerKeys,
   HeaderKeysOptions,
+  rollbarPlugin,
+  graphqlOptionsWithRollbar,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -26,8 +28,6 @@ import {
 } from '@cityofboston/next-client-common';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
-
-import { rollbarWrapGraphqlOptions, hapiPlugin } from './lib/rollbar-utils';
 
 import {
   makeRegistryDataFactory,
@@ -157,7 +157,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   } as HeaderKeysOptions);
 
   await server.register({
-    plugin: hapiPlugin,
+    plugin: rollbarPlugin,
     options: { rollbar },
   });
 
@@ -173,7 +173,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: rollbarWrapGraphqlOptions(rollbar, () => ({
+      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
         schema,
         context: {
           registryData: registryDataFactory.registryData(),

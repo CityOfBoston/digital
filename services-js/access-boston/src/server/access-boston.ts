@@ -14,6 +14,7 @@ import next from 'next';
 
 // https://github.com/apollographql/apollo-server/issues/927
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
+import Rollbar from 'rollbar';
 
 import {
   API_KEY_CONFIG_KEY,
@@ -27,6 +28,8 @@ import {
   adminOkRoute,
   headerKeysPlugin,
   browserAuthPlugin,
+  rollbarPlugin,
+  graphqlOptionsWithRollbar,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -59,7 +62,7 @@ if (
   throw new Error('$HAPI_REDIS_CACHE_HOST is not defined');
 }
 
-export async function makeServer(port) {
+export async function makeServer(port, rollbar: Rollbar) {
   const serverOptions = {
     host: '0.0.0.0',
     port,
@@ -118,6 +121,7 @@ export async function makeServer(port) {
   await server.register(acceptLanguagePlugin);
   await server.register(Inert);
   await server.register(Crumb);
+  await server.register({ plugin: rollbarPlugin, options: { rollbar } });
 
   await server.register({
     plugin: hapiDevErrors,
@@ -176,7 +180,7 @@ export async function makeServer(port) {
   server.route(adminOkRoute);
   server.route(makeStaticAssetRoutes());
 
-  await addGraphQl(server, appsRegistry, identityIq, pingId);
+  await addGraphQl(server, appsRegistry, identityIq, pingId, rollbar);
 
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
@@ -204,7 +208,8 @@ async function addGraphQl(
   server: HapiServer,
   appsRegistry: AppsRegistry,
   identityIq: IdentityIq,
-  pingId: PingId
+  pingId: PingId,
+  rollbar: Rollbar
 ) {
   if (process.env.NODE_ENV === 'production' && !process.env.API_KEYS) {
     throw new Error('Must set $API_KEYS in production');
@@ -240,7 +245,7 @@ async function addGraphQl(
           headerKeys: !!process.env.API_KEYS,
         },
       },
-      graphqlOptions: request => {
+      graphqlOptions: graphqlOptionsWithRollbar(rollbar, request => {
         const context: Context = {
           session: new Session(request),
           appsRegistry,
@@ -252,7 +257,7 @@ async function addGraphQl(
           schema: graphqlSchema,
           context,
         };
-      },
+      }),
     },
   });
 
@@ -366,12 +371,12 @@ async function addNext(server: HapiServer) {
   await nextApp.prepare();
 }
 
-export default async function startServer() {
+export default async function startServer(rollbar: Rollbar) {
   await decryptEnv();
 
   const port = parseInt(process.env.PORT || '3000', 10);
 
-  const { startup } = await makeServer(port);
+  const { startup } = await makeServer(port, rollbar);
   const shutdown = await startup();
 
   // tsc-watch sends SIGUSR2 when it’s time to restart. That’s not caught by
@@ -390,6 +395,7 @@ export default async function startServer() {
         process.exit(exitCode);
       },
       err => {
+        rollbar.error(err);
         console.log('CLEAN EXIT FAILED', err);
         process.exit(-1);
       }
