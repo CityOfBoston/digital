@@ -4,7 +4,6 @@ import { Formik, FormikProps } from 'formik';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import CrumbContext from '../client/CrumbContext';
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import PasswordPolicy from '../client/PasswordPolicy';
 import TextInput from '../client/TextInput';
@@ -23,6 +22,7 @@ import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
 import { PasswordError } from '../client/graphql/queries';
+import HelpContactInfo from '../client/HelpContactInfo';
 
 interface InitialProps {
   account: Account;
@@ -31,35 +31,28 @@ interface InitialProps {
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
   testSuccessMessage?: boolean;
+  testNetworkError?: boolean;
 }
 
 interface State {
   showSubmittingModal: boolean;
   showSuccessMessage: boolean;
+  showNetworkError: boolean;
 }
 
 interface FormValues {
   username: string;
   newPassword: string;
   confirmPassword: string;
-  crumb: string;
 }
 
 export default class ForgotPasswordPage extends React.Component<Props, State> {
-  static defaultProps = {
-    serverErrors: {},
-  };
-
   static getInitialProps: GetInitialProps<InitialProps> = async (
     _ctx,
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
-    // We need to do this up top because if the forgot password succeeds on a
-    // POST it torches the session.
-    const account = await fetchAccount(fetchGraphql);
-
     return {
-      account,
+      account: await fetchAccount(fetchGraphql),
     };
   };
 
@@ -69,6 +62,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showSuccessMessage: !!props.testSuccessMessage,
+      showNetworkError: !!props.testNetworkError,
     };
   }
 
@@ -76,7 +70,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     { newPassword, confirmPassword }: FormValues,
     { setSubmitting, setErrors }
   ) => {
-    this.setState({ showSubmittingModal: true });
+    this.setState({ showSubmittingModal: true, showNetworkError: false });
 
     try {
       const { status, error } = await resetPassword(
@@ -98,8 +92,10 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
           this.setState({ showSuccessMessage: true });
           break;
       }
-    } finally {
       this.setState({ showSubmittingModal: false });
+    } catch {
+      this.setState({ showNetworkError: true });
+    } finally {
       setSubmitting(false);
     }
   };
@@ -108,49 +104,42 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     const { account } = this.props;
     const { showSubmittingModal, showSuccessMessage } = this.state;
 
+    const initialValues: FormValues = {
+      username: account.employeeId,
+      newPassword: '',
+      confirmPassword: '',
+    };
     return (
-      <CrumbContext.Consumer>
-        {crumb => {
-          const initialValues: FormValues = {
-            username: account.employeeId,
-            newPassword: '',
-            confirmPassword: '',
-            crumb,
-          };
+      <>
+        <Head>
+          <link rel="stylesheet" href={PUBLIC_CSS_URL} />
+          <title>Access Boston: Forgot Password</title>
+        </Head>
 
-          return (
-            <>
-              <Head>
-                <link rel="stylesheet" href={PUBLIC_CSS_URL} />
-                <title>Access Boston: Forgot Password</title>
-              </Head>
+        <AccessBostonHeader noLinks />
 
-              <AccessBostonHeader noLinks />
+        <div className={MAIN_CLASS}>
+          <div className="b b-c b-c--hsm">
+            {showSuccessMessage ? (
+              this.renderSuccessMessage()
+            ) : (
+              <>
+                <SectionHeader title="Forgot Password" />
 
-              <div className={MAIN_CLASS}>
-                <div className="b b-c b-c--hsm">
-                  {showSuccessMessage ? (
-                    this.renderSuccessMessage()
-                  ) : (
-                    <>
-                      <SectionHeader title="Forgot Password" />
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={forgotPasswordSchema}
+                  isInitialValid={false}
+                  onSubmit={this.handleSubmit}
+                  render={this.renderForm}
+                />
+              </>
+            )}
+          </div>
+        </div>
 
-                      <Formik
-                        initialValues={initialValues}
-                        validationSchema={forgotPasswordSchema}
-                        onSubmit={this.handleSubmit}
-                        render={this.renderForm}
-                      />
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {showSubmittingModal && this.renderSubmitting()}
-            </>
-          );
-        }}
-      </CrumbContext.Consumer>
+        {showSubmittingModal && this.renderSubmitting()}
+      </>
     );
   }
 
@@ -179,8 +168,6 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
-        <input type="hidden" name="crumb" value={values.crumb} />
-
         {/*
           This is here for the benefit of password managers, so they can pick
           up the username associated with the change of password.
@@ -188,10 +175,15 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
           See: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
         */}
         <input
-          type="hidden"
+          type="text"
           name="username"
+          style={{
+            position: 'absolute',
+            visibility: 'hidden',
+          }}
           autoComplete="username"
           value={values.username}
+          readOnly
         />
 
         {/* "g--r" so that we can put the policy first on mobile */}
@@ -221,28 +213,62 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               value={values.confirmPassword}
               {...commonPasswordProps}
             />
+
+            <div className="ta-r">
+              <button
+                type="submit"
+                className="btn"
+                disabled={!isValid || isSubmitting}
+              >
+                Reset Password
+              </button>
+            </div>
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="btn"
-          disabled={(process as any).browser && (!isValid || isSubmitting)}
-        >
-          Reset Password
-        </button>
       </form>
     );
   };
 
   private renderSubmitting() {
+    const { showNetworkError } = this.state;
+
     return (
       <StatusModal>
-        <div className="t--intro">Saving your new password…</div>
-        <div className="t--info m-t300">
-          Please be patient and don’t refresh your browser. This might take a
-          bit.
-        </div>
+        {!showNetworkError && (
+          <>
+            <div className="t--intro">Saving your new password…</div>
+            <div className="t--info m-t300">
+              Please be patient and don’t refresh your browser. This might take
+              a bit.
+            </div>
+          </>
+        )}
+        {showNetworkError && (
+          <>
+            <div className="t--intro t--err">There was a network problem</div>
+            <div className="t--info m-v300">
+              Your password was probably not changed. If this keeps happening,
+              please get in touch:
+            </div>
+
+            <HelpContactInfo />
+
+            <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() =>
+                  this.setState({
+                    showSubmittingModal: false,
+                    showNetworkError: false,
+                  })
+                }
+              >
+                Try Again
+              </button>
+            </div>
+          </>
+        )}
       </StatusModal>
     );
   }

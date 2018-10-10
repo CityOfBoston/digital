@@ -35,4 +35,12 @@ storiesOf('ChangePasswordPage', module)
       fetchGraphql={null as any}
       testSubmittingModal
     />
+  ))
+  .add('network error', () => (
+    <ChangePasswordPage
+      account={ACCOUNT}
+      fetchGraphql={null as any}
+      testSubmittingModal
+      testNetworkError
+    />
   ));

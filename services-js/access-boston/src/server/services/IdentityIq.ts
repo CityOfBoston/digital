@@ -202,6 +202,36 @@ export default class IdentityIq {
     };
   }
 
+  private async makeScimRequest(
+    path: string,
+    method: string = 'GET',
+    body: any = undefined
+  ): Promise<any> {
+    const response = await fetch(this.makeScimUrl(path), {
+      method,
+      body: body ? JSON.stringify(body) : undefined,
+      headers: this.makeDefaultHeaders(),
+      timeout: 60 * 1000,
+    });
+
+    if (!response.ok) {
+      const responseText = await response.json();
+      try {
+        const apiError: ApiError = JSON.parse(responseText);
+        throw new Error(apiError.detail);
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error(responseText);
+        throw new Error(`IdentityIQ ${response.statusText}`);
+      }
+    }
+
+    const output = await response.json();
+    // eslint-disable-next-line no-console
+    console.debug(JSON.stringify(output, null, 2));
+    return output;
+  }
+
   async changePassword(
     userId: string,
     currentPassword: string,
@@ -232,23 +262,7 @@ export default class IdentityIq {
       },
     };
 
-    const response = await fetch(this.makeScimUrl('LaunchedWorkflows'), {
-      method: 'POST',
-      body: JSON.stringify(requestBody),
-      headers: {
-        ...this.makeDefaultHeaders(),
-      },
-    });
-
-    if (response.status !== 201) {
-      const apiError: ApiError = await response.json();
-      throw new Error(apiError.detail);
-    }
-
-    const output = await response.json();
-    // eslint-disable-next-line no-console
-    console.debug(JSON.stringify(output, null, 2));
-    return output;
+    return this.makeScimRequest('LaunchedWorkflows', 'POST', requestBody);
   }
 
   async resetPassword(
@@ -276,23 +290,7 @@ export default class IdentityIq {
       },
     };
 
-    const response = await fetch(this.makeScimUrl('LaunchedWorkflows'), {
-      method: 'POST',
-      body: JSON.stringify(requestBody),
-      headers: {
-        ...this.makeDefaultHeaders(),
-      },
-    });
-
-    if (response.status !== 201) {
-      const apiError: ApiError = await response.json();
-      throw new Error(apiError.detail);
-    }
-
-    const output = await response.json();
-    // eslint-disable-next-line no-console
-    console.debug(JSON.stringify(output, null, 2));
-    return output;
+    return this.makeScimRequest('LaunchedWorkflows', 'POST', requestBody);
   }
 
   /**
@@ -305,18 +303,10 @@ export default class IdentityIq {
   ) {
     // IIQ doesn’t support PATCHing User objects over SCIM, so we have to
     // download the entire object and then re-upload the modified one.
-    const userResponse = await fetch(this.makeScimUrl(`Users/${userId}`), {
-      headers: this.makeDefaultHeaders(),
-    });
-
-    if (!userResponse.ok) {
-      const apiError: ApiError = await userResponse.json();
-      throw new Error(apiError.detail);
-    }
-
+    //
     // WARNING: This response may have the last 4 of the employee’s SSN. Do not
     // log without masking it.
-    const user: UserResponse = await userResponse.json();
+    const user: UserResponse = await this.makeScimRequest(`Users/${userId}`);
 
     user[USER_SCHEMA].isUserRegistered = 'true';
 
@@ -328,33 +318,14 @@ export default class IdentityIq {
       user[USER_SCHEMA].userPhone = phoneNumber;
     }
 
-    const updateResponse = await fetch(this.makeScimUrl(`Users/${userId}`), {
-      method: 'PUT',
-      headers: this.makeDefaultHeaders(),
-      body: JSON.stringify(user),
-    });
-
-    if (!updateResponse.ok) {
-      const apiError: ApiError = await updateResponse.json();
-      throw new Error(apiError.detail);
-    }
+    await this.makeScimRequest(
+      this.makeScimUrl(`Users/${userId}`),
+      'PUT',
+      user
+    );
   }
 
   async fetchWorkflow(caseId: string): Promise<LaunchedWorkflowResponse> {
-    const response = await fetch(
-      this.makeScimUrl(`LaunchedWorkflows/${caseId}`),
-      {
-        headers: {
-          ...this.makeDefaultHeaders(),
-        },
-      }
-    );
-
-    if (response.status !== 200) {
-      const apiError: ApiError = await response.json();
-      throw new Error(apiError.detail);
-    }
-
-    return await response.json();
+    return this.makeScimRequest(`LaunchedWorkflows/${caseId}`);
   }
 }

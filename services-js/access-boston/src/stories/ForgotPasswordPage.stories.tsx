@@ -21,4 +21,13 @@ storiesOf('ForgotPasswordPage', module)
       fetchGraphql={null as any}
       testSuccessMessage
     />
+  ))
+
+  .add('network error', () => (
+    <ForgotPasswordPage
+      account={ACCOUNT}
+      fetchGraphql={null as any}
+      testSubmittingModal
+      testNetworkError
+    />
   ));
