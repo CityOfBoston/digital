@@ -1960,21 +1960,13 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
-  version "4.0.42"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-4.0.42.tgz#c09a8e2dd85c4a0b23674eb9deced753e0cc0241"
+"@types/node@*", "@types/node@^8.0.0":
+  version "8.10.36"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.36.tgz#eac05d576fbcd0b4ea3c912dc58c20475c08d9e4"
 
-"@types/node@^10.0.0", "@types/node@^10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.2.tgz#180046ebbc37de8b64777765c2486ebecb59448e"
-
-"@types/node@^9.4.6", "@types/node@^9.6.5":
-  version "9.6.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.8.tgz#32e3d3ef9ea285caeec70a05ab157847920a3fe4"
-
-"@types/node@^9.4.7":
-  version "9.6.25"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.25.tgz#2009ab5432ed1f5e1918f7c6b000bc778549b216"
+"@types/node@^9.4.6", "@types/node@^9.4.7":
+  version "9.6.35"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.35.tgz#197dd535c094362a7c95f0b78f07583d6681ed26"
 
 "@types/p-cancelable@^0.3.0":
   version "0.3.0"

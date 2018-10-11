@@ -8,8 +8,7 @@ import { Query, resolvers as queryResolvers } from './query';
 import { Mutation, resolvers as mutationResolvers } from './mutation';
 import { resolvers as deathResolvers } from './death-certificates';
 
-import RegistryData from '../services/RegistryData';
-import RegistryOrders from '../services/RegistryOrders';
+import RegistryDb from '../services/RegistryDb';
 import Emails from '../services/Emails';
 
 // This file is built by the "generate-graphql-schema" script from
@@ -21,8 +20,7 @@ const schemaGraphql = fs.readFileSync(
 
 export interface Context {
   rollbar: Rollbar;
-  registryData: RegistryData;
-  registryOrders: RegistryOrders;
+  registryDb: RegistryDb;
   stripe: NodeStripe;
   emails: Emails;
 }

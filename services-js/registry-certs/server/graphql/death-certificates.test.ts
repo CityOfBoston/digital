@@ -1,8 +1,7 @@
 import MockDate from 'mockdate';
 
 import { resolvers, parseAgeOrDateOfBirth } from './death-certificates';
-import { FixtureRegistryData } from '../services/RegistryData';
-import RegistryData from '../services/RegistryData';
+import RegistryDb, { FixtureRegistryDb } from '../services/RegistryDb';
 
 import fixtureData from '../../fixtures/registry-data/smith.json';
 
@@ -17,10 +16,10 @@ afterEach(() => {
 });
 
 describe('DeathCertificates resolvers', () => {
-  let registryData: RegistryData;
+  let registryDb: RegistryDb;
 
   beforeEach(() => {
-    registryData = new FixtureRegistryData(fixtureData as any) as any;
+    registryDb = new FixtureRegistryDb(fixtureData as any) as any;
   });
 
   describe('search', () => {
@@ -29,8 +28,7 @@ describe('DeathCertificates resolvers', () => {
         {},
         { query: 'Logan' },
         {
-          registryData,
-          registryOrders: {} as any,
+          registryDb,
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,
@@ -47,8 +45,7 @@ describe('DeathCertificates resolvers', () => {
         {},
         { query: 'Logan', pageSize: 2, page: 1 },
         {
-          registryData,
-          registryOrders: {} as any,
+          registryDb,
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,
@@ -67,8 +64,7 @@ describe('DeathCertificates resolvers', () => {
           {},
           { id: fixtureData[0].CertificateID.toString() },
           {
-            registryData,
-            registryOrders: {} as any,
+            registryDb,
             stripe: {} as any,
             rollbar: {} as any,
             emails: {} as any,
@@ -83,8 +79,7 @@ describe('DeathCertificates resolvers', () => {
           {},
           { id: '999992' },
           {
-            registryData,
-            registryOrders: {} as any,
+            registryDb,
             stripe: {} as any,
             rollbar: {} as any,
             emails: {} as any,
@@ -106,8 +101,7 @@ describe('DeathCertificates resolvers', () => {
           ],
         },
         {
-          registryData,
-          registryOrders: {} as any,
+          registryDb,
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,

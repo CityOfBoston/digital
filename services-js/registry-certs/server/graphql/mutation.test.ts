@@ -75,7 +75,7 @@ describe('Mutation resolvers', () => {
         },
       };
 
-      const registryOrders = {
+      const registryDb = {
         addOrder: jest.fn(),
         addItem: jest.fn(),
         addPayment: jest.fn(),
@@ -85,7 +85,7 @@ describe('Mutation resolvers', () => {
         sendReceiptEmail: jest.fn(),
       };
 
-      registryOrders.addOrder.mockReturnValue(Promise.resolve(25));
+      registryDb.addOrder.mockReturnValue(Promise.resolve(25));
 
       tokensRetrieve.mockReturnValue(
         Promise.resolve({ card: { funding: 'credit' } })
@@ -94,7 +94,7 @@ describe('Mutation resolvers', () => {
 
       await resolvers.Mutation.submitDeathCertificateOrder({}, DEFAULT_ORDER, {
         stripe,
-        registryOrders,
+        registryDb,
         emails,
       } as any);
 

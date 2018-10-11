@@ -8,11 +8,10 @@ import {
 } from '@cityofboston/graphql-typescript';
 
 import { Context } from './index';
-import RegistryOrders from '../services/RegistryOrders';
-import RegistryData, {
+import RegistryDb, {
   DeathCertificateSearchResult,
   DeathCertificate as DbDeathCertificate,
-} from '../services/RegistryData';
+} from '../services/RegistryDb';
 
 const DEFAULT_PAGE_SIZE = 20;
 const MAX_PAGE_SIZE = 500;
@@ -154,12 +153,8 @@ function searchResultToDeathCertificate(
 // We export this function so that other places can take advantage of how it
 // parses out ids and amounts. That's a little wonky, since this is still fairly
 // GraphQL-specific in its return values.
-export async function loadOrder(
-  registryData: RegistryData,
-  registryOrders: RegistryOrders,
-  id: string
-) {
-  const order = await registryOrders.findOrder(id);
+export async function loadOrder(registryDb: RegistryDb, id: string) {
+  const order = await registryDb.findOrder(id);
   if (!order) {
     return null;
   }
@@ -184,7 +179,7 @@ export async function loadOrder(
       cost: quantity * certificateCost,
       // Will only be executed if dereferenced.
       certificate: async () => {
-        const cert = await registryData.lookup(id);
+        const cert = await registryDb.lookup(id);
         return cert ? searchResultToDeathCertificate(cert) : null;
       },
     };
@@ -225,7 +220,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
   search: async (
     _root,
     { query, pageSize, page, startYear, endYear },
-    { registryData }
+    { registryDb }
   ) => {
     const queryPageSize = Math.min(
       pageSize || DEFAULT_PAGE_SIZE,
@@ -235,7 +230,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
 
     const results: Array<
       DeathCertificateSearchResult
-    > = await registryData.search(
+    > = await registryDb.search(
       query,
       queryPage,
       queryPageSize,
@@ -254,8 +249,8 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
       results: results.map(searchResultToDeathCertificate),
     };
   },
-  certificate: async (_root, { id }, { registryData }) => {
-    const res = await registryData.lookup(id);
+  certificate: async (_root, { id }, { registryDb }) => {
+    const res = await registryDb.lookup(id);
 
     if (res) {
       return searchResultToDeathCertificate(res);
@@ -263,10 +258,10 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
       return null;
     }
   },
-  certificates: (_root, { ids }, { registryData }) =>
+  certificates: (_root, { ids }, { registryDb }) =>
     Promise.all(
       ids.map(async (id): Promise<DeathCertificate | null> => {
-        const res = await registryData.lookup(id);
+        const res = await registryDb.lookup(id);
         if (res) {
           return searchResultToDeathCertificate(res);
         } else {
@@ -274,12 +269,8 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
         }
       })
     ),
-  order: async (
-    _root,
-    { id, contactEmail },
-    { registryData, registryOrders }
-  ) => {
-    const order = await loadOrder(registryData, registryOrders, id);
+  order: async (_root, { id, contactEmail }, { registryDb }) => {
+    const order = await loadOrder(registryDb, id);
     if (!order) {
       return null;
     }

@@ -22,7 +22,7 @@
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "23.x.x",
-    "@types/node": "^10.0.2",
+    "@types/node": "^8.0.0",
     "jest": "23.6.0",
     "khaos": "^0.9.3",
     "lockfile": "^1.0.4",

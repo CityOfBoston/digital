@@ -1,4 +1,4 @@
-import { splitKeys } from './RegistryData';
+import { splitKeys } from './RegistryDb';
 
 describe('split keys', () => {
   it('combines keys', () => {
