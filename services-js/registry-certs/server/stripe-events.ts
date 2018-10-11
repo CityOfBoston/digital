@@ -1,6 +1,5 @@
 /* eslint no-console: 0 */
-import RegistryData from './services/RegistryData';
-import RegistryOrders from './services/RegistryOrders';
+import RegistryDb from './services/RegistryDb';
 import Emails from './services/Emails';
 import { NodeStripe, Event, Charge } from 'stripe';
 
@@ -15,8 +14,7 @@ import {
 interface Dependencies {
   emails: Emails;
   stripe: NodeStripe;
-  registryData: RegistryData;
-  registryOrders: RegistryOrders;
+  registryDb: RegistryDb;
 }
 
 // We handle Stripe’s "charge.succeeded" event to complete the order process:
@@ -37,7 +35,7 @@ interface Dependencies {
 // That’s a better choice than not sending an email at all or causing delays in
 // fulfillment, so we can live with it.
 export async function processChargeSucceeded(
-  { emails, registryData, registryOrders }: Dependencies,
+  { emails, registryDb }: Dependencies,
   charge: Charge
 ) {
   const {
@@ -61,7 +59,7 @@ export async function processChargeSucceeded(
 
   // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
   // side of things. This could be more principled.
-  const order = await loadOrder(registryData, registryOrders, orderId);
+  const order = await loadOrder(registryDb, orderId);
 
   if (!order) {
     throw new Error(`Order ${orderId} not found in the database`);
@@ -69,7 +67,7 @@ export async function processChargeSucceeded(
 
   // By marking the payment as successful we can tell Registry they can proceed
   // with fulfillment. This method is idempotent.
-  await registryOrders.addPayment(
+  await registryDb.addPayment(
     parseInt(orderKey, 10),
     // Unix epoch seconds -> milliseconds
     new Date(charge.created * 1000),
@@ -124,7 +122,7 @@ function nameFromCertificate(cert) {
 
 export async function processStripeEvent(
   deps: Dependencies,
-  webhookSecret: string | null,
+  webhookSecret: string | undefined,
   webhookSignature: string,
   body: string
 ): Promise<void> {

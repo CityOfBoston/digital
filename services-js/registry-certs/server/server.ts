@@ -30,22 +30,17 @@ import {
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
 import {
-  makeRegistryDataFactory,
-  makeFixtureRegistryDataFactory,
-  RegistryDataFactory,
-} from './services/RegistryData';
-
-import {
-  makeRegistryOrdersFactory,
-  makeFixtureRegistryOrdersFactory,
-  RegistryOrdersFactory,
-} from './services/RegistryOrders';
+  makeRegistryDbFactory,
+  makeFixtureRegistryDbFactory,
+  RegistryDbFactory,
+} from './services/RegistryDb';
 
 import Emails from './services/Emails';
 
 import { processStripeEvent } from './stripe-events';
 
 import schema, { Context } from './graphql';
+import { DatabaseConnectionOptions } from '@cityofboston/mssql-common';
 
 type ServerArgs = {
   rollbar: Rollbar;
@@ -91,20 +86,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
     config,
   });
 
-  const registryDataFactoryOpts = {
-    username: process.env.REGISTRY_DATA_DB_USER,
-    password: process.env.REGISTRY_DATA_DB_PASSWORD,
+  // These env variables are named "DATA" for historical reasons.
+  const registryDbFactoryOpts: DatabaseConnectionOptions = {
+    username: process.env.REGISTRY_DATA_DB_USER!,
+    password: process.env.REGISTRY_DATA_DB_PASSWORD!,
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
-    server: process.env.REGISTRY_DATA_DB_SERVER,
-    database: process.env.REGISTRY_DATA_DB_DATABASE,
-  };
-
-  const registryOrdersFactoryOpts = {
-    username: process.env.REGISTRY_ORDERS_DB_USER,
-    password: process.env.REGISTRY_ORDERS_DB_PASSWORD,
-    domain: process.env.REGISTRY_ORDERS_DB_DOMAIN,
-    server: process.env.REGISTRY_ORDERS_DB_SERVER,
-    database: process.env.REGISTRY_ORDERS_DB_DATABASE,
+    server: process.env.REGISTRY_DATA_DB_SERVER!,
+    database: process.env.REGISTRY_DATA_DB_DATABASE!,
   };
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
@@ -123,27 +111,21 @@ export async function makeServer({ rollbar }: ServerArgs) {
     rollbar
   );
 
-  let registryDataFactory: RegistryDataFactory;
-  let registryOrdersFactory: RegistryOrdersFactory;
+  let registryDbFactory: RegistryDbFactory;
 
   const startup = async () => {
     const services = await Promise.all([
-      registryDataFactoryOpts.server
-        ? makeRegistryDataFactory(rollbar, registryDataFactoryOpts)
-        : makeFixtureRegistryDataFactory('fixtures/registry-data/smith.json'),
-      registryOrdersFactoryOpts.server
-        ? makeRegistryOrdersFactory(rollbar, registryOrdersFactoryOpts)
-        : makeFixtureRegistryOrdersFactory(),
+      registryDbFactoryOpts.server
+        ? makeRegistryDbFactory(rollbar, registryDbFactoryOpts)
+        : makeFixtureRegistryDbFactory('fixtures/registry-data/smith.json'),
       app.prepare(),
     ]);
 
-    registryDataFactory = services[0] as any;
-    registryOrdersFactory = services[1] as any;
+    registryDbFactory = services[0] as any;
 
     return async () => {
       await Promise.all([
-        registryDataFactory.cleanup(),
-        registryOrdersFactory.cleanup(),
+        registryDbFactory.cleanup(),
         app.close(),
         server.stop(),
       ]);
@@ -176,8 +158,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
         schema,
         context: {
-          registryData: registryDataFactory.registryData(),
-          registryOrders: registryOrdersFactory.registryOrders(),
+          registryDb: registryDbFactory.registryDb(),
           stripe,
           emails,
           rollbar,
@@ -224,8 +205,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       try {
         await processStripeEvent(
           {
-            registryData: registryDataFactory.registryData(),
-            registryOrders: registryOrdersFactory.registryOrders(),
+            registryDb: registryDbFactory.registryDb(),
             stripe,
             emails,
           },

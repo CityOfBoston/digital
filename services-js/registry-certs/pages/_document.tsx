@@ -195,7 +195,7 @@ export default class extends Document {
           <cob-contact-form
             id="contactForm"
             default-subject="Death Certificates Feedback"
-            token={process.env.CONTACT_FORM_TOKEN}
+            token={process.env.CONTACT_FORM_TOKEN || ''}
             {...(process.env.CONTACT_FORM_ACTION
               ? { action: process.env.CONTACT_FORM_ACTION }
               : {})}

@@ -1,13 +1,32 @@
-// @flow
-/* eslint no-console: 0 */
-
 import { ConnectionPool, IResult } from 'mssql';
+import {
+  DatabaseConnectionOptions,
+  createConnectionPool,
+} from '@cityofboston/mssql-common';
+
+import fs from 'fs';
+import { promisify } from 'util';
+import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
 
-import {
-  createConnectionPool,
-  DatabaseConnectionOptions,
-} from '@cityofboston/mssql-common';
+const readFile = promisify(fs.readFile);
+
+export interface DeathCertificate {
+  CertificateID: number;
+  'Registered Number': string;
+  InOut: 'I' | '*' | '#';
+  'Date of Death': string | null;
+  'Decedent Name': string;
+  'Last Name': string;
+  'First Name': string;
+  RegisteredYear: string;
+  AgeOrDateOfBirth: string;
+  Pending: number;
+}
+
+export interface DeathCertificateSearchResult extends DeathCertificate {
+  ResultCount: number;
+}
 
 export interface AddOrderOptions {
   orderID: string;
@@ -67,11 +86,109 @@ export interface FindOrderResult {
   TotalCost: number;
 }
 
-export default class RegistryOrders {
+const MAX_ID_LOOKUP_LENGTH = 1000;
+
+// Converts a list of key strings into an array of comma-separated strings,
+// each no longer than maxLength.
+//
+// E.g.: ["12345", "67890", "abcde"] => ["12345,67890", "abcde"]
+export function splitKeys(
+  maxLength: number,
+  keys: Array<string>
+): Array<string> {
+  const keyStrings: Array<string> = [];
+  let currentKeyString = '';
+
+  keys.forEach(key => {
+    if (currentKeyString.length === 0) {
+      currentKeyString = key;
+    } else if (currentKeyString.length + key.length + 1 < maxLength) {
+      currentKeyString = `${currentKeyString},${key}`;
+    } else {
+      keyStrings.push(currentKeyString);
+      currentKeyString = key;
+    }
+  });
+
+  if (currentKeyString.length > 0) {
+    keyStrings.push(currentKeyString);
+  }
+
+  return keyStrings;
+}
+
+export default class RegistryDb {
   protected pool: ConnectionPool;
+  protected lookupLoader: DataLoader<string, DeathCertificate | null>;
 
   constructor(pool: ConnectionPool) {
     this.pool = pool;
+    this.lookupLoader = new DataLoader(keys => this.lookupLoaderFetch(keys));
+  }
+
+  async search(
+    name: string,
+    page: number,
+    pageSize: number,
+    startYear: string | null | undefined,
+    endYear: string | null | undefined
+  ): Promise<Array<DeathCertificateSearchResult>> {
+    const resp: IResult<DeathCertificateSearchResult> = (await this.pool
+      .request()
+      .input('searchFor', name)
+      .input('pageNumber', page)
+      .input('pageSize', pageSize)
+      .input('sortBy', 'dateOfDeath')
+      .input('startYear', startYear)
+      .input('endYear', endYear)
+      .execute('Registry.Death.sp_FindCertificatesWeb')) as any;
+
+    const { recordset } = resp;
+
+    if (!recordset) {
+      throw new Error('Recordset for search came back empty');
+    }
+
+    return recordset;
+  }
+
+  async lookup(id: string): Promise<DeathCertificate | null> {
+    return this.lookupLoader.load(id);
+  }
+
+  // "any" here is really DeathCertificate | null | Error
+  protected async lookupLoaderFetch(keys: Array<string>): Promise<Array<any>> {
+    // The api can only take 1000 characters of keys at once. We probably won't
+    // run into that issue but just in case we split up and parallelize.
+    const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
+
+    const idToOutputMap: {
+      [key: string]: DeathCertificate | null | Error;
+    } = {};
+
+    const allResults: Array<Array<DeathCertificate>> = await Promise.all(
+      keyStrings.map(async keyString => {
+        try {
+          const resp: IResult<DeathCertificate> = (await this.pool
+            .request()
+            .input('idList', keyString)
+            .execute('Registry.Death.sp_GetCertificatesWeb')) as any;
+
+          return resp.recordset;
+        } catch (err) {
+          keyString.split(',').forEach(id => (idToOutputMap[id] = err));
+          return [];
+        }
+      })
+    );
+
+    allResults.forEach(results => {
+      results.forEach((cert: DeathCertificate) => {
+        idToOutputMap[cert.CertificateID.toString()] = cert;
+      });
+    });
+
+    return keys.map(k => idToOutputMap[k]);
   }
 
   async addOrder({
@@ -210,15 +327,15 @@ export default class RegistryOrders {
   }
 }
 
-export class RegistryOrdersFactory {
+export class RegistryDbFactory {
   protected pool: ConnectionPool;
 
   constructor(pool: ConnectionPool) {
     this.pool = pool;
   }
 
-  registryOrders(): RegistryOrders {
-    return new RegistryOrders(this.pool);
+  registryDb() {
+    return new RegistryDb(this.pool);
   }
 
   cleanup(): Promise<any> {
@@ -226,17 +343,35 @@ export class RegistryOrdersFactory {
   }
 }
 
-export async function makeRegistryOrdersFactory(
+export async function makeRegistryDbFactory(
   rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
-): Promise<RegistryOrdersFactory> {
+): Promise<RegistryDbFactory> {
   const pool = await createConnectionPool(connectionOptions, err =>
     rollbar.error(err)
   );
-  return new RegistryOrdersFactory(pool);
+  return new RegistryDbFactory(pool);
 }
 
-export class FixtureRegistryOrders {
+export class FixtureRegistryDb implements Required<RegistryDb> {
+  data: Array<DeathCertificateSearchResult>;
+
+  constructor(data: Array<DeathCertificateSearchResult>) {
+    this.data = data;
+  }
+
+  async search(
+    _query: string,
+    page: number,
+    pageSize: number
+  ): Promise<Array<DeathCertificateSearchResult>> {
+    return this.data.slice(page * pageSize, (page + 1) * pageSize);
+  }
+
+  async lookup(id: string): Promise<DeathCertificate | null> {
+    return this.data.find(res => res.CertificateID.toString() === id)!;
+  }
+
   async addOrder(): Promise<number> {
     return 50;
   }
@@ -252,14 +387,19 @@ export class FixtureRegistryOrders {
   async cancelOrder(): Promise<void> {}
 }
 
-export async function makeFixtureRegistryOrdersFactory(): Promise<
-  Required<RegistryOrdersFactory>
-> {
+export async function makeFixtureRegistryDbFactory(
+  fixtureName: string
+): Promise<RegistryDbFactory> {
+  const fixtureData = await readFile(fixtureName);
+  const json = JSON.parse(fixtureData.toString('utf-8'));
+
   return {
-    registryOrders() {
-      return new FixtureRegistryOrders() as any;
+    registryData() {
+      return new FixtureRegistryDb(json);
     },
 
-    async cleanup(): Promise<void> {},
-  };
+    cleanup() {
+      return Promise.resolve(null);
+    },
+  } as any;
 }

@@ -41,6 +41,10 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       ? payload.userId[0]
       : payload.userId;
 
+    if (!userId) {
+      throw new Error('userId is blank');
+    }
+
     const isNewUser = userId.startsWith('NEW');
 
     const result: SamlLoginResult = {

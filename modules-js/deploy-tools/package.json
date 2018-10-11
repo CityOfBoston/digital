@@ -32,7 +32,7 @@
     "@types/aws-sdk": "^2.7.0",
     "@types/jest": "23.x.x",
     "@types/minimist": "^1.2.0",
-    "@types/node": "^10.0.0",
+    "@types/node": "^8.0.0",
     "@types/shelljs": "^0.8.0",
     "jest": "23.6.0",
     "rimraf": "^2.6.2",

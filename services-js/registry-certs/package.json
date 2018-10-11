@@ -101,6 +101,7 @@
     "@storybook/addons": "4.0.0-alpha.22",
     "@storybook/react": "4.0.0-alpha.22",
     "@types/mssql": "^4.0.10",
+    "@types/node": "^8.0.0",
     "@types/stripe-v3": "^3.0.8",
     "@zeit/next-typescript": "1.1.1",
     "apollo-codegen": "0.20.2",

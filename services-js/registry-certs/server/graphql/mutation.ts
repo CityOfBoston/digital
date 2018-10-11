@@ -65,7 +65,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
   submitDeathCertificateOrder: async (
     _root,
     args,
-    { rollbar, stripe, emails, registryData, registryOrders }
+    { rollbar, stripe, emails, registryDb }
   ): Promise<SubmittedOrder> => {
     const {
       contactName,
@@ -167,7 +167,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const orderId = `RG-DC${datePart}-${randomPart}`;
     const orderDate = new Date();
 
-    const orderKey = await registryOrders.addOrder({
+    const orderKey = await registryDb.addOrder({
       orderID: orderId,
       orderDate,
       contactName,
@@ -193,7 +193,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     await Promise.all(
       items.map(({ id, name, quantity }) =>
-        registryOrders.addItem(
+        registryDb.addItem(
           orderKey,
           parseInt(id, 10),
           name,
@@ -228,10 +228,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       }
 
       try {
-        await registryOrders.cancelOrder(
-          orderKey,
-          'Stripe charge create failed'
-        );
+        await registryDb.cancelOrder(orderKey, 'Stripe charge create failed');
       } catch (e) {
         console.log('CANCEL ORDER FAILED');
         // Let Opbeat know, but still fail the mutation with the original
@@ -252,10 +249,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     // We can only get the Stripe callback when in production, so we fake it for dev.
     if (process.env.NODE_ENV === 'development') {
-      await processChargeSucceeded(
-        { stripe, emails, registryData, registryOrders },
-        charge
-      );
+      await processChargeSucceeded({ stripe, emails, registryDb }, charge);
     }
 
     return { id: orderId, contactEmail };
