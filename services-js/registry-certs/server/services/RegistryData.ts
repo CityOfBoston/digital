@@ -1,22 +1,14 @@
 // @flow
 
-import { ConnectionPool } from 'mssql';
+import { ConnectionPool, IResult } from 'mssql';
+import {
+  DatabaseConnectionOptions,
+  createConnectionPool,
+} from '@cityofboston/mssql-common';
 
 import fs from 'fs';
 import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
-
-import {
-  createConnectionPool,
-  DatabaseConnectionOptions,
-} from '../lib/mssql-helpers';
-
-interface DbResponse<R> {
-  recordsets: Array<Array<R>>;
-  recordset: Array<R>;
-  output: Object;
-  rowsAffected: Array<number>;
-}
 
 export interface DeathCertificate {
   CertificateID: number;
@@ -82,7 +74,7 @@ export default class RegistryData {
     startYear: string | null | undefined,
     endYear: string | null | undefined
   ): Promise<Array<DeathCertificateSearchResult>> {
-    const resp: DbResponse<DeathCertificateSearchResult> = (await this.pool
+    const resp: IResult<DeathCertificateSearchResult> = (await this.pool
       .request()
       .input('searchFor', name)
       .input('pageNumber', page)
@@ -118,7 +110,7 @@ export default class RegistryData {
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
         try {
-          const resp: DbResponse<DeathCertificate> = (await this.pool
+          const resp: IResult<DeathCertificate> = (await this.pool
             .request()
             .input('idList', keyString)
             .execute('Registry.Death.sp_GetCertificatesWeb')) as any;
@@ -161,7 +153,9 @@ export async function makeRegistryDataFactory(
   rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
 ): Promise<RegistryDataFactory> {
-  const pool = await createConnectionPool(rollbar, connectionOptions);
+  const pool = await createConnectionPool(connectionOptions, err =>
+    rollbar.error(err)
+  );
   return new RegistryDataFactory(pool);
 }
 
