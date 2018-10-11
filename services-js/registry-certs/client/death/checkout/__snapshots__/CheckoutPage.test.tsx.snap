@@ -2,6 +2,12 @@
 
 exports[`rendering renders confirmation 1`] = `
 <ConfirmationContent
+  cart={
+    Cart {
+      "localStorageDisposer": null,
+      "siteAnalytics": null,
+    }
+  }
   contactEmail="ttoe@squirrelzone.net"
   orderId="123-456-7"
 />

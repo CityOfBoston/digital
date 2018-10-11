@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import SiteAnalytics from '../../lib/SiteAnalytics';
+import Cart from '../../store/Cart';
 import SearchPage from './SearchPage';
 
 import {
@@ -10,7 +12,15 @@ import {
 } from '../../../fixtures/client/death-certificates';
 
 storiesOf('SearchPage', module)
-  .add('no search', () => <SearchPage query={''} page={1} results={null} />)
+  .add('no search', () => (
+    <SearchPage
+      query={''}
+      page={1}
+      results={null}
+      siteAnalytics={new SiteAnalytics()}
+      cart={new Cart()}
+    />
+  ))
   .add('no results', () => (
     <SearchPage
       query={'Jayn Doe'}
@@ -22,6 +32,8 @@ storiesOf('SearchPage', module)
         resultCount: 0,
         results: [],
       }}
+      siteAnalytics={new SiteAnalytics()}
+      cart={new Cart()}
     />
   ))
   .add('with results', () => (
@@ -39,5 +51,7 @@ storiesOf('SearchPage', module)
           NO_DATE_CERTIFICATE,
         ],
       }}
+      siteAnalytics={new SiteAnalytics()}
+      cart={new Cart()}
     />
   ));

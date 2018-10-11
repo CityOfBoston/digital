@@ -3,8 +3,7 @@ import Head from 'next/head';
 import { css } from 'emotion';
 
 import { DeathCertificateOrder } from '../../types';
-
-import { getDependencies, ClientContext, ClientDependencies } from '../../app';
+import { GetInitialProps } from '../../../pages/_app';
 
 import { GRAY_200, MEDIA_PRINT } from '../../common/style-constants';
 
@@ -66,16 +65,14 @@ const SEAL_HOLDER_STYLE = css({
 });
 
 export default class ReceiptPage extends React.Component<Props> {
-  static async getInitialProps(
-    ctx: ClientContext,
-    dependenciesForTest?: ClientDependencies
-  ): Promise<Props> {
-    const {
-      query: { id, contactEmail },
-      res,
-    } = ctx;
-    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
-
+  static getInitialProps: GetInitialProps<
+    Props,
+    'query' | 'res',
+    'deathCertificatesDao'
+  > = async (
+    { query: { id, contactEmail }, res },
+    { deathCertificatesDao }
+  ) => {
     if (!id) {
       throw new Error('Missing id');
     }
@@ -93,7 +90,7 @@ export default class ReceiptPage extends React.Component<Props> {
     return {
       order,
     };
-  }
+  };
 
   render() {
     const { order } = this.props;

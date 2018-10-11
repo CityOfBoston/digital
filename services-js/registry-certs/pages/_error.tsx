@@ -5,7 +5,8 @@
 import React, { CSSProperties } from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
-import { ClientContext } from '../client/app';
+import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
+import { NextContext } from '@cityofboston/next-client-common';
 
 const ERROR_STYLE: CSSProperties = {
   color: '#000',
@@ -51,7 +52,7 @@ type Props = {
 };
 
 export default class Error extends React.Component<Props> {
-  static getInitialProps({ res, err }: ClientContext) {
+  static getInitialProps({ res, err }: NextContext<ExtendedIncomingMessage>) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 

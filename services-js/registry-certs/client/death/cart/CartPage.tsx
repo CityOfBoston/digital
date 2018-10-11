@@ -4,36 +4,22 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
-import { getDependencies } from '../../app';
-
 import {
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
   SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
-import Cart from '../../store/Cart';
-import SiteAnalytics from '../../lib/SiteAnalytics';
-
+import { PageDependencies } from '../../../pages/_app';
 import AppLayout from '../../AppLayout';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
 
-interface DefaultProps {
-  cart: Cart;
-  siteAnalytics: SiteAnalytics;
-}
-
-interface Props extends Partial<DefaultProps> {}
+interface Props extends Pick<PageDependencies, 'cart' | 'siteAnalytics'> {}
 
 @observer
-class CartPage extends React.Component<Props & DefaultProps> {
-  static get defaultProps(): DefaultProps {
-    const { cart, siteAnalytics } = getDependencies();
-    return { cart, siteAnalytics };
-  }
-
+class CartPage extends React.Component<Props> {
   // When we leave the cart page, remove everything that's 0-size.
   componentWillUnmount = action(
     'CartPageController componentWillUnmount',
@@ -49,7 +35,7 @@ class CartPage extends React.Component<Props & DefaultProps> {
     const loading = !!cart.entries.find(({ cert }) => !cert);
 
     return (
-      <AppLayout showNav>
+      <AppLayout showNav cart={cart}>
         <div className="b-ff">
           <Head>
             <title>Boston.gov — Death Certificate Cart</title>
