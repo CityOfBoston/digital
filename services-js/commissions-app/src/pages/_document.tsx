@@ -1,10 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-import { makeNProgressStyle } from '@cityofboston/next-client-common';
 import { CompatibilityWarning } from '@cityofboston/react-fleet';
-
-import { HEADER_HEIGHT } from '../client/styles';
 
 export default class MyDocument extends Document {
   props: any;
@@ -45,11 +42,6 @@ export default class MyDocument extends Document {
           />
 
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
-          <style
-            dangerouslySetInnerHTML={{
-              __html: makeNProgressStyle(HEADER_HEIGHT),
-            }}
-          />
 
           {rollbarAccessToken && (
             <script

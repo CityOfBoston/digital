@@ -53,6 +53,7 @@
     "node-cleanup": "^2.1.2",
     "react": "16.5.2",
     "react-dom": "16.5.2",
+    "rollbar": "^2.4.1",
     "yup": "0.26.6"
   },
   "devDependencies": {

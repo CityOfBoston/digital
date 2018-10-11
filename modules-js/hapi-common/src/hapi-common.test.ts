@@ -1,6 +1,10 @@
 import { Server } from 'hapi';
 
-import { headerKeys, HeaderKeysOptions } from './hapi-common';
+import {
+  headerKeys,
+  HeaderKeysOptions,
+  graphqlOptionsWithRollbar,
+} from './hapi-common';
 
 const AUTH_HEADER = 'X-API-KEY';
 const ALLOWED_KEYS = ['key-1', 'key-2'];
@@ -46,5 +50,53 @@ describe('headerKeys', () => {
       headers: { [AUTH_HEADER]: 'key-1' },
     });
     expect(resp.statusCode).toEqual(200);
+  });
+});
+
+describe('graphqlOptionsWithRollbar', () => {
+  let rollbar: any;
+
+  beforeEach(() => {
+    rollbar = {
+      error: jest.fn(),
+    };
+  });
+
+  describe('rollbarWrapGraphqlOptions', () => {
+    it('sends context creation errors to rollbar', () => {
+      const err = new Error();
+      const fn = graphqlOptionsWithRollbar(rollbar, () => {
+        throw err;
+      });
+
+      expect(fn({} as any)).rejects.toBe(err);
+      expect(rollbar.error).toHaveBeenCalledWith(err);
+    });
+
+    it('sends format error exceptions to rollbar', async () => {
+      const hapiRequest: any = {
+        raw: {
+          req: {},
+          res: {},
+        },
+      };
+
+      const opts = await graphqlOptionsWithRollbar(rollbar, () => ({
+        formatError: e => e,
+      }))(hapiRequest);
+
+      const err = new Error();
+      const graphQlError: any = new Error();
+      graphQlError.originalError = err;
+
+      const out = opts.formatError(graphQlError);
+
+      expect(out).toBe(graphQlError);
+      expect(rollbar.error).toHaveBeenCalledWith(
+        err,
+        hapiRequest.raw.req,
+        expect.anything()
+      );
+    });
   });
 });
