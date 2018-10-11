@@ -92,7 +92,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   });
 
   const registryDataFactoryOpts = {
-    user: process.env.REGISTRY_DATA_DB_USER,
+    username: process.env.REGISTRY_DATA_DB_USER,
     password: process.env.REGISTRY_DATA_DB_PASSWORD,
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
     server: process.env.REGISTRY_DATA_DB_SERVER,
@@ -100,7 +100,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   };
 
   const registryOrdersFactoryOpts = {
-    user: process.env.REGISTRY_ORDERS_DB_USER,
+    username: process.env.REGISTRY_ORDERS_DB_USER,
     password: process.env.REGISTRY_ORDERS_DB_PASSWORD,
     domain: process.env.REGISTRY_ORDERS_DB_DOMAIN,
     server: process.env.REGISTRY_ORDERS_DB_SERVER,

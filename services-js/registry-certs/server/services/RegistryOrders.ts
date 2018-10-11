@@ -1,14 +1,13 @@
 // @flow
 /* eslint no-console: 0 */
 
-import { ConnectionPool } from 'mssql';
+import { ConnectionPool, IResult } from 'mssql';
 import Rollbar from 'rollbar';
 
 import {
   createConnectionPool,
   DatabaseConnectionOptions,
-  DbResponse,
-} from '../lib/mssql-helpers';
+} from '@cityofboston/mssql-common';
 
 export interface AddOrderOptions {
   orderID: string;
@@ -98,7 +97,7 @@ export default class RegistryOrders {
     serviceFee,
     idempotencyKey,
   }: AddOrderOptions): Promise<number> {
-    const resp: DbResponse<AddOrderResult> = await this.pool
+    const resp: IResult<AddOrderResult> = await this.pool
       .request()
       .input('orderID', orderID)
       .input('orderType', 'DC')
@@ -146,7 +145,7 @@ export default class RegistryOrders {
     quantity: number,
     certificateCost: number
   ): Promise<void> {
-    const resp: DbResponse<Object> = await this.pool
+    const resp: IResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('orderType', 'DC')
@@ -171,7 +170,7 @@ export default class RegistryOrders {
     transactionId: string,
     totalInDollars: number
   ): Promise<void> {
-    const resp: DbResponse<Object> = await this.pool
+    const resp: IResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('paymentDate', paymentDate)
@@ -188,7 +187,7 @@ export default class RegistryOrders {
   }
 
   async findOrder(orderId: string): Promise<FindOrderResult | null> {
-    const resp: DbResponse<FindOrderResult> = await this.pool
+    const resp: IResult<FindOrderResult> = await this.pool
       .request()
       .input('orderID', orderId)
       .execute('Commerce.sp_FindOrder');
@@ -231,7 +230,9 @@ export async function makeRegistryOrdersFactory(
   rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
 ): Promise<RegistryOrdersFactory> {
-  const pool = await createConnectionPool(rollbar, connectionOptions);
+  const pool = await createConnectionPool(connectionOptions, err =>
+    rollbar.error(err)
+  );
   return new RegistryOrdersFactory(pool);
 }
 
