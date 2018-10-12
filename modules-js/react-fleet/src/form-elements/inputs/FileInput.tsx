@@ -7,6 +7,23 @@ import { MEDIA_SMALL, OPTIMISTIC_BLUE } from '../../utilities/constants';
 
 import CloseButton from '../buttons/CloseButton';
 
+interface Props {
+  name: string;
+  title: string;
+  fileTypes?: string[] | string;
+  sizeLimit: FileSize;
+  handleChange(name: string, file: any): void;
+}
+
+interface State {
+  selectedFile: File | null;
+  isFocused: boolean;
+}
+
+interface FileSize {
+  amount: number;
+  unit: 'B' | 'KB' | 'MB' | 'GB';
+}
 
 const INPUT_CONTAINER_STYLE = css(`
   display: flex;
@@ -37,15 +54,15 @@ const INPUT_CONTAINER_STYLE = css(`
 
 const LABEL_FOCUSED_STYLE = css({
   outline: `3px solid ${OPTIMISTIC_BLUE}`,
-  outlineOffset: '1px'
+  outlineOffset: '1px',
 });
 
-// todo: safari is not ever picking up this styling?
 const FILE_PREVIEW_STYLE = css({
   position: 'relative',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  textOverflow: 'ellipsis'
+  textOverflow: 'ellipsis',
+  cursor: 'default',
 });
 
 const DELETE_BUTTON_STYLE = css(`
@@ -61,72 +78,97 @@ const DELETE_BUTTON_STYLE = css(`
 
 const DEFAULT_PREVIEW_TEXT = 'No file selected';
 
-
-interface Props {
-  name: string;
-  title: string;
-  fileTypes: string[];
-  sizeLimit: FileSize;
-}
-
-interface State {
-  selectedFile: File | null;
-  isFocused: boolean;
-}
-
-interface FileSize {
-  amount: string | number;
-  unit: string;
-}
-
+/**
+ * Component that allows a user to select a file. Defaults to accept any file
+ * type or size. To restrict the types of files to accept, assign a string or
+ * array of strings to “fileTypes” that contains the allowed MIME type(s).
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Limiting_accepted_file_types
+ *
+ * To disallow large files, pass an object to “sizeLimit” to define the limit:
+ *
+ * { amount: 20, unit: 'MB' }
+ */
 export default class FileInput extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
       selectedFile: null,
-      isFocused: false
-    }
+      isFocused: false,
+    };
   }
 
   private inputRef: any = React.createRef<HTMLInputElement>();
 
-  /**
-   * Only accept the file if it doesn’t exceed the specified limit
-   */
-  private checkSize = (file: File) => {
-    const { amount, unit } = this.props.sizeLimit;
-    const result = formatBytes(file.size);
+  // Only accept the file if it doesn’t exceed the specified limit
+  private checkFileSize = (file: File): boolean | void => {
+    const sizeLimit = handleBytes.convert(this.props.sizeLimit);
+    const fileSize = handleBytes.format(file.size);
 
-    if (result.unit === unit && +amount >= +amount) {
-      // todo: should this be a modal/notification component?
-      // todo: handle via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
-      return alert(`File size limit of ${amount}${unit} exceeded.\n\nYour file is ${result.amount + result.unit}. Please select a different file.`);
+    if (file.size > sizeLimit) {
+      // todo: consider handling via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
+
+      // prettier-ignore
+      // without the lack of indentation on the second line, horizontal whitespace occurs
+      alert(
+        `File size limit of ${this.props.sizeLimit.amount}${this.props.sizeLimit.unit} exceeded.
+Your file is ${fileSize.amount.toFixed(2) + fileSize.unit}. Please select a different file.`
+      );
+
+      return false;
+    } else {
+      return true;
     }
-
-    this.setState({ selectedFile: file });
   };
 
-  /**
-   * Ensure file is cleared in the state, as well as in the input element itself
-   */
-  private clearFile = () => {
-    this.setState({ selectedFile: null }, () => this.inputRef.current.value = null);
+  // Ensure file is cleared in the state, as well as in the input element itself
+  private clearFile = (): void => {
+    this.setState({ selectedFile: null }, () => {
+      this.inputRef.current.value = null;
+      this.props.handleChange(this.props.name, null);
+    });
   };
 
-  private setFocus = (isFocused: boolean) => {
+  // Add or remove focus styling for the label element
+  private setFocus = (isFocused: boolean): void => {
     this.setState({ isFocused });
   };
 
-  private handleChange = () => {
+  private updateFile = (file: any): void => {
+    this.setState({ selectedFile: file }, () =>
+      this.props.handleChange(this.props.name, file)
+    );
+  };
+
+  private handleFileChange = (): void => {
     if (!this.inputRef.current.files.length) {
       this.clearFile();
 
-    } else {
-      this.checkSize(this.inputRef.current.files[0]);
+      // If a size limit hasn’t been specified, allow the file to be selected
+    } else if (!this.props.sizeLimit) {
+      this.updateFile(this.inputRef.current.files[0]);
+
+      // If size limit IS specified, ensure file doesn’t exceed it before accepting
+    } else if (this.checkFileSize(this.inputRef.current.files[0])) {
+      this.updateFile(this.inputRef.current.files[0]);
     }
   };
 
+  // Default to “fileType: any” if no file types have been specified
+  private fileTypesString = (
+    fileTypes: string[] | string | undefined
+  ): string => {
+    let resultString = '*';
+
+    if (typeof fileTypes === 'string') {
+      resultString = fileTypes;
+    } else if (Array.isArray(fileTypes)) {
+      resultString = fileTypes.join(', ');
+    }
+
+    return resultString;
+  };
 
   render() {
     return (
@@ -135,31 +177,36 @@ export default class FileInput extends React.Component<Props, State> {
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
           type="file"
-          accept={this.props.fileTypes.join(', ')}
+          accept={this.fileTypesString(this.props.fileTypes)}
           id={`FileInput-${this.props.name}`}
           name={this.props.name}
-          onChange={this.handleChange}
+          onChange={this.handleFileChange}
           onBlur={() => this.setFocus(false)}
-          onFocus={() => this.setFocus(checkFocus(this.props.name))}
+          onFocus={() => this.setFocus(true)}
         />
 
         <label
           htmlFor={`FileInput-${this.props.name}`}
-          className={`btn btn--sm btn--100 ${this.state.isFocused && LABEL_FOCUSED_STYLE}`}
+          className={`btn btn--sm btn--100 ${this.state.isFocused &&
+            LABEL_FOCUSED_STYLE}`}
           style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
         >
           Choose {this.props.title} file
         </label>
 
         <div className={FILE_PREVIEW_STYLE}>
-          <span>{this.state.selectedFile ? this.state.selectedFile.name : DEFAULT_PREVIEW_TEXT}</span>
+          <span title={this.state.selectedFile ? 'Selected file: ' : undefined}>
+            {this.state.selectedFile
+              ? this.state.selectedFile.name
+              : DEFAULT_PREVIEW_TEXT}
+          </span>
         </div>
 
         {this.state.selectedFile && (
           <CloseButton
             className={DELETE_BUTTON_STYLE}
             size="1.8em"
-            title="Remove file"
+            title={`Remove file: ${this.state.selectedFile.name}`}
             handleClick={this.clearFile}
           />
         )}
@@ -168,33 +215,49 @@ export default class FileInput extends React.Component<Props, State> {
   }
 }
 
+export const handleBytes = {
+  values: {
+    b: null,
+    kb: 1024,
+    mb: 1048576,
+    gb: 1073741824,
+  },
 
-function checkFocus(fieldName: string): boolean {
-  return document.activeElement.getAttribute('name') === fieldName;
-}
+  // Takes in a number of bytes, converts to the largest binary prefix, and
+  // returns an object containing the unit of measurement, and the amount
+  format: function(bytes: number): FileSize {
+    const fileSize: FileSize = {
+      amount: 0,
+      unit: 'B',
+    };
 
-export function formatBytes(bytes: number): FileSize {
-  const returnObject: FileSize = {
-    amount: '',
-    unit: ''
-  };
+    if (bytes < this.values.kb) {
+      fileSize.amount = bytes;
+      fileSize.unit = 'B';
+    } else if (bytes < this.values.mb) {
+      fileSize.amount = bytes / this.values.kb;
+      fileSize.unit = 'KB';
+    } else if (bytes < this.values.gb) {
+      fileSize.amount = bytes / this.values.mb;
+      fileSize.unit = 'MB';
+    } else {
+      fileSize.amount = bytes / this.values.gb;
+      fileSize.unit = 'GB';
+    }
 
-  if (bytes < 1024) {
-    returnObject.amount = bytes.toString();
-    returnObject.unit = 'B';
+    return fileSize;
+  },
 
-  } else if (bytes < 1048576) {
-    returnObject.amount = (bytes / 1024).toFixed(2);
-    returnObject.unit = 'KB';
-
-  } else if (bytes < 1073741824) {
-    returnObject.amount = (bytes / 1048576).toFixed(2);
-    returnObject.unit = 'MB';
-
-  } else  {
-    returnObject.amount = (bytes / 1073741824).toFixed(2);
-    returnObject.unit = 'GB';
-  }
-
-  return returnObject;
-}
+  // Converts back to bytes
+  convert: function(fileSize: FileSize): number {
+    if (fileSize.unit === 'KB') {
+      return fileSize.amount * this.values.kb;
+    } else if (fileSize.unit === 'MB') {
+      return fileSize.amount * this.values.mb;
+    } else if (fileSize.unit === 'GB') {
+      return fileSize.amount * this.values.gb;
+    } else {
+      return fileSize.amount;
+    }
+  },
+};

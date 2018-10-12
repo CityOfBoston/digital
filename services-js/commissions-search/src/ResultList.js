@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -24,7 +24,8 @@ class ResultList extends React.Component {
             "${this.props.submittedKeywords}",
             policyTypeIds: ${submittedItems},
             hasOpenSeats: ${
-      this.props.submittedSeats === 'seats-open' ? true : null}
+              this.props.submittedSeats === 'seats-open' ? true : null
+            }
         ) {
             id
             name
