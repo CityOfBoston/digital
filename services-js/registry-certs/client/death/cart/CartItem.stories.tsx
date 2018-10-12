@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import {
@@ -13,7 +13,7 @@ import {
 import CartItem from './CartItem';
 
 function makeProps(certificate) {
-  const cart = new Cart();
+  const cart = new DeathCertificateCart();
   const siteAnalytics = new SiteAnalytics();
 
   cart.setQuantity(certificate, 1);

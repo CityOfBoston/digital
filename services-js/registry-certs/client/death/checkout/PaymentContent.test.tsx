@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
 import PaymentContent from './PaymentContent';

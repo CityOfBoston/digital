@@ -16,7 +16,8 @@ import AppLayout from '../../AppLayout';
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
 
-interface Props extends Pick<PageDependencies, 'cart' | 'siteAnalytics'> {}
+interface Props
+  extends Pick<PageDependencies, 'deathCertificateCart' | 'siteAnalytics'> {}
 
 @observer
 class CartPage extends React.Component<Props> {
@@ -24,18 +25,18 @@ class CartPage extends React.Component<Props> {
   componentWillUnmount = action(
     'CartPageController componentWillUnmount',
     () => {
-      const { cart } = this.props;
-      cart.clean();
+      const { deathCertificateCart } = this.props;
+      deathCertificateCart.clean();
     }
   );
 
   render() {
-    const { cart, siteAnalytics } = this.props;
+    const { deathCertificateCart, siteAnalytics } = this.props;
 
-    const loading = !!cart.entries.find(({ cert }) => !cert);
+    const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
 
     return (
-      <AppLayout showNav cart={cart}>
+      <AppLayout showNav cart={deathCertificateCart}>
         <div className="b-ff">
           <Head>
             <title>Boston.gov — Death Certificate Cart</title>
@@ -60,18 +61,18 @@ class CartPage extends React.Component<Props> {
 
             <div className="b-ff">
               <div>
-                {cart.entries.map((entry, i) => (
+                {deathCertificateCart.entries.map((entry, i) => (
                   <CartItem
                     key={entry.id}
                     entry={entry}
-                    cart={cart}
+                    cart={deathCertificateCart}
                     siteAnalytics={siteAnalytics}
-                    lastRow={i === cart.entries.length - 1}
+                    lastRow={i === deathCertificateCart.entries.length - 1}
                   />
                 ))}
 
                 {loading && <div className="t--intro">Loading your cart…</div>}
-                {cart.entries.length === 0 && (
+                {deathCertificateCart.entries.length === 0 && (
                   <div>
                     <div className="t--intro">There’s nothing here yet!</div>
                     <p className="t--info">
@@ -82,10 +83,10 @@ class CartPage extends React.Component<Props> {
               </div>
             </div>
 
-            {cart.entries.length > 0 && (
+            {deathCertificateCart.entries.length > 0 && (
               <div className="m-t700">
                 <CostSummary
-                  cart={cart}
+                  cart={deathCertificateCart}
                   allowServiceFeeTypeChoice
                   serviceFeeType="CREDIT"
                 />
@@ -107,7 +108,7 @@ class CartPage extends React.Component<Props> {
             )}
           </div>
 
-          {cart.entries.length > 0 && (
+          {deathCertificateCart.entries.length > 0 && (
             <div className="b--g m-t700">
               <div id="service-fee" className="b-c b-c--smv t--subinfo">
                 * You are charged an extra service fee of no more than{' '}

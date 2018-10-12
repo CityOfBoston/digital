@@ -11,7 +11,7 @@ import {
   SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 
 import CertificateRow from '../../common/CertificateRow';
 import {

@@ -11,14 +11,14 @@ interface LocalStorageEntry {
   quantity: number;
 }
 
-export class CartEntry {
+export class DeathCertificateCartEntry {
   id: string = '';
   @observable.ref cert: DeathCertificate | null = null;
   @observable quantity: number = 0;
 }
 
-export default class Cart {
-  @observable entries: Array<CartEntry> = [];
+export default class DeathCertificateCart {
+  @observable entries: Array<DeathCertificateCartEntry> = [];
   @observable pendingFetches: number = 0;
 
   localStorageDisposer: Function | null = null;
@@ -41,7 +41,7 @@ export default class Cart {
           action(
             'hydrate entry from local storage start',
             ({ id, quantity }: LocalStorageEntry) => {
-              const entry = new CartEntry();
+              const entry = new DeathCertificateCartEntry();
               entry.id = id;
               entry.cert = null;
               entry.quantity = quantity;
@@ -153,7 +153,7 @@ export default class Cart {
       // disappear when you edit the values on the cart page.
       existingItem.quantity = filteredQuantity;
     } else {
-      const item = new CartEntry();
+      const item = new DeathCertificateCartEntry();
       item.id = cert.id;
       item.cert = cert;
       item.quantity = filteredQuantity;

@@ -20,7 +20,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'siteAnalytics' | 'cart'> {}
+    Pick<PageDependencies, 'siteAnalytics' | 'deathCertificateCart'> {}
 
 interface State {
   query: string;
@@ -111,11 +111,11 @@ class SearchPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { results, query: originalQuery, cart } = this.props;
+    const { results, query: originalQuery, deathCertificateCart } = this.props;
     const { query } = this.state;
 
     return (
-      <AppLayout showNav cart={cart}>
+      <AppLayout showNav cart={deathCertificateCart}>
         <div>
           <div className="b-c b-c--nbp">
             <Head>

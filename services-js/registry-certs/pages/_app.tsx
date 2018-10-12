@@ -11,7 +11,7 @@ import {
 } from '@cityofboston/next-client-common';
 
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
-import Cart from '../client/store/Cart';
+import DeathCertificateCart from '../client/store/DeathCertificateCart';
 import Accessibility from '../client/store/Accessibility';
 import OrderProvider from '../client/store/OrderProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
@@ -73,7 +73,7 @@ export type GetInitialProps<
 export interface PageDependencies extends GetInitialPropsDependencies {
   stripe: stripe.Stripe | null;
   checkoutDao: CheckoutDao;
-  cart: Cart;
+  deathCertificateCart: DeathCertificateCart;
   accessibility: Accessibility;
   routerListener: RouterListener;
   orderProvider: OrderProvider;
@@ -173,7 +173,7 @@ export default class RegistryCertsApp extends App {
 
     const initialPageDependencies = getInitialPageDependencies();
 
-    const cart = new Cart();
+    const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
     const siteAnalytics = new SiteAnalytics();
 
@@ -181,7 +181,7 @@ export default class RegistryCertsApp extends App {
       // We attach to localStorage in the constructor, rather than
       // componentDidMount, so that the information is available on first
       // render.
-      cart.attach(
+      deathCertificateCart.attach(
         window.localStorage,
         initialPageDependencies.deathCertificatesDao,
         siteAnalytics
@@ -205,7 +205,7 @@ export default class RegistryCertsApp extends App {
       routerListener: new RouterListener(),
       accessibility: new Accessibility(),
       siteAnalytics,
-      cart,
+      deathCertificateCart,
       orderProvider,
     };
   }

@@ -1,4 +1,4 @@
-import Cart from './Cart';
+import DeathCertificateCart from './DeathCertificateCart';
 
 jest.mock('../dao/DeathCertificatesDao');
 jest.mock('../lib/SiteAnalytics');
@@ -19,7 +19,7 @@ describe('setQuantity', () => {
   let cart;
 
   beforeEach(() => {
-    cart = new Cart();
+    cart = new DeathCertificateCart();
     cart.setQuantity(CERT_1, 1);
   });
 
@@ -41,7 +41,7 @@ describe('clean', () => {
   let cart;
 
   beforeEach(() => {
-    cart = new Cart();
+    cart = new DeathCertificateCart();
     cart.setQuantity(CERT_1, 0);
     cart.setQuantity(CERT_2, 5);
   });
@@ -59,7 +59,7 @@ describe('remove', () => {
   let cart;
 
   beforeEach(() => {
-    cart = new Cart();
+    cart = new DeathCertificateCart();
     cart.setQuantity(CERT_1, 1);
   });
 
@@ -82,7 +82,7 @@ describe('contains pending', () => {
   let cart;
 
   beforeEach(() => {
-    cart = new Cart();
+    cart = new DeathCertificateCart();
     cart.setQuantity(CERT_1, 1);
   });
 
@@ -101,7 +101,7 @@ describe('attach', () => {
   let localStorage: any;
   let deathCertificatesDao;
   let siteAnalytics;
-  let cart: Cart;
+  let cart: DeathCertificateCart;
 
   beforeEach(() => {
     localStorage = {
@@ -121,7 +121,7 @@ describe('attach', () => {
         })
     );
 
-    cart = new Cart();
+    cart = new DeathCertificateCart();
   });
 
   afterEach(() => {

@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 
 import AppLayout from '../../AppLayout';
 
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 

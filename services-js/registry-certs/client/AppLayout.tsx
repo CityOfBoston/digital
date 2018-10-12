@@ -9,7 +9,7 @@ const navigationHtml: string = require('../templates/navigation.html');
 const footerHtml: string = require('../templates/footer.html');
 
 import Nav from './common/Nav';
-import Cart from './store/Cart';
+import DeathCertificateCart from './store/DeathCertificateCart';
 
 import { FREEDOM_RED } from './common/style-constants';
 
@@ -20,7 +20,7 @@ type Props =
     }
   | {
       showNav: true;
-      cart: Cart;
+      cart: DeathCertificateCart;
     };
 
 const LAST_BREADCRUMB_STYLE = css({

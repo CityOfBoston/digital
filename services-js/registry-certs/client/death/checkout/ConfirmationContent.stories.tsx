@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ConfirmationContent from './ConfirmationContent';
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 
 storiesOf('ConfirmationContent', module).add('default', () => (
   <ConfirmationContent

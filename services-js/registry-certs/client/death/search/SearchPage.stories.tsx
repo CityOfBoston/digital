@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SiteAnalytics from '../../lib/SiteAnalytics';
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 import SearchPage from './SearchPage';
 
 import {
@@ -18,7 +18,7 @@ storiesOf('SearchPage', module)
       page={1}
       results={null}
       siteAnalytics={new SiteAnalytics()}
-      cart={new Cart()}
+      deathCertificateCart={new DeathCertificateCart()}
     />
   ))
   .add('no results', () => (
@@ -33,7 +33,7 @@ storiesOf('SearchPage', module)
         results: [],
       }}
       siteAnalytics={new SiteAnalytics()}
-      cart={new Cart()}
+      deathCertificateCart={new DeathCertificateCart()}
     />
   ))
   .add('with results', () => (
@@ -52,6 +52,6 @@ storiesOf('SearchPage', module)
         ],
       }}
       siteAnalytics={new SiteAnalytics()}
-      cart={new Cart()}
+      deathCertificateCart={new DeathCertificateCart()}
     />
   ));

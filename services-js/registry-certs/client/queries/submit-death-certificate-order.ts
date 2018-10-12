@@ -1,5 +1,5 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import Cart from '../store/Cart';
+import Cart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import {
