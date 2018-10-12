@@ -4,7 +4,7 @@ import { DeathCertificate } from '../types';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 import SiteAnalytics from '../lib/SiteAnalytics';
 
-import { CERTIFICATE_COST } from '../../lib/costs';
+import { DEATH_CERTIFICATE_COST } from '../../lib/costs';
 
 interface LocalStorageEntry {
   id: string;
@@ -110,7 +110,7 @@ export default class DeathCertificateCart {
         'Death certificate',
         'Death certificate',
         quantity,
-        CERTIFICATE_COST / 100
+        DEATH_CERTIFICATE_COST / 100
       );
     });
   }
@@ -143,7 +143,7 @@ export default class DeathCertificateCart {
         'Death certificate',
         'Death certificate',
         Math.abs(quantityChange),
-        CERTIFICATE_COST / 100
+        DEATH_CERTIFICATE_COST / 100
       );
       siteAnalytics.setProductAction(quantityChange < 0 ? 'remove' : 'add');
     }
@@ -173,7 +173,7 @@ export default class DeathCertificateCart {
           'Death certificate',
           'Death certificate',
           this.getQuantity(certId),
-          CERTIFICATE_COST / 100
+          DEATH_CERTIFICATE_COST / 100
         );
         siteAnalytics.setProductAction('remove');
       }

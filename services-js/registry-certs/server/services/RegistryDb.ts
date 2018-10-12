@@ -8,8 +8,13 @@ import fs from 'fs';
 import { promisify } from 'util';
 import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
+import RegistryDbFake from './RegistryDbFake';
 
 const readFile = promisify(fs.readFile);
+
+export enum OrderType {
+  DeathCertificate = 'DC',
+}
 
 export interface DeathCertificate {
   CertificateID: number;
@@ -119,14 +124,19 @@ export function splitKeys(
 
 export default class RegistryDb {
   protected pool: ConnectionPool;
-  protected lookupLoader: DataLoader<string, DeathCertificate | null>;
+  protected lookupDeathCertificateLoader: DataLoader<
+    string,
+    DeathCertificate | null
+  >;
 
   constructor(pool: ConnectionPool) {
     this.pool = pool;
-    this.lookupLoader = new DataLoader(keys => this.lookupLoaderFetch(keys));
+    this.lookupDeathCertificateLoader = new DataLoader(keys =>
+      this.lookupDeathCertificateLoaderFetch(keys)
+    );
   }
 
-  async search(
+  async searchDeathCertificates(
     name: string,
     page: number,
     pageSize: number,
@@ -152,12 +162,14 @@ export default class RegistryDb {
     return recordset;
   }
 
-  async lookup(id: string): Promise<DeathCertificate | null> {
-    return this.lookupLoader.load(id);
+  async lookupDeathCertificate(id: string): Promise<DeathCertificate | null> {
+    return this.lookupDeathCertificateLoader.load(id);
   }
 
   // "any" here is really DeathCertificate | null | Error
-  protected async lookupLoaderFetch(keys: Array<string>): Promise<Array<any>> {
+  protected async lookupDeathCertificateLoaderFetch(
+    keys: Array<string>
+  ): Promise<Array<any>> {
     // The api can only take 1000 characters of keys at once. We probably won't
     // run into that issue but just in case we split up and parallelize.
     const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
@@ -191,33 +203,36 @@ export default class RegistryDb {
     return keys.map(k => idToOutputMap[k]);
   }
 
-  async addOrder({
-    orderID,
-    orderDate,
-    contactName,
-    contactEmail,
-    contactPhone,
-    shippingName,
-    shippingCompany,
-    shippingAddr1,
-    shippingAddr2,
-    shippingCity,
-    shippingState,
-    shippingZIP,
-    billingName,
-    billingAddr1,
-    billingAddr2,
-    billingCity,
-    billingState,
-    billingZIP,
-    billingLast4,
-    serviceFee,
-    idempotencyKey,
-  }: AddOrderOptions): Promise<number> {
+  async addOrder(
+    orderType: OrderType,
+    {
+      orderID,
+      orderDate,
+      contactName,
+      contactEmail,
+      contactPhone,
+      shippingName,
+      shippingCompany,
+      shippingAddr1,
+      shippingAddr2,
+      shippingCity,
+      shippingState,
+      shippingZIP,
+      billingName,
+      billingAddr1,
+      billingAddr2,
+      billingCity,
+      billingState,
+      billingZIP,
+      billingLast4,
+      serviceFee,
+      idempotencyKey,
+    }: AddOrderOptions
+  ): Promise<number> {
     const resp: IResult<AddOrderResult> = await this.pool
       .request()
       .input('orderID', orderID)
-      .input('orderType', 'DC')
+      .input('orderType', orderType)
       .input('orderDate', orderDate)
       .input('contactName', contactName)
       .input('contactEmail', contactEmail)
@@ -256,6 +271,7 @@ export default class RegistryDb {
   }
 
   async addItem(
+    orderType: OrderType,
     orderKey: number,
     certificateId: number,
     certificateName: string,
@@ -265,7 +281,7 @@ export default class RegistryDb {
     const resp: IResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
-      .input('orderType', 'DC')
+      .input('orderType', orderType)
       .input('certificateID', certificateId)
       .input('certificateName', certificateName)
       .input('quantity', quantity)
@@ -353,40 +369,6 @@ export async function makeRegistryDbFactory(
   return new RegistryDbFactory(pool);
 }
 
-export class FixtureRegistryDb implements Required<RegistryDb> {
-  data: Array<DeathCertificateSearchResult>;
-
-  constructor(data: Array<DeathCertificateSearchResult>) {
-    this.data = data;
-  }
-
-  async search(
-    _query: string,
-    page: number,
-    pageSize: number
-  ): Promise<Array<DeathCertificateSearchResult>> {
-    return this.data.slice(page * pageSize, (page + 1) * pageSize);
-  }
-
-  async lookup(id: string): Promise<DeathCertificate | null> {
-    return this.data.find(res => res.CertificateID.toString() === id)!;
-  }
-
-  async addOrder(): Promise<number> {
-    return 50;
-  }
-
-  async addItem(): Promise<void> {}
-  async addPayment(): Promise<void> {}
-
-  async findOrder(): Promise<FindOrderResult | null> {
-    const orderFixture = require('../../fixtures/registry-orders/order.json');
-    return orderFixture;
-  }
-
-  async cancelOrder(): Promise<void> {}
-}
-
 export async function makeFixtureRegistryDbFactory(
   fixtureName: string
 ): Promise<RegistryDbFactory> {
@@ -395,7 +377,7 @@ export async function makeFixtureRegistryDbFactory(
 
   return {
     registryData() {
-      return new FixtureRegistryDb(json);
+      return new RegistryDbFake(json);
     },
 
     cleanup() {

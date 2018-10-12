@@ -5,7 +5,8 @@ import { css } from 'emotion';
 import {
   calculateCreditCardCost,
   calculateDebitCardCost,
-  CERTIFICATE_COST_STRING,
+  DEATH_CERTIFICATE_COST_STRING,
+  DEATH_CERTIFICATE_COST,
 } from '../../lib/costs';
 
 import DeathCertificateCart from '../store/DeathCertificateCart';
@@ -92,8 +93,8 @@ export default class CostSummary extends React.Component<Props, State> {
     const { serviceFeeType } = this.state;
 
     return serviceFeeType === 'CREDIT'
-      ? calculateCreditCardCost(cart.size)
-      : calculateDebitCardCost(cart.size);
+      ? calculateCreditCardCost(DEATH_CERTIFICATE_COST, cart.size)
+      : calculateDebitCardCost(DEATH_CERTIFICATE_COST, cart.size);
   }
 
   render() {
@@ -107,7 +108,7 @@ export default class CostSummary extends React.Component<Props, State> {
             <tr>
               <td>
                 {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
-                {CERTIFICATE_COST_STRING}
+                {DEATH_CERTIFICATE_COST_STRING}
               </td>
               <td className={COST_CELL_STYLE}>
                 ${(subtotal / 100).toFixed(2)}

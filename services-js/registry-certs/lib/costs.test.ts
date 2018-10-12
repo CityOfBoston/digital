@@ -2,6 +2,7 @@ import {
   FIXED_CC_SERVICE_FEE,
   PERCENTAGE_CC_SERVICE_FEE,
   calculateCreditCardCost,
+  DEATH_CERTIFICATE_COST,
 } from './costs';
 
 // We run this over a bunch of different amounts to verify that, after rounding
@@ -9,7 +10,10 @@ import {
 // with the right certificate cost for Registry.
 it(`calculates service fee correctly for certificates`, () => {
   for (let q = 0; q < 100; ++q) {
-    const { total, serviceFee, subtotal } = calculateCreditCardCost(q);
+    const { total, serviceFee, subtotal } = calculateCreditCardCost(
+      DEATH_CERTIFICATE_COST,
+      q
+    );
 
     // Stripe rounding: https://support.stripe.com/questions/what-rules-do-you-use-for-rounding-stripe-fees
     const stripesCut = Math.round(

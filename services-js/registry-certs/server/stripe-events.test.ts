@@ -1,26 +1,32 @@
 import { processStripeEvent } from './stripe-events';
 
-import RegistryDb from './services/RegistryDb';
+import { DeathCertificateSearchResult } from './services/RegistryDb';
 
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
 import ORDER from '../fixtures/registry-orders/order.json';
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
+import RegistryDbFake from './services/RegistryDbFake';
 
 describe('charge.created', () => {
   let emails;
   let stripe;
-  let registryDb: RegistryDb;
+  let registryDb: RegistryDbFake;
 
   beforeEach(() => {
     emails = {
       sendReceiptEmail: jest.fn(),
     } as any;
     stripe = {} as any;
-    registryDb = {
-      lookup: () => CERTIFICATES[0],
-      findOrder: () => ORDER,
-      addPayment: jest.fn(),
-    } as any;
+
+    registryDb = new RegistryDbFake(
+      CERTIFICATES as DeathCertificateSearchResult[]
+    );
+
+    jest
+      .spyOn(registryDb, 'lookupDeathCertificate')
+      .mockReturnValue(Promise.resolve(CERTIFICATES[0]));
+    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+    jest.spyOn(registryDb, 'addPayment');
   });
 
   it('marks the order as paid', async () => {
@@ -28,7 +34,7 @@ describe('charge.created', () => {
       {
         emails,
         stripe,
-        registryDb,
+        registryDb: registryDb as any,
       },
       '',
       '',
@@ -48,7 +54,7 @@ describe('charge.created', () => {
       {
         emails,
         stripe,
-        registryDb,
+        registryDb: registryDb as any,
       },
       '',
       '',

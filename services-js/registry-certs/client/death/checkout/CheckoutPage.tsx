@@ -12,7 +12,7 @@ import ShippingContent from './ShippingContent';
 import PaymentContent from './PaymentContent';
 import ReviewContent from './ReviewContent';
 import ConfirmationContent from './ConfirmationContent';
-import { CERTIFICATE_COST } from '../../../lib/costs';
+import { DEATH_CERTIFICATE_COST } from '../../../lib/costs';
 
 type PageInfo =
   | {
@@ -210,7 +210,7 @@ class CheckoutPageController extends React.Component<Props> {
       deathCertificateCart.trackCartItems();
       siteAnalytics.setProductAction('purchase', {
         id: orderId,
-        revenue: deathCertificateCart.size * CERTIFICATE_COST / 100,
+        revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
       });
       siteAnalytics.sendEvent('UX', 'click', 'submit order');
 

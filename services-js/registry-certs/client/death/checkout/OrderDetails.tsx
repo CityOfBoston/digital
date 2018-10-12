@@ -4,11 +4,12 @@ import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import { css } from 'emotion';
 
 import {
-  CERTIFICATE_COST_STRING,
+  DEATH_CERTIFICATE_COST_STRING,
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
   calculateCreditCardCost,
   SERVICE_FEE_URI,
+  DEATH_CERTIFICATE_COST,
 } from '../../../lib/costs';
 
 import Cart from '../../store/DeathCertificateCart';
@@ -138,8 +139,9 @@ export default class OrderDetails extends React.Component<Props, State> {
             <h2 className="stp">Order details</h2>
             <div className="t--info">
               {cart.size} {cart.size === 1 ? 'item' : 'items'} ×{' '}
-              {CERTIFICATE_COST_STRING} = ${(
-                calculateCreditCardCost(cart.size).subtotal / 100
+              {DEATH_CERTIFICATE_COST_STRING} = ${(
+                calculateCreditCardCost(DEATH_CERTIFICATE_COST, cart.size)
+                  .subtotal / 100
               ).toFixed(2)}{' '}
               + service fee*
             </div>
