@@ -8,6 +8,7 @@ import { DeathCertificate, DeathCertificateSearchResults } from '../../types';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
+import Cart from '../../store/Cart';
 import SearchPage from './SearchPage';
 
 import {
@@ -36,17 +37,15 @@ const TEST_SEARCH_RESULTS: DeathCertificateSearchResults = {
 
 describe('getInitialProps', () => {
   let deathCertificatesDao;
-  let siteAnalytics;
 
   beforeEach(() => {
     deathCertificatesDao = new DeathCertificatesDao(null as any);
-    siteAnalytics = new SiteAnalytics();
   });
 
   it('works with no query', async () => {
     const initialProps = await SearchPage.getInitialProps(
-      { query: {} } as any,
-      { deathCertificatesDao, siteAnalytics } as any
+      { query: {} },
+      { deathCertificatesDao }
     );
 
     expect(initialProps).toMatchSnapshot();
@@ -56,8 +55,8 @@ describe('getInitialProps', () => {
     deathCertificatesDao.search.mockReturnValue(TEST_SEARCH_RESULTS);
 
     const initialProps = await SearchPage.getInitialProps(
-      { query: { q: 'Monkey Joe' } } as any,
-      { deathCertificatesDao, siteAnalytics } as any
+      { query: { q: 'Monkey Joe' } },
+      { deathCertificatesDao }
     );
 
     expect(initialProps).toMatchSnapshot();
@@ -69,7 +68,13 @@ describe('operations', () => {
   let component;
 
   beforeEach(() => {
-    component = new SearchPage({} as any);
+    component = new SearchPage({
+      page: 1,
+      query: '',
+      results: null,
+      siteAnalytics: new SiteAnalytics(),
+      cart: new Cart(),
+    });
   });
 
   describe('submitSearch', () => {
@@ -90,7 +95,13 @@ describe('content', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <SearchPage query={'Jayn Doe'} page={1} results={null} />
+      <SearchPage
+        query={'Jayn Doe'}
+        page={1}
+        results={null}
+        siteAnalytics={new SiteAnalytics()}
+        cart={new Cart()}
+      />
     );
   });
 

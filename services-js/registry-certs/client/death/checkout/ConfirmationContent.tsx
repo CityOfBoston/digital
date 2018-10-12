@@ -4,19 +4,21 @@ import Link from 'next/link';
 import { observer } from 'mobx-react';
 
 import AppLayout from '../../AppLayout';
+import Cart from '../../store/Cart';
 
 export interface Props {
   orderId: string;
   contactEmail: string;
+  cart: Cart;
 }
 
 @observer
 export default class ConfirmationContent extends React.Component<Props> {
   render() {
-    const { orderId, contactEmail } = this.props;
+    const { orderId, contactEmail, cart } = this.props;
 
     return (
-      <AppLayout showNav>
+      <AppLayout showNav cart={cart}>
         <div className="b-c">
           <Head>
             <title>Boston.gov — Death Certificate Order Complete</title>

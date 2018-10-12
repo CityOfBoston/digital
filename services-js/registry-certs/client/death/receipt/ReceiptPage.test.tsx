@@ -18,9 +18,10 @@ describe('getInitialProps', () => {
 
     const initialProps = await ReceiptPage.getInitialProps(
       {
+        res: undefined,
         query: { id: 'RG-DC201801-360926', contactEmail: 'nancy@mew.org' },
-      } as any,
-      { deathCertificatesDao } as any
+      },
+      { deathCertificatesDao }
     );
 
     expect(deathCertificatesDao.lookupOrder).toHaveBeenCalledWith(
@@ -35,9 +36,10 @@ describe('getInitialProps', () => {
 
     const initialProps = await ReceiptPage.getInitialProps(
       {
+        res: undefined,
         query: { id: 'RG-DC201801-360926', contactEmail: 'nancy@mew.org' },
-      } as any,
-      { deathCertificatesDao } as any
+      },
+      { deathCertificatesDao }
     );
 
     expect(deathCertificatesDao.lookupOrder).toHaveBeenCalledWith(

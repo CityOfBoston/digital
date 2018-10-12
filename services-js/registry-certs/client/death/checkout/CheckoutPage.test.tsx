@@ -1,8 +1,11 @@
 import Router from 'next/router';
 
-import CheckoutPage from './CheckoutPage';
+import CheckoutPage, { PageDependenciesProps } from './CheckoutPage';
 import CheckoutDao from '../../dao/CheckoutDao';
 import OrderProvider from '../../store/OrderProvider';
+import Accessibility from '../../store/Accessibility';
+import SiteAnalytics from '../../lib/SiteAnalytics';
+import Cart from '../../store/Cart';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -21,54 +24,65 @@ describe('getInitialProps', () => {
     };
   });
 
-  it('treats no page query param as shipping', () => {
-    const initialProps = CheckoutPage.getInitialProps({
-      res,
-      query: {},
-    } as any);
-
+  it('treats no page query param as shipping', async () => {
+    const initialProps = await CheckoutPage.getInitialProps(
+      { res, query: {} },
+      {}
+    );
     expect(initialProps.info.page).toEqual('shipping');
   });
 
-  it('process payment on server', () => {
-    const initialProps = CheckoutPage.getInitialProps({
-      query: { page: 'payment' },
-    } as any);
+  it('process payment on server', async () => {
+    const initialProps = await CheckoutPage.getInitialProps(
+      { res, query: { page: 'payment' } },
+      {}
+    );
 
     expect(initialProps.info.page).toEqual('payment');
   });
 
-  it('redirects payment on server back to shipping', () => {
-    CheckoutPage.getInitialProps({ res, query: { page: 'payment' } } as any);
+  it('redirects payment on server back to shipping', async () => {
+    await CheckoutPage.getInitialProps({ res, query: { page: 'payment' } }, {});
 
     expect(res.writeHead).toHaveBeenCalled();
   });
 
-  it('redirects unknown page query param to shipping on server', () => {
-    CheckoutPage.getInitialProps({
-      res,
-      query: { page: 'not-a-real-page' },
-    } as any);
+  it('redirects unknown page query param to shipping on server', async () => {
+    await CheckoutPage.getInitialProps(
+      {
+        res,
+        query: { page: 'not-a-real-page' },
+      },
+      {}
+    );
 
     expect(res.writeHead).toHaveBeenCalled();
   });
 
-  it('treats unknown page query param as shipping on client', () => {
-    const initialProps = CheckoutPage.getInitialProps({
-      query: { page: 'not-a-real-page' },
-    } as any);
+  it('treats unknown page query param as shipping on client', async () => {
+    const initialProps = await CheckoutPage.getInitialProps(
+      {
+        res: undefined,
+        query: { page: 'not-a-real-page' },
+      },
+      {}
+    );
 
     expect(initialProps.info.page).toEqual('shipping');
   });
 
-  it('passes confirm props along', () => {
-    const initialProps = CheckoutPage.getInitialProps({
-      query: {
-        page: 'confirmation',
-        orderId: '123-456-7',
-        contactEmail: 'ttoe@squirrelzone.net',
+  it('passes confirm props along', async () => {
+    const initialProps = await CheckoutPage.getInitialProps(
+      {
+        res: undefined,
+        query: {
+          page: 'confirmation',
+          orderId: '123-456-7',
+          contactEmail: 'ttoe@squirrelzone.net',
+        },
       },
-    } as any);
+      {}
+    );
 
     expect(initialProps.info).toEqual({
       page: 'confirmation',
@@ -79,11 +93,24 @@ describe('getInitialProps', () => {
 });
 
 describe('rendering', () => {
+  let pageDependenciesProps: PageDependenciesProps;
+
+  beforeEach(() => {
+    pageDependenciesProps = {
+      accessibility: new Accessibility(),
+      cart: new Cart(),
+      checkoutDao: {} as any,
+      orderProvider: new OrderProvider(),
+      siteAnalytics: new SiteAnalytics(),
+      stripe: null,
+    };
+  });
+
   it('renders shipping', () => {
     expect(
       new CheckoutPage({
         info: { page: 'shipping' },
-        ...CheckoutPage.defaultProps,
+        ...pageDependenciesProps,
       }).render()
     ).toMatchSnapshot();
   });
@@ -92,7 +119,7 @@ describe('rendering', () => {
     expect(
       new CheckoutPage({
         info: { page: 'payment' },
-        ...CheckoutPage.defaultProps,
+        ...pageDependenciesProps,
       }).render()
     ).toMatchSnapshot();
   });
@@ -101,7 +128,7 @@ describe('rendering', () => {
     expect(
       new CheckoutPage({
         info: { page: 'review' },
-        ...CheckoutPage.defaultProps,
+        ...pageDependenciesProps,
       }).render()
     ).toMatchSnapshot();
   });
@@ -114,7 +141,7 @@ describe('rendering', () => {
           orderId: '123-456-7',
           contactEmail: 'ttoe@squirrelzone.net',
         },
-        ...CheckoutPage.defaultProps,
+        ...pageDependenciesProps,
       }).render()
     ).toMatchSnapshot();
   });
@@ -134,7 +161,11 @@ describe('operations', () => {
 
     // page doesn't really matter for this
     component = new CheckoutPage({
-      ...CheckoutPage.defaultProps,
+      accessibility: new Accessibility(),
+      cart: new Cart(),
+      siteAnalytics: new SiteAnalytics(),
+      stripe: null,
+
       info: { page: 'shipping' },
       orderProvider,
       checkoutDao,

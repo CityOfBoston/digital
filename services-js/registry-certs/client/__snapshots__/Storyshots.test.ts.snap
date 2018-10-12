@@ -638,7 +638,7 @@ exports[`Storyshots CartPage loading 1`] = `
               <span
                 className="css-3x05v8"
               >
-                0
+                8
               </span>
             </a>
           </div>
@@ -1108,7 +1108,7 @@ exports[`Storyshots CartPage normal page 1`] = `
               <span
                 className="css-3x05v8"
               >
-                0
+                5
               </span>
             </a>
           </div>
@@ -1713,7 +1713,7 @@ exports[`Storyshots CertificatePage certificate in cart 1`] = `
               <span
                 className="css-3x05v8"
               >
-                0
+                5
               </span>
             </a>
           </div>

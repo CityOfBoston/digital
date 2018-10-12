@@ -6,11 +6,8 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { css } from 'emotion';
 
-import { getDependencies, ClientContext, ClientDependencies } from '../../app';
+import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import { DeathCertificate } from '../../types';
-
-import Cart from '../../store/Cart';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import {
   CERTIFICATE_COST_STRING,
@@ -21,18 +18,15 @@ import {
 
 import AppLayout from '../../AppLayout';
 
-interface DefaultProps {
-  cart: Cart;
-  siteAnalytics: SiteAnalytics;
-}
-
 interface InitialProps {
   id: string;
   certificate: DeathCertificate | null;
   backUrl: string | null;
 }
 
-interface Props extends InitialProps, Partial<DefaultProps> {}
+interface Props
+  extends InitialProps,
+    Pick<PageDependencies, 'cart' | 'siteAnalytics'> {}
 
 interface State {
   quantity: number | null;
@@ -73,25 +67,15 @@ const QUANTITY_DROPDOWN_STYLE = css({
 });
 
 @observer
-class CertificatePage extends React.Component<Props & DefaultProps, State> {
+class CertificatePage extends React.Component<Props, State> {
   state: State;
   quantityField: HTMLInputElement | null = null;
 
-  static get defaultProps(): DefaultProps {
-    const { cart, siteAnalytics } = getDependencies();
-    return { cart, siteAnalytics };
-  }
-
-  static async getInitialProps(
-    ctx: ClientContext,
-    dependenciesForTest?: ClientDependencies
-  ): Promise<InitialProps> {
-    const {
-      query: { id, backUrl },
-      res,
-    } = ctx;
-    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
-
+  static getInitialProps: GetInitialProps<
+    InitialProps,
+    'query' | 'res',
+    'deathCertificatesDao'
+  > = async ({ query: { id, backUrl }, res }, { deathCertificatesDao }) => {
     if (!id) {
       throw new Error('Missing id');
     }
@@ -107,9 +91,9 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
       certificate,
       backUrl,
     };
-  }
+  };
 
-  constructor(props: Props & DefaultProps) {
+  constructor(props: Props) {
     super(props);
 
     const { id, cart } = props;
@@ -181,7 +165,7 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
   };
 
   render() {
-    const { id, certificate, backUrl } = this.props;
+    const { id, certificate, backUrl, cart } = this.props;
 
     const { firstName, lastName } = certificate || {
       firstName: null,
@@ -193,7 +177,7 @@ class CertificatePage extends React.Component<Props & DefaultProps, State> {
       : null;
 
     return (
-      <AppLayout showNav>
+      <AppLayout showNav cart={cart}>
         <div className="b-ff">
           <Head>
             <title>

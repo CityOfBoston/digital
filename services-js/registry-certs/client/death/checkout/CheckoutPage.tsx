@@ -5,14 +5,7 @@ import { reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
-import { getDependencies, ClientContext } from '../../app';
-
-import CheckoutDao from '../../dao/CheckoutDao';
-import Accessibility from '../../store/Accessibility';
-import Cart from '../../store/Cart';
-import OrderProvider from '../../store/OrderProvider';
-import SiteAnalytics from '../../lib/SiteAnalytics';
-
+import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order from '../../models/Order';
 
 import ShippingContent from './ShippingContent';
@@ -37,44 +30,28 @@ type PageInfo =
       contactEmail: string;
     };
 
-interface DefaultProps {
-  accessibility: Accessibility;
-  cart: Cart;
-  siteAnalytics: SiteAnalytics;
-  orderProvider: OrderProvider;
-  checkoutDao: CheckoutDao;
-  stripe: stripe.Stripe | null;
-}
-
 interface InitialProps {
   info: PageInfo;
 }
 
-interface Props extends InitialProps, Partial<DefaultProps> {}
+export type PageDependenciesProps = Pick<
+  PageDependencies,
+  | 'accessibility'
+  | 'cart'
+  | 'siteAnalytics'
+  | 'orderProvider'
+  | 'checkoutDao'
+  | 'stripe'
+>;
+
+interface Props extends InitialProps, PageDependenciesProps {}
 
 @observer
-class CheckoutPageController extends React.Component<Props & DefaultProps> {
-  static get defaultProps(): DefaultProps {
-    const {
-      accessibility,
-      cart,
-      orderProvider,
-      checkoutDao,
-      stripe,
-      siteAnalytics,
-    } = getDependencies();
-
-    return {
-      accessibility,
-      cart,
-      orderProvider,
-      checkoutDao,
-      stripe,
-      siteAnalytics,
-    };
-  }
-
-  static getInitialProps({ query, res }: ClientContext): InitialProps {
+class CheckoutPageController extends React.Component<Props> {
+  static getInitialProps: GetInitialProps<InitialProps, 'query' | 'res'> = ({
+    query,
+    res,
+  }) => {
     let info: PageInfo;
     let redirectToShippingIfServer = false;
 
@@ -121,7 +98,7 @@ class CheckoutPageController extends React.Component<Props & DefaultProps> {
     }
 
     return { info };
-  }
+  };
 
   // This wil persist across different sub-pages since React will preserve the
   // component instance. This will keep the form fields filled out as the user
@@ -165,7 +142,7 @@ class CheckoutPageController extends React.Component<Props & DefaultProps> {
     }
   }
 
-  componentWillReceiveProps(newProps: Props & DefaultProps) {
+  componentWillReceiveProps(newProps: Props) {
     this.redirectIfMissingOrderInfo(newProps);
 
     if (newProps.info.page !== this.props.info.page) {
@@ -173,7 +150,7 @@ class CheckoutPageController extends React.Component<Props & DefaultProps> {
     }
   }
 
-  reportCheckoutStep({ info, cart, siteAnalytics }: Props & DefaultProps) {
+  reportCheckoutStep({ info, cart, siteAnalytics }: Props) {
     let checkoutStep: number | null = null;
     switch (info.page) {
       case 'shipping':
@@ -291,6 +268,7 @@ class CheckoutPageController extends React.Component<Props & DefaultProps> {
           <ConfirmationContent
             orderId={info.orderId}
             contactEmail={info.contactEmail}
+            cart={cart}
           />
         );
     }

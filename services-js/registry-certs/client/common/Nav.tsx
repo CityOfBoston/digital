@@ -3,15 +3,12 @@ import Link from 'next/link';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
-import { getDependencies } from '../app';
 import Cart from '../store/Cart';
 import { CHARLES_BLUE, SERIF } from './style-constants';
 
-interface DefaultProps {
+interface Props {
   cart: Cart;
 }
-
-interface Props extends Partial<DefaultProps> {}
 
 const BAR_STYLE = css({
   display: 'flex',
@@ -57,12 +54,7 @@ const CART_STYLE = css({
 });
 
 @observer
-class Nav extends React.Component<Props & DefaultProps> {
-  static get defaultProps(): DefaultProps {
-    const { cart } = getDependencies();
-    return { cart };
-  }
-
+class Nav extends React.Component<Props> {
   render() {
     const { cart } = this.props;
 

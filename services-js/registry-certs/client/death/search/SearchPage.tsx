@@ -3,10 +3,8 @@ import Head from 'next/head';
 import Router from 'next/router';
 import { css } from 'emotion';
 
-import { getDependencies, ClientContext, ClientDependencies } from '../../app';
 import { DeathCertificateSearchResults } from '../../types';
-
-import SiteAnalytics from '../../lib/SiteAnalytics';
+import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 
 import AppLayout from '../../AppLayout';
 
@@ -14,17 +12,15 @@ import Pagination from '../../common/Pagination';
 
 import SearchResult from './SearchResult';
 
-interface DefaultProps {
-  siteAnalytics: SiteAnalytics;
-}
-
 interface InitialProps {
   query: string;
   page: number;
   results: DeathCertificateSearchResults | null;
 }
 
-interface Props extends InitialProps, Partial<DefaultProps> {}
+interface Props
+  extends InitialProps,
+    Pick<PageDependencies, 'siteAnalytics' | 'cart'> {}
 
 interface State {
   query: string;
@@ -38,21 +34,14 @@ const HELP_LIST_STYLE = css({
   },
 });
 
-class SearchPage extends React.Component<Props & DefaultProps, State> {
-  static get defaultProps(): DefaultProps {
-    const { siteAnalytics } = getDependencies();
-    return { siteAnalytics };
-  }
-
+class SearchPage extends React.Component<Props, State> {
   queryField: HTMLInputElement | null = null;
 
-  static async getInitialProps(
-    ctx: ClientContext,
-    dependenciesForTest?: ClientDependencies
-  ): Promise<InitialProps> {
-    const { query } = ctx;
-    const { deathCertificatesDao } = dependenciesForTest || getDependencies();
-
+  static getInitialProps: GetInitialProps<
+    InitialProps,
+    'query',
+    'deathCertificatesDao'
+  > = async ({ query }, { deathCertificatesDao }) => {
     let q = query.q || '';
     let page = 1;
 
@@ -69,9 +58,9 @@ class SearchPage extends React.Component<Props & DefaultProps, State> {
       page,
       results,
     };
-  }
+  };
 
-  constructor(props: Props & DefaultProps) {
+  constructor(props: Props) {
     super(props);
 
     const { query } = props;
@@ -122,11 +111,11 @@ class SearchPage extends React.Component<Props & DefaultProps, State> {
   };
 
   render() {
-    const { results, query: originalQuery } = this.props;
+    const { results, query: originalQuery, cart } = this.props;
     const { query } = this.state;
 
     return (
-      <AppLayout showNav>
+      <AppLayout showNav cart={cart}>
         <div>
           <div className="b-c b-c--nbp">
             <Head>

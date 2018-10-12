@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
+import SiteAnalytics from '../../lib/SiteAnalytics';
 import Cart from '../../store/Cart';
 
 import CartPage from './CartPage';
@@ -41,6 +42,12 @@ function makeCart(loading: boolean) {
 }
 
 storiesOf('CartPage', module)
-  .add('loading', () => <CartPage cart={makeCart(true)} />)
-  .add('normal page', () => <CartPage cart={makeCart(false)} />)
-  .add('empty cart', () => <CartPage cart={new Cart()} />);
+  .add('loading', () => (
+    <CartPage cart={makeCart(true)} siteAnalytics={new SiteAnalytics()} />
+  ))
+  .add('normal page', () => (
+    <CartPage cart={makeCart(false)} siteAnalytics={new SiteAnalytics()} />
+  ))
+  .add('empty cart', () => (
+    <CartPage cart={new Cart()} siteAnalytics={new SiteAnalytics()} />
+  ));

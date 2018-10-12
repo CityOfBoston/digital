@@ -24,8 +24,8 @@ describe('getInitialProps', () => {
     deathCertificatesDao.get.mockReturnValue(TYPICAL_CERTIFICATE);
 
     const initialProps = await CertificatePage.getInitialProps(
-      { query: { id: '000002' } } as any,
-      { deathCertificatesDao } as any
+      { query: { id: '000002' }, res: undefined },
+      { deathCertificatesDao }
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -36,8 +36,8 @@ describe('getInitialProps', () => {
     deathCertificatesDao.get.mockReturnValue(null);
 
     const initialProps = await CertificatePage.getInitialProps(
-      { query: { id: '000002' } } as any,
-      { deathCertificatesDao } as any
+      { query: { id: '000002' }, res: undefined },
+      { deathCertificatesDao }
     );
 
     expect(deathCertificatesDao.get).toHaveBeenCalledWith('000002');
@@ -101,6 +101,7 @@ describe('interface', () => {
     wrapper = shallow(
       <CertificatePage
         siteAnalytics={siteAnalytics}
+        cart={new Cart()}
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}

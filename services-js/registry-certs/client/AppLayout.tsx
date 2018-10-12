@@ -9,17 +9,25 @@ const navigationHtml: string = require('../templates/navigation.html');
 const footerHtml: string = require('../templates/footer.html');
 
 import Nav from './common/Nav';
+import Cart from './store/Cart';
+
 import { FREEDOM_RED } from './common/style-constants';
 
-interface Props {
-  showNav?: boolean;
-}
+// These props only require a Cart if showNav is true. Discriminated unions FTW.
+type Props =
+  | {
+      showNav?: false;
+    }
+  | {
+      showNav: true;
+      cart: Cart;
+    };
 
 const LAST_BREADCRUMB_STYLE = css({
   color: FREEDOM_RED,
 });
 
-const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
+const AppLayout: React.StatelessComponent<Props> = props => (
   <div>
     <a
       href="#content-start"
@@ -52,7 +60,7 @@ const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
 
     <div className="mn--full-ie">
       <div
-        className={`mn mn--full ${showNav ? 'mn--nv-s' : ''}`}
+        className={`mn mn--full ${props.showNav ? 'mn--nv-s' : ''}`}
         style={{ zIndex: 2 }}
       >
         <input type="checkbox" id="s-tr" className="s-tr" aria-hidden="true" />
@@ -62,7 +70,7 @@ const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
           dangerouslySetInnerHTML={{ __html: headerHtml }}
         />
 
-        {showNav && <Nav />}
+        {props.showNav && <Nav cart={props.cart} />}
 
         <nav className="brc p-a300" aria-label="Breadcrumbs">
           <ul className="brc-l">
@@ -89,7 +97,7 @@ const AppLayout: React.StatelessComponent<Props> = ({ children, showNav }) => (
         </nav>
 
         <div id="content-start" className="a11y--content-start" />
-        <main className="b-ff">{children}</main>
+        <main className="b-ff">{props.children}</main>
       </div>
     </div>
 
