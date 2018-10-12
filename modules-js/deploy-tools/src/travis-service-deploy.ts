@@ -28,7 +28,7 @@ const args = parseArgs(process.argv, { boolean: true });
 
 const dockerfilePath = args._.pop()!;
 
-const { environment, serviceName, variant } = parseBranch();
+const { environment, serviceName, variant } = parseBranch(args['branch']);
 
 // If true, runs Docker in the service’s own directory. Use for things like Ruby
 // apps that don't pull in the whole JS monorepo.
@@ -101,6 +101,10 @@ const cacheTag = 'latest';
     `${repository}:${cacheTag}`,
     buildTags
   );
+
+  if (args['buildOnly']) {
+    return;
+  }
 
   console.error('');
 

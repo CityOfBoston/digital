@@ -20,4 +20,5 @@ const start = require('./server.js').default;
 
 start({ rollbar }).catch(err => {
   console.error('Error starting server', err);
+  process.exit(-1);
 });
