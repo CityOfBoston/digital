@@ -1,7 +1,8 @@
 import MockDate from 'mockdate';
 
 import { resolvers, parseAgeOrDateOfBirth } from './death-certificates';
-import RegistryDb, { FixtureRegistryDb } from '../services/RegistryDb';
+import RegistryDb from '../services/RegistryDb';
+import RegistryDbFake from '../services/RegistryDbFake';
 
 import fixtureData from '../../fixtures/registry-data/smith.json';
 
@@ -19,7 +20,7 @@ describe('DeathCertificates resolvers', () => {
   let registryDb: RegistryDb;
 
   beforeEach(() => {
-    registryDb = new FixtureRegistryDb(fixtureData as any) as any;
+    registryDb = new RegistryDbFake(fixtureData as any) as any;
   });
 
   describe('search', () => {

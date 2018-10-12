@@ -12,13 +12,14 @@ import {
 import { processChargeSucceeded } from '../stripe-events';
 
 import {
-  CERTIFICATE_COST,
+  DEATH_CERTIFICATE_COST,
   calculateCreditCardCost,
   calculateDebitCardCost,
 } from '../../lib/costs';
 
 import makePaymentValidator from '../../lib/validators/PaymentValidator';
 import makeShippingValidator from '../../lib/validators/ShippingValidator';
+import { OrderType } from '../services/RegistryDb';
 
 /** @graphql input */
 interface CertificateOrderItemInput {
@@ -156,8 +157,8 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     // These are all in cents, to match Stripe
     const { total, serviceFee } =
       token.card.funding === 'credit'
-        ? calculateCreditCardCost(totalQuantity)
-        : calculateDebitCardCost(totalQuantity);
+        ? calculateCreditCardCost(DEATH_CERTIFICATE_COST, totalQuantity)
+        : calculateDebitCardCost(DEATH_CERTIFICATE_COST, totalQuantity);
 
     const datePart = moment().format('YYYYMM');
 
@@ -167,7 +168,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const orderId = `RG-DC${datePart}-${randomPart}`;
     const orderDate = new Date();
 
-    const orderKey = await registryDb.addOrder({
+    const orderKey = await registryDb.addOrder(OrderType.DeathCertificate, {
       orderID: orderId,
       orderDate,
       contactName,
@@ -194,11 +195,12 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     await Promise.all(
       items.map(({ id, name, quantity }) =>
         registryDb.addItem(
+          OrderType.DeathCertificate,
           orderKey,
           parseInt(id, 10),
           name,
           quantity,
-          CERTIFICATE_COST / 100
+          DEATH_CERTIFICATE_COST / 100
         )
       )
     );
@@ -218,7 +220,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           'order.orderKey': orderKey.toString(),
           'order.source': 'registry',
           'order.quantity': totalQuantity.toString(),
-          'order.unitPrice': CERTIFICATE_COST.toString(),
+          'order.unitPrice': DEATH_CERTIFICATE_COST.toString(),
         },
       });
     } catch (e) {

@@ -179,7 +179,7 @@ export async function loadOrder(registryDb: RegistryDb, id: string) {
       cost: quantity * certificateCost,
       // Will only be executed if dereferenced.
       certificate: async () => {
-        const cert = await registryDb.lookup(id);
+        const cert = await registryDb.lookupDeathCertificate(id);
         return cert ? searchResultToDeathCertificate(cert) : null;
       },
     };
@@ -230,7 +230,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
 
     const results: Array<
       DeathCertificateSearchResult
-    > = await registryDb.search(
+    > = await registryDb.searchDeathCertificates(
       query,
       queryPage,
       queryPageSize,
@@ -250,7 +250,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
     };
   },
   certificate: async (_root, { id }, { registryDb }) => {
-    const res = await registryDb.lookup(id);
+    const res = await registryDb.lookupDeathCertificate(id);
 
     if (res) {
       return searchResultToDeathCertificate(res);
@@ -261,7 +261,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
   certificates: (_root, { ids }, { registryDb }) =>
     Promise.all(
       ids.map(async (id): Promise<DeathCertificate | null> => {
-        const res = await registryDb.lookup(id);
+        const res = await registryDb.lookupDeathCertificate(id);
         if (res) {
           return searchResultToDeathCertificate(res);
         } else {

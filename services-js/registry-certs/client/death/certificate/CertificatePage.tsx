@@ -10,7 +10,7 @@ import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import { DeathCertificate } from '../../types';
 
 import {
-  CERTIFICATE_COST_STRING,
+  DEATH_CERTIFICATE_COST_STRING,
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
   SERVICE_FEE_URI,
@@ -234,11 +234,11 @@ class CertificatePage extends React.Component<Props, State> {
 
           <div className="b--g m-t700">
             <div className="b-c b-c--smv t--subinfo">
-              Death certificates cost {CERTIFICATE_COST_STRING} each. That price
-              includes shipping. You will be charged an extra service fee of not
-              more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. That fee
-              goes directly to a third party to pay for the cost of card
-              processing. Learn more about{' '}
+              Death certificates cost {DEATH_CERTIFICATE_COST_STRING} each. That
+              price includes shipping. You will be charged an extra service fee
+              of not more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}.
+              That fee goes directly to a third party to pay for the cost of
+              card processing. Learn more about{' '}
               <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
               Boston.
             </div>
