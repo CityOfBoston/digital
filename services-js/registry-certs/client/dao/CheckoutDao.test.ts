@@ -1,6 +1,6 @@
 import { FetchGraphql } from '@cityofboston/next-client-common';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import CheckoutDao from './CheckoutDao';
@@ -13,7 +13,7 @@ let fetchGraphql: FetchGraphql;
 let stripe: stripe.Stripe;
 let dao: CheckoutDao;
 
-let cart: Cart;
+let cart: DeathCertificateCart;
 let order: Order;
 
 beforeEach(() => {
@@ -24,7 +24,7 @@ beforeEach(() => {
 
   dao = new CheckoutDao(fetchGraphql, stripe);
 
-  cart = new Cart();
+  cart = new DeathCertificateCart();
   order = new Order();
 });
 

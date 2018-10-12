@@ -8,7 +8,7 @@ import { DeathCertificate, DeathCertificateSearchResults } from '../../types';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 import SearchPage from './SearchPage';
 
 import {
@@ -73,7 +73,7 @@ describe('operations', () => {
       query: '',
       results: null,
       siteAnalytics: new SiteAnalytics(),
-      cart: new Cart(),
+      deathCertificateCart: new DeathCertificateCart(),
     });
   });
 
@@ -100,7 +100,7 @@ describe('content', () => {
         page={1}
         results={null}
         siteAnalytics={new SiteAnalytics()}
-        cart={new Cart()}
+        deathCertificateCart={new DeathCertificateCart()}
       />
     );
   });

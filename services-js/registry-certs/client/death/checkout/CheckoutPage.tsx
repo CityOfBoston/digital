@@ -37,7 +37,7 @@ interface InitialProps {
 export type PageDependenciesProps = Pick<
   PageDependencies,
   | 'accessibility'
-  | 'cart'
+  | 'deathCertificateCart'
   | 'siteAnalytics'
   | 'orderProvider'
   | 'checkoutDao'
@@ -150,7 +150,7 @@ class CheckoutPageController extends React.Component<Props> {
     }
   }
 
-  reportCheckoutStep({ info, cart, siteAnalytics }: Props) {
+  reportCheckoutStep({ info, deathCertificateCart, siteAnalytics }: Props) {
     let checkoutStep: number | null = null;
     switch (info.page) {
       case 'shipping':
@@ -165,7 +165,7 @@ class CheckoutPageController extends React.Component<Props> {
     }
 
     if (checkoutStep) {
-      cart.trackCartItems();
+      deathCertificateCart.trackCartItems();
       siteAnalytics.setProductAction('checkout', { step: checkoutStep });
     }
   }
@@ -202,20 +202,20 @@ class CheckoutPageController extends React.Component<Props> {
 
   submitOrder = async () => {
     const { order } = this;
-    const { cart, checkoutDao, siteAnalytics } = this.props;
+    const { deathCertificateCart, checkoutDao, siteAnalytics } = this.props;
 
-    const orderId = await checkoutDao.submit(cart, order);
+    const orderId = await checkoutDao.submit(deathCertificateCart, order);
 
     if (orderId) {
-      cart.trackCartItems();
+      deathCertificateCart.trackCartItems();
       siteAnalytics.setProductAction('purchase', {
         id: orderId,
-        revenue: cart.size * CERTIFICATE_COST / 100,
+        revenue: deathCertificateCart.size * CERTIFICATE_COST / 100,
       });
       siteAnalytics.sendEvent('UX', 'click', 'submit order');
 
       runInAction(() => {
-        cart.clear();
+        deathCertificateCart.clear();
         this.order = new Order();
       });
 
@@ -236,13 +236,13 @@ class CheckoutPageController extends React.Component<Props> {
 
   render() {
     const { order } = this;
-    const { info, cart, stripe } = this.props;
+    const { info, deathCertificateCart, stripe } = this.props;
 
     switch (info.page) {
       case 'shipping':
         return (
           <ShippingContent
-            cart={cart}
+            cart={deathCertificateCart}
             order={order}
             submit={this.advanceToPayment}
           />
@@ -252,7 +252,7 @@ class CheckoutPageController extends React.Component<Props> {
         return (
           <PaymentContent
             stripe={stripe}
-            cart={cart}
+            cart={deathCertificateCart}
             order={order}
             submit={this.advanceToReview}
           />
@@ -260,7 +260,11 @@ class CheckoutPageController extends React.Component<Props> {
 
       case 'review':
         return (
-          <ReviewContent cart={cart} order={order} submit={this.submitOrder} />
+          <ReviewContent
+            cart={deathCertificateCart}
+            order={order}
+            submit={this.submitOrder}
+          />
         );
 
       case 'confirmation':
@@ -268,7 +272,7 @@ class CheckoutPageController extends React.Component<Props> {
           <ConfirmationContent
             orderId={info.orderId}
             contactEmail={info.contactEmail}
-            cart={cart}
+            cart={deathCertificateCart}
           />
         );
     }

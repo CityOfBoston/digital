@@ -13,7 +13,7 @@ import {
   SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
 import CostSummary from '../../common/CostSummary';

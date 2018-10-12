@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 import { CHARLES_BLUE, SERIF } from './style-constants';
 
 interface Props {
-  cart: Cart;
+  cart: DeathCertificateCart;
 }
 
 const BAR_STYLE = css({

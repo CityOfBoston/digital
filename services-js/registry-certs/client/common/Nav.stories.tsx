@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Nav from './Nav';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 
-storiesOf('Nav', module).add('default', () => <Nav cart={new Cart()} />);
+storiesOf('Nav', module).add('default', () => (
+  <Nav cart={new DeathCertificateCart()} />
+));

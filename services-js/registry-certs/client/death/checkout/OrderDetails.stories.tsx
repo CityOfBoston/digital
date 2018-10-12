@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 
 import OrderDetails from './OrderDetails';
 

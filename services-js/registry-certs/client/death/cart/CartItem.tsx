@@ -3,16 +3,18 @@ import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
-import Cart, { CartEntry } from '../../store/Cart';
+import DeathCertificateCart, {
+  DeathCertificateCartEntry,
+} from '../../store/DeathCertificateCart';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CertificateRow from '../../common/CertificateRow';
 import { OPTIMISTIC_BLUE, FREEDOM_RED } from '../../common/style-constants';
 
 export interface Props {
-  cart: Cart;
+  cart: DeathCertificateCart;
   siteAnalytics: SiteAnalytics;
-  entry: CartEntry;
+  entry: DeathCertificateCartEntry;
   lastRow: boolean;
 }
 

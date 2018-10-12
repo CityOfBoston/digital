@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 
 import CostSummary from './CostSummary';
 
@@ -12,7 +12,7 @@ import {
 } from '../../fixtures/client/death-certificates';
 
 function makeCart() {
-  const cart = new Cart();
+  const cart = new DeathCertificateCart();
 
   cart.setQuantity(TYPICAL_CERTIFICATE, 1);
   cart.setQuantity(PENDING_CERTIFICATE, 3);

@@ -5,7 +5,7 @@ import CheckoutDao from '../../dao/CheckoutDao';
 import OrderProvider from '../../store/OrderProvider';
 import Accessibility from '../../store/Accessibility';
 import SiteAnalytics from '../../lib/SiteAnalytics';
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -98,7 +98,7 @@ describe('rendering', () => {
   beforeEach(() => {
     pageDependenciesProps = {
       accessibility: new Accessibility(),
-      cart: new Cart(),
+      deathCertificateCart: new DeathCertificateCart(),
       checkoutDao: {} as any,
       orderProvider: new OrderProvider(),
       siteAnalytics: new SiteAnalytics(),
@@ -162,7 +162,7 @@ describe('operations', () => {
     // page doesn't really matter for this
     component = new CheckoutPage({
       accessibility: new Accessibility(),
-      cart: new Cart(),
+      deathCertificateCart: new DeathCertificateCart(),
       siteAnalytics: new SiteAnalytics(),
       stripe: null,
 

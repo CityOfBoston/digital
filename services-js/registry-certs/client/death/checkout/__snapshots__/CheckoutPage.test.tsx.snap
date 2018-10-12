@@ -3,7 +3,7 @@
 exports[`rendering renders confirmation 1`] = `
 <ConfirmationContent
   cart={
-    Cart {
+    DeathCertificateCart {
       "localStorageDisposer": null,
       "siteAnalytics": null,
     }
@@ -16,7 +16,7 @@ exports[`rendering renders confirmation 1`] = `
 exports[`rendering renders payment 1`] = `
 <PaymentContent
   cart={
-    Cart {
+    DeathCertificateCart {
       "localStorageDisposer": null,
       "siteAnalytics": null,
     }
@@ -30,7 +30,7 @@ exports[`rendering renders payment 1`] = `
 exports[`rendering renders review 1`] = `
 <ReviewContent
   cart={
-    Cart {
+    DeathCertificateCart {
       "localStorageDisposer": null,
       "siteAnalytics": null,
     }
@@ -43,7 +43,7 @@ exports[`rendering renders review 1`] = `
 exports[`rendering renders shipping 1`] = `
 <ShippingContent
   cart={
-    Cart {
+    DeathCertificateCart {
       "localStorageDisposer": null,
       "siteAnalytics": null,
     }

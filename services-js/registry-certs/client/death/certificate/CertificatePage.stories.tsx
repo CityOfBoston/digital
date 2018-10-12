@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SiteAnalytics from '../../lib/SiteAnalytics';
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 import CertificatePage from './CertificatePage';
 
@@ -12,7 +12,7 @@ import {
 } from '../../../fixtures/client/death-certificates';
 
 const makeCart = (quantity: number) => {
-  const cart = new Cart();
+  const cart = new DeathCertificateCart();
 
   if (quantity) {
     cart.setQuantity(TYPICAL_CERTIFICATE, quantity);
@@ -27,7 +27,7 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      cart={makeCart(0)}
+      deathCertificateCart={makeCart(0)}
       siteAnalytics={new SiteAnalytics()}
     />
   ))
@@ -36,7 +36,7 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      cart={makeCart(5)}
+      deathCertificateCart={makeCart(5)}
       siteAnalytics={new SiteAnalytics()}
     />
   ))
@@ -45,7 +45,7 @@ storiesOf('CertificatePage', module)
       id={TYPICAL_CERTIFICATE.id}
       certificate={TYPICAL_CERTIFICATE}
       backUrl={null}
-      cart={makeCart(0)}
+      deathCertificateCart={makeCart(0)}
       siteAnalytics={new SiteAnalytics()}
     />
   ))
@@ -54,7 +54,7 @@ storiesOf('CertificatePage', module)
       id={PENDING_CERTIFICATE.id}
       certificate={PENDING_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
-      cart={makeCart(0)}
+      deathCertificateCart={makeCart(0)}
       siteAnalytics={new SiteAnalytics()}
     />
   ))
@@ -63,7 +63,7 @@ storiesOf('CertificatePage', module)
       id="200001"
       certificate={null}
       backUrl={'/search?q=Jayn'}
-      cart={makeCart(0)}
+      deathCertificateCart={makeCart(0)}
       siteAnalytics={new SiteAnalytics()}
     />
   ));

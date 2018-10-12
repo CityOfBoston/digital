@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
 import SiteAnalytics from '../../lib/SiteAnalytics';
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 import CartPage from './CartPage';
 
@@ -14,7 +14,7 @@ import {
 } from '../../../fixtures/client/death-certificates';
 
 function makeCart(loading: boolean) {
-  const cart = new Cart();
+  const cart = new DeathCertificateCart();
 
   if (loading) {
     runInAction(() => {
@@ -43,11 +43,20 @@ function makeCart(loading: boolean) {
 
 storiesOf('CartPage', module)
   .add('loading', () => (
-    <CartPage cart={makeCart(true)} siteAnalytics={new SiteAnalytics()} />
+    <CartPage
+      deathCertificateCart={makeCart(true)}
+      siteAnalytics={new SiteAnalytics()}
+    />
   ))
   .add('normal page', () => (
-    <CartPage cart={makeCart(false)} siteAnalytics={new SiteAnalytics()} />
+    <CartPage
+      deathCertificateCart={makeCart(false)}
+      siteAnalytics={new SiteAnalytics()}
+    />
   ))
   .add('empty cart', () => (
-    <CartPage cart={new Cart()} siteAnalytics={new SiteAnalytics()} />
+    <CartPage
+      deathCertificateCart={new DeathCertificateCart()}
+      siteAnalytics={new SiteAnalytics()}
+    />
   ));

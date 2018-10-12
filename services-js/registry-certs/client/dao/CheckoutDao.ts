@@ -2,7 +2,7 @@ import { action, runInAction } from 'mobx';
 
 import { FetchGraphql } from '@cityofboston/next-client-common';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
@@ -96,7 +96,10 @@ export default class CheckoutDao {
 
   // Does not reject. Instead stores errors in Order.processingError
   @action
-  async submit(cart: Cart, order: Order): Promise<string | null> {
+  async submit(
+    cart: DeathCertificateCart,
+    order: Order
+  ): Promise<string | null> {
     try {
       order.processing = true;
       order.processingError = null;

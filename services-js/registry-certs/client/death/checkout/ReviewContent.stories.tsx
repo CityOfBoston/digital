@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { DeathCertificate } from '../../types.js';
-import Cart from '../../store/Cart';
+import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
 import ReviewContent from './ReviewContent';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Cart from '../../store/Cart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 
 import CertificatePage from './CertificatePage';
@@ -61,12 +61,12 @@ describe('getInitialProps', () => {
       let component;
 
       beforeEach(() => {
-        cart = new Cart();
+        cart = new DeathCertificateCart();
         siteAnalytics = new SiteAnalytics();
 
         component = shallow(
           <CertificatePage
-            cart={cart}
+            deathCertificateCart={cart}
             siteAnalytics={siteAnalytics}
             id="0002"
             certificate={TYPICAL_CERTIFICATE}
@@ -101,7 +101,7 @@ describe('interface', () => {
     wrapper = shallow(
       <CertificatePage
         siteAnalytics={siteAnalytics}
-        cart={new Cart()}
+        deathCertificateCart={new DeathCertificateCart()}
         certificate={TYPICAL_CERTIFICATE}
         id={TYPICAL_CERTIFICATE.id}
         backUrl={'/search?q=jayne'}

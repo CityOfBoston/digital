@@ -1,28 +1,30 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Cart, { CartEntry } from '../../store/Cart';
+import DeathCertificateCart, {
+  DeathCertificateCartEntry,
+} from '../../store/DeathCertificateCart';
 import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CartItem from './CartItem';
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
-jest.mock('../../store/Cart');
+jest.mock('../../store/DeathCertificateCart');
 
 describe('quantity field', () => {
-  let entry: CartEntry;
+  let entry: DeathCertificateCartEntry;
   let cart;
   let siteAnalytics;
   let wrapper;
   let quantityField;
 
   beforeEach(() => {
-    entry = new CartEntry();
+    entry = new DeathCertificateCartEntry();
     entry.id = TYPICAL_CERTIFICATE.id;
     entry.cert = TYPICAL_CERTIFICATE;
     entry.quantity = 4;
 
-    cart = new Cart();
+    cart = new DeathCertificateCart();
     siteAnalytics = new SiteAnalytics();
 
     // mount because the quantity field is behind a render prop

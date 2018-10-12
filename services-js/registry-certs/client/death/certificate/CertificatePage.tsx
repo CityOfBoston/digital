@@ -26,7 +26,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'cart' | 'siteAnalytics'> {}
+    Pick<PageDependencies, 'deathCertificateCart' | 'siteAnalytics'> {}
 
 interface State {
   quantity: number | null;
@@ -96,10 +96,10 @@ class CertificatePage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    const { id, cart } = props;
+    const { id, deathCertificateCart } = props;
 
     this.state = {
-      quantity: cart.getQuantity(id) || 1,
+      quantity: deathCertificateCart.getQuantity(id) || 1,
     };
   }
 
@@ -113,15 +113,15 @@ class CertificatePage extends React.Component<Props, State> {
   setCartQuantity = action(
     'CertificatePageController setCartQuantity',
     async (quantity: number) => {
-      const { certificate, cart, siteAnalytics } = this.props;
+      const { certificate, deathCertificateCart, siteAnalytics } = this.props;
 
       if (certificate) {
         if (quantity === 0) {
-          cart.remove(certificate.id);
+          deathCertificateCart.remove(certificate.id);
 
           siteAnalytics.sendEvent('UX', 'click', 'add to cart');
         } else {
-          cart.setQuantity(certificate, quantity);
+          deathCertificateCart.setQuantity(certificate, quantity);
           siteAnalytics.sendEvent('UX', 'click', 'add to cart');
 
           await Router.push('/death/cart');
@@ -165,7 +165,7 @@ class CertificatePage extends React.Component<Props, State> {
   };
 
   render() {
-    const { id, certificate, backUrl, cart } = this.props;
+    const { id, certificate, backUrl, deathCertificateCart } = this.props;
 
     const { firstName, lastName } = certificate || {
       firstName: null,
@@ -177,7 +177,7 @@ class CertificatePage extends React.Component<Props, State> {
       : null;
 
     return (
-      <AppLayout showNav cart={cart}>
+      <AppLayout showNav cart={deathCertificateCart}>
         <div className="b-ff">
           <Head>
             <title>
@@ -301,10 +301,10 @@ class CertificatePage extends React.Component<Props, State> {
   }
 
   renderAddToCart() {
-    const { cart, id } = this.props;
+    const { deathCertificateCart, id } = this.props;
     const { quantity } = this.state;
 
-    const cartQuantity = cart.getQuantity(id);
+    const cartQuantity = deathCertificateCart.getQuantity(id);
 
     return (
       <form onSubmit={this.handleAddToCart} className={ADD_TO_CART_FORM_STYLE}>

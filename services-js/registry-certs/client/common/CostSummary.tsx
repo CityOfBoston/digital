@@ -8,12 +8,12 @@ import {
   CERTIFICATE_COST_STRING,
 } from '../../lib/costs';
 
-import Cart from '../store/Cart';
+import DeathCertificateCart from '../store/DeathCertificateCart';
 
 type ServiceFeeType = 'CREDIT' | 'DEBIT';
 
 interface Props {
-  cart: Cart;
+  cart: DeathCertificateCart;
   serviceFeeType: ServiceFeeType;
   allowServiceFeeTypeChoice?: boolean;
 }
