@@ -1,5 +1,5 @@
 {
-  "name": "payment-webhooks-server",
+  "name": "payment-webhooks",
   "version": "0.1.0",
   "description": "Service to update iNovah based on webhook calls from a payment provider",
   "engines": {
