@@ -534,6 +534,35 @@ Array [
 ]
 `;
 
+exports[`Storyshots Components/Modals Status 1`] = `
+<div
+  aria-labelledby="statusModal"
+  className="md"
+  role="alertdialog"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+    role="document"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro"
+        id="statusModal"
+      >
+        Saving your new password…
+      </div>
+      <div
+        className="t--info m-t300"
+      >
+        Please be patient and don’t refresh your browser. This might take a bit.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Form Elements/Buttons close 1`] = `
 <button
   className="css-14581tj undefined"
@@ -793,15 +822,15 @@ Array [
 ]
 `;
 
-exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
+exports[`Storyshots Form Elements/Inputs/File Input Multiple file types 1`] = `
 <div
   className="txt m-b300 css-1mxs0p5"
 >
   <input
-    accept="application/pdf"
+    accept="image/jpeg, image/png"
     className="css-1dv1kvn"
-    id="FileInput-resume"
-    name="resume"
+    id="FileInput-multi"
+    name="multi"
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -809,7 +838,7 @@ exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
   />
   <label
     className="btn btn--sm btn--100 false"
-    htmlFor="FileInput-resume"
+    htmlFor="FileInput-multi"
     style={
       Object {
         "fontWeight": "bold",
@@ -818,11 +847,11 @@ exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
     }
   >
     Choose 
-    Resumé
+    JPG or PNG
      file
   </label>
   <div
-    className="css-pnlt3a"
+    className="css-y0g14a"
   >
     <span>
       No file selected
@@ -831,7 +860,7 @@ exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form Elements/Inputs/File Input small size limit; no file restrictions 1`] = `
+exports[`Storyshots Form Elements/Inputs/File Input Small size limit; unspecified file type 1`] = `
 <div
   className="txt m-b300 css-1mxs0p5"
 >
@@ -860,7 +889,45 @@ exports[`Storyshots Form Elements/Inputs/File Input small size limit; no file re
      file
   </label>
   <div
-    className="css-pnlt3a"
+    className="css-y0g14a"
+  >
+    <span>
+      No file selected
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements/Inputs/File Input default 1`] = `
+<div
+  className="txt m-b300 css-1mxs0p5"
+>
+  <input
+    accept="application/pdf"
+    className="css-1dv1kvn"
+    id="FileInput-pdf"
+    name="pdf"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="file"
+  />
+  <label
+    className="btn btn--sm btn--100 false"
+    htmlFor="FileInput-pdf"
+    style={
+      Object {
+        "fontWeight": "bold",
+        "whiteSpace": "nowrap",
+      }
+    }
+  >
+    Choose 
+    PDF
+     file
+  </label>
+  <div
+    className="css-y0g14a"
   >
     <span>
       No file selected
@@ -1754,6 +1821,188 @@ exports[`Storyshots Layouts/App Layout secondary nav 1`] = `
     }
   />
 </div>
+`;
+
+exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] = `
+<section>
+  <div
+    className="sh "
+  >
+    <h2
+      className="sh-title css-1kaai3o"
+    >
+      <button
+        aria-expanded={true}
+        className="css-kbjlh2"
+        onClick={[Function]}
+        type="button"
+      >
+        Boards and Commissions
+      </button>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        overflow="visible"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M 2,5 10,16 18,5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2.5"
+        />
+      </svg>
+    </h2>
+  </div>
+  <div
+    hidden={false}
+  >
+    <p>
+      Please note that many of these Boards and Commissions require City of Boston residency.
+    </p>
+    <p>
+      You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+  </div>
+</section>
+`;
+
+exports[`Storyshots Sectioning Elements/Collapsible Section disabled 1`] = `
+Array [
+  <section>
+    <div
+      className="sh "
+    >
+      <h2
+        className="sh-title css-1kaai3o"
+      >
+        Disabled / Open
+      </h2>
+    </div>
+    <div
+      hidden={false}
+    >
+      <p>
+        Please note that many of these Boards and Commissions require City of Boston residency.
+      </p>
+      <p>
+        You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+      </p>
+    </div>
+  </section>,
+  <section>
+    <div
+      className="sh "
+    >
+      <h2
+        className="sh-title css-1kaai3o"
+      >
+        Disabled / Closed
+      </h2>
+    </div>
+    <div
+      hidden={true}
+    >
+      <p>
+        Please note that many of these Boards and Commissions require City of Boston residency.
+      </p>
+      <p>
+        You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+      </p>
+    </div>
+  </section>,
+]
+`;
+
+exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 1`] = `
+<section>
+  <div
+    className="sh "
+  >
+    <h2
+      className="sh-title css-1kaai3o"
+    >
+      <button
+        aria-expanded={false}
+        className="css-kbjlh2"
+        onClick={[Function]}
+        type="button"
+      >
+        Initially Collapsed
+      </button>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        overflow="visible"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M 2,5 10,16 18,5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2.5"
+        />
+      </svg>
+    </h2>
+  </div>
+  <div
+    hidden={true}
+  >
+    <p>
+      Please note that many of these Boards and Commissions require City of Boston residency.
+    </p>
+    <p>
+      You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+  </div>
+</section>
+`;
+
+exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`] = `
+<section>
+  <div
+    className="sh sh--sm"
+  >
+    <h3
+      className="sh-title css-1kaai3o"
+    >
+      <button
+        aria-expanded={true}
+        className="css-kbjlh2"
+        onClick={[Function]}
+        type="button"
+      >
+        Boards and Commissions
+      </button>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        overflow="visible"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M 2,5 10,16 18,5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2.5"
+        />
+      </svg>
+    </h3>
+  </div>
+  <div
+    hidden={false}
+  >
+    <p>
+      Please note that many of these Boards and Commissions require City of Boston residency.
+    </p>
+    <p>
+      You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+  </div>
+</section>
 `;
 
 exports[`Storyshots Sectioning Elements/Section Header default 1`] = `

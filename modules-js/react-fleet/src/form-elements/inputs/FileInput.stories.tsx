@@ -6,17 +6,27 @@ import FileInput from './FileInput';
 storiesOf('Form Elements/Inputs/File Input', module)
   .add('default', () => (
     <FileInput
-      name="resume"
-      title="Resumé"
+      name="pdf"
+      title="PDF"
       fileTypes={['application/pdf']}
-      sizeLimit={{amount: 28, unit: 'MB'}}
+      sizeLimit={{ amount: 28, unit: 'MB' }}
+      handleChange={() => {}}
     />
   ))
-  .add('small size limit; no file restrictions', () => (
+  .add('Small size limit; unspecified file type', () => (
     <FileInput
       name="coverLetter"
       title="Cover Letter"
-      fileTypes={['*']}
-      sizeLimit={{amount: 10, unit: 'KB'}}
+      sizeLimit={{ amount: 10, unit: 'KB' }}
+      handleChange={() => {}}
+    />
+  ))
+  .add('Multiple file types', () => (
+    <FileInput
+      name="multi"
+      title="JPG or PNG"
+      fileTypes={['image/jpeg', 'image/png']}
+      sizeLimit={{ amount: 10, unit: 'MB' }}
+      handleChange={() => {}}
     />
   ));

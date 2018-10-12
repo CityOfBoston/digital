@@ -80,7 +80,12 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
     : (ariaProps['aria-labelledby'] = `${props.name}-groupLabel`);
 
   return (
-    <div role="group" className={props.className} style={props.style} {...ariaProps}>
+    <div
+      role="group"
+      className={props.className}
+      style={props.style}
+      {...ariaProps}
+    >
       {!props.hideLabel && (
         <div className="txt-l" id={`${props.name}-groupLabel`}>
           {props.groupLabel}

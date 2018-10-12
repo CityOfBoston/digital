@@ -597,44 +597,205 @@ exports[`Storyshots ApplyPage default 1`] = `
       >
         Please note that many of these Boards and Commissions require City of Boston residency.
       </p>
-      <div
-        className="sh m-b300 sh--sm "
-      >
-        <h3
-          className="sh-title"
-        >
-          Boards and Commissions with open positions
-        </h3>
-      </div>
-      <ul
-        className="css-11o9ovx"
-      />
-      <p
-        className="t--subinfo t--err"
-        style={
-          Object {
-            "color": "#fb4d42",
-            "marginTop": "-0.5em",
-          }
-        }
-      />
-      <div
-        className="sh m-b300 sh--sm "
-      >
-        <h3
-          className="sh-title"
-        >
-          Boards and Commissions without open positions
-        </h3>
-      </div>
       <p
         className="css-17qmlmg"
       >
         You can still apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
       </p>
-      <ul
-        className="css-11o9ovx"
-      />
+      <div
+        className="css-aqlcqy"
+      >
+        <section
+          className="m-b100"
+        >
+          <div
+            className="sh sh--sm"
+          >
+            <h3
+              className="sh-title css-1kaai3o"
+            >
+              <button
+                aria-expanded={true}
+                className="css-kbjlh2"
+                onClick={[Function]}
+                type="button"
+              >
+                Open Positions
+              </button>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                overflow="visible"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M 2,5 10,16 18,5"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.5"
+                />
+              </svg>
+            </h3>
+          </div>
+          <div
+            hidden={false}
+          >
+            <ul
+              className="css-11o9ovx"
+            >
+              <li
+                className="m-b500"
+                style={
+                  Object {
+                    "listStyleType": "none",
+                  }
+                }
+              >
+                <label
+                  className="cb "
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    name="commissionIds-openSeats"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="0"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    Aberdeen Architectural Conservation District Commission
+                  </span>
+                </label>
+              </li>
+              <li
+                className="m-b500"
+                style={
+                  Object {
+                    "listStyleType": "none",
+                  }
+                }
+              >
+                <label
+                  className="cb "
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    name="commissionIds-openSeats"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="1"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    Back Bay West/Bay State Road Architectural Conservation District Commission
+                  </span>
+                </label>
+              </li>
+              <li
+                className="m-b500"
+                style={
+                  Object {
+                    "listStyleType": "none",
+                  }
+                }
+              >
+                <label
+                  className="cb "
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    name="commissionIds-openSeats"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="2"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    Living Wage Advisory Committee
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <div
+            className="sh sh--sm"
+          >
+            <h3
+              className="sh-title css-1kaai3o"
+            >
+              <button
+                aria-expanded={false}
+                className="css-kbjlh2"
+                onClick={[Function]}
+                type="button"
+              >
+                No Open Positions
+              </button>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                overflow="visible"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M 2,5 10,16 18,5"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.5"
+                />
+              </svg>
+            </h3>
+          </div>
+          <div
+            hidden={true}
+          >
+            <ul
+              className="css-11o9ovx"
+            >
+              <li
+                className="m-b500"
+                style={
+                  Object {
+                    "listStyleType": "none",
+                  }
+                }
+              >
+                <label
+                  className="cb "
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    name="commissionIds-noSeats"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="3"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    Licensing Board for the City of Boston
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
       <p
         className="t--subinfo t--err"
         style={
@@ -643,7 +804,9 @@ exports[`Storyshots ApplyPage default 1`] = `
             "marginTop": "-0.5em",
           }
         }
-      />
+      >
+          
+      </p>
       <hr
         className="hr hr--sq"
       />
@@ -689,7 +852,7 @@ exports[`Storyshots ApplyPage default 1`] = `
            file
         </label>
         <div
-          className="css-pnlt3a"
+          className="css-y0g14a"
         >
           <span>
             No file selected
@@ -724,7 +887,7 @@ exports[`Storyshots ApplyPage default 1`] = `
            file
         </label>
         <div
-          className="css-pnlt3a"
+          className="css-y0g14a"
         >
           <span>
             No file selected
@@ -745,20 +908,20 @@ exports[`Storyshots ApplyPage default 1`] = `
         <h2
           className="sh-title"
         >
-          Comments
+          Relevant Work Experience
         </h2>
       </div>
       <div
         className="txt"
       >
         <textarea
-          aria-label="Additional Comments"
+          aria-label="Relevant Work Experience"
           className="txt-f txt-f--sm  "
           id="FeedbackForm-comments"
           name="comments"
           onBlur={[Function]}
           onChange={[Function]}
-          placeholder="Other Comments You Would Like Us to Know."
+          placeholder="Other information..."
           rows={10}
           value=""
         />
