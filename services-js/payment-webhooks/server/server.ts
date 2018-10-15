@@ -2,10 +2,14 @@
 
 import fs from 'fs';
 import Hapi from 'hapi';
-import Good from 'good';
 import cleanup from 'node-cleanup';
 import makeStripe from 'stripe';
 
+import {
+  loggingPlugin,
+  adminOkRoute,
+  rollbarPlugin,
+} from '@cityofboston/hapi-common';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
 import { makeINovahFactory, INovahFactory } from './services/INovah';
@@ -20,31 +24,24 @@ type ServerArgs = {
 
 const port = parseInt(process.env.PORT || '5000', 10);
 
-export function makeServer({ rollbar }: ServerArgs) {
-  const server = new Hapi.Server();
-
-  if (process.env.USE_SSL) {
-    const tls = {
-      key: fs.readFileSync('server.key'),
-      cert: fs.readFileSync('server.crt'),
-    };
-
-    server.connection({ port, tls });
-  } else {
-    server.connection({ port });
-  }
-
-  // https://docs.rollbar.com/docs/javascript#section-using-hapi
-  server.on('request-error', (request, error) => {
-    rollbar.error(
-      error instanceof Error ? error : `Error: ${error}`,
-      request,
-      rollbarErr => {
-        if (rollbarErr) {
-          console.error('Error reporting to rollbar, ignoring: ' + rollbarErr);
+export async function makeServer({ rollbar }: ServerArgs) {
+  const serverOptions = {
+    port,
+    ...(process.env.USE_SSL
+      ? {
+          tls: {
+            key: fs.readFileSync('server.key'),
+            cert: fs.readFileSync('server.crt'),
+          },
         }
-      }
-    );
+      : {}),
+  };
+
+  const server = new Hapi.Server(serverOptions);
+
+  await server.register({
+    plugin: rollbarPlugin,
+    options: { rollbar },
   });
 
   const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
@@ -69,88 +66,48 @@ export function makeServer({ rollbar }: ServerArgs) {
   };
 
   if (process.env.NODE_ENV !== 'test') {
-    server.register({
-      register: Good,
-      options: {
-        reporters: {
-          console: [
-            {
-              module: 'good-squeeze',
-              name: 'Squeeze',
-              args: [
-                {
-                  // Keep our health checks from appearing in logs
-                  response: { exclude: 'health' },
-                  log: '*',
-                },
-              ],
-            },
-            {
-              module: 'good-console',
-              args: [
-                {
-                  color: process.env.NODE_ENV !== 'production',
-                },
-              ],
-            },
-            'stdout',
-          ],
-        },
-      },
-    });
+    await server.register(loggingPlugin);
   }
 
-  server.route({
-    method: 'GET',
-    path: '/admin/ok',
-    handler: (_, reply) => reply('ok'),
-    config: {
-      // mark this as a health check so that it doesn’t get logged
-      tags: ['health'],
-    },
-  });
+  server.route(adminOkRoute);
 
   server.route({
     method: 'POST',
     path: '/stripe',
-    config: {
+    options: {
       payload: {
         output: 'data',
         parse: false,
       },
     },
-    handler: async (request, reply) => {
-      try {
-        await processStripeEvent(
-          {
-            rollbar,
-            stripe,
-            inovah: await inovahFactory.inovah(
-              process.env.INOVAH_PAYMENT_ORIGIN
-            ),
-          },
-          stripeWebhookSecret,
-          request.headers['stripe-signature'],
-          (request.payload as any).toString()
-        );
-        reply().code(200);
-      } catch (e) {
-        rollbar.error(e);
-        reply(e);
-      }
+    handler: async (request, h) => {
+      await processStripeEvent(
+        {
+          rollbar,
+          stripe,
+          inovah: await inovahFactory.inovah(process.env.INOVAH_PAYMENT_ORIGIN),
+        },
+        stripeWebhookSecret,
+        request.headers['stripe-signature'],
+        (request.payload as any).toString()
+      );
+
+      return h.response();
     },
   });
 
   server.route({
     method: 'GET',
     path: '/inovah/describe',
-    handler: async (_, reply) => {
+    handler: async (_, h) => {
       const iNovah = await inovahFactory.inovah(
         process.env.INOVAH_PAYMENT_ORIGIN
       );
       const description = await iNovah.describe();
 
-      reply(JSON.stringify(description, null, 2)).type('text/plain');
+      return h
+        .response(JSON.stringify(description, null, 2))
+        .type('text/plain');
     },
   });
 
@@ -160,7 +117,7 @@ export function makeServer({ rollbar }: ServerArgs) {
 export default (async function startServer(args: ServerArgs) {
   await decryptEnv();
 
-  const { server, startup } = makeServer(args);
+  const { server, startup } = await makeServer(args);
 
   const shutdown = await startup();
   cleanup(exitCode => {
