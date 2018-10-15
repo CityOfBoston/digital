@@ -271,10 +271,8 @@ export async function deregisterTaskDefinition(taskDefinitionArn: string) {
     .promise();
 }
 
-export function parseBranch() {
-  const branchMatch = process.env.TRAVIS_BRANCH!.match(
-    /([^/]*)\/([^@]*)(@(.*))?/
-  );
+export function parseBranch(branch: string = process.env.TRAVIS_BRANCH!) {
+  const branchMatch = branch.match(/([^/]*)\/([^@]*)(@(.*))?/);
 
   if (!branchMatch) {
     throw new Error(
