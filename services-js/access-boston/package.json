@@ -105,6 +105,6 @@
     "ts-node": "^6.0.5",
     "ts2gql": "CityOfBoston/ts2gql#4f10fcce",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.0.0"
+    "typescript": "^3.1.0"
   }
 }

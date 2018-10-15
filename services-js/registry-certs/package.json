@@ -128,7 +128,7 @@
     "react-test-renderer": "16.5.2",
     "rimraf": "^2.6.2",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.0.0",
+    "typescript": "^3.1.0",
     "webpack-bundle-analyzer": "^2.8.1"
   }
 }
