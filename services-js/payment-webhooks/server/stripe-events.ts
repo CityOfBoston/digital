@@ -1,16 +1,15 @@
-// @flow
 /* eslint no-console: 0 */
 
-import type { NodeStripe, Event, Charge } from 'stripe';
-import type INovah from './services/iNovah';
+import { NodeStripe, Event, Charge } from 'stripe';
+import INovah from './services/INovah';
 
-import type Rollbar from 'rollbar';
+import Rollbar from 'rollbar';
 
-type Dependencies = {|
-  inovah: INovah,
-  rollbar: Rollbar,
-  stripe: NodeStripe,
-|};
+type Dependencies = {
+  inovah: INovah;
+  rollbar: Rollbar;
+  stripe: NodeStripe;
+};
 
 async function processChargeSucceeded(
   { rollbar, stripe, inovah }: Dependencies,
@@ -82,7 +81,7 @@ async function processChargeSucceeded(
 
 export async function processStripeEvent(
   deps: Dependencies,
-  webhookSecret: ?string,
+  webhookSecret: string | undefined,
   webhookSignature: string,
   body: string
 ): Promise<void> {

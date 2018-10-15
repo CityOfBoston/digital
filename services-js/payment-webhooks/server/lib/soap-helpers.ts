@@ -1,8 +1,7 @@
-// @flow
 import soap from 'soap';
 
 export type SoapCallback<T> = (
-  err: ?Error,
+  err: Error | undefined,
   result: T,
   raw: any,
   soapHeader: Object

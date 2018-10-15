@@ -1,10 +1,8 @@
-// @flow
-
 import { processStripeEvent } from './stripe-events';
 
-import CHARGE from '../fixtures/stripe/charge';
-import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded';
-import BALANCE_TRANSACTION from '../fixtures/stripe/balance-transaction';
+import CHARGE from '../fixtures/stripe/charge.json';
+import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
+import BALANCE_TRANSACTION from '../fixtures/stripe/balance-transaction.json';
 
 describe('processStripeEvent', () => {
   let stripe: any;
@@ -25,22 +23,20 @@ describe('processStripeEvent', () => {
   });
 
   describe('charge.succeeded', () => {
-    beforeEach(() => {});
     test('it sends charge to iNovah', async () => {
       // we do the expanded balance transaction
       stripe.charges.retrieve.mockReturnValue(
-        Promise.resolve(
-          Object.assign({}, CHARGE, {
-            balance_transaction: BALANCE_TRANSACTION,
-          })
-        )
+        Promise.resolve({
+          ...CHARGE,
+          balance_transaction: BALANCE_TRANSACTION,
+        })
       );
 
       inovah.addTransaction.mockReturnValue({});
 
       await processStripeEvent(
-        { stripe, inovah, rollbar: ({}: any) },
-        null,
+        { stripe, inovah, rollbar: {} as any },
+        undefined,
         '',
         JSON.stringify(CHARGE_SUCCEEDED)
       );
@@ -73,8 +69,8 @@ describe('processStripeEvent', () => {
 
       expect(
         processStripeEvent(
-          { stripe, inovah, rollbar: ({}: any) },
-          null,
+          { stripe, inovah, rollbar: {} as any },
+          undefined,
           '',
           JSON.stringify(CHARGE_SUCCEEDED)
         )
@@ -97,8 +93,8 @@ describe('processStripeEvent', () => {
 
       expect(
         processStripeEvent(
-          { stripe, inovah, rollbar: ({}: any) },
-          null,
+          { stripe, inovah, rollbar: {} as any },
+          undefined,
           '',
           JSON.stringify(CHARGE_SUCCEEDED)
         )

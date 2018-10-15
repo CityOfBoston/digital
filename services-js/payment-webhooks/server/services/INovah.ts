@@ -1,265 +1,254 @@
-// @flow
-
 import Boom from 'boom';
+import Rollbar from 'rollbar';
 
 import { createSoapClient } from '../lib/soap-helpers';
 
-type Opbeat = $Exports<'opbeat'>;
+type TransactionCustomer = {
+  cardholderName: string;
+  billingAddress1: string;
+  billingAddress2: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+};
 
-type TransactionCustomer = {|
-  cardholderName: string,
-  billingAddress1: string,
-  billingAddress2: string,
-  billingCity: string,
-  billingState: string,
-  billingZip: string,
-|};
+type TransactionPayment = {
+  quantity: number;
+  amountInDollars: number;
+  unitPriceInDollars: number;
+};
 
-type TransactionPayment = {|
-  quantity: number,
-  amountInDollars: number,
-  unitPriceInDollars: number,
-|};
+export type StandardResult<R> = {
+  StandardResult: {
+    Result: FailureResult | R;
+  };
+};
 
-export type StandardResult<R> = {|
-  StandardResult: {|
-    Result: FailureResult | R,
-  |},
-|};
+export interface FailureResult {
+  ReturnCode: 'Failure';
+  ErrorType: string;
+  ShortErrorMessage: string;
+  LongErrorMessage: string;
+  StatusInfo: null;
+}
 
-export type FailureResult = {|
-  ReturnCode: 'Failure',
-  ErrorType: string,
-  ShortErrorMessage: string,
-  LongErrorMessage: string,
-  StatusInfo: null,
-|};
+export interface SuccessResult {
+  ReturnCode: 'Success';
+  ErrorType: string;
+  ShortErrorMessage: null;
+  LongErrorMessage: null;
+  StatusInfo: string | undefined;
+}
 
-export type SuccessResult = {|
-  ReturnCode: 'Success',
-  ErrorType: string,
-  ShortErrorMessage: null,
-  LongErrorMessage: null,
-  StatusInfo: ?string,
-|};
-
-type PaymentAllocationIn = {|
-  AllocationCode: string,
+type PaymentAllocationIn = {
+  AllocationCode: string;
   // decimal string: 0.0000
-  Amount: string,
+  Amount: string;
   // decimal string: 1.000000
-  Quantity: string,
+  Quantity: string;
   // decimal string: 0.0000
-  UnitCharge: string,
-|};
+  UnitCharge: string;
+};
 
-type PaymentAllocation = {|
-  ...PaymentAllocationIn,
-  TransactionID: string,
+type PaymentAllocation = PaymentAllocationIn & {
+  TransactionID: string;
   // numeric string
-  PaymentSequence: string,
+  PaymentSequence: string;
   // numeric string
-  AllocationSequence: string,
-  AllocationName: string,
-  GLAccount: string,
-  GLDepartment: string,
-  GLCode: string,
-  GLDescription: string,
-  AllocationID: string,
-  UserDefined10: string,
-  UserDefined11: string,
-|};
+  AllocationSequence: string;
+  AllocationName: string;
+  GLAccount: string;
+  GLDepartment: string;
+  GLCode: string;
+  GLDescription: string;
+  AllocationID: string;
+  UserDefined10: string;
+  UserDefined11: string;
+};
 
-type PaymentIn = {|
-  PaymentCode: string,
-  PaymentAllocation: PaymentAllocationIn,
-  LastName?: string,
-  StreetName?: string,
-  City?: string,
-  State?: string,
-  Zip?: string,
-  Invoice?: string,
-  PaymentCustom?: {|
-    AddressLine1?: string,
-    AddressLine2?: string,
-    AddressLine3?: string,
-    UnstructuredName?: string,
-  |},
-|};
+type PaymentIn = {
+  PaymentCode: string;
+  PaymentAllocation: PaymentAllocationIn;
+  LastName?: string;
+  StreetName?: string;
+  City?: string;
+  State?: string;
+  Zip?: string;
+  Invoice?: string;
+  PaymentCustom?: {
+    AddressLine1?: string;
+    AddressLine2?: string;
+    AddressLine3?: string;
+    UnstructuredName?: string;
+  };
+};
 
-type Payment = {|
-  ...PaymentIn,
-  TransactionID: string,
+type Payment = PaymentIn & {
+  TransactionID: string;
   // numeric string
-  PaymentSequence: string,
-  ReceiptNumber: string,
-  PaymentName: string,
+  PaymentSequence: string;
+  ReceiptNumber: string;
+  PaymentName: string;
   // decimal string: 0.0000
-  PaymentTotal: string,
+  PaymentTotal: string;
   // decimal string: 0.0000
-  CurrentAmountDue: string,
+  CurrentAmountDue: string;
   // decimal string: 0.0000
-  PastAmountDue: string,
+  PastAmountDue: string;
   // decimal string: 0.0000
-  TotalAmountDue: string,
-  BusinessFlag: 'true' | 'false',
-  InquiryPerformed: 'true' | 'false',
-  BusinessUnit: string,
-  AccountsReceivable: 'true' | 'false',
-  PaymentCustom: {|
-    TransactionID: string,
+  TotalAmountDue: string;
+  BusinessFlag: 'true' | 'false';
+  InquiryPerformed: 'true' | 'false';
+  BusinessUnit: string;
+  AccountsReceivable: 'true' | 'false';
+  PaymentCustom: {
+    TransactionID: string;
     // numeric string
-    PaymentSequence: string,
-  |},
-  PaymentAllocation: PaymentAllocation,
-|};
+    PaymentSequence: string;
+  };
+  PaymentAllocation: PaymentAllocation;
+};
 
-type TenderIn = {|
+type TenderIn = {
   // decimal string: 0.0000
-  Amount: string,
-  TenderCode: string,
-  ReferenceCode?: string,
-|};
+  Amount: string;
+  TenderCode: string;
+  ReferenceCode?: string;
+};
 
-type Tender = {|
-  ...TenderIn,
-  TransactionID: string,
+type Tender = TenderIn & {
+  TransactionID: string;
   // numeric string
-  TenderSequence: string,
-  TenderName: string,
-  Depositable: 'true' | 'false',
-  Itemized: 'true' | 'false',
-  BankID: string,
-  TenderType: string,
+  TenderSequence: string;
+  TenderName: string;
+  Depositable: 'true' | 'false';
+  Itemized: 'true' | 'false';
+  BankID: string;
+  TenderType: string;
   // decimal string: 0.0000
-  NativeAmount: string,
+  NativeAmount: string;
   // decimal string: 1.000000
-  ExchangeRate: string,
-  UserDefined4: string,
-  UserDefined5: string,
-  TenderID: string,
+  ExchangeRate: string;
+  UserDefined4: string;
+  UserDefined5: string;
+  TenderID: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  ReferenceDate: string,
-|};
+  ReferenceDate: string;
+};
 
-type TransactionIn = {|
+type TransactionIn = {
   // enforcing this at the type level
-  Payment: PaymentIn,
-  Tender: TenderIn,
-  ForeignID?: string,
-|};
+  Payment: PaymentIn;
+  Tender: TenderIn;
+  ForeignID?: string;
+};
 
-type Transaction = {|
-  ...TransactionIn,
-  PaymentBatchID: string,
-  TransactionID: string,
+type Transaction = TransactionIn & {
+  PaymentBatchID: string;
+  TransactionID: string;
   // numeric string
-  TransactionNum: string,
-  TransactionStatus: string,
-  MachineID: string,
-  Company: string,
-  Department: string,
+  TransactionNum: string;
+  TransactionStatus: string;
+  MachineID: string;
+  Company: string;
+  Department: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  EntryTimeStamp: string,
+  EntryTimeStamp: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  DateReceived: string,
-  CollectionPoint: string,
+  DateReceived: string;
+  CollectionPoint: string;
   // decimal string: 0.0000
-  TransactionTotal: string,
+  TransactionTotal: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  StartTime: string,
-  Server: string,
-  Payment: Payment,
-  Tender: Tender,
-|};
+  StartTime: string;
+  Server: string;
+  Payment: Payment;
+  Tender: Tender;
+};
 
-type PaymentBatch = {|
-  PaymentBatchID: string,
+type PaymentBatch = {
+  PaymentBatchID: string;
   // numeric string
-  PaymentBatchNum: string,
-  OfficeCode: string,
-  OwnerName: string,
+  PaymentBatchNum: string;
+  OfficeCode: string;
+  OwnerName: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  OpenedTimeStamp: string,
+  OpenedTimeStamp: string;
   // ISO 8601 string: 2011-11-09T09:35:44.243-05:00
-  BatchDate: string,
-  PaymentOrigin: string,
-  BatchStatus: string,
+  BatchDate: string;
+  PaymentOrigin: string;
+  BatchStatus: string;
   // decimal string: 0.0000
-  BatchDepositTotal: string,
+  BatchDepositTotal: string;
   // decimal string: 0.0000
-  BatchTransactionTotal: string,
+  BatchTransactionTotal: string;
   // decimal string: 0.0000
-  BatchOverShortTotal: string,
+  BatchOverShortTotal: string;
   // decimal string: 0.0000
-  BatchFloat: string,
-  BatchActionReason: string,
-  Transaction: Transaction,
-|};
+  BatchFloat: string;
+  BatchActionReason: string;
+  Transaction: Transaction;
+};
 
-export type AddTransactionInput = {|
-  strSecurityKey: string,
-  strPaymentOrigin: string,
+export type AddTransactionInput = {
+  strSecurityKey: string;
+  strPaymentOrigin: string;
   xmlTransaction: {
-    Transaction: {
+    Transaction: TransactionIn & {
       attributes: {
-        xmlns: '',
-      },
-      ...TransactionIn,
-    },
-  },
-|};
+        xmlns: '';
+      };
+    };
+  };
+};
 
-export type AddTransactionResult = {|
-  ...SuccessResult,
-  VoidTransactionData: null,
-  VoidingTransactionData: null,
-  UnvoidedCreditCards: 'true' | 'false',
-  PaymentBatch: PaymentBatch,
-|};
+export interface AddTransactionResult extends SuccessResult {
+  VoidTransactionData: null;
+  VoidingTransactionData: null;
+  UnvoidedCreditCards: 'true' | 'false';
+  PaymentBatch: PaymentBatch;
+}
 
-export type AddTransactionOutput = {|
-  AddTransactionResult: StandardResult<AddTransactionResult>,
-|};
+export type AddTransactionOutput = {
+  AddTransactionResult: StandardResult<AddTransactionResult>;
+};
 
-export type RegisterSecurityKeyInput = {|
-  strSignOnUserName: string,
-  strPassword: string,
-|};
+export type RegisterSecurityKeyInput = {
+  strSignOnUserName: string;
+  strPassword: string;
+};
 
-export type RegisterSecurityKeyResult = {|
-  ...SuccessResult,
-  SecurityKey: string,
-|};
+export interface RegisterSecurityKeyResult extends SuccessResult {
+  SecurityKey: string;
+}
 
-export type RegisterSecurityKeyOutput = {|
-  RegisterSecurityKeyResult: StandardResult<RegisterSecurityKeyResult>,
-|};
+export type RegisterSecurityKeyOutput = {
+  RegisterSecurityKeyResult: StandardResult<RegisterSecurityKeyResult>;
+};
 
-export type VoidTransactionInput = {|
-  strSecurityKey: string,
-  strTransactionID: string,
-  strAdjustmentReason: string,
-|};
+export type VoidTransactionInput = {
+  strSecurityKey: string;
+  strTransactionID: string;
+  strAdjustmentReason: string;
+};
 
-export type VoidTransactionResult = {|
-  ...SuccessResult,
-  TransactionData: null,
-  VoidTransactionData: null,
-  VoidingTransactionData: null,
-  UnvoidedCreditCards: 'true' | 'false',
-|};
+export interface VoidTransactionResult extends SuccessResult {
+  TransactionData: null;
+  VoidTransactionData: null;
+  VoidingTransactionData: null;
+  UnvoidedCreditCards: 'true' | 'false';
+}
 
-export type VoidTransactionOutput = {|
-  VoidTransactionResult: StandardResult<VoidTransactionResult>,
-|};
+export type VoidTransactionOutput = {
+  VoidTransactionResult: StandardResult<VoidTransactionResult>;
+};
 
-export type AddTransactionReturn = {|
-  transactionId: string,
-  transactionNum: string,
-  batchId: string,
-  batchNum: string,
-|};
+export type AddTransactionReturn = {
+  transactionId: string;
+  transactionNum: string;
+  batchId: string;
+  batchNum: string;
+};
 
 export interface INovahClient {
   describe(): Object;
@@ -276,18 +265,18 @@ export interface INovahClient {
 
 export class INovahFactory {
   client: INovahClient;
-  opbeat: Opbeat;
   username: string;
   password: string;
+  rollbar: Rollbar;
 
   constructor(
     client: INovahClient,
-    opbeat: Opbeat,
+    rollbar: Rollbar,
     username: string,
     password: string
   ) {
     this.client = client;
-    this.opbeat = opbeat;
+    this.rollbar = rollbar;
     this.username = username;
     this.password = password;
   }
@@ -309,32 +298,32 @@ export class INovahFactory {
         return result.SecurityKey;
 
       default:
-        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+        throw new Error(`Unknown ReturnCode: ${(result as any).ReturnCode}`);
     }
   }
 
-  async inovah(paymentOrigin: ?string) {
+  async inovah(paymentOrigin?: string) {
     if (!paymentOrigin) {
       throw new Error('Must specify payment origin');
     }
 
-    const { client, opbeat } = this;
+    const { client } = this;
 
     // We need to get a security key before every request because they're only
     // valid for 60s.
     const securityKey = await this.login();
 
-    return new INovah(client, opbeat, paymentOrigin, securityKey);
+    return new INovah(client, paymentOrigin, securityKey);
   }
 }
 
 // Loads the WDSL file for the endpoint and logs in. Returns a factory that can
 // make INovah instances.
 export async function makeINovahFactory(
-  endpoint: ?string,
-  username: ?string,
-  password: ?string,
-  opbeat: Opbeat
+  endpoint: string | undefined,
+  username: string | undefined,
+  password: string | undefined,
+  rollbar: Rollbar
 ): Promise<INovahFactory> {
   if (!endpoint) {
     throw new Error('Must specify INOVAH_ENDPOINT');
@@ -348,8 +337,8 @@ export async function makeINovahFactory(
     throw new Error('Must specify INOVAH_PASSWORD');
   }
 
-  const client: INovahClient = await createSoapClient(endpoint);
-  const factory = new INovahFactory(client, opbeat, username, password);
+  const client = await createSoapClient<INovahClient>(endpoint);
+  const factory = new INovahFactory(client, rollbar, username, password);
 
   // initial test to make sure we can login
   await factory.login();
@@ -359,19 +348,16 @@ export async function makeINovahFactory(
 
 export default class INovah {
   client: INovahClient;
-  opbeat: Opbeat;
 
   paymentOrigin: string;
   securityKey: string;
 
   constructor(
     client: INovahClient,
-    opbeat: Opbeat,
     paymentOrigin: string,
     securityKey: string
   ) {
     this.client = client;
-    this.opbeat = opbeat;
 
     this.paymentOrigin = paymentOrigin;
     this.securityKey = securityKey;
@@ -457,7 +443,7 @@ export default class INovah {
         };
 
       default:
-        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+        throw new Error(`Unknown ReturnCode: ${(result as any).ReturnCode}`);
     }
   }
 
@@ -480,7 +466,7 @@ export default class INovah {
         return true;
 
       default:
-        throw new Error(`Unknown ReturnCode: ${result.ReturnCode}`);
+        throw new Error(`Unknown ReturnCode: ${(result as any).ReturnCode}`);
     }
   }
 }

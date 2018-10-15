@@ -1,4 +1,3 @@
-// @flow
 /* eslint no-console: 0 */
 
 import fs from 'fs';
@@ -7,16 +6,16 @@ import Good from 'good';
 import cleanup from 'node-cleanup';
 import makeStripe from 'stripe';
 
-import decryptEnv from './lib/decrypt-env';
+import decryptEnv from '@cityofboston/srv-decrypt-env';
 
-import { makeINovahFactory, type INovahFactory } from './services/INovah';
+import { makeINovahFactory, INovahFactory } from './services/INovah';
 
 import { processStripeEvent } from './stripe-events';
 
-import type Rollbar from 'rollbar';
+import Rollbar from 'rollbar';
 
 type ServerArgs = {
-  rollbar: Rollbar,
+  rollbar: Rollbar;
 };
 
 const port = parseInt(process.env.PORT || '5000', 10);
@@ -30,9 +29,9 @@ export function makeServer({ rollbar }: ServerArgs) {
       cert: fs.readFileSync('server.crt'),
     };
 
-    server.connection({ port, tls }, '0.0.0.0');
+    server.connection({ port, tls });
   } else {
-    server.connection({ port }, '0.0.0.0');
+    server.connection({ port });
   }
 
   // https://docs.rollbar.com/docs/javascript#section-using-hapi
@@ -104,7 +103,7 @@ export function makeServer({ rollbar }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/admin/ok',
-    handler: (request, reply) => reply('ok'),
+    handler: (_, reply) => reply('ok'),
     config: {
       // mark this as a health check so that it doesn’t get logged
       tags: ['health'],
@@ -132,11 +131,11 @@ export function makeServer({ rollbar }: ServerArgs) {
           },
           stripeWebhookSecret,
           request.headers['stripe-signature'],
-          (request.payload: any).toString()
+          (request.payload as any).toString()
         );
         reply().code(200);
       } catch (e) {
-        rollbar.captureError(e);
+        rollbar.error(e);
         reply(e);
       }
     },
@@ -145,7 +144,7 @@ export function makeServer({ rollbar }: ServerArgs) {
   server.route({
     method: 'GET',
     path: '/inovah/describe',
-    handler: async (request, reply) => {
+    handler: async (_, reply) => {
       const iNovah = await inovahFactory.inovah(
         process.env.INOVAH_PAYMENT_ORIGIN
       );
