@@ -1850,9 +1850,19 @@
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@types/boom/-/boom-7.2.0.tgz#19c36cbb5811a7493f0f2e37f31d42b28df1abc1"
 
+"@types/boom@^4", "@types/boom@^4.0.0":
+  version "4.3.10"
+  resolved "http://registry.npmjs.org/@types/boom/-/boom-4.3.10.tgz#39dad8c0614c26b91ef016a57d7eee4ffe4f8a25"
+
 "@types/catbox@*":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@types/catbox/-/catbox-10.0.0.tgz#1e01e5ad83e224f110cc59f6f57c56558f7eeb61"
+
+"@types/catbox@^7":
+  version "7.1.6"
+  resolved "http://registry.npmjs.org/@types/catbox/-/catbox-7.1.6.tgz#be44e3cf3137b4c7997998ec60628709d5db904a"
+  dependencies:
+    "@types/boom" "^4"
 
 "@types/cheerio@^0.22.7":
   version "0.22.7"
@@ -1911,6 +1921,19 @@
     "@types/boom" "*"
     "@types/catbox" "*"
     "@types/iron" "*"
+    "@types/joi" "*"
+    "@types/mimos" "*"
+    "@types/node" "*"
+    "@types/podium" "*"
+    "@types/shot" "*"
+
+"@types/hapi@^16.0.0":
+  version "16.1.15"
+  resolved "https://registry.yarnpkg.com/@types/hapi/-/hapi-16.1.15.tgz#38047379c13f612042f18d52dcb05fff79f4e037"
+  dependencies:
+    "@types/boom" "^4"
+    "@types/catbox" "^7"
+    "@types/events" "*"
     "@types/joi" "*"
     "@types/mimos" "*"
     "@types/node" "*"

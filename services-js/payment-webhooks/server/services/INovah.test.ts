@@ -1,5 +1,3 @@
-// @flow
-
 import INovah, { INovahClient, INovahFactory } from './INovah';
 
 const FAKE_USERNAME = 'brain.drain';
@@ -141,8 +139,9 @@ const VOID_TRANSACTION_SUCCESS_RESULT = {
 };
 
 describe('INovahFactory', () => {
-  let client: INovahClient;
+  let client: Record<keyof INovahClient, jest.Mock>;
   let inovahFactory: INovahFactory;
+  let rollbar: any = {};
 
   beforeEach(() => {
     client = {
@@ -154,7 +153,7 @@ describe('INovahFactory', () => {
 
     inovahFactory = new INovahFactory(
       client,
-      (null: any),
+      rollbar,
       FAKE_USERNAME,
       FAKE_PASSWORD
     );
@@ -192,7 +191,7 @@ describe('INovahFactory', () => {
 });
 
 describe('INovah', () => {
-  let client: INovahClient;
+  let client: Record<keyof INovahClient, jest.Mock>;
   let inovah: INovah;
 
   beforeEach(() => {
@@ -203,12 +202,7 @@ describe('INovah', () => {
       VoidTransactionAsync: jest.fn(),
     };
 
-    inovah = new INovah(
-      client,
-      (null: any),
-      FAKE_SECURITY_KEY,
-      FAKE_PAYMENT_ORIGIN
-    );
+    inovah = new INovah(client, FAKE_SECURITY_KEY, FAKE_PAYMENT_ORIGIN);
   });
 
   describe('addTransaction', () => {

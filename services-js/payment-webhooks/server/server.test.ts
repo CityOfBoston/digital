@@ -1,7 +1,5 @@
 /**
  * @jest-environment node
- *
- * no flow in this file because of the way we mess with console.log
  */
 
 /* eslint no-console: 0 */
@@ -15,15 +13,15 @@ jest.mock('./services/INovah');
 // eslint-disable-next-line no-undef
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
-let opbeat;
+let rollbar;
 
 beforeEach(() => {
-  opbeat = {};
+  rollbar = {};
 });
 
 describe('server', () => {
   it('can be created', () => {
-    const { server } = makeServer({ opbeat });
+    const { server } = makeServer({ rollbar });
     expect(server).toBeDefined();
   });
 });
@@ -36,7 +34,7 @@ describe('running server', () => {
     const oldLog = console.log;
     console.log = () => {};
 
-    const out = makeServer({ opbeat });
+    const out = makeServer({ rollbar });
     server = out.server;
     const startup = out.startup;
 
