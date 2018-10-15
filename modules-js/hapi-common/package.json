@@ -21,7 +21,6 @@
     "good": "^8.1.1",
     "good-console": "^7.1.0",
     "good-squeeze": "^5.0.2",
-    "hapi": "^17.4.0",
     "hoek": "5.x.x"
   },
   "peerDependencies": {
@@ -32,6 +31,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/hoek": "^4.1.3",
     "@types/jest": "23.x.x",
+    "hapi": "^17.4.0",
     "jest": "23.6.0",
     "rimraf": "^2.6.2",
     "rollbar": "^2.4.1",

@@ -20,8 +20,8 @@ beforeEach(() => {
 });
 
 describe('server', () => {
-  it('can be created', () => {
-    const { server } = makeServer({ rollbar });
+  it('can be created', async () => {
+    const { server } = await makeServer({ rollbar });
     expect(server).toBeDefined();
   });
 });
@@ -34,7 +34,7 @@ describe('running server', () => {
     const oldLog = console.log;
     console.log = () => {};
 
-    const out = makeServer({ rollbar });
+    const out = await makeServer({ rollbar });
     server = out.server;
     const startup = out.startup;
 
