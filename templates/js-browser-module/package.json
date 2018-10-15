@@ -31,6 +31,6 @@
     "tmp": "^0.0.33",
     "ts-jest": "23.10.0",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.0.0"
+    "typescript": "^3.1.0"
   }
 }
