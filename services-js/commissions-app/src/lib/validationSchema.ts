@@ -4,31 +4,29 @@ import 'core-js/fn/array/from';
 import * as Yup from 'yup';
 
 export const applicationForm = Yup.object().shape({
-  firstName: Yup.string().required('First Name Is Required'),
-  lastName: Yup.string().required('Last Name Is Required'),
-  streetAddress: Yup.string().required('Address Is Required'),
-  city: Yup.string().required('City Is Required'),
-  state: Yup.string().required('State Is Required'),
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  streetAddress: Yup.string().required('Address is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
   zip: Yup.string()
-    .required('Zip Code Is Required')
-    .matches(new RegExp(/^\d{5}$/), 'Zip Codes Should Have 5 Digits'),
+    .required('Zip code is required')
+    .matches(new RegExp(/^\d{5}$/), 'Zip codes should have 5 digits'),
   phone: Yup.number()
     .positive()
     .integer(),
   email: Yup.string()
     .email()
-    .required('Email Is Required'),
+    .required('Email is required'),
   confirmEmail: Yup.string()
     .email()
-    .required('Please Enter Your Email Again')
-    .oneOf([Yup.ref('email', undefined)], 'Email Addresses Do Not Match'),
+    .required('Please enter your email again')
+    .oneOf([Yup.ref('email', undefined)], 'Email addresses do not match'),
   selectedCommissions: Yup.array()
-    .max(5, 'Maximum Of Five Selections')
-    .required('You Must Make At Least One Selection'),
-  typeOfDegree: Yup.string().min(2, 'Type of Degree Needs To Be Valid'),
-  degreeAttained: Yup.string().min(2, 'Degree Attained Needs To Be Valid'),
+    .max(5, 'Maximum of five selections')
+    .required('You must make at least one selection'),
   educationalInstitution: Yup.string().min(
     2,
-    'Educational Institution Needs To Be Valid'
+    'Educational institution needs to be valid'
   ),
 });

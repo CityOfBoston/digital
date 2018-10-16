@@ -15,22 +15,21 @@ import {
 
 import { Commission } from './graphql/fetch-commissions';
 
-const LIST_STYLING = css({
-  padding: 0,
-  marginBottom: '3rem',
-});
+const LIST_STYLING = css`
+  padding: 0;
+  margin-bottom: 3rem;
 
-const CONTAINER_STYLING = css`
   label span {
     margin-left: 0.75em;
   }
 
   ${MEDIA_MEDIUM} {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
-    section {
-      flex: 0 0 49%;
+    li {
+      flex: 0 0 48%;
     }
 
     label span {
@@ -45,7 +44,7 @@ interface Props {
   selectedCommissions: Commission[];
   errors: object;
   touched: object;
-  paragraphClassName: string;
+  paragraphElement: JSX.Element;
   handleBlur(e: any): void;
 }
 
@@ -55,67 +54,56 @@ export default class CommissionsListSection extends React.Component<Props> {
       <>
         <SectionHeader title="Boards and Commissions" />
 
-        <p className={this.props.paragraphClassName}>
-          Please note that many of these Boards and Commissions require City of
-          Boston residency.
-        </p>
+        {this.props.paragraphElement}
 
-        <p className={this.props.paragraphClassName}>
-          You can still apply for a board or commission that does not currently
-          have any open positions, and we will review your application when a
-          seat opens.
-        </p>
+        <CollapsibleSection title="Open Positions" subheader className="m-b100">
+          <FieldArray
+            name="selectedCommissions"
+            render={({ push, remove }) => (
+              <ul className={LIST_STYLING}>
+                {this.props.commissionsWithOpenSeats.map(commission =>
+                  renderCommission(
+                    commission,
+                    this.props.selectedCommissions,
+                    true,
+                    push,
+                    remove,
+                    this.props.handleBlur
+                  )
+                )}
+              </ul>
+            )}
+          />
+        </CollapsibleSection>
 
-        <div className={CONTAINER_STYLING}>
-          {/*todo: This list should start expanded if the preselected commission is in it, or alternately the collapsed title should say something like (1 selected)*/}
-          <CollapsibleSection
-            title="Open Positions"
-            subheader
-            className="m-b100"
-          >
-            <FieldArray
-              name="selectedCommissions"
-              render={({ push, remove }) => (
-                <ul className={LIST_STYLING}>
-                  {this.props.commissionsWithOpenSeats.map(commission =>
-                    renderCommission(
-                      commission,
-                      this.props.selectedCommissions,
-                      true,
-                      push,
-                      remove,
-                      this.props.handleBlur
-                    )
-                  )}
-                </ul>
-              )}
-            />
-          </CollapsibleSection>
-
-          <CollapsibleSection
-            title="No Open Positions"
-            subheader
-            startCollapsed
-          >
-            <FieldArray
-              name="selectedCommissions"
-              render={({ push, remove }) => (
-                <ul className={LIST_STYLING}>
-                  {this.props.commissionsWithoutOpenSeats.map(commission =>
-                    renderCommission(
-                      commission,
-                      this.props.selectedCommissions,
-                      false,
-                      push,
-                      remove,
-                      this.props.handleBlur
-                    )
-                  )}
-                </ul>
-              )}
-            />
-          </CollapsibleSection>
-        </div>
+        {/* if user arrives from a commissions page that does not have open seats, we still want that commission checked off, and we also want that section to start off expanded */}
+        <CollapsibleSection
+          title="No Open Positions"
+          subheader
+          startCollapsed={
+            !this.props.commissionsWithoutOpenSeats.includes(
+              this.props.selectedCommissions[0]
+            )
+          }
+        >
+          <FieldArray
+            name="selectedCommissions"
+            render={({ push, remove }) => (
+              <ul className={LIST_STYLING}>
+                {this.props.commissionsWithoutOpenSeats.map(commission =>
+                  renderCommission(
+                    commission,
+                    this.props.selectedCommissions,
+                    false,
+                    push,
+                    remove,
+                    this.props.handleBlur
+                  )
+                )}
+              </ul>
+            )}
+          />
+        </CollapsibleSection>
 
         {commissionsSelectionError(this.props.touched, this.props.errors)}
       </>

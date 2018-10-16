@@ -1,3 +1,4 @@
+import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
@@ -33,8 +34,9 @@ export default class MyDocument extends Document {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
 
     return (
-      <html>
+      <html lang="en" className="js flexbox">
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
             href="/assets/favicon.ico"
