@@ -1,4 +1,4 @@
-import url from 'url';
+import querystring from 'querystring';
 import next from 'next';
 import compression from 'compression';
 import {
@@ -55,7 +55,10 @@ export function makeRoutesForNextApp(
   // will get traffic.
   //
   // TODO(finh): Allow for custom assetPrefix for CDNs.
-  const assetPrefix = app.dev ? '/' : pathPrefix;
+  //
+  // Next’s HEAD code seems to take assetPrefix into account, so once that ships
+  // we should be able to un-hack all of the special handling of _next.
+  const assetPrefix = app.dev ? '' : pathPrefix;
   app.setAssetPrefix(assetPrefix);
 
   const requestHandler = app.getRequestHandler();
@@ -77,13 +80,13 @@ export function makeRoutesForNextApp(
       options: pageRouteOptions,
     },
     {
-      path: `${assetPrefix}_next/{p*}`,
+      path: `${assetPrefix || '/'}_next/{p*}`,
       method: 'GET',
       options: {
         auth: false,
         ...staticRouteOptions,
       },
-      handler: async ({ raw: { req, res }, params }, h) => {
+      handler: async ({ raw: { req, res }, params, query }, h) => {
         // Because Next.js writes to the raw response we don't get Hapi's built-in
         // gzipping or cache control.. So, we run an express middleware that
         // monkeypatches the raw response to gzip its output.
@@ -91,7 +94,17 @@ export function makeRoutesForNextApp(
 
         // Next always expects its "_next" stuff to be mounted at "/", so we
         // pass a custom URL that emulates that.
-        await requestHandler(req, res, url.parse(`/_next/${params.p}`));
+        const deparsedQuery =
+          typeof query === 'string' ? query : querystring.stringify(query);
+
+        // The latest version of Next looks at req.url to match development
+        // URLs, whereas in the past it used the third argument to the request
+        // handler. Therefore, we have to update the request object.
+        req.url = `/_next/${params.p}${
+          deparsedQuery ? '?' + deparsedQuery : ''
+        }`;
+
+        await requestHandler(req, res);
         return h.close;
       },
     },
