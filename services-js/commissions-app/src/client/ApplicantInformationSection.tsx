@@ -2,10 +2,9 @@ import React from 'react';
 import { Field } from 'formik';
 import { css } from 'emotion';
 
-import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
+import { MEDIA_MEDIUM, SectionHeader } from '@cityofboston/react-fleet';
 
 import TextInputContainer from './common/TextInputContainer';
-
 
 /**
  * Fleet grid classes behave as block elements at narrow viewports, which
@@ -71,17 +70,17 @@ const SPLIT_STYLING = css(`
   }
 `);
 
-
 export default function ApplicantInformationSection(): JSX.Element {
   return (
     <section>
+      <SectionHeader title="Applicant Information" />
+
       <div className={SPLIT_STYLING}>
         <div className={NAME_STREET_STYLING}>
           <Field
             component={TextInputContainer}
             label="First Name"
             name="firstName"
-
             placeholder="First Name"
             required
           />
@@ -97,7 +96,6 @@ export default function ApplicantInformationSection(): JSX.Element {
           component={TextInputContainer}
           label="Last Name"
           name="lastName"
-
           placeholder="Last Name"
           required
         />
@@ -108,7 +106,6 @@ export default function ApplicantInformationSection(): JSX.Element {
           component={TextInputContainer}
           label="Street Address"
           name="streetAddress"
-
           placeholder="Street Address"
           required
         />
@@ -126,7 +123,6 @@ export default function ApplicantInformationSection(): JSX.Element {
           component={TextInputContainer}
           label="City"
           name="city"
-
           placeholder="City"
           required
         />
@@ -136,7 +132,6 @@ export default function ApplicantInformationSection(): JSX.Element {
             component={TextInputContainer}
             label="State"
             name="state"
-
             placeholder="State"
             required
           />
@@ -145,7 +140,6 @@ export default function ApplicantInformationSection(): JSX.Element {
             component={TextInputContainer}
             label="Zip"
             name="zip"
-
             placeholder="Zip Code"
             required
           />
@@ -156,7 +150,6 @@ export default function ApplicantInformationSection(): JSX.Element {
         component={TextInputContainer}
         label="Phone"
         name="phone"
-
         placeholder="Phone Number"
       />
 
@@ -164,7 +157,6 @@ export default function ApplicantInformationSection(): JSX.Element {
         component={TextInputContainer}
         label="Email"
         name="email"
-
         placeholder="Email"
         required
       />
@@ -173,7 +165,6 @@ export default function ApplicantInformationSection(): JSX.Element {
         component={TextInputContainer}
         label="Confirm Email"
         name="confirmEmail"
-
         placeholder="Confirm Email"
         required
       />
