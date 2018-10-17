@@ -1,8 +1,11 @@
 import React from 'react';
-import { Formik, FormikProps, Form, Field } from 'formik';
+import { Formik, FormikProps, Field } from 'formik';
 import { css } from 'emotion';
 
-import { applicationForm as validationSchema } from '../lib/validationSchema';
+import {
+  applyFormSchema as validationSchema,
+  ApplyFormValues,
+} from '../lib/validationSchema';
 
 import { Commission } from './graphql/fetch-commissions';
 
@@ -12,31 +15,12 @@ import TextInputContainer from './common/TextInputContainer';
 import ApplicantInformationSection from './ApplicantInformationSection';
 import CommissionsListSection from './CommissionsListSection';
 
-interface FormValues {
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  streetAddress: string;
-  unit: string;
-  city: string;
-  state: string;
-  zip: string;
-  phone: string;
-  email: string;
-  confirmEmail: string;
-  selectedCommissions: Commission[];
-  degreeAttained: string;
-  educationalInstitution: string;
-  otherInformation: string;
-  coverLetter: any;
-  resume: any;
-}
-
 interface Props {
-  selectedCommission?: Commission;
+  selectedCommissionId: string | null;
   commissionsWithOpenSeats: Commission[];
   commissionsWithoutOpenSeats: Commission[];
-  handleSubmit(values: FormValues): void;
+  handleSubmit(): Promise<void>;
+  formRef: React.RefObject<HTMLFormElement>;
 }
 
 const PARAGRAPH_STYLING = css({
@@ -67,7 +51,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
     </p>
   );
 
-  const initialFormValues = {
+  const initialFormValues: ApplyFormValues = {
     firstName: '',
     middleName: '',
     lastName: '',
@@ -79,7 +63,9 @@ export default function ApplicationForm(props: Props): JSX.Element {
     phone: '',
     email: '',
     confirmEmail: '',
-    selectedCommissions: [props.selectedCommission as Commission],
+    commissionIds: props.selectedCommissionId
+      ? [props.selectedCommissionId]
+      : [],
     degreeAttained: '',
     educationalInstitution: '',
     otherInformation: '',
@@ -91,16 +77,24 @@ export default function ApplicationForm(props: Props): JSX.Element {
     <Formik
       initialValues={initialFormValues}
       validationSchema={validationSchema}
-      onSubmit={values => props.handleSubmit(values)}
+      onSubmit={async (_, { setSubmitting }) => {
+        try {
+          await props.handleSubmit();
+        } finally {
+          setSubmitting(false);
+        }
+      }}
       render={({
         values,
         errors,
-        touched,
         handleBlur,
         handleChange,
+        handleSubmit,
         setFieldValue,
-      }: FormikProps<FormValues>) => (
-        <Form>
+        isSubmitting,
+        isValid,
+      }: FormikProps<ApplyFormValues>) => (
+        <form onSubmit={handleSubmit} ref={props.formRef}>
           <h1 className="sh-title">Boards and Commissions Application Form</h1>
 
           {enablingLegislationText}
@@ -145,10 +139,8 @@ export default function ApplicationForm(props: Props): JSX.Element {
           <CommissionsListSection
             commissionsWithOpenSeats={props.commissionsWithOpenSeats}
             commissionsWithoutOpenSeats={props.commissionsWithoutOpenSeats}
-            selectedCommissions={values.selectedCommissions}
+            selectedCommissionIds={values.commissionIds}
             errors={errors}
-            touched={touched}
-            handleBlur={handleBlur}
             paragraphElement={canStillApplyText}
           />
 
@@ -180,10 +172,14 @@ export default function ApplicationForm(props: Props): JSX.Element {
 
           {enablingLegislationText}
 
-          <button type="submit" className="btn btn--700">
+          <button
+            type="submit"
+            className="btn btn--700"
+            disabled={isSubmitting || !isValid}
+          >
             Submit Application
           </button>
-        </Form>
+        </form>
       )}
     />
   );

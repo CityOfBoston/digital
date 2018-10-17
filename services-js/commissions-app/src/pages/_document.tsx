@@ -2,7 +2,10 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-import { CompatibilityWarning } from '@cityofboston/react-fleet';
+import {
+  CompatibilityWarning,
+  PUBLIC_CSS_URL,
+} from '@cityofboston/react-fleet';
 
 export default class MyDocument extends Document {
   props: any;
@@ -42,6 +45,7 @@ export default class MyDocument extends Document {
             href="/assets/favicon.ico"
             type="image/vnd.microsoft.icon"
           />
+          <link rel="stylesheet" href={PUBLIC_CSS_URL} />
 
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
 

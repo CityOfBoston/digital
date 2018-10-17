@@ -28,5 +28,6 @@ storiesOf('ApplyPage', module).add('default', () => (
         openSeats: 0,
       },
     ]}
+    commissionID="1"
   />
 ));
