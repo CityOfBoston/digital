@@ -25,6 +25,8 @@ import { OPTIMISTIC_BLUE } from '../utilities/constants';
 // todo: have this trigger element be generic; if no <h1-6> present,
 // todo: <section> must have an aria-label
 
+// todo: move utility style objects to react-fleet
+
 interface Props {
   title: string;
   children: ReactNode | ReactNodeArray;
@@ -39,16 +41,16 @@ interface State {
   expanded: boolean;
 }
 
-const BUTTON_STYLING = css`
+// utility styling object; clears most default button styling and ensures
+// visible focus state (limited to :focus-visible, when supported)
+
+// if IE/Edge isn’t a concern, “all: inherit” could be used instead
+const BUTTON_CLEAR_DEFAULT_STYLING = css`
   width: 100%;
   background: none;
   border: none;
   padding: 0;
-  text-transform: inherit;
   text-align: left;
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
   cursor: pointer;
   &:focus {
     outline: auto;
@@ -60,14 +62,20 @@ const BUTTON_STYLING = css`
   }
 `;
 
-const HEADER_STYLING = css`
-  width: 100%;
-  margin-bottom: 0;
-  padding-right: 0;
-  line-height: normal;
+// ensure button text inherits from its parent
+const BUTTON_INHERIT_FONT_STYLING = css`
+  text-transform: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+`;
+
+const BUTTON_STYLING = css`
+  ${BUTTON_CLEAR_DEFAULT_STYLING} ${BUTTON_INHERIT_FONT_STYLING}
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   svg {
     width: 0.9em;
@@ -78,10 +86,16 @@ const HEADER_STYLING = css`
     transition: transform 0.4s;
   }
 
-  [aria-expanded='true'] ~ svg {
+  &[aria-expanded='true'] > svg {
     transform: rotate(-180deg);
     transform-origin: center;
   }
+`;
+
+const HEADER_STYLING = css`
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
 `;
 
 export default class CollapsibleSection extends React.Component<Props, State> {
@@ -107,15 +121,13 @@ export default class CollapsibleSection extends React.Component<Props, State> {
       return this.props.title;
     } else {
       return (
-        <>
-          <button
-            type="button"
-            className={BUTTON_STYLING}
-            aria-expanded={this.state.expanded}
-            onClick={this.toggleExpanded}
-          >
-            {this.props.title}
-          </button>
+        <button
+          type="button"
+          className={BUTTON_STYLING}
+          aria-expanded={this.state.expanded}
+          onClick={this.toggleExpanded}
+        >
+          {this.props.title}
 
           <svg
             viewBox="0 0 20 20"
@@ -131,7 +143,7 @@ export default class CollapsibleSection extends React.Component<Props, State> {
               strokeLinejoin="round"
             />
           </svg>
-        </>
+        </button>
       );
     }
   };

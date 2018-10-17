@@ -751,30 +751,30 @@ exports[`Storyshots ApplyPage default 1`] = `
                   className="sh sh--sm"
                 >
                   <h3
-                    className="sh-title css-1kaai3o"
+                    className="sh-title css-14x07yu"
                   >
                     <button
                       aria-expanded={true}
-                      className="css-kbjlh2"
+                      className="css-1mteg3g"
                       onClick={[Function]}
                       type="button"
                     >
                       Open Positions
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        overflow="visible"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M 2,5 10,16 18,5"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                        />
+                      </svg>
                     </button>
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      overflow="visible"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M 2,5 10,16 18,5"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                      />
-                    </svg>
                   </h3>
                 </div>
                 <div
@@ -869,30 +869,30 @@ exports[`Storyshots ApplyPage default 1`] = `
                   className="sh sh--sm"
                 >
                   <h3
-                    className="sh-title css-1kaai3o"
+                    className="sh-title css-14x07yu"
                   >
                     <button
                       aria-expanded={false}
-                      className="css-kbjlh2"
+                      className="css-1mteg3g"
                       onClick={[Function]}
                       type="button"
                     >
                       No Open Positions
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        overflow="visible"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M 2,5 10,16 18,5"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                        />
+                      </svg>
                     </button>
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      overflow="visible"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M 2,5 10,16 18,5"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                      />
-                    </svg>
                   </h3>
                 </div>
                 <div
