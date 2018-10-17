@@ -35,6 +35,7 @@ import graphqlSchema, { Context } from './graphql/schema';
 import CommissionsDao from './dao/CommissionsDao';
 import CommissionsDaoFake from './dao/CommissionsDaoFake';
 import { ConnectionPool } from 'mssql';
+import { applyFormSchema } from '../lib/validationSchema';
 
 const PATH_PREFIX = '/commissions';
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -157,6 +158,25 @@ export async function makeServer(port, rollbar: Rollbar) {
     method: 'GET',
     path: '/commissions',
     handler: (_, h) => h.redirect('/commissions/apply'),
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/commissions/submit',
+    handler: async (req, h) => {
+      try {
+        const validForm = await applyFormSchema.validate(
+          applyFormSchema.cast(req.payload),
+          // Since we do our own `cast` we can be strict.
+          { strict: true }
+        );
+        console.log(validForm);
+      } catch (e) {
+        console.log(e);
+      }
+
+      return h.response('ok');
+    },
   });
 
   server.route(adminOkRoute);

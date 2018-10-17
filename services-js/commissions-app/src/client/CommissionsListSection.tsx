@@ -2,7 +2,7 @@
 import 'core-js/fn/array/includes';
 
 import React from 'react';
-import { FieldArray } from 'formik';
+import { FieldArray, FormikErrors } from 'formik';
 import { css } from 'emotion';
 
 import {
@@ -14,6 +14,7 @@ import {
 } from '@cityofboston/react-fleet';
 
 import { Commission } from './graphql/fetch-commissions';
+import { ApplyFormValues } from '../lib/validationSchema';
 
 const LIST_STYLING = css`
   padding: 0;
@@ -41,11 +42,9 @@ const LIST_STYLING = css`
 interface Props {
   commissionsWithOpenSeats: Commission[];
   commissionsWithoutOpenSeats: Commission[];
-  selectedCommissions: Commission[];
-  errors: object;
-  touched: object;
-  paragraphElement: JSX.Element;
-  handleBlur(e: any): void;
+  selectedCommissionIds: string[];
+  errors: FormikErrors<ApplyFormValues>;
+  paragraphElement: React.ReactNode;
 }
 
 export default class CommissionsListSection extends React.Component<Props> {
@@ -58,46 +57,41 @@ export default class CommissionsListSection extends React.Component<Props> {
 
         <CollapsibleSection title="Open Positions" subheader className="m-b100">
           <FieldArray
-            name="selectedCommissions"
+            name="commissionIds"
             render={({ push, remove }) => (
               <ul className={LIST_STYLING}>
                 {this.props.commissionsWithOpenSeats.map(commission =>
                   renderCommission(
                     commission,
-                    this.props.selectedCommissions,
-                    true,
+                    this.props.selectedCommissionIds,
                     push,
-                    remove,
-                    this.props.handleBlur
+                    remove
                   )
                 )}
               </ul>
             )}
           />
         </CollapsibleSection>
-
         {/* if user arrives from a commissions page that does not have open seats, we still want that commission checked off, and we also want that section to start off expanded */}
         <CollapsibleSection
           title="No Open Positions"
           subheader
           startCollapsed={
-            !this.props.commissionsWithoutOpenSeats.includes(
-              this.props.selectedCommissions[0]
+            !this.props.commissionsWithoutOpenSeats.find(({ id }) =>
+              this.props.selectedCommissionIds.includes(id.toString())
             )
           }
         >
           <FieldArray
-            name="selectedCommissions"
+            name="commissionIds"
             render={({ push, remove }) => (
               <ul className={LIST_STYLING}>
                 {this.props.commissionsWithoutOpenSeats.map(commission =>
                   renderCommission(
                     commission,
-                    this.props.selectedCommissions,
-                    false,
+                    this.props.selectedCommissionIds,
                     push,
-                    remove,
-                    this.props.handleBlur
+                    remove
                   )
                 )}
               </ul>
@@ -105,50 +99,49 @@ export default class CommissionsListSection extends React.Component<Props> {
           />
         </CollapsibleSection>
 
-        {commissionsSelectionError(this.props.touched, this.props.errors)}
+        {commissionsSelectionError(this.props.errors)}
       </>
     );
   }
 }
 
 function renderCommission(
-  commission,
-  selectedCommissions,
-  isAvailable,
-  push,
-  remove,
-  handleBlur
+  commission: Commission,
+  selectedCommissionIds: string[],
+  push: (obj: string) => void,
+  remove: (idx: number) => void
 ) {
-  const checked = selectedCommissions.includes(commission);
-  const uid = `commissionIds.${commission.id}`;
+  const id = commission.id.toString();
+  const checked = selectedCommissionIds.includes(id);
+  const uid = `commissionIds.${id}`;
 
   return (
     <li style={{ listStyleType: 'none' }} key={uid} className="m-b500">
       <Checkbox
-        name={`commissionIds-${isAvailable ? 'openSeats' : 'noSeats'}`}
-        value={commission.id.toString()}
+        name="commissionIds"
+        value={id}
         title={commission.name}
         onChange={() => {
           if (!checked) {
-            push(commission);
+            push(id);
           } else {
-            remove(commission);
+            const idx = selectedCommissionIds.indexOf(id);
+            remove(idx);
           }
         }}
-        onBlur={handleBlur}
         checked={checked}
       />
     </li>
   );
 }
 
-function commissionsSelectionError(touched, errors) {
+function commissionsSelectionError(errors: FormikErrors<ApplyFormValues>) {
   return (
     <p
       className="t--subinfo t--err"
       style={{ marginTop: '-0.5em', color: A11Y_RED }}
     >
-      {touched.selectedCommissions && errors.selectedCommissions} &nbsp;
+      {errors.commissionIds} &nbsp;
     </p>
   );
 }

@@ -1,36 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots ApplyPage default 1`] = `
-<div
-  className="mn"
->
-  <div>
-    <a
-      className="btn a11y--h a11y--f"
-      href="#content-start"
-      onClick={[Function]}
-      style={
-        Object {
-          "margin": 4,
-        }
+<div>
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
       }
-      tabIndex={1}
-    >
-      Jump to content
-    </a>
-    <input
-      aria-label="Open Boston.gov menu"
-      className="brg-tr"
-      id="brg-tr"
-      onKeyDown={[Function]}
-      type="checkbox"
-    />
-    <nav
-      aria-label="Boston.gov menu"
-      className="nv-m"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
   <div class=\\"nv-m-h\\">
       <div class=\\"nv-m-h-ic\\">
         <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
@@ -67,26 +64,26 @@ exports[`Storyshots ApplyPage default 1`] = `
 </ul></li>
 </ul>  </div>
 ",
-        }
       }
-    />
+    }
+  />
+  <div
+    className="mn--full-ie"
+  >
     <div
-      className="mn--full-ie"
+      className="mn mn--full "
     >
-      <div
-        className="mn mn--full "
-      >
-        <input
-          aria-hidden="true"
-          className="s-tr"
-          id="s-tr"
-          type="checkbox"
-        />
-        <header
-          className="h"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
     <label for=\\"brg-tr\\" class=\\"brg-b\\">
   <div class=\\"brg\\">
     <span class=\\"brg-c\\">
@@ -139,16 +136,19 @@ exports[`Storyshots ApplyPage default 1`] = `
   </form>
 </div>
   ",
-            }
           }
-          role="banner"
-        />
+        }
+        role="banner"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
         <div
-          className="a11y--content-start"
-          id="content-start"
-        />
-        <main
-          className="b-ff"
+          className="mn"
         >
           <div
             className="b-c b-c--ntp"
@@ -226,6 +226,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         aria-label=""
                         className="txt-f txt-f--sm "
                         id="firstName"
+                        name="firstName"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="First Name"
@@ -259,6 +260,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         aria-label=""
                         className="txt-f txt-f--sm "
                         id="middleName"
+                        name="middleName"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="text"
@@ -296,6 +298,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                       aria-label=""
                       className="txt-f txt-f--sm "
                       id="lastName"
+                      name="lastName"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Last Name"
@@ -338,6 +341,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                       aria-label=""
                       className="txt-f txt-f--sm "
                       id="streetAddress"
+                      name="streetAddress"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Street Address"
@@ -371,6 +375,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                       aria-label=""
                       className="txt-f txt-f--sm "
                       id="unit"
+                      name="unit"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Unit or Apartment #"
@@ -412,6 +417,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                       aria-label=""
                       className="txt-f txt-f--sm "
                       id="city"
+                      name="city"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="City"
@@ -453,6 +459,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         aria-label=""
                         className="txt-f txt-f--sm "
                         id="state"
+                        name="state"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="State"
@@ -491,6 +498,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         aria-label=""
                         className="txt-f txt-f--sm "
                         id="zip"
+                        name="zip"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="Zip Code"
@@ -526,6 +534,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     aria-label=""
                     className="txt-f txt-f--sm "
                     id="phone"
+                    name="phone"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Phone Number"
@@ -563,6 +572,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     aria-label=""
                     className="txt-f txt-f--sm "
                     id="email"
+                    name="email"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Email"
@@ -601,6 +611,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     aria-label=""
                     className="txt-f txt-f--sm "
                     id="confirmEmail"
+                    name="confirmEmail"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Confirm Email"
@@ -648,6 +659,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     aria-label=""
                     className="txt-f txt-f--sm "
                     id="degreeAttained"
+                    name="degreeAttained"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Degree Attained"
@@ -680,6 +692,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     aria-label=""
                     className="txt-f txt-f--sm "
                     id="educationalInstitution"
+                    name="educationalInstitution"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Educational Institution"
@@ -784,8 +797,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         <input
                           checked={false}
                           className="cb-f"
-                          name="commissionIds-openSeats"
-                          onBlur={[Function]}
+                          name="commissionIds"
                           onChange={[Function]}
                           type="checkbox"
                           value="0"
@@ -809,10 +821,9 @@ exports[`Storyshots ApplyPage default 1`] = `
                         className="cb "
                       >
                         <input
-                          checked={false}
+                          checked={true}
                           className="cb-f"
-                          name="commissionIds-openSeats"
-                          onBlur={[Function]}
+                          name="commissionIds"
                           onChange={[Function]}
                           type="checkbox"
                           value="1"
@@ -838,8 +849,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         <input
                           checked={false}
                           className="cb-f"
-                          name="commissionIds-openSeats"
-                          onBlur={[Function]}
+                          name="commissionIds"
                           onChange={[Function]}
                           type="checkbox"
                           value="2"
@@ -905,8 +915,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                         <input
                           checked={false}
                           className="cb-f"
-                          name="commissionIds-noSeats"
-                          onBlur={[Function]}
+                          name="commissionIds"
                           onChange={[Function]}
                           type="checkbox"
                           value="3"
@@ -1050,20 +1059,22 @@ exports[`Storyshots ApplyPage default 1`] = `
               </p>
               <button
                 className="btn btn--700"
+                disabled={true}
                 type="submit"
               >
                 Submit Application
               </button>
             </form>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
-    <footer
-      className="ft"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
     <div class=\\"ft-c\\">
       <ul class=\\"ft-ll ft-ll--r\\">
         <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
@@ -1076,15 +1087,14 @@ exports[`Storyshots ApplyPage default 1`] = `
 <li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
 </ul>    </div>
   ",
-        }
       }
-      style={
-        Object {
-          "position": "relative",
-          "zIndex": 2,
-        }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
       }
-    />
-  </div>
+    }
+  />
 </div>
 `;

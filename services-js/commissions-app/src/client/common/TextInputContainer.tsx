@@ -2,7 +2,6 @@ import React from 'react';
 
 import { TextInput } from '@cityofboston/react-fleet';
 
-
 /**
  * Convenience component to simplify use with Formik.
  */
@@ -16,11 +15,11 @@ function TextInputContainer({
   field: { name, value },
   form: { touched, errors, handleBlur, handleChange },
   ...props
-  }): JSX.Element {
-
+}): JSX.Element {
   return (
     <TextInput
       small
+      name={name}
       label={props.label}
       error={touched[name] && errors[name]}
       value={value}

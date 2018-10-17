@@ -5,11 +5,7 @@ import fetchCommissions, {
   Commission,
 } from '../../client/graphql/fetch-commissions';
 
-import {
-  AppLayout,
-  PUBLIC_CSS_URL,
-  StatusModal,
-} from '@cityofboston/react-fleet';
+import { AppLayout, StatusModal } from '@cityofboston/react-fleet';
 
 import ApplicationForm from '../../client/ApplicationForm';
 import ApplicationSubmitted from '../../client/ApplicationSubmitted';
@@ -26,6 +22,11 @@ interface State {
 }
 
 export default class ApplyPage extends React.Component<Props, State> {
+  // We want the HTML <form> element directly for submitting, so we can easily
+  // build a FormData object out of it. This is important for sending the
+  // uploaded file data along.
+  private formRef = React.createRef<HTMLFormElement>();
+
   constructor(props: Props) {
     super(props);
 
@@ -42,9 +43,22 @@ export default class ApplyPage extends React.Component<Props, State> {
     return { commissions, commissionID };
   }
 
-  // handleSubmit = formData => {
-  //   console.log(formData);
-  // };
+  handleSubmit = async () => {
+    const form = this.formRef.current;
+    if (!form) {
+      return;
+    }
+
+    const data = new FormData(form);
+
+    const resp = await fetch('/commissions/submit', {
+      method: 'POST',
+      body: data,
+    });
+
+    // eslint-disable-next-line no-console
+    console.log(resp.ok);
+  };
 
   render() {
     const { commissions, commissionID } = this.props;
@@ -57,28 +71,23 @@ export default class ApplyPage extends React.Component<Props, State> {
       .filter(commission => commission.openSeats > 0)
       .sort((current, next) => current.name.localeCompare(next.name));
 
-    // if a CommissionID has been passed as a prop, return the Commission
-    const preselectedCommission: Commission | undefined = commissions.find(
-      // @ts-ignore
-      commission => commission.id === +commissionID
-    );
-
     return (
-      <div className="mn">
+      <AppLayout>
         <Head>
-          <link rel="stylesheet" href={PUBLIC_CSS_URL} />
+          <title>Apply for a Board or Commission | Boston.gov</title>
         </Head>
 
-        <AppLayout>
+        <div className="mn">
           <div className="b-c b-c--ntp">
             {this.state.applicationSubmitted ? (
               <ApplicationSubmitted error={this.state.submissionError} />
             ) : (
               <ApplicationForm
-                selectedCommission={preselectedCommission}
+                selectedCommissionId={commissionID || null}
                 commissionsWithOpenSeats={commissionsWithOpenSeats}
                 commissionsWithoutOpenSeats={commissionsWithoutOpenSeats}
-                handleSubmit={() => {}}
+                formRef={this.formRef}
+                handleSubmit={this.handleSubmit}
               />
             )}
 
@@ -91,8 +100,8 @@ export default class ApplyPage extends React.Component<Props, State> {
               </StatusModal>
             )}
           </div>
-        </AppLayout>
-      </div>
+        </div>
+      </AppLayout>
     );
   }
 }
