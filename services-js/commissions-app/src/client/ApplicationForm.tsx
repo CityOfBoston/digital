@@ -149,13 +149,15 @@ export default function ApplicationForm(props: Props): JSX.Element {
           <section>
             <SectionHeader title="Reference Information" />
 
-            <p className="m-b400">Files must be PDFs and under 28MB in size.</p>
+            <p className="m-b400">
+              Files must be PDFs and under 5MB each in size.
+            </p>
 
             <FileInput
               name="coverLetter"
               title="Cover Letter"
               fileTypes={['application/pdf']}
-              sizeLimit={{ amount: 28, unit: 'MB' }}
+              sizeLimit={{ amount: 5, unit: 'MB' }}
               handleChange={setFieldValue}
             />
 
@@ -163,7 +165,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
               name="resume"
               title="Resumé"
               fileTypes={['application/pdf']}
-              sizeLimit={{ amount: 28, unit: 'MB' }}
+              sizeLimit={{ amount: 5, unit: 'MB' }}
               handleChange={setFieldValue}
             />
           </section>

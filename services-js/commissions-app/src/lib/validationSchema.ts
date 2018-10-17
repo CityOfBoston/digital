@@ -19,26 +19,41 @@ export interface ApplyFormValues {
   degreeAttained: string;
   educationalInstitution: string;
   otherInformation: string;
-  coverLetter: File | null;
-  resume: File | null;
+  coverLetter: File | Buffer | null;
+  resume: File | Buffer | null;
 }
 
+// TODO(finh): These "max" values come from the database. We should enforce them
+// via <input> maxLength attributes rather than showing red error messages when
+// the user exceeds the limit.
 export const applyFormSchema = Yup.object<ApplyFormValues>({
-  firstName: Yup.string().required('First name is required'),
-  middleName: Yup.string(),
-  lastName: Yup.string().required('Last name is required'),
-  streetAddress: Yup.string().required('Address is required'),
-  unit: Yup.string(),
-  city: Yup.string().required('City is required'),
-  state: Yup.string().required('State is required'),
+  firstName: Yup.string()
+    .required('First name is required')
+    .max(25),
+  middleName: Yup.string().max(50),
+  lastName: Yup.string()
+    .required('Last name is required')
+    .max(50),
+  streetAddress: Yup.string()
+    .required('Address is required')
+    .max(50),
+  unit: Yup.string().max(50),
+  city: Yup.string()
+    .required('City is required')
+    .max(50),
+  state: Yup.string()
+    .required('State is required')
+    .max(50),
   zip: Yup.string()
     .required('Zip code is required')
-    .matches(new RegExp(/^\d{5}$/), 'Zip codes should have 5 digits'),
+    .matches(new RegExp(/^\d{5}$/), 'Zip codes should have 5 digits')
+    .max(50),
   // TODO(finh): use phone regexp
-  phone: Yup.string(),
+  phone: Yup.string().max(50),
   email: Yup.string()
     .email()
-    .required('Email is required'),
+    .required('Email is required')
+    .max(50),
   confirmEmail: Yup.string()
     .email()
     .required('Please enter your email again')
@@ -52,13 +67,10 @@ export const applyFormSchema = Yup.object<ApplyFormValues>({
   commissionIds: Yup.array(Yup.string())
     .transform((_, orig) => (orig == null ? [] : [].concat(orig)))
     .max(5, 'Maximum of five selections')
-    .required('You must make at least one selection'),
-  degreeAttained: Yup.string(),
-  otherInformation: Yup.string(),
-  educationalInstitution: Yup.string().min(
-    2,
-    'Educational institution needs to be valid'
-  ),
-  coverLetter: Yup.mixed(),
-  resume: Yup.mixed(),
+    .min(1),
+  degreeAttained: Yup.string().max(100),
+  otherInformation: Yup.string().max(1000),
+  educationalInstitution: Yup.string().max(100),
+  coverLetter: Yup.mixed().required(),
+  resume: Yup.mixed().required(),
 });

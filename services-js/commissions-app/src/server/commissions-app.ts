@@ -3,6 +3,7 @@
 import fs from 'fs';
 
 import { Server as HapiServer } from 'hapi';
+import { boomify } from 'boom';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
@@ -35,7 +36,7 @@ import graphqlSchema, { Context } from './graphql/schema';
 import CommissionsDao from './dao/CommissionsDao';
 import CommissionsDaoFake from './dao/CommissionsDaoFake';
 import { ConnectionPool } from 'mssql';
-import { applyFormSchema } from '../lib/validationSchema';
+import { applyFormSchema, ApplyFormValues } from '../lib/validationSchema';
 
 const PATH_PREFIX = '/commissions';
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -163,17 +164,22 @@ export async function makeServer(port, rollbar: Rollbar) {
   server.route({
     method: 'POST',
     path: '/commissions/submit',
+    options: {
+      payload: {
+        // Two 5mb files in bytes, plus another 500k for other form information.
+        maxBytes: 1024 * 1024 * (2 * 5 + 0.5),
+      },
+    },
     handler: async (req, h) => {
+      let validForm: ApplyFormValues;
+
       try {
-        const validForm = await applyFormSchema.validate(
-          applyFormSchema.cast(req.payload),
-          // Since we do our own `cast` we can be strict.
-          { strict: true }
-        );
-        console.log(validForm);
+        validForm = await applyFormSchema.validate(req.payload as any);
       } catch (e) {
-        console.log(e);
+        throw boomify(e, { statusCode: 400 });
       }
+
+      await makeCommissionsDao().apply(validForm);
 
       return h.response('ok');
     },

@@ -21,6 +21,10 @@ export default class CommissionsDaoFake implements Required<CommissionsDao> {
     return Promise.resolve(BOARDS);
   }
 
+  apply() {
+    return Promise.resolve();
+  }
+
   async fetchBoard(id: number) {
     return (
       (await this.fetchBoards()).find(({ BoardID }) => BoardID === id) || null

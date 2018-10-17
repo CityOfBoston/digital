@@ -957,7 +957,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <p
                   className="m-b400"
                 >
-                  Files must be PDFs and under 28MB in size.
+                  Files must be PDFs and under 5MB each in size.
                 </p>
                 <div
                   className="txt m-b300 css-1mxs0p5"
