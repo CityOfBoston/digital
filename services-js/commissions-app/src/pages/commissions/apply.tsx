@@ -1,3 +1,6 @@
+// polyfill Array.find() for IE
+import 'core-js/fn/array/find';
+
 import React from 'react';
 import Head from 'next/head';
 

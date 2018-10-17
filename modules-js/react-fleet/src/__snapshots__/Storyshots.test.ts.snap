@@ -1829,30 +1829,30 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
     className="sh "
   >
     <h2
-      className="sh-title css-1kaai3o"
+      className="sh-title css-14x07yu"
     >
       <button
         aria-expanded={true}
-        className="css-kbjlh2"
+        className="css-1mteg3g"
         onClick={[Function]}
         type="button"
       >
         Boards and Commissions
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          overflow="visible"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M 2,5 10,16 18,5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+          />
+        </svg>
       </button>
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        overflow="visible"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M 2,5 10,16 18,5"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2.5"
-        />
-      </svg>
     </h2>
   </div>
   <div
@@ -1875,7 +1875,7 @@ Array [
       className="sh "
     >
       <h2
-        className="sh-title css-1kaai3o"
+        className="sh-title css-14x07yu"
       >
         Disabled / Open
       </h2>
@@ -1896,7 +1896,7 @@ Array [
       className="sh "
     >
       <h2
-        className="sh-title css-1kaai3o"
+        className="sh-title css-14x07yu"
       >
         Disabled / Closed
       </h2>
@@ -1921,30 +1921,30 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
     className="sh "
   >
     <h2
-      className="sh-title css-1kaai3o"
+      className="sh-title css-14x07yu"
     >
       <button
         aria-expanded={false}
-        className="css-kbjlh2"
+        className="css-1mteg3g"
         onClick={[Function]}
         type="button"
       >
         Initially Collapsed
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          overflow="visible"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M 2,5 10,16 18,5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+          />
+        </svg>
       </button>
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        overflow="visible"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M 2,5 10,16 18,5"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2.5"
-        />
-      </svg>
     </h2>
   </div>
   <div
@@ -1966,30 +1966,30 @@ exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`
     className="sh sh--sm"
   >
     <h3
-      className="sh-title css-1kaai3o"
+      className="sh-title css-14x07yu"
     >
       <button
         aria-expanded={true}
-        className="css-kbjlh2"
+        className="css-1mteg3g"
         onClick={[Function]}
         type="button"
       >
         Boards and Commissions
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          overflow="visible"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M 2,5 10,16 18,5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+          />
+        </svg>
       </button>
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        overflow="visible"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M 2,5 10,16 18,5"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2.5"
-        />
-      </svg>
     </h3>
   </div>
   <div
