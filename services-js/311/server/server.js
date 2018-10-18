@@ -155,7 +155,11 @@ export default async function startServer({ opbeat }: any) {
             opbeat
           ),
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
-          prediction: new Prediction(process.env.PREDICTION_ENDPOINT, opbeat),
+          prediction: new Prediction(
+            process.env.PREDICTION_ENDPOINT,
+            process.env.NEW_PREDICTION_ENDPOINT,
+            opbeat
+          ),
           // Elasticsearch maintains a persistent connection, so we re-use it
           // across requests.
           elasticsearch,

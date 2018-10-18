@@ -75,18 +75,17 @@ const TOP_SERVICE_CODES = [
 
 async function serviceSuggestions(
   { open311, prediction }: Context,
-  { text, max, threshold }: SuggestionsArgs
+  { text, max }: SuggestionsArgs
 ): Promise<Service[]> {
   const [suggestions, services] = await Promise.all([
-    prediction.caseTypes(text, threshold || 0),
+    prediction.caseTypes(text),
     open311.services(),
   ]);
 
   const matchedServices: Service[] = [];
-  // "type" here is the name of the service
-  suggestions.forEach(({ sf_type_id }) => {
+  suggestions.forEach(type => {
     const matchedService = services.find(
-      ({ service_code }) => service_code === sf_type_id
+      ({ service_code }) => service_code === type
     );
     if (matchedService) {
       matchedServices.push(matchedService);

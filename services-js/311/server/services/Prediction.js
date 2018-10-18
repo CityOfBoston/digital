@@ -5,30 +5,25 @@ import HttpsProxyAgent from 'https-proxy-agent';
 
 import type { DetailedServiceRequest } from './Open311';
 
-export type CaseTypePrediction = {
-  type: string,
-  probability: number,
-  sf_type_id: string,
-};
-
 type CaseTypePredictionResponse = {
-  types: ?(CaseTypePrediction[]),
-  // ISO 8601 date/time
-  created: ?string,
-  message: ?string,
+  status: string,
+  type: Array<string>,
+  time: string,
 };
 
 export default class Prediction {
   agent: any;
   endpoint: string;
+  newEndpoint: string;
   opbeat: any;
 
-  constructor(endpoint: ?string, opbeat: any) {
-    if (!endpoint) {
-      throw new Error('Missing ArcGIS endpoint');
+  constructor(endpoint: ?string, newEndpoint: ?string, opbeat: any) {
+    if (!endpoint || !newEndpoint) {
+      throw new Error('Missing prediction endpoint');
     }
 
     this.endpoint = endpoint;
+    this.newEndpoint = newEndpoint;
     this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
@@ -40,12 +35,8 @@ export default class Prediction {
     return url.resolve(this.endpoint, path);
   }
 
-  // returns case types in order of most likely to least likely, filtering
-  // out any with a too-low probability.
-  async caseTypes(
-    text: string,
-    threshold: number
-  ): Promise<CaseTypePrediction[]> {
+  // returns case types in order of most likely to least likely,
+  async caseTypes(text: string): Promise<string[]> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('case_type_prediction', 'Prediction');
@@ -55,7 +46,7 @@ export default class Prediction {
       time: new Date().toISOString(),
     };
 
-    const response = await fetch(this.url('case_type_prediction'), {
+    const response = await fetch(this.newEndpoint, {
       method: 'POST',
       body: JSON.stringify(requestJson),
       agent: this.agent,
@@ -67,14 +58,7 @@ export default class Prediction {
       transaction.end();
     }
 
-    if (typeof responseJson.message === 'string') {
-      throw new Error(`Prediction error: ${responseJson.message}`);
-    }
-
-    const caseTypes = [...(responseJson.types || [])];
-    caseTypes.sort((a, b) => b.probability - a.probability);
-
-    return caseTypes.filter(({ probability }) => probability > threshold);
+    return responseJson.type;
   }
 
   async caseCreated(
