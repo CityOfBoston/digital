@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export interface Props {
   name: string;
   placeholder: string;
@@ -8,7 +7,7 @@ export interface Props {
   small?: boolean;
   hideLabel?: boolean;
   rows?: number;
-  error?: string;
+  error?: false | string | Object;
   value: string;
 
   onChange?(e: any): void;
@@ -31,8 +30,9 @@ export default function Textarea(props: Props): JSX.Element {
         aria-label={props.hideLabel ? props.label : ''}
         rows={props.rows || 10}
         name={props.name}
-        className={`txt-f ${props.small ? 'txt-f--sm' : ''} ${props.error ? 'txt-f--err' : ''} `}
-
+        className={`txt-f ${props.small ? 'txt-f--sm' : ''} ${
+          props.error ? 'txt-f--err' : ''
+        } `}
         placeholder={props.placeholder}
         value={props.value}
         id={`FeedbackForm-${props.name}`}

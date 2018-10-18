@@ -202,12 +202,13 @@ export const rollbarPlugin = {
         }
       };
 
-      const error = response;
+      const error: Boom = response;
 
-      if (error instanceof Error) {
+      // There isn’t much value in reporting 404s. We might also want to ignore
+      // other 4xx errors, but for now we’ll keep them because they’re more
+      // likely our fault than someone messing with requests.
+      if (error.output.statusCode !== 404) {
         rollbar.error(error, request, cb);
-      } else {
-        rollbar.error(`Error: ${error}`, request, cb);
       }
 
       return h.continue;

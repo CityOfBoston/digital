@@ -537,7 +537,7 @@ Array [
 exports[`Storyshots Components/Modals Status 1`] = `
 <div
   aria-labelledby="statusModal"
-  className="md"
+  className="md "
   role="alertdialog"
 >
   <div
@@ -548,7 +548,7 @@ exports[`Storyshots Components/Modals Status 1`] = `
       className="md-b p-a300"
     >
       <div
-        className="t--intro"
+        className="t--intro "
         id="statusModal"
       >
         Saving your new password…
@@ -557,6 +557,75 @@ exports[`Storyshots Components/Modals Status 1`] = `
         className="t--info m-t300"
       >
         Please be patient and don’t refresh your browser. This might take a bit.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/StatusModal default 1`] = `
+<div
+  aria-labelledby="statusModal"
+  className="md "
+  role="alertdialog"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+    role="document"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro "
+        id="statusModal"
+      >
+        Please wait a second…
+      </div>
+      <p
+        className="t--s400"
+      >
+        We’re submitting the form. Hang tight and don’t reload the page.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/StatusModal error with close 1`] = `
+<div
+  aria-labelledby="statusModal"
+  className="md "
+  role="alertdialog"
+>
+  <div
+    className="md-c br br-t400 css-1y2scv5"
+    role="document"
+  >
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro t--err"
+        id="statusModal"
+      >
+        Something went wrong!
+      </div>
+      <p
+        className="t--s400"
+      >
+        Feel free to try again. If this keeps happening, let someone know.
+      </p>
+      <div
+        className="m-t300 ta-r"
+      >
+        <button
+          className="btn btn--sm btn--100"
+          onClick={[Function]}
+          type="button"
+        >
+          Close
+        </button>
       </div>
     </div>
   </div>

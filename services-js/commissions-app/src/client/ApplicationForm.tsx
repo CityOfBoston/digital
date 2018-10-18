@@ -1,188 +1,201 @@
 import React from 'react';
-import { Formik, FormikProps, Field } from 'formik';
-import { css } from 'emotion';
+import { FormikProps } from 'formik';
 
-import {
-  applyFormSchema as validationSchema,
-  ApplyFormValues,
-} from '../lib/validationSchema';
+import { ApplyFormValues } from '../lib/validationSchema';
 
 import { Commission } from './graphql/fetch-commissions';
 
-import { FileInput, SectionHeader, Textarea } from '@cityofboston/react-fleet';
+import {
+  FileInput,
+  SectionHeader,
+  Textarea,
+  TextInput,
+  StatusModal,
+} from '@cityofboston/react-fleet';
 
-import TextInputContainer from './common/TextInputContainer';
 import ApplicantInformationSection from './ApplicantInformationSection';
 import CommissionsListSection from './CommissionsListSection';
 
-interface Props {
-  selectedCommissionId: string | null;
+type RequiredFormikProps = Pick<
+  FormikProps<ApplyFormValues>,
+  | 'values'
+  | 'errors'
+  | 'touched'
+  | 'handleBlur'
+  | 'handleChange'
+  | 'handleSubmit'
+  | 'setFieldValue'
+  | 'isSubmitting'
+  | 'isValid'
+>;
+
+export interface Props extends RequiredFormikProps {
   commissionsWithOpenSeats: Commission[];
   commissionsWithoutOpenSeats: Commission[];
-  handleSubmit(): Promise<void>;
   formRef: React.RefObject<HTMLFormElement>;
+  submissionError?: boolean;
+  clearSubmissionError: () => void;
 }
 
-const PARAGRAPH_STYLING = css({
-  marginTop: '1.25rem',
-  marginBottom: '2rem',
-});
+export interface FieldProps {
+  name: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+}
+
+const PARAGRAPH_STYLING = 't--s400 lh--400';
 
 // todo: https://github.com/CityOfBoston/digital/pull/97/files#r224776915
 
 export default function ApplicationForm(props: Props): JSX.Element {
-  const enablingLegislationText: JSX.Element = (
-    <p className={PARAGRAPH_STYLING}>
-      Please note that many of these Boards and Commissions require City of
-      Boston residency as well as specific qualifications for members. Please
-      familiarize yourself with each{' '}
-      <a href="#">Board or Commissions’s Enabling Legislation</a>. If you have
-      any questions, email{' '}
-      <a href="mailto:boardsandcommissions@boston.gov">
-        boardsandcommissions@boston.gov
-      </a>.
-    </p>
-  );
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+    isValid,
+    submissionError,
+    clearSubmissionError,
+  } = props;
 
-  const canStillApplyText: JSX.Element = (
-    <p className={PARAGRAPH_STYLING}>
-      You can apply for a board or commission that does not currently have any
-      open positions, and we will review your application when a seat opens.
-    </p>
+  const Field = ({ name, label, placeholder }: FieldProps) => (
+    <TextInput
+      small
+      name={name}
+      label={label}
+      placeholder={placeholder}
+      error={touched[name] && errors[name]}
+      value={values[name]}
+      id={`ApplicationForm-${name}`}
+      onBlur={handleBlur}
+      onChange={handleChange}
+    />
   );
-
-  const initialFormValues: ApplyFormValues = {
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    streetAddress: '',
-    unit: '',
-    city: '',
-    state: '',
-    zip: '',
-    phone: '',
-    email: '',
-    confirmEmail: '',
-    commissionIds: props.selectedCommissionId
-      ? [props.selectedCommissionId]
-      : [],
-    degreeAttained: '',
-    educationalInstitution: '',
-    otherInformation: '',
-    coverLetter: null,
-    resume: null,
-  };
 
   return (
-    <Formik
-      initialValues={initialFormValues}
-      validationSchema={validationSchema}
-      onSubmit={async (_, { setSubmitting }) => {
-        try {
-          await props.handleSubmit();
-        } finally {
-          setSubmitting(false);
+    <form onSubmit={handleSubmit} ref={props.formRef}>
+      <h1 className="sh-title">Boards and Commissions Application Form</h1>
+
+      <p className={PARAGRAPH_STYLING}>
+        Please note that many of these Boards and Commissions require City of
+        Boston residency as well as specific qualifications for members. Please
+        familiarize yourself with each board or commissions’s enabling
+        legislation. If you have any questions, email{' '}
+        <a href="mailto:boardsandcommissions@boston.gov">
+          boardsandcommissions@boston.gov
+        </a>.
+      </p>
+
+      <ApplicantInformationSection Field={Field} />
+
+      <hr className="hr hr--sq" />
+
+      <section>
+        <SectionHeader title="Education and Experience" />
+
+        <Field
+          label="Degree Attained"
+          name="degreeAttained"
+          placeholder="Degree Attained"
+        />
+
+        <Field
+          label="Educational Institution"
+          name="educationalInstitution"
+          placeholder="Educational Institution"
+        />
+
+        <Textarea
+          name="otherInformation"
+          label="Relevant Work Experience"
+          placeholder="Other information..."
+          value={values.otherInformation}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched['otherInformation'] && errors['otherInformation']}
+          rows={3}
+          small
+        />
+      </section>
+
+      <hr className="hr hr--sq" />
+
+      <CommissionsListSection
+        commissionsWithOpenSeats={props.commissionsWithOpenSeats}
+        commissionsWithoutOpenSeats={props.commissionsWithoutOpenSeats}
+        selectedCommissionIds={values.commissionIds}
+        errors={errors}
+        paragraphElement={
+          <p className={PARAGRAPH_STYLING}>
+            You can apply for a board or commission that does not currently have
+            any open positions, and we will review your application when a seat
+            opens.
+          </p>
         }
-      }}
-      render={({
-        values,
-        errors,
-        handleBlur,
-        handleChange,
-        handleSubmit,
-        setFieldValue,
-        isSubmitting,
-        isValid,
-      }: FormikProps<ApplyFormValues>) => (
-        <form onSubmit={handleSubmit} ref={props.formRef}>
-          <h1 className="sh-title">Boards and Commissions Application Form</h1>
+      />
 
-          {enablingLegislationText}
+      <hr className="hr hr--sq" />
 
-          {canStillApplyText}
+      <section>
+        <SectionHeader title="Reference Information" />
 
-          <ApplicantInformationSection />
+        <p className="m-b400">Files must be PDFs and under 5MB each in size.</p>
 
-          <hr className="hr hr--sq" />
+        <FileInput
+          name="coverLetter"
+          title="Cover Letter"
+          fileTypes={['application/pdf']}
+          sizeLimit={{ amount: 5, unit: 'MB' }}
+          handleChange={setFieldValue}
+        />
 
-          <section>
-            <SectionHeader title="Education and Experience" />
+        <FileInput
+          name="resume"
+          title="Resumé"
+          fileTypes={['application/pdf']}
+          sizeLimit={{ amount: 5, unit: 'MB' }}
+          handleChange={setFieldValue}
+        />
+      </section>
 
-            <Field
-              component={TextInputContainer}
-              label="Degree Attained"
-              name="degreeAttained"
-              placeholder="Degree Attained"
-            />
+      <hr className="hr hr--sq" style={{ marginTop: '3rem' }} />
 
-            <Field
-              component={TextInputContainer}
-              label="Educational Institution"
-              name="educationalInstitution"
-              placeholder="Educational Institution"
-            />
+      <button
+        type="submit"
+        className="btn btn--700"
+        disabled={isSubmitting || !isValid || submissionError}
+      >
+        {isSubmitting ? 'Submitting…' : 'Submit Application'}
+      </button>
 
-            <Textarea
-              name="otherInformation"
-              label="Relevant Work Experience"
-              placeholder="Other information..."
-              value={values.otherInformation}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              rows={3}
-              small
-            />
-          </section>
-
-          <hr className="hr hr--sq" />
-
-          <CommissionsListSection
-            commissionsWithOpenSeats={props.commissionsWithOpenSeats}
-            commissionsWithoutOpenSeats={props.commissionsWithoutOpenSeats}
-            selectedCommissionIds={values.commissionIds}
-            errors={errors}
-            paragraphElement={canStillApplyText}
-          />
-
-          <hr className="hr hr--sq" />
-
-          <section>
-            <SectionHeader title="Reference Information" />
-
-            <p className="m-b400">
-              Files must be PDFs and under 5MB each in size.
-            </p>
-
-            <FileInput
-              name="coverLetter"
-              title="Cover Letter"
-              fileTypes={['application/pdf']}
-              sizeLimit={{ amount: 5, unit: 'MB' }}
-              handleChange={setFieldValue}
-            />
-
-            <FileInput
-              name="resume"
-              title="Resumé"
-              fileTypes={['application/pdf']}
-              sizeLimit={{ amount: 5, unit: 'MB' }}
-              handleChange={setFieldValue}
-            />
-          </section>
-
-          <hr className="hr hr--sq" style={{ marginTop: '3rem' }} />
-
-          {enablingLegislationText}
-
-          <button
-            type="submit"
-            className="btn btn--700"
-            disabled={isSubmitting || !isValid}
-          >
-            Submit Application
-          </button>
-        </form>
+      {isSubmitting && (
+        <StatusModal message="Submitting application…" waiting>
+          <div className="t--info m-t300">
+            Please be patient and don’t refresh your browser. This might take a
+            bit.
+          </div>
+        </StatusModal>
       )}
-    />
+
+      {submissionError && (
+        <StatusModal
+          message="Something went wrong!"
+          error
+          onClose={clearSubmissionError}
+        >
+          <div className="t--info m-t300">
+            You can try again. If this keeps happening, please contact{' '}
+            <a href="mailto:boardsandcommissions@boston.gov">
+              boardsandcommissions@boston.gov
+            </a>.
+          </div>
+        </StatusModal>
+      )}
+    </form>
   );
 }
