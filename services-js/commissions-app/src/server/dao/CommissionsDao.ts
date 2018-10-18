@@ -1,4 +1,9 @@
-import { ConnectionPool, IResult, Int as IntType } from 'mssql';
+import {
+  ConnectionPool,
+  IResult,
+  Int as IntType,
+  IProcedureResult,
+} from 'mssql';
 import DataLoader from 'dataloader';
 
 import {
@@ -8,6 +13,7 @@ import {
   vw_BoardsWithMembersEntityAll,
   PolicyTypesEntityAll,
 } from './CommissionsDb.d';
+import { ApplyFormValues } from '../../lib/validationSchema';
 
 export type DbBoard = BoardsEntityAll & {
   /** Added by the BOARD_SQL below. Can be null if there are no active members
@@ -129,5 +135,36 @@ export default class CommissionsDao {
 
   fetchAuthority(authorityId: number): Promise<DbAuthority | null> {
     return this.authorityLoader.load(authorityId);
+  }
+
+  async apply(form: ApplyFormValues) {
+    const resp: IProcedureResult<{}> = await this.pool
+      .request()
+      .input('firstName', form.firstName)
+      .input('lastName', form.lastName)
+      .input('address1', form.streetAddress)
+      .input('city', form.city)
+      .input('state', form.state)
+      .input('zipCode', form.zip)
+      .input('boardList', form.commissionIds.join(','))
+      .input('middleName', form.middleName || null)
+      .input('address2', form.unit || null)
+      .input('primaryPhone', form.phone)
+      .input('email', form.email)
+      .input('degreeAttained', form.degreeAttained || null)
+      .input('education', form.otherInformation || null)
+      .input('institution', form.educationalInstitution || null)
+      .input('resumeImg', form.resume instanceof Buffer ? form.resume : null)
+      .input(
+        'coverletterImg',
+        form.resume instanceof Buffer ? form.coverLetter : null
+      )
+      .execute('dbo.SaveApplication');
+
+    if (resp.returnValue !== 0) {
+      throw new Error(
+        `Unsuccessful output ${resp.returnValue} from dbo.SaveApplication`
+      );
+    }
   }
 }

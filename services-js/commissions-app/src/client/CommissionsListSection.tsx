@@ -1,5 +1,8 @@
-// polyfill Array.includes() for IE
+// polyfill Array methods for IE
+//
+// TODO(finh): Can we do the auto-import for these?
 import 'core-js/fn/array/includes';
+import 'core-js/fn/array/find';
 
 import React from 'react';
 import { FieldArray, FormikErrors } from 'formik';
@@ -49,21 +52,29 @@ interface Props {
 
 export default class CommissionsListSection extends React.Component<Props> {
   render() {
+    const {
+      paragraphElement,
+      selectedCommissionIds,
+      commissionsWithOpenSeats,
+      commissionsWithoutOpenSeats,
+      errors,
+    } = this.props;
+
     return (
       <>
         <SectionHeader title="Boards and Commissions" />
 
-        {this.props.paragraphElement}
+        {paragraphElement}
 
         <CollapsibleSection title="Open Positions" subheader className="m-b100">
           <FieldArray
             name="commissionIds"
             render={({ push, remove }) => (
               <ul className={LIST_STYLING}>
-                {this.props.commissionsWithOpenSeats.map(commission =>
+                {commissionsWithOpenSeats.map(commission =>
                   renderCommission(
                     commission,
-                    this.props.selectedCommissionIds,
+                    selectedCommissionIds,
                     push,
                     remove
                   )
@@ -77,8 +88,8 @@ export default class CommissionsListSection extends React.Component<Props> {
           title="No Open Positions"
           subheader
           startCollapsed={
-            !this.props.commissionsWithoutOpenSeats.find(({ id }) =>
-              this.props.selectedCommissionIds.includes(id.toString())
+            !commissionsWithoutOpenSeats.find(({ id }) =>
+              selectedCommissionIds.includes(id.toString())
             )
           }
         >
@@ -86,10 +97,10 @@ export default class CommissionsListSection extends React.Component<Props> {
             name="commissionIds"
             render={({ push, remove }) => (
               <ul className={LIST_STYLING}>
-                {this.props.commissionsWithoutOpenSeats.map(commission =>
+                {commissionsWithoutOpenSeats.map(commission =>
                   renderCommission(
                     commission,
-                    this.props.selectedCommissionIds,
+                    selectedCommissionIds,
                     push,
                     remove
                   )
@@ -99,7 +110,9 @@ export default class CommissionsListSection extends React.Component<Props> {
           />
         </CollapsibleSection>
 
-        {commissionsSelectionError(this.props.errors)}
+        {/* We want to hide the error that comes up when nothing
+          is selected, even though it is an error case. */}
+        {commissionsSelectionError(errors, selectedCommissionIds.length > 0)}
       </>
     );
   }
@@ -135,13 +148,16 @@ function renderCommission(
   );
 }
 
-function commissionsSelectionError(errors: FormikErrors<ApplyFormValues>) {
+function commissionsSelectionError(
+  errors: FormikErrors<ApplyFormValues>,
+  showError: boolean
+) {
   return (
     <p
       className="t--subinfo t--err"
       style={{ marginTop: '-0.5em', color: A11Y_RED }}
     >
-      {errors.commissionIds} &nbsp;
+      {showError && errors.commissionIds} &nbsp;
     </p>
   );
 }

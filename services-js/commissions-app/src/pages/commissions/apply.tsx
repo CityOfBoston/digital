@@ -1,6 +1,3 @@
-// polyfill Array.find() for IE
-import 'core-js/fn/array/find';
-
 import React from 'react';
 import Head from 'next/head';
 
@@ -12,6 +9,8 @@ import { AppLayout, StatusModal } from '@cityofboston/react-fleet';
 
 import ApplicationForm from '../../client/ApplicationForm';
 import ApplicationSubmitted from '../../client/ApplicationSubmitted';
+import { NextContext } from '@cityofboston/next-client-common';
+import { IncomingMessage } from 'http';
 
 interface Props {
   commissions: Commission[];
@@ -40,7 +39,9 @@ export default class ApplyPage extends React.Component<Props, State> {
     };
   }
 
-  static async getInitialProps({ query: commissionID }): Promise<Props> {
+  static async getInitialProps({
+    query: { commissionID },
+  }: NextContext<IncomingMessage>): Promise<Props> {
     const commissions = await fetchCommissions();
 
     return { commissions, commissionID };
@@ -52,15 +53,34 @@ export default class ApplyPage extends React.Component<Props, State> {
       return;
     }
 
-    const data = new FormData(form);
-
-    const resp = await fetch('/commissions/submit', {
-      method: 'POST',
-      body: data,
+    this.setState({
+      isSubmitting: true,
+      submissionError: false,
     });
 
-    // eslint-disable-next-line no-console
-    console.log(resp.ok);
+    // This will include the uploaded files
+    const data = new FormData(form);
+
+    try {
+      const resp = await fetch('/commissions/submit', {
+        method: 'POST',
+        body: data,
+      });
+
+      if (resp.ok) {
+        this.setState({ applicationSubmitted: true });
+      } else {
+        this.setState({ submissionError: true });
+      }
+    } catch (e) {
+      this.setState({
+        submissionError: true,
+      });
+    } finally {
+      this.setState({
+        isSubmitting: false,
+      });
+    }
   };
 
   render() {
