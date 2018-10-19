@@ -79,7 +79,6 @@ storiesOf('ApplicationForm', module)
         firstName: 'First name is required',
         lastName: 'Last name is required',
       }}
-      // @ts-ignore
       touched={{ firstName: true, lastName: true }}
     />
   ))
