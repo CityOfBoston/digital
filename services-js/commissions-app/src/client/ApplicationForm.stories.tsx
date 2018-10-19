@@ -66,7 +66,7 @@ const DEFAULT_PROPS: Props = {
   isSubmitting: false,
   isValid: false,
   submissionError: false,
-  clearSubmissionError: action('clearSubmissionErro'),
+  clearSubmissionError: action('clearSubmissionError'),
 };
 
 storiesOf('ApplicationForm', module)

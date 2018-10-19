@@ -63,7 +63,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
     clearSubmissionError,
   } = props;
 
-  const Field = ({ name, label, placeholder }: FieldProps) => (
+  const Field = ({ name, label, placeholder, required }: FieldProps) => (
     <TextInput
       small
       name={name}
@@ -74,6 +74,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
       id={`ApplicationForm-${name}`}
       onBlur={handleBlur}
       onChange={handleChange}
+      required={required}
     />
   );
 
