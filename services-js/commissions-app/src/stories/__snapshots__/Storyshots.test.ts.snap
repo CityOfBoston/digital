@@ -1,5 +1,5115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots ApplicationForm auto-expand no open seats 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value=""
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={true}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={true}
+      type="submit"
+    >
+      Submit Application
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Storyshots ApplicationForm blank 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value=""
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={false}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={true}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={true}
+      type="submit"
+    >
+      Submit Application
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Storyshots ApplicationForm errors 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm txt-f--err"
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+              First name is required
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm txt-f--err"
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+            Last name is required
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value=""
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={false}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={true}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={true}
+      type="submit"
+    >
+      Submit Application
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Storyshots ApplicationForm filled in 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value="Gwen"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value="Stacy"
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value="123 Fake St."
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value="New York"
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value="NY"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value="01110"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value="(212) 555-1234"
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value="ghosty@spiders.net"
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value="ghosty@spiders.net"
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value="High School"
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value="Midtown High School"
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value="I have spider powers."
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={true}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={true}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={false}
+      type="submit"
+    >
+      Submit Application
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Storyshots ApplicationForm submission error 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value=""
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={false}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={true}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={true}
+      type="submit"
+    >
+      Submit Application
+    </button>
+    <div
+      aria-labelledby="statusModal"
+      className="md "
+      role="alertdialog"
+    >
+      <div
+        className="md-c br br-t400 css-1y2scv5"
+        role="document"
+      >
+        <div
+          className="md-b p-a300"
+        >
+          <div
+            className="t--intro t--err"
+            id="statusModal"
+          >
+            Something went wrong!
+          </div>
+          <div
+            className="t--info m-t300"
+          >
+            You can try again. If this keeps happening, please contact
+             
+            <a
+              href="mailto:boardsandcommissions@boston.gov"
+            >
+              boardsandcommissions@boston.gov
+            </a>
+            .
+          </div>
+          <div
+            className="m-t300 ta-r"
+          >
+            <button
+              className="btn btn--sm btn--100"
+              onClick={[Function]}
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots ApplicationForm submitting 1`] = `
+<div
+  className="b-c"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sh-title"
+    >
+      Boards and Commissions Application Form
+    </h1>
+    <p
+      className="t--s400 lh--400"
+    >
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+       
+      <a
+        href="mailto:boardsandcommissions@boston.gov"
+      >
+        boardsandcommissions@boston.gov
+      </a>
+      .
+    </p>
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Applicant Information
+        </h2>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div
+          className="css-c3kz39"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-firstName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-firstName"
+              name="firstName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="First Name"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-middleName"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Initial
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-middleName"
+              name="middleName"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-lastName"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-c3kz39"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-streetAddress"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Street Address
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-streetAddress"
+            name="streetAddress"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Street Address"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-unit"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Unit
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-unit"
+            name="unit"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Unit or Apartment #"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-pefnot"
+      >
+        <div>
+          <label
+            className="txt-l txt-l--sm"
+            htmlFor="ApplicationForm-city"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              City
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f txt-f--sm "
+            id="ApplicationForm-city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+        <div
+          className="css-vke4cr"
+        >
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-state"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                State
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-state"
+              name="state"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="State"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l txt-l--sm"
+              htmlFor="ApplicationForm-zip"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Zip
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f txt-f--sm "
+              id="ApplicationForm-zip"
+              name="zip"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Zip Code"
+              type="text"
+              value=""
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-phone"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Phone
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-phone"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Phone Number"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-email"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-confirmEmail"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Confirm Email
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-confirmEmail"
+          name="confirmEmail"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Confirm Email"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Education and Experience
+        </h2>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-degreeAttained"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Degree Attained
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-degreeAttained"
+          name="degreeAttained"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Degree Attained"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div>
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="ApplicationForm-educationalInstitution"
+        >
+          <span
+            style={
+              Object {
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            Educational Institution
+          </span>
+        </label>
+        <input
+          aria-label=""
+          className="txt-f txt-f--sm "
+          id="ApplicationForm-educationalInstitution"
+          name="educationalInstitution"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Educational Institution"
+          type="text"
+          value=""
+        />
+        <div
+          className="t--subinfo t--err m-b100"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="txt"
+      >
+        <label
+          className="txt-l txt-l--sm"
+          htmlFor="FeedbackForm-otherInformation"
+        >
+          Relevant Work Experience
+        </label>
+        <textarea
+          aria-label=""
+          className="txt-f txt-f--sm  "
+          id="FeedbackForm-otherInformation"
+          name="otherInformation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Other information..."
+          rows={3}
+          value=""
+        />
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+    />
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+      >
+        Boards and Commissions
+      </h2>
+    </div>
+    <p
+      className="t--s400 lh--400"
+    >
+      You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
+    </p>
+    <section
+      className="m-b100"
+    >
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={true}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={false}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="0"
+              />
+              <span
+                className="cb-l"
+              >
+                Aberdeen Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+              <span
+                className="cb-l"
+              >
+                Back Bay West/Bay State Road Architectural Conservation District Commission
+              </span>
+            </label>
+          </li>
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+              <span
+                className="cb-l"
+              >
+                Living Wage Advisory Committee
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div
+        className="sh sh--sm"
+      >
+        <h3
+          className="sh-title css-14x07yu"
+        >
+          <button
+            aria-expanded={false}
+            className="css-1mteg3g"
+            onClick={[Function]}
+            type="button"
+          >
+            No Open Positions
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              overflow="visible"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M 2,5 10,16 18,5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </button>
+        </h3>
+      </div>
+      <div
+        hidden={true}
+      >
+        <ul
+          className="css-1mya83q"
+        >
+          <li
+            className="m-b500"
+            style={
+              Object {
+                "listStyleType": "none",
+              }
+            }
+          >
+            <label
+              className="cb "
+            >
+              <input
+                checked={false}
+                className="cb-f"
+                name="commissionIds"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+              <span
+                className="cb-l"
+              >
+                Licensing Board for the City of Boston
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p
+      className="t--subinfo t--err"
+      style={
+        Object {
+          "color": "#fb4d42",
+          "marginTop": "-0.5em",
+        }
+      }
+    >
+        
+    </p>
+    <hr
+      className="hr hr--sq"
+    />
+    <section>
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+        >
+          Reference Information
+        </h2>
+      </div>
+      <p
+        className="m-b400"
+      >
+        Files must be PDFs and under 5MB each in size.
+      </p>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-coverLetter"
+          name="coverLetter"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-coverLetter"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Cover Letter
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+      <div
+        className="txt m-b300 css-1mxs0p5"
+      >
+        <input
+          accept="application/pdf"
+          className="css-1dv1kvn"
+          id="FileInput-resume"
+          name="resume"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="file"
+        />
+        <label
+          className="btn btn--sm btn--100 false"
+          htmlFor="FileInput-resume"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Choose 
+          Resumé
+           file
+        </label>
+        <div
+          className="css-y0g14a"
+        >
+          <span>
+            No file selected
+          </span>
+        </div>
+      </div>
+    </section>
+    <hr
+      className="hr hr--sq"
+      style={
+        Object {
+          "marginTop": "3rem",
+        }
+      }
+    />
+    <button
+      className="btn btn--700"
+      disabled={true}
+      type="submit"
+    >
+      Submitting…
+    </button>
+    <div
+      aria-labelledby="statusModal"
+      className="md css-33tbeg"
+      role="alertdialog"
+    >
+      <div
+        className="md-c br br-t400 css-1y2scv5"
+        role="document"
+      >
+        <div
+          className="md-b p-a300"
+        >
+          <div
+            className="t--intro "
+            id="statusModal"
+          >
+            Submitting application…
+          </div>
+          <div
+            className="t--info m-t300"
+          >
+            Please be patient and don’t refresh your browser. This might take a bit.
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`Storyshots ApplyPage default 1`] = `
 <div>
   <a
@@ -148,7 +5258,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         className="b-ff"
       >
         <div
-          className="mn"
+          className="mn "
         >
           <div
             className="b-c b-c--ntp"
@@ -162,16 +5272,9 @@ exports[`Storyshots ApplyPage default 1`] = `
                 Boards and Commissions Application Form
               </h1>
               <p
-                className="css-17qmlmg"
+                className="t--s400 lh--400"
               >
-                Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each
-                 
-                <a
-                  href="#"
-                >
-                  Board or Commissions’s Enabling Legislation
-                </a>
-                . If you have any questions, email
+                Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
                  
                 <a
                   href="mailto:boardsandcommissions@boston.gov"
@@ -179,11 +5282,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                   boardsandcommissions@boston.gov
                 </a>
                 .
-              </p>
-              <p
-                className="css-17qmlmg"
-              >
-                You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
               </p>
               <section>
                 <div
@@ -204,7 +5302,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     <div>
                       <label
                         className="txt-l txt-l--sm"
-                        htmlFor="firstName"
+                        htmlFor="ApplicationForm-firstName"
                       >
                         <span
                           style={
@@ -216,21 +5314,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                         >
                           First Name
                         </span>
-                        <span
-                          className="t--req"
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f txt-f--sm "
-                        id="firstName"
+                        id="ApplicationForm-firstName"
                         name="firstName"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="First Name"
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -243,7 +5335,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     <div>
                       <label
                         className="txt-l txt-l--sm"
-                        htmlFor="middleName"
+                        htmlFor="ApplicationForm-middleName"
                       >
                         <span
                           style={
@@ -259,7 +5351,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                       <input
                         aria-label=""
                         className="txt-f txt-f--sm "
-                        id="middleName"
+                        id="ApplicationForm-middleName"
                         name="middleName"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -276,7 +5368,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <div>
                     <label
                       className="txt-l txt-l--sm"
-                      htmlFor="lastName"
+                      htmlFor="ApplicationForm-lastName"
                     >
                       <span
                         style={
@@ -288,21 +5380,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                       >
                         Last Name
                       </span>
-                      <span
-                        className="t--req"
-                      >
-                        Required
-                      </span>
                     </label>
                     <input
                       aria-label=""
                       className="txt-f txt-f--sm "
-                      id="lastName"
+                      id="ApplicationForm-lastName"
                       name="lastName"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Last Name"
-                      required={true}
                       type="text"
                       value=""
                     />
@@ -319,7 +5405,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <div>
                     <label
                       className="txt-l txt-l--sm"
-                      htmlFor="streetAddress"
+                      htmlFor="ApplicationForm-streetAddress"
                     >
                       <span
                         style={
@@ -331,21 +5417,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                       >
                         Street Address
                       </span>
-                      <span
-                        className="t--req"
-                      >
-                        Required
-                      </span>
                     </label>
                     <input
                       aria-label=""
                       className="txt-f txt-f--sm "
-                      id="streetAddress"
+                      id="ApplicationForm-streetAddress"
                       name="streetAddress"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Street Address"
-                      required={true}
                       type="text"
                       value=""
                     />
@@ -358,7 +5438,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <div>
                     <label
                       className="txt-l txt-l--sm"
-                      htmlFor="unit"
+                      htmlFor="ApplicationForm-unit"
                     >
                       <span
                         style={
@@ -374,7 +5454,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     <input
                       aria-label=""
                       className="txt-f txt-f--sm "
-                      id="unit"
+                      id="ApplicationForm-unit"
                       name="unit"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -395,7 +5475,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <div>
                     <label
                       className="txt-l txt-l--sm"
-                      htmlFor="city"
+                      htmlFor="ApplicationForm-city"
                     >
                       <span
                         style={
@@ -407,21 +5487,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                       >
                         City
                       </span>
-                      <span
-                        className="t--req"
-                      >
-                        Required
-                      </span>
                     </label>
                     <input
                       aria-label=""
                       className="txt-f txt-f--sm "
-                      id="city"
+                      id="ApplicationForm-city"
                       name="city"
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="City"
-                      required={true}
                       type="text"
                       value=""
                     />
@@ -437,7 +5511,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     <div>
                       <label
                         className="txt-l txt-l--sm"
-                        htmlFor="state"
+                        htmlFor="ApplicationForm-state"
                       >
                         <span
                           style={
@@ -449,21 +5523,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                         >
                           State
                         </span>
-                        <span
-                          className="t--req"
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f txt-f--sm "
-                        id="state"
+                        id="ApplicationForm-state"
                         name="state"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="State"
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -476,7 +5544,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                     <div>
                       <label
                         className="txt-l txt-l--sm"
-                        htmlFor="zip"
+                        htmlFor="ApplicationForm-zip"
                       >
                         <span
                           style={
@@ -488,21 +5556,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                         >
                           Zip
                         </span>
-                        <span
-                          className="t--req"
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f txt-f--sm "
-                        id="zip"
+                        id="ApplicationForm-zip"
                         name="zip"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="Zip Code"
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -517,7 +5579,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <div>
                   <label
                     className="txt-l txt-l--sm"
-                    htmlFor="phone"
+                    htmlFor="ApplicationForm-phone"
                   >
                     <span
                       style={
@@ -533,7 +5595,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <input
                     aria-label=""
                     className="txt-f txt-f--sm "
-                    id="phone"
+                    id="ApplicationForm-phone"
                     name="phone"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -550,7 +5612,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <div>
                   <label
                     className="txt-l txt-l--sm"
-                    htmlFor="email"
+                    htmlFor="ApplicationForm-email"
                   >
                     <span
                       style={
@@ -562,21 +5624,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                     >
                       Email
                     </span>
-                    <span
-                      className="t--req"
-                    >
-                      Required
-                    </span>
                   </label>
                   <input
                     aria-label=""
                     className="txt-f txt-f--sm "
-                    id="email"
+                    id="ApplicationForm-email"
                     name="email"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Email"
-                    required={true}
                     type="text"
                     value=""
                   />
@@ -589,7 +5645,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <div>
                   <label
                     className="txt-l txt-l--sm"
-                    htmlFor="confirmEmail"
+                    htmlFor="ApplicationForm-confirmEmail"
                   >
                     <span
                       style={
@@ -601,21 +5657,15 @@ exports[`Storyshots ApplyPage default 1`] = `
                     >
                       Confirm Email
                     </span>
-                    <span
-                      className="t--req"
-                    >
-                      Required
-                    </span>
                   </label>
                   <input
                     aria-label=""
                     className="txt-f txt-f--sm "
-                    id="confirmEmail"
+                    id="ApplicationForm-confirmEmail"
                     name="confirmEmail"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Confirm Email"
-                    required={true}
                     type="text"
                     value=""
                   />
@@ -642,7 +5692,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <div>
                   <label
                     className="txt-l txt-l--sm"
-                    htmlFor="degreeAttained"
+                    htmlFor="ApplicationForm-degreeAttained"
                   >
                     <span
                       style={
@@ -658,7 +5708,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <input
                     aria-label=""
                     className="txt-f txt-f--sm "
-                    id="degreeAttained"
+                    id="ApplicationForm-degreeAttained"
                     name="degreeAttained"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -675,7 +5725,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <div>
                   <label
                     className="txt-l txt-l--sm"
-                    htmlFor="educationalInstitution"
+                    htmlFor="ApplicationForm-educationalInstitution"
                   >
                     <span
                       style={
@@ -691,7 +5741,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                   <input
                     aria-label=""
                     className="txt-f txt-f--sm "
-                    id="educationalInstitution"
+                    id="ApplicationForm-educationalInstitution"
                     name="educationalInstitution"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -740,7 +5790,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 </h2>
               </div>
               <p
-                className="css-17qmlmg"
+                className="t--s400 lh--400"
               >
                 You can apply for a board or commission that does not currently have any open positions, and we will review your application when a seat opens.
               </p>
@@ -1038,25 +6088,6 @@ exports[`Storyshots ApplyPage default 1`] = `
                   }
                 }
               />
-              <p
-                className="css-17qmlmg"
-              >
-                Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each
-                 
-                <a
-                  href="#"
-                >
-                  Board or Commissions’s Enabling Legislation
-                </a>
-                . If you have any questions, email
-                 
-                <a
-                  href="mailto:boardsandcommissions@boston.gov"
-                >
-                  boardsandcommissions@boston.gov
-                </a>
-                .
-              </p>
               <button
                 className="btn btn--700"
                 disabled={true}
@@ -1065,6 +6096,223 @@ exports[`Storyshots ApplyPage default 1`] = `
                 Submit Application
               </button>
             </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots ApplyPage submitted successfully 1`] = `
+<div>
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="mn "
+        >
+          <div
+            className="b-c b-c--ntp"
+          >
+            <section
+              role="alert"
+            >
+              <div
+                className="sh m-b300 "
+              >
+                <h2
+                  className="sh-title"
+                >
+                  Your application has been received
+                </h2>
+              </div>
+              <div
+                className="t--intro"
+              >
+                Thank you for applying to serve on a board or commission!
+              </div>
+              <p
+                className="t--s400 lh--400"
+              >
+                We appreciate your willingness to make a difference in the City of Boston. If you have any questions about your application, contact
+                 
+                <a
+                  href="mailto:boardsandcommissions@boston.gov"
+                >
+                  boardsandcommissions@boston.gov
+                </a>
+                .
+              </p>
+            </section>
           </div>
         </div>
       </main>

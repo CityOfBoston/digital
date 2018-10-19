@@ -1,10 +1,9 @@
 import React from 'react';
-import { Field } from 'formik';
 import { css } from 'emotion';
 
 import { MEDIA_MEDIUM, SectionHeader } from '@cityofboston/react-fleet';
 
-import TextInputContainer from './common/TextInputContainer';
+import { FieldProps } from './ApplicationForm';
 
 /**
  * Fleet grid classes behave as block elements at narrow viewports, which
@@ -70,7 +69,16 @@ const SPLIT_STYLING = css(`
   }
 `);
 
-export default function ApplicantInformationSection(): JSX.Element {
+interface Props {
+  // Slight hackery to avoid passing all the Formik props this deeply. We prefer
+  // this over Formik’s built-in Field component because that requires context
+  // to work.
+  Field: (props: FieldProps) => JSX.Element;
+}
+
+export default function ApplicantInformationSection({
+  Field,
+}: Props): JSX.Element {
   return (
     <section>
       <SectionHeader title="Applicant Information" />
@@ -78,22 +86,16 @@ export default function ApplicantInformationSection(): JSX.Element {
       <div className={SPLIT_STYLING}>
         <div className={NAME_STREET_STYLING}>
           <Field
-            component={TextInputContainer}
             label="First Name"
             name="firstName"
             placeholder="First Name"
             required
           />
 
-          <Field
-            component={TextInputContainer}
-            label="Initial"
-            name="middleName"
-          />
+          <Field label="Initial" name="middleName" />
         </div>
 
         <Field
-          component={TextInputContainer}
           label="Last Name"
           name="lastName"
           placeholder="Last Name"
@@ -103,66 +105,30 @@ export default function ApplicantInformationSection(): JSX.Element {
 
       <div className={NAME_STREET_STYLING}>
         <Field
-          component={TextInputContainer}
           label="Street Address"
           name="streetAddress"
           placeholder="Street Address"
           required
         />
 
-        <Field
-          component={TextInputContainer}
-          label="Unit"
-          name="unit"
-          placeholder="Unit or Apartment #"
-        />
+        <Field label="Unit" name="unit" placeholder="Unit or Apartment #" />
       </div>
 
       <div className={SPLIT_STYLING}>
-        <Field
-          component={TextInputContainer}
-          label="City"
-          name="city"
-          placeholder="City"
-          required
-        />
+        <Field label="City" name="city" placeholder="City" required />
 
         <div className={STATE_ZIP_STYLING}>
-          <Field
-            component={TextInputContainer}
-            label="State"
-            name="state"
-            placeholder="State"
-            required
-          />
+          <Field label="State" name="state" placeholder="State" required />
 
-          <Field
-            component={TextInputContainer}
-            label="Zip"
-            name="zip"
-            placeholder="Zip Code"
-            required
-          />
+          <Field label="Zip" name="zip" placeholder="Zip Code" required />
         </div>
       </div>
 
-      <Field
-        component={TextInputContainer}
-        label="Phone"
-        name="phone"
-        placeholder="Phone Number"
-      />
+      <Field label="Phone" name="phone" placeholder="Phone Number" />
+
+      <Field label="Email" name="email" placeholder="Email" required />
 
       <Field
-        component={TextInputContainer}
-        label="Email"
-        name="email"
-        placeholder="Email"
-        required
-      />
-
-      <Field
-        component={TextInputContainer}
         label="Confirm Email"
         name="confirmEmail"
         placeholder="Confirm Email"

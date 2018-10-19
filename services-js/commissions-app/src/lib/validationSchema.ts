@@ -71,6 +71,6 @@ export const applyFormSchema = Yup.object<ApplyFormValues>({
   degreeAttained: Yup.string().max(100),
   otherInformation: Yup.string().max(1000),
   educationalInstitution: Yup.string().max(100),
-  coverLetter: Yup.mixed().required(),
-  resume: Yup.mixed().required(),
+  coverLetter: Yup.mixed(),
+  resume: Yup.mixed(),
 });

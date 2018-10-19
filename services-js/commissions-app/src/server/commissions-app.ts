@@ -4,6 +4,7 @@ import fs from 'fs';
 
 import { Server as HapiServer } from 'hapi';
 import { boomify } from 'boom';
+import Inert from 'inert';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
@@ -25,6 +26,7 @@ import {
   HeaderKeysOptions,
   rollbarPlugin,
   graphqlOptionsWithRollbar,
+  makeStaticAssetRoutes,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
@@ -149,6 +151,7 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   await server.register(acceptLanguagePlugin);
   await server.register({ plugin: rollbarPlugin, options: { rollbar } });
+  await server.register(Inert);
 
   // We start up the server in test, and we don’t want it logging.
   if (process.env.NODE_ENV !== 'test') {
@@ -186,6 +189,7 @@ export async function makeServer(port, rollbar: Rollbar) {
   });
 
   server.route(adminOkRoute);
+  server.route(makeStaticAssetRoutes());
 
   if (nextApp) {
     server.route(makeRoutesForNextApp(nextApp, '/commissions/'));

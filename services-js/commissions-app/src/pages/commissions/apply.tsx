@@ -5,20 +5,22 @@ import fetchCommissions, {
   Commission,
 } from '../../client/graphql/fetch-commissions';
 
-import { AppLayout, StatusModal } from '@cityofboston/react-fleet';
+import { AppLayout } from '@cityofboston/react-fleet';
 
 import ApplicationForm from '../../client/ApplicationForm';
 import ApplicationSubmitted from '../../client/ApplicationSubmitted';
 import { NextContext } from '@cityofboston/next-client-common';
 import { IncomingMessage } from 'http';
+import { Formik } from 'formik';
+import { ApplyFormValues, applyFormSchema } from '../../lib/validationSchema';
 
 interface Props {
   commissions: Commission[];
   commissionID?: string;
+  testSubmittedPage?: boolean;
 }
 
 interface State {
-  isSubmitting: boolean;
   applicationSubmitted: boolean;
   submissionError: boolean;
 }
@@ -33,8 +35,7 @@ export default class ApplyPage extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      isSubmitting: false,
-      applicationSubmitted: false,
+      applicationSubmitted: !!props.testSubmittedPage,
       submissionError: false,
     };
   }
@@ -54,7 +55,7 @@ export default class ApplyPage extends React.Component<Props, State> {
     }
 
     this.setState({
-      isSubmitting: true,
+      applicationSubmitted: false,
       submissionError: false,
     });
 
@@ -67,24 +68,43 @@ export default class ApplyPage extends React.Component<Props, State> {
         body: data,
       });
 
-      if (resp.ok) {
-        this.setState({ applicationSubmitted: true });
-      } else {
-        this.setState({ submissionError: true });
+      if (!resp.ok) {
+        throw new Error(`Got ${resp.status} response to apply`);
       }
+
+      this.setState({ applicationSubmitted: true });
     } catch (e) {
       this.setState({
         submissionError: true,
       });
-    } finally {
-      this.setState({
-        isSubmitting: false,
-      });
+
+      const Rollbar = (window as any).Rollbar;
+      Rollbar.error(e);
     }
   };
 
   render() {
     const { commissions, commissionID } = this.props;
+
+    const initialFormValues: ApplyFormValues = {
+      firstName: '',
+      middleName: '',
+      lastName: '',
+      streetAddress: '',
+      unit: '',
+      city: '',
+      state: '',
+      zip: '',
+      phone: '',
+      email: '',
+      confirmEmail: '',
+      commissionIds: commissionID ? [commissionID] : [],
+      degreeAttained: '',
+      educationalInstitution: '',
+      otherInformation: '',
+      coverLetter: null,
+      resume: null,
+    };
 
     const commissionsWithoutOpenSeats = commissions
       .filter(commission => commission.openSeats === 0)
@@ -100,27 +120,36 @@ export default class ApplyPage extends React.Component<Props, State> {
           <title>Apply for a Board or Commission | Boston.gov</title>
         </Head>
 
-        <div className="mn">
+        <div className="mn ">
           <div className="b-c b-c--ntp">
             {this.state.applicationSubmitted ? (
-              <ApplicationSubmitted error={this.state.submissionError} />
+              <ApplicationSubmitted />
             ) : (
-              <ApplicationForm
-                selectedCommissionId={commissionID || null}
-                commissionsWithOpenSeats={commissionsWithOpenSeats}
-                commissionsWithoutOpenSeats={commissionsWithoutOpenSeats}
-                formRef={this.formRef}
-                handleSubmit={this.handleSubmit}
+              <Formik
+                initialValues={initialFormValues}
+                validationSchema={applyFormSchema}
+                onSubmit={async (_, { setSubmitting }) => {
+                  try {
+                    // handleSubmit reads directly from the <form>, so we
+                    // don’t pass the current values.
+                    await this.handleSubmit();
+                  } finally {
+                    setSubmitting(false);
+                  }
+                }}
+                render={formikProps => (
+                  <ApplicationForm
+                    {...formikProps}
+                    commissionsWithOpenSeats={commissionsWithOpenSeats}
+                    commissionsWithoutOpenSeats={commissionsWithoutOpenSeats}
+                    formRef={this.formRef}
+                    submissionError={this.state.submissionError}
+                    clearSubmissionError={() =>
+                      this.setState({ submissionError: false })
+                    }
+                  />
+                )}
               />
-            )}
-
-            {this.state.isSubmitting && (
-              <StatusModal message="Submitting application…">
-                <div className="t--info m-t300">
-                  Please be patient and don’t refresh your browser. This might
-                  take a bit.
-                </div>
-              </StatusModal>
             )}
           </div>
         </div>
