@@ -66,7 +66,7 @@ const DEFAULT_PROPS: Props = {
   isSubmitting: false,
   isValid: false,
   submissionError: false,
-  clearSubmissionError: action('clearSubmissionErro'),
+  clearSubmissionError: action('clearSubmissionError'),
 };
 
 storiesOf('ApplicationForm', module)
@@ -79,6 +79,7 @@ storiesOf('ApplicationForm', module)
         firstName: 'First name is required',
         lastName: 'Last name is required',
       }}
+      // @ts-ignore
       touched={{ firstName: true, lastName: true }}
     />
   ))
