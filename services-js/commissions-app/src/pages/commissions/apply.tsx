@@ -44,6 +44,7 @@ export default class ApplyPage extends React.Component<Props, State> {
     query: { commissionID },
   }: NextContext<IncomingMessage>): Promise<Props> {
     const commissions = await fetchCommissions();
+    commissions.sort((current, next) => current.name.localeCompare(next.name));
 
     return { commissions, commissionID };
   }
@@ -106,14 +107,6 @@ export default class ApplyPage extends React.Component<Props, State> {
       resume: null,
     };
 
-    const commissionsWithoutOpenSeats = commissions
-      .filter(commission => commission.openSeats === 0)
-      .sort((current, next) => current.name.localeCompare(next.name));
-
-    const commissionsWithOpenSeats = commissions
-      .filter(commission => commission.openSeats > 0)
-      .sort((current, next) => current.name.localeCompare(next.name));
-
     return (
       <AppLayout>
         <Head>
@@ -140,8 +133,7 @@ export default class ApplyPage extends React.Component<Props, State> {
                 render={formikProps => (
                   <ApplicationForm
                     {...formikProps}
-                    commissionsWithOpenSeats={commissionsWithOpenSeats}
-                    commissionsWithoutOpenSeats={commissionsWithoutOpenSeats}
+                    commissions={commissions}
                     formRef={this.formRef}
                     submissionError={this.state.submissionError}
                     clearSubmissionError={() =>

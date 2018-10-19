@@ -7,6 +7,7 @@ const QUERY = gql`
       id
       name
       openSeats
+      homepageUrl
     }
   }
 `;
