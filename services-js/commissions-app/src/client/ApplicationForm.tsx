@@ -61,7 +61,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
     clearSubmissionError,
   } = props;
 
-  const Field = ({ name, label, placeholder, required }: FieldProps) => (
+  const makeField = ({ name, label, placeholder, required }: FieldProps) => (
     <TextInput
       small
       name={name}
@@ -90,24 +90,24 @@ export default function ApplicationForm(props: Props): JSX.Element {
         </a>.
       </p>
 
-      <ApplicantInformationSection Field={Field} />
+      <ApplicantInformationSection makeField={makeField} />
 
       <hr className="hr hr--sq" />
 
       <section>
         <SectionHeader title="Education and Experience" />
 
-        <Field
-          label="Degree Attained"
-          name="degreeAttained"
-          placeholder="Degree Attained"
-        />
+        {makeField({
+          label: 'Degree Attained',
+          name: 'degreeAttained',
+          placeholder: 'Degree Attained',
+        })}
 
-        <Field
-          label="Educational Institution"
-          name="educationalInstitution"
-          placeholder="Educational Institution"
-        />
+        {makeField({
+          label: 'Educational Institution',
+          name: 'educationalInstitution',
+          placeholder: 'Educational Institution',
+        })}
 
         <Textarea
           name="otherInformation"
