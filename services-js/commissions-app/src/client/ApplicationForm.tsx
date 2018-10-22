@@ -42,6 +42,7 @@ export interface FieldProps {
   label: string;
   placeholder?: string;
   required?: boolean;
+  maxLength?: number;
 }
 
 // todo: https://github.com/CityOfBoston/digital/pull/97/files#r224776915
@@ -61,7 +62,13 @@ export default function ApplicationForm(props: Props): JSX.Element {
     clearSubmissionError,
   } = props;
 
-  const makeField = ({ name, label, placeholder, required }: FieldProps) => (
+  const makeField = ({
+    name,
+    label,
+    placeholder,
+    required,
+    maxLength,
+  }: FieldProps) => (
     <TextInput
       small
       name={name}
@@ -73,6 +80,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
       onBlur={handleBlur}
       onChange={handleChange}
       required={required}
+      maxLength={maxLength}
     />
   );
 
@@ -101,12 +109,14 @@ export default function ApplicationForm(props: Props): JSX.Element {
           label: 'Degree Attained',
           name: 'degreeAttained',
           placeholder: 'Degree Attained',
+          maxLength: 100,
         })}
 
         {makeField({
           label: 'Educational Institution',
           name: 'educationalInstitution',
           placeholder: 'Educational Institution',
+          maxLength: 100,
         })}
 
         <Textarea
@@ -118,6 +128,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
           onBlur={handleBlur}
           error={touched['otherInformation'] && errors['otherInformation']}
           rows={3}
+          maxLength={1000}
           small
         />
       </section>

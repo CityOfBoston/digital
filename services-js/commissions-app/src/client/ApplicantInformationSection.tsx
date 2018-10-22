@@ -90,9 +90,10 @@ export default function ApplicantInformationSection({
             name: 'firstName',
             placeholder: 'First Name',
             required: true,
+            maxLength: 25,
           })}
 
-          {makeField({ label: 'Initial', name: 'middleName' })}
+          {makeField({ label: 'Initial', name: 'middleName', maxLength: 50 })}
         </div>
 
         {makeField({
@@ -100,6 +101,7 @@ export default function ApplicantInformationSection({
           name: 'lastName',
           placeholder: 'Last Name',
           required: true,
+          maxLength: 50,
         })}
       </div>
 
@@ -109,12 +111,14 @@ export default function ApplicantInformationSection({
           name: 'streetAddress',
           placeholder: 'Street Address',
           required: true,
+          maxLength: 50,
         })}
 
         {makeField({
           label: 'Unit',
           name: 'unit',
-          placeholder: 'Unit or Apartment #',
+          placeholder: 'Unit',
+          maxLength: 50,
         })}
       </div>
 
@@ -124,6 +128,7 @@ export default function ApplicantInformationSection({
           name: 'city',
           placeholder: 'City',
           required: true,
+          maxLength: 50,
         })}
 
         <div className={STATE_ZIP_STYLING}>
@@ -132,6 +137,7 @@ export default function ApplicantInformationSection({
             name: 'state',
             placeholder: 'State',
             required: true,
+            maxLength: 50,
           })}
 
           {makeField({
@@ -139,6 +145,7 @@ export default function ApplicantInformationSection({
             name: 'zip',
             placeholder: 'Zip Code',
             required: true,
+            maxLength: 5,
           })}
         </div>
       </div>
@@ -146,7 +153,8 @@ export default function ApplicantInformationSection({
       {makeField({
         label: 'Phone',
         name: 'phone',
-        placeholder: 'Phone Number',
+        placeholder: '(XXX) XXX-XXXX',
+        maxLength: 50,
       })}
 
       {makeField({
@@ -154,6 +162,7 @@ export default function ApplicantInformationSection({
         name: 'email',
         placeholder: 'Email',
         required: true,
+        maxLength: 50,
       })}
 
       {makeField({
@@ -161,6 +170,7 @@ export default function ApplicantInformationSection({
         name: 'confirmEmail',
         placeholder: 'Confirm Email',
         required: true,
+        maxLength: 50,
       })}
     </section>
   );
