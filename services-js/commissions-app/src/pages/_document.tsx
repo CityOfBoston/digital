@@ -6,6 +6,7 @@ import {
   CompatibilityWarning,
   PUBLIC_CSS_URL,
 } from '@cityofboston/react-fleet';
+import { GtagSiteAnalytics } from '@cityofboston/next-client-common';
 
 export default class MyDocument extends Document {
   props: any;
@@ -48,6 +49,8 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />
 
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+
+          {GtagSiteAnalytics.makeTrackingCode()}
 
           {rollbarAccessToken && (
             <script

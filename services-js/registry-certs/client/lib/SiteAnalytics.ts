@@ -3,6 +3,7 @@ type ProductAction = 'detail' | 'add' | 'remove' | 'checkout' | 'purchase';
 type ProductCategory = 'Death certificate';
 
 // class to wrap Google Analylitcs for sending events
+// TODO(finh): Switch to next-client-common’s RouterListener and SiteAnalytics.
 export default class SiteAnalytics {
   ga: Function | null = null;
 

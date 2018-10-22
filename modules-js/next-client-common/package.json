@@ -30,6 +30,7 @@
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
+    "@types/google.analytics": "^0.0.39",
     "@types/hapi": "^17.0.19",
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/jest": "23.x.x",

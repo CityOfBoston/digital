@@ -1894,6 +1894,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google.analytics@^0.0.39":
+  version "0.0.39"
+  resolved "http://registry.npmjs.org/@types/google.analytics/-/google.analytics-0.0.39.tgz#19a952003dbf3c7373d655a5c3203b4726b8b802"
+
 "@types/got@^7.1.7":
   version "7.1.8"
   resolved "https://registry.yarnpkg.com/@types/got/-/got-7.1.8.tgz#c5f421b25770689bf8948b1241f710d71a00d7dd"

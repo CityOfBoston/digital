@@ -9,7 +9,10 @@ import { AppLayout } from '@cityofboston/react-fleet';
 
 import ApplicationForm from '../../client/ApplicationForm';
 import ApplicationSubmitted from '../../client/ApplicationSubmitted';
-import { NextContext } from '@cityofboston/next-client-common';
+import {
+  NextContext,
+  GtagSiteAnalytics,
+} from '@cityofboston/next-client-common';
 import { IncomingMessage } from 'http';
 import { Formik } from 'formik';
 import { ApplyFormValues, applyFormSchema } from '../../lib/validationSchema';
@@ -50,6 +53,8 @@ export default class ApplyPage extends React.Component<Props, State> {
   }
 
   handleSubmit = async () => {
+    const siteAnalytics = new GtagSiteAnalytics();
+
     const form = this.formRef.current;
     if (!form) {
       return;
@@ -64,6 +69,11 @@ export default class ApplyPage extends React.Component<Props, State> {
     const data = new FormData(form);
 
     try {
+      siteAnalytics.sendEvent('submit', {
+        category: 'Application',
+        value: data.getAll('commissionIds').length,
+      });
+
       const resp = await fetch('/commissions/submit', {
         method: 'POST',
         body: data,
@@ -74,6 +84,10 @@ export default class ApplyPage extends React.Component<Props, State> {
       }
 
       this.setState({ applicationSubmitted: true });
+
+      siteAnalytics.sendEvent('success', {
+        category: 'Application',
+      });
     } catch (e) {
       this.setState({
         submissionError: true,

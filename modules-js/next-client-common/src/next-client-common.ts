@@ -5,10 +5,13 @@ import { ServerInjectResponse } from 'hapi';
 
 export { default as RouterListener } from './RouterListener';
 export * from './RouterListener';
+export { default as GtagSiteAnalytics } from './GtagSiteAnalytics';
+export { default as GaSiteAnalytics } from './GaSiteAnalytics';
 
 export const API_KEY_CONFIG_KEY = 'graphqlApiKey';
 export const HAPI_INJECT_CONFIG_KEY = 'graphqlHapiInject';
 export const GRAPHQL_PATH_KEY = 'graphqlPath';
+export const GOOGLE_TRACKING_ID_KEY = 'googleTrackingId';
 
 // We parameterize the Request type because it’s common to pass extra things
 // into the server-side getInitialProps methods by attaching them as properties
