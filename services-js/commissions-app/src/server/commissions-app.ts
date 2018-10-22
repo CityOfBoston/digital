@@ -189,7 +189,7 @@ export async function makeServer(port, rollbar: Rollbar) {
   });
 
   server.route(adminOkRoute);
-  server.route(makeStaticAssetRoutes());
+  server.route(makeStaticAssetRoutes('/commissions/'));
 
   if (nextApp) {
     server.route(makeRoutesForNextApp(nextApp, '/commissions/'));

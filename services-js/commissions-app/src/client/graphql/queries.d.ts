@@ -9,6 +9,7 @@ export interface FetchCommissions_commissions {
   id: number;
   name: string;
   openSeats: number;
+  homepageUrl: string | null;
 }
 
 export interface FetchCommissions {

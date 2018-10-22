@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
-            href="/assets/favicon.ico"
+            href="/commissions/assets/favicon.ico"
             type="image/vnd.microsoft.icon"
           />
           <link rel="stylesheet" href={PUBLIC_CSS_URL} />

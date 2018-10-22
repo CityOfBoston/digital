@@ -694,7 +694,7 @@ exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
 >
   <input
     checked={true}
-    className="cb-f"
+    className="cb-f "
     name="checkbox"
     onBlur={[Function]}
     onChange={[Function]}

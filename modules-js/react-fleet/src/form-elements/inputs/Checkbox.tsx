@@ -6,7 +6,7 @@ interface Props {
   onChange: any;
   onBlur?: any;
   required?: boolean;
-  error?: string;
+  error?: boolean | string | Object;
   value?: string;
   checked?: boolean;
   style?: object;
@@ -21,7 +21,7 @@ export default function Checkbox(props: Props): JSX.Element {
         value={props.value}
         required={props.required}
         type="checkbox"
-        className="cb-f"
+        className={`cb-f ${props.error ? 'cb-f--err' : ''}`}
         onChange={props.onChange}
         onBlur={props.onBlur}
         checked={props.checked}

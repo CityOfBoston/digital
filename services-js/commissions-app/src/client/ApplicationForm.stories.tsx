@@ -8,35 +8,31 @@ const COMMISSIONS = [
     name: 'Aberdeen Architectural Conservation District Commission',
     id: 0,
     openSeats: 2,
+    homepageUrl: 'http://',
   },
   {
     name:
       'Back Bay West/Bay State Road Architectural Conservation District Commission',
     id: 1,
     openSeats: 1,
+    homepageUrl: 'http://',
   },
   {
     name: 'Living Wage Advisory Committee',
     id: 2,
     openSeats: 1,
+    homepageUrl: 'http://',
   },
   {
     name: 'Licensing Board for the City of Boston',
     id: 3,
     openSeats: 0,
+    homepageUrl: 'http://',
   },
 ];
 
-const COMMISSIONS_WITH_OPEN_SEATS = COMMISSIONS.filter(
-  ({ openSeats }) => openSeats > 0
-);
-const COMMISSIONS_WITHOUT_OPEN_SEATS = COMMISSIONS.filter(
-  ({ openSeats }) => openSeats === 0
-);
-
 const DEFAULT_PROPS: Props = {
-  commissionsWithOpenSeats: COMMISSIONS_WITH_OPEN_SEATS,
-  commissionsWithoutOpenSeats: COMMISSIONS_WITHOUT_OPEN_SEATS,
+  commissions: COMMISSIONS,
   formRef: React.createRef(),
   values: {
     firstName: '',
@@ -105,12 +101,6 @@ storiesOf('ApplicationForm', module)
         coverLetter: {} as any,
         resume: {} as any,
       }}
-    />
-  ))
-  .add('auto-expand no open seats', () => (
-    <ApplicationForm
-      {...DEFAULT_PROPS}
-      values={{ ...DEFAULT_PROPS.values, commissionIds: ['3'] }}
     />
   ))
   .add('submitting', () => <ApplicationForm {...DEFAULT_PROPS} isSubmitting />)

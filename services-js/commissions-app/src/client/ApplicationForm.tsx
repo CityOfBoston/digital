@@ -15,6 +15,7 @@ import {
 
 import ApplicantInformationSection from './ApplicantInformationSection';
 import CommissionsListSection from './CommissionsListSection';
+import { PARAGRAPH_STYLING } from './common/style-common';
 
 type RequiredFormikProps = Pick<
   FormikProps<ApplyFormValues>,
@@ -30,8 +31,7 @@ type RequiredFormikProps = Pick<
 >;
 
 export interface Props extends RequiredFormikProps {
-  commissionsWithOpenSeats: Commission[];
-  commissionsWithoutOpenSeats: Commission[];
+  commissions: Commission[];
   formRef: React.RefObject<HTMLFormElement>;
   submissionError?: boolean;
   clearSubmissionError: () => void;
@@ -43,8 +43,6 @@ export interface FieldProps {
   placeholder?: string;
   required?: boolean;
 }
-
-const PARAGRAPH_STYLING = 't--s400 lh--400';
 
 // todo: https://github.com/CityOfBoston/digital/pull/97/files#r224776915
 
@@ -127,17 +125,9 @@ export default function ApplicationForm(props: Props): JSX.Element {
       <hr className="hr hr--sq" />
 
       <CommissionsListSection
-        commissionsWithOpenSeats={props.commissionsWithOpenSeats}
-        commissionsWithoutOpenSeats={props.commissionsWithoutOpenSeats}
+        commissions={props.commissions}
         selectedCommissionIds={values.commissionIds}
-        errors={errors}
-        paragraphElement={
-          <p className={PARAGRAPH_STYLING}>
-            You can apply for a board or commission that does not currently have
-            any open positions, and we will review your application when a seat
-            opens.
-          </p>
-        }
+        setSelectedIds={ids => setFieldValue('commissionIds', ids)}
       />
 
       <hr className="hr hr--sq" />

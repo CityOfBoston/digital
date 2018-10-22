@@ -4,20 +4,18 @@
 import 'core-js/fn/array/includes';
 import 'core-js/fn/array/find';
 
-import React from 'react';
-import { FieldArray, FormikErrors } from 'formik';
+import React, { ChangeEvent } from 'react';
 import { css } from 'emotion';
 
 import {
   Checkbox,
   CollapsibleSection,
-  FREEDOM_RED as A11Y_RED,
   MEDIA_MEDIUM,
   SectionHeader,
 } from '@cityofboston/react-fleet';
 
 import { Commission } from './graphql/fetch-commissions';
-import { ApplyFormValues } from '../lib/validationSchema';
+import { PARAGRAPH_STYLING } from './common/style-common';
 
 const LIST_STYLING = css`
   padding: 0;
@@ -35,84 +33,141 @@ const LIST_STYLING = css`
     li {
       flex: 0 0 48%;
     }
-
-    label span {
-      font-size: 17px;
-    }
   }
 `;
 
-interface Props {
-  commissionsWithOpenSeats: Commission[];
-  commissionsWithoutOpenSeats: Commission[];
+const COMMISSION_STYLE = css({
+  fontSize: '17px',
+  display: 'flex',
+  alignItems: 'center',
+  span: {
+    flex: 1,
+  },
+  '& a': {
+    display: 'block',
+    background: 'url(./assets/external-link.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 20,
+    width: 20,
+    overflow: 'hidden',
+    textIndent: 20,
+  },
+});
+
+export interface Props {
+  commissions: Commission[];
   selectedCommissionIds: string[];
-  errors: FormikErrors<ApplyFormValues>;
-  paragraphElement: React.ReactNode;
+  setSelectedIds: (ids: string[]) => void;
+  testExpanded?: boolean;
 }
 
 export default class CommissionsListSection extends React.Component<Props> {
+  onCheckboxChange = (ev: ChangeEvent<HTMLInputElement>) => {
+    const { selectedCommissionIds, setSelectedIds } = this.props;
+    if (ev.target.checked) {
+      setSelectedIds([ev.currentTarget.value].concat(selectedCommissionIds));
+    } else {
+      setSelectedIds(
+        selectedCommissionIds.filter(id => id !== ev.currentTarget.value)
+      );
+    }
+  };
+
   render() {
-    const {
-      paragraphElement,
-      selectedCommissionIds,
-      commissionsWithOpenSeats,
-      commissionsWithoutOpenSeats,
-      errors,
-    } = this.props;
+    const { commissions, selectedCommissionIds, testExpanded } = this.props;
+
+    const commissionsWithoutOpenSeats = commissions.filter(
+      commission => commission.openSeats === 0
+    );
+
+    const commissionsWithOpenSeats = commissions.filter(
+      commission => commission.openSeats > 0
+    );
+
+    const selectedCommissions = commissions.filter(({ id }) =>
+      selectedCommissionIds.includes(id.toString())
+    );
+
+    const tooManyCommissions = selectedCommissions.length > 5;
 
     return (
       <>
         <SectionHeader title="Boards and Commissions" />
 
-        {paragraphElement}
+        {selectedCommissions.length === 0 ? (
+          <>
+            <p className={PARAGRAPH_STYLING}>
+              Choose up to 5 boards and commissions from the list below.
+            </p>
+          </>
+        ) : (
+          <>
+            <p className={PARAGRAPH_STYLING}>
+              You’re chosen to apply to these boards and commissions:
+            </p>
 
-        <CollapsibleSection title="Open Positions" subheader className="m-b100">
-          <FieldArray
-            name="commissionIds"
-            render={({ push, remove }) => (
-              <ul className={LIST_STYLING}>
-                {commissionsWithOpenSeats.map(commission =>
-                  renderCommission(
-                    commission,
-                    selectedCommissionIds,
-                    push,
-                    remove
-                  )
-                )}
-              </ul>
+            <ul className="ul">
+              {selectedCommissions.map(({ id, name }, i) => (
+                <li
+                  key={id}
+                  className="t--info"
+                  style={{ paddingTop: i !== 0 ? '0.5em' : 0 }}
+                >
+                  {name}
+                </li>
+              ))}
+            </ul>
+
+            <p className={PARAGRAPH_STYLING}>
+              You can change your selection by expanding the list below.{' '}
+              <span className={tooManyCommissions ? 't--err' : ''}>
+                You may apply for up to 5 boards or commissions at once.
+              </span>
+            </p>
+          </>
+        )}
+
+        <CollapsibleSection
+          title="Available Positions"
+          subheader
+          className="m-v500"
+          startCollapsed={selectedCommissions.length > 0 && !testExpanded}
+        >
+          <ul className={LIST_STYLING}>
+            {commissionsWithOpenSeats.map(commission =>
+              renderCommission(
+                commission,
+                selectedCommissionIds,
+                this.onCheckboxChange,
+                tooManyCommissions
+              )
             )}
-          />
+          </ul>
         </CollapsibleSection>
         {/* if user arrives from a commissions page that does not have open seats, we still want that commission checked off, and we also want that section to start off expanded */}
         <CollapsibleSection
           title="No Open Positions"
+          className="m-v300"
           subheader
-          startCollapsed={
-            !commissionsWithoutOpenSeats.find(({ id }) =>
-              selectedCommissionIds.includes(id.toString())
-            )
-          }
+          startCollapsed
         >
-          <FieldArray
-            name="commissionIds"
-            render={({ push, remove }) => (
-              <ul className={LIST_STYLING}>
-                {commissionsWithoutOpenSeats.map(commission =>
-                  renderCommission(
-                    commission,
-                    selectedCommissionIds,
-                    push,
-                    remove
-                  )
-                )}
-              </ul>
-            )}
-          />
-        </CollapsibleSection>
+          <p className={PARAGRAPH_STYLING}>
+            You can apply for a board or commission that does not currently have
+            any open positions. We will review your application when a seat
+            opens.
+          </p>
 
-        {/* We want to hide the error that comes up when nothing
-          is selected, even though it is an error case. */}
-        {commissionsSelectionError(errors, selectedCommissionIds.length > 0)}
+          <ul className={LIST_STYLING}>
+            {commissionsWithoutOpenSeats.map(commission =>
+              renderCommission(
+                commission,
+                selectedCommissionIds,
+                this.onCheckboxChange,
+                tooManyCommissions
+              )
+            )}
+          </ul>
+        </CollapsibleSection>
       </>
     );
   }
@@ -121,8 +176,8 @@ export default class CommissionsListSection extends React.Component<Props> {
 function renderCommission(
   commission: Commission,
   selectedCommissionIds: string[],
-  push: (obj: string) => void,
-  remove: (idx: number) => void
+  onChange: (ev: ChangeEvent<HTMLInputElement>) => void,
+  error: boolean
 ) {
   const id = commission.id.toString();
   const checked = selectedCommissionIds.includes(id);
@@ -133,31 +188,20 @@ function renderCommission(
       <Checkbox
         name="commissionIds"
         value={id}
-        title={commission.name}
-        onChange={() => {
-          if (!checked) {
-            push(id);
-          } else {
-            const idx = selectedCommissionIds.indexOf(id);
-            remove(idx);
-          }
-        }}
+        title={
+          <div className={COMMISSION_STYLE}>
+            <span>{commission.name}</span>
+            {commission.homepageUrl && (
+              <a href={commission.homepageUrl} title="Homepage" target="_blank">
+                Homepage
+              </a>
+            )}
+          </div>
+        }
+        error={checked && error}
+        onChange={onChange}
         checked={checked}
       />
     </li>
-  );
-}
-
-function commissionsSelectionError(
-  errors: FormikErrors<ApplyFormValues>,
-  showError: boolean
-) {
-  return (
-    <p
-      className="t--subinfo t--err"
-      style={{ marginTop: '-0.5em', color: A11Y_RED }}
-    >
-      {showError && errors.commissionIds} &nbsp;
-    </p>
   );
 }
