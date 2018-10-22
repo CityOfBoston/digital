@@ -73,11 +73,11 @@ interface Props {
   // Slight hackery to avoid passing all the Formik props this deeply. We prefer
   // this over Formik’s built-in Field component because that requires context
   // to work.
-  Field: (props: FieldProps) => JSX.Element;
+  makeField: (props: FieldProps) => JSX.Element;
 }
 
 export default function ApplicantInformationSection({
-  Field,
+  makeField,
 }: Props): JSX.Element {
   return (
     <section>
@@ -85,55 +85,83 @@ export default function ApplicantInformationSection({
 
       <div className={SPLIT_STYLING}>
         <div className={NAME_STREET_STYLING}>
-          <Field
-            label="First Name"
-            name="firstName"
-            placeholder="First Name"
-            required
-          />
+          {makeField({
+            label: 'First Name',
+            name: 'firstName',
+            placeholder: 'First Name',
+            required: true,
+          })}
 
-          <Field label="Initial" name="middleName" />
+          {makeField({ label: 'Initial', name: 'middleName' })}
         </div>
 
-        <Field
-          label="Last Name"
-          name="lastName"
-          placeholder="Last Name"
-          required
-        />
+        {makeField({
+          label: 'Last Name',
+          name: 'lastName',
+          placeholder: 'Last Name',
+          required: true,
+        })}
       </div>
 
       <div className={NAME_STREET_STYLING}>
-        <Field
-          label="Street Address"
-          name="streetAddress"
-          placeholder="Street Address"
-          required
-        />
+        {makeField({
+          label: 'Street Address',
+          name: 'streetAddress',
+          placeholder: 'Street Address',
+          required: true,
+        })}
 
-        <Field label="Unit" name="unit" placeholder="Unit or Apartment #" />
+        {makeField({
+          label: 'Unit',
+          name: 'unit',
+          placeholder: 'Unit or Apartment #',
+        })}
       </div>
 
       <div className={SPLIT_STYLING}>
-        <Field label="City" name="city" placeholder="City" required />
+        {makeField({
+          label: 'City',
+          name: 'city',
+          placeholder: 'City',
+          required: true,
+        })}
 
         <div className={STATE_ZIP_STYLING}>
-          <Field label="State" name="state" placeholder="State" required />
+          {makeField({
+            label: 'State',
+            name: 'state',
+            placeholder: 'State',
+            required: true,
+          })}
 
-          <Field label="Zip" name="zip" placeholder="Zip Code" required />
+          {makeField({
+            label: 'Zip',
+            name: 'zip',
+            placeholder: 'Zip Code',
+            required: true,
+          })}
         </div>
       </div>
 
-      <Field label="Phone" name="phone" placeholder="Phone Number" />
+      {makeField({
+        label: 'Phone',
+        name: 'phone',
+        placeholder: 'Phone Number',
+      })}
 
-      <Field label="Email" name="email" placeholder="Email" required />
+      {makeField({
+        label: 'Email',
+        name: 'email',
+        placeholder: 'Email',
+        required: true,
+      })}
 
-      <Field
-        label="Confirm Email"
-        name="confirmEmail"
-        placeholder="Confirm Email"
-        required
-      />
+      {makeField({
+        label: 'Confirm Email',
+        name: 'confirmEmail',
+        placeholder: 'Confirm Email',
+        required: true,
+      })}
     </section>
   );
 }
