@@ -239,11 +239,6 @@ export default class HomePane extends React.Component<Props> {
         <div className="p-a300 p-a800--xl">
           <SectionHeader>BOS:311 — Request City Services</SectionHeader>
 
-          <div className="t--info m-v300" style={{ fontStyle: 'normal' }}>
-            Through BOS:311, you can request non-emergency services from the
-            City.
-          </div>
-
           <div className="g m-t500">
             <form
               className={`g--7 ${FORM_COLUMN_STYLE.toString()}`}

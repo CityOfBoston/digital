@@ -5228,16 +5228,6 @@ exports[`Storyshots HomePane Home 1`] = `
           </h1>
         </div>
         <div
-          className="t--info m-v300"
-          style={
-            Object {
-              "fontStyle": "normal",
-            }
-          }
-        >
-          Through BOS:311, you can request non-emergency services from the City.
-        </div>
-        <div
           className="g m-t500"
         >
           <form
@@ -9447,16 +9437,6 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                   >
                     BOS:311 — Request City Services
                   </h1>
-                </div>
-                <div
-                  className="t--info m-v300"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                    }
-                  }
-                >
-                  Through BOS:311, you can request non-emergency services from the City.
                 </div>
                 <div
                   className="g m-t500"
