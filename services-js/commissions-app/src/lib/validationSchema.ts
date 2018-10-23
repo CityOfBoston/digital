@@ -23,41 +23,48 @@ export interface ApplyFormValues {
   resume: File | Buffer | null;
 }
 
+// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
+const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
 // TODO(finh): These "max" values come from the database. We should enforce them
 // via <input> maxLength attributes rather than showing red error messages when
 // the user exceeds the limit.
 export const applyFormSchema = Yup.object<ApplyFormValues>({
   firstName: Yup.string()
-    .required('First name is required')
+    .required('Your first name is required.')
     .max(25),
   middleName: Yup.string().max(50),
   lastName: Yup.string()
-    .required('Last name is required')
+    .required('Your last name is required.')
     .max(50),
   streetAddress: Yup.string()
-    .required('Address is required')
+    .required('Your address is required.')
     .max(50),
   unit: Yup.string().max(50),
   city: Yup.string()
-    .required('City is required')
+    .required('Your city is required.')
     .max(50),
   state: Yup.string()
-    .required('State is required')
+    .required('Your state is required.')
     .max(50),
   zip: Yup.string()
-    .required('Zip code is required')
-    .matches(new RegExp(/^\d{5}$/), 'Zip codes should have 5 digits')
+    .required('Your ZIP code is required.')
+    .matches(new RegExp(/^\d{5}$/), 'That doesn’t look like a ZIP code.')
     .max(50),
-  // TODO(finh): use phone regexp
-  phone: Yup.string().max(50),
+  phone: Yup.string()
+    .matches(PHONE_REGEXP, 'That doesn’t look like a phone number.')
+    .max(50),
   email: Yup.string()
     .email()
-    .required('Email is required')
+    .required('Your email address is required.')
     .max(50),
   confirmEmail: Yup.string()
     .email()
-    .required('Please enter your email again')
-    .oneOf([Yup.ref('email', undefined)], 'Email addresses do not match'),
+    .required('Please enter your email again.')
+    .oneOf(
+      [Yup.ref('email', undefined)],
+      'These email addresses do not match.'
+    ),
   // This transform ensures that we cast a single string to an array. Necessary
   // for when someone only signs up for one commission so the form parser
   // doesn’t make an array of values.
@@ -66,7 +73,7 @@ export const applyFormSchema = Yup.object<ApplyFormValues>({
   // https://github.com/jquense/yup/issues/343
   commissionIds: Yup.array(Yup.string())
     .transform((_, orig) => (orig == null ? [] : [].concat(orig)))
-    .max(5, 'Maximum of five selections')
+    .max(5, 'You can only apply to 5 boards or commissions at once.')
     .min(1),
   degreeAttained: Yup.string().max(100),
   otherInformation: Yup.string().max(1000),
