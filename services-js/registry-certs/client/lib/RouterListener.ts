@@ -4,6 +4,7 @@ import Router from 'next/router';
 
 import Accessibility from '../store/Accessibility';
 
+// TODO(finh): Switch to next-client-common’s RouterListener and SiteAnalytics.
 export default class RouterListener {
   accessibility: Accessibility | null = null;
   router: Router | null = null;

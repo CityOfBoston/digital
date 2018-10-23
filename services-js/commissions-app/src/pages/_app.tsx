@@ -1,6 +1,12 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import Router from 'next/router';
 import { hydrate } from 'emotion';
+import { SiteAnalytics } from '@cityofboston/next-client-common/build/SiteAnalytics';
+import {
+  RouterListener,
+  GtagSiteAnalytics,
+} from '@cityofboston/next-client-common';
 
 interface Props {
   pageProps: any;
@@ -10,6 +16,9 @@ interface Props {
 export default class CommissionsApp extends App {
   // TypeScript doesn't know that App already has a props member.
   protected props: Props;
+
+  protected routerListener: RouterListener;
+  protected siteAnalytics: SiteAnalytics;
 
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
@@ -32,6 +41,17 @@ export default class CommissionsApp extends App {
     if (typeof window !== 'undefined') {
       hydrate((window as any).__NEXT_DATA__.ids);
     }
+
+    this.routerListener = new RouterListener();
+    this.siteAnalytics = new GtagSiteAnalytics();
+  }
+
+  componentDidMount() {
+    this.routerListener.attach(Router, this.siteAnalytics);
+  }
+
+  componentWillUnmount() {
+    this.routerListener.detach();
   }
 
   render() {

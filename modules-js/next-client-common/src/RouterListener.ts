@@ -1,5 +1,6 @@
 import NProgress from 'nprogress';
 import Router from 'next/router';
+import { SiteAnalytics } from './SiteAnalytics';
 
 // import Accessibility from '../store/Accessibility';
 
@@ -13,14 +14,14 @@ export function makeNProgressStyle(height: number = 65) {
 export default class RouterListener {
   // accessibility: Accessibility | null = null;
   router: Router | null = null;
-  ga: any = null;
+  siteAnalytics: SiteAnalytics | null = null;
   routeStartMs: number = 0;
   progressStartTimeout: number | null = null;
 
-  attach(router: Router, ga: any) {
+  attach(router: Router, siteAnalytics: SiteAnalytics | null) {
     this.router = router;
     // this.accessibility = accessibility;
-    this.ga = ga;
+    this.siteAnalytics = siteAnalytics;
 
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
@@ -32,8 +33,8 @@ export default class RouterListener {
     // been called, so any impression data that needs to be sent in pageview has
     // been set.
     window.setTimeout(function() {
-      if (ga) {
-        ga('send', 'pageview');
+      if (siteAnalytics) {
+        siteAnalytics.initialPageview();
       }
     }, 0);
   }
@@ -60,10 +61,10 @@ export default class RouterListener {
 
     NProgress.done();
 
-    const { ga } = this;
+    const { siteAnalytics } = this;
 
-    if (ga) {
-      ga('set', 'page', url);
+    if (siteAnalytics) {
+      siteAnalytics.changePath(url);
     }
 
     // if (accessibility) {
