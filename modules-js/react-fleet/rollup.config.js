@@ -3,7 +3,13 @@
 // the libraries will be available without the apps having to add the
 // dependencies themselves. Nevertheless, these should be added as both
 // peerDependencies and devDependencies in package.json, since we’re pedantic.
-const EXTERNALS = ['react', 'emotion', 'string-hash', 'detect-browser'];
+const EXTERNALS = [
+  'react',
+  'react-dom',
+  'emotion',
+  'string-hash',
+  'detect-browser',
+];
 
 export default {
   input: 'build/react-fleet.js',

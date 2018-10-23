@@ -5,8 +5,10 @@ import { ServerInjectResponse } from 'hapi';
 
 export { default as RouterListener } from './RouterListener';
 export * from './RouterListener';
+export { default as SiteAnalytics } from './SiteAnalytics';
 export { default as GtagSiteAnalytics } from './GtagSiteAnalytics';
 export { default as GaSiteAnalytics } from './GaSiteAnalytics';
+export { default as ScreenReaderSupport } from './ScreenReaderSupport';
 
 export const API_KEY_CONFIG_KEY = 'graphqlApiKey';
 export const HAPI_INJECT_CONFIG_KEY = 'graphqlHapiInject';

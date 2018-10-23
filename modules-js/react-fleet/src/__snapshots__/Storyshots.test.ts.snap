@@ -536,20 +536,16 @@ Array [
 
 exports[`Storyshots Components/Modals Status 1`] = `
 <div
-  aria-labelledby="statusModal"
   className="md "
-  role="alertdialog"
 >
   <div
     className="md-c br br-t400 css-1y2scv5"
-    role="document"
   >
     <div
       className="md-b p-a300"
     >
       <div
         className="t--intro "
-        id="statusModal"
       >
         Saving your new password…
       </div>
@@ -565,20 +561,16 @@ exports[`Storyshots Components/Modals Status 1`] = `
 
 exports[`Storyshots Components/StatusModal default 1`] = `
 <div
-  aria-labelledby="statusModal"
   className="md "
-  role="alertdialog"
 >
   <div
     className="md-c br br-t400 css-1y2scv5"
-    role="document"
   >
     <div
       className="md-b p-a300"
     >
       <div
         className="t--intro "
-        id="statusModal"
       >
         Please wait a second…
       </div>
@@ -594,20 +586,16 @@ exports[`Storyshots Components/StatusModal default 1`] = `
 
 exports[`Storyshots Components/StatusModal error with close 1`] = `
 <div
-  aria-labelledby="statusModal"
   className="md "
-  role="alertdialog"
 >
   <div
     className="md-c br br-t400 css-1y2scv5"
-    role="document"
   >
     <div
       className="md-b p-a300"
     >
       <div
         className="t--intro t--err"
-        id="statusModal"
       >
         Something went wrong!
       </div>
@@ -620,6 +608,7 @@ exports[`Storyshots Components/StatusModal error with close 1`] = `
         className="m-t300 ta-r"
       >
         <button
+          autoFocus={true}
           className="btn btn--sm btn--100"
           onClick={[Function]}
           type="button"
@@ -688,65 +677,50 @@ exports[`Storyshots Form Elements/Buttons close 1`] = `
 </button>
 `;
 
-exports[`Storyshots Form Elements/Inputs Checkbox / div passed in 1`] = `
-<label
-  className="cb "
->
-  <input
-    checked={false}
-    className="cb-f "
-    name="commissionIds"
-    onChange={[Function]}
-    style={
-      Object {
-        "border": "none",
-      }
-    }
-    type="checkbox"
-    value="commissionCheckbox"
-  />
-  <div
-    className="cb-l"
+exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
+Array [
+  <label
+    className="cb "
   >
-    <span>
-      South End Landmark District Commission
-    </span>
-    <br />
-    <a
-      href="#"
-      target="_blank"
-      title="Homepage"
+    <input
+      checked={true}
+      className="cb-f "
+      name="checkbox"
+      type="checkbox"
+      value="checkbox"
+    />
+    <span
+      className="cb-l"
     >
-      Homepage
-    </a>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Form Elements/Inputs Checkbox / text title 1`] = `
-<label
-  className="cb "
->
-  <input
-    checked={true}
-    className="cb-f "
-    name="checkbox"
-    onBlur={[Function]}
-    onChange={[Function]}
-    style={
-      Object {
-        "border": "none",
-      }
-    }
-    type="checkbox"
-    value="checkbox"
-  />
-  <span
-    className="cb-l"
+      Community Preservation Committee
+    </span>
+  </label>,
+  <br />,
+  <label
+    className="cb "
   >
-    Community Preservation Committee
-  </span>
-</label>
+    <input
+      checked={true}
+      className="cb-f "
+      name="checkbox"
+      type="checkbox"
+      value="checkbox"
+    />
+    <span
+      className="cb-l"
+    >
+      Community Preservation Committee
+      <br />
+      <a
+        href="#"
+        target="_blank"
+        title="Homepage"
+      >
+        Homepage
+      </a>
+    </span>
+  </label>,
+]
 `;
 
 exports[`Storyshots Form Elements/Inputs Text Input 1`] = `
@@ -1639,6 +1613,7 @@ exports[`Storyshots Layouts/App Layout default 1`] = `
           >
             <h2
               className="sh-title"
+              id="sh-2943626151"
             >
               Main Content
             </h2>
@@ -1890,6 +1865,7 @@ exports[`Storyshots Layouts/App Layout secondary nav 1`] = `
           >
             <h2
               className="sh-title"
+              id="sh-2943626151"
             >
               Main Content
             </h2>
@@ -1933,7 +1909,9 @@ exports[`Storyshots Layouts/App Layout secondary nav 1`] = `
 `;
 
 exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] = `
-<section>
+<section
+  aria-labelledby="collapsiblesection-1469836601"
+>
   <div
     className="sh "
   >
@@ -1946,7 +1924,9 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          id="collapsiblesection-1469836601"
+        >
           Boards and Commissions
         </span>
         <svg
@@ -1981,14 +1961,20 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
 
 exports[`Storyshots Sectioning Elements/Collapsible Section disabled 1`] = `
 Array [
-  <section>
+  <section
+    aria-labelledby="collapsiblesection-2725997550"
+  >
     <div
       className="sh "
     >
       <h2
         className="sh-title css-14x07yu"
       >
-        Disabled / Open
+        <span
+          id="collapsiblesection-2725997550"
+        >
+          Disabled / Open
+        </span>
       </h2>
     </div>
     <div
@@ -2002,14 +1988,20 @@ Array [
       </p>
     </div>
   </section>,
-  <section>
+  <section
+    aria-labelledby="collapsiblesection-206548808"
+  >
     <div
       className="sh "
     >
       <h2
         className="sh-title css-14x07yu"
       >
-        Disabled / Closed
+        <span
+          id="collapsiblesection-206548808"
+        >
+          Disabled / Closed
+        </span>
       </h2>
     </div>
     <div
@@ -2027,7 +2019,9 @@ Array [
 `;
 
 exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 1`] = `
-<section>
+<section
+  aria-labelledby="collapsiblesection-3435950689"
+>
   <div
     className="sh "
   >
@@ -2040,7 +2034,9 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          id="collapsiblesection-3435950689"
+        >
           Initially Collapsed
         </span>
         <svg
@@ -2074,7 +2070,9 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
 `;
 
 exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`] = `
-<section>
+<section
+  aria-labelledby="collapsiblesection-1469836601"
+>
   <div
     className="sh sh--sm"
   >
@@ -2087,7 +2085,9 @@ exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          id="collapsiblesection-1469836601"
+        >
           Boards and Commissions
         </span>
         <svg
@@ -2126,6 +2126,7 @@ exports[`Storyshots Sectioning Elements/Section Header default 1`] = `
 >
   <h2
     className="sh-title"
+    id="sh-1469836601"
   >
     Boards and Commissions
   </h2>
@@ -2138,6 +2139,7 @@ exports[`Storyshots Sectioning Elements/Section Header subheader 1`] = `
 >
   <h3
     className="sh-title"
+    id="sh-1469836601"
   >
     Boards and Commissions
   </h3>
@@ -2150,6 +2152,7 @@ exports[`Storyshots Sectioning Elements/Section Header yellow 1`] = `
 >
   <h2
     className="sh-title"
+    id="sh-1469836601"
   >
     Boards and Commissions
   </h2>

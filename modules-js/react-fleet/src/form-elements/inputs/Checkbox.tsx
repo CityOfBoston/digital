@@ -1,38 +1,27 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
-interface Props {
-  name: string;
-  title: string | JSX.Element;
-  onChange: any;
-  onBlur?: any;
-  required?: boolean;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: boolean | string | Object;
-  value?: string;
-  checked?: boolean;
   style?: object;
   className?: string;
 }
 
-export default function Checkbox(props: Props): JSX.Element {
+export default function Checkbox({
+  className,
+  style,
+  error,
+  children,
+  ...inputAttributes
+}: Props): JSX.Element {
   return (
-    <label className={`cb ${props.className || ''}`} style={props.style}>
+    <label className={`cb ${className || ''}`} style={style}>
       <input
-        name={props.name}
-        value={props.value}
-        required={props.required}
         type="checkbox"
-        className={`cb-f ${props.error ? 'cb-f--err' : ''}`}
-        onChange={props.onChange}
-        onBlur={props.onBlur}
-        checked={props.checked}
-        style={{ border: 'none' }}
+        className={`cb-f ${error ? 'cb-f--err' : ''}`}
+        {...inputAttributes}
       />
 
-      {typeof props.title === 'string' ? (
-        <span className="cb-l">{props.title}</span>
-      ) : (
-        props.title
-      )}
+      <span className="cb-l">{children}</span>
     </label>
   );
 }

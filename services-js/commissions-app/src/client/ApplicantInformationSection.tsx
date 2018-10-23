@@ -80,7 +80,7 @@ export default function ApplicantInformationSection({
   makeField,
 }: Props): JSX.Element {
   return (
-    <section>
+    <section aria-labelledby={SectionHeader.makeId('Applicant Information')}>
       <SectionHeader title="Applicant Information" />
 
       <div className={SPLIT_STYLING}>

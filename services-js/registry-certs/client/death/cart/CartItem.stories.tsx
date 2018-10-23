@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import {
   TYPICAL_CERTIFICATE,
@@ -14,7 +15,7 @@ import CartItem from './CartItem';
 
 function makeProps(certificate) {
   const cart = new DeathCertificateCart();
-  const siteAnalytics = new SiteAnalytics();
+  const siteAnalytics = new GaSiteAnalytics();
 
   cart.setQuantity(certificate, 1);
   const entry = cart.entries[0];

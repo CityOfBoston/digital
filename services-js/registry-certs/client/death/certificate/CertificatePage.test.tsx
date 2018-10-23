@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 
 import CertificatePage from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
-jest.mock('../../lib/SiteAnalytics');
 
 describe('getInitialProps', () => {
   let deathCertificatesDao;
@@ -62,7 +62,7 @@ describe('getInitialProps', () => {
 
       beforeEach(() => {
         cart = new DeathCertificateCart();
-        siteAnalytics = new SiteAnalytics();
+        siteAnalytics = new GaSiteAnalytics();
 
         component = shallow(
           <CertificatePage
@@ -96,7 +96,7 @@ describe('interface', () => {
   let wrapper;
 
   beforeEach(() => {
-    siteAnalytics = new SiteAnalytics();
+    siteAnalytics = new GaSiteAnalytics();
 
     wrapper = shallow(
       <CertificatePage

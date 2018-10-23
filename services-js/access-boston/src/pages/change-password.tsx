@@ -175,7 +175,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                   </p>
                 )}
 
-                <hr className="hr hr--sq" />
+                <hr className="hr hr--sq" aria-hidden />
               </>
             )}
 

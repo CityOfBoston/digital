@@ -44,11 +44,28 @@ export default class GtagSiteAnalytics extends SiteAnalytics {
     // nothing to do, since the 'config' in the initial snippet handles this.
   }
 
-  changePath(path: string) {
+  changePath(path: string, timeInMs?: number) {
+    if (typeof gtag === 'undefined') {
+      return;
+    }
+
     gtag('config', this.googleTrackingId, { page_path: path });
+
+    if (typeof timeInMs !== 'undefined') {
+      gtag('event', 'timing_complete', {
+        name: 'routeChange',
+        value: timeInMs,
+        event_category: 'Router',
+        event_label: path,
+      });
+    }
   }
 
   sendEvent(action: string, options: EventOptions = {}) {
+    if (typeof gtag === 'undefined') {
+      return;
+    }
+
     gtag('event', action, {
       event_category: options.category,
       event_label: options.label,

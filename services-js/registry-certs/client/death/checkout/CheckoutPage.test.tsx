@@ -1,10 +1,13 @@
 import Router from 'next/router';
 
+import {
+  ScreenReaderSupport,
+  GaSiteAnalytics,
+} from '@cityofboston/next-client-common';
+
 import CheckoutPage, { PageDependenciesProps } from './CheckoutPage';
 import CheckoutDao from '../../dao/CheckoutDao';
 import OrderProvider from '../../store/OrderProvider';
-import Accessibility from '../../store/Accessibility';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 jest.mock('next/router');
@@ -97,11 +100,11 @@ describe('rendering', () => {
 
   beforeEach(() => {
     pageDependenciesProps = {
-      accessibility: new Accessibility(),
+      screenReaderSupport: new ScreenReaderSupport(),
       deathCertificateCart: new DeathCertificateCart(),
       checkoutDao: {} as any,
       orderProvider: new OrderProvider(),
-      siteAnalytics: new SiteAnalytics(),
+      siteAnalytics: new GaSiteAnalytics(),
       stripe: null,
     };
   });
@@ -161,9 +164,9 @@ describe('operations', () => {
 
     // page doesn't really matter for this
     component = new CheckoutPage({
-      accessibility: new Accessibility(),
+      screenReaderSupport: new ScreenReaderSupport(),
       deathCertificateCart: new DeathCertificateCart(),
-      siteAnalytics: new SiteAnalytics(),
+      siteAnalytics: new GaSiteAnalytics(),
       stripe: null,
 
       info: { page: 'shipping' },

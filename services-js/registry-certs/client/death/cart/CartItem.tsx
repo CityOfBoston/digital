@@ -3,17 +3,18 @@ import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
 } from '../../store/DeathCertificateCart';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CertificateRow from '../../common/CertificateRow';
 import { OPTIMISTIC_BLUE, FREEDOM_RED } from '../../common/style-constants';
 
 export interface Props {
   cart: DeathCertificateCart;
-  siteAnalytics: SiteAnalytics;
+  siteAnalytics: GaSiteAnalytics;
   entry: DeathCertificateCartEntry;
   lastRow: boolean;
 }
@@ -96,14 +97,20 @@ export default class CartItem extends React.Component<Props, State> {
         }
       }
 
-      siteAnalytics.sendEvent('UX', 'input', 'update quantity');
+      siteAnalytics.sendEvent('input', {
+        category: 'UX',
+        label: 'update quantity',
+      });
     }
   );
 
   handleRemove = action('CartItem > handleRemove', () => {
     const { cart, entry, siteAnalytics } = this.props;
     cart.remove(entry.id);
-    siteAnalytics.sendEvent('UX', 'click', 'remove from cart');
+    siteAnalytics.sendEvent('click', {
+      category: 'UX',
+      label: 'remove from cart',
+    });
   });
 
   render() {

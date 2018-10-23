@@ -1,10 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
 } from '../../store/DeathCertificateCart';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import CartItem from './CartItem';
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
@@ -25,7 +26,7 @@ describe('quantity field', () => {
     entry.quantity = 4;
 
     cart = new DeathCertificateCart();
-    siteAnalytics = new SiteAnalytics();
+    siteAnalytics = new GaSiteAnalytics();
 
     // mount because the quantity field is behind a render prop
     wrapper = mount(

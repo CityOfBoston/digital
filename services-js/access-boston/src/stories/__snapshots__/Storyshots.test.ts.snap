@@ -110,6 +110,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-2745903612"
         >
           Change Password
         </h2>
@@ -441,6 +442,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-1165831651"
         >
           Create a New Password
         </h2>
@@ -456,6 +458,7 @@ Array [
         You’ll use this password when logging in to Access Boston websites like The Hub. If you work in City Hall or for BPS you’ll also use it for your desktop computer.
       </p>
       <hr
+        aria-hidden={true}
         className="hr hr--sq"
       />
       <form
@@ -785,6 +788,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-1165831651"
         >
           Create a New Password
         </h2>
@@ -805,6 +809,7 @@ Array [
         Please look for an email from us with your temporary password.
       </p>
       <hr
+        aria-hidden={true}
         className="hr hr--sq"
       />
       <form
@@ -1134,6 +1139,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-2745903612"
         >
           Change Password
         </h2>
@@ -1520,6 +1526,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-2745903612"
         >
           Change Password
         </h2>
@@ -1835,6 +1842,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-2144913693"
         >
           Forgot Password
         </h2>
@@ -2071,6 +2079,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-2144913693"
         >
           Forgot Password
         </h2>
@@ -2362,6 +2371,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-849926861"
         >
           Reset successful!
         </h2>
@@ -2450,7 +2460,8 @@ Array [
     <div
       className="b b-c"
     >
-      <div
+      <section
+        aria-labelledby="sh-3803121763"
         className="m-b500"
       >
         <div
@@ -2458,6 +2469,7 @@ Array [
         >
           <h2
             className="sh-title"
+            id="sh-3803121763"
           >
             Financial Software
           </h2>
@@ -2516,11 +2528,12 @@ Array [
             </span>
           </a>
         </div>
-      </div>
+      </section>
       <div
         className="g"
       >
-        <div
+        <section
+          aria-labelledby="sh-3211321004"
           className="m-b500 g--6"
         >
           <div
@@ -2528,6 +2541,7 @@ Array [
           >
             <h2
               className="sh-title"
+              id="sh-3211321004"
             >
               Employee Tools
             </h2>
@@ -2540,7 +2554,7 @@ Array [
             <a
               href="#"
             >
-              request access form
+              foo access form
             </a>
             .
           </div>
@@ -2683,7 +2697,7 @@ Array [
               </a>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
   </div>,
@@ -2745,7 +2759,8 @@ Array [
     <div
       className="b b-c"
     >
-      <div
+      <section
+        aria-labelledby="sh-3803121763"
         className="m-b500"
       >
         <div
@@ -2753,6 +2768,7 @@ Array [
         >
           <h2
             className="sh-title"
+            id="sh-3803121763"
           >
             Financial Software
           </h2>
@@ -2811,11 +2827,12 @@ Array [
             </span>
           </a>
         </div>
-      </div>
+      </section>
       <div
         className="g"
       >
-        <div
+        <section
+          aria-labelledby="sh-3211321004"
           className="m-b500 g--6"
         >
           <div
@@ -2823,6 +2840,7 @@ Array [
           >
             <h2
               className="sh-title"
+              id="sh-3211321004"
             >
               Employee Tools
             </h2>
@@ -2835,7 +2853,7 @@ Array [
             <a
               href="#"
             >
-              request access form
+              foo access form
             </a>
             .
           </div>
@@ -2978,7 +2996,7 @@ Array [
               </a>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
   </div>,
@@ -3410,6 +3428,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-1428259210"
         >
           Set up security codes
         </h2>
@@ -3430,6 +3449,7 @@ Array [
         Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
       </p>
       <hr
+        aria-hidden={true}
         className="hr hr--sq"
       />
       <form
@@ -3689,6 +3709,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-1428259210"
         >
           Set up security codes
         </h2>
@@ -3709,6 +3730,7 @@ Array [
         Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
       </p>
       <hr
+        aria-hidden={true}
         className="hr hr--sq"
       />
       <form
@@ -4019,6 +4041,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
     >
       <h2
         className="sh-title"
+        id="sh-1428259210"
       >
         Set up security codes
       </h2>
@@ -4039,6 +4062,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
       Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
     </p>
     <hr
+      aria-hidden={true}
       className="hr hr--sq"
     />
     <form
@@ -4244,6 +4268,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
     >
       <h2
         className="sh-title"
+        id="sh-1428259210"
       >
         Set up security codes
       </h2>
@@ -4264,6 +4289,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
       Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
     </p>
     <hr
+      aria-hidden={true}
       className="hr hr--sq"
     />
     <form
@@ -4412,6 +4438,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
     >
       <h2
         className="sh-title"
+        id="sh-1428259210"
       >
         Set up security codes
       </h2>
@@ -4432,6 +4459,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
       Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
     </p>
     <hr
+      aria-hidden={true}
       className="hr hr--sq"
     />
     <form
@@ -5265,6 +5293,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-4106611114"
         >
           Welcome to Access Boston!
         </h2>
@@ -5420,6 +5449,7 @@ Array [
       >
         <h2
           className="sh-title"
+          id="sh-4106611114"
         >
           Welcome to Access Boston!
         </h2>

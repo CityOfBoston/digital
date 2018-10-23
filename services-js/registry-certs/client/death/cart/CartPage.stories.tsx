@@ -2,7 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { runInAction } from 'mobx';
 
-import SiteAnalytics from '../../lib/SiteAnalytics';
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 import CartPage from './CartPage';
@@ -45,18 +46,18 @@ storiesOf('CartPage', module)
   .add('loading', () => (
     <CartPage
       deathCertificateCart={makeCart(true)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('normal page', () => (
     <CartPage
       deathCertificateCart={makeCart(false)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('empty cart', () => (
     <CartPage
       deathCertificateCart={new DeathCertificateCart()}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ));

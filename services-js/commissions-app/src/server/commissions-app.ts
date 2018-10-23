@@ -192,6 +192,7 @@ export async function makeServer(port, rollbar: Rollbar) {
       },
     },
     handler: async (req, h) => {
+      console.info('IN SUBMIT HANDLER');
       let validForm: ApplyFormValues;
       let fetchedBoards: DbBoard[];
       let applicationId: number;

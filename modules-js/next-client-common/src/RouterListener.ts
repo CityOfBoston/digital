@@ -1,8 +1,7 @@
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import { SiteAnalytics } from './SiteAnalytics';
-
-// import Accessibility from '../store/Accessibility';
+import ScreenReaderSupport from './ScreenReaderSupport';
 
 export function makeNProgressStyle(height: number = 65) {
   return `
@@ -11,17 +10,24 @@ export function makeNProgressStyle(height: number = 65) {
 `;
 }
 
+export type Dependencies = {
+  router: Router;
+  siteAnalytics?: SiteAnalytics;
+  screenReaderSupport?: ScreenReaderSupport;
+};
+
 export default class RouterListener {
-  // accessibility: Accessibility | null = null;
-  router: Router | null = null;
-  siteAnalytics: SiteAnalytics | null = null;
+  private router: Router | null = null;
+  private siteAnalytics: SiteAnalytics | null = null;
+  private screenReaderSupport: ScreenReaderSupport | null = null;
+
   routeStartMs: number = 0;
   progressStartTimeout: number | null = null;
 
-  attach(router: Router, siteAnalytics: SiteAnalytics | null) {
+  attach({ router, siteAnalytics, screenReaderSupport }: Dependencies) {
     this.router = router;
-    // this.accessibility = accessibility;
-    this.siteAnalytics = siteAnalytics;
+    this.siteAnalytics = siteAnalytics || null;
+    this.screenReaderSupport = screenReaderSupport || null;
 
     router.onRouteChangeStart = this.routeChangeStart;
     router.onRouteChangeComplete = this.routeChangeComplete;
@@ -49,57 +55,42 @@ export default class RouterListener {
     this.router = null;
   }
 
-  routeChangeStart() {
+  routeChangeStart = () => {
     this.progressStartTimeout = window.setTimeout(() => NProgress.start(), 250);
     this.routeStartMs = Date.now();
-  }
+  };
 
-  routeChangeComplete(url: string) {
+  routeChangeComplete = (url: string) => {
     if (this.progressStartTimeout) {
       clearTimeout(this.progressStartTimeout);
     }
 
     NProgress.done();
 
-    const { siteAnalytics } = this;
+    const { siteAnalytics, screenReaderSupport } = this;
 
-    if (siteAnalytics) {
-      siteAnalytics.changePath(url);
-    }
+    // we do a setTimeout so that the new title renders by the time we
+    // want to see it
+    setTimeout(() => {
+      if (siteAnalytics) {
+        siteAnalytics.changePath(url, Date.now() - this.routeStartMs);
+      }
 
-    // if (accessibility) {
-    //   // we do a setTimeout so that the new title renders by the time we
-    //   // want to see it
-    //   setTimeout(
-    //     action(() => {
-    //       if (ga) {
-    //         ga('send', 'pageview');
-    //         ga(
-    //           'send',
-    //           'timing',
-    //           'Router',
-    //           'routeChange',
-    //           Date.now() - this.routeStartMs,
-    //           url
-    //         );
-    //       }
+      if (screenReaderSupport) {
+        const pieces = document.title.split(/—/);
+        screenReaderSupport.announce(
+          `Page loaded: ${pieces[pieces.length - 1].trim()}`,
+          true
+        );
+      }
+    }, 0);
+  };
 
-    //       const pieces = document.title.split(/—/);
-    //       accessibility.message = `Page loaded: ${pieces[
-    //         pieces.length - 1
-    //       ].trim()}`;
-    //       accessibility.interrupt = true;
-    //     }),
-    //     0
-    //   );
-    // }
-  }
-
-  routeChangeError() {
+  routeChangeError = () => {
     if (this.progressStartTimeout) {
       clearTimeout(this.progressStartTimeout);
     }
 
     NProgress.done();
-  }
+  };
 }

@@ -26,12 +26,13 @@ function renderAreaCheckbox(props, policyArea) {
       key={`checkbox-area-${policyArea.id}`}
       name={policyArea.id}
       onChange={props.handleCheckChange}
-      title={labelText}
       style={{
         marginBottom: '1.5rem',
         letterSpacing: 'initial',
       }}
-    />
+    >
+      {labelText}
+    </Checkbox>
   );
 }
 

@@ -93,8 +93,14 @@ export default function ApplicationForm(props: Props): JSX.Element {
   );
 
   return (
-    <form onSubmit={handleSubmit} className={FORM_STYLING}>
-      <h1 className="sh-title">Boards and Commissions Application Form</h1>
+    <form
+      onSubmit={handleSubmit}
+      className={FORM_STYLING}
+      aria-labelledby="form-title"
+    >
+      <h1 className="sh-title" id="form-title">
+        Boards and Commissions Application Form
+      </h1>
 
       <p className={PARAGRAPH_STYLING}>
         Please note that many of these Boards and Commissions require City of
@@ -108,9 +114,11 @@ export default function ApplicationForm(props: Props): JSX.Element {
 
       <ApplicantInformationSection makeField={makeField} />
 
-      <hr className="hr hr--sq" />
+      <hr className="hr hr--sq" aria-hidden />
 
-      <section>
+      <section
+        aria-labelledby={SectionHeader.makeId('Education and Experience')}
+      >
         <SectionHeader title="Education and Experience" />
 
         {makeField({
@@ -141,7 +149,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
         />
       </section>
 
-      <hr className="hr hr--sq" />
+      <hr className="hr hr--sq" aria-hidden />
 
       <CommissionsListSection
         commissions={props.commissions}
@@ -149,9 +157,9 @@ export default function ApplicationForm(props: Props): JSX.Element {
         setSelectedIds={ids => setFieldValue('commissionIds', ids)}
       />
 
-      <hr className="hr hr--sq" />
+      <hr className="hr hr--sq" aria-hidden />
 
-      <section>
+      <section aria-labelledby={SectionHeader.makeId('Reference Information')}>
         <SectionHeader title="Reference Information" />
 
         <p className="m-b400">Files must be PDFs and under 5MB each in size.</p>
@@ -173,7 +181,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
         />
       </section>
 
-      <hr className="hr hr--sq" style={{ marginTop: '3rem' }} />
+      <hr className="hr hr--sq" aria-hidden style={{ marginTop: '3rem' }} />
 
       <button
         type="submit"

@@ -36,7 +36,7 @@ interface InitialProps {
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  | 'accessibility'
+  | 'screenReaderSupport'
   | 'deathCertificateCart'
   | 'siteAnalytics'
   | 'orderProvider'
@@ -112,7 +112,7 @@ class CheckoutPageController extends React.Component<Props> {
   errorAccessibilityDisposer: Function | null = null;
 
   componentWillMount() {
-    const { orderProvider, accessibility } = this.props;
+    const { orderProvider, screenReaderSupport } = this.props;
 
     this.reportCheckoutStep(this.props);
 
@@ -125,8 +125,10 @@ class CheckoutPageController extends React.Component<Props> {
       () => order.processingError,
       processingError => {
         if (processingError) {
-          accessibility.message = `There’s a problem: ${processingError}. You can try again. If this keeps happening, please email digital@boston.gov.`;
-          accessibility.interrupt = true;
+          screenReaderSupport.announce(
+            `There’s a problem: ${processingError}. You can try again. If this keeps happening, please email digital@boston.gov.`,
+            true
+          );
         }
       }
     );
@@ -212,7 +214,10 @@ class CheckoutPageController extends React.Component<Props> {
         id: orderId,
         revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
       });
-      siteAnalytics.sendEvent('UX', 'click', 'submit order');
+      siteAnalytics.sendEvent('click', {
+        category: 'UX',
+        label: 'submit order',
+      });
 
       runInAction(() => {
         deathCertificateCart.clear();
