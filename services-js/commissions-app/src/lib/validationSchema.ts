@@ -52,7 +52,10 @@ export const applyFormSchema = Yup.object<ApplyFormValues>({
     .matches(new RegExp(/^\d{5}$/), 'That doesn’t look like a ZIP code.')
     .max(50),
   phone: Yup.string()
-    .matches(PHONE_REGEXP, 'That doesn’t look like a phone number.')
+    .matches(PHONE_REGEXP, {
+      message: 'That doesn’t look like a phone number.',
+      excludeEmptyString: true,
+    })
     .max(50),
   email: Yup.string()
     .email()

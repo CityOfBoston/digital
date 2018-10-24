@@ -83,15 +83,14 @@ export default class ApplyPage extends React.Component<Props, State> {
         throw new Error(`Got ${resp.status} response to apply`);
       }
 
-      this.setState({ applicationSubmitted: true });
+      // Ensure page is not scrolled after application is submitted.
+      this.setState({ applicationSubmitted: true }, () => scrollTo(0, 0));
 
       siteAnalytics.sendEvent('success', {
         category: 'Application',
       });
     } catch (e) {
-      this.setState({
-        submissionError: true,
-      });
+      this.setState({ submissionError: true });
 
       const Rollbar = (window as any).Rollbar;
       Rollbar.error(e);

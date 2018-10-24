@@ -1,0 +1,13 @@
+Hello,
+
+{{#wrap}}
+A new application was received from {{firstName}} {{lastName}} for the following Boards and Commissions:
+{{/wrap}}
+
+{{#each commissionNames}}
+    • {{this}}
+{{/each}}
+
+{{#wrap}}
+View the application details at {{uri}}/view.aspx?aid={{applicationId}}
+{{/wrap}}
