@@ -1,13 +1,27 @@
+import dotenv from 'dotenv';
+
 import EmailContent from './EmailContent';
 
+dotenv.config();
+
 describe('Renders email body', () => {
-  const emailContent = new EmailContent();
+  // @ts-ignore
+  const emailContent = new EmailContent(process.env.COMMISSIONS_URI);
   const applicationData = {
-    commissionNames: ['Board 1', 'Board 3', 'Board 5'],
+    commissionNames: [
+      'Animal Control Commission',
+      'Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)',
+      'Neighborhood Jobs Trust',
+    ],
     firstName: 'Anna',
     lastName: 'Applicant',
     email: 'x@y.com',
     applicationId: '23',
+  };
+
+  const singleBoardApplicationData = {
+    ...applicationData,
+    commissionNames: ['Zoning Commission'],
   };
 
   const applicantEmailBodies = emailContent.renderApplicantBodies(
@@ -23,6 +37,12 @@ describe('Renders email body', () => {
 
   test('applicant text', () => {
     expect(applicantEmailBodies.text).toMatchSnapshot();
+  });
+
+  test('applicant HTML, single board', () => {
+    expect(
+      emailContent.renderApplicantBodies(singleBoardApplicationData).html
+    ).toMatchSnapshot();
   });
 
   test('policy office HTML', () => {

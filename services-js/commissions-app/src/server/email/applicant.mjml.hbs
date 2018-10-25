@@ -10,10 +10,21 @@
 
     <mj-body>
         <mj-section padding="25px 0 10px">
-            <mj-column>
-                <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
+            <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
+        </mj-section>
 
-            </mj-column>
+        <mj-section padding="20px 0 10px">
+            <mj-text padding="0 0 0 10px" line-height="1.5">
+                <p>Hello {{firstName}},</p>
+
+                <p>Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community. Thank you for your application{{#compare commissionNames.length '>' 1}}s{{/compare}} to:</p>
+
+                <ul>
+                {{#each commissionNames}}
+                    <li>{{this}}</li>
+                {{/each}}
+                </ul>
+            </mj-text>
         </mj-section>
 
         <mj-section padding="20px 0 10px">
@@ -23,22 +34,11 @@
                 </mj-column>
 
                 <mj-column width="88%" vertical-align="middle">
-                    <mj-text padding="0 0 0 10px" line-height="1.5">
-                        <p>Hello {{firstName}},</p>
-
-                        <p>Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community - thank you for your application(s) to:</p>
-
-                        <ul>
-                        {{#each commissionNames}}
-                            <li>{{this}}</li>
-                        {{/each}}
-                        </ul>
-
+                    <mj-text padding="0 0 0 20px" line-height="1.5">
                         <p>If you have any questions in the meantime, please contact <a href="mailto:boardsandcommissions@boston.gov">boardsandcommissions@boston.gov</a>.</p>
                     </mj-text>
                 </mj-column>
             </mj-group>
         </mj-section>
-
     </mj-body>
 </mjml>

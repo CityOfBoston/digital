@@ -12,21 +12,29 @@ import EmailContent, {
  */
 export default class Email {
   from: string;
+  policyOfficeToAddress: string;
+  commissionsUri: string;
   postmarkClient: PostmarkClient;
   rollbar: Rollbar;
   emailContent: EmailContent;
 
-  applicantSubject = 'We’ve received your application';
-  policyOfficeSubject = 'New City Clerk Boards and Commissions Application';
-  policyOfficeToAddress = process.env.POLICY_OFFICE_TO_ADDRESS ||
-  'boardsandcommissions@boston.gov';
+  applicantSubject: string = 'We’ve received your application';
+  policyOfficeSubject: string = 'New City Clerk Boards and Commissions Application';
 
-  constructor(from: string, postmarkClient: PostmarkClient, rollbar: Rollbar) {
+  constructor(
+    from: string,
+    policyOfficeToAddress: string,
+    commissionsUri: string,
+    postmarkClient: PostmarkClient,
+    rollbar: Rollbar
+  ) {
     this.from = from;
+    this.policyOfficeToAddress = policyOfficeToAddress;
+    this.commissionsUri = commissionsUri;
     this.postmarkClient = postmarkClient;
     this.rollbar = rollbar;
 
-    this.emailContent = new EmailContent();
+    this.emailContent = new EmailContent(this.commissionsUri);
   }
 
   public sendConfirmations(validForm, fetchedBoards, applicationId) {

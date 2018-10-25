@@ -109,23 +109,10 @@ exports[`Renders email body applicant HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               align=\\"left\\" class=\\"\\" style=\\"\\"
             >
           <![endif]-->
             
-      <div
-         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
-      >
-        
-      <table
-         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
-      >
-        
-            <tr>
-              <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
-              >
-                
       <table
          border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
@@ -142,11 +129,66 @@ exports[`Renders email body applicant HTML 1`] = `
         </tbody>
       </table>
     
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
               </td>
             </tr>
-          
-      </table>
+          </tbody>
+        </table>
+        
+      </div>
     
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               align=\\"left\\" class=\\"\\" style=\\"\\"
+            >
+          <![endif]-->
+            
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        <p>Hello Anna,</p>
+
+                <p>Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community. Thank you for your applications to:</p>
+
+                <ul>
+                    <li>Animal Control Commission</li>
+                    <li>Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)</li>
+                    <li>Neighborhood Jobs Trust</li>
+                </ul>
       </div>
     
           <!--[if mso | IE]>
@@ -263,23 +305,13 @@ exports[`Renders email body applicant HTML 1`] = `
         
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 10px;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 20px;word-break:break-word;\\"
               >
                 
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        <p>Hello Anna,</p>
-
-                        <p>Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community - thank you for your application(s) to:</p>
-
-                        <ul>
-                            <li>Board 1</li>
-                            <li>Board 3</li>
-                            <li>Board 5</li>
-                        </ul>
-
-                        <p>If you have any questions in the meantime, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
+        <p>If you have any questions in the meantime, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
       </div>
     
               </td>
@@ -326,23 +358,7 @@ exports[`Renders email body applicant HTML 1`] = `
   "
 `;
 
-exports[`Renders email body applicant text 1`] = `
-"City of Boston
-
-Hello Anna,
-
-Serving on a board or commission is one of the most 
-impactful ways Bostonians can become active in their 
-community - thank you for your application(s) to:
-    • Board 1
-    • Board 3
-    • Board 5
-
-If you have any questions in the meantime, please contact 
-boardsandcommissions@boston.gov."
-`;
-
-exports[`Renders email body policy office HTML 1`] = `
+exports[`Renders email body applicant HTML, single board 1`] = `
 "
     <!doctype html>
     <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
@@ -451,23 +467,10 @@ exports[`Renders email body policy office HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               align=\\"left\\" class=\\"\\" style=\\"\\"
             >
           <![endif]-->
             
-      <div
-         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
-      >
-        
-      <table
-         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
-      >
-        
-            <tr>
-              <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
-              >
-                
       <table
          border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
@@ -484,11 +487,64 @@ exports[`Renders email body policy office HTML 1`] = `
         </tbody>
       </table>
     
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
               </td>
             </tr>
-          
-      </table>
+          </tbody>
+        </table>
+        
+      </div>
     
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               align=\\"left\\" class=\\"\\" style=\\"\\"
+            >
+          <![endif]-->
+            
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        <p>Hello Anna,</p>
+
+                <p>Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community. Thank you for your application to:</p>
+
+                <ul>
+                    <li>Zoning Commission</li>
+                </ul>
       </div>
     
           <!--[if mso | IE]>
@@ -605,23 +661,13 @@ exports[`Renders email body policy office HTML 1`] = `
         
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 10px;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 20px;word-break:break-word;\\"
               >
                 
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        <p>Hello,</p>
-
-                        <p>A new application was received from Anna Applicant for the following Boards and Commissions:</p>
-
-                        <ul>
-                                <li>Board 1</li>
-                                <li>Board 3</li>
-                                <li>Board 5</li>
-                        </ul>
-
-                        <p><a href=\\"/view.aspx?aid=23\\">View the application details</a>.</p>
+        <p>If you have any questions in the meantime, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
       </div>
     
               </td>
@@ -668,14 +714,245 @@ exports[`Renders email body policy office HTML 1`] = `
   "
 `;
 
+exports[`Renders email body applicant text 1`] = `
+"City of Boston
+
+Hello Anna,
+
+Serving on a board or commission is one of the most 
+impactful ways Bostonians can become active in their 
+community. Thank you for your applications to:
+
+    • Animal Control Commission
+    • Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)
+    • Neighborhood Jobs Trust
+
+If you have any questions in the meantime, please contact 
+boardsandcommissions@boston.gov."
+`;
+
+exports[`Renders email body policy office HTML 1`] = `
+"
+    <!doctype html>
+    <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
+      <head>
+        <title>
+          
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+        <!--<![endif]-->
+        <meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=UTF-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <style type=\\"text/css\\">
+          #outlook a { padding:0; }
+          .ReadMsgBody { width:100%; }
+          .ExternalClass { width:100%; }
+          .ExternalClass * { line-height:100%; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if !mso]><!-->
+        <style type=\\"text/css\\">
+          @media only screen and (max-width:480px) {
+            @-ms-viewport { width:320px; }
+            @viewport { width:320px; }
+          }
+        </style>
+        <!--<![endif]-->
+        <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type=\\"text/css\\">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href=\\"https://fonts.googleapis.com/css?family=Lora:400,700,400i\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+        <style type=\\"text/css\\">
+          @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400i);
+        </style>
+      <!--<![endif]-->
+
+    
+        
+        <style type=\\"text/css\\">
+        
+        
+
+    @media only screen and (max-width:480px) {
+      table.full-width-mobile { width: 100% !important; }
+      td.full-width-mobile { width: auto !important; }
+    }
+  
+        </style>
+        
+        
+      </head>
+      <body>
+        
+        
+      <div
+         style=\\"\\"
+      >
+        
+      
+      <!--[if mso | IE]>
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:25px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               align=\\"left\\" class=\\"\\" style=\\"\\"
+            >
+          <![endif]-->
+            
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:200px;\\">
+              
+      <img
+         alt=\\"City of Boston\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/logo.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"200\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               align=\\"left\\" class=\\"\\" style=\\"\\"
+            >
+          <![endif]-->
+            
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        <p>Hello,</p>
+
+                <p>A new application was received from Anna Applicant for the following Boards and Commissions:</p>
+
+                <ul>
+                        <li>Animal Control Commission</li>
+                        <li>Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)</li>
+                        <li>Neighborhood Jobs Trust</li>
+                </ul>
+
+                <p><a href=\\"http://zpappweb01/cityclerk/commissions/applications/view.aspx?aid=23\\">View the application details</a>.</p>
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      </body>
+    </html>
+  "
+`;
+
 exports[`Renders email body policy office text 1`] = `
 "Hello,
 
 A new application was received from Anna Applicant for the 
 following Boards and Commissions:
-    • Board 1
-    • Board 3
-    • Board 5
+    • Animal Control Commission
+    • Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)
+    • Neighborhood Jobs Trust
 
-View the application details at /view.aspx?aid=23"
+View the application details at 
+http://zpappweb01/cityclerk/commissions/applications/view.aspx?aid=23"
 `;

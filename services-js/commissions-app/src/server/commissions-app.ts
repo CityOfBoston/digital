@@ -57,6 +57,9 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   const emailService = new Email(
     process.env.POSTMARK_FROM_ADDRESS || 'no-reply@boston.gov',
+    process.env.POLICY_OFFICE_TO_ADDRESS || 'boardsandcommissions@boston.gov',
+    process.env.COMMISSIONS_URI ||
+      'http://zpappweb01/cityclerk/commissions/applications',
     postmarkClient,
     rollbar
   );

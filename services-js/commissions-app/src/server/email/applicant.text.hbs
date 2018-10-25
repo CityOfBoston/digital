@@ -3,8 +3,9 @@ City of Boston
 {{#wrap}}
 Hello {{firstName}},
 
-Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community - thank you for your application(s) to:
+Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community. Thank you for your application{{#compare commissionNames.length '>' 1}}s{{/compare}} to:
 {{/wrap}}
+
 
 {{#each commissionNames}}
     • {{this}}

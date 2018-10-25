@@ -10,35 +10,24 @@
 
     <mj-body>
         <mj-section padding="25px 0 10px">
-            <mj-column>
-                <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
-
-            </mj-column>
+            <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
         </mj-section>
 
         <mj-section padding="20px 0 10px">
-            <mj-group>
-                <mj-column width="12%" vertical-align="middle">
-                    <mj-image align="left" padding="0" alt="" src="https://patterns.boston.gov/images/public/seal.png"></mj-image>
-                </mj-column>
+            <mj-text padding="0 0 0 10px" line-height="1.5">
 
-                <mj-column width="88%" vertical-align="middle">
-                    <mj-text padding="0 0 0 10px" line-height="1.5">
-                        <p>Hello,</p>
+                <p>Hello,</p>
 
-                        <p>A new application was received from {{firstName}} {{lastName}} for the following Boards and Commissions:</p>
+                <p>A new application was received from {{firstName}} {{lastName}} for the following Boards and Commissions:</p>
 
-                        <ul>
-                            {{#each commissionNames}}
-                                <li>{{this}}</li>
-                            {{/each}}
-                        </ul>
+                <ul>
+                    {{#each commissionNames}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
 
-                        <p><a href="{{uri}}/view.aspx?aid={{applicationId}}">View the application details</a>.</p>
-                    </mj-text>
-                </mj-column>
-            </mj-group>
+                <p><a href="{{uri}}/view.aspx?aid={{applicationId}}">View the application details</a>.</p>
+            </mj-text>
         </mj-section>
-
     </mj-body>
 </mjml>

@@ -24,12 +24,27 @@ interface RenderedEmailBodies {
 }
 
 export default class EmailContent {
+  commissionsUri: string;
   handlebarsTemplates: any;
+  templates: any;
 
-  constructor() {
+  constructor(commissionsUri: string) {
+    this.commissionsUri = commissionsUri;
+
     this.handlebarsTemplates = {
       applicant: this.readTemplateFiles('applicant'),
       policyOffice: this.readTemplateFiles('policyOffice'),
+    };
+
+    this.templates = {
+      applicant: {
+        mjml: Handlebars.compile(this.handlebarsTemplates.applicant.MJML),
+        text: Handlebars.compile(this.handlebarsTemplates.applicant.TEXT),
+      },
+      policyOffice: {
+        mjml: Handlebars.compile(this.handlebarsTemplates.policyOffice.MJML),
+        text: Handlebars.compile(this.handlebarsTemplates.policyOffice.TEXT),
+      },
     };
   }
 
@@ -38,26 +53,20 @@ export default class EmailContent {
   }
 
   public renderPolicyOfficeBodies(data: TemplateData): RenderedEmailBodies {
-    return this.renderEmailBodies(
-      'policyOffice',
-      data,
-      process.env.COMMISSIONS_URI
-    );
+    return this.renderEmailBodies('policyOffice', data);
   }
 
   private renderEmailBodies(
     recipient: 'applicant' | 'policyOffice',
-    data: TemplateData,
-    uri?: string
+    data: TemplateData
   ): RenderedEmailBodies {
-    const templateData = { ...data, uri };
+    const templateData = {
+      ...data,
+      uri: this.commissionsUri,
+    };
 
-    const htmlTemplate = Handlebars.compile(
-      this.handlebarsTemplates[recipient].MJML
-    );
-    const textTemplate = Handlebars.compile(
-      this.handlebarsTemplates[recipient].TEXT
-    );
+    const htmlTemplate = this.templates[recipient].mjml;
+    const textTemplate = this.templates[recipient].text;
 
     const mjmlTemplate = htmlTemplate(templateData);
 
