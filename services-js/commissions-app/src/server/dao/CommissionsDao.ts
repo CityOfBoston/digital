@@ -3,6 +3,7 @@ import {
   IResult,
   Int as IntType,
   IProcedureResult,
+  VarBinary as VarBinaryType,
 } from 'mssql';
 import DataLoader from 'dataloader';
 
@@ -137,6 +138,12 @@ export default class CommissionsDao {
     return this.authorityLoader.load(authorityId);
   }
 
+  /**
+   * Submit application to database; on success, returns value for “NewId”
+   * assigned by the database to this application.
+   *
+   * @param {ApplyFormValues} form - Form values
+   */
   async apply(form: ApplyFormValues) {
     const resp: IProcedureResult<{}> = await this.pool
       .request()
@@ -154,17 +161,25 @@ export default class CommissionsDao {
       .input('degreeAttained', form.degreeAttained || null)
       .input('education', form.otherInformation || null)
       .input('institution', form.educationalInstitution || null)
-      .input('resumeImg', form.resume instanceof Buffer ? form.resume : null)
+      .input(
+        'resumeImg',
+        VarBinaryType, // https://stackoverflow.com/questions/2420708/operand-type-clash-nvarchar-is-incompatible-with-image
+        form.resume instanceof Buffer ? form.resume : null
+      )
       .input(
         'coverletterImg',
+        VarBinaryType,
         form.resume instanceof Buffer ? form.coverLetter : null
       )
+      .output('NewId', IntType)
       .execute('dbo.SaveApplication');
 
     if (resp.returnValue !== 0) {
       throw new Error(
         `Unsuccessful output ${resp.returnValue} from dbo.SaveApplication`
       );
+    } else {
+      return resp.output.NewId;
     }
   }
 }

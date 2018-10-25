@@ -1,0 +1,16 @@
+City of Boston
+
+{{#wrap}}
+Hello {{firstName}},
+
+Serving on a board or commission is one of the most impactful ways Bostonians can become active in their community. Thank you for your application{{#compare commissionNames.length '>' 1}}s{{/compare}} to:
+{{/wrap}}
+
+
+{{#each commissionNames}}
+    • {{this}}
+{{/each}}
+
+{{#wrap}}
+If you have any questions in the meantime, please contact boardsandcommissions@boston.gov.
+{{/wrap}}

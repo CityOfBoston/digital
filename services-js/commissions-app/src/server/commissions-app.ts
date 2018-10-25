@@ -9,6 +9,7 @@ import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
 import Rollbar from 'rollbar';
+import { Client as PostmarkClient } from 'postmark';
 
 // https://github.com/apollographql/apollo-server/issues/927
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
@@ -36,10 +37,12 @@ import { createConnectionPool } from '@cityofboston/mssql-common';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
 import graphqlSchema, { Context } from './graphql/schema';
-import CommissionsDao from './dao/CommissionsDao';
+import CommissionsDao, { DbBoard } from './dao/CommissionsDao';
 import CommissionsDaoFake from './dao/CommissionsDaoFake';
 import { ConnectionPool } from 'mssql';
 import { applyFormSchema, ApplyFormValues } from '../lib/validationSchema';
+
+import Email from './services/Email';
 
 const PATH_PREFIX = '/commissions';
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -47,6 +50,19 @@ const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 export async function makeServer(port, rollbar: Rollbar) {
   let makeCommissionsDao: () => CommissionsDao;
   let commissionsDbPool: ConnectionPool | null = null;
+
+  const postmarkClient = new PostmarkClient(
+    process.env.POSTMARK_SERVER_API_TOKEN || 'fake-postmark-key'
+  );
+
+  const emailService = new Email(
+    process.env.POSTMARK_FROM_ADDRESS || 'no-reply@boston.gov',
+    process.env.POLICY_OFFICE_TO_ADDRESS || 'boardsandcommissions@boston.gov',
+    process.env.COMMISSIONS_URI ||
+      'http://zpappweb01/cityclerk/commissions/applications',
+    postmarkClient,
+    rollbar
+  );
 
   if (
     process.env.ALLOW_FAKES ||
@@ -177,14 +193,23 @@ export async function makeServer(port, rollbar: Rollbar) {
     },
     handler: async (req, h) => {
       let validForm: ApplyFormValues;
+      let fetchedBoards: DbBoard[];
+      let applicationId: number;
 
       try {
         validForm = await applyFormSchema.validate(req.payload as any);
+        fetchedBoards = await makeCommissionsDao().fetchBoards();
       } catch (e) {
         throw boomify(e, { statusCode: 400 });
       }
 
-      await makeCommissionsDao().apply(validForm);
+      applicationId = await makeCommissionsDao().apply(validForm);
+
+      await emailService.sendConfirmations(
+        validForm,
+        fetchedBoards,
+        applicationId
+      );
 
       return h.response('ok');
     },

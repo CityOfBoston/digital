@@ -1,6 +1,6 @@
 /**
  * Customizes Storybook’s Webpack configuration to include TypeScript file
- * exensions.
+ * extensions.
  */
 module.exports = (baseConfig, env, config) => {
   // Finds the rule that matches a JS file and makes it match TypeScript as
@@ -14,6 +14,11 @@ module.exports = (baseConfig, env, config) => {
 
   config.module.rules.push({
     test: /\.html$/,
+    use: 'raw-loader',
+  });
+
+  config.module.rules.push({
+    test: /\.snap$/,
     use: 'raw-loader',
   });
 

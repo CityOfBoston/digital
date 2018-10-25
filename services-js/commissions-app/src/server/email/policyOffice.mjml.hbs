@@ -1,0 +1,33 @@
+<mjml>
+    <mj-head>
+        <mj-font name="Lora" href="https://fonts.googleapis.com/css?family=Lora:400,700,400i" />
+        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+
+        <mj-attributes>
+            <mj-all font-family="Lora, serif" font-size="16px" line-height="1.8" />
+        </mj-attributes>
+    </mj-head>
+
+    <mj-body>
+        <mj-section padding="25px 0 10px">
+            <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
+        </mj-section>
+
+        <mj-section padding="20px 0 10px">
+            <mj-text padding="0 0 0 10px" line-height="1.5">
+
+                <p>Hello,</p>
+
+                <p>A new application was received from {{firstName}} {{lastName}} for the following Boards and Commissions:</p>
+
+                <ul>
+                    {{#each commissionNames}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <p><a href="{{uri}}/view.aspx?aid={{applicationId}}">View the application details</a>.</p>
+            </mj-text>
+        </mj-section>
+    </mj-body>
+</mjml>
