@@ -35,14 +35,14 @@ describe('Renders email body', () => {
     expect(applicantEmailBodies.html).toMatchSnapshot();
   });
 
-  test('applicant text', () => {
-    expect(applicantEmailBodies.text).toMatchSnapshot();
-  });
-
   test('applicant HTML, single board', () => {
     expect(
       emailContent.renderApplicantBodies(singleBoardApplicationData).html
     ).toMatchSnapshot();
+  });
+
+  test('applicant text', () => {
+    expect(applicantEmailBodies.text).toMatchSnapshot();
   });
 
   test('policy office HTML', () => {
