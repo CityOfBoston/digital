@@ -1,12 +1,9 @@
-import dotenv from 'dotenv';
-
 import EmailContent from './EmailContent';
 
-dotenv.config();
+const commissionsUri = 'http://zpappweb01/cityclerk/commissions/applications';
 
 describe('Renders email body', () => {
-  // @ts-ignore
-  const emailContent = new EmailContent(process.env.COMMISSIONS_URI);
+  const emailContent = new EmailContent(commissionsUri);
   const applicationData = {
     commissionNames: [
       'Animal Control Commission',
