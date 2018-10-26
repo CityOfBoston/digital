@@ -21,7 +21,7 @@ const LIST_STYLING = css`
   padding: 0;
   margin-bottom: 3rem;
 
-  label span {
+  label > div {
     margin-left: 0.75em;
   }
 
@@ -189,8 +189,9 @@ function renderCommission(
         name="commissionIds"
         value={id}
         title={
-          <div className={COMMISSION_STYLE}>
+          <div className={`cb-l ${COMMISSION_STYLE}`}>
             <span>{commission.name}</span>
+
             {commission.homepageUrl && (
               <a href={commission.homepageUrl} title="Homepage" target="_blank">
                 Homepage

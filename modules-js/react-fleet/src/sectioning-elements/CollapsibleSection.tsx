@@ -77,6 +77,10 @@ const BUTTON_STYLING = css`
   align-items: center;
   justify-content: space-between;
 
+  span {
+    margin-right: auto;
+  }
+
   svg {
     width: 0.9em;
     height: 0.9em;
@@ -127,7 +131,7 @@ export default class CollapsibleSection extends React.Component<Props, State> {
           aria-expanded={this.state.expanded}
           onClick={this.toggleExpanded}
         >
-          {this.props.title}
+          <span>{this.props.title}</span>
 
           <svg
             viewBox="0 0 20 20"

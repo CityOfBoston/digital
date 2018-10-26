@@ -698,6 +698,11 @@ exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
     name="checkbox"
     onBlur={[Function]}
     onChange={[Function]}
+    style={
+      Object {
+        "border": "none",
+      }
+    }
     type="checkbox"
     value="checkbox"
   />
@@ -1902,11 +1907,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
     >
       <button
         aria-expanded={true}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Boards and Commissions
+        <span>
+          Boards and Commissions
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -1994,11 +2001,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
     >
       <button
         aria-expanded={false}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Initially Collapsed
+        <span>
+          Initially Collapsed
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -2039,11 +2048,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`
     >
       <button
         aria-expanded={true}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Boards and Commissions
+        <span>
+          Boards and Commissions
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"

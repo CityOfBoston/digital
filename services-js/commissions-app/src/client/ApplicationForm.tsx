@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormikProps } from 'formik';
+import { css } from 'emotion';
 
 import { ApplyFormValues } from '../lib/validationSchema';
 
@@ -47,6 +48,14 @@ export interface FieldProps {
 
 // todo: https://github.com/CityOfBoston/digital/pull/97/files#r224776915
 
+const FORM_STYLING = css({
+  '-webkit-text-size-adjust':
+    '100%' /* Prevent font scaling in OSX landscape while allowing user zoom */,
+  'input, textarea': {
+    borderRadius: 0,
+  },
+});
+
 export default function ApplicationForm(props: Props): JSX.Element {
   const {
     values,
@@ -85,7 +94,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
   );
 
   return (
-    <form onSubmit={handleSubmit} ref={props.formRef}>
+    <form onSubmit={handleSubmit} ref={props.formRef} className={FORM_STYLING}>
       <h1 className="sh-title">Boards and Commissions Application Form</h1>
 
       <p className={PARAGRAPH_STYLING}>
