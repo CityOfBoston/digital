@@ -71,7 +71,10 @@ export default class ApplyPage extends React.Component<Props, State> {
     try {
       siteAnalytics.sendEvent('submit', {
         category: 'Application',
-        value: data.getAll('commissionIds').length,
+        // We wish we could use FormData#getAll here but it’s not widely
+        // supported and can’t be polyfilled.
+        value: form.querySelectorAll('input:checked[name=commissionIds]')
+          .length,
       });
 
       const resp = await fetch('/commissions/submit', {
