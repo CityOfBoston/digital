@@ -2,6 +2,7 @@
 import 'core-js/fn/array/from';
 
 import * as Yup from 'yup';
+import { PHONE_REGEXP } from '@cityofboston/form-common';
 
 export interface ApplyFormValues {
   firstName: string;
@@ -22,9 +23,6 @@ export interface ApplyFormValues {
   coverLetter: File | Buffer | null;
   resume: File | Buffer | null;
 }
-
-// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
-const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 // TODO(finh): These "max" values come from the database. We should enforce them
 // via <input> maxLength attributes rather than showing red error messages when

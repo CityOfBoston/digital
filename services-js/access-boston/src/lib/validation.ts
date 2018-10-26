@@ -1,4 +1,9 @@
+// Yup requires Array.from(), but does not include the polyfill for IE
+import 'core-js/fn/array/from';
+
 import * as yup from 'yup';
+
+import { PHONE_REGEXP } from '@cityofboston/form-common';
 
 export function analyzePassword(password: string) {
   password = password || '';
@@ -105,9 +110,6 @@ const CITY_DOMAIN_REGEXPS = CITY_DOMAINS.map(
 export function testNotCityEmailAddress(val: string | undefined): boolean {
   return !val || !CITY_DOMAIN_REGEXPS.find(r => !!val.match(r));
 }
-
-// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
-const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 export const registerDeviceSchema = yup.object().shape({
   phoneOrEmail: yup.string().oneOf(['phone', 'email']),

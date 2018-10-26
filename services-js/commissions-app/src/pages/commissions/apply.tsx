@@ -6,6 +6,7 @@ import fetchCommissions, {
 } from '../../client/graphql/fetch-commissions';
 
 import { AppLayout } from '@cityofboston/react-fleet';
+import { makeFormData } from '@cityofboston/form-common';
 
 import ApplicationForm from '../../client/ApplicationForm';
 import ApplicationSubmitted from '../../client/ApplicationSubmitted';
@@ -14,7 +15,7 @@ import {
   GtagSiteAnalytics,
 } from '@cityofboston/next-client-common';
 import { IncomingMessage } from 'http';
-import { Formik } from 'formik';
+import { Formik, FormikActions } from 'formik';
 import { ApplyFormValues, applyFormSchema } from '../../lib/validationSchema';
 
 interface Props {
@@ -29,11 +30,6 @@ interface State {
 }
 
 export default class ApplyPage extends React.Component<Props, State> {
-  // We want the HTML <form> element directly for submitting, so we can easily
-  // build a FormData object out of it. This is important for sending the
-  // uploaded file data along.
-  private formRef = React.createRef<HTMLFormElement>();
-
   constructor(props: Props) {
     super(props);
 
@@ -52,26 +48,23 @@ export default class ApplyPage extends React.Component<Props, State> {
     return { commissions, commissionID };
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (
+    values: ApplyFormValues,
+    { setSubmitting }: FormikActions<ApplyFormValues>
+  ) => {
     const siteAnalytics = new GtagSiteAnalytics();
-
-    const form = this.formRef.current;
-    if (!form) {
-      return;
-    }
 
     this.setState({
       applicationSubmitted: false,
       submissionError: false,
     });
 
-    // This will include the uploaded files
-    const data = new FormData(form);
+    const data = makeFormData(values);
 
     try {
       siteAnalytics.sendEvent('submit', {
         category: 'Application',
-        value: data.getAll('commissionIds').length,
+        value: values.commissionIds.length,
       });
 
       const resp = await fetch('/commissions/submit', {
@@ -94,6 +87,8 @@ export default class ApplyPage extends React.Component<Props, State> {
 
       const Rollbar = (window as any).Rollbar;
       Rollbar.error(e);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -134,20 +129,11 @@ export default class ApplyPage extends React.Component<Props, State> {
               <Formik
                 initialValues={initialFormValues}
                 validationSchema={applyFormSchema}
-                onSubmit={async (_, { setSubmitting }) => {
-                  try {
-                    // handleSubmit reads directly from the <form>, so we
-                    // don’t pass the current values.
-                    await this.handleSubmit();
-                  } finally {
-                    setSubmitting(false);
-                  }
-                }}
+                onSubmit={this.handleSubmit}
                 render={formikProps => (
                   <ApplicationForm
                     {...formikProps}
                     commissions={commissions}
-                    formRef={this.formRef}
                     submissionError={this.state.submissionError}
                     clearSubmissionError={() =>
                       this.setState({ submissionError: false })
