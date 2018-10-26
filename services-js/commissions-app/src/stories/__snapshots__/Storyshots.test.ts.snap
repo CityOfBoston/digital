@@ -13976,7 +13976,7 @@ exports[`Storyshots Confirmation Emails applicant html 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        <p>If you have any questions in the meantime, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
+        <p>If you have any questions about your application, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
       </div>
     
               </td>
@@ -14338,7 +14338,7 @@ exports[`Storyshots Confirmation Emails applicant html, single board 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        <p>If you have any questions in the meantime, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
+        <p>If you have any questions about your application, please contact <a href=\\"mailto:boardsandcommissions@boston.gov\\">boardsandcommissions@boston.gov</a>.</p>
       </div>
     
               </td>
@@ -14402,8 +14402,8 @@ community. Thank you for your applications to:
     • Boston Redevelopment Authority (BRA)/Economic Development Industrial Corp (EDIC)
     • Neighborhood Jobs Trust
 
-If you have any questions in the meantime, please contact 
-boardsandcommissions@boston.gov.
+If you have any questions about your application, please 
+contact boardsandcommissions@boston.gov.
 </pre>
 `;
 
