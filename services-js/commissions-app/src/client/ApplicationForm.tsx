@@ -32,7 +32,6 @@ type RequiredFormikProps = Pick<
 
 export interface Props extends RequiredFormikProps {
   commissions: Commission[];
-  formRef: React.RefObject<HTMLFormElement>;
   submissionError?: boolean;
   clearSubmissionError: () => void;
 }
@@ -85,7 +84,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
   );
 
   return (
-    <form onSubmit={handleSubmit} ref={props.formRef}>
+    <form onSubmit={handleSubmit}>
       <h1 className="sh-title">Boards and Commissions Application Form</h1>
 
       <p className={PARAGRAPH_STYLING}>
