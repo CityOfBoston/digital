@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface Props {
   name: string;
-  title: ReactNode;
+  title: string | JSX.Element;
   onChange: any;
   onBlur?: any;
   required?: boolean;
@@ -25,9 +25,14 @@ export default function Checkbox(props: Props): JSX.Element {
         onChange={props.onChange}
         onBlur={props.onBlur}
         checked={props.checked}
+        style={{ border: 'none' }}
       />
 
-      <span className="cb-l">{props.title}</span>
+      {typeof props.title === 'string' ? (
+        <span className="cb-l">{props.title}</span>
+      ) : (
+        props.title
+      )}
     </label>
   );
 }

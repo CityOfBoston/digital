@@ -688,7 +688,42 @@ exports[`Storyshots Form Elements/Buttons close 1`] = `
 </button>
 `;
 
-exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
+exports[`Storyshots Form Elements/Inputs Checkbox / div passed in 1`] = `
+<label
+  className="cb "
+>
+  <input
+    checked={false}
+    className="cb-f "
+    name="commissionIds"
+    onChange={[Function]}
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+    type="checkbox"
+    value="commissionCheckbox"
+  />
+  <div
+    className="cb-l"
+  >
+    <span>
+      South End Landmark District Commission
+    </span>
+    <br />
+    <a
+      href="#"
+      target="_blank"
+      title="Homepage"
+    >
+      Homepage
+    </a>
+  </div>
+</label>
+`;
+
+exports[`Storyshots Form Elements/Inputs Checkbox / text title 1`] = `
 <label
   className="cb "
 >
@@ -698,6 +733,11 @@ exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
     name="checkbox"
     onBlur={[Function]}
     onChange={[Function]}
+    style={
+      Object {
+        "border": "none",
+      }
+    }
     type="checkbox"
     value="checkbox"
   />
@@ -1902,11 +1942,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
     >
       <button
         aria-expanded={true}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Boards and Commissions
+        <span>
+          Boards and Commissions
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -1994,11 +2036,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
     >
       <button
         aria-expanded={false}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Initially Collapsed
+        <span>
+          Initially Collapsed
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -2039,11 +2083,13 @@ exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`
     >
       <button
         aria-expanded={true}
-        className="css-1mteg3g"
+        className="css-wvz0md"
         onClick={[Function]}
         type="button"
       >
-        Boards and Commissions
+        <span>
+          Boards and Commissions
+        </span>
         <svg
           aria-hidden="true"
           focusable="false"
