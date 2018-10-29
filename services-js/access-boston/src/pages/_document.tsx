@@ -1,8 +1,11 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-import { makeNProgressStyle } from '@cityofboston/next-client-common';
-import { CompatibilityWarning } from '@cityofboston/react-fleet';
+import {
+  makeNProgressStyle,
+  ScreenReaderSupport,
+} from '@cityofboston/next-client-common';
+import { CompatibilityWarning, StatusModal } from '@cityofboston/react-fleet';
 
 import { HEADER_HEIGHT } from '../client/styles';
 
@@ -74,6 +77,9 @@ var _rollbarConfig = {
         </Head>
 
         <body>
+          <ScreenReaderSupport.AnnounceElement />
+          <StatusModal.Container />
+
           <Main />
           <CompatibilityWarning userAgent={userAgent} />
           <NextScript />

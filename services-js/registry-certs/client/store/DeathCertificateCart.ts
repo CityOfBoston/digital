@@ -1,8 +1,9 @@
 import { observable, computed, action, autorun } from 'mobx';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import { DeathCertificate } from '../types';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
-import SiteAnalytics from '../lib/SiteAnalytics';
 
 import { DEATH_CERTIFICATE_COST } from '../../lib/costs';
 
@@ -22,12 +23,12 @@ export default class DeathCertificateCart {
   @observable pendingFetches: number = 0;
 
   localStorageDisposer: Function | null = null;
-  siteAnalytics: SiteAnalytics | null = null;
+  siteAnalytics: GaSiteAnalytics | null = null;
 
   attach(
     localStorage: Storage,
     deathCertificatesDao: DeathCertificatesDao,
-    siteAnalytics: SiteAnalytics
+    siteAnalytics: GaSiteAnalytics
   ) {
     this.siteAnalytics = siteAnalytics;
 

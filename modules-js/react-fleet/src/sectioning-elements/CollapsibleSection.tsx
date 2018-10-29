@@ -1,6 +1,7 @@
 import React, { ReactNode, ReactNodeArray } from 'react';
 
 import { css } from 'emotion';
+import hash from 'string-hash';
 
 import { OPTIMISTIC_BLUE } from '../utilities/constants';
 
@@ -23,7 +24,6 @@ import { OPTIMISTIC_BLUE } from '../utilities/constants';
 // todo: currently duplicates SectionHeader component;
 // todo: modify that component to accept a string or element
 // todo: have this trigger element be generic; if no <h1-6> present,
-// todo: <section> must have an aria-label
 
 // todo: move utility style objects to react-fleet
 
@@ -119,10 +119,12 @@ export default class CollapsibleSection extends React.Component<Props, State> {
     this.setState({ expanded: !this.state.expanded });
   };
 
-  private triggerContent = (): ReactNode => {
-    // If component has been disabled, only return the title string
+  private triggerContent = (id: string): ReactNode => {
+    // If component has been disabled, only return the title string. This is
+    // aria-hidden because the title is already used as a label in the parent
+    // <section>.
     if (this.props.disabled) {
-      return this.props.title;
+      return <span id={id}>{this.props.title}</span>;
     } else {
       return (
         <button
@@ -131,7 +133,7 @@ export default class CollapsibleSection extends React.Component<Props, State> {
           aria-expanded={this.state.expanded}
           onClick={this.toggleExpanded}
         >
-          <span>{this.props.title}</span>
+          <span id={id}>{this.props.title}</span>
 
           <svg
             viewBox="0 0 20 20"
@@ -159,18 +161,22 @@ export default class CollapsibleSection extends React.Component<Props, State> {
   }
 
   render() {
-    const headerAttributes: object = {
+    const id = `collapsiblesection-${hash(this.props.title)}`;
+
+    const headerAttributes = {
       className: `sh-title ${HEADER_STYLING}`,
     };
 
+    // We use aria-label for the region so that we can give the <button> a label
+    // that explains whether it’s expanding or collapsing.
     return (
-      <section className={this.props.className}>
+      <section aria-labelledby={id} className={this.props.className}>
         {/* trigger element: */}
         <div className={`sh ${this.props.subheader ? 'sh--sm' : ''}`}>
           {this.props.subheader ? (
-            <h3 {...headerAttributes}>{this.triggerContent()}</h3>
+            <h3 {...headerAttributes}>{this.triggerContent(id)}</h3>
           ) : (
-            <h2 {...headerAttributes}>{this.triggerContent()}</h2>
+            <h2 {...headerAttributes}>{this.triggerContent(id)}</h2>
           )}
         </div>
 

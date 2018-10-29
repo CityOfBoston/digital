@@ -5,8 +5,12 @@ import { extractCritical } from 'emotion-server';
 import {
   CompatibilityWarning,
   PUBLIC_CSS_URL,
+  StatusModal,
 } from '@cityofboston/react-fleet';
-import { GtagSiteAnalytics } from '@cityofboston/next-client-common';
+import {
+  GtagSiteAnalytics,
+  ScreenReaderSupport,
+} from '@cityofboston/next-client-common';
 
 export default class MyDocument extends Document {
   props: any;
@@ -76,6 +80,8 @@ var _rollbarConfig = {
 
         <body>
           <Main />
+          <ScreenReaderSupport.AnnounceElement />
+          <StatusModal.Container />
           <CompatibilityWarning userAgent={userAgent} />
           <NextScript />
         </body>

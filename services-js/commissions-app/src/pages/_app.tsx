@@ -6,6 +6,7 @@ import { SiteAnalytics } from '@cityofboston/next-client-common/build/SiteAnalyt
 import {
   RouterListener,
   GtagSiteAnalytics,
+  ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
 interface Props {
@@ -17,8 +18,9 @@ export default class CommissionsApp extends App {
   // TypeScript doesn't know that App already has a props member.
   protected props: Props;
 
-  protected routerListener: RouterListener;
-  protected siteAnalytics: SiteAnalytics;
+  private routerListener: RouterListener;
+  private siteAnalytics: SiteAnalytics;
+  private screenReaderSupport: ScreenReaderSupport;
 
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
@@ -44,14 +46,21 @@ export default class CommissionsApp extends App {
 
     this.routerListener = new RouterListener();
     this.siteAnalytics = new GtagSiteAnalytics();
+    this.screenReaderSupport = new ScreenReaderSupport();
   }
 
   componentDidMount() {
-    this.routerListener.attach(Router, this.siteAnalytics);
+    this.screenReaderSupport.attach();
+    this.routerListener.attach({
+      router: Router,
+      siteAnalytics: this.siteAnalytics,
+      screenReaderSupport: this.screenReaderSupport,
+    });
   }
 
   componentWillUnmount() {
     this.routerListener.detach();
+    this.screenReaderSupport.detach();
   }
 
   render() {

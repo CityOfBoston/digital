@@ -8,16 +8,16 @@ import { hydrate } from 'emotion';
 import {
   makeFetchGraphql,
   NextContext,
+  ScreenReaderSupport,
+  RouterListener,
+  GaSiteAnalytics,
 } from '@cityofboston/next-client-common';
 
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
-import Accessibility from '../client/store/Accessibility';
 import OrderProvider from '../client/store/OrderProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
 import CheckoutDao from '../client/dao/CheckoutDao';
-import SiteAnalytics from '../client/lib/SiteAnalytics';
-import RouterListener from '../client/lib/RouterListener';
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -74,10 +74,10 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   stripe: stripe.Stripe | null;
   checkoutDao: CheckoutDao;
   deathCertificateCart: DeathCertificateCart;
-  accessibility: Accessibility;
+  screenReaderSupport: ScreenReaderSupport;
   routerListener: RouterListener;
   orderProvider: OrderProvider;
-  siteAnalytics: SiteAnalytics;
+  siteAnalytics: GaSiteAnalytics;
 }
 
 interface AppInitialProps {
@@ -175,7 +175,7 @@ export default class RegistryCertsApp extends App {
 
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
-    const siteAnalytics = new SiteAnalytics();
+    const siteAnalytics = new GaSiteAnalytics();
 
     if ((process as any).browser) {
       // We attach to localStorage in the constructor, rather than
@@ -203,7 +203,7 @@ export default class RegistryCertsApp extends App {
       stripe,
       checkoutDao: new CheckoutDao(fetchGraphql, stripe),
       routerListener: new RouterListener(),
-      accessibility: new Accessibility(),
+      screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics,
       deathCertificateCart,
       orderProvider,
@@ -213,20 +213,23 @@ export default class RegistryCertsApp extends App {
   componentDidMount() {
     const {
       routerListener,
-      accessibility,
+      screenReaderSupport,
       siteAnalytics,
     } = this.pageDependencies;
 
-    accessibility.attach();
-    siteAnalytics.attach((window as any).ga);
-    routerListener.attach(Router, accessibility, (window as any).ga);
+    screenReaderSupport.attach();
+    routerListener.attach({
+      router: Router,
+      siteAnalytics,
+      screenReaderSupport,
+    });
   }
 
   componentWillUnmount() {
-    const { routerListener, accessibility } = this.pageDependencies;
+    const { routerListener, screenReaderSupport } = this.pageDependencies;
 
     routerListener.detach();
-    accessibility.detatch();
+    screenReaderSupport.detach();
   }
 
   render() {

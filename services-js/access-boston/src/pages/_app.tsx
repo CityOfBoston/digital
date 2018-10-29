@@ -10,6 +10,8 @@ import {
   makeFetchGraphql,
   RouterListener,
   NextContext,
+  GaSiteAnalytics,
+  ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
@@ -57,6 +59,7 @@ export type GetInitialProps<T> = (
 export interface PageDependencies {
   routerListener: RouterListener;
   fetchGraphql: FetchGraphql;
+  screenReaderSupport: ScreenReaderSupport;
 }
 
 interface AppInitialProps {
@@ -166,12 +169,20 @@ export default class AccessBostonApp extends App {
     this.pageDependencies = {
       routerListener: new RouterListener(),
       fetchGraphql: makeFetchGraphql(getConfig()),
+      screenReaderSupport: new ScreenReaderSupport(),
     };
   }
 
   componentDidMount() {
-    const { routerListener } = this.pageDependencies;
-    routerListener.attach(Router, (window as any).ga);
+    const { routerListener, screenReaderSupport } = this.pageDependencies;
+
+    screenReaderSupport.attach();
+
+    routerListener.attach({
+      router: Router,
+      siteAnalytics: new GaSiteAnalytics(),
+      screenReaderSupport,
+    });
     // Used by testcafe-helpers as a signal that React is running and has
     // rendered the page. Used to ensure we don’t try to interact before the JS
     // has loaded.
@@ -179,8 +190,9 @@ export default class AccessBostonApp extends App {
   }
 
   componentWillUnmount() {
-    const { routerListener } = this.pageDependencies;
+    const { routerListener, screenReaderSupport } = this.pageDependencies;
     routerListener.detach();
+    screenReaderSupport.detach();
   }
 
   render() {

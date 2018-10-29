@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import SiteAnalytics from '../../lib/SiteAnalytics';
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import SearchPage from './SearchPage';
 
@@ -17,7 +18,7 @@ storiesOf('SearchPage', module)
       query={''}
       page={1}
       results={null}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
       deathCertificateCart={new DeathCertificateCart()}
     />
   ))
@@ -32,7 +33,7 @@ storiesOf('SearchPage', module)
         resultCount: 0,
         results: [],
       }}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
       deathCertificateCart={new DeathCertificateCart()}
     />
   ))
@@ -51,7 +52,7 @@ storiesOf('SearchPage', module)
           NO_DATE_CERTIFICATE,
         ],
       }}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
       deathCertificateCart={new DeathCertificateCart()}
     />
   ));

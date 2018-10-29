@@ -1,5 +1,13 @@
 [
   {
+    "AuthorityId": 100,
+    "AuthorityType": "Not Applicable",
+    "AddBy": "system",
+    "AddDtTm": "2013-09-05T16:22:33.380Z",
+    "ModBy": null,
+    "ModDtTm": null
+  },
+  {
     "AuthorityId": 102,
     "AuthorityType": "City",
     "AddBy": "system",
@@ -48,8 +56,8 @@
     "ModDtTm": null
   },
   {
-    "AuthorityId": 102,
-    "AuthorityType": "City",
+    "AuthorityId": 103,
+    "AuthorityType": "Fed",
     "AddBy": "system",
     "AddDtTm": "2013-09-05T16:22:33.387Z",
     "ModBy": null,
@@ -58,14 +66,6 @@
   {
     "AuthorityId": 102,
     "AuthorityType": "City",
-    "AddBy": "system",
-    "AddDtTm": "2013-09-05T16:22:33.387Z",
-    "ModBy": null,
-    "ModDtTm": null
-  },
-  {
-    "AuthorityId": 101,
-    "AuthorityType": "Both",
     "AddBy": "system",
     "AddDtTm": "2013-09-05T16:22:33.387Z",
     "ModBy": null,

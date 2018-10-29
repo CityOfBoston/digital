@@ -27,7 +27,7 @@ export abstract class SiteAnalytics {
   /**
    * Called when the Next router switches to a different page.
    */
-  abstract changePath(path: string);
+  abstract changePath(path: string, timeInMs?: number);
 
   /**
    * Used to send custom events to Google Analytics.

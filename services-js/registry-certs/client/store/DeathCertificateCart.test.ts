@@ -1,9 +1,8 @@
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import DeathCertificateCart from './DeathCertificateCart';
 
 jest.mock('../dao/DeathCertificatesDao');
-jest.mock('../lib/SiteAnalytics');
 const DeathCertificatesDao = require('../dao/DeathCertificatesDao').default;
-const SiteAnalytics = require('../lib/SiteAnalytics').default;
 
 const CERT_1: any = {
   id: '00001',
@@ -110,7 +109,7 @@ describe('attach', () => {
     };
 
     deathCertificatesDao = new DeathCertificatesDao(jest.fn());
-    siteAnalytics = new SiteAnalytics();
+    siteAnalytics = new GaSiteAnalytics();
 
     resolveGraphqls = [];
 

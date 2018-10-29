@@ -39,6 +39,7 @@
     "@cityofboston/hapi-next": "^0.0.0",
     "@cityofboston/mssql-common": "^0.0.0",
     "@cityofboston/next-client-common": "^0.0.0",
+    "@cityofboston/react-fleet": "^0.0.0",
     "@cityofboston/srv-decrypt-env": "^0.0.0",
     "address-rfc2822": "^2.0.3",
     "apollo-server-hapi": "^1.4.0",

@@ -83,7 +83,11 @@ export default class IndexPage extends React.Component<Props> {
 
           <div className="b b-c">
             {iconCategories.map(({ title, apps, requestAccessUrl }) => (
-              <div className="m-b500" key={title}>
+              <section
+                className="m-b500"
+                key={title}
+                aria-labelledby={SectionHeader.makeId(title)}
+              >
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -94,23 +98,27 @@ export default class IndexPage extends React.Component<Props> {
                   </div>
                 )}
                 {this.renderAppIcons(apps)}
-              </div>
+              </section>
             ))}
 
             <div className="g">
               {listCategories.map(({ title, apps, requestAccessUrl }) => (
-                <div className="m-b500 g--6" key={title}>
+                <section
+                  className="m-b500 g--6"
+                  key={title}
+                  aria-labelledby={SectionHeader.makeId(title)}
+                >
                   <SectionHeader title={title} />
 
                   {requestAccessUrl && (
                     <div className="t--subinfo p-a200 m-v300">
                       Is there an app that you need access to that’s not shown
                       here? Fill out the{' '}
-                      <a href={requestAccessUrl}>request access form</a>.
+                      <a href={requestAccessUrl}>foo access form</a>.
                     </div>
                   )}
                   {this.renderAppList(apps)}
-                </div>
+                </section>
               ))}
             </div>
           </div>

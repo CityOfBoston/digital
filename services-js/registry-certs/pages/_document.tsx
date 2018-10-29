@@ -4,6 +4,9 @@ import { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
+import { StatusModal } from '@cityofboston/react-fleet';
+import { ScreenReaderSupport } from '@cityofboston/next-client-common';
+
 import styleTags from '../client/common/style-tags';
 
 declare global {
@@ -179,7 +182,8 @@ export default class extends Document {
         </Head>
 
         <body>
-          <div className="a11y--h" aria-live="polite" id="ariaLive" />
+          <ScreenReaderSupport.AnnounceElement />
+          <StatusModal.Container />
 
           <Main />
 

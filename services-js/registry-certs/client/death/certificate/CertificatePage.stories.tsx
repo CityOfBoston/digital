@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import SiteAnalytics from '../../lib/SiteAnalytics';
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 
 import CertificatePage from './CertificatePage';
@@ -28,7 +29,7 @@ storiesOf('CertificatePage', module)
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
       deathCertificateCart={makeCart(0)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('certificate in cart', () => (
@@ -37,7 +38,7 @@ storiesOf('CertificatePage', module)
       certificate={TYPICAL_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
       deathCertificateCart={makeCart(5)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('normal certificate — not from search', () => (
@@ -46,7 +47,7 @@ storiesOf('CertificatePage', module)
       certificate={TYPICAL_CERTIFICATE}
       backUrl={null}
       deathCertificateCart={makeCart(0)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('pending certificate', () => (
@@ -55,7 +56,7 @@ storiesOf('CertificatePage', module)
       certificate={PENDING_CERTIFICATE}
       backUrl={'/search?q=Jayn'}
       deathCertificateCart={makeCart(0)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ))
   .add('missing certificate', () => (
@@ -64,6 +65,6 @@ storiesOf('CertificatePage', module)
       certificate={null}
       backUrl={'/search?q=Jayn'}
       deathCertificateCart={makeCart(0)}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
   ));

@@ -4,9 +4,10 @@ import { shallow } from 'enzyme';
 
 import Router from 'next/router';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import { DeathCertificate, DeathCertificateSearchResults } from '../../types';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
-import SiteAnalytics from '../../lib/SiteAnalytics';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import SearchPage from './SearchPage';
@@ -19,7 +20,6 @@ import {
 
 jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
-jest.mock('../../lib/SiteAnalytics');
 
 const TEST_DEATH_CERTIFICATES: DeathCertificate[] = [
   TYPICAL_CERTIFICATE,
@@ -72,7 +72,7 @@ describe('operations', () => {
       page: 1,
       query: '',
       results: null,
-      siteAnalytics: new SiteAnalytics(),
+      siteAnalytics: new GaSiteAnalytics(),
       deathCertificateCart: new DeathCertificateCart(),
     });
   });
@@ -99,7 +99,7 @@ describe('content', () => {
         query={'Jayn Doe'}
         page={1}
         results={null}
-        siteAnalytics={new SiteAnalytics()}
+        siteAnalytics={new GaSiteAnalytics()}
         deathCertificateCart={new DeathCertificateCart()}
       />
     );

@@ -91,8 +91,11 @@ export default class CommissionsListSection extends React.Component<Props> {
     const tooManyCommissions = selectedCommissions.length > 5;
 
     return (
-      <>
-        <SectionHeader title="Boards and Commissions" />
+      <section aria-labelledby="sh-form-boards-and-commissions">
+        <SectionHeader
+          title="Boards and Commissions"
+          id="sh-form-boards-and-commissions"
+        />
 
         {selectedCommissions.length === 0 ? (
           <>
@@ -133,7 +136,10 @@ export default class CommissionsListSection extends React.Component<Props> {
           className="m-v500"
           startCollapsed={selectedCommissions.length > 0 && !testExpanded}
         >
-          <ul className={LIST_STYLING}>
+          <ul
+            className={LIST_STYLING}
+            aria-label={'Commissions with open positions'}
+          >
             {commissionsWithOpenSeats.map(commission =>
               renderCommission(
                 commission,
@@ -157,7 +163,10 @@ export default class CommissionsListSection extends React.Component<Props> {
             opens.
           </p>
 
-          <ul className={LIST_STYLING}>
+          <ul
+            className={LIST_STYLING}
+            aria-label={'Commissions without open positions'}
+          >
             {commissionsWithoutOpenSeats.map(commission =>
               renderCommission(
                 commission,
@@ -168,7 +177,7 @@ export default class CommissionsListSection extends React.Component<Props> {
             )}
           </ul>
         </CollapsibleSection>
-      </>
+      </section>
     );
   }
 }
@@ -187,22 +196,21 @@ function renderCommission(
     <li style={{ listStyleType: 'none' }} key={uid} className="m-b500">
       <Checkbox
         name="commissionIds"
+        aria-label={commission.name}
         value={id}
-        title={
-          <div className={`cb-l ${COMMISSION_STYLE}`}>
-            <span>{commission.name}</span>
-
-            {commission.homepageUrl && (
-              <a href={commission.homepageUrl} title="Homepage" target="_blank">
-                Homepage
-              </a>
-            )}
-          </div>
-        }
         error={checked && error}
         onChange={onChange}
         checked={checked}
-      />
+      >
+        <span className={COMMISSION_STYLE}>
+          <span aria-hidden>{commission.name}</span>
+          {commission.homepageUrl && (
+            <a href={commission.homepageUrl} title="Homepage" target="_blank">
+              Homepage
+            </a>
+          )}
+        </span>
+      </Checkbox>
     </li>
   );
 }

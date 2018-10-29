@@ -53,6 +53,7 @@
     "@types/jest": "23.x.x",
     "@types/node-fetch": "^1.6.9",
     "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.9",
     "@types/storybook__addon-actions": "^3.0.3",
     "@types/storybook__addon-storyshots": "^3.4.1",
     "@types/storybook__react": "^3.0.7",

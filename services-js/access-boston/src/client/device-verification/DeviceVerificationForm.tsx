@@ -75,7 +75,7 @@ export default function DeviceVerificationForm(props: Props) {
             cell phone you can use a personal email address instead.
           </p>
 
-          <hr className="hr hr--sq" />
+          <hr className="hr hr--sq" aria-hidden />
 
           <form className="m-v500" onSubmit={handleSubmit}>
             <div className="m-b500">

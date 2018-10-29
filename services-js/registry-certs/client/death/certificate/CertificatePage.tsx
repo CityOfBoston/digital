@@ -119,10 +119,16 @@ class CertificatePage extends React.Component<Props, State> {
         if (quantity === 0) {
           deathCertificateCart.remove(certificate.id);
 
-          siteAnalytics.sendEvent('UX', 'click', 'add to cart');
+          siteAnalytics.sendEvent('click', {
+            category: 'UX',
+            label: 'add to cart',
+          });
         } else {
           deathCertificateCart.setQuantity(certificate, quantity);
-          siteAnalytics.sendEvent('UX', 'click', 'add to cart');
+          siteAnalytics.sendEvent('click', {
+            category: 'UX',
+            label: 'add to cart',
+          });
 
           await Router.push('/death/cart');
           window.scroll(0, 0);
