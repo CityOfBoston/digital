@@ -33,7 +33,6 @@ const COMMISSIONS = [
 
 const DEFAULT_PROPS: Props = {
   commissions: COMMISSIONS,
-  formRef: React.createRef(),
   values: {
     firstName: '',
     middleName: '',

@@ -33,7 +33,6 @@ type RequiredFormikProps = Pick<
 
 export interface Props extends RequiredFormikProps {
   commissions: Commission[];
-  formRef: React.RefObject<HTMLFormElement>;
   submissionError?: boolean;
   clearSubmissionError: () => void;
 }

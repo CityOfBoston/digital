@@ -1,0 +1,28 @@
+/**
+ * Creates a FormData from an object of values (e.g. from Formik). Ignores any
+ * null or undefined values. Converts any arrays into multiple values for the
+ * same key.
+ *
+ * Prefer this over using FormData’s <form> constructor, at least when optional
+ * file inputs are being used, due to a Safari 11 bug that won’t POST FormDatas
+ * that reference empty file inputs.
+ */
+export function makeFormData(values: Object): FormData {
+  const data = new FormData();
+
+  Object.keys(values).forEach(k => {
+    const v = values[k];
+    if (v === null || v === undefined) {
+      return;
+    } else if (Array.isArray(v)) {
+      v.forEach(el => data.append(k, el));
+    } else {
+      data.set(k, v);
+    }
+  });
+
+  return data;
+}
+
+// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
+export const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;

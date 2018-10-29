@@ -5,7 +5,7 @@
   "license": "CC0-1.0",
   "private": true,
   "scripts": {
-    "test:reset": "rimraf ../template-test.lock",
+    "test:reset": "rimraf ./build ../template-test.lock",
     "test": "jest"
   },
   "jest": {
