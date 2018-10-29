@@ -31,7 +31,7 @@ export default function Checkbox(props: Props): JSX.Element {
       {typeof props.title === 'string' ? (
         <span className="cb-l">{props.title}</span>
       ) : (
-        <>{props.title}</>
+        props.title
       )}
     </label>
   );
