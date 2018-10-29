@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "rimraf build && npm run generate-graphql-schema && npm run generate-graphql-types",
     "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
-    "pretest": "tsc --noEmit",
+    "pretest": "npm run prebuild && tsc --noEmit",
     "test": "scripts/test.js",
     "watch-dependencies": "lerna run --parallel --scope registry-certs --include-filtered-dependencies watch",
     "build": "concurrently \"npm run build:server\" \"npm run build:next\"",
