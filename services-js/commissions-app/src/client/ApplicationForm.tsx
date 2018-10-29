@@ -94,7 +94,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
   );
 
   return (
-    <form onSubmit={handleSubmit} ref={props.formRef} className={FORM_STYLING}>
+    <form onSubmit={handleSubmit} className={FORM_STYLING}>
       <h1 className="sh-title">Boards and Commissions Application Form</h1>
 
       <p className={PARAGRAPH_STYLING}>
