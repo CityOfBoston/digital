@@ -688,7 +688,42 @@ exports[`Storyshots Form Elements/Buttons close 1`] = `
 </button>
 `;
 
-exports[`Storyshots Form Elements/Inputs Checkbox 1`] = `
+exports[`Storyshots Form Elements/Inputs Checkbox / div passed in 1`] = `
+<label
+  className="cb "
+>
+  <input
+    checked={false}
+    className="cb-f "
+    name="commissionIds"
+    onChange={[Function]}
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+    type="checkbox"
+    value="commissionCheckbox"
+  />
+  <div
+    className="cb-l"
+  >
+    <span>
+      South End Landmark District Commission
+    </span>
+    <br />
+    <a
+      href="#"
+      target="_blank"
+      title="Homepage"
+    >
+      Homepage
+    </a>
+  </div>
+</label>
+`;
+
+exports[`Storyshots Form Elements/Inputs Checkbox / text title 1`] = `
 <label
   className="cb "
 >

@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface Props {
   name: string;
-  title: string | ReactNode;
+  title: string | JSX.Element;
   onChange: any;
   onBlur?: any;
   required?: boolean;
