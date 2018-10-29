@@ -21,8 +21,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "prepublish": "lerna run --stream prepublish",
-    "prepare": "lerna run --stream prepare",
+    "prepublish": "lerna run --stream --scope @cityofboston/* prepublish",
+    "prepare": "lerna run --stream --scope @cityofboston/* prepare",
     "precommit": "lint-staged",
     "prepush": "jest --clearCache && npm run test:reset && lerna run --no-sort --stream --since origin/develop test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
