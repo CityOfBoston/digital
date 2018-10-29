@@ -114,7 +114,7 @@ export default class IndexPage extends React.Component<Props> {
                     <div className="t--subinfo p-a200 m-v300">
                       Is there an app that you need access to that’s not shown
                       here? Fill out the{' '}
-                      <a href={requestAccessUrl}>foo access form</a>.
+                      <a href={requestAccessUrl}>request access form</a>.
                     </div>
                   )}
                   {this.renderAppList(apps)}
