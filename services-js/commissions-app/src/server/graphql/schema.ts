@@ -176,10 +176,14 @@ export const commissionResolvers: Resolvers<Commission, Context> = {
   // calculation ends up negative. `max 0` keeps us from looking silly.
   openSeats: ({ ActiveCount, Seats }) =>
     Math.max(0, Seats - (ActiveCount || 0)),
-  applyUrl: ({ BoardName }) =>
-    `https://www.cityofboston.gov/boardsandcommissions/application/apply.aspx?bid=${encodeURIComponent(
-      BoardName!
-    )}`,
+  // TODO(finh): Remove the cityofboston.gov URL when we're stable in
+  // production.
+  applyUrl: ({ BoardName, BoardID }) =>
+    process.env.APPLY_URL
+      ? `${process.env.APPLY_URL}?commissionID=${BoardID}`
+      : `https://www.cityofboston.gov/boardsandcommissions/application/apply.aspx?bid=${encodeURIComponent(
+          BoardName!
+        )}`,
   members: async ({ BoardID }, _args, { commissionsDao }) =>
     // Some commissions have employees listed, which we want to remove.
     (await commissionsDao.fetchBoardMembers(BoardID)).filter(

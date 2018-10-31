@@ -4,21 +4,10 @@ import { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
-import { StatusModal } from '@cityofboston/react-fleet';
+import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
 
 import styleTags from '../client/common/style-tags';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'cob-contact-form': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { token: string },
-        HTMLElement
-      >;
-    }
-  }
-}
 
 type Props = {
   __NEXT_DATA__: any;
@@ -196,13 +185,10 @@ export default class extends Document {
 
           <NextScript />
 
-          <cob-contact-form
-            id="contactForm"
-            default-subject="Death Certificates Feedback"
-            token={process.env.CONTACT_FORM_TOKEN || ''}
-            {...(process.env.CONTACT_FORM_ACTION
-              ? { action: process.env.CONTACT_FORM_ACTION }
-              : {})}
+          <ContactForm
+            defaultSubject="Death Certificates Feedback"
+            token={process.env.CONTACT_FORM_TOKEN}
+            action={process.env.CONTACT_FORM_ACTION}
           />
         </body>
       </html>

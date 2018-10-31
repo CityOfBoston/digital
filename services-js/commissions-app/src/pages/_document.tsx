@@ -6,6 +6,7 @@ import {
   CompatibilityWarning,
   PUBLIC_CSS_URL,
   StatusModal,
+  ContactForm,
 } from '@cityofboston/react-fleet';
 import {
   GtagSiteAnalytics,
@@ -82,7 +83,18 @@ var _rollbarConfig = {
           <Main />
           <ScreenReaderSupport.AnnounceElement />
           <StatusModal.Container />
+          <ContactForm
+            defaultSubject="Boards and Commissions Feedback"
+            token={process.env.CONTACT_FORM_TOKEN}
+            action={process.env.CONTACT_FORM_ACTION}
+          />
           <CompatibilityWarning userAgent={userAgent} />
+
+          <script
+            src={`${process.env.WEB_COMPONENTS_URI ||
+              'https://patterns.boston.gov/web-components/all.js'}`}
+          />
+
           <NextScript />
         </body>
       </html>
