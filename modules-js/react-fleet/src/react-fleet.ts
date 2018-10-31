@@ -4,6 +4,7 @@ export { default as SectionHeader } from './sectioning-elements/SectionHeader';
 export {
   default as CollapsibleSection,
 } from './sectioning-elements/CollapsibleSection';
+export { default as ContactForm } from './components/ContactForm';
 export { default as Menu } from './components/Menu';
 export { default as Header } from './components/Header';
 export { default as Footer } from './components/Footer';
