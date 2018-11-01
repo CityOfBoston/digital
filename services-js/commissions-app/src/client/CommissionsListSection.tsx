@@ -106,7 +106,7 @@ export default class CommissionsListSection extends React.Component<Props> {
         ) : (
           <>
             <p className={PARAGRAPH_STYLING}>
-              You’re chosen to apply to these boards and commissions:
+              You’ve chosen to apply to these boards and commissions:
             </p>
 
             <ul className="ul">

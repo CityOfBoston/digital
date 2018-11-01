@@ -2600,7 +2600,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
       <p
         className="t--s400 lh--400"
       >
-        You’re chosen to apply to these boards and commissions:
+        You’ve chosen to apply to these boards and commissions:
       </p>
       <ul
         className="ul"
@@ -5832,7 +5832,7 @@ exports[`Storyshots ApplyPage default 1`] = `
                 <p
                   className="t--s400 lh--400"
                 >
-                  You’re chosen to apply to these boards and commissions:
+                  You’ve chosen to apply to these boards and commissions:
                 </p>
                 <ul
                   className="ul"
@@ -6511,7 +6511,7 @@ exports[`Storyshots CommissionsListSection default 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      You’re chosen to apply to these boards and commissions:
+      You’ve chosen to apply to these boards and commissions:
     </p>
     <ul
       className="ul"
@@ -11648,7 +11648,7 @@ exports[`Storyshots CommissionsListSection too many checked 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      You’re chosen to apply to these boards and commissions:
+      You’ve chosen to apply to these boards and commissions:
     </p>
     <ul
       className="ul"
