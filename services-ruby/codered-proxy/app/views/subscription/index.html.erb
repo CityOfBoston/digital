@@ -36,12 +36,12 @@
             </div>
             <div class="fs-c fs-c--i">
               <label class="cb">
-                <input id="checkbox-call" name="call" type="checkbox" value="1" class="cb-f" checked>
-                <span class="cb-l cb-l--sans">Call me</span>
+                <input id="checkbox-text" name="text" type="checkbox" value="1" class="cb-f" checked>
+                <span class="cb-l cb-l--sans">Text me</span>
               </label>
               <label class="cb">
-                <input id="checkbox-text" name="text" type="checkbox" value="1" class="cb-f">
-                <span class="cb-l cb-l--sans">Text me</span>
+                <input id="checkbox-call" name="call" type="checkbox" value="1" class="cb-f">
+                <span class="cb-l cb-l--sans">Call me</span>
               </label>
             </div>
             <div class="t--subinfo<?php if ($component_theme === 'b'): ?> t--w<?php endif; ?> m-t100">Message &amp; data rates may apply</div>
@@ -62,6 +62,19 @@
               <div class="txt">
                 <label for="zip_code" class="txt-l txt-l--w txt-l--mt000">Zip code</label>
                 <input id="zip_code" name="zip" type="text" value="" placeholder="Zip code" class="txt-f" size="10">
+              </div>
+            </div>
+            <div class="fs-c m-b300">
+              <div class="sel">
+                <label for="language" class="txt-l txt-l--w txt-l--mt000">Language</label>
+                <div class="sel-c sel-c--fw">
+                  <select class="sel-f sel-f--fw" name="language" id="language">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="zh_TW">繁體中文</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div id="message" class="m-b300" style="display: none"></div>

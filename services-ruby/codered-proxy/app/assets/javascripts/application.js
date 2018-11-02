@@ -23,6 +23,7 @@ var BostonEmergencyAlerts = (function () {
       last_name,
       call,
       zip,
+      language,
       form,
       text;
 
@@ -60,6 +61,7 @@ var BostonEmergencyAlerts = (function () {
     triggerSuccess(first_name, data.contact.first_name);
     triggerSuccess(last_name, data.contact.last_name);
     triggerSuccess(zip, data.contact.zip);
+    triggerSuccess(language, data.contact.language_name);
     triggerSuccess(call, data.contact.call ? 'Yes' : 'No');
     triggerSuccess(text, data.contact.text ? 'Yes' : 'No');
     form.find('#message, #button').remove();
@@ -95,18 +97,16 @@ var BostonEmergencyAlerts = (function () {
   }
 
   function triggerSuccess(el, msg) {
-    var parent = el.parent();
+    var parent = el.closest('.txt, .sel');
 
     if (msg) {
-      parent.find('input').remove();
+      parent.find('input, .sel-c').remove();
       parent.append('<div class="t--info" style="text-transform: none">' + msg + '</div>');
 
       if (parent.hasClass('cb')) {
         parent.css({'display': 'block'});
         parent.find('.cb-l').css({'margin-left': 0});
       }
-
-      zip.parents('.m-b300').removeClass('m-b300');
     } else {
       parent.remove();
     }
@@ -130,6 +130,7 @@ var BostonEmergencyAlerts = (function () {
     call = jQuery('#checkbox-call');
     text = jQuery('#checkbox-text');
     zip = jQuery('#zip_code');
+    language = jQuery('#language');
     button = jQuery('#alert_submit');
     form.submit(handleAlertSignup);
     console.log(form);

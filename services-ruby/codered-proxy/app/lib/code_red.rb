@@ -57,8 +57,9 @@ class CodeRed
         'HomePhone' => subscription.call ? subscription.phone_number : '',
         'TextNumber' => subscription.text ? subscription.phone_number : '',
         'MobileProvider' => 'Sprint',
+        'PreferredLanguage' => subscription.codered_language,
         'Zip' => subscription.zip,
-        'Groups' => ENV['API_GROUPS']
+        'Groups' => subscription.groups.join(',')
       }
     end
 end
