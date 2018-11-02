@@ -29,7 +29,7 @@ class Subscription
 
   validate :email_or_phone?
   validate :call_or_text?
-  if self.email.blank!
+  if !self.email.blank?
 	validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   end
 
