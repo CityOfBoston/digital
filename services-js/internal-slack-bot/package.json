@@ -37,8 +37,8 @@
     "rollbar": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/cli": "7.0.0",
+    "@babel/core": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
