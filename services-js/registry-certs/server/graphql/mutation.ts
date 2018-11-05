@@ -15,6 +15,7 @@ import {
   DEATH_CERTIFICATE_COST,
   calculateCreditCardCost,
   calculateDebitCardCost,
+  BIRTH_CERTIFICATE_COST,
 } from '../../lib/costs';
 
 import makePaymentValidator from '../../lib/validators/PaymentValidator';
@@ -22,9 +23,25 @@ import makeShippingValidator from '../../lib/validators/ShippingValidator';
 import { OrderType } from '../services/RegistryDb';
 
 /** @graphql input */
-interface CertificateOrderItemInput {
+interface DeathCertificateOrderItemInput {
   id: string;
   name: string;
+  quantity: Int;
+}
+
+/**
+ * You have to know the search terms for a birth certificate in order to buy it.
+ * If we just allowed an ID here then one could use the API to purchase
+ * arbitrary certificates.
+ *
+ * @graphql input
+ */
+interface BirthCertificateOrderItemInput {
+  firstName: string;
+  lastName: string;
+  dob: Date;
+  parent1FirstName: string;
+  parent2FirstName: string;
   quantity: Int;
 }
 
@@ -57,7 +74,35 @@ export interface Mutation extends ResolvableWith<{}> {
     billingState: string;
     billingZip: string;
 
-    items: CertificateOrderItemInput[];
+    items: DeathCertificateOrderItemInput[];
+    idempotencyKey: string;
+  }): SubmittedOrder;
+
+  submitBirthCertificateOrder(args: {
+    contactName: string;
+    contactEmail: string;
+    contactPhone: string;
+
+    shippingName: string;
+    shippingCompanyName: string;
+    shippingAddress1: string;
+    shippingAddress2: string;
+    shippingCity: string;
+    shippingState: string;
+    shippingZip: string;
+
+    cardToken: string;
+    cardLast4: string;
+
+    cardholderName: string;
+    billingAddress1: string;
+    billingAddress2: string;
+    billingCity: string;
+    billingState: string;
+    billingZip: string;
+
+    item: BirthCertificateOrderItemInput;
+
     idempotencyKey: string;
   }): SubmittedOrder;
 }
@@ -108,64 +153,17 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       throw new Error('Quantity of order is 0');
     }
 
-    const shippingValidator = makeShippingValidator({
-      contactName,
-      contactEmail,
-      contactPhone,
-      shippingName,
-      shippingCompanyName,
-      shippingAddress1,
-      shippingAddress2,
-      shippingCity,
-      shippingState,
-      shippingZip,
-    });
-
-    const paymentValidator = makePaymentValidator({
-      cardholderName,
-      billingAddressSameAsShippingAddress: false,
-      billingAddress1,
-      billingAddress2,
-      billingCity,
-      billingState,
-      billingZip,
-    });
-
-    shippingValidator.check();
-    paymentValidator.check();
-
-    if (shippingValidator.fails() || paymentValidator.fails()) {
-      const errors = {
-        ...shippingValidator.errors.all(),
-        ...paymentValidator.errors.all(),
-      };
-      const message = Object.keys(errors)
-        .map(field => `${field}: ${errors[field].join(', ')}`)
-        .join('\n');
-
-      const err: any = new Error('Shipping validation errors');
-      err.message = message;
-
-      throw err;
-    }
-
-    // We have to look the token up again so we can figure out what fee
-    // structure to use. We do *not* trust the client to send us this
-    // information.
-    const token = await stripe.tokens.retrieve(cardToken);
+    validateAddresses(args);
 
     // These are all in cents, to match Stripe
-    const { total, serviceFee } =
-      token.card.funding === 'credit'
-        ? calculateCreditCardCost(DEATH_CERTIFICATE_COST, totalQuantity)
-        : calculateDebitCardCost(DEATH_CERTIFICATE_COST, totalQuantity);
+    const { total, serviceFee } = await calculateCostForToken(
+      stripe,
+      DEATH_CERTIFICATE_COST,
+      cardToken,
+      totalQuantity
+    );
 
-    const datePart = moment().format('YYYYMM');
-
-    // gives us a 6-digit number that doesn't start with 0
-    const randomPart = 100000 + Math.floor(Math.abs(Math.random()) * 899999);
-
-    const orderId = `RG-DC${datePart}-${randomPart}`;
+    const orderId = makeOrderId(OrderType.DeathCertificate);
     const orderDate = new Date();
 
     const orderKey = await registryDb.addOrder(OrderType.DeathCertificate, {
@@ -205,41 +203,322 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       )
     );
 
-    let charge;
-    try {
-      charge = await stripe.charges.create({
-        amount: total,
-        currency: 'usd',
-        source: cardToken,
-        description: 'Death certificates (Registry)',
-        statement_descriptor: 'CITYBOSTON*REG + FEE',
-        metadata: {
-          'webapp.name': 'registry-certs',
-          'webapp.nodeEnv': process.env.NODE_ENV || 'development',
-          'order.orderId': orderId,
-          'order.orderKey': orderKey.toString(),
-          'order.source': 'registry',
-          'order.quantity': totalQuantity.toString(),
-          'order.unitPrice': DEATH_CERTIFICATE_COST.toString(),
-        },
-      });
-    } catch (e) {
-      if (e.type === 'StripeCardError') {
-        // Keeps us from sending customer errors to Stripe
-        e.silent = true;
+    await makeStripeCharge(
+      OrderType.DeathCertificate,
+      { stripe, registryDb, rollbar, emails },
+      {
+        orderId,
+        orderKey,
+        quantity: totalQuantity,
+        total,
+        cardToken,
       }
+    );
 
-      try {
-        await registryDb.cancelOrder(orderKey, 'Stripe charge create failed');
-      } catch (e) {
-        console.log('CANCEL ORDER FAILED');
-        // Let Opbeat know, but still fail the mutation with the original
-        // error.
-        rollbar.error(e);
-      }
+    return { id: orderId, contactEmail };
+  },
 
-      throw e;
+  submitBirthCertificateOrder: async (
+    _root,
+    args,
+    { rollbar, stripe, emails, registryDb }
+  ): Promise<SubmittedOrder> => {
+    const {
+      contactName,
+      contactEmail,
+      contactPhone,
+
+      shippingName,
+      shippingCompanyName,
+      shippingAddress1,
+      shippingAddress2,
+      shippingCity,
+      shippingState,
+      shippingZip,
+
+      cardToken,
+      cardLast4,
+
+      cardholderName,
+      billingAddress1,
+      billingAddress2,
+      billingCity,
+      billingState,
+      billingZip,
+
+      item,
+
+      idempotencyKey,
+    } = args;
+
+    if (item.quantity <= 0) {
+      throw new Error('Certificate quantity may not be less than 0');
     }
+
+    validateAddresses(args);
+
+    // We do a re-search during checkout, rather than accepting an ID, so that
+    // you can’t just plug in an ID you don’t know the search information for
+    // and buy it.
+    const ids = await registryDb.searchBirthCertificates(
+      item.firstName,
+      item.lastName,
+      item.dob,
+      item.parent1FirstName,
+      item.parent2FirstName
+    );
+
+    if (ids.length !== 1) {
+      throw new Error(
+        'Did not find exactly one certificate for those search terms'
+      );
+    }
+
+    // These are all in cents, to match Stripe
+    const { total, serviceFee } = await calculateCostForToken(
+      stripe,
+      BIRTH_CERTIFICATE_COST,
+      cardToken,
+      item.quantity
+    );
+
+    const orderId = makeOrderId(OrderType.BirthCertificate);
+    const orderDate = new Date();
+
+    const orderKey = await registryDb.addOrder(OrderType.BirthCertificate, {
+      orderID: orderId,
+      orderDate,
+      contactName,
+      contactEmail,
+      contactPhone,
+      shippingName,
+      shippingCompany: shippingCompanyName,
+      shippingAddr1: shippingAddress1,
+      shippingAddr2: shippingAddress2,
+      shippingCity,
+      shippingState,
+      shippingZIP: shippingZip,
+      billingName: cardholderName,
+      billingAddr1: billingAddress1,
+      billingAddr2: billingAddress2,
+      billingCity,
+      billingState,
+      billingZIP: billingZip,
+      billingLast4: cardLast4,
+      serviceFee: serviceFee / 100,
+      idempotencyKey,
+    });
+
+    await registryDb.addItem(
+      OrderType.BirthCertificate,
+      orderKey,
+      ids[0],
+      // We purposely use user-supplied values
+      `${item.firstName.trim()} ${item.lastName.trim()}`,
+      item.quantity,
+      BIRTH_CERTIFICATE_COST / 100
+    );
+
+    await makeStripeCharge(
+      OrderType.BirthCertificate,
+      { stripe, registryDb, rollbar, emails },
+      {
+        orderId,
+        orderKey,
+        quantity: item.quantity,
+        total,
+        cardToken,
+      }
+    );
+
+    return { id: orderId, contactEmail };
+  },
+};
+
+/**
+ * Throws an exception if the arguments do not match the shipping / payment
+ * validators.
+ */
+function validateAddresses(args: {
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+
+  shippingName: string;
+  shippingCompanyName: string;
+  shippingAddress1: string;
+  shippingAddress2: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZip: string;
+
+  cardToken: string;
+  cardLast4: string;
+
+  cardholderName: string;
+  billingAddress1: string;
+  billingAddress2: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+}) {
+  const {
+    contactName,
+    contactEmail,
+    contactPhone,
+
+    shippingName,
+    shippingCompanyName,
+    shippingAddress1,
+    shippingAddress2,
+    shippingCity,
+    shippingState,
+    shippingZip,
+
+    cardholderName,
+    billingAddress1,
+    billingAddress2,
+    billingCity,
+    billingState,
+    billingZip,
+  } = args;
+
+  const shippingValidator = makeShippingValidator({
+    contactName,
+    contactEmail,
+    contactPhone,
+    shippingName,
+    shippingCompanyName,
+    shippingAddress1,
+    shippingAddress2,
+    shippingCity,
+    shippingState,
+    shippingZip,
+  });
+
+  const paymentValidator = makePaymentValidator({
+    cardholderName,
+    billingAddressSameAsShippingAddress: false,
+    billingAddress1,
+    billingAddress2,
+    billingCity,
+    billingState,
+    billingZip,
+  });
+
+  shippingValidator.check();
+  paymentValidator.check();
+
+  if (shippingValidator.fails() || paymentValidator.fails()) {
+    const errors = {
+      ...shippingValidator.errors.all(),
+      ...paymentValidator.errors.all(),
+    };
+    const message = Object.keys(errors)
+      .map(field => `${field}: ${errors[field].join(', ')}`)
+      .join('\n');
+
+    const err: any = new Error('Shipping validation errors');
+    err.message = message;
+
+    throw err;
+  }
+}
+
+async function calculateCostForToken(
+  stripe: any,
+  eachCost: number,
+  cardToken: string,
+  quantity: number
+) {
+  // We have to look the token up again so we can figure out what fee
+  // structure to use. We do *not* trust the client to send us this
+  // information.
+  const token = await stripe.tokens.retrieve(cardToken);
+
+  return token.card.funding === 'credit'
+    ? calculateCreditCardCost(eachCost, quantity)
+    : calculateDebitCardCost(eachCost, quantity);
+}
+
+function makeOrderId(type: OrderType): string {
+  let prefix: string;
+
+  switch (type) {
+    case OrderType.BirthCertificate:
+      prefix = 'BC';
+      break;
+    case OrderType.DeathCertificate:
+      prefix = 'DC';
+      break;
+    default:
+      throw new Error('Unexpected OrderType: ' + type);
+  }
+
+  const datePart = moment().format('YYYYMM');
+
+  // gives us a 6-digit number that doesn't start with 0
+  const randomPart = 100000 + Math.floor(Math.abs(Math.random()) * 899999);
+
+  return `RG-${prefix}${datePart}-${randomPart}`;
+}
+
+async function makeStripeCharge(
+  type: OrderType,
+  {
+    stripe,
+    registryDb,
+    rollbar,
+    emails,
+  }: Pick<Context, 'stripe' | 'registryDb' | 'rollbar' | 'emails'>,
+  {
+    total,
+    cardToken,
+    orderId,
+    orderKey,
+    quantity,
+  }: {
+    total: number;
+    cardToken: string;
+    orderId: string;
+    orderKey: number;
+    quantity: number;
+  }
+): Promise<void> {
+  let description: string;
+  let unitPrice: number;
+
+  switch (type) {
+    case OrderType.DeathCertificate:
+      description = 'Death certificates (Registry)';
+      unitPrice = DEATH_CERTIFICATE_COST;
+      break;
+    case OrderType.BirthCertificate:
+      description = 'Birth certificates (Registry)';
+      unitPrice = BIRTH_CERTIFICATE_COST;
+      break;
+    default:
+      throw new Error('Unknown OrderType: ' + type);
+  }
+
+  try {
+    const charge = await stripe.charges.create({
+      amount: total,
+      currency: 'usd',
+      source: cardToken,
+      description,
+      statement_descriptor: 'CITYBOSTON*REG + FEE',
+      metadata: {
+        'webapp.name': 'registry-certs',
+        'webapp.nodeEnv': process.env.NODE_ENV || 'development',
+        'order.orderId': orderId,
+        'order.orderKey': orderKey.toString(),
+        'order.orderType': type,
+        'order.source': 'registry',
+        'order.quantity': quantity.toString(),
+        'order.unitPrice': unitPrice.toString(),
+      },
+    });
 
     // The Stripe charge is the last thing in the request because if it
     // succeeds, we consider the order to have been completed successfully.
@@ -253,10 +532,22 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     if (process.env.NODE_ENV === 'development') {
       await processChargeSucceeded({ stripe, emails, registryDb }, charge);
     }
-
-    return { id: orderId, contactEmail };
-  },
-};
+  } catch (e) {
+    if (e.type === 'StripeCardError') {
+      // Keeps us from sending customer errors to Rollbar
+      e.silent = true;
+    }
+    try {
+      await registryDb.cancelOrder(orderKey, 'Stripe charge create failed');
+    } catch (e) {
+      console.log('CANCEL ORDER FAILED');
+      // Let Rollbar know, but still fail the mutation with the original
+      // error.
+      rollbar.error(e);
+    }
+    throw e;
+  }
+}
 
 export const resolvers = {
   Mutation: mutationResolvers,

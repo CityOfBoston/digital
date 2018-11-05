@@ -27,7 +27,7 @@ const QUERY = gql`
     $billingCity: String!
     $billingState: String!
     $billingZip: String!
-    $items: [CertificateOrderItemInput!]!
+    $items: [DeathCertificateOrderItemInput!]!
     $idempotencyKey: String!
   ) {
     submitDeathCertificateOrder(
