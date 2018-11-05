@@ -19,14 +19,14 @@ beforeEach(() => {
   rollbar = new Rollbar({});
 });
 
-xdescribe('server', () => {
+describe('server', () => {
   it('can be created', async () => {
     const { server } = await makeServer(port, rollbar);
     expect(server).toBeDefined();
   });
 });
 
-xdescribe('running server', () => {
+describe('running server', () => {
   let server;
   let shutdown;
 
@@ -46,7 +46,7 @@ xdescribe('running server', () => {
     await shutdown();
   });
 
-  xdescribe('health check', () => {
+  describe('health check', () => {
     it('handles request', async () => {
       const resp = await server.inject({
         method: 'GET',

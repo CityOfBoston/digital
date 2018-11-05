@@ -48,17 +48,17 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   };
 
   const slackEventAdapter = createEventAdapter(
-    process.env.SLACK_SIGNING_SECRET,
+    process.env.SLACK_SIGNING_SECRET || '',
     { includeBody: true }
   );
   const slackEventHandler = slackEventAdapter.requestListener();
 
   const slackInteractionAdapter = createMessageAdapter(
-    process.env.SLACK_SIGNING_SECRET
+    process.env.SLACK_SIGNING_SECRET || ''
   );
   const slackInteractionHandler = slackInteractionAdapter.requestListener();
 
-  if (process.env.NODE_ENV !== 'dev') {
+  if (process.env.NODE_ENV !== 'development') {
     await server.register(loggingPlugin);
 
     await server.register({
