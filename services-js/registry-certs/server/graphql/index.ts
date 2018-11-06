@@ -7,6 +7,7 @@ import Rollbar from 'rollbar';
 import { Query, resolvers as queryResolvers } from './query';
 import { Mutation, resolvers as mutationResolvers } from './mutation';
 import { resolvers as deathResolvers } from './death-certificates';
+import { resolvers as birthResolvers } from './birth-certificates';
 
 import RegistryDb from '../services/RegistryDb';
 import Emails from '../services/Emails';
@@ -37,6 +38,7 @@ export default makeExecutableSchema({
     ...queryResolvers,
     ...mutationResolvers,
     ...deathResolvers,
+    ...birthResolvers,
   } as any,
   allowUndefinedInResolve: false,
 });

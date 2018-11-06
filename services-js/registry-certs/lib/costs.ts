@@ -1,6 +1,7 @@
 // All costs are in cents, which is how Stripe does things.
 
 export const DEATH_CERTIFICATE_COST = 14 * 100;
+export const BIRTH_CERTIFICATE_COST = 14 * 100;
 
 // CC == "credit card"
 export const FIXED_CC_SERVICE_FEE = 25;

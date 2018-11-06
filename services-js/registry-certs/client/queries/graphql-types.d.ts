@@ -155,7 +155,7 @@ export interface SubmitDeathCertificateOrderVariables {
   billingCity: string;
   billingState: string;
   billingZip: string;
-  items: CertificateOrderItemInput[];
+  items: DeathCertificateOrderItemInput[];
   idempotencyKey: string;
 }
 
@@ -167,7 +167,7 @@ export interface SubmitDeathCertificateOrderVariables {
 //==============================================================
 
 // undefined
-export interface CertificateOrderItemInput {
+export interface DeathCertificateOrderItemInput {
   id: string;
   name: string;
   quantity: number;

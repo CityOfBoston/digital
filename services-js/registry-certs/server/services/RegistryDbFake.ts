@@ -38,4 +38,15 @@ export default class RegistryDbFake implements Required<RegistryDb> {
   }
 
   async cancelOrder(): Promise<void> {}
+
+  async searchBirthCertificates(firstName: string): Promise<Array<number>> {
+    const count = firstName.match(/\d+/) ? parseInt(firstName, 10) : 1;
+
+    const out: number[] = [];
+    for (let i = 0; i < count; ++i) {
+      out.push(i + 244000);
+    }
+
+    return out;
+  }
 }
