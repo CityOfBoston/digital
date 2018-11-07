@@ -5,6 +5,7 @@ import * as Hapi from 'hapi';
 import * as Rollbar from 'rollbar';
 import cleanup from 'node-cleanup';
 
+import { WebClient } from '@slack/client';
 import { createEventAdapter } from '@slack/events-api';
 import { createMessageAdapter } from '@slack/interactive-messages';
 
@@ -15,12 +16,11 @@ import {
   rollbarPlugin,
 } from '@cityofboston/hapi-common';
 
-import SlackClient from './services/SlackClient';
-
 import {
-  deploymentApprovalInteraction,
   DeploymentType,
-} from './services/interactions/deploymentInteractions';
+  DeploymentInteraction,
+  DeploymentNotificationPayload,
+} from './services/interactions/DeploymentInteraction';
 
 export async function makeServer(port: number, rollbar: Rollbar) {
   const serverOptions = {
@@ -37,7 +37,6 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   };
 
   const server = new Hapi.Server(serverOptions);
-  const slackClient = new SlackClient();
 
   // Add services to wait for in here.
   // Returns an async shutdown method.
@@ -58,6 +57,13 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   );
   const slackInteractionHandler = slackInteractionAdapter.requestListener();
 
+  const slackClient = new WebClient(process.env.SLACK_BOT_TOKEN);
+
+  const deploymentInteraction = new DeploymentInteraction(
+    slackClient,
+    process.env.WORKSPACE_CHANNEL_ID_DIGITAL_BUILDS!
+  );
+
   await server.register(loggingPlugin);
 
   await server.register({
@@ -66,14 +72,6 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   });
 
   server.route(adminOkRoute);
-
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: () => {
-      return 'I am a bot.';
-    },
-  });
 
   // Handles all incoming events from Slack
   server.route({
@@ -86,7 +84,7 @@ export async function makeServer(port: number, rollbar: Rollbar) {
         output: 'stream',
       },
     },
-    handler: (request: Hapi.Request, h) => {
+    handler: (request, h) => {
       const { req, res } = request.raw;
 
       // slackEventHandler will take over from here
@@ -108,7 +106,7 @@ export async function makeServer(port: number, rollbar: Rollbar) {
         output: 'stream',
       },
     },
-    handler: (request: Hapi.Request, h) => {
+    handler: (request, h) => {
       const { req, res } = request.raw;
 
       // slackInteractionHandler will take over from here
@@ -119,23 +117,14 @@ export async function makeServer(port: number, rollbar: Rollbar) {
     },
   });
 
-  // todo: incoming messages from build
   server.route({
     method: 'POST',
-    path: '/codebuild',
-    // @ts-ignore
-    handler: (request: Hapi.Request, h) => {
-      // const isSuccess = request.raw;
-      const isSuccess = true;
-
-      // if (request === 'authorize') {
-      //   slackClient.requestDeploymentApproval(deploymentType);
-      // } else if (request === 'complete' {
-
-      slackClient.notifyDeploymentCompletion(isSuccess);
-      // }
-
-      return h.abandon;
+    path: '/internal-slack/deploy',
+    handler: async ({ payload }) => {
+      await deploymentInteraction.handleDeploymentNotification(
+        payload as DeploymentNotificationPayload
+      );
+      return 'ok';
     },
   });
 
@@ -148,24 +137,27 @@ export async function makeServer(port: number, rollbar: Rollbar) {
     const deploymentType: DeploymentType = 'production';
 
     if (!isBotMessage) {
-      slackClient.requestDeploymentApproval(deploymentType);
+      deploymentInteraction.handleDeploymentNotification({
+        environment: deploymentType,
+        service: 'chat-message',
+        commit: 'c0d753e5bb4428cf69770b59c1281fca88e96e5b',
+      });
     }
   });
 
   // handle the user’s approval/rejection:
-  slackInteractionAdapter.action(
-    'approve_deployment',
-    deploymentApprovalInteraction
+  slackInteractionAdapter.action('approve_deployment', (payload, respond) =>
+    deploymentInteraction.handleApproveInteraction(payload, respond)
   );
 
   return { server, startup };
 }
 
 export default async function startServer(port: number, rollbar: Rollbar) {
+  await decryptEnv();
+
   const { server, startup } = await makeServer(port, rollbar);
   const shutdown = await startup();
-
-  await decryptEnv();
 
   cleanup(exitCode => {
     shutdown().then(
