@@ -12,25 +12,43 @@
 
 **Slack Workspace:** [https://dev-cityofboston.slack.com](https://dev-cityofboston.slack.com)
 
-There are a few steps of busywork necessary to get everything up and running each day:
 
 ### To run:
 1. `npm run tunnel`
-2. `npm run dev`
-3. Copy forwarding HTTPS URL provided by Ngrok
-4. Go to `https://api.slack.com/apps/` and select your app
-5. Follow instructions for each Slack Feature below:
+1. `npm run dev`
+1. Copy forwarding HTTPS URL provided by Ngrok
+1. Go to `https://api.slack.com/apps/` and select your app
+1. Update all of the URLs for the new ngrok host name
+
+### Initial Setup
+
+#### App
+1. Settings => Basic Information
+1. Fill out your .env with Client ID, Client Secret, and Signing Secret
+
+#### Bots
+1. Features => Bot Users
+1. Create a bot user
+1. Features => OAuth and Permissions
+1. Copy the Bot OAuth user token to the `SLACK_BOT_TOKEN` .env variable
 
 #### Events (incoming messages from Slack)
 1. Features => Event Subscriptions
-2. Turn on “Enable Events” - after the first time, click “change” button inside the “Request URL” field
-3. Paste into “Request URL” field: `[forwarding URL from Ngrok]/slack/events` **(if you get a “valid URLs only please!” error, make sure there is no whitespace at the beginning of the URL)**
-4. At the bottom of the page, click “Save Changes”
+1. Turn on “Enable Events” - after the first time, click “change” button inside
+   the “Request URL” field
+1. Paste into “Request URL” field: `[forwarding URL from
+   Ngrok]/internal-slack/events` **(if you get a “valid URLs only please!”
+   error, make sure there is no whitespace at the beginning of the URL)**
+1. Add a "message.im" Bot Event subscription
+1. At the bottom of the page, click “Save Changes”
 
 #### Interactive Components (messages with buttons/dialogs/menus i.e. actions)
 1. Features => Interactive Components
-3. Paste into “Request URL” field: `[forwarding URL from Ngrok]/slack/interactive` **(if you get a “valid URLs only please!” error, make sure there is no whitespace at the beginning of the URL)**
-4. At the bottom of the page, click “Save Changes”
+1. Paste into “Request URL” field: `[forwarding URL from
+   Ngrok]/internal-slack/interactive` **(if you get a “valid URLs only please!”
+   error, make sure there is no whitespace at the beginning of the URL)**
+1. At the bottom of the page, click “Save Changes”
+
 
 ## Slack Guides
 
