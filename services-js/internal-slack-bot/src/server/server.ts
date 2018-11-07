@@ -58,14 +58,12 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   );
   const slackInteractionHandler = slackInteractionAdapter.requestListener();
 
-  if (process.env.NODE_ENV !== 'development') {
-    await server.register(loggingPlugin);
+  await server.register(loggingPlugin);
 
-    await server.register({
-      plugin: rollbarPlugin,
-      options: { rollbar },
-    });
-  }
+  await server.register({
+    plugin: rollbarPlugin,
+    options: { rollbar },
+  });
 
   server.route(adminOkRoute);
 
