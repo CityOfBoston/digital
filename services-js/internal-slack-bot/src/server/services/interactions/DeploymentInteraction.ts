@@ -3,8 +3,14 @@ import {
   ChatPostMessageArguments,
   MessageAttachment,
 } from '@slack/client';
-import { OPTIMISTIC_BLUE, YELLOW, GREEN } from '@cityofboston/react-fleet';
+import {
+  OPTIMISTIC_BLUE,
+  YELLOW,
+  GREEN,
+  FREEDOM_RED,
+} from '@cityofboston/react-fleet';
 import LRU from 'lru-cache';
+import { CodeBuild } from 'aws-sdk';
 
 export type DeploymentType = 'production' | 'staging';
 
@@ -55,12 +61,15 @@ type ServiceDeployStatus =
   | 'DEPLOYING'
   | 'DEPLOYED'
   | 'ERROR'
+  | 'FAILED'
   | 'IGNORED'
   | 'OUTOFDATE';
 
 type ServiceDeployRecord = {
   name: string;
+  variant: string | null;
   status: ServiceDeployStatus;
+  buildUrl: string | null;
   timestamp: number | null;
   userId: string | null;
   errorMessage: string | null;
@@ -77,8 +86,10 @@ type MessageBody = Pick<
   Exclude<keyof ChatPostMessageArguments, 'channel'>
 >;
 
+const DIGITAL_REPO_CODEBUILD_PROJECT = 'AppsDigitalDeploy';
 export class DeploymentInteraction {
   private slackClient: WebClient;
+  private codebuild = new CodeBuild();
   private deployChannelId: string;
 
   /** The latest commit we’ve seen for each service, to prevent stomping. */
@@ -96,7 +107,7 @@ export class DeploymentInteraction {
     commit,
     service,
   }: DeploymentNotificationPayload) {
-    if (environment !== 'production') {
+    if (environment !== 'production' && environment !== 'staging') {
       throw new Error(`Unknown deployment environment: ${environment}`);
     }
 
@@ -106,8 +117,10 @@ export class DeploymentInteraction {
     services.forEach(s => {
       this.commitsByService[s] = commit;
       serviceRecords[s] = {
-        name: s,
+        name: s.split('@')[0],
+        variant: s.split('@')[1] || null,
         status: 'REQUESTING',
+        buildUrl: null,
         userId: null, //'UDWA2N6AD',
         timestamp: null,
         errorMessage: null,
@@ -194,7 +207,9 @@ export class DeploymentInteraction {
     switch (status) {
       case 'REQUESTING':
         return {
-          title: service.name,
+          title: `${service.name}${
+            service.variant ? ` — ${service.variant}` : ''
+          }`,
           color: OPTIMISTIC_BLUE,
           callback_id: 'approve_deployment',
           actions: [
@@ -219,11 +234,20 @@ export class DeploymentInteraction {
           text: `👎 _This change was ignored by <@${service.userId}>._`,
         };
 
+      case 'ERROR':
+        return {
+          title: service.name,
+          color: FREEDOM_RED,
+          text: `🙀 _${service.errorMessage}_`,
+        };
+
       case 'DEPLOYING':
         return {
           title: service.name,
           color: YELLOW,
-          text: `🔜 _Deploy requested by <@${service.userId}>…_`,
+          text: `🔜 _Deploy requested by <@${service.userId}>…_${
+            service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
+          }`,
           // The TypeScript definition wants a string but a number is fine.
           ts: service.timestamp as any,
         };
@@ -232,7 +256,20 @@ export class DeploymentInteraction {
         return {
           title: service.name,
           color: GREEN,
-          text: `💥 _Deploy complete!_`,
+          text: `💥 <@${service.userId}>: _Your deploy succeeded!_${
+            service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
+          }`,
+          // The TypeScript definition wants a string but a number is fine.
+          ts: service.timestamp as any,
+        };
+
+      case 'FAILED':
+        return {
+          title: service.name,
+          color: FREEDOM_RED,
+          text: `😫 <@${service.userId}>: _Your deploy failed._${
+            service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
+          }`,
           // The TypeScript definition wants a string but a number is fine.
           ts: service.timestamp as any,
         };
@@ -248,7 +285,7 @@ export class DeploymentInteraction {
     }
   }
 
-  handleApproveInteraction(
+  async handleApproveInteraction(
     payload: InteractiveMessagePayload,
     respond: (message: MessageBody) => void
   ) {
@@ -269,24 +306,129 @@ export class DeploymentInteraction {
       return;
     }
 
-    // TODO(finh): Keep approved list of users who may do this
-    service.userId = payload.user.id;
-    service.timestamp = Date.now() / 1000;
+    try {
+      // TODO(finh): Keep approved list of users who may do this
+      service.userId = payload.user.id;
+      service.timestamp = Date.now() / 1000;
 
-    if (this.commitsByService[service.name] !== deploy.commit) {
-      service.status = 'OUTOFDATE';
-    } else if (action.value === 'ignore') {
-      service.status = 'IGNORED';
-    } else if (action.value === 'approve') {
-      service.status = 'DEPLOYING';
-      setTimeout(() => {
-        service.status = 'DEPLOYED';
+      if (this.commitsByService[service.name] !== deploy.commit) {
+        service.status = 'OUTOFDATE';
+      } else if (service.status !== 'REQUESTING') {
+        // ignore
+      } else if (action.value === 'ignore') {
+        service.status = 'IGNORED';
+      } else if (action.value === 'approve') {
+        const [buildUrl, successPromise] = await this.runDeploy(
+          deploy,
+          service
+        );
+
+        service.status = 'DEPLOYING';
         service.timestamp = Date.now() / 1000;
-        respond(this.makeDeploymentMessage(deploy));
-      }, 2000);
-    }
+        service.buildUrl = buildUrl;
 
+        successPromise.then(
+          success => {
+            service.status = success ? 'DEPLOYED' : 'FAILED';
+            service.timestamp = Date.now() / 1000;
+            respond(this.makeDeploymentMessage(deploy));
+          },
+          e => {
+            service.status = 'ERROR';
+            service.errorMessage = e.toString();
+            service.timestamp = Date.now() / 1000;
+            respond(this.makeDeploymentMessage(deploy));
+          }
+        );
+      }
+    } catch (e) {
+      service.status = 'ERROR';
+      service.errorMessage = e.toString();
+      // eslint-disable-next-line no-console
+      console.error(e);
+    }
     this.deploysByTimestamp.set(payload.message_ts, deploy);
     return this.makeDeploymentMessage(deploy);
+  }
+
+  /**
+   * This method starts the CodeBuild build process. It returns a URL to the
+   * CodeBuild job and a promise that will resolve with either true or false
+   * depending on whether the build succeeded or failed.
+   */
+  private async runDeploy(
+    deploy: DeployRecord,
+    service: ServiceDeployRecord
+  ): Promise<[string, Promise<boolean>]> {
+    const { build } = await this.codebuild
+      .startBuild({
+        projectName: DIGITAL_REPO_CODEBUILD_PROJECT,
+        sourceVersion: `${deploy.environment}/${service.name}${
+          service.variant ? `@${service.variant}` : ''
+        }`,
+      })
+      .promise();
+
+    if (!build) {
+      throw new Error('CodeBuild did not return a build.');
+    }
+
+    return [
+      `https://console.aws.amazon.com/codesuite/codebuild/projects/${DIGITAL_REPO_CODEBUILD_PROJECT}/build/${encodeURIComponent(
+        build.id!
+      )}/log`,
+      this.waitForBuild(build),
+    ];
+  }
+
+  private async waitForBuild(build: CodeBuild.Build): Promise<boolean> {
+    let interval;
+
+    try {
+      const startTime = Date.now();
+      return await new Promise<boolean>((resolve, reject) => {
+        interval = setInterval(async () => {
+          // We wrap the whole body in try/catch so we can make sure to
+          // resolve the promise and clear the interval.
+          try {
+            if (Date.now() - startTime > 1000 * 60 * 60 * 2) {
+              throw new Error('Timeout checking build status');
+            }
+
+            const { builds } = await this.codebuild
+              .batchGetBuilds({
+                ids: [build.id!],
+              })
+              .promise();
+
+            const latestBuild = builds && builds[0];
+
+            if (!latestBuild) {
+              throw new Error(`Did not get a result for ${build.id}`);
+            }
+
+            switch (latestBuild.buildStatus) {
+              case 'IN_PROGRESS':
+                break;
+              case 'SUCCEEDED':
+                resolve(true);
+                return;
+              case 'FAILED':
+                resolve(false);
+                return;
+              default:
+                throw new Error(
+                  `Unexpected build status: ${latestBuild.buildStatus}`
+                );
+            }
+          } catch (e) {
+            reject(e);
+          }
+        }, 5000);
+      });
+    } finally {
+      // No matter what happens, stop looping.
+      clearInterval(interval);
+    }
   }
 }

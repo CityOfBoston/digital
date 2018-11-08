@@ -271,14 +271,12 @@ export async function deregisterTaskDefinition(taskDefinitionArn: string) {
     .promise();
 }
 
-export function parseBranch(branch: string = process.env.TRAVIS_BRANCH!) {
+export function parseBranch(branch: string) {
   const branchMatch = branch.match(/([^/]*)\/([^@]*)(@(.*))?/);
 
   if (!branchMatch) {
     throw new Error(
-      `TRAVIS_BRANCH ${
-        process.env.TRAVIS_BRANCH
-      } did not match environment/service@variant pattern`
+      `Branch ${branch} did not match environment/service@variant pattern`
     );
   }
   const environment = branchMatch[1];
@@ -393,7 +391,7 @@ export async function waitForDeployment(
   }
 }
 
-export async function postToSlack(
+export async function postTravisToSlack(
   scriptPath: string,
   stage: 'start' | 'error' | 'complete' | 's3-complete',
   error?: string
@@ -411,7 +409,9 @@ export async function postToSlack(
       return;
     }
 
-    const { environment, serviceName, variant } = parseBranch();
+    const { environment, serviceName, variant } = parseBranch(
+      process.env.TRAVIS_BRANCH!
+    );
 
     const travisNum = `#${process.env.TRAVIS_BUILD_NUMBER}`;
     const travisUrl = `https://travis-ci.org/${

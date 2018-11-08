@@ -12,7 +12,8 @@
     "build": "tsc",
     "start": "node build/server",
     "prepare": "npm run build",
-    "travis-deploy": "travis-service-deploy Dockerfile"
+    "travis-deploy": "travis-service-deploy Dockerfile",
+    "codebuild-deploy": "codebuild-service-deploy Dockerfile"
   },
   "license": "CC0-1.0",
   "jest": {

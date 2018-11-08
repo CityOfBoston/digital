@@ -4,6 +4,8 @@ ENV WORKSPACE=internal-slack-bot
 
 WORKDIR /app
 
+RUN apk add --no-cache git openssl 
+
 # Install the AWS CLI
 RUN apk add --update python python-dev curl unzip git \
   && cd /tmp \
@@ -31,13 +33,15 @@ ENV NODE_OPTIONS=--use-openssl-ca
 ADD package-json.tar /app/
 ADD yarn.lock lerna.json /app/
 
-# We don’t run the scripts because they will try to build our custom packages,
-# which will fail because we don’t have the source code at this point.
+# We don't run the scripts because they will try to build our custom packages,
+# which will fail because we don't have the source code at this point.
 #
 # TODO(finh): Scope this down to $WORKSPACE when yarn has that capability.
 RUN yarn install --frozen-lockfile --ignore-scripts
 
 ADD . /app/
+
+RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 
 RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare 
 RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare-deploy 

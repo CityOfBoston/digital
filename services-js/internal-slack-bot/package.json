@@ -12,6 +12,7 @@
     "start": "node build/server",
     "prepare": "npm run build",
     "travis-deploy": "travis-service-deploy Dockerfile",
+    "codebuild-deploy": "codebuild-service-deploy Dockerfile",
     "tunnel": "npx ngrok http 8000",
     "test-deploy": "ts-node ./scripts/test-deploy.ts"
   },
@@ -45,6 +46,7 @@
     "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/deploy-tools": "^0.0.0",
+    "@types/aws-sdk": "^2.7.0",
     "@types/boom": "^7.2.0",
     "@types/hapi": "^17.0.19",
     "@types/lru-cache": "^4.1.1",
