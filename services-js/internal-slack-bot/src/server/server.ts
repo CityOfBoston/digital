@@ -14,6 +14,8 @@ import {
   loggingPlugin,
   adminOkRoute,
   rollbarPlugin,
+  headerKeys,
+  HeaderKeysOptions,
 } from '@cityofboston/hapi-common';
 
 import {
@@ -71,6 +73,16 @@ export async function makeServer(port: number, rollbar: Rollbar) {
     options: { rollbar },
   });
 
+  if (process.env.NODE_ENV === 'production' && !process.env.API_KEYS) {
+    throw new Error('Must set $API_KEYS in production');
+  }
+
+  server.auth.scheme('headerKeys', headerKeys);
+  server.auth.strategy('apiHeaderKeys', 'headerKeys', {
+    header: 'X-API-KEY',
+    keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
+  } as HeaderKeysOptions);
+
   server.route(adminOkRoute);
 
   // Handles all incoming events from Slack
@@ -120,6 +132,9 @@ export async function makeServer(port: number, rollbar: Rollbar) {
   server.route({
     method: 'POST',
     path: '/internal-slack/deploy',
+    options: {
+      auth: 'apiHeaderKeys',
+    },
     handler: async ({ payload }) => {
       await deploymentInteraction.handleDeploymentNotification(
         payload as DeploymentNotificationPayload
