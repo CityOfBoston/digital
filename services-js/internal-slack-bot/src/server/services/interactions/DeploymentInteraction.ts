@@ -158,9 +158,9 @@ export class DeploymentInteraction {
 
   protected makeDeploymentMessage(deploy: DeployRecord): MessageBody {
     const { commit, services } = deploy;
-    const commitUrl = this.urlForCommit(commit);
 
-    const text = `A ${
+    const commitUrl = this.urlForCommit(commit);
+    const text = `🚢 A ${
       deploy.environment
     } change [<${commitUrl}|${commit.substring(
       0,
@@ -168,23 +168,17 @@ export class DeploymentInteraction {
     )}>] is ready. Let’s get it shipped!`;
 
     return {
-      // We make text empty and use pretext to keep the little "delete" xs from
-      // appearing by each attachment.
-      text: '',
+      // Unfortunately using text means we get little remove xs by the
+      // attachments, but switching to "pretext" in an attachment prevents link
+      // unfurling from working.
+      text,
       unfurl_links: true,
       username: 'Shippy-Toe',
       icon_url:
         'https://avatars.slack-edge.com/2017-10-25/261992224516_aad5aecf95aedd33f079_48.png',
-      attachments: Object.values(services).map((service, i) => ({
-        ...this.makeServiceAttachment(commit, service),
-        ...(i === 0
-          ? {
-              pretext: text,
-              // Fallback is used as the content for desktop notifications.
-              fallback: text,
-            }
-          : {}),
-      })),
+      attachments: Object.values(services).map(service =>
+        this.makeServiceAttachment(commit, service)
+      ),
     };
   }
 
@@ -222,14 +216,14 @@ export class DeploymentInteraction {
       case 'IGNORED':
         return {
           title: service.name,
-          text: `_This change was ignored by <@${service.userId}>._`,
+          text: `👎 _This change was ignored by <@${service.userId}>._`,
         };
 
       case 'DEPLOYING':
         return {
           title: service.name,
           color: YELLOW,
-          text: `_Deploy requested by <@${service.userId}>…_`,
+          text: `🔜 _Deploy requested by <@${service.userId}>…_`,
           // The TypeScript definition wants a string but a number is fine.
           ts: service.timestamp as any,
         };
@@ -238,7 +232,7 @@ export class DeploymentInteraction {
         return {
           title: service.name,
           color: GREEN,
-          text: `_Deploy complete!_`,
+          text: `💥 _Deploy complete!_`,
           // The TypeScript definition wants a string but a number is fine.
           ts: service.timestamp as any,
         };
@@ -246,7 +240,7 @@ export class DeploymentInteraction {
       case 'OUTOFDATE':
         return {
           title: service.name,
-          text: '_There’s a newer version of this service to deploy._',
+          text: '🕰 _There’s a newer version of this service to deploy._',
         };
 
       default:
