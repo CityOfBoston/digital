@@ -11,7 +11,7 @@ import {
 } from '../../../lib/costs';
 
 import { PageDependencies } from '../../../pages/_app';
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
@@ -36,7 +36,7 @@ class CartPage extends React.Component<Props> {
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
 
     return (
-      <AppLayout showNav cart={deathCertificateCart}>
+      <PageLayout showNav cart={deathCertificateCart}>
         <div className="b-ff">
           <Head>
             <title>Boston.gov — Death Certificate Cart</title>
@@ -121,7 +121,7 @@ class CartPage extends React.Component<Props> {
             </div>
           )}
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 }

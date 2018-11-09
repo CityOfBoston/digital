@@ -6,7 +6,7 @@ import { css } from 'emotion';
 import { DeathCertificateSearchResults } from '../../types';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 
 import Pagination from '../../common/Pagination';
 
@@ -115,7 +115,7 @@ class SearchPage extends React.Component<Props, State> {
     const { query } = this.state;
 
     return (
-      <AppLayout showNav cart={deathCertificateCart}>
+      <PageLayout showNav cart={deathCertificateCart}>
         <div>
           <div className="b-c b-c--nbp">
             <Head>
@@ -176,7 +176,7 @@ class SearchPage extends React.Component<Props, State> {
           {results && results.resultCount > 0 && this.renderResults(results)}
           {results && results.resultCount === 0 && this.renderNoResults()}
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 import Cart from '../../store/DeathCertificateCart';
 
 export interface Props {
@@ -18,7 +18,7 @@ export default class ConfirmationContent extends React.Component<Props> {
     const { orderId, contactEmail, cart } = this.props;
 
     return (
-      <AppLayout showNav cart={cart}>
+      <PageLayout showNav cart={cart}>
         <div className="b-c">
           <Head>
             <title>Boston.gov — Death Certificate Order Complete</title>
@@ -63,7 +63,7 @@ export default class ConfirmationContent extends React.Component<Props> {
             </Link>
           </div>
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 }

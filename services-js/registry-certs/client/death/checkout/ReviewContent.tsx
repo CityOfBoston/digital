@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 
 import {
   PERCENTAGE_CC_STRING,
@@ -102,7 +102,7 @@ export default class ReviewContent extends React.Component<Props, State> {
       (cart.containsPending && !acceptPendingCertificates);
 
     return (
-      <AppLayout>
+      <PageLayout>
         <div className="b-c b-c--hsm b-c--nbp">
           <Head>
             <title>Boston.gov — Death Certificate Payment</title>
@@ -296,7 +296,7 @@ export default class ReviewContent extends React.Component<Props, State> {
             of Boston.
           </div>
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 }
