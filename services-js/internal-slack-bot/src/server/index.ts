@@ -20,7 +20,7 @@ const rollbar = new Rollbar({
 
 const start = require('./server').default;
 
-start(process.env.PORT || 8000, rollbar).catch(err => {
+start(parseInt(process.env.PORT || '8000', 10), rollbar).catch(err => {
   console.error('Error starting server', err);
   process.exit(1);
 });
