@@ -1,16 +1,19 @@
+import LRU from 'lru-cache';
+import { CodeBuild } from 'aws-sdk';
+import fetch from 'node-fetch';
+
 import {
   WebClient,
   ChatPostMessageArguments,
   MessageAttachment,
 } from '@slack/client';
+
 import {
   OPTIMISTIC_BLUE,
   YELLOW,
   GREEN,
   FREEDOM_RED,
 } from '@cityofboston/react-fleet';
-import LRU from 'lru-cache';
-import { CodeBuild } from 'aws-sdk';
 
 export type DeploymentType = 'production' | 'staging';
 
@@ -76,6 +79,7 @@ type ServiceDeployRecord = {
 };
 
 type DeployRecord = {
+  repo: string;
   environment: DeploymentType;
   commit: string;
   services: { [service: string]: ServiceDeployRecord };
@@ -86,20 +90,33 @@ type MessageBody = Pick<
   Exclude<keyof ChatPostMessageArguments, 'channel'>
 >;
 
+export interface GitHubCredentials {
+  username: string | undefined;
+  password: string | undefined;
+}
+
+const DIGITAL_REPO = 'CityOfBoston/digital';
 const DIGITAL_REPO_CODEBUILD_PROJECT = 'AppsDigitalDeploy';
+
 export class DeploymentInteraction {
   private slackClient: WebClient;
   private codebuild = new CodeBuild();
   private deployChannelId: string;
+  private githubCredentials: GitHubCredentials;
 
   /** The latest commit we’ve seen for each service, to prevent stomping. */
   private commitsByService: { [service: string]: string } = {};
   /** Key is the timestamp of the original message. */
   private deploysByTimestamp = LRU<string, DeployRecord>(100);
 
-  constructor(slackClient: WebClient, deployChannelId: string) {
+  constructor(
+    slackClient: WebClient,
+    deployChannelId: string,
+    githubCredentials: GitHubCredentials
+  ) {
     this.slackClient = slackClient;
     this.deployChannelId = deployChannelId;
+    this.githubCredentials = githubCredentials;
   }
 
   async handleDeploymentNotification({
@@ -131,6 +148,7 @@ export class DeploymentInteraction {
       environment: environment as DeploymentType,
       commit,
       services: serviceRecords,
+      repo: DIGITAL_REPO,
     };
 
     const postResponse = await this.slackClient.chat.postMessage({
@@ -360,6 +378,13 @@ export class DeploymentInteraction {
     deploy: DeployRecord,
     service: ServiceDeployRecord
   ): Promise<[string, Promise<boolean>]> {
+    // For prod we first move the production branch for the service, then
+    // trigger the CodeBuild. This gives us a record of what has and hasn’t
+    // shipped to prod.
+    if (deploy.environment === 'production') {
+      await this.updateProductionBranch(deploy, service);
+    }
+
     const { build } = await this.codebuild
       .startBuild({
         projectName: DIGITAL_REPO_CODEBUILD_PROJECT,
@@ -429,6 +454,45 @@ export class DeploymentInteraction {
     } finally {
       // No matter what happens, stop looping.
       clearInterval(interval);
+    }
+  }
+
+  private makeGitHubAuthorization() {
+    return (
+      'Basic ' +
+      Buffer.from(
+        this.githubCredentials.username + ':' + this.githubCredentials.password
+      ).toString('base64')
+    );
+  }
+
+  private async updateProductionBranch(
+    deploy: DeployRecord,
+    service: ServiceDeployRecord
+  ) {
+    const productionBranchRef = `refs/heads/production/${service.name}`;
+
+    // TODO(finh): Support creating the ref if it doesn’t exist already.
+    const updateResponse = await fetch(
+      `https://api.github.com/repos/${deploy.repo}/git/${productionBranchRef}`,
+      {
+        method: 'PATCH',
+        headers: {
+          Authorization: this.makeGitHubAuthorization(),
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify({
+          sha: deploy.commit,
+          // production releases must always be fast-forward
+          force: false,
+        }),
+      }
+    );
+
+    if (!updateResponse.ok) {
+      throw new Error(
+        `Could not update branch: ${await updateResponse.text()}`
+      );
     }
   }
 }

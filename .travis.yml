@@ -18,8 +18,6 @@ before_install:
 stages:
 - name: test
   if: branch !~ /^staging\//
-- name: deploy
-  if: branch =~ /^production\//  AND type IN (push, api)
 jobs:
   include:
   - stage: test
@@ -28,6 +26,13 @@ jobs:
     script:
     - yarn run test
     - yarn run test:templates
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script:
+      - lerna exec --stream --scope @cityofboston/deploy-tools report-updated-services
+      on:
+      - develop
   - if: type IN (pull_request)
     install:
     - gem install travis-artifacts
@@ -40,30 +45,6 @@ jobs:
     after_failure:
     - travis-artifacts upload --path services-js/access-boston/screenshots --target-path
       travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID
-  - stage: deploy
-    install:
-      - yarn install --frozen-lockfile --ignore-scripts
-      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
-        prepare
-    script: skip
-    deploy:
-      provider: script
-      skip_cleanup: true
-      script: deploy/travis-deploy.sh
-      on:
-        all_branches: true
-  # - stage: stage
-  #   install:
-  #     - yarn install --frozen-lockfile --ignore-scripts
-  #     - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
-  #       prepare
-  #   script: skip
-  #   deploy:
-  #     provider: script
-  #     skip_cleanup: true
-  #     script: lerna exec --stream --scope @cityofboston/deploy-tools report-updated-services
-  #     on:
-  #       all_branches: true
 notifications:
   slack:
     on_success: always
