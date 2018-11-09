@@ -22,17 +22,6 @@ fi
 # Useful for debugging the AWS syncs
 ls
 
-# If we installed any SSH keys, install them to where they’ll be found.
-if [ -e id_rsa ]; then
-  mkdir -p /root/.ssh
-  chmod 700 /root/.ssh
-
-  cp id_rsa* /root/.ssh
-
-  chmod 644 /root/.ssh/id_rsa.pub
-  chmod 600 /root/.ssh/id_rsa
-fi
-
 echo "entrypoint.sh: command"
 
 exec "$@"

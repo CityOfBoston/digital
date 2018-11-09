@@ -95,7 +95,11 @@ export async function makeServer(port: number, rollbar: Rollbar) {
 
   const deploymentInteraction = new DeploymentInteraction(
     slackClient,
-    process.env.WORKSPACE_CHANNEL_ID_DIGITAL_BUILDS!
+    process.env.WORKSPACE_CHANNEL_ID_DIGITAL_BUILDS!,
+    {
+      username: process.env.GITHUB_USERNAME,
+      password: process.env.GITHUB_ACCESS_TOKEN,
+    }
   );
 
   await server.register(loggingPlugin);
