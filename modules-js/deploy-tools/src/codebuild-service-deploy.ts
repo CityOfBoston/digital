@@ -18,7 +18,6 @@ import {
   waitForDeployment,
   deregisterTaskDefinition,
   updateServiceTaskDefinition,
-  postTravisToSlack,
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
@@ -29,7 +28,7 @@ const args = parseArgs(process.argv, { boolean: true });
 const dockerfilePath = args._.pop()!;
 
 const { environment, serviceName, variant } = parseBranch(
-  args['branch'] || process.env.TRAVIS_BRANCH!
+  process.env.CODEBUILD_SOURCE_VERSION!
 );
 
 // If true, runs Docker in the service’s own directory. Use for things like Ruby
@@ -40,17 +39,19 @@ const workspaceDir = isolatedDocker ? '.' : path.resolve('../..');
 const cacheTag = 'latest';
 
 (async function() {
-  await postTravisToSlack(__filename, 'start');
+  // await postTravisToSlack(__filename, 'start');
 
   const repository = await getRepository(environment, serviceName);
 
   const commit = (
-    process.env.TRAVIS_COMMIT ||
+    process.env.CODEBUILD_RESOLVED_SOURCE_VERSION ||
     Math.random()
       .toString(36)
       .substring(2, 15)
   ).substr(0, 8);
-  const buildNum = process.env.TRAVIS_BUILD_NUMBER || '0';
+  // CodeBuild doesn’t have a build version number, so this is the best we can
+  // do for a monotonically-increasing value.
+  const buildNum = process.env.CODEBUILD_START_TIME || '0';
 
   console.error(BANNER);
 
@@ -64,7 +65,7 @@ const cacheTag = 'latest';
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
   if (packageJson.scripts && packageJson.scripts.predeploy) {
     // We do run a yarn install for the whole repo during deploy. See
-    // .travis.yml. We still do run the "prepare" script though in case
+    // buildspec.yml. We still do run the "prepare" script though in case
     // "predeploy" requires packages to be compiled.
     console.error('🌬 Running predeploy script…');
     await runScopedLernaScript(serviceName, 'prepare');
@@ -84,7 +85,7 @@ const cacheTag = 'latest';
 
   const versionedTag =
     environment === 'production'
-      ? `${repository}:travis-${buildNum}-${commit}`
+      ? `${repository}:codebuild-${buildNum}-${commit}`
       : `${repository}:deploy-${variant || 'default'}`;
   const buildTags = [`${repository}:${cacheTag}`, versionedTag];
 
@@ -155,7 +156,7 @@ const cacheTag = 'latest';
       }
     );
   } catch (e) {
-    await postTravisToSlack('error', e.message);
+    // await postTravisToSlack('error', e.message);
 
     if (oldTaskDefinitionArn) {
       console.error(e.message);
@@ -198,7 +199,7 @@ const cacheTag = 'latest';
     console.error();
   }
 
-  await postTravisToSlack(__filename, 'complete');
+  // await postTravisToSlack(__filename, 'complete');
 
   console.error(
     `💅 Successfully deployed ${serviceName}${
@@ -207,12 +208,13 @@ const cacheTag = 'latest';
   );
 })().catch(e => {
   console.error(e);
-  postTravisToSlack('error', e.toString()).then(
-    () => {
-      process.exit(-1);
-    },
-    () => {
-      process.exit(-1);
-    }
-  );
+  // postTravisToSlack('error', e.toString()).then(
+  //   () => {
+  //     process.exit(-1);
+  //   },
+  //   () => {
+  //     process.exit(-1);
+  //   }
+  // );
+  process.exit(-1);
 });

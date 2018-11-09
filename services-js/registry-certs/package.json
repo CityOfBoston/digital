@@ -19,6 +19,7 @@
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static",
     "travis-deploy": "travis-service-deploy Dockerfile",
+    "codebuild-deploy": "codebuild-service-deploy Dockerfile",
     "prepare-deploy": "build-storybook -s static",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",

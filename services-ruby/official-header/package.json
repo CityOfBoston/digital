@@ -5,7 +5,8 @@
   "main": "header.js",
   "scripts": {
     "predeploy": "gulp build",
-    "travis-deploy": "travis-service-deploy --isolated-docker deploy/Dockerfile"
+    "travis-deploy": "travis-service-deploy --isolated-docker deploy/Dockerfile",
+    "codebuild-deploy": "codebuild-service-deploy --isolated-docker deploy/Dockerfile"
   },
   "author": "City of Boston DoIT",
   "license": "CC0-1.0",

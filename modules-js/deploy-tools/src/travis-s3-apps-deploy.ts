@@ -6,7 +6,7 @@ import parseArgs from 'minimist';
 import {
   BANNER,
   uploadToS3,
-  postToSlack,
+  postTravisToSlack,
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
@@ -15,12 +15,14 @@ import {
 const args = parseArgs(process.argv, { boolean: true });
 const buildDirPath = args._.pop()!;
 
-const { environment, serviceName, variant } = parseBranch();
+const { environment, serviceName, variant } = parseBranch(
+  process.env.TRAVIS_BRANCH!
+);
 const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
 const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
 
 (async function() {
-  await postToSlack(__filename, 'start');
+  await postTravisToSlack(__filename, 'start');
 
   console.error(BANNER);
 
@@ -50,12 +52,12 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
   await uploadToS3(buildDirPath, bucket, serviceName);
   console.error();
 
-  await postToSlack(__filename, 's3-complete');
+  await postTravisToSlack(__filename, 's3-complete');
 
   console.error(`💅 Successfully uploaded ${serviceName} to ${bucket}.`);
 })().catch(e => {
   console.error(e);
-  postToSlack('error', e.toString()).then(
+  postTravisToSlack('error', e.toString()).then(
     () => {
       process.exit(-1);
     },

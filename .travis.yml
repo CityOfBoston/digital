@@ -6,6 +6,8 @@ addons:
 language: node_js
 env:
 - TZ=America/New_York
+git:
+  depth: 500
 cache: yarn
 branches:
   only:
@@ -18,7 +20,9 @@ stages:
 - name: test
   if: branch !~ /^staging\//
 - name: deploy
-  if: branch =~ /^(production|staging)\//  AND type IN (push)
+  if: branch =~ /^production\//  AND type IN (push, api)
+- name: stage
+  if: branch =~ /^staging\// AND type IN (push, api)
 jobs:
   include:
   - stage: test
@@ -37,14 +41,26 @@ jobs:
       travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID
   - stage: deploy
     install:
-    - yarn install --frozen-lockfile --ignore-scripts
-    - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
-      prepare
+      - yarn install --frozen-lockfile --ignore-scripts
+      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
+        prepare
     script: skip
     deploy:
       provider: script
       skip_cleanup: true
       script: deploy/travis-deploy.sh
+      on:
+        all_branches: true
+  - stage: stage
+    install:
+      - yarn install --frozen-lockfile --ignore-scripts
+      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies
+        prepare
+    script: skip
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script: lerna exec --stream --scope @cityofboston/deploy-tools report-updated-services
       on:
         all_branches: true
 notifications:

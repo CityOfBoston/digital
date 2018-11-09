@@ -21,7 +21,8 @@
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name access-boston --target typescript --output src/client/graphql/queries.ts && prettier --write src/client/graphql/queries.ts",
     "prepare-deploy": "build-storybook -s static",
-    "travis-deploy": "travis-service-deploy deploy/Dockerfile"
+    "travis-deploy": "travis-service-deploy deploy/Dockerfile",
+    "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel"

@@ -12,8 +12,10 @@
     "test": "jest --passWithNoTests"
   },
   "bin": {
+    "codebuild-service-deploy": "bin/codebuild-service-deploy.js",
     "travis-service-deploy": "bin/travis-service-deploy.js",
-    "travis-s3-apps-deploy": "bin/travis-s3-apps-deploy.js"
+    "travis-s3-apps-deploy": "bin/travis-s3-apps-deploy.js",
+    "report-updated-services": "bin/report-updated-services.js"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-typescript"
@@ -22,7 +24,9 @@
     "@slack/client": "^4.3.1",
     "aws-sdk": "^2.245.1",
     "date-fns": "^1.29.0",
+    "lerna": "3.4.0",
     "minimist": "^1.2.0",
+    "node-fetch": "^2.0.0",
     "shelljs": "^0.8.2",
     "tar": "^4.4.3"
   },
@@ -33,6 +37,7 @@
     "@types/jest": "23.x.x",
     "@types/minimist": "^1.2.0",
     "@types/node": "^8.0.0",
+    "@types/node-fetch": "^2.1.2",
     "@types/shelljs": "^0.8.0",
     "jest": "23.6.0",
     "rimraf": "^2.6.2",
