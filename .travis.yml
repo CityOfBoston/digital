@@ -28,14 +28,18 @@ jobs:
   - stage: test
     if: type IN (push)
     install: yarn install --frozen-lockfile
-    script: yarn run test
+    script:
+    - yarn run test
+    - yarn run test:templates
   - if: type IN (pull_request)
     install:
     - gem install travis-artifacts
     - yarn install --frozen-lockfile --ignore-scripts
     - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies
       prepare
-    script: yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
+    script:
+    - yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
+    - yarn run test:templates:since $TRAVIS_PULL_REQUEST_SHA^1
     after_failure:
     - travis-artifacts upload --path services-js/access-boston/screenshots --target-path
       travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID
