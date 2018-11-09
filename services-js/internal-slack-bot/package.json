@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@cityofboston/hapi-common": "^0.0.0",
-    "@cityofboston/react-fleet": "^0.0.0",
     "@cityofboston/srv-decrypt-env": "^0.0.0",
     "@slack/client": "^4.8.0",
     "@slack/events-api": "^2.1.1",
