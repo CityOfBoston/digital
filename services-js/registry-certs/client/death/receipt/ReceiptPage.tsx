@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import { DeathCertificateOrder } from '../../types';
 import { GetInitialProps } from '../../../pages/_app';
 
-import { GRAY_200, MEDIA_PRINT } from '../../common/style-constants';
+import { GRAY_200, MEDIA_PRINT } from '@cityofboston/react-fleet';
 
 interface Props {
   order: DeathCertificateOrder | null;

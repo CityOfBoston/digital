@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
 import DeathCertificateCart from '../store/DeathCertificateCart';
-import { CHARLES_BLUE, SERIF } from './style-constants';
+import { CHARLES_BLUE, SERIF } from '@cityofboston/react-fleet';
 
 interface Props {
   cart: DeathCertificateCart;

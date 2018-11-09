@@ -11,18 +11,15 @@ The source code for ordering registry certificates online.
 This is a Node project using the [Next.js](https://github.com/zeit/next.js/)
 framework for server-side rendering.
 
- * **Development Server**: `npm run dev` <http://localhost:3000/>
- * **React Storybook**: `npm run storybook` <http://localhost:9001/>
- * **Gulp**: `npx gulp watch`
- * **Tests**: `npx jest` or `npx jest --watch`
- * **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
- * **Typecheck**: `npx flow`
+ * **Development Server**: `yarn dev` <http://localhost:3000/>
+ * **React Storybook**: `yarn storybook` <http://localhost:9001/>
+ * **Tests**: `yarn test`
 
  ## Testing
 
 You can use GraphiQL to run GraphQL queries against the backend: <http://localhost:3000/graphiql>
 
-Test query for submitting an order:
+Test query for submitting a death certificate order:
 
 (You will need to update `idempotencyKey` in each request.)
 
