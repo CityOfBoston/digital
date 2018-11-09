@@ -32,7 +32,7 @@ jobs:
       script:
       - lerna exec --stream --scope @cityofboston/deploy-tools report-updated-services
       on:
-      - develop
+        branch: develop
   - if: type IN (pull_request)
     install:
     - gem install travis-artifacts
