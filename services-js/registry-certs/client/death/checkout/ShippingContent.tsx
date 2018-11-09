@@ -5,7 +5,7 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import InputMask from 'react-input-mask';
 
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 
 import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
@@ -117,7 +117,7 @@ export default class ShippingContent extends React.Component<Props, State> {
     } = order;
 
     return (
-      <AppLayout>
+      <PageLayout>
         <div className="b-c b-c--hsm">
           <Head>
             <title>Boston.gov — Death Certificates — Checkout</title>
@@ -420,7 +420,7 @@ export default class ShippingContent extends React.Component<Props, State> {
             </div>
           </form>
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 

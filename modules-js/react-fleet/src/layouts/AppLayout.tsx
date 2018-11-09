@@ -45,9 +45,7 @@ export default function AppLayout({
 
           {secondaryNav}
 
-          {/*<div className="b-c" style={{ paddingBottom: 0 }}>*/}
           {breadcrumbNav}
-          {/*</div>*/}
 
           <div id="content-start" className="a11y--content-start" />
 

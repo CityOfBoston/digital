@@ -14,13 +14,10 @@ const parentLinks: Link[] = [
   },
 ];
 
-const currentPage = 'Death Certificates';
-
-const currentPageLink = (
-  <a href="/birth" aria-current="page" style={{ color: '#000' }}>
-    Birth Certificates
-  </a>
-);
+const currentPage = {
+  url: '/death',
+  text: 'Death Certificates',
+};
 
 storiesOf('Navigation/Breadcrumb', module)
   .add('single level', () => (
@@ -28,7 +25,4 @@ storiesOf('Navigation/Breadcrumb', module)
   ))
   .add('several levels deep', () => (
     <BreadcrumbNav parentLinks={parentLinks} currentPage={currentPage} />
-  ))
-  .add('element passed in for current page', () => (
-    <BreadcrumbNav parentLinks={parentLinks} currentPage={currentPageLink} />
   ));

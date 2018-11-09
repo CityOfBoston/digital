@@ -16,7 +16,7 @@ import {
   SERVICE_FEE_URI,
 } from '../../../lib/costs';
 
-import AppLayout from '../../AppLayout';
+import PageLayout from '../../PageLayout';
 
 interface InitialProps {
   id: string;
@@ -183,7 +183,7 @@ class CertificatePage extends React.Component<Props, State> {
       : null;
 
     return (
-      <AppLayout showNav cart={deathCertificateCart}>
+      <PageLayout showNav cart={deathCertificateCart}>
         <div className="b-ff">
           <Head>
             <title>
@@ -250,7 +250,7 @@ class CertificatePage extends React.Component<Props, State> {
             </div>
           </div>
         </div>
-      </AppLayout>
+      </PageLayout>
     );
   }
 

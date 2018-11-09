@@ -28,7 +28,7 @@ const secondaryNav = (
 const breadcrumbNav = (
   <BreadcrumbNav
     parentLinks={[{ url: '#', text: 'Departments' }]}
-    currentPage="Registry"
+    currentPage={{ url: '#', text: 'Registry' }}
     className="p-a300"
   />
 );

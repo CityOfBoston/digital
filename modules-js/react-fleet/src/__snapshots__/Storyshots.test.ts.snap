@@ -2159,7 +2159,7 @@ Array [
             <a
               aria-current="page"
               className="css-xtnqqy"
-              href="http://localhost/"
+              href="#"
             >
               Registry
             </a>
@@ -2421,7 +2421,7 @@ Array [
             <a
               aria-current="page"
               className="css-xtnqqy"
-              href="http://localhost/"
+              href="#"
             >
               Registry
             </a>
@@ -2484,99 +2484,6 @@ Array [
     }
   />,
 ]
-`;
-
-exports[`Storyshots Navigation/Breadcrumb element passed in for current page 1`] = `
-<nav
-  aria-label="Breadcrumbs"
-  className="brc css-1bakzg2 undefined"
->
-  <ul
-    className="brc-l"
-  >
-    <li
-      className="brc-l-i"
-    >
-      <a
-        href="https://www.boston.gov/"
-      >
-        Home
-      </a>
-      <span
-        aria-hidden="true"
-        className="brc-s"
-        style={
-          Object {
-            "cursor": "default",
-          }
-        }
-      >
-         
-        ›
-         
-      </span>
-    </li>
-    <li
-      className="brc-l-i"
-    >
-      <a
-        href="https://www.boston.gov/departments"
-      >
-        Departments
-      </a>
-      <span
-        aria-hidden="true"
-        className="brc-s"
-        style={
-          Object {
-            "cursor": "default",
-          }
-        }
-      >
-         
-        ›
-         
-      </span>
-    </li>
-    <li
-      className="brc-l-i"
-    >
-      <a
-        href="https://www.boston.gov/departments/registry"
-      >
-        Registry: Birth, death, and marriage
-      </a>
-      <span
-        aria-hidden="true"
-        className="brc-s"
-        style={
-          Object {
-            "cursor": "default",
-          }
-        }
-      >
-         
-        ›
-         
-      </span>
-    </li>
-    <li
-      className="brc-l-i"
-    >
-      <a
-        aria-current="page"
-        href="/birth"
-        style={
-          Object {
-            "color": "#000",
-          }
-        }
-      >
-        Birth Certificates
-      </a>
-    </li>
-  </ul>
-</nav>
 `;
 
 exports[`Storyshots Navigation/Breadcrumb several levels deep 1`] = `
@@ -2659,7 +2566,7 @@ exports[`Storyshots Navigation/Breadcrumb several levels deep 1`] = `
       <a
         aria-current="page"
         className="css-xtnqqy"
-        href="http://localhost/"
+        href="/death"
       >
         Death Certificates
       </a>
@@ -2704,7 +2611,7 @@ exports[`Storyshots Navigation/Breadcrumb single level 1`] = `
       <a
         aria-current="page"
         className="css-xtnqqy"
-        href="http://localhost/"
+        href="/death"
       >
         Death Certificates
       </a>

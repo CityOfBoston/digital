@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { css } from 'emotion';
 
 import { FREEDOM_RED } from '../utilities/constants';
@@ -10,7 +10,7 @@ export interface Link {
 
 interface Props {
   parentLinks: Link[];
-  currentPage: ReactNode | string;
+  currentPage: Link;
   className?: string;
 }
 
@@ -28,14 +28,7 @@ const LAST_BREADCRUMB_STYLE = css({
  * Breadcrumb navigation for use in Boston.gov web applications.
  *
  * Starts with a “Home” link to https://www.boston.gov, followed by any parent
- * links for the current page.
- *
- * If a string value is passed in for currentPage, a link will be created with
- * currentPage as the text and the window.location.href as the url.
- *
- * Otherwise, any element may be passed in for currentPage. Note: it is good
- * practice to add “aria-current="page"” to the <a> element that will be
- * passed in.
+ * links for the current page, and then the link for the current page.
  *
  * https://www.w3.org/TR/wai-aria-practices/#breadcrumb
  */
@@ -46,18 +39,6 @@ export default function BreadcrumbNav(props: Props): JSX.Element {
       ›{' '}
     </span>
   );
-
-  function currentPageLink(): JSX.Element {
-    return (
-      <a
-        href={window.location.href}
-        className={LAST_BREADCRUMB_STYLE}
-        aria-current="page"
-      >
-        {props.currentPage}
-      </a>
-    );
-  }
 
   return (
     <nav
@@ -80,9 +61,13 @@ export default function BreadcrumbNav(props: Props): JSX.Element {
         ))}
 
         <li className="brc-l-i">
-          {typeof props.currentPage === 'string'
-            ? currentPageLink()
-            : props.currentPage}
+          <a
+            href={props.currentPage.url}
+            className={LAST_BREADCRUMB_STYLE}
+            aria-current="page"
+          >
+            {props.currentPage.text}
+          </a>
         </li>
       </ul>
     </nav>
