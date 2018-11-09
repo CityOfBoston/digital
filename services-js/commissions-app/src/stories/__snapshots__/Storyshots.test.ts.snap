@@ -5074,7 +5074,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
 `;
 
 exports[`Storyshots ApplyPage default 1`] = `
-<div>
+Array [
   <a
     className="btn a11y--h a11y--f"
     href="#content-start"
@@ -5087,14 +5087,14 @@ exports[`Storyshots ApplyPage default 1`] = `
     tabIndex={1}
   >
     Jump to content
-  </a>
+  </a>,
   <input
     aria-label="Open Boston.gov menu"
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
     type="checkbox"
-  />
+  />,
   <nav
     aria-label="Boston.gov menu"
     className="nv-m"
@@ -5139,7 +5139,7 @@ exports[`Storyshots ApplyPage default 1`] = `
 ",
       }
     }
-  />
+  />,
   <div
     className="mn--full-ie"
   >
@@ -6243,7 +6243,7 @@ exports[`Storyshots ApplyPage default 1`] = `
         </div>
       </main>
     </div>
-  </div>
+  </div>,
   <footer
     className="ft"
     dangerouslySetInnerHTML={
@@ -6269,12 +6269,12 @@ exports[`Storyshots ApplyPage default 1`] = `
         "zIndex": 2,
       }
     }
-  />
-</div>
+  />,
+]
 `;
 
 exports[`Storyshots ApplyPage submitted successfully 1`] = `
-<div>
+Array [
   <a
     className="btn a11y--h a11y--f"
     href="#content-start"
@@ -6287,14 +6287,14 @@ exports[`Storyshots ApplyPage submitted successfully 1`] = `
     tabIndex={1}
   >
     Jump to content
-  </a>
+  </a>,
   <input
     aria-label="Open Boston.gov menu"
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
     type="checkbox"
-  />
+  />,
   <nav
     aria-label="Boston.gov menu"
     className="nv-m"
@@ -6339,7 +6339,7 @@ exports[`Storyshots ApplyPage submitted successfully 1`] = `
 ",
       }
     }
-  />
+  />,
   <div
     className="mn--full-ie"
   >
@@ -6461,7 +6461,7 @@ exports[`Storyshots ApplyPage submitted successfully 1`] = `
         </div>
       </main>
     </div>
-  </div>
+  </div>,
   <footer
     className="ft"
     dangerouslySetInnerHTML={
@@ -6487,8 +6487,8 @@ exports[`Storyshots ApplyPage submitted successfully 1`] = `
         "zIndex": 2,
       }
     }
-  />
-</div>
+  />,
+]
 `;
 
 exports[`Storyshots CommissionsListSection default 1`] = `

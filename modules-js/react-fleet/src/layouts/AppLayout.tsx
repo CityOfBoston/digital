@@ -1,24 +1,38 @@
-import React, { ReactNode } from 'react';
+import React, { MouseEvent, ReactNode } from 'react';
 
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 
 export interface Props {
-  nav?: ReactNode;
+  secondaryNav?: ReactNode;
+  breadcrumbNav?: ReactNode;
   children?: ReactNode;
 }
 
-export default function AppLayout({ nav, children }: Props) {
-  // TODO(fin): remove wrapper <div> and return an array w/ React 16
+/**
+ * Standard layout component to frame freestanding React web applications and
+ * seamlessly match with all other pages on the Boston.gov site.
+ *
+ * Provides a skip link to main content and Boston.gov site navigation,
+ * header, and footer.
+ *
+ * Includes options to pass in a secondary navigation component, as well as
+ * the breadcrumb navigation component.
+ */
+export default function AppLayout({
+  secondaryNav,
+  breadcrumbNav,
+  children,
+}: Props) {
   return (
-    <div>
+    <>
       <a
         href="#content-start"
         tabIndex={1}
         className="btn a11y--h a11y--f"
         style={{ margin: 4 }}
-        onClick={ev => ev.currentTarget.blur()}
+        onClick={(ev: MouseEvent<HTMLAnchorElement>) => ev.currentTarget.blur()}
       >
         Jump to content
       </a>
@@ -26,10 +40,14 @@ export default function AppLayout({ nav, children }: Props) {
       <Menu />
 
       <div className="mn--full-ie">
-        <div className={`mn mn--full ${nav ? 'mn--nv-s' : ''}`}>
+        <div className={`mn mn--full ${secondaryNav ? 'mn--nv-s' : ''}`}>
           <Header />
 
-          {nav}
+          {secondaryNav}
+
+          {/*<div className="b-c" style={{ paddingBottom: 0 }}>*/}
+          {breadcrumbNav}
+          {/*</div>*/}
 
           <div id="content-start" className="a11y--content-start" />
 
@@ -38,6 +56,6 @@ export default function AppLayout({ nav, children }: Props) {
       </div>
 
       <Footer style={{ position: 'relative', zIndex: 2 }} />
-    </div>
+    </>
   );
 }
