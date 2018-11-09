@@ -8,13 +8,6 @@ import {
   MessageAttachment,
 } from '@slack/client';
 
-import {
-  OPTIMISTIC_BLUE,
-  YELLOW,
-  GREEN,
-  FREEDOM_RED,
-} from '@cityofboston/react-fleet';
-
 export type DeploymentType = 'production' | 'staging';
 
 /**
@@ -97,6 +90,11 @@ export interface GitHubCredentials {
 
 const DIGITAL_REPO = 'CityOfBoston/digital';
 const DIGITAL_REPO_CODEBUILD_PROJECT = 'AppsDigitalDeploy';
+
+const FREEDOM_RED = '#fb4d42';
+const GREEN = '#62A744';
+const OPTIMISTIC_BLUE = '#288be4';
+const YELLOW = '#fcb61a';
 
 export class DeploymentInteraction {
   private slackClient: WebClient;
