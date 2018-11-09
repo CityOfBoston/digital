@@ -27,7 +27,6 @@ import {
 export async function makeServer(port: number, rollbar: Rollbar) {
   const serverOptions = {
     port,
-    host: 'localhost',
     ...(process.env.USE_SSL
       ? {
           tls: {
