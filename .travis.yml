@@ -7,7 +7,7 @@ language: node_js
 env:
 - TZ=America/New_York
 git:
-  depth: 500
+  depth: false
 cache: yarn
 branches:
   only:
