@@ -5,7 +5,6 @@
   "license": "CC0-1.0",
   "private": true,
   "scripts": {
-    "test:reset": "rimraf ./build ../template-test.lock",
     "test": "jest"
   },
   "jest": {
@@ -25,7 +24,6 @@
     "@types/node": "^8.0.0",
     "jest": "23.6.0",
     "khaos": "^0.9.3",
-    "lockfile": "^1.0.4",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.1",
     "tmp": "^0.0.33",

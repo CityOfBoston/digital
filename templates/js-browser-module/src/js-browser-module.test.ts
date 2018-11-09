@@ -2,32 +2,14 @@ import path from 'path';
 import fs from 'fs';
 import Khaos from 'khaos';
 import tmp from 'tmp';
-import shell from 'shelljs';
-import lockFile from 'lockfile';
-
-// We need to have a lock so that two simultaneous 'yarn install's from separate
-// templates don’t trample on each other.
-const LOCKFILE_PATH = path.resolve(__dirname, '..', '..', 'template-test.lock');
+import shell, { ExecOutputReturnValue } from 'shelljs';
 
 let tmpDir;
-let gotLock = false;
 
-// Need enough time to wait for the lock.
+// Need enough time to wait for Yarn.
 jest.setTimeout(5 * 60 * 1000);
 
 beforeEach(async () => {
-  await new Promise((resolve, reject) => {
-    lockFile.lock(LOCKFILE_PATH, { wait: 5 * 60 * 1000 }, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
-
-  gotLock = true;
-
   const buildDir = path.resolve(__dirname, '..', 'build');
 
   if (!fs.existsSync(buildDir)) {
@@ -44,11 +26,6 @@ afterEach(() => {
   if (tmpDir) {
     tmpDir.removeCallback();
     tmpDir = null;
-  }
-
-  if (gotLock) {
-    lockFile.unlockSync(LOCKFILE_PATH);
-    gotLock = false;
   }
 });
 
@@ -75,10 +52,15 @@ it('generates a template with installable package.json and passing tests', funct
   expect(packageJson.name).toEqual(`@cityofboston/${moduleName}`);
 
   shell.cd(tmpDir.name);
+
   expect(
-    shell.exec('yarn install --pure-lockfile --ignore-scripts', {
+    (shell.exec('yarn install --pure-lockfile --ignore-scripts', {
       silent: false,
-    }).code
+    }) as ExecOutputReturnValue).code
   ).toEqual(0);
-  expect(shell.exec('yarn run test', { silent: true }).code).toEqual(0);
+
+  expect(
+    (shell.exec('yarn run test', { silent: true }) as ExecOutputReturnValue)
+      .code
+  ).toEqual(0);
 });
