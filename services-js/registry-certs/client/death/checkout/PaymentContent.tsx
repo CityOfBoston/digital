@@ -16,7 +16,7 @@ import {
   GRAY_300,
   LORA_SRC,
   FREEDOM_RED,
-} from '../../common/style-constants';
+} from '@cityofboston/react-fleet';
 
 interface Props {
   submit: (cardElement: stripe.elements.Element | null) => unknown;

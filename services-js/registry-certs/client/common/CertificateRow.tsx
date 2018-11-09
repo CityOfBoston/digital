@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DeathCertificate } from '../types';
 import { css } from 'emotion';
-import { CHARLES_BLUE, GRAY_100 } from './style-constants';
+import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
 
 export interface Props {
   certificate: DeathCertificate;

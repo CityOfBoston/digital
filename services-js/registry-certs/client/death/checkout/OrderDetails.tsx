@@ -19,7 +19,7 @@ import {
   GRAY_000,
   CHARLES_BLUE,
   OPTIMISTIC_BLUE,
-} from '../../common/style-constants';
+} from '@cityofboston/react-fleet';
 
 interface Props {
   cart: Cart;

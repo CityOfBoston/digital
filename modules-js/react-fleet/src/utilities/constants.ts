@@ -28,5 +28,7 @@ export const MEDIA_LARGE_MAX = '@media screen and (max-width: 840px)';
 export const MEDIA_X_LARGE = '@media screen and (min-width: 980px)';
 export const MEDIA_XX_LARGE = '@media screen and (min-width: 1280px)';
 
+export const MEDIA_PRINT = '@media print';
+
 export const HEADER_HEIGHT = 119;
 export const IPHONE_FOOTER_HEIGHT = 64;

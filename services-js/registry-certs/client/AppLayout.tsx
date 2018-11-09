@@ -11,7 +11,7 @@ const footerHtml: string = require('../templates/footer.html');
 import Nav from './common/Nav';
 import DeathCertificateCart from './store/DeathCertificateCart';
 
-import { FREEDOM_RED } from './common/style-constants';
+import { FREEDOM_RED } from '@cityofboston/react-fleet';
 
 // These props only require a Cart if showNav is true. Discriminated unions FTW.
 type Props =

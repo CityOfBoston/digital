@@ -10,7 +10,7 @@ import DeathCertificateCart, {
 } from '../../store/DeathCertificateCart';
 
 import CertificateRow from '../../common/CertificateRow';
-import { OPTIMISTIC_BLUE, FREEDOM_RED } from '../../common/style-constants';
+import { OPTIMISTIC_BLUE, FREEDOM_RED } from '@cityofboston/react-fleet';
 
 export interface Props {
   cart: DeathCertificateCart;
