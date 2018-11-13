@@ -14,7 +14,7 @@
   "bin": {
     "codebuild-service-deploy": "bin/codebuild-service-deploy.js",
     "travis-service-deploy": "bin/travis-service-deploy.js",
-    "travis-s3-apps-deploy": "bin/travis-s3-apps-deploy.js",
+    "s3-apps-deploy": "bin/s3-apps-deploy.js",
     "report-updated-services": "bin/report-updated-services.js"
   },
   "jest": {

@@ -29,7 +29,7 @@ const args = parseArgs(process.argv, { boolean: true });
 const dockerfilePath = args._.pop()!;
 
 const { environment, serviceName, variant } = parseBranch(
-  args['branch'] || process.env.TRAVIS_BRANCH!
+  args['branch'] || process.env.DEPLOY_BRANCH!
 );
 
 // If true, runs Docker in the service’s own directory. Use for things like Ruby

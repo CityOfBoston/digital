@@ -6,7 +6,6 @@ import parseArgs from 'minimist';
 import {
   BANNER,
   uploadToS3,
-  postTravisToSlack,
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
@@ -16,14 +15,12 @@ const args = parseArgs(process.argv, { boolean: true });
 const buildDirPath = args._.pop()!;
 
 const { environment, serviceName, variant } = parseBranch(
-  process.env.TRAVIS_BRANCH!
+  process.env.DEPLOY_BRANCH!
 );
 const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
 const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
 
 (async function() {
-  await postTravisToSlack(__filename, 'start');
-
   console.error(BANNER);
 
   if (variant) {
@@ -36,8 +33,8 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
   if (packageJson.scripts && packageJson.scripts.predeploy) {
     // We do run a yarn install for the whole repo during deploy. See
-    // .travis.yml. We still do run the "prepare" script though in case
-    // "predeploy" requires packages to be compiled.
+    // .travis.yml or buildspec.yml. We still do run the "prepare" script though
+    // in case "predeploy" requires packages to be compiled.
     console.error('🌬 Running predeploy script…');
     await runScopedLernaScript(serviceName, 'prepare');
     await runNpmScript('predeploy');
@@ -52,17 +49,8 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
   await uploadToS3(buildDirPath, bucket, serviceName);
   console.error();
 
-  await postTravisToSlack(__filename, 's3-complete');
-
   console.error(`💅 Successfully uploaded ${serviceName} to ${bucket}.`);
 })().catch(e => {
   console.error(e);
-  postTravisToSlack('error', e.toString()).then(
-    () => {
-      process.exit(-1);
-    },
-    () => {
-      process.exit(-1);
-    }
-  );
+  process.exit(-1);
 });
