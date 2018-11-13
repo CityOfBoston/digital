@@ -19,7 +19,8 @@
     "build": "react-scripts build && node scripts/add-symlinks.js",
     "test": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "travis-deploy": "travis-s3-apps-deploy build",
+    "travis-deploy": "s3-apps-deploy build",
+    "codebuild-deploy": "s3-apps-deploy build",
     "prepare": "npm run build"
   },
   "devDependencies": {
