@@ -74,6 +74,14 @@ var BostonEmergencyAlerts = (function () {
     var valid = true;
 
     resetForm();
+    var textVal = jQuery("#checkbox-text").prop('checked');
+    var callVal = jQuery("#checkbox-call").prop('checked');
+
+    if (first_name.val() == '' && last_name.val() == '') {
+      triggerError(first_name, "Please enter your first or last name", 'txt-f--err');
+      triggerError(last_name, "Please enter your first or last name", 'txt-f--err');
+      valid = false;
+    }
 
     if (email.val() == '' && phone_number.val() == '') {
       triggerError(email, "Please enter a valid email or phone number", 'txt-f--err');
@@ -81,11 +89,11 @@ var BostonEmergencyAlerts = (function () {
       valid = false;
     }
 
-    if (first_name.val() == '' && last_name.val() == '') {
-      triggerError(first_name, "Please enter your first or last name", 'txt-f--err');
-      triggerError(last_name, "Please enter your first or last name", 'txt-f--err');
+    if (phone_number.val() !== '' && textVal == false && callVal == false ) {
+      triggerError(text_or_call, "Please select text or call", 'txt-f--err');
       valid = false;
     }
+
 
     return valid;
   }
