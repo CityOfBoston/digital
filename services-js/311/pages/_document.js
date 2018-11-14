@@ -47,13 +47,15 @@ export default class extends Document {
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {
-      __NEXT_DATA__.ids = this.props.ids;
+      __NEXT_DATA__.ids = ids;
     }
   }
 
   render() {
     const { css: additionalCss } = this.props;
-    const { publicRuntimeConfig: { cacheParam } } = (getConfig(): Config);
+    const {
+      publicRuntimeConfig: { cacheParam },
+    } = (getConfig(): Config);
 
     return (
       <html lang="en" className="js flexbox">
@@ -100,7 +102,7 @@ export default class extends Document {
 
           {makeCss({ cacheParam, additionalCss })}
 
-          {process.env.GOOGLE_TRACKING_ID &&
+          {process.env.GOOGLE_TRACKING_ID && (
             <script
               type="text/javascript"
               dangerouslySetInnerHTML={{
@@ -116,7 +118,8 @@ export default class extends Document {
               ga('send', 'pageview');
           `,
               }}
-            />}
+            />
+          )}
         </Head>
 
         <body>

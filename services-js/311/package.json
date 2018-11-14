@@ -4,14 +4,14 @@
   "repository": "https://github.com/CityOfBoston/311.git",
   "license": "CC0-1.0",
   "scripts": {
-    "dev": "babel-node -D -w server server",
+    "dev": "babel-node server",
     "test": "jest",
     "prebuild": "rimraf build",
     "build": "gulp build",
     "start": "node build/server",
     "prepare": "npm run build",
     "storybook": "gulp storybook:head && start-storybook -p 9001 -s static -c storybook",
-    "codebuild-deploy": "codebuild-service-deploy --isolated-docker Dockerfile"
+    "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel",
