@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install the AWS CLI
 RUN apk add --update \
-  python python-dev curl unzip alpine-sdk nodejs nodejs-npm sqlite-dev tzdata libressl openssl \
+  python python-dev curl unzip alpine-sdk nodejs nodejs-npm sqlite-dev tzdata libressl openssl openssl-dev \
   && cd /tmp \
   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
   && unzip awscli-bundle.zip \
