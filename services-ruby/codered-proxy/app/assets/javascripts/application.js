@@ -76,6 +76,7 @@ var BostonEmergencyAlerts = (function () {
     resetForm();
     var textVal = jQuery("#checkbox-text").prop('checked');
     var callVal = jQuery("#checkbox-call").prop('checked');
+    var checkEmailFormat = /^[A-Z0-9_'%=+!`#~$*?^{}&|-]+([\.][A-Z0-9_'%=+!`#~$*?^{}&|-]+)*@[A-Z0-9-]+(\.[A-Z0-9-]+)+$/i;
 
     if (first_name.val() == '' && last_name.val() == '') {
       triggerError(first_name, "Please enter your first or last name", 'txt-f--err');
@@ -89,11 +90,15 @@ var BostonEmergencyAlerts = (function () {
       valid = false;
     }
 
+    if (email.val() !== '' && !checkEmailFormat.test(email.val())){
+      triggerError(email, "Email format is invalid", 'txt-f--err');
+      valid = false;
+    }
+
     if (phone_number.val() !== '' && textVal == false && callVal == false ) {
       triggerError(text_or_call, "Please select text or call", 'txt-f--err');
       valid = false;
     }
-
 
     return valid;
   }

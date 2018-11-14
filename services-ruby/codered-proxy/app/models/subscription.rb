@@ -28,7 +28,6 @@ class Subscription
   attr_accessor :first_name, :last_name, :zip, :language, :tdd
 
   validate :email_or_phone?
-	validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   def email_or_phone?
     if self.phone_number.blank? && self.email.blank?
