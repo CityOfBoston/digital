@@ -17,7 +17,7 @@ export interface DeploymentNotificationPayload {
   /** "production" or "staging" */
   environment: string;
   /** Lerna service we’re deploying. */
-  service: string | string[];
+  service?: string | string[];
   commit: string;
 }
 
@@ -62,6 +62,8 @@ type ServiceDeployStatus =
   | 'OUTOFDATE';
 
 type ServiceDeployRecord = {
+  /** includes @variant if it exists */
+  fullName: string;
   name: string;
   variant: string | null;
   status: ServiceDeployStatus;
@@ -75,7 +77,7 @@ type DeployRecord = {
   repo: string;
   environment: DeploymentType;
   commit: string;
-  services: { [service: string]: ServiceDeployRecord };
+  services: { [serviceAndVariant: string]: ServiceDeployRecord };
 };
 
 type MessageBody = Pick<
@@ -133,17 +135,23 @@ export class DeploymentInteraction {
       throw new Error(`Unknown deployment environment: ${environment}`);
     }
 
+    // We need to be tolerant of no services changing.
+    if (!service) {
+      return;
+    }
+
     const services = ([] as string[]).concat(service);
     const serviceRecords: DeployRecord['services'] = {};
 
-    services.forEach(s => {
+    services.forEach(serviceAndVariant => {
       this.commitsByEnvironmentServiceAndVariant[
-        `${environment}/${s}`
+        `${environment}/${serviceAndVariant}`
       ] = commit;
 
-      serviceRecords[s] = {
-        name: s.split('@')[0],
-        variant: s.split('@')[1] || null,
+      serviceRecords[serviceAndVariant] = {
+        fullName: serviceAndVariant,
+        name: serviceAndVariant.split('@')[0],
+        variant: serviceAndVariant.split('@')[1] || null,
         status: 'REQUESTING',
         buildUrl: null,
         userId: null, //'UDWA2N6AD',
@@ -226,56 +234,59 @@ export class DeploymentInteraction {
     commit: string,
     service: ServiceDeployRecord
   ): MessageAttachment {
-    const status: ServiceDeployStatus =
+    const commitsMatch =
       commit ===
       this.commitsByEnvironmentServiceAndVariant[
-        `${environment}/${service.name}${
-          service.variant ? `@${service.variant}` : ''
-        }`
-      ]
-        ? service.status
-        : 'OUTOFDATE';
+        `${environment}/${service.fullName}`
+      ];
+
+    const status: ServiceDeployStatus = commitsMatch
+      ? service.status
+      : 'OUTOFDATE';
+
+    const serviceTitle = `${service.name}${
+      service.variant ? ` — ${service.variant}` : ''
+    }`;
 
     switch (status) {
       case 'REQUESTING':
         return {
-          title: `${service.name}${
-            service.variant ? ` — ${service.variant}` : ''
-          }`,
+          title: serviceTitle,
           color: OPTIMISTIC_BLUE,
           callback_id: 'approve_deployment',
           actions: [
             {
-              name: service.name,
+              name: service.fullName,
               text: 'Deploy',
               value: 'approve',
               type: 'button',
               style: 'primary',
             },
             {
-              name: service.name,
+              name: service.fullName,
               text: 'Ignore',
               value: 'ignore',
               type: 'button',
             },
           ],
         };
+
       case 'IGNORED':
         return {
-          title: service.name,
+          title: serviceTitle,
           text: `👎 _This change was ignored by <@${service.userId}>._`,
         };
 
       case 'ERROR':
         return {
-          title: service.name,
+          title: serviceTitle,
           color: FREEDOM_RED,
           text: `🙀 _${service.errorMessage}_`,
         };
 
       case 'DEPLOYING':
         return {
-          title: service.name,
+          title: serviceTitle,
           color: YELLOW,
           text: `🔜 _Deploy requested by <@${service.userId}>…_${
             service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
@@ -286,7 +297,7 @@ export class DeploymentInteraction {
 
       case 'DEPLOYED':
         return {
-          title: service.name,
+          title: serviceTitle,
           color: GREEN,
           text: `💥 <@${service.userId}>: _Your deploy succeeded!_${
             service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
@@ -297,7 +308,7 @@ export class DeploymentInteraction {
 
       case 'FAILED':
         return {
-          title: service.name,
+          title: serviceTitle,
           color: FREEDOM_RED,
           text: `😫 <@${service.userId}>: _Your deploy failed._${
             service.buildUrl ? ` (<${service.buildUrl}|view on CodeBuild>)` : ''
@@ -308,7 +319,7 @@ export class DeploymentInteraction {
 
       case 'OUTOFDATE':
         return {
-          title: service.name,
+          title: serviceTitle,
           text: '🕰 _There’s a newer version of this service to deploy._',
         };
 
@@ -344,8 +355,9 @@ export class DeploymentInteraction {
       service.timestamp = Date.now() / 1000;
 
       if (
-        this.commitsByEnvironmentServiceAndVariant[service.name] !==
-        deploy.commit
+        this.commitsByEnvironmentServiceAndVariant[
+          `${deploy.environment}/${service.fullName}`
+        ] !== deploy.commit
       ) {
         service.status = 'OUTOFDATE';
       } else if (service.status !== 'REQUESTING') {
@@ -405,9 +417,7 @@ export class DeploymentInteraction {
     const { build } = await this.codebuild
       .startBuild({
         projectName: DIGITAL_REPO_CODEBUILD_PROJECT,
-        sourceVersion: `${deploy.environment}/${service.name}${
-          service.variant ? `@${service.variant}` : ''
-        }`,
+        sourceVersion: `${deploy.environment}/${service.fullName}`,
       })
       .promise();
 

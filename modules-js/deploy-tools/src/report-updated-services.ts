@@ -99,7 +99,7 @@ async function getChangedProductionServices(): Promise<string[]> {
   }
   console.log(`Changed services: ${updatedServiceNames.join(' ')}`);
 
-  if (process.env.DEPLOY_WEBHOOK_URL) {
+  if (process.env.DEPLOY_WEBHOOK_URL && updatedServiceNames.length > 0) {
     const body = new URLSearchParams({
       environment,
       commit: process.env.TRAVIS_COMMIT,
