@@ -1,11 +1,12 @@
 {
   "presets": [
     "next/babel",
-    "env"
+    "@babel/preset-flow"
   ],
 
   "plugins": [
-    "babel-plugin-transform-decorators-legacy",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
 
     ["inline-import", {
         "extensions": [
@@ -13,17 +14,21 @@
           ".env",
           ".html"
         ]
-      }],
-
-    "transform-class-properties",
-    ["emotion", { "inline": true }]
+      }]
   ],
   
   "env": {
     "test": {
-      "plugins": [
-        "transform-es2015-modules-commonjs",
-        "babel-plugin-require-context-hook"
+      "plugins": ["babel-plugin-require-context-hook"],
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
       ]
     }
   }

@@ -16,8 +16,7 @@
         ]
       }],
 
-    "transform-class-properties",
-    ["emotion", { "inline": true }]
+    "transform-class-properties"
   ],
 
   "env": {
