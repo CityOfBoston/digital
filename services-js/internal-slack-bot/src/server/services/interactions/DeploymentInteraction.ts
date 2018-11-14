@@ -102,8 +102,15 @@ export class DeploymentInteraction {
   private deployChannelId: string;
   private githubCredentials: GitHubCredentials;
 
-  /** The latest commit we’ve seen for each service, to prevent stomping. */
-  private commitsByService: { [service: string]: string } = {};
+  /**
+   * The latest commit we’ve seen for each service, to prevent stomping.
+   *
+   * Key is the branch name format: environment/service@variant
+   */
+  private commitsByEnvironmentServiceAndVariant: {
+    [service: string]: string;
+  } = {};
+
   /** Key is the timestamp of the original message. */
   private deploysByTimestamp = LRU<string, DeployRecord>(100);
 
@@ -130,7 +137,10 @@ export class DeploymentInteraction {
     const serviceRecords: DeployRecord['services'] = {};
 
     services.forEach(s => {
-      this.commitsByService[s] = commit;
+      this.commitsByEnvironmentServiceAndVariant[
+        `${environment}/${s}`
+      ] = commit;
+
       serviceRecords[s] = {
         name: s.split('@')[0],
         variant: s.split('@')[1] || null,
@@ -206,17 +216,23 @@ export class DeploymentInteraction {
       icon_url:
         'https://avatars.slack-edge.com/2017-10-25/261992224516_aad5aecf95aedd33f079_48.png',
       attachments: Object.values(services).map(service =>
-        this.makeServiceAttachment(commit, service)
+        this.makeServiceAttachment(deploy.environment, commit, service)
       ),
     };
   }
 
   protected makeServiceAttachment(
+    environment: string,
     commit: string,
     service: ServiceDeployRecord
   ): MessageAttachment {
     const status: ServiceDeployStatus =
-      commit === this.commitsByService[service.name]
+      commit ===
+      this.commitsByEnvironmentServiceAndVariant[
+        `${environment}/${service.name}${
+          service.variant ? `@${service.variant}` : ''
+        }`
+      ]
         ? service.status
         : 'OUTOFDATE';
 
@@ -327,7 +343,10 @@ export class DeploymentInteraction {
       service.userId = payload.user.id;
       service.timestamp = Date.now() / 1000;
 
-      if (this.commitsByService[service.name] !== deploy.commit) {
+      if (
+        this.commitsByEnvironmentServiceAndVariant[service.name] !==
+        deploy.commit
+      ) {
         service.status = 'OUTOFDATE';
       } else if (service.status !== 'REQUESTING') {
         // ignore
