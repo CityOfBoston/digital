@@ -12,6 +12,12 @@ exports[`methods submitRequest graphql failure 1`] = `
           "submit",
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   service={
@@ -80,6 +86,12 @@ exports[`methods submitRequest graphql failure 1`] = `
           false,
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   stage="submit"
@@ -91,6 +103,7 @@ exports[`methods submitRequest graphql failure 1`] = `
         "messageListenerDisposer": null,
       },
       "addressSearch": AddressSearch {
+        "loopbackGraphql": undefined,
         "searchPopupWidth": 0,
       },
       "allServices": AllServices {
@@ -168,6 +181,8 @@ exports[`methods submitRequest graphql failure 1`] = `
         },
       },
       "browserLocation": BrowserLocation {
+        "geocodeLocationDisposer": undefined,
+        "loopbackGraphql": undefined,
         "watchId": null,
       },
       "languages": Array [],
@@ -178,8 +193,11 @@ exports[`methods submitRequest graphql failure 1`] = `
         "mapMoved": false,
         "searchDisposer": null,
       },
-      "siteAnalytics": SiteAnalytics {},
+      "siteAnalytics": SiteAnalytics {
+        "ga": undefined,
+      },
       "ui": Ui {
+        "debouncedScrollDisposer": undefined,
         "debouncedScrollY": 0,
         "handleResize": [Function],
         "handleScroll": [Function],
@@ -293,6 +311,12 @@ exports[`methods submitRequest success 1`] = `
           "submit",
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   service={
@@ -361,6 +385,12 @@ exports[`methods submitRequest success 1`] = `
           false,
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   stage="submit"
@@ -372,6 +402,7 @@ exports[`methods submitRequest success 1`] = `
         "messageListenerDisposer": null,
       },
       "addressSearch": AddressSearch {
+        "loopbackGraphql": undefined,
         "searchPopupWidth": 0,
       },
       "allServices": AllServices {
@@ -449,6 +480,8 @@ exports[`methods submitRequest success 1`] = `
         },
       },
       "browserLocation": BrowserLocation {
+        "geocodeLocationDisposer": undefined,
+        "loopbackGraphql": undefined,
         "watchId": null,
       },
       "languages": Array [],
@@ -459,8 +492,11 @@ exports[`methods submitRequest success 1`] = `
         "mapMoved": false,
         "searchDisposer": null,
       },
-      "siteAnalytics": SiteAnalytics {},
+      "siteAnalytics": SiteAnalytics {
+        "ga": undefined,
+      },
       "ui": Ui {
+        "debouncedScrollDisposer": undefined,
         "debouncedScrollY": 0,
         "handleResize": [Function],
         "handleScroll": [Function],
@@ -491,6 +527,7 @@ exports[`methods submitRequest success 1`] = `
           state="submitting"
           ui={
             Ui {
+              "debouncedScrollDisposer": undefined,
               "debouncedScrollY": 0,
               "handleResize": [Function],
               "handleScroll": [Function],
@@ -610,6 +647,12 @@ exports[`methods submitRequest success 2`] = `
           "submit",
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   service={
@@ -678,6 +721,12 @@ exports[`methods submitRequest success 2`] = `
           false,
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   stage="submit"
@@ -689,6 +738,7 @@ exports[`methods submitRequest success 2`] = `
         "messageListenerDisposer": null,
       },
       "addressSearch": AddressSearch {
+        "loopbackGraphql": undefined,
         "searchPopupWidth": 0,
       },
       "allServices": AllServices {
@@ -766,6 +816,8 @@ exports[`methods submitRequest success 2`] = `
         },
       },
       "browserLocation": BrowserLocation {
+        "geocodeLocationDisposer": undefined,
+        "loopbackGraphql": undefined,
         "watchId": null,
       },
       "languages": Array [],
@@ -776,8 +828,11 @@ exports[`methods submitRequest success 2`] = `
         "mapMoved": false,
         "searchDisposer": null,
       },
-      "siteAnalytics": SiteAnalytics {},
+      "siteAnalytics": SiteAnalytics {
+        "ga": undefined,
+      },
       "ui": Ui {
+        "debouncedScrollDisposer": undefined,
         "debouncedScrollY": 0,
         "handleResize": [Function],
         "handleScroll": [Function],
