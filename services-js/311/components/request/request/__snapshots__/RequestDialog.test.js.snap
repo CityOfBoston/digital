@@ -3,8 +3,17 @@
 exports[`methods submitRequest graphql failure 1`] = `
 <RequestDialog
   description=""
-  loopbackGraphql={[Function]}
-  routeToServiceForm={[Function]}
+  loopbackGraphql={[MockFunction]}
+  routeToServiceForm={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "CSMCINC",
+          "submit",
+        ],
+      ],
+    }
+  }
   service={
     Object {
       "attributes": Array [
@@ -64,7 +73,15 @@ exports[`methods submitRequest graphql failure 1`] = `
     }
   }
   serviceCode="CSMCINC"
-  setLocationMapActive={[Function]}
+  setLocationMapActive={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          false,
+        ],
+      ],
+    }
+  }
   stage="submit"
   store={
     AppStore {
@@ -267,8 +284,17 @@ exports[`methods submitRequest graphql failure 1`] = `
 exports[`methods submitRequest success 1`] = `
 <RequestDialog
   description=""
-  loopbackGraphql={[Function]}
-  routeToServiceForm={[Function]}
+  loopbackGraphql={[MockFunction]}
+  routeToServiceForm={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "CSMCINC",
+          "submit",
+        ],
+      ],
+    }
+  }
   service={
     Object {
       "attributes": Array [
@@ -328,7 +354,15 @@ exports[`methods submitRequest success 1`] = `
     }
   }
   serviceCode="CSMCINC"
-  setLocationMapActive={[Function]}
+  setLocationMapActive={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          false,
+        ],
+      ],
+    }
+  }
   stage="submit"
   store={
     AppStore {
@@ -534,9 +568,9 @@ exports[`methods submitRequest success 1`] = `
                   <TransitionGroup
                     childFactory={[Function]}
                     className="css-6ezlc4"
-                    component="span"
+                    component="div"
                   >
-                    <span
+                    <div
                       className="css-6ezlc4"
                     >
                       <svg
@@ -546,10 +580,12 @@ exports[`methods submitRequest success 1`] = `
                             "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
                           }
                         }
+                        in={true}
                         key=".$allston"
+                        onExited={[Function]}
                         role="img"
                       />
-                    </span>
+                    </div>
                   </TransitionGroup>
                 </VelocityTransitionGroup>
               </LoadingBuildings>
@@ -565,8 +601,17 @@ exports[`methods submitRequest success 1`] = `
 exports[`methods submitRequest success 2`] = `
 <RequestDialog
   description=""
-  loopbackGraphql={[Function]}
-  routeToServiceForm={[Function]}
+  loopbackGraphql={[MockFunction]}
+  routeToServiceForm={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "CSMCINC",
+          "submit",
+        ],
+      ],
+    }
+  }
   service={
     Object {
       "attributes": Array [
@@ -626,7 +671,15 @@ exports[`methods submitRequest success 2`] = `
     }
   }
   serviceCode="CSMCINC"
-  setLocationMapActive={[Function]}
+  setLocationMapActive={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          false,
+        ],
+      ],
+    }
+  }
   stage="submit"
   store={
     AppStore {
@@ -1060,6 +1113,7 @@ exports[`rendering contact 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
+            onMouseDown={[Function]}
             onPaste={[Function]}
             placeholder="Phone"
             type="tel"
@@ -1424,7 +1478,11 @@ exports[`rendering questions 1`] = `
               onDragOver={[Function]}
               onDragStart={[Function]}
               onDrop={[Function]}
-              style={Object {}}
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
             >
               <img
                 alt=""
@@ -1448,7 +1506,13 @@ exports[`rendering questions 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "display": "none",
+                    "bottom": 0,
+                    "left": 0,
+                    "opacity": 0.00001,
+                    "pointerEvents": "none",
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
                   }
                 }
                 type="file"

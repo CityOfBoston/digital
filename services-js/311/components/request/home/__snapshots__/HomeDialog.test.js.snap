@@ -53,53 +53,68 @@ exports[`choose page rendering 1`] = `
             <div
               className="g--4 css-1d1o05u"
             >
-              <span
+              <div
                 className="css-11w0igf"
               >
                 <svg
+                  appear={undefined}
                   className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
+                  enter={undefined}
+                  exit={undefined}
+                  in={true}
+                  onExited={[Function]}
                   role="img"
                 />
-              </span>
+              </div>
             </div>
             <div
               className="g--4 css-1d1o05u"
             >
-              <span
+              <div
                 className="css-11w0igf"
               >
                 <svg
+                  appear={undefined}
                   className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
+                  enter={undefined}
+                  exit={undefined}
+                  in={true}
+                  onExited={[Function]}
                   role="img"
                 />
-              </span>
+              </div>
             </div>
             <div
               className="g--4 css-1d1o05u"
             >
-              <span
+              <div
                 className="css-11w0igf"
               >
                 <svg
+                  appear={undefined}
                   className="css-1jbcmxm"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
+                  enter={undefined}
+                  exit={undefined}
+                  in={true}
+                  onExited={[Function]}
                   role="img"
                 />
-              </span>
+              </div>
             </div>
           </div>
         </div>

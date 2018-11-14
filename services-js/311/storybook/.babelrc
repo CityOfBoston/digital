@@ -9,12 +9,12 @@
     "transform-inline-environment-variables",
 
     ["inline-import", {
-      "extensions": [
-        ".graphql",
-        ".env",
-        ".html"
-      ]
-    }],
+        "extensions": [
+          ".graphql",
+          ".env",
+          ".html"
+        ]
+      }],
 
     "transform-class-properties",
     ["emotion", { "inline": true }]
@@ -22,7 +22,10 @@
 
   "env": {
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "babel-plugin-require-context-hook"
+      ]
     }
   }
 }
