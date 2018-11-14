@@ -8,18 +8,4 @@ class SubscriptionTest < ActiveSupport::TestCase
     assert_not subscripton.valid?
   end
 
-
-  test "should not validate subscription without valid email" do
-    subscripton = Subscription.new
-    subscripton.call = '1'
-    subscripton.first_name = 'Elah'
-    subscripton.email = 'e'
-    assert_not subscripton.valid?
-    subscripton.email = 'e@io'
-    assert_not subscripton.valid?
-    subscripton.email = 'e@example.com'
-    assert subscripton.valid?
-    subscripton.email = 'e@example.io'
-    assert subscripton.valid?
-  end
 end
