@@ -1,0 +1,9 @@
+/app
+/flow-typed
+/data/dao/graphql
+/graphql
+/build
+/coverage
+/vendor
+/static/vendor
+/storybook-static

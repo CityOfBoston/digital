@@ -1,0 +1,20 @@
+query ReverseGeocode($location: LatLngIn!) {
+  geocoder {
+		reverse(location: $location) {
+      location {
+        lat
+        lng
+      }
+		  address
+      addressId
+      exact
+      alwaysUseLatLng
+      units {
+        address
+        streetAddress
+        unit
+        addressId
+      }
+		}
+  }
+}

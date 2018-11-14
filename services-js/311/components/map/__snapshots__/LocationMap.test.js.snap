@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering active 1`] = `
+<div
+  className="css-1dd3in1"
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+/>
+`;

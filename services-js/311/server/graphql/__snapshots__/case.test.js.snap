@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`photos gets photos from activities 1`] = `
+Array [
+  Object {
+    "originalUrl": "https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "squarePreviewUrl": "https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "squareThumbnailUrl": "https://res.cloudinary.com/spot-boston/image/upload/t_square_thumbnail/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "tags": Array [
+      "Close",
+    ],
+  },
+]
+`;
+
+exports[`photos returns a URL photo 1`] = `
+Array [
+  Object {
+    "originalUrl": "https://spot-boston-res.cloudinary.com/image/upload/v1521651380/boston/development/l79qpl0z81lmfzdt3rqd.jpg",
+    "squarePreviewUrl": "https://spot-boston-res.cloudinary.com/image/upload/t_large_square_preview/v1521651380/boston/development/l79qpl0z81lmfzdt3rqd.jpg",
+    "squareThumbnailUrl": "https://spot-boston-res.cloudinary.com/image/upload/t_square_thumbnail/v1521651380/boston/development/l79qpl0z81lmfzdt3rqd.jpg",
+    "tags": Array [],
+  },
+]
+`;
+
+exports[`photos returns a complex photo 1`] = `
+Array [
+  Object {
+    "originalUrl": "https://res.cloudinary.com/spot-boston/image/upload/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "squarePreviewUrl": "https://res.cloudinary.com/spot-boston/image/upload/t_large_square_preview/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "squareThumbnailUrl": "https://res.cloudinary.com/spot-boston/image/upload/t_square_thumbnail/v1493819948/boston/dev/ifonxqgpk8gukjkcvj78.jpg",
+    "tags": Array [
+      "Close",
+    ],
+  },
+]
+`;

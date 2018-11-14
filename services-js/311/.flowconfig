@@ -1,0 +1,33 @@
+[libs]
+flow-typed/
+flow-decl/
+# Does not work as well as it should
+# node_modules/mapbox-gl/flow-typed/
+
+[ignore]
+<PROJECT_ROOT>/node_modules/jsverify/.*
+<PROJECT_ROOT>/node_modules/mapbox.js/docs/.*
+<PROJECT_ROOT>/node_modules/mapbox-gl/src/.*
+<PROJECT_ROOT>/node_modules/unflowify/test/.*
+<PROJECT_ROOT>/node_modules/mitt/.*
+<PROJECT_ROOT>/node_modules/apollo-codegen/node_modules/graphql/.*
+<PROJECT_ROOT>/node_modules/jsonlint-lines-primitives/test/fails/.*
+<PROJECT_ROOT>/storybook-static/.*
+<PROJECT_ROOT>/node_modules/graphql/subscription/mapAsyncIterator.js.flow
+
+# Doesn't support 0.53
+<PROJECT_ROOT>/node_modules/radium/.*
+
+<PROJECT_ROOT>/node_modules/immutable/dist/.*
+<PROJECT_ROOT>/node_modules/config-chain/test/.*
+<PROJECT_ROOT>/node_modules/npmconf/test/.*
+
+[options]
+module.file_ext=.graphql
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.html
+module.ignore_non_literal_requires=true
+esproposal.decorators=ignore
+unsafe.enable_getters_and_setters=true

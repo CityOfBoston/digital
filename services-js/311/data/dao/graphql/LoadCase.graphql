@@ -1,0 +1,27 @@
+query LoadCase($id: String!) {
+  case(id: $id) {
+    id
+    service {
+      name
+      code
+    }
+    status
+    serviceNotice
+    closureReason
+    closureComment
+    description
+    address
+    location {
+      lat
+      lng
+    }
+    images {
+      tags
+      originalUrl,
+      squarePreviewUrl,
+    }
+    requestedAtString(format: "MMMM D, YYYY, h:mm A")
+    updatedAtString(format: "MMMM D, YYYY, h:mm A")
+    expectedAtString(format: "dddd, MMMM D, YYYY")
+  }
+}

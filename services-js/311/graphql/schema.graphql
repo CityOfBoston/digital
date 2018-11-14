@@ -1,0 +1,181 @@
+type Case {
+  id: String!
+  service: Service!
+  description: String
+  status: String!
+  statusNotes: String
+  serviceNotice: String
+  closureReason: String
+  closureComment: String
+  address: String
+  images: [CaseImage!]!
+  location: LatLng
+  requestedAt: Int
+  updatedAt: Int
+  expectedAt: Int
+  requestedAtString(format: String): String
+  updatedAtString(format: String): String
+  expectedAtString(format: String): String
+  requestedAtRelativeString: String
+  updatedAtRelativeString: String
+  expectedAtRelativeString: String
+}
+
+type CaseImage {
+  tags: [String!]!
+  squareThumbnailUrl: String!
+  squarePreviewUrl: String!
+  originalUrl: String!
+}
+
+type CaseSearchResults {
+  cases: [Case!]!
+  query: String!
+}
+
+input CreateCaseAttribute {
+  code: String!
+  value: String!
+}
+
+type Geocoder {
+  reverse(location: LatLngIn!): Place
+  search(query: String!): [Place!]!
+}
+
+type LatLng {
+  lat: Float!
+  lng: Float!
+}
+
+input LatLngIn {
+  lat: Float!
+  lng: Float!
+}
+
+enum MetadataRequirement {
+  REQUIRED
+  VISIBLE
+  HIDDEN
+}
+
+type Mutation {
+  createCase(code: String!, description: String!, descriptionForClassifier: String!, firstName: String, lastName: String, email: String, phone: String, address: String, addressId: String, mediaUrl: String, location: LatLngIn, attributes: [CreateCaseAttribute!]!): Case!
+}
+
+type Place {
+  location: LatLng!
+  address: String!
+  addressId: String
+  units: [Unit!]!
+  exact: Boolean!
+  alwaysUseLatLng: Boolean!
+}
+
+type Query {
+  services: [Service!]!
+  topServices(first: Int): [Service!]!
+  servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
+  service(code: String!): Service
+  case(id: String!): Case
+  searchCases(query: String, topLeft: LatLngIn, bottomRight: LatLngIn): CaseSearchResults!
+  geocoder: Geocoder!
+}
+
+type Service {
+  code: String!
+  name: String!
+  description: String
+  group: String
+  attributes: [ServiceAttribute!]!
+  locationRequirement: MetadataRequirement!
+  contactRequirement: MetadataRequirement!
+  locationRequired: Boolean!
+  contactRequired: Boolean!
+}
+
+type ServiceAttribute {
+  type: ServiceAttributeDatatype!
+  required: Boolean!
+  description: String!
+  code: String!
+  dependencies: ServiceAttributeConditional
+  validations: [ServiceAttributeValidation!]!
+  values: [ServiceAttributeValue!]
+  conditionalValues: [ServiceAttributeConditionalValues!]
+}
+
+type ServiceAttributeCondition {
+  attribute: String!
+  op: ServiceAttributeConditionalOp!
+  value: ServiceAttributeConditionValue!
+}
+
+type ServiceAttributeConditional {
+  clause: ServiceAttributeConditionalClause!
+  conditions: [ServiceAttributeCondition!]!
+}
+
+enum ServiceAttributeConditionalClause {
+  AND
+  OR
+}
+
+enum ServiceAttributeConditionalOp {
+  eq
+  neq
+  in
+  gt
+  gte
+  lt
+  lte
+}
+
+type ServiceAttributeConditionalValues {
+  dependentOn: ServiceAttributeConditional!
+  values: [ServiceAttributeValue!]!
+}
+
+type ServiceAttributeConditionValue {
+  type: ServiceAttributeConditionValueType
+  string: String
+  array: [String!]
+  number: Float
+}
+
+enum ServiceAttributeConditionValueType {
+  STRING
+  STRING_ARRAY
+  NUMBER
+}
+
+enum ServiceAttributeDatatype {
+  BOOLEAN_CHECKBOX
+  INFORMATIONAL
+  MULTIVALUELIST
+  NUMBER
+  DATETIME
+  DATE
+  SINGLEVALUELIST
+  STRING
+  TEXT
+}
+
+type ServiceAttributeValidation {
+  dependentOn: ServiceAttributeConditional!
+  message: String!
+  reportOnly: Boolean!
+}
+
+type ServiceAttributeValue {
+  key: String!
+  name: String!
+}
+
+type Unit {
+  location: LatLng!
+  address: String!
+  streetAddress: String!
+  unit: String!
+  addressId: String!
+}

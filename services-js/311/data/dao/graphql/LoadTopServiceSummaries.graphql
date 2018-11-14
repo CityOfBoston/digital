@@ -1,0 +1,8 @@
+query LoadTopServiceSummaries($first: Int!) {
+  topServices(first: $first) {
+    code
+    name
+    description
+    group
+  }
+}

@@ -1,0 +1,43 @@
+dist: trusty
+services:
+- docker
+language: node_js
+node_js:
+- 8
+env:
+- TZ=America/New_York
+cache:
+  directories:
+  - "node_modules"
+before_install:
+- npm i -g npm@5.6.x
+before_script:
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-update
+- npm run-script snapshot
+script:
+- npm run-script test-ci
+after_script:
+- npx codecov
+- npx -p greenkeeper-lockfile@1 greenkeeper-lockfile-upload
+branches:
+  only:
+  - production
+  - staging
+  - "/^greenkeeper\\/.*$/"
+before_deploy:
+- pip install --upgrade --user awscli
+deploy:
+- provider: script
+  script: "./deploy/deploy.sh $DEVINT2_CLUSTER_STACK $DEVINT2_APP_STACK $DEVINT2_REPOSITORY_NAME
+    $DEVINT2_DESIRED_COUNT && ./deploy/deploy.sh $STAGING_CLUSTER_STACK $STAGING_APP_STACK
+    $STAGING_REPOSITORY_NAME $STAGING_DESIRED_COUNT"
+  on:
+    branch: production
+# - provider: script
+#   script: "./deploy/deploy.sh $PROD_CLUSTER_STACK $PROD_APP_STACK $PROD_REPOSITORY_NAME
+#     $PROD_DESIRED_COUNT"
+#   on:
+#     branch: production
+notifications:
+  slack:
+    secure: m9p5GdpxnIAsRKC3qJYfzAKDbvsyhdtRfkSPp3ukDrhH0qCuvG7ueVkwXmwjQdOZrD20LqBGscGvnxGWAj/CIuqGzsHl+tPHzmPIaR50bH/amCUEV+9tWTeAm7bIvcjoglxzg2nYk2i8bfHS7j5ieEfvrHcmnzJCd6Z7MRYX4c0PtRAwrjBC6GgFbNGjFsHPezl3btN7DNPNMrpQKDfbfwSXvZDeHiC3CkZ5VkHPpsXjMXVuch4OxcYC6124YHRq6fAjOvrY6mw/m4EmV/tBdjfw9BtFmGkccoEhuRRz8O84NKj4hKuT1rWG4AKde/T0KhPq1trdl//uzuw9uOt9fnI3naIuvfPdMwASGS26x6XwbBzESYz0MOJvTob31fyASOJszMF7Or9ZU1vaFfDWULsHDMHp1TtKe5qI3ukaEhgAgBE5kG98f/gtJLsuZi5uVP6JfWpranezQoKGf+eWh+pEjN29lMM38i3si2fu0mLkrIj3MwDqbxBws2xEfwTRoXKy/w5AhLOl9en+V4OXLfnJdCFIsVbU8Fd8T8BQPV6nE7jTd6Yq3lRDBIaBfekH0auCrqcBIuMpi3dLiKa1IKprgIFJNwLgWiG2HWtAuhCw+FBL02ZsBk51+4eQcNdDQRdIHBRsSjTZneJut3al++cbOsGHW8+kzfACwijLl+Q=

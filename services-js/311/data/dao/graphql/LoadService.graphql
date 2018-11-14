@@ -1,0 +1,68 @@
+query LoadService($code: String!) {
+  service(code: $code) {
+    name
+    description
+    code
+    contactRequirement
+    locationRequirement
+    attributes {
+      required
+      type
+      code
+      description
+      values {
+        key
+        name
+      }
+      validations {
+        dependentOn {
+          clause
+          conditions {
+            attribute
+            op
+            value {
+              type
+              string
+              array
+              number
+            }
+          }
+        }
+        message
+        reportOnly
+      }
+      conditionalValues {
+        dependentOn {
+          clause
+          conditions {
+            attribute
+            op
+            value {
+              type
+              string
+              array
+              number
+            }
+          }
+        }
+        values {
+          key
+          name
+        }
+      }
+      dependencies {
+        clause
+        conditions {
+          attribute
+          op
+          value {
+            type
+            string
+            array
+            number
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+mutation SubmitCase(
+  $code: String!,
+  $description: String!,
+  $descriptionForClassifier: String!,
+  $firstName: String,
+  $lastName: String,
+  $email: String,
+  $phone: String,
+  $address: String,
+  $addressId: String,
+  $location: LatLngIn,
+  $mediaUrl: String,
+  $attributes: [CreateCaseAttribute!]!) {
+  createCase(
+    code: $code,
+    description: $description,
+    descriptionForClassifier: $descriptionForClassifier
+    firstName: $firstName,
+    lastName: $lastName,
+    email: $email,
+    phone: $phone,
+    address: $address,
+    addressId: $addressId
+    location: $location,
+    attributes: $attributes,
+    mediaUrl: $mediaUrl
+  ) {
+    id
+    service {
+      name
+      code
+    }
+    status
+    serviceNotice
+    closureReason
+    closureComment
+    description
+    address
+    location {
+      lat
+      lng
+    }
+    images {
+      tags
+      originalUrl
+      squarePreviewUrl
+    }
+    requestedAtString(format: "MMMM D, YYYY, h:mm A")
+    updatedAtString(format: "MMMM D, YYYY, h:mm A")
+    expectedAtString(format: "dddd, MMMM D, YYYY")
+  }
+}

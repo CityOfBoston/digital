@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`samFeatureToUnit matches the snapshot 1`] = `
+Object {
+  "address": "280-306 Fake St
+Boston, 02108",
+  "addressId": "343432",
+  "buildingId": "136614",
+  "location": Object {
+    "lat": 42.3572888902216,
+    "lng": -71.05803081786436,
+  },
+  "streetAddress": "280-306 Fake St",
+  "unit": "",
+}
+`;
+
+exports[`sort and format findAddressCandidates matches the snapshot 1`] = `
+Array [
+  Object {
+    "address": "37 Testing Hill St
+Boston, 02114",
+    "addressId": "98567",
+    "alwaysUseLatLng": false,
+    "buildingId": "138797",
+    "exact": true,
+    "location": Object {
+      "lat": 42.35849867104903,
+      "lng": -71.06476059478211,
+    },
+  },
+  Object {
+    "address": "37 Testing Hill St
+Brighton, 02135",
+    "addressId": "407408",
+    "alwaysUseLatLng": false,
+    "buildingId": "147657",
+    "exact": true,
+    "location": Object {
+      "lat": 42.34715866620412,
+      "lng": -71.15594062146499,
+    },
+  },
+  Object {
+    "address": "37 Testing Hill St
+Charlestown, 02129",
+    "addressId": "98861",
+    "alwaysUseLatLng": false,
+    "buildingId": "134374",
+    "exact": true,
+    "location": Object {
+      "lat": 42.3749866757513,
+      "lng": -71.05814159177258,
+    },
+  },
+  Object {
+    "address": "37 Testing Hill St
+Dorchester, 02125",
+    "addressId": "98961",
+    "alwaysUseLatLng": false,
+    "buildingId": "160765",
+    "exact": true,
+    "location": Object {
+      "lat": 42.32162666576852,
+      "lng": -71.05721458739356,
+    },
+  },
+  Object {
+    "address": "37 Testing Hill St #1
+West Roxbury, 02132",
+    "addressId": "279371",
+    "alwaysUseLatLng": false,
+    "buildingId": "113080",
+    "exact": true,
+    "location": Object {
+      "lat": 42.283740656538356,
+      "lng": -71.1585906162713,
+    },
+  },
+]
+`;
+
+exports[`sortUnits sorts by street and number 1`] = `
+Array [
+  "280-306 Fake St",
+  "9 Example Ln",
+  "280-300 Fake St",
+  "280 Fake St",
+  "288 Fake St",
+  "290 Fake St",
+  "292 Fake St",
+  "294 Fake St",
+  "294 Fake St #5",
+  "294 Fake St #7",
+  "294 Fake St #173",
+  "294 Fake St #411",
+  "294 Fake St #435",
+  "294 Fake St #640",
+  "294 Fake St Ste 219",
+  "294 Fake St Ste 301",
+  "294 Fake St Ste 312",
+  "294 Fake St Ste 338",
+  "294 Fake St Ste 410",
+  "294 Fake St Ste 416",
+  "294 Fake St Ste 417",
+  "294 Fake St Ste 429",
+  "294 Fake St Ste 443",
+  "294 Fake St Ste 652",
+  "294 Fake St Ste 654",
+  "296 Fake St",
+  "298 Fake St",
+  "300 Fake St",
+  "306 Fake St",
+  "8 Made Up St",
+  "10 Made Up St",
+  "10 Made Up St #306",
+  "10 Made Up St #320",
+  "10 Made Up St #332",
+  "10 Made Up St #337",
+  "10 Made Up St #1010",
+  "10 Made Up St #1100",
+  "14 Made Up St",
+]
+`;

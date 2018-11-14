@@ -1,0 +1,8 @@
+query LoadServiceSummaries {
+  services {
+    code
+    name
+    description
+    group
+  }
+}

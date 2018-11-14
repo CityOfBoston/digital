@@ -1,0 +1,20 @@
+query SearchAddress($query: String!) {
+  geocoder {
+		search(query: $query) {
+      location {
+        lat
+        lng
+      }
+		  address
+      addressId
+      exact
+      alwaysUseLatLng
+      units {
+        address
+        streetAddress
+        unit
+        addressId
+      }
+		}
+  }
+}
