@@ -1,24 +1,23 @@
-// @flow
-
-import React from 'react';
+import React, { FormEvent, FocusEvent } from 'react';
 import { css } from 'emotion';
 
 import { assetUrl } from '../style-constants';
 
-export type DefaultProps = {|
-  minHeight: number,
-  maxHeight: number,
-  onFocus: ?(ev: SyntheticInputEvent<>) => mixed,
-  onBlur: ?(ev: SyntheticInputEvent<>) => mixed,
-|};
+type Props = {
+  minHeight: number;
+  maxHeight: number;
+  onFocus: null | ((ev: FocusEvent<HTMLTextAreaElement>) => unknown);
+  onBlur: null | ((ev: FocusEvent<HTMLTextAreaElement>) => unknown);
 
-export type Props = {|
-  ...DefaultProps,
-  text: string,
-  placeholder: string,
-  setTextarea: (el: ?HTMLElement) => mixed,
-  onInput: (ev: SyntheticInputEvent<>) => mixed,
-|};
+  text: string;
+  placeholder: string;
+  setTextarea: (el: HTMLElement | null) => unknown;
+  onInput: (ev: FormEvent<HTMLTextAreaElement>) => unknown;
+};
+
+type State = {
+  height: number | null;
+};
 
 const WRAPPER_STYLE = css({
   overflowY: 'auto',
@@ -41,20 +40,18 @@ const TEXTAREA_STYLE = css({
   overflow: 'hidden',
 });
 
-export default class DescriptionBox extends React.Component<
-  Props,
-  {
-    height: ?number,
-  }
-> {
-  static defaultProps: DefaultProps = {
+export default class DescriptionBox extends React.Component<Props, State> {
+  static defaultProps: Pick<
+    Props,
+    'minHeight' | 'maxHeight' | 'onFocus' | 'onBlur'
+  > = {
     minHeight: 222,
     maxHeight: 500,
     onFocus: null,
     onBlur: null,
   };
 
-  textarea: ?HTMLElement = null;
+  textarea: HTMLElement | null = null;
 
   constructor(props: Props) {
     super(props);
@@ -96,7 +93,7 @@ export default class DescriptionBox extends React.Component<
     }
   }
 
-  textareaRef = (textarea: ?HTMLElement) => {
+  textareaRef = (textarea: HTMLTextAreaElement | null) => {
     const { setTextarea } = this.props;
 
     this.textarea = textarea;
@@ -109,25 +106,25 @@ export default class DescriptionBox extends React.Component<
     });
   }
 
-  onInput = (ev: SyntheticInputEvent<>) => {
+  onInput = (ev: FormEvent<HTMLTextAreaElement>) => {
     const { onInput } = this.props;
 
-    this.updateHeight(ev.target);
+    this.updateHeight(ev.currentTarget);
 
     return onInput(ev);
   };
 
-  onFocus = (ev: SyntheticInputEvent<>) => {
+  onFocus = (ev: FocusEvent<HTMLTextAreaElement>) => {
     const { onFocus } = this.props;
 
-    this.updateHeight(ev.target);
+    this.updateHeight(ev.currentTarget);
 
     if (onFocus) {
       onFocus(ev);
     }
   };
 
-  onBlur = (ev: SyntheticInputEvent<>) => {
+  onBlur = (ev: FocusEvent<HTMLTextAreaElement>) => {
     const { minHeight, maxHeight, onBlur } = this.props;
 
     if (minHeight !== maxHeight) {
@@ -150,7 +147,7 @@ export default class DescriptionBox extends React.Component<
       >
         <textarea
           className={TEXTAREA_STYLE}
-          style={{ height }}
+          style={{ height: height === null ? undefined : height }}
           name="description"
           aria-label="Description of the problem"
           placeholder={placeholder}

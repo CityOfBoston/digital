@@ -280,7 +280,7 @@ exports[`home page rendering 1`] = `
         </div>
       </div>
       <div
-        className="b b--g p-a300 p-a800--xl css-p12rmj"
+        className="b b--g p-a300 p-a800--xl css-9qjcm8"
         role="search"
         style={
           Object {

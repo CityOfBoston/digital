@@ -1,18 +1,15 @@
-// @flow
-
 import React from 'react';
-
 import Link from 'next/link';
 
-export type Props = {|
-  activeSection?: 'request' | 'services' | 'search' | 'faq' | null,
-|};
+type Props = {
+  activeSection?: 'request' | 'services' | 'search' | 'faq' | null;
+};
 
-type NavItemAttributes = {|
-  href: string,
-  as: ?string,
-  title: string,
-|};
+type NavItemAttributes = {
+  href: string;
+  as: string | undefined;
+  title: string;
+};
 
 function renderNavItem({ href, as, title }: NavItemAttributes, active) {
   return (
@@ -27,7 +24,7 @@ function renderNavItem({ href, as, title }: NavItemAttributes, active) {
 }
 
 export default function Nav({ activeSection }: Props) {
-  let key = null;
+  let key: string | undefined;
 
   if (typeof window !== 'undefined') {
     // we use the current location as a key to force a complete re-render
@@ -52,15 +49,15 @@ export default function Nav({ activeSection }: Props) {
           activeSection === 'request'
         )}
         {renderNavItem(
-          { href: '/search', as: null, title: 'Search cases' },
+          { href: '/search', as: undefined, title: 'Search cases' },
           activeSection === 'search'
         )}
         {renderNavItem(
-          { href: '/services', as: null, title: 'All services' },
+          { href: '/services', as: undefined, title: 'All services' },
           activeSection === 'services'
         )}
         {renderNavItem(
-          { href: '/faq', as: null, title: 'FAQ' },
+          { href: '/faq', as: undefined, title: 'FAQ' },
           activeSection === 'faq'
         )}
       </ul>
