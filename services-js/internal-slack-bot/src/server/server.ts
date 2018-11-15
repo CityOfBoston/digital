@@ -166,12 +166,12 @@ export async function makeServer(port: number, rollbar: Rollbar) {
       const isBotMessage =
         message.subtype === 'bot_message' ||
         (message.message && message.message.subtype === 'bot_message');
-      const deploymentType: DeploymentType = 'production';
+      const deploymentType: DeploymentType = 'staging';
 
       if (!isBotMessage) {
         deploymentInteraction.handleDeploymentNotification({
           environment: deploymentType,
-          service: 'chat-message',
+          service: 'chat-message@dev',
           commit: 'c0d753e5bb4428cf69770b59c1281fca88e96e5b',
         });
       }
