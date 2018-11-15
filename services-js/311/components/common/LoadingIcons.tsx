@@ -1,6 +1,3 @@
-// @flow
-/* eslint react/no-danger: 0 */
-
 import React from 'react';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react';
@@ -94,24 +91,17 @@ const FADE_OUT_ANIMATION = {
 };
 
 type Props = {
-  initialDelay?: number,
-  serverCompatible?: boolean,
-  reduceMotion?: boolean,
-};
-
-type DefaultProps = {
-  initialDelay: number,
-  serverCompatible: boolean,
-  reduceMotion: boolean,
+  initialDelay: number;
+  serverCompatible: boolean;
+  reduceMotion: boolean;
 };
 
 @observer
 export default class LoadingIcons extends React.Component<Props> {
-  icons: string[];
+  private icons: string[] = [];
+  private startMillis: number = 0;
 
-  startMillis: number;
-
-  static defaultProps: DefaultProps = {
+  static defaultProps = {
     initialDelay: 0,
     serverCompatible: false,
     reduceMotion: false,
@@ -189,8 +179,9 @@ export default class LoadingIcons extends React.Component<Props> {
           key={this.icon}
           className={ICON_STYLE}
           dangerouslySetInnerHTML={{
-            __html: `<use xlink:href="${SPRITE_URL}#${this
-              .icon}" height="100%"></use>`,
+            __html: `<use xlink:href="${SPRITE_URL}#${
+              this.icon
+            }" height="100%"></use>`,
           }}
         />
       </VelocityTransitionGroup>

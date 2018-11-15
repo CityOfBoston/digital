@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import { css } from 'emotion';
 
@@ -31,9 +29,9 @@ const BANNER_INNER_STYLE = css({
   transition: 'max-width 200ms',
 });
 
-export type Props = {|
-  fit: 'DIALOG' | 'PAGE',
-|};
+type Props = {
+  fit: 'DIALOG' | 'PAGE';
+};
 
 export default class FeedbackBanner extends React.Component<Props> {
   showFeedbackForm = () => {
@@ -49,13 +47,11 @@ export default class FeedbackBanner extends React.Component<Props> {
     return (
       <div className={`${BANNER_STYLE.toString()}`}>
         <div
-          className={`${fit === 'PAGE'
-            ? 'b-c'
-            : FIT_DIALOG_STYLE.toString()} ${BANNER_INNER_STYLE.toString()}`}
+          className={`${
+            fit === 'PAGE' ? 'b-c' : FIT_DIALOG_STYLE.toString()
+          } ${BANNER_INNER_STYLE.toString()}`}
         >
-          <span className="t--subtitle t--upper">
-            Welcome to the new 311:
-          </span>{' '}
+          <span className="t--subtitle t--upper">Welcome to the new 311:</span>{' '}
           <span className="t--info t--s100">
             We would love to hear your{' '}
             <a

@@ -1,8 +1,5 @@
-// @flow
 import getConfig from 'next/config';
 import { css } from 'emotion';
-
-import type { Config } from '../lib/config';
 
 export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
 export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';
@@ -34,16 +31,16 @@ export const CENTERED_DIALOG_STYLE = css({
   },
 });
 
-export const CLEAR_FIX = {
+export const CLEAR_FIX = css({
   '::after': {
     content: '""',
     display: 'table',
     clear: 'both',
   },
-};
+});
 
 export function assetUrl(path: string): string {
-  const config: Config = getConfig();
+  const config = getConfig();
   const assetPrefix = config ? config.publicRuntimeConfig.assetPrefix : '';
 
   return `${assetPrefix}/assets/${path}`;

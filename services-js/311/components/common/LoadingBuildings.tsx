@@ -1,6 +1,3 @@
-// @flow
-/* eslint react/no-danger: 0 */
-
 import React from 'react';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react';
@@ -98,17 +95,13 @@ const FADE_OUT_ANIMATION = {
   },
 };
 
-type DefaultProps = {
-  reduceMotion: boolean,
-};
-
 type Props = {
-  reduceMotion?: boolean,
+  reduceMotion: boolean;
 };
 
 @observer
 export default class LoadingBuildings extends React.Component<Props> {
-  static defaultProps: DefaultProps = {
+  static defaultProps = {
     reduceMotion: false,
   };
 
@@ -148,8 +141,9 @@ export default class LoadingBuildings extends React.Component<Props> {
           key={this.neighborhood}
           className={BUILDING_STYLE}
           dangerouslySetInnerHTML={{
-            __html: `<use xlink:href="${SPRITE_URL}#${this
-              .neighborhood}" height="100%"></use>`,
+            __html: `<use xlink:href="${SPRITE_URL}#${
+              this.neighborhood
+            }" height="100%"></use>`,
           }}
         />
       </VelocityTransitionGroup>
