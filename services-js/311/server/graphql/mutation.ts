@@ -1,8 +1,6 @@
-// @flow
-
-import type { Context } from '.';
-import type { CreateServiceRequestArgs } from '../services/Open311';
-import type { Root as Case } from './case';
+import { Context } from '.';
+import { CreateServiceRequestArgs } from '../services/Open311';
+import { Root as Case } from './case';
 
 export const Schema = `
 input CreateCaseAttribute {
@@ -28,28 +26,31 @@ type Mutation {
 }
 `;
 
-type CreateCaseArgs = {|
-  code: string,
-  description: string,
-  descriptionForClassifier: string,
-  firstName: ?string,
-  lastName: ?string,
-  email: ?string,
-  phone: ?string,
-  address: ?string,
-  addressId: ?string,
-  location: ?{
-    lat: number,
-    lng: number,
-  },
-  mediaUrl: ?string,
-  attributes: { code: string, value: string }[],
-|};
+interface CreateCaseArgs {
+  code: string;
+  description: string;
+  descriptionForClassifier: string;
+  firstName: string | undefined;
+  lastName: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  address: string | undefined;
+  addressId: string | undefined;
+  location:
+    | {
+        lat: number;
+        lng: number;
+      }
+    | undefined;
+
+  mediaUrl: string | undefined;
+  attributes: { code: string; value: string }[];
+}
 
 export const resolvers = {
   Mutation: {
     async createCase(
-      root: mixed,
+      _: {},
       args: CreateCaseArgs,
       { open311, prediction, opbeat }: Context
     ): Promise<Case> {
@@ -82,7 +83,7 @@ export const resolvers = {
 
       const c = await open311.createRequest(createArgs);
 
-      // We send this asynchronously because it's success or failure shouldn't
+      // We send this asynchronously because its success or failure shouldn't
       // affect whether we return the new case to the client.
       if (args.descriptionForClassifier) {
         prediction

@@ -1,7 +1,6 @@
 // @flow
-
-import type { Context } from 'next';
-import type { RequestAdditions } from '../../server/next-handlers';
+import { Context } from 'next';
+import { RequestAdditions } from '../../server/next-handlers';
 
 /**
  * Test helper to make a `getInitialProps` context that matches what Next.js
@@ -10,9 +9,9 @@ import type { RequestAdditions } from '../../server/next-handlers';
 export function makeServerContext(
   pathname: string,
   query: { [key: string]: string } = {},
-  requestAdditions: Object = {}
+  requestAdditions: any = {}
 ): Context<RequestAdditions> {
-  const req: Object = {
+  const req: any = {
     hapiInject: () => {
       throw new Error('hapiInject is not supported in tests');
     },
@@ -21,12 +20,13 @@ export function makeServerContext(
         accessToken: 'FAKE_MAPBOX_ACCESS_TOKEN',
       },
     },
+
     ...requestAdditions,
   };
 
   return {
-    req: (req: any),
-    res: ({ statusCode: 200 }: any),
+    req: req as any,
+    res: { statusCode: 200 } as any,
     pathname,
     query,
   };

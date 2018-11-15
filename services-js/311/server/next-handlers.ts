@@ -1,32 +1,18 @@
-// @flow weak
-
+import { Server } from 'hapi';
 import compression from 'compression';
 
-declare class HapiResponse {
-  statusCode: number,
-  result: any,
+interface Language {
+  code: string;
+  region: string | undefined;
+  quality: number;
+}
+export interface RequestAdditions {
+  hapiInject: Server['inject'];
+  languages: Language[];
+  loopbackGraphqlCache: { [key: string]: {} };
 }
 
-type HapiInject = (options: {|
-  url: string,
-  headers?: { [key: string]: string },
-  method: string,
-  payload: any,
-|}) => Promise<HapiResponse>;
-
-type Language = {|
-  code: string,
-  region: ?string,
-  quality: number,
-|};
-
-export type RequestAdditions = {|
-  hapiInject: HapiInject,
-  languages: Language[],
-  loopbackGraphqlCache: { [key: string]: mixed },
-|};
-
-export const nextHandler = (app, page, staticQuery) => async (
+export const nextHandler = (app, page, staticQuery = {}) => async (
   { server, raw: { req, res }, query, params, pre },
   h
 ) => {

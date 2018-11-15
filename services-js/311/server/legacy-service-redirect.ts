@@ -1,6 +1,4 @@
-// @flow
-
-import type { IRequest, IReply } from 'hapi';
+import { Request as HapiRequest, RequestQuery, ResponseToolkit } from 'hapi';
 
 const SERVICE_ID_MAP = {
   '4f389210e75084437f0001ce': 'litter', // Litter
@@ -27,13 +25,15 @@ const SERVICE_ID_MAP = {
 };
 
 export default function legacyServiceRedirectHandler(
-  request: IRequest,
-  reply: IReply
+  request: HapiRequest,
+  h: ResponseToolkit
 ) {
-  const code = SERVICE_ID_MAP[request.query.service_id];
+  const code =
+    SERVICE_ID_MAP[(request.query as RequestQuery).service_id as string];
+
   if (code) {
-    reply.redirect(`/request/${code}`).permanent();
+    return h.redirect(`/request/${code}`);
   } else {
-    reply.redirect('/services');
+    return h.redirect('/services');
   }
 }

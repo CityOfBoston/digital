@@ -1,11 +1,10 @@
-// @flow
 /* eslint no-console: 0 */
 
 // wraps a GraphQL options function such that errors thrown during creation and
 // GraphQL processing get correctly sent to Opbeat.
 export const opbeatWrapGraphqlOptions = (
   opbeat: any,
-  optsFn: (req: any) => Object
+  optsFn: ((req: any) => any)
 ) => async (req: any) => {
   try {
     const opts = await optsFn(req);

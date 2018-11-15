@@ -61,7 +61,7 @@ gulp.task('clean:next', () => del('.next'));
 
 gulp.task('babel:server', ['clean:build'], () =>
   gulp
-    .src('server/**/*.js')
+    .src('server/**/*.[jt]s')
     .pipe(plumber())
     .pipe(ignore.exclude(IGNORED_JS_SOURCE))
     .pipe(babel())
