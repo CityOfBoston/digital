@@ -1,23 +1,25 @@
-// @flow
-import 'isomorphic-fetch';
 import url from 'url';
+import fetch from 'node-fetch';
 import HttpsProxyAgent from 'https-proxy-agent';
+import { DetailedServiceRequest } from './Open311';
 
-import type { DetailedServiceRequest } from './Open311';
+interface CaseTypePredictionResponse {
+  status: string;
+  type: string[];
+  time: string;
+}
 
-type CaseTypePredictionResponse = {
-  status: string,
-  type: Array<string>,
-  time: string,
-};
+export class Prediction {
+  public readonly agent: any;
+  public readonly endpoint: string;
+  public readonly newEndpoint: string;
+  public readonly opbeat: any;
 
-export default class Prediction {
-  agent: any;
-  endpoint: string;
-  newEndpoint: string;
-  opbeat: any;
-
-  constructor(endpoint: ?string, newEndpoint: ?string, opbeat: any) {
+  constructor(
+    endpoint: string | undefined,
+    newEndpoint: string | undefined,
+    opbeat: any
+  ) {
     if (!endpoint || !newEndpoint) {
       throw new Error('Missing prediction endpoint');
     }
@@ -31,12 +33,12 @@ export default class Prediction {
     }
   }
 
-  url(path: string): string {
+  public url(path: string): string {
     return url.resolve(this.endpoint, path);
   }
 
   // returns case types in order of most likely to least likely,
-  async caseTypes(text: string): Promise<string[]> {
+  public async caseTypes(text: string): Promise<string[]> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('case_type_prediction', 'Prediction');
@@ -61,7 +63,7 @@ export default class Prediction {
     return responseJson.type;
   }
 
-  async caseCreated(
+  public async caseCreated(
     c: DetailedServiceRequest,
     description: string
   ): Promise<void> {

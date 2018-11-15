@@ -1,7 +1,5 @@
-// @flow
-
-import type { Context } from '.';
-import type { UnitResult } from '../services/ArcGIS';
+import { Context } from '.';
+import { UnitResult } from '../services/ArcGIS';
 
 export const Schema = `
 type Geocoder {
@@ -26,59 +24,55 @@ type Unit {
   addressId: String!
 }
 `;
+export interface Root {}
 
-export type Root = {};
+interface LatLng {
+  lat: number;
+  lng: number;
+}
 
-type LatLng = {
-  lat: number,
-  lng: number,
-};
+interface ReverseGeocodeArgs {
+  location: LatLng;
+}
 
-type ReverseGeocodeArgs = {
-  location: LatLng,
-};
+interface SearchArgs {
+  query: string;
+}
 
-type SearchArgs = {
-  query: string,
-};
+interface Place {
+  location: LatLng;
+  address: string;
+  addressId: string | null;
+  buildingId: string | null;
+  exact: boolean;
+  alwaysUseLatLng: boolean;
+}
 
-type Place = {
-  location: LatLng,
-  address: string,
-  addressId: ?string,
-  buildingId: ?string,
-  exact: boolean,
-  alwaysUseLatLng: boolean,
-};
-
-type Unit = {
-  location: LatLng,
-  address: string,
-  streetAddress: string,
-  unit: string,
-  addressId: ?string,
-};
+interface Unit {
+  location: LatLng;
+  address: string;
+  streetAddress: string;
+  unit: string;
+  addressId: string | undefined;
+}
 
 export const resolvers = {
   Geocoder: {
     reverse: (
-      s: Root,
+      _: Root,
       { location }: ReverseGeocodeArgs,
       { arcgis }: Context
-    ): Promise<?Place> => arcgis.reverseGeocode(location.lat, location.lng),
+    ): Promise<Place | null> =>
+      arcgis.reverseGeocode(location.lat, location.lng),
     search: (
-      s: Root,
+      _: Root,
       { query }: SearchArgs,
       { arcgis }: Context
-    ): Promise<Array<Place>> => arcgis.search(query),
+    ): Promise<Place[]> => arcgis.search(query),
   },
 
   Place: {
-    units: async (
-      p: Place,
-      args: mixed,
-      { arcgis }: Context
-    ): Promise<Array<Unit>> => {
+    units: async (p: Place, _: {}, { arcgis }: Context): Promise<Unit[]> => {
       const units: UnitResult[] = p.buildingId
         ? await arcgis.lookupUnits(p.buildingId)
         : [];

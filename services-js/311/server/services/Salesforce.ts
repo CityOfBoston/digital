@@ -1,37 +1,32 @@
-// @flow
-
-import 'isomorphic-fetch';
+import fetch, { RequestInit, Headers, Response } from 'node-fetch';
 import FormData from 'form-data';
 
 const AUTH_RETRIES = 2;
 
 // Wrapper to handle OAuth authentication
-export default class Salesforce {
-  opbeat: any;
-  oauthUrl: string;
-  consumerKey: string;
-  consumerSecret: string;
-
-  username: string;
-  password: string;
-  securityToken: string;
+export class Salesforce {
+  private readonly oauthUrl: string;
+  private readonly consumerKey: string;
+  private readonly consumerSecret: string;
+  private readonly username: string;
+  private readonly password: string;
+  private readonly securityToken: string;
 
   // Used to keep track of whether there is an in-flight request to get the auth
   // token. If so, we can wait on the promise.
-  authenticating: boolean;
+  private authenticating: boolean;
 
   // We have a Promise for the token, so that if we're in the process of
   // re-authorizing, many fetch requests can all await the same response.
-  tokenPromise: Promise<string>;
+  private tokenPromise: Promise<string> | null = null;
 
   constructor(
-    oauthUrl: ?string,
-    consumerKey: ?string,
-    consumerSecret: ?string,
-    username: ?string,
-    password: ?string,
-    securityToken: ?string,
-    opbeat: any
+    oauthUrl: string | undefined,
+    consumerKey: string | undefined,
+    consumerSecret: string | undefined,
+    username: string | undefined,
+    password: string | undefined,
+    securityToken: string | undefined
   ) {
     if (!oauthUrl) {
       throw new Error('Missing Salesforce oauth URL');
@@ -57,7 +52,6 @@ export default class Salesforce {
       throw new Error('Missing Salesforce security token');
     }
 
-    this.opbeat = opbeat;
     this.oauthUrl = oauthUrl;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
@@ -68,21 +62,28 @@ export default class Salesforce {
     this.authenticating = false;
   }
 
-  reauthorize(): Promise<mixed> {
+  /**
+   * Reloads the authorization token. De-dupes simultaneous requests to return
+   * the same promise.
+   */
+  public async reauthorize(): Promise<void> {
     if (this.authenticating) {
-      return this.tokenPromise;
+      await this.tokenPromise;
+    } else {
+      try {
+        this.authenticating = true;
+        // we save this out before awaiting so that other calls to reauthorize
+        // can await on it without re-calling fetchAuthorizationToken.
+        this.tokenPromise = this.fetchAuthorizationToken();
+
+        await this.tokenPromise;
+      } finally {
+        this.authenticating = false;
+      }
     }
-
-    this.authenticating = true;
-    this.tokenPromise = this.fetchAuthorizationToken();
-    this.tokenPromise.then(() => {
-      this.authenticating = false;
-    });
-
-    return this.reauthorize();
   }
 
-  async fetchAuthorizationToken(): Promise<string> {
+  private async fetchAuthorizationToken(): Promise<string> {
     const body = new FormData();
     body.append('grant_type', 'password');
     body.append('client_id', this.consumerKey);
@@ -94,17 +95,27 @@ export default class Salesforce {
     const json = await res.json();
 
     if (!res.ok) {
-      const err: any = new Error(
+      const err = new Error(
         json.error_description || 'Error authenticating to Salesforce'
       );
-      err.extra = { responseJson: json };
+
+      (err as any).extra = { responseJson: json };
+
       throw err;
     } else {
       return json.access_token;
     }
   }
 
-  async internalFetch(url: string, opts?: Object = {}): Promise<Response> {
+  private async internalFetch(
+    url: string,
+    opts: RequestInit = {}
+  ): Promise<Response> {
+    // this is just a typechecking thing
+    if (Array.isArray(opts.headers)) {
+      throw new Error('Illegal header format');
+    }
+
     const headers = new Headers(opts.headers || {});
     headers.append('Authorization', `Bearer ${await this.tokenPromise}`);
 
@@ -117,8 +128,11 @@ export default class Salesforce {
   // This is complicated because we don't know that our OAuth token has expired
   // until a request fails. When that happens, we try to reauthorize and then
   // try again.
-  async authenticatedFetch(url: string, opts?: Object = {}): Promise<Response> {
-    let resp = null;
+  public async authenticatedFetch(
+    url: string,
+    opts: RequestInit = {}
+  ): Promise<Response> {
+    let resp: Response | null = null;
 
     for (let i = 0; i <= AUTH_RETRIES; ++i) {
       resp = await this.internalFetch(url, opts);
@@ -131,10 +145,12 @@ export default class Salesforce {
       }
     }
 
-    const err: any = new Error(
+    const err = new Error(
       `Fetch failed after trying reauthorization ${AUTH_RETRIES} times`
     );
-    err.extra = { responseText: resp ? await resp.text() : '' };
+
+    (err as any).extra = { responseText: resp ? await resp.text() : '' };
+
     throw err;
   }
 }

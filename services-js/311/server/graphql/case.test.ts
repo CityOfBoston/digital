@@ -1,14 +1,13 @@
-// @flow
+import { resolvers, Root } from './case';
+import { DetailedServiceRequest } from '../services/Open311';
 
-import { resolvers, type Root } from './case';
-
-const CASE_WITH_NO_PHOTOS: Root = {
+const CASE_WITH_NO_PHOTOS: DetailedServiceRequest = {
   id: '500r0000002dwwsAAA',
   service_request_id: '18-00012429',
   status: 'closed',
   long: -71.05742059114559,
   lat: 42.358723671506326,
-  media_url: null,
+  media_url: undefined,
   service_name: 'Bicycle abandoned on the street or sidewalk',
   service_code: 'ABNDBIKE',
   description: 'bike',
@@ -18,9 +17,9 @@ const CASE_WITH_NO_PHOTOS: Root = {
   address: '2 Devonshire Pl, Boston, 02109',
   zipcode: '02109',
   address_id: '164247',
-  agency_responsible: null,
-  service_notice: null,
-  status_notes: null,
+  agency_responsible: undefined,
+  service_notice: undefined,
+  status_notes: undefined,
   origin: 'API',
   source: 'City Worker',
   priority: 'Low',
@@ -28,43 +27,48 @@ const CASE_WITH_NO_PHOTOS: Root = {
     type: 7,
     value: 'Business Days',
   },
+
   address_details: 'detaila',
-  duplicate_parent_service_request_id: null,
-  parent_service_request_id: null,
+  duplicate_parent_service_request_id: undefined,
+  parent_service_request_id: undefined,
   reported_location: {
-    address: null,
-    address_id: null,
+    address: undefined,
+    address_id: undefined,
     lat: 42.3587181,
     long: -71.0573287,
   },
+
   owner: {
     id: '00Gr0000000XANVEA4',
     name: 'BTDT BostonBikes',
     type: 'queue',
   },
+
   contact: {
     first_name: 'Test',
     last_name: 'Test',
-    phone: null,
+    phone: undefined,
     email: 'test@boston.gov',
   },
+
   closure_details: {
     reason: 'Case Investigated',
     comment:
       'The bike was not found at this location when a Boston Transportation Department team member went to tag it. If the problem persists or if you have any questions, please feel free to contact us through BOS:311.',
   },
+
   attributes: [],
   activities: [],
   events: [],
 };
 
-const CASE_WITH_URL_PHOTO: Root = ({
+const CASE_WITH_URL_PHOTO: Root = {
   ...CASE_WITH_NO_PHOTOS,
   media_url:
     'https://spot-boston-res.cloudinary.com/image/upload/v1521651380/boston/development/l79qpl0z81lmfzdt3rqd.jpg',
-}: any);
+} as any;
 
-const CASE_WITH_COMPLEX_PHOTO: Root = ({
+const CASE_WITH_COMPLEX_PHOTO: Root = {
   ...CASE_WITH_NO_PHOTOS,
   media_url: [
     {
@@ -74,9 +78,9 @@ const CASE_WITH_COMPLEX_PHOTO: Root = ({
       tags: ['Close'],
     },
   ],
-}: any);
+} as any;
 
-const CASE_WITH_ACTIVITY_PHOTO: Root = ({
+const CASE_WITH_ACTIVITY_PHOTO: Root = {
   ...CASE_WITH_NO_PHOTOS,
   activities: [
     {
@@ -94,6 +98,7 @@ const CASE_WITH_ACTIVITY_PHOTO: Root = ({
         },
       ],
     },
+
     {
       code: 'ABNDBIKE-PICKUP',
       order: 2,
@@ -102,7 +107,7 @@ const CASE_WITH_ACTIVITY_PHOTO: Root = ({
       completion_date: null,
     },
   ],
-}: any);
+} as any;
 
 describe('photos', () => {
   it('returns a URL photo', () => {

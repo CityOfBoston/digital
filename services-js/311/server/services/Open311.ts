@@ -1,195 +1,212 @@
-// @flow
-
-import 'isomorphic-fetch';
+import fetch from 'node-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import DataLoader from 'dataloader';
-import type Salesforce from './Salesforce';
+import { Salesforce } from './Salesforce';
 
 // types taken from Open311
-export type Service = {|
-  service_code: string,
-  service_name: ?string,
-  description: string,
-  metadata: boolean,
-  type: 'realtime' | 'batch' | 'blackbox',
-  keywords: ?string,
-  group: string,
-|};
+export interface Service {
+  service_code: string;
+  service_name: string | undefined;
+  description: string;
+  metadata: boolean;
+  type: 'realtime' | 'batch' | 'blackbox';
+  keywords: string | undefined;
+  group: string;
+}
 
-export type PlainValue = {|
-  key: string,
-  name: string,
-  img?: string,
-|};
+export interface PlainValue {
+  key: string;
+  name: string;
+  img?: string;
+}
 
-export type DependentCondition = {|
-  attribute: string,
-  op: 'eq' | 'neq' | 'in' | 'gt' | 'gte' | 'lt' | 'lte',
-  // This is polymorphic; when comparing with a multipicklist this can 'eq'
-  // an array of strings.
-  value: number | string | string[],
-|};
+export interface DependentCondition {
+  attribute: string;
+  op: 'eq' | 'neq' | 'in' | 'gt' | 'gte' | 'lt' | 'lte';
 
-export type DependentConditions = {|
-  clause: 'OR' | 'AND',
-  conditions: DependentCondition[],
-|};
+  value: number | string | string[];
+}
 
-export type ConditionalValues = {|
-  dependentOn: DependentConditions,
-  values: PlainValue[],
-|};
+export interface DependentConditions {
+  clause: 'OR' | 'AND';
+  conditions: DependentCondition[];
+}
 
-export type Validation = {|
-  dependentOn: DependentConditions,
-  message?: string,
-  reportOnly?: boolean,
-|};
+export interface ConditionalValues {
+  dependentOn: DependentConditions;
+  values: PlainValue[];
+}
+
+export interface Validation {
+  dependentOn: DependentConditions;
+  message?: string;
+  reportOnly?: boolean;
+}
 
 export type ServiceMetadataAttributeValue = PlainValue | ConditionalValues;
 
-export type ServiceMetadataAttribute = {|
-  required: boolean,
-  datatype: 'Text' | 'Informational' | 'Picklist' | 'Boolean (checkbox)',
-  datatype_description: ?string,
-  order: ?number,
-  description: string,
-  code: string,
-  variable: boolean,
-  // currently a bug where sometimes this is a number!?!
-  values?: ServiceMetadataAttributeValue[] | number,
-  dependencies?: DependentConditions,
-  validations?: Array<Validation>,
-|};
+export function isPlainValue(
+  s: ServiceMetadataAttributeValue
+): s is PlainValue {
+  return (s as any).hasOwnProperty('key');
+}
 
-export type ServiceMetadata = {|
-  service_code: string,
-  attributes: ServiceMetadataAttribute[],
-  definitions: ?{|
-    location_required?: boolean,
-    contact_required?: boolean,
-    location?: {|
-      required: boolean,
-      visible: boolean,
-    |},
-    reporter?: {|
-      required: boolean,
-      visible: boolean,
-    |},
-  |},
-|};
+export function isConditionalValues(
+  s: ServiceMetadataAttributeValue
+): s is ConditionalValues {
+  return (s as any).hasOwnProperty('values');
+}
+
+export interface ServiceMetadataAttribute {
+  required: boolean;
+  datatype: 'Text' | 'Informational' | 'Picklist' | 'Boolean (checkbox)';
+  datatype_description: string | undefined;
+  order: number | undefined;
+  description: string;
+  code: string;
+  variable: boolean;
+
+  values?: ServiceMetadataAttributeValue[] | number;
+  dependencies?: DependentConditions;
+  validations?: Validation[];
+}
+
+export interface ServiceMetadata {
+  service_code: string;
+  attributes: ServiceMetadataAttribute[];
+  definitions:
+    | {
+        location_required?: boolean;
+        contact_required?: boolean;
+        location?: {
+          required: boolean;
+          visible: boolean;
+        };
+
+        reporter?: {
+          required: boolean;
+          visible: boolean;
+        };
+      }
+    | undefined;
+}
 
 // Returned by the bulk endpoint and posting the submission.
-export type ServiceRequest = {|
-  service_request_id: string,
-  status: string,
-  status_notes: ?string,
-  service_name: ?string,
-  service_code: string,
-  description: ?string,
-  agency_responsible: ?string,
-  service_notice: ?string,
-  // 2017-02-21T22:18:27.000Z
-  requested_datetime: ?string,
-  updated_datetime: ?string,
-  expected_datetime: ?string,
-  address: ?string,
-  address_id: ?string,
-  zipcode: ?string,
-  lat: ?number,
-  long: ?number,
-  media_url: ?string,
-|};
+export interface ServiceRequest {
+  service_request_id: string;
+  status: string;
+  status_notes: string | undefined;
+  service_name: string | undefined;
+  service_code: string;
+  description: string | undefined;
+  agency_responsible: string | undefined;
+  service_notice: string | undefined;
+
+  requested_datetime: string | undefined;
+  updated_datetime: string | undefined;
+  expected_datetime: string | undefined;
+  address: string | undefined;
+  address_id: string | undefined;
+  zipcode: string | undefined;
+  lat: number | undefined;
+  long: number | undefined;
+  media_url: string | undefined;
+}
 
 // Returned by the single-request endpoint and posting the submission.
-export type DetailedServiceRequest = {|
-  id: string,
-  service_request_id: string,
-  status: string,
-  long: ?number,
-  lat: ?number,
-  // Yes this can be an array or a string, depending on whether or not the case
-  // was imported.
+export interface DetailedServiceRequest {
+  id: string;
+  service_request_id: string;
+  status: string;
+  long: number | undefined;
+  lat: number | undefined;
+
   media_url:
-    | ?Array<{|
-        id: string,
-        url: string,
-        tags: string[],
-      |}>
-    | ?string,
-  service_name: ?string,
-  service_code: string,
-  description: ?string,
-  // 2017-08-16T14:24:02.000Z
-  requested_datetime: ?string,
-  expected_datetime: ?string,
-  updated_datetime: ?string,
-  address: ?string,
-  address_details: ?string,
-  zipcode: ?string,
-  reported_location: ?{
-    address: ?string,
-    address_id: ?string,
-    lat: ?number,
-    long: ?number,
-  },
-  address_id: ?string,
-  agency_responsible: ?string,
-  service_notice: ?string,
-  status_notes: ?string,
-  service_notice: ?string,
-  duplicate_parent_service_request_id: ?string,
-  parent_service_request_id: ?string,
-  origin: ?string,
-  source: ?string,
-  priority: string,
-  service_level_agreement: Object,
-  owner: Object,
+    | Array<{
+        id: string;
+        url: string;
+        tags: string[];
+      }>
+    | string
+    | undefined;
+
+  service_name: string | undefined;
+  service_code: string;
+  description: string | undefined;
+
+  requested_datetime: string | undefined;
+  expected_datetime: string | undefined;
+  updated_datetime: string | undefined;
+  address: string | undefined;
+  address_details: string | undefined;
+  zipcode: string | undefined;
+  reported_location:
+    | {
+        address: string | undefined;
+        address_id: string | undefined;
+        lat: number | undefined;
+        long: number | undefined;
+      }
+    | undefined;
+
+  address_id: string | undefined;
+  agency_responsible: string | undefined;
+  service_notice: string | undefined;
+  status_notes: string | undefined;
+  duplicate_parent_service_request_id: string | undefined;
+  parent_service_request_id: string | undefined;
+  origin: string | undefined;
+  source: string | undefined;
+  priority: string;
+  service_level_agreement: any;
+  owner: any;
   contact: {
-    first_name: ?string,
-    last_name: ?string,
-    phone: ?string,
-    email: ?string,
-  },
+    first_name: string | undefined;
+    last_name: string | undefined;
+    phone: string | undefined;
+    email: string | undefined;
+  };
+
   closure_details: {
-    reason: ?string,
-    comment: ?string,
-  },
-  activities: Array<ServiceRequestActivity>,
-  attributes: Array<Object>,
-  events: Array<Object>,
-|};
+    reason: string | undefined;
+    comment: string | undefined;
+  };
 
-export type ServiceRequestActivity = {|
-  code: string,
-  order: number,
-  description: ?string,
-  status: 'Complete' | 'Void',
-  // 2017-08-16T14:24:02.000Z
-  completion_date: ?string,
-  media_url?: Array<{|
-    id: string,
-    url: string,
-    tags: Array<string>,
-  |}>,
-|};
+  activities: ServiceRequestActivity[];
+  attributes: any[];
+  events: any[];
+}
 
-export type CreateServiceRequestArgs = {|
-  service_code: string,
-  lat?: number,
-  long?: number,
-  address_string?: string,
-  address_id?: string,
-  first_name: ?string,
-  last_name: ?string,
-  email: ?string,
-  phone: ?string,
-  description: string,
-  media_url: ?string,
-  attributes: { code: string, value: string }[],
-|};
+export interface ServiceRequestActivity {
+  code: string;
+  order: number;
+  description: string | undefined;
+  status: 'Complete' | 'Void';
+
+  completion_date: string | undefined;
+  media_url?: Array<{
+    id: string;
+    url: string;
+    tags: string[];
+  }>;
+}
+
+export interface CreateServiceRequestArgs {
+  service_code: string;
+  lat?: number;
+  long?: number;
+  address_string?: string;
+  address_id?: string;
+  first_name: string | undefined;
+  last_name: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  description: string;
+  media_url: string | undefined;
+  attributes: { code: string; value: string }[];
+}
 
 async function processResponse(res): Promise<any> {
   if (res.status === 404) {
@@ -221,20 +238,27 @@ async function processResponse(res): Promise<any> {
  *
  * Documentation: https://bos311.api-docs.io/
  */
-export default class Open311 {
-  agent: any;
-  opbeat: any;
-  salesforce: ?Salesforce;
-  endpoint: string;
-  apiKey: ?string;
-  serviceLoader: DataLoader<string, ?Service>;
-  serviceMetadataLoader: DataLoader<string, ?ServiceMetadata>;
-  requestLoader: DataLoader<string, ?ServiceRequest | ?DetailedServiceRequest>;
+export class Open311 {
+  private readonly agent: any;
+  private readonly opbeat: any;
+  private readonly salesforce: Salesforce | null;
+  private readonly endpoint: string;
+  private readonly apiKey: string | undefined;
+
+  private readonly serviceLoader: DataLoader<string, Service | undefined>;
+  private readonly serviceMetadataLoader: DataLoader<
+    string,
+    ServiceMetadata | undefined
+  >;
+  private readonly requestLoader: DataLoader<
+    string,
+    ServiceRequest | DetailedServiceRequest | null
+  >;
 
   constructor(
-    endpoint: ?string,
-    apiKey: ?string,
-    salesforce: ?Salesforce,
+    endpoint: string | undefined,
+    apiKey: string | undefined,
+    salesforce: Salesforce | null,
     opbeat: any
   ) {
     if (!endpoint) {
@@ -283,6 +307,7 @@ export default class Open311 {
               this.url(
                 `services/${additionalPath}${code}.json?${params.toString()}`
               ),
+
               {
                 agent: this.agent,
               }
@@ -303,7 +328,9 @@ export default class Open311 {
       return out;
     });
 
-    this.requestLoader = new DataLoader(async (ids: string[]) => {
+    this.requestLoader = new DataLoader(async (ids): Promise<
+      Array<ServiceRequest | DetailedServiceRequest | null>
+    > => {
       let transaction;
 
       const params = new URLSearchParams();
@@ -326,13 +353,13 @@ export default class Open311 {
 
           // For whatever reason, looking up a single request ID still returns
           // an array.
-          const requestArr: Array<?DetailedServiceRequest> = await processResponse(
-            response
-          );
+          const requestArr: Array<
+            DetailedServiceRequest | undefined
+          > = await processResponse(response);
 
           // processResponse turns 404s into nulls
           if (requestArr) {
-            return [requestArr[0]];
+            return [requestArr[0] || null];
           } else {
             return [null];
           }
@@ -369,7 +396,7 @@ export default class Open311 {
     });
   }
 
-  fetch(url: string, opts?: Object) {
+  public fetch(url: string, opts?: any) {
     if (this.salesforce) {
       return this.salesforce.authenticatedFetch(url, opts);
     } else {
@@ -377,11 +404,10 @@ export default class Open311 {
     }
   }
 
-  url(path: string) {
+  public url(path: string) {
     return url.resolve(this.endpoint, path);
   }
-
-  services = async (): Promise<Service[]> => {
+  public readonly services = async (): Promise<Service[]> => {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
@@ -403,19 +429,20 @@ export default class Open311 {
     return out;
   };
 
-  service(code: string): Promise<?Service> {
+  public service(code: string): Promise<Service | undefined> {
     return this.serviceLoader.load(code);
   }
 
-  serviceMetadata(code: string): Promise<?ServiceMetadata> {
+  public serviceMetadata(code: string): Promise<ServiceMetadata | undefined> {
     return this.serviceMetadataLoader.load(code);
   }
 
-  request(id: string): Promise<?ServiceRequest | ?DetailedServiceRequest> {
+  public request(
+    id: string
+  ): Promise<ServiceRequest | DetailedServiceRequest | null> {
     return this.requestLoader.load(id);
   }
-
-  requests = async () => {
+  public readonly requests = async () => {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('requests', 'Open311');
     const params = new URLSearchParams();
@@ -437,7 +464,7 @@ export default class Open311 {
     return out;
   };
 
-  async createRequest(
+  public async createRequest(
     args: CreateServiceRequestArgs
   ): Promise<DetailedServiceRequest> {
     const params = new URLSearchParams();
@@ -448,15 +475,19 @@ export default class Open311 {
     Object.keys(args).forEach(key => {
       switch (key) {
         case 'lat':
-        case 'long':
-          if (args[key] !== undefined) {
-            params.append(key, args[key].toString());
+        case 'long': {
+          const v = args[key];
+          if (typeof v !== 'undefined') {
+            params.append(key, v.toString());
           }
           break;
+        }
+
         case 'attributes':
           args[key].map(({ code, value }) =>
             params.append(`attribute[${code}]`, value)
           );
+
           break;
         default:
           if (args[key]) {
@@ -474,6 +505,7 @@ export default class Open311 {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'Content-Length': `${bodyBuf.length}`,
       },
+
       method: 'POST',
       body,
     });

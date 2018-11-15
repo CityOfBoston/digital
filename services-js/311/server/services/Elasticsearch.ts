@@ -1,62 +1,39 @@
-// @flow
-
 import AWS from 'aws-sdk';
 import elasticsearch from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
 import HttpsProxyAgent from 'https-proxy-agent';
 
 // This needs to be kept up-to-date with the 311-indexer
-type CaseDocument = {|
-  status: string,
-  location: ?{
-    lat: number,
-    lon: number,
-  },
-  address: string,
-  description: string,
-  service_name: string,
-  service_code: ?string,
-  status_notes: string,
-  requested_datetime: ?string,
-  updated_datetime: ?string,
-  replay_id: number,
-  media_url: ?string,
-|};
+interface CaseDocument {
+  status: string;
+  location:
+    | {
+        lat: number;
+        lon: number;
+      }
+    | undefined;
 
-export type IndexedCase = {
-  service_request_id: string,
-  ...CaseDocument,
-};
+  address: string;
+  description: string;
+  service_name: string;
+  service_code: string | undefined;
+  status_notes: string;
+  requested_datetime: string | undefined;
+  updated_datetime: string | undefined;
+  replay_id: number;
+  media_url: string | undefined;
+}
 
-type SearchHit<S> = {
-  _index: string,
-  _type: string,
-  _id: string,
-  _score: number,
-  _source: S,
-};
+export interface IndexedCase extends CaseDocument {
+  service_request_id: string;
+}
 
-type SearchResponse<S> = {
-  _shards: {
-    total: number,
-    successful: number,
-    failed: number,
-  },
-  hits: {
-    total: number,
-    max_score: number,
-    hits: Array<SearchHit<S>>,
-    took: 5,
-    timed_out: boolean,
-  },
-};
+export class Elasticsearch {
+  public readonly opbeat: any;
+  public readonly client: elasticsearch.Client;
+  public readonly index: string;
 
-export default class Elasticsearch {
-  opbeat: any;
-  client: elasticsearch.Client;
-  index: string;
-
-  constructor(url: ?string, index: ?string, opbeat: any) {
+  constructor(url: string | undefined, index: string | undefined, opbeat: any) {
     if (!url) {
       throw new Error('Missing Elasticsearch url');
     }
@@ -74,7 +51,7 @@ export default class Elasticsearch {
     this.opbeat = opbeat;
   }
 
-  static configureAws(region: ?string) {
+  public static configureAws(region: string | undefined) {
     if (!region) {
       throw new Error('Missing AWS region');
     }
@@ -91,16 +68,16 @@ export default class Elasticsearch {
   }
 
   // Returns an array of IDs for matching cases
-  async searchCases(
-    query: ?string,
-    topLeft: ?{ lat: number, lng: number },
-    bottomRight: ?{ lat: number, lng: number }
-  ): Promise<Array<IndexedCase>> {
+  public async searchCases(
+    query: string | undefined,
+    topLeft: { lat: number; lng: number } | undefined,
+    bottomRight: { lat: number; lng: number } | undefined
+  ): Promise<IndexedCase[]> {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('search', 'Elasticsearch');
 
-    const must = [];
-    const filter = [];
+    const must: any[] = [];
+    const filter: any[] = [];
 
     if (query) {
       must.push({
@@ -119,6 +96,7 @@ export default class Elasticsearch {
               lat: topLeft.lat,
               lon: topLeft.lng,
             },
+
             bottom_right: {
               lat: bottomRight.lat,
               lon: bottomRight.lng,
@@ -129,7 +107,7 @@ export default class Elasticsearch {
     }
 
     try {
-      const res: SearchResponse<CaseDocument> = await this.client.search({
+      const res = await this.client.search<CaseDocument>({
         index: this.index,
         type: 'case',
         body: {

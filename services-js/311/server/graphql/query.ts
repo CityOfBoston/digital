@@ -1,10 +1,8 @@
-// @flow
 /* eslint camelcase: 0 */
-
-import type { Context } from '.';
-import type { Service } from '../services/Open311';
-import type { IndexedCase } from '../services/Elasticsearch';
-import type { Root as CaseRoot } from './case';
+import { Context } from '.';
+import { Service } from '../services/Open311';
+import { IndexedCase } from '../services/Elasticsearch';
+import { Root as CaseRoot } from './case';
 
 export const Schema = `
 type LatLng {
@@ -33,31 +31,36 @@ type Query {
 }
 `;
 
-type SuggestionsArgs = {
-  text: string,
-  max: ?number,
-  threshold: ?number,
-};
+interface SuggestionsArgs {
+  text: string;
+  max: number | undefined;
+  threshold: number | undefined;
+}
 
-type SearchCasesArgs = {
-  query: ?string,
-  topLeft: ?{
-    lat: number,
-    lng: number,
-  },
-  bottomRight: ?{
-    lat: number,
-    lng: number,
-  },
-};
+interface SearchCasesArgs {
+  query: string | undefined;
+  topLeft:
+    | {
+        lat: number;
+        lng: number;
+      }
+    | undefined;
 
-type CaseSearchResults = {
-  cases: Array<IndexedCase>,
-  query: string,
-};
+  bottomRight:
+    | {
+        lat: number;
+        lng: number;
+      }
+    | undefined;
+}
+
+interface CaseSearchResults {
+  cases: IndexedCase[];
+  query: string;
+}
 
 // HACK(finh): We need a way to invalidate this cache.
-let cachedTopServices: ?Promise<Array<Service>> = null;
+let cachedTopServices: Promise<Service[]> | null = null;
 
 // Top 10 non-seasonal requests as of 9/18/17
 const TOP_SERVICE_CODES = [
@@ -87,6 +90,7 @@ async function serviceSuggestions(
     const matchedService = services.find(
       ({ service_code }) => service_code === type
     );
+
     if (matchedService) {
       matchedServices.push(matchedService);
     }
@@ -98,14 +102,14 @@ async function serviceSuggestions(
 export const resolvers = {
   Query: {
     services: (
-      root: mixed,
-      args: mixed,
+      _root: {},
+      _args: {},
       { open311 }: Context
     ): Promise<Service[]> => open311.services(),
 
     topServices: async (
-      root: mixed,
-      { first }: { first: ?number },
+      _root: {},
+      { first }: { first: number | undefined },
       { open311 }: Context
     ): Promise<Service[]> => {
       if (!cachedTopServices) {
@@ -124,25 +128,25 @@ export const resolvers = {
     },
 
     servicesForDescription: (
-      root: mixed,
+      _root: {},
       args: SuggestionsArgs,
       context: Context
     ): Promise<Service[]> => serviceSuggestions(context, args),
 
     service: (
-      root: mixed,
+      _root: {},
       { code }: { code: string },
       { open311 }: Context
-    ): Promise<?Service> => open311.service(code),
+    ): Promise<Service | undefined> => open311.service(code),
 
     case: (
-      root: mixed,
+      _root: {},
       { id }: { id: string },
       { open311 }: Context
-    ): Promise<?CaseRoot> => open311.request(id),
+    ): Promise<CaseRoot | null> => open311.request(id),
 
     searchCases: async (
-      root: mixed,
+      _root: {},
       { query, topLeft, bottomRight }: SearchCasesArgs,
       { elasticsearch }: Context
     ): Promise<CaseSearchResults> => {

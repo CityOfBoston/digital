@@ -1,7 +1,4 @@
-// @flow
-
 import { makeExecutableSchema } from 'graphql-tools';
-
 import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
 import {
   Schema as MutationSchema,
@@ -16,19 +13,18 @@ import {
   Schema as GeocoderSchema,
   resolvers as geocoderResolvers,
 } from './geocoder';
+import { Open311 } from '../services/Open311';
+import { ArcGIS } from '../services/ArcGIS';
+import { Prediction } from '../services/Prediction';
+import { Elasticsearch } from '../services/Elasticsearch';
 
-import type Open311 from '../services/Open311';
-import type ArcGIS from '../services/ArcGIS';
-import type Prediction from '../services/Prediction';
-import type Elasticsearch from '../services/Elasticsearch';
-
-export type Context = {|
-  open311: Open311,
-  arcgis: ArcGIS,
-  prediction: Prediction,
-  elasticsearch: Elasticsearch,
-  opbeat: any,
-|};
+export interface Context {
+  open311: Open311;
+  arcgis: ArcGIS;
+  prediction: Prediction;
+  elasticsearch: Elasticsearch;
+  opbeat: any;
+}
 
 const SchemaDefinition = `
 schema {
@@ -46,12 +42,14 @@ export default makeExecutableSchema({
     ServiceSchema,
     GeocoderSchema,
   ],
+
   resolvers: {
     ...queryResolvers,
     ...mutationResolvers,
     ...caseResolvers,
     ...serviceResolvers,
     ...geocoderResolvers,
-  },
+  } as any,
+
   allowUndefinedInResolve: false,
 });

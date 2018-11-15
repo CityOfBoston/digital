@@ -1,7 +1,5 @@
-// @flow
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
-import Good from 'good';
 import Inert from 'inert';
 import next from 'next';
 import Boom from 'boom';
@@ -10,29 +8,31 @@ import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 
-import decryptEnv from './lib/decrypt-env';
-import reportDeployToOpbeat from './lib/report-deploy-to-opbeat';
+import decryptEnv from '@cityofboston/srv-decrypt-env';
+import {
+  headerKeys,
+  HeaderKeysOptions,
+  loggingPlugin,
+} from '@cityofboston/hapi-common';
+
 import { nextHandler, nextDefaultHandler } from './next-handlers';
 import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
-import Open311 from './services/Open311';
-import ArcGIS from './services/ArcGIS';
-import Prediction from './services/Prediction';
-import Elasticsearch from './services/Elasticsearch';
-import Salesforce from './services/Salesforce';
+import { Open311 } from './services/Open311';
+import { ArcGIS } from './services/ArcGIS';
+import { Prediction } from './services/Prediction';
+import { Elasticsearch } from './services/Elasticsearch';
+import { Salesforce } from './services/Salesforce';
 
-import schema from './graphql';
-import type { Context } from './graphql';
+import schema, { Context } from './graphql';
 import sitemapHandler from './sitemap';
 import legacyServiceRedirectHandler from './legacy-service-redirect';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
 export default async function startServer({ opbeat }: any) {
-  reportDeployToOpbeat(opbeat);
   await decryptEnv();
 
-  const serverConfig = {
-    host: '0.0.0.0',
+  const serverConfig: Hapi.ServerOptions = {
     port,
     tls: undefined,
   };
@@ -72,8 +72,7 @@ export default async function startServer({ opbeat }: any) {
         process.env.SALESFORCE_CONSUMER_SECRET,
         process.env.SALESFORCE_API_USERNAME,
         process.env.SALESFORCE_API_PASSWORD,
-        process.env.SALESFORCE_API_SECURITY_TOKEN,
-        opbeat
+        process.env.SALESFORCE_API_SECURITY_TOKEN
       )
     : null;
 
@@ -83,58 +82,13 @@ export default async function startServer({ opbeat }: any) {
     console.log('Successfully authenticated to Salesforce');
   }
 
-  server.auth.scheme(
-    'headerKeys',
-    (s, { keys, header }: { header: string, keys: string[] }) => ({
-      authenticate: (request, h) => {
-        const key = request.headers[header.toLowerCase()];
-        if (!key) {
-          throw Boom.unauthorized(`Missing ${header} header`);
-        }
-
-        if (keys.indexOf(key) === -1) {
-          throw Boom.unauthorized(`Key ${key} is not a valid key`);
-        }
-
-        return h.authenticated({ credentials: key });
-      },
-    })
-  );
-
-  server.auth.strategy('apiKey', 'headerKeys', {
+  server.auth.scheme('headerKeys', headerKeys);
+  server.auth.strategy('apiHeaderKeys', 'headerKeys', {
     header: 'X-API-KEY',
     keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
-  });
+  } as HeaderKeysOptions);
 
-  await server.register({
-    plugin: Good,
-    options: {
-      reporters: {
-        console: [
-          {
-            module: 'good-squeeze',
-            name: 'Squeeze',
-            args: [
-              {
-                // Keep our health checks from appearing in logs
-                response: { exclude: 'health' },
-                log: '*',
-              },
-            ],
-          },
-          {
-            module: 'good-console',
-            args: [
-              {
-                color: process.env.NODE_ENV !== 'production',
-              },
-            ],
-          },
-          'stdout',
-        ],
-      },
-    },
-  });
+  await server.register(loggingPlugin);
 
   await server.register(Inert);
   await server.register(acceptLanguagePlugin);
@@ -147,28 +101,31 @@ export default async function startServer({ opbeat }: any) {
       // and can cache within the same query but not leak to others.
       graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
         schema,
-        context: ({
+        context: {
           open311: new Open311(
             process.env.PROD_311_ENDPOINT,
             process.env.PROD_311_KEY,
             salesforce,
             opbeat
           ),
+
           arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
           prediction: new Prediction(
             process.env.PREDICTION_ENDPOINT,
             process.env.NEW_PREDICTION_ENDPOINT,
             opbeat
           ),
+
           // Elasticsearch maintains a persistent connection, so we re-use it
           // across requests.
           elasticsearch,
           opbeat,
-        }: Context),
+        } as Context,
       })),
+
       route: {
         cors: true,
-        auth: 'apiKey',
+        auth: 'apiHeaderKeys',
       },
     },
   });
@@ -193,7 +150,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/request',
-    handler: (request, h) => h.redirect('/'),
+    handler: (_, h) => h.redirect('/'),
   });
 
   server.route({
@@ -230,7 +187,7 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/reports/list_services',
-    handler: (request, h) => h.redirect('/services').permanent(),
+    handler: (_, h) => h.redirect('/services'),
   });
 
   server.route({
@@ -256,12 +213,14 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: '*',
     path: '/{p*}',
-    handler: (handleNextRequest => (...args) => {
-      const { raw: { res } } = args[0];
+    handler: (handleNextRequest => (request, h) => {
+      const {
+        raw: { res },
+      } = request;
 
       res.statusCode = 404;
 
-      return handleNextRequest(...args);
+      return handleNextRequest(request, h);
     })(nextHandler(app, '/_error')),
   });
 
@@ -272,6 +231,7 @@ export default async function startServer({ opbeat }: any) {
       new Open311(
         process.env.PROD_311_ENDPOINT,
         process.env.PROD_311_KEY,
+        null,
         opbeat
       )
     ),
@@ -286,13 +246,13 @@ export default async function startServer({ opbeat }: any) {
   server.route({
     method: 'GET',
     path: '/favicon.ico',
-    handler: (request, h) => h.file('static/favicon.ico'),
+    handler: (_, h) => h.file('static/favicon.ico'),
   });
 
   server.route({
     method: 'GET',
     path: '/robots.txt',
-    handler: (request, h) =>
+    handler: (_, h) =>
       h.file(
         process.env.HEROKU_PIPELINE === 'staging'
           ? 'static/robots-staging.txt'
@@ -305,7 +265,7 @@ export default async function startServer({ opbeat }: any) {
     path: '/assets/{path*}',
     handler: (request, h) => {
       if (!request.params.path || request.params.path.indexOf('..') !== -1) {
-        return h(Boom.forbidden());
+        throw Boom.forbidden();
       }
 
       const p = Path.join(
@@ -313,6 +273,7 @@ export default async function startServer({ opbeat }: any) {
         'assets',
         ...request.params.path.split('/')
       );
+
       return h
         .file(p)
         .header('Cache-Control', 'public, max-age=3600, s-maxage=600');

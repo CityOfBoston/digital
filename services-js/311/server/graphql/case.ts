@@ -1,14 +1,11 @@
-// @flow
-
 import moment from 'moment-timezone';
-
-import type { ServiceStub } from './service';
-import type {
+import { ServiceStub } from './service';
+import {
   ServiceRequest,
   ServiceRequestActivity,
   DetailedServiceRequest,
 } from '../services/Open311';
-import type { IndexedCase } from '../services/Elasticsearch';
+import { IndexedCase } from '../services/Elasticsearch';
 
 export type Root = ServiceRequest | DetailedServiceRequest | IndexedCase;
 
@@ -44,16 +41,16 @@ type CaseImage {
 }
 `;
 
-export type CaseImage = {
-  tags: Array<string>,
-  squareThumbnailUrl: string,
-  squarePreviewUrl: string,
-  originalUrl: string,
-};
+export interface CaseImage {
+  tags: string[];
+  squareThumbnailUrl: string;
+  squarePreviewUrl: string;
+  originalUrl: string;
+}
 
-type DateStringArguments = {
-  format?: string,
-};
+interface DateStringArguments {
+  format?: string;
+}
 
 function makeHttpsImageUrl(mediaUrl: string): string {
   return (mediaUrl || '')
@@ -95,7 +92,7 @@ function makeResizedImageUrls(url: string) {
   }
 }
 
-function imagesFromMediaUrl(mediaUrl): Array<CaseImage> {
+function imagesFromMediaUrl(mediaUrl): CaseImage[] {
   if (!mediaUrl) {
     return [];
   } else if (Array.isArray(mediaUrl)) {
@@ -112,6 +109,7 @@ function imagesFromMediaUrl(mediaUrl): Array<CaseImage> {
     ];
   }
 }
+
 export const resolvers = {
   Case: {
     id: (r: Root) => r.service_request_id,
@@ -119,22 +117,24 @@ export const resolvers = {
       service_name: r.service_name || '',
       service_code: r.service_code || 'UNKNOWN',
     }),
+
     description: (r: Root) => r.description || '',
     status: (r: Root) => r.status,
     statusNotes: (r: Root) => r.status_notes || null,
-    serviceNotice: (r: Root) => r.service_notice || null,
-    closureReason: (r: Root) =>
+    serviceNotice: (r: any) => r.service_notice || null,
+    closureReason: (r: any) =>
       (r.closure_details && r.closure_details.reason) || null,
-    closureComment: (r: Root) =>
+    closureComment: (r: any) =>
       (r.closure_details && r.closure_details.comment) || null,
     address: (r: Root) => r.address,
-    images: (r: Root): Array<CaseImage> => {
+    images: (r: Root): CaseImage[] => {
       const caseImages = imagesFromMediaUrl(r.media_url);
 
       // "any" coercion because Flow isn't happy with finding "actitivies" from
       // the Root type union.
-      const activitiesImages = ((r: any).activities || [])
-        .map((a: ServiceRequestActivity) => imagesFromMediaUrl(a.media_url));
+      const activitiesImages = ((r as any).activities || []).map(
+        (a: ServiceRequestActivity) => imagesFromMediaUrl(a.media_url)
+      );
 
       // Since the activities is an array of arrays, we use reduce to flatten
       // down to a single list of images.
@@ -143,7 +143,7 @@ export const resolvers = {
         []
       );
     },
-    location: (r: Root) => {
+    location: (r: any) => {
       if (
         r.reported_location &&
         r.reported_location.lat &&
@@ -170,21 +170,29 @@ export const resolvers = {
       const d = r.updated_datetime || r.requested_datetime;
       return d ? moment(d).unix() : null;
     },
-    expectedAt: (r: Root) =>
+    expectedAt: (r: any) =>
       r.expected_datetime ? moment(r.expected_datetime).unix() : null,
 
     // We format timezones on the server to avoid having to ship moment to the client
     requestedAtString: (r: Root, { format = '' }: DateStringArguments) =>
       r.requested_datetime
-        ? moment(r.requested_datetime).tz('America/New_York').format(format)
+        ? moment(r.requested_datetime)
+            .tz('America/New_York')
+            .format(format)
         : null,
     updatedAtString: (r: Root, { format = '' }: DateStringArguments) => {
       const d = r.updated_datetime || r.requested_datetime;
-      return d ? moment(d).tz('America/New_York').format(format) : null;
+      return d
+        ? moment(d)
+            .tz('America/New_York')
+            .format(format)
+        : null;
     },
-    expectedAtString: (r: Root, { format = '' }: DateStringArguments) =>
+    expectedAtString: (r: any, { format = '' }: DateStringArguments) =>
       r.expected_datetime
-        ? moment(r.expected_datetime).tz('America/New_York').format(format)
+        ? moment(r.expected_datetime)
+            .tz('America/New_York')
+            .format(format)
         : null,
 
     requestedAtRelativeString: (r: Root) =>
@@ -193,7 +201,7 @@ export const resolvers = {
       const d = r.updated_datetime || r.requested_datetime;
       return d ? moment(d).fromNow() : null;
     },
-    expectedAtRelativeString: (r: Root) =>
+    expectedAtRelativeString: (r: any) =>
       r.expected_datetime ? moment(r.expected_datetime).fromNow() : null,
   },
 };

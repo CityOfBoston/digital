@@ -1,6 +1,7 @@
 {
   "presets": [
     "next/babel",
+    "@cityofboston/config-babel/typescript",
     "@babel/preset-flow"
   ],
 

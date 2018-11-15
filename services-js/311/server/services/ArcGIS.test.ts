@@ -1,13 +1,12 @@
-// @flow
-
-import ArcGIS, {
+import {
+  ArcGIS,
   sortUnits,
   samFeatureToUnit,
   sortAddressCandidates,
   formatAddress,
 } from './ArcGIS';
-import type { LiveSamFeature } from './ArcGIS';
 
+import { LiveSamFeature } from './ArcGIS';
 import FIND_ADDRESS_CANDIDATES from './__fixtures__/findAddressCandidates.json';
 import LIVE_SAM_RESPONSE from './__fixtures__/liveSamResponse.json';
 
@@ -56,7 +55,7 @@ describe('sort and format findAddressCandidates', () => {
     expect(
       await Promise.all(
         sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
-          new ArcGIS('fake endpoint').candidateToSearchResult
+          new ArcGIS('fake endpoint', null).candidateToSearchResult
         )
       )
     ).toMatchSnapshot();
