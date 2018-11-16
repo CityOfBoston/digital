@@ -36,8 +36,7 @@ export default {
       info: 'You have now been logged out.',
       headerMessage: 'Change Password',
     },
-    // @ts-ignore
-    getMessage: function(prefix, message) {
+    getMessage: function(_prefix, message) {
       return this.strings[message];
     },
   },
@@ -60,8 +59,7 @@ export default {
     strings: {
       locale: 'en',
     },
-    // @ts-ignore
-    resolveMessage: function(locale, message) {
+    resolveMessage: function(_locale, message) {
       if (message === 'pa.error.contact.system.administrator') {
         return 'No known federation session to logout or SLO is not configured';
       }
