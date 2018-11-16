@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser when
+a general error occurs.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+
+The following variables are available for use in this template:
+    $title          - a title for the content suitable for inclusion in the HTML <title> tag
+    $header         - a more specific title suitable for inclusion in body content
+    $info           - a detailed message for the error (commented out in template by default)
+    $copyright      - a localized copyright message defined by the 'pa.info.global.footerMessage' property in pa-messages.properties
+    $exchangeId     - a unique identifier for the request/response pair processed by PingAccess
+    $Encode         - an org.owasp.encoder.Encode class suitable for html encoding strings
+    $locale         - a java.util.Locale representing the resolved localization
+    $localizedMessageResolver - a com.pingidentity.pa.sdk.localization.LocalizedMessageResolver
+    $applicationId   - a unique identifier for the application requested if applicable
+    $applicationName - the name of the application requested if applicable
+    $featureMode    - the feature mode based on the PingAccess license
+
+Custom localized messages defined in pa-messages.properties can be added to this template by using the
+$localizedMessageResolver.  For example, if a custom property named 'my.custom.message' was added to pa-messages.properties
+and any other locale specific properties files, the localized value can be added to this template with the following:
+
+    $Encode.forHtml($localizedMessageResolver.resolveMessage($locale, "my.custom.message"))
+
+*#
+
+<!-- template name: general.error.page.template.html -->
+
+#set( $messageKeyPrefix = "general.error.page.template." )
+
+#if(${title})
+  #set($title = ${title})
+#else
+  #set($title = $localizedMessageResolver.resolveMessage($locale, "pa.response.status.server.error"))
+#end
+
+#if(!$assetPath)
+  #set($assetPath = 'assets')
+#end
+
+<html lang="#if($lang != 'und')$lang#end" dir="$orientation">
+<head>
+    <title>#if($title)$Encode.forHtml($title)#end</title>
+
+    <meta charset="utf-8" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="$assetPath/css/main.css" />
+</head>
+
+<body>
+    <header class="p-a200 page-header">
+        <h1>Access Boston</h1>
+    </header>
+
+    <main class="b">
+        <div class="b-c b-c--hsm">
+            <div class="sh m-b300">
+                <h2 class="sh-title">
+                    #if(${header})
+                        $Encode.forHtml($header)
+
+                    #elseif($title)
+                        $Encode.forHtml($title)
+                    #end
+                </h2>
+            </div>
+
+            <div class="ping-messages ping-nopad">
+                <div class="ping-error">
+                    $Encode.forHtml($localizedMessageResolver.resolveMessage($locale, "pa.error.contact.system.administrator"))
+                </div>
+                ## Uncomment below to display a more specific error message
+                #*
+                <div>
+                    #if(${info})$Encode.forHtml($info)#end
+                </div>
+                *#
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

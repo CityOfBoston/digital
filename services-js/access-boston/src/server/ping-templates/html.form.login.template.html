@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser when
+needed authentication credentials may be obtained via HTTP Basic
+Authentication or an HTML form.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+The following variables are available on this page, but not used by default:
+
+$entityId       - The entity ID (connection ID) of the SP Connection used in this SSO transaction
+$connectionName - The name of the SP Connection used in this SSO transaction
+$client_id      - The ID of the OAuth client used in this transaction
+$spAdapterId    - The SP Adapter ID used in this transaction
+
+It is recommended to sanitize the values that are displayed using $escape.escape() for example $escape.escape($client_id).
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+*#
+
+<!-- template name: html.form.login.template.html -->
+
+#set( $messageKeyPrefix = "html.form.login.template." )
+
+<!-- Configurable default behavior for the Remember Username checkbox -->
+#set ($enableCheckboxByDefault = true)
+#if($rememberUsernameCookieExists)
+    #set ($rememberUsernameChecked = "checked")
+#else
+    #if($enableCheckboxByDefault)
+        <!-- allow the checkbox to be enabled by default -->
+        #set ($rememberUsernameChecked = "checked")
+    #else
+        <!-- set the checkbox to unchecked -->
+        #set ($rememberUsernameChecked = "")
+    #end
+#end
+
+#if(!$assetPath)
+    #set($assetPath = 'assets')
+#end
+
+<html lang="$locale.getLanguage()" dir="$orientation">
+<head>
+    <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
+    <base href="$PingFedBaseURL"/>
+
+    <meta charset="utf-8" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="$assetPath/css/main.css" />
+</head>
+
+<body onload="setFocus();">
+    <header class="p-a200 page-header">
+        <h1>Access Boston</h1>
+    </header>
+
+    <main class="b">
+        <div class="b-c b-c--hsm">
+            <form method="POST" action="$url">
+                <div class="sh m-b300">
+                    <h2 class="sh-title">Sign In</h2>
+                </div>
+
+                <div class="ping-messages">
+                    #if($authnMessageKey)
+                        <div class="t--err">$templateMessages.getMessage($authnMessageKey)</div>
+                    #end
+
+                    #if($errorMessageKey)
+                        <div class="t--err">$templateMessages.getMessage($messageKeyPrefix, $errorMessageKey)</div>
+                    #end
+
+                    ## Uncomment below to display any additional server error:
+                    #*
+                    #if($serverError)
+                        <div class="t--err">$serverError</div>
+                    #end
+                    *#
+                </div>
+
+                <!-- main container -->
+                <div class="g">
+                    <!-- first column -->
+                    <div class="form-fields g--6">
+                        #if($altAuthSources.size() > 0)
+                        <h3>
+                            $templateMessages.getMessage($messageKeyPrefix, "title")
+                        </h3>
+                        #end
+
+                        <!-- main fields -->
+                        <div class="txt m-b200">
+                            <label for="username" class="txt-l">
+                                $templateMessages.getMessage($messageKeyPrefix, "usernameTitle")
+                            </label>
+
+                            #if($usernameEditable)
+                            <input id="username" type="text" size="36" name="$name" value="$username" autocorrect="off" autocapitalize="off" autocomplete="username" onKeyPress="return postOnReturn(event)" class="txt-f" />
+
+                            #else
+                            <input id="username" type="text" size="36" name="$name" value="$username" autocorrect="off" autocapitalize="off" autocomplete="username" onKeyPress="return postOnReturn(event)" class="txt-f" disabled="disabled" />
+                            #end
+
+                            <div class="t--subinfo t--err m-t100 place-bottom" id="username-text">
+                                $templateMessages.getMessage($messageKeyPrefix, "missingField")
+                            </div>
+                        </div>
+
+                        <div class="txt m-b200">
+                            <label for="password" class="txt-l">
+                                $templateMessages.getMessage($messageKeyPrefix, "passwordTitle")
+                            </label>
+
+                            <input id="password" type="password" size="36" name="$pass" value="" autocomplete="current-password" onKeyPress="return postOnReturn(event)" class="txt-f" />
+
+                            <div class="t--subinfo t--err m-t100 place-bottom" id="password-text">
+                                $templateMessages.getMessage($messageKeyPrefix, "missingField")
+                            </div>
+                        </div>
+
+                        #if($enableRememberUsername)
+                        <div class="m-b700">
+                            <label for="rememberUsername" class="cb">
+                                <input id="rememberUsername" type="checkbox" name="$rememberUsername" $rememberUsernameChecked class="cb-f" />
+                                <span class="cb-l">$templateMessages.getMessage($messageKeyPrefix, "rememberUsernameTitle")</span>
+                            </label>
+                        </div>
+                        #end
+
+                        <div class="ping-buttons login m-b400">
+                            <input type="hidden" name="$ok" value="" />
+                            <input type="hidden" name="$cancel" value="" />
+
+                            <button type="button" onclick="postOk();" class="btn">
+                                $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
+                            </button>
+                        </div>
+
+                        #if($supportsPasswordChange || $supportsPasswordReset)
+                        <div class="ping-pass-change">
+                            #if($supportsPasswordChange)
+                            <a href="$changePasswordUrl" class="password-change">$templateMessages.getMessage($messageKeyPrefix, "changePassword")</a>
+                            #end
+
+                            #if($supportsPasswordChange && $supportsPasswordReset)
+                            <span class="divider">|</span>
+                            #end
+
+                            #if($supportsPasswordReset)
+                            <input type="hidden" name="$passwordReset" value="" />
+
+                            <button type="button" onclick="postForgotPassword();" class="btn-link-styled">$templateMessages.getMessage($messageKeyPrefix, "forgotPassword")</button>
+                            #end
+                        </div>
+                        #end
+
+                        <!-- remember password checkbox -->
+                        #if($registrationEnabled)
+                        <div class="ping-register m-t400">
+                            <input type="hidden" name="$registrationValue" value="" />
+
+                            <span class="m-r200">$templateMessages.getMessage($messageKeyPrefix, "noAccountMessage")</span>
+                            <button type="button" onclick="postRegistration();" class="btn btn--sm btn--100">$templateMessages.getMessage($messageKeyPrefix, "registerAccount")</button>
+                        </div>
+                        #end
+                    </div><!-- end first column -->
+
+                    <!-- second column -->
+                    <div class="g--6">
+                        #if($altAuthSources.size() > 0)
+                            <div class="social-media-container">
+                                <input type="hidden" name="$alternateAuthnSystem" value="" />
+
+                                #foreach ($authSource in $altAuthSources)
+                                <div class="button-container">
+                                    <a onclick="postAlternateAuthnSystem('$authSource');" class="ping-button social-media $authSource" title='$templateMessages.getMessage($messageKeyPrefix, "loginWithButtonTitle") $authSource'>
+                                        $templateMessages.getMessage($messageKeyPrefix, "loginWithButtonTitle") $authSource
+                                    </a>
+                                </div>
+                            </div>
+                            #end
+                        #else
+
+                        <!-- image will not be shown on small viewports (via css) -->
+                        <div class="image-aside" aria-hidden="true">
+                            <img src="$assetPath/images/city-hall.svg" alt="Boston City Hall" class=" m-t600" />
+                        </div>
+                        #end
+
+                    </div><!-- end second column -->
+                </div><!-- end container -->
+
+                <input type="hidden" name="$adapterIdField" id="$adapterIdField" value="$adapterId" />
+            </form>
+        </div>
+    </main>
+
+<script type="text/javascript">
+
+	function postForgotPassword() {
+
+		var target = "$forgotPasswordUrl";
+		#if ($enableRememberUsername)		
+		if (document.getElementById('rememberUsername').checked) 
+		{
+			target += "&prEnableRememberUsername";
+		}
+		#end
+		document.forms[0].action = target;
+        document.forms[0]['$passwordReset'].value = 'clicked';
+		document.forms[0].submit();
+	}
+
+	function postAlternateAuthnSystem(system) {
+	    document.forms[0]['$alternateAuthnSystem'].value = system;
+	    document.forms[0].submit();
+	}
+
+	function postRegistration()
+    {
+        document.forms[0]['$registrationValue'].value = true;
+        document.forms[0].submit();
+    }
+
+    function postOk() {
+        if (document.forms[0]['$name'].value === '') {
+            document.getElementById('username-text').className += ' show';
+        }
+        if (document.forms[0]['$pass'].value === '') {
+            document.getElementById('password-text').className += ' show';
+        }
+        else {
+            document.forms[0]['$ok'].value = 'clicked';
+            document.forms[0].submit();
+        }
+    }
+
+    function postCancel() {
+        document.forms[0]['$cancel'].value = 'clicked';
+        document.forms[0].submit();
+    }
+
+    function postOnReturn(e) {
+        // remove error tips
+        if (document.forms[0]['$name'].value !== '') {
+            document.getElementById('username-text').className = 't--subinfo t--err m-t100 place-bottom';
+        }
+        if (document.forms[0]['$pass'].value !== '') {
+            document.getElementById('password-text').className = 't--subinfo t--err m-t100 place-bottom';
+        }
+
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        else if (e) keycode = e.which;
+        else return true;
+
+        if (keycode == 13) {
+            document.forms[0].submit();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function setFocus() {
+        var platform = navigator.platform;
+        if (platform != null && platform.indexOf("iPhone") == -1) {
+            #if($loginFailed || ($rememberUsernameCookieExists && $enableRememberUsername) || $isChainedUsernameAvailable)
+                document.getElementById('password').focus();
+            #else
+                document.getElementById('username').focus();
+            #end
+        }
+    }
+
+    function setMobile(mobile) {
+        var className = ' mobile',
+            hasClass = (bodyTag.className.indexOf(className) !== -1);
+
+        if (mobile && !hasClass) {
+            bodyTag.className += className;
+
+        } else if (!mobile && hasClass) {
+            bodyTag.className = bodyTag.className.replace(className, '');
+        }
+
+        #if($enableRememberUsername)
+            checkbox.checked = mobile || remember;
+        #end
+
+        <!-- Check if this is the PingOne Mobile App -->
+        #if($HttpServletRequest.getHeader('X-Ping-Client-Version'))
+            if (mobile) {
+                bodyTag.className += ' embedded';
+            }
+        #end
+    }
+
+    function getScreenWidth() {
+        return (window.outerHeight) ? window.outerWidth : document.body.clientWidth;
+    }
+
+    var bodyTag = document.getElementsByTagName('body')[0],
+        width = getScreenWidth(),
+        remember = $rememberUsernameCookieExists && $enableRememberUsername;
+
+    // set container
+    #if($altAuthSources.size() > 0)
+        bodyTag.className += ' columns-layout';
+    #end
+
+    #if($enableRememberUsername)
+        var checkbox = document.getElementById('rememberUsername');
+    #end
+
+    if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        setMobile(true);
+    } else {
+        setMobile((width <= 480));
+        window.onresize = function() {
+            width = getScreenWidth();
+            setMobile((width <= 480));
+        }
+    }
+</script>
+
+</body>
+</html>

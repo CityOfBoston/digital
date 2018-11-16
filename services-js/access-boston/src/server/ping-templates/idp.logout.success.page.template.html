@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser when a
+logout request succeeds but no redirect URL is specified.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+*#
+<!-- template name: idp.logout.success.page.template.html -->
+
+#set( $messageKeyPrefix = "idp.logout.success.page.template." )
+
+#if(!$assetPath)
+    #set($assetPath = 'assets')
+#end
+
+<html lang="$locale.getLanguage()" dir="$orientation">
+<head>
+    <title>$templateMessages.getMessage($messageKeyPrefix, "title")</title>
+    <base href="$PingFedBaseURL" />
+
+    <meta charset="utf-8" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="$assetPath/css/main.css" />
+</head>
+
+<body>
+    <header class="p-a200 page-header">
+        <h1>Access Boston</h1>
+    </header>
+
+    <main class="b">
+        <div class="b-c b-c--hsm">
+            <div class="sh m-b300">
+                <h2 class="sh-title">Logged Out</h2>
+            </div>
+
+            <!-- main container -->
+            <div class="g">
+                <!-- first column -->
+                <div class="g--7 t--intro">
+                    $templateMessages.getMessage($messageKeyPrefix, "info")
+                </div>
+
+                <div class="g--5">
+                    <!-- todo: you will need to add this markup as a new string (or multiple strings, whichever works best for you) in templateMessages  -->
+                    <h3 class="txt-l contact-heading">Need help? Please Contact:</h3>
+
+                    <h4 class="m-t300">Boston Public Schools</h4>
+                    <ul class="ul t--s300 lh--400 m-b300">
+                        <li>BPS Technology Help Desk Support<br><a href="tel:6176359200">(617) 635-9200</a></li>
+                    </ul>
+
+                    <h4 class="m-t300">All Other Departments</h4>
+                    <ul class="ul t--s300 lh--400">
+                        <li>DoIT Service Desk<br><a href="tel:6176357378">(617) 635-7378</a></li>
+                    </ul>
+                    <!-- end todo -->
+                </div>
+            </div>
+
+            ## Uncomment below to display additional dynamic content to user:
+            #*
+            <div>
+                <div class="section-sub-title">$templateMessages.getMessage("global.fullStackTraceTitle")</div>
+                <pre>$fullStackTrace</pre>
+            </div>
+            *#
+        </div>
+
+    </main>
+
+</body>
+</html>

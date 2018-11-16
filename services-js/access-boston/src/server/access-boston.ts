@@ -12,6 +12,9 @@ import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
 import next from 'next';
 
+import { parse, Compile } from 'velocityjs';
+import { default as pingData } from './ping-templates/mockData';
+
 // https://github.com/apollographql/apollo-server/issues/927
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 import Rollbar from 'rollbar';
@@ -182,6 +185,8 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   await addGraphQl(server, appsRegistry, identityIq, pingId, rollbar);
 
+  await addVelocityTemplates(server);
+
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
     await addNext(server);
@@ -272,6 +277,76 @@ async function addGraphQl(
         endpointURL: `${PATH_PREFIX}/graphql`,
         passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
       },
+    },
+  });
+}
+
+async function addVelocityTemplates(server: HapiServer) {
+  server.route({
+    path: '/ping/login',
+    method: 'GET',
+    options: {
+      auth: false,
+    },
+    handler: () => {
+      const template = fs.readFileSync(
+        './src/server/ping-templates/html.form.login.template.html',
+        'utf-8'
+      );
+      const asts = parse(template);
+
+      return new Compile(asts, { escape: false }).render(pingData);
+    },
+  });
+
+  server.route({
+    path: '/ping/logout',
+    method: 'GET',
+    options: {
+      auth: false,
+    },
+    handler: () => {
+      const template = fs.readFileSync(
+        './src/server/ping-templates/idp.logout.success.page.template.html',
+        'utf-8'
+      );
+      const asts = parse(template);
+
+      return new Compile(asts, { escape: false }).render(pingData);
+    },
+  });
+
+  server.route({
+    path: '/ping/change-password',
+    method: 'GET',
+    options: {
+      auth: false,
+    },
+    handler: () => {
+      const template = fs.readFileSync(
+        './src/server/ping-templates/html.form.change.password.template.html',
+        'utf-8'
+      );
+      const asts = parse(template);
+
+      return new Compile(asts, { escape: false }).render(pingData);
+    },
+  });
+
+  server.route({
+    path: '/ping/general-error',
+    method: 'GET',
+    options: {
+      auth: false,
+    },
+    handler: () => {
+      const template = fs.readFileSync(
+        './src/server/ping-templates/general.error.page.template.html',
+        'utf-8'
+      );
+      const asts = parse(template);
+
+      return new Compile(asts, { escape: false }).render(pingData);
     },
   });
 }
