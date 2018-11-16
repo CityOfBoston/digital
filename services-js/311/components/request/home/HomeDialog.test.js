@@ -8,12 +8,12 @@ import { makeServerContext } from '../../../lib/test/make-context';
 import { AppStore } from '../../../data/store';
 import HomeDialog, { type InitialProps } from './HomeDialog';
 
-jest.mock('../../../data/dao/load-top-service-summaries');
-jest.mock('../../../data/dao/load-service-suggestions');
+jest.mock('../../../data/queries/load-top-service-summaries');
+jest.mock('../../../data/queries/load-service-suggestions');
 
-const loadTopServiceSummaries: JestMockFn = (require('../../../data/dao/load-top-service-summaries'): any)
+const loadTopServiceSummaries: JestMockFn = (require('../../../data/queries/load-top-service-summaries'): any)
   .default;
-const loadServiceSuggestions: JestMockFn = (require('../../../data/dao/load-service-suggestions'): any)
+const loadServiceSuggestions: JestMockFn = (require('../../../data/queries/load-service-suggestions'): any)
   .default;
 
 jest.mock('lodash/debounce');

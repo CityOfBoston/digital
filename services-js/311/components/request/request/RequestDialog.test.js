@@ -12,8 +12,8 @@ import { AppStore } from '../../../data/store';
 
 jest.mock('next/router');
 
-jest.mock('../../../data/dao/submit-request');
-const submitRequest: JestMockFn = (require('../../../data/dao/submit-request'): any)
+jest.mock('../../../data/queries/submit-request');
+const submitRequest: JestMockFn = (require('../../../data/queries/submit-request'): any)
   .default;
 
 const MOCK_SERVICE: Service = {
@@ -63,7 +63,7 @@ const MOCK_SERVICE: Service = {
 };
 
 const MOCK_ACTIONS = {
-  loopbackGraphql: jest.fn(),
+  fetchGraphql: jest.fn(),
   routeToServiceForm: jest.fn(),
   setLocationMapActive: jest.fn(),
 };
@@ -83,7 +83,7 @@ describe('rendering', () => {
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
         description=""
-        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        fetchGraphql={MOCK_ACTIONS.fetchGraphql}
         routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
         setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />,
@@ -100,7 +100,7 @@ describe('rendering', () => {
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
         description=""
-        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        fetchGraphql={MOCK_ACTIONS.fetchGraphql}
         routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
         setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />
@@ -116,7 +116,7 @@ describe('rendering', () => {
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
         description=""
-        loopbackGraphql={MOCK_ACTIONS.loopbackGraphql}
+        fetchGraphql={MOCK_ACTIONS.fetchGraphql}
         routeToServiceForm={MOCK_ACTIONS.routeToServiceForm}
         setLocationMapActive={MOCK_ACTIONS.setLocationMapActive}
       />,
@@ -130,11 +130,11 @@ describe('methods', () => {
   let wrapper;
   let store;
   let requestDialog: RequestDialog;
-  let loopbackGraphql;
+  let fetchGraphql;
   const routeToServiceForm = jest.fn();
 
   beforeEach(() => {
-    loopbackGraphql = jest.fn();
+    fetchGraphql = jest.fn();
 
     store = new AppStore();
 
@@ -148,7 +148,7 @@ describe('methods', () => {
         stage="submit"
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
-        loopbackGraphql={loopbackGraphql}
+        fetchGraphql={fetchGraphql}
         routeToServiceForm={routeToServiceForm}
         setLocationMapActive={jest.fn()}
       />
@@ -230,7 +230,7 @@ describe('methods', () => {
       };
 
       expect(submitRequest).toHaveBeenCalledWith(
-        loopbackGraphql,
+        fetchGraphql,
         expect.objectContaining({
           firstName: null,
           address: null,
@@ -255,7 +255,7 @@ describe('methods', () => {
       requestDialog.submitRequest();
 
       expect(submitRequest).toHaveBeenCalledWith(
-        loopbackGraphql,
+        fetchGraphql,
         expect.objectContaining({
           firstName: 'Carol',
           address: 'City Hall Plaza, Boston, MA',

@@ -3,11 +3,12 @@ import 'core-js/shim';
 import svg4everybody from 'svg4everybody';
 import React, { ComponentType as ReactComponentType } from 'react';
 import { Context } from 'next';
+import getConfig from 'next/config';
+
 import { runInAction } from 'mobx';
+import { makeFetchGraphql } from '@cityofboston/next-client-common';
+
 import { RequestAdditions } from '../../server/next-handlers';
-import makeLoopbackGraphql, {
-  setClientCache,
-} from '../../data/dao/loopback-graphql';
 import getStore, { AppStore } from '../../data/store';
 
 if (process.browser) {
@@ -16,7 +17,6 @@ if (process.browser) {
 
 interface InitialPropsExtension {
   initialStoreState: { [key: string]: {} } | undefined;
-  loopbackGraphqlCache: { [key: string]: any } | undefined;
 }
 
 interface PropsExtension {
@@ -42,6 +42,7 @@ export default <Props extends {}>(
         initialProps = {};
       }
 
+      // TODO(finh): This could likely be replaced by config
       const initialStoreState = req
         ? {
             apiKeys: req.apiKeys,
@@ -50,23 +51,16 @@ export default <Props extends {}>(
           }
         : null;
 
-      const loopbackGraphqlCache = req ? req.loopbackGraphqlCache : null;
-
-      // TODO(finh): If we really needed to, we could try and find the cached
-      // graphQL values in the initialProps and replace them with cache keys, and
-      // then do a lookup into the cache ond the other side in render().
-
       return {
         ...initialProps,
         initialStoreState,
-        loopbackGraphqlCache,
       };
     }
 
     constructor(props) {
       super(props);
 
-      this.store = getStore(makeLoopbackGraphql());
+      this.store = getStore(makeFetchGraphql(getConfig()));
 
       // Hack to get the data we added with getInitialProps w/o trying to make
       // it a Prop on all child components.
@@ -76,10 +70,6 @@ export default <Props extends {}>(
         (runInAction as any)('withStore initialization', () => {
           Object.assign(this.store, initialProps.initialStoreState);
         });
-      }
-
-      if (initialProps.loopbackGraphqlCache) {
-        setClientCache(initialProps.loopbackGraphqlCache);
       }
     }
     public readonly showFeedbackForm = (ev: Event) => {

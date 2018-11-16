@@ -150,7 +150,7 @@ gulp.task('graphql:types', ['graphql:schema'], cb => {
       'node_modules',
       '.bin',
       'apollo-codegen'
-    )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/dao/graphql/types.js --no-add-typename`,
+    )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/queries/graphql/types.js --no-add-typename`,
     (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.log(stderr);

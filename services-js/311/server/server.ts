@@ -26,6 +26,11 @@ import { Salesforce } from './services/Salesforce';
 import schema, { Context } from './graphql';
 import sitemapHandler from './sitemap';
 import legacyServiceRedirectHandler from './legacy-service-redirect';
+import {
+  HAPI_INJECT_CONFIG_KEY,
+  API_KEY_CONFIG_KEY,
+  GRAPHQL_PATH_KEY,
+} from '@cityofboston/next-client-common';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -46,8 +51,24 @@ export default async function startServer({ opbeat }: any) {
 
   const server = new Hapi.Server(serverConfig);
 
+  // We load the config ourselves so that we can modify the runtime configs
+  // from here.
+  const config = require('../../next.config.js');
+
+  config.publicRuntimeConfig = {
+    ...config.publicRuntimeConfig,
+    [GRAPHQL_PATH_KEY]: '/graphql',
+    [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY || '',
+  };
+
+  config.serverRuntimeConfig = {
+    ...config.serverRuntimeConfig,
+    [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
+  };
+
   const app = next({
     dev: process.env.NODE_ENV !== 'production',
+    config,
   });
 
   const nextAppPreparation = app.prepare();

@@ -7,9 +7,9 @@ import { makeServerContext } from '../../lib/test/make-context';
 import CaseLayout from './CaseLayout';
 
 jest.mock('next/router');
-jest.mock('../../data/dao/load-case');
+jest.mock('../../data/queries/load-case');
 
-const loadCase: JestMockFn = (require('../../data/dao/load-case'): any).default;
+const loadCase: JestMockFn = (require('../../data/queries/load-case'): any).default;
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',

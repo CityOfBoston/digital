@@ -1,8 +1,0 @@
-query LoadServiceSuggestions($text: String!) {
-  servicesForDescription(text: $text, max: 6, threshold: 0.0) {
-    name
-    code
-    description
-    group
-  }
-}
