@@ -26,3 +26,5 @@ package-json.tar
 *.crt
 .DS_Store
 .idea
+
+.cache

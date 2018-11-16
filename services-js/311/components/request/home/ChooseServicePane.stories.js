@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import ChooseServicePane from './ChooseServicePane';
 import FormDialog from '../../common/FormDialog';
 import Ui from '../../../data/store/Ui';
-import SiteAnalytics from '../../../data/store/SiteAnalytics';
 
 const SERVICE_SUMMARIES = [
   {
@@ -41,32 +42,32 @@ const SERVICE_SUMMARIES = [
 ];
 
 storiesOf('ChooseServicePane', module)
-  .addDecorator(story =>
+  .addDecorator(story => (
     <FormDialog narrow noPadding>
       {story()}
     </FormDialog>
-  )
-  .add('Loading matches', () =>
+  ))
+  .add('Loading matches', () => (
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={null}
       ui={new Ui()}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
-  )
-  .add('Some matches', () =>
+  ))
+  .add('Some matches', () => (
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={SERVICE_SUMMARIES}
       ui={new Ui()}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
-  )
-  .add('No matches', () =>
+  ))
+  .add('No matches', () => (
     <ChooseServicePane
       description="Dead raccoon on the sidewalk"
       suggestedServiceSummaries={[]}
       ui={new Ui()}
-      siteAnalytics={new SiteAnalytics()}
+      siteAnalytics={new GaSiteAnalytics()}
     />
-  );
+  ));

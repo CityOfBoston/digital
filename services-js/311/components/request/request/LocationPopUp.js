@@ -215,7 +215,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
 
   @action
   componentWillMount() {
-    const { store: { addressSearch, accessibility }, requestForm } = this.props;
+    const { store: { addressSearch, screenReaderSupport }, requestForm } = this.props;
 
     addressSearch.query = '';
 
@@ -235,8 +235,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
         requestForm.locationRequirementsMet = locationRequirementsMet;
 
         if (requestForm.address) {
-          accessibility.message = `Selected address: ${requestForm.address}`;
-          accessibility.interrupt = true;
+          screenReaderSupport.announce(`Selected address: ${requestForm.address}`, true);
         }
       },
       {
@@ -319,6 +318,8 @@ export default class LocationPopUp extends React.Component<Props, State> {
       query,
       location,
     } = addressSearch;
+
+    console.log(query)
 
     return (
       <div className={CONTENT_STYLE}>

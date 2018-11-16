@@ -4,7 +4,6 @@
 // Forked from next.js to add Opbeat error sending
 
 import React from 'react';
-import type { Context } from 'next';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
 import { css } from 'emotion';
@@ -16,6 +15,7 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import FormDialog from '../common/FormDialog';
+import { NextContext } from '@cityofboston/next-client-common';
 
 const CONTAINER_STYLE = css({
   minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
@@ -36,24 +36,24 @@ const IMAGE_STYLE = css({
   display: 'block',
 });
 
-type Props = {|
-  statusCode: number,
-  store: any,
-|};
+type Props = {
+  statusCode: number;
+  store: any;
+};
 
 export default class ErrorLayout extends React.Component<Props> {
-  static getInitialProps({ res, err }: Context<*>) {
+  static getInitialProps({ res, err }: NextContext<unknown>) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 
     if (
       process.browser &&
-      window._opbeat &&
+      (window as any)._opbeat &&
       err &&
-      !err.server &&
+      err.source !== 'server' &&
       !err._sentToOpbeat
     ) {
-      window._opbeat('captureException', err);
+      (window as any)._opbeat('captureException', err);
       err._sentToOpbeat = true;
     }
 
@@ -70,9 +70,7 @@ export default class ErrorLayout extends React.Component<Props> {
     return (
       <div>
         <Head>
-          <title>
-            BOS:311 — {title}
-          </title>
+          <title>BOS:311 — {title}</title>
         </Head>
 
         <Nav />

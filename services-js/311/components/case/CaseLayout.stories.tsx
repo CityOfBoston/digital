@@ -1,10 +1,8 @@
-// @flow
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import page from '../../storybook/page';
-import type { Request } from '../../data/types';
+import page from '../../.storybook/page';
+import { Request } from '../../data/types';
 import CaseLayout from './CaseLayout';
 
 const MOCK_REQUEST: Request = {
@@ -37,17 +35,17 @@ const MOCK_REQUEST: Request = {
 
 storiesOf('CaseLayout', module)
   .addDecorator(page)
-  .add('Existing', () =>
+  .add('Existing', () => (
     <CaseLayout
       id={MOCK_REQUEST.id}
       data={{ request: { ...MOCK_REQUEST, status: 'open' } }}
-      store={({}: any)}
+      store={{} as any}
     />
-  )
-  .add('404', () =>
+  ))
+  .add('404', () => (
     <CaseLayout
       id={MOCK_REQUEST.id}
       data={{ request: null }}
-      store={({}: any)}
+      store={{} as any}
     />
-  );
+  ));

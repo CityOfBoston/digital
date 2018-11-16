@@ -1,10 +1,8 @@
-// @flow
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
 
-import type { Request } from '../../data/types';
+import { Request } from '../../data/types';
 import CaseView from './CaseView';
 
 const IMAGE_1 = {
@@ -65,14 +63,12 @@ const MOCK_REQUEST: Request = {
 const suppressMap = inPercy() || process.env.NODE_ENV === 'test';
 
 storiesOf('CaseView', module)
-  .addDecorator(next =>
+  .addDecorator(next => (
     <div style={{ width: '100%', background: 'white' }}>
-      <div className="b-c">
-        {next()}
-      </div>
+      <div className="b-c">{next()}</div>
     </div>
-  )
-  .add('Submitted', () =>
+  ))
+  .add('Submitted', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, status: 'open' }}
@@ -80,8 +76,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Submitted with Service Notice', () =>
+  ))
+  .add('Submitted with Service Notice', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -94,8 +90,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Submitted with Service Notice and schedule', () =>
+  ))
+  .add('Submitted with Service Notice and schedule', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -112,8 +108,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - No info', () =>
+  ))
+  .add('Open - No info', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -125,8 +121,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - No Date', () =>
+  ))
+  .add('Open - No Date', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -137,24 +133,24 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - Just location', () =>
+  ))
+  .add('Open - Just location', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, images: [], status: 'open' }}
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - 1 Image', () =>
+  ))
+  .add('Open - 1 Image', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, images: [IMAGE_1], status: 'open' }}
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - 2 images', () =>
+  ))
+  .add('Open - 2 images', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -165,8 +161,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - 3 images', () =>
+  ))
+  .add('Open - 3 images', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -177,8 +173,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - 4 images', () =>
+  ))
+  .add('Open - 4 images', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -189,8 +185,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - Service Notice', () =>
+  ))
+  .add('Open - Service Notice', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -202,8 +198,8 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Open - Scheduled Service Notice', () =>
+  ))
+  .add('Open - Scheduled Service Notice', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{
@@ -219,17 +215,17 @@ storiesOf('CaseView', module)
         noMap={suppressMap}
       />
     </div>
-  )
-  .add('Resolved', () =>
+  ))
+  .add('Resolved', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView request={MOCK_REQUEST} noMap={suppressMap} />
     </div>
-  )
-  .add('Closed without reasons', () =>
+  ))
+  .add('Closed without reasons', () => (
     <div style={{ backgroundColor: 'white' }}>
       <CaseView
         request={{ ...MOCK_REQUEST, closureReason: null, closureComment: null }}
         noMap={suppressMap}
       />
     </div>
-  );
+  ));

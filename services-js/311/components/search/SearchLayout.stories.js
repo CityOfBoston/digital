@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from 'mobx';
 
 import getStore from '../../data/store';
-import page from '../../storybook/page';
+import page from '../../.storybook/page';
 import SearchLayout from './SearchLayout';
 
 const makeStore = action((mapView: boolean) => {

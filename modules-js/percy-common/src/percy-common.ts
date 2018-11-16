@@ -4,6 +4,7 @@ export interface TravisSnapshotOptions {
   referenceBranch: string;
   project: string;
   packageName: string;
+  buildStorybookOptions?: string;
 }
 
 const PERCY_WIDTHS = ['320', '840', '1280'];
@@ -19,6 +20,7 @@ export function travisSnapshot({
   referenceBranch,
   project,
   packageName,
+  buildStorybookOptions,
 }: TravisSnapshotOptions) {
   if (process.env['CI'] !== 'true') {
     return;
@@ -31,7 +33,12 @@ export function travisSnapshot({
     process.env[`PERCY_TOKEN_${packageName.toUpperCase().replace(/-/g, '_')}`];
 
   if ((pullRequest && pullRequest !== 'false') || branch === referenceBranch) {
-    execSync('build-storybook', { stdio: 'inherit' });
+    execSync(
+      `build-storybook${
+        buildStorybookOptions ? ` ${buildStorybookOptions}` : ''
+      }`,
+      { stdio: 'inherit' }
+    );
     execSync(`percy-storybook --widths=${PERCY_WIDTHS.join(',')}`, {
       stdio: 'inherit',
       env: Object.assign({}, process.env, {

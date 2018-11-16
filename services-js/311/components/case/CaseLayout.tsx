@@ -1,44 +1,41 @@
-// @flow
-
 import React from 'react';
-import type { Context } from 'next';
 import Head from 'next/head';
 import getConfig from 'next/config';
-import { makeFetchGraphql } from '@cityofboston/next-client-common';
-
-import type { RequestAdditions } from '../../server/next-handlers';
+import {
+  makeFetchGraphql,
+  NextContext,
+} from '@cityofboston/next-client-common';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
+
 import CaseView from './CaseView';
 
-import type { Request } from '../../data/types';
-import type { AppStore } from '../../data/store';
+import { Request } from '../../data/types';
+import { AppStore } from '../../data/store';
 import loadCase from '../../data/queries/load-case';
 
-type CaseData = {|
-  request: ?Request,
-|};
+type CaseData = {
+  request: Request | null;
+};
 
-export type InitialProps = {|
-  id: string,
-  data: CaseData,
-|};
+type InitialProps = {
+  id: string;
+  data: CaseData;
+};
 
-export type Props = {|
-  ...InitialProps,
+export type Props = InitialProps & {
   // unused, but necessary for the withStore mixin
-  store: AppStore,
-|};
+  store: AppStore;
+};
 
 export default class CaseLayout extends React.Component<Props> {
   static async getInitialProps({
     query,
-    req,
     res,
-  }: Context<RequestAdditions>): Promise<InitialProps> {
+  }: NextContext<unknown>): Promise<InitialProps> {
     const { id } = query;
 
     const fetchGraphql = makeFetchGraphql(getConfig());
@@ -61,9 +58,7 @@ export default class CaseLayout extends React.Component<Props> {
     return (
       <div>
         <Head>
-          <title>
-            BOS:311 — {this.renderTitle()}
-          </title>
+          <title>BOS:311 — {this.renderTitle()}</title>
         </Head>
 
         <Nav activeSection="search" />

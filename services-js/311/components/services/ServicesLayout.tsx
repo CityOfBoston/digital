@@ -1,21 +1,16 @@
-// @flow
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
-import type { Context } from 'next';
 import { css } from 'emotion';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import getConfig from 'next/config';
 import { makeFetchGraphql } from '@cityofboston/next-client-common';
 
-import type { RequestAdditions } from '../../server/next-handlers';
-
-import type { ServiceSummary } from '../../data/types';
-import type { AppStore } from '../../data/store';
-import type { Group } from '../../data/store/AllServices';
+import { ServiceSummary } from '../../data/types';
+import { AppStore } from '../../data/store';
+import { Group } from '../../data/store/AllServices';
 import loadServiceSummaries from '../../data/queries/load-service-summaries';
 
 import FeedbackBanner from '../common/FeedbackBanner';
@@ -24,18 +19,17 @@ import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import { CHARLES_BLUE } from '../style-constants';
 
-type InitialProps = {|
-  services: ServiceSummary[],
-|};
+type InitialProps = {
+  services: ServiceSummary[];
+};
 
-type Props = {|
-  ...InitialProps,
-  store: AppStore,
-|};
+type Props = InitialProps & {
+  store: AppStore;
+};
 
 type GroupProps = {
-  group: Group,
-  services: ServiceSummary[],
+  group: Group;
+  services: ServiceSummary[];
 };
 
 const SERVICE_LINK_STYLE = css({
@@ -76,12 +70,8 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
               />
             </svg>
           </div>
-          <h2 className="dr-t">
-            {group.name}
-          </h2>
-          <div className="dr-st">
-            {group.description}
-          </div>
+          <h2 className="dr-t">{group.name}</h2>
+          <div className="dr-st">{group.description}</div>
         </button>
 
         <VelocityTransitionGroup
@@ -90,28 +80,25 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
           role="region"
           id={regionId}
         >
-          {group.open &&
+          {group.open && (
             <div className="dr-c" style={{ display: 'block' }}>
               <ul className="ul" key="content">
-                {sortedServices.map(({ name, code, description }) =>
+                {sortedServices.map(({ name, code, description }) => (
                   <li key={code}>
                     <Link
                       href={`/request?code=${code}`}
                       as={`/request/${code}`}
                     >
                       <a className={`${SERVICE_LINK_STYLE.toString()} p-a300`}>
-                        <div className="t--sans tt-u">
-                          {name}
-                        </div>
-                        <div style={{ color: CHARLES_BLUE }}>
-                          {description}
-                        </div>
+                        <div className="t--sans tt-u">{name}</div>
+                        <div style={{ color: CHARLES_BLUE }}>{description}</div>
                       </a>
                     </Link>
                   </li>
-                )}
+                ))}
               </ul>
-            </div>}
+            </div>
+          )}
         </VelocityTransitionGroup>
       </div>
     );
@@ -119,9 +106,7 @@ class ServicesLayoutGroup extends React.Component<GroupProps> {
 }
 
 export default class ServicesLayout extends React.Component<Props> {
-  static async getInitialProps({
-    req,
-  }: Context<RequestAdditions>): Promise<InitialProps> {
+  static async getInitialProps(): Promise<InitialProps> {
     const fetchGraphql = makeFetchGraphql(getConfig());
     const services = await loadServiceSummaries(fetchGraphql);
 
@@ -140,7 +125,9 @@ export default class ServicesLayout extends React.Component<Props> {
 
   @action.bound
   handleKeyEvents(event: KeyboardEvent) {
-    const { store: { allServices } } = this.props;
+    const {
+      store: { allServices },
+    } = this.props;
 
     // Expand drawers so users can search within them easily.
     // Check for CTRL+f input.
@@ -161,8 +148,8 @@ export default class ServicesLayout extends React.Component<Props> {
   render() {
     const { store, services } = this.props;
 
-    const servicesByGroup = {};
-    const otherServices = [];
+    const servicesByGroup: { [id: string]: ServiceSummary[] } = {};
+    const otherServices: ServiceSummary[] = [];
 
     store.allServices.groups.forEach(g => {
       servicesByGroup[g.id.toLowerCase()] = [];
@@ -193,20 +180,22 @@ export default class ServicesLayout extends React.Component<Props> {
                 {store.allServices.groups.map(g => {
                   const services = servicesByGroup[g.id.toLowerCase()];
                   return (
-                    !!services.length &&
-                    <ServicesLayoutGroup
-                      key={g.id}
-                      group={g}
-                      services={services}
-                    />
+                    !!services.length && (
+                      <ServicesLayoutGroup
+                        key={g.id}
+                        group={g}
+                        services={services}
+                      />
+                    )
                   );
                 })}
 
-                {otherServices.length > 0 &&
+                {otherServices.length > 0 && (
                   <ServicesLayoutGroup
                     group={store.allServices.otherGroup}
                     services={otherServices}
-                  />}
+                  />
+                )}
               </div>
             </div>
           </div>

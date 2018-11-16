@@ -83,7 +83,11 @@ gulp.task('next:compile', ['clean:next'], cb => {
 
 gulp.task('storybook:head', ['templates:fetch'], cb => {
   exec(
-    `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
+    `${path.join(
+      'node_modules',
+      '.bin',
+      'babel-node'
+    )} --extensions ".ts",".tsx" ${path.join(
       '.',
       'scripts',
       'make-storybook-head'

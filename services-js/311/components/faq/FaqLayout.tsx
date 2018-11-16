@@ -1,7 +1,4 @@
-// @flow
-/* eslint react/prefer-stateless-function: 0 */
-
-import React, { type Node as ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'emotion';
@@ -11,7 +8,7 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
-import type { AppStore } from '../../data/store';
+import { AppStore } from '../../data/store';
 import { MEDIA_MEDIUM, assetUrl } from '../style-constants';
 
 const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
@@ -26,34 +23,30 @@ const ICON_STYLE = css({
   },
 });
 
-type QuestionProps = {|
-  title: string,
-  children: ReactNode,
-|};
+type QuestionProps = {
+  title: string;
+  children: ReactNode;
+};
 
 function Question({ title, children }: QuestionProps) {
   return (
     <div className="cd cd--plain m-v300 g--4" key={title}>
       <div className="cd-c">
-        <div className="cd-t">
-          {title}
-        </div>
-        <div className="cd-d">
-          {children}
-        </div>
+        <div className="cd-t">{title}</div>
+        <div className="cd-d">{children}</div>
       </div>
     </div>
   );
 }
 
-type Props = {|
-  store: AppStore,
-  suppressQuestions?: boolean,
-|};
+type Props = {
+  store: AppStore;
+  suppressQuestions?: boolean;
+};
 
-type State = {|
-  hoveredIcon: 'twitter' | 'app' | 'phone' | 'computer' | null,
-|};
+type State = {
+  hoveredIcon: 'twitter' | 'app' | 'phone' | 'computer' | null;
+};
 
 export default class FaqLayout extends React.Component<Props, State> {
   state: State = {
@@ -143,7 +136,7 @@ export default class FaqLayout extends React.Component<Props, State> {
             <div className="b-c">
               <SectionHeader>FAQ</SectionHeader>
 
-              {!suppressQuestions &&
+              {!suppressQuestions && (
                 <div className="g m-v500">
                   <Question title="What is 311?">
                     311 is an easy-to-remember telephone number that connects
@@ -198,9 +191,8 @@ export default class FaqLayout extends React.Component<Props, State> {
                     other than calling 311. Residents are encouraged to{' '}
                     <a href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311">
                       download the BOS:311 mobile app
-                    </a>, Tweet <a href="https://twitter.com/bos311">
-                      @BOS311
-                    </a>, or visit{' '}
+                    </a>, Tweet <a href="https://twitter.com/bos311">@BOS311</a>,
+                    or visit{' '}
                     <a href="https://www.boston.gov/departments/city-hall-go">
                       City Hall To Go
                     </a>, Boston’s mobile city services truck. To speak with
@@ -220,7 +212,8 @@ export default class FaqLayout extends React.Component<Props, State> {
                     services by dialing{' '}
                     <a href="tel:+16176354500">617-635-4500</a>.
                   </Question>
-                </div>}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -238,9 +231,9 @@ export default class FaqLayout extends React.Component<Props, State> {
       <div className="lwi-ic">
         <svg role="img" className={ICON_STYLE}>
           <use
-            xlinkHref={`${SPRITE_URL}#${svgName}_${hoveredIcon === stateName
-              ? 'on'
-              : 'off'}`}
+            xlinkHref={`${SPRITE_URL}#${svgName}_${
+              hoveredIcon === stateName ? 'on' : 'off'
+            }`}
             height="100%"
           />
         </svg>

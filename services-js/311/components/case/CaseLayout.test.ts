@@ -1,15 +1,14 @@
-// @flow
-/* eslint no-fallthrough: 0 */
-
-import type { Request } from '../../data/types';
 import { makeServerContext } from '../../lib/test/make-context';
 
 import CaseLayout from './CaseLayout';
+import { Request } from '../../data/types';
 
 jest.mock('next/router');
 jest.mock('../../data/queries/load-case');
 
-const loadCase: JestMockFn = (require('../../data/queries/load-case'): any).default;
+import loadCase from '../../data/queries/load-case';
+
+const loadCaseMock: jest.Mock<typeof loadCase> = loadCase as any;
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',
@@ -44,7 +43,7 @@ describe('case', () => {
   let data;
 
   beforeEach(async () => {
-    loadCase.mockReturnValue(Promise.resolve(MOCK_REQUEST));
+    loadCaseMock.mockReturnValue(Promise.resolve(MOCK_REQUEST));
     const ctx = makeServerContext('/reports', { id: 'case-id' });
     data = (await CaseLayout.getInitialProps(ctx)).data;
   });
@@ -58,7 +57,7 @@ describe('case not found', () => {
   let ctx;
 
   beforeEach(async () => {
-    loadCase.mockReturnValue(Promise.resolve(null));
+    loadCaseMock.mockReturnValue(Promise.resolve(null));
     ctx = makeServerContext('/reports', { id: 'not-a-real-id' });
     await CaseLayout.getInitialProps(ctx);
   });
