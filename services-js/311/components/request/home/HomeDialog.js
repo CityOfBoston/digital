@@ -6,15 +6,15 @@ import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import type { Context } from 'next';
 import Router from 'next/router';
+import getConfig from 'next/config';
+import { makeFetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../../server/next-handlers';
 
 import type { ServiceSummary } from '../../../data/types';
 import type { AppStore, LanguagePreference } from '../../../data/store';
-import makeLoopbackGraphql from '../../../data/dao/loopback-graphql';
-import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
-import loadServiceSuggestions from '../../../data/dao/load-service-suggestions';
-import loadTopServiceSummaries from '../../../data/dao/load-top-service-summaries';
+import loadServiceSuggestions from '../../../data/queries/load-service-suggestions';
+import loadTopServiceSummaries from '../../../data/queries/load-top-service-summaries';
 
 import FormDialog from '../../common/FormDialog';
 import LoadingIcons from '../../common/LoadingIcons';
@@ -53,10 +53,10 @@ export default class HomeDialog extends React.Component<Props> {
     req,
   }: Context<RequestAdditions>): Promise<InitialProps> {
     const { stage, description, translate } = query;
-    const loopbackGraphql = makeLoopbackGraphql(req);
+    const fetchGraphql = makeFetchGraphql(getConfig());
 
     return {
-      topServiceSummaries: await loadTopServiceSummaries(loopbackGraphql, 5),
+      topServiceSummaries: await loadTopServiceSummaries(fetchGraphql, 5),
       stage: stage === 'choose' ? stage : 'home',
       description: description || '',
       bypassTranslateDialog: translate === '0',

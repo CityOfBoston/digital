@@ -15,15 +15,15 @@ import RequestLayout from './RequestLayout';
 
 jest.mock('next/router');
 
-jest.mock('../../data/dao/load-top-service-summaries');
-jest.mock('../../data/dao/load-service');
-jest.mock('../../data/dao/search-cases');
+jest.mock('../../data/queries/load-top-service-summaries');
+jest.mock('../../data/queries/load-service');
+jest.mock('../../data/queries/search-cases');
 
-const loadTopServiceSummaries: JestMockFn = (require('../../data/dao/load-top-service-summaries'): any)
+const loadTopServiceSummaries: JestMockFn = (require('../../data/queries/load-top-service-summaries'): any)
   .default;
-const loadService: JestMockFn = (require('../../data/dao/load-service'): any)
+const loadService: JestMockFn = (require('../../data/queries/load-service'): any)
   .default;
-const searchCases: JestMockFn = (require('../../data/dao/search-cases'): any)
+const searchCases: JestMockFn = (require('../../data/queries/search-cases'): any)
   .default;
 
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [

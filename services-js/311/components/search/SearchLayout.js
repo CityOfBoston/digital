@@ -9,13 +9,12 @@ import { css } from 'emotion';
 import { action, reaction, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
+import getConfig from 'next/config';
+import { makeFetchGraphql, FetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 import type { AppStore } from '../../data/store';
 import RequestSearch from '../../data/store/RequestSearch';
-
-import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
-import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -122,7 +121,7 @@ export default class SearchLayout extends React.Component<Props> {
   static defaultProps = {
     noMap: false,
   };
-  loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
+  fetchGraphql: FetchGraphql = makeFetchGraphql(getConfig());
 
   locationUpdateDisposer: ?Function;
   currentLocationMonitorDisposer: ?Function;
@@ -179,7 +178,7 @@ export default class SearchLayout extends React.Component<Props> {
   componentDidMount() {
     const { store } = this.props;
 
-    store.requestSearch.start(this.loopbackGraphql);
+    store.requestSearch.start(this.fetchGraphql);
 
     // If the browser's location comes in while the map is still in a default
     // view, zoom in to the browser's location.

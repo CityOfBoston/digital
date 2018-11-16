@@ -1,9 +1,9 @@
 {
   "projects": {
     "311": {
-      "schemaPath": "./services-js/access-boston/graphql/schema.graphql",
+      "schemaPath": "./services-js/311/graphql/schema.graphql",
       "includes": [
-        "./services-js/access-boston/**/*.{graphql,ts,tsx,js,jsx}"
+        "./services-js/311/**/*.{graphql,ts,tsx,js,jsx}"
       ]
     },
     "access-boston": {

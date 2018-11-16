@@ -10,16 +10,16 @@ import { fromPromise } from 'mobx-utils';
 import { css } from 'emotion';
 import type { Context } from 'next';
 import type { IPromiseBasedObservable } from 'mobx-utils';
+import getConfig from 'next/config';
+import { makeFetchGraphql, FetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../../server/next-handlers';
 
 import type { SubmittedRequest, Service } from '../../../data/types';
 import type { AppStore } from '../../../data/store';
 import RequestForm from '../../../data/store/RequestForm';
-import makeLoopbackGraphql from '../../../data/dao/loopback-graphql';
-import type { LoopbackGraphql } from '../../../data/dao/loopback-graphql';
-import submitRequest from '../../../data/dao/submit-request';
-import loadService from '../../../data/dao/load-service';
+import submitRequest from '../../../data/queries/submit-request';
+import loadService from '../../../data/queries/load-service';
 
 import LoadingBuildings from '../../common/LoadingBuildings';
 import FormDialog from '../../common/FormDialog';
@@ -46,7 +46,7 @@ export type InitialProps = {|
 
 export type Props = {|
   store: AppStore,
-  loopbackGraphql: LoopbackGraphql,
+  fetchGraphql: FetchGraphql,
   routeToServiceForm: (code: string, stage: string) => Promise<void>,
   setLocationMapActive: (active: boolean) => void,
   ...InitialProps,
@@ -84,9 +84,9 @@ export default class RequestDialog extends React.Component<Props> {
     const { code, description } = query;
     let stage = query.stage;
 
-    const loopbackGraphql = makeLoopbackGraphql(req);
+    const fetchGraphql = makeFetchGraphql(getConfig());
 
-    const service = await loadService(loopbackGraphql, code);
+    const service = await loadService(fetchGraphql, code);
 
     if (!service && res) {
       res.statusCode = 404;
@@ -209,7 +209,7 @@ export default class RequestDialog extends React.Component<Props> {
   @action.bound
   submitRequest(): Promise<mixed> {
     const { requestForm } = this;
-    const { service, loopbackGraphql, routeToServiceForm } = this.props;
+    const { service, fetchGraphql, routeToServiceForm } = this.props;
     const {
       description,
       descriptionForClassifier,
@@ -231,7 +231,7 @@ export default class RequestDialog extends React.Component<Props> {
       throw new Error('service is null in submitRequest');
     }
 
-    const promise = submitRequest(loopbackGraphql, {
+    const promise = submitRequest(fetchGraphql, {
       service,
       description,
       descriptionForClassifier,

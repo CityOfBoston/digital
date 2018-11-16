@@ -5,6 +5,8 @@ import { css } from 'emotion';
 import Router from 'next/router';
 import type { Context } from 'next';
 import { observer } from 'mobx-react';
+import getConfig from 'next/config';
+import { makeFetchGraphql, FetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
@@ -20,9 +22,6 @@ import type { InitialProps as RequestDialogInitialProps } from './request/Reques
 import TranslateDialog from './translate/TranslateDialog';
 
 import { HEADER_HEIGHT } from '../style-constants';
-
-import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
-import type { LoopbackGraphql } from '../../data/dao/loopback-graphql';
 
 import type { AppStore } from '../../data/store';
 
@@ -88,7 +87,7 @@ export default class RequestLayout extends React.Component<Props, State> {
   state: State = {
     locationMapActive: false,
   };
-  loopbackGraphql: LoopbackGraphql = makeLoopbackGraphql();
+  fetchGraphql: FetchGraphql = makeFetchGraphql(getConfig());
 
   static async getInitialProps(
     ctx: Context<RequestAdditions>
@@ -121,7 +120,7 @@ export default class RequestLayout extends React.Component<Props, State> {
 
   componentDidMount() {
     const { store } = this.props;
-    store.addressSearch.start(this.loopbackGraphql);
+    store.addressSearch.start(this.fetchGraphql);
   }
 
   componentWillReceiveProps() {
@@ -199,7 +198,7 @@ export default class RequestLayout extends React.Component<Props, State> {
           {data.view === 'home' &&
             <HomeDialog
               store={store}
-              loopbackGraphql={this.loopbackGraphql}
+              fetchGraphql={this.fetchGraphql}
               bypassTranslateDialog={data.props.bypassTranslateDialog}
               description={data.props.description}
               stage={data.props.stage}
@@ -209,7 +208,7 @@ export default class RequestLayout extends React.Component<Props, State> {
           {data.view === 'request' &&
             <RequestDialog
               store={store}
-              loopbackGraphql={this.loopbackGraphql}
+              fetchGraphql={this.fetchGraphql}
               routeToServiceForm={this.routeToServiceForm}
               setLocationMapActive={this.setLocationMapActive}
               description={data.props.description}

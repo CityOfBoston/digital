@@ -1,4 +1,3 @@
-import { Server } from 'hapi';
 import compression from 'compression';
 
 interface Language {
@@ -7,19 +6,15 @@ interface Language {
   quality: number;
 }
 export interface RequestAdditions {
-  hapiInject: Server['inject'];
   languages: Language[];
-  loopbackGraphqlCache: { [key: string]: {} };
 }
 
 export const nextHandler = (app, page, staticQuery = {}) => async (
-  { server, raw: { req, res }, query, params, pre },
+  { raw: { req, res }, query, params, pre },
   h
 ) => {
   const requestAdditions: RequestAdditions = {
-    hapiInject: server.inject.bind(server),
     languages: pre.language,
-    loopbackGraphqlCache: {},
   };
 
   Object.assign(req, requestAdditions);

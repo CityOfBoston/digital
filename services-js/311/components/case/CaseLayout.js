@@ -3,6 +3,8 @@
 import React from 'react';
 import type { Context } from 'next';
 import Head from 'next/head';
+import getConfig from 'next/config';
+import { makeFetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
@@ -14,8 +16,7 @@ import CaseView from './CaseView';
 
 import type { Request } from '../../data/types';
 import type { AppStore } from '../../data/store';
-import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
-import loadCase from '../../data/dao/load-case';
+import loadCase from '../../data/queries/load-case';
 
 type CaseData = {|
   request: ?Request,
@@ -40,8 +41,8 @@ export default class CaseLayout extends React.Component<Props> {
   }: Context<RequestAdditions>): Promise<InitialProps> {
     const { id } = query;
 
-    const loopbackGraphql = makeLoopbackGraphql(req);
-    const request = await loadCase(loopbackGraphql, id);
+    const fetchGraphql = makeFetchGraphql(getConfig());
+    const request = await loadCase(fetchGraphql, id);
 
     if (res && !request) {
       res.statusCode = 404;

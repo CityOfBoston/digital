@@ -8,14 +8,15 @@ import { observer } from 'mobx-react';
 import type { Context } from 'next';
 import { css } from 'emotion';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+import getConfig from 'next/config';
+import { makeFetchGraphql } from '@cityofboston/next-client-common';
 
 import type { RequestAdditions } from '../../server/next-handlers';
 
 import type { ServiceSummary } from '../../data/types';
 import type { AppStore } from '../../data/store';
 import type { Group } from '../../data/store/AllServices';
-import makeLoopbackGraphql from '../../data/dao/loopback-graphql';
-import loadServiceSummaries from '../../data/dao/load-service-summaries';
+import loadServiceSummaries from '../../data/queries/load-service-summaries';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -121,8 +122,8 @@ export default class ServicesLayout extends React.Component<Props> {
   static async getInitialProps({
     req,
   }: Context<RequestAdditions>): Promise<InitialProps> {
-    const loopbackGraphql = makeLoopbackGraphql(req);
-    const services = await loadServiceSummaries(loopbackGraphql);
+    const fetchGraphql = makeFetchGraphql(getConfig());
+    const services = await loadServiceSummaries(fetchGraphql);
 
     return {
       services,
