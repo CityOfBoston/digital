@@ -1,13 +1,8 @@
-// @flow
-/* eslint react/no-danger: 0 */
-
 import React from 'react';
 import { css } from 'emotion';
 import getConfig from 'next/config';
 
-import type { Request } from '../../data/types';
-
-import type { Config, PublicRuntimeConfig } from '../../lib/config';
+import { Request } from '../../data/types';
 
 import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
@@ -16,16 +11,16 @@ import { MEDIA_LARGE, CHARLES_BLUE } from '../style-constants';
 // Case types where we show the scheduled date.
 const SCHEDULED_CASE_TYPES = ['SCHDBLKITM'];
 
-export type DefaultProps = {|
-  submitted: boolean,
-  noMap: boolean,
-|};
+export type DefaultProps = {
+  submitted: boolean;
+  noMap: boolean;
+};
 
-export type Props = {|
-  request: Request,
-  submitted?: boolean,
-  noMap?: boolean,
-|};
+export type Props = {
+  request: Request;
+  submitted?: boolean;
+  noMap?: boolean;
+};
 
 const IMG_STYLE = css({
   display: 'block',
@@ -87,15 +82,17 @@ function renderServiceNotice({
       </div>
 
       {SCHEDULED_CASE_TYPES.indexOf(code) !== -1 &&
-        expectedAtString &&
-        <div className="t--intro m-v200">
-          Your scheduled date is <strong>{expectedAtString}</strong>.
-        </div>}
+        expectedAtString && (
+          <div className="t--intro m-v200">
+            Your scheduled date is <strong>{expectedAtString}</strong>.
+          </div>
+        )}
 
-      {serviceNotice &&
+      {serviceNotice && (
         <div className="t--info" style={{ fontStyle: 'normal' }}>
           {serviceNotice}
-        </div>}
+        </div>
+      )}
     </div>
   );
 }
@@ -116,19 +113,21 @@ function renderSubmitted(req: Request) {
       </div>
 
       {serviceNotice ||
-      (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1)
-        ? <div>
-            <div className="t--intro m-b500" style={{ fontStyle: 'normal' }}>
-              Thank you for submitting. Your case reference number is #{id}.
-            </div>
-
-            {renderServiceNotice(req)}
+      (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1) ? (
+        <div>
+          <div className="t--intro m-b500" style={{ fontStyle: 'normal' }}>
+            Thank you for submitting. Your case reference number is #{id}.
           </div>
-        : <div className="t--intro" style={{ fontStyle: 'normal' }}>
-            Thank you for submitting. Your case reference number is #{id}. If
-            you gave your email address, we’ll send you an email when it’s
-            resolved. You can also bookmark this page to check back on it.
-          </div>}
+
+          {renderServiceNotice(req)}
+        </div>
+      ) : (
+        <div className="t--intro" style={{ fontStyle: 'normal' }}>
+          Thank you for submitting. Your case reference number is #{id}. If you
+          gave your email address, we’ll send you an email when it’s resolved.
+          You can also bookmark this page to check back on it.
+        </div>
+      )}
     </div>
   );
 }
@@ -160,9 +159,7 @@ function renderStatus(req: Request) {
     (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1)
   ) {
     return (
-      <div className="b b--g p-a500 m-v500">
-        {renderServiceNotice(req)}
-      </div>
+      <div className="b b--g p-a500 m-v500">{renderServiceNotice(req)}</div>
     );
   } else {
     return null;
@@ -170,7 +167,7 @@ function renderStatus(req: Request) {
 }
 
 function makeMapboxUrl(
-  { mapboxStylePath, mapboxAccessToken }: PublicRuntimeConfig,
+  { mapboxStylePath, mapboxAccessToken }: any,
   request: Request,
   width: number,
   height: number
@@ -181,13 +178,17 @@ function makeMapboxUrl(
     return '';
   }
 
-  return `https://api.mapbox.com/styles/v1/${mapboxStylePath}/static/${location.lng},${location.lat},15/${width}x${height}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
+  return `https://api.mapbox.com/styles/v1/${mapboxStylePath}/static/${
+    location.lng
+  },${
+    location.lat
+  },15/${width}x${height}@2x?attribution=false&logo=false&access_token=${encodeURIComponent(
     mapboxAccessToken
   )}`;
 }
 
 export default function CaseView({ request, submitted, noMap }: Props) {
-  const { publicRuntimeConfig } = (getConfig(): Config);
+  const { publicRuntimeConfig } = getConfig();
 
   const waypointIcon =
     request.status === 'open' ? waypoints.greenFilled : waypoints.orangeFilled;
@@ -220,49 +221,52 @@ export default function CaseView({ request, submitted, noMap }: Props) {
       {submitted && renderSubmitted(request)}
       {!submitted && renderStatus(request)}
 
-      {request.description &&
+      {request.description && (
         <div className="m-v500">
           <div className="txt-l">Description</div>
           <div className="t--intro" style={{ fontStyle: 'normal' }}>
             {request.description}
           </div>
-        </div>}
+        </div>
+      )}
 
       {request.location &&
         !noMap &&
-        longMap &&
-        <div className={LONG_MAP_WRAPPER_STYLE}>
-          <img
-            className={`${MAP_IMG_STYLE.toString()} br br-a150`}
-            src={makeMapboxUrl(publicRuntimeConfig, request, 1000, 220)}
-            alt={`Map of ${request.address || ''}`}
-          />
-          <div
-            className={`${WAYPOINT_STYLE.toString()}`}
-            dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
-          />
-        </div>}
+        longMap && (
+          <div className={LONG_MAP_WRAPPER_STYLE}>
+            <img
+              className={`${MAP_IMG_STYLE.toString()} br br-a150`}
+              src={makeMapboxUrl(publicRuntimeConfig, request, 1000, 220)}
+              alt={`Map of ${request.address || ''}`}
+            />
+            <div
+              className={`${WAYPOINT_STYLE.toString()}`}
+              dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+            />
+          </div>
+        )}
 
       <div className="g m-v400">
         {request.location &&
           !noMap &&
-          !longMap &&
-          <div className="g--6">
-            <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
-              <img
-                className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
-                src={makeMapboxUrl(publicRuntimeConfig, request, 440, 440)}
-                alt={`Map of ${request.address || ''}`}
-              />
-              <div
-                className={`${WAYPOINT_STYLE.toString()}`}
-                dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
-              />
+          !longMap && (
+            <div className="g--6">
+              <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
+                <img
+                  className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
+                  src={makeMapboxUrl(publicRuntimeConfig, request, 440, 440)}
+                  alt={`Map of ${request.address || ''}`}
+                />
+                <div
+                  className={`${WAYPOINT_STYLE.toString()}`}
+                  dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+                />
+              </div>
             </div>
-          </div>}
+          )}
 
         {request.images.length > 0 &&
-          request.images.map(img =>
+          request.images.map(img => (
             <div
               className={request.images.length < 3 ? 'g--6' : 'g--4'}
               key={img.originalUrl}
@@ -282,17 +286,18 @@ export default function CaseView({ request, submitted, noMap }: Props) {
                   src={img.squarePreviewUrl}
                 />
 
-                {img.tags.length > 0 &&
+                {img.tags.length > 0 && (
                   <div
                     className={`${IMG_LABEL_STYLE.toString()} p-a300 t--subtitle tt-u`}
                   >
                     {img.tags
                       .map(tag => HUMANIZED_TAG_NAMES[tag] || tag)
                       .join(', ')}
-                  </div>}
+                  </div>
+                )}
               </a>
             </div>
-          )}
+          ))}
       </div>
     </div>
   );

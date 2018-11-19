@@ -6,7 +6,7 @@ import { action } from 'mobx';
 
 import getStore from '../../data/store';
 import type { Service, ServiceSummary } from '../../data/types';
-import page from '../../storybook/page';
+import page from '../../.storybook/page';
 import RequestLayout from './RequestLayout';
 
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [

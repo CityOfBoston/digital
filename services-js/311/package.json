@@ -6,12 +6,12 @@
   "scripts": {
     "prebuild": "rimraf build",
     "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
-    "test": "jest",
+    "test": "scripts/test.js",
     "build": "gulp build",
     "build:server": "tsc -p tsconfig.server.json",
     "start": "node build/server",
     "prepare": "npm run build",
-    "storybook": "gulp storybook:head && start-storybook -p 9001 -s static -c storybook",
+    "storybook": "gulp storybook:head && start-storybook -p 9001 -s static",
     "generate-graphql-types": "apollo-codegen generate data/queries/*.ts --project-name 311 --target typescript --output data/queries/types.ts && prettier --write data/queries/types.ts",
     "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
   },
@@ -26,7 +26,8 @@
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
       "<rootDir>/.next/",
-      "<rootDir>/coverage/"
+      "<rootDir>/coverage/",
+      "<rootDir>/scripts/"
     ],
     "collectCoverage": false,
     "snapshotSerializers": [

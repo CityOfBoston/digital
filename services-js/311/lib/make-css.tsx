@@ -1,14 +1,11 @@
-// @flow
-/* eslint react/no-danger: 0 */
-
-import * as React from 'react';
+import React from 'react';
 
 import stylesheetHrefs from '../templates/stylesheets.json';
 import { assetUrl } from '../components/style-constants';
 
 type CssOpts = {
-  cacheParam?: string,
-  additionalCss?: string,
+  cacheParam?: string;
+  additionalCss?: string;
 };
 
 export default function makeCss(opts: CssOpts = {}) {
@@ -17,17 +14,17 @@ export default function makeCss(opts: CssOpts = {}) {
   const cacheBustedCssHrefs = stylesheetHrefs.map(
     href => (cacheParam ? `${href}?k=${cacheParam}` : href)
   );
-  const publicCssHref = cacheBustedCssHrefs.find(href =>
-    href.match(/public\.css/)
-  );
+  const publicCssHref = cacheBustedCssHrefs.find(
+    href => !!href.match(/public\.css/)
+  )!;
   const otherCssHrefs = cacheBustedCssHrefs.filter(
     href => !href.match(/public\.css/)
   );
 
   return [
-    ...otherCssHrefs.map(href =>
+    ...otherCssHrefs.map(href => (
       <link href={href} key={href} type="text/css" rel="stylesheet" />
-    ),
+    )),
 
     <head
       key="conditional-style"
@@ -74,11 +71,12 @@ export default function makeCss(opts: CssOpts = {}) {
       #nprogress .bar{background:rgba(252,182,26,.7);position:fixed;z-index:1031;top:0;left:0;width:100%;height:65px;}
     `}</style>,
 
-    additionalCss &&
+    additionalCss && (
       <style
         type="text/css"
         key="static"
         dangerouslySetInnerHTML={{ __html: additionalCss }}
-      />,
+      />
+    ),
   ];
 }
