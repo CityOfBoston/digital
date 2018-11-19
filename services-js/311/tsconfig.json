@@ -12,6 +12,7 @@
     "lib/**/*",
     "pages/**/*",
     "scripts/**/*",
-    "server/**/*"
+    "server/**/*",
+    "templates/**/*"
   ]
 }

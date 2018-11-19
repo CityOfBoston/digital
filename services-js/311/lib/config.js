@@ -1,8 +1,3 @@
-// @flow
-
-// This file uses the comment Flow syntax because it is interpreted by Node
-// directly due to being required by next.config.js.
-//
 // If you edit this file, make sure to test:
 // `npm run build` and `NODE_ENV=production npm run start`.
 

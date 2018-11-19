@@ -7,7 +7,6 @@ import {
   comparer,
 } from 'mobx';
 import { LatLngBounds } from 'mapbox.js';
-import { LngLatBounds } from 'mapbox-gl';
 import uniqBy from 'lodash/uniqBy';
 import debounce from 'lodash/debounce';
 import { SearchCase, SearchCasesResult } from '../types';
@@ -36,7 +35,6 @@ export default class RequestSearch {
   @observable mapZoom: number = 12;
 
   @observable mapBounds: LatLngBounds | null = null;
-  @observable mapBoundsGl: LngLatBounds | null = null;
   // true if the mobile search UI is showing just the map. We keep this in
   // store state so that it's preserved if you tap on a case and then go back
   @observable mapView: boolean = false;
@@ -77,8 +75,8 @@ export default class RequestSearch {
 
   @computed
   get results(): SearchCase[] {
-    const { mapBounds, mapBoundsGl } = this;
-    if (!mapBounds && !mapBoundsGl) {
+    const { mapBounds } = this;
+    if (!mapBounds) {
       return this._results.slice(0, 50);
     } else {
       return this._results
@@ -89,13 +87,6 @@ export default class RequestSearch {
 
           if (mapBounds) {
             return mapBounds.contains([location.lat, location.lng]);
-          } else if (mapBoundsGl) {
-            return (
-              location.lng >= mapBoundsGl.getWest() &&
-              location.lng <= mapBoundsGl.getEast() &&
-              location.lat <= mapBoundsGl.getNorth() &&
-              location.lat >= mapBoundsGl.getSouth()
-            );
           } else {
             return false;
           }
@@ -130,7 +121,7 @@ export default class RequestSearch {
         this.mapMoved = true;
       }
 
-      this.boundsSet = !!(this.mapBounds || this.mapBoundsGl);
+      this.boundsSet = !!this.mapBounds;
     });
   }
 
@@ -146,15 +137,10 @@ export default class RequestSearch {
 
   @computed.struct
   get topLeft(): { lat: number; lng: number } | null {
-    const { mapBounds, mapBoundsGl } = this;
+    const { mapBounds } = this;
 
     if (mapBounds) {
       const { lat, lng } = mapBounds.getNorthWest();
-      return { lat, lng };
-    }
-
-    if (mapBoundsGl) {
-      const { lat, lng } = mapBoundsGl.getNorthWest();
       return { lat, lng };
     }
 
@@ -163,15 +149,10 @@ export default class RequestSearch {
 
   @computed.struct
   get bottomRight(): { lat: number; lng: number } | null {
-    const { mapBounds, mapBoundsGl } = this;
+    const { mapBounds } = this;
 
     if (mapBounds) {
       const { lat, lng } = mapBounds.getSouthEast();
-      return { lat, lng };
-    }
-
-    if (mapBoundsGl) {
-      const { lat, lng } = mapBoundsGl.getSouthEast();
       return { lat, lng };
     }
 

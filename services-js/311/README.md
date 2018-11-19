@@ -55,23 +55,6 @@ component:
 // eslint react/prefer-stateless-function: 0
 ```
 
-### Type-checking
-
-We use Flow type checking to ensure that modules are integrated together
-in a typesafe way. All source, test, and story files should start with
-`// @flow` to enable type checking.
-
-We use [flow-typed](https://github.com/flowtype/flow-typed) to provide Flow
-types for supported NPM modules, and have added our own under `/flow-typed/npm`.
-
-We use [apollo-codegen](https://github.com/apollographql/apollo-codegen) to
-generate Flow types for the `*.graphql` queries and mutations in
-`/store/modules/graphql`. These are output as
-`/store/modules/graphql/schema.flow.js` and should be used when possible to
-establish types for GraphQL arguments and responses.
-
-Run `npx flow` to check types.
-
 ### Backend
 
 This project starts a [Hapi](https://hapijs.com/) server and uses Next.js’s
