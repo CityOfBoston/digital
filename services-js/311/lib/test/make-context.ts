@@ -1,4 +1,3 @@
-// @flow
 import { Context } from 'next';
 import { RequestAdditions } from '../../server/next-handlers';
 

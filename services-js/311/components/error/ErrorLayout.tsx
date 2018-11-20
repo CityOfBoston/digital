@@ -1,6 +1,3 @@
-// @flow
-/* eslint react/no-danger: 0, no-underscore-dangle: 0 */
-
 // Forked from next.js to add Opbeat error sending
 
 import React from 'react';

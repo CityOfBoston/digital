@@ -1,4 +1,3 @@
-// @flow
 /* eslint no-console: 0 */
 
 /*

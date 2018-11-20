@@ -7,14 +7,6 @@ module.exports = withTypescript(
     {
       distDir: path.join('build', '.next'),
       assetPrefix: makeAssetPrefix(),
-
-      webpack: config => {
-        config.module.noParse = config.module.noParse || [];
-        config.module.noParse.push(/mapbox-gl/);
-
-        // Important: return the modified config
-        return config;
-      },
     },
     makeConfig()
   )

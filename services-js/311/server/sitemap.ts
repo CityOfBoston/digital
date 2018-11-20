@@ -1,4 +1,3 @@
-// @flow
 import sm from 'sitemap';
 import { Open311 } from './services/Open311';
 
