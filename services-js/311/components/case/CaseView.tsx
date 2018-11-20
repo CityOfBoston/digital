@@ -241,7 +241,7 @@ export default function CaseView({ request, submitted, noMap }: Props) {
             />
             <div
               className={`${WAYPOINT_STYLE.toString()}`}
-              dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+              dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
             />
           </div>
         )}
@@ -259,7 +259,7 @@ export default function CaseView({ request, submitted, noMap }: Props) {
                 />
                 <div
                   className={`${WAYPOINT_STYLE.toString()}`}
-                  dangerouslySetInnerHTML={{ __html: waypointIcon.html }}
+                  dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
                 />
               </div>
             </div>

@@ -1,20 +1,12 @@
 import 'url-search-params-polyfill';
 
 import React from 'react';
-import { Context } from 'next';
 import Router from 'next/router';
 import { css } from 'emotion';
 import { action, reaction, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
-import getConfig from 'next/config';
-import {
-  makeFetchGraphql,
-  FetchGraphql,
-} from '@cityofboston/next-client-common';
 
-import { RequestAdditions } from '../../server/next-handlers';
-import { AppStore } from '../../data/store';
 import RequestSearch from '../../data/store/RequestSearch';
 
 import FeedbackBanner from '../common/FeedbackBanner';
@@ -30,6 +22,7 @@ import {
 
 import RecentRequests from './RecentRequests';
 import RecentRequestsSearchForm from './RecentRequestsSearchForm';
+import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
 type SearchData = {
   view: 'search';
@@ -42,10 +35,17 @@ export type InitialProps = {
   data: SearchData;
 };
 
-export type Props = InitialProps & {
-  store: AppStore;
-  noMap: boolean;
-};
+export type Props = InitialProps &
+  Pick<
+    PageDependencies,
+    | 'addressSearch'
+    | 'ui'
+    | 'requestSearch'
+    | 'browserLocation'
+    | 'fetchGraphql'
+  > & {
+    noMap: boolean;
+  };
 
 const SEARCH_HEIGHT = 62;
 
@@ -121,19 +121,19 @@ export default class SearchLayout extends React.Component<Props> {
   static defaultProps = {
     noMap: false,
   };
-  fetchGraphql: FetchGraphql = makeFetchGraphql(getConfig());
 
-  locationUpdateDisposer: Function | null = null;
-  currentLocationMonitorDisposer: Function | null = null;
+  private locationUpdateDisposer: Function | null = null;
+  private currentLocationMonitorDisposer: Function | null = null;
 
-  container: HTMLElement | null = null;
-  locationMap: LocationMap | null = null;
-  locationMapContainer: HTMLElement | null = null;
-  @observable mapViewButtonContainer: HTMLElement | null = null;
+  private container: HTMLElement | null = null;
+  private locationMap: LocationMap | null = null;
+  private locationMapContainer: HTMLElement | null = null;
+  @observable private mapViewButtonContainer: HTMLElement | null = null;
 
-  static async getInitialProps({
-    query,
-  }: Context<RequestAdditions>): Promise<InitialProps> {
+  static getInitialProps: GetInitialProps<InitialProps, 'query'> = async (
+    { query },
+    _
+  ): Promise<InitialProps> => {
     const { lat, lng, zoom } = query;
     let location;
 
@@ -154,48 +154,48 @@ export default class SearchLayout extends React.Component<Props> {
         zoom: zoom ? parseInt(zoom, 10) : null,
       },
     };
-  }
+  };
 
   @action
   componentWillMount() {
-    const { store, data } = this.props;
-    store.requestSearch.query = data.query;
+    const { requestSearch, data } = this.props;
+    requestSearch.query = data.query;
 
     if (data.location) {
-      store.requestSearch.mapCenter = data.location;
+      requestSearch.mapCenter = data.location;
     } else {
-      store.requestSearch.mapCenter = null;
+      requestSearch.mapCenter = null;
     }
 
     if (data.zoom) {
-      store.requestSearch.mapZoom = data.zoom;
+      requestSearch.mapZoom = data.zoom;
     } else {
-      store.requestSearch.mapZoom = 12;
+      requestSearch.mapZoom = 12;
     }
   }
 
   @action
   componentDidMount() {
-    const { store } = this.props;
+    const { browserLocation, requestSearch, ui, fetchGraphql } = this.props;
 
-    store.requestSearch.start(this.fetchGraphql);
+    requestSearch.start(fetchGraphql);
 
     // If the browser's location comes in while the map is still in a default
     // view, zoom in to the browser's location.
     this.currentLocationMonitorDisposer = reaction(
       () => ({
-        mobile: store.ui.belowMediaLarge,
-        browserLocation: store.browserLocation.location,
-        inBoston: store.browserLocation.inBoston,
+        mobile: ui.belowMediaLarge,
+        browserLocation: browserLocation.location,
+        inBoston: browserLocation.inBoston,
       }),
       ({ mobile, browserLocation, inBoston }) => {
-        const mapCenter = store.requestSearch.mapCenter;
+        const mapCenter = requestSearch.mapCenter;
 
         if (!mobile || !inBoston || !browserLocation || !this.locationMap) {
           return;
         }
 
-        if (!mapCenter || !store.requestSearch.mapMoved) {
+        if (!mapCenter || !requestSearch.mapMoved) {
           this.locationMap.visitLocation(browserLocation, true);
         }
       }
@@ -203,10 +203,10 @@ export default class SearchLayout extends React.Component<Props> {
 
     this.locationUpdateDisposer = reaction(
       () => ({
-        query: store.requestSearch.query,
-        resultsQuery: store.requestSearch.resultsQuery,
-        location: store.requestSearch.mapCenter,
-        zoom: store.requestSearch.mapZoom,
+        query: requestSearch.query,
+        resultsQuery: requestSearch.resultsQuery,
+        location: requestSearch.mapCenter,
+        zoom: requestSearch.mapZoom,
       }),
       ({ query, resultsQuery, location, zoom }) => {
         const params = new URLSearchParams();
@@ -238,8 +238,8 @@ export default class SearchLayout extends React.Component<Props> {
   }
 
   componentWillUnmount() {
-    const { store } = this.props;
-    store.requestSearch.stop();
+    const { requestSearch } = this.props;
+    requestSearch.stop();
 
     if (this.locationUpdateDisposer) {
       this.locationUpdateDisposer();
@@ -272,9 +272,7 @@ export default class SearchLayout extends React.Component<Props> {
   @action.bound
   switchToListView() {
     const { locationMap } = this;
-    const {
-      store: { requestSearch },
-    } = this.props;
+    const { requestSearch } = this.props;
 
     requestSearch.mapView = false;
 
@@ -291,9 +289,7 @@ export default class SearchLayout extends React.Component<Props> {
   @action.bound
   switchToMapView() {
     const { locationMap } = this;
-    const {
-      store: { requestSearch },
-    } = this.props;
+    const { requestSearch } = this.props;
 
     requestSearch.mapView = true;
     requestSearch.selectedRequest = null;
@@ -312,9 +308,7 @@ export default class SearchLayout extends React.Component<Props> {
   // button.
   @computed
   get mapScrolledOff(): boolean {
-    const {
-      store: { ui },
-    } = this.props;
+    const { ui } = this.props;
     const { locationMapContainer } = this;
 
     if (!locationMapContainer) {
@@ -334,9 +328,7 @@ export default class SearchLayout extends React.Component<Props> {
   // appear.
   @computed
   get stickyMapViewButton(): boolean {
-    const {
-      store: { ui },
-    } = this.props;
+    const { ui } = this.props;
     const { container, mapViewButtonContainer } = this;
 
     if (!container || !mapViewButtonContainer) {
@@ -352,8 +344,13 @@ export default class SearchLayout extends React.Component<Props> {
   }
 
   render() {
-    const { store, noMap } = this.props;
-    const { ui, requestSearch } = store;
+    const {
+      ui,
+      requestSearch,
+      browserLocation,
+      addressSearch,
+      noMap,
+    } = this.props;
     const { mapScrolledOff, stickyMapViewButton } = this;
     const { mapView } = requestSearch;
 
@@ -385,8 +382,11 @@ export default class SearchLayout extends React.Component<Props> {
             {!noMap && (
               <LocationMapWithLibrary
                 locationMapRef={this.setLocationMap}
-                store={store}
                 mode="search"
+                addressSearch={addressSearch}
+                browserLocation={browserLocation}
+                requestSearch={requestSearch}
+                ui={ui}
                 mobile={ui.belowMediaLarge}
                 onMapClick={ui.belowMediaLarge ? this.switchToMapView : null}
               />
@@ -395,7 +395,7 @@ export default class SearchLayout extends React.Component<Props> {
 
           {!mapView && (
             <div ref={this.setContainer}>
-              <RecentRequests store={store} />
+              <RecentRequests requestSearch={requestSearch} ui={ui} />
             </div>
           )}
 

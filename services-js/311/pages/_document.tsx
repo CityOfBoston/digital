@@ -6,6 +6,7 @@ import getConfig from 'next/config';
 
 import { useStaticRendering as mobxUseStaticRendering } from 'mobx-react';
 import { ContactForm } from '@cityofboston/react-fleet';
+import { ScreenReaderSupport } from '@cityofboston/next-client-common';
 
 import makeCss from '../lib/make-css';
 
@@ -133,7 +134,6 @@ export default class extends Document {
             dangerouslySetInnerHTML={{ __html: navigationHtml }}
           />
 
-          <div className="a11y--h" aria-live="polite" id="ariaLive" />
           <div className="mn mn--nv-s">
             <input
               type="checkbox"
@@ -148,6 +148,8 @@ export default class extends Document {
             />
 
             <Main />
+
+            <ScreenReaderSupport.AnnounceElement />
           </div>
 
           <script

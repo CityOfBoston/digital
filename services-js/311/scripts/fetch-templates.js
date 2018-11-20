@@ -47,6 +47,12 @@ const TEMPLATE_URL = 'https://boston.gov/api/v1/layouts/app';
           url = `/${url}`;
         }
         url = `https://www.boston.gov${url}`;
+      } else if (url.startsWith('mailto')) {
+        // TODO(finh): text onClick is a bit jank
+        $el.attr(
+          'onClick',
+          'document.getElementById("contactForm").show(); return false;'
+        );
       }
 
       url = url.replace(/\?k=.*/, '');

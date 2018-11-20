@@ -2,8 +2,30 @@
 
 exports[`methods submitRequest graphql failure 1`] = `
 <RequestDialog
+  addressSearch={
+    AddressSearch {
+      "fetchGraphql": null,
+      "searchPopupWidth": 0,
+    }
+  }
+  browserLocation={
+    BrowserLocation {
+      "fetchGraphql": null,
+      "geocodeLocationDisposer": null,
+      "watchId": null,
+    }
+  }
   description=""
   fetchGraphql={[MockFunction]}
+  requestSearch={
+    RequestSearch {
+      "boundsSet": false,
+      "boundsSetDisposer": null,
+      "debouncedSearch": [Function],
+      "mapMoved": false,
+      "searchDisposer": null,
+    }
+  }
   routeToServiceForm={
     [MockFunction] {
       "calls": Array [
@@ -18,6 +40,11 @@ exports[`methods submitRequest graphql failure 1`] = `
           "value": undefined,
         },
       ],
+    }
+  }
+  screenReaderSupport={
+    ScreenReaderSupport {
+      "el": null,
     }
   }
   service={
@@ -95,115 +122,17 @@ exports[`methods submitRequest graphql failure 1`] = `
     }
   }
   stage="submit"
-  store={
-    AppStore {
-      "_liveAgentButtonId": "",
-      "addressSearch": AddressSearch {
-        "fetchGraphql": null,
-        "searchPopupWidth": 0,
-      },
-      "allServices": AllServices {
-        "groups": Array [
-          Group {
-            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
-            "id": "Animals",
-            "name": "Animals",
-          },
-          Group {
-            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
-            "id": "Fees-Pricing",
-            "name": "Fees and pricing",
-          },
-          Group {
-            "description": "You can report issues you see at restaurants and other eateries in the City.",
-            "id": "Food",
-            "name": "Food, restaurants, and eateries",
-          },
-          Group {
-            "description": "Get help for a public safety or disability issue, or request a health inspection.",
-            "id": "Health-Safety",
-            "name": "Health, safety, and social services",
-          },
-          Group {
-            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
-            "id": "Parks-Public",
-            "name": "Parks and public space",
-          },
-          Group {
-            "description": "We offer help to developers, homeowners, and renters on many issues.",
-            "id": "Property-Construction",
-            "name": "Property, housing, and construction",
-          },
-          Group {
-            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
-            "id": "Schools",
-            "name": "Schools",
-          },
-          Group {
-            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
-            "id": "Snow",
-            "name": "Snow or weather-related concerns",
-          },
-          Group {
-            "description": "You can report issues with street signs and signals, and road and sidewalk conditions.",
-            "id": "Streets-Sidewalks",
-            "name": "Streets and sidewalks",
-          },
-          Group {
-            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
-            "id": "Traffic-Vehicles",
-            "name": "Traffic and vehicles",
-          },
-          Group {
-            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
-            "id": "Trash-Graffiti",
-            "name": "Trash, recycling, and graffiti",
-          },
-          Group {
-            "description": "We can help if you have a problem with your electricity, water, or gas.",
-            "id": "Utilities",
-            "name": "Utilities",
-          },
-          Group {
-            "description": "General requests that don’t fit into a category.",
-            "id": "Other",
-            "name": "Other services",
-          },
-        ],
-        "otherGroup": Group {
-          "description": "These services have not yet been categorized",
-          "id": "",
-          "name": "Uncategorized services",
-        },
-      },
-      "browserLocation": BrowserLocation {
-        "fetchGraphql": null,
-        "geocodeLocationDisposer": null,
-        "watchId": null,
-      },
-      "languages": Array [],
-      "requestSearch": RequestSearch {
-        "boundsSet": false,
-        "boundsSetDisposer": null,
-        "debouncedSearch": [Function],
-        "mapMoved": false,
-        "searchDisposer": null,
-      },
-      "screenReaderSupport": ScreenReaderSupport {
-        "el": null,
-      },
-      "siteAnalytics": GaSiteAnalytics {},
-      "ui": Ui {
-        "debouncedScrollDisposer": null,
-        "debouncedScrollY": 0,
-        "handleResize": [Function],
-        "handleScroll": [Function],
-        "reduceMotion": false,
-        "scrollY": 0,
-        "visible": true,
-        "visibleHeight": 9007199254740991,
-        "visibleWidth": null,
-      },
+  ui={
+    Ui {
+      "debouncedScrollDisposer": null,
+      "debouncedScrollY": 0,
+      "handleResize": [Function],
+      "handleScroll": [Function],
+      "reduceMotion": false,
+      "scrollY": 0,
+      "visible": true,
+      "visibleHeight": 9007199254740991,
+      "visibleWidth": null,
     }
   }
 >
@@ -298,8 +227,30 @@ exports[`methods submitRequest graphql failure 1`] = `
 
 exports[`methods submitRequest success 1`] = `
 <RequestDialog
+  addressSearch={
+    AddressSearch {
+      "fetchGraphql": null,
+      "searchPopupWidth": 0,
+    }
+  }
+  browserLocation={
+    BrowserLocation {
+      "fetchGraphql": null,
+      "geocodeLocationDisposer": null,
+      "watchId": null,
+    }
+  }
   description=""
   fetchGraphql={[MockFunction]}
+  requestSearch={
+    RequestSearch {
+      "boundsSet": false,
+      "boundsSetDisposer": null,
+      "debouncedSearch": [Function],
+      "mapMoved": false,
+      "searchDisposer": null,
+    }
+  }
   routeToServiceForm={
     [MockFunction] {
       "calls": Array [
@@ -314,6 +265,11 @@ exports[`methods submitRequest success 1`] = `
           "value": undefined,
         },
       ],
+    }
+  }
+  screenReaderSupport={
+    ScreenReaderSupport {
+      "el": null,
     }
   }
   service={
@@ -391,115 +347,17 @@ exports[`methods submitRequest success 1`] = `
     }
   }
   stage="submit"
-  store={
-    AppStore {
-      "_liveAgentButtonId": "",
-      "addressSearch": AddressSearch {
-        "fetchGraphql": null,
-        "searchPopupWidth": 0,
-      },
-      "allServices": AllServices {
-        "groups": Array [
-          Group {
-            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
-            "id": "Animals",
-            "name": "Animals",
-          },
-          Group {
-            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
-            "id": "Fees-Pricing",
-            "name": "Fees and pricing",
-          },
-          Group {
-            "description": "You can report issues you see at restaurants and other eateries in the City.",
-            "id": "Food",
-            "name": "Food, restaurants, and eateries",
-          },
-          Group {
-            "description": "Get help for a public safety or disability issue, or request a health inspection.",
-            "id": "Health-Safety",
-            "name": "Health, safety, and social services",
-          },
-          Group {
-            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
-            "id": "Parks-Public",
-            "name": "Parks and public space",
-          },
-          Group {
-            "description": "We offer help to developers, homeowners, and renters on many issues.",
-            "id": "Property-Construction",
-            "name": "Property, housing, and construction",
-          },
-          Group {
-            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
-            "id": "Schools",
-            "name": "Schools",
-          },
-          Group {
-            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
-            "id": "Snow",
-            "name": "Snow or weather-related concerns",
-          },
-          Group {
-            "description": "You can report issues with street signs and signals, and road and sidewalk conditions.",
-            "id": "Streets-Sidewalks",
-            "name": "Streets and sidewalks",
-          },
-          Group {
-            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
-            "id": "Traffic-Vehicles",
-            "name": "Traffic and vehicles",
-          },
-          Group {
-            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
-            "id": "Trash-Graffiti",
-            "name": "Trash, recycling, and graffiti",
-          },
-          Group {
-            "description": "We can help if you have a problem with your electricity, water, or gas.",
-            "id": "Utilities",
-            "name": "Utilities",
-          },
-          Group {
-            "description": "General requests that don’t fit into a category.",
-            "id": "Other",
-            "name": "Other services",
-          },
-        ],
-        "otherGroup": Group {
-          "description": "These services have not yet been categorized",
-          "id": "",
-          "name": "Uncategorized services",
-        },
-      },
-      "browserLocation": BrowserLocation {
-        "fetchGraphql": null,
-        "geocodeLocationDisposer": null,
-        "watchId": null,
-      },
-      "languages": Array [],
-      "requestSearch": RequestSearch {
-        "boundsSet": false,
-        "boundsSetDisposer": null,
-        "debouncedSearch": [Function],
-        "mapMoved": false,
-        "searchDisposer": null,
-      },
-      "screenReaderSupport": ScreenReaderSupport {
-        "el": null,
-      },
-      "siteAnalytics": GaSiteAnalytics {},
-      "ui": Ui {
-        "debouncedScrollDisposer": null,
-        "debouncedScrollY": 0,
-        "handleResize": [Function],
-        "handleScroll": [Function],
-        "reduceMotion": false,
-        "scrollY": 0,
-        "visible": true,
-        "visibleHeight": 9007199254740991,
-        "visibleWidth": null,
-      },
+  ui={
+    Ui {
+      "debouncedScrollDisposer": null,
+      "debouncedScrollY": 0,
+      "handleResize": [Function],
+      "handleScroll": [Function],
+      "reduceMotion": false,
+      "scrollY": 0,
+      "visible": true,
+      "visibleHeight": 9007199254740991,
+      "visibleWidth": null,
     }
   }
 >
@@ -631,8 +489,30 @@ exports[`methods submitRequest success 1`] = `
 
 exports[`methods submitRequest success 2`] = `
 <RequestDialog
+  addressSearch={
+    AddressSearch {
+      "fetchGraphql": null,
+      "searchPopupWidth": 0,
+    }
+  }
+  browserLocation={
+    BrowserLocation {
+      "fetchGraphql": null,
+      "geocodeLocationDisposer": null,
+      "watchId": null,
+    }
+  }
   description=""
   fetchGraphql={[MockFunction]}
+  requestSearch={
+    RequestSearch {
+      "boundsSet": false,
+      "boundsSetDisposer": null,
+      "debouncedSearch": [Function],
+      "mapMoved": false,
+      "searchDisposer": null,
+    }
+  }
   routeToServiceForm={
     [MockFunction] {
       "calls": Array [
@@ -647,6 +527,11 @@ exports[`methods submitRequest success 2`] = `
           "value": undefined,
         },
       ],
+    }
+  }
+  screenReaderSupport={
+    ScreenReaderSupport {
+      "el": null,
     }
   }
   service={
@@ -724,115 +609,17 @@ exports[`methods submitRequest success 2`] = `
     }
   }
   stage="submit"
-  store={
-    AppStore {
-      "_liveAgentButtonId": "",
-      "addressSearch": AddressSearch {
-        "fetchGraphql": null,
-        "searchPopupWidth": 0,
-      },
-      "allServices": AllServices {
-        "groups": Array [
-          Group {
-            "description": "Help for pet owners, or issues with animals, rodents, and pests.",
-            "id": "Animals",
-            "name": "Animals",
-          },
-          Group {
-            "description": "Have an issue with the price or measurement of gas, oil, or another product?",
-            "id": "Fees-Pricing",
-            "name": "Fees and pricing",
-          },
-          Group {
-            "description": "You can report issues you see at restaurants and other eateries in the City.",
-            "id": "Food",
-            "name": "Food, restaurants, and eateries",
-          },
-          Group {
-            "description": "Get help for a public safety or disability issue, or request a health inspection.",
-            "id": "Health-Safety",
-            "name": "Health, safety, and social services",
-          },
-          Group {
-            "description": "File requests for repairs, permits, tree plantings, and even make donations.",
-            "id": "Parks-Public",
-            "name": "Parks and public space",
-          },
-          Group {
-            "description": "We offer help to developers, homeowners, and renters on many issues.",
-            "id": "Property-Construction",
-            "name": "Property, housing, and construction",
-          },
-          Group {
-            "description": "Have a problem with a City school bus? Want to see something repaired at a school?",
-            "id": "Schools",
-            "name": "Schools",
-          },
-          Group {
-            "description": "Request a plow, ask for a space saver to be removed, or report an unshoveled sidewalk.",
-            "id": "Snow",
-            "name": "Snow or weather-related concerns",
-          },
-          Group {
-            "description": "You can report issues with street signs and signals, and road and sidewalk conditions.",
-            "id": "Streets-Sidewalks",
-            "name": "Streets and sidewalks",
-          },
-          Group {
-            "description": "We can help with requests about bikes, parking, accessible spots, and more.",
-            "id": "Traffic-Vehicles",
-            "name": "Traffic and vehicles",
-          },
-          Group {
-            "description": "Do you need help with trash or recycling? Want us to clean up a part of the City?",
-            "id": "Trash-Graffiti",
-            "name": "Trash, recycling, and graffiti",
-          },
-          Group {
-            "description": "We can help if you have a problem with your electricity, water, or gas.",
-            "id": "Utilities",
-            "name": "Utilities",
-          },
-          Group {
-            "description": "General requests that don’t fit into a category.",
-            "id": "Other",
-            "name": "Other services",
-          },
-        ],
-        "otherGroup": Group {
-          "description": "These services have not yet been categorized",
-          "id": "",
-          "name": "Uncategorized services",
-        },
-      },
-      "browserLocation": BrowserLocation {
-        "fetchGraphql": null,
-        "geocodeLocationDisposer": null,
-        "watchId": null,
-      },
-      "languages": Array [],
-      "requestSearch": RequestSearch {
-        "boundsSet": false,
-        "boundsSetDisposer": null,
-        "debouncedSearch": [Function],
-        "mapMoved": false,
-        "searchDisposer": null,
-      },
-      "screenReaderSupport": ScreenReaderSupport {
-        "el": null,
-      },
-      "siteAnalytics": GaSiteAnalytics {},
-      "ui": Ui {
-        "debouncedScrollDisposer": null,
-        "debouncedScrollY": 0,
-        "handleResize": [Function],
-        "handleScroll": [Function],
-        "reduceMotion": false,
-        "scrollY": 0,
-        "visible": true,
-        "visibleHeight": 9007199254740991,
-        "visibleWidth": null,
-      },
+  ui={
+    Ui {
+      "debouncedScrollDisposer": null,
+      "debouncedScrollY": 0,
+      "handleResize": [Function],
+      "handleScroll": [Function],
+      "reduceMotion": false,
+      "scrollY": 0,
+      "visible": true,
+      "visibleHeight": 9007199254740991,
+      "visibleWidth": null,
     }
   }
 >

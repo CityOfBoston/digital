@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { AppStore } from '../../../data/store';
 import HomePane from './HomePane';
 import FormDialog from '../../common/FormDialog';
+import Ui from '../../../data/store/Ui';
+import LiveAgent from '../../../data/store/LiveAgent';
 
 const SERVICE_SUMMARIES = [
   {
@@ -43,7 +44,8 @@ storiesOf('HomePane', module)
   .add('Home', () => (
     <FormDialog noPadding>
       <HomePane
-        store={new AppStore()}
+        ui={new Ui()}
+        liveAgent={new LiveAgent()}
         description="Dead raccoon on the sidewalk"
         topServiceSummaries={SERVICE_SUMMARIES}
         nextFn={action('Next')}

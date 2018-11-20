@@ -2,21 +2,27 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from 'mobx';
 
-import getStore from '../../data/store';
+import RequestSearch from '../../data/store/RequestSearch';
+import Ui from '../../data/store/Ui';
+import BrowserLocation from '../../data/store/BrowserLocation';
+import AddressSearch from '../../data/store/AddressSearch';
+
 import page from '../../.storybook/page';
 import SearchLayout from './SearchLayout';
 
-const makeStore = action((mapView: boolean) => {
-  const store = getStore();
-  store.requestSearch.mapView = mapView;
-  return store;
-});
+const makeRequestSearch = action((mapView: boolean) =>
+  Object.assign(new RequestSearch(), { mapView })
+);
 
 storiesOf('SearchLayout', module)
   .addDecorator(page)
   .add('List View', () => (
     <SearchLayout
-      store={makeStore(false)}
+      requestSearch={makeRequestSearch(false)}
+      addressSearch={new AddressSearch()}
+      browserLocation={new BrowserLocation()}
+      fetchGraphql={null as any}
+      ui={new Ui()}
       data={{
         view: 'search',
         query: 'Alpha Flight',
@@ -31,7 +37,11 @@ storiesOf('SearchLayout', module)
   ))
   .add('Map View', () => (
     <SearchLayout
-      store={makeStore(true)}
+      requestSearch={makeRequestSearch(true)}
+      addressSearch={new AddressSearch()}
+      browserLocation={new BrowserLocation()}
+      fetchGraphql={null as any}
+      ui={new Ui()}
       data={{
         view: 'search',
         query: 'Alpha Flight',

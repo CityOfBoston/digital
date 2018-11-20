@@ -7,7 +7,7 @@ describe('search form', () => {
 
   beforeEach(async () => {
     const ctx = makeServerContext('/lookup', { q: 'Alpha Flight' });
-    data = (await SearchLayout.getInitialProps(ctx)).data;
+    data = (await SearchLayout.getInitialProps(ctx, {})).data;
   });
 
   test('getInitialProps', () => {

@@ -2,13 +2,22 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { setConfig } from 'next/config';
 import Router from 'next/router';
-import { configure, addDecorator } from '@storybook/react';
+import {
+  configure,
+  addDecorator,
+  setAddon,
+  getStorybook,
+} from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
+import createPercyAddon from '@percy-io/percy-storybook';
 import svg4everybody from 'svg4everybody';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-import { makeConfig } from '../lib/config';
+import { makeNextConfig } from '../lib/config';
 import parseDotEnv from '../lib/test/parse-dot-env';
+
+const { percyAddon, serializeStories } = createPercyAddon();
+setAddon(percyAddon);
 
 let env;
 
@@ -34,7 +43,7 @@ try {
   };
 }
 
-setConfig(makeConfig(env));
+setConfig(makeNextConfig(env));
 
 class Wrapper extends React.Component<{
   children: ReactNode;
@@ -51,7 +60,7 @@ class Wrapper extends React.Component<{
 
   render() {
     if (inPercy() || process.env.NODE_ENV === 'test') {
-      VelocityTransitionGroup.disabledForTest = true;
+      (VelocityTransitionGroup as any).disabledForTest = true;
     }
 
     return this.props.children;
@@ -88,6 +97,4 @@ addDecorator((story: () => ReactNode) => {
 
 configure(loadStories, module);
 
-if (typeof window === 'object') {
-  (window as any).__storybook_stories__ = require('@storybook/react').getStorybook();
-}
+serializeStories(getStorybook);

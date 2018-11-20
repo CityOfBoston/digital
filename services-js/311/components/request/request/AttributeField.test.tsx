@@ -73,14 +73,19 @@ test('multivaluelist', () => {
 
   const inputs = wrapper.find('input');
   const herculesInput = inputs.findWhere(
-    i => i.getDOMNode().value === 'hercules'
+    i => (i.getDOMNode() as HTMLInputElement).value === 'hercules'
   );
   const msMarvelInput = inputs.findWhere(
-    i => i.getDOMNode().value === 'ms-marvel'
+    i => (i.getDOMNode() as HTMLInputElement).value === 'ms-marvel'
   );
 
-  expect(herculesInput.getDOMNode().checked).toEqual(true);
-  expect(msMarvelInput.getDOMNode().checked).toEqual(false);
+  expect((herculesInput.getDOMNode() as HTMLInputElement).checked).toEqual(
+    true
+  );
+
+  expect((msMarvelInput.getDOMNode() as HTMLInputElement).checked).toEqual(
+    false
+  );
 
   msMarvelInput.simulate('change', {
     target: { checked: true, value: 'ms-marvel' },

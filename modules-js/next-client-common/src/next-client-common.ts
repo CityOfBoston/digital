@@ -18,7 +18,7 @@ export const GOOGLE_TRACKING_ID_KEY = 'googleTrackingId';
 // We parameterize the Request type because it’s common to pass extra things
 // into the server-side getInitialProps methods by attaching them as properties
 // on the request. This is typically "IncomingMessage & CustomType"
-export interface NextContext<Req> {
+export interface NextContext<Req = IncomingMessage> {
   query: { [key: string]: string };
   pathname: string;
   asPath: string;

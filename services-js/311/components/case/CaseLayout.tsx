@@ -1,10 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import getConfig from 'next/config';
-import {
-  makeFetchGraphql,
-  NextContext,
-} from '@cityofboston/next-client-common';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -14,31 +9,26 @@ import SectionHeader from '../common/SectionHeader';
 import CaseView from './CaseView';
 
 import { Request } from '../../data/types';
-import { AppStore } from '../../data/store';
 import loadCase from '../../data/queries/load-case';
+import { GetInitialProps } from '../../pages/_app';
 
 type CaseData = {
   request: Request | null;
 };
 
-type InitialProps = {
+type Props = {
   id: string;
   data: CaseData;
 };
 
-export type Props = InitialProps & {
-  // unused, but necessary for the withStore mixin
-  store: AppStore;
-};
-
 export default class CaseLayout extends React.Component<Props> {
-  static async getInitialProps({
-    query,
-    res,
-  }: NextContext<unknown>): Promise<InitialProps> {
+  static getInitialProps: GetInitialProps<
+    Props,
+    'query' | 'res',
+    'fetchGraphql'
+  > = async ({ query, res }, { fetchGraphql }) => {
     const { id } = query;
 
-    const fetchGraphql = makeFetchGraphql(getConfig());
     const request = await loadCase(fetchGraphql, id);
 
     if (res && !request) {
@@ -50,7 +40,7 @@ export default class CaseLayout extends React.Component<Props> {
     };
 
     return { data, id };
-  }
+  };
 
   render() {
     const { data } = this.props;

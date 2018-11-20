@@ -2,9 +2,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Router from 'next/router';
 
+import {
+  ScreenReaderSupport,
+  GaSiteAnalytics,
+} from '@cityofboston/next-client-common';
+
 import { makeServerContext } from '../../lib/test/make-context';
 
-import getStore from '../../data/store';
 import { Service, ServiceSummary } from '../../data/types';
 import {
   MetadataRequirement,
@@ -12,6 +16,11 @@ import {
 } from '../../data/queries/types';
 
 import RequestLayout, { InitialProps } from './RequestLayout';
+import LiveAgent from '../../data/store/LiveAgent';
+import Ui from '../../data/store/Ui';
+import AddressSearch from '../../data/store/AddressSearch';
+import BrowserLocation from '../../data/store/BrowserLocation';
+import RequestSearch from '../../data/store/RequestSearch';
 
 jest.mock('next/router');
 
@@ -81,12 +90,16 @@ const MOCK_SERVICE: Service = {
   ],
 };
 
-let store;
+let ui: Ui;
+let liveAgent: LiveAgent;
 
 beforeEach(() => {
-  store = getStore();
-  store.liveAgentAvailable = true;
-  store.ui.visibleWidth = 1300;
+  ui = new Ui();
+  ui.visibleWidth = 1300;
+
+  liveAgent = new LiveAgent();
+  liveAgent.liveAgentAvailable = true;
+
   searchCases.mockReturnValue(new Promise(() => {}));
 });
 
@@ -97,7 +110,9 @@ describe('request form', () => {
     loadTopServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
 
     const ctx = makeServerContext('/request');
-    data = (await RequestLayout.getInitialProps(ctx)).data;
+    data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
   });
 
   test('getInitialProps', () => {
@@ -112,7 +127,9 @@ describe('translate page', () => {
     loadTopServiceSummaries.mockReturnValue(MOCK_SERVICE_SUMMARIES);
 
     const ctx = makeServerContext('/request', { translate: '1' });
-    data = (await RequestLayout.getInitialProps(ctx)).data;
+    data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
   });
 
   test('getInitialProps', () => {
@@ -127,34 +144,63 @@ describe('existing service page', () => {
 
   test('getInitialProps', async () => {
     const ctx = makeServerContext('/request', { code: 'CSMCINC' });
-    const data = (await RequestLayout.getInitialProps(ctx)).data;
+    const data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
     expect(data.view).toEqual('request');
   });
 
   test('rendering phone', async () => {
-    const ctx = makeServerContext(
-      '/request',
-      { code: 'CSMCINC' },
-      { isPhone: true }
-    );
-    const data = (await RequestLayout.getInitialProps(ctx)).data;
+    const ctx = makeServerContext('/request', { code: 'CSMCINC' });
+
+    const data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
+
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />,
-      { createNodeMock: () => document.createElement('div') }
+      <RequestLayout
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        fetchGraphql={jest.fn()}
+        liveAgent={liveAgent}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        siteAnalytics={new GaSiteAnalytics()}
+        ui={{ belowMediaLarge: true } as Ui}
+        languages={[]}
+        data={data}
+      />,
+      {
+        createNodeMock: () => document.createElement('div'),
+      }
     );
 
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   test('rendering phone location step', async () => {
-    const ctx = makeServerContext(
-      '/request',
-      { code: 'CSMCINC', stage: 'location' },
-      { isPhone: true }
-    );
-    const data = (await RequestLayout.getInitialProps(ctx)).data;
+    const ctx = makeServerContext('/request', {
+      code: 'CSMCINC',
+      stage: 'location',
+    });
+
+    const data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
+
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />
+      <RequestLayout
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        fetchGraphql={jest.fn()}
+        liveAgent={liveAgent}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        siteAnalytics={new GaSiteAnalytics()}
+        ui={{ belowMediaLarge: true } as Ui}
+        languages={[]}
+        data={data}
+      />
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -169,7 +215,9 @@ describe('missing service page', () => {
     loadService.mockReturnValue(null);
 
     ctx = makeServerContext('/request', { code: 'CSMCINC' });
-    data = (await RequestLayout.getInitialProps(ctx)).data;
+    data = (await RequestLayout.getInitialProps(ctx, {
+      fetchGraphql: jest.fn(),
+    })).data;
   });
 
   test('getInitialProps', () => {
@@ -189,7 +237,18 @@ describe('missing service page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      <RequestLayout data={data} store={store} />
+      <RequestLayout
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        fetchGraphql={jest.fn()}
+        liveAgent={liveAgent}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        siteAnalytics={new GaSiteAnalytics()}
+        ui={ui}
+        languages={[]}
+        data={data}
+      />
     );
 
     expect(component.toJSON()).toMatchSnapshot();
@@ -202,7 +261,6 @@ describe('routeToServiceForm', () => {
   beforeEach(() => {
     const props: any = {
       data: {},
-      store,
     };
     requestLayout = new RequestLayout(props);
   });

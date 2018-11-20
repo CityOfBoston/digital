@@ -5,7 +5,11 @@ import { observer } from 'mobx-react';
 import getConfig from 'next/config';
 import debounce from 'lodash/debounce';
 
-import { AppStore } from '../../data/store';
+import { NextConfig } from '../../lib/config';
+import Ui from '../../data/store/Ui';
+import BrowserLocation from '../../data/store/BrowserLocation';
+import AddressSearch from '../../data/store/AddressSearch';
+import RequestSearch from '../../data/store/RequestSearch';
 
 import SearchMarkerPool from './SearchMarkerPool';
 import waypointMarkers, { preloadWaypointSprite } from './WaypointMarkers';
@@ -56,13 +60,16 @@ export type MapMode = 'inactive' | 'search' | 'picker';
 
 type MapProps = {
   mode: MapMode;
-  store: AppStore;
+  requestSearch: RequestSearch;
+  addressSearch: AddressSearch;
+  browserLocation: BrowserLocation;
+  ui: Ui;
   mobile: boolean;
   smallPicker?: boolean;
-  onMapClick?: Function;
+  onMapClick?: Function | null;
 };
 
-type Props = MapProps & {
+export type Props = MapProps & {
   L: typeof MapboxL;
 };
 
@@ -144,7 +151,7 @@ export default class LocationMap extends React.Component<Props> {
   }
 
   componentDidMount() {
-    const { L, store, mode, mobile, onMapClick } = this.props;
+    const { L, requestSearch, mode, mobile, onMapClick } = this.props;
 
     preloadWaypointSprite();
 
@@ -157,7 +164,7 @@ export default class LocationMap extends React.Component<Props> {
     this.searchMarkerPool = new SearchMarkerPool(
       L,
       this.mapboxMap,
-      store.requestSearch,
+      requestSearch,
       computed(() => (this.props.mode === 'search' ? 1 : 0)),
       mobile,
       onMapClick || null
@@ -210,14 +217,14 @@ export default class LocationMap extends React.Component<Props> {
 
   @action
   private initLocation(animated: boolean) {
-    const { store } = this.props;
+    const { addressSearch, browserLocation } = this.props;
     const {
       location: currentLocation,
       inBoston: currentLocationInBoston,
-    } = store.browserLocation;
+    } = browserLocation;
 
-    if (store.addressSearch.location) {
-      this.visitLocation(store.addressSearch.location, animated);
+    if (addressSearch.location) {
+      this.visitLocation(addressSearch.location, animated);
     } else if (currentLocation && currentLocationInBoston) {
       // go through selectAddressFromLocation so that we get geocoding
       this.selectAddressFromLocation(currentLocation);
@@ -227,20 +234,12 @@ export default class LocationMap extends React.Component<Props> {
 
   @action
   private selectAddressFromLocation(location: { lat: number; lng: number }) {
-    const {
-      store: { addressSearch },
-    } = this.props;
+    const { addressSearch } = this.props;
     addressSearch.location = location;
   }
 
-  private visitLocation(
-    location: { lat: number; lng: number },
-    animated: boolean
-  ) {
-    const {
-      mobile,
-      store: { ui, addressSearch },
-    } = this.props;
+  visitLocation(location: { lat: number; lng: number }, animated: boolean) {
+    const { mobile, ui, addressSearch } = this.props;
 
     if (!this.mapboxMap) {
       return;
@@ -277,9 +276,8 @@ export default class LocationMap extends React.Component<Props> {
 
   @action.bound
   private attachMap() {
-    const { publicRuntimeConfig } = getConfig();
-    const { L, store, mode } = this.props;
-    const { requestSearch } = store;
+    const { publicRuntimeConfig }: NextConfig = getConfig();
+    const { L, requestSearch, mode } = this.props;
     const { mapboxAccessToken, mapboxStylePath } = publicRuntimeConfig;
 
     if (!L) {
@@ -352,8 +350,7 @@ export default class LocationMap extends React.Component<Props> {
       reaction(
         () => ({
           locations: this.calcSearchResultLocations(),
-          highlightedIndex: this.props.store.addressSearch
-            .highlightedPlaceIndex,
+          highlightedIndex: this.props.addressSearch.highlightedPlaceIndex,
         }),
         this.updatelocationSearchMarkers,
         {
@@ -372,12 +369,10 @@ export default class LocationMap extends React.Component<Props> {
       reaction(
         () => {
           const {
-            store: {
-              addressSearch: {
-                currentReverseGeocodeLocation,
-                currentReverseGeocodeLocationIsValid,
-                mode: addressSearchMode,
-              },
+            addressSearch: {
+              currentReverseGeocodeLocation,
+              currentReverseGeocodeLocationIsValid,
+              mode: addressSearchMode,
             },
             mode: mapMode,
           } = this.props;
@@ -396,8 +391,8 @@ export default class LocationMap extends React.Component<Props> {
       ),
       reaction(
         () =>
-          this.props.store.addressSearch.mode === 'search'
-            ? this.props.store.addressSearch.location
+          this.props.addressSearch.mode === 'search'
+            ? this.props.addressSearch.location
             : null,
         this.zoomToSelectedLocation,
         {
@@ -406,7 +401,7 @@ export default class LocationMap extends React.Component<Props> {
         }
       ),
       reaction(
-        () => this.props.store.browserLocation.location,
+        () => this.props.browserLocation.location,
         this.maintainCurrentLocationMarker,
         {
           name: 'maintainCurrentLocationMarker',
@@ -420,7 +415,7 @@ export default class LocationMap extends React.Component<Props> {
     lat: number;
     lng: number;
   }> => {
-    const { places, mode } = this.props.store.addressSearch;
+    const { places, mode } = this.props.addressSearch;
 
     if (this.props.mode !== 'picker' || mode !== 'search') {
       // don't show any markers
@@ -465,10 +460,7 @@ export default class LocationMap extends React.Component<Props> {
   private zoomToMultipleSearchResults = (
     locations: Array<{ lat: number; lng: number }>
   ) => {
-    const {
-      mobile,
-      store: { ui, addressSearch },
-    } = this.props;
+    const { mobile, ui, addressSearch } = this.props;
     const { mapboxMap } = this;
 
     // Only zoom-to-fit if there is more than one location. Note that this
@@ -617,12 +609,8 @@ export default class LocationMap extends React.Component<Props> {
 
   private updateMapCenter = debounce(
     action('updateMapCenter', () => {
-      const { L } = this.props;
+      const { L, requestSearch } = this.props;
       const { mapboxMap, mapEl } = this;
-
-      const {
-        store: { requestSearch },
-      } = this.props;
 
       if (!mapEl || !mapboxMap) {
         return;
@@ -761,9 +749,7 @@ export default class LocationMap extends React.Component<Props> {
   };
 
   invalidateSize() {
-    const {
-      store: { ui },
-    } = this.props;
+    const { ui } = this.props;
 
     if (this.mapboxMap) {
       this.mapboxMap.invalidateSize(!ui.reduceMotion);

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import RecentRequests from './RecentRequests';
-import { AppStore } from '../../data/store';
+import Ui from '../../data/store/Ui';
 import { SearchCase } from '../../data/types';
 import RequestSearch from '../../data/store/RequestSearch';
 
@@ -46,13 +46,12 @@ export const MOCK_CASES: SearchCase[] = [
   },
 ];
 
-const makeStore = (
+const makeRequestSearch = (
   cases: (SearchCase[]) | null,
   selectedIndex: number,
-  opts: Partial<RequestSearch> | null = null
+  opts?: Partial<RequestSearch>
 ) => {
-  const store = new AppStore();
-  const { requestSearch } = store;
+  const requestSearch = new RequestSearch();
 
   if (cases) {
     requestSearch.updateCaseSearchResults({ cases, query: '' });
@@ -63,36 +62,50 @@ const makeStore = (
     Object.assign(requestSearch, opts);
   }
 
-  return store;
+  return requestSearch;
 };
 
 storiesOf('RecentRequests', module)
   .add('loading without results', () => (
-    <RecentRequests store={makeStore(null, 0, { loading: true })} />
+    <RecentRequests
+      ui={new Ui()}
+      requestSearch={makeRequestSearch(null, 0, { loading: true })}
+    />
   ))
   .add('no results (no query)', () => (
-    <RecentRequests store={makeStore([], 0)} />
+    <RecentRequests ui={new Ui()} requestSearch={makeRequestSearch([], 0)} />
   ))
   .add('no results (query)', () => (
     <RecentRequests
-      store={makeStore([], 0, {
+      ui={new Ui()}
+      requestSearch={makeRequestSearch([], 0, {
         query: 'borken sidewalk',
         resultsQuery: 'borken sidewalk',
       })}
     />
   ))
   .add('results loaded', () => (
-    <RecentRequests store={makeStore(MOCK_CASES, -1)} />
+    <RecentRequests
+      ui={new Ui()}
+      requestSearch={makeRequestSearch(MOCK_CASES, -1)}
+    />
   ))
   .add('results loaded and loading more', () => (
-    <RecentRequests store={makeStore(MOCK_CASES, -1, { loading: true })} />
+    <RecentRequests
+      ui={new Ui()}
+      requestSearch={makeRequestSearch(MOCK_CASES, -1, { loading: true })}
+    />
   ))
   .add('with selection', () => (
-    <RecentRequests store={makeStore(MOCK_CASES, 1)} />
+    <RecentRequests
+      ui={new Ui()}
+      requestSearch={makeRequestSearch(MOCK_CASES, 1)}
+    />
   ))
   .add('no dates', () => (
     <RecentRequests
-      store={makeStore(
+      ui={new Ui()}
+      requestSearch={makeRequestSearch(
         MOCK_CASES.map(c => ({
           ...c,
           requestedAt: null,
@@ -104,7 +117,8 @@ storiesOf('RecentRequests', module)
   ))
   .add('with error', () => (
     <RecentRequests
-      store={makeStore([], -1, {
+      ui={new Ui()}
+      requestSearch={makeRequestSearch([], -1, {
         resultsError: new Error('EVERYTHING IS BROKEN'),
       })}
     />

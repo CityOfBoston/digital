@@ -1,5 +1,4 @@
-import { Context } from 'next';
-import { RequestAdditions } from '../../server/next-handlers';
+import { NextContext } from '@cityofboston/next-client-common';
 
 /**
  * Test helper to make a `getInitialProps` context that matches what Next.js
@@ -7,26 +6,16 @@ import { RequestAdditions } from '../../server/next-handlers';
  */
 export function makeServerContext(
   pathname: string,
-  query: { [key: string]: string } = {},
-  requestAdditions: any = {}
-): Context<RequestAdditions> {
-  const req: any = {
-    hapiInject: () => {
-      throw new Error('hapiInject is not supported in tests');
-    },
-    apiKeys: {
-      mapbox: {
-        accessToken: 'FAKE_MAPBOX_ACCESS_TOKEN',
-      },
-    },
-
-    ...requestAdditions,
-  };
+  query: { [key: string]: string } = {}
+): NextContext {
+  const req: any = {};
 
   return {
-    req: req as any,
+    req,
     res: { statusCode: 200 } as any,
+    err: null,
     pathname,
+    asPath: pathname,
     query,
   };
 }
@@ -38,12 +27,14 @@ export function makeServerContext(
 export function makeBrowserContext(
   pathname: string,
   query: { [key: string]: string } = {}
-): Context<RequestAdditions> {
+): NextContext {
   // TODO(finh): could include xhr if anyone needs it
   return {
-    req: null,
-    res: null,
+    req: undefined,
+    res: undefined,
     pathname,
+    asPath: pathname,
+    err: null,
     query,
   };
 }

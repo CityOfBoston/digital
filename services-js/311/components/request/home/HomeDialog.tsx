@@ -1,17 +1,15 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { FormEvent } from 'react';
 import { action, observable, reaction, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import debounce from 'lodash/debounce';
 import Router from 'next/router';
-import getConfig from 'next/config';
+
 import {
-  makeFetchGraphql,
   FetchGraphql,
-  NextContext,
+  GaSiteAnalytics,
 } from '@cityofboston/next-client-common';
 
 import { ServiceSummary } from '../../../data/types';
-import { AppStore, LanguagePreference } from '../../../data/store';
 import loadServiceSuggestions from '../../../data/queries/load-service-suggestions';
 import loadTopServiceSummaries from '../../../data/queries/load-top-service-summaries';
 
@@ -22,6 +20,10 @@ import TranslateDialog from '../translate/TranslateDialog';
 
 import HomePane from './HomePane';
 import ChooseServicePane from './ChooseServicePane';
+import { GetInitialProps } from '../../../pages/_app';
+import { LanguagePreference } from '../../../data/store/BrowserLanguage';
+import Ui from '../../../data/store/Ui';
+import LiveAgent from '../../../data/store/LiveAgent';
 
 type Stage = 'home' | 'choose';
 
@@ -33,25 +35,31 @@ export type InitialProps = {
 };
 
 export type Props = InitialProps & {
-  store: AppStore;
   fetchGraphql: FetchGraphql;
+  siteAnalytics: GaSiteAnalytics;
+  ui: Ui;
+  liveAgent: LiveAgent;
+  languages: LanguagePreference[];
 };
 
 @observer
 export default class HomeDialog extends React.Component<Props> {
-  @observable description: string = '';
+  @observable private description: string = '';
 
   @observable.shallow
-  suggestedServiceSummaries: (ServiceSummary[]) | null = null;
-  lastSuggestedServiceSummariesPromise: Promise<ServiceSummary[]> | null = null;
-  serviceSuggestionsDisposer: Function | null = null;
+  private suggestedServiceSummaries: (ServiceSummary[]) | null = null;
+  private lastSuggestedServiceSummariesPromise: Promise<
+    ServiceSummary[]
+  > | null = null;
+  private serviceSuggestionsDisposer: Function | null = null;
 
   // Called by RequestLayout
-  static async getInitialProps({
-    query,
-  }: NextContext<never>): Promise<InitialProps> {
+  static getInitialProps: GetInitialProps<
+    InitialProps,
+    'query',
+    'fetchGraphql'
+  > = async ({ query }, { fetchGraphql }): Promise<InitialProps> => {
     const { stage, description, translate } = query;
-    const fetchGraphql = makeFetchGraphql(getConfig());
 
     return {
       topServiceSummaries: await loadTopServiceSummaries(fetchGraphql, 5),
@@ -59,7 +67,7 @@ export default class HomeDialog extends React.Component<Props> {
       description: description || '',
       bypassTranslateDialog: translate === '0',
     };
-  }
+  };
 
   @action
   componentWillMount() {
@@ -121,9 +129,7 @@ export default class HomeDialog extends React.Component<Props> {
   @action.bound
   routeToChoose() {
     const { lastSuggestedServiceSummariesPromise, description } = this;
-    const {
-      store: { siteAnalytics },
-    } = this.props;
+    const { siteAnalytics } = this.props;
 
     // We send site analytics only when routing to the choose dialog so that we
     // don't send events for the autocomplete preloading.
@@ -154,8 +160,7 @@ export default class HomeDialog extends React.Component<Props> {
   }
 
   render() {
-    const { stage, store, bypassTranslateDialog } = this.props;
-    const languages: LanguagePreference[] = store.languages;
+    const { stage, bypassTranslateDialog, languages } = this.props;
 
     const translateLanguage = TranslateDialog.findLanguage(languages);
     const showTranslate =
@@ -181,10 +186,11 @@ export default class HomeDialog extends React.Component<Props> {
   }
 
   renderHome() {
-    const { topServiceSummaries, store } = this.props;
+    const { topServiceSummaries, liveAgent, ui } = this.props;
     return (
       <HomePane
-        store={store}
+        liveAgent={liveAgent}
+        ui={ui}
         description={this.description}
         handleDescriptionChanged={this.handleDescriptionChanged}
         nextFn={this.routeToChoose}
@@ -194,9 +200,7 @@ export default class HomeDialog extends React.Component<Props> {
   }
 
   renderServicePicker() {
-    const {
-      store: { ui, siteAnalytics },
-    } = this.props;
+    const { ui, siteAnalytics } = this.props;
     return (
       <ChooseServicePane
         description={this.description}

@@ -1,13 +1,15 @@
 const path = require('path');
-const { makeAssetPrefix, makeConfig } = require('./lib/config');
 const withTypescript = require('@zeit/next-typescript');
 
-module.exports = withTypescript(
-  Object.assign(
-    {
-      distDir: path.join('build', '.next'),
-      assetPrefix: makeAssetPrefix(),
-    },
-    makeConfig()
-  )
-);
+function makeAssetPrefix(env) {
+  env = env || process.env;
+
+  return env.ASSET_HOST && env.ASSET_HOST !== '.'
+    ? `https://${env.ASSET_HOST}`
+    : '';
+}
+
+module.exports = withTypescript({
+  distDir: path.join('build', '.next'),
+  assetPrefix: makeAssetPrefix(),
+});

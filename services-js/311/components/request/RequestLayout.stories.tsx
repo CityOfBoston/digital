@@ -2,7 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from 'mobx';
 
-import getStore from '../../data/store';
+import {
+  ScreenReaderSupport,
+  GaSiteAnalytics,
+} from '@cityofboston/next-client-common';
+
 import { Service, ServiceSummary } from '../../data/types';
 import page from '../../.storybook/page';
 import RequestLayout from './RequestLayout';
@@ -10,6 +14,11 @@ import {
   MetadataRequirement,
   ServiceAttributeDatatype,
 } from '../../data/queries/types';
+import BrowserLocation from '../../data/store/BrowserLocation';
+import RequestSearch from '../../data/store/RequestSearch';
+import Ui from '../../data/store/Ui';
+import LiveAgent from '../../data/store/LiveAgent';
+import AddressSearch from '../../data/store/AddressSearch';
 
 const MOCK_SERVICE_SUMMARIES: ServiceSummary[] = [
   {
@@ -66,18 +75,24 @@ const MOCK_SERVICE: Service = {
   ],
 };
 
-const makeStore = action(() => {
-  const store = getStore();
-  store.liveAgentAvailable = true;
-  store.ui.visibleWidth = 1300;
-  return store;
-});
+const makeUi = action(() => Object.assign(new Ui(), { visibleWidth: 1300 }));
+const makeLiveAgent = action(() =>
+  Object.assign(new LiveAgent(), { liveAgentAvailable: true })
+);
 
 storiesOf('RequestLayout', module)
   .addDecorator(page)
   .add('Request Form', () => (
     <RequestLayout
-      store={makeStore()}
+      addressSearch={new AddressSearch()}
+      browserLocation={new BrowserLocation()}
+      fetchGraphql={null as any}
+      liveAgent={makeLiveAgent()}
+      requestSearch={new RequestSearch()}
+      screenReaderSupport={new ScreenReaderSupport()}
+      siteAnalytics={new GaSiteAnalytics()}
+      ui={makeUi()}
+      languages={[]}
       data={{
         view: 'home',
         props: {
@@ -92,7 +107,15 @@ storiesOf('RequestLayout', module)
   ))
   .add('Request Page', () => (
     <RequestLayout
-      store={makeStore()}
+      addressSearch={new AddressSearch()}
+      browserLocation={new BrowserLocation()}
+      fetchGraphql={null as any}
+      liveAgent={makeLiveAgent()}
+      requestSearch={new RequestSearch()}
+      screenReaderSupport={new ScreenReaderSupport()}
+      siteAnalytics={new GaSiteAnalytics()}
+      ui={makeUi()}
+      languages={[]}
       data={{
         view: 'request',
         props: {
@@ -107,7 +130,15 @@ storiesOf('RequestLayout', module)
   ))
   .add('Translate Page', () => (
     <RequestLayout
-      store={makeStore()}
+      addressSearch={new AddressSearch()}
+      browserLocation={new BrowserLocation()}
+      fetchGraphql={null as any}
+      liveAgent={makeLiveAgent()}
+      requestSearch={new RequestSearch()}
+      screenReaderSupport={new ScreenReaderSupport()}
+      siteAnalytics={new GaSiteAnalytics()}
+      ui={makeUi()}
+      languages={[]}
       data={{
         view: 'translate',
         props: {},

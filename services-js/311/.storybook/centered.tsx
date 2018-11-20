@@ -18,6 +18,6 @@ function Centered({ children }: Props) {
   return <div className={CENTERED_STYLE}>{children}</div>;
 }
 
-export default function centered(stories: () => ReactElement<any>) {
+export default function centered(stories: () => ReactNode) {
   return <Centered>{stories()}</Centered>;
 }

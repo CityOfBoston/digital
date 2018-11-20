@@ -6,7 +6,6 @@ import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
-import acceptLanguagePlugin from 'hapi-accept-language2';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import {
@@ -32,6 +31,12 @@ import {
   GRAPHQL_PATH_KEY,
 } from '@cityofboston/next-client-common';
 
+import {
+  makeNextConfig,
+  PublicRuntimeConfig,
+  ServerRuntimeConfig,
+} from '../lib/config';
+
 const port = parseInt(process.env.PORT || '3000', 10);
 
 export default async function startServer({ opbeat }: any) {
@@ -54,16 +59,27 @@ export default async function startServer({ opbeat }: any) {
   // We load the config ourselves so that we can modify the runtime configs
   // from here.
   const config = require('../../next.config.js');
+  const customConfig = makeNextConfig(process.env);
 
-  config.publicRuntimeConfig = {
-    ...config.publicRuntimeConfig,
+  const publicRuntimeConfig: PublicRuntimeConfig = {
+    ...customConfig.publicRuntimeConfig,
     [GRAPHQL_PATH_KEY]: '/graphql',
     [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY || '',
   };
 
+  const serverRuntimeConfig: ServerRuntimeConfig = {
+    ...customConfig.serverRuntimeConfig,
+    [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
+  };
+
+  config.publicRuntimeConfig = {
+    ...config.publicRuntimeConfig,
+    ...publicRuntimeConfig,
+  };
+
   config.serverRuntimeConfig = {
     ...config.serverRuntimeConfig,
-    [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
+    ...serverRuntimeConfig,
   };
 
   const app = next({
@@ -112,7 +128,6 @@ export default async function startServer({ opbeat }: any) {
   await server.register(loggingPlugin);
 
   await server.register(Inert);
-  await server.register(acceptLanguagePlugin);
 
   await server.register({
     plugin: graphqlHapi,

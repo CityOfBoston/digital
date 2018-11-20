@@ -1,5 +1,4 @@
 import { FetchGraphql, gql } from '@cityofboston/next-client-common';
-import { ServiceSummary } from '../types';
 import {
   LoadServiceSuggestionsVariables,
   LoadServiceSuggestions,

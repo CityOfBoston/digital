@@ -1,6 +1,2 @@
-import withEmotion from '../lib/mixins/with-emotion';
-import withStore from '../lib/mixins/with-store';
-
-export default withStore(
-  withEmotion(() => require('../components/request/RequestLayout').default)
-);
+import RequestLayout from '../components/request/RequestLayout';
+export default RequestLayout;

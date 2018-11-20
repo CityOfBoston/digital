@@ -1,36 +1,43 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import { runInAction } from 'mobx';
 
-import { AppStore } from '../../data/store';
-
-import LocationMap from './LocationMap';
+import LocationMap, { Props } from './LocationMap';
+import AddressSearch from '../../data/store/AddressSearch';
+import BrowserLocation from '../../data/store/BrowserLocation';
+import Ui from '../../data/store/Ui';
+import RequestSearch from '../../data/store/RequestSearch';
 
 const L = require('mapbox.js');
 
-test('rendering active', () => {
-  const store = new AppStore();
+const makeDefaultProps = (): Props => {
+  return {
+    L,
+    addressSearch: new AddressSearch(),
+    browserLocation: new BrowserLocation(),
+    requestSearch: new RequestSearch(),
+    ui: new Ui(),
+    mode: 'picker',
+    mobile: false,
+  };
+};
 
-  const component = renderer.create(
-    <LocationMap L={L} store={store} mode="picker" mobile={false} />,
-    { createNodeMock: () => document.createElement('div') }
-  );
+test('rendering active', () => {
+  const component = renderer.create(<LocationMap {...makeDefaultProps()} />, {
+    createNodeMock: () => document.createElement('div'),
+  });
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 describe('mounted map', () => {
-  let store;
-  let wrapper;
+  let wrapper: ReactWrapper<{}, {}, LocationMap>;
+  let props: Props;
   let locationMap: LocationMap;
 
   beforeEach(() => {
-    store = new AppStore();
-
-    wrapper = mount(
-      <LocationMap L={L} store={store} mode="picker" mobile={false} />
-    );
-
+    props = makeDefaultProps();
+    wrapper = mount(<LocationMap {...props} />);
     locationMap = wrapper.instance();
   });
 
@@ -40,7 +47,7 @@ describe('mounted map', () => {
 
   it('positions a marker based on the form location', () => {
     runInAction(() => {
-      store.addressSearch.setPlaces(
+      props.addressSearch.setPlaces(
         [
           {
             address: '1 City Hall Plaza',

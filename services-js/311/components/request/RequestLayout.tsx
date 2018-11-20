@@ -1,15 +1,9 @@
 import React from 'react';
 import { css } from 'emotion';
 import Router from 'next/router';
-import { Context } from 'next';
 import { observer } from 'mobx-react';
-import getConfig from 'next/config';
-import {
-  makeFetchGraphql,
-  FetchGraphql,
-} from '@cityofboston/next-client-common';
 
-import { RequestAdditions } from '../../server/next-handlers';
+import { NextContext } from '@cityofboston/next-client-common';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -23,8 +17,10 @@ import { InitialProps as RequestDialogInitialProps } from './request/RequestDial
 import TranslateDialog from './translate/TranslateDialog';
 
 import { HEADER_HEIGHT } from '../style-constants';
-
-import { AppStore } from '../../data/store';
+import {
+  PageDependencies,
+  GetInitialPropsDependencies,
+} from '../../pages/_app';
 
 type HomeData = {
   view: 'home';
@@ -45,10 +41,22 @@ export type InitialProps = {
   data: HomeData | RequestData | TranslateData;
 };
 
-export type Props = InitialProps & {
-  store: AppStore;
-  noMap?: boolean;
-};
+export type Props = Pick<
+  PageDependencies,
+  // Some of these we need just for LocationMap
+  | 'addressSearch'
+  | 'fetchGraphql'
+  | 'ui'
+  | 'requestSearch'
+  | 'browserLocation'
+  | 'siteAnalytics'
+  | 'liveAgent'
+  | 'screenReaderSupport'
+  | 'languages'
+> &
+  InitialProps & {
+    noMap?: boolean;
+  };
 
 type State = {
   locationMapActive: boolean;
@@ -88,10 +96,9 @@ export default class RequestLayout extends React.Component<Props, State> {
     locationMapActive: false,
   };
 
-  private fetchGraphql: FetchGraphql = makeFetchGraphql(getConfig());
-
   static async getInitialProps(
-    ctx: Context<RequestAdditions>
+    ctx: NextContext,
+    deps: Pick<GetInitialPropsDependencies, 'fetchGraphql'>
   ): Promise<InitialProps> {
     const { query } = ctx;
 
@@ -105,12 +112,12 @@ export default class RequestLayout extends React.Component<Props, State> {
     } else if (query.code) {
       data = {
         view: 'request',
-        props: await RequestDialog.getInitialProps(ctx),
+        props: await RequestDialog.getInitialProps(ctx, deps),
       };
     } else {
       data = {
         view: 'home',
-        props: await HomeDialog.getInitialProps(ctx),
+        props: await HomeDialog.getInitialProps(ctx, deps),
       };
     }
 
@@ -120,8 +127,8 @@ export default class RequestLayout extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const { store } = this.props;
-    store.addressSearch.start(this.fetchGraphql);
+    const { addressSearch, fetchGraphql } = this.props;
+    addressSearch.start(fetchGraphql);
   }
 
   componentWillReceiveProps() {
@@ -129,8 +136,8 @@ export default class RequestLayout extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
-    const { store } = this.props;
-    store.addressSearch.stop();
+    const { addressSearch } = this.props;
+    addressSearch.stop();
   }
 
   routeToServiceForm = async (code: string, stage: string = 'questions') => {
@@ -155,11 +162,21 @@ export default class RequestLayout extends React.Component<Props, State> {
   };
 
   render() {
-    const { data, store, noMap } = this.props;
-    const { locationMapActive } = this.state;
     const {
-      ui: { mediaLarge },
-    } = store;
+      data,
+      ui,
+      noMap,
+      requestSearch,
+      addressSearch,
+      browserLocation,
+      siteAnalytics,
+      liveAgent,
+      fetchGraphql,
+      screenReaderSupport,
+      languages,
+    } = this.props;
+    const { locationMapActive } = this.state;
+    const { mediaLarge } = ui;
 
     let mapMode: MapMode;
     if (locationMapActive) {
@@ -188,7 +205,10 @@ export default class RequestLayout extends React.Component<Props, State> {
             {(mediaLarge || !process.browser) &&
               !noMap && (
                 <LocationMapWithLibrary
-                  store={store}
+                  addressSearch={addressSearch}
+                  browserLocation={browserLocation}
+                  requestSearch={requestSearch}
+                  ui={ui}
                   mode={mapMode}
                   mobile={false}
                 />
@@ -201,8 +221,11 @@ export default class RequestLayout extends React.Component<Props, State> {
 
           {data.view === 'home' && (
             <HomeDialog
-              store={store}
-              fetchGraphql={this.fetchGraphql}
+              fetchGraphql={fetchGraphql}
+              siteAnalytics={siteAnalytics}
+              ui={ui}
+              liveAgent={liveAgent}
+              languages={languages}
               bypassTranslateDialog={data.props.bypassTranslateDialog}
               description={data.props.description}
               stage={data.props.stage}
@@ -212,8 +235,12 @@ export default class RequestLayout extends React.Component<Props, State> {
 
           {data.view === 'request' && (
             <RequestDialog
-              store={store}
-              fetchGraphql={this.fetchGraphql}
+              fetchGraphql={fetchGraphql}
+              addressSearch={addressSearch}
+              browserLocation={browserLocation}
+              requestSearch={requestSearch}
+              screenReaderSupport={screenReaderSupport}
+              ui={ui}
               routeToServiceForm={this.routeToServiceForm}
               setLocationMapActive={this.setLocationMapActive}
               description={data.props.description}
@@ -224,7 +251,7 @@ export default class RequestLayout extends React.Component<Props, State> {
           )}
 
           {data.view === 'translate' && (
-            <TranslateDialog languages={store.languages} />
+            <TranslateDialog languages={languages} />
           )}
         </div>
 
