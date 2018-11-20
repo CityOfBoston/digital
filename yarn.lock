@@ -1692,6 +1692,14 @@
     react-inspector "^2.3.0"
     uuid "^3.3.2"
 
+"@storybook/addon-options@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-4.0.4.tgz#d47d357564ec38705f5309ed55d78fb48f5656bd"
+  integrity sha512-r9nSOmIOXm8jo/wFCrVlfZe6f4GdXG0nyrHTH+F/kzHJsaEN0dPnhqv9AGowBgFKlWdXIYlGPYQldTElguDpqA==
+  dependencies:
+    "@storybook/addons" "4.0.4"
+    util-deprecate "^1.0.2"
+
 "@storybook/addon-storyshots@4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-4.0.4.tgz#022f754de2f3f1173ea9fd3a0a9b1a14996f36e0"

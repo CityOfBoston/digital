@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Pagination from './Pagination';
 
-storiesOf('Pagination', module)
+storiesOf('Common Components/Pagination', module)
   .add('2 pages', () => (
     <Pagination page={1} pageCount={2} hrefFunc={() => ''} />
   ))

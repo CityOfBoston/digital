@@ -12,7 +12,7 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
-storiesOf('SearchPage', module)
+storiesOf('Death/SearchPage', module)
   .add('no search', () => (
     <SearchPage
       query={''}

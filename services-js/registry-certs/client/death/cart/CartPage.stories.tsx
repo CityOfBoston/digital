@@ -42,7 +42,7 @@ function makeCart(loading: boolean) {
   return cart;
 }
 
-storiesOf('CartPage', module)
+storiesOf('Death/CartPage', module)
   .add('loading', () => (
     <CartPage
       deathCertificateCart={makeCart(true)}

@@ -5,10 +5,7 @@ import { css } from 'emotion';
 
 import {
   DEATH_CERTIFICATE_COST_STRING,
-  PERCENTAGE_CC_STRING,
-  FIXED_CC_STRING,
   calculateCreditCardCost,
-  SERVICE_FEE_URI,
   DEATH_CERTIFICATE_COST,
 } from '../../../lib/costs';
 
@@ -20,6 +17,7 @@ import {
   CHARLES_BLUE,
   OPTIMISTIC_BLUE,
 } from '@cityofboston/react-fleet';
+import { serviceFeeDisclosureText } from '../../common/ServiceFeeDisclosure';
 
 interface Props {
   cart: Cart;
@@ -158,12 +156,7 @@ export default class OrderDetails extends React.Component<Props, State> {
               {this.renderCart(cart, false)}
 
               <div className="t--subinfo p-a300">
-                * You are charged an extra service fee of not more than{' '}
-                {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
-                directly to a third party to pay for the cost of card
-                processing. Learn more about{' '}
-                <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
-                Boston.
+                * {serviceFeeDisclosureText()}
               </div>
 
               <div className="ta-c t--subinfo b--g">

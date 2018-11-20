@@ -7,7 +7,7 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
-storiesOf('SearchResult', module)
+storiesOf('Death/SearchResult', module)
   .add('typical certificate', () => (
     <SearchResult certificate={TYPICAL_CERTIFICATE} backUrl="" />
   ))
