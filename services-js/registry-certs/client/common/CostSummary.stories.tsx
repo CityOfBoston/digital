@@ -21,7 +21,7 @@ function makeCart() {
   return cart;
 }
 
-storiesOf('CostSummary', module)
+storiesOf('Common Components/CostSummary', module)
   .add('default credit card', () => (
     <CostSummary
       cart={makeCart()}

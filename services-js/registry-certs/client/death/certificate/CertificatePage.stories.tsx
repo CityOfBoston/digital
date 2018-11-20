@@ -22,7 +22,7 @@ const makeCart = (quantity: number) => {
   return cart;
 };
 
-storiesOf('CertificatePage', module)
+storiesOf('Death/CertificatePage', module)
   .add('normal certificate', () => (
     <CertificatePage
       id={TYPICAL_CERTIFICATE.id}

@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import ConfirmationContent from './ConfirmationContent';
 import Cart from '../../store/DeathCertificateCart';
 
-storiesOf('ConfirmationContent', module).add('default', () => (
+storiesOf('Checkout/ConfirmationContent', module).add('default', () => (
   <ConfirmationContent
     orderId="123-4444-5"
     contactEmail="ttoe@squirrelzone.net"

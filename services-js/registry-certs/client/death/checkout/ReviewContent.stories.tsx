@@ -57,7 +57,7 @@ function makeOrder(overrides = {}) {
   });
 }
 
-storiesOf('ReviewContent', module)
+storiesOf('Checkout/ReviewContent', module)
   .add('default', () => (
     <ReviewContent
       cart={makeCart()}

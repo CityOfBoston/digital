@@ -55,7 +55,7 @@ function makeOrder(overrides = {}) {
   });
 }
 
-storiesOf('ShippingContent', module)
+storiesOf('Checkout/ShippingContent', module)
   .add('default', () => (
     <ShippingContent
       cart={makeCart()}

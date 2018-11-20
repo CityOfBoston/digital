@@ -13,6 +13,7 @@ import {
   getStorybook,
   setAddon,
 } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
 
 import styleTags from '../client/common/style-tags';
 
@@ -75,6 +76,12 @@ function loadStories() {
     .keys()
     .forEach(filename => serverStoriesContext(filename));
 }
+
+addDecorator(
+  withOptions({
+    name: 'registry-certs',
+  })
+);
 
 addDecorator(story => {
   setConfig({

@@ -40,7 +40,7 @@ function makeCart(loading: boolean) {
   return cart;
 }
 
-storiesOf('OrderDetails', module)
+storiesOf('Checkout/OrderDetails', module)
   .add('loading', () => <OrderDetails cart={makeCart(true)} />)
   .add('closed', () => <OrderDetails cart={makeCart(false)} />)
   .add('open', () => <OrderDetails cart={makeCart(false)} defaultOpen />)

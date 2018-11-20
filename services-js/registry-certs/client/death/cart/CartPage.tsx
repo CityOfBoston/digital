@@ -4,17 +4,12 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
-import {
-  PERCENTAGE_CC_STRING,
-  FIXED_CC_STRING,
-  SERVICE_FEE_URI,
-} from '../../../lib/costs';
-
 import { PageDependencies } from '../../../pages/_app';
 import PageLayout from '../../PageLayout';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
+import ServiceFeeDisclosure from '../../common/ServiceFeeDisclosure';
 
 interface Props
   extends Pick<PageDependencies, 'deathCertificateCart' | 'siteAnalytics'> {}
@@ -108,18 +103,7 @@ class CartPage extends React.Component<Props> {
             )}
           </div>
 
-          {deathCertificateCart.entries.length > 0 && (
-            <div className="b--g m-t700">
-              <div id="service-fee" className="b-c b-c--smv t--subinfo">
-                * You are charged an extra service fee of no more than{' '}
-                {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
-                directly to a third party to pay for the cost of card
-                processing. Learn more about{' '}
-                <a href={SERVICE_FEE_URI}>card service fees</a> at the City of
-                Boston.
-              </div>
-            </div>
-          )}
+          {deathCertificateCart.entries.length > 0 && <ServiceFeeDisclosure />}
         </div>
       </PageLayout>
     );

@@ -73,7 +73,7 @@ function makeBillingCompleteOrder(overrides = {}) {
   });
 }
 
-storiesOf('PaymentContent', module)
+storiesOf('Checkout/PaymentContent', module)
   .add('default', () => (
     <PaymentContent
       cart={makeCart()}

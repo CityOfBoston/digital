@@ -99,6 +99,7 @@
     "@cityofboston/percy-common": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
     "@storybook/addon-actions": "4.0.4",
+    "@storybook/addon-options": "4.0.4",
     "@storybook/addon-storyshots": "4.0.4",
     "@storybook/addons": "4.0.4",
     "@storybook/react": "4.0.4",

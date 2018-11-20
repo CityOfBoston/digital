@@ -27,7 +27,7 @@ function makeProps(certificate) {
   };
 }
 
-storiesOf('CartItem', module)
+storiesOf('Death/CartItem', module)
   .add('typical certificate', () => (
     <CartItem {...makeProps(TYPICAL_CERTIFICATE)} lastRow />
   ))

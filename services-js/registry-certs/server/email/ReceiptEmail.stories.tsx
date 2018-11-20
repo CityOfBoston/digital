@@ -15,7 +15,7 @@ function snapToString(name: string) {
   return JSON.parse(SNAPSHOTS[name].trim().replace(/\n/g, '\\n'));
 }
 
-storiesOf('ReceiptEmail', module)
+storiesOf('Death/ReceiptEmail', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
