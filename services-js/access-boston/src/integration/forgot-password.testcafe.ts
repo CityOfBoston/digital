@@ -12,7 +12,7 @@ test('Login does not apply to regular site', async t => {
   await loginPage.logIn(t, 'CON02141');
 
   const page = new PageModel();
-  await t.expect(page.sectionHeader.innerText).contains('FORGOT PASSWORD');
+  await t.expect(page.sectionHeader.withText('FORGOT PASSWORD').exists).ok();
 
   // Even though we logged in through the "forgot" flow, we won't be logged in
   // in the main app so going to the homepage should put us on the other login

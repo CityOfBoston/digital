@@ -18,8 +18,10 @@ test('Registration with new password and MFA', async t => {
 
   const registerPage = new PageModel();
   await t
-    .expect(registerPage.sectionHeader.innerText)
-    .contains('WELCOME TO ACCESS BOSTON!');
+    .expect(
+      registerPage.sectionHeader.withText('WELCOME TO ACCESS BOSTON!').exists
+    )
+    .ok();
 
   await t.click(Selector('.btn').withText('GET STARTED'));
 
@@ -51,8 +53,10 @@ test('Registration with just new password', async t => {
 
   const registerPage = new PageModel();
   await t
-    .expect(registerPage.sectionHeader.innerText)
-    .contains('WELCOME TO ACCESS BOSTON!');
+    .expect(
+      registerPage.sectionHeader.withText('WELCOME TO ACCESS BOSTON!').exists
+    )
+    .ok();
 
   await t.click(Selector('.btn').withText('GET STARTED'));
 
