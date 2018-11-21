@@ -1,6 +1,3 @@
-import withEmotion from '../lib/mixins/with-emotion';
-import withStore from '../lib/mixins/with-store';
-
-export default withStore(
-  withEmotion(() => require('../components/case/CaseLayout').default)
-);
+// This page is called "reports" for compatibility with the old URL format.
+import CaseLayout from '../components/case/CaseLayout';
+export default CaseLayout;

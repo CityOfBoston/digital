@@ -1,6 +1,2 @@
-import withEmotion from '../lib/mixins/with-emotion';
-import withStore from '../lib/mixins/with-store';
-
-export default withStore(
-  withEmotion(() => require('../components/faq/FaqLayout').default)
-);
+import FaqLayout from '../components/faq/FaqLayout';
+export default FaqLayout;

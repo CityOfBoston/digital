@@ -1,28 +1,43 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { ScreenReaderSupport } from '@cityofboston/next-client-common';
+
 import LocationPopUp from './LocationPopUp';
 import { AddressUnit, SearchAddressPlace } from '../../../data/types';
-import { AppStore } from '../../../data/store';
+import BrowserLocation from '../../../data/store/BrowserLocation';
+import RequestSearch from '../../../data/store/RequestSearch';
+import Ui from '../../../data/store/Ui';
+import AddressSearch from '../../../data/store/AddressSearch';
 import RequestForm from '../../../data/store/RequestForm';
 import { CORNER_DIALOG_STYLE } from './RequestDialog';
 import FormDialog from '../../common/FormDialog';
 
-const props: any = {
+const DEFAULT_PROPS = {
+  browserLocation: new BrowserLocation(),
+  screenReaderSupport: new ScreenReaderSupport(),
+  requestSearch: new RequestSearch(),
+  ui: new Ui(),
+  requestForm: new RequestForm(),
   nextFunc: action('Next'),
   nextIsSubmit: false,
 };
 
-const makeStore = (places: Array<SearchAddressPlace> | null, opts = {}) => {
-  const store = new AppStore();
-  store.addressSearch.setPlaces(places, 'search', true);
-  store.addressSearch.currentPlaceIndex = places
+const makeAddressSearch = (
+  places: Array<SearchAddressPlace> | null,
+  opts?: Partial<AddressSearch>
+) => {
+  const addressSearch = new AddressSearch();
+  addressSearch.setPlaces(places, 'search', true);
+  addressSearch.currentPlaceIndex = places
     ? Math.floor((places.length - 1) / 2)
     : 0;
 
-  Object.assign(store.addressSearch, opts);
+  if (opts) {
+    Object.assign(addressSearch, opts);
+  }
 
-  return store;
+  return addressSearch;
 };
 
 const MOCK_UNITS: Array<AddressUnit> = [
@@ -89,26 +104,21 @@ storiesOf('LocationPopUp', module)
     </div>
   ))
   .add('without address', () => (
-    <LocationPopUp
-      {...props}
-      store={makeStore(null)}
-      requestForm={new RequestForm()}
-    />
+    <LocationPopUp {...DEFAULT_PROPS} addressSearch={makeAddressSearch(null)} />
   ))
   .add('searching', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(null, {
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(null, {
         searching: true,
         query: '123 fake st',
       })}
-      requestForm={new RequestForm()}
     />
   ))
   .add('with address', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(
         [
           {
             address: '123 Fake St.\nDorchester, 02125',
@@ -124,13 +134,12 @@ storiesOf('LocationPopUp', module)
           lastQuery: '123 fake street dorchester ma',
         }
       )}
-      requestForm={new RequestForm()}
     />
   ))
   .add('with inexact address', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(
         [
           {
             address: '123 Fake St.\nDorchester, 02125',
@@ -146,13 +155,12 @@ storiesOf('LocationPopUp', module)
           lastQuery: '123 fake street dorchester ma',
         }
       )}
-      requestForm={new RequestForm()}
     />
   ))
   .add('with units', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(
         [
           {
             address: '123 Fake St.\nBoston, MA 02121',
@@ -168,13 +176,12 @@ storiesOf('LocationPopUp', module)
           lastQuery: '123 fake street dorchester ma',
         }
       )}
-      requestForm={new RequestForm()}
     />
   ))
   .add('with multiple addresses', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(
         [
           {
             address: '123 Fake St.\nDorchester, 02125',
@@ -214,13 +221,12 @@ storiesOf('LocationPopUp', module)
           lastQuery: '123 fake street',
         }
       )}
-      requestForm={new RequestForm()}
     />
   ))
   .add('with multiple addresses and units', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(
         [
           {
             address: '123 Fake St.\nDorchester, 02125',
@@ -260,49 +266,44 @@ storiesOf('LocationPopUp', module)
           lastQuery: '123 fake street',
         }
       )}
-      requestForm={new RequestForm()}
     />
   ))
   .add('address not found', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore([], {
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch([], {
         query: '123 fake street',
         lastQuery: '123 fake street',
       })}
-      requestForm={new RequestForm()}
     />
   ))
   .add('search error', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(null, {
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(null, {
         query: '123 fake street',
         lastQuery: '123 fake street',
         lastSearchError: new Error('SERVER ERROR THINGS ARE BROKEN'),
       })}
-      requestForm={new RequestForm()}
     />
   ))
   .add('geocode error', () => (
     <LocationPopUp
-      {...props}
-      store={makeStore(null, {
+      {...DEFAULT_PROPS}
+      addressSearch={makeAddressSearch(null, {
         currentReverseGeocodeLocation: { lat: 2, lng: 3 },
         lastQuery: '123 fake street',
         lastSearchError: new Error('SERVER ERROR THINGS ARE BROKEN'),
       })}
-      requestForm={new RequestForm()}
     />
   ))
   .add('outside of Boston', () => (
     <LocationPopUp
-      {...props}
+      {...DEFAULT_PROPS}
       selectedCityForTest="Cambridge"
-      store={makeStore([], {
+      addressSearch={makeAddressSearch([], {
         currentReverseGeocodeLocation: { lat: 2, lng: 3 },
         lastQuery: '123 fake street',
       })}
-      requestForm={new RequestForm()}
     />
   ));

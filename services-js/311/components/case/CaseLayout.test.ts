@@ -7,7 +7,6 @@ jest.mock('next/router');
 jest.mock('../../data/queries/load-case');
 
 import loadCase from '../../data/queries/load-case';
-
 const loadCaseMock: jest.Mock<typeof loadCase> = loadCase as any;
 
 const MOCK_REQUEST: Request = {
@@ -45,7 +44,8 @@ describe('case', () => {
   beforeEach(async () => {
     loadCaseMock.mockReturnValue(Promise.resolve(MOCK_REQUEST));
     const ctx = makeServerContext('/reports', { id: 'case-id' });
-    data = (await CaseLayout.getInitialProps(ctx)).data;
+    data = (await CaseLayout.getInitialProps(ctx, { fetchGraphql: jest.fn() }))
+      .data;
   });
 
   test('getInitialProps', () => {
@@ -59,7 +59,7 @@ describe('case not found', () => {
   beforeEach(async () => {
     loadCaseMock.mockReturnValue(Promise.resolve(null));
     ctx = makeServerContext('/reports', { id: 'not-a-real-id' });
-    await CaseLayout.getInitialProps(ctx);
+    await CaseLayout.getInitialProps(ctx, { fetchGraphql: jest.fn() });
   });
 
   test('getInitialProps', () => {

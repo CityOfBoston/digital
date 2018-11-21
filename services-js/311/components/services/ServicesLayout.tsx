@@ -9,7 +9,6 @@ import getConfig from 'next/config';
 import { makeFetchGraphql } from '@cityofboston/next-client-common';
 
 import { ServiceSummary } from '../../data/types';
-import { AppStore } from '../../data/store';
 import { Group } from '../../data/store/AllServices';
 import loadServiceSummaries from '../../data/queries/load-service-summaries';
 
@@ -18,14 +17,13 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import { CHARLES_BLUE } from '../style-constants';
+import { PageDependencies } from '../../pages/_app';
 
 type InitialProps = {
   services: ServiceSummary[];
 };
 
-type Props = InitialProps & {
-  store: AppStore;
-};
+type Props = InitialProps & Pick<PageDependencies, 'allServices'>;
 
 type GroupProps = {
   group: Group;
@@ -125,9 +123,7 @@ export default class ServicesLayout extends React.Component<Props> {
 
   @action.bound
   handleKeyEvents(event: KeyboardEvent) {
-    const {
-      store: { allServices },
-    } = this.props;
+    const { allServices } = this.props;
 
     // Expand drawers so users can search within them easily.
     // Check for CTRL+f input.
@@ -146,12 +142,12 @@ export default class ServicesLayout extends React.Component<Props> {
   }
 
   render() {
-    const { store, services } = this.props;
+    const { allServices, services } = this.props;
 
     const servicesByGroup: { [id: string]: ServiceSummary[] } = {};
     const otherServices: ServiceSummary[] = [];
 
-    store.allServices.groups.forEach(g => {
+    allServices.groups.forEach(g => {
       servicesByGroup[g.id.toLowerCase()] = [];
     });
 
@@ -177,7 +173,7 @@ export default class ServicesLayout extends React.Component<Props> {
               <SectionHeader>All BOS:311 Services</SectionHeader>
 
               <div>
-                {store.allServices.groups.map(g => {
+                {allServices.groups.map(g => {
                   const services = servicesByGroup[g.id.toLowerCase()];
                   return (
                     !!services.length && (
@@ -192,7 +188,7 @@ export default class ServicesLayout extends React.Component<Props> {
 
                 {otherServices.length > 0 && (
                   <ServicesLayoutGroup
-                    group={store.allServices.otherGroup}
+                    group={allServices.otherGroup}
                     services={otherServices}
                   />
                 )}

@@ -1,24 +1,9 @@
 import compression from 'compression';
 
-interface Language {
-  code: string;
-  region: string | undefined;
-  quality: number;
-}
-export interface RequestAdditions {
-  languages: Language[];
-}
-
 export const nextHandler = (app, page, staticQuery = {}) => async (
-  { raw: { req, res }, query, params, pre },
+  { raw: { req, res }, query, params },
   h
 ) => {
-  const requestAdditions: RequestAdditions = {
-    languages: pre.language,
-  };
-
-  Object.assign(req, requestAdditions);
-
   const pageQuery = {
     ...staticQuery,
     ...query,

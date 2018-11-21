@@ -555,6 +555,9 @@ exports[`existing service page rendering phone location step 1`] = `
           className="css-1v26nfd"
         >
           <div
+            className="css-yy347q"
+          />
+          <div
             className="css-1gx8zcz"
           >
             <div
@@ -592,6 +595,14 @@ exports[`existing service page rendering phone location step 1`] = `
             <div
               className="g p-a300 css-zcxndt"
             >
+              <button
+                className="btn g--5"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                Next
+              </button>
               <div
                 className="g--7 t--subinfo m-v200"
               >
@@ -602,14 +613,6 @@ exports[`existing service page rendering phone location step 1`] = `
                   Continue without location
                 </a>
               </div>
-              <button
-                className="btn g--5"
-                disabled={true}
-                onClick={[Function]}
-                type="button"
-              >
-                Next
-              </button>
             </div>
           </div>
         </div>

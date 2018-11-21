@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from 'mobx';
 
 import { ServiceSummary } from '../../data/types';
-import getStore from '../../data/store';
+import AllServices from '../../data/store/AllServices';
 import page from '../../.storybook/page';
 import ServicesLayout from './ServicesLayout';
 
@@ -16,17 +16,23 @@ const SERVICE_SUMMARIES: ServiceSummary[] = [
   },
 ];
 
-const makeStore = action((expanded: boolean) => {
-  const store = getStore();
-  store.allServices.groups.find(g => g.id === 'Health-Safety')!.open = expanded;
-  return store;
+const makeAllServices = action((expanded: boolean) => {
+  const allServices = new AllServices();
+  allServices.groups.find(g => g.id === 'Health-Safety')!.open = expanded;
+  return allServices;
 });
 
 storiesOf('ServicesLayout', module)
   .addDecorator(page)
   .add('Collapsed', () => (
-    <ServicesLayout store={makeStore(false)} services={SERVICE_SUMMARIES} />
+    <ServicesLayout
+      allServices={makeAllServices(false)}
+      services={SERVICE_SUMMARIES}
+    />
   ))
   .add('Expanded', () => (
-    <ServicesLayout store={makeStore(true)} services={SERVICE_SUMMARIES} />
+    <ServicesLayout
+      allServices={makeAllServices(true)}
+      services={SERVICE_SUMMARIES}
+    />
   ));

@@ -3,7 +3,11 @@ import { css } from 'emotion';
 import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 
-import { AppStore } from '../../../data/store';
+import { ScreenReaderSupport } from '@cityofboston/next-client-common';
+
+import Ui from '../../../data/store/Ui';
+import BrowserLocation from '../../../data/store/BrowserLocation';
+import RequestSearch from '../../../data/store/RequestSearch';
 import AddressSearch from '../../../data/store/AddressSearch';
 import { SearchAddressPlace, AddressUnit } from '../../../data/types';
 import RequestForm from '../../../data/store/RequestForm';
@@ -183,7 +187,11 @@ const SEARCH_RESULTS_HEADER_STYLE = css({
 const LOADING_CONTAINER_STYLE = css({ height: 85, display: 'flex' });
 
 export type Props = {
-  store: AppStore;
+  addressSearch: AddressSearch;
+  browserLocation: BrowserLocation;
+  screenReaderSupport: ScreenReaderSupport;
+  requestSearch: RequestSearch;
+  ui: Ui;
   requestForm: RequestForm;
   nextFunc: () => unknown;
   nextIsSubmit: boolean;
@@ -213,10 +221,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
 
   @action
   componentWillMount() {
-    const {
-      store: { addressSearch, screenReaderSupport },
-      requestForm,
-    } = this.props;
+    const { addressSearch, screenReaderSupport, requestForm } = this.props;
 
     addressSearch.query = '';
 
@@ -265,9 +270,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
 
   @action.bound
   whenSearchInput(ev: FormEvent<HTMLInputElement>) {
-    const {
-      store: { addressSearch },
-    } = this.props;
+    const { addressSearch } = this.props;
     const query = ev.currentTarget.value;
 
     addressSearch.query = query;
@@ -282,10 +285,8 @@ export default class LocationPopUp extends React.Component<Props, State> {
     ev.preventDefault();
 
     const {
-      store: {
-        ui: { belowMediaLarge },
-        addressSearch,
-      },
+      ui: { belowMediaLarge },
+      addressSearch,
     } = this.props;
 
     if (this.containerEl) {
@@ -317,11 +318,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
   }
 
   render() {
-    const {
-      requestForm,
-      nextIsSubmit,
-      store: { addressSearch, ui },
-    } = this.props;
+    const { requestForm, nextIsSubmit, addressSearch, ui } = this.props;
     const { belowMediaLarge } = ui;
     const { locationRequirementsMet } = requestForm;
     const {
@@ -413,9 +410,9 @@ export default class LocationPopUp extends React.Component<Props, State> {
   }
 
   maybeRenderMap() {
-    const { store } = this.props;
-    const { belowMediaLarge } = store.ui;
-    const { places } = store.addressSearch;
+    const { ui, addressSearch, browserLocation, requestSearch } = this.props;
+    const { belowMediaLarge } = ui;
+    const { places } = addressSearch;
 
     if (!belowMediaLarge) {
       return null;
@@ -432,7 +429,10 @@ export default class LocationPopUp extends React.Component<Props, State> {
         }`}
       >
         <LocationMapWithLibrary
-          store={store}
+          addressSearch={addressSearch}
+          browserLocation={browserLocation}
+          requestSearch={requestSearch}
+          ui={ui}
           mode="picker"
           mobile
           smallPicker={!!smallPicker}
@@ -478,7 +478,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
   }
 
   renderNotFound() {
-    const { location, query } = this.props.store.addressSearch;
+    const { location, query } = this.props.addressSearch;
     const { selectedOutsideOfBostonCity } = this.state;
 
     const selectedOutsideOfBoston = OUTSIDE_OF_BOSTON.find(
@@ -538,7 +538,7 @@ export default class LocationPopUp extends React.Component<Props, State> {
   }
 
   renderAddressList(places: Array<SearchAddressPlace>) {
-    const { addressSearch } = this.props.store;
+    const { addressSearch } = this.props;
     const { lastQuery } = addressSearch;
 
     return (
@@ -640,7 +640,7 @@ class AddressRow extends React.Component<AddressRowProps> {
               dangerouslySetInnerHTML={{
                 __html:
                   waypointMarkers[highlighted ? 'greenFilled' : 'orangeFilled']
-                    .html,
+                    .html || '',
               }}
             />
             {placeCount > 1 && (

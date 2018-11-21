@@ -3,10 +3,16 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { runInAction } from 'mobx';
 
+import { ScreenReaderSupport } from '@cityofboston/next-client-common';
+
 import RequestDialog from './RequestDialog';
 
 import { Service, SubmittedRequest } from '../../../data/types';
-import { AppStore } from '../../../data/store';
+import AddressSearch from '../../../data/store/AddressSearch';
+import BrowserLocation from '../../../data/store/BrowserLocation';
+import RequestSearch from '../../../data/store/RequestSearch';
+import Ui from '../../../data/store/Ui';
+
 import {
   MetadataRequirement,
   ServiceAttributeDatatype,
@@ -71,16 +77,14 @@ const MOCK_ACTIONS = {
 };
 
 describe('rendering', () => {
-  let store;
-
-  beforeEach(() => {
-    store = new AppStore();
-  });
-
   test('questions', () => {
     const component = renderer.create(
       <RequestDialog
-        store={store}
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        ui={new Ui()}
         stage="questions"
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
@@ -97,7 +101,11 @@ describe('rendering', () => {
   test('location', () => {
     const component = renderer.create(
       <RequestDialog
-        store={store}
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        ui={new Ui()}
         stage="location"
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
@@ -113,7 +121,11 @@ describe('rendering', () => {
   it('contact', () => {
     const component = renderer.create(
       <RequestDialog
-        store={store}
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        ui={new Ui()}
         stage="contact"
         service={MOCK_SERVICE}
         serviceCode={MOCK_SERVICE.code}
@@ -130,7 +142,6 @@ describe('rendering', () => {
 
 describe('methods', () => {
   let wrapper;
-  let store;
   let requestDialog: RequestDialog;
   let fetchGraphql;
   const routeToServiceForm = jest.fn();
@@ -138,14 +149,16 @@ describe('methods', () => {
   beforeEach(() => {
     fetchGraphql = jest.fn();
 
-    store = new AppStore();
-
     // We have to use mount here so that we get the same component instance
     // across renders. Otherwise calling submitRequest won't update the same
     // instance that's rendered.
     wrapper = mount(
       <RequestDialog
-        store={store}
+        addressSearch={new AddressSearch()}
+        browserLocation={new BrowserLocation()}
+        requestSearch={new RequestSearch()}
+        screenReaderSupport={new ScreenReaderSupport()}
+        ui={new Ui()}
         description=""
         stage="submit"
         service={MOCK_SERVICE}

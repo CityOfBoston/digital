@@ -6,7 +6,7 @@ import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
-import { LanguagePreference } from '../../../data/store';
+import { LanguagePreference } from '../../../data/store/BrowserLanguage';
 
 import FormDialog from '../../common/FormDialog';
 import {

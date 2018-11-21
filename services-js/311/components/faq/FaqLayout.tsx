@@ -8,7 +8,6 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
-import { AppStore } from '../../data/store';
 import { MEDIA_MEDIUM, assetUrl } from '../style-constants';
 
 const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
@@ -40,7 +39,6 @@ function Question({ title, children }: QuestionProps) {
 }
 
 type Props = {
-  store: AppStore;
   suppressQuestions?: boolean;
 };
 

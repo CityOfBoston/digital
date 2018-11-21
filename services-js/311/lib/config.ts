@@ -1,32 +1,28 @@
-// If you edit this file, make sure to test:
-// `npm run build` and `NODE_ENV=production npm run start`.
+import {
+  ServerRuntimeConfig as CommonServerRuntimeConfig,
+  PublicRuntimeConfig as CommonPublicRuntimeConfig,
+} from '@cityofboston/next-client-common';
 
-/* ::
-export type PublicRuntimeConfig = {|
-  assetPrefix: string,
+export interface AppPublicRuntimeConfig {
+  assetPrefix: string;
   // This is set by our standard deployment process.
-  cacheParam: string,
-  cloudinaryUrl: string,
-  cloudinaryUploadPreset: string,
-  graphqlApiKey: string,
-  liveAgentButtonId: string,
-  mapboxAccessToken: string,
-  mapboxStylePath: string,
-|};
-export type ServerRuntimeConfig = {};
-*/
+  cacheParam: string;
+  cloudinaryUrl: string;
+  cloudinaryUploadPreset: string;
+  liveAgentButtonId: string;
+  mapboxAccessToken: string;
+  mapboxStylePath: string;
+}
 
-/* ::
-export type Config = {|
-  publicRuntimeConfig: PublicRuntimeConfig,
-  // Will be empty when the code is running on the client.
-  serverRuntimeConfig: ServerRuntimeConfig | {||},
-|};
-*/
+export interface AppServerRuntimeConfig {}
 
-function makeAssetPrefix(
-  env /*: { [key: string]: ?string } | typeof undefined */
-) {
+export type PublicRuntimeConfig = AppPublicRuntimeConfig &
+  CommonPublicRuntimeConfig;
+
+export type ServerRuntimeConfig = AppServerRuntimeConfig &
+  CommonServerRuntimeConfig;
+
+export function makeAssetPrefix(env?: typeof process.env) {
   env = env || process.env;
 
   return env.ASSET_HOST && env.ASSET_HOST !== '.'
@@ -34,13 +30,21 @@ function makeAssetPrefix(
     : '';
 }
 
+export type NextConfig = {
+  publicRuntimeConfig: PublicRuntimeConfig;
+  serverRuntimeConfig: ServerRuntimeConfig;
+};
+
 // This is for Next's next.config.js configuration feature. Factored out so that
 // the Storybook code can use it.
 //
 // To set values for the Jest unit tests, see /lib/test/setup.js
-function makeConfig(
-  env /*: { [key: string]: ?string } | typeof undefined */
-) /*: Config */ {
+export function makeNextConfig(
+  env?: typeof process.env
+): {
+  publicRuntimeConfig: AppPublicRuntimeConfig;
+  serverRuntimeConfig: AppServerRuntimeConfig;
+} {
   env = env || process.env;
 
   return {
@@ -48,7 +52,6 @@ function makeConfig(
       assetPrefix: makeAssetPrefix(env),
       // This is set by our standard deployment process.
       cacheParam: (env.GIT_REVISION && env.GIT_REVISION.substring(0, 8)) || '',
-      graphqlApiKey: env.WEB_API_KEY || '',
       liveAgentButtonId: env.LIVE_AGENT_BUTTON_ID || '',
       cloudinaryUrl: `https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD ||
         ''}`,
@@ -60,8 +63,3 @@ function makeConfig(
     serverRuntimeConfig: {},
   };
 }
-
-module.exports = {
-  makeAssetPrefix,
-  makeConfig,
-};

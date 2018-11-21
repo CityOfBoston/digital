@@ -3,7 +3,9 @@ import { action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
-import { AppStore } from '../../data/store';
+import RequestSearch from '../../data/store/RequestSearch';
+import Ui from '../../data/store/Ui';
+
 import {
   HEADER_HEIGHT,
   MEDIA_LARGE,
@@ -88,7 +90,8 @@ const LOADING_REQUEST_LIST_STYLE = css({
 });
 
 export type Props = {
-  store: AppStore;
+  requestSearch: RequestSearch;
+  ui: Ui;
 };
 
 @observer
@@ -114,12 +117,12 @@ export default class RecentRequests extends React.Component<Props> {
 
   @action.bound
   clearSearch() {
-    this.props.store.requestSearch.query = '';
+    this.props.requestSearch.query = '';
   }
 
   scrollSelectedIntoView = () => {
-    const { store } = this.props;
-    const { belowMediaLarge } = store.ui;
+    const { ui, requestSearch } = this.props;
+    const { belowMediaLarge } = ui;
 
     // don't scroll on mobile
     if (belowMediaLarge) {
@@ -127,7 +130,7 @@ export default class RecentRequests extends React.Component<Props> {
     }
 
     const { mainEl } = this;
-    const { selectedRequest, selectedSource } = store.requestSearch;
+    const { selectedRequest, selectedSource } = requestSearch;
 
     if (selectedRequest && mainEl && selectedSource !== 'list') {
       const requestEl = mainEl.querySelector(
@@ -141,8 +144,8 @@ export default class RecentRequests extends React.Component<Props> {
   };
 
   scrollOnResultsChange = () => {
-    const { store } = this.props;
-    const { belowMediaLarge } = store.ui;
+    const { ui, requestSearch } = this.props;
+    const { belowMediaLarge } = ui;
 
     // don't scroll on mobile
     if (belowMediaLarge) {
@@ -150,7 +153,7 @@ export default class RecentRequests extends React.Component<Props> {
     }
 
     const { mainEl } = this;
-    const { results } = store.requestSearch;
+    const { results } = requestSearch;
 
     if (results) {
       if (Velocity && mainEl) {
@@ -162,9 +165,7 @@ export default class RecentRequests extends React.Component<Props> {
   };
 
   render() {
-    const {
-      store: { requestSearch, ui },
-    } = this.props;
+    const { requestSearch, ui } = this.props;
     const { results, loading, resultsQuery, resultsError } = requestSearch;
 
     return (

@@ -5,19 +5,17 @@ import { action, observable, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
 import { css } from 'emotion';
-import { Context } from 'next';
 import { IPromiseBasedObservable } from 'mobx-utils';
-import getConfig from 'next/config';
 import {
-  makeFetchGraphql,
   FetchGraphql,
-  NextContext,
+  ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
-import { RequestAdditions } from '../../../server/next-handlers';
-
 import { SubmittedRequest, Service } from '../../../data/types';
-import { AppStore } from '../../../data/store';
+import Ui from '../../../data/store/Ui';
+import AddressSearch from '../../../data/store/AddressSearch';
+import RequestSearch from '../../../data/store/RequestSearch';
+import BrowserLocation from '../../../data/store/BrowserLocation';
 import RequestForm from '../../../data/store/RequestForm';
 import submitRequest from '../../../data/queries/submit-request';
 import loadService from '../../../data/queries/load-service';
@@ -37,6 +35,7 @@ import LocationPopUp from './LocationPopUp';
 import ContactPane from './ContactPane';
 import SubmitPane from './SubmitPane';
 import CaseView from '../../case/CaseView';
+import { GetInitialProps } from '../../../pages/_app';
 
 export type InitialProps = {
   stage: 'questions' | 'location' | 'contact' | 'submit';
@@ -46,8 +45,12 @@ export type InitialProps = {
 };
 
 export type Props = InitialProps & {
-  store: AppStore;
   fetchGraphql: FetchGraphql;
+  addressSearch: AddressSearch;
+  browserLocation: BrowserLocation;
+  requestSearch: RequestSearch;
+  screenReaderSupport: ScreenReaderSupport;
+  ui: Ui;
   routeToServiceForm: (code: string, stage: string) => Promise<void>;
   setLocationMapActive: (active: boolean) => void;
 };
@@ -76,14 +79,13 @@ export default class RequestDialog extends React.Component<Props> {
   caseLookupOnSubmitDisposer: Function | null = null;
 
   // Called by RequestLayout
-  static async getInitialProps({
-    query,
-    res,
-  }: NextContext<unknown>): Promise<InitialProps> {
+  static getInitialProps: GetInitialProps<
+    InitialProps,
+    'query' | 'res',
+    'fetchGraphql'
+  > = async ({ query, res }, { fetchGraphql }): Promise<InitialProps> => {
     const { code, description } = query;
     let stage = query.stage;
-
-    const fetchGraphql = makeFetchGraphql(getConfig());
 
     const service = await loadService(fetchGraphql, code);
 
@@ -107,7 +109,7 @@ export default class RequestDialog extends React.Component<Props> {
       default:
         throw new Error(`Unknown stage: ${stage}`);
     }
-  }
+  };
 
   constructor(props: Props) {
     super(props);
@@ -342,7 +344,16 @@ export default class RequestDialog extends React.Component<Props> {
 
   renderContent() {
     const { requestSubmission, requestForm } = this;
-    const { store, stage, service, serviceCode } = this.props;
+    const {
+      stage,
+      service,
+      serviceCode,
+      ui,
+      addressSearch,
+      browserLocation,
+      requestSearch,
+      screenReaderSupport,
+    } = this.props;
 
     if (!service) {
       return (
@@ -379,7 +390,11 @@ export default class RequestDialog extends React.Component<Props> {
         const { fn, isSubmit } = this.makeNextAfterLocation();
         return (
           <LocationPopUp
-            store={store}
+            addressSearch={addressSearch}
+            browserLocation={browserLocation}
+            ui={ui}
+            requestSearch={requestSearch}
+            screenReaderSupport={screenReaderSupport}
             requestForm={requestForm}
             nextFunc={fn}
             nextIsSubmit={isSubmit}
@@ -403,7 +418,7 @@ export default class RequestDialog extends React.Component<Props> {
 
         switch (requestSubmission.state) {
           case 'pending':
-            return <SubmitPane state="submitting" ui={store.ui} />;
+            return <SubmitPane state="submitting" ui={ui} />;
           case 'fulfilled':
             return <CaseView request={requestSubmission.value} submitted />;
           case 'rejected':

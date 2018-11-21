@@ -3,9 +3,13 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
 import { makeServerContext } from '../../../lib/test/make-context';
-import { AppStore } from '../../../data/store';
-import HomeDialog, { InitialProps } from './HomeDialog';
-import { FetchGraphql } from '@cityofboston/next-client-common';
+import HomeDialog, { InitialProps, Props } from './HomeDialog';
+import {
+  FetchGraphql,
+  GaSiteAnalytics,
+} from '@cityofboston/next-client-common';
+import Ui from '../../../data/store/Ui';
+import LiveAgent from '../../../data/store/LiveAgent';
 
 jest.mock('../../../data/queries/load-top-service-summaries');
 jest.mock('../../../data/queries/load-service-suggestions');
@@ -37,17 +41,15 @@ beforeEach(() => {
 
 describe('home page', () => {
   let initialProps: InitialProps;
-  let store: AppStore;
   let fetchGraphql: FetchGraphql;
 
   beforeEach(async () => {
-    store = new AppStore();
     fetchGraphql = jest.fn();
 
     loadTopServiceSummaries.mockReturnValue(SERVICE_SUMMARIES);
 
     const ctx = makeServerContext('/request');
-    initialProps = await HomeDialog.getInitialProps(ctx);
+    initialProps = await HomeDialog.getInitialProps(ctx, { fetchGraphql });
   });
 
   test('getInitialProps', () => {
@@ -57,9 +59,12 @@ describe('home page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      React.createElement(HomeDialog, {
-        store,
+      React.createElement<Props>(HomeDialog, {
         fetchGraphql,
+        siteAnalytics: new GaSiteAnalytics(),
+        ui: new Ui(),
+        liveAgent: new LiveAgent(),
+        languages: [],
         topServiceSummaries: initialProps.topServiceSummaries,
         description: initialProps.description,
         stage: initialProps.stage,
@@ -72,11 +77,9 @@ describe('home page', () => {
 
 describe('choose page', () => {
   let initialProps: InitialProps;
-  let store: AppStore;
   let fetchGraphql: FetchGraphql;
 
   beforeEach(async () => {
-    store = new AppStore();
     fetchGraphql = jest.fn();
 
     loadTopServiceSummaries.mockReturnValue(SERVICE_SUMMARIES);
@@ -85,7 +88,7 @@ describe('choose page', () => {
       stage: 'choose',
       description: 'Thanos is attacking',
     });
-    initialProps = await HomeDialog.getInitialProps(ctx);
+    initialProps = await HomeDialog.getInitialProps(ctx, { fetchGraphql });
   });
 
   test('getInitialProps', () => {
@@ -95,9 +98,12 @@ describe('choose page', () => {
 
   test('rendering', () => {
     const component = renderer.create(
-      React.createElement(HomeDialog, {
-        store,
+      React.createElement<Props>(HomeDialog, {
         fetchGraphql,
+        siteAnalytics: new GaSiteAnalytics(),
+        ui: new Ui(),
+        liveAgent: new LiveAgent(),
+        languages: [],
         topServiceSummaries: initialProps.topServiceSummaries,
         description: initialProps.description,
         stage: initialProps.stage,
@@ -111,13 +117,9 @@ describe('choose page', () => {
 
 describe('integration', () => {
   let wrapper;
-  let store;
-
   let resolveSuggestions;
 
   beforeEach(() => {
-    store = new AppStore();
-
     loadServiceSuggestions.mockReturnValue(
       new Promise(resolve => {
         resolveSuggestions = resolve;
@@ -126,7 +128,10 @@ describe('integration', () => {
 
     wrapper = mount(
       <HomeDialog
-        store={store}
+        liveAgent={new LiveAgent()}
+        siteAnalytics={new GaSiteAnalytics()}
+        ui={new Ui()}
+        languages={[]}
         description="Thanos is attacking"
         fetchGraphql={jest.fn()}
         stage="choose"

@@ -9,12 +9,13 @@ import Router from 'next/router';
 import inPercy from '@percy-io/in-percy';
 
 import { ServiceSummary } from '../../../data/types';
-import { AppStore } from '../../../data/store';
 import RequestSearch from '../../../data/store/RequestSearch';
 
 import { MEDIA_LARGE, CLEAR_FIX } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
+import Ui from '../../../data/store/Ui';
+import LiveAgent from '../../../data/store/LiveAgent';
 
 const FORM_COLUMN_STYLE = css({
   display: 'flex',
@@ -97,7 +98,8 @@ const CHAT_ICON_STYLE = css({
 });
 
 export type Props = {
-  store: AppStore;
+  liveAgent: LiveAgent;
+  ui: Ui;
   description: string;
   handleDescriptionChanged: (ev: FormEvent<HTMLTextAreaElement>) => unknown;
   nextFn: () => unknown;
@@ -170,19 +172,19 @@ export default class HomePane extends React.Component<Props> {
 
   @action.bound
   startChat() {
-    const { store } = this.props;
-    const { liveAgentButtonId } = store;
+    const { liveAgent } = this.props;
+    const { liveAgentButtonId } = liveAgent;
 
     window.liveagent!.startChat(liveAgentButtonId);
   }
 
   @computed
   get placeholder(): string {
-    const { description, store } = this.props;
+    const { description, ui } = this.props;
 
     if (
       description ||
-      !store.ui.visible ||
+      !ui.visible ||
       this.textareaFocus ||
       !this.animationStartMs
     ) {
@@ -226,8 +228,9 @@ export default class HomePane extends React.Component<Props> {
       description,
       handleDescriptionChanged,
       topServiceSummaries,
-      store,
+      liveAgent,
     } = this.props;
+
     return (
       <div>
         <Head>
@@ -289,7 +292,7 @@ export default class HomePane extends React.Component<Props> {
                 <div
                   className={`g--7 m-b200 ${CHAT_LINK_WRAPPER_STYLE.toString()}`}
                 >
-                  {store.liveAgentAvailable && (
+                  {liveAgent.liveAgentAvailable && (
                     <a href="javascript:void()" onClick={this.startChat}>
                       <img
                         src="https://patterns.boston.gov/images/global/icons/experiential/city-council-meeting.svg"
