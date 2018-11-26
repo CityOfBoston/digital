@@ -6,6 +6,7 @@ import fetch from 'node-fetch';
 
 // Later is higher-priority so that index -1 is worst
 const ADDR_TYPE_PRIORITY = ['StreetName', 'StreetAddress', 'PointAddress'];
+const OPEN_SPACES_LAYER_ID = '13';
 
 type ArcGISErrorResult = {
   error: {
@@ -318,7 +319,7 @@ export class ArcGIS {
   public openSpacesUrl(path: string): string {
     return url.resolve(
       this.endpoint,
-      `311/Composite_Services/MapServer/31/${path}`
+      `311/Composite_Services/MapServer/${OPEN_SPACES_LAYER_ID}/${path}`
     );
   }
 
