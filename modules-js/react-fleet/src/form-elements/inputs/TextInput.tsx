@@ -1,7 +1,6 @@
 import React from 'react';
 import hash from 'string-hash';
 
-
 /**
  * Stateless component for rendering a text-like form element. (Type of "text",
  * "tel", "password", &c.)
@@ -38,6 +37,7 @@ interface Props {
   onBlur?(e: any): void;
   onChange?(e: any): void;
   onFocus?(e: any): void;
+  onKeyDown?(e: any): void;
 }
 
 export default function TextInput(props: Props): JSX.Element {
@@ -45,24 +45,21 @@ export default function TextInput(props: Props): JSX.Element {
 
   const classNames = {
     label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
-    input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${props.error ? 'txt-f--err' : ''}`
+    input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${
+      props.error ? 'txt-f--err' : ''
+    }`,
   };
 
   return (
     <div className={props.className} style={props.style}>
-      <label
-        htmlFor={id}
-        className={classNames.label}
-      >
-        {props.hideLabel ?
+      <label htmlFor={id} className={classNames.label}>
+        {props.hideLabel ? (
           <>&nbsp;</>
-
-          :
-
+        ) : (
           <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
             {props.label}
           </span>
-        }
+        )}
 
         {props.required && <span className="t--req">Required</span>}
       </label>
@@ -74,31 +71,26 @@ export default function TextInput(props: Props): JSX.Element {
         type={props.type || 'text'}
         name={props.name}
         placeholder={props.placeholder}
-
         value={props.value}
         defaultValue={props.defaultValue}
         disabled={props.disabled}
-
         required={props.required}
         inputMode={props.inputMode}
         maxLength={props.maxLength}
         minLength={props.minLength}
-
-
         onBlur={props.onBlur}
         onChange={props.onChange}
         onFocus={props.onFocus}
+        onKeyDown={props.onKeyDown}
       />
 
       <div className="t--subinfo t--err m-b100">
         {/* The &nbsp; is to keep space for the error so the form doesn't jump when one is added. */}
-        {props.error && typeof props.error === 'string' ?
+        {props.error && typeof props.error === 'string' ? (
           props.error
-
-          :
-
+        ) : (
           <>&nbsp;</>
-        }
+        )}
       </div>
     </div>
   );
