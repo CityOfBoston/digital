@@ -14,7 +14,7 @@ import {
   pushImage,
   dockerAwsLogin,
   updateStagingService,
-  updateProdService,
+  updateEcsService,
   waitForDeployment,
   deregisterTaskDefinition,
   updateServiceTaskDefinition,
@@ -135,7 +135,11 @@ const cacheTag = 'latest';
   } else {
     console.error(`🎟 Updating production service ${serviceName}…`);
 
-    const result = await updateProdService(serviceName, versionedTag);
+    const result = await updateEcsService(
+      environment,
+      serviceName,
+      versionedTag
+    );
     console.error();
 
     service = result.service;
