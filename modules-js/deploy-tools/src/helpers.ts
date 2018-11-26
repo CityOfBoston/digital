@@ -181,12 +181,17 @@ export async function updateStagingService(serviceName: string) {
   };
 }
 
-export async function updateProdService(serviceName: string, image: string) {
+export async function updateEcsService(
+  environment: string,
+  ecsServiceName: string,
+  image: string
+) {
   const ecs = new AWS.ECS();
+  const ecsCluster = environment === 'staging' ? STAGING_CLUSTER : PROD_CLUSTER;
 
   const latestTaskDefinition = (await ecs
     .describeTaskDefinition({
-      taskDefinition: `${PROD_CLUSTER}-${serviceName}`,
+      taskDefinition: `${ecsCluster}-${ecsServiceName}`,
     })
     .promise()).taskDefinition!;
 
@@ -216,8 +221,8 @@ export async function updateProdService(serviceName: string, image: string) {
     .promise()).taskDefinition!;
 
   const { service, deploymentId } = await updateServiceTaskDefinition(
-    'production',
-    serviceName,
+    environment,
+    ecsServiceName,
     newTaskDefinition.taskDefinitionArn!
   );
 
@@ -241,7 +246,7 @@ export async function updateProdService(serviceName: string, image: string) {
 
 export async function updateServiceTaskDefinition(
   environment: string,
-  serviceName: string,
+  ecsServiceName: string,
   taskDefinitionArn: string
 ) {
   const ecs = new AWS.ECS();
@@ -249,7 +254,7 @@ export async function updateServiceTaskDefinition(
   const updatedService = (await ecs
     .updateService({
       cluster: environment === 'production' ? PROD_CLUSTER : STAGING_CLUSTER,
-      service: serviceName,
+      service: ecsServiceName,
       taskDefinition: taskDefinitionArn,
     })
     .promise()).service!;

@@ -13,8 +13,7 @@ import {
   buildImage,
   pushImage,
   dockerAwsLogin,
-  updateStagingService,
-  updateProdService,
+  updateEcsService,
   waitForDeployment,
   deregisterTaskDefinition,
   updateServiceTaskDefinition,
@@ -83,15 +82,12 @@ const cacheTag = 'latest';
     console.error();
   }
 
-  const versionedTag =
-    environment === 'production'
-      ? `${repository}:codebuild-${buildNum}-${commit}`
-      : `${repository}:deploy-${variant || 'default'}`;
+  const versionedTag = `${repository}:codebuild-${buildNum}-${commit}`;
   const buildTags = [`${repository}:${cacheTag}`, versionedTag];
 
   console.error('📻 Pulling previous image…');
-  const result = await pullImage(repository, cacheTag);
-  if (!result) {
+  const pullResult = await pullImage(repository, cacheTag);
+  if (!pullResult) {
     console.error('None found. Continuing without cache.');
   }
 
@@ -119,31 +115,21 @@ const cacheTag = 'latest';
 
   console.error();
 
-  let service;
-  let deploymentId;
-  let newTaskDefinitionArn;
-  let oldTaskDefinitionArn;
+  console.error(`🎟 Updating ${environment} service ${serviceName}…`);
 
-  if (environment === 'staging') {
-    const ecsServiceName = `${serviceName}${variant ? `-${variant}` : ''}`;
-    console.error(`🎟 Updating staging service ${ecsServiceName}…`);
+  const ecsServiceName = `${serviceName}${variant ? `-${variant}` : ''}`;
 
-    const result = await updateStagingService(ecsServiceName);
-    console.error();
+  const updateServiceResult = await updateEcsService(
+    environment,
+    ecsServiceName,
+    versionedTag
+  );
+  console.error();
 
-    service = result.service;
-    deploymentId = result.deploymentId;
-  } else {
-    console.error(`🎟 Updating production service ${serviceName}…`);
-
-    const result = await updateProdService(serviceName, versionedTag);
-    console.error();
-
-    service = result.service;
-    deploymentId = result.deploymentId;
-    newTaskDefinitionArn = result.newTaskDefinitionArn;
-    oldTaskDefinitionArn = result.oldTaskDefinitionArn;
-  }
+  const service = updateServiceResult.service;
+  const deploymentId = updateServiceResult.deploymentId;
+  const newTaskDefinitionArn = updateServiceResult.newTaskDefinitionArn;
+  const oldTaskDefinitionArn = updateServiceResult.oldTaskDefinitionArn;
 
   console.error(`⌛️ Waiting for deploy: ${deploymentId}…`);
 
@@ -165,7 +151,7 @@ const cacheTag = 'latest';
       try {
         const rollbackInfo = await updateServiceTaskDefinition(
           environment,
-          serviceName,
+          ecsServiceName,
           oldTaskDefinitionArn
         );
 

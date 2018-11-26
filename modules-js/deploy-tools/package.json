@@ -9,6 +9,7 @@
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "npm run build",
+    "pretest": "tsc --noEmit",
     "test": "jest --passWithNoTests"
   },
   "bin": {
