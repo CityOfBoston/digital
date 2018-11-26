@@ -2,19 +2,14 @@
 
 const fs = require('fs');
 const gulp = require('gulp');
-const ignore = require('gulp-ignore');
-const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const svgSprite = require('gulp-svg-sprite');
 const path = require('path');
 
-const del = require('del');
 const plumber = require('gulp-plumber');
 const pump = require('pump');
 const exec = require('child_process').exec;
-
-const IGNORED_JS_SOURCE = ['**/__mocks__', '**/*.test.js'];
 
 const spriteDirContents = fs.readdirSync(path.join('static', 'sprites'));
 const SPRITE_TASKS = [];
@@ -54,32 +49,6 @@ spriteDirContents.forEach(p => {
 gulp.task('sprite', SPRITE_TASKS);
 gulp.task('watch:sprite', SPRITE_WATCH_TASKS);
 
-gulp.task('clean:build', () => del('build'));
-
-gulp.task('clean:next', () => del('.next'));
-
-gulp.task('babel:server', ['clean:build'], () =>
-  gulp
-    .src('server/**/*.[jt]s')
-    .pipe(plumber())
-    .pipe(ignore.exclude(IGNORED_JS_SOURCE))
-    .pipe(babel())
-    .pipe(gulp.dest('build/server'))
-);
-
-gulp.task('babel:clean', () => del('node_modules/.cache/babel-loader'));
-
-gulp.task('next:compile', ['clean:next'], cb => {
-  exec(
-    `${path.join('node_modules', '.bin', 'next')} build`,
-    (err, stdout, stderr) => {
-      if (stdout) console.log(stdout);
-      if (stderr) console.log(stderr);
-      cb(err);
-    }
-  );
-});
-
 gulp.task('storybook:head', ['templates:fetch'], cb => {
   exec(
     `${path.join(
@@ -114,7 +83,7 @@ gulp.task('vendor', cb => {
   );
 });
 
-gulp.task('templates:fetch', ['babel:clean'], cb => {
+gulp.task('templates:fetch', cb => {
   exec(
     `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
       '.',
@@ -170,10 +139,4 @@ gulp.task('watch:graphql', () => [
   ),
 ]);
 
-gulp.task('build', [
-  'templates:fetch',
-  'babel:server',
-  'next:compile',
-  'vendor',
-]);
 gulp.task('watch', ['watch:graphql', 'watch:sprite']);
