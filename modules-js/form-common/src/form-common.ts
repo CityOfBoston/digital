@@ -17,7 +17,10 @@ export function makeFormData(values: Object): FormData {
     } else if (Array.isArray(v)) {
       v.forEach(el => data.append(k, el));
     } else {
-      data.set(k, v);
+      // FormData#set is technically correct here, but there’s not enough
+      // browser compatibility for it, so use append instead. It shouldn’t
+      // matter because a key in a JS object will only appear once.
+      data.append(k, v);
     }
   });
 
