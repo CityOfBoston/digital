@@ -1,4 +1,3 @@
-// @flow
 /* eslint no-console: 0 */
 
 // Entrypoint for our server. Uses require so we can control import order

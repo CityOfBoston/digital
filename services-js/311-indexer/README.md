@@ -19,20 +19,14 @@ Copy `.env.default` to `.env` and modify any necessary values.
 
  * **Development Server**: `npm run-script dev`
 
-### Code Policies
-
- * ESLint / Prettier styling enforced on commit. Use `npm run-script lint` to
-   auto-fix style when possible.
- * Tests (Jest) and types (Flow) are enforced on push.
-
 ### Elasticsearch
 
  1. Install [Docker](https://www.docker.io/)
  1. Run `npm run-script elasticsearch-start`
- 1. Run `npx babel-node server/scripts/elasticsearch-init.js`
+ 1. Run `npx ts-node server/scripts/elasticsearch-init.ts`
 
 ### Bulk Import
 
-Local: `npx babel-node server/scripts/import-cases.js 20170501 20171016`
+Local: `npx ts-node server/scripts/import-cases.ts 20170501 20171016`
 
 Container Task: `node,./build/server/scripts/import-cases.js,20170501,20171016`

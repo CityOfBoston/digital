@@ -1,27 +1,18 @@
-// @flow
-
 import Rx from 'rxjs';
-
-import type Open311, { DetailedServiceRequest } from '../services/Open311';
-import type {
-  UpdatedCaseNotificationRecord,
-  HydratedCaseRecord,
-} from './types';
-
+import Open311, { DetailedServiceRequest } from '../services/Open311';
+import { UpdatedCaseNotificationRecord, HydratedCaseRecord } from './types';
 import {
   queue,
-  retryWithFallback,
+  retryWithBackoff,
   logQueueLength,
   logNonfatalError,
   logMessage,
 } from './stage-helpers';
 
-type Opbeat = $Exports<'opbeat'>;
-
-type Deps = {
-  open311: Open311,
-  opbeat: Opbeat,
-};
+interface Deps {
+  open311: Open311;
+  opbeat: any;
+}
 
 const handleSingleLoadError = (err: any) => {
   // These first two errors are permanent and should not be retried.
@@ -60,7 +51,7 @@ const handleRetriedLoadError = (id, opbeat, err) => {
     return Rx.Observable.of(null);
   } else {
     opbeat.captureError(err);
-    return Rx.Observable.empty();
+    return Rx.Observable.empty<null>();
   }
 };
 
@@ -75,18 +66,18 @@ export default (parallel: number, { open311, opbeat }: Deps) => (
   updates$.let(
     queue(
       ({ id, replayId }) =>
-        Rx.Observable
-          .defer(() => open311.loadCase(id))
+        Rx.Observable.defer(() => open311.loadCase(id))
           .let(
-            retryWithFallback(5, 2000, {
+            retryWithBackoff(5, 2000, {
               error: handleSingleLoadError,
             })
           )
-          .do((c: ?DetailedServiceRequest) => {
+          .do(c => {
             if (c) {
               logMessage('load-cases', 'Successful case load', {
                 id: c.service_request_id,
                 code: c.service_code,
+                date: c.requested_datetime,
               });
             } else {
               logMessage('load-cases', 'Unsuccessful case load', {
@@ -94,22 +85,26 @@ export default (parallel: number, { open311, opbeat }: Deps) => (
               });
             }
           })
-          .catch(handleRetriedLoadError.bind(null, id, opbeat))
-          .map((c: ?DetailedServiceRequest): HydratedCaseRecord => ({
+          .catch<DetailedServiceRequest | null, null>(
+            handleRetriedLoadError.bind(null, id, opbeat)
+          )
+          .map((c): HydratedCaseRecord => ({
             id,
             case: c,
             replayId,
           })),
+
       {
         length: length => logQueueLength('load-cases', length),
         // Queue error handler to make sure we completely explode on fatal
         // errors. Necessary to cause a restart when auth expires.
         error: err => {
-          if (err.fatal) {
+          if ((err as any).fatal) {
             throw err;
           }
         },
       },
+
       parallel
     )
   );

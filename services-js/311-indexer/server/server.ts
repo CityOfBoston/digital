@@ -1,28 +1,25 @@
-// @flow
 /* eslint no-console: 0 */
-
 import os from 'os';
 import Rx from 'rxjs';
 import cleanup from 'node-cleanup';
 import fetch from 'node-fetch';
 
+import decryptEnv from '@cityofboston/srv-decrypt-env';
+
 import Elasticsearch from './services/Elasticsearch';
-import Salesforce from './services/Salesforce';
+import Salesforce, { DataMessage } from './services/Salesforce';
 import Open311 from './services/Open311';
 import Prediction from './services/Prediction';
-
-import decryptEnv from './lib/decrypt-env';
-
-import convertSalesforceEvents from './stages/convert-salesforce-events';
+import convertSalesforceEvents, {
+  CaseUpdate,
+} from './stages/convert-salesforce-events';
 import loadCases from './stages/load-cases';
 import indexCases from './stages/index-cases';
 import updateClassifier from './stages/update-classifier';
 
-type Opbeat = $Exports<'opbeat'>;
-
-type ServerArgs = {
-  opbeat: Opbeat,
-};
+interface ServerArgs {
+  opbeat: any;
+}
 
 const SIMULTANEOUS_CASE_LOADS = 5;
 
@@ -37,14 +34,16 @@ async function reportDeployToOpbeat(opbeat) {
   ) {
     try {
       const res = await fetch(
-        `https://opbeat.com/api/v1/organizations/${process.env
-          .OPBEAT_ORGANIZATION_ID}/apps/${process.env.OPBEAT_APP_ID}/releases/`,
+        `https://opbeat.com/api/v1/organizations/${
+          process.env.OPBEAT_ORGANIZATION_ID
+        }/apps/${process.env.OPBEAT_APP_ID}/releases/`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             Authorization: `Bearer ${process.env.OPBEAT_SECRET_TOKEN}`,
           },
+
           body: [
             `rev=${process.env.GIT_REVISION}`,
             `branch=${encodeURIComponent(process.env.GIT_BRANCH)}`,
@@ -53,6 +52,7 @@ async function reportDeployToOpbeat(opbeat) {
           ].join('&'),
         }
       );
+
       console.log(
         'Reported deploy to Opbeat:',
         JSON.stringify(await res.json())
@@ -71,8 +71,8 @@ async function reportDeployToOpbeat(opbeat) {
 export default async function startServer({ opbeat }: ServerArgs) {
   reportDeployToOpbeat(opbeat);
 
-  let salesforce: ?Salesforce;
-  let rxjsSubscription: ?Rx.Subscription;
+  let salesforce: Salesforce | undefined;
+  let rxjsSubscription: Rx.Subscription | undefined;
 
   await decryptEnv();
 
@@ -91,6 +91,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
       console.log(
         `----- FORCE EXITING WITH CODE ${exitCode}! NO CLEANUP! -----`
       );
+
       return true;
     } else {
       // keeps us from recursively cleaning up
@@ -136,7 +137,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     opbeat.captureError(err);
   }
 
-  let lastReplayId = null;
+  let lastReplayId: number | null = null;
   try {
     lastReplayId = await elasticsearch.findLatestReplayId();
     console.log(`STARTING FROM REPLAY_ID: ${lastReplayId || 'null'}`);
@@ -157,11 +158,10 @@ export default async function startServer({ opbeat }: ServerArgs) {
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
     process.env.SALESFORCE_CONSUMER_KEY,
-    process.env.SALESFORCE_CONSUMER_SECRET,
-    opbeat
+    process.env.SALESFORCE_CONSUMER_SECRET
   );
 
-  salesforce.on('meta', (msg: Object) => {
+  salesforce.on('meta', msg => {
     console.info(JSON.stringify(msg));
   });
 
@@ -173,8 +173,12 @@ export default async function startServer({ opbeat }: ServerArgs) {
     process.kill(process.pid, 'SIGHUP');
   });
 
-  const loadedBatch$ = Rx.Observable
-    .fromEvent(salesforce, 'event')
+  const loadedBatch$ = Rx.Observable.fromEvent<DataMessage<CaseUpdate>>(
+    // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
+    // are mismatched for the type of the handler functions.
+    salesforce as any,
+    'event'
+  )
     .let(convertSalesforceEvents())
     .let(loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }))
     // multicast the same loaded cases to each of the later pipeline stages.
@@ -183,11 +187,11 @@ export default async function startServer({ opbeat }: ServerArgs) {
   // We merge two streams off of the loaded cases so that indexing and
   // classification happen in parallel. The merging is just so we can control /
   // error out through a single subscription.
-  rxjsSubscription = Rx.Observable
-    .merge(
-      loadedBatch$.let(updateClassifier({ opbeat, prediction })),
-      loadedBatch$.let(indexCases({ opbeat, elasticsearch }))
-    )
+  rxjsSubscription = Rx.Observable.merge(
+    loadedBatch$.let(updateClassifier({ opbeat, prediction })),
+    loadedBatch$.let(indexCases({ opbeat, elasticsearch }))
+  )
+
     // The above stages are supposed to capture and report all errors without
     // ever terminating. If we do accidentally error or complete, report that
     // and kill the process so we restart, rather than dangling without further
@@ -202,6 +206,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
         console.log(
           '----- PROCESSING PIPELINE COMPLETED. THAT SHOULDN’T HAPPEN.  -----'
         );
+
         process.kill(process.pid, 'SIGHUP');
       },
     });

@@ -1,31 +1,28 @@
-// @flow
-
 import Rx from 'rxjs';
-
 import { logMessage } from './stage-helpers';
+import { DataMessage } from '../services/Salesforce';
+import { UpdatedCaseNotificationRecord } from './types';
 
-import type { DataMessage } from '../services/Salesforce';
-import type { UpdatedCaseNotificationRecord } from './types';
+export interface CaseUpdate {
+  Status: string;
+  CaseNumber: string;
+  Id: string;
+  Incap311__Service_Type_Version_Code__c: string;
+}
 
-type CaseUpdate = {|
-  'Status': string,
-  'CaseNumber': string,
-  'Id': string,
-  'Incap311__Service_Type_Version_Code__c': string,
-|};
-
-export default function convertSalesforceEvents(): (
-  Rx.Observable<DataMessage<CaseUpdate>>
-) => Rx.Observable<UpdatedCaseNotificationRecord> {
+export default function convertSalesforceEvents(): ((
+  salesforceEvents$: Rx.Observable<DataMessage<CaseUpdate>>
+) => Rx.Observable<UpdatedCaseNotificationRecord>) {
   return salesforceEvents$ =>
     salesforceEvents$
       .do((msg: DataMessage<CaseUpdate>) =>
         logMessage('batch-salesforce-events', 'Received update event', msg)
       )
+
       // 1s buffer so we can uniquify when Salesforce broadcasts several updates
       // for the same case back-to-back.
       .bufferTime(1000)
-      .mergeMap((msgs: Array<DataMessage<CaseUpdate>>) => {
+      .mergeMap((msgs: DataMessage<CaseUpdate>[]) => {
         const replayIdsByCaseId = {};
 
         // Only store the latest replayId for each case. This has the desired
