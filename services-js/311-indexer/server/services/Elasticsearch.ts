@@ -1,98 +1,86 @@
-// @flow
-
 import AWS from 'aws-sdk';
-import elasticsearch from 'elasticsearch';
+import elasticsearch, {
+  SearchResponse,
+  BulkIndexDocumentsParams,
+} from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
 import _ from 'lodash';
+import { DetailedServiceRequest } from './Open311';
 
-import type { DetailedServiceRequest } from './Open311';
+interface IndexedCase {
+  service_request_id: string;
+  status: string;
+  location: {
+    lat: number;
+    lon: number;
+  } | null;
 
-type IndexedCase = {
-  service_request_id: string,
-  status: string,
-  location: ?{
-    lat: number,
-    lon: number,
-  },
-  address: string,
-  description: string,
-  service_name: string,
-  service_code: string,
-  status_notes: string,
-  requested_datetime: ?string,
-  updated_datetime: ?string,
-  // Must be the array format because Elasticsearch can't do both object and
-  // string for the same field.
-  media_url: ?Array<{|
-    url: string,
-    tags: string[],
-  |}>,
-  // We store the Salesforce replay_id in the record so we can pull the latest
-  // replay_id when we start up, to avoid always processing everything from the
-  // past 24 hours.
-  //
-  // This will be null for bulk-imported cases.
-  replay_id: ?number,
-};
+  address: string;
+  description: string;
+  service_name: string;
+  service_code: string;
+  status_notes: string;
+  requested_datetime: string | undefined;
+  updated_datetime: string | undefined;
 
-type BulkResponse = {
-  took: number,
+  media_url:
+    | Array<{
+        url: string;
+        tags: string[];
+      }>
+    | undefined;
+
+  replay_id: number | null;
+}
+
+interface BulkResponse {
+  took: number;
   items: Array<{
     [action: string]: {
-      _index: string,
-      _type: string,
-      _id: string,
-      _version?: number,
-      status: number,
-      error?: string,
-    },
-  }>,
-  errors: boolean,
-};
+      _index: string;
+      _type: string;
+      _id: string;
+      _version?: number;
+      status: number;
+      error?: string | { type: string; reason: string };
+    };
+  }>;
 
-type SearchResponse<H, A> = {
-  _shards: {
-    total: number,
-    successful: number,
-    failed: number,
-  },
-  hits: {
-    total: number,
-    max_score: number,
-    hits: Array<H>,
-    took: number,
-    timed_out: boolean,
-  },
-  aggregations?: A,
-};
+  errors: boolean;
+}
 
-type MaxReplayAggregations = {
+interface MaxReplayAggregations {
   max_replay_id: {
-    value: ?number,
-  },
-};
+    value: number | undefined;
+  };
+}
 
-function findMediaUrl(c: DetailedServiceRequest) {
-  const mediaUrls = [];
+function findMediaUrl(
+  c: DetailedServiceRequest
+): { url: string; tags: string[] }[] {
+  const mediaUrls: Array<string | { url: string; tags: string[] }[]> = [];
+
   if (c.media_url) {
     mediaUrls.push(c.media_url);
   }
 
   (c.activities || []).forEach(a => {
-    mediaUrls.push(a.media_url);
+    if (a.media_url) {
+      mediaUrls.push(a.media_url);
+    }
   });
 
   const firstMediaUrl = mediaUrls[0];
   return typeof firstMediaUrl === 'string'
-    ? [{ url: firstMediaUrl, tags: [] }]
+    ? [{ url: firstMediaUrl, tags: [] as string[] }]
     : firstMediaUrl;
 }
 
 function convertCaseToDocument(
   c: DetailedServiceRequest,
-  replayId: ?number
+  replayId: number | null
 ): IndexedCase {
-  let location = null;
+  let location: IndexedCase['location'] = null;
 
   // We prefer reported_location since it is not affected by any transformations
   // the Salesforce code does to addresses.
@@ -126,11 +114,11 @@ function convertCaseToDocument(
 }
 
 export default class Elasticsearch {
-  opbeat: any;
-  client: elasticsearch.Client;
-  index: string;
+  private readonly opbeat: any;
+  private readonly client: elasticsearch.Client;
+  private readonly index: string;
 
-  constructor(url: ?string, index: ?string, opbeat: any) {
+  constructor(url: string | undefined, index: string | undefined, opbeat: any) {
     if (!url) {
       throw new Error('Missing Elasticsearch url');
     }
@@ -148,7 +136,7 @@ export default class Elasticsearch {
     this.opbeat = opbeat;
   }
 
-  static configureAws(region: ?string) {
+  public static configureAws(region: string | undefined) {
     if (!region) {
       throw new Error('Missing AWS region');
     }
@@ -156,32 +144,34 @@ export default class Elasticsearch {
     AWS.config.update({ region });
   }
 
-  async initIndex(): Promise<void> {
-    const index = await new Promise((resolve, reject) => {
+  public async initIndex(): Promise<void> {
+    const indexExists = await new Promise<boolean>((resolve, reject) => {
       this.client.indices.get(
         {
           index: this.index,
         },
-        (err, resp) => {
+
+        err => {
           if (err) {
             if (err.statusCode === 404) {
-              resolve(null);
+              resolve(false);
             } else {
               reject(err);
             }
           } else {
-            resolve(resp);
+            resolve(true);
           }
         }
       );
     });
 
-    if (index) {
+    if (indexExists) {
       await new Promise((resolve, reject) => {
         this.client.indices.delete(
           {
             index: this.index,
           },
+
           err => {
             if (err) {
               reject(err);
@@ -207,6 +197,7 @@ export default class Elasticsearch {
             },
           },
         },
+
         err => {
           if (err) {
             reject(err);
@@ -218,9 +209,9 @@ export default class Elasticsearch {
     });
   }
 
-  info(): Promise<string> {
+  public info(): Promise<string> {
     return new Promise((resolve, reject) => {
-      this.client.info((err, info) => {
+      this.client.info({}, (err, info) => {
         if (err) {
           reject(err);
         } else {
@@ -230,16 +221,13 @@ export default class Elasticsearch {
     });
   }
 
-  async findLatestReplayId(): Promise<?number> {
+  public async findLatestReplayId(): Promise<number | null> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('search-replay-id', 'Elasticsearch');
 
     try {
-      const res: SearchResponse<
-        *,
-        MaxReplayAggregations
-      > = await this.client.search({
+      const res: SearchResponse<unknown> = await this.client.search({
         index: this.index,
         type: 'case',
         body: {
@@ -250,7 +238,11 @@ export default class Elasticsearch {
         },
       });
 
-      return res.aggregations && res.aggregations.max_replay_id.value;
+      return (
+        (res.aggregations &&
+          (res.aggregations as MaxReplayAggregations).max_replay_id.value) ||
+        null
+      );
     } finally {
       if (transaction) {
         transaction.end();
@@ -258,12 +250,12 @@ export default class Elasticsearch {
     }
   }
 
-  async createCases(
-    cases: Array<{|
-      id: string,
-      case: ?DetailedServiceRequest,
-      replayId: ?number,
-    |}>
+  public async createCases(
+    cases: Array<{
+      id: string;
+      case: DetailedServiceRequest | null;
+      replayId: number | null;
+    }>
   ): Promise<BulkResponse> {
     if (cases.length === 0) {
       return {
@@ -276,7 +268,7 @@ export default class Elasticsearch {
     const transaction =
       this.opbeat && this.opbeat.startTransaction('bulk', 'Elasticsearch');
 
-    const actions = [];
+    const actions: BulkIndexDocumentsParams['body'] = [];
 
     cases.forEach(({ id, case: c, replayId }) => {
       if (c) {

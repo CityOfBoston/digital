@@ -1,8 +1,5 @@
-// @flow
 /* eslint no-console: 0 */
-
 import dotenv from 'dotenv';
-
 import Elasticsearch from '../services/Elasticsearch';
 
 dotenv.config();
@@ -17,7 +14,8 @@ dotenv.config();
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX
+    process.env.ELASTICSEARCH_INDEX,
+    null
   );
 
   await elasticsearch.initIndex();

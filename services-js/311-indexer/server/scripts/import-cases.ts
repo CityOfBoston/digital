@@ -1,19 +1,17 @@
-// @flow
 /* eslint no-console: 0 */
 
 import dotenv from 'dotenv';
 import moment from 'moment';
-
-import decryptEnv from '../lib/decrypt-env';
-import loadCases from '../stages/load-cases';
-import type { HydratedCaseRecord } from '../stages/types';
-import { retryWithFallback } from '../stages/stage-helpers';
-
-import Elasticsearch from '../services/Elasticsearch';
-import Open311, { type Case } from '../services/Open311';
-import Salesforce from '../services/Salesforce';
-
 import { BehaviorSubject, Observable } from 'rxjs';
+
+import decryptEnv from '@cityofboston/srv-decrypt-env';
+
+import loadCases from '../stages/load-cases';
+import { HydratedCaseRecord } from '../stages/types';
+import { retryWithBackoff } from '../stages/stage-helpers';
+import Elasticsearch from '../services/Elasticsearch';
+import Open311, { Case } from '../services/Open311';
+import Salesforce from '../services/Salesforce';
 
 dotenv.config();
 const opbeat = require('opbeat/start');
@@ -41,8 +39,7 @@ let caseCount = 0;
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
     process.env.SALESFORCE_CONSUMER_KEY,
-    process.env.SALESFORCE_CONSUMER_SECRET,
-    opbeat
+    process.env.SALESFORCE_CONSUMER_SECRET
   );
 
   const oauthSessionId = await salesforce.authenticate(
@@ -80,7 +77,7 @@ let caseCount = 0;
           open311.searchCases(startDateMoment.toDate(), endDate)
         )
         .let(
-          retryWithFallback(5, 2000, {
+          retryWithBackoff(5, 2000, {
             error: err => {
               console.log(`- error loading cases through ${endDate}`);
               opbeat.captureError(err);
@@ -90,20 +87,26 @@ let caseCount = 0;
     )
     .do(cases => {
       caseCount += cases.length;
-      console.log(` - found ${cases.length} cases`);
+      const casesDateString =
+        cases.length > 1
+          ? ` from ${cases[0].requested_datetime} to ${
+              cases[cases.length - 1].requested_datetime
+            }`
+          : '';
+      console.log(` - found ${cases.length} cases${casesDateString}`);
     })
     // completes the stream when we make a fetch that has no cases
     .takeWhile(cases => cases.length > 0)
     .mergeMap(
-      (cases: Array<Case>) =>
+      (cases: Case[]) =>
         Observable.from(cases)
           .map(c => ({ id: c.service_request_id, replayId: null }))
           // Reload from the individual endpoint for consistency with the frontend.
           .let(loadCases(10, { opbeat, open311 }))
           .toArray()
-          .mergeMap((recordArr: Array<HydratedCaseRecord>) =>
+          .mergeMap((recordArr: HydratedCaseRecord[]) =>
             Observable.defer(() => elasticsearch.createCases(recordArr)).let(
-              retryWithFallback(5, 2000, {
+              retryWithBackoff(5, 2000, {
                 error: err => {
                   console.log(`- error indexing cases`);
                   opbeat.captureError(err);
@@ -111,6 +114,7 @@ let caseCount = 0;
               })
             )
           ),
+
       // We ignore the output of the indexing and push the original case list
       // through the rest of the stream.
       cases => cases
@@ -121,6 +125,9 @@ let caseCount = 0;
         // The endpoint does not treat endDate as exclusive, so we subtract 1
         // second to simulate that. Otherwise we can get trapped in a loop
         // loading the same case over and over.
+        //
+        // (This may mean that we skip cases that happen on the same second if
+        // they happen to be in separate batches of 50 requests.)
         .utc(cases[cases.length - 1].requested_datetime)
         .subtract(1, 'second')
         .toDate()
@@ -128,7 +135,7 @@ let caseCount = 0;
     .subscribe(endDateObserver);
 
   return new Promise((resolve, reject) => {
-    endDateObserver.subscribe(null, reject, resolve);
+    endDateObserver.subscribe(() => {}, reject, resolve);
   });
 })()
   .then(() => {

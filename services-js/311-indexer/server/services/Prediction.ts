@@ -1,16 +1,14 @@
-// @flow
 import fetch from 'node-fetch';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
-
-import type { DetailedServiceRequest } from './Open311';
+import { DetailedServiceRequest } from './Open311';
 
 export default class Prediction {
-  agent: any;
-  endpoint: string;
-  opbeat: any;
+  private readonly agent: any;
+  private readonly endpoint: string;
+  private readonly opbeat: any;
 
-  constructor(endpoint: ?string, opbeat: any) {
+  constructor(endpoint: string | undefined, opbeat: any) {
     if (!endpoint) {
       throw new Error('Missing prediction endpoint');
     }
@@ -23,11 +21,13 @@ export default class Prediction {
     }
   }
 
-  url(path: string): string {
+  public url(path: string): string {
     return url.resolve(this.endpoint, path);
   }
 
-  async reportCaseUpdate(c: DetailedServiceRequest): Promise<?string> {
+  public async reportCaseUpdate(
+    c: DetailedServiceRequest
+  ): Promise<string | undefined> {
     const transaction =
       this.opbeat &&
       this.opbeat.startTransaction('update_case_request', 'Prediction');

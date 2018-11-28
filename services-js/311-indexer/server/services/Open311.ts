@@ -1,101 +1,102 @@
-// @flow
-
 import fetch from 'node-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
 import moment from 'moment';
+export interface Case {
+  service_request_id: string;
+  status: string;
+  status_notes: string | undefined;
+  service_name: string | undefined;
+  service_code: string;
+  description: string | undefined;
+  agency_responsible: string | undefined;
+  service_notice: string | undefined;
 
-export type Case = {|
-  service_request_id: string,
-  status: string,
-  status_notes: ?string,
-  service_name: ?string,
-  service_code: string,
-  description: ?string,
-  agency_responsible: ?string,
-  service_notice: ?string,
-  // 2017-02-21T22:18:27.000Z
-  requested_datetime: ?string,
-  updated_datetime: ?string,
-  expected_datetime: ?string,
-  address: ?string,
-  address_id: ?string,
-  zipcode: ?string,
-  lat: ?number,
-  long: ?number,
-  media_url: ?string,
-|};
+  requested_datetime: string | undefined;
+  updated_datetime: string | undefined;
+  expected_datetime: string | undefined;
+  address: string | undefined;
+  address_id: string | undefined;
+  zipcode: string | undefined;
+  lat: number | undefined;
+  long: number | undefined;
+  media_url: string | undefined;
+}
+export interface DetailedServiceRequest {
+  id: string;
+  service_request_id: string;
+  status: string;
+  long: number | undefined;
+  lat: number | undefined;
 
-export type DetailedServiceRequest = {|
-  id: string,
-  service_request_id: string,
-  status: string,
-  long: ?number,
-  lat: ?number,
-  // Yes this can be an array or a string, depending on whether or not the case
-  // was imported.
   media_url:
-    | ?Array<{|
-        url: string,
-        tags: string[],
-      |}>
-    | ?string,
-  service_name: ?string,
-  service_code: string,
-  description: ?string,
-  // 2017-08-16T14:24:02.000Z
-  requested_datetime: ?string,
-  expected_datetime: ?string,
-  updated_datetime: ?string,
-  address: ?string,
-  address_details: ?string,
-  zipcode: ?string,
-  reported_location: ?{
-    address: ?string,
-    address_id: ?string,
-    lat: ?number,
-    long: ?number,
-  },
-  address_id: ?string,
-  agency_responsible: ?string,
-  service_notice: ?string,
-  status_notes: ?string,
-  service_notice: ?string,
-  duplicate_parent_service_request_id: ?string,
-  parent_service_request_id: ?string,
-  origin: ?string,
-  source: ?string,
-  priority: string,
-  service_level_agreement: Object,
-  owner: Object,
-  contact: {
-    first_name: ?string,
-    last_name: ?string,
-    phone: ?string,
-    email: ?string,
-  },
-  closure_details: {
-    reason: ?string,
-    comment: ?string,
-  },
-  activities: Array<ServiceRequestActivity>,
-  attributes: Array<Object>,
-  events: Array<Object>,
-|};
+    | Array<{
+        url: string;
+        tags: string[];
+      }>
+    | undefined
+    | string
+    | undefined;
 
-export type ServiceRequestActivity = {|
-  code: string,
-  order: number,
-  description: ?string,
-  status: 'Complete' | 'Void',
-  // 2017-08-16T14:24:02.000Z
-  completion_date: ?string,
-  media_url?: Array<{|
-    url: string,
-    tags: Array<string>,
-  |}>,
-|};
+  service_name: string | undefined;
+  service_code: string;
+  description: string | undefined;
+
+  requested_datetime: string | undefined;
+  expected_datetime: string | undefined;
+  updated_datetime: string | undefined;
+  address: string | undefined;
+  address_details: string | undefined;
+  zipcode: string | undefined;
+  reported_location:
+    | {
+        address: string | undefined;
+        address_id: string | undefined;
+        lat: number | undefined;
+        long: number | undefined;
+      }
+    | undefined;
+
+  address_id: string | undefined;
+  agency_responsible: string | undefined;
+  service_notice: string | undefined;
+  status_notes: string | undefined;
+  duplicate_parent_service_request_id: string | undefined;
+  parent_service_request_id: string | undefined;
+  origin: string | undefined;
+  source: string | undefined;
+  priority: string;
+  service_level_agreement: any;
+  owner: any;
+  contact: {
+    first_name: string | undefined;
+    last_name: string | undefined;
+    phone: string | undefined;
+    email: string | undefined;
+  };
+
+  closure_details: {
+    reason: string | undefined;
+    comment: string | undefined;
+  };
+
+  activities: ServiceRequestActivity[];
+  attributes: any[];
+  events: any[];
+}
+export interface ServiceRequestActivity {
+  code: string;
+  order: number;
+  description: string | undefined;
+  status: 'Complete' | 'Void';
+
+  completion_date: string | undefined;
+  media_url?: Array<{
+    url: string;
+    tags: string[];
+  }>;
+}
 
 async function processResponse(res): Promise<any> {
   if (res.status === 404) {
@@ -128,13 +129,17 @@ async function processResponse(res): Promise<any> {
  * Documentation: https://bos311.api-docs.io/
  */
 export default class Open311 {
-  agent: any;
-  opbeat: any;
-  endpoint: string;
-  apiKey: ?string;
-  oauthSessionId: ?string;
+  private readonly agent: any;
+  private readonly opbeat: any;
+  private readonly endpoint: string;
+  private readonly apiKey: string | undefined;
+  public oauthSessionId: string | null = null;
 
-  constructor(endpoint: ?string, apiKey: ?string, opbeat: any) {
+  constructor(
+    endpoint: string | undefined,
+    apiKey: string | undefined,
+    opbeat: any
+  ) {
     if (!endpoint) {
       throw new Error('Must specify an Open311 endpoint');
     }
@@ -144,19 +149,17 @@ export default class Open311 {
 
     this.opbeat = opbeat;
 
-    this.oauthSessionId = null;
-
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
     }
   }
 
-  url(path: string) {
+  public url(path: string) {
     return url.resolve(this.endpoint, path);
   }
 
-  requestHeaders() {
-    const headers = {};
+  public requestHeaders() {
+    const headers: { [header: string]: string } = {};
 
     if (this.oauthSessionId) {
       // We don't bother tracking if this 401s and we fail, since we assume that
@@ -168,7 +171,7 @@ export default class Open311 {
     return headers;
   }
 
-  async searchCases(startDate?: Date, endDate?: Date): Promise<Array<Case>> {
+  public async searchCases(startDate?: Date, endDate?: Date): Promise<Case[]> {
     const transaction = this.opbeat.startTransaction('searchCases', 'Open311');
 
     const params = new URLSearchParams();
@@ -200,7 +203,15 @@ export default class Open311 {
     );
 
     // the endpoint returns the request in an array
-    const caseArr: Case[] = await processResponse(response);
+    let caseArr: Case[];
+
+    try {
+      caseArr = await processResponse(response);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(`Error with search params: ${params.toString()}`);
+      throw e;
+    }
 
     if (transaction) {
       transaction.end();
@@ -209,7 +220,7 @@ export default class Open311 {
     return caseArr;
   }
 
-  async loadCases(ids: Array<string>): Promise<Array<?Case>> {
+  public async loadCases(ids: string[]): Promise<Array<Case | undefined>> {
     const transaction = this.opbeat.startTransaction(
       'bulk-requests',
       'Open311'
@@ -246,7 +257,7 @@ export default class Open311 {
     return ids.map(id => casesById[id]);
   }
 
-  async loadCase(id: string): Promise<?DetailedServiceRequest> {
+  public async loadCase(id: string): Promise<DetailedServiceRequest | null> {
     const { opbeat } = this;
 
     const params = new URLSearchParams();
@@ -267,7 +278,7 @@ export default class Open311 {
 
       // For whatever reason, looking up a single request ID still returns
       // an array.
-      const requestArr: Array<?DetailedServiceRequest> = await processResponse(
+      const requestArr: Array<DetailedServiceRequest | null> = await processResponse(
         response
       );
 
