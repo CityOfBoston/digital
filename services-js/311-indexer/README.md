@@ -25,6 +25,10 @@ Copy `.env.default` to `.env` and modify any necessary values.
  1. Run `npm run-script elasticsearch-start`
  1. Run `npx ts-node server/scripts/elasticsearch-init.ts`
 
+### Debugging
+
+ * With Charles: `env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ npm run dev`
+
 ### Bulk Import
 
 Local: `npx ts-node server/scripts/import-cases.ts 20170501 20171016`

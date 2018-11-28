@@ -7,10 +7,15 @@ console.log('----- SERVER STARTUP -----');
 
 require('dotenv').config();
 const opbeat = require('opbeat/start');
+const HttpsProxyAgent = require('https-proxy-agent');
 
 // This monkeypatches the environment to add window and an XMLHttpRequest
 // implementation.
-require('cometd-nodejs-client').adapt();
+require('./vendor/cometd-nodejs-client').adapt(
+  process.env.http_proxy
+    ? () => new HttpsProxyAgent(process.env.http_proxy)
+    : undefined
+);
 
 // The above 'adapt' creates a window object because the cometd JS library
 // assumes a browser environment. But, the RxJS library prefers "window" as its
