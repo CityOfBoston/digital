@@ -3,11 +3,14 @@ import React from 'react';
 import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
+import { YesNoUnknownAnswer } from '../QuestionsFlow';
+
 interface Props {
   forSelf: boolean | null;
   firstName: string;
+  currentValue: YesNoUnknownAnswer;
 
-  handleChange: (event) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleStepBack: () => void;
 }
 
@@ -25,6 +28,7 @@ export default function ParentsMarried(props: Props): JSX.Element {
 
           <YesNoUnsureComponent
             questionName="parentsMarried"
+            questionValue={props.currentValue}
             handleChange={props.handleChange}
           />
         </FieldsetComponent>

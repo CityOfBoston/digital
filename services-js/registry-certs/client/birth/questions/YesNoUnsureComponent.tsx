@@ -6,8 +6,9 @@ import { CLEAR_LIST_STYLING, RADIOGROUP_STYLING } from './styling';
 
 interface Props {
   questionName: Question;
+  questionValue: YesNoUnknownAnswer;
 
-  handleChange: (event) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function YesNoUnsureComponent(props: Props): JSX.Element {
@@ -19,7 +20,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
           name={props.questionName}
           id={value}
           value={value}
-          checked={props.questionName === value}
+          checked={props.questionValue === value}
           onChange={props.handleChange}
         />
         <label htmlFor={value}>{text}</label>

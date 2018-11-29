@@ -12,7 +12,7 @@ import { RADIOGROUP_UNBORDERED_STYLING } from './styling';
 interface Props {
   howRelated: Relation;
 
-  handleChange: (event) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleStepBack: () => void;
 }
 

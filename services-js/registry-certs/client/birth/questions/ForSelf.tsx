@@ -5,7 +5,7 @@ import FieldsetComponent from './FieldsetComponent';
 import { RADIOGROUP_STYLING } from './styling';
 
 interface Props {
-  handleChange: (event) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function ForSelf(props: Props): JSX.Element {

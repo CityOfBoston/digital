@@ -33,9 +33,9 @@ export type Relation =
   | 'attorney'
   | 'guardian'
   | 'other'
-  | string;
+  | '';
 
-export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | string;
+export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
 
 export interface RequestInformation {
   forSelf: boolean | null;
@@ -105,11 +105,9 @@ export default class QuestionsFlow extends React.Component<Props, State> {
 
   // this.state.answeredQuestions is an ordered record of the questions asked.
   private addToAnsweredQuestions(newQuestion: Question): void {
-    const { answeredQuestions } = this.state;
+    const answeredQuestions = this.state.answeredQuestions;
 
-    answeredQuestions.push(newQuestion);
-
-    this.setState({ answeredQuestions });
+    this.setState({ answeredQuestions: [...answeredQuestions, newQuestion] });
   }
 
   // Add question to answeredQuestions, then move to next question.
@@ -182,7 +180,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   private handleHowRelated = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    this.setState({ howRelated: event.target.value });
+    this.setState({ howRelated: event.target.value as Relation });
 
     this.proceedToNextQuestion('howRelated', 'bornInBoston');
   };
@@ -192,7 +190,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   private handleBornInBoston = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const value: YesNoUnknownAnswer = event.target.value;
+    const value = event.target.value as YesNoUnknownAnswer;
 
     this.setState({ bornInBoston: value });
 
@@ -209,7 +207,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   private handleParentsLivedInBoston = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const value: YesNoUnknownAnswer = event.target.value;
+    const value = event.target.value as YesNoUnknownAnswer;
 
     this.setState({ parentsLivedInBoston: value });
 
@@ -232,7 +230,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   private handleParentsMarried = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    this.setState({ parentsMarried: event.target.value });
+    this.setState({ parentsMarried: event.target.value as YesNoUnknownAnswer });
 
     this.proceedToNextQuestion('parentsMarried', 'parentsNames');
   };
@@ -271,6 +269,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
             {this.state.activeQuestion === 'bornInBoston' && (
               <BornInBoston
                 forSelf={this.state.forSelf}
+                currentValue={this.state.bornInBoston}
                 handleChange={this.handleBornInBoston}
                 handleStepBack={this.stepBackOneQuestion}
               />
@@ -279,6 +278,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
             {this.state.activeQuestion === 'parentsLivedInBoston' && (
               <ParentsLivedInBoston
                 forSelf={this.state.forSelf}
+                currentValue={this.state.parentsLivedInBoston || ''}
                 handleChange={this.handleParentsLivedInBoston}
                 handleStepBack={this.stepBackOneQuestion}
               />
@@ -306,6 +306,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
               <ParentsMarried
                 forSelf={this.state.forSelf}
                 firstName={this.state.firstName}
+                currentValue={this.state.parentsMarried}
                 handleChange={this.handleParentsMarried}
                 handleStepBack={this.stepBackOneQuestion}
               />

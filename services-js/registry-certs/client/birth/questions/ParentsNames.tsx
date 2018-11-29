@@ -12,7 +12,7 @@ interface Props {
   parentsMarried: YesNoUnknownAnswer;
   firstName: string;
 
-  handleTextInput: (event) => void;
+  handleTextInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleProceed: () => void;
   handleStepBack: () => void;
 }
