@@ -7,6 +7,8 @@ import { observer } from 'mobx-react';
 
 import PageLayout from '../../PageLayout';
 
+import { BreadcrumbNavLinks } from '../breadcrumbs';
+
 import {
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
@@ -102,7 +104,7 @@ export default class ReviewContent extends React.Component<Props, State> {
       (cart.containsPending && !acceptPendingCertificates);
 
     return (
-      <PageLayout>
+      <PageLayout breadcrumbNav={BreadcrumbNavLinks}>
         <div className="b-c b-c--hsm b-c--nbp">
           <Head>
             <title>Boston.gov — Death Certificate Payment</title>

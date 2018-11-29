@@ -7,6 +7,8 @@ import InputMask from 'react-input-mask';
 
 import PageLayout from '../../PageLayout';
 
+import { BreadcrumbNavLinks } from '../breadcrumbs';
+
 import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
@@ -117,7 +119,7 @@ export default class ShippingContent extends React.Component<Props, State> {
     } = order;
 
     return (
-      <PageLayout>
+      <PageLayout breadcrumbNav={BreadcrumbNavLinks}>
         <div className="b-c b-c--hsm">
           <Head>
             <title>Boston.gov — Death Certificates — Checkout</title>

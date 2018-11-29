@@ -5,7 +5,10 @@ import { observer } from 'mobx-react';
 import Link from 'next/link';
 
 import { PageDependencies } from '../../../pages/_app';
+
 import PageLayout from '../../PageLayout';
+
+import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
@@ -31,7 +34,11 @@ class CartPage extends React.Component<Props> {
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
 
     return (
-      <PageLayout showNav cart={deathCertificateCart}>
+      <PageLayout
+        showNav
+        cart={deathCertificateCart}
+        breadcrumbNav={BreadcrumbNavLinks}
+      >
         <div className="b-ff">
           <Head>
             <title>Boston.gov — Death Certificate Cart</title>

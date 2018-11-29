@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { observer } from 'mobx-react';
 
 import PageLayout from '../../PageLayout';
+import { BreadcrumbNavLinks } from '../breadcrumbs';
+
 import Cart from '../../store/DeathCertificateCart';
 
 export interface Props {
@@ -18,7 +20,7 @@ export default class ConfirmationContent extends React.Component<Props> {
     const { orderId, contactEmail, cart } = this.props;
 
     return (
-      <PageLayout showNav cart={cart}>
+      <PageLayout showNav cart={cart} breadcrumbNav={BreadcrumbNavLinks}>
         <div className="b-c">
           <Head>
             <title>Boston.gov — Death Certificate Order Complete</title>

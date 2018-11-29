@@ -12,6 +12,9 @@ import { DeathCertificate } from '../../types';
 import { DEATH_CERTIFICATE_COST_STRING } from '../../../lib/costs';
 
 import PageLayout from '../../PageLayout';
+
+import { BreadcrumbNavLinks } from '../breadcrumbs';
+
 import { serviceFeeDisclosureText } from '../../common/ServiceFeeDisclosure';
 
 interface InitialProps {
@@ -179,7 +182,11 @@ class CertificatePage extends React.Component<Props, State> {
       : null;
 
     return (
-      <PageLayout showNav cart={deathCertificateCart}>
+      <PageLayout
+        showNav
+        cart={deathCertificateCart}
+        breadcrumbNav={BreadcrumbNavLinks}
+      >
         <div className="b-ff">
           <Head>
             <title>

@@ -5,6 +5,7 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import PageLayout from '../../PageLayout';
+import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
@@ -209,7 +210,7 @@ export default class PaymentContent extends React.Component<Props, State> {
     } = order;
 
     return (
-      <PageLayout>
+      <PageLayout breadcrumbNav={BreadcrumbNavLinks}>
         <div className="b-c b-c--hsm">
           <Head>
             <title>Boston.gov — Death Certificates — Payment</title>
