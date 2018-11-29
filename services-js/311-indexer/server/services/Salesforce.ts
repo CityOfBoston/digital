@@ -1,7 +1,9 @@
+import http from 'http';
 import EventEmitter from 'events';
 import cometd from 'cometd';
 import fetch from 'node-fetch';
 import FormData from 'form-data';
+import HttpsProxyAgent from 'https-proxy-agent';
 
 export interface MetaMessage {
   ext?: { [key: string]: string };
@@ -29,6 +31,7 @@ declare module 'cometd' {
   // Handshake messages can also have an error, which isn’t in the cometd types
   // that are available.
   export interface Message {
+    channel?: string;
     error?: string;
     failure?: {
       reason: string;
@@ -38,6 +41,7 @@ declare module 'cometd' {
 }
 
 export default class Salesforce extends EventEmitter {
+  private readonly agent: http.Agent | null = null;
   private readonly url: string;
   private readonly pushTopic: string;
   private readonly consumerKey: string;
@@ -73,6 +77,10 @@ export default class Salesforce extends EventEmitter {
     this.pushTopic = pushTopic;
     this.consumerKey = consumerKey;
     this.consumerSecret = consumerSecret;
+
+    if (process.env.http_proxy) {
+      this.agent = new HttpsProxyAgent(process.env.http_proxy);
+    }
   }
 
   public async authenticate(
@@ -96,7 +104,11 @@ export default class Salesforce extends EventEmitter {
     body.append('username', username);
     body.append('password', `${password}${securityToken || ''}`);
 
-    const res = await fetch(oauthUrl, { method: 'POST', body });
+    const res = await fetch(oauthUrl, {
+      method: 'POST',
+      body,
+      agent: this.agent ? this.agent : undefined,
+    });
     const json = await res.json();
 
     if (!res.ok) {
@@ -136,6 +148,10 @@ export default class Salesforce extends EventEmitter {
 
     this.cometd.addListener('/meta/*', msg => {
       this.emit('meta', msg);
+
+      if (msg.successful === false) {
+        this.emit('error', new Error(msg.error || 'Unsuccessful meta message'));
+      }
     });
 
     this.cometd.handshake(this.handleHandshake);
@@ -167,7 +183,8 @@ export default class Salesforce extends EventEmitter {
       }
     });
   }
-  public readonly handleHandshake = (handshakeMsg: cometd.Message) => {
+
+  private readonly handleHandshake = (handshakeMsg: cometd.Message) => {
     const { cometd } = this;
     if (!cometd) {
       return;
@@ -219,7 +236,8 @@ export default class Salesforce extends EventEmitter {
       );
     }
   };
-  public readonly handleEvent = (msg: DataMessage<any>) => {
+
+  private readonly handleEvent = (msg: DataMessage<any>) => {
     this.emit('event', msg);
     this.lastReplayId = msg.data.event.replayId;
   };

@@ -5922,9 +5922,10 @@ cometd-nodejs-client@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/cometd-nodejs-client/-/cometd-nodejs-client-1.0.2.tgz#eb04cfa953a508257487f4800a725a5cd735fe27"
 
-cometd@^3.1.2:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/cometd/-/cometd-3.1.4.tgz#a379d7c1067cbf7aa6b513f22c2bc5e83467fda0"
+cometd@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cometd/-/cometd-3.1.5.tgz#104d5a39932375704df37d83dbd6eb2b2f34defa"
+  integrity sha512-PCx8hWFOO0tw+lDm/yKQ+RiqLNCw9QWnmO+Ji3VPVKk1zMUIHbnIo4MaiDYobKR1Z/kvgOkxi7q4x8rngjoCoQ==
 
 commander@2.11.x:
   version "2.11.0"

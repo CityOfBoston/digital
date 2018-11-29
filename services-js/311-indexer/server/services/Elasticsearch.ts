@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import HttpsProxyAgent from 'https-proxy-agent';
 import elasticsearch, {
   SearchResponse,
   BulkIndexDocumentsParams,
@@ -130,6 +131,9 @@ export default class Elasticsearch {
     this.client = new elasticsearch.Client({
       host: url,
       connectionClass: url.endsWith('.amazonaws.com') ? HttpAwsEs : undefined,
+      createNodeAgent: process.env.http_proxy
+        ? () => new HttpsProxyAgent(process.env.http_proxy)
+        : undefined,
     });
 
     this.index = index;

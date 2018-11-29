@@ -165,20 +165,29 @@ export default async function startServer({ opbeat }: ServerArgs) {
     console.info(JSON.stringify(msg));
   });
 
-  salesforce.on('error', (err: Error) => {
-    // This may happen if your session expires. Rather than try to re-auth, just exit
-    // and let the container agent restart us.
-    console.log('----- SALESFORCE CONNECTION ERROR -----');
-    opbeat.captureError(err);
-    process.kill(process.pid, 'SIGHUP');
-  });
-
-  const loadedBatch$ = Rx.Observable.fromEvent<DataMessage<CaseUpdate>>(
+  const salesforceEvent$ = Rx.Observable.fromEvent<DataMessage<CaseUpdate>>(
     // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
     // are mismatched for the type of the handler functions.
     salesforce as any,
     'event'
-  )
+  );
+
+  const salesforceError$ = Rx.Observable.fromEvent<Error>(
+    // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
+    // are mismatched for the type of the handler functions.
+    salesforce as any,
+    'error'
+  ).do(err => {
+    console.log('----- SALESFORCE CONNECTION ERROR -----');
+    opbeat.captureError(err);
+    console.error(err);
+  });
+
+  const loadedBatch$ = salesforceEvent$
+    // This causes the first Salesforce error to complete the stream. The rest
+    // of the pipeline will finish processing, then the complete handler below
+    // will exit.
+    .takeUntil(salesforceError$)
     .let(convertSalesforceEvents())
     .let(loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }))
     // multicast the same loaded cases to each of the later pipeline stages.
@@ -204,7 +213,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
       },
       complete: () => {
         console.log(
-          '----- PROCESSING PIPELINE COMPLETED. THAT SHOULDN’T HAPPEN.  -----'
+          '----- PROCESSING PIPELINE COMPLETED, LIKELY DUE TO SALESFORCE ERROR  -----'
         );
 
         process.kill(process.pid, 'SIGHUP');
