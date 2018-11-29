@@ -1,4 +1,4 @@
-// vendored 11/28/19 by Fin Hopkins from https://github.com/cometd/cometd-nodejs-client
+// vendored 11/28/18 by Fin Hopkins from https://github.com/cometd/cometd-nodejs-client
 // under the terms of the Apache license.
 //
 // Modified to add the "makeAgent" function that allows for an HTTP proxy.
