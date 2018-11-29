@@ -1,5 +1,13 @@
 /* eslint no-console: 0 */
-import Rx from 'rxjs';
+import * as Rx from 'rxjs';
+import {
+  catchError,
+  retryWhen,
+  scan,
+  switchMap,
+  tap,
+  mergeMap,
+} from 'rxjs/operators';
 
 export function logMessage(stage: string, message: string, data: {}) {
   console.log(
@@ -40,9 +48,6 @@ interface ErrorStreamSummary {
 }
 
 /**
- * Use with let to insert a retry with exponential backoff in an observable
- * chain.
- *
  * Your stream should do its retryable work on subscription (such as with
  * `defer`), so that `retry`’s re-subscription behavior triggers it.
  *
@@ -53,55 +58,57 @@ interface ErrorStreamSummary {
  * @param retryDelay Exponential fallback amount in ms.
  * @param callbacks
  */
-export const retryWithBackoff = (
+export function retryWithBackoff<T>(
   maxRetries: number,
   retryDelay: number,
   callbacks: { error?: ((error: Error) => unknown) } = {}
-) => <T extends any>(retryable$: Rx.Observable<T>): Rx.Observable<T> =>
-  retryable$.retryWhen((error$: Rx.Observable<Error>) =>
-    error$
-      // We use scan to maintain a count of how many errors have already
-      // happened, since retryWhen gives an observable stream of all errors
-      // the original observable threw. We save the lastError so we can report
-      // and throw it.
-      .scan<Error, ErrorStreamSummary>(
-        ({ errorCount }, error) => ({
-          errorCount: errorCount + 1,
-          lastError: error,
-        }),
+): Rx.MonoTypeOperatorFunction<T> {
+  return retryable$ =>
+    retryable$.pipe(
+      retryWhen((error$: Rx.Observable<Error>) =>
+        error$.pipe(
+          // We use scan to maintain a count of how many errors have already
+          // happened, since retryWhen gives an observable stream of all errors
+          // the original observable threw. We save the lastError so we can report
+          // and throw it.
+          scan<Error, ErrorStreamSummary>(
+            ({ errorCount }, error) => ({
+              errorCount: errorCount + 1,
+              lastError: error,
+            }),
 
-        {
-          errorCount: 0,
-          lastError: null,
-        }
+            {
+              errorCount: 0,
+              lastError: null,
+            }
+          ),
+          switchMap(({ errorCount, lastError }) => {
+            if (errorCount > maxRetries) {
+              // We’ve hit our max retries. This merges into switchMap and causes it
+              // to error, which makes retryWhen error.
+              return Rx.throwError(lastError);
+            } else {
+              // Lets us report transient errors to the stage, even though they're
+              // being retried.
+              if (callbacks.error && lastError) {
+                callbacks.error(lastError);
+              }
+
+              // If the notifier observable we’re returning emits any actual value,
+              // retryWhen will re-subscribe to its input and we’ll get a retry.
+              // timer will emit a 0 after the delay. We square errorCount to get an
+              // exponential backoff.
+              return Rx.timer(retryDelay * (2 ^ (errorCount - 1)));
+            }
+          })
+        )
       )
-      .switchMap(({ errorCount, lastError }) => {
-        if (errorCount > maxRetries) {
-          // We’ve hit our max retries. This merges into switchMap and causes it
-          // to error, which makes retryWhen error.
-          return Rx.Observable.throw(lastError);
-        } else {
-          // Lets us report transient errors to the stage, even though they're
-          // being retried.
-          if (callbacks.error && lastError) {
-            callbacks.error(lastError);
-          }
-
-          // If the notifier observable we’re returning emits any actual value,
-          // retryWhen will re-subscribe to its input and we’ll get a retry.
-          // timer will emit a 0 after the delay. We square errorCount to get an
-          // exponential backoff.
-          return Rx.Observable.timer(retryDelay * (2 ^ (errorCount - 1)));
-        }
-      })
-  );
-
+    );
+}
 /**
  * Operator that throttles a stream to handle a fixed number of concurrent
  * operations. Maintains a count of the queue’s length and reports errors
  * without terminating processing.
- *
- * Use Rx.Observable#let to apply this function in an observable stream.
  *
  * @param project Function to operate on the elements of the stream.
  * @param callbacks Functions that get called with updates on the number of
@@ -119,42 +126,42 @@ export function queue<T, U>(
     error?: ((err: Error, inVal: T) => unknown);
   } = {},
   concurrent: number = 1
-): (val$: Rx.Observable<T>) => Rx.Observable<U> {
+): Rx.OperatorFunction<T, U> {
   let queueLength = 0;
 
   return val$ =>
-    val$
+    val$.pipe(
       // This handler will get called on every observed value as fast as they
       // come in, so we use it to keep track of the current queue length in
       // concatMap.
-      .do(_val => {
+      tap(() => {
         queueLength++;
 
         if (callbacks.length) {
           callbacks.length(queueLength);
         }
-      })
+      }),
       // mergeMap queues values (WARNING: it has no limit to its queue, so we
       // have no backpressure) and waits for each observable to complete before
       // running the next one, which effectively pipelines our input operator.
       //
       // defer is used so that we don’t call project until mergeMap actually
       // subscribes.
-      .mergeMap(
+      mergeMap(
         val =>
-          Rx.Observable.defer(() => project(val))
+          Rx.defer(() => project(val)).pipe(
             // We always catch at the end of this chain because errors will bubble
             // back into mergeMap, cancelling any values currently in its queue.
-            .catch<U, U>((error: Error) => {
+            catchError((error: Error) => {
               if (callbacks.error) {
                 callbacks.error(error, val);
               }
 
               // Complete the stream after the error so that we can cleanly
               // decrement the queueLength.
-              return Rx.Observable.empty();
-            })
-            .do({
+              return Rx.empty();
+            }),
+            tap({
               complete: () => {
                 queueLength--;
 
@@ -162,8 +169,10 @@ export function queue<T, U>(
                   callbacks.length(queueLength);
                 }
               },
-            }),
+            })
+          ),
 
         concurrent
-      );
+      )
+    );
 }

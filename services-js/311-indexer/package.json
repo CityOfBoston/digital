@@ -35,7 +35,7 @@
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.0.0",
     "opbeat": "^4.14.2",
-    "rxjs": "^5.5.12",
+    "rxjs": "^6.3.3",
     "url-search-params": "^0.10.0"
   },
   "devDependencies": {

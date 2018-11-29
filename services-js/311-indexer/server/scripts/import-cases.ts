@@ -1,8 +1,18 @@
 /* eslint no-console: 0 */
 
+import Rx, { BehaviorSubject } from 'rxjs';
+
+import {
+  map,
+  takeWhile,
+  tap,
+  toArray,
+  concatMap,
+  mergeMap,
+} from 'rxjs/operators';
+
 import dotenv from 'dotenv';
 import moment from 'moment';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
@@ -66,18 +76,17 @@ let caseCount = 0;
   // stream, so this will loop until it hits one of its takeWhile conditions to
   // complete.
   const endDateObserver = new BehaviorSubject(endDateMoment.toDate());
-
   endDateObserver
-    // completes the stream when we've reached the start date
-    .takeWhile(endDate => startDateMoment.isSameOrBefore(endDate))
-    .do(endDate => console.log(`Fetching cases through ${endDate}…`))
-    .concatMap(endDate =>
-      Observable.of(endDate)
-        .mergeMap(async endDate => ({
-          endDate,
-          cases: await open311.searchCases(startDateMoment.toDate(), endDate),
-        }))
-        .let(
+    .pipe(
+      // completes the stream when we've reached the start date
+      takeWhile(endDate => startDateMoment.isSameOrBefore(endDate)),
+      tap(endDate => console.log(`Fetching cases through ${endDate}…`)),
+      concatMap(endDate =>
+        Rx.of(endDate).pipe(
+          mergeMap(async endDate => ({
+            endDate,
+            cases: await open311.searchCases(startDateMoment.toDate(), endDate),
+          })),
           retryWithBackoff(5, 2000, {
             error: err => {
               console.log(`- error loading cases through ${endDate}`);
@@ -85,64 +94,66 @@ let caseCount = 0;
             },
           })
         )
-    )
-    .do(({ cases }) => {
-      caseCount += cases.length;
-      const casesDateString =
-        cases.length > 1
-          ? ` from ${cases[0].requested_datetime} to ${
-              cases[cases.length - 1].requested_datetime
-            }`
-          : '';
-      console.log(` - found ${cases.length} cases${casesDateString}`);
-    })
-    // completes the stream when we make a fetch that has no cases
-    .takeWhile(({ cases }) => cases.length > 0)
-    .mergeMap(({ endDate, cases }) =>
-      // This "from" fans the single array of cases into a stream of them so we
-      // can hydrate them in parallel with loadCases. The toArray below then
-      // squishes them back into one array so we can index them in bulk.
-      Observable.from(cases)
-        .map(c => ({ id: c.service_request_id, replayId: null }))
-        // Reload from the individual endpoint for consistency with the frontend.
-        .let(loadCases(10, { opbeat, open311 }))
-        .toArray()
-        .mergeMap((recordArr: HydratedCaseRecord[]) =>
-          Observable.defer(() => elasticsearch.createCases(recordArr)).let(
-            retryWithBackoff(5, 2000, {
-              error: err => {
-                console.log(`- error indexing cases`);
-                opbeat.captureError(err);
-              },
-            })
-          )
+      ),
+      tap(({ cases }) => {
+        caseCount += cases.length;
+        const casesDateString =
+          cases.length > 1
+            ? ` from ${cases[0].requested_datetime} to ${
+                cases[cases.length - 1].requested_datetime
+              }`
+            : '';
+        console.log(` - found ${cases.length} cases${casesDateString}`);
+      }),
+      // completes the stream when we make a fetch that has no cases
+      takeWhile(({ cases }) => cases.length > 0),
+      mergeMap(({ endDate, cases }) =>
+        // This "from" fans the single array of cases into a stream of them so we
+        // can hydrate them in parallel with loadCases. The toArray below then
+        // squishes them back into one array so we can index them in bulk.
+        Rx.from(cases).pipe(
+          map(c => ({ id: c.service_request_id, replayId: null })),
+          // Reload from the individual endpoint for consistency with the frontend.
+          loadCases(10, { opbeat, open311 }),
+          toArray(),
+          mergeMap((recordArr: HydratedCaseRecord[]) =>
+            Rx.defer(() => elasticsearch.createCases(recordArr)).pipe(
+              retryWithBackoff(5, 2000, {
+                error: err => {
+                  console.log(`- error indexing cases`);
+                  opbeat.captureError(err);
+                },
+              })
+            )
+          ),
+          map(indexResult => ({ endDate, cases, indexResult }))
         )
-        .map(indexResult => ({ endDate, cases, indexResult }))
-    )
-    .do(() => console.log(' - indexing complete'))
-    .map(({ endDate, cases }) => {
-      // We send the last case’s date out so we know what to loop with again.
-      // This does mean that we’ll load the same case twice, since the API’s
-      // date range is inclusive. We still have to do it, though, because
-      // imported 311 cases only have minute granularity on their timestamps.
-      //
-      // Unless we’re exhaustive about the dates, it would be easy to miss
-      // several from the same minute if they happened to be on different API
-      // pages.
-      const lastCaseDate = moment.utc(
-        cases[cases.length - 1].requested_datetime
-      );
+      ),
+      tap(() => console.log(' - indexing complete')),
+      map(({ endDate, cases }) => {
+        // We send the last case’s date out so we know what to loop with again.
+        // This does mean that we’ll load the same case twice, since the API’s
+        // date range is inclusive. We still have to do it, though, because
+        // imported 311 cases only have minute granularity on their timestamps.
+        //
+        // Unless we’re exhaustive about the dates, it would be easy to miss
+        // several from the same minute if they happened to be on different API
+        // pages.
+        const lastCaseDate = moment.utc(
+          cases[cases.length - 1].requested_datetime
+        );
 
-      // We do check to make sure that we’re not sending the same date out a
-      // second time in a row, as that would lead to an infinite loop. This
-      // means that we will miss if there are more than 50 cases for the same
-      // minute, which we expect (without any evidence) to be rare.
-      if (lastCaseDate.isSame(endDate)) {
-        return lastCaseDate.subtract(1, 'second').toDate();
-      } else {
-        return lastCaseDate.toDate();
-      }
-    })
+        // We do check to make sure that we’re not sending the same date out a
+        // second time in a row, as that would lead to an infinite loop. This
+        // means that we will miss if there are more than 50 cases for the same
+        // minute, which we expect (without any evidence) to be rare.
+        if (lastCaseDate.isSame(endDate)) {
+          return lastCaseDate.subtract(1, 'second').toDate();
+        } else {
+          return lastCaseDate.toDate();
+        }
+      })
+    )
     .subscribe(endDateObserver);
 
   return new Promise((resolve, reject) => {

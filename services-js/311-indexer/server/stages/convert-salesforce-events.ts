@@ -1,4 +1,5 @@
-import Rx from 'rxjs';
+import * as Rx from 'rxjs';
+import { mergeMap, bufferTime, tap } from 'rxjs/operators';
 import { logMessage } from './stage-helpers';
 import { DataMessage } from '../services/Salesforce';
 import { UpdatedCaseNotificationRecord } from './types';
@@ -10,19 +11,20 @@ export interface CaseUpdate {
   Incap311__Service_Type_Version_Code__c: string;
 }
 
-export default function convertSalesforceEvents(): ((
-  salesforceEvents$: Rx.Observable<DataMessage<CaseUpdate>>
-) => Rx.Observable<UpdatedCaseNotificationRecord>) {
+export default function convertSalesforceEvents(): Rx.OperatorFunction<
+  DataMessage<CaseUpdate>,
+  UpdatedCaseNotificationRecord
+> {
   return salesforceEvents$ =>
-    salesforceEvents$
-      .do((msg: DataMessage<CaseUpdate>) =>
+    salesforceEvents$.pipe(
+      tap((msg: DataMessage<CaseUpdate>) =>
         logMessage('batch-salesforce-events', 'Received update event', msg)
-      )
+      ),
 
       // 1s buffer so we can uniquify when Salesforce broadcasts several updates
       // for the same case back-to-back.
-      .bufferTime(1000)
-      .mergeMap((msgs: DataMessage<CaseUpdate>[]) => {
+      bufferTime(1000),
+      mergeMap((msgs: DataMessage<CaseUpdate>[]) => {
         const replayIdsByCaseId = {};
 
         // Only store the latest replayId for each case. This has the desired
@@ -36,11 +38,12 @@ export default function convertSalesforceEvents(): ((
 
         // de-bulk our buffer with from to push the individual records as their
         // own events.
-        return Rx.Observable.from(
+        return Rx.from(
           Object.keys(replayIdsByCaseId).map(id => ({
             id,
             replayId: replayIdsByCaseId[id],
           }))
         );
-      });
+      })
+    );
 }

@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import os from 'os';
-import Rx from 'rxjs';
+import * as Rx from 'rxjs';
+import { tap, takeUntil, share } from 'rxjs/operators';
 import cleanup from 'node-cleanup';
 import fetch from 'node-fetch';
 
@@ -22,6 +23,7 @@ interface ServerArgs {
 }
 
 const SIMULTANEOUS_CASE_LOADS = 5;
+const SIMULTANEOUS_CLASSIFICATIONS = 5;
 
 // https://opbeat.com/docs/api/intake/v1/#release-tracking
 async function reportDeployToOpbeat(opbeat) {
@@ -165,42 +167,46 @@ export default async function startServer({ opbeat }: ServerArgs) {
     console.info(JSON.stringify(msg));
   });
 
-  const salesforceEvent$ = Rx.Observable.fromEvent<DataMessage<CaseUpdate>>(
+  const salesforceEvent$ = Rx.fromEvent<DataMessage<CaseUpdate>>(
     // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
     // are mismatched for the type of the handler functions.
     salesforce as any,
     'event'
   );
 
-  const salesforceError$ = Rx.Observable.fromEvent<Error>(
+  const salesforceError$ = Rx.fromEvent<Error>(
     // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
     // are mismatched for the type of the handler functions.
     salesforce as any,
     'error'
-  ).do(err => {
-    console.log('----- SALESFORCE CONNECTION ERROR -----');
-    opbeat.captureError(err);
-    console.error(err);
-  });
+  ).pipe(
+    tap(err => {
+      console.log('----- SALESFORCE CONNECTION ERROR -----');
+      opbeat.captureError(err);
+      console.error(err);
+    })
+  );
 
-  const loadedBatch$ = salesforceEvent$
+  const loadedBatch$ = salesforceEvent$.pipe(
     // This causes the first Salesforce error to complete the stream. The rest
     // of the pipeline will finish processing, then the complete handler below
     // will exit.
-    .takeUntil(salesforceError$)
-    .let(convertSalesforceEvents())
-    .let(loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }))
+    takeUntil(salesforceError$),
+    convertSalesforceEvents(),
+    loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }),
     // multicast the same loaded cases to each of the later pipeline stages.
-    .share();
+    share()
+  );
 
   // We merge two streams off of the loaded cases so that indexing and
   // classification happen in parallel. The merging is just so we can control /
   // error out through a single subscription.
-  rxjsSubscription = Rx.Observable.merge(
-    loadedBatch$.let(updateClassifier({ opbeat, prediction })),
-    loadedBatch$.let(indexCases({ opbeat, elasticsearch }))
+  rxjsSubscription = Rx.merge(
+    loadedBatch$.pipe(
+      updateClassifier(SIMULTANEOUS_CLASSIFICATIONS, { opbeat, prediction })
+    ),
+    loadedBatch$.pipe(indexCases({ opbeat, elasticsearch }))
   )
-
     // The above stages are supposed to capture and report all errors without
     // ever terminating. If we do accidentally error or complete, report that
     // and kill the process so we restart, rather than dangling without further
