@@ -3,14 +3,15 @@ import React from 'react';
 import { TextInput } from '@cityofboston/react-fleet';
 
 import FieldsetComponent from './FieldsetComponent';
-import { yesNoUnknownAnswer } from '../QuestionsFlow';
+import { YesNoUnknownAnswer } from '../QuestionsFlow';
 
 import { NAME_FIELDS_CONTAINER_STYLING } from './styling';
 
 interface Props {
-  forSelf: boolean;
-  parentsMarried: yesNoUnknownAnswer;
+  forSelf: boolean | null;
+  parentsMarried: YesNoUnknownAnswer;
   firstName: string;
+
   handleTextInput: (event) => void;
   handleProceed: () => void;
   handleStepBack: () => void;

@@ -1,6 +1,6 @@
-import { breadcrumbNav } from '../PageLayout';
+import { BreadcrumbNavigation } from '../PageLayout';
 
-export const breadcrumbNavLinks: breadcrumbNav = {
+export const BreadcrumbNavLinks: BreadcrumbNavigation = {
   parentLinks: [
     {
       url: 'https://www.boston.gov/departments',

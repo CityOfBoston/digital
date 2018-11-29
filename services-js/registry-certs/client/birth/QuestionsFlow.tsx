@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import PageLayout, { breadcrumbNav } from '../PageLayout';
+import PageLayout, { BreadcrumbNavigation } from '../PageLayout';
 
 import ForSelf from './questions/ForSelf';
 import HowRelated from './questions/HowRelated';
@@ -13,7 +13,7 @@ import ParentsMarried from './questions/ParentsMarried';
 import ParentsNames from './questions/ParentsNames';
 import EndFlow from './questions/EndFlow';
 
-export type question =
+export type Question =
   | 'forSelf'
   | 'howRelated'
   | 'bornInBoston'
@@ -24,7 +24,7 @@ export type question =
   | 'parentsNames'
   | 'endFlow';
 
-export type relation =
+export type Relation =
   | 'parent'
   | 'grandparent'
   | 'sibling'
@@ -35,17 +35,17 @@ export type relation =
   | 'other'
   | string;
 
-export type yesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | string;
+export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | string;
 
 export interface RequestInformation {
-  forSelf: boolean;
-  howRelated?: relation;
-  bornInBoston: yesNoUnknownAnswer;
-  parentsLivedInBoston?: yesNoUnknownAnswer;
+  forSelf: boolean | null;
+  howRelated?: Relation;
+  bornInBoston: YesNoUnknownAnswer;
+  parentsLivedInBoston?: YesNoUnknownAnswer;
   firstName: string;
   lastName: string;
   dateOfBirth: string; // todo: store as Date
-  parentsMarried: yesNoUnknownAnswer;
+  parentsMarried: YesNoUnknownAnswer;
   parent1FirstName: string;
   parent1LastName?: string;
   parent2FirstName?: string;
@@ -55,11 +55,11 @@ export interface RequestInformation {
 interface Props {}
 
 interface State extends RequestInformation {
-  activeQuestion: question;
-  answeredQuestions: question[];
+  activeQuestion: Question;
+  answeredQuestions: Question[];
 }
 
-const breadcrumbNavLinks: breadcrumbNav = {
+const breadcrumbNavLinks: BreadcrumbNavigation = {
   parentLinks: [
     {
       url: 'https://www.boston.gov/departments',
@@ -76,10 +76,11 @@ const breadcrumbNavLinks: breadcrumbNav = {
   },
 };
 
-const initialState = {
+// This is also used to reset all fields when user selects “start over”
+export const INITIAL_STATE: State = {
   activeQuestion: 'forSelf',
   answeredQuestions: [],
-  forSelf: '',
+  forSelf: null,
   howRelated: '',
   bornInBoston: '',
   parentsLivedInBoston: '',
@@ -99,18 +100,11 @@ const initialState = {
  *
  * User will progress to checkout upon completion of this workflow.
  */
-
-// todo: sort things out to remove all @ts-ignores
 export default class QuestionsFlow extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    // @ts-ignore
-    this.state = initialState;
-  }
+  state: State = INITIAL_STATE;
 
   // this.state.answeredQuestions is an ordered record of the questions asked.
-  addToAnsweredQuestions(newQuestion: question): void {
+  private addToAnsweredQuestions(newQuestion: Question): void {
     const { answeredQuestions } = this.state;
 
     answeredQuestions.push(newQuestion);
@@ -119,9 +113,9 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   }
 
   // Add question to answeredQuestions, then move to next question.
-  proceedToNextQuestion = (
-    currentQuestion: question,
-    nextQuestion: question
+  private proceedToNextQuestion = (
+    currentQuestion: Question,
+    nextQuestion: Question
   ): void => {
     this.setState({ activeQuestion: nextQuestion });
 
@@ -130,21 +124,11 @@ export default class QuestionsFlow extends React.Component<Props, State> {
 
   // When the user selects “back”, we treat that previous question
   // as unanswered, and return to its screen.
-  stepBackOneQuestion = () => {
-    interface FieldsToClear {
-      firstName?: string;
-      lastName?: string;
-      parent1FirstName?: string;
-      parent1LastName?: string;
-      parent2FirstName?: string;
-      parent2LastName?: string;
-    }
+  private stepBackOneQuestion = () => {
+    const answeredQuestions = [...this.state.answeredQuestions];
+    const prevQuestion = answeredQuestions.pop()!;
 
-    const answeredQuestions: question[] = this.state.answeredQuestions;
-    // @ts-ignore
-    const prevQuestion: question = answeredQuestions.pop();
-
-    const fieldsToClear: FieldsToClear = {};
+    const fieldsToClear: State = {} as any;
 
     // If a question’s answer is made up of multiple fields,
     // we must explicitly list them.
@@ -160,7 +144,6 @@ export default class QuestionsFlow extends React.Component<Props, State> {
       fieldsToClear[prevQuestion] = '';
     }
 
-    // @ts-ignore
     this.setState({
       answeredQuestions,
       activeQuestion: prevQuestion,
@@ -168,42 +151,54 @@ export default class QuestionsFlow extends React.Component<Props, State> {
     });
   };
 
-  handleTextInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    // @ts-ignore
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  // Clear all data and return to initial question.
+  private handleUserReset = (): void => {
+    this.setState({ ...INITIAL_STATE });
   };
 
-  handleForSelf = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = JSON.parse(event.target.value);
+  private handleTextInput = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    } as any);
+  };
 
-    this.setState({ forSelf: value }, () =>
-      this.proceedToNextQuestion(
-        'forSelf',
-        value ? 'bornInBoston' : 'howRelated'
-      )
+  private handleForSelf = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const value = event.target.value === 'true';
+
+    this.setState({ forSelf: value });
+
+    this.proceedToNextQuestion(
+      'forSelf',
+      value ? 'bornInBoston' : 'howRelated'
     );
   };
 
   // This question is only presented if the user is NOT
   // requesting their own record.
-  handleHowRelated = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ howRelated: event.target.value }, () =>
-      this.proceedToNextQuestion('howRelated', 'bornInBoston')
-    );
+  private handleHowRelated = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.setState({ howRelated: event.target.value });
+
+    this.proceedToNextQuestion('howRelated', 'bornInBoston');
   };
 
   // If the user selects NO for bornInBoston, check to see if
   // the parents lived in Boston at the time of birth.
-  handleBornInBoston = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const value: yesNoUnknownAnswer = event.target.value;
+  private handleBornInBoston = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const value: YesNoUnknownAnswer = event.target.value;
 
-    this.setState({ bornInBoston: value }, () =>
-      this.proceedToNextQuestion(
-        'bornInBoston',
-        value === 'yes' ? 'nameOnRecord' : 'parentsLivedInBoston'
-      )
+    this.setState({ bornInBoston: value });
+
+    this.proceedToNextQuestion(
+      'bornInBoston',
+      value === 'yes' ? 'nameOnRecord' : 'parentsLivedInBoston'
     );
   };
 
@@ -211,40 +206,42 @@ export default class QuestionsFlow extends React.Component<Props, State> {
   // If NO for both “born in Boston” and “parents lived in Boston”,
   // exit the workflow and inform the user.
   // If UNKNOWN for either question, proceed to next question.
-  handleParentsLivedInBoston = (
+  private handleParentsLivedInBoston = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const value: yesNoUnknownAnswer = event.target.value;
+    const value: YesNoUnknownAnswer = event.target.value;
 
-    this.setState({ parentsLivedInBoston: value }, () =>
-      this.proceedToNextQuestion(
-        'parentsLivedInBoston',
-        value === 'no' && this.state.bornInBoston === 'no'
-          ? 'endFlow'
-          : 'nameOnRecord'
-      )
+    this.setState({ parentsLivedInBoston: value });
+
+    this.proceedToNextQuestion(
+      'parentsLivedInBoston',
+      value === 'no' && this.state.bornInBoston === 'no'
+        ? 'endFlow'
+        : 'nameOnRecord'
     );
   };
 
-  handleNameOnRecord = (): void => {
+  private handleNameOnRecord = (): void => {
     this.proceedToNextQuestion('nameOnRecord', 'dateOfBirth');
   };
 
-  handleDateOfBirth = (): void => {
+  private handleDateOfBirth = (): void => {
     this.proceedToNextQuestion('dateOfBirth', 'parentsMarried');
   };
 
-  handleParentsMarried = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ parentsMarried: event.target.value }, () =>
-      this.proceedToNextQuestion('parentsMarried', 'parentsNames')
-    );
+  private handleParentsMarried = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.setState({ parentsMarried: event.target.value });
+
+    this.proceedToNextQuestion('parentsMarried', 'parentsNames');
   };
 
-  handleParentsNames = (): void => {
+  private handleParentsNames = (): void => {
     this.proceedToNextQuestion('parentsNames', 'endFlow');
   };
 
-  render() {
+  public render() {
     return (
       <>
         <Head>
@@ -334,6 +331,8 @@ export default class QuestionsFlow extends React.Component<Props, State> {
                 bornInBoston={this.state.bornInBoston}
                 parentsMarried={this.state.parentsMarried}
                 parentsLivedInBoston={this.state.parentsLivedInBoston}
+                handleUserReset={this.handleUserReset}
+                handleStepBack={this.stepBackOneQuestion}
               />
             )}
           </div>

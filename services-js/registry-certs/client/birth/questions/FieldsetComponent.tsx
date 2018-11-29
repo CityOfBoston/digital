@@ -11,6 +11,7 @@ import {
 interface Props {
   handleProceed?: () => void;
   handleStepBack?: () => void;
+
   children: React.ReactNode;
 }
 
@@ -35,6 +36,8 @@ export default function FieldsetComponent(props: Props): JSX.Element {
           </button>
         )}
 
+        {/* TODO: disable this as necessary */}
+        {/* todo: discussion to come whether or not to always include an explicit “next” button for yes/no/unsure questions, rather than the y/n/u selection trigger change to next question */}
         {props.handleProceed && (
           <button type="button" onClick={props.handleProceed} className="btn">
             Next question

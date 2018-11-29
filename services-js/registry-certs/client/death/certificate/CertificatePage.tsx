@@ -13,7 +13,7 @@ import { DEATH_CERTIFICATE_COST_STRING } from '../../../lib/costs';
 
 import PageLayout from '../../PageLayout';
 
-import { breadcrumbNavLinks } from '../breadcrumbs';
+import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import { serviceFeeDisclosureText } from '../../common/ServiceFeeDisclosure';
 
@@ -185,7 +185,7 @@ class CertificatePage extends React.Component<Props, State> {
       <PageLayout
         showNav
         cart={deathCertificateCart}
-        breadcrumbNav={breadcrumbNavLinks}
+        breadcrumbNav={BreadcrumbNavLinks}
       >
         <div className="b-ff">
           <Head>

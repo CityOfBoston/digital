@@ -1,16 +1,17 @@
 import React from 'react';
 
-import { question, yesNoUnknownAnswer } from '../QuestionsFlow';
+import { Question, YesNoUnknownAnswer } from '../QuestionsFlow';
 
 import { CLEAR_LIST_STYLING, RADIOGROUP_STYLING } from './styling';
 
 interface Props {
-  questionName: question;
+  questionName: Question;
+
   handleChange: (event) => void;
 }
 
 export default function YesNoUnsureComponent(props: Props): JSX.Element {
-  function radioItem(value: yesNoUnknownAnswer, text: string): React.ReactNode {
+  function radioItem(value: YesNoUnknownAnswer, text: string): React.ReactNode {
     return (
       <li>
         <input

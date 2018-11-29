@@ -8,24 +8,24 @@ import DeathCertificateCart from './store/DeathCertificateCart';
 
 import Nav from './common/Nav';
 
-type breadcrumbNavLink = {
+type BreadcrumbNavLink = {
   url: string;
   text: string;
 };
 
-export type breadcrumbNav = {
-  parentLinks: breadcrumbNavLink[];
-  currentPage: breadcrumbNavLink;
+export type BreadcrumbNavigation = {
+  parentLinks: BreadcrumbNavLink[];
+  currentPage: BreadcrumbNavLink;
 };
 
 // These props only require a Cart if showNav is true. Discriminated unions FTW.
 type Props =
   | {
-      breadcrumbNav: breadcrumbNav;
+      breadcrumbNav: BreadcrumbNavigation;
       showNav?: false;
     }
   | {
-      breadcrumbNav: breadcrumbNav;
+      breadcrumbNav: BreadcrumbNavigation;
       showNav: true;
       cart: DeathCertificateCart;
     };

@@ -16,7 +16,9 @@ export default function NameOnRecord(props: Props): JSX.Element {
   const handleEnterKeypress = (event): void => {
     const key = event.key || event.keyCode;
 
-    if (key === 'Enter' || key === 13) props.handleProceed();
+    if (key === 'Enter' || key === 13) {
+      props.handleProceed();
+    }
   };
 
   return (

@@ -5,19 +5,20 @@ import { CHARLES_BLUE } from '@cityofboston/react-fleet';
 
 import FieldsetComponent from './FieldsetComponent';
 
-import { relation } from '../QuestionsFlow';
+import { Relation } from '../QuestionsFlow';
 
 import { RADIOGROUP_UNBORDERED_STYLING } from './styling';
 
 interface Props {
-  howRelated: relation;
+  howRelated: Relation;
+
   handleChange: (event) => void;
   handleStepBack: () => void;
 }
 
 export default function HowRelated(props: Props): JSX.Element {
   function question(
-    questionValue: relation,
+    questionValue: Relation,
     questionDisplayText: string
   ): React.ReactNode {
     return (

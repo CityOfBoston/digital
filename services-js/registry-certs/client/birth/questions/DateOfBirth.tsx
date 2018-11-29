@@ -6,8 +6,9 @@ import { TextInput } from '@cityofboston/react-fleet';
 import FieldsetComponent from './FieldsetComponent';
 
 interface Props {
-  forSelf: boolean;
+  forSelf: boolean | null;
   firstName: string;
+
   handleTextInput: (event) => void;
   handleProceed: () => void;
   handleStepBack: () => void;
@@ -17,7 +18,9 @@ export default function DateOfBirth(props: Props): JSX.Element {
   const handleEnterKeypress = (event): void => {
     const key = event.key || event.keyCode;
 
-    if (key === 'Enter' || key === 13) props.handleProceed();
+    if (key === 'Enter' || key === 13) {
+      props.handleProceed();
+    }
   };
 
   return (

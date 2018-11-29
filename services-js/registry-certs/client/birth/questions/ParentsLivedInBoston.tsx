@@ -4,7 +4,8 @@ import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
 interface Props {
-  forSelf: boolean;
+  forSelf: boolean | null;
+
   handleChange: (event) => void;
   handleStepBack: () => void;
 }
