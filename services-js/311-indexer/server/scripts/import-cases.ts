@@ -10,7 +10,7 @@ import loadCases from '../stages/load-cases';
 import { HydratedCaseRecord } from '../stages/types';
 import { retryWithBackoff } from '../stages/stage-helpers';
 import Elasticsearch from '../services/Elasticsearch';
-import Open311, { Case } from '../services/Open311';
+import Open311 from '../services/Open311';
 import Salesforce from '../services/Salesforce';
 
 dotenv.config();
@@ -61,10 +61,10 @@ let caseCount = 0;
   const endDateMoment = moment(process.argv[3], 'YYYYMMDD').endOf('day');
 
   // This stream takes an end date, loads and indexes the 50 most recent cases
-  // from that date, and then outputs a date one second before the earliest
-  // case. We use subscribe at the end to feed that end date back into the start
-  // of the stream, so this will loop until it hits one of its takeWhile
-  // conditions to complete.
+  // from that date, and then outputs the date of the earliest case. We use
+  // subscribe at the end to feed that end date back into the start of the
+  // stream, so this will loop until it hits one of its takeWhile conditions to
+  // complete.
   const endDateObserver = new BehaviorSubject(endDateMoment.toDate());
 
   endDateObserver
@@ -73,9 +73,10 @@ let caseCount = 0;
     .do(endDate => console.log(`Fetching cases through ${endDate}…`))
     .concatMap(endDate =>
       Observable.of(endDate)
-        .mergeMap(endDate =>
-          open311.searchCases(startDateMoment.toDate(), endDate)
-        )
+        .mergeMap(async endDate => ({
+          endDate,
+          cases: await open311.searchCases(startDateMoment.toDate(), endDate),
+        }))
         .let(
           retryWithBackoff(5, 2000, {
             error: err => {
@@ -85,7 +86,7 @@ let caseCount = 0;
           })
         )
     )
-    .do(cases => {
+    .do(({ cases }) => {
       caseCount += cases.length;
       const casesDateString =
         cases.length > 1
@@ -96,42 +97,52 @@ let caseCount = 0;
       console.log(` - found ${cases.length} cases${casesDateString}`);
     })
     // completes the stream when we make a fetch that has no cases
-    .takeWhile(cases => cases.length > 0)
-    .mergeMap(
-      (cases: Case[]) =>
-        Observable.from(cases)
-          .map(c => ({ id: c.service_request_id, replayId: null }))
-          // Reload from the individual endpoint for consistency with the frontend.
-          .let(loadCases(10, { opbeat, open311 }))
-          .toArray()
-          .mergeMap((recordArr: HydratedCaseRecord[]) =>
-            Observable.defer(() => elasticsearch.createCases(recordArr)).let(
-              retryWithBackoff(5, 2000, {
-                error: err => {
-                  console.log(`- error indexing cases`);
-                  opbeat.captureError(err);
-                },
-              })
-            )
-          ),
-
-      // We ignore the output of the indexing and push the original case list
-      // through the rest of the stream.
-      cases => cases
+    .takeWhile(({ cases }) => cases.length > 0)
+    .mergeMap(({ endDate, cases }) =>
+      // This "from" fans the single array of cases into a stream of them so we
+      // can hydrate them in parallel with loadCases. The toArray below then
+      // squishes them back into one array so we can index them in bulk.
+      Observable.from(cases)
+        .map(c => ({ id: c.service_request_id, replayId: null }))
+        // Reload from the individual endpoint for consistency with the frontend.
+        .let(loadCases(10, { opbeat, open311 }))
+        .toArray()
+        .mergeMap((recordArr: HydratedCaseRecord[]) =>
+          Observable.defer(() => elasticsearch.createCases(recordArr)).let(
+            retryWithBackoff(5, 2000, {
+              error: err => {
+                console.log(`- error indexing cases`);
+                opbeat.captureError(err);
+              },
+            })
+          )
+        )
+        .map(indexResult => ({ endDate, cases, indexResult }))
     )
     .do(() => console.log(' - indexing complete'))
-    .map(cases =>
-      moment
-        // The endpoint does not treat endDate as exclusive, so we subtract 1
-        // second to simulate that. Otherwise we can get trapped in a loop
-        // loading the same case over and over.
-        //
-        // (This may mean that we skip cases that happen on the same second if
-        // they happen to be in separate batches of 50 requests.)
-        .utc(cases[cases.length - 1].requested_datetime)
-        .subtract(1, 'second')
-        .toDate()
-    )
+    .map(({ endDate, cases }) => {
+      // We send the last case’s date out so we know what to loop with again.
+      // This does mean that we’ll load the same case twice, since the API’s
+      // date range is inclusive. We still have to do it, though, because
+      // imported 311 cases only have minute granularity on their timestamps.
+      //
+      // Unless we’re exhaustive about the dates, it would be easy to miss
+      // several from the same minute if they happened to be on different API
+      // pages.
+      const lastCaseDate = moment.utc(
+        cases[cases.length - 1].requested_datetime
+      );
+
+      // We do check to make sure that we’re not sending the same date out a
+      // second time in a row, as that would lead to an infinite loop. This
+      // means that we will miss if there are more than 50 cases for the same
+      // minute, which we expect (without any evidence) to be rare.
+      if (lastCaseDate.isSame(endDate)) {
+        return lastCaseDate.subtract(1, 'second').toDate();
+      } else {
+        return lastCaseDate.toDate();
+      }
+    })
     .subscribe(endDateObserver);
 
   return new Promise((resolve, reject) => {
