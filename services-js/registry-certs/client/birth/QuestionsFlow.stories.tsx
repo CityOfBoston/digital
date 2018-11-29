@@ -25,11 +25,13 @@ storiesOf('Birth/QuestionsFlow', module)
     <>
       <BornInBoston
         forSelf={true}
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
       <BornInBoston
         forSelf={false}
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
@@ -39,11 +41,13 @@ storiesOf('Birth/QuestionsFlow', module)
     <>
       <ParentsLivedInBoston
         forSelf={true}
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
       <ParentsLivedInBoston
         forSelf={false}
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
@@ -61,12 +65,14 @@ storiesOf('Birth/QuestionsFlow', module)
       <ParentsMarried
         forSelf={true}
         firstName="Stacy"
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
       <ParentsMarried
         forSelf={false}
         firstName="Stacy"
+        currentValue={''}
         handleChange={() => {}}
         handleStepBack={() => {}}
       />
