@@ -48,6 +48,7 @@ export default class Salesforce extends EventEmitter {
   private readonly consumerSecret: string;
   private lastReplayId: number | null = null;
   private cometd: cometd.CometD | null = null;
+  private failOnMetaUnsuccessful: boolean = false;
 
   constructor(
     url: string | undefined,
@@ -149,11 +150,15 @@ export default class Salesforce extends EventEmitter {
     this.cometd.addListener('/meta/*', msg => {
       this.emit('meta', msg);
 
-      if (msg.successful === false) {
+      // We don't fail meta messages until the subscription has started, because
+      // we special-case subscription errors around replay ID.
+      if (this.failOnMetaUnsuccessful && msg.successful === false) {
         this.emit('error', new Error(msg.error || 'Unsuccessful meta message'));
       }
     });
 
+    // handshake and subscribe will emit errors as necessary
+    this.failOnMetaUnsuccessful = false;
     this.cometd.handshake(this.handleHandshake);
 
     return sessionId;
@@ -205,6 +210,7 @@ export default class Salesforce extends EventEmitter {
         (subscribeMsg: cometd.Message) => {
           if (subscribeMsg.successful) {
             this.emit('subscribed');
+            this.failOnMetaUnsuccessful = true;
           } else if (
             subscribeMsg.error &&
             subscribeMsg.error.includes('replayId') &&
