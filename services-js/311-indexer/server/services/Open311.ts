@@ -178,11 +178,12 @@ export default class Open311 {
     const params = new URLSearchParams();
 
     if (startDate && endDate) {
-      // We need a range of <= 90 days. Since the results are sorted from the
-      // endDate, we just move up the startDate. This will generally be ok for
-      // bulk import, since it shouldn't be the case where there's a 90 day gap
-      // in cases.
-      const ninetyDaysBefore = moment(endDate).subtract(90, 'days');
+      // We need a range of <= 90 days. We use 88 to give us lots of slop around
+      // leap days and daylight savings changes. Since the results are sorted
+      // from the endDate, we just move up the startDate. This will generally be
+      // ok for bulk import, since it shouldn't be the case where there's a 88
+      // day gap in cases.
+      const ninetyDaysBefore = moment(endDate).subtract(88, 'days');
       if (moment(startDate).isBefore(ninetyDaysBefore)) {
         startDate = ninetyDaysBefore.toDate();
       }

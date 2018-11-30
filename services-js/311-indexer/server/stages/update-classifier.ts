@@ -1,4 +1,4 @@
-import Rx, { OperatorFunction } from 'rxjs';
+import * as Rx from 'rxjs';
 import { filter, tap, map } from 'rxjs/operators';
 import { DetailedServiceRequest } from '../services/Open311';
 import Prediction from '../services/Prediction';
@@ -22,7 +22,7 @@ interface Deps {
 export default function updateClassifier(
   concurrency: number,
   { prediction, opbeat }: Deps
-): OperatorFunction<HydratedCaseRecord, unknown> {
+): Rx.OperatorFunction<HydratedCaseRecord, unknown> {
   return cases$ =>
     cases$.pipe(
       filter(({ case: c }) => !!c),
