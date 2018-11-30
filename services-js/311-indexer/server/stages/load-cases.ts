@@ -1,4 +1,5 @@
-import Rx from 'rxjs';
+import * as Rx from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 import Open311, { DetailedServiceRequest } from '../services/Open311';
 import { UpdatedCaseNotificationRecord, HydratedCaseRecord } from './types';
 import {
@@ -48,63 +49,66 @@ const handleRetriedLoadError = (id, opbeat, err) => {
   if (fatal) {
     throw err;
   } else if (missing) {
-    return Rx.Observable.of(null);
+    return Rx.of(null);
   } else {
     opbeat.captureError(err);
-    return Rx.Observable.empty<null>();
+    return Rx.empty();
   }
 };
 
-// rxjs operation (use with "let") that hydrates a stream of
-// UpdatedCaseNotificationRecords.
-//
-// Catches and retries most errors, but propagates Salesforce authentication
-// errors to fail the job and cause a restart (which re-auths).
-export default (parallel: number, { open311, opbeat }: Deps) => (
-  updates$: Rx.Observable<UpdatedCaseNotificationRecord>
-): Rx.Observable<HydratedCaseRecord> =>
-  updates$.let(
-    queue(
-      ({ id, replayId }) =>
-        Rx.Observable.defer(() => open311.loadCase(id))
-          .let(
+/**
+ * rxjs operation that hydrates a stream of UpdatedCaseNotificationRecords.
+ *
+ * Catches and retries most errors, but propagates Salesforce authentication
+ * errors to fail the job and cause a restart (which re-auths).
+ */
+export default function loadCases(
+  concurrency: number,
+  { open311, opbeat }: Deps
+): Rx.OperatorFunction<UpdatedCaseNotificationRecord, HydratedCaseRecord> {
+  return updates$ =>
+    updates$.pipe(
+      queue(
+        ({ id, replayId }) =>
+          Rx.defer(() => open311.loadCase(id)).pipe(
             retryWithBackoff(5, 2000, {
               error: handleSingleLoadError,
-            })
-          )
-          .do(c => {
-            if (c) {
-              logMessage('load-cases', 'Successful case load', {
-                id: c.service_request_id,
-                code: c.service_code,
-                date: c.requested_datetime,
-              });
-            } else {
-              logMessage('load-cases', 'Unsuccessful case load', {
-                id,
-              });
+            }),
+            tap(c => {
+              if (c) {
+                logMessage('load-cases', 'Successful case load', {
+                  id: c.service_request_id,
+                  code: c.service_code,
+                  date: c.requested_datetime,
+                });
+              } else {
+                logMessage('load-cases', 'Unsuccessful case load', {
+                  id,
+                });
+              }
+            }),
+            catchError<DetailedServiceRequest | null, null>(
+              handleRetriedLoadError.bind(null, id, opbeat)
+            ),
+            map((c): HydratedCaseRecord => ({
+              id,
+              case: c,
+              replayId,
+            }))
+          ),
+
+        {
+          length: length => logQueueLength('load-cases', length),
+          // Queue error handler to make sure we completely explode on fatal
+          // errors. Necessary to cause a restart when auth expires.
+          error: err => {
+            if ((err as any).fatal) {
+              throw err;
             }
-          })
-          .catch<DetailedServiceRequest | null, null>(
-            handleRetriedLoadError.bind(null, id, opbeat)
-          )
-          .map((c): HydratedCaseRecord => ({
-            id,
-            case: c,
-            replayId,
-          })),
-
-      {
-        length: length => logQueueLength('load-cases', length),
-        // Queue error handler to make sure we completely explode on fatal
-        // errors. Necessary to cause a restart when auth expires.
-        error: err => {
-          if ((err as any).fatal) {
-            throw err;
-          }
+          },
         },
-      },
 
-      parallel
-    )
-  );
+        concurrency
+      )
+    );
+}

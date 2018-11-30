@@ -1,10 +1,10 @@
-import Rx from 'rxjs';
+import * as Rx from 'rxjs';
 import { retryWithBackoff, queue } from './stage-helpers';
 
 describe('retryWithBackoff', () => {
   it('passes through a success', done => {
-    Rx.Observable.of('ok')
-      .let(retryWithBackoff(0, 0))
+    Rx.of('ok')
+      .pipe(retryWithBackoff(0, 0))
       .subscribe({
         next: val => {
           expect(val).toEqual('ok');
@@ -15,11 +15,11 @@ describe('retryWithBackoff', () => {
 
   it('retries a failure until it’s done', done => {
     let count = 0;
-    Rx.Observable.defer(() => {
+    Rx.defer(() => {
       count++;
       throw 'error';
     })
-      .let(retryWithBackoff(5, 1))
+      .pipe(retryWithBackoff(5, 1))
       .subscribe({
         error: err => {
           // first + 5 retries
@@ -32,14 +32,14 @@ describe('retryWithBackoff', () => {
 
   it('will eventually succeed after failure', done => {
     let count = 0;
-    Rx.Observable.defer(() => {
+    Rx.defer(() => {
       if (++count < 5) {
         throw 'error';
       } else {
-        return Rx.Observable.of('ok');
+        return Rx.of('ok');
       }
     })
-      .let(retryWithBackoff(10, 1))
+      .pipe(retryWithBackoff(10, 1))
       .subscribe({
         next: val => {
           expect(val).toEqual('ok');
@@ -51,10 +51,10 @@ describe('retryWithBackoff', () => {
   it('reports errors to its function', done => {
     const errorFn = jest.fn();
 
-    Rx.Observable.defer(() => {
+    Rx.defer(() => {
       throw 'error';
     })
-      .let(
+      .pipe(
         retryWithBackoff(5, 1, {
           error: errorFn,
         })
@@ -73,8 +73,8 @@ describe('queue', () => {
   it('runs the operator on the input', done => {
     expect.assertions(1);
 
-    Rx.Observable.of('in')
-      .let(queue(() => Rx.Observable.of('out')))
+    Rx.of('in')
+      .pipe(queue(() => Rx.of('out')))
       .subscribe({
         next: val => {
           expect(val).toEqual('out');
@@ -86,8 +86,8 @@ describe('queue', () => {
   it('increments and decrements a length', done => {
     const lengthFn = jest.fn();
 
-    Rx.Observable.of('ok')
-      .let(queue(val => Rx.Observable.of(val), { length: lengthFn }))
+    Rx.of('ok')
+      .pipe(queue(val => Rx.of(val), { length: lengthFn }))
       .subscribe({
         complete: () => {
           expect(lengthFn.mock.calls.length).toBe(2);
@@ -101,8 +101,8 @@ describe('queue', () => {
   it('decrements the length even on error', done => {
     const lengthFn = jest.fn();
 
-    Rx.Observable.of('ok')
-      .let(queue(() => Rx.Observable.throw('err'), { length: lengthFn }))
+    Rx.of('ok')
+      .pipe(queue(() => Rx.throwError('err'), { length: lengthFn }))
       .subscribe({
         complete: () => {
           expect(lengthFn.mock.calls.length).toBe(2);
@@ -116,9 +116,9 @@ describe('queue', () => {
   it('reports an error from the operator', done => {
     const errorFn = jest.fn();
 
-    Rx.Observable.of('ok')
-      .let(
-        queue(() => Rx.Observable.throw('err'), {
+    Rx.of('ok')
+      .pipe(
+        queue(() => Rx.throwError('err'), {
           error: errorFn,
         })
       )
@@ -133,13 +133,8 @@ describe('queue', () => {
   it('doesn’t stop the parent on error', done => {
     const nextFn: (() => {}) = jest.fn();
 
-    Rx.Observable.of('first', 'second')
-      .let(
-        queue(
-          val =>
-            val === 'first' ? Rx.Observable.throw('err') : Rx.Observable.of(val)
-        )
-      )
+    Rx.of('first', 'second')
+      .pipe(queue(val => (val === 'first' ? Rx.throwError('err') : Rx.of(val))))
       .subscribe({
         next: nextFn,
         complete: () => {
