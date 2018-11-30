@@ -6,7 +6,17 @@
 console.log('----- SERVER STARTUP -----');
 
 require('dotenv').config();
-const opbeat = require('opbeat/start');
+
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+    environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+  },
+});
+
 const HttpsProxyAgent = require('https-proxy-agent');
 
 // This monkeypatches the environment to add window and an XMLHttpRequest
@@ -30,7 +40,7 @@ Object.assign(window, {
 
 const start = require('./server.js').default;
 
-start({ opbeat }).catch(err => {
+start({ rollbar }).catch(err => {
   console.log('----- SERVER FAILURE -----');
   console.error(err);
 

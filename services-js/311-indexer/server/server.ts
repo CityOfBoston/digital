@@ -1,9 +1,8 @@
 /* eslint no-console: 0 */
-import os from 'os';
 import * as Rx from 'rxjs';
 import { tap, takeUntil, share } from 'rxjs/operators';
 import cleanup from 'node-cleanup';
-import fetch from 'node-fetch';
+import Rollbar from 'rollbar';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 
@@ -19,60 +18,13 @@ import indexCases from './stages/index-cases';
 import updateClassifier from './stages/update-classifier';
 
 interface ServerArgs {
-  opbeat: any;
+  rollbar: Rollbar;
 }
 
 const SIMULTANEOUS_CASE_LOADS = 5;
 const SIMULTANEOUS_CLASSIFICATIONS = 5;
 
-// https://opbeat.com/docs/api/intake/v1/#release-tracking
-async function reportDeployToOpbeat(opbeat) {
-  if (
-    process.env.OPBEAT_APP_ID &&
-    process.env.OPBEAT_ORGANIZATION_ID &&
-    process.env.OPBEAT_SECRET_TOKEN &&
-    process.env.GIT_BRANCH &&
-    process.env.GIT_REVISION
-  ) {
-    try {
-      const res = await fetch(
-        `https://opbeat.com/api/v1/organizations/${
-          process.env.OPBEAT_ORGANIZATION_ID
-        }/apps/${process.env.OPBEAT_APP_ID}/releases/`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Bearer ${process.env.OPBEAT_SECRET_TOKEN}`,
-          },
-
-          body: [
-            `rev=${process.env.GIT_REVISION}`,
-            `branch=${encodeURIComponent(process.env.GIT_BRANCH)}`,
-            `machine=${encodeURIComponent(os.hostname())}`,
-            `status=machine-completed`,
-          ].join('&'),
-        }
-      );
-
-      console.log(
-        'Reported deploy to Opbeat:',
-        JSON.stringify(await res.json())
-      );
-    } catch (err) {
-      // We swallow the error because we won't interrupt startup because we
-      // couldn't report the release.
-      console.error('Error reporting deploy to Opbeat');
-
-      // bwaaaaaa
-      opbeat.captureError(err);
-    }
-  }
-}
-
-export default async function startServer({ opbeat }: ServerArgs) {
-  reportDeployToOpbeat(opbeat);
-
+export default async function startServer({ rollbar }: ServerArgs) {
   let salesforce: Salesforce | undefined;
   let rxjsSubscription: Rx.Subscription | undefined;
 
@@ -127,8 +79,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX,
-    opbeat
+    process.env.ELASTICSEARCH_INDEX
   );
 
   try {
@@ -136,7 +87,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     console.log('Elasticsearch connected', info);
   } catch (err) {
     console.error('ERROR GETTING ELASTICSEARCH INFO');
-    opbeat.captureError(err);
+    rollbar.error(err);
   }
 
   let lastReplayId: number | null = null;
@@ -145,16 +96,15 @@ export default async function startServer({ opbeat }: ServerArgs) {
     console.log(`STARTING FROM REPLAY_ID: ${lastReplayId || 'null'}`);
   } catch (err) {
     console.log('ERROR GETTING LATEST REPLAY_ID');
-    opbeat.captureError(err);
+    rollbar.error(err);
   }
 
   const open311 = new Open311(
     process.env.PROD_311_ENDPOINT,
-    process.env.PROD_311_KEY,
-    opbeat
+    process.env.PROD_311_KEY
   );
 
-  const prediction = new Prediction(process.env.PREDICTION_ENDPOINT, opbeat);
+  const prediction = new Prediction(process.env.PREDICTION_ENDPOINT);
 
   salesforce = new Salesforce(
     process.env.SALESFORCE_COMETD_URL,
@@ -182,7 +132,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
   ).pipe(
     tap(err => {
       console.log('----- SALESFORCE CONNECTION ERROR -----');
-      opbeat.captureError(err);
+      rollbar.error(err);
       console.error(err);
     })
   );
@@ -193,7 +143,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     // will exit.
     takeUntil(salesforceError$),
     convertSalesforceEvents(),
-    loadCases(SIMULTANEOUS_CASE_LOADS, { opbeat, open311 }),
+    loadCases(SIMULTANEOUS_CASE_LOADS, { rollbar, open311 }),
     // multicast the same loaded cases to each of the later pipeline stages.
     share()
   );
@@ -203,9 +153,9 @@ export default async function startServer({ opbeat }: ServerArgs) {
   // error out through a single subscription.
   rxjsSubscription = Rx.merge(
     loadedBatch$.pipe(
-      updateClassifier(SIMULTANEOUS_CLASSIFICATIONS, { opbeat, prediction })
+      updateClassifier(SIMULTANEOUS_CLASSIFICATIONS, { rollbar, prediction })
     ),
-    loadedBatch$.pipe(indexCases({ opbeat, elasticsearch }))
+    loadedBatch$.pipe(indexCases({ rollbar, elasticsearch }))
   )
     // The above stages are supposed to capture and report all errors without
     // ever terminating. If we do accidentally error or complete, report that
@@ -214,7 +164,7 @@ export default async function startServer({ opbeat }: ServerArgs) {
     .subscribe({
       error: err => {
         console.log('----- PROCESSING PIPELINE VERY FATAL ERROR -----');
-        opbeat.captureError(err);
+        rollbar.error(err);
         process.kill(process.pid, 'SIGHUP');
       },
       complete: () => {

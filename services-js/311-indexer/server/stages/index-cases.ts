@@ -1,5 +1,7 @@
 import * as Rx from 'rxjs';
 import { bufferTime, tap, filter } from 'rxjs/operators';
+import Rollbar from 'rollbar';
+
 import Elasticsearch from '../services/Elasticsearch';
 import { HydratedCaseRecord } from './types';
 import {
@@ -12,10 +14,10 @@ import {
 
 interface Deps {
   elasticsearch: Elasticsearch;
-  opbeat: any;
+  rollbar: Rollbar;
 }
 
-export default ({ elasticsearch, opbeat }: Deps) => (
+export default ({ elasticsearch, rollbar }: Deps) => (
   cases$: Rx.Observable<HydratedCaseRecord>
 ) =>
   cases$.pipe(
@@ -38,7 +40,7 @@ export default ({ elasticsearch, opbeat }: Deps) => (
       {
         length: length => logQueueLength('index-cases', length),
         error: (err, batch: HydratedCaseRecord[]) => {
-          opbeat.captureError(err);
+          rollbar.error(err);
           logMessage('index-cases', 'Permanent failure indexing cases', {
             ids: batch.map(v => v.id),
           });

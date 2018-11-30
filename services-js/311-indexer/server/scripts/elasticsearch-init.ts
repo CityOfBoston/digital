@@ -14,8 +14,7 @@ dotenv.config();
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX,
-    null
+    process.env.ELASTICSEARCH_INDEX
   );
 
   await elasticsearch.initIndex();

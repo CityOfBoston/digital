@@ -131,24 +131,17 @@ async function processResponse(res): Promise<any> {
  */
 export default class Open311 {
   private readonly agent: any;
-  private readonly opbeat: any;
   private readonly endpoint: string;
   private readonly apiKey: string | undefined;
   public oauthSessionId: string | null = null;
 
-  constructor(
-    endpoint: string | undefined,
-    apiKey: string | undefined,
-    opbeat: any
-  ) {
+  constructor(endpoint: string | undefined, apiKey: string | undefined) {
     if (!endpoint) {
       throw new Error('Must specify an Open311 endpoint');
     }
 
     this.endpoint = endpoint;
     this.apiKey = apiKey;
-
-    this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
@@ -173,8 +166,6 @@ export default class Open311 {
   }
 
   public async searchCases(startDate?: Date, endDate?: Date): Promise<Case[]> {
-    const transaction = this.opbeat.startTransaction('searchCases', 'Open311');
-
     const params = new URLSearchParams();
 
     if (startDate && endDate) {
@@ -215,19 +206,10 @@ export default class Open311 {
       throw e;
     }
 
-    if (transaction) {
-      transaction.end();
-    }
-
     return caseArr;
   }
 
   public async loadCases(ids: string[]): Promise<Array<Case | undefined>> {
-    const transaction = this.opbeat.startTransaction(
-      'bulk-requests',
-      'Open311'
-    );
-
     const params = new URLSearchParams();
     params.append('service_request_id', ids.join(','));
 
@@ -246,10 +228,6 @@ export default class Open311 {
     // the endpoint returns the request in an array
     const caseArr: Case[] = await processResponse(response);
 
-    if (transaction) {
-      transaction.end();
-    }
-
     const casesById = {};
 
     caseArr.forEach(c => {
@@ -260,40 +238,30 @@ export default class Open311 {
   }
 
   public async loadCase(id: string): Promise<DetailedServiceRequest | null> {
-    const { opbeat } = this;
-
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);
     }
 
-    const transaction = opbeat && opbeat.startTransaction('request', 'Open311');
-
-    try {
-      const response = await fetch(
-        this.url(`request/${id}.json?${params.toString()}`),
-        {
-          agent: this.agent,
-          headers: this.requestHeaders(),
-        }
-      );
-
-      // For whatever reason, looking up a single request ID still returns
-      // an array.
-      const requestArr: Array<DetailedServiceRequest | null> = await processResponse(
-        response
-      );
-
-      // processResponse turns 404s into nulls
-      if (requestArr) {
-        return requestArr[0];
-      } else {
-        return null;
+    const response = await fetch(
+      this.url(`request/${id}.json?${params.toString()}`),
+      {
+        agent: this.agent,
+        headers: this.requestHeaders(),
       }
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    );
+
+    // For whatever reason, looking up a single request ID still returns
+    // an array.
+    const requestArr: Array<DetailedServiceRequest | null> = await processResponse(
+      response
+    );
+
+    // processResponse turns 404s into nulls
+    if (requestArr) {
+      return requestArr[0];
+    } else {
+      return null;
     }
   }
 }
