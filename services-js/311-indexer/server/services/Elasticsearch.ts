@@ -6,6 +6,7 @@ import elasticsearch, {
 } from 'elasticsearch';
 import HttpAwsEs from 'http-aws-es';
 import _ from 'lodash';
+
 import { DetailedServiceRequest } from './Open311';
 
 interface IndexedCase {
@@ -115,11 +116,10 @@ function convertCaseToDocument(
 }
 
 export default class Elasticsearch {
-  private readonly opbeat: any;
   private readonly client: elasticsearch.Client;
   private readonly index: string;
 
-  constructor(url: string | undefined, index: string | undefined, opbeat: any) {
+  constructor(url: string | undefined, index: string | undefined) {
     if (!url) {
       throw new Error('Missing Elasticsearch url');
     }
@@ -137,7 +137,6 @@ export default class Elasticsearch {
     });
 
     this.index = index;
-    this.opbeat = opbeat;
   }
 
   public static configureAws(region: string | undefined) {
@@ -226,32 +225,22 @@ export default class Elasticsearch {
   }
 
   public async findLatestReplayId(): Promise<number | null> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('search-replay-id', 'Elasticsearch');
-
-    try {
-      const res: SearchResponse<unknown> = await this.client.search({
-        index: this.index,
-        type: 'case',
-        body: {
-          size: 0,
-          aggregations: {
-            max_replay_id: { max: { field: 'replay_id' } },
-          },
+    const res: SearchResponse<unknown> = await this.client.search({
+      index: this.index,
+      type: 'case',
+      body: {
+        size: 0,
+        aggregations: {
+          max_replay_id: { max: { field: 'replay_id' } },
         },
-      });
+      },
+    });
 
-      return (
-        (res.aggregations &&
-          (res.aggregations as MaxReplayAggregations).max_replay_id.value) ||
-        null
-      );
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
-    }
+    return (
+      (res.aggregations &&
+        (res.aggregations as MaxReplayAggregations).max_replay_id.value) ||
+      null
+    );
   }
 
   public async createCases(
@@ -268,9 +257,6 @@ export default class Elasticsearch {
         errors: false,
       };
     }
-
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('bulk', 'Elasticsearch');
 
     const actions: BulkIndexDocumentsParams['body'] = [];
 
@@ -297,37 +283,31 @@ export default class Elasticsearch {
       }
     });
 
-    try {
-      const res: BulkResponse = await this.client.bulk({ body: actions });
-      if (!res) {
-        throw new Error('unknown error: no response');
-      } else if (res.errors) {
-        throw new Error(
-          'Errors indexing cases: \n' +
-            _(res.items)
-              // action is 'update' from above
-              .map(
-                item =>
-                  (item.update ? item.update.error : null) ||
-                  (item.delete ? item.delete.error : null)
-              )
-              .compact()
-              .map(
-                error =>
-                  typeof error === 'string'
-                    ? error
-                    : `${error.type}: ${error.reason}`
-              )
-              .uniq()
-              .join('\n')
-        );
-      } else {
-        return res;
-      }
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    const res: BulkResponse = await this.client.bulk({ body: actions });
+    if (!res) {
+      throw new Error('unknown error: no response');
+    } else if (res.errors) {
+      throw new Error(
+        'Errors indexing cases: \n' +
+          _(res.items)
+            // action is 'update' from above
+            .map(
+              item =>
+                (item.update ? item.update.error : null) ||
+                (item.delete ? item.delete.error : null)
+            )
+            .compact()
+            .map(
+              error =>
+                typeof error === 'string'
+                  ? error
+                  : `${error.type}: ${error.reason}`
+            )
+            .uniq()
+            .join('\n')
+      );
+    } else {
+      return res;
     }
   }
 }

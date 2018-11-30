@@ -24,7 +24,16 @@ import Open311 from '../services/Open311';
 import Salesforce from '../services/Salesforce';
 
 dotenv.config();
-const opbeat = require('opbeat/start');
+
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+    environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+  },
+});
 
 const timingStart = moment();
 let caseCount = 0;
@@ -34,8 +43,7 @@ let caseCount = 0;
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX,
-    opbeat
+    process.env.ELASTICSEARCH_INDEX
   );
 
   try {
@@ -61,8 +69,7 @@ let caseCount = 0;
 
   const open311 = new Open311(
     process.env.PROD_311_ENDPOINT,
-    process.env.PROD_311_KEY,
-    opbeat
+    process.env.PROD_311_KEY
   );
 
   open311.oauthSessionId = oauthSessionId;
@@ -90,7 +97,7 @@ let caseCount = 0;
           retryWithBackoff(5, 2000, {
             error: err => {
               console.log(`- error loading cases through ${endDate}`);
-              opbeat.captureError(err);
+              rollbar.error(err);
             },
           })
         )
@@ -114,14 +121,14 @@ let caseCount = 0;
         Rx.from(cases).pipe(
           map(c => ({ id: c.service_request_id, replayId: null })),
           // Reload from the individual endpoint for consistency with the frontend.
-          loadCases(10, { opbeat, open311 }),
+          loadCases(10, { rollbar, open311 }),
           toArray(),
           mergeMap((recordArr: HydratedCaseRecord[]) =>
             Rx.defer(() => elasticsearch.createCases(recordArr)).pipe(
               retryWithBackoff(5, 2000, {
                 error: err => {
                   console.log(`- error indexing cases`);
-                  opbeat.captureError(err);
+                  rollbar.error(err);
                 },
               })
             )

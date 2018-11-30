@@ -1,5 +1,7 @@
 import * as Rx from 'rxjs';
 import { filter, tap, map } from 'rxjs/operators';
+import Rollbar from 'rollbar';
+
 import { DetailedServiceRequest } from '../services/Open311';
 import Prediction from '../services/Prediction';
 import { HydratedCaseRecord } from './types';
@@ -12,7 +14,7 @@ import {
 
 interface Deps {
   prediction: Prediction;
-  opbeat: any;
+  rollbar: Rollbar;
 }
 
 /**
@@ -21,7 +23,7 @@ interface Deps {
  */
 export default function updateClassifier(
   concurrency: number,
-  { prediction, opbeat }: Deps
+  { prediction, rollbar }: Deps
 ): Rx.OperatorFunction<HydratedCaseRecord, unknown> {
   return cases$ =>
     cases$.pipe(
@@ -48,7 +50,7 @@ export default function updateClassifier(
           ),
         {
           error: (err, c) => {
-            opbeat.captureError(err);
+            rollbar.error(err);
             logMessage('update-classifier', 'Permanent failure', {
               case: c,
             });

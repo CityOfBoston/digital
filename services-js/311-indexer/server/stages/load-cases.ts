@@ -1,5 +1,7 @@
 import * as Rx from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import Rollbar from 'rollbar';
+
 import Open311, { DetailedServiceRequest } from '../services/Open311';
 import { UpdatedCaseNotificationRecord, HydratedCaseRecord } from './types';
 import {
@@ -12,10 +14,17 @@ import {
 
 interface Deps {
   open311: Open311;
-  opbeat: any;
+  rollbar: Rollbar;
 }
 
-const handleSingleLoadError = (err: any) => {
+declare global {
+  interface Error {
+    fatal?: boolean;
+    missing?: boolean;
+  }
+}
+
+const handleSingleLoadError = (err: Error) => {
   // These first two errors are permanent and should not be retried.
   const msg = err.message || '';
 
@@ -34,7 +43,7 @@ const handleSingleLoadError = (err: any) => {
   }
 };
 
-const handleRetriedLoadError = (id, opbeat, err) => {
+const handleRetriedLoadError = (id: string, rollbar: Rollbar, err: Error) => {
   const { message, fatal, missing } = err;
 
   logMessage('load-cases', 'Permanent failure loading case', {
@@ -51,7 +60,7 @@ const handleRetriedLoadError = (id, opbeat, err) => {
   } else if (missing) {
     return Rx.of(null);
   } else {
-    opbeat.captureError(err);
+    rollbar.error(err);
     return Rx.empty();
   }
 };
@@ -64,7 +73,7 @@ const handleRetriedLoadError = (id, opbeat, err) => {
  */
 export default function loadCases(
   concurrency: number,
-  { open311, opbeat }: Deps
+  { open311, rollbar }: Deps
 ): Rx.OperatorFunction<UpdatedCaseNotificationRecord, HydratedCaseRecord> {
   return updates$ =>
     updates$.pipe(
@@ -88,7 +97,7 @@ export default function loadCases(
               }
             }),
             catchError<DetailedServiceRequest | null, null>(
-              handleRetriedLoadError.bind(null, id, opbeat)
+              handleRetriedLoadError.bind(null, id, rollbar)
             ),
             map((c): HydratedCaseRecord => ({
               id,
@@ -102,7 +111,7 @@ export default function loadCases(
           // Queue error handler to make sure we completely explode on fatal
           // errors. Necessary to cause a restart when auth expires.
           error: err => {
-            if ((err as any).fatal) {
+            if (err.fatal) {
               throw err;
             }
           },
