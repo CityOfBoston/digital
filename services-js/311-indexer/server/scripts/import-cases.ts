@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import Rx, { BehaviorSubject } from 'rxjs';
+import * as Rx from 'rxjs';
 
 import {
   map,
@@ -75,7 +75,7 @@ let caseCount = 0;
   // subscribe at the end to feed that end date back into the start of the
   // stream, so this will loop until it hits one of its takeWhile conditions to
   // complete.
-  const endDateObserver = new BehaviorSubject(endDateMoment.toDate());
+  const endDateObserver = new Rx.BehaviorSubject(endDateMoment.toDate());
   endDateObserver
     .pipe(
       // completes the stream when we've reached the start date
