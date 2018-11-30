@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import update from 'immutability-helper';
-
 import Search from './Search';
 import FacetList from './FacetList';
 import ResultList from './ResultList';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-2187282-27');
 
 class App extends React.Component {
   /*
@@ -50,6 +52,30 @@ class App extends React.Component {
     this.setState({ currentSeats: event.target.value });
   };
 
+  findCheckedBoxes4GA = event => {
+    var chk_arr = document.getElementsByClassName('cb');
+    var chklength = chk_arr.length;
+    for (var k = 0; k < chklength; k++) {
+      var checkit = chk_arr[k].firstChild.checked ? true : false;
+      if (checkit === true) {
+        var children = chk_arr[k].childNodes;
+        this.sendEvent2GA(
+          'Search Filter',
+          'Commissions Search',
+          children[1].innerText
+        );
+      }
+    }
+  };
+
+  sendEvent2GA = (actionV, categoryV, labelV) => {
+    ReactGA.event({
+      category: categoryV,
+      action: actionV,
+      label: labelV,
+    });
+  };
+
   handleFacetSubmit = event => {
     event.preventDefault();
 
@@ -57,6 +83,9 @@ class App extends React.Component {
       submittedAreas: this.state.currentAreas,
       submittedSeats: this.state.currentSeats,
     });
+
+    //send search terms to GA Event Tracking
+    this.findCheckedBoxes4GA();
   };
 
   handleKeywordChange = event => {
@@ -69,6 +98,12 @@ class App extends React.Component {
     this.setState({
       submittedKeywords: this.state.currentKeywords,
     });
+    //send search terms to GA Event Tracking
+    this.sendEvent2GA(
+      'Search Box',
+      'Commissions Search',
+      this.state.currentKeywords
+    );
   };
 
   render() {
