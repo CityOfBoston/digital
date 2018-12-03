@@ -29,11 +29,10 @@ export interface IndexedCase extends CaseDocument {
 }
 
 export class Elasticsearch {
-  public readonly opbeat: any;
-  public readonly client: elasticsearch.Client;
-  public readonly index: string;
+  private readonly client: elasticsearch.Client;
+  private readonly index: string;
 
-  constructor(url: string | undefined, index: string | undefined, opbeat: any) {
+  constructor(url: string | undefined, index: string | undefined) {
     if (!url) {
       throw new Error('Missing Elasticsearch url');
     }
@@ -48,7 +47,6 @@ export class Elasticsearch {
     });
 
     this.index = index;
-    this.opbeat = opbeat;
   }
 
   public static configureAws(region: string | undefined) {
@@ -73,9 +71,6 @@ export class Elasticsearch {
     topLeft: { lat: number; lng: number } | undefined,
     bottomRight: { lat: number; lng: number } | undefined
   ): Promise<IndexedCase[]> {
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('search', 'Elasticsearch');
-
     const must: any[] = [];
     const filter: any[] = [];
 
@@ -106,30 +101,24 @@ export class Elasticsearch {
       });
     }
 
-    try {
-      const res = await this.client.search<CaseDocument>({
-        index: this.index,
-        type: 'case',
-        body: {
-          size: 50,
-          sort: [{ requested_datetime: 'desc' }],
-          query: {
-            bool: {
-              must,
-              filter,
-            },
+    const res = await this.client.search<CaseDocument>({
+      index: this.index,
+      type: 'case',
+      body: {
+        size: 50,
+        sort: [{ requested_datetime: 'desc' }],
+        query: {
+          bool: {
+            must,
+            filter,
           },
         },
-      });
+      },
+    });
 
-      return res.hits.hits.map(h => ({
-        service_request_id: h._id,
-        ...h._source,
-      }));
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
-    }
+    return res.hits.hits.map(h => ({
+      service_request_id: h._id,
+      ...h._source,
+    }));
   }
 }

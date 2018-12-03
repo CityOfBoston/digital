@@ -1,6 +1,6 @@
 import { observable, action, computed, runInAction } from 'mobx';
 
-import { FetchGraphql } from '@cityofboston/next-client-common';
+import { FetchGraphql, GraphqlError } from '@cityofboston/next-client-common';
 
 import searchAddress from '../queries/search-address';
 import reverseGeocode from '../queries/reverse-geocode';
@@ -143,9 +143,8 @@ export default class AddressSearch {
       (runInAction as any)('search - searchAddress error', () => {
         this.searching = false;
         this.lastSearchError = err;
-        (window as any)._opbeat &&
-          !err.server &&
-          (window as any)._opbeat('captureException', err);
+
+        window.Rollbar && err.source !== 'server' && window.Rollbar.error(err);
       });
     }
   }
@@ -215,11 +214,10 @@ export default class AddressSearch {
           this.currentReverseGeocodeLocationIsValid = false;
         }
       }),
-      action('reverseGeocode error', (err: Error) => {
+      action('reverseGeocode error', (err: GraphqlError) => {
         this.searching = false;
         this.lastSearchError = err;
-        (window as any)._opbeat &&
-          (window as any)._opbeat('captureException', err);
+        window.Rollbar && err.source !== 'server' && window.Rollbar.error(err);
       })
     );
   }
