@@ -55,7 +55,7 @@ describe('sort and format findAddressCandidates', () => {
     expect(
       await Promise.all(
         sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
-          new ArcGIS('fake endpoint', null).candidateToSearchResult
+          new ArcGIS('fake endpoint').candidateToSearchResult
         )
       )
     ).toMatchSnapshot();

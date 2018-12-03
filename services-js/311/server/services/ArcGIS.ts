@@ -277,17 +277,15 @@ export function samFeatureToUnit({
 }
 
 export class ArcGIS {
-  public readonly agent: any;
-  public readonly endpoint: string;
-  public readonly opbeat: any;
+  private readonly agent: any;
+  private readonly endpoint: string;
 
-  constructor(endpoint: string | undefined, opbeat: any) {
+  constructor(endpoint: string | undefined) {
     if (!endpoint) {
       throw new Error('Missing ArcGIS endpoint');
     }
 
     this.endpoint = endpoint;
-    this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
@@ -327,63 +325,53 @@ export class ArcGIS {
     lat: number,
     lng: number
   ): Promise<SearchResult | null> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('open space layer query', 'ArcGIS');
+    const params = new URLSearchParams();
+    params.append('geometry', `${lng},${lat}`);
+    params.append('geometryType', 'esriGeometryPoint');
+    params.append('inSR', '4326');
+    params.append('spatialRelationship', 'esriSpatialRelWithin');
+    params.append('returnGeometry', 'false');
+    params.append('outFields', '*');
+    params.append('f', 'json');
 
-    try {
-      const params = new URLSearchParams();
-      params.append('geometry', `${lng},${lat}`);
-      params.append('geometryType', 'esriGeometryPoint');
-      params.append('inSR', '4326');
-      params.append('spatialRelationship', 'esriSpatialRelWithin');
-      params.append('returnGeometry', 'false');
-      params.append('outFields', '*');
-      params.append('f', 'json');
-
-      const response = await fetch(
-        this.openSpacesUrl(`query?${params.toString()}`),
-        {
-          agent: this.agent,
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Got not-ok response from ArcGIS geocoder');
+    const response = await fetch(
+      this.openSpacesUrl(`query?${params.toString()}`),
+      {
+        agent: this.agent,
       }
+    );
 
-      const result: LayerQueryResult = await response.json();
+    if (!response.ok) {
+      throw new Error('Got not-ok response from ArcGIS geocoder');
+    }
 
-      if (isArcGISErrorResult(result)) {
-        const { error } = result;
+    const result: LayerQueryResult = await response.json();
 
-        if (error.code === 400) {
-          return null;
-        } else {
-          throw new Error(
-            error.details[0] || error.message || 'Unknown ArcGIS error'
-          );
-        }
-      }
+    if (isArcGISErrorResult(result)) {
+      const { error } = result;
 
-      if (!result.features.length) {
+      if (error.code === 400) {
         return null;
       } else {
-        const { SITE_NAME } = result.features[0].attributes;
+        throw new Error(
+          error.details[0] || error.message || 'Unknown ArcGIS error'
+        );
+      }
+    }
 
-        return {
-          location: { lat, lng },
-          address: SITE_NAME,
-          addressId: null,
-          buildingId: null,
-          exact: true,
-          alwaysUseLatLng: true,
-        };
-      }
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!result.features.length) {
+      return null;
+    } else {
+      const { SITE_NAME } = result.features[0].attributes;
+
+      return {
+        location: { lat, lng },
+        address: SITE_NAME,
+        addressId: null,
+        buildingId: null,
+        exact: true,
+        alwaysUseLatLng: true,
+      };
     }
   }
 
@@ -412,28 +400,12 @@ export class ArcGIS {
     params.append('returnIntersection', 'false');
     params.append('f', 'json');
 
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('reverseGeocode', 'ArcGIS');
-
     // This done though a particular locator that we have high confidence will
     // return addresses that we can look up through search.
     const responsePromise = fetch(
       this.reverseGeocodeLocatorUrl(`reverseGeocode?${params.toString()}`),
       {
         agent: this.agent,
-      }
-    );
-
-    // Ensures we end the transaction, regardless of whether we exit early due
-    // to an open space result. Also means that we time this request
-    // specifically, rather than waiting until after the open space request
-    // completes.
-    responsePromise.then(
-      () => {
-        transaction && transaction.end();
-      },
-      () => {
-        transaction && transaction.end();
       }
     );
 
@@ -526,87 +498,68 @@ export class ArcGIS {
   };
 
   public async search(query: string): Promise<SearchResult[]> {
-    const transaction =
-      this.opbeat &&
-      this.opbeat.startTransaction('findAddressCandidates', 'ArcGIS');
+    const params = new URLSearchParams();
+    params.append('SingleLine', query);
+    params.append('outFields', '*');
+    params.append('f', 'json');
+    // Makes the output in lat/lng
+    params.append('outSR', '4326');
 
-    try {
-      const params = new URLSearchParams();
-      params.append('SingleLine', query);
-      params.append('outFields', '*');
-      params.append('f', 'json');
-      // Makes the output in lat/lng
-      params.append('outSR', '4326');
+    const response = await fetch(
+      this.addressSearchLocatorUrl(
+        `findAddressCandidates?${params.toString()}`
+      ),
 
-      const response = await fetch(
-        this.addressSearchLocatorUrl(
-          `findAddressCandidates?${params.toString()}`
-        ),
-
-        {
-          agent: this.agent,
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Got not-ok response from ArcGIS find address');
+      {
+        agent: this.agent,
       }
+    );
 
-      const findAddressResponse: FindAddressResponse = await response.json();
-
-      return _.compact(
-        await Promise.all(
-          sortAddressCandidates(findAddressResponse.candidates).map(
-            this.candidateToSearchResult
-          )
-        )
-      );
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!response.ok) {
+      throw new Error('Got not-ok response from ArcGIS find address');
     }
+
+    const findAddressResponse: FindAddressResponse = await response.json();
+
+    return _.compact(
+      await Promise.all(
+        sortAddressCandidates(findAddressResponse.candidates).map(
+          this.candidateToSearchResult
+        )
+      )
+    );
   }
 
   public async lookupUnits(buildingId: string): Promise<UnitResult[]> {
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('LiveSAMAddresses', 'ArcGIS');
+    const params = new URLSearchParams();
+    params.append('where', `BUILDING_ID=${parseInt(buildingId, 10)}`);
+    params.append('outFields', '*');
+    params.append('f', 'json');
+    // Makes the output in lat/lng
+    params.append('outSR', '4326');
 
-    try {
-      const params = new URLSearchParams();
-      params.append('where', `BUILDING_ID=${parseInt(buildingId, 10)}`);
-      params.append('outFields', '*');
-      params.append('f', 'json');
-      // Makes the output in lat/lng
-      params.append('outSR', '4326');
-
-      const response = await fetch(
-        this.liveAddressUrl(`query?${params.toString()}`),
-        {
-          agent: this.agent,
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Got not-ok response from ArcGIS live address table');
+    const response = await fetch(
+      this.liveAddressUrl(`query?${params.toString()}`),
+      {
+        agent: this.agent,
       }
+    );
 
-      const liveSamResponse: LiveSamResponse = await response.json();
-
-      if (isArcGISErrorResult(liveSamResponse)) {
-        throw new Error(
-          liveSamResponse.error.message +
-            '\n' +
-            liveSamResponse.error.details.join('\n')
-        );
-      }
-
-      return sortUnits(liveSamResponse.features || []).map(samFeatureToUnit);
-    } finally {
-      if (transaction) {
-        transaction.end();
-      }
+    if (!response.ok) {
+      throw new Error('Got not-ok response from ArcGIS live address table');
     }
+
+    const liveSamResponse: LiveSamResponse = await response.json();
+
+    if (isArcGISErrorResult(liveSamResponse)) {
+      throw new Error(
+        liveSamResponse.error.message +
+          '\n' +
+          liveSamResponse.error.details.join('\n')
+      );
+    }
+
+    return sortUnits(liveSamResponse.features || []).map(samFeatureToUnit);
   }
 }
 

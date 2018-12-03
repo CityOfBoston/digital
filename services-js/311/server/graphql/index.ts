@@ -1,4 +1,6 @@
 import { makeExecutableSchema } from 'graphql-tools';
+import Rollbar from 'rollbar';
+
 import { Schema as QuerySchema, resolvers as queryResolvers } from './query';
 import {
   Schema as MutationSchema,
@@ -23,7 +25,7 @@ export interface Context {
   arcgis: ArcGIS;
   prediction: Prediction;
   elasticsearch: Elasticsearch;
-  opbeat: any;
+  rollbar: Rollbar;
 }
 
 const SchemaDefinition = `

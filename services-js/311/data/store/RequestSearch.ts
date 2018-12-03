@@ -193,9 +193,7 @@ export default class RequestSearch {
       action('searchCases failure', (err: GraphqlError) => {
         this.loading = false;
         this.resultsError = err;
-        (window as any)._opbeat &&
-          err.source !== 'server' &&
-          (window as any)._opbeat('captureException', err);
+        window.Rollbar && err.source !== 'server' && window.Rollbar.error(err);
       })
     );
   }

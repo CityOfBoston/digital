@@ -2,16 +2,25 @@
 
 // We use require in here so we can be deliberate about load order.
 require('dotenv').config();
-const opbeat = require('opbeat/start');
+
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+    environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+  },
+});
 
 require('./server')
-  .default({ opbeat })
+  .default({ rollbar })
   .catch(err => {
-    opbeat.captureError(err, (e, url) => {
+    rollbar.error(err, e => {
       if (e) {
-        console.error('Error sending exception to Opbeat', e);
-      } else if (url) {
-        console.info(`Error logged to Opbeat: ${url}`);
+        console.error('Error sending exception to Rollbar', e);
+      } else {
+        console.info(`Error logged to Rollbar`);
       }
     });
 

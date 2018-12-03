@@ -263,9 +263,9 @@ export default class RequestDialog extends React.Component<Props> {
         return v;
       },
       err => {
-        if ((window as any)._opbeat && err.source !== 'server') {
-          (window as any)._opbeat('captureException', err);
-          err._sentToOpbeat = true;
+        if (window.Rollbar && err.source !== 'server') {
+          window.Rollbar.error(err);
+          err._sentToRollbar = true;
         }
 
         // This exception is ultimately "caught" by the requestSubmission fromPromise

@@ -6,16 +6,18 @@ import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
+import Rollbar from 'rollbar';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import {
   headerKeys,
   HeaderKeysOptions,
   loggingPlugin,
+  rollbarPlugin,
+  graphqlOptionsWithRollbar,
 } from '@cityofboston/hapi-common';
 
 import { nextHandler, nextDefaultHandler } from './next-handlers';
-import { opbeatWrapGraphqlOptions } from './opbeat-graphql';
 import { Open311 } from './services/Open311';
 import { ArcGIS } from './services/ArcGIS';
 import { Prediction } from './services/Prediction';
@@ -39,7 +41,7 @@ import {
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
-export default async function startServer({ opbeat }: any) {
+export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
   await decryptEnv();
 
   const serverConfig: Hapi.ServerOptions = {
@@ -98,8 +100,7 @@ export default async function startServer({ opbeat }: any) {
 
   const elasticsearch = new Elasticsearch(
     process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX,
-    opbeat
+    process.env.ELASTICSEARCH_INDEX
   );
 
   const salesforce = process.env.SALESFORCE_OAUTH_URL
@@ -127,6 +128,11 @@ export default async function startServer({ opbeat }: any) {
 
   await server.register(loggingPlugin);
 
+  await server.register({
+    plugin: rollbarPlugin,
+    options: { rollbar },
+  });
+
   await server.register(Inert);
 
   await server.register({
@@ -135,27 +141,25 @@ export default async function startServer({ opbeat }: any) {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: opbeatWrapGraphqlOptions(opbeat, () => ({
+      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
         schema,
         context: {
           open311: new Open311(
             process.env.PROD_311_ENDPOINT,
             process.env.PROD_311_KEY,
-            salesforce,
-            opbeat
+            salesforce
           ),
 
-          arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT, opbeat),
+          arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT),
           prediction: new Prediction(
             process.env.PREDICTION_ENDPOINT,
-            process.env.NEW_PREDICTION_ENDPOINT,
-            opbeat
+            process.env.NEW_PREDICTION_ENDPOINT
           ),
 
           // Elasticsearch maintains a persistent connection, so we re-use it
           // across requests.
           elasticsearch,
-          opbeat,
+          rollbar,
         } as Context,
       })),
 
@@ -264,12 +268,7 @@ export default async function startServer({ opbeat }: any) {
     method: 'GET',
     path: '/sitemap.xml',
     handler: sitemapHandler(
-      new Open311(
-        process.env.PROD_311_ENDPOINT,
-        process.env.PROD_311_KEY,
-        null,
-        opbeat
-      )
+      new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, null)
     ),
   });
 

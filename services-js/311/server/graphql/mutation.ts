@@ -52,7 +52,7 @@ export const resolvers = {
     async createCase(
       _: {},
       args: CreateCaseArgs,
-      { open311, prediction, opbeat }: Context
+      { open311, prediction, rollbar }: Context
     ): Promise<Case> {
       const createArgs: CreateServiceRequestArgs = {
         service_code: args.code,
@@ -88,7 +88,7 @@ export const resolvers = {
       if (args.descriptionForClassifier) {
         prediction
           .caseCreated(c, args.descriptionForClassifier)
-          .catch(err => opbeat.captureError(err));
+          .catch(err => rollbar.error(err));
       }
 
       return c;

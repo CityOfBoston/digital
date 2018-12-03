@@ -240,7 +240,6 @@ async function processResponse(res): Promise<any> {
  */
 export class Open311 {
   private readonly agent: any;
-  private readonly opbeat: any;
   private readonly salesforce: Salesforce | null;
   private readonly endpoint: string;
   private readonly apiKey: string | undefined;
@@ -258,8 +257,7 @@ export class Open311 {
   constructor(
     endpoint: string | undefined,
     apiKey: string | undefined,
-    salesforce: Salesforce | null,
-    opbeat: any
+    salesforce: Salesforce | null
   ) {
     if (!endpoint) {
       throw new Error('Must specify an Open311 endpoint');
@@ -269,7 +267,6 @@ export class Open311 {
     this.apiKey = apiKey;
 
     this.salesforce = salesforce;
-    this.opbeat = opbeat;
 
     if (process.env.http_proxy) {
       this.agent = new HttpsProxyAgent(process.env.http_proxy);
@@ -288,8 +285,6 @@ export class Open311 {
     });
 
     this.serviceMetadataLoader = new DataLoader(async (codes: string[]) => {
-      const transaction =
-        opbeat && opbeat.startTransaction('serviceMetadata', 'Open311');
       const out = await Promise.all(
         codes.map(async code => {
           const params = new URLSearchParams();
@@ -322,76 +317,61 @@ export class Open311 {
         })
       );
 
-      if (transaction) {
-        transaction.end();
-      }
       return out;
     });
 
     this.requestLoader = new DataLoader(async (ids): Promise<
       Array<ServiceRequest | DetailedServiceRequest | null>
     > => {
-      let transaction;
-
       const params = new URLSearchParams();
       if (this.apiKey) {
         params.append('api_key', this.apiKey);
       }
 
-      try {
-        if (ids.length === 1) {
-          // The <case_id>.json endpoint is currently significantly faster than
-          // the bulk endpoint, even for a single case, so we optimize by using
-          // it when there's only one thing to look up.
-          transaction = opbeat && opbeat.startTransaction('request', 'Open311');
-          const response = await this.fetch(
-            this.url(`request/${ids[0]}.json?${params.toString()}`),
-            {
-              agent: this.agent,
-            }
-          );
-
-          // For whatever reason, looking up a single request ID still returns
-          // an array.
-          const requestArr: Array<
-            DetailedServiceRequest | undefined
-          > = await processResponse(response);
-
-          // processResponse turns 404s into nulls
-          if (requestArr) {
-            return [requestArr[0] || null];
-          } else {
-            return [null];
+      if (ids.length === 1) {
+        // The <case_id>.json endpoint is currently significantly faster than
+        // the bulk endpoint, even for a single case, so we optimize by using
+        // it when there's only one thing to look up.
+        const response = await this.fetch(
+          this.url(`request/${ids[0]}.json?${params.toString()}`),
+          {
+            agent: this.agent,
           }
+        );
+
+        // For whatever reason, looking up a single request ID still returns
+        // an array.
+        const requestArr: Array<
+          DetailedServiceRequest | undefined
+        > = await processResponse(response);
+
+        // processResponse turns 404s into nulls
+        if (requestArr) {
+          return [requestArr[0] || null];
         } else {
-          transaction =
-            opbeat && opbeat.startTransaction('bulk-request', 'Open311');
-
-          params.append('service_request_id', ids.join(','));
-
-          const response = await this.fetch(
-            this.url(`requests.json?${params.toString()}`),
-            {
-              agent: this.agent,
-            }
-          );
-
-          const requestArr: ServiceRequest[] = await processResponse(response);
-
-          // We need to guarantee that we're returning an array with results in
-          // the same order as the IDs that came in, which we don't want to rely
-          // on Open311 to ensure.
-          const requestMap: { [id: string]: ServiceRequest } = {};
-          requestArr.forEach(r => {
-            requestMap[r.service_request_id] = r;
-          });
-
-          return ids.map(id => requestMap[id]);
+          return [null];
         }
-      } finally {
-        if (transaction) {
-          transaction.end();
-        }
+      } else {
+        params.append('service_request_id', ids.join(','));
+
+        const response = await this.fetch(
+          this.url(`requests.json?${params.toString()}`),
+          {
+            agent: this.agent,
+          }
+        );
+
+        const requestArr: ServiceRequest[] = await processResponse(response);
+
+        // We need to guarantee that we're returning an array with results in
+        // the same order as the IDs that came in, which we don't want to rely
+        // on Open311 to ensure.
+        const requestMap: { [id: string]: ServiceRequest } = {};
+        requestArr.forEach(r => {
+          requestMap[r.service_request_id] = r;
+        });
+
+        return ids.map(id => requestMap[id]);
       }
     });
   }
@@ -408,8 +388,6 @@ export class Open311 {
     return url.resolve(this.endpoint, path);
   }
   public readonly services = async (): Promise<Service[]> => {
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('services', 'Open311');
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);
@@ -422,11 +400,7 @@ export class Open311 {
       }
     );
 
-    const out = (await processResponse(response)) || [];
-    if (transaction) {
-      transaction.end();
-    }
-    return out;
+    return (await processResponse(response)) || [];
   };
 
   public service(code: string): Promise<Service | undefined> {
@@ -443,8 +417,6 @@ export class Open311 {
     return this.requestLoader.load(id);
   }
   public readonly requests = async () => {
-    const transaction =
-      this.opbeat && this.opbeat.startTransaction('requests', 'Open311');
     const params = new URLSearchParams();
     if (this.apiKey) {
       params.append('api_key', this.apiKey);
@@ -457,11 +429,7 @@ export class Open311 {
       }
     );
 
-    const out = (await processResponse(response)) || [];
-    if (transaction) {
-      transaction.end();
-    }
-    return out;
+    return (await processResponse(response)) || [];
   };
 
   public async createRequest(

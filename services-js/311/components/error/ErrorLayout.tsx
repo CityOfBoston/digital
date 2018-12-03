@@ -1,4 +1,4 @@
-// Forked from next.js to add Opbeat error sending
+// Forked from next.js to add Rollbar error sending
 
 import React from 'react';
 import HTTPStatus from 'http-status';
@@ -45,13 +45,13 @@ export default class ErrorLayout extends React.Component<Props> {
 
     if (
       process.browser &&
-      (window as any)._opbeat &&
+      window.Rollbar &&
       err &&
       err.source !== 'server' &&
-      !err._sentToOpbeat
+      !err._sentToRollbar
     ) {
-      (window as any)._opbeat('captureException', err);
-      err._sentToOpbeat = true;
+      window.Rollbar.error(err);
+      err._sentToRollbar = true;
     }
 
     return { statusCode };
