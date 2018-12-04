@@ -77,7 +77,7 @@ const MOCK_SERVICE: Service = {
 
 const makeUi = action(() => Object.assign(new Ui(), { visibleWidth: 1300 }));
 const makeLiveAgent = action(() =>
-  Object.assign(new LiveAgent(), { liveAgentAvailable: true })
+  Object.assign(new LiveAgent(''), { liveAgentAvailable: true })
 );
 
 storiesOf('RequestLayout', module)

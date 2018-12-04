@@ -12,6 +12,7 @@ import makeCss from '../lib/make-css';
 
 import headerHtml from '../templates/header.html';
 import navigationHtml from '../templates/navigation.html';
+import LiveAgent from '../data/store/LiveAgent';
 
 type Props = {
   __NEXT_DATA__: any;
@@ -163,7 +164,6 @@ export default class extends Document {
             className="nv-m"
             dangerouslySetInnerHTML={{ __html: navigationHtml }}
           />
-
           <div className="mn mn--nv-s">
             <input
               type="checkbox"
@@ -181,46 +181,23 @@ export default class extends Document {
 
             <ScreenReaderSupport.AnnounceElement />
           </div>
-
           <script
             src={`${process.env.WEB_COMPONENTS_URI ||
               'https://patterns.boston.gov/web-components/all.js'}?k=${cacheParam}`}
           />
-
           <NextScript />
-
           <ContactForm
             defaultSubject="BOS:311 Feedback"
             token={process.env.CONTACT_FORM_TOKEN}
             action={process.env.CONTACT_FORM_URL}
           />
-
-          <script src={process.env.LIVE_AGENT_SCRIPT_SRC} />
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-              (function() {
-                if (typeof liveagent === 'undefined') {
-                  return;
-                }
-
-                var buttonId = "${process.env.LIVE_AGENT_BUTTON_ID || ''}";
-                // We need to make a fake "showWhenOnline" in order to get
-                // button events from the server. All of the app showing/hiding
-                // is done though addButtonEventHandler because Live Agent does
-                // not support adding new buttons after init is called, which
-                // runs against what we need in a single-page app.
-                liveagent.showWhenOnline(buttonId, document.createElement('DIV'));
-                liveagent.addButtonEventHandler(buttonId, function(event) {
-                  window.LIVE_AGENT_AVAILABLE = event === 'BUTTON_AVAILABLE';
-                });
-                liveagent.init("${process.env.LIVE_AGENT_CHAT_URL ||
-                  ''}", "${process.env.LIVE_AGENT_ORG_ID || ''}", "${process.env
-                .LIVE_AGENT_DEPLOYMENT_ID || ''}");
-              })();
-            `,
-            }}
+          <LiveAgent.SetupScript
+            scriptUrl={process.env.LIVE_AGENT_SCRIPT_SRC || ''}
+            buttonId={process.env.LIVE_AGENT_BUTTON_ID || ''}
+            chatUrl={process.env.LIVE_AGENT_CHAT_URL || ''}
+            orgId={process.env.LIVE_AGENT_ORG_ID || ''}
+            deploymentId={process.env.LIVE_AGENT_DEPLOYMENT_ID || ''}
+          />
           />
         </body>
       </html>

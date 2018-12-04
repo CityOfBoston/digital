@@ -63,7 +63,7 @@ describe('home page', () => {
         fetchGraphql,
         siteAnalytics: new GaSiteAnalytics(),
         ui: new Ui(),
-        liveAgent: new LiveAgent(),
+        liveAgent: new LiveAgent(''),
         languages: [],
         topServiceSummaries: initialProps.topServiceSummaries,
         description: initialProps.description,
@@ -102,7 +102,7 @@ describe('choose page', () => {
         fetchGraphql,
         siteAnalytics: new GaSiteAnalytics(),
         ui: new Ui(),
-        liveAgent: new LiveAgent(),
+        liveAgent: new LiveAgent(''),
         languages: [],
         topServiceSummaries: initialProps.topServiceSummaries,
         description: initialProps.description,
@@ -128,7 +128,7 @@ describe('integration', () => {
 
     wrapper = mount(
       <HomeDialog
-        liveAgent={new LiveAgent()}
+        liveAgent={new LiveAgent('')}
         siteAnalytics={new GaSiteAnalytics()}
         ui={new Ui()}
         languages={[]}

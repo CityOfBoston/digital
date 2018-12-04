@@ -97,7 +97,7 @@ beforeEach(() => {
   ui = new Ui();
   ui.visibleWidth = 1300;
 
-  liveAgent = new LiveAgent();
+  liveAgent = new LiveAgent('');
   liveAgent.liveAgentAvailable = true;
 
   searchCases.mockReturnValue(new Promise(() => {}));

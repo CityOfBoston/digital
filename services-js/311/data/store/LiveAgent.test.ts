@@ -1,5 +1,7 @@
 import LiveAgent from './LiveAgent';
 
+const FAKE_BUTTON_ID = '573r00000004COf';
+
 describe('Live Agent', () => {
   const cleanup = () => {
     delete window.LIVE_AGENT_AVAILABLE;
@@ -12,25 +14,19 @@ describe('Live Agent', () => {
 
   describe('liveAgentAvailable', () => {
     it('is false if not set on the window', () => {
-      expect(new LiveAgent().liveAgentAvailable).toBe(false);
+      expect(new LiveAgent(FAKE_BUTTON_ID).liveAgentAvailable).toBe(false);
     });
 
     it('is true if already set on the window', () => {
       window.LIVE_AGENT_AVAILABLE = true;
-      expect(new LiveAgent().liveAgentAvailable).toBe(true);
+      expect(new LiveAgent(FAKE_BUTTON_ID).liveAgentAvailable).toBe(true);
     });
   });
 
-  describe('liveAgentButtonId', () => {
-    it('is returned after setting', () => {
-      const liveAgent = new LiveAgent();
-      liveAgent.liveAgentButtonId = 'buttonId';
-      expect(liveAgent.liveAgentButtonId).toEqual('buttonId');
-    });
-
+  describe('attach', () => {
     it('registers if liveagent isn’t available', () => {
-      const liveAgent = new LiveAgent();
-      liveAgent.liveAgentButtonId = 'buttonId';
+      const liveAgent = new LiveAgent(FAKE_BUTTON_ID);
+      liveAgent.attach();
       expect(window._laq).toHaveLength(1);
     });
 
@@ -40,11 +36,11 @@ describe('Live Agent', () => {
       };
       window.liveagent = liveagent as any;
 
-      const liveAgent = new LiveAgent();
-      liveAgent.liveAgentButtonId = 'buttonId';
+      const liveAgent = new LiveAgent(FAKE_BUTTON_ID);
+      liveAgent.attach();
 
       expect(window.liveagent!.addButtonEventHandler).toHaveBeenCalledWith(
-        'buttonId',
+        FAKE_BUTTON_ID,
         expect.any(Function)
       );
 

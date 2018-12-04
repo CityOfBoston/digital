@@ -45,7 +45,7 @@ storiesOf('HomePane', module)
     <FormDialog noPadding>
       <HomePane
         ui={new Ui()}
-        liveAgent={new LiveAgent()}
+        liveAgent={new LiveAgent('')}
         description="Dead raccoon on the sidewalk"
         topServiceSummaries={SERVICE_SUMMARIES}
         nextFn={action('Next')}
