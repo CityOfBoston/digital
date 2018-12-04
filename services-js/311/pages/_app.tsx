@@ -28,6 +28,7 @@ import LiveAgent from '../data/store/LiveAgent';
 import parseLanguagePreferences, {
   LanguagePreference,
 } from '../data/store/BrowserLanguage';
+import { NextConfig } from '../lib/config';
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -193,7 +194,7 @@ export default class Three11App extends App {
 
     const initialPageDependencies = getInitialPageDependencies();
 
-    const config = getConfig();
+    const config: NextConfig = getConfig();
     const fetchGraphql = makeFetchGraphql(config);
 
     this.pageDependencies = {
@@ -206,7 +207,7 @@ export default class Three11App extends App {
       allServices: new AllServices(),
       browserLocation: new BrowserLocation(),
       fetchGraphql,
-      liveAgent: new LiveAgent(),
+      liveAgent: new LiveAgent(config.publicRuntimeConfig.liveAgentButtonId),
       ui: new Ui(),
       // In the app’s constructor, the props are from the server-side
       // getInitialProps execution. As the user navigates from page to page,
@@ -227,10 +228,12 @@ export default class Three11App extends App {
       ui,
       fetchGraphql,
       browserLocation,
+      liveAgent,
     } = this.pageDependencies;
 
     ui.attach();
     browserLocation.attach(fetchGraphql);
+    liveAgent.attach();
 
     screenReaderSupport.attach();
     routerListener.attach({

@@ -173,9 +173,7 @@ export default class HomePane extends React.Component<Props> {
   @action.bound
   startChat() {
     const { liveAgent } = this.props;
-    const { liveAgentButtonId } = liveAgent;
-
-    window.liveagent!.startChat(liveAgentButtonId);
+    liveAgent.startChat();
   }
 
   @computed
