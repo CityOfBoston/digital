@@ -197,7 +197,7 @@ export default class RequestLayout extends React.Component<Props, State> {
           style={{ backgroundColor: 'transparent' }}
           role="main"
         >
-          <div className={BACKGROUND_MAP_CONTAINER_STYLE}>
+          <div className={`mn-fixed-child ${BACKGROUND_MAP_CONTAINER_STYLE}`}>
             {/* Condition must be on the inner element. If it's on the outer
             DIV, React 16's reconcilliation of the server and client (which are
             different because we're conditional on mediaLarge) will apply the

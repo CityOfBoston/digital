@@ -80,7 +80,7 @@ exports[`existing service page rendering phone 1`] = `
     }
   >
     <div
-      className="css-dnm6i8"
+      className="mn-fixed-child css-dnm6i8"
     />
     <div
       className="css-15m5iw4"
@@ -542,7 +542,7 @@ exports[`existing service page rendering phone location step 1`] = `
     }
   >
     <div
-      className="css-dnm6i8"
+      className="mn-fixed-child css-dnm6i8"
     />
     <div
       className="css-18ppl9p"
@@ -756,7 +756,7 @@ exports[`missing service page rendering 1`] = `
     }
   >
     <div
-      className="css-dnm6i8"
+      className="mn-fixed-child css-dnm6i8"
     />
     <div
       className="css-15m5iw4"
