@@ -20,10 +20,10 @@ export default class AddressSearch {
   @observable lastQuery: string = '';
   @observable.ref lastSearchError: Error | null = null;
 
-  @observable.shallow _places: Array<SearchAddressPlace> | null = null;
-  @observable _currentPlaceIndex: number = -1;
+  @observable.shallow private _places: Array<SearchAddressPlace> | null = null;
+  @observable private _currentPlaceIndex: number = -1;
   @observable highlightedPlaceIndex: number = -1;
-  @observable _currentUnitIndex: number = 0;
+  @observable private _currentUnitIndex: number = 0;
   @observable
   currentReverseGeocodeLocation: { lat: number; lng: number } | null = null;
   @observable currentReverseGeocodeLocationIsValid: boolean = true;
@@ -87,7 +87,16 @@ export default class AddressSearch {
   }
 
   set currentPlaceIndex(currentPlaceIndex: number) {
+    if (currentPlaceIndex === this._currentPlaceIndex) {
+      return;
+    }
+
     this._currentPlaceIndex = currentPlaceIndex;
+    // We specifically just set the private variable because the
+    // currentUnitIndex setter forces the intent to "ADDRESS," which is not what
+    // we want if we're picking an address or something else with
+    // alwaysUseLatLng.
+    this._currentUnitIndex = 0;
 
     // Your intent should likely already be 'ADDRESS' in this case, because
     // picking from multiple places means that you did a forward search and the
