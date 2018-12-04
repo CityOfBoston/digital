@@ -582,11 +582,7 @@ class AddressRow extends React.Component<AddressRowProps> {
     const { index, addressSearch } = this.props;
 
     addressSearch.highlightedPlaceIndex = index;
-
-    if (index !== addressSearch.currentPlaceIndex) {
-      addressSearch.currentPlaceIndex = index;
-      addressSearch.currentUnitIndex = 0;
-    }
+    addressSearch.currentPlaceIndex = index;
   }
 
   @action.bound
