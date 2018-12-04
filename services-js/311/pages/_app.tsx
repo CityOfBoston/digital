@@ -15,6 +15,7 @@ import {
   RouterListener,
   GaSiteAnalytics,
   FetchGraphql,
+  GraphqlCache,
 } from '@cityofboston/next-client-common';
 
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
@@ -36,6 +37,7 @@ import { NextConfig } from '../lib/config';
  */
 export interface GetInitialPropsDependencies {
   fetchGraphql: FetchGraphql;
+  fetchGraphqlCache: GraphqlCache;
 }
 
 /**
@@ -81,10 +83,11 @@ export type GetInitialProps<
  *   }
  * }
  */
-export interface PageDependencies extends GetInitialPropsDependencies {
+export interface PageDependencies {
   addressSearch: AddressSearch;
   allServices: AllServices;
   browserLocation: BrowserLocation;
+  fetchGraphql: FetchGraphql;
   languages: LanguagePreference[];
   liveAgent: LiveAgent;
   requestSearch: RequestSearch;
@@ -101,6 +104,7 @@ interface AppGetInitialPropsContext {
 
 interface InitialProps {
   pageProps: any;
+  fetchGraphqlCache: GraphqlCache;
   languages: LanguagePreference[];
 }
 
@@ -128,10 +132,12 @@ function getInitialPageDependencies(
   }
 
   const config = getConfig();
-  const fetchGraphql = makeFetchGraphql(config, req);
+  const cache: GraphqlCache = {};
+  const fetchGraphql = makeFetchGraphql(config, req, cache);
 
   const initialPageDependencies: GetInitialPropsDependencies = {
     fetchGraphql,
+    fetchGraphqlCache: cache,
   };
 
   if (process.browser) {
@@ -157,15 +163,15 @@ export default class Three11App extends App {
     Component,
     ctx,
   }: AppGetInitialPropsContext): Promise<InitialProps> {
+    const deps = getInitialPageDependencies(ctx.req);
+
     const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(
-          ctx,
-          getInitialPageDependencies(ctx.req)
-        )
+      ? await Component.getInitialProps(ctx, deps)
       : {};
 
     return {
       pageProps,
+      fetchGraphqlCache: deps.fetchGraphqlCache,
       // This only has useful values on the server, so we’ll save it off in the
       // constructor.
       languages: parseLanguagePreferences(ctx.req),
@@ -192,13 +198,16 @@ export default class Three11App extends App {
       hydrate((window as any).__NEXT_DATA__.ids);
     }
 
-    const initialPageDependencies = getInitialPageDependencies();
-
     const config: NextConfig = getConfig();
-    const fetchGraphql = makeFetchGraphql(config);
+
+    // In the browser, this is called before it's ever called in a
+    // getInitialProps (because the getInitialProps call is server-side for the
+    // first load). We "prime" the cache by pulling in what we got from our
+    // props, which is the export of the server-side getInitialProps.
+    const deps = getInitialPageDependencies();
+    Object.assign(deps.fetchGraphqlCache, props.fetchGraphqlCache);
 
     this.pageDependencies = {
-      ...initialPageDependencies,
       routerListener: new RouterListener(),
       screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics: new GaSiteAnalytics(),
@@ -206,7 +215,7 @@ export default class Three11App extends App {
       addressSearch: new AddressSearch(),
       allServices: new AllServices(),
       browserLocation: new BrowserLocation(),
-      fetchGraphql,
+      fetchGraphql: deps.fetchGraphql,
       liveAgent: new LiveAgent(config.publicRuntimeConfig.liveAgentButtonId),
       ui: new Ui(),
       // In the app’s constructor, the props are from the server-side
