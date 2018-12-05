@@ -8,6 +8,8 @@
     "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
     "pretest": "tsc --noEmit",
     "test": "scripts/test.js",
+    "testcafe:dev": "testcafe-live remote src/**/*.testcafe.*",
+    "testcafe:local": "npm run build && cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 3 chrome:headless components/**/*.testcafe.*",
     "build": "concurrently \"npm run build:server\" \"npm run build:next\" \"gulp vendor\"",
     "build:server": "tsc -p tsconfig.server.json",
     "build:next": "next build .",
@@ -147,6 +149,8 @@
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.1",
     "svg-sprite": "^1.3.6",
+    "testcafe": "^0.23.2",
+    "testcafe-live": "^0.1.4",
     "typescript": "^3.1.0"
   }
 }
