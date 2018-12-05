@@ -116,16 +116,18 @@ function renderSubmitted(req: Request) {
       (expectedAtString && SCHEDULED_CASE_TYPES.indexOf(code) !== -1) ? (
         <div>
           <div className="t--intro m-b500" style={{ fontStyle: 'normal' }}>
-            Thank you for submitting. Your case reference number is #{id}.
+            Thank you for submitting. Your case reference number is{' '}
+            <span style={{ whiteSpace: 'nowrap' }}>#{id}</span>.
           </div>
 
           {renderServiceNotice(req)}
         </div>
       ) : (
         <div className="t--intro" style={{ fontStyle: 'normal' }}>
-          Thank you for submitting. Your case reference number is #{id}. If you
-          gave your email address, we’ll send you an email when it’s resolved.
-          You can also bookmark this page to check back on it.
+          Thank you for submitting. Your case reference number is{' '}
+          <span style={{ whiteSpace: 'nowrap' }}>#{id}</span>. If you gave your
+          email address, we’ll send you an email when it’s resolved. You can
+          also bookmark this page to check back on it.
         </div>
       )}
     </div>

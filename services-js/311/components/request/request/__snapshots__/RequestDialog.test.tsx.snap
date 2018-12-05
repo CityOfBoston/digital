@@ -738,8 +738,18 @@ exports[`methods submitRequest success 2`] = `
                   }
                 }
               >
-                Thank you for submitting. Your case reference number is #
-                17-000000001
+                Thank you for submitting. Your case reference number is
+                 
+                <span
+                  style={
+                    Object {
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  #
+                  17-000000001
+                </span>
                 . If you gave your email address, we’ll send you an email when it’s resolved. You can also bookmark this page to check back on it.
               </div>
             </div>
