@@ -82,6 +82,10 @@ export default async function loadService(
   code: string
 ) {
   const queryVariables: LoadServiceVariables = { code };
-  const response: LoadService = await fetchGraphql(QUERY, queryVariables);
+  const response: LoadService = await fetchGraphql(
+    QUERY,
+    queryVariables,
+    `LoadService-${code}`
+  );
   return response.service;
 }

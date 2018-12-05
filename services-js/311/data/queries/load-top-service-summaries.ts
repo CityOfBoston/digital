@@ -26,7 +26,8 @@ export default async function loadTopServiceSummaries(
   const variables: LoadTopServiceSummariesVariables = { first: count };
   const response: LoadTopServiceSummaries = await fetchGraphql(
     QUERY,
-    variables
+    variables,
+    `LoadTopServiceSummaries-${count}`
   );
   return response.topServices;
 }

@@ -44,6 +44,8 @@ export interface RuntimeConfig {
 
 export type QueryVariables = { [key: string]: any };
 
+export type GraphqlCache = { [key: string]: any };
+
 export interface GraphqlErrorRecord {
   message: string;
 }
@@ -94,9 +96,15 @@ function handleGraphqlResponse<T>(
 
 async function clientFetchGraphql<T>(
   { publicRuntimeConfig }: RuntimeConfig,
+  cache: GraphqlCache | undefined,
   query,
-  variables: QueryVariables | null = null
+  variables: QueryVariables | null = null,
+  cacheKey: string | null = null
 ): Promise<T> {
+  if (cache && cacheKey && cache[cacheKey] !== undefined) {
+    return cache[cacheKey];
+  }
+
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -125,7 +133,11 @@ async function clientFetchGraphql<T>(
   if (res.ok) {
     // We do the res.ok check rather than passing it in so that we only call
     // res.json() on an OK repsonse.
-    return handleGraphqlResponse<T>(true, await res.json());
+    const out = handleGraphqlResponse<T>(true, await res.json());
+    if (cache && cacheKey) {
+      cache[cacheKey] = out;
+    }
+    return out;
   } else {
     throw new Error(await res.text());
   }
@@ -134,9 +146,15 @@ async function clientFetchGraphql<T>(
 async function serverFetchGraphql<T>(
   { publicRuntimeConfig, serverRuntimeConfig }: RuntimeConfig,
   parentRequest: IncomingMessage | undefined,
+  cache: GraphqlCache | undefined,
   query: string,
-  variables: QueryVariables | null
+  variables: QueryVariables | null = null,
+  cacheKey: string | null = null
 ): Promise<T> {
+  if (cache && cacheKey && cache[cacheKey] !== undefined) {
+    return cache[cacheKey];
+  }
+
   const headers = {};
 
   if (publicRuntimeConfig && publicRuntimeConfig[API_KEY_CONFIG_KEY]) {
@@ -169,7 +187,12 @@ async function serverFetchGraphql<T>(
 
   const json =
     typeof res.result === 'string' ? JSON.parse(res.result) : res.result;
-  return handleGraphqlResponse<T>(res.statusCode === 200, json);
+
+  const out = handleGraphqlResponse<T>(res.statusCode === 200, json);
+  if (cache && cacheKey) {
+    cache[cacheKey] = out;
+  }
+  return out;
 }
 
 /**
@@ -183,6 +206,9 @@ async function serverFetchGraphql<T>(
  *
  * The GraphQL endpoint defaults to "/graphql" but can be set by the
  * GRAPHQL_PATH_KEY public config value.
+ *
+ * Note that this version does not support sending cookies on the server, or a
+ * cache. For those, use makeFetchGraphql instead.
  *
  * @param query GraphQL query string
  * @param variables Optional hash of variable values
@@ -198,25 +224,50 @@ export function fetchGraphql<T>(
   const runtimeConfig: RuntimeConfig = getConfig();
 
   if ((process as any).browser) {
-    return clientFetchGraphql<T>(runtimeConfig, query, variables);
+    return clientFetchGraphql<T>(runtimeConfig, undefined, query, variables);
   } else {
-    return serverFetchGraphql<T>(runtimeConfig, undefined, query, variables);
+    return serverFetchGraphql<T>(
+      runtimeConfig,
+      undefined,
+      undefined,
+      query,
+      variables
+    );
   }
 }
 
 export type FetchGraphql = (
   query: string,
-  variables?: QueryVariables
+  variables?: QueryVariables,
+  /**
+   * If provided, and if the fetchGraphql function was created with a cache, will
+   * return a value in the cache if it matches the key. If it’s a cache miss, this
+   * will store successful responses in the cache for the future.
+   */
+  cacheKey?: string
 ) => Promise<any>;
 
+/**
+ * Use this function to make a fetchGraphql function.
+ *
+ * @param runtimeConfig The Next.js configuration, which needs to have a
+ * HAPI_INJECT_CONFIG_KEY Inject method.
+ * @param parentRequest Pass in the req from the getInitialProps context here.
+ * Allows us to simulate cookie behavior on the server by copying them from the
+ * original request.
+ * @param cache Pass an object that fetchGraphql can cache values in. You should
+ * use Next.js props from your _app component to transfer values cached in the
+ * server-side getInitialProps to the client runtime.
+ */
 export function makeFetchGraphql(
   runtimeConfig: RuntimeConfig,
-  parentRequest?: IncomingMessage
+  parentRequest?: IncomingMessage,
+  cache?: GraphqlCache
 ): FetchGraphql {
   if ((process as any).browser) {
-    return clientFetchGraphql.bind(null, runtimeConfig);
+    return clientFetchGraphql.bind(null, runtimeConfig, cache);
   } else {
-    return serverFetchGraphql.bind(null, runtimeConfig, parentRequest);
+    return serverFetchGraphql.bind(null, runtimeConfig, parentRequest, cache);
   }
 }
 
