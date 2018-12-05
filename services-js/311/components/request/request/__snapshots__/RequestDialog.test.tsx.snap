@@ -199,7 +199,7 @@ exports[`methods submitRequest graphql failure 1`] = `
               </div>
             </div>
             <p
-              className="m-v500"
+              className="m-v500 t--s500 lh--400"
             >
               You can
                
@@ -217,6 +217,34 @@ exports[`methods submitRequest graphql failure 1`] = `
                
               and try again.
             </p>
+            <TelephoneNumbers>
+              <div
+                className="css-70qvj9"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="css-suvs8w"
+                >
+                  <use
+                    height="36"
+                    xlinkHref="/assets/img/svg/faq-icons.svg#Phone_off"
+                  />
+                </svg>
+                <div
+                  className="t--info"
+                >
+                  You can always report non-emergency issues to us by calling BOS:311 at 311 or
+                   
+                  <a
+                    className="css-dbrpw0"
+                    href="tel:+16176354500"
+                  >
+                    617-635-4500
+                  </a>
+                  .
+                </div>
+              </div>
+            </TelephoneNumbers>
           </div>
         </SubmitPane>
       </div>

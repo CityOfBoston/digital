@@ -5,6 +5,8 @@ import HTTPStatus from 'http-status';
 import Head from 'next/head';
 import { css } from 'emotion';
 
+import { NextContext } from '@cityofboston/next-client-common';
+
 import { HEADER_HEIGHT, assetUrl } from '../style-constants';
 
 import FeedbackBanner from '../common/FeedbackBanner';
@@ -12,7 +14,7 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 import FormDialog from '../common/FormDialog';
-import { NextContext } from '@cityofboston/next-client-common';
+import TelephoneNumbers from '../common/TelephoneNumbers';
 
 const CONTAINER_STYLE = css({
   minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
@@ -35,7 +37,6 @@ const IMAGE_STYLE = css({
 
 type Props = {
   statusCode: number;
-  store: any;
 };
 
 export default class ErrorLayout extends React.Component<Props> {
@@ -84,14 +85,16 @@ export default class ErrorLayout extends React.Component<Props> {
               {statusCode} EEEK
             </SectionHeader>
 
-            <div className="t--info m-v400">
+            <div className="t--intro m-v500">
               {statusCode === 404
                 ? 'That link seems to have scurried away.'
                 : 'Looks like that link is playing dead. Please try again later.'}
             </div>
 
+            <TelephoneNumbers />
+
             <img
-              className={IMAGE_STYLE.toString()}
+              className={`${IMAGE_STYLE.toString()} m-v400`}
               src={assetUrl('img/404-cropped.png')}
               width="700"
               height="280"

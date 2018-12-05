@@ -58,6 +58,8 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
 
   const server = new Hapi.Server(serverConfig);
 
+  const maintenanceMode = process.env.MAINTENANCE_MODE === '1';
+
   // We load the config ourselves so that we can modify the runtime configs
   // from here.
   const config = require('../../next.config.js');
@@ -103,16 +105,21 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
     process.env.ELASTICSEARCH_INDEX
   );
 
-  const salesforce = process.env.SALESFORCE_OAUTH_URL
-    ? new Salesforce(
-        process.env.SALESFORCE_OAUTH_URL,
-        process.env.SALESFORCE_CONSUMER_KEY,
-        process.env.SALESFORCE_CONSUMER_SECRET,
-        process.env.SALESFORCE_API_USERNAME,
-        process.env.SALESFORCE_API_PASSWORD,
-        process.env.SALESFORCE_API_SECURITY_TOKEN
-      )
-    : null;
+  // If we're in maintenance mode we don’t try to connect to Salesforce because
+  // it being down is likely the reason we're in maintenance mode to begin with.
+  // It’s also the only service that we actively connect to on startup. The
+  // others are done on-demand.
+  const salesforce =
+    process.env.SALESFORCE_OAUTH_URL && !maintenanceMode
+      ? new Salesforce(
+          process.env.SALESFORCE_OAUTH_URL,
+          process.env.SALESFORCE_CONSUMER_KEY,
+          process.env.SALESFORCE_CONSUMER_SECRET,
+          process.env.SALESFORCE_API_USERNAME,
+          process.env.SALESFORCE_API_PASSWORD,
+          process.env.SALESFORCE_API_SECURITY_TOKEN
+        )
+      : null;
 
   if (salesforce) {
     // We block startup on making sure we can authenticate to Salesforce.
@@ -181,88 +188,99 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
     },
   });
 
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: nextHandler(app, '/request'),
-  });
+  if (maintenanceMode) {
+    server.route({
+      method: '*',
+      path: '/{p*}',
+      handler: (handleNextRequest => (request, h) => {
+        request.raw.res.statusCode = 503;
+        return handleNextRequest(request, h);
+      })(nextHandler(app, '/sorry')),
+    });
+  } else {
+    server.route({
+      method: 'GET',
+      path: '/',
+      handler: nextHandler(app, '/request'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/request',
-    handler: (_, h) => h.redirect('/'),
-  });
+    server.route({
+      method: 'GET',
+      path: '/request',
+      handler: (_, h) => h.redirect('/'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/request/{code}',
-    handler: nextHandler(app, '/request'),
-  });
+    server.route({
+      method: 'GET',
+      path: '/request/{code}',
+      handler: nextHandler(app, '/request'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/request/{code}/{stage}',
-    handler: (request, h) => h.redirect(`/request/${request.params.code}`),
-  });
+    server.route({
+      method: 'GET',
+      path: '/request/{code}/{stage}',
+      handler: (request, h) => h.redirect(`/request/${request.params.code}`),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/translate',
-    handler: nextHandler(app, '/request', { translate: '1' }),
-  });
+    server.route({
+      method: 'GET',
+      path: '/translate',
+      handler: nextHandler(app, '/request', { translate: '1' }),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/services',
-    handler: nextHandler(app, '/services'),
-  });
+    server.route({
+      method: 'GET',
+      path: '/services',
+      handler: nextHandler(app, '/services'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/search',
-    handler: nextHandler(app, '/search'),
-  });
+    server.route({
+      method: 'GET',
+      path: '/search',
+      handler: nextHandler(app, '/search'),
+    });
 
-  // Old Connected Bits URLs
-  server.route({
-    method: 'GET',
-    path: '/reports/list_services',
-    handler: (_, h) => h.redirect('/services'),
-  });
+    // Old Connected Bits URLs
+    server.route({
+      method: 'GET',
+      path: '/reports/list_services',
+      handler: (_, h) => h.redirect('/services'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/reports/new',
-    handler: legacyServiceRedirectHandler,
-  });
+    server.route({
+      method: 'GET',
+      path: '/reports/new',
+      handler: legacyServiceRedirectHandler,
+    });
 
-  server.route({
-    method: 'GET',
-    // This domain is chosen to match the existing 311.boston.gov URLs
-    path: '/reports/{id}',
-    handler: nextHandler(app, '/reports'),
-  });
+    server.route({
+      method: 'GET',
+      // This domain is chosen to match the existing 311.boston.gov URLs
+      path: '/reports/{id}',
+      handler: nextHandler(app, '/reports'),
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/faq',
-    handler: nextHandler(app, '/faq'),
-  });
+    server.route({
+      method: 'GET',
+      path: '/faq',
+      handler: nextHandler(app, '/faq'),
+    });
 
-  // 404 page
-  server.route({
-    method: '*',
-    path: '/{p*}',
-    handler: (handleNextRequest => (request, h) => {
-      const {
-        raw: { res },
-      } = request;
+    // 404 page
+    server.route({
+      method: '*',
+      path: '/{p*}',
+      handler: (handleNextRequest => (request, h) => {
+        const {
+          raw: { res },
+        } = request;
 
-      res.statusCode = 404;
+        res.statusCode = 404;
 
-      return handleNextRequest(request, h);
-    })(nextHandler(app, '/_error')),
-  });
+        return handleNextRequest(request, h);
+      })(nextHandler(app, '/_error')),
+    });
+  }
 
   server.route({
     method: 'GET',

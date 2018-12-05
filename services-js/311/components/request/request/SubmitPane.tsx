@@ -4,6 +4,7 @@ import { css } from 'emotion';
 import SectionHeader from '../../common/SectionHeader';
 import LoadingBuildings from '../../common/LoadingBuildings';
 import Ui from '../../../data/store/Ui';
+import TelephoneNumbers from '../../common/TelephoneNumbers';
 
 export type Props =
   | {
@@ -60,13 +61,15 @@ export default function SubmitPane(props: Props) {
             {messages.map((msg, i) => <div key={i}>{msg}</div>)}
           </div>
 
-          <p className="m-v500">
+          <p className="m-v500 t--s500 lh--400">
             You can{' '}
             <Link href={backUrl} as={backUrlAs}>
               <a>go back and update your request</a>
             </Link>{' '}
             and try again.
           </p>
+
+          <TelephoneNumbers />
         </div>
       );
     }

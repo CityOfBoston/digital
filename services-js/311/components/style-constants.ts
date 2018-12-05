@@ -9,6 +9,7 @@ export const MEDIA_X_LARGE = '@media screen and (min-width: 980px)';
 export const MEDIA_XX_LARGE = '@media screen and (min-width: 1280px)';
 
 export const HEADER_HEIGHT = 119;
+export const NAV_HEIGHT = 54;
 export const IPHONE_FOOTER_HEIGHT = 64;
 
 export const YELLOW = '#fcb61a';
