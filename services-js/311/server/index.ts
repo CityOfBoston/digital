@@ -1,7 +1,10 @@
 /* eslint no-console: 0 */
 
 // We use require in here so we can be deliberate about load order.
-require('dotenv').config();
+// We don't want any local configurations to affect the test runs
+if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'testcafe') {
+  require('dotenv').config();
+}
 
 const Rollbar = require('rollbar');
 const rollbar = new Rollbar({
