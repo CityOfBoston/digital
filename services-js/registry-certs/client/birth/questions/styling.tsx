@@ -4,8 +4,10 @@ import {
   CHARLES_BLUE,
   FREEDOM_RED,
   GRAY_300,
+  MEDIA_SMALL,
   OPTIMISTIC_BLUE,
   SANS,
+  VISUALLYHIDDEN,
 } from '@cityofboston/react-fleet';
 
 // Apply to <ul/ol> to remove default list styles
@@ -16,21 +18,8 @@ export const CLEAR_LIST_STYLING = css({
   paddingLeft: 0,
 });
 
-// https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements
-const VISUALLY_HIDDEN = css({
-  border: 0,
-  clip: 'rect(0 0 0 0)',
-  height: '1px',
-  margin: '-1px',
-  overflow: 'hidden',
-  padding: 0,
-  position: 'absolute',
-  width: '1px',
-});
-
 const UNBORDERED_STYLING = {
-  display: 'flex',
-  justifyContent: 'center',
+  // todo: will change once we start using icons; text will be visually hidden
   label: {
     display: 'block',
     padding: '1rem 2rem',
@@ -43,7 +32,7 @@ const UNBORDERED_STYLING = {
       color: FREEDOM_RED,
     },
   },
-  input: VISUALLY_HIDDEN,
+  input: VISUALLYHIDDEN,
   'input:focus + label': {
     outline: `5px auto ${GRAY_300}`,
     outlineOffset: 2,
@@ -52,6 +41,10 @@ const UNBORDERED_STYLING = {
     color: '#fff',
     backgroundColor: OPTIMISTIC_BLUE,
   },
+  [MEDIA_SMALL]: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 };
 
 const BORDER_STYLE = `2px solid ${CHARLES_BLUE}`;
@@ -59,28 +52,36 @@ const BORDER_STYLE = `2px solid ${CHARLES_BLUE}`;
 export const RADIOGROUP_STYLING = css({
   ...UNBORDERED_STYLING,
   '> *': {
-    borderLeft: BORDER_STYLE,
-    borderTop: BORDER_STYLE,
-    borderBottom: BORDER_STYLE,
-  },
-  '> *:last-of-type': {
-    borderRight: BORDER_STYLE,
+    border: BORDER_STYLE,
+    marginBottom: '2rem',
+
+    [MEDIA_SMALL]: {
+      marginBottom: 0,
+      '&:not(:last-of-type)': {
+        borderRight: 'none',
+      },
+    },
   },
 });
 
 export const RADIOGROUP_UNBORDERED_STYLING = css(UNBORDERED_STYLING);
 
 export const NAME_FIELDS_CONTAINER_STYLING = css({
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  [MEDIA_SMALL]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
 
   '> div': {
-    flexGrow: 1,
     textAlign: 'left',
-    '&:last-of-type': {
-      marginLeft: '2rem',
+
+    [MEDIA_SMALL]: {
+      flexGrow: 1,
+      '&:last-of-type': {
+        marginLeft: '2rem',
+      },
     },
   },
 });

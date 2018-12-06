@@ -4,55 +4,39 @@ import { css } from 'emotion';
 import {
   CHARLES_BLUE,
   GRAY_300,
-  OPTIMISTIC_BLUE,
+  MEDIA_SMALL,
   SANS,
 } from '@cityofboston/react-fleet';
 
 interface Props {
-  handleProceed?: () => void;
-  handleStepBack?: () => void;
-
+  legendText: React.ReactNode;
   children: React.ReactNode;
 }
 
 /**
- * Container component to provide layout for a single question screen,
- * as well as “back” and “next question” buttons if their related handlers
- * are passed in as props to this component.
+ * Container component to provide layout for a single fieldset.
+ * Some questions will contain multiple fieldsets.
  */
 export default function FieldsetComponent(props: Props): JSX.Element {
   return (
     <fieldset className={FIELDSET_STYLING}>
+      <legend>{props.legendText}</legend>
+
       {props.children}
-
-      <div className={BUTTONS_CONTAINER_STYLING}>
-        {props.handleStepBack && (
-          <button
-            type="button"
-            onClick={props.handleStepBack}
-            className={`btn ${BACK_BUTTON_STYLING}`}
-          >
-            Back
-          </button>
-        )}
-
-        {/* TODO: disable this as necessary */}
-        {/* todo: discussion to come whether or not to always include an explicit “next” button for yes/no/unsure questions, rather than the y/n/u selection trigger change to next question */}
-        {props.handleProceed && (
-          <button type="button" onClick={props.handleProceed} className="btn">
-            Next question
-          </button>
-        )}
-      </div>
     </fieldset>
   );
 }
 
 export const FIELDSET_STYLING = css({
-  marginTop: '5rem',
+  marginTop: '2rem',
   textAlign: 'center',
-  border: `1px solid ${GRAY_300}`,
-  padding: '3rem 2rem 2rem',
+  border: 'none',
+  padding: '1rem 0 0',
+  [MEDIA_SMALL]: {
+    marginTop: '5rem',
+    padding: '3rem 2rem 2rem',
+    border: `1px solid ${GRAY_300}`,
+  },
   legend: {
     paddingLeft: '1rem',
     paddingRight: '1rem',
@@ -64,23 +48,5 @@ export const FIELDSET_STYLING = css({
   },
   figure: {
     margin: 0,
-  },
-});
-
-const BUTTONS_CONTAINER_STYLING = css({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  marginTop: '3rem',
-  'button:last-of-type': {
-    marginLeft: '2rem',
-  },
-});
-
-const BACK_BUTTON_STYLING = css({
-  backgroundColor: '#fff',
-  color: OPTIMISTIC_BLUE,
-  border: '3px solid currentColor',
-  '&:hover': {
-    borderColor: CHARLES_BLUE,
   },
 });
