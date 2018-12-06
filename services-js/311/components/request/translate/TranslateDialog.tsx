@@ -32,6 +32,12 @@ const TELEPHONE_STYLE = css({
   },
 });
 
+const TELEPHONE_LINK_STYLE = css({
+  color: 'inherit',
+  textDecoration: 'underline',
+  whiteSpace: 'nowrap',
+});
+
 const CONTINUE_LINK_STYLE = css({
   fontStyle: 'normal',
   flex: 1,
@@ -61,54 +67,70 @@ const MESSAGES = {
     <span>
       If you need to report a non-emergency issue with the City of Boston,
       please call BOS:311 at 311 or{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   es: (
     <span>
       Si necesita reportar un problema que no sea de emergencia a la Ciudad de
       Boston, por favor llame a BOS:311 al 3-1-1 o al{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   'zh-TW': (
     <span>
       向波士頓市府舉報非緊急事項, 請致電 BOS:311辦公室,撥 3-1-1或{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   'zh-CN': (
     <span>
-      向波士顿市府举报非紧急事项,请致电BOS:311办公室, 拨 3-1-1 或
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      向波士顿市府举报非紧急事项,请致电BOS:311办公室, 拨 3-1-1 或{' '}
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   ht: (
     <span>
       Si’w ta vle repòte yon pwoblem ki pa yon ijans pou Vil Boston an, souple
       rele BOS:311 nan 3-1-1 oswa{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   vi: (
     <span>
       Nếu cần báo cáo vấn đề không khẩn cấp đến thành phố Boston, xin gọi
       BOS:311 tại 3-1-1 hoạc{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   kea: (
     <span>
       Si bu prisiza di kumunika un asuntu ki ê ka di imerjênsia pa Cidadi di
       Boston, pur favor telifona pa BOS:311 pa númeru 3-1-1 ô pa{' '}
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
   pt: (
     <span>
       Se você precisa comunicar algum assunto que não é de emergência à Cidade
-      de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou para
-      <span style={{ whiteSpace: 'nowrap' }}>617-635-4500</span>.
+      de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou para{' '}
+      <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
+        617-635-4500
+      </a>.
     </span>
   ),
 };
@@ -168,7 +190,7 @@ export default class TranslateDialog extends React.Component<Props> {
 
             <div className="g m-v500 p-a500" style={{ alignItems: 'center' }}>
               <div className="g--3">
-                <svg role="img" className={TELEPHONE_STYLE}>
+                <svg aria-hidden className={TELEPHONE_STYLE}>
                   <use xlinkHref={`${SPRITE_URL}#Phone_off`} height="100%" />
                 </svg>
               </div>
