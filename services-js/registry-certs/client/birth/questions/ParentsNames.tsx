@@ -18,7 +18,7 @@ interface Props {
   parent2FirstName?: string;
   parent2LastName?: string;
 
-  handleProceed: (answers: Partial<State>) => void;
+  handleProceed: (answers: State) => void;
   handleStepBack: () => void;
 }
 

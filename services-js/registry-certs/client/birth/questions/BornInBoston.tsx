@@ -11,7 +11,7 @@ interface Props {
   bornInBoston?: YesNoUnknownAnswer;
   parentsLivedInBoston?: YesNoUnknownAnswer;
 
-  handleProceed: (answers: Partial<State>) => void;
+  handleProceed: (answers: State) => void;
   handleStepBack: () => void;
   handleUserReset: () => void;
 }
@@ -50,7 +50,7 @@ export default class BornInBoston extends React.Component<Props, State> {
     }
   }
 
-  private startOver(): boolean {
+  private userCannotProceed(): boolean {
     return (
       this.state.bornInBoston === 'no' &&
       this.state.parentsLivedInBoston === 'no'
@@ -66,7 +66,7 @@ export default class BornInBoston extends React.Component<Props, State> {
         handleStepBack={this.props.handleStepBack}
         handleReset={this.props.handleUserReset}
         allowProceed={this.allowProceed()}
-        startOver={this.startOver()}
+        startOver={this.userCannotProceed()}
       >
         <FieldsetComponent
           legendText={
@@ -83,7 +83,6 @@ export default class BornInBoston extends React.Component<Props, State> {
         {/* This question is only presented if the user selects NO or UNKNOWN for bornInBoston. */}
         {/* If NO for both “born in Boston” and “parents lived in Boston”, exit the workflow and inform the user. */}
         {/* If UNKNOWN for either question, proceed to next question. */}
-
         {(this.state.bornInBoston === 'no' ||
           this.state.bornInBoston === 'unknown') && (
           <FieldsetComponent

@@ -13,7 +13,7 @@ import { CHARLES_BLUE } from '@cityofboston/react-fleet';
 interface Props {
   forSelf?: boolean;
   howRelated?: Relation;
-  handleProceed: (answers: Partial<State>) => void;
+  handleProceed: (answers: State) => void;
 }
 
 interface State {

@@ -11,7 +11,7 @@ interface Props {
   firstName?: string;
   lastName?: string;
 
-  handleProceed: (answers: Partial<State>) => void;
+  handleProceed: (answers: State) => void;
   handleStepBack: () => void;
 }
 
