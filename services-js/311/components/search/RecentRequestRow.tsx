@@ -81,6 +81,7 @@ export type Props = {
   request: SearchCase;
   requestSearch: RequestSearch;
   ui: Ui;
+  hoverEffects: boolean;
 };
 
 @observer
@@ -140,7 +141,7 @@ export default class RecentRequestRow extends React.Component<Props> {
   }
 
   render() {
-    const { request } = this.props;
+    const { request, hoverEffects } = this.props;
 
     const defaultUrl = this.selected
       ? assetUrl('img/311-logo-grey-on-white.svg')
@@ -172,8 +173,8 @@ export default class RecentRequestRow extends React.Component<Props> {
           ref={this.setEl}
           data-request-id={request.id}
           className={`p-a300 br ${REQUEST_STYLE.toString()}`}
-          onMouseEnter={this.handleHover}
-          onMouseLeave={this.handleUnhover}
+          onMouseEnter={hoverEffects ? this.handleHover : undefined}
+          onMouseLeave={hoverEffects ? this.handleUnhover : undefined}
           style={{
             backgroundColor: this.selected ? GRAY_100 : 'transparent',
             color: 'inherit',

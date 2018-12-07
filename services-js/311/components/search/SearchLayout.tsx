@@ -125,9 +125,10 @@ export default class SearchLayout extends React.Component<Props> {
   private locationUpdateDisposer: Function | null = null;
   private currentLocationMonitorDisposer: Function | null = null;
 
-  private container: HTMLElement | null = null;
-  private locationMap: LocationMap | null = null;
-  private locationMapContainer: HTMLElement | null = null;
+  // These are all observable because they’re used in @computed methods.
+  @observable private container: HTMLElement | null = null;
+  @observable private locationMap: LocationMap | null = null;
+  @observable private locationMapContainer: HTMLElement | null = null;
   @observable private mapViewButtonContainer: HTMLElement | null = null;
 
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = async (
@@ -252,17 +253,20 @@ export default class SearchLayout extends React.Component<Props> {
     }
   }
 
-  setContainer = (container: HTMLElement | null) => {
+  @action.bound
+  setContainer(container: HTMLElement | null) {
     this.container = container;
-  };
+  }
 
-  setLocationMap = (locationMap: LocationMap | null) => {
+  @action.bound
+  setLocationMap(locationMap: LocationMap | null) {
     this.locationMap = locationMap;
-  };
+  }
 
-  setLocationMapContainer = (locationMapContainer: HTMLElement | null) => {
+  @action.bound
+  setLocationMapContainer(locationMapContainer: HTMLElement | null) {
     this.locationMapContainer = locationMapContainer;
-  };
+  }
 
   @action.bound
   setMapViewButtonContainer(mapViewButtonContainer: HTMLElement | null) {
@@ -311,12 +315,9 @@ export default class SearchLayout extends React.Component<Props> {
     const { ui } = this.props;
     const { locationMapContainer } = this;
 
-    if (!locationMapContainer) {
-      return false;
-    }
-
-    return (
+    return !!(
       ui.scrollY > -1 &&
+      locationMapContainer &&
       locationMapContainer.getBoundingClientRect().bottom <
         HEADER_HEIGHT + SEARCH_HEIGHT
     );
@@ -395,7 +396,11 @@ export default class SearchLayout extends React.Component<Props> {
 
           {!mapView && (
             <div ref={this.setContainer}>
-              <RecentRequests requestSearch={requestSearch} ui={ui} />
+              <RecentRequests
+                requestSearch={requestSearch}
+                ui={ui}
+                isMobile={ui.belowMediaLarge}
+              />
             </div>
           )}
 

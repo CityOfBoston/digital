@@ -21,7 +21,7 @@ import { nextHandler, nextDefaultHandler } from './next-handlers';
 import { Open311 } from './services/Open311';
 import { ArcGIS } from './services/ArcGIS';
 import { Prediction } from './services/Prediction';
-import { Elasticsearch } from './services/Elasticsearch';
+import Elasticsearch from './services/Elasticsearch';
 import { Salesforce } from './services/Salesforce';
 
 import schema, { Context } from './graphql';
@@ -38,6 +38,7 @@ import {
   PublicRuntimeConfig,
   ServerRuntimeConfig,
 } from '../lib/config';
+import ElasticsearchFake from './services/ElasticsearchFake';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -100,10 +101,13 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
     Elasticsearch.configureAws(process.env.AWS_REGION);
   }
 
-  const elasticsearch = new Elasticsearch(
-    process.env.ELASTICSEARCH_URL,
-    process.env.ELASTICSEARCH_INDEX
-  );
+  const elasticsearch =
+    process.env.NODE_ENV === 'production' || process.env.ELASTICSEARCH_URL
+      ? new Elasticsearch(
+          process.env.ELASTICSEARCH_URL,
+          process.env.ELASTICSEARCH_INDEX
+        )
+      : new ElasticsearchFake();
 
   // If we're in maintenance mode we don’t try to connect to Salesforce because
   // it being down is likely the reason we're in maintenance mode to begin with.

@@ -4,31 +4,31 @@ import HttpAwsEs from 'http-aws-es';
 import HttpsProxyAgent from 'https-proxy-agent';
 
 // This needs to be kept up-to-date with the 311-indexer
+//
+// TODO(finh): Factor this out to a place where they can share it directly.
 interface CaseDocument {
   status: string;
-  location:
-    | {
-        lat: number;
-        lon: number;
-      }
-    | undefined;
+  location: {
+    lat: number;
+    lon: number;
+  } | null;
 
   address: string;
   description: string;
   service_name: string;
-  service_code: string | undefined;
+  service_code: string | null;
   status_notes: string;
-  requested_datetime: string | undefined;
-  updated_datetime: string | undefined;
+  requested_datetime: string | null;
+  updated_datetime: string | null;
   replay_id: number;
-  media_url: string | undefined;
+  media_url: string | null;
 }
 
 export interface IndexedCase extends CaseDocument {
   service_request_id: string;
 }
 
-export class Elasticsearch {
+export default class Elasticsearch {
   private readonly client: elasticsearch.Client;
   private readonly index: string;
 
