@@ -66,8 +66,9 @@ const MAP_IMG_STYLE = css({
 });
 
 const HUMANIZED_TAG_NAMES = {
-  Close: 'Closed',
-  Create: 'Opened',
+  Create: 'Original Submission',
+  Close: 'Resolution',
+  Updated: 'Resolution',
 };
 
 function renderServiceNotice({
