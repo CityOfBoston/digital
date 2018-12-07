@@ -42,6 +42,7 @@
     "@cityofboston/next-client-common": "^0.0.0",
     "@cityofboston/react-fleet": "^0.0.0",
     "@cityofboston/srv-decrypt-env": "^0.0.0",
+    "@zeit/next-source-maps": "^0.0.4-canary.1",
     "address-rfc2822": "^2.0.3",
     "apollo-server-hapi": "^1.4.0",
     "aws-sdk": "^2.100.0",

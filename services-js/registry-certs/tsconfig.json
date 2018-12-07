@@ -4,6 +4,7 @@
     "rootDir": ".",
     "outDir": "build",
     "allowJs": true,
+    "sourceMap": true,
     "declaration": false
   },
   "include": [
