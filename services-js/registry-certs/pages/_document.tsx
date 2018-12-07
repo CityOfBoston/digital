@@ -61,6 +61,7 @@ export default class extends Document {
       rollbarAccessToken,
       rollbarEnvironment,
       css,
+      __NEXT_DATA__: { buildId },
     } = this.props;
 
     return (
@@ -83,7 +84,14 @@ export default class extends Document {
                 captureUncaught: true,
                 captureUnhandledRejections: true,
                 payload: {
-                    environment: "${rollbarEnvironment}"
+                    environment: "${rollbarEnvironment}",
+                    client: {
+                      javascript: {
+                        source_map_enabled: true,
+                        code_version: "${buildId}",
+                        guess_uncaught_frames: true
+                      }
+                    }
                 }
             };
             // Rollbar Snippet
