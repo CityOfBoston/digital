@@ -9,7 +9,6 @@ function createNodeMock(element) {
 }
 
 initStoryshots({
-  configPath: 'storybook',
   test: snapshotWithOptions({
     createNodeMock,
   }),

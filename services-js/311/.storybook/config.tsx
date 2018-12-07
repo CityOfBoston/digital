@@ -67,18 +67,6 @@ class Wrapper extends React.Component<{
   }
 }
 
-// Mock out Jest so we can import tests into storybook for their dummy data
-const jestGlobal: any = global;
-jestGlobal.jest = {
-  mock: () => {},
-  fn: () => {},
-};
-jestGlobal.test = () => {};
-jestGlobal.it = () => {};
-jestGlobal.beforeEach = () => {};
-jestGlobal.afterEach = () => {};
-jestGlobal.describe = () => {};
-
 const storiesContext = require.context(
   '../components',
   true,
