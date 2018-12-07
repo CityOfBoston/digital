@@ -101,6 +101,7 @@ export default class ShippingContent extends React.Component<Props, State> {
 
     const {
       shippingIsComplete,
+      localStorageAvailable,
       info: {
         storeContactAndShipping,
 
@@ -387,20 +388,22 @@ export default class ShippingContent extends React.Component<Props, State> {
             </fieldset>
 
             <div className="m-v700">
-              <label className="cb">
-                <input
-                  id="store-contact-and-shipping"
-                  name="store-contact-and-shipping"
-                  type="checkbox"
-                  value="true"
-                  checked={storeContactAndShipping}
-                  {...this.fieldListeners('storeContactAndShipping')}
-                  className="cb-f"
-                />
-                <span className="cb-l">
-                  Save contact and shipping info on this computer
-                </span>
-              </label>
+              {localStorageAvailable && (
+                <label className="cb">
+                  <input
+                    id="store-contact-and-shipping"
+                    name="store-contact-and-shipping"
+                    type="checkbox"
+                    value="true"
+                    checked={storeContactAndShipping}
+                    {...this.fieldListeners('storeContactAndShipping')}
+                    className="cb-f"
+                  />
+                  <span className="cb-l">
+                    Save contact and shipping info on this computer
+                  </span>
+                </label>
+              )}
             </div>
 
             <div className="g g--r g--vc">

@@ -181,12 +181,24 @@ export default class RegistryCertsApp extends App {
       // We attach to localStorage in the constructor, rather than
       // componentDidMount, so that the information is available on first
       // render.
+
+      // We need to ensure localStorage is available in the browser,
+      // otherwise an error could be thrown:
+      // https://github.com/CityOfBoston/digital/issues/199
+      let localStorage: Storage | null = null;
+
+      try {
+        localStorage = window.localStorage;
+      } catch {
+        //  possible security error; ignore.
+      }
+
       deathCertificateCart.attach(
-        window.localStorage,
+        localStorage,
         initialPageDependencies.deathCertificatesDao,
         siteAnalytics
       );
-      orderProvider.attach(window.localStorage);
+      orderProvider.attach(localStorage);
     }
 
     const config = getConfig();
