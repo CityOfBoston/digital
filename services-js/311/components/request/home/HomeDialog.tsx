@@ -155,7 +155,7 @@ export default class HomeDialog extends React.Component<Props> {
       `/request?stage=choose&description=${encodeURIComponent(
         this.description.trim()
       )}`,
-      '/request'
+      `/request?description=${encodeURIComponent(this.description.trim())}`
     ).then(() => window.scrollTo(0, 0));
   }
 
