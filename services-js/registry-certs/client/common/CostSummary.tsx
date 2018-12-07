@@ -1,74 +1,36 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 import { css } from 'emotion';
+
+import { VISUALLYHIDDEN } from '@cityofboston/react-fleet';
 
 import {
   calculateCreditCardCost,
   calculateDebitCardCost,
-  DEATH_CERTIFICATE_COST_STRING,
+  BIRTH_CERTIFICATE_COST,
+  BIRTH_CERTIFICATE_COST_STRING,
   DEATH_CERTIFICATE_COST,
+  DEATH_CERTIFICATE_COST_STRING,
 } from '../../lib/costs';
-
-import DeathCertificateCart from '../store/DeathCertificateCart';
 
 type ServiceFeeType = 'CREDIT' | 'DEBIT';
 
 interface Props {
-  cart: DeathCertificateCart;
+  certificateType?: 'birth' | 'death';
+  certificateQuantity: number;
   serviceFeeType: ServiceFeeType;
   allowServiceFeeTypeChoice?: boolean;
+  hasResearchFee?: boolean;
 }
 
 interface State {
   serviceFeeType: ServiceFeeType;
 }
 
-const CLEARFIX_STYLE = css({
-  '&:after': {
-    content: "''",
-    display: 'table',
-    clear: 'both',
-  },
-});
-
-const COST_CELL_STYLE = css({
-  width: '5em',
-  verticalAlign: 'bottom',
-  // Gives us even spacing for the rows
-  lineHeight: 1.75,
-});
-
-const TOTAL_STYLE = css({
-  padding: '0',
-  lineHeight: 1,
-  fontStyle: 'normal',
-});
-
-const TOTAL_TEXT_STYLE = css({
-  // We want to re-use the responsive size from sh-title but be
-  // a little bit smaller.
-  fontSize: '80%',
-});
-
-const CARD_SELECT_STYLE = css({
-  lineHeight: 1,
-  display: 'inline-block',
-});
-
-const CARD_SELECT_FIELD_STYLE = css({
-  height: '2rem',
-  paddingRight: '3rem',
-});
-
-const CARD_SELECT_CONTAINER_STYLE = css({
-  '&:after': {
-    width: '2rem',
-  },
-});
-
-// Component to display the subtotal / service fee / shipping / total UI from
-// the cart and order review screens.
-@observer
+/**
+ * Component to display the subtotal / service fees / shipping / total for an order.
+ * Used in cart and order review screens for death certificates.
+ * Used in information summary and order review screens for birth certificates.
+ */
 export default class CostSummary extends React.Component<Props, State> {
   static defaultProps = {
     allowServiceFeeTypeChoice: false,
@@ -89,31 +51,64 @@ export default class CostSummary extends React.Component<Props, State> {
   };
 
   calculateCost() {
-    const { cart } = this.props;
+    const { certificateQuantity, hasResearchFee } = this.props;
     const { serviceFeeType } = this.state;
+    const certificateTypeCost =
+      this.props.certificateType === 'birth'
+        ? BIRTH_CERTIFICATE_COST
+        : DEATH_CERTIFICATE_COST;
 
     return serviceFeeType === 'CREDIT'
-      ? calculateCreditCardCost(DEATH_CERTIFICATE_COST, cart.size)
-      : calculateDebitCardCost(DEATH_CERTIFICATE_COST, cart.size);
+      ? calculateCreditCardCost(
+          certificateTypeCost,
+          certificateQuantity,
+          hasResearchFee
+        )
+      : calculateDebitCardCost(
+          certificateTypeCost,
+          certificateQuantity,
+          hasResearchFee
+        );
   }
 
   render() {
-    const { cart } = this.props;
-    const { total, subtotal, serviceFee } = this.calculateCost();
+    const { certificateType, certificateQuantity } = this.props;
+    const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
 
     return (
       <div className={CLEARFIX_STYLE}>
         <table className="t--info ta-r" style={{ float: 'right' }}>
+          <caption className={VISUALLYHIDDEN}>Cost Summary</caption>
+          <thead className={VISUALLYHIDDEN}>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>
-                {cart.size} {cart.size === 1 ? 'certificate' : 'certificates'} ×{' '}
-                {DEATH_CERTIFICATE_COST_STRING}
+                {certificateQuantity}{' '}
+                {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
+                {certificateType === 'birth'
+                  ? BIRTH_CERTIFICATE_COST_STRING
+                  : DEATH_CERTIFICATE_COST_STRING}
               </td>
               <td className={COST_CELL_STYLE}>
                 ${(subtotal / 100).toFixed(2)}
               </td>
             </tr>
+
+            {/* todo: add hyperlinked asterisk to explain to user why research fee was applied */}
+            {/* Per-transaction fee for records dated before 1870. */}
+            {researchFee > 0 && (
+              <tr>
+                <td>Research fee</td>
+                <td className={COST_CELL_STYLE}>
+                  ${(researchFee / 100).toFixed(2)}
+                </td>
+              </tr>
+            )}
 
             <tr>
               <td>{this.renderServiceFeeLabel()}</td>
@@ -192,3 +187,46 @@ export default class CostSummary extends React.Component<Props, State> {
     }
   }
 }
+
+const CLEARFIX_STYLE = css({
+  '&:after': {
+    content: "''",
+    display: 'table',
+    clear: 'both',
+  },
+});
+
+const COST_CELL_STYLE = css({
+  width: '5em',
+  verticalAlign: 'bottom',
+  // Gives us even spacing for the rows
+  lineHeight: 1.75,
+});
+
+const TOTAL_STYLE = css({
+  padding: '0',
+  lineHeight: 1,
+  fontStyle: 'normal',
+});
+
+const TOTAL_TEXT_STYLE = css({
+  // We want to re-use the responsive size from sh-title but be
+  // a little bit smaller.
+  fontSize: '80%',
+});
+
+const CARD_SELECT_STYLE = css({
+  lineHeight: 1,
+  display: 'inline-block',
+});
+
+const CARD_SELECT_FIELD_STYLE = css({
+  height: '2rem',
+  paddingRight: '3rem',
+});
+
+const CARD_SELECT_CONTAINER_STYLE = css({
+  '&:after': {
+    width: '2rem',
+  },
+});

@@ -7256,6 +7256,27 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                     }
                   }
                 >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>
@@ -7945,6 +7966,27 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                     }
                   }
                 >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>
@@ -8607,6 +8649,27 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                     }
                   }
                 >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>
@@ -11773,6 +11836,27 @@ exports[`Storyshots Common Components/CostSummary default credit card 1`] = `
         }
       }
     >
+      <caption
+        className="css-1dv1kvn"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="css-1dv1kvn"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>
@@ -11885,6 +11969,27 @@ exports[`Storyshots Common Components/CostSummary default debit card 1`] = `
         }
       }
     >
+      <caption
+        className="css-1dv1kvn"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="css-1dv1kvn"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>
@@ -11997,6 +12102,27 @@ exports[`Storyshots Common Components/CostSummary only credit card 1`] = `
         }
       }
     >
+      <caption
+        className="css-1dv1kvn"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="css-1dv1kvn"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>
@@ -12080,6 +12206,27 @@ exports[`Storyshots Common Components/CostSummary only debit card 1`] = `
         }
       }
     >
+      <caption
+        className="css-1dv1kvn"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="css-1dv1kvn"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>
@@ -12142,6 +12289,150 @@ exports[`Storyshots Common Components/CostSummary only debit card 1`] = `
           >
             $
             71.32
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/CostSummary with research fee 1`] = `
+<div>
+  <div
+    className="css-5x1uzq"
+  >
+    <table
+      className="t--info ta-r"
+      style={
+        Object {
+          "float": "right",
+        }
+      }
+    >
+      <caption
+        className="css-1dv1kvn"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="css-1dv1kvn"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1
+             
+            certificate
+             ×
+             
+            $14.00
+          </td>
+          <td
+            className="css-1698s6w"
+          >
+            $
+            14.00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Research fee
+          </td>
+          <td
+            className="css-1698s6w"
+          >
+            $
+            10.00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <div
+                className="sel sel--thin css-15550l6"
+              >
+                <div
+                  className="sel-c css-sa8vax"
+                >
+                  <select
+                    aria-label="Payment type"
+                    className="sel-f css-18w0ib3"
+                    id="serviceFeeTypeSelect"
+                    onChange={[Function]}
+                    value="DEBIT"
+                  >
+                    <option
+                      value="CREDIT"
+                    >
+                      Credit card
+                    </option>
+                    <option
+                      value="DEBIT"
+                    >
+                      Debit card
+                    </option>
+                  </select>
+                </div>
+              </div>
+               
+              service fee
+               
+              <a
+                aria-label="About the service fee"
+                href="#service-fee"
+              >
+                *
+              </a>
+            </div>
+          </td>
+          <td
+            className="css-1698s6w"
+          >
+            $
+            0.62
+          </td>
+        </tr>
+        <tr>
+          <td>
+            U.S. shipping included
+          </td>
+          <td
+            className="css-1698s6w"
+          >
+            <i>
+              $0.00
+            </i>
+          </td>
+        </tr>
+        <tr>
+          <td
+            className="sh-title css-1ujpul8"
+          >
+            <span
+              className="css-1tg3jta"
+            >
+              Total
+            </span>
+          </td>
+          <td
+            className="cost-cell cost br br-t100 p-v200"
+          >
+            $
+            24.62
           </td>
         </tr>
       </tbody>
@@ -13222,6 +13513,27 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                     }
                   }
                 >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>
@@ -13846,6 +14158,27 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     }
                   }
                 >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td>

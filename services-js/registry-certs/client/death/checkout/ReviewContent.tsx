@@ -189,7 +189,8 @@ export default class ReviewContent extends React.Component<Props, State> {
 
             <div className="m-v500">
               <CostSummary
-                cart={cart}
+                certificateType="death"
+                certificateQuantity={cart.size}
                 serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
               />
             </div>
