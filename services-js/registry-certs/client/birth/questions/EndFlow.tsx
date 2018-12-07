@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { YesNoUnknownAnswer } from '../QuestionsFlow';
+// import CostSummary from '../../common/CostSummary';
 
 interface Props {
   forSelf: boolean | null;
@@ -8,7 +9,6 @@ interface Props {
   lastName: string;
   dateOfBirth: string;
   bornInBoston: YesNoUnknownAnswer;
-  parentsMarried: YesNoUnknownAnswer;
   parentsLivedInBoston?: YesNoUnknownAnswer;
 
   handleUserReset: () => void;
@@ -25,16 +25,18 @@ export default class EndFlow extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      quantity: 0,
+      quantity: 1,
       canProceed:
         props.bornInBoston === 'yes' || props.parentsLivedInBoston === 'yes',
     };
   }
 
   // todo
-  // private handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-  //   this.setState({ quantity: +event.target.value });
-  // };
+  private handleQuantityChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.setState({ quantity: +event.target.value });
+  };
 
   public render() {
     return (
@@ -42,12 +44,24 @@ export default class EndFlow extends React.Component<Props, State> {
         {this.state.canProceed ? (
           // Request Summary:
           <div>
-            {/* todo */}
-            [[ summary of provided information; select number of copies to
-            order; order breakdown and pricing ]] [[ back button ]] [[ start
-            over button ]] [[ enter checkout workflow ]]
+            {this.props.firstName} {this.props.lastName}{' '}
+            {this.props.dateOfBirth}
+            <input type="number" onChange={this.handleQuantityChange} />
+            {/*<CostSummary*/}
+            {/*cart={{ size: this.state.quantity }}*/}
+            {/*serviceFeeType="CREDIT"*/}
+            {/*allowServiceFeeTypeChoice*/}
+            {/*/>*/}
+            <button type="button" onClick={this.props.handleStepBack}>
+              Go back
+            </button>
+            <button type="button" onClick={this.props.handleUserReset}>
+              Start over
+            </button>
+            <button type="button">Checkout</button>
           </div>
         ) : (
+          // Show if user specifies NO for both “born in Boston” and “parents lived in Boston” questions.
           <>
             <p>
               We only have records for people who were born in the City of
@@ -62,6 +76,13 @@ export default class EndFlow extends React.Component<Props, State> {
               </a>{' '}
               to request a birth record for anyone born in the Commonwealth.
             </p>
+
+            <button type="button" onClick={this.props.handleStepBack}>
+              Go back
+            </button>
+            <button type="button" onClick={this.props.handleUserReset}>
+              Start over
+            </button>
           </>
         )}
       </>

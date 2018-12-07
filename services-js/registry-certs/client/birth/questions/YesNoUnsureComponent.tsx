@@ -18,12 +18,12 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
         <input
           type="radio"
           name={props.questionName}
-          id={value}
+          id={props.questionName + value}
           value={value}
           checked={props.questionValue === value}
           onChange={props.handleChange}
         />
-        <label htmlFor={value}>{text}</label>
+        <label htmlFor={props.questionName + value}>{text}</label>
       </li>
     );
   }
