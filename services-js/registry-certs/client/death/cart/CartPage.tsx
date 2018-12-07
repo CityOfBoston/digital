@@ -88,7 +88,8 @@ class CartPage extends React.Component<Props> {
             {deathCertificateCart.entries.length > 0 && (
               <div className="m-t700">
                 <CostSummary
-                  cart={deathCertificateCart}
+                  certificateType="death"
+                  certificateQuantity={deathCertificateCart.size}
                   allowServiceFeeTypeChoice
                   serviceFeeType="CREDIT"
                 />
