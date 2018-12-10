@@ -1,0 +1,44 @@
+[
+  {
+    "service_request_id": "200012223",
+    "status": "open",
+    "location": null,
+    "address": "50 Milk St.",
+    "description": "There are large rats here. They’re biting.",
+    "service_name": "Rat bite",
+    "service_code": "RATBITE",
+    "status_notes": "",
+    "requested_datetime": "2018-12-07T16:26:46+0000",
+    "updated_datetime": "2018-12-07T16:26:46+0000",
+    "replay_id": 3,
+    "media_url": null
+  },
+  {
+    "service_request_id": "200012224",
+    "status": "closed",
+    "location": null,
+    "address": "50 Milk St.",
+    "description": "Needles in the park",
+    "service_name": "Needle pickup",
+    "service_code": "NEEDLES",
+    "status_notes": "",
+    "requested_datetime": "2018-12-07T16:26:46+0000",
+    "updated_datetime": "2018-12-07T16:26:46+0000",
+    "replay_id": 3,
+    "media_url": "https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg"
+  },
+  {
+    "service_request_id": "200012225",
+    "status": "closed",
+    "location": null,
+    "address": "50 Milk St.",
+    "description": "Take my refridgerator, please",
+    "service_name": "Bulk Item Pickup",
+    "service_code": "SCHDBLKITM",
+    "status_notes": "",
+    "requested_datetime": "2018-12-07T16:26:46+0000",
+    "updated_datetime": "2018-12-07T16:26:46+0000",
+    "replay_id": 3,
+    "media_url": null
+  }
+]

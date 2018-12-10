@@ -11297,6 +11297,17 @@ exports[`Storyshots SearchLayout List View 1`] = `
             />
           </div>
         </div>
+        <div
+          className="g p-a300 css-jfggi0 "
+        >
+          <button
+            className="btn g--12"
+            onClick={[Function]}
+            type="button"
+          >
+            Map View
+          </button>
+        </div>
       </div>
       <footer
         className="ft"

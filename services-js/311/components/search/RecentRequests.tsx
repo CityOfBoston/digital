@@ -1,5 +1,5 @@
 import React from 'react';
-import { action, autorun } from 'mobx';
+import { action, autorun, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
@@ -92,13 +92,18 @@ const LOADING_REQUEST_LIST_STYLE = css({
 export type Props = {
   requestSearch: RequestSearch;
   ui: Ui;
+  isMobile: boolean;
 };
 
 @observer
 export default class RecentRequests extends React.Component<Props> {
-  mainEl: HTMLElement | null = null;
+  @observable mainEl: HTMLElement | null = null;
 
   mobxDisposers: Array<Function> = [];
+
+  static defaultProps = {
+    isMobile: false,
+  };
 
   componentDidMount() {
     this.mobxDisposers.push(
@@ -111,9 +116,10 @@ export default class RecentRequests extends React.Component<Props> {
     this.mobxDisposers.forEach(d => d());
   }
 
-  setMainEl = (mainEl: HTMLElement | null) => {
+  @action.bound
+  setMainEl(mainEl: HTMLElement | null) {
     this.mainEl = mainEl;
-  };
+  }
 
   @action.bound
   clearSearch() {
@@ -121,11 +127,10 @@ export default class RecentRequests extends React.Component<Props> {
   }
 
   scrollSelectedIntoView = () => {
-    const { ui, requestSearch } = this.props;
-    const { belowMediaLarge } = ui;
+    const { isMobile, requestSearch } = this.props;
 
     // don't scroll on mobile
-    if (belowMediaLarge) {
+    if (isMobile) {
       return;
     }
 
@@ -144,11 +149,10 @@ export default class RecentRequests extends React.Component<Props> {
   };
 
   scrollOnResultsChange = () => {
-    const { ui, requestSearch } = this.props;
-    const { belowMediaLarge } = ui;
+    const { isMobile, requestSearch } = this.props;
 
     // don't scroll on mobile
-    if (belowMediaLarge) {
+    if (isMobile) {
       return;
     }
 
@@ -165,7 +169,7 @@ export default class RecentRequests extends React.Component<Props> {
   };
 
   render() {
-    const { requestSearch, ui } = this.props;
+    const { requestSearch, isMobile, ui } = this.props;
     const { results, loading, resultsQuery, resultsError } = requestSearch;
 
     return (
@@ -264,6 +268,7 @@ export default class RecentRequests extends React.Component<Props> {
               request={request}
               requestSearch={requestSearch}
               ui={ui}
+              hoverEffects={!isMobile}
             />
           ))}
         </div>
