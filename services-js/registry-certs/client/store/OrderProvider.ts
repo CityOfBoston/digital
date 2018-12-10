@@ -28,7 +28,7 @@ export default class OrderProvider {
       }
     }
 
-    const order = new Order(orderInfo);
+    const order = new Order(orderInfo, !!localStorage);
 
     autorun(() => {
       const { localStorage } = this;

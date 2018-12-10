@@ -26,7 +26,7 @@ export default class DeathCertificateCart {
   siteAnalytics: GaSiteAnalytics | null = null;
 
   attach(
-    localStorage: Storage,
+    localStorage: Storage | null,
     deathCertificatesDao: DeathCertificatesDao,
     siteAnalytics: GaSiteAnalytics
   ) {

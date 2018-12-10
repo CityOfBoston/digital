@@ -59,7 +59,11 @@ export default class Order {
 
   updateStorageDisposer: Function | null = null;
 
-  constructor(info: OrderInfo | null = null) {
+  readonly localStorageAvailable: boolean;
+
+  constructor(info: OrderInfo | null = null, localStorageAvailable = true) {
+    this.localStorageAvailable = localStorageAvailable;
+
     this.info = info || {
       storeContactAndShipping: false,
       storeBilling: false,

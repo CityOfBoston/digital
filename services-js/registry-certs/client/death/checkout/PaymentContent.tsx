@@ -188,6 +188,7 @@ export default class PaymentContent extends React.Component<Props, State> {
 
     const {
       paymentIsComplete,
+      localStorageAvailable,
       cardElementError,
       cardElementComplete,
       processing,
@@ -458,20 +459,22 @@ export default class PaymentContent extends React.Component<Props, State> {
                   </div>
 
                   <div className="m-t700">
-                    <label className="cb">
-                      <input
-                        id="store-billing"
-                        name="store-billing"
-                        type="checkbox"
-                        value="true"
-                        checked={storeBilling}
-                        {...this.fieldListeners('storeBilling')}
-                        className="cb-f"
-                      />{' '}
-                      <span className="cb-l">
-                        Save billing address on this computer
-                      </span>
-                    </label>
+                    {localStorageAvailable && (
+                      <label className="cb">
+                        <input
+                          id="store-billing"
+                          name="store-billing"
+                          type="checkbox"
+                          value="true"
+                          checked={storeBilling}
+                          {...this.fieldListeners('storeBilling')}
+                          className="cb-f"
+                        />{' '}
+                        <span className="cb-l">
+                          Save billing address on this computer
+                        </span>
+                      </label>
+                    )}
                   </div>
                 </div>
               )}
