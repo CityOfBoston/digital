@@ -68,8 +68,8 @@ let caseCount = 0;
   );
 
   const open311 = new Open311(
-    process.env.PROD_311_ENDPOINT,
-    process.env.PROD_311_KEY
+    process.env.OPEN311_ENDPOINT,
+    process.env.OPEN311_KEY
   );
 
   open311.oauthSessionId = oauthSessionId;
