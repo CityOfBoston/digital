@@ -1818,493 +1818,6 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Checkout/OrderDetails closed 1`] = `
-<div>
-  <div
-    className="dr css-4dwfk3 "
-  >
-    <button
-      aria-expanded={false}
-      className="dr-h css-y8aj3r"
-      onClick={[Function]}
-      type="button"
-    >
-      <div
-        className="p-a300"
-      >
-        <div
-          className="dr-ic"
-        >
-          <svg
-            viewBox="-2 8.5 18 25"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="dr-i css-0"
-              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            />
-          </svg>
-        </div>
-        <h2
-          className="stp"
-        >
-          Order details
-        </h2>
-        <div
-          className="t--info"
-        >
-          5
-           
-          items
-           ×
-           
-          $14.00
-           = $
-          70.00
-           
-          + service fee*
-        </div>
-      </div>
-    </button>
-    <div
-      role="region"
-    />
-  </div>
-</div>
-`;
-
-exports[`Storyshots Checkout/OrderDetails fixed open 1`] = `
-<div>
-  <div
-    className="m-v700"
-  >
-    <div
-      className="fs-l"
-    >
-      <div
-        className="fs-l-c"
-      >
-        Order details
-        <span
-          className="t--reset"
-        >
-           — 
-          <span
-            className="t--subinfo"
-          >
-            <a
-              aria-label="Edit order details"
-              href="/death/cart"
-              onClick={[Function]}
-            >
-              edit
-            </a>
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      className="p-v200 br b--w css-p2blui "
-    >
-      <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        1
-         ×
-      </div>
-      <div
-        className="css-1rr4qq7"
-      >
-        <div
-          className="t--sans m-v100 css-1s592rj"
-        >
-          BRUCE
-           
-          BANNER
-        </div>
-        <div
-          className="css-19r4q7b"
-        >
-          Died: 
-          3/4/2016
-           — Age: 53
-        </div>
-      </div>
-    </div>
-    <div
-      className="p-v200 br b--w css-p2blui "
-    >
-      <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        3
-         ×
-      </div>
-      <div
-        className="css-1rr4qq7"
-      >
-        <div
-          className="t--sans m-v100 css-1s592rj"
-        >
-          JAMES
-           
-          HOWLETT (LOGAN)
-          <span
-            style={
-              Object {
-                "color": "#091f2f",
-              }
-            }
-          >
-             — 
-            <span
-              className="t--sans tt-u"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                }
-              }
-            >
-              pending
-            </span>
-          </span>
-        </div>
-        <div
-          className="css-19r4q7b"
-        >
-          Died: 
-          4/15/2014
-           — Age: 44 yrs. 2 mos. 10 dys
-        </div>
-      </div>
-    </div>
-    <div
-      className="p-v200 br b--w css-p2blui "
-    >
-      <div
-        aria-label="Quantity"
-        className="t--sans p-a300"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
-        1
-         ×
-      </div>
-      <div
-        className="css-1rr4qq7"
-      >
-        <div
-          className="t--sans m-v100 css-1s592rj"
-        >
-          MONKEY
-           
-          JOE
-        </div>
-        <div
-          className="css-19r4q7b"
-        >
-          Died: 
-          2004
-           — Age: 6
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Checkout/OrderDetails loading 1`] = `
-<div>
-  <div
-    className="dr css-4dwfk3 "
-  >
-    <button
-      aria-expanded={false}
-      className="dr-h css-y8aj3r"
-      onClick={[Function]}
-      type="button"
-    >
-      <div
-        className="p-a300"
-      >
-        <div
-          className="dr-ic"
-        >
-          <svg
-            viewBox="-2 8.5 18 25"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="dr-i css-0"
-              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            />
-          </svg>
-        </div>
-        <h2
-          className="stp"
-        >
-          Order details
-        </h2>
-        <div
-          className="t--info"
-        >
-          8
-           
-          items
-           ×
-           
-          $14.00
-           = $
-          112.00
-           
-          + service fee*
-        </div>
-      </div>
-    </button>
-    <div
-      role="region"
-    />
-  </div>
-</div>
-`;
-
-exports[`Storyshots Checkout/OrderDetails open 1`] = `
-<div>
-  <div
-    className="dr css-4dwfk3 dr--open css-1kkut6n"
-  >
-    <button
-      aria-expanded={true}
-      className="dr-h css-y8aj3r"
-      onClick={[Function]}
-      type="button"
-    >
-      <div
-        className="p-a300"
-      >
-        <div
-          className="dr-ic"
-        >
-          <svg
-            viewBox="-2 8.5 18 25"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="dr-i css-0"
-              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-            />
-          </svg>
-        </div>
-        <h2
-          className="stp"
-        >
-          Order details
-        </h2>
-        <div
-          className="t--info"
-        >
-          5
-           
-          items
-           ×
-           
-          $14.00
-           = $
-          70.00
-           
-          + service fee*
-        </div>
-      </div>
-    </button>
-    <div
-      role="region"
-    >
-      <div
-        appear={undefined}
-        className="dr-c css-1mti76v"
-        enter={undefined}
-        exit={undefined}
-        in={true}
-        onExited={[Function]}
-      >
-        <div
-          className="p-v300 br b--w css-p2blui "
-        >
-          <div
-            aria-label="Quantity"
-            className="t--sans p-a300"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            1
-             ×
-          </div>
-          <div
-            className="css-1rr4qq7"
-          >
-            <div
-              className="t--sans m-v100 css-g6e7b4"
-            >
-              BRUCE
-               
-              BANNER
-            </div>
-            <div
-              className="css-19r4q7b"
-            >
-              Died: 
-              3/4/2016
-               — Age: 53
-            </div>
-          </div>
-        </div>
-        <div
-          className="p-v300 br b--w css-p2blui br-t100"
-        >
-          <div
-            aria-label="Quantity"
-            className="t--sans p-a300"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            3
-             ×
-          </div>
-          <div
-            className="css-1rr4qq7"
-          >
-            <div
-              className="t--sans m-v100 css-g6e7b4"
-            >
-              JAMES
-               
-              HOWLETT (LOGAN)
-              <span
-                style={
-                  Object {
-                    "color": "#091f2f",
-                  }
-                }
-              >
-                 — 
-                <span
-                  className="t--sans tt-u"
-                  style={
-                    Object {
-                      "fontStyle": "normal",
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  pending
-                </span>
-              </span>
-            </div>
-            <div
-              className="css-19r4q7b"
-            >
-              Died: 
-              4/15/2014
-               — Age: 44 yrs. 2 mos. 10 dys
-            </div>
-          </div>
-        </div>
-        <div
-          className="p-v300 br b--w css-p2blui br-a100"
-        >
-          <div
-            aria-label="Quantity"
-            className="t--sans p-a300"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            1
-             ×
-          </div>
-          <div
-            className="css-1rr4qq7"
-          >
-            <div
-              className="t--sans m-v100 css-g6e7b4"
-            >
-              MONKEY
-               
-              JOE
-            </div>
-            <div
-              className="css-19r4q7b"
-            >
-              Died: 
-              2004
-               — Age: 6
-            </div>
-          </div>
-        </div>
-        <div
-          className="t--subinfo p-a300"
-        >
-          * 
-          You will be charged an extra service fee of no more than 
-          $0.25
-           
-          plus 
-          2.15%
-          . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
-           
-          <a
-            href="https://www.cityofboston.gov/payments/faqs.asp"
-          >
-            card service fees
-          </a>
-           at the City of Boston.
-        </div>
-        <div
-          className="ta-c t--subinfo b--g"
-        >
-          <a
-            href="/death/cart"
-            onClick={[Function]}
-            style={
-              Object {
-                "display": "block",
-                "padding": "0.5em",
-              }
-            }
-          >
-            edit cart
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
 <div>
   <a
@@ -2567,9 +2080,11 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -3561,9 +3076,11 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -4539,9 +4056,11 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -5513,9 +5032,11 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -6026,9 +5547,11 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -7003,7 +6526,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                 <div
                   className="fs-l-c"
                 >
-                  Order details
+                  Order Details
                   <span
                     className="t--reset"
                   >
@@ -7012,7 +6535,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                       className="t--subinfo"
                     >
                       <a
-                        aria-label="Edit order details"
+                        aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
                       >
@@ -7022,125 +6545,136 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
+              <div>
                 <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  1
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
+                  className="p-v200 br b--w css-p2blui "
                 >
                   <div
-                    className="t--sans m-v100 css-1s592rj"
-                  >
-                    BRUCE
-                     
-                    BANNER
-                  </div>
-                  <div
-                    className="css-19r4q7b"
-                  >
-                    Died: 
-                    3/4/2016
-                     — Age: 53
-                  </div>
-                </div>
-              </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
-                <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  5
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
-                  >
-                    MONKEY
-                     
-                    JOE
-                  </div>
-                  <div
-                    className="css-19r4q7b"
-                  >
-                    Died: 
-                    2004
-                     — Age: 6
-                  </div>
-                </div>
-              </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
-                <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  2
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
-                  >
-                    JAMES
-                     
-                    HOWLETT (LOGAN)
-                    <span
-                      style={
-                        Object {
-                          "color": "#091f2f",
-                        }
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
                       }
+                    }
+                  >
+                    <span
+                      aria-label="Quantity"
                     >
-                       — 
+                      1
+                    </span>
+                     ×
+                  </div>
+                  <div
+                    className="css-1rr4qq7"
+                  >
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      BRUCE
+                       
+                      BANNER
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      3/4/2016
+                       — Age: 53
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    <span
+                      aria-label="Quantity"
+                    >
+                      5
+                    </span>
+                     ×
+                  </div>
+                  <div
+                    className="css-1rr4qq7"
+                  >
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      MONKEY
+                       
+                      JOE
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      2004
+                       — Age: 6
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    <span
+                      aria-label="Quantity"
+                    >
+                      2
+                    </span>
+                     ×
+                  </div>
+                  <div
+                    className="css-1rr4qq7"
+                  >
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      JAMES
+                       
+                      HOWLETT (LOGAN)
                       <span
-                        className="t--sans tt-u"
                         style={
                           Object {
-                            "fontStyle": "normal",
-                            "fontWeight": "bold",
+                            "color": "#091f2f",
                           }
                         }
                       >
-                        pending
+                         — 
+                        <span
+                          className="t--sans tt-u"
+                          style={
+                            Object {
+                              "fontStyle": "normal",
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          pending
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                  <div
-                    className="css-19r4q7b"
-                  >
-                    Died: 
-                    4/15/2014
-                     — Age: 44 yrs. 2 mos. 10 dys
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      4/15/2014
+                       — Age: 44 yrs. 2 mos. 10 dys
+                    </div>
                   </div>
                 </div>
               </div>
@@ -7767,7 +7301,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                 <div
                   className="fs-l-c"
                 >
-                  Order details
+                  Order Details
                   <span
                     className="t--reset"
                   >
@@ -7776,7 +7310,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                       className="t--subinfo"
                     >
                       <a
-                        aria-label="Edit order details"
+                        aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
                       >
@@ -7786,71 +7320,79 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
+              <div>
                 <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
-                >
-                  1
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
                   >
-                    BRUCE
-                     
-                    BANNER
+                    <span
+                      aria-label="Quantity"
+                    >
+                      1
+                    </span>
+                     ×
                   </div>
                   <div
-                    className="css-19r4q7b"
+                    className="css-1rr4qq7"
                   >
-                    Died: 
-                    3/4/2016
-                     — Age: 53
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      BRUCE
+                       
+                      BANNER
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      3/4/2016
+                       — Age: 53
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
                 <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
-                >
-                  5
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
                   >
-                    MONKEY
-                     
-                    JOE
+                    <span
+                      aria-label="Quantity"
+                    >
+                      5
+                    </span>
+                     ×
                   </div>
                   <div
-                    className="css-19r4q7b"
+                    className="css-1rr4qq7"
                   >
-                    Died: 
-                    2004
-                     — Age: 6
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      MONKEY
+                       
+                      JOE
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      2004
+                       — Age: 6
+                    </div>
                   </div>
                 </div>
               </div>
@@ -8450,7 +7992,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                 <div
                   className="fs-l-c"
                 >
-                  Order details
+                  Order Details
                   <span
                     className="t--reset"
                   >
@@ -8459,7 +8001,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                       className="t--subinfo"
                     >
                       <a
-                        aria-label="Edit order details"
+                        aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
                       >
@@ -8469,71 +8011,79 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                   </span>
                 </div>
               </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
+              <div>
                 <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
-                >
-                  1
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
                   >
-                    BRUCE
-                     
-                    BANNER
+                    <span
+                      aria-label="Quantity"
+                    >
+                      1
+                    </span>
+                     ×
                   </div>
                   <div
-                    className="css-19r4q7b"
+                    className="css-1rr4qq7"
                   >
-                    Died: 
-                    3/4/2016
-                     — Age: 53
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      BRUCE
+                       
+                      BANNER
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      3/4/2016
+                       — Age: 53
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="p-v200 br b--w css-p2blui "
-              >
                 <div
-                  aria-label="Quantity"
-                  className="t--sans p-a300"
-                  style={
-                    Object {
-                      "fontWeight": "bold",
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
                     }
-                  }
-                >
-                  5
-                   ×
-                </div>
-                <div
-                  className="css-1rr4qq7"
-                >
-                  <div
-                    className="t--sans m-v100 css-1s592rj"
                   >
-                    MONKEY
-                     
-                    JOE
+                    <span
+                      aria-label="Quantity"
+                    >
+                      5
+                    </span>
+                     ×
                   </div>
                   <div
-                    className="css-19r4q7b"
+                    className="css-1rr4qq7"
                   >
-                    Died: 
-                    2004
-                     — Age: 6
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      MONKEY
+                       
+                      JOE
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      2004
+                       — Age: 6
+                    </div>
                   </div>
                 </div>
               </div>
@@ -9149,9 +8699,11 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -10125,9 +9677,11 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -11109,9 +10663,11 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                   className="p-a300"
                 >
                   <div
+                    aria-hidden="true"
                     className="dr-ic"
                   >
                     <svg
+                      focusable="false"
                       viewBox="-2 8.5 18 25"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -12441,6 +11997,62 @@ exports[`Storyshots Common Components/CostSummary with research fee 1`] = `
 </div>
 `;
 
+exports[`Storyshots Common Components/Fee Disclosures ServiceFeeDisclosure component 1`] = `
+<div>
+  <div
+    className="b--g m-t700"
+  >
+    <div
+      className="b-c b-c--smv t--subinfo"
+      id="service-fee"
+    >
+      * 
+      You will be charged an extra service fee of no more than 
+      $0.25
+       
+      plus 
+      2.15%
+      . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
+       
+      <a
+        href="https://www.cityofboston.gov/payments/faqs.asp"
+      >
+        card service fees
+      </a>
+       at the City of Boston.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Fee Disclosures researchFeeDisclosure text string 1`] = `
+<div>
+  <p>
+    If you are requesting a certificate that is dated before 1870, there is an additional $10 research fee.
+  </p>
+</div>
+`;
+
+exports[`Storyshots Common Components/Fee Disclosures serviceFeeDisclosure text string 1`] = `
+<div>
+  <p>
+    You will be charged an extra service fee of no more than 
+    $0.25
+     
+    plus 
+    2.15%
+    . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
+     
+    <a
+      href="https://www.cityofboston.gov/payments/faqs.asp"
+    >
+      card service fees
+    </a>
+     at the City of Boston.
+  </p>
+</div>
+`;
+
 exports[`Storyshots Common Components/Nav default 1`] = `
 <div>
   <nav
@@ -12464,6 +12076,492 @@ exports[`Storyshots Common Components/Nav default 1`] = `
       </a>
     </div>
   </nav>
+</div>
+`;
+
+exports[`Storyshots Common Components/Order Details DeathOrderDetails 1`] = `
+<div>
+  <div>
+    <div
+      className="p-v300 br b--w css-p2blui "
+    >
+      <div
+        className="t--sans p-a300"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        <span
+          aria-label="Quantity"
+        >
+          1
+        </span>
+         ×
+      </div>
+      <div
+        className="css-1rr4qq7"
+      >
+        <div
+          className="t--sans m-v100 css-g6e7b4"
+        >
+          BRUCE
+           
+          BANNER
+        </div>
+        <div
+          className="css-19r4q7b"
+        >
+          Died: 
+          3/4/2016
+           — Age: 53
+        </div>
+      </div>
+    </div>
+    <div
+      className="p-v300 br b--w css-p2blui br-t100"
+    >
+      <div
+        className="t--sans p-a300"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        <span
+          aria-label="Quantity"
+        >
+          3
+        </span>
+         ×
+      </div>
+      <div
+        className="css-1rr4qq7"
+      >
+        <div
+          className="t--sans m-v100 css-g6e7b4"
+        >
+          JAMES
+           
+          HOWLETT (LOGAN)
+          <span
+            style={
+              Object {
+                "color": "#091f2f",
+              }
+            }
+          >
+             — 
+            <span
+              className="t--sans tt-u"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              pending
+            </span>
+          </span>
+        </div>
+        <div
+          className="css-19r4q7b"
+        >
+          Died: 
+          4/15/2014
+           — Age: 44 yrs. 2 mos. 10 dys
+        </div>
+      </div>
+    </div>
+    <div
+      className="p-v300 br b--w css-p2blui br-a100"
+    >
+      <div
+        className="t--sans p-a300"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        <span
+          aria-label="Quantity"
+        >
+          1
+        </span>
+         ×
+      </div>
+      <div
+        className="css-1rr4qq7"
+      >
+        <div
+          className="t--sans m-v100 css-g6e7b4"
+        >
+          MONKEY
+           
+          JOE
+        </div>
+        <div
+          className="css-19r4q7b"
+        >
+          Died: 
+          2004
+           — Age: 6
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: closed 1`] = `
+<div>
+  <div
+    className="dr css-4dwfk3 "
+  >
+    <button
+      aria-expanded={false}
+      className="dr-h css-y8aj3r"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="p-a300"
+      >
+        <div
+          aria-hidden="true"
+          className="dr-ic"
+        >
+          <svg
+            focusable="false"
+            viewBox="-2 8.5 18 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              className="dr-i css-0"
+              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+            />
+          </svg>
+        </div>
+        <h2
+          className="stp"
+        >
+          Order details
+        </h2>
+        <div
+          className="t--info"
+        >
+          5
+           
+          items
+           ×
+           
+          $14.00
+           = $
+          70.00
+           
+          + service fee*
+        </div>
+      </div>
+    </button>
+    <div
+      role="region"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loading 1`] = `
+<div>
+  <div
+    className="dr css-4dwfk3 "
+  >
+    <button
+      aria-expanded={false}
+      className="dr-h css-y8aj3r"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="p-a300"
+      >
+        <div
+          aria-hidden="true"
+          className="dr-ic"
+        >
+          <svg
+            focusable="false"
+            viewBox="-2 8.5 18 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              className="dr-i css-0"
+              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+            />
+          </svg>
+        </div>
+        <h2
+          className="stp"
+        >
+          Order details
+        </h2>
+        <div
+          className="t--info"
+        >
+          8
+           
+          items
+           ×
+           
+          $14.00
+           = $
+          112.00
+           
+          + service fee*
+        </div>
+      </div>
+    </button>
+    <div
+      role="region"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1`] = `
+<div>
+  <div
+    className="dr css-4dwfk3 dr--open css-1kkut6n"
+  >
+    <button
+      aria-expanded={true}
+      className="dr-h css-y8aj3r"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="p-a300"
+      >
+        <div
+          aria-hidden="true"
+          className="dr-ic"
+        >
+          <svg
+            focusable="false"
+            viewBox="-2 8.5 18 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              className="dr-i css-0"
+              d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
+            />
+          </svg>
+        </div>
+        <h2
+          className="stp"
+        >
+          Order details
+        </h2>
+        <div
+          className="t--info"
+        >
+          5
+           
+          items
+           ×
+           
+          $14.00
+           = $
+          70.00
+           
+          + service fee*
+        </div>
+      </div>
+    </button>
+    <div
+      role="region"
+    >
+      <div
+        appear={undefined}
+        className="dr-c css-1mti76v"
+        enter={undefined}
+        exit={undefined}
+        in={true}
+        onExited={[Function]}
+      >
+        <div>
+          <div
+            className="p-v300 br b--w css-p2blui "
+          >
+            <div
+              className="t--sans p-a300"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              <span
+                aria-label="Quantity"
+              >
+                1
+              </span>
+               ×
+            </div>
+            <div
+              className="css-1rr4qq7"
+            >
+              <div
+                className="t--sans m-v100 css-g6e7b4"
+              >
+                BRUCE
+                 
+                BANNER
+              </div>
+              <div
+                className="css-19r4q7b"
+              >
+                Died: 
+                3/4/2016
+                 — Age: 53
+              </div>
+            </div>
+          </div>
+          <div
+            className="p-v300 br b--w css-p2blui br-t100"
+          >
+            <div
+              className="t--sans p-a300"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              <span
+                aria-label="Quantity"
+              >
+                3
+              </span>
+               ×
+            </div>
+            <div
+              className="css-1rr4qq7"
+            >
+              <div
+                className="t--sans m-v100 css-g6e7b4"
+              >
+                JAMES
+                 
+                HOWLETT (LOGAN)
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                   — 
+                  <span
+                    className="t--sans tt-u"
+                    style={
+                      Object {
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    pending
+                  </span>
+                </span>
+              </div>
+              <div
+                className="css-19r4q7b"
+              >
+                Died: 
+                4/15/2014
+                 — Age: 44 yrs. 2 mos. 10 dys
+              </div>
+            </div>
+          </div>
+          <div
+            className="p-v300 br b--w css-p2blui br-a100"
+          >
+            <div
+              className="t--sans p-a300"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              <span
+                aria-label="Quantity"
+              >
+                1
+              </span>
+               ×
+            </div>
+            <div
+              className="css-1rr4qq7"
+            >
+              <div
+                className="t--sans m-v100 css-g6e7b4"
+              >
+                MONKEY
+                 
+                JOE
+              </div>
+              <div
+                className="css-19r4q7b"
+              >
+                Died: 
+                2004
+                 — Age: 6
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="t--subinfo p-a300"
+        >
+          * 
+          You will be charged an extra service fee of no more than 
+          $0.25
+           
+          plus 
+          2.15%
+          . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
+           
+          <a
+            href="https://www.cityofboston.gov/payments/faqs.asp"
+          >
+            card service fees
+          </a>
+           at the City of Boston.
+        </div>
+        <div
+          className="ta-c t--subinfo b--g"
+        >
+          <a
+            href="/death/cart"
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "block",
+                "padding": "0.5em",
+              }
+            }
+          >
+            edit cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -12656,54 +12754,6 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
       </a>
     </li>
   </ul>
-</div>
-`;
-
-exports[`Storyshots Common Components/ServiceFeeDisclosure component 1`] = `
-<div>
-  <div
-    className="b--g m-t700"
-  >
-    <div
-      className="b-c b-c--smv t--subinfo"
-      id="service-fee"
-    >
-      * 
-      You will be charged an extra service fee of no more than 
-      $0.25
-       
-      plus 
-      2.15%
-      . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
-       
-      <a
-        href="https://www.cityofboston.gov/payments/faqs.asp"
-      >
-        card service fees
-      </a>
-       at the City of Boston.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Common Components/ServiceFeeDisclosure text string 1`] = `
-<div>
-  <p>
-    You will be charged an extra service fee of no more than 
-    $0.25
-     
-    plus 
-    2.15%
-    . This fee goes directly to a third party to pay for the cost of card processing. Learn more about
-     
-    <a
-      href="https://www.cityofboston.gov/payments/faqs.asp"
-    >
-      card service fees
-    </a>
-     at the City of Boston.
-  </p>
 </div>
 `;
 

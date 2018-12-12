@@ -16,3 +16,5 @@ export interface DeathCertificateOrder
   extends NonNullable<
       LookupDeathCertificateOrder['deathCertificates']['order']
     > {}
+
+export type CertificateType = 'death' | 'birth';

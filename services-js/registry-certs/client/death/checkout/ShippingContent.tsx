@@ -13,7 +13,10 @@ import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 
-import OrderDetails from './OrderDetails';
+import {
+  DeathOrderDetails,
+  OrderDetailsDropdown,
+} from '../../common/checkout/OrderDetails';
 
 export interface Props {
   submit: () => unknown;
@@ -131,7 +134,12 @@ export default class ShippingContent extends React.Component<Props, State> {
           </div>
 
           <div className="m-v300">
-            <OrderDetails cart={cart} />
+            <OrderDetailsDropdown
+              orderType="death"
+              certificateQuantity={cart.size}
+            >
+              <DeathOrderDetails cart={cart} />
+            </OrderDetailsDropdown>
           </div>
 
           <form
