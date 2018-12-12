@@ -12,10 +12,12 @@ import {
   DEATH_CERTIFICATE_COST_STRING,
 } from '../../lib/costs';
 
+import { CertificateType } from '../types';
+
 type ServiceFeeType = 'CREDIT' | 'DEBIT';
 
 interface Props {
-  certificateType?: 'birth' | 'death';
+  certificateType: CertificateType;
   certificateQuantity: number;
   serviceFeeType: ServiceFeeType;
   allowServiceFeeTypeChoice?: boolean;

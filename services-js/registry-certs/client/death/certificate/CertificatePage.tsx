@@ -15,7 +15,7 @@ import PageLayout from '../../PageLayout';
 
 import { BreadcrumbNavLinks } from '../breadcrumbs';
 
-import { serviceFeeDisclosureText } from '../../common/ServiceFeeDisclosure';
+import { serviceFeeDisclosureText } from '../../common/FeeDisclosures';
 
 interface InitialProps {
   id: string;

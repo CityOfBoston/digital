@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -19,7 +17,7 @@ import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
 import CostSummary from '../../common/CostSummary';
-import OrderDetails from './OrderDetails';
+import { DeathOrderDetails } from '../../common/checkout/OrderDetails';
 
 export interface Props {
   submit: (cardElement?: stripe.elements.Element) => unknown;
@@ -124,7 +122,23 @@ export default class ReviewContent extends React.Component<Props, State> {
             method="post"
             onSubmit={this.handleSubmit}
           >
-            <OrderDetails cart={cart} fixed />
+            <div className="m-v700">
+              <div className="fs-l">
+                <div className="fs-l-c">
+                  Order Details
+                  <span className="t--reset">
+                    &nbsp;—&nbsp;
+                    <span className="t--subinfo">
+                      <Link href="/death/cart">
+                        <a aria-label="Edit cart">edit</a>
+                      </Link>
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <DeathOrderDetails cart={cart} thin />
+            </div>
 
             <div className="m-v700">
               <div className="fs-l">

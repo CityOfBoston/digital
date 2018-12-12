@@ -4,6 +4,13 @@ import Link from 'next/link';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
+import {
+  CHARLES_BLUE,
+  GRAY_300,
+  LORA_SRC,
+  FREEDOM_RED,
+} from '@cityofboston/react-fleet';
+
 import PageLayout from '../../PageLayout';
 import { BreadcrumbNavLinks } from '../breadcrumbs';
 
@@ -11,13 +18,10 @@ import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 
-import OrderDetails from './OrderDetails';
 import {
-  CHARLES_BLUE,
-  GRAY_300,
-  LORA_SRC,
-  FREEDOM_RED,
-} from '@cityofboston/react-fleet';
+  DeathOrderDetails,
+  OrderDetailsDropdown,
+} from '../../common/checkout/OrderDetails';
 
 interface Props {
   submit: (cardElement: stripe.elements.Element | null) => unknown;
@@ -222,7 +226,12 @@ export default class PaymentContent extends React.Component<Props, State> {
           </div>
 
           <div className="m-v300">
-            <OrderDetails cart={cart} />
+            <OrderDetailsDropdown
+              orderType="death"
+              certificateQuantity={cart.size}
+            >
+              <DeathOrderDetails cart={cart} />
+            </OrderDetailsDropdown>
           </div>
 
           <form

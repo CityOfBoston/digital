@@ -12,7 +12,7 @@ import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
-import ServiceFeeDisclosure from '../../common/ServiceFeeDisclosure';
+import { ServiceFeeDisclosure } from '../../common/FeeDisclosures';
 
 interface Props
   extends Pick<PageDependencies, 'deathCertificateCart' | 'siteAnalytics'> {}

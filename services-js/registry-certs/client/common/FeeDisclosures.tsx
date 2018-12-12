@@ -6,7 +6,7 @@ import {
   SERVICE_FEE_URI,
 } from '../../lib/costs';
 
-export default function ServiceFeeDisclosure() {
+export function ServiceFeeDisclosure() {
   return (
     <div className="b--g m-t700">
       <div id="service-fee" className="b-c b-c--smv t--subinfo">
@@ -23,6 +23,15 @@ export function serviceFeeDisclosureText() {
       plus {PERCENTAGE_CC_STRING}. This fee goes directly to a third party to
       pay for the cost of card processing. Learn more about{' '}
       <a href={SERVICE_FEE_URI}>card service fees</a> at the City of Boston.
+    </>
+  );
+}
+
+export function researchFeeDisclosureText() {
+  return (
+    <>
+      If you are requesting a certificate that is dated before 1870, there is an
+      additional $10 research fee.
     </>
   );
 }
