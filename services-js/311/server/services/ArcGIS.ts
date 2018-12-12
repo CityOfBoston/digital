@@ -276,7 +276,7 @@ export function samFeatureToUnit({
   };
 }
 
-export class ArcGIS {
+export default class ArcGIS {
   private readonly agent: any;
   private readonly endpoint: string;
 
@@ -292,7 +292,7 @@ export class ArcGIS {
     }
   }
 
-  public addressSearchLocatorUrl(path: string): string {
+  private addressSearchLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
       `Locators/Boston_Composite_Prod/GeocodeServer/${path}`
@@ -300,28 +300,28 @@ export class ArcGIS {
   }
 
   // Locator that returns SAM addresses and intersections
-  public reverseGeocodeLocatorUrl(path: string): string {
+  private reverseGeocodeLocatorUrl(path: string): string {
     return url.resolve(
       this.endpoint,
       `Locators/intersection_and_address/GeocodeServer/${path}`
     );
   }
 
-  public liveAddressUrl(path: string): string {
+  private liveAddressUrl(path: string): string {
     return url.resolve(
       this.endpoint,
       `311/LiveSAMAddresses/MapServer/0/${path}`
     );
   }
 
-  public openSpacesUrl(path: string): string {
+  private openSpacesUrl(path: string): string {
     return url.resolve(
       this.endpoint,
       `311/Composite_Services/MapServer/${OPEN_SPACES_LAYER_ID}/${path}`
     );
   }
 
-  public async reverseGeocodeOpenSpace(
+  private async reverseGeocodeOpenSpace(
     lat: number,
     lng: number
   ): Promise<SearchResult | null> {
@@ -454,48 +454,6 @@ export class ArcGIS {
       }
     );
   }
-  public readonly candidateToSearchResult = async (
-    candidate: FindAddressCandidate
-  ): Promise<SearchResult | null> => {
-    const { x: lng, y: lat } = candidate.location;
-
-    // The goal here is to never return an interpolated, StreetAddress result,
-    // since it has no SAM ID. So, if we found one in the search results, we
-    // reverse-geocode its estimated location to get an address. We then set the
-    // "exact" bit to false since the address can be named something somewhat
-    // different from the search term and we want to communicate that something
-    // approximate is going on.
-    if (candidate.attributes.Addr_type === 'StreetAddress') {
-      // Recur. Safe because reverseGeocode won't find 'StreetAddress'
-      // candidates.
-      const geocoded = await this.reverseGeocode(
-        candidate.location.y,
-        candidate.location.x
-      );
-
-      if (geocoded) {
-        geocoded.exact = false;
-      }
-
-      return geocoded;
-    } else {
-      return {
-        location: { lat, lng },
-        address: formatAddress(
-          candidate.attributes.Addr_type === 'StreetAddress'
-            ? candidate.address
-            : candidate.attributes.User_fld || candidate.address
-        ),
-
-        addressId: candidate.attributes.Ref_ID
-          ? candidate.attributes.Ref_ID.toString()
-          : null,
-        buildingId: candidate.attributes.State || null,
-        exact: true,
-        alwaysUseLatLng: isAddressUnsearchable(candidate),
-      };
-    }
-  };
 
   public async search(query: string): Promise<SearchResult[]> {
     const params = new URLSearchParams();
@@ -524,7 +482,7 @@ export class ArcGIS {
     return _.compact(
       await Promise.all(
         sortAddressCandidates(findAddressResponse.candidates).map(
-          this.candidateToSearchResult
+          candidateToSearchResult
         )
       )
     );
@@ -565,4 +523,47 @@ export class ArcGIS {
 
 function isArcGISErrorResult(x: any): x is ArcGISErrorResult {
   return !!(x as ArcGISErrorResult).error;
+}
+
+export async function candidateToSearchResult(
+  candidate: FindAddressCandidate
+): Promise<SearchResult | null> {
+  const { x: lng, y: lat } = candidate.location;
+
+  // The goal here is to never return an interpolated, StreetAddress result,
+  // since it has no SAM ID. So, if we found one in the search results, we
+  // reverse-geocode its estimated location to get an address. We then set the
+  // "exact" bit to false since the address can be named something somewhat
+  // different from the search term and we want to communicate that something
+  // approximate is going on.
+  if (candidate.attributes.Addr_type === 'StreetAddress') {
+    // Recur. Safe because reverseGeocode won't find 'StreetAddress'
+    // candidates.
+    const geocoded = await this.reverseGeocode(
+      candidate.location.y,
+      candidate.location.x
+    );
+
+    if (geocoded) {
+      geocoded.exact = false;
+    }
+
+    return geocoded;
+  } else {
+    return {
+      location: { lat, lng },
+      address: formatAddress(
+        candidate.attributes.Addr_type === 'StreetAddress'
+          ? candidate.address
+          : candidate.attributes.User_fld || candidate.address
+      ),
+
+      addressId: candidate.attributes.Ref_ID
+        ? candidate.attributes.Ref_ID.toString()
+        : null,
+      buildingId: candidate.attributes.State || null,
+      exact: true,
+      alwaysUseLatLng: isAddressUnsearchable(candidate),
+    };
+  }
 }

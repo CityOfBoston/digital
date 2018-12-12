@@ -3,7 +3,13 @@ import FormData from 'form-data';
 
 const AUTH_RETRIES = 2;
 
-// Wrapper to handle OAuth authentication
+/**
+ * Helper because we need to send Salesforce authentication information when
+ * calling the Open311 API.
+ *
+ * We don’t have a fake implementation of this because we just don’t do any auth
+ * in test / dev modes.
+ */
 export class Salesforce {
   private readonly oauthUrl: string;
   private readonly consumerKey: string;

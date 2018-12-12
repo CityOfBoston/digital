@@ -9,7 +9,7 @@ interface CaseTypePredictionResponse {
   time: string;
 }
 
-export class Prediction {
+export default class Prediction {
   private readonly agent: any;
   private readonly endpoint: string;
   private readonly newEndpoint: string;
@@ -27,7 +27,7 @@ export class Prediction {
     }
   }
 
-  public url(path: string): string {
+  protected url(path: string): string {
     return url.resolve(this.endpoint, path);
   }
 

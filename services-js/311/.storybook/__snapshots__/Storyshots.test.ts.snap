@@ -1005,13 +1005,13 @@ exports[`Storyshots CaseLayout 404 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -1336,13 +1336,13 @@ exports[`Storyshots CaseLayout Existing 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -3712,12 +3712,13 @@ exports[`Storyshots ContactPane Empty 1`] = `
           <span>
             You can also
              
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               send a report without giving us your information
-            </a>
+            </button>
             .
           </span>
         </p>
@@ -3909,12 +3910,13 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
           <span>
             You can also
              
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               send a report without giving us your information
-            </a>
+            </button>
             .
           </span>
         </p>
@@ -4435,13 +4437,13 @@ exports[`Storyshots ErrorLayout 404 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -4752,13 +4754,13 @@ exports[`Storyshots ErrorLayout 500 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -5148,13 +5150,13 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -5185,13 +5187,13 @@ exports[`Storyshots FeedbackBanner Fit dialog width 1`] = `
       >
         We would love to hear your
          
-        <a
-          className="t--w"
-          href="javascript:void(0)"
+        <button
+          className="lnk t--w"
           onClick={[Function]}
+          type="button"
         >
           feedback
-        </a>
+        </button>
         .
       </span>
     </div>
@@ -5220,13 +5222,13 @@ exports[`Storyshots FeedbackBanner Fit page width 1`] = `
       >
         We would love to hear your
          
-        <a
-          className="t--w"
-          href="javascript:void(0)"
+        <button
+          className="lnk t--w"
           onClick={[Function]}
+          type="button"
         >
           feedback
-        </a>
+        </button>
         .
       </span>
     </div>
@@ -5951,12 +5953,13 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6050,12 +6053,13 @@ exports[`Storyshots LocationPopUp geocode error 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6258,12 +6262,13 @@ exports[`Storyshots LocationPopUp outside of Boston 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6357,12 +6362,13 @@ exports[`Storyshots LocationPopUp search error 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6451,12 +6457,13 @@ exports[`Storyshots LocationPopUp searching 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6587,12 +6594,13 @@ Dorchester, 02125
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -6728,12 +6736,13 @@ Dorchester, 02125
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -7050,12 +7059,13 @@ Boston, 02125
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -7438,12 +7448,13 @@ Boston, MA, 02108
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -7640,12 +7651,13 @@ Boston, MA, 02108
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -7714,12 +7726,13 @@ exports[`Storyshots LocationPopUp without address 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"
@@ -9665,9 +9678,10 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                       <div
                         className="g--7 m-b200 css-1s2lbdj"
                       >
-                        <a
-                          href="javascript:void()"
+                        <button
+                          className="lnk"
                           onClick={[Function]}
+                          type="button"
                         >
                           <img
                             alt=""
@@ -9675,7 +9689,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                             src="https://patterns.boston.gov/images/global/icons/experiential/city-council-meeting.svg"
                           />
                           Start live chat
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -9853,13 +9867,13 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -10442,13 +10456,13 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -10896,13 +10910,13 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -11352,13 +11366,13 @@ exports[`Storyshots SearchLayout List View 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -11662,13 +11676,13 @@ exports[`Storyshots SearchLayout Map View 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -11978,13 +11992,13 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>
@@ -12332,13 +12346,13 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
           >
             We would love to hear your
              
-            <a
-              className="t--w"
-              href="javascript:void(0)"
+            <button
+              className="lnk t--w"
               onClick={[Function]}
+              type="button"
             >
               feedback
-            </a>
+            </button>
             .
           </span>
         </div>

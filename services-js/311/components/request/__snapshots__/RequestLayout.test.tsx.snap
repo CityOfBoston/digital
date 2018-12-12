@@ -448,13 +448,13 @@ exports[`existing service page rendering phone 1`] = `
       >
         We would love to hear your
          
-        <a
-          className="t--w"
-          href="javascript:void(0)"
+        <button
+          className="lnk t--w"
           onClick={[Function]}
+          type="button"
         >
           feedback
-        </a>
+        </button>
         .
       </span>
     </div>
@@ -606,12 +606,13 @@ exports[`existing service page rendering phone location step 1`] = `
               <div
                 className="g--7 t--subinfo m-v200"
               >
-                <a
-                  href="javascript:void(0)"
+                <button
+                  className="lnk"
                   onClick={[Function]}
+                  type="button"
                 >
                   Continue without location
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -662,13 +663,13 @@ exports[`existing service page rendering phone location step 1`] = `
       >
         We would love to hear your
          
-        <a
-          className="t--w"
-          href="javascript:void(0)"
+        <button
+          className="lnk t--w"
           onClick={[Function]}
+          type="button"
         >
           feedback
-        </a>
+        </button>
         .
       </span>
     </div>
@@ -842,13 +843,13 @@ exports[`missing service page rendering 1`] = `
       >
         We would love to hear your
          
-        <a
-          className="t--w"
-          href="javascript:void(0)"
+        <button
+          className="lnk t--w"
           onClick={[Function]}
+          type="button"
         >
           feedback
-        </a>
+        </button>
         .
       </span>
     </div>

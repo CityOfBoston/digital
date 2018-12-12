@@ -8,21 +8,19 @@ export default class ElasticsearchFake implements Required<Elasticsearch> {
     topLeft: { lat: number; lng: number } | undefined,
     bottomRight: { lat: number; lng: number } | undefined
   ): Promise<IndexedCase[]> {
-    if (query) {
-      return [];
-    } else {
-      return ELASTICSEARCH_FIXTURE.map(
-        c =>
-          topLeft && bottomRight
-            ? {
-                ...c,
-                location: {
-                  lat: (topLeft.lat + bottomRight.lat) / 2,
-                  lon: (topLeft.lng + bottomRight.lng) / 2,
-                },
-              }
-            : c
-      );
-    }
+    return ELASTICSEARCH_FIXTURE.filter(
+      ({ description }) => !query || description.includes(query)
+    ).map(
+      c =>
+        topLeft && bottomRight
+          ? {
+              ...c,
+              location: {
+                lat: (topLeft.lat + bottomRight.lat) / 2,
+                lon: (topLeft.lng + bottomRight.lng) / 2,
+              },
+            }
+          : c
+    );
   }
 }

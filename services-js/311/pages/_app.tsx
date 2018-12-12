@@ -250,6 +250,11 @@ export default class Three11App extends App {
       siteAnalytics,
       screenReaderSupport,
     });
+
+    // Used by testcafe-helpers as a signal that React is running and has
+    // rendered the page. Used to ensure we don’t try to interact before the JS
+    // has loaded.
+    (window as any).APP_RUNNING = true;
   }
 
   componentWillUnmount() {

@@ -34,7 +34,7 @@ jobs:
         branch: develop
   - if: type IN (pull_request)
     install:
-    - gem install travis-artifacts
+    - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
     - yarn install --frozen-lockfile --ignore-scripts
     - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies
       prepare
@@ -42,8 +42,7 @@ jobs:
     - yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
     - yarn run test:templates:since $TRAVIS_PULL_REQUEST_SHA^1
     after_failure:
-    - travis-artifacts upload --path services-js/access-boston/screenshots --target-path
-      travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID
+    - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
 notifications:
   slack:
     on_success: always

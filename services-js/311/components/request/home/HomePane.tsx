@@ -291,14 +291,18 @@ export default class HomePane extends React.Component<Props> {
                   className={`g--7 m-b200 ${CHAT_LINK_WRAPPER_STYLE.toString()}`}
                 >
                   {liveAgent.liveAgentAvailable && (
-                    <a href="javascript:void()" onClick={this.startChat}>
+                    <button
+                      type="button"
+                      className="lnk"
+                      onClick={this.startChat}
+                    >
                       <img
                         src="https://patterns.boston.gov/images/global/icons/experiential/city-council-meeting.svg"
                         alt=""
                         className={`${CHAT_ICON_STYLE.toString()}`}
                       />
                       Start live chat
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>

@@ -307,7 +307,7 @@ export default class LocationMap extends React.Component<Props> {
       opts.center = center;
     }
 
-    if (process.env.NODE_ENV === 'test') {
+    if (!mapboxAccessToken) {
       // In test mode we don't use Mapbox because it requires an API key and
       // tries to load tile sets. We stick to a basic Leaflet map which should
       // still do the things we want to.

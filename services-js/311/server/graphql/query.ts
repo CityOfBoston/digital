@@ -137,7 +137,7 @@ export const resolvers = {
       _root: {},
       { code }: { code: string },
       { open311 }: Context
-    ): Promise<Service | undefined> => open311.service(code),
+    ): Promise<Service | null> => open311.service(code),
 
     case: (
       _root: {},

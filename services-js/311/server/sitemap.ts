@@ -1,5 +1,5 @@
 import sm from 'sitemap';
-import { Open311 } from './services/Open311';
+import Open311 from './services/Open311';
 
 export default (open311: Open311) => async (request: any, reply: any) => {
   const services = await open311.services();

@@ -126,12 +126,13 @@ export default class ContactPane extends React.Component<Props> {
             {!contactInfoRequired && (
               <span>
                 You can also{' '}
-                <a
-                  href="javascript:void(0)"
+                <button
+                  type="button"
+                  className="lnk"
                   onClick={this.continueWithoutContactInfo}
                 >
                   send a report without giving us your information
-                </a>.
+                </button>.
               </span>
             )}
           </p>
