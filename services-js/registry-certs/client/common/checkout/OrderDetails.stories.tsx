@@ -40,22 +40,6 @@ function makeCart(loading: boolean): any {
   return cart;
 }
 
-// const birthCertCart: Cart = {
-//   entries: [
-//     {
-//       id: '001',
-//       cert: {
-//         id: '001',
-//         firstName: 'Samuel',
-//         lastName: 'Adams',
-//         birthDate: 'September 16, 1722'
-//       },
-//       quantity: 1
-//     }
-//   ],
-//   size: 1
-// };
-
 const loadingCart = makeCart(true);
 const deathCart = makeCart(false);
 
@@ -85,11 +69,4 @@ storiesOf('Common Components/Order Details', module)
       <DeathOrderDetails cart={deathCart} />
     </OrderDetailsDropdown>
   ))
-  // .add('OrderDetailsDropdown: has research fee', () => (
-  //   <OrderDetailsDropdown
-  //     cart={birthCertCart}
-  //     orderType="birth"
-  //     hasResearchFee
-  //   />
-  // ))
   .add('DeathOrderDetails', () => <DeathOrderDetails cart={deathCart} />);
