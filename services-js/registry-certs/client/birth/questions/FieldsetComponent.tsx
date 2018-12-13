@@ -1,12 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import {
-  CHARLES_BLUE,
-  GRAY_300,
-  MEDIA_SMALL,
-  SANS,
-} from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, MEDIA_SMALL, SANS } from '@cityofboston/react-fleet';
 
 interface Props {
   legendText: React.ReactNode;
@@ -34,8 +29,6 @@ export const FIELDSET_STYLING = css({
   padding: '1rem 0 0',
   [MEDIA_SMALL]: {
     marginTop: '5rem',
-    padding: '3rem 2rem 2rem',
-    border: `1px solid ${GRAY_300}`,
   },
   legend: {
     paddingLeft: '1rem',
@@ -47,6 +40,7 @@ export const FIELDSET_STYLING = css({
     color: CHARLES_BLUE,
   },
   figure: {
-    margin: 0,
+    marginLeft: 0,
+    marginRight: 0,
   },
 });

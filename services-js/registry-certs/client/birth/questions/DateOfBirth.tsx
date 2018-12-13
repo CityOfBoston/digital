@@ -65,7 +65,7 @@ export default class DateOfBirth extends React.Component<Props, State> {
           </FieldsetComponent>
         </QuestionComponent>
 
-        <aside>
+        <aside className="m-t500">
           <p>
             Are you searching for a newborn’s record? You won’t be able to
             request a newborn’s birth certificate right away. It will be ready

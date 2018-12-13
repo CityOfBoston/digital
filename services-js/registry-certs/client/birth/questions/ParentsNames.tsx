@@ -4,7 +4,8 @@ import { TextInput } from '@cityofboston/react-fleet';
 
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
-import { YesNoUnknownAnswer } from '../QuestionsFlow';
+
+import { YesNoUnknownAnswer } from '../types';
 
 import { NAME_FIELDS_CONTAINER_STYLING } from './styling';
 
@@ -47,53 +48,50 @@ export default class ParentsNames extends React.Component<Props, State> {
     } as any);
   };
 
-  private legendText(): React.ReactNode {
-    const { forSelf, firstName } = this.props;
-    if (this.props.parentsMarried === 'yes') {
-      return (
-        <h2>What are {forSelf ? 'your' : `${firstName}’s`} parents’ names?</h2>
-      );
-    } else {
-      return (
-        <h2>
-          What’s the name of the parent who gave birth to{' '}
-          {forSelf ? 'you' : firstName}?
-        </h2>
-      );
-    }
-  }
-
   public render() {
+    const { forSelf, firstName } = this.props;
+
     return (
-      <QuestionComponent
-        handleProceed={() => this.props.handleProceed(this.state)}
-        handleStepBack={this.props.handleStepBack}
-        allowProceed={this.state.parent1FirstName.length > 0}
-      >
-        <FieldsetComponent legendText={this.legendText()}>
-          <figure>
-            <figcaption>Parent 1</figcaption>
+      <>
+        <QuestionComponent
+          handleProceed={() => this.props.handleProceed(this.state)}
+          handleStepBack={this.props.handleStepBack}
+          allowProceed={this.state.parent1FirstName.length > 0}
+        >
+          <FieldsetComponent
+            legendText={
+              <h2>
+                What were the names of {forSelf ? 'your' : `${firstName}’s`}{' '}
+                parents at the time of {forSelf ? 'your' : 'their'} birth?
+              </h2>
+            }
+          >
+            <figure className="m-t400">
+              <figcaption>
+                Parent 1 <em>(for example: Mother)</em>
+              </figcaption>
 
-            <div className={NAME_FIELDS_CONTAINER_STYLING}>
-              <TextInput
-                label="First Name"
-                name="parent1FirstName"
-                defaultValue={this.state.parent1FirstName}
-                onChange={this.handleChange}
-              />
+              <div className={NAME_FIELDS_CONTAINER_STYLING}>
+                <TextInput
+                  label="First Name"
+                  name="parent1FirstName"
+                  defaultValue={this.state.parent1FirstName}
+                  onChange={this.handleChange}
+                />
 
-              <TextInput
-                label="Last Name"
-                name="parent1LastName"
-                defaultValue={this.state.parent1LastName}
-                onChange={this.handleChange}
-              />
-            </div>
-          </figure>
+                <TextInput
+                  label="Last Name"
+                  name="parent1LastName"
+                  defaultValue={this.state.parent1LastName}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </figure>
 
-          {this.props.parentsMarried === 'yes' && (
-            <figure>
-              <figcaption>Parent 2</figcaption>
+            <figure className="m-t400">
+              <figcaption>
+                Parent 2 <em>(for example: Father)</em>
+              </figcaption>
 
               <div className={NAME_FIELDS_CONTAINER_STYLING}>
                 <TextInput
@@ -111,9 +109,18 @@ export default class ParentsNames extends React.Component<Props, State> {
                 />
               </div>
             </figure>
-          )}
-        </FieldsetComponent>
-      </QuestionComponent>
+          </FieldsetComponent>
+        </QuestionComponent>
+
+        <aside className="m-t500">
+          <p>
+            Please use the names {forSelf ? 'your' : 'their'} parents were given
+            at the time of their birth. If only one parent is listed on{' '}
+            {forSelf ? 'your' : 'the'} record, you only need to include that
+            name.
+          </p>
+        </aside>
+      </>
     );
   }
 }

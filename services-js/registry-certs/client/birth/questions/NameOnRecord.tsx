@@ -10,7 +10,9 @@ import { NAME_FIELDS_CONTAINER_STYLING } from './styling';
 interface Props {
   firstName?: string;
   lastName?: string;
+  altSpelling?: string;
 
+  forSelf: boolean | null;
   handleProceed: (answers: State) => void;
   handleStepBack: () => void;
 }
@@ -18,6 +20,7 @@ interface Props {
 interface State {
   firstName: string;
   lastName: string;
+  altSpelling: string;
 }
 
 export default class NameOnRecord extends React.Component<Props, State> {
@@ -27,6 +30,7 @@ export default class NameOnRecord extends React.Component<Props, State> {
     this.state = {
       firstName: props.firstName || '',
       lastName: props.lastName || '',
+      altSpelling: props.altSpelling || '',
     };
   }
 
@@ -48,6 +52,8 @@ export default class NameOnRecord extends React.Component<Props, State> {
   };
 
   public render() {
+    const { forSelf } = this.props;
+
     return (
       <>
         <QuestionComponent
@@ -58,7 +64,9 @@ export default class NameOnRecord extends React.Component<Props, State> {
           }
         >
           <FieldsetComponent
-            legendText={<h2>What is the name on the birth record?</h2>}
+            legendText={
+              <h2>What was {forSelf ? 'your' : 'their'} name at birth?</h2>
+            }
           >
             <div className={NAME_FIELDS_CONTAINER_STYLING}>
               <TextInput
@@ -76,23 +84,31 @@ export default class NameOnRecord extends React.Component<Props, State> {
                 onKeyDown={this.handleEnterKeypress}
               />
             </div>
+
+            <div className="m-t300">
+              <h3>
+                Is there an alternative spelling to {forSelf ? 'your' : 'their'}{' '}
+                name?
+              </h3>
+
+              <TextInput
+                style={{ textAlign: 'left' }}
+                label="Alternative spelling(s)"
+                name="altSpelling"
+                defaultValue={this.state.lastName}
+                onChange={this.handleChange}
+                onKeyDown={this.handleEnterKeypress}
+              />
+            </div>
           </FieldsetComponent>
         </QuestionComponent>
 
-        <aside>
+        <aside className="m-t500">
           <p>
-            {/* todo: wording irt asking for name given at birth */}
-            Please use the name you were given at birth. If you were adopted,
-            please use your post-adoption name.
-          </p>
-
-          <p>
-            Is there an alternative spelling of the name? Was the first name
-            missing from the original birth record? Was there more than one last
-            name on the record? Did they enter their married name instead of
-            their birth name? Have they had a legal name change? Some birth
-            records were registered more than a year after the birth so Registry
-            staff has to search our books for the record.
+            If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
+            name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
+            were given at birth. If {forSelf ? 'you' : 'they'} were adopted, use{' '}
+            {forSelf ? 'your' : 'their'} post-adoption name.
           </p>
         </aside>
       </>
