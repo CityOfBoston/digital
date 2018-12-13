@@ -21,10 +21,14 @@ jobs:
   include:
   - stage: test
     if: type IN (push)
-    install: yarn install --frozen-lockfile
+    install:
+    - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
+    - yarn install --frozen-lockfile
     script:
     - yarn run test
     - yarn run test:templates
+    after_failure:
+    - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
     deploy:
       provider: script
       skip_cleanup: true
