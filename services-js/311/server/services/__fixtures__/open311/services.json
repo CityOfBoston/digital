@@ -1,0 +1,3190 @@
+[
+  {
+    "service_code": "ABNDBIKE",
+    "service_name": "Bicycle abandoned on the street or sidewalk",
+    "description": "Did you find an abandoned bicycle in a public space? Please let us know.",
+    "keywords": "Abandoned bicycle, bike",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_BIKES",
+          "name": "Transportation-Boston Bikes",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Vehicles",
+          "name": "Vehicles",
+          "description": "Abandoned Vehicles BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ABNDVHCL",
+    "service_name": "Vehicle abandoned on the street",
+    "description": "You can file a report if a vehicle is parked at an address for more than three days without moving.",
+    "keywords": "Abandoned Vehicle, Parking Enforcement, Ilegally Parked",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_AVRS",
+          "name": "Transportation-AVRS-Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Vehicles",
+          "name": "Vehicles",
+          "description": "Abandoned Vehicles BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "AIRCRFTDST",
+    "service_name": "Aircraft noise too loud",
+    "description": "Are planes flying over your community too loud? You can file a report.",
+    "keywords": "Aircraft, plane, Aircraft noise disturbance",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_CALLCTR",
+          "name": "Mayor's Office-311 Call Center",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Other",
+          "name": "Other",
+          "description": "Other General Request"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ANMLFND",
+    "service_name": "Found pet",
+    "description": "You found a pet and have it in your care.",
+    "keywords": "Animal Control, Lost, Found, Pet, Pets, Dog, Cat, Bird, lizard",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ANML",
+          "name": "Animal Control",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ANMLGEN",
+    "service_name": "General animal help",
+    "description": "Get help from Animal Control that doesn't involve a lost or found pet.",
+    "keywords": "animal, barking, noise, injured, wild animal, pet, pets, animal control, general request, leash law, stray, puppy, General animal help",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ANML",
+          "name": "Animal Control",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ANMLLOST",
+    "service_name": "Lost animal",
+    "description": "You lost your pet and want to let Animal Control know.",
+    "keywords": "Animal Control, Lost, Found, Pet, Pets, Dog, Cat, Bird,Lost animal",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ANML",
+          "name": "Animal Control",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BEDBUG",
+    "service_name": "Bed bugs in apartment",
+    "description": "Bed bugs in an apartment. Note: for other types of insects, please use \"Unsatisfactory Living Conditions\"",
+    "keywords": "Bed Bugs, Housing, Bed bugs in apartment",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BICYCLEISS",
+    "service_name": "General bicycle request",
+    "description": "Make a request for bike racks, bike lanes, or general bike infrastructure in Boston.",
+    "keywords": "BICYCLEISS, bike issues, bicycle request,General bicycle request",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_BIKES",
+          "name": "Transportation-Boston Bikes",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Vehicles",
+          "name": "Vehicles",
+          "description": "Abandoned Vehicles BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BIRDINFEST",
+    "service_name": "Bird infestation",
+    "description": "Report a bird infestation in a public place. You should see a lot of bird droppings in the area.",
+    "keywords": "Environment, Bird infestation,Pigeon infestation; Pigeon droppings",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BRTHESY",
+    "service_name": "Breathe Easy program inspection",
+    "description": "File a report if housing conditions may be triggering your child's asthma.",
+    "keywords": "Breathe easy, Housing",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BRDGMAINT",
+    "service_name": "Bridge, guard rail, or public stairs need maintenance",
+    "description": "You are reporting the need to repair a bridge, guard rail, or stairs as part of a public property.",
+    "keywords": "Bridge; Guard Rail; Stair",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_BRDGMAINT",
+          "name": "PWD-Bridge Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BLGPMTINSP",
+    "service_name": "Building permit inspection request",
+    "description": "Schedule an inspection for a permitted construction process. This includes rough, final, partial, footing, and other required general site visits.",
+    "keywords": "Building,General Building Complaint,Building Permit Inspection Request",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BILLING",
+    "service_name": "Boston Water and Sewer billing issue",
+    "description": "File a complaint about a Boston Water and Sewer bill.",
+    "keywords": "BWSC, Billing, Complaint, Boston Water and Sewer issue",
+    "group": "Fees-Pricing",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BWSC",
+          "name": "Boston Water & Sewer",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Utilties",
+          "name": "Utilities",
+          "description": "Utilities"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BWSCGENREQ",
+    "service_name": "Boston Water and Sewer general request",
+    "description": "Get help with your water system from Boston Water and Sewer.",
+    "keywords": "Boston water, Sewer general request",
+    "group": "Fees-Pricing",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BWSC",
+          "name": "Boston Water & Sewer",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Utilties",
+          "name": "Utilities",
+          "description": "Utilities"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "CATCHBASE",
+    "service_name": "Storm drain is clogged or broken",
+    "description": "You want to clean or repair a catch basin. Catch basins are the storm drains or grates you see on the street.",
+    "keywords": "BWSC, Catchbasin, Gutter, Sewer, Drainage, Flooding, Boston Water and Sewer",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BWSC",
+          "name": "Boston Water & Sewer",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "CEMTRYMAIN",
+    "service_name": "Cemetery needs maintenance",
+    "description": "File a request to pick up trash or clean up a City cemetery.",
+    "keywords": "cemetery, Cemetery Maintenance",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_CEM",
+          "name": "Parks & Recreation-Cemetary",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ILGLAUTBOD",
+    "service_name": "Auto body shop doing illegal work",
+    "description": "We will investigate the illegal repair, sales, or disposal of cars and vehicle parts.",
+    "keywords": "Environment,Licensed business storing client vehicles/parts on street: Commercial Auto Body Shop",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Environment",
+          "name": "Environment",
+          "description": "Environmental Services"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PCONCMPLNT",
+    "service_name": "Road or sidewalk work complaint",
+    "description": "File a complaint about the work being done on a City road or sidewalk.",
+    "keywords": "PATCH, CUT, MESSY, NO PARKING, BLOCKING, CONSTRUCTION, CONTRACTOR, UTILITY, WORK IN THE ROAD/SIDEWALK, ETC. PLATES , POSTINGS, LEAFLETS, SUNKEN,  SETTLED,  DUST",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "CRMTRSB",
+    "service_name": "Gas or electricity utility charge is wrong",
+    "description": "File a report if you think you were charged for unused gas or electricity.",
+    "keywords": "Utilities, Housing,Cross Metering, metering",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PUDEADANML",
+    "service_name": "Dead animal on street or sidewalk",
+    "description": "You can request to have a dead animal (roadkill) removed from public roadways or sidewalks. WE DO NOT remove deceased household pets, please contact your veterinarian.",
+    "keywords": "Pick Up Dead Animal Public Way, Dead Animal on Public Street",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "DISGENREQ",
+    "service_name": "Disability General Request",
+    "description": "Get help from a disability advocate through the City.",
+    "keywords": "Disability, General, Request, Comment, Other, Human Services",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_HS_DISB",
+          "name": "Mayor's Commission for Persons with Disabilities",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "DMPLOADDIS",
+    "service_name": "Dumpster pickup or drop off is too loud",
+    "description": "File a report if a dumpster dropoff or pickup is very noisy.",
+    "keywords": "Dumpster pickup is too loud; drop off is too loud",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_ONS",
+          "name": "Mayor's Office-Office of Neighborhood Services",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ELCPMTINSP",
+    "service_name": "Electrical permit inspection request",
+    "description": "Schedule an inspection for permitted electrical work. Only licensed electricians can make this request.",
+    "keywords": "Building,Electrical; Wires down;Stray voltage; Damage due to water/fire; Restoration of power",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "EMPLITBSKT",
+    "service_name": "Overflowing trash can",
+    "description": "Request that we empty a public trash barrel.",
+    "keywords": "Empty Litter Basket, Overflowing trash can",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "EQUIPREPR",
+    "service_name": "Broken park or playground equipment",
+    "description": "Equipment includes basketball backboards and rims, tennis nets, fences, and bleachers. We can paint, power wash, and fix many issues.",
+    "keywords": "Equipment Repair, broken park equipment",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_MAINT",
+          "name": "Parks & Recreation-Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "FIREHYDR",
+    "service_name": "Fire hydrant is open or broken",
+    "description": "Fix a hydrant that has been opened or knocked down.",
+    "keywords": "BWSC, Fire Hydrant, Flooding, Graffiti, Repair, Boston Water and Sewer",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BWSC",
+          "name": "Boston Water & Sewer",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "FIREFOOD",
+    "service_name": "Fire at a restaurant or eatery",
+    "description": "Report a fire in a place that serves food. If the fire is at a wholesale establishment, please file a report with the State Food and Drug Administration.",
+    "keywords": "Health,Fire in Food Establishment",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMGAS",
+    "service_name": "Gas sold at wrong price by gas station",
+    "description": "A gas station is selling gas at the wrong price.",
+    "keywords": "Gas pump meters not accurate",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BLDGCOMPL",
+    "service_name": "General building complaint",
+    "description": "You can report a general issue with a building. Examples include abandoned buildings, illegal rooming houses, work taking place without a permit, and more.",
+    "keywords": "Building ,Building Complaint",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "GENCMTSEMP",
+    "service_name": "General comments for a city worker, program, or policy",
+    "description": "File concerns about City workers, services, or policies.",
+    "keywords": "Complaint, Compliment, Employee, Program, Policy,General comments",
+    "group": "Other",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_CALLCTR",
+          "name": "Mayor's Office-311 Call Center",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Other",
+          "name": "Other",
+          "description": "Other General Request"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "GENLGTREQ",
+    "service_name": "General street light request",
+    "description": "We can help with issues including redirecting the beam of a streetlight, or even removing sneakers on a wire.",
+    "keywords": "General Lighting; Lighting; Street Light(s); Lights; etc.",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_STRL",
+          "name": "PWD-Street Lights",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Lights",
+          "name": "Lights",
+          "description": "Lights 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "BOS311GEN",
+    "service_name": "General request",
+    "description": "Can't find the right category? Make your request here.",
+    "keywords": "Generic Request, General Request, Other, Miscellaneous",
+    "group": "Other",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_CALLCTR",
+          "name": "Mayor's Office-311 Call Center",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Other",
+          "name": "Other",
+          "description": "Other General Request"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "GENGRAFFITI",
+    "service_name": "Graffiti",
+    "description": "We'll remove graffiti from public and private property.",
+    "keywords": "Graffiti Illegal Graffiti",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [],
+      "service_categories": [
+        {
+          "code": "Graffiti",
+          "name": "Graffiti",
+          "description": "Illegal Graffiti 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "GRNDMAINT",
+    "service_name": "Park trash barrel overflowing",
+    "description": "You can request that we clean up a park, cut grass and whack weeds, or fix other issues. This includes removing dead animals or abandoned items.",
+    "keywords": "Ground Maintenance, Park trash barrel overflowing",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_MAINT",
+          "name": "Parks & Recreation-Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "HEAT",
+    "service_name": "Heat too high or too low",
+    "description": "The temperature in your apartment needs to reach 68 degrees from 7 a.m. - 11 p.m., and 64 degrees from 11:01 p.m. - 6:59 a.m. The temperature is considered \"too much\" if it's greater than 78 degrees. Please note: we don't process \"not enough\" heat complaints from June 15 - September 15.",
+    "keywords": "Housing, Excessive heat; Insufficient heat",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "HPSRMVL",
+    "service_name": "Accessible parking sign removal",
+    "description": "Get an accessible parking sign removed.",
+    "keywords": "HP Sign, Handicap Parking,HP Sign Removal",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_HS_DISB",
+          "name": "Mayor's Commission for Persons with Disabilities",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "HPSRPR",
+    "service_name": "Accessible parking sign is broken",
+    "description": "Fix a damaged or knocked down accessible parking sign.",
+    "keywords": "HP Sign, Handicap Parking, Accessible parking sign is broken",
+    "group": "Traffic-Vehicles",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_HS_DISB",
+          "name": "Mayor's Commission for Persons with Disabilities",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "HPSREQ",
+    "service_name": "Accessible parking sign request",
+    "description": "Get an accessible parking sign installed.",
+    "keywords": "HP Sign, Handicap Parking,HP Sign Request",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_HS_DISB",
+          "name": "Mayor's Commission for Persons with Disabilities",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ILGLDUMP",
+    "service_name": "Trash dumped illegally",
+    "description": "Report an illegal dumping of waste outside a residential or commercial property.",
+    "keywords": "code enforcement, construction debris, illegal dumping, trash",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ILGLPSTSGN",
+    "service_name": "Sign posted illegally in public",
+    "description": "Report the illegal posting of signs on public property.",
+    "keywords": "Handbills, posters, stickers on street fixtures and/or private property",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ILGLVEND",
+    "service_name": "Vending in public without permit",
+    "description": "File a report on someone selling goods on public property without a permit.",
+    "keywords": "Sale of goods without visible permit, Illegal Vending",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "IMPSTRTRSH",
+    "service_name": "Residential trash out illegally",
+    "description": "File a report if someone places trash out too early, or after collection. You can also file a report if someone places trash in the wrong container, or leaves empty barrels on the sidewalk.",
+    "keywords": "Trash, Storage, Improper, Storage of Trash",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "LEADPNT",
+    "service_name": "Lead paint in apartment",
+    "description": "Report that lead paint may be present in your apartment. You can file a report if the building was built before 1978 and there is a child 6-years-old or younger living there.",
+    "keywords": "Housing, Lead in house; Lead paint",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "LITBSKMAIN",
+    "service_name": "Trash barrel is broken",
+    "description": "Request that we repair a public trash barrel.",
+    "keywords": "Litter Basket Maintenance; Repair Litter Basket",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MJRSYSFAIL",
+    "service_name": "Street lights out (five or more)",
+    "description": "If there are five or more streetlights out in a row on a street, you can file a report.",
+    "keywords": "Major system failure, Street lights out",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_STRL",
+          "name": "PWD-Street Lights",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Lights",
+          "name": "Lights",
+          "description": "Lights 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MBTAREQ",
+    "service_name": "MBTA request",
+    "description": "We don't run the public transit system, but we will reach out to them on your behalf.",
+    "keywords": "MBTA, MBTA Request",
+    "group": "Other",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_CALLCTR",
+          "name": "Mayor's Office-311 Call Center",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Other",
+          "name": "Other",
+          "description": "Other General Request"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MISCSNOW",
+    "service_name": "General snow complaint",
+    "description": "You can file a general complaint related to snow.",
+    "keywords": "Misc. Snow Complaint, General snow complaint",
+    "group": "Snow",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_OPS",
+          "name": "PWD-Operations",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MTRECYDBI",
+    "service_name": "Trash or recycling not collected",
+    "description": "We'll make a pickup if your items were placed out before 7 a.m. on the morning of your collection day, but we didn't pick them up.",
+    "keywords": "Missed Trash, Trash, Bulk Item, Leaf/Yard Waste, Recycling",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_SANI",
+          "name": "PWD-Sanitation",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MISDMGSGN",
+    "service_name": "Street sign is broken or missing",
+    "description": "Request that we replace or repair a street sign.",
+    "keywords": "Sign Missing, Damaged Sign",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_TRAFFSIG",
+          "name": "Transportation-Traffic Signals",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Traffic",
+          "name": "Traffic",
+          "description": "Traffic signals and lights"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NEEDRMVL",
+    "service_name": "Needle in public place",
+    "description": "We'll pick up needles or syringes found on public property. Please note: we won't pick up needles inside private homes.",
+    "keywords": "needle removal, needles, drugs, heroin, inject, needle, mobile sharp, boston public health, bphc, needle program, needle pick up",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BPHC_MOBSHRP",
+          "name": "Boston Public Health Commission-Mobile Sharps Team",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NWTRREQ",
+    "service_name": "Tree planting request",
+    "description": "You can make a request to plant a new tree.",
+    "keywords": "New Tree, Tree planting",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_TREE",
+          "name": "Parks & Recreation-Tree Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Trees",
+          "name": "Trees",
+          "description": "Trees 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NEWSBOX",
+    "service_name": "Newsbox is broken",
+    "description": "Request that we fix a public news box.",
+    "keywords": "News Boxes, Newsbox is broken",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NOUTILFLD",
+    "service_name": "Flood at a restaurant or eatery",
+    "description": "Report a flood in a restaurant or another place that serves food.",
+    "keywords": "Utility, Flood, Flooding, Health, Poor Conditions, Establishment, Water",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NOUTILELEC",
+    "service_name": "Electricity problem at a restaurant or eatery",
+    "description": "There's no electricity in a restaurant or another place that serves food.",
+    "keywords": "Utility, Electricity, Health, Poor Conditions, Establishment",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NOUTILSWR",
+    "service_name": "Sewage problem at a restaurant or eatery",
+    "description": "Report a sewage backup in a restaurant or another place that serves food.",
+    "keywords": "Sewage, Utility, Smell, Odor, Fumes, Bacteria, Sulfur, Health, Poor Conditions, Establishment, Water",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "NOUTILWTR",
+    "service_name": "Water problem at a restaurant or eatery",
+    "description": "There's no hot water, cold water, or water at a restaurant or a place that serves food.",
+    "keywords": "Utility, water, Health, Poor Conditions, Establishment",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMOILTRK",
+    "service_name": "Oil sale issue",
+    "description": "You were given oil at the wrong price, measure, or without a proper seal.",
+    "keywords": "weights, measures, ISD, inspectional services, oil truck, no price per gallon, no receipt, short measure",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMOTHER",
+    "service_name": "General weighing or measuring problem",
+    "description": "You have an issue with a business that made a sale that isn't covered by our categories.",
+    "keywords": "weights, measures, ISD, inspectional services, other",
+    "group": "Fees-Pricing",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "OVRCRWD",
+    "service_name": "Overcrowding in a home",
+    "description": "Report that too many people are living in an apartment based on the apartment's size.",
+    "keywords": "Overcrowding, ISD, Inpsectional Services, Housing",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "OVRGRWNVEG",
+    "service_name": "Overgrown vegetation on private property",
+    "description": "File a report if there's an overgrown lawn or vegetation on a private property.",
+    "keywords": "Unkempt/overgrown (grass, bushes, weeds),Overgrown landscape interfering with sidewalk passage,Property conditions interfere w/ sidewalk passage (bushes, fences)",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PLANTING",
+    "service_name": "Park planter request",
+    "description": "Request that we place a planter in a public place.",
+    "keywords": "Planting, Horticulture, Park",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_MAINT",
+          "name": "Parks & Recreation-Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "IMPRVREQ",
+    "service_name": "Request for park improvement",
+    "description": "Request new infrastructure at a park, like a baseball field or play equipment.",
+    "keywords": "Park Improvement, Request for park improvement",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_MAINT",
+          "name": "Parks & Recreation-Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "LGHTELEC",
+    "service_name": "Light or electrical problem at park",
+    "description": "This includes general outages, or if you have a permit for a field at night but there's no lighting.",
+    "keywords": "Park Lighting Issues, Light issue ;electrical problem at park",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_MAINT",
+          "name": "Parks & Recreation-Maintenance",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PRKGENFORC",
+    "service_name": "Illegal parking on street",
+    "description": "You can file a report if you see a vehicle or car parked illegally in Boston.",
+    "keywords": "Illegal parking on public road",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_AVRS",
+          "name": "Transportation-AVRS-Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PKNGLTCOMP",
+    "service_name": "Public or private parking lot issue",
+    "description": "Report an issue with a public or private parking lot in the City.",
+    "keywords": "Parking Lot Complaints",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_ENFORCE",
+          "name": "Transportation-Parking Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PRKGMETRPR",
+    "service_name": "Parking meter is broken",
+    "description": "Request that we repair a broken parking meter.",
+    "keywords": "Parking Meter",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_OPS",
+          "name": "Transportation-Operations",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ILGLPRKING",
+    "service_name": "Illegal parking in yard",
+    "description": "File a report if someone parks their car somewhere other than their driveway.",
+    "keywords": "Parking on Front/Back Yards",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PRKGENREQ",
+    "service_name": "General request for parks",
+    "description": "You can make a general request with the Parks and Recreation Department.",
+    "keywords": "Parks, General, Other",
+    "group": "Parks-Public",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_ADMIN",
+          "name": "Parks & Recreation-Admin",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PVMTMRKINS",
+    "service_name": "Crosswalk or street marker inspection",
+    "description": "Request to inspect a crosswalk or other street marker.",
+    "keywords": "Pavement Marking Inspection",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_OPS",
+          "name": "Transportation-Operations",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Traffic",
+          "name": "Traffic",
+          "description": "Traffic signals and lights"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MECPMTINSP",
+    "service_name": "Plumbing and gas permit inspection request",
+    "description": "Schedule an inspection for permitted plumbing and gas work. Only a licensed plumber or gas-fitter can make this request.",
+    "keywords": "Plumbing, Gas, Permits, Inspection, Permitting, Mechanical, Building, ISD",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMPRICE",
+    "service_name": "Overcharged for a product",
+    "description": "Report a business that is overcharging for a given product.",
+    "keywords": "weights, measures, ISD, inspectional services, price issue, price missing, price incorrect, unit price",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "ADJPROP",
+    "service_name": "Property damage from outside",
+    "description": "Something is affecting or damaging your property. Examples include nearby construction and fallen tree limbs.",
+    "keywords": "Building, Hazard to abutting structures,Property damage from outside",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "PWDGENREQ",
+    "service_name": "Public Works General Request",
+    "description": "You can make a general request with Public Works.",
+    "keywords": "PWD, Public Works, General, Other",
+    "group": "Streets-Sidewalks",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_OPS",
+          "name": "PWD-Operations",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RATBITE",
+    "service_name": "Rat bite",
+    "description": "Report that you, or someone with you, was bitten by a rat.",
+    "keywords": "ISD, Environment, Rodent, Rat Bite",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        },
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RECCRTINQ",
+    "service_name": "Recycling cart question",
+    "description": "Did you make a request for a recycling cart in the winter? We'll contact you in the spring to create a new request.",
+    "keywords": "Recycling Cart Request,Recycling Cart Inquiry, Damaged,Cart Return, Sticker Request",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_RECYCLE",
+          "name": "PWD-Waste Reduction Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RECCRTRTN",
+    "service_name": "Recycling cart return",
+    "description": "You can return a large blue recycling cart to the City.",
+    "keywords": "Recycling Cart Return, Return Cart",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_RECYCLE",
+          "name": "PWD-Waste Reduction Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RNTLUDC",
+    "service_name": "Rental unit has issues at move-in",
+    "description": "Report that an apartment you just moved into is unsafe or unsanitary. Please file your report within 24 hours of moving into your apartment.",
+    "keywords": "Housing, Rental unit not upto move-in standards",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "LTRBSKINST",
+    "service_name": "Trash barrel installation request",
+    "description": "We will review requests for standard trash & recycling barrel installation.",
+    "keywords": "Request for Litter Basket Installation, Trash barrel installation",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "REQPOTHL",
+    "service_name": "Request for Pothole Repair",
+    "description": "Request that we fill in a pothole on a public street.",
+    "keywords": "Pothole, Sinkhole, Manhole",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RECCRTREQ",
+    "service_name": "Recycling cart request",
+    "description": "Request a large blue recycling cart.",
+    "keywords": "Recycling Cart Request,Recycling Cart Inquiry, Damaged,Cart Return, Sticker Request",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_RECYCLE",
+          "name": "PWD-Waste Reduction Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "SNOWPLOW",
+    "service_name": "Request for Snow Plowing",
+    "description": "We plow snow on public roads in the City.",
+    "keywords": "Snow Plowing",
+    "group": "Snow",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "STRCLEAN",
+    "service_name": "Street cleaning needed",
+    "description": "You can request to have a public street cleaned.",
+    "keywords": "Street Cleaning",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMRWSM",
+    "service_name": "Product was not weighed correctly",
+    "description": "Report a business that didn't weigh a product correctly.",
+    "keywords": "weights, measures, ISD, inspectional services, gasoline, scale, short measure",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RDWYRPR",
+    "service_name": "Roadway Repair",
+    "description": "Request that we repair and resurface an entire public road.",
+    "keywords": "Roadway, Roadway Repair",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RODENTACT",
+    "service_name": "Rodent Activity",
+    "description": "You see evidence of rats and mice in a public spot or indoors. Proof includes seeing actual rodents and burrows.",
+    "keywords": "Environment, Rodent Activity, Rats, ISD, Inspection",
+    "group": "Animals",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Animals",
+          "name": "Animals",
+          "description": "Animals in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "RTMECHISS",
+    "service_name": "Mechanical device causing issue in building",
+    "description": "A mechanical appliance, like an air conditioning unit or generator, is causing an issue in a building.",
+    "keywords": "Rooftop & Mechanical Disturbances, Mechanical device causing issue in building",
+    "group": "Property-Construction",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_MAYOR_CALLCTR",
+          "name": "Mayor's Office-311 Call Center",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Property",
+          "name": "Property",
+          "description": "Building and property issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMSCALE",
+    "service_name": "Scale not weighing correctly",
+    "description": "Report a scale not correctly weighing items.",
+    "keywords": "weights, measures, ISD, inspectional services, scale",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "SCHDBLKITM",
+    "service_name": "Bulk item pickup request",
+    "description": "Bulk items include TVs, ACs, computer monitors, dehumidifiers, water coolers, and refrigerators.",
+    "keywords": "Bulk Item Pick-up, Trash",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_SANI",
+          "name": "PWD-Sanitation",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMSIDEGRD",
+    "service_name": "Large truck without a sideguard",
+    "description": "You found a large truck in the City that doesn't have a sideguard.",
+    "keywords": "Sideguard, Weights and Measures",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "MANHOLE",
+    "service_name": "Manhole or sidewalk cover problem",
+    "description": "Fix a damaged, open, or missing sidewalk or manhole cover.",
+    "keywords": "BWSC, Sidewalk Cover, Manhole, Noisy, Loose, Sinkhole, Pothole, Loud, Boston Water & Sewer",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "BWSC",
+          "name": "Boston Water & Sewer",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "SDWRPR",
+    "service_name": "Sidewalk needs repairs",
+    "description": "Request that we repair damaged sidewalk.",
+    "keywords": "Sidewalk, Temporary Repair, Pernament Repair, Broken Sidewalk",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "SPCSVR",
+    "service_name": "Space savers still being used",
+    "description": "We'll remove space savers. We start removing items 48 hours after a snow emergency ends.",
+    "keywords": "Space Savers, Space savers still being used",
+    "group": "Snow",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_SANI",
+          "name": "PWD-Sanitation",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "SQUALIDLC",
+    "service_name": "Trash blocking exits in apartment building",
+    "description": "There's trash or clutter in an apartment building that is in the way of exits, windows, or facilities.",
+    "keywords": "Housing,Dangerous living conditions; Unhealthy living conditions",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "STAGWTR",
+    "service_name": "Mosquito breeding site",
+    "description": "You found a potential mosquito breeding site. This includes standing water and neglected pools.",
+    "keywords": "Environment,Mosquitoes; Potential breeding sites, i.e. stagnant water, neglected pools",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Environment",
+          "name": "Environment",
+          "description": "Environmental Services"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "STCKRREQ",
+    "service_name": "Recycling sticker for trash barrel",
+    "description": "Please keep in mind: you can only place stickers on trash barrels.",
+    "keywords": "Recycling Sticker",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_RECYCLE",
+          "name": "PWD-Waste Reduction Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        },
+        {
+          "code": "Litter",
+          "name": "Litter",
+          "description": "Litter and Trash 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "STRLGTKDWN",
+    "service_name": "Street light is broken or knocked down",
+    "description": "Report a knocked down streetlight, or a damaged street lighting control box.",
+    "keywords": "Street Light Knock Down, Control Box",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_STRL",
+          "name": "PWD-Street Lights",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Lights",
+          "name": "Lights",
+          "description": "Lights 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "STRLGTOUT",
+    "service_name": "Street lights out (fewer than five)",
+    "description": "Request that we fix a streetlight outage. If there are five or more lights out, that's a major system failure and a separate request.",
+    "keywords": "Street Light Outage, Street lights out",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_STRL",
+          "name": "PWD-Street Lights",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Lights",
+          "name": "Lights",
+          "description": "Lights 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WMTXIMTR",
+    "service_name": "Taxi charge or permit issue",
+    "description": "You were overcharged by a taxi, or a taxi doesn't have a proper City seal.",
+    "keywords": "Taxi meter, Weights and Measures",
+    "group": "Fees-Pricing",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_WM",
+          "name": "ISD-Weights & Measures",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Pricing",
+          "name": "Pricing",
+          "description": "Pricing issues"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TFCSGNINSP",
+    "service_name": "Traffic signal is broken",
+    "description": "Request that we replace or repair a traffic signal.",
+    "keywords": "Traffic Signal Inspection, Traffic signal is broken",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_TRAFFSIG",
+          "name": "Transportation-Traffic Signals",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Traffic",
+          "name": "Traffic",
+          "description": "Traffic signals and lights"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TRANSGEN",
+    "service_name": "General transportation request",
+    "description": "You can make a general request with the Transportation Department.",
+    "keywords": "Transportation, General transportation request",
+    "group": "Traffic-Vehicles",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_CUSTSVC",
+          "name": "Transportation-Constituent Relations",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Traffic",
+          "name": "Traffic",
+          "description": "Traffic signals and lights"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TRANSIMPR",
+    "service_name": "Transportation improvement request",
+    "description": "You can suggest an improvement to transportation in your neighborhood.",
+    "keywords": "Traffic, Engineering, Transportation improvement",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_ENG",
+          "name": "Transportation-Engineering",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Traffic",
+          "name": "Traffic",
+          "description": "Traffic signals and lights"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TREEEMGNCY",
+    "service_name": "Tree blocking street or sidewalk",
+    "description": "You want to remove a tree or tree limb blocking the street or sidewalk.",
+    "keywords": "Tree Emergency, Tree Maintenance, Tree blocking",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_TREE",
+          "name": "Parks & Recreation-Tree Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Trees",
+          "name": "Trees",
+          "description": "Trees 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TREEINPRK",
+    "service_name": "Tree in park needs trimming",
+    "description": "Request that we trim or prune trees in a park.",
+    "keywords": "Tree in Park, Tree trimming",
+    "group": "Parks-Public",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_TREE",
+          "name": "Parks & Recreation-Tree Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parks",
+          "name": "Parks",
+          "description": "Parks in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TREEMAINT",
+    "service_name": "Tree trimming or pruning needed",
+    "description": "Request that we trim or prune trees on the sidewalk.",
+    "keywords": "Tree Maintenance, Tree trimming,  pruning needed",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PARKS_TREE",
+          "name": "Parks & Recreation-Tree Division",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Trees",
+          "name": "Trees",
+          "description": "Trees 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "DGRCOND",
+    "service_name": "Unsafe building conditions",
+    "description": "Request a building inspector who can investigate unsafe conditions at your building. If there's an immediate danger to the public, please call 911.",
+    "keywords": "Building,Collapsing deck, scaffolding is breaking away, Window glass is falling onto the sidewalk",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_BLDG",
+          "name": "ISD-Building",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UCCAMPS",
+    "service_name": "Camp is illegal or unsanitary",
+    "description": "Examples include a camp building that is dirty, or has broken restrooms. You can also file a report if you think a camp is operating without a license.",
+    "keywords": "Health,Unsanitary Conditions - Camps",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UCEMP",
+    "service_name": "Hygene issue with restaurant workers",
+    "description": "Examples of unsanitary practices include handling food without gloves, smoking, and preparing food with visible cuts or sores.",
+    "keywords": "Health,Food handling w/out gloves, cashier handles food and money, smoking, cuts/sores on body of an employee, illness symptoms",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UCESTAB",
+    "service_name": "Dirty conditions at a restaurant or eatery",
+    "description": "Examples include dirty plates and tables, seeing rodents or insects, and overflowing trash.",
+    "keywords": "Health,Unsanitary Conditions - Establishment; Odors, rodents, physical disrepair, dirty, dirty utensils, grease, trash storage, vent system",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UCFOOD",
+    "service_name": "Unsanitary food at a restaurant or eatery",
+    "description": "Examples include allergy violations, expired labels, and poor smells at a place that serves food.",
+    "keywords": "Poor quality of food being served: temperatures, storage, expired labeling/date marking, smell, packaging, appearance, cold and hot holding, taste Allergens (employee did not ask customers if they were allergic to any food product) Food adulteration, phys",
+    "group": "Food",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UCPOOLS",
+    "service_name": "Public pool is unsanitary",
+    "description": "Examples include dirty pool decks, unclean showers or lockers rooms, and broken restrooms.",
+    "keywords": "Health , Public pool is unsanitary",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HEALTH",
+          "name": "ISD-Health",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Health",
+          "name": "Health",
+          "description": "Health and Safety BOS311, including needle removal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UNSANTRSH",
+    "service_name": "Dumpster is overflowing or broken",
+    "description": "Someone put too much trash in a dumpster, or isn't taking care of their dumpster.",
+    "keywords": "Environment,Dumpster, overflowing, trash, broken, Unsanitary Trash Conditions",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Environment",
+          "name": "Environment",
+          "description": "Environmental Services"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UNSATLC",
+    "service_name": "Unsafe conditions in apartment",
+    "description": "The conditions in an apartment are unsafe for those living there, or unsafe for the public.",
+    "keywords": "Housing inspection,  Unsatisfactory living conditions",
+    "group": "Health-Safety",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_HOUS",
+          "name": "ISD-Housing",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Housing",
+          "name": "Housing",
+          "description": "ISD Housing"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UNSHVSDWLK",
+    "service_name": "Unshoveled Sidewalk",
+    "description": "You can file a report if someone has not cleared their sidewalk within three hours of a snowstorm ending.",
+    "keywords": "Snow Removal, unshoveled sidewalk, code enforcement",
+    "group": "Snow",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_CE",
+          "name": "PWD-Code Enforcement",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Seasonal",
+          "name": "Seasonal",
+          "description": "Seasonal"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UPGEXLGT",
+    "service_name": "Upgrade Existing Lighting",
+    "description": "Request that we improve existing lights in the City.",
+    "keywords": "Lighting; Uprade existing light; Street Light(s); existing light; etc.",
+    "group": "Streets-Sidewalks",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_STRL",
+          "name": "PWD-Street Lights",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Lights",
+          "name": "Lights",
+          "description": "Lights 311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "UTILCSTRPR",
+    "service_name": "Utility Casting Repair",
+    "description": "Request that we repair a utility casting cover on a street or sidewalk.",
+    "keywords": "Utility casting repair",
+    "group": "Streets-Sidewalks",
+    "metadata": false,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "TRSHVACLOT",
+    "service_name": "Trash on vacant lot",
+    "description": "You found a vacant lot that hasn't been cleaned, or is full of trash.",
+    "keywords": "Environment,Trash on Vacant Lot,  Land Not Maintained",
+    "group": "Trash-Graffiti",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_ISD_ENVR",
+          "name": "ISD-Environment",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Environment",
+          "name": "Environment",
+          "description": "Environmental Services"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "VALETPRK",
+    "service_name": "Valet Parking Problems",
+    "description": "You can file a complaint about valet parking in the City.",
+    "keywords": "Valet Parking Problems, Valet parking",
+    "group": "Traffic-Vehicles",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_BTDT_PRKCLRK",
+          "name": "Transportation-Office of the Parking Clerk",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Parking",
+          "name": "Parking",
+          "description": "Parking in BOS311"
+        }
+      ]
+    }
+  },
+  {
+    "service_code": "WHLNCOMP",
+    "service_name": "Construction site is too loud",
+    "description": "Request that we check with a contractor about loud, after-hours construction on a road.",
+    "keywords": "Construction site is too loud, too loud",
+    "group": "Streets-Sidewalks",
+    "metadata": true,
+    "type": "realtime",
+    "definitions": {
+      "service_departments": [
+        {
+          "code": "COB_PWD_HWY",
+          "name": "PWD-Highway",
+          "phone": null,
+          "email": null,
+          "web_link": null
+        }
+      ],
+      "service_categories": [
+        {
+          "code": "Streets",
+          "name": "Streets",
+          "description": "Streets in BOS311"
+        }
+      ]
+    }
+  }
+]

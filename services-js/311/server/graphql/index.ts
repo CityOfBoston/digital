@@ -15,9 +15,9 @@ import {
   Schema as GeocoderSchema,
   resolvers as geocoderResolvers,
 } from './geocoder';
-import { Open311 } from '../services/Open311';
-import { ArcGIS } from '../services/ArcGIS';
-import { Prediction } from '../services/Prediction';
+import Open311 from '../services/Open311';
+import ArcGIS from '../services/ArcGIS';
+import Prediction from '../services/Prediction';
 import Elasticsearch from '../services/Elasticsearch';
 
 export interface Context {

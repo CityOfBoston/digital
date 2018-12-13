@@ -251,13 +251,14 @@ export default class RecentRequests extends React.Component<Props> {
               {resultsQuery && (
                 <span>
                   {' — '}
-                  <a
-                    href="javascript:void()"
+                  <button
+                    type="button"
                     onClick={this.clearSearch}
-                    title="Clear search"
+                    className="lnk"
+                    style={{ textTransform: 'inherit' }}
                   >
                     Clear search
-                  </a>
+                  </button>
                 </span>
               )}
             </div>

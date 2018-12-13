@@ -8,11 +8,11 @@ import { Salesforce } from './Salesforce';
 // types taken from Open311
 export interface Service {
   service_code: string;
-  service_name: string | undefined;
+  service_name: string | null;
   description: string;
   metadata: boolean;
   type: 'realtime' | 'batch' | 'blackbox';
-  keywords: string | undefined;
+  keywords: string | null;
   group: string;
 }
 
@@ -61,9 +61,19 @@ export function isConditionalValues(
 
 export interface ServiceMetadataAttribute {
   required: boolean;
-  datatype: 'Text' | 'Informational' | 'Picklist' | 'Boolean (checkbox)';
-  datatype_description: string | undefined;
-  order: number | undefined;
+
+  datatype:
+    | 'text'
+    | 'informational'
+    | 'singlevaluelist'
+    | 'boolean (checkbox)'
+    | 'string'
+    | 'number'
+    | 'datetime'
+    | 'date'
+    | 'multivaluelist';
+  datatype_description: string | null;
+  order: number | null;
   description: string;
   code: string;
   variable: boolean;
@@ -75,22 +85,52 @@ export interface ServiceMetadataAttribute {
 
 export interface ServiceMetadata {
   service_code: string;
-  attributes: ServiceMetadataAttribute[];
-  definitions:
-    | {
-        location_required?: boolean;
-        contact_required?: boolean;
-        location?: {
-          required: boolean;
-          visible: boolean;
-        };
+  service_name: string;
+  description: string;
 
-        reporter?: {
-          required: boolean;
-          visible: boolean;
-        };
-      }
-    | undefined;
+  attributes: ServiceMetadataAttribute[];
+  activities: [];
+
+  definitions?: {
+    location_required?: boolean;
+    contact_required?: boolean;
+    location?: {
+      required: boolean;
+      visible: boolean;
+    };
+
+    service_categories: Array<{
+      code: string;
+      name: string;
+      description: string;
+    }>;
+
+    reporter?: {
+      required: boolean;
+      visible: boolean;
+      required_fields: null;
+    };
+
+    service_departments?: Object[];
+
+    icons?: {
+      service_icon: null;
+      map_marker: null;
+    };
+
+    recommendations?: null;
+
+    validations?: {
+      geographical: null;
+      messages: null;
+      alerts: null;
+    };
+  };
+
+  service_level_agreement?: {
+    type: string | null;
+    value: number | null;
+  };
 }
 
 // Returned by the bulk endpoint and posting the submission.
@@ -120,8 +160,8 @@ export interface DetailedServiceRequest {
   id: string;
   service_request_id: string;
   status: string;
-  long: number | undefined;
-  lat: number | undefined;
+  long: number | null;
+  lat: number | null;
 
   media_url:
     | Array<{
@@ -130,48 +170,46 @@ export interface DetailedServiceRequest {
         tags: string[];
       }>
     | string
-    | undefined;
+    | null;
 
-  service_name: string | undefined;
+  service_name: string | null;
   service_code: string;
-  description: string | undefined;
+  description: string | null;
 
-  requested_datetime: string | undefined;
-  expected_datetime: string | undefined;
-  updated_datetime: string | undefined;
-  address: string | undefined;
-  address_details: string | undefined;
-  zipcode: string | undefined;
-  reported_location:
-    | {
-        address: string | undefined;
-        address_id: string | undefined;
-        lat: number | undefined;
-        long: number | undefined;
-      }
-    | undefined;
+  requested_datetime: string | null;
+  expected_datetime: string | null;
+  updated_datetime: string | null;
+  address: string | null;
+  address_details: string | null;
+  zipcode: string | null;
+  reported_location: {
+    address: string | null;
+    address_id: string | null;
+    lat: number | null;
+    long: number | null;
+  } | null;
 
-  address_id: string | undefined;
-  agency_responsible: string | undefined;
-  service_notice: string | undefined;
-  status_notes: string | undefined;
-  duplicate_parent_service_request_id: string | undefined;
-  parent_service_request_id: string | undefined;
-  origin: string | undefined;
-  source: string | undefined;
+  address_id: string | null;
+  agency_responsible: string | null;
+  service_notice: string | null;
+  status_notes: string | null;
+  duplicate_parent_service_request_id: string | null;
+  parent_service_request_id: string | null;
+  origin: string | null;
+  source: string | null;
   priority: string;
   service_level_agreement: any;
   owner: any;
   contact: {
-    first_name: string | undefined;
-    last_name: string | undefined;
-    phone: string | undefined;
-    email: string | undefined;
+    first_name: string | null;
+    last_name: string | null;
+    phone: string | null;
+    email: string | null;
   };
 
   closure_details: {
-    reason: string | undefined;
-    comment: string | undefined;
+    reason: string | null;
+    comment: string | null;
   };
 
   activities: ServiceRequestActivity[];
@@ -182,10 +220,10 @@ export interface DetailedServiceRequest {
 export interface ServiceRequestActivity {
   code: string;
   order: number;
-  description: string | undefined;
-  status: 'Complete' | 'Void';
+  description: string | null;
+  status: 'Not Started' | 'Complete' | 'Void';
 
-  completion_date: string | undefined;
+  completion_date: string | null;
   media_url?: Array<{
     id: string;
     url: string;
@@ -238,17 +276,14 @@ async function processResponse(res): Promise<any> {
  *
  * Documentation: https://bos311.api-docs.io/
  */
-export class Open311 {
+export default class Open311 {
   private readonly agent: any;
   private readonly salesforce: Salesforce | null;
   private readonly endpoint: string;
   private readonly apiKey: string | undefined;
 
-  private readonly serviceLoader: DataLoader<string, Service | undefined>;
-  private readonly serviceMetadataLoader: DataLoader<
-    string,
-    ServiceMetadata | undefined
-  >;
+  private readonly serviceLoader: DataLoader<string, Service | null>;
+  private readonly serviceMetadataLoader: DataLoader<string, ServiceMetadata>;
   private readonly requestLoader: DataLoader<
     string,
     ServiceRequest | DetailedServiceRequest | null
@@ -293,8 +328,8 @@ export class Open311 {
           }
 
           let additionalPath = '';
-          if (process.env.PROD_311_METADATA_PATH) {
-            additionalPath = `${process.env.PROD_311_METADATA_PATH}/`;
+          if (process.env.OPEN311_METADATA_PATH) {
+            additionalPath = `${process.env.OPEN311_METADATA_PATH}/`;
           }
 
           try {
@@ -310,7 +345,7 @@ export class Open311 {
 
             return await processResponse(response);
           } catch (e) {
-            throw new Error(
+            return new Error(
               `Error loading metadata for ${code}: ${e.toString()}`
             );
           }
@@ -376,7 +411,7 @@ export class Open311 {
     });
   }
 
-  public fetch(url: string, opts?: any) {
+  private fetch(url: string, opts?: any) {
     if (this.salesforce) {
       return this.salesforce.authenticatedFetch(url, opts);
     } else {
@@ -384,9 +419,10 @@ export class Open311 {
     }
   }
 
-  public url(path: string) {
+  private url(path: string) {
     return url.resolve(this.endpoint, path);
   }
+
   public readonly services = async (): Promise<Service[]> => {
     const params = new URLSearchParams();
     if (this.apiKey) {
@@ -403,11 +439,11 @@ export class Open311 {
     return (await processResponse(response)) || [];
   };
 
-  public service(code: string): Promise<Service | undefined> {
+  public service(code: string): Promise<Service | null> {
     return this.serviceLoader.load(code);
   }
 
-  public serviceMetadata(code: string): Promise<ServiceMetadata | undefined> {
+  public serviceMetadata(code: string): Promise<ServiceMetadata> {
     return this.serviceMetadataLoader.load(code);
   }
 
@@ -416,21 +452,6 @@ export class Open311 {
   ): Promise<ServiceRequest | DetailedServiceRequest | null> {
     return this.requestLoader.load(id);
   }
-  public readonly requests = async () => {
-    const params = new URLSearchParams();
-    if (this.apiKey) {
-      params.append('api_key', this.apiKey);
-    }
-
-    const response = await this.fetch(
-      this.url(`requests.json?${params.toString()}`),
-      {
-        agent: this.agent,
-      }
-    );
-
-    return (await processResponse(response)) || [];
-  };
 
   public async createRequest(
     args: CreateServiceRequestArgs

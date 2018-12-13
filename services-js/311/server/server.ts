@@ -17,28 +17,33 @@ import {
   graphqlOptionsWithRollbar,
 } from '@cityofboston/hapi-common';
 
-import { nextHandler, nextDefaultHandler } from './next-handlers';
-import { Open311 } from './services/Open311';
-import { ArcGIS } from './services/ArcGIS';
-import { Prediction } from './services/Prediction';
-import Elasticsearch from './services/Elasticsearch';
-import { Salesforce } from './services/Salesforce';
-
-import schema, { Context } from './graphql';
-import sitemapHandler from './sitemap';
-import legacyServiceRedirectHandler from './legacy-service-redirect';
 import {
   HAPI_INJECT_CONFIG_KEY,
   API_KEY_CONFIG_KEY,
   GRAPHQL_PATH_KEY,
 } from '@cityofboston/next-client-common';
 
+import { nextHandler, nextDefaultHandler } from './next-handlers';
+import Open311 from './services/Open311';
+import ArcGIS from './services/ArcGIS';
+import Prediction from './services/Prediction';
+import Elasticsearch from './services/Elasticsearch';
+import { Salesforce } from './services/Salesforce';
+
+import ElasticsearchFake from './services/ElasticsearchFake';
+import PredictionFake from './services/PredictionFake';
+import Open311Fake from './services/Open311Fake';
+import ArcGISFake from './services/ArcGISFake';
+
+import schema, { Context } from './graphql';
+import sitemapHandler from './sitemap';
+import legacyServiceRedirectHandler from './legacy-service-redirect';
+
 import {
   makeNextConfig,
   PublicRuntimeConfig,
   ServerRuntimeConfig,
 } from '../lib/config';
-import ElasticsearchFake from './services/ElasticsearchFake';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -87,10 +92,9 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
     ...serverRuntimeConfig,
   };
 
-  const app = next({
-    dev: process.env.NODE_ENV !== 'production',
-    config,
-  });
+  const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
+  const app = next({ dev, config });
 
   const nextAppPreparation = app.prepare();
 
@@ -131,6 +135,28 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
     console.log('Successfully authenticated to Salesforce');
   }
 
+  const makePrediction: () => Prediction = () =>
+    process.env.NODE_ENV === 'production' || process.env.PREDICTION_ENDPOINT
+      ? new Prediction(
+          process.env.PREDICTION_ENDPOINT,
+          process.env.NEW_PREDICTION_ENDPOINT
+        )
+      : (new PredictionFake() as any);
+
+  const makeOpen311: () => Open311 = () =>
+    process.env.NODE_ENV === 'production' || process.env.OPEN311_ENDPOINT
+      ? new Open311(
+          process.env.OPEN311_ENDPOINT,
+          process.env.OPEN311_KEY,
+          salesforce
+        )
+      : (new Open311Fake() as any);
+
+  const makeArcGIS: () => ArcGIS = () =>
+    process.env.NODE_ENV === 'production' || process.env.ARCGIS_ENDPOINT
+      ? new ArcGIS(process.env.ARCGIS_ENDPOINT)
+      : (new ArcGISFake() as any);
+
   server.auth.scheme('headerKeys', headerKeys);
   server.auth.strategy('apiHeaderKeys', 'headerKeys', {
     header: 'X-API-KEY',
@@ -155,17 +181,9 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
       graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
         schema,
         context: {
-          open311: new Open311(
-            process.env.PROD_311_ENDPOINT,
-            process.env.PROD_311_KEY,
-            salesforce
-          ),
-
-          arcgis: new ArcGIS(process.env.ARCGIS_ENDPOINT),
-          prediction: new Prediction(
-            process.env.PREDICTION_ENDPOINT,
-            process.env.NEW_PREDICTION_ENDPOINT
-          ),
+          open311: makeOpen311(),
+          arcgis: makeArcGIS(),
+          prediction: makePrediction(),
 
           // Elasticsearch maintains a persistent connection, so we re-use it
           // across requests.
@@ -176,7 +194,7 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
 
       route: {
         cors: true,
-        auth: 'apiHeaderKeys',
+        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
       },
     },
   });
@@ -289,9 +307,7 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
   server.route({
     method: 'GET',
     path: '/sitemap.xml',
-    handler: sitemapHandler(
-      new Open311(process.env.PROD_311_ENDPOINT, process.env.PROD_311_KEY, null)
-    ),
+    handler: sitemapHandler(makeOpen311()),
   });
 
   server.route({

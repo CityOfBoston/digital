@@ -54,13 +54,13 @@ export default class FeedbackBanner extends React.Component<Props> {
           <span className="t--subtitle t--upper">Welcome to the new 311:</span>{' '}
           <span className="t--info t--s100">
             We would love to hear your{' '}
-            <a
-              href="javascript:void(0)"
+            <button
+              type="button"
               onClick={this.showFeedbackForm}
-              className="t--w"
+              className="lnk t--w"
             >
               feedback
-            </a>.
+            </button>.
           </span>
         </div>
       </div>

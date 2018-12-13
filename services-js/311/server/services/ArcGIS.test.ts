@@ -1,9 +1,9 @@
 import {
-  ArcGIS,
   sortUnits,
   samFeatureToUnit,
   sortAddressCandidates,
   formatAddress,
+  candidateToSearchResult,
 } from './ArcGIS';
 
 import { LiveSamFeature } from './ArcGIS';
@@ -55,7 +55,7 @@ describe('sort and format findAddressCandidates', () => {
     expect(
       await Promise.all(
         sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
-          new ArcGIS('fake endpoint').candidateToSearchResult
+          candidateToSearchResult
         )
       )
     ).toMatchSnapshot();

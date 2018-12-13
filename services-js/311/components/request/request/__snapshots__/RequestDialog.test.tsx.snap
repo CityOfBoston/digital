@@ -1096,12 +1096,13 @@ exports[`rendering location 1`] = `
           <div
             className="g--7 t--subinfo m-v200"
           >
-            <a
-              href="javascript:void(0)"
+            <button
+              className="lnk"
               onClick={[Function]}
+              type="button"
             >
               Continue without location
-            </a>
+            </button>
           </div>
           <button
             className="btn g--5"

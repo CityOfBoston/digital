@@ -401,9 +401,13 @@ export default class LocationPopUp extends React.Component<Props, State> {
     return (
       <div className="g--7 t--subinfo m-v200">
         {!locationRequired && (
-          <a href="javascript:void(0)" onClick={this.continueWithoutLocation}>
+          <button
+            type="button"
+            className="lnk"
+            onClick={this.continueWithoutLocation}
+          >
             Continue without location
-          </a>
+          </button>
         )}
       </div>
     );
