@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Question, YesNoUnknownAnswer } from '../QuestionsFlow';
+import { Question, YesNoUnknownAnswer } from '../types';
 
 import { CLEAR_LIST_STYLING, RADIOGROUP_STYLING } from './styling';
 
@@ -29,12 +29,16 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
   }
 
   return (
-    <ul className={`${RADIOGROUP_STYLING} ${CLEAR_LIST_STYLING}`}>
+    <ul
+      role="radiogroup"
+      aria-labelledby={props.questionName}
+      className={`${RADIOGROUP_STYLING} ${CLEAR_LIST_STYLING}`}
+    >
       {radioItem('yes', 'Yes')}
 
       {radioItem('no', 'No')}
 
-      {radioItem('unknown', 'I’m not sure')}
+      {radioItem('unknown', 'Don’t know')}
     </ul>
   );
 }

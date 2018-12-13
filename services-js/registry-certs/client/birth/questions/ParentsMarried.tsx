@@ -4,7 +4,7 @@ import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
-import { YesNoUnknownAnswer } from '../QuestionsFlow';
+import { YesNoUnknownAnswer } from '../types';
 
 interface Props {
   forSelf: boolean | null;
@@ -36,6 +36,8 @@ export default class ParentsMarried extends React.Component<Props, State> {
 
   public render() {
     const { forSelf, firstName } = this.props;
+    const parentsNotMarried =
+      this.state.parentsMarried && this.state.parentsMarried !== 'yes';
 
     return (
       <>
@@ -46,7 +48,7 @@ export default class ParentsMarried extends React.Component<Props, State> {
         >
           <FieldsetComponent
             legendText={
-              <h2>
+              <h2 id="parentsMarried">
                 Were {forSelf ? 'your' : `${firstName}’s`} parents married at
                 the time of {forSelf ? 'your' : 'their'} birth?
               </h2>
@@ -60,19 +62,36 @@ export default class ParentsMarried extends React.Component<Props, State> {
           </FieldsetComponent>
         </QuestionComponent>
 
-        <aside>
-          <p>
-            If {forSelf ? 'your' : 'the'} parents weren’t married at the time{' '}
-            {forSelf ? 'you were' : 'the baby was'} born, the birth certificate
-            becomes <strong>restricted</strong>. Restricted records can only be
-            requested by the person whose birth certificate this is, or their
-            attorney, parent, guardian, or conservator, proper judicial order,
-            or a person whose official duties, in the opinion of the city clerk
-            or the commissioner of public health, as the case may be, entitle
-            them to the information contained therein.
-          </p>
-        </aside>
+        {parentsNotMarried && (
+          <aside className="m-t500">
+            <p>{forSelf ? selfInfo() : otherInfo()}</p>
+          </aside>
+        )}
       </>
     );
   }
 }
+
+const selfInfo = () => (
+  <>
+    If your parents weren’t married at the time of your birth, your record is
+    restricted.{' '}
+    <strong>
+      You will need to provide a valid form of identification (i.e. driver’s
+      license, state ID, military ID, or passport) later in this process
+    </strong>.
+  </>
+);
+
+const otherInfo = () => (
+  <>
+    If their parents weren’t married at the time of the birth, the record is
+    restricted and can only be requested by the people listed on the record.{' '}
+    <strong>
+      If you are listed on the record, you will need to provide a valid form of
+      identification (i.e. driver’s license, state ID, military ID, or passport)
+      to get a copy
+    </strong>. If you are not listed on the record, you will not be able to get
+    a copy. Your request will be canceled and your card will not be charged.
+  </>
+);

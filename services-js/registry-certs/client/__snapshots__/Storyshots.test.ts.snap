@@ -242,21 +242,31 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
           >
             Request a birth certificate
           </h1>
-          <p>
-            We have a few questions for you.
-          </p>
+          <progress
+            aria-label="Progress"
+            className="css-1f3sb52"
+            max="6"
+            value={0}
+          >
+            Step 
+            1
+          </progress>
           <section>
             <div>
               <fieldset
-                className="css-18c3zfw"
+                className="css-7i339a"
               >
                 <legend>
-                  <h2>
-                    Who is this for?
+                  <h2
+                    id="forSelf"
+                  >
+                    Who are you ordering a birth certificate for?
                   </h2>
                 </legend>
                 <div
+                  aria-labelledby="forSelf"
                   className="css-1i08ra6"
+                  role="radiogroup"
                 >
                   <div>
                     <input
@@ -292,7 +302,7 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
               </fieldset>
             </div>
             <div
-              className="css-1e7xtev"
+              className="css-1a7j8ht"
             >
               <button
                 className="btn"
@@ -342,17 +352,21 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
-          <h2>
+          <h2
+            id="bornInBoston"
+          >
             Were 
             you
-             born in the City of Boston?
+             born in Boston?
           </h2>
         </legend>
         <ul
+          aria-labelledby="bornInBoston"
           className="css-1i08ra6 css-1yp2sve"
+          role="radiogroup"
         >
           <li>
             <input
@@ -396,97 +410,15 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
             <label
               htmlFor="bornInBostonunknown"
             >
-              I’m not sure
+              Don’t know
             </label>
           </li>
         </ul>
       </fieldset>
+      
     </div>
     <div
-      className="css-1e7xtev"
-    >
-      <button
-        className="btn"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-    </div>
-  </section>
-  <section>
-    <div>
-      <fieldset
-        className="css-18c3zfw"
-      >
-        <legend>
-          <h2>
-            Were 
-            they
-             born in the City of Boston?
-          </h2>
-        </legend>
-        <ul
-          className="css-1i08ra6 css-1yp2sve"
-        >
-          <li>
-            <input
-              checked={false}
-              id="bornInBostonyes"
-              name="bornInBoston"
-              onChange={[Function]}
-              type="radio"
-              value="yes"
-            />
-            <label
-              htmlFor="bornInBostonyes"
-            >
-              Yes
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="bornInBostonno"
-              name="bornInBoston"
-              onChange={[Function]}
-              type="radio"
-              value="no"
-            />
-            <label
-              htmlFor="bornInBostonno"
-            >
-              No
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="bornInBostonunknown"
-              name="bornInBoston"
-              onChange={[Function]}
-              type="radio"
-              value="unknown"
-            />
-            <label
-              htmlFor="bornInBostonunknown"
-            >
-              I’m not sure
-            </label>
-          </li>
-        </ul>
-      </fieldset>
-    </div>
-    <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"
@@ -513,7 +445,7 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
           <h2>
@@ -569,7 +501,7 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"
@@ -588,90 +520,9 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
       </button>
     </div>
   </section>
-  <aside>
-    <p>
-      Are you searching for a newborn’s record? You won’t be able to request a newborn’s birth certificate right away. It will be ready within 3 weeks after the parent(s) signed paperwork at the hospital.
-    </p>
-  </aside>
-  <section>
-    <div>
-      <fieldset
-        className="css-18c3zfw"
-      >
-        <legend>
-          <h2>
-            When 
-            was Stacy
-             born?
-          </h2>
-        </legend>
-        <div
-          className="css-1u6hmg8"
-          style={undefined}
-        >
-          <label
-            className="txt-l "
-            htmlFor="input-4004051805"
-          >
-            <span
-              style={
-                Object {
-                  "marginRight": "0.5em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              Date of Birth
-            </span>
-          </label>
-          <input
-            aria-label=""
-            className="txt-f  "
-            defaultValue={undefined}
-            disabled={undefined}
-            id="input-4004051805"
-            inputMode={undefined}
-            maxLength={undefined}
-            minLength={undefined}
-            name="dateOfBirth"
-            onBlur={undefined}
-            onChange={[Function]}
-            onFocus={undefined}
-            onKeyDown={[Function]}
-            placeholder={undefined}
-            required={undefined}
-            type="text"
-            value={undefined}
-          />
-          <div
-            className="t--subinfo t--err m-b100"
-          >
-             
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <div
-      className="css-1e7xtev"
-    >
-      <button
-        className="btn"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-    </div>
-  </section>
-  <aside>
+  <aside
+    className="m-t500"
+  >
     <p>
       Are you searching for a newborn’s record? You won’t be able to request a newborn’s birth certificate right away. It will be ready within 3 weeks after the parent(s) signed paperwork at the hospital.
     </p>
@@ -684,11 +535,13 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
           <h2>
-            What is the name on the birth record?
+            What was 
+            your
+             name at birth?
           </h2>
         </legend>
         <div
@@ -783,10 +636,68 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
             </div>
           </div>
         </div>
+        <div
+          className="m-t300"
+        >
+          <h3>
+            Is there an alternative spelling to 
+            your
+             
+            name?
+          </h3>
+          <div
+            className={undefined}
+            style={
+              Object {
+                "textAlign": "left",
+              }
+            }
+          >
+            <label
+              className="txt-l "
+              htmlFor="input-1349562878"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Alternative spelling(s)
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f  "
+              defaultValue=""
+              disabled={undefined}
+              id="input-1349562878"
+              inputMode={undefined}
+              maxLength={undefined}
+              minLength={undefined}
+              name="altSpelling"
+              onBlur={undefined}
+              onChange={[Function]}
+              onFocus={undefined}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              required={undefined}
+              type="text"
+              value={undefined}
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
       </fieldset>
     </div>
     <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"
@@ -805,12 +716,24 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
       </button>
     </div>
   </section>
-  <aside>
+  <aside
+    className="m-t500"
+  >
     <p>
-      Please use the name you were given at birth. If you were adopted, please use your post-adoption name.
-    </p>
-    <p>
-      Is there an alternative spelling of the name? Was the first name missing from the original birth record? Was there more than one last name on the record? Did they enter their married name instead of their birth name? Have they had a legal name change? Some birth records were registered more than a year after the birth so Registry staff has to search our books for the record.
+      If 
+      you
+       changed 
+      your
+       
+      name at some point, please use the name 
+      you
+       
+      were given at birth. If 
+      you
+       were adopted, use
+       
+      your
+       post-adoption name.
     </p>
   </aside>
 </div>
@@ -821,18 +744,26 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
           <h2>
-            What are 
+            What were the names of 
             your
-             parents’ names?
+             
+            parents at the time of 
+            your
+             birth?
           </h2>
         </legend>
-        <figure>
+        <figure
+          className="m-t400"
+        >
           <figcaption>
-            Parent 1
+            Parent 1 
+            <em>
+              (for example: Mother)
+            </em>
           </figcaption>
           <div
             className="css-cbwvwu"
@@ -927,9 +858,14 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
             </div>
           </div>
         </figure>
-        <figure>
+        <figure
+          className="m-t400"
+        >
           <figcaption>
-            Parent 2
+            Parent 2 
+            <em>
+              (for example: Father)
+            </em>
           </figcaption>
           <div
             className="css-cbwvwu"
@@ -1027,7 +963,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"
@@ -1046,138 +982,18 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
       </button>
     </div>
   </section>
-  <section>
-    <div>
-      <fieldset
-        className="css-18c3zfw"
-      >
-        <legend>
-          <h2>
-            What’s the name of the parent who gave birth to
-             
-            you
-            ?
-          </h2>
-        </legend>
-        <figure>
-          <figcaption>
-            Parent 1
-          </figcaption>
-          <div
-            className="css-cbwvwu"
-          >
-            <div
-              className={undefined}
-              style={undefined}
-            >
-              <label
-                className="txt-l "
-                htmlFor="input-2048906072"
-              >
-                <span
-                  style={
-                    Object {
-                      "marginRight": "0.5em",
-                      "whiteSpace": "nowrap",
-                    }
-                  }
-                >
-                  First Name
-                </span>
-              </label>
-              <input
-                aria-label=""
-                className="txt-f  "
-                defaultValue=""
-                disabled={undefined}
-                id="input-2048906072"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
-                name="parent1FirstName"
-                onBlur={undefined}
-                onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
-                type="text"
-                value={undefined}
-              />
-              <div
-                className="t--subinfo t--err m-b100"
-              >
-                 
-              </div>
-            </div>
-            <div
-              className={undefined}
-              style={undefined}
-            >
-              <label
-                className="txt-l "
-                htmlFor="input-1103291528"
-              >
-                <span
-                  style={
-                    Object {
-                      "marginRight": "0.5em",
-                      "whiteSpace": "nowrap",
-                    }
-                  }
-                >
-                  Last Name
-                </span>
-              </label>
-              <input
-                aria-label=""
-                className="txt-f  "
-                defaultValue=""
-                disabled={undefined}
-                id="input-1103291528"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
-                name="parent1LastName"
-                onBlur={undefined}
-                onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
-                type="text"
-                value={undefined}
-              />
-              <div
-                className="t--subinfo t--err m-b100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-        </figure>
-      </fieldset>
-    </div>
-    <div
-      className="css-1e7xtev"
-    >
-      <button
-        className="btn"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-    </div>
-  </section>
+  <aside
+    className="m-t500"
+  >
+    <p>
+      Please use the names 
+      your
+       parents were given at the time of their birth. If only one parent is listed on
+       
+      your
+       record, you only need to include that name.
+    </p>
+  </aside>
 </div>
 `;
 
@@ -1186,109 +1002,12 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
-          <h2>
-            Were 
-            your
-             parents married at the time of 
-            your
-             birth?
-          </h2>
-        </legend>
-        <ul
-          className="css-1i08ra6 css-1yp2sve"
-        >
-          <li>
-            <input
-              checked={false}
-              id="parentsMarriedyes"
-              name="parentsMarried"
-              onChange={[Function]}
-              type="radio"
-              value="yes"
-            />
-            <label
-              htmlFor="parentsMarriedyes"
-            >
-              Yes
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="parentsMarriedno"
-              name="parentsMarried"
-              onChange={[Function]}
-              type="radio"
-              value="no"
-            />
-            <label
-              htmlFor="parentsMarriedno"
-            >
-              No
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="parentsMarriedunknown"
-              name="parentsMarried"
-              onChange={[Function]}
-              type="radio"
-              value="unknown"
-            />
-            <label
-              htmlFor="parentsMarriedunknown"
-            >
-              I’m not sure
-            </label>
-          </li>
-        </ul>
-      </fieldset>
-    </div>
-    <div
-      className="css-1e7xtev"
-    >
-      <button
-        className="btn"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-    </div>
-  </section>
-  <aside>
-    <p>
-      If 
-      your
-       parents weren’t married at the time
-       
-      you were
-       born, the birth certificate becomes 
-      <strong>
-        restricted
-      </strong>
-      . Restricted records can only be requested by the person whose birth certificate this is, or their attorney, parent, guardian, or conservator, proper judicial order, or a person whose official duties, in the opinion of the city clerk or the commissioner of public health, as the case may be, entitle them to the information contained therein.
-    </p>
-  </aside>
-  <section>
-    <div>
-      <fieldset
-        className="css-18c3zfw"
-      >
-        <legend>
-          <h2>
+          <h2
+            id="parentsMarried"
+          >
             Were 
             Stacy’s
              parents married at the time of 
@@ -1297,7 +1016,9 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
           </h2>
         </legend>
         <ul
+          aria-labelledby="parentsMarried"
           className="css-1i08ra6 css-1yp2sve"
+          role="radiogroup"
         >
           <li>
             <input
@@ -1341,14 +1062,14 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
             <label
               htmlFor="parentsMarriedunknown"
             >
-              I’m not sure
+              Don’t know
             </label>
           </li>
         </ul>
       </fieldset>
     </div>
     <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"
@@ -1367,20 +1088,7 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
       </button>
     </div>
   </section>
-  <aside>
-    <p>
-      If 
-      the
-       parents weren’t married at the time
-       
-      the baby was
-       born, the birth certificate becomes 
-      <strong>
-        restricted
-      </strong>
-      . Restricted records can only be requested by the person whose birth certificate this is, or their attorney, parent, guardian, or conservator, proper judicial order, or a person whose official duties, in the opinion of the city clerk or the commissioner of public health, as the case may be, entitle them to the information contained therein.
-    </p>
-  </aside>
+  
 </div>
 `;
 
@@ -1389,15 +1097,19 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-18c3zfw"
+        className="css-7i339a"
       >
         <legend>
-          <h2>
-            Who is this for?
+          <h2
+            id="forSelf"
+          >
+            Who are you ordering a birth certificate for?
           </h2>
         </legend>
         <div
+          aria-labelledby="forSelf"
           className="css-1i08ra6"
+          role="radiogroup"
         >
           <div>
             <input
@@ -1433,7 +1145,7 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1e7xtev"
+      className="css-1a7j8ht"
     >
       <button
         className="btn"

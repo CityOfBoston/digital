@@ -52,15 +52,16 @@ export default function QuestionComponent(props: Props): JSX.Element {
             </button>
           )}
 
-        {props.handleStepBack && (
-          <button
-            type="button"
-            className={`btn ${BACK_BUTTON_STYLING}`}
-            onClick={props.handleStepBack}
-          >
-            Back
-          </button>
-        )}
+        {props.handleStepBack &&
+          !props.startOver && (
+            <button
+              type="button"
+              className={`btn ${BACK_BUTTON_STYLING}`}
+              onClick={props.handleStepBack}
+            >
+              Back
+            </button>
+          )}
       </div>
     </section>
   );
@@ -79,7 +80,7 @@ const BUTTONS_CONTAINER_STYLING = css({
     [MEDIA_SMALL]: {
       width: 'auto',
       marginBottom: 0,
-      '&:last-of-type': {
+      '&:last-of-type:not(:only-of-type)': {
         order: -1,
         marginRight: '2rem',
       },

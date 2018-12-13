@@ -3,6 +3,7 @@ import { css } from 'emotion';
 import {
   CHARLES_BLUE,
   FREEDOM_RED,
+  GRAY_100,
   GRAY_300,
   MEDIA_SMALL,
   OPTIMISTIC_BLUE,
@@ -83,5 +84,25 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
         marginLeft: '2rem',
       },
     },
+  },
+});
+
+export const PROGRESS_BAR_STYLING = css({
+  marginTop: '2em',
+  width: '100%',
+  height: '0.5em',
+  border: 'none',
+  backgroundColor: GRAY_100,
+  '::-webkit-progress-bar': {
+    backgroundColor: GRAY_100,
+  },
+  '::-webkit-progress-value': {
+    backgroundColor: OPTIMISTIC_BLUE,
+  },
+  '::-moz-progress-bar': {
+    backgroundColor: OPTIMISTIC_BLUE,
+  },
+  '::-ms-fill': {
+    backgroundColor: OPTIMISTIC_BLUE,
   },
 });

@@ -1,14 +1,15 @@
 import React from 'react';
+import { css } from 'emotion';
+
+import { CHARLES_BLUE } from '@cityofboston/react-fleet';
 
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import RadioItemComponent from './RadioItemComponent';
 
-import { Relation } from '../QuestionsFlow';
+import { Relation } from '../types';
 
 import { RADIOGROUP_STYLING, RADIOGROUP_UNBORDERED_STYLING } from './styling';
-import { css } from 'emotion';
-import { CHARLES_BLUE } from '@cityofboston/react-fleet';
 
 interface Props {
   forSelf?: boolean;
@@ -60,8 +61,16 @@ export default class ForSelf extends React.Component<Props, State> {
           !!(this.state.forSelf === 'true' || this.state.howRelated)
         }
       >
-        <FieldsetComponent legendText={<h2>Who is this for?</h2>}>
-          <div className={RADIOGROUP_STYLING}>
+        <FieldsetComponent
+          legendText={
+            <h2 id="forSelf">Who are you ordering a birth certificate for?</h2>
+          }
+        >
+          <div
+            role="radiogroup"
+            aria-labelledby="forSelf"
+            className={RADIOGROUP_STYLING}
+          >
             <RadioItemComponent
               fieldName="forSelf"
               fieldValue={this.state.forSelf}
@@ -81,25 +90,25 @@ export default class ForSelf extends React.Component<Props, State> {
 
         {/*This question is only presented if the user is NOT requesting their own record.*/}
         {this.state.forSelf === 'false' && (
-          <FieldsetComponent legendText={<h3>How are you related?</h3>}>
+          <FieldsetComponent
+            legendText={<h3 id="howRelated">Is this your…</h3>}
+          >
             <div
+              role="radiogroup"
+              aria-labelledby="howRelated"
               className={`${RADIOGROUP_UNBORDERED_STYLING} ${HOW_RELATED_CONTAINER_STYLING}`}
             >
+              {this.relationQuestion('spouse', 'Spouse')}
+
+              {this.relationQuestion('child', 'Child')}
+
               {this.relationQuestion('parent', 'Parent')}
 
-              {this.relationQuestion('grandparent', 'Grandparent')}
-
-              {this.relationQuestion('sibling', 'Sibling')}
-
-              {this.relationQuestion('spouse', 'Spouse')}
+              {this.relationQuestion('familyMember', 'Family member')}
 
               {this.relationQuestion('friend', 'Friend')}
 
-              {this.relationQuestion('attorney', 'Attorney')}
-
-              {this.relationQuestion('guardian', 'Guardian')}
-
-              {this.relationQuestion('other', 'Other')}
+              {this.relationQuestion('client', 'Client')}
             </div>
           </FieldsetComponent>
         )}
@@ -113,6 +122,6 @@ const HOW_RELATED_CONTAINER_STYLING = css({
   flexWrap: 'wrap',
   '> div': {
     border: 'inherit',
-    flex: '1 0 25%',
+    flex: '1 0 33%',
   },
 });

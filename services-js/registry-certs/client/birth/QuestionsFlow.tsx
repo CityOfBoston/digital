@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import PageLayout, { BreadcrumbNavigation } from '../PageLayout';
+import PageLayout from '../PageLayout';
 
 import ForSelf from './questions/ForSelf';
 import BornInBoston from './questions/BornInBoston';
@@ -9,46 +9,11 @@ import NameOnRecord from './questions/NameOnRecord';
 import DateOfBirth from './questions/DateOfBirth';
 import ParentsMarried from './questions/ParentsMarried';
 import ParentsNames from './questions/ParentsNames';
-// import EndFlow from './questions/EndFlow';
 
-export type Question =
-  | 'forSelf'
-  | 'howRelated'
-  | 'bornInBoston'
-  | 'parentsLivedInBoston'
-  | 'nameOnRecord'
-  | 'dateOfBirth'
-  | 'parentsMarried'
-  | 'parentsNames'
-  | 'endFlow';
+import { Question, RequestInformation } from './types';
+import { BREADCRUMB_NAV_LINKS } from './constants';
 
-export type Relation =
-  | 'parent'
-  | 'grandparent'
-  | 'sibling'
-  | 'spouse'
-  | 'friend'
-  | 'attorney'
-  | 'guardian'
-  | 'other'
-  | '';
-
-export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
-
-export interface RequestInformation {
-  forSelf: boolean | null;
-  howRelated?: Relation;
-  bornInBoston: YesNoUnknownAnswer;
-  parentsLivedInBoston?: YesNoUnknownAnswer;
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string; // todo: store as Date
-  parentsMarried: YesNoUnknownAnswer;
-  parent1FirstName: string;
-  parent1LastName?: string;
-  parent2FirstName?: string;
-  parent2LastName?: string;
-}
+import { PROGRESS_BAR_STYLING } from './questions/styling';
 
 interface Props {}
 
@@ -57,25 +22,8 @@ interface State extends RequestInformation {
   answeredQuestions: Question[];
 }
 
-const breadcrumbNavLinks: BreadcrumbNavigation = {
-  parentLinks: [
-    {
-      url: 'https://www.boston.gov/departments',
-      text: 'Departments',
-    },
-    {
-      url: 'https://www.boston.gov/departments/registry',
-      text: 'Registry: Birth, death, and marriage',
-    },
-  ],
-  currentPage: {
-    url: '/birth',
-    text: 'Birth certificates',
-  },
-};
-
 // This is also used to reset all fields when user selects “start over”
-export const INITIAL_STATE: State = {
+const INITIAL_STATE: State = {
   activeQuestion: 'forSelf',
   answeredQuestions: [],
   forSelf: null,
@@ -84,6 +32,7 @@ export const INITIAL_STATE: State = {
   parentsLivedInBoston: '',
   firstName: '',
   lastName: '',
+  altSpelling: '',
   dateOfBirth: '',
   parentsMarried: '',
   parent1FirstName: '',
@@ -175,18 +124,25 @@ export default class QuestionsFlow extends React.Component<Props, State> {
       <>
         <Head>
           <title>Boston.gov — Birth Certificates</title>
+
+          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
-        <PageLayout breadcrumbNav={breadcrumbNavLinks}>
+        <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>
           <div className="b-c b-c--nbp">
             <h1 className="sh-title">Request a birth certificate</h1>
 
-            {this.state.activeQuestion === 'forSelf' && (
-              <>
-                <p>We have a few questions for you.</p>
+            <progress
+              aria-label="Progress"
+              max="6"
+              value={this.state.answeredQuestions.length}
+              className={PROGRESS_BAR_STYLING}
+            >
+              Step {this.state.answeredQuestions.length + 1}
+            </progress>
 
-                <ForSelf handleProceed={this.handleForSelf} />
-              </>
+            {this.state.activeQuestion === 'forSelf' && (
+              <ForSelf handleProceed={this.handleForSelf} />
             )}
 
             {this.state.activeQuestion === 'bornInBoston' && (
@@ -202,6 +158,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
 
             {this.state.activeQuestion === 'nameOnRecord' && (
               <NameOnRecord
+                forSelf={this.state.forSelf}
                 handleProceed={a =>
                   this.handleAnswers(a, 'nameOnRecord', 'dateOfBirth')
                 }

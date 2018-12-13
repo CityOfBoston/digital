@@ -13,73 +13,43 @@ storiesOf('Birth/QuestionsFlow', module)
   .add('QuestionsFlow page', () => <QuestionsFlow />)
   .add('who is this for?', () => <ForSelf handleProceed={() => {}} />)
   .add('born in Boston?', () => (
-    <>
-      <BornInBoston
-        forSelf={true}
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-        handleUserReset={() => {}}
-      />
-      <BornInBoston
-        forSelf={false}
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-        handleUserReset={() => {}}
-      />
-    </>
+    <BornInBoston
+      forSelf={true}
+      handleProceed={() => {}}
+      handleStepBack={() => {}}
+      handleUserReset={() => {}}
+    />
   ))
 
   .add('enter name', () => (
-    <NameOnRecord handleProceed={() => {}} handleStepBack={() => {}} />
+    <NameOnRecord
+      forSelf={true}
+      handleProceed={() => {}}
+      handleStepBack={() => {}}
+    />
   ))
   .add('date of birth?', () => (
-    <>
-      <DateOfBirth
-        forSelf={true}
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-
-      <DateOfBirth
-        forSelf={false}
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-    </>
+    <DateOfBirth
+      forSelf={true}
+      firstName="Stacy"
+      handleProceed={() => {}}
+      handleStepBack={() => {}}
+    />
   ))
   .add('were parents married?', () => (
-    <>
-      <ParentsMarried
-        forSelf={true}
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-      <ParentsMarried
-        forSelf={false}
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-    </>
+    <ParentsMarried
+      forSelf={false}
+      firstName="Stacy"
+      handleProceed={() => {}}
+      handleStepBack={() => {}}
+    />
   ))
   .add('parents’ names?', () => (
-    <>
-      <ParentsNames
-        forSelf={true}
-        parentsMarried="yes"
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-      <ParentsNames
-        forSelf={true}
-        parentsMarried="no"
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-    </>
+    <ParentsNames
+      forSelf={true}
+      parentsMarried="yes"
+      firstName="Stacy"
+      handleProceed={() => {}}
+      handleStepBack={() => {}}
+    />
   ));
