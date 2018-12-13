@@ -1,10 +1,11 @@
 import { Selector } from 'testcafe';
 
-import { serverUrl, waitForReact } from './testcafe-helpers';
+import { serverUrl, waitForReact, printConsoleLogs } from './testcafe-helpers';
 
 fixture('Search')
   .page(serverUrl('/search'))
-  .beforeEach(waitForReact);
+  .beforeEach(waitForReact)
+  .afterEach(printConsoleLogs);
 
 test('Click on search result', async t => {
   const bulkItemPickupRow = Selector('a[data-request-id="200012225"]');
