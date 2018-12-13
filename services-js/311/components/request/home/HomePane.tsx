@@ -155,10 +155,10 @@ export default class HomePane extends React.Component<Props> {
   @action.bound
   handleSearchSubmit(ev: FormEvent) {
     ev.preventDefault();
+    const caseUrls = RequestSearch.caseUrlsForSearchQuery(this.searchValue);
 
-    if (RequestSearch.isCaseId(this.searchValue)) {
-      const id = this.searchValue.trim();
-      Router.push(`/reports?id=${id}`, `/reports/${id}`);
+    if (caseUrls) {
+      Router.push(caseUrls.url, caseUrls.as);
     } else {
       const encodedSearch = encodeURIComponent(this.searchValue);
       Router.push(`/search?q=${encodedSearch}`);

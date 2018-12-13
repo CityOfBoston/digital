@@ -62,20 +62,36 @@ describe('results', () => {
   });
 });
 
-describe('isCaseId', () => {
-  it('is true for a Lagan case', () => {
-    expect(RequestSearch.isCaseId('101002184571')).toEqual(true);
+describe('caseUrlsForSearchQuery', () => {
+  it('finds a full Lagan case', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('101002184571')!.as).toEqual(
+      '/reports/101002184571'
+    );
   });
 
-  it('is true for a new case', () => {
-    expect(RequestSearch.isCaseId('17-00001162')).toEqual(true);
+  it('finds a new case ID', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('3123123')!.as).toEqual(
+      '/reports/3123123'
+    );
   });
 
-  it('is false for another number', () => {
-    expect(RequestSearch.isCaseId('1989')).toEqual(false);
+  it('ignores # signs and whitespace', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('#3123123 ')!.as).toEqual(
+      '/reports/3123123'
+    );
   });
 
-  it('is false in general', () => {
-    expect(RequestSearch.isCaseId('sidewalk')).toEqual(false);
+  it('adds legacy prefix to old case numbers', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('2123123')!.as).toEqual(
+      '/reports/101002123123'
+    );
+  });
+
+  it('is null for another number', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('1989')).toEqual(null);
+  });
+
+  it('is null in general', () => {
+    expect(RequestSearch.caseUrlsForSearchQuery('sidewalk')).toEqual(null);
   });
 });
