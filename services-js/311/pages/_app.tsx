@@ -240,21 +240,27 @@ export default class Three11App extends App {
       liveAgent,
     } = this.pageDependencies;
 
-    ui.attach();
-    browserLocation.attach(fetchGraphql);
-    liveAgent.attach();
+    try {
+      ui.attach();
+      browserLocation.attach(fetchGraphql);
+      liveAgent.attach();
 
-    screenReaderSupport.attach();
-    routerListener.attach({
-      router: Router,
-      siteAnalytics,
-      screenReaderSupport,
-    });
+      screenReaderSupport.attach();
+      routerListener.attach({
+        router: Router,
+        siteAnalytics,
+        screenReaderSupport,
+      });
 
-    // Used by testcafe-helpers as a signal that React is running and has
-    // rendered the page. Used to ensure we don’t try to interact before the JS
-    // has loaded.
-    (window as any).APP_RUNNING = true;
+      // Used by testcafe-helpers as a signal that React is running and has
+      // rendered the page. Used to ensure we don’t try to interact before the JS
+      // has loaded.
+      (window as any).APP_RUNNING = true;
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log('Error in component will mount', e);
+      throw e;
+    }
   }
 
   componentWillUnmount() {

@@ -17,3 +17,11 @@ export const isReactRunning = ClientFunction(
 export async function waitForReact(t: TestController) {
   await t.expect(isReactRunning()).ok({ timeout: 15000 });
 }
+
+export async function printConsoleLogs(t: TestController) {
+  const { log } = await t.getBrowserConsoleMessages();
+  log.forEach(msg => {
+    // eslint-disable-next-line no-console
+    console.log(msg);
+  });
+}
