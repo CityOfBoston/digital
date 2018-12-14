@@ -5,7 +5,7 @@ exports[`choose page rendering 1`] = `
   className="css-11whg3t"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={
       Object {
         "maxWidth": 800,
@@ -120,7 +120,7 @@ exports[`home page rendering 1`] = `
   className="css-11whg3t"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>

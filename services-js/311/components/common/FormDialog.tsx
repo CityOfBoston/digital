@@ -48,7 +48,7 @@ export default function FormDialog(
 
   return (
     <div
-      className={`${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`}
+      className={`js-form-dialog ${paddingClasses} br br-t400 br--y ${DIALOG_STYLE.toString()}`}
       style={combinedStyle}
     >
       {children}

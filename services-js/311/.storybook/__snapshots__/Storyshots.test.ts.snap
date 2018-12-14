@@ -5,7 +5,7 @@ exports[`Storyshots AttributeField Bad Date 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -46,7 +46,7 @@ exports[`Storyshots AttributeField Boolean Checkbox 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -77,7 +77,7 @@ exports[`Storyshots AttributeField Date 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -118,7 +118,7 @@ exports[`Storyshots AttributeField Date/Time 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -170,7 +170,7 @@ exports[`Storyshots AttributeField Informational 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <p
@@ -187,7 +187,7 @@ exports[`Storyshots AttributeField Multi Value List 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -434,7 +434,7 @@ exports[`Storyshots AttributeField Number 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -467,7 +467,7 @@ exports[`Storyshots AttributeField Number with validations 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -510,7 +510,7 @@ exports[`Storyshots AttributeField Single Value List 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -647,7 +647,7 @@ exports[`Storyshots AttributeField String 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -679,7 +679,7 @@ exports[`Storyshots AttributeField Text 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -3114,7 +3114,7 @@ exports[`Storyshots CaseView Submitted with Service Notice and schedule 1`] = `
 
 exports[`Storyshots ChooseServicePane Loading matches 1`] = `
 <div
-  className=" br br-t400 br--y css-1qypc7t"
+  className="js-form-dialog  br br-t400 br--y css-1qypc7t"
   style={
     Object {
       "maxWidth": 800,
@@ -3225,7 +3225,7 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
 
 exports[`Storyshots ChooseServicePane No matches 1`] = `
 <div
-  className=" br br-t400 br--y css-1qypc7t"
+  className="js-form-dialog  br br-t400 br--y css-1qypc7t"
   style={
     Object {
       "maxWidth": 800,
@@ -3327,7 +3327,7 @@ exports[`Storyshots ChooseServicePane No matches 1`] = `
 
 exports[`Storyshots ChooseServicePane Some matches 1`] = `
 <div
-  className=" br br-t400 br--y css-1qypc7t"
+  className="js-form-dialog  br br-t400 br--y css-1qypc7t"
   style={
     Object {
       "maxWidth": 800,
@@ -3681,7 +3681,7 @@ exports[`Storyshots ContactPane Empty 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -3879,7 +3879,7 @@ exports[`Storyshots ContactPane Filled Out 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -4335,7 +4335,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
         className="mn--full css-1kiozsl"
       >
         <div
-          className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+          className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -4652,7 +4652,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
         className="mn--full css-1kiozsl"
       >
         <div
-          className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+          className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -5241,7 +5241,7 @@ exports[`Storyshots FormDialog Dialog 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -5262,7 +5262,7 @@ exports[`Storyshots FormDialog Narrow Dialog 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={
       Object {
         "maxWidth": 800,
@@ -5287,7 +5287,7 @@ exports[`Storyshots FormDialog No Padding 1`] = `
   className="b-c"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -5308,7 +5308,7 @@ exports[`Storyshots HomePane Home 1`] = `
   className="b-c"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>
@@ -5890,7 +5890,7 @@ exports[`Storyshots LocationPopUp address not found 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -5981,7 +5981,7 @@ exports[`Storyshots LocationPopUp geocode error 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6081,7 +6081,7 @@ exports[`Storyshots LocationPopUp outside of Boston 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6290,7 +6290,7 @@ exports[`Storyshots LocationPopUp search error 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6390,7 +6390,7 @@ exports[`Storyshots LocationPopUp searching 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6485,7 +6485,7 @@ exports[`Storyshots LocationPopUp with address 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6622,7 +6622,7 @@ exports[`Storyshots LocationPopUp with inexact address 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -6764,7 +6764,7 @@ exports[`Storyshots LocationPopUp with multiple addresses 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -7087,7 +7087,7 @@ exports[`Storyshots LocationPopUp with multiple addresses and units 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -7476,7 +7476,7 @@ exports[`Storyshots LocationPopUp with units 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -7679,7 +7679,7 @@ exports[`Storyshots LocationPopUp without address 1`] = `
   className="css-18ppl9p"
 >
   <div
-    className=" br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog  br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -7825,7 +7825,7 @@ exports[`Storyshots QuestionsPane No Description 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -7980,7 +7980,7 @@ exports[`Storyshots QuestionsPane No Metadata 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -8135,7 +8135,7 @@ exports[`Storyshots QuestionsPane With Metadata 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <form
@@ -9338,7 +9338,7 @@ exports[`Storyshots RequestDialog 404 - Service Not Found 1`] = `
   className="css-15m5iw4"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div
@@ -9587,7 +9587,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
           className="css-11whg3t"
         >
           <div
-            className=" br br-t400 br--y css-1qypc7t"
+            className="js-form-dialog  br br-t400 br--y css-1qypc7t"
             style={Object {}}
           >
             <div>
@@ -10094,7 +10094,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
           className="css-15m5iw4"
         >
           <div
-            className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+            className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
             style={Object {}}
           >
             <form
@@ -10683,7 +10683,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
           className="css-11whg3t"
         >
           <div
-            className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+            className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
             style={Object {}}
           >
             <div
@@ -12493,7 +12493,7 @@ exports[`Storyshots SorryLayout default 1`] = `
         className="mn--full css-1tk8jfa"
       >
         <div
-          className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+          className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -12580,7 +12580,7 @@ exports[`Storyshots SubmitPane GraphQL Error 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>
@@ -12665,7 +12665,7 @@ exports[`Storyshots SubmitPane Network Error 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>
@@ -12743,7 +12743,7 @@ exports[`Storyshots SubmitPane Submitting 1`] = `
   className="b-c"
 >
   <div
-    className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+    className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
     style={Object {}}
   >
     <div>
@@ -12793,7 +12793,7 @@ exports[`Storyshots TranslateDialog dialog 1`] = `
     className="css-11whg3t"
   >
     <div
-      className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+      className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
       style={Object {}}
     >
       <div
