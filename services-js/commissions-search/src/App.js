@@ -4,9 +4,6 @@ import update from 'immutability-helper';
 import Search from './Search';
 import FacetList from './FacetList';
 import ResultList from './ResultList';
-import ReactGA from 'react-ga';
-
-ReactGA.initialize('UA-2187282-27');
 
 class App extends React.Component {
   /*
@@ -53,12 +50,12 @@ class App extends React.Component {
   };
 
   findCheckedBoxes4GA = event => {
-    var chk_arr = document.getElementsByClassName('cb');
-    var chklength = chk_arr.length;
-    for (var k = 0; k < chklength; k++) {
-      var checkit = chk_arr[k].firstChild.checked ? true : false;
-      if (checkit === true) {
-        var children = chk_arr[k].childNodes;
+    const chkArr = document.getElementsByClassName('cb');
+    const chkLength = chkArr.length;
+    for (var k = 0; k < chkLength; k++) {
+      var checkIt = chkArr[k].firstChild.checked ? true : false;
+      if (checkIt === true) {
+        var children = chkArr[k].childNodes;
         this.sendEvent2GA(
           'Search Filter',
           'Commissions Search',
@@ -69,10 +66,11 @@ class App extends React.Component {
   };
 
   sendEvent2GA = (actionV, categoryV, labelV) => {
-    ReactGA.event({
-      category: categoryV,
-      action: actionV,
-      label: labelV,
+    window.dataLayer.push({
+      event: 'boards_commissions',
+      eventCategory: categoryV,
+      eventAction: actionV,
+      eventLabel: labelV,
     });
   };
 
