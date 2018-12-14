@@ -45,6 +45,7 @@ describe('processStripeEvent', () => {
         'DC-20171215-yg4lk',
         'ch_00000000000000',
         'txn_1BYfsgHEIqCf0Nlg2VWuyvMI',
+        'DC',
         {
           amountInDollars: 14.0,
           quantity: 1,

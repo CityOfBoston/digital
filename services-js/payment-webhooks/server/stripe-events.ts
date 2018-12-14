@@ -37,6 +37,7 @@ async function processChargeSucceeded(
   }
 
   const balanceTransaction = latestCharge.balance_transaction;
+  const orderType = charge.metadata['order.orderType'] || 'DC';
 
   const {
     transactionId,
@@ -47,6 +48,7 @@ async function processChargeSucceeded(
     charge.metadata['order.orderId'] || 'unknown',
     charge.id,
     balanceTransaction.id,
+    orderType,
     {
       // Stripe works in cents, iNovah in floating-point dollars.
       amountInDollars: balanceTransaction.net / 100,
