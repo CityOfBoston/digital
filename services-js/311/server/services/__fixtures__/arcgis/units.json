@@ -1,0 +1,101 @@
+[
+  {
+    "location": {
+      "lat": 42.35701867298534,
+      "lng": -71.05761059025141
+    },
+    "address": "50 Milk St\nBoston, 02108",
+    "addressId": "95446",
+    "streetAddress": "50 Milk St",
+    "unit": "",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "121 Devonshire St\nBoston, 02108",
+    "addressId": "419918",
+    "streetAddress": "121 Devonshire St",
+    "unit": "",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St #20\nBoston, 02108",
+    "addressId": "275492",
+    "streetAddress": "50 Milk St #20",
+    "unit": "20",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St #2050\nBoston, 02108",
+    "addressId": "275493",
+    "streetAddress": "50 Milk St #2050",
+    "unit": "2050",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St Lbby A\nBoston, 02108",
+    "addressId": "275495",
+    "streetAddress": "50 Milk St Lbby A",
+    "unit": "Lbby A",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St Lbby C\nBoston, 02108",
+    "addressId": "275496",
+    "streetAddress": "50 Milk St Lbby C",
+    "unit": "Lbby C",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St Ste 16\nBoston, 02108",
+    "addressId": "275490",
+    "streetAddress": "50 Milk St Ste 16",
+    "unit": "Ste 16",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St Ste 17\nBoston, 02108",
+    "addressId": "275491",
+    "streetAddress": "50 Milk St Ste 17",
+    "unit": "Ste 17",
+    "buildingId": "136615"
+  },
+  {
+    "location": {
+      "lat": 42.35701867280921,
+      "lng": -71.0576105901343
+    },
+    "address": "50 Milk St Ste 21\nBoston, 02108",
+    "addressId": "275494",
+    "streetAddress": "50 Milk St Ste 21",
+    "unit": "Ste 21",
+    "buildingId": "136615"
+  }
+]

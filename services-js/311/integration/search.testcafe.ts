@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe';
 
 import { serverUrl, waitForReact, printConsoleLogs } from './testcafe-helpers';
+import CaseModel from './CasePageModel';
 
 fixture('Search')
   .page(serverUrl('/search'))
@@ -22,9 +23,11 @@ test('Click on search result', async t => {
 
   await t.click(bulkItemPickupRow);
 
+  const caseModel = new CaseModel();
+
   await t
-    .expect(Selector('h1').withText('TRASH OR RECYCLING NOT COLLECTED').exists)
-    .ok();
+    .expect(caseModel.serviceNameTitle.textContent)
+    .eql('Trash or recycling not collected');
 });
 
 test('Search text field', async t => {

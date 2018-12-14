@@ -86,7 +86,7 @@ exports[`existing service page rendering phone 1`] = `
       className="css-15m5iw4"
     >
       <div
-        className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+        className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <form
@@ -548,7 +548,7 @@ exports[`existing service page rendering phone location step 1`] = `
       className="css-18ppl9p"
     >
       <div
-        className=" br br-t400 br--y css-1qypc7t"
+        className="js-form-dialog  br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <div
@@ -763,7 +763,7 @@ exports[`missing service page rendering 1`] = `
       className="css-15m5iw4"
     >
       <div
-        className="p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
+        className="js-form-dialog p-a300 p-a800--xl br br-t400 br--y css-1qypc7t"
         style={Object {}}
       >
         <div
