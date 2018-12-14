@@ -211,10 +211,10 @@ export default class SearchLayout extends React.Component<Props> {
       }),
       ({ query, resultsQuery, location, zoom }) => {
         const params = new URLSearchParams();
+        const caseUrls = RequestSearch.caseUrlsForSearchQuery(query);
 
-        if (RequestSearch.isCaseId(query)) {
-          const id = query.trim();
-          Router.push(`/reports?id=${id}`, `/reports/${id}`);
+        if (caseUrls) {
+          Router.push(caseUrls.url, caseUrls.as);
         } else {
           if (resultsQuery) {
             params.append('q', resultsQuery);

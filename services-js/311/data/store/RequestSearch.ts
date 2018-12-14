@@ -24,6 +24,12 @@ type SearchArgs = {
   bottomRight: LatLng | null;
 };
 
+/**
+ * Any case numbers before this are assumed to be legacy. Any after are the new
+ * Salesforce IDs.
+ */
+const LEGACY_CASE_CUTOFF = 3000000;
+
 export default class RequestSearch {
   // Setting these properties will cause a search to happen
   // search center is the center of the visible map
@@ -55,8 +61,33 @@ export default class RequestSearch {
   searchDisposer: Function | null = null;
   boundsSetDisposer: Function | null = null;
 
-  static isCaseId(str: string | null): boolean {
-    return !!str && !!str.trim().match(/(1010\d{8})|(\d\d-\d{8})$/);
+  /**
+   * Given a search query, returns the URLs to its case if they match a format
+   * used by our case IDs.
+   *
+   * Returns null if the query does not match our ID format.
+   */
+  static caseUrlsForSearchQuery(
+    str: string | null
+  ): { url: string; as: string } | null {
+    const match = (str || '')
+      .trim()
+      .match(/#?((10100\d{7})|(\d\d-\d{8})|(\d{7,9}))$/);
+
+    if (match) {
+      let id = match[1];
+
+      // match[4] is the numeric-only ID match. We check and see if we’re within
+      // the window of legacy case IDs, in which case we add the Lagan case
+      // prefix.
+      if (match[4] && parseInt(match[4], 10) < LEGACY_CASE_CUTOFF) {
+        id = `10100${id}`;
+      }
+
+      return { url: `/reports?id=${id}`, as: `/reports/${id}` };
+    } else {
+      return null;
+    }
   }
 
   updateCaseSearchResults({ cases, query }: SearchCasesResult) {
@@ -167,7 +198,7 @@ export default class RequestSearch {
       return;
     }
 
-    if (RequestSearch.isCaseId(query)) {
+    if (RequestSearch.caseUrlsForSearchQuery(query)) {
       // The search UI will automatically route to case IDs, so we don't want to
       // do a search and show "no results" while that's loading.
       return;
