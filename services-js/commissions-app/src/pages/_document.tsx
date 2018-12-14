@@ -92,7 +92,7 @@ var _rollbarConfig = {
 
           <script
             src={`${process.env.WEB_COMPONENTS_URI ||
-              'https://patterns.boston.gov/web-components/all.js'}`}
+              'https://patterns.boston.gov/web-components/fleetcomponents.js'}`}
           />
 
           <NextScript />
