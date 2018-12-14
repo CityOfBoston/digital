@@ -1,11 +1,6 @@
 import React from 'react';
-import { css } from 'emotion';
 
-import {
-  CHARLES_BLUE,
-  MEDIA_SMALL,
-  OPTIMISTIC_BLUE,
-} from '@cityofboston/react-fleet';
+import { BUTTONS_CONTAINER_STYLING, SECONDARY_BUTTON_STYLE } from './styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -28,6 +23,29 @@ export default function QuestionComponent(props: Props): JSX.Element {
       <div>{props.children}</div>
 
       <div className={BUTTONS_CONTAINER_STYLING}>
+        {/* Button only appears if handler was passed in AND props.startOver is true. */}
+        {props.handleReset &&
+          props.startOver && (
+            <button
+              type="button"
+              className={`btn ${SECONDARY_BUTTON_STYLE}`}
+              onClick={props.handleReset}
+            >
+              Start over
+            </button>
+          )}
+
+        {props.handleStepBack &&
+          !props.startOver && (
+            <button
+              type="button"
+              className={`btn ${SECONDARY_BUTTON_STYLE}`}
+              onClick={props.handleStepBack}
+            >
+              Back
+            </button>
+          )}
+
         {props.handleProceed &&
           !props.startOver && (
             <button
@@ -39,60 +57,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
               Next question
             </button>
           )}
-
-        {/* Button only appears if handler was passed in AND props.startOver is true. */}
-        {props.handleReset &&
-          props.startOver && (
-            <button
-              type="button"
-              className={`btn ${BACK_BUTTON_STYLING}`}
-              onClick={props.handleReset}
-            >
-              Start over
-            </button>
-          )}
-
-        {props.handleStepBack &&
-          !props.startOver && (
-            <button
-              type="button"
-              className={`btn ${BACK_BUTTON_STYLING}`}
-              onClick={props.handleStepBack}
-            >
-              Back
-            </button>
-          )}
       </div>
     </section>
   );
 }
-
-const BUTTONS_CONTAINER_STYLING = css({
-  marginTop: '3rem',
-  [MEDIA_SMALL]: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  button: {
-    display: 'block',
-    width: '100%',
-    marginBottom: '2rem',
-    [MEDIA_SMALL]: {
-      width: 'auto',
-      marginBottom: 0,
-      '&:last-of-type:not(:only-of-type)': {
-        order: -1,
-        marginRight: '2rem',
-      },
-    },
-  },
-});
-
-const BACK_BUTTON_STYLING = css({
-  backgroundColor: '#fff',
-  color: OPTIMISTIC_BLUE,
-  border: '3px solid currentColor',
-  '&:hover': {
-    borderColor: CHARLES_BLUE,
-  },
-});

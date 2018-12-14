@@ -1,5 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
+import Router from 'next/router';
+
+import { PageDependencies } from '../../pages/_app';
 
 import PageLayout from '../PageLayout';
 
@@ -10,116 +13,118 @@ import DateOfBirth from './questions/DateOfBirth';
 import ParentsMarried from './questions/ParentsMarried';
 import ParentsNames from './questions/ParentsNames';
 
-import { Question, RequestInformation } from './types';
 import { BREADCRUMB_NAV_LINKS } from './constants';
 
-import { PROGRESS_BAR_STYLING } from './questions/styling';
+import { PROGRESS_BAR_STYLE } from './questions/styling';
 
-interface Props {}
+export type Question =
+  | 'forSelf'
+  | 'bornInBoston'
+  | 'nameOnRecord'
+  | 'dateOfBirth'
+  | 'parentsMarried'
+  | 'parentsNames'
+  | 'reviewRequest'
+  | 'parentsLivedInBoston'
+  | 'howRelated';
 
-interface State extends RequestInformation {
+interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
+
+interface State {
   activeQuestion: Question;
+  questions: Question[];
   answeredQuestions: Question[];
 }
 
-// This is also used to reset all fields when user selects “start over”
 const INITIAL_STATE: State = {
   activeQuestion: 'forSelf',
   answeredQuestions: [],
-  forSelf: null,
-  howRelated: '',
-  bornInBoston: '',
-  parentsLivedInBoston: '',
-  firstName: '',
-  lastName: '',
-  altSpelling: '',
-  dateOfBirth: '',
-  parentsMarried: '',
-  parent1FirstName: '',
-  parent1LastName: '',
-  parent2FirstName: '',
-  parent2LastName: '',
+  questions: [
+    'forSelf',
+    'bornInBoston',
+    'nameOnRecord',
+    'dateOfBirth',
+    'parentsMarried',
+    'parentsNames',
+  ],
 };
 
 /**
  * Guides the user through a number of questions in order to provide the
  * Registry with the information they will need to locate the birth record.
  *
- * User will progress to checkout upon completion of this workflow.
+ * User will progress to /review upon completion of this workflow.
  */
 export default class QuestionsFlow extends React.Component<Props, State> {
   state: State = INITIAL_STATE;
 
-  // this.state.answeredQuestions is an ordered record of the questions asked.
-  private addToAnsweredQuestions(newQuestion: Question): void {
-    const answeredQuestions = this.state.answeredQuestions;
+  private answerQuestion = (question, answers): void => {
+    const currentIndex = this.state.questions.indexOf(question);
 
-    this.setState({ answeredQuestions: [...answeredQuestions, newQuestion] });
-  }
+    if (question === 'forSelf') {
+      const forSelf = answers.forSelf === 'true';
 
-  // Add question to answeredQuestions list, then move to next question.
-  private proceedToNextQuestion = (
-    currentQuestion: Question,
-    nextQuestion: Question
-  ): void => {
-    this.setState({ activeQuestion: nextQuestion });
-
-    this.addToAnsweredQuestions(currentQuestion);
-  };
-
-  // When the user selects “back”, we treat that previous question
-  // as unanswered, and return to its screen.
-  private stepBackOneQuestion = () => {
-    const answeredQuestions = [...this.state.answeredQuestions];
-    const prevQuestion = answeredQuestions.pop()!;
-
-    const fieldsToClear: State = {} as any;
-
-    // If a question’s answer is made up of multiple fields,
-    // we must explicitly list them.
-    if (prevQuestion === 'forSelf') {
-      fieldsToClear.forSelf = null;
-      fieldsToClear.howRelated = '';
-    } else if (prevQuestion === 'bornInBoston') {
-      fieldsToClear.bornInBoston = '';
-      fieldsToClear.parentsLivedInBoston = '';
-    } else if (prevQuestion === 'nameOnRecord') {
-      fieldsToClear.firstName = '';
-      fieldsToClear.lastName = '';
-    } else if (prevQuestion === 'parentsNames') {
-      fieldsToClear.parent1FirstName = '';
-      fieldsToClear.parent1LastName = '';
-      fieldsToClear.parent2FirstName = '';
-      fieldsToClear.parent2LastName = '';
+      this.props.birthCertificateRequest.answerQuestion({
+        ...answers,
+        forSelf,
+      });
     } else {
-      fieldsToClear[prevQuestion] = '';
+      this.props.birthCertificateRequest.answerQuestion(answers);
     }
 
-    this.setState({
-      answeredQuestions,
-      activeQuestion: prevQuestion,
-      ...fieldsToClear,
-    });
+    if (question === 'parentsNames') {
+      Router.push('/birth/review');
+    } else {
+      this.setState({ activeQuestion: this.state.questions[currentIndex + 1] });
+    }
+  };
+
+  private stepBackOneQuestion = (): void => {
+    const currentIndex = this.state.questions.indexOf(
+      this.state.activeQuestion
+    );
+    // Ensure we cannot go back any further than the first question.
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+
+    this.setState({ activeQuestion: this.state.questions[newIndex] });
   };
 
   // Clear all data and return to initial question.
   private handleUserReset = (): void => {
     this.setState({ ...INITIAL_STATE });
+    this.props.birthCertificateRequest.clearBirthCertificateRequest();
   };
 
-  private handleAnswers = (answers, currentQuestion, nextQuestion): void => {
-    this.setState({ ...answers });
-    this.proceedToNextQuestion(currentQuestion, nextQuestion);
-  };
+  public progressBar(): React.ReactChild {
+    const currentIndex = this.state.questions.indexOf(
+      this.state.activeQuestion
+    );
 
-  private handleForSelf = (answers): void => {
-    const forSelf = answers.forSelf === 'true';
+    return (
+      <progress
+        aria-label="Progress"
+        max="6"
+        value={currentIndex}
+        className={PROGRESS_BAR_STYLE}
+      >
+        Step {currentIndex + 1}
+      </progress>
+    );
+  }
 
-    this.setState({ ...answers, forSelf });
-    this.proceedToNextQuestion('forSelf', 'bornInBoston');
-  };
+  componentDidMount(): void {
+    // If parent1FirstName has a value, the user has come over from /review
+    if (
+      this.props.birthCertificateRequest.requestInformation.parent1FirstName
+    ) {
+      this.setState({ activeQuestion: 'parentsNames' });
+    }
+  }
 
   public render() {
+    const answers = this.props.birthCertificateRequest.requestInformation;
+    const forSelf = answers.forSelf;
+
     return (
       <>
         <Head>
@@ -132,25 +137,22 @@ export default class QuestionsFlow extends React.Component<Props, State> {
           <div className="b-c b-c--nbp">
             <h1 className="sh-title">Request a birth certificate</h1>
 
-            <progress
-              aria-label="Progress"
-              max="6"
-              value={this.state.answeredQuestions.length}
-              className={PROGRESS_BAR_STYLING}
-            >
-              Step {this.state.answeredQuestions.length + 1}
-            </progress>
+            {this.progressBar()}
 
             {this.state.activeQuestion === 'forSelf' && (
-              <ForSelf handleProceed={this.handleForSelf} />
+              <ForSelf
+                forSelf={answers.forSelf}
+                howRelated={answers.howRelated}
+                handleProceed={a => this.answerQuestion('forSelf', a)}
+              />
             )}
 
             {this.state.activeQuestion === 'bornInBoston' && (
               <BornInBoston
-                forSelf={this.state.forSelf}
-                handleProceed={a =>
-                  this.handleAnswers(a, 'bornInBoston', 'nameOnRecord')
-                }
+                forSelf={forSelf}
+                parentsLivedInBoston={answers.parentsLivedInBoston}
+                bornInBoston={answers.bornInBoston}
+                handleProceed={a => this.answerQuestion('bornInBoston', a)}
                 handleStepBack={this.stepBackOneQuestion}
                 handleUserReset={this.handleUserReset}
               />
@@ -158,56 +160,47 @@ export default class QuestionsFlow extends React.Component<Props, State> {
 
             {this.state.activeQuestion === 'nameOnRecord' && (
               <NameOnRecord
-                forSelf={this.state.forSelf}
-                handleProceed={a =>
-                  this.handleAnswers(a, 'nameOnRecord', 'dateOfBirth')
-                }
+                forSelf={forSelf}
+                firstName={answers.firstName}
+                lastName={answers.lastName}
+                altSpelling={answers.altSpelling}
+                handleProceed={a => this.answerQuestion('nameOnRecord', a)}
                 handleStepBack={this.stepBackOneQuestion}
               />
             )}
 
             {this.state.activeQuestion === 'dateOfBirth' && (
               <DateOfBirth
-                forSelf={this.state.forSelf}
-                firstName={this.state.firstName}
-                dateOfBirth={this.state.dateOfBirth}
-                handleProceed={a =>
-                  this.handleAnswers(a, 'dateOfBirth', 'parentsMarried')
-                }
+                forSelf={forSelf}
+                firstName={answers.firstName}
+                birthDate={answers.birthDate}
+                handleProceed={a => this.answerQuestion('dateOfBirth', a)}
                 handleStepBack={this.stepBackOneQuestion}
               />
             )}
 
             {this.state.activeQuestion === 'parentsMarried' && (
               <ParentsMarried
-                forSelf={this.state.forSelf}
-                firstName={this.state.firstName}
-                parentsMarried={this.state.parentsMarried}
-                handleProceed={a =>
-                  this.handleAnswers(a, 'parentsMarried', 'parentsNames')
-                }
+                forSelf={forSelf}
+                firstName={answers.firstName}
+                parentsMarried={answers.parentsMarried}
+                handleProceed={a => this.answerQuestion('parentsMarried', a)}
                 handleStepBack={this.stepBackOneQuestion}
               />
             )}
 
             {this.state.activeQuestion === 'parentsNames' && (
               <ParentsNames
-                forSelf={this.state.forSelf}
-                parentsMarried={this.state.parentsMarried}
-                firstName={this.state.firstName}
-                parent1FirstName={this.state.parent1FirstName}
-                parent1LastName={this.state.parent1LastName}
-                parent2FirstName={this.state.parent2FirstName}
-                parent2LastName={this.state.parent2LastName}
-                handleProceed={a =>
-                  this.handleAnswers(a, 'parentsNames', 'endFlow')
-                }
+                forSelf={forSelf}
+                parentsMarried={answers.parentsMarried}
+                firstName={answers.firstName}
+                parent1FirstName={answers.parent1FirstName}
+                parent1LastName={answers.parent1LastName}
+                parent2FirstName={answers.parent2FirstName}
+                parent2LastName={answers.parent2LastName}
+                handleProceed={a => this.answerQuestion('parentsNames', a)}
                 handleStepBack={this.stepBackOneQuestion}
               />
-            )}
-
-            {this.state.activeQuestion === 'endFlow' && (
-              <p>[[ end of flow; display summary ]]</p>
             )}
           </div>
         </PageLayout>

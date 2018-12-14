@@ -5,7 +5,7 @@ import { TextInput } from '@cityofboston/react-fleet';
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 
-import { YesNoUnknownAnswer } from '../types';
+import { YesNoUnknownAnswer } from '../../types';
 
 import { NAME_FIELDS_CONTAINER_STYLING } from './styling';
 
@@ -30,6 +30,9 @@ interface State {
   parent2LastName: string;
 }
 
+/**
+ * Parent 1’s first name is the only required field in this set.
+ */
 export default class ParentsNames extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

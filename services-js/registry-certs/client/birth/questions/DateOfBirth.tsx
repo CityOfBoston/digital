@@ -6,36 +6,39 @@ import { TextInput } from '@cityofboston/react-fleet';
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 
+import { researchFeeDisclosureText } from '../../common/FeeDisclosures';
+
 interface Props {
   forSelf: boolean | null;
   firstName: string;
-  dateOfBirth?: string;
+  birthDate: string;
 
   handleProceed: (answers: State) => void;
   handleStepBack: () => void;
 }
 
 interface State {
-  dateOfBirth: string;
+  birthDate: string;
 }
 
+// todo: this component will be a datepicker
 export default class DateOfBirth extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      dateOfBirth: props.dateOfBirth || '',
+      birthDate: props.birthDate,
     };
   }
 
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ dateOfBirth: event.target.value });
+    this.setState({ birthDate: event.target.value });
   };
 
   private handleEnterKeypress = (event: React.KeyboardEvent): void => {
     const key = event.key || event.keyCode;
 
-    if ((key === 'Enter' || key === 13) && this.state.dateOfBirth.length) {
+    if ((key === 'Enter' || key === 13) && this.state.birthDate.length) {
       this.props.handleProceed(this.state);
     }
   };
@@ -48,7 +51,7 @@ export default class DateOfBirth extends React.Component<Props, State> {
         <QuestionComponent
           handleStepBack={this.props.handleStepBack}
           handleProceed={() => this.props.handleProceed(this.state)}
-          allowProceed={this.state.dateOfBirth.length > 0}
+          allowProceed={this.state.birthDate.length > 0}
         >
           <FieldsetComponent
             legendText={
@@ -71,6 +74,9 @@ export default class DateOfBirth extends React.Component<Props, State> {
             request a newborn’s birth certificate right away. It will be ready
             within 3 weeks after the parent(s) signed paperwork at the hospital.
           </p>
+
+          {/* todo: only show if selected date is prior to 1870? */}
+          <p>{researchFeeDisclosureText()}</p>
         </aside>
       </>
     );

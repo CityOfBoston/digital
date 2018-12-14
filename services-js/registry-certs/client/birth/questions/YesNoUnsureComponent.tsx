@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Question, YesNoUnknownAnswer } from '../types';
+import { Question } from '../QuestionsFlow';
+import { YesNoUnknownAnswer } from '../../types';
 
 import { CLEAR_LIST_STYLING, RADIOGROUP_STYLING } from './styling';
 
@@ -11,6 +12,9 @@ interface Props {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+/**
+ * Utility component; presents user with three options for an answer.
+ */
 export default function YesNoUnsureComponent(props: Props): JSX.Element {
   function radioItem(value: YesNoUnknownAnswer, text: string): React.ReactNode {
     return (
