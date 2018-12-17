@@ -95,10 +95,22 @@ export const SECONDARY_BUTTON_STYLE = css({
   },
 });
 
+// Ensures “next” comes first on mobile, while maintaining the
+// visually-apparent tab order on larger screens.
+export const NEXT_BUTTON_STYLE = css({
+  order: -1,
+  [MEDIA_SMALL]: {
+    order: 0,
+  },
+});
+
 export const BUTTONS_CONTAINER_STYLING = css({
   marginTop: '3rem',
+  display: 'flex',
+  flexDirection: 'column',
+
   [MEDIA_SMALL]: {
-    display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   button: {

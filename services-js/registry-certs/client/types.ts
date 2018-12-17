@@ -21,6 +21,17 @@ export interface DeathCertificateOrder
     > {}
 
 // Birth-specific
+export type Question =
+  | 'forSelf'
+  | 'bornInBoston'
+  | 'nameOnRecord'
+  | 'dateOfBirth'
+  | 'parentsMarried'
+  | 'parentsNames'
+  | 'reviewRequest'
+  | 'parentsLivedInBoston'
+  | 'howRelated';
+
 export type Relation =
   | 'spouse'
   | 'child'

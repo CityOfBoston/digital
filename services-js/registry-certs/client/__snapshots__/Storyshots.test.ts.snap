@@ -302,10 +302,10 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
               </fieldset>
             </div>
             <div
-              className="css-1tmb168"
+              className="css-ap6642"
             >
               <button
-                className="btn"
+                className="btn css-1j4owm"
                 disabled={true}
                 onClick={[Function]}
                 type="button"
@@ -418,7 +418,7 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
       
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
         className="btn css-185zgdz"
@@ -428,7 +428,7 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
         Back
       </button>
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -501,7 +501,7 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
         className="btn css-185zgdz"
@@ -511,7 +511,7 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
         Back
       </button>
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -700,7 +700,7 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
         className="btn css-185zgdz"
@@ -710,7 +710,7 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
         Back
       </button>
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -966,7 +966,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
         className="btn css-185zgdz"
@@ -976,12 +976,12 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
         Back
       </button>
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
       >
-        Next question
+        Review request
       </button>
     </div>
   </section>
@@ -1072,7 +1072,7 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
         className="btn css-185zgdz"
@@ -1082,7 +1082,7 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
         Back
       </button>
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -1148,10 +1148,10 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
       </fieldset>
     </div>
     <div
-      className="css-1tmb168"
+      className="css-ap6642"
     >
       <button
-        className="btn"
+        className="btn css-1j4owm"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -1595,7 +1595,7 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
               </table>
             </div>
             <div
-              className="css-1tmb168"
+              className="css-ap6642"
             >
               <button
                 className="btn css-185zgdz"

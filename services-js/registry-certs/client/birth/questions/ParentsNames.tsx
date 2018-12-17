@@ -60,6 +60,7 @@ export default class ParentsNames extends React.Component<Props, State> {
           handleProceed={() => this.props.handleProceed(this.state)}
           handleStepBack={this.props.handleStepBack}
           allowProceed={this.state.parent1FirstName.length > 0}
+          nextButtonText="Review request"
         >
           <FieldsetComponent
             legendText={

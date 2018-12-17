@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
+import { observer } from 'mobx-react';
+
 import { css } from 'emotion';
 
 import {
@@ -25,10 +27,6 @@ import {
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 
-interface State {
-  certificateQuantity: number;
-}
-
 /**
  * Component which allows a user to review their request, and update the
  * quantity of birth certificates they are requesting.
@@ -36,18 +34,11 @@ interface State {
  * User can proceed to /checkout, go back to the questions flow, or
  * clear all information and start over.
  */
-export default class ReviewRequest extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      certificateQuantity: 1,
-    };
-  }
-
+@observer
+export default class ReviewRequest extends React.Component<Props> {
   handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Update quantity; if user erases value in field, quantity will return to 1
-    this.setState({ certificateQuantity: +event.target.value || 1 });
+    this.props.birthCertificateRequest.setQuantity(+event.target.value || 1);
   };
 
   // todo: warn user before resetting information (i.e. “are you sure? y/n” dialog)
@@ -58,17 +49,10 @@ export default class ReviewRequest extends React.Component<Props, State> {
   };
 
   returnToQuestions = () => {
-    // There is a check in componentDidMount to see if the required field
-    // for the last question has been answered; this will bring the user
-    // back to that last question.
     Router.push('/birth');
   };
 
   goToCheckout = () => {
-    this.props.birthCertificateRequest.setQuantity(
-      this.state.certificateQuantity
-    );
-
     Router.push('/birth/checkout');
   };
 
@@ -78,6 +62,8 @@ export default class ReviewRequest extends React.Component<Props, State> {
       lastName,
       birthDate,
     } = this.props.birthCertificateRequest.requestInformation;
+
+    const { quantity } = this.props.birthCertificateRequest;
 
     return (
       <>
@@ -109,7 +95,7 @@ export default class ReviewRequest extends React.Component<Props, State> {
                     min="1"
                     aria-label="Certificate quantity"
                     className={`br br-a150 ${QUANTITY_BOX_STYLE}`}
-                    value={this.state.certificateQuantity}
+                    value={quantity}
                     onChange={this.handleQuantityChange}
                     title="Certificate Quantity"
                   />
@@ -140,7 +126,7 @@ export default class ReviewRequest extends React.Component<Props, State> {
 
               <CostSummary
                 certificateType="birth"
-                certificateQuantity={this.state.certificateQuantity}
+                certificateQuantity={quantity}
                 allowServiceFeeTypeChoice
                 serviceFeeType="CREDIT"
               />

@@ -1,6 +1,6 @@
-import { observable } from 'mobx';
+import { action, observable } from 'mobx';
 
-import { BirthCertificateRequestInformation } from '../types';
+import { BirthCertificateRequestInformation, Question } from '../types';
 
 // This is used for initial state, and to reset all fields if
 // user selects “start over”
@@ -21,24 +21,34 @@ export const initialRequestInformation: BirthCertificateRequestInformation = {
 };
 
 export default class BirthCertificateRequest {
-  @observable quantity: number = 0;
+  @observable quantity: number = 1;
+  @observable activeQuestion: Question = 'forSelf';
   @observable
   requestInformation: BirthCertificateRequestInformation = initialRequestInformation;
 
+  @action
   public setQuantity(newQuantity: number): void {
     this.quantity = newQuantity;
   }
 
+  @action
+  public setActiveQuestion = (question: Question): void => {
+    this.activeQuestion = question;
+  };
+
   // A user’s answer may span several fields:
-  public answerQuestion(answers: object): void {
+  @action
+  public answerQuestion = (answers: object): void => {
     this.requestInformation = {
       ...this.requestInformation,
       ...answers,
     };
-  }
+  };
 
+  @action
   public clearBirthCertificateRequest(): void {
     this.quantity = 0;
+    this.activeQuestion = 'forSelf';
     this.requestInformation = initialRequestInformation;
   }
 }

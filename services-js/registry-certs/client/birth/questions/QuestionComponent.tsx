@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { BUTTONS_CONTAINER_STYLING, SECONDARY_BUTTON_STYLE } from './styling';
+import {
+  BUTTONS_CONTAINER_STYLING,
+  NEXT_BUTTON_STYLE,
+  SECONDARY_BUTTON_STYLE,
+} from './styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -8,6 +12,7 @@ interface Props {
   handleStepBack?: () => void;
   handleReset?: () => void;
   startOver?: boolean;
+  nextButtonText?: string;
 
   children: React.ReactNode;
 }
@@ -50,11 +55,11 @@ export default function QuestionComponent(props: Props): JSX.Element {
           !props.startOver && (
             <button
               type="button"
-              className="btn"
+              className={`btn ${NEXT_BUTTON_STYLE}`}
               onClick={props.handleProceed}
               disabled={!props.allowProceed}
             >
-              Next question
+              {props.nextButtonText || 'Next question'}
             </button>
           )}
       </div>

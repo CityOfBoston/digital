@@ -9,7 +9,6 @@ interface Props {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-// todo: icon will be passed in, and label text will be visually hidden
 export default function RadioItemComponent(props: Props): JSX.Element {
   const { fieldName, fieldValue, itemValue, labelText, handleChange } = props;
 

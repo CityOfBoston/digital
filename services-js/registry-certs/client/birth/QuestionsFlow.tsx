@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
+import { observer } from 'mobx-react';
+
 import { PageDependencies } from '../../pages/_app';
 
 import PageLayout from '../PageLayout';
@@ -13,41 +15,12 @@ import DateOfBirth from './questions/DateOfBirth';
 import ParentsMarried from './questions/ParentsMarried';
 import ParentsNames from './questions/ParentsNames';
 
-import { BREADCRUMB_NAV_LINKS } from './constants';
+import { BREADCRUMB_NAV_LINKS, QUESTIONS } from './constants';
+import { Question, BirthCertificateRequestInformation } from '../types';
 
 import { PROGRESS_BAR_STYLE } from './questions/styling';
 
-export type Question =
-  | 'forSelf'
-  | 'bornInBoston'
-  | 'nameOnRecord'
-  | 'dateOfBirth'
-  | 'parentsMarried'
-  | 'parentsNames'
-  | 'reviewRequest'
-  | 'parentsLivedInBoston'
-  | 'howRelated';
-
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
-
-interface State {
-  activeQuestion: Question;
-  questions: Question[];
-  answeredQuestions: Question[];
-}
-
-const INITIAL_STATE: State = {
-  activeQuestion: 'forSelf',
-  answeredQuestions: [],
-  questions: [
-    'forSelf',
-    'bornInBoston',
-    'nameOnRecord',
-    'dateOfBirth',
-    'parentsMarried',
-    'parentsNames',
-  ],
-};
 
 /**
  * Guides the user through a number of questions in order to provide the
@@ -55,49 +28,54 @@ const INITIAL_STATE: State = {
  *
  * User will progress to /review upon completion of this workflow.
  */
-export default class QuestionsFlow extends React.Component<Props, State> {
-  state: State = INITIAL_STATE;
-
-  private answerQuestion = (question, answers): void => {
-    const currentIndex = this.state.questions.indexOf(question);
+@observer
+export default class QuestionsFlow extends React.Component<Props> {
+  private answerQuestion = (
+    question: Question,
+    answers: Partial<BirthCertificateRequestInformation>
+  ): void => {
+    const {
+      answerQuestion,
+      setActiveQuestion,
+    } = this.props.birthCertificateRequest;
+    const currentIndex = QUESTIONS.indexOf(question);
 
     if (question === 'forSelf') {
-      const forSelf = answers.forSelf === 'true';
-
-      this.props.birthCertificateRequest.answerQuestion({
+      answerQuestion({
         ...answers,
-        forSelf,
+        forSelf: answers.forSelf === ('true' as any),
       });
     } else {
-      this.props.birthCertificateRequest.answerQuestion(answers);
+      answerQuestion(answers);
     }
 
     if (question === 'parentsNames') {
       Router.push('/birth/review');
     } else {
-      this.setState({ activeQuestion: this.state.questions[currentIndex + 1] });
+      setActiveQuestion(QUESTIONS[currentIndex + 1]);
     }
   };
 
   private stepBackOneQuestion = (): void => {
-    const currentIndex = this.state.questions.indexOf(
-      this.state.activeQuestion
-    );
+    const {
+      activeQuestion,
+      setActiveQuestion,
+    } = this.props.birthCertificateRequest;
+    const currentIndex = QUESTIONS.indexOf(activeQuestion);
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
 
-    this.setState({ activeQuestion: this.state.questions[newIndex] });
+    setActiveQuestion(QUESTIONS[newIndex]);
   };
 
   // Clear all data and return to initial question.
   private handleUserReset = (): void => {
-    this.setState({ ...INITIAL_STATE });
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
   };
 
   public progressBar(): React.ReactChild {
-    const currentIndex = this.state.questions.indexOf(
-      this.state.activeQuestion
+    const currentIndex = QUESTIONS.indexOf(
+      this.props.birthCertificateRequest.activeQuestion
     );
 
     return (
@@ -112,17 +90,9 @@ export default class QuestionsFlow extends React.Component<Props, State> {
     );
   }
 
-  componentDidMount(): void {
-    // If parent1FirstName has a value, the user has come over from /review
-    if (
-      this.props.birthCertificateRequest.requestInformation.parent1FirstName
-    ) {
-      this.setState({ activeQuestion: 'parentsNames' });
-    }
-  }
-
   public render() {
     const answers = this.props.birthCertificateRequest.requestInformation;
+    const { activeQuestion } = this.props.birthCertificateRequest;
     const forSelf = answers.forSelf;
 
     return (
@@ -139,15 +109,15 @@ export default class QuestionsFlow extends React.Component<Props, State> {
 
             {this.progressBar()}
 
-            {this.state.activeQuestion === 'forSelf' && (
+            {activeQuestion === 'forSelf' && (
               <ForSelf
                 forSelf={answers.forSelf}
                 howRelated={answers.howRelated}
-                handleProceed={a => this.answerQuestion('forSelf', a)}
+                handleProceed={a => this.answerQuestion('forSelf', a as any)}
               />
             )}
 
-            {this.state.activeQuestion === 'bornInBoston' && (
+            {activeQuestion === 'bornInBoston' && (
               <BornInBoston
                 forSelf={forSelf}
                 parentsLivedInBoston={answers.parentsLivedInBoston}
@@ -158,7 +128,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
               />
             )}
 
-            {this.state.activeQuestion === 'nameOnRecord' && (
+            {activeQuestion === 'nameOnRecord' && (
               <NameOnRecord
                 forSelf={forSelf}
                 firstName={answers.firstName}
@@ -169,7 +139,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
               />
             )}
 
-            {this.state.activeQuestion === 'dateOfBirth' && (
+            {activeQuestion === 'dateOfBirth' && (
               <DateOfBirth
                 forSelf={forSelf}
                 firstName={answers.firstName}
@@ -179,7 +149,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
               />
             )}
 
-            {this.state.activeQuestion === 'parentsMarried' && (
+            {activeQuestion === 'parentsMarried' && (
               <ParentsMarried
                 forSelf={forSelf}
                 firstName={answers.firstName}
@@ -189,7 +159,7 @@ export default class QuestionsFlow extends React.Component<Props, State> {
               />
             )}
 
-            {this.state.activeQuestion === 'parentsNames' && (
+            {activeQuestion === 'parentsNames' && (
               <ParentsNames
                 forSelf={forSelf}
                 parentsMarried={answers.parentsMarried}

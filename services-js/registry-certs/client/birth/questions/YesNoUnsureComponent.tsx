@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Question } from '../QuestionsFlow';
-import { YesNoUnknownAnswer } from '../../types';
+import { Question, YesNoUnknownAnswer } from '../../types';
 
 import { CLEAR_LIST_STYLING, RADIOGROUP_STYLING } from './styling';
 
