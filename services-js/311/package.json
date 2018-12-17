@@ -9,7 +9,7 @@
     "pretest": "tsc --noEmit",
     "test": "npm run testcafe:local && scripts/test.js",
     "testcafe:dev": "testcafe-live remote integration/*.testcafe.*",
-    "testcafe:local": "npm run build && cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 3 chrome:headless integration/*.testcafe.*",
+    "testcafe:local": "npm run build && cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless integration/*.testcafe.*",
     "build": "concurrently \"npm run build:server\" \"npm run build:next\" \"gulp vendor\"",
     "build:server": "tsc -p tsconfig.server.json",
     "build:next": "next build .",

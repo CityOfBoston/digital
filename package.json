@@ -26,8 +26,8 @@
     "precommit": "lint-staged",
     "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop --ignore js-*-module test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
-    "test": "lerna run --no-sort --concurrency 1 --stream --ignore js-*-module test --",
-    "test:since": "lerna run test --no-sort --concurrency 1 --stream --ignore js-*-module --since",
+    "test": "lerna run --no-sort --concurrency 2 --ignore js-*-module test --",
+    "test:since": "lerna run test --no-sort --concurrency 2 --ignore js-*-module --since",
     "test:templates": "lerna run --no-sort --concurrency 1 --stream --scope js-*-module test --",
     "test:templates:since": "lerna run test --no-sort --concurrency 1 --stream --scope js-*-module --since"
   },
