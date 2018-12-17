@@ -263,6 +263,17 @@ export interface INovahClient {
   ): Promise<VoidTransactionOutput>;
 }
 
+/**
+ * iNovah allocation codes for our different order types.
+ *
+ * Keys of this hash match the OrderType enum in registry-certs’ RegistryDb.ts
+ * file.
+ */
+const ORDER_TYPE_TO_ALLOCATION_CODE = {
+  DC: 'REG13',
+  BC: 'REG14',
+};
+
 export class INovahFactory {
   client: INovahClient;
   username: string;
@@ -372,6 +383,7 @@ export default class INovah {
     registryOrderId: string,
     stripeChargeId: string,
     stripeTransactionId: string,
+    orderType: string,
     { quantity, amountInDollars, unitPriceInDollars }: TransactionPayment,
     {
       cardholderName,
@@ -383,6 +395,9 @@ export default class INovah {
     }: TransactionCustomer
   ): Promise<AddTransactionReturn> {
     const { client, securityKey, paymentOrigin } = this;
+    const allocationCode =
+      ORDER_TYPE_TO_ALLOCATION_CODE[orderType] ||
+      ORDER_TYPE_TO_ALLOCATION_CODE['DC'];
 
     const output = await client.AddTransactionAsync({
       strSecurityKey: securityKey,
@@ -398,9 +413,9 @@ export default class INovah {
               ? undefined
               : stripeTransactionId,
           Payment: {
-            PaymentCode: 'REG13',
+            PaymentCode: allocationCode,
             PaymentAllocation: {
-              AllocationCode: 'REG13',
+              AllocationCode: allocationCode,
               Quantity: quantity.toString(),
               Amount: amountInDollars.toFixed(4),
               UnitCharge: unitPriceInDollars.toString(),
