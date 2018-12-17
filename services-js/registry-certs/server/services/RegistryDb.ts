@@ -415,17 +415,17 @@ export async function makeRegistryDbFactory(
 
 export async function makeFixtureRegistryDbFactory(
   fixtureName: string
-): Promise<RegistryDbFactory> {
+): Promise<Required<RegistryDbFactory>> {
   const fixtureData = await readFile(fixtureName);
   const json = JSON.parse(fixtureData.toString('utf-8'));
 
   return {
-    registryData() {
-      return new RegistryDbFake(json);
+    registryDb() {
+      return new RegistryDbFake(json) as any;
     },
 
     cleanup() {
       return Promise.resolve(null);
     },
-  } as any;
+  };
 }
