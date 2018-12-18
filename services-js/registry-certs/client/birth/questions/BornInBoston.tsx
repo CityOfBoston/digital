@@ -4,7 +4,7 @@ import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
-import { YesNoUnknownAnswer } from '../types';
+import { YesNoUnknownAnswer } from '../../types';
 
 interface Props {
   forSelf: boolean | null;
@@ -21,6 +21,17 @@ interface State {
   parentsLivedInBoston: YesNoUnknownAnswer;
 }
 
+/**
+ * This question determines whether or not the Registry would have the record.
+ *
+ * If the user selects NO or UNKNOWN for bornInBoston, the follow-up question
+ * parentsLivedInBoston is asked.
+ *
+ * If NO is selected for both questions, the user cannot proceed.
+ *
+ * If UNKNOWN is selected for either of the two questions, the user will
+ * progress to the next question.
+ */
 export default class BornInBoston extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -40,13 +51,11 @@ export default class BornInBoston extends React.Component<Props, State> {
   private allowProceed(): boolean {
     if (this.state.bornInBoston === 'yes') {
       return true;
-    } else if (
-      this.state.parentsLivedInBoston === 'yes' ||
-      this.state.parentsLivedInBoston === 'unknown'
-    ) {
-      return true;
     } else {
-      return false;
+      return (
+        this.state.parentsLivedInBoston === 'yes' ||
+        this.state.parentsLivedInBoston === 'unknown'
+      );
     }
   }
 
@@ -86,9 +95,6 @@ export default class BornInBoston extends React.Component<Props, State> {
             />
           </FieldsetComponent>
 
-          {/* This question is only presented if the user selects NO or UNKNOWN for bornInBoston. */}
-          {/* If NO for both “born in Boston” and “parents lived in Boston”, exit the workflow and inform the user. */}
-          {/* If UNKNOWN for either question, proceed to next question. */}
           {notBornInBoston && (
             <FieldsetComponent
               legendText={

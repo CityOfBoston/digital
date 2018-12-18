@@ -20,7 +20,6 @@ export const CLEAR_LIST_STYLING = css({
 });
 
 const UNBORDERED_STYLING = {
-  // todo: will change once we start using icons; text will be visually hidden
   label: {
     display: 'block',
     padding: '1rem 2rem',
@@ -87,7 +86,46 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
   },
 });
 
-export const PROGRESS_BAR_STYLING = css({
+export const SECONDARY_BUTTON_STYLE = css({
+  backgroundColor: '#fff',
+  color: OPTIMISTIC_BLUE,
+  border: '3px solid currentColor',
+  '&:hover': {
+    borderColor: CHARLES_BLUE,
+  },
+});
+
+// Ensures “next” comes first on mobile, while maintaining the
+// visually-apparent tab order on larger screens.
+export const NEXT_BUTTON_STYLE = css({
+  order: -1,
+  [MEDIA_SMALL]: {
+    order: 0,
+  },
+});
+
+export const BUTTONS_CONTAINER_STYLING = css({
+  marginTop: '3rem',
+  display: 'flex',
+  flexDirection: 'column',
+
+  [MEDIA_SMALL]: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  button: {
+    display: 'block',
+    width: '100%',
+    marginBottom: '2rem',
+    [MEDIA_SMALL]: {
+      width: 'auto',
+      marginBottom: 0,
+      marginLeft: '2rem',
+    },
+  },
+});
+
+export const PROGRESS_BAR_STYLE = css({
   marginTop: '2em',
   width: '100%',
   height: '0.5em',
