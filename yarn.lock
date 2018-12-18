@@ -17778,11 +17778,6 @@ react-fuzzy@^0.5.2:
     fuse.js "^3.0.1"
     prop-types "^15.5.9"
 
-react-ga@^2.5.6:
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.6.tgz#5a2e2fa78ae298e5b0a4498210eeec631ef1b562"
-  integrity sha512-g04dz6zrbdHRxVaURPWT3RUbjLflh74sS6dCuhGeZupj7ii+UEt9lwTjALb2ST2w+7wAmzG1YqYlNX4yvRXe1g==
-
 react-input-mask@^1.0.1, react-input-mask@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-1.2.2.tgz#225a1130d316ee54cea7431f004c738b4c41b4da"
