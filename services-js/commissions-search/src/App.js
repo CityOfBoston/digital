@@ -12,6 +12,7 @@ class App extends React.Component {
   properties are copied to the submitted state, which may trigger a refresh of the
   result listing.
   */
+
   constructor(props) {
     super(props);
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       submittedKeywords: '',
       currentAreas: {},
       submittedAreas: {},
+      checkedNames: {},
       currentSeats: 'seats-all',
       submittedSeats: 'seats-all',
     };
@@ -29,40 +31,42 @@ class App extends React.Component {
     const target = event.target;
     const checked = target.checked;
     const name = target.name; //area id
+    const nameval = target.getAttribute('nameval'); //input label name
 
     let currentAreas;
+    let checkedNames;
 
     if (checked === false || checked === null) {
       // remove unchecked key
       currentAreas = update(this.state.currentAreas, { $unset: [name] });
+      //remove unchecked name
+      checkedNames = update(this.state.checkedNames, { $unset: [name] });
     } else {
       // add checked key
       currentAreas = update(this.state.currentAreas, {
         [name]: { $set: checked }, // value checked
       });
+      // add checked key name
+      checkedNames = update(this.state.checkedNames, {
+        [name]: { $set: nameval }, // value checked
+      });
     }
 
     this.setState({ currentAreas });
+    this.setState({ checkedNames });
   };
 
   handleOptionChange = event => {
     this.setState({ currentSeats: event.target.value });
   };
 
+  //get checkbox names from state and send to GA
   findCheckedBoxes4GA = event => {
-    const chkArr = document.getElementsByClassName('cb');
-    const chkLength = chkArr.length;
-    for (var k = 0; k < chkLength; k++) {
-      var checkIt = chkArr[k].firstChild.checked ? true : false;
-      if (checkIt === true) {
-        var children = chkArr[k].childNodes;
-        this.sendEvent2GA(
-          'Search Filter',
-          'Commissions Search',
-          children[1].innerText
-        );
-      }
-    }
+    const chkArr = { ...this.state.checkedNames };
+    Object.keys(chkArr).forEach(key => {
+      const nameValue = chkArr[key];
+      this.sendEvent2GA('Search Filter', 'Commissions Search', nameValue);
+    });
   };
 
   sendEvent2GA = (actionV, categoryV, labelV) => {
