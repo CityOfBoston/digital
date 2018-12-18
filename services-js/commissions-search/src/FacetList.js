@@ -25,6 +25,7 @@ function renderAreaCheckbox(props, policyArea) {
     <Checkbox
       key={`checkbox-area-${policyArea.id}`}
       name={policyArea.id}
+      nameval={labelText}
       onChange={props.handleCheckChange}
       style={{
         marginBottom: '1.5rem',
