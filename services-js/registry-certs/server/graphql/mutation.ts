@@ -45,9 +45,28 @@ interface BirthCertificateOrderItemInput {
   quantity: Int;
 }
 
+/**
+ * Either order or error will be non-null.
+ */
+interface OrderResult {
+  order: SubmittedOrder | null;
+  error: OrderError | null;
+}
+
+interface OrderError {
+  message: string;
+  cause: OrderErrorCause;
+}
+
 interface SubmittedOrder {
   id: string;
   contactEmail: string;
+}
+
+enum OrderErrorCause {
+  /** Problem is a card error that the user should be able to correct. */
+  USER_PAYMENT = 'USER_PAYMENT',
+  INTERNAL = 'INTERNAL',
 }
 
 export interface Mutation extends ResolvableWith<{}> {
@@ -76,7 +95,7 @@ export interface Mutation extends ResolvableWith<{}> {
 
     items: DeathCertificateOrderItemInput[];
     idempotencyKey: string;
-  }): SubmittedOrder;
+  }): OrderResult;
 
   submitBirthCertificateOrder(args: {
     contactName: string;
@@ -104,7 +123,7 @@ export interface Mutation extends ResolvableWith<{}> {
     item: BirthCertificateOrderItemInput;
 
     idempotencyKey: string;
-  }): SubmittedOrder;
+  }): OrderResult;
 }
 
 const mutationResolvers: Resolvers<Mutation, Context> = {
@@ -112,7 +131,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     _root,
     args,
     { rollbar, stripe, emails, registryDb }
-  ): Promise<SubmittedOrder> => {
+  ): Promise<OrderResult> => {
     const {
       contactName,
       contactEmail,
@@ -203,26 +222,42 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       )
     );
 
-    await makeStripeCharge(
-      OrderType.DeathCertificate,
-      { stripe, registryDb, rollbar, emails },
-      {
-        orderId,
-        orderKey,
-        quantity: totalQuantity,
-        total,
-        cardToken,
+    try {
+      await makeStripeCharge(
+        OrderType.DeathCertificate,
+        { stripe, registryDb, rollbar, emails },
+        {
+          orderId,
+          orderKey,
+          quantity: totalQuantity,
+          total,
+          cardToken,
+        }
+      );
+    } catch (e) {
+      // These are user errors due to bad submissions (e.g. wrong CVV code)
+      if (e.type === 'StripeCardError') {
+        return {
+          order: null,
+          error: {
+            message: e.message,
+            cause: OrderErrorCause.USER_PAYMENT,
+          },
+        };
+      } else {
+        // This will cause it to get logged with Rollbar
+        throw e;
       }
-    );
+    }
 
-    return { id: orderId, contactEmail };
+    return { order: { id: orderId, contactEmail }, error: null };
   },
 
   submitBirthCertificateOrder: async (
     _root,
     args,
     { rollbar, stripe, emails, registryDb }
-  ): Promise<SubmittedOrder> => {
+  ): Promise<OrderResult> => {
     const {
       contactName,
       contactEmail,
@@ -319,19 +354,35 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BIRTH_CERTIFICATE_COST / 100
     );
 
-    await makeStripeCharge(
-      OrderType.BirthCertificate,
-      { stripe, registryDb, rollbar, emails },
-      {
-        orderId,
-        orderKey,
-        quantity: item.quantity,
-        total,
-        cardToken,
+    try {
+      await makeStripeCharge(
+        OrderType.BirthCertificate,
+        { stripe, registryDb, rollbar, emails },
+        {
+          orderId,
+          orderKey,
+          quantity: item.quantity,
+          total,
+          cardToken,
+        }
+      );
+    } catch (e) {
+      // These are user errors due to bad submissions (e.g. wrong CVV code)
+      if (e.type === 'StripeCardError') {
+        return {
+          order: null,
+          error: {
+            message: e.message,
+            cause: OrderErrorCause.USER_PAYMENT,
+          },
+        };
+      } else {
+        // This will cause it to get logged with Rollbar
+        throw e;
       }
-    );
+    }
 
-    return { id: orderId, contactEmail };
+    return { order: { id: orderId, contactEmail }, error: null };
   },
 };
 
@@ -533,10 +584,6 @@ async function makeStripeCharge(
       await processChargeSucceeded({ stripe, emails, registryDb }, charge);
     }
   } catch (e) {
-    if (e.type === 'StripeCardError') {
-      // Keeps us from sending customer errors to Rollbar
-      e.silent = true;
-    }
     try {
       await registryDb.cancelOrder(orderKey, 'Stripe charge create failed');
     } catch (e) {
@@ -545,6 +592,7 @@ async function makeStripeCharge(
       // error.
       rollbar.error(e);
     }
+
     throw e;
   }
 }

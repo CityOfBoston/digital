@@ -5,6 +5,7 @@ import Order from '../models/Order';
 import {
   SubmitDeathCertificateOrder,
   SubmitDeathCertificateOrderVariables,
+  SubmitDeathCertificateOrder_submitDeathCertificateOrder,
 } from './graphql-types';
 
 const QUERY = gql`
@@ -52,7 +53,13 @@ const QUERY = gql`
       items: $items
       idempotencyKey: $idempotencyKey
     ) {
-      id
+      order {
+        id
+      }
+      error {
+        message
+        cause
+      }
     }
   }
 `;
@@ -61,7 +68,7 @@ export default async function submitDeathCertificateOrder(
   fetchGraphql: FetchGraphql,
   cart: Cart,
   order: Order
-): Promise<string> {
+): Promise<SubmitDeathCertificateOrder_submitDeathCertificateOrder> {
   const {
     info: {
       contactName,
@@ -130,5 +137,5 @@ export default async function submitDeathCertificateOrder(
     queryVariables
   );
 
-  return response.submitDeathCertificateOrder.id;
+  return response.submitDeathCertificateOrder;
 }

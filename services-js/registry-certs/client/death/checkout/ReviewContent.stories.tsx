@@ -6,6 +6,9 @@ import { DeathCertificate } from '../../types.js';
 import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
+import { SubmissionError } from '../../dao/CheckoutDao';
+import { OrderErrorCause } from '../../queries/graphql-types';
+
 import ReviewContent from './ReviewContent';
 
 import {
@@ -62,26 +65,52 @@ storiesOf('Checkout/ReviewContent', module)
     <ReviewContent
       cart={makeCart()}
       order={makeOrder()}
-      submit={action('submit')}
+      submit={action('submit') as any}
     />
   ))
   .add('cart has pending certs', () => (
     <ReviewContent
       cart={makeCart([PENDING_CERTIFICATE])}
       order={makeOrder()}
-      submit={action('submit')}
+      submit={action('submit') as any}
+    />
+  ))
+  .add('submitting', () => (
+    <ReviewContent
+      cart={makeCart()}
+      order={(() => {
+        const order = makeOrder();
+        order.processing = true;
+
+        return order;
+      })()}
+      submit={action('submit') as any}
+      showErrorsForTest
     />
   ))
   .add('submission error', () => (
     <ReviewContent
       cart={makeCart()}
-      order={(() => {
-        const order = makeOrder();
-        order.processingError = 'The order could not be processed.';
-
-        return order;
-      })()}
-      submit={action('submit')}
-      showErrorsForTest
+      order={makeOrder()}
+      submit={action('submit') as any}
+      testSubmissionError={
+        new SubmissionError(
+          'The order could not be processed.',
+          OrderErrorCause.INTERNAL
+        )
+      }
+    />
+  ))
+  .add('payment error', () => (
+    <ReviewContent
+      cart={makeCart()}
+      order={makeOrder()}
+      submit={action('submit') as any}
+      testSubmissionError={
+        new SubmissionError(
+          "Your card's security code is incorrect",
+          OrderErrorCause.USER_PAYMENT
+        )
+      }
     />
   ));
