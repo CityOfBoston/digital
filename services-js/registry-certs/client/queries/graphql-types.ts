@@ -128,8 +128,18 @@ export interface SearchDeathCertificatesVariables {
 // GraphQL mutation operation: SubmitDeathCertificateOrder
 // ====================================================
 
-export interface SubmitDeathCertificateOrder_submitDeathCertificateOrder {
+export interface SubmitDeathCertificateOrder_submitDeathCertificateOrder_order {
   id: string;
+}
+
+export interface SubmitDeathCertificateOrder_submitDeathCertificateOrder_error {
+  message: string;
+  cause: OrderErrorCause;
+}
+
+export interface SubmitDeathCertificateOrder_submitDeathCertificateOrder {
+  order: SubmitDeathCertificateOrder_submitDeathCertificateOrder_order | null;
+  error: SubmitDeathCertificateOrder_submitDeathCertificateOrder_error | null;
 }
 
 export interface SubmitDeathCertificateOrder {
@@ -165,6 +175,11 @@ export interface SubmitDeathCertificateOrderVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export enum OrderErrorCause {
+  INTERNAL = 'INTERNAL',
+  USER_PAYMENT = 'USER_PAYMENT',
+}
 
 // undefined
 export interface DeathCertificateOrderItemInput {

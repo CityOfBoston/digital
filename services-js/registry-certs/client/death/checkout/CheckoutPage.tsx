@@ -1,7 +1,7 @@
 // Wrapper controller for the separate pages along the checkout flow
 
 import React from 'react';
-import { reaction, runInAction } from 'mobx';
+import { runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
@@ -47,7 +47,7 @@ export type PageDependenciesProps = Pick<
 interface Props extends InitialProps, PageDependenciesProps {}
 
 @observer
-class CheckoutPageController extends React.Component<Props> {
+export default class CheckoutPageController extends React.Component<Props> {
   static getInitialProps: GetInitialProps<InitialProps, 'query' | 'res'> = ({
     query,
     res,
@@ -107,12 +107,10 @@ class CheckoutPageController extends React.Component<Props> {
   // want.
   //
   // Set in componentWillMount, so it always is non-null;
-  order: Order = null as any;
-
-  errorAccessibilityDisposer: Function | null = null;
+  private order: Order = null as any;
 
   componentWillMount() {
-    const { orderProvider, screenReaderSupport } = this.props;
+    const { orderProvider } = this.props;
 
     this.reportCheckoutStep(this.props);
 
@@ -120,28 +118,10 @@ class CheckoutPageController extends React.Component<Props> {
     // written back there.
     const order = orderProvider.get();
     this.order = order;
-
-    this.errorAccessibilityDisposer = reaction(
-      () => order.processingError,
-      processingError => {
-        if (processingError) {
-          screenReaderSupport.announce(
-            `There’s a problem: ${processingError}. You can try again. If this keeps happening, please email digital@boston.gov.`,
-            true
-          );
-        }
-      }
-    );
   }
 
   componentDidMount() {
     this.redirectIfMissingOrderInfo(this.props);
-  }
-
-  componentWillUnmount() {
-    if (this.errorAccessibilityDisposer) {
-      this.errorAccessibilityDisposer();
-    }
   }
 
   componentWillReceiveProps(newProps: Props) {
@@ -194,49 +174,48 @@ class CheckoutPageController extends React.Component<Props> {
     const { order } = this;
     const { checkoutDao } = this.props;
 
-    const success = await checkoutDao.tokenizeCard(order, cardElement);
+    // This may throw, in which case the payment page will catch it and display
+    // the error.
+    await checkoutDao.tokenizeCard(order, cardElement);
 
-    if (success) {
-      await Router.push('/death/checkout?page=review', '/death/checkout');
-      window.scroll(0, 0);
-    }
+    await Router.push('/death/checkout?page=review', '/death/checkout');
+    window.scroll(0, 0);
   };
 
+  /**
+   * Submits the order.
+   *
+   * Will throw exceptions if things didn’t go well.
+   */
   submitOrder = async () => {
     const { order } = this;
     const { deathCertificateCart, checkoutDao, siteAnalytics } = this.props;
 
     const orderId = await checkoutDao.submit(deathCertificateCart, order);
 
-    if (orderId) {
-      deathCertificateCart.trackCartItems();
-      siteAnalytics.setProductAction('purchase', {
-        id: orderId,
-        revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
-      });
-      siteAnalytics.sendEvent('click', {
-        category: 'UX',
-        label: 'submit order',
-      });
+    deathCertificateCart.trackCartItems();
+    siteAnalytics.setProductAction('purchase', {
+      id: orderId,
+      revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
+    });
+    siteAnalytics.sendEvent('click', {
+      category: 'UX',
+      label: 'submit order',
+    });
 
-      runInAction(() => {
-        deathCertificateCart.clear();
-        this.order = new Order();
-      });
+    runInAction(() => {
+      deathCertificateCart.clear();
+      this.order = new Order();
+    });
 
-      await Router.push(
-        `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
-          orderId
-        )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-        '/death/checkout'
-      );
+    await Router.push(
+      `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
+        orderId
+      )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
+      '/death/checkout'
+    );
 
-      window.scroll(0, 0);
-
-      return true;
-    } else {
-      return false;
-    }
+    window.scroll(0, 0);
   };
 
   render() {
@@ -283,9 +262,3 @@ class CheckoutPageController extends React.Component<Props> {
     }
   }
 }
-
-export default (CheckoutPageController as any) as React.ComponentClass<
-  Props
-> & {
-  getInitialProps: (typeof CheckoutPageController)['getInitialProps'];
-};

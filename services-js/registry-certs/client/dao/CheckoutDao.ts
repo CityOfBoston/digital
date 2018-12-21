@@ -6,6 +6,19 @@ import DeathCertificateCart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
+import {
+  OrderErrorCause,
+  SubmitDeathCertificateOrder_submitDeathCertificateOrder,
+} from '../queries/graphql-types';
+
+export class SubmissionError extends Error {
+  public readonly cause: OrderErrorCause;
+
+  constructor(message: string, cause: OrderErrorCause) {
+    super(message);
+    this.cause = cause;
+  }
+}
 
 export default class CheckoutDao {
   fetchGraphql: FetchGraphql;
@@ -16,15 +29,25 @@ export default class CheckoutDao {
     this.stripe = stripe;
   }
 
-  // Given a StripeElement object, tokenizes the card info with Stripe and, if
-  // successful, populates the cardToken and cardLast4 values in Order’s info
-  // and returns true. Returns false and populates processingError if it fails
-  // for network or validation reasons.
+  /**
+   * Given a StripeElement object, tokenizes the card info with Stripe and, if
+   * successful, populates the cardToken and cardLast4 values in Order’s info.
+   *
+   * We rely on Stripe’s form validation to catch straightforward errors (such
+   * as a card number that doesn’t match the formula) so we’re fairly sure that
+   * tokenization will succeed so we don’t need to handle the errors very
+   * delicately.
+   *
+   * Sets Order#processing to true while the API call is outstanding
+   *
+   * @throws An Error if things did not work. Reports to Rollbar so that callers
+   * don’t have to.
+   */
   @action
   async tokenizeCard(
     order: Order,
     cardElement: stripe.elements.Element | null
-  ): Promise<boolean> {
+  ): Promise<void> {
     const { stripe } = this;
 
     if (!stripe || !cardElement) {
@@ -35,7 +58,6 @@ export default class CheckoutDao {
 
     try {
       order.processing = true;
-      order.processingError = null;
 
       const tokenResult = await stripe.createToken(cardElement, {
         name: order.info.cardholderName,
@@ -48,23 +70,18 @@ export default class CheckoutDao {
       });
 
       if (tokenResult.error) {
-        runInAction(() => {
-          order.processingError =
-            (tokenResult.error && tokenResult.error.message) || null;
-        });
-
-        return false;
+        throw new Error(tokenResult.error.message);
       } else {
         const { token } = tokenResult;
 
         if (!token) {
-          return false;
+          throw new Error('Token was not in token result');
         }
 
         const { card } = token;
 
         if (!card) {
-          return false;
+          throw new Error('Card was not in token result');
         }
 
         runInAction(() => {
@@ -72,21 +89,14 @@ export default class CheckoutDao {
           order.cardFunding = card.funding;
           order.info.cardLast4 = card.last4;
         });
-
-        return true;
       }
     } catch (err) {
-      runInAction(() => {
-        order.processingError =
-          err.message || `Unexpected error submitting order: ${err}`;
-      });
-
       if ((window as any).Rollbar && !err._reportedException) {
         (window as any).Rollbar.error(err);
         err._reportedException = true;
       }
 
-      return false;
+      throw err;
     } finally {
       runInAction(() => {
         order.processing = false;
@@ -94,35 +104,52 @@ export default class CheckoutDao {
     }
   }
 
-  // Does not reject. Instead stores errors in Order.processingError
+  /**
+   * Submits the given cart’s worth of certificates with the order data
+   * (address, &c.).
+   *
+   * Sets Order#processing to true while the API call is outstanding
+   *
+   * @returns The order ID on success.
+   * @throws Error or SubmissionError objects. Reports errors to Rollbar.
+   */
   @action
-  async submit(
-    cart: DeathCertificateCart,
-    order: Order
-  ): Promise<string | null> {
+  async submit(cart: DeathCertificateCart, order: Order): Promise<string> {
     try {
       order.processing = true;
-      order.processingError = null;
 
-      const orderId = await submitDeathCertificateOrder(
-        this.fetchGraphql,
-        cart,
-        order
-      );
+      let orderResult: SubmitDeathCertificateOrder_submitDeathCertificateOrder;
 
-      return orderId;
-    } catch (err) {
-      runInAction(() => {
-        order.processingError =
-          err.message || `Unexpected error submitting order: ${err}`;
-      });
+      try {
+        orderResult = await submitDeathCertificateOrder(
+          this.fetchGraphql,
+          cart,
+          order
+        );
+      } catch (err) {
+        // These errors will be network sorts of errors.
+        if ((window as any).Rollbar && !err._reportedException) {
+          (window as any).Rollbar.error(err);
+          err._reportedException = true;
+        }
 
-      if ((window as any).Rollbar && !err._reportedException) {
-        (window as any).Rollbar.error(err);
-        err._reportedException = true;
+        throw err;
       }
 
-      return null;
+      if (orderResult.order) {
+        return orderResult.order.id;
+      } else if (orderResult.error) {
+        // We don't need this to be reported to Rollbar. If it’s an internal
+        // error, the server would have reported it, and if it’s a user error
+        // (card information) we don’t care.
+        throw new SubmissionError(
+          orderResult.error.message,
+          orderResult.error.cause
+        );
+      } else {
+        // This won’t happen
+        throw new Error('Result did not have an order or error');
+      }
     } finally {
       runInAction(() => {
         order.processing = false;

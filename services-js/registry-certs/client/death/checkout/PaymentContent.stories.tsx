@@ -111,14 +111,10 @@ storiesOf('Checkout/PaymentContent', module)
     <PaymentContent
       cart={makeCart()}
       stripe={makeStripe()}
-      order={(() => {
-        const order = makeBillingCompleteOrder();
-        order.processingError = 'The card could not be tokenized.';
-
-        return order;
-      })()}
+      order={makeBillingCompleteOrder()}
       submit={action('submit')}
       showErrorsForTest
+      tokenizationErrorForTest="The card could not be tokenized"
     />
   ))
   .add('existing billing', () => (

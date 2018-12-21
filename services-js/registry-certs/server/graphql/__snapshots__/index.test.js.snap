@@ -80,6 +80,9 @@ GraphQLSchema {
     "Float": "Float",
     "Int": "Int",
     "Mutation": "Mutation",
+    "OrderError": "OrderError",
+    "OrderErrorCause": "OrderErrorCause",
+    "OrderResult": "OrderResult",
     "Query": "Query",
     "String": "String",
     "SubmittedOrder": "SubmittedOrder",
@@ -96,28 +99,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3093,
-      "start": 3047,
+      "end": 3271,
+      "start": 3225,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3076,
-          "start": 3058,
+          "end": 3254,
+          "start": 3236,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3076,
-            "start": 3068,
+            "end": 3254,
+            "start": 3246,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3076,
-              "start": 3068,
+              "end": 3254,
+              "start": 3246,
             },
             "value": "Mutation",
           },
@@ -126,21 +129,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3091,
-          "start": 3079,
+          "end": 3269,
+          "start": 3257,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3091,
-            "start": 3086,
+            "end": 3269,
+            "start": 3264,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3091,
-              "start": 3086,
+              "end": 3269,
+              "start": 3264,
             },
             "value": "Query",
           },

@@ -53,10 +53,6 @@ export default class Order {
   // backend.
   @observable processing: boolean = false;
 
-  // An error string arising from a network operation, suck as tokenizing the
-  // card with Stripe or submitting the order to the backend.
-  @observable processingError: string | null = null;
-
   updateStorageDisposer: Function | null = null;
 
   readonly localStorageAvailable: boolean;
