@@ -70,7 +70,6 @@ export async function addForgotPasswordAuth(
     );
   } else {
     samlAuth = new SamlAuthFake({
-      assertUrl: FORGOT_ASSERT_PATH,
       loginFormUrl: FAKE_FORGOT_LOGIN_FORM_PATH,
     }) as any;
   }
@@ -116,7 +115,7 @@ export async function addForgotPasswordAuth(
     },
     handler: async (request, h) => {
       const assertResult = await samlAuth.handlePostAssert(
-        request.payload as string
+        request.payload as any
       );
 
       if (assertResult.type !== 'login') {
