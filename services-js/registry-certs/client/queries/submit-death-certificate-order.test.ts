@@ -37,6 +37,8 @@ test('submitDeathCertificateOrder', async () => {
 
     cardholderName: 'Nancy Whitehead',
     cardLast4: '4040',
+    cardToken: 'tok_testtoken',
+    cardFunding: 'credit',
 
     billingAddressSameAsShippingAddress: false,
 
@@ -47,7 +49,6 @@ test('submitDeathCertificateOrder', async () => {
     billingZip: '12223',
   };
 
-  order.cardToken = 'tok_testtoken';
   order.idempotencyKey = '1234abcd';
 
   await submitDeathCertificateOrder(fetchGraphql, cart, order);

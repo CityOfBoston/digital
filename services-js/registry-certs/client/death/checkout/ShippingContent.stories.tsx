@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 
 import ShippingContent from './ShippingContent';
 
@@ -23,7 +23,7 @@ function makeCart() {
   return cart;
 }
 
-function makeOrder(overrides = {}) {
+function makeOrder(overrides: Partial<OrderInfo> = {}) {
   return new Order({
     storeContactAndShipping: true,
     storeBilling: false,
@@ -42,6 +42,8 @@ function makeOrder(overrides = {}) {
 
     cardholderName: 'Nancy Whitehead',
     cardLast4: '4040',
+    cardToken: null,
+    cardFunding: 'unknown',
 
     billingAddressSameAsShippingAddress: true,
 

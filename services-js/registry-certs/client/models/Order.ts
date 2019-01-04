@@ -26,6 +26,8 @@ export interface OrderInfo {
 
   cardholderName: string;
   cardLast4: string;
+  cardToken: string | null;
+  cardFunding: 'credit' | 'debit' | 'prepaid' | 'unknown';
 
   billingAddressSameAsShippingAddress: boolean;
 
@@ -38,10 +40,6 @@ export interface OrderInfo {
 
 export default class Order {
   @observable info: OrderInfo = null as any;
-
-  @observable cardToken: string | null = null;
-  @observable
-  cardFunding: 'credit' | 'debit' | 'prepaid' | 'unknown' = 'credit';
 
   @observable cardElementError: string | null = null;
   @observable cardElementComplete: boolean = false;
@@ -78,6 +76,8 @@ export default class Order {
 
       cardholderName: '',
       cardLast4: '',
+      cardToken: null,
+      cardFunding: 'unknown',
 
       billingAddressSameAsShippingAddress: true,
 
@@ -162,8 +162,8 @@ export default class Order {
   resetCard() {
     this.cardElementComplete = false;
     this.cardElementError = null;
-    this.cardToken = null;
-    this.cardFunding = 'credit';
+    this.info.cardToken = null;
+    this.info.cardFunding = 'credit';
     this.info.cardLast4 = '';
   }
 

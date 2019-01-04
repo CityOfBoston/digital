@@ -125,8 +125,8 @@ export default class ReviewContent extends React.Component<Props, State> {
 
         cardholderName,
         cardLast4,
+        cardFunding,
       },
-      cardFunding,
       billingAddress1,
       billingAddress2,
       billingCity,

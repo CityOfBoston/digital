@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import { DeathCertificate } from '../../types.js';
 import Cart from '../../store/DeathCertificateCart';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 
 import { SubmissionError } from '../../dao/CheckoutDao';
 import { OrderErrorCause } from '../../queries/graphql-types';
@@ -28,7 +28,7 @@ function makeCart(extraCerts?: Array<DeathCertificate>) {
   return cart;
 }
 
-function makeOrder(overrides = {}) {
+function makeOrder(overrides: Partial<OrderInfo> = {}) {
   return new Order({
     storeContactAndShipping: true,
     storeBilling: false,
@@ -47,6 +47,8 @@ function makeOrder(overrides = {}) {
 
     cardholderName: 'Nancy Whitehead',
     cardLast4: '4040',
+    cardToken: 'tok_12345',
+    cardFunding: 'credit',
 
     billingAddressSameAsShippingAddress: false,
 

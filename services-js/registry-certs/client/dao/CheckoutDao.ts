@@ -85,8 +85,8 @@ export default class CheckoutDao {
         }
 
         runInAction(() => {
-          order.cardToken = token.id;
-          order.cardFunding = card.funding;
+          order.info.cardToken = token.id;
+          order.info.cardFunding = card.funding;
           order.info.cardLast4 = card.last4;
         });
       }

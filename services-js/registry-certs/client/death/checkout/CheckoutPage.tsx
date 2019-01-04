@@ -189,7 +189,12 @@ export default class CheckoutPageController extends React.Component<Props> {
    */
   submitOrder = async () => {
     const { order } = this;
-    const { deathCertificateCart, checkoutDao, siteAnalytics } = this.props;
+    const {
+      deathCertificateCart,
+      checkoutDao,
+      siteAnalytics,
+      orderProvider,
+    } = this.props;
 
     const orderId = await checkoutDao.submit(deathCertificateCart, order);
 
@@ -205,7 +210,9 @@ export default class CheckoutPageController extends React.Component<Props> {
 
     runInAction(() => {
       deathCertificateCart.clear();
-      this.order = new Order();
+      orderProvider.clear();
+
+      this.order = orderProvider.get();
     });
 
     await Router.push(
