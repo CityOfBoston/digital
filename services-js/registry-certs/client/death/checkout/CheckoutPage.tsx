@@ -196,7 +196,10 @@ export default class CheckoutPageController extends React.Component<Props> {
       orderProvider,
     } = this.props;
 
-    const orderId = await checkoutDao.submit(deathCertificateCart, order);
+    const orderId = await checkoutDao.submitDeathCertificateCart(
+      deathCertificateCart,
+      order
+    );
 
     deathCertificateCart.trackCartItems();
     siteAnalytics.setProductAction('purchase', {
