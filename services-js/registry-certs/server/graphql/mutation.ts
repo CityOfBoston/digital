@@ -292,22 +292,8 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     validateAddresses(args);
 
-    // We do a re-search during checkout, rather than accepting an ID, so that
-    // you can’t just plug in an ID you don’t know the search information for
-    // and buy it.
-    const ids = await registryDb.searchBirthCertificates(
-      item.firstName,
-      item.lastName,
-      item.dob,
-      item.parent1FirstName,
-      item.parent2FirstName
-    );
-
-    if (ids.length !== 1) {
-      throw new Error(
-        'Did not find exactly one certificate for those search terms'
-      );
-    }
+    // TODO(finh): Fix all of this when new order queries are ready
+    const ids = [0];
 
     // These are all in cents, to match Stripe
     const { total, serviceFee } = await calculateCostForToken(

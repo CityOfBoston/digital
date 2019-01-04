@@ -143,8 +143,6 @@ describe('Mutation resolvers', () => {
     });
 
     it('throws if a validator fails', async () => {
-      registryDb.searchBirthCertificates.mockReturnValue([]);
-
       await expect(
         resolvers.Mutation.submitBirthCertificateOrder(
           {},
@@ -154,19 +152,6 @@ describe('Mutation resolvers', () => {
             contactName: '',
           },
           { registryDb } as any
-        )
-      ).rejects.toMatchSnapshot();
-    });
-
-    it('throws if search fails to find', async () => {
-      await expect(
-        resolvers.Mutation.submitBirthCertificateOrder(
-          {},
-          {
-            ...DEFAULT_ORDER,
-            item: DEFAULT_BIRTH_ITEM,
-          },
-          { registryDb: new RegistryDb(null as any) } as any
         )
       ).rejects.toMatchSnapshot();
     });

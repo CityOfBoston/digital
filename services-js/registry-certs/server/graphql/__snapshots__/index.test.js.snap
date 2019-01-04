@@ -67,8 +67,6 @@ GraphQLSchema {
   "_subscriptionType": null,
   "_typeMap": Object {
     "BirthCertificateOrderItemInput": "BirthCertificateOrderItemInput",
-    "BirthCertificateSearch": "BirthCertificateSearch",
-    "BirthCertificates": "BirthCertificates",
     "Boolean": "Boolean",
     "CertificateOrderItem": "CertificateOrderItem",
     "Date": "Date",
@@ -99,28 +97,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3271,
-      "start": 3225,
+      "end": 3018,
+      "start": 2972,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3254,
-          "start": 3236,
+          "end": 3001,
+          "start": 2983,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3254,
-            "start": 3246,
+            "end": 3001,
+            "start": 2993,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3254,
-              "start": 3246,
+              "end": 3001,
+              "start": 2993,
             },
             "value": "Mutation",
           },
@@ -129,21 +127,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3269,
-          "start": 3257,
+          "end": 3016,
+          "start": 3004,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3269,
-            "start": 3264,
+            "end": 3016,
+            "start": 3011,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3269,
-              "start": 3264,
+              "end": 3016,
+              "start": 3011,
             },
             "value": "Query",
           },
