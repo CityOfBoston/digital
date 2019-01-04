@@ -9,6 +9,7 @@ import {
   GRAY_300,
   LORA_SRC,
   FREEDOM_RED,
+  StatusModal,
 } from '@cityofboston/react-fleet';
 
 import PageLayout from '../../PageLayout';
@@ -29,19 +30,26 @@ interface Props {
   cart: Cart;
   order: Order;
   showErrorsForTest?: boolean;
+  tokenizationErrorForTest?: string;
 }
 
 interface State {
   touchedFields: Partial<{ [key in keyof OrderInfo]: boolean }>;
+  tokenizationError: null | string;
 }
 
 @observer
 export default class PaymentContent extends React.Component<Props, State> {
-  state: State = {
-    touchedFields: {},
-  };
+  private cardElement: stripe.elements.Element | null = null;
 
-  cardElement: stripe.elements.Element | null = null;
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      touchedFields: {},
+      tokenizationError: props.tokenizationErrorForTest || null,
+    };
+  }
 
   componentWillMount() {
     const { stripe, order, showErrorsForTest } = this.props;
@@ -130,7 +138,12 @@ export default class PaymentContent extends React.Component<Props, State> {
     ev.preventDefault();
 
     const { submit } = this.props;
-    submit(this.cardElement);
+
+    try {
+      submit(this.cardElement);
+    } catch (e) {
+      this.setState({ tokenizationError: e.message || 'An unknown error' });
+    }
   };
 
   fieldListeners(fieldName: keyof OrderInfo) {
@@ -189,6 +202,7 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   render() {
     const { cart, order } = this.props;
+    const { tokenizationError } = this.state;
 
     const {
       paymentIsComplete,
@@ -196,7 +210,6 @@ export default class PaymentContent extends React.Component<Props, State> {
       cardElementError,
       cardElementComplete,
       processing,
-      processingError,
       info: {
         storeBilling,
         shippingAddress1,
@@ -489,19 +502,19 @@ export default class PaymentContent extends React.Component<Props, State> {
               )}
             </fieldset>
 
-            {processingError && (
-              <div
-                className="m-v500 p-a300 br br-a100 br--r"
-                id="processing-error"
+            {tokenizationError && (
+              <StatusModal
+                message={`There’s a problem: ${tokenizationError}`}
+                error
+                onClose={() => {
+                  this.setState({ tokenizationError: null });
+                }}
               >
-                <div className="t--intro t--err">
-                  There’s a problem: {processingError}
-                </div>
-                <div className="t--info">
+                <div className="t--info m-t300">
                   You can try again. If this keeps happening, please email{' '}
                   <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
                 </div>
-              </div>
+              </StatusModal>
             )}
 
             <div className="g g--r g--vc">
@@ -509,9 +522,6 @@ export default class PaymentContent extends React.Component<Props, State> {
                 <button
                   className="btn btn--b"
                   type="submit"
-                  {...(processingError
-                    ? { 'aria-describedby': 'processing-error' }
-                    : {})}
                   disabled={
                     !paymentIsComplete || !cardElementComplete || processing
                   }

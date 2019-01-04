@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import update from 'immutability-helper';
-
 import Search from './Search';
 import FacetList from './FacetList';
 import ResultList from './ResultList';
@@ -13,6 +12,7 @@ class App extends React.Component {
   properties are copied to the submitted state, which may trigger a refresh of the
   result listing.
   */
+
   constructor(props) {
     super(props);
 
@@ -21,6 +21,7 @@ class App extends React.Component {
       submittedKeywords: '',
       currentAreas: {},
       submittedAreas: {},
+      checkedNames: {},
       currentSeats: 'seats-all',
       submittedSeats: 'seats-all',
     };
@@ -30,24 +31,51 @@ class App extends React.Component {
     const target = event.target;
     const checked = target.checked;
     const name = target.name; //area id
+    const nameval = target.getAttribute('nameval'); //input label name
 
     let currentAreas;
+    let checkedNames;
 
     if (checked === false || checked === null) {
       // remove unchecked key
       currentAreas = update(this.state.currentAreas, { $unset: [name] });
+      //remove unchecked name
+      checkedNames = update(this.state.checkedNames, { $unset: [name] });
     } else {
       // add checked key
       currentAreas = update(this.state.currentAreas, {
         [name]: { $set: checked }, // value checked
       });
+      // add checked key name
+      checkedNames = update(this.state.checkedNames, {
+        [name]: { $set: nameval }, // value checked
+      });
     }
 
     this.setState({ currentAreas });
+    this.setState({ checkedNames });
   };
 
   handleOptionChange = event => {
     this.setState({ currentSeats: event.target.value });
+  };
+
+  //get checkbox names from state and send to GA
+  findCheckedBoxes4GA = event => {
+    const chkArr = { ...this.state.checkedNames };
+    Object.keys(chkArr).forEach(key => {
+      const nameValue = chkArr[key];
+      this.sendEvent2GA('Search Filter', 'Commissions Search', nameValue);
+    });
+  };
+
+  sendEvent2GA = (actionV, categoryV, labelV) => {
+    window.dataLayer.push({
+      event: 'boards_commissions',
+      eventCategory: categoryV,
+      eventAction: actionV,
+      eventLabel: labelV,
+    });
   };
 
   handleFacetSubmit = event => {
@@ -57,6 +85,9 @@ class App extends React.Component {
       submittedAreas: this.state.currentAreas,
       submittedSeats: this.state.currentSeats,
     });
+
+    //send search terms to GA Event Tracking
+    this.findCheckedBoxes4GA();
   };
 
   handleKeywordChange = event => {
@@ -69,6 +100,12 @@ class App extends React.Component {
     this.setState({
       submittedKeywords: this.state.currentKeywords,
     });
+    //send search terms to GA Event Tracking
+    this.sendEvent2GA(
+      'Search Box',
+      'Commissions Search',
+      this.state.currentKeywords
+    );
   };
 
   render() {

@@ -1,0 +1,24 @@
+[
+  {
+    "location": {
+      "lat": 42.35701867188934,
+      "lng": -71.05761059235796
+    },
+    "address": "50 Milk St\nBoston",
+    "addressId": "95446",
+    "buildingId": "136615",
+    "exact": true,
+    "alwaysUseLatLng": false
+  },
+  {
+    "location": {
+      "lat": 42.2979686622425,
+      "lng": -71.05158058749421
+    },
+    "address": "50 Mill St\nDorchester",
+    "addressId": "95485",
+    "buildingId": "188966",
+    "exact": true,
+    "alwaysUseLatLng": false
+  }
+]

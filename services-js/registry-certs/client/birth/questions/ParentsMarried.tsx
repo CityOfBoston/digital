@@ -4,12 +4,12 @@ import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
-import { YesNoUnknownAnswer } from '../types';
+import { YesNoUnknownAnswer } from '../../types';
 
 interface Props {
   forSelf: boolean | null;
   firstName: string;
-  parentsMarried?: YesNoUnknownAnswer;
+  parentsMarried: YesNoUnknownAnswer;
 
   handleProceed: (answers: State) => void;
   handleStepBack: () => void;
@@ -19,12 +19,18 @@ interface State {
   parentsMarried: YesNoUnknownAnswer;
 }
 
+/**
+ * If the user selects NO, we’ll know that the birth record is
+ * (probably) a restricted record.
+ *
+ * https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter46/Section2A
+ */
 export default class ParentsMarried extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      parentsMarried: props.parentsMarried || '',
+      parentsMarried: props.parentsMarried,
     };
   }
 

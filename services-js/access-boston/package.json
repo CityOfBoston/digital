@@ -17,7 +17,7 @@
     "pretest": "npm run prebuild && tsc --noEmit",
     "test": "npm run testcafe:local && scripts/test.js",
     "testcafe:dev": "testcafe-live remote src/**/*.testcafe.*",
-    "testcafe:local": "npm run build && cross-env TEST_SERVER_URL=http://localhost:3032 PORT=3032 NODE_ENV=testcafe testcafe -a 'node build/server/start' --app-init-delay 3000 -S -s screenshots -c 3 chrome:headless src/**/*.testcafe.*",
+    "testcafe:local": "npm run build && cross-env TEST_SERVER_URL=http://localhost:3032 PORT=3032 NODE_ENV=testcafe testcafe -a 'node build/server/start' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless src/**/*.testcafe.*",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name access-boston --target typescript --output src/client/graphql/queries.ts && prettier --write src/client/graphql/queries.ts",
     "prepare-deploy": "build-storybook -s static",

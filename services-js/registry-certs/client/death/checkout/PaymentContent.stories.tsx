@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 
 import PaymentContent from './PaymentContent';
 
@@ -28,7 +28,7 @@ function makeCart() {
   return cart;
 }
 
-function makeShippingCompleteOrder(overrides = {}) {
+function makeShippingCompleteOrder(overrides: Partial<OrderInfo> = {}) {
   return new Order({
     storeContactAndShipping: true,
     storeBilling: false,
@@ -46,7 +46,9 @@ function makeShippingCompleteOrder(overrides = {}) {
     shippingZip: '12345',
 
     cardholderName: 'Nancy Whitehead',
-    cardLast4: '4040',
+    cardLast4: '',
+    cardToken: null,
+    cardFunding: 'unknown',
 
     billingAddressSameAsShippingAddress: true,
 
@@ -62,6 +64,10 @@ function makeShippingCompleteOrder(overrides = {}) {
 
 function makeBillingCompleteOrder(overrides = {}) {
   return makeShippingCompleteOrder({
+    cardLast4: '4040',
+    cardToken: 'tok_12345',
+    cardFunding: 'credit',
+
     billingAddressSameAsShippingAddress: false,
 
     billingAddress1: '3 Avengers Towers',
@@ -111,14 +117,10 @@ storiesOf('Checkout/PaymentContent', module)
     <PaymentContent
       cart={makeCart()}
       stripe={makeStripe()}
-      order={(() => {
-        const order = makeBillingCompleteOrder();
-        order.processingError = 'The card could not be tokenized.';
-
-        return order;
-      })()}
+      order={makeBillingCompleteOrder()}
       submit={action('submit')}
       showErrorsForTest
+      tokenizationErrorForTest="The card could not be tokenized"
     />
   ))
   .add('existing billing', () => (

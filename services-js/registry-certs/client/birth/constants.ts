@@ -1,3 +1,5 @@
+import { Question } from '../types';
+
 import { BreadcrumbNavigation } from '../PageLayout';
 
 export const BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
@@ -16,3 +18,12 @@ export const BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
     text: 'Birth certificates',
   },
 };
+
+export const QUESTIONS: Question[] = [
+  'forSelf',
+  'bornInBoston',
+  'nameOnRecord',
+  'dateOfBirth',
+  'parentsMarried',
+  'parentsNames',
+];

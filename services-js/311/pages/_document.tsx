@@ -183,7 +183,7 @@ export default class extends Document {
           </div>
           <script
             src={`${process.env.WEB_COMPONENTS_URI ||
-              'https://patterns.boston.gov/web-components/all.js'}?k=${cacheParam}`}
+              'https://patterns.boston.gov/web-components/fleetcomponents.js'}?k=${cacheParam}`}
           />
           <NextScript />
           <ContactForm

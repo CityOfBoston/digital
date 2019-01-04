@@ -2,6 +2,7 @@ import { FetchGraphql } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
+import { OrderErrorCause } from '../queries/graphql-types';
 
 import CheckoutDao from './CheckoutDao';
 
@@ -45,11 +46,10 @@ describe('tokenizeCard', () => {
     const tokenizePromise = dao.tokenizeCard(order, cardElement);
     expect(order.processing).toEqual(true);
 
-    const success = await tokenizePromise;
+    await expect(tokenizePromise).resolves.toBeUndefined();
 
-    expect(success).toEqual(true);
-    expect(order.cardToken).toEqual('tok_id');
-    expect(order.cardFunding).toEqual('debit');
+    expect(order.info.cardToken).toEqual('tok_id');
+    expect(order.info.cardFunding).toEqual('debit');
     expect(order.info.cardLast4).toEqual('4040');
     expect(order.processing).toEqual(false);
   });
@@ -64,12 +64,10 @@ describe('tokenizeCard', () => {
     const tokenizePromise = dao.tokenizeCard(order, cardElement);
     expect(order.processing).toEqual(true);
 
-    const success = await tokenizePromise;
+    await expect(tokenizePromise).rejects.toMatchObject({
+      message: 'The credit card could not be tokenized.',
+    });
 
-    expect(success).toEqual(false);
-    expect(order.processingError).toEqual(
-      'The credit card could not be tokenized.'
-    );
     expect(order.processing).toEqual(false);
   });
 
@@ -81,12 +79,10 @@ describe('tokenizeCard', () => {
     const tokenizePromise = dao.tokenizeCard(order, cardElement);
     expect(order.processing).toEqual(true);
 
-    const success = await tokenizePromise;
+    await expect(tokenizePromise).rejects.toMatchObject({
+      message: 'Internet exploded. It’s for the best.',
+    });
 
-    expect(success).toEqual(false);
-    expect(order.processingError).toEqual(
-      'Internet exploded. It’s for the best.'
-    );
     expect(order.processing).toEqual(false);
   });
 });
@@ -94,7 +90,12 @@ describe('tokenizeCard', () => {
 describe('submit', () => {
   test('submit success path', async () => {
     submitDeathCertificateOrder.mockReturnValueOnce(
-      Promise.resolve('order-id')
+      Promise.resolve({
+        order: {
+          id: 'order-id',
+        },
+        error: null,
+      })
     );
 
     const orderIdPromise = dao.submit(cart, order);
@@ -105,7 +106,7 @@ describe('submit', () => {
     expect(order.processing).toEqual(false);
   });
 
-  test('submit failure path', async () => {
+  test('submit network failure path', async () => {
     submitDeathCertificateOrder.mockReturnValueOnce(
       Promise.reject(new Error('I’m not dead yet!'))
     );
@@ -113,9 +114,28 @@ describe('submit', () => {
     const orderIdPromise = dao.submit(cart, order);
     expect(order.processing).toEqual(true);
 
-    const orderId = await orderIdPromise;
-    expect(orderId).toEqual(null);
-    expect(order.processing).toEqual(false);
-    expect(order.processingError).toEqual('I’m not dead yet!');
+    await expect(orderIdPromise).rejects.toMatchObject({
+      message: 'I’m not dead yet!',
+    });
+  });
+
+  test('user payment failure path', async () => {
+    submitDeathCertificateOrder.mockReturnValueOnce(
+      Promise.resolve({
+        order: null,
+        error: {
+          message: 'Your credit card is well expired',
+          cause: OrderErrorCause.USER_PAYMENT,
+        },
+      })
+    );
+
+    const orderIdPromise = dao.submit(cart, order);
+    expect(order.processing).toEqual(true);
+
+    await expect(orderIdPromise).rejects.toMatchObject({
+      message: 'Your credit card is well expired',
+      cause: OrderErrorCause.USER_PAYMENT,
+    });
   });
 });

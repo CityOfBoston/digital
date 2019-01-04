@@ -216,37 +216,6 @@ export default class RegistryDb {
     return keys.map(k => idToOutputMap[k]);
   }
 
-  /**
-   * This method purposely only returns the ID so that we can’t accidentally
-   * leak any additional name information from out of the database.
-   *
-   * This forces the UI to only display names provided by the user.
-   */
-  async searchBirthCertificates(
-    firstName: string,
-    lastName: string,
-    dob: Date,
-    parent1FirstName: string,
-    parent2FirstName: string | null
-  ): Promise<Array<number>> {
-    const resp: IResult<BirthCertificate> = (await this.pool
-      .request()
-      .input('firstName', firstName)
-      .input('lastName', lastName)
-      .input('DOB', dob)
-      .input('parent1FirstName', parent1FirstName)
-      .input('parent2FirstName', parent2FirstName)
-      .execute('Registry.Birth.sp_FindCertificatesWeb')) as any;
-
-    const { recordset } = resp;
-
-    if (!recordset) {
-      throw new Error('Recordset for search came back empty');
-    }
-
-    return recordset.map(({ CertificatesID }) => CertificatesID);
-  }
-
   async addOrder(
     orderType: OrderType,
     {
@@ -415,17 +384,17 @@ export async function makeRegistryDbFactory(
 
 export async function makeFixtureRegistryDbFactory(
   fixtureName: string
-): Promise<RegistryDbFactory> {
+): Promise<Required<RegistryDbFactory>> {
   const fixtureData = await readFile(fixtureName);
   const json = JSON.parse(fixtureData.toString('utf-8'));
 
   return {
-    registryData() {
-      return new RegistryDbFake(json);
+    registryDb() {
+      return new RegistryDbFake(json) as any;
     },
 
     cleanup() {
       return Promise.resolve(null);
     },
-  } as any;
+  };
 }

@@ -22,7 +22,6 @@ import { BREADCRUMB_NAV_LINKS } from './constants';
 
 import {
   BUTTONS_CONTAINER_STYLING,
-  NEXT_BUTTON_STYLE,
   SECONDARY_BUTTON_STYLE,
 } from './questions/styling';
 
@@ -70,6 +69,8 @@ export default class ReviewRequest extends React.Component<Props> {
       <>
         <Head>
           <title>Boston.gov — Review your record request</title>
+
+          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
         <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>
@@ -107,7 +108,6 @@ export default class ReviewRequest extends React.Component<Props> {
                       <span style={{ marginRight: '2em' }}>
                         {firstName} {lastName}
                       </span>
-                      {/* todo: format date mm/dd/yyyy */}
                       <span>Born: {birthDate}</span>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ export default class ReviewRequest extends React.Component<Props> {
                 </button>
 
                 <button
-                  className={`btn ${NEXT_BUTTON_STYLE}`}
+                  className="btn"
                   type="button"
                   onClick={this.goToCheckout}
                 >

@@ -6,9 +6,10 @@ import {
 } from '@cityofboston/next-client-common';
 
 import CheckoutPage, { PageDependenciesProps } from './CheckoutPage';
-import CheckoutDao from '../../dao/CheckoutDao';
+import CheckoutDao, { SubmissionError } from '../../dao/CheckoutDao';
 import OrderProvider from '../../store/OrderProvider';
 import DeathCertificateCart from '../../store/DeathCertificateCart';
+import { OrderErrorCause } from '../../queries/graphql-types';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -153,7 +154,7 @@ describe('rendering', () => {
 describe('operations', () => {
   let checkoutDao: CheckoutDao;
   let orderProvider: OrderProvider;
-  let component;
+  let component: CheckoutPage;
   let scrollSpy;
 
   beforeEach(() => {
@@ -191,7 +192,7 @@ describe('operations', () => {
   describe('advanceToReview', () => {
     it('routes to next stage if tokenization is successful', async () => {
       (checkoutDao.tokenizeCard as jest.Mock).mockReturnValue(
-        Promise.resolve(true)
+        Promise.resolve()
       );
 
       await component.advanceToReview(null);
@@ -200,10 +201,12 @@ describe('operations', () => {
 
     it('does not route if tokenization is unsuccessful', async () => {
       (checkoutDao.tokenizeCard as jest.Mock).mockReturnValue(
-        Promise.resolve(false)
+        Promise.reject(new Error('tokenization failed'))
       );
 
-      await component.advanceToReview(null);
+      await expect(component.advanceToReview(null)).rejects.toMatchObject({
+        message: 'tokenization failed',
+      });
       expect(Router.push).not.toHaveBeenCalled();
     });
   });
@@ -218,8 +221,19 @@ describe('operations', () => {
     });
 
     it('stays on the same page on failure', async () => {
-      (checkoutDao.submit as jest.Mock).mockReturnValue(Promise.resolve(null));
-      await component.submitOrder();
+      (checkoutDao.submit as jest.Mock).mockReturnValue(
+        Promise.reject(
+          new SubmissionError(
+            'The card is expired',
+            OrderErrorCause.USER_PAYMENT
+          )
+        )
+      );
+
+      await expect(component.submitOrder()).rejects.toBeInstanceOf(
+        SubmissionError
+      );
+
       expect(Router.push).not.toHaveBeenCalled();
     });
   });

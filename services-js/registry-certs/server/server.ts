@@ -166,7 +166,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       })),
       route: {
         cors: true,
-        auth: 'apiHeaderKeys',
+        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
       },
     },
   });

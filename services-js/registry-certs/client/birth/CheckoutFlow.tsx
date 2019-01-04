@@ -17,16 +17,13 @@ export default class CheckoutFlow extends React.Component<Props, State> {
       <>
         <Head>
           <title>Boston.gov — Birth Certificates</title>
+
+          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
         <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>
           <div className="b-c b-c--nbp">
             <h1 className="sh-title">Welcome to the checkout flow</h1>
-
-            <p>
-              Shipping info => Payment info => Review request => Confirm request
-              submission
-            </p>
           </div>
         </PageLayout>
       </>

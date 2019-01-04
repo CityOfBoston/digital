@@ -74,17 +74,18 @@ export default class QuestionsFlow extends React.Component<Props> {
   };
 
   public progressBar(): React.ReactChild {
-    const currentStep =
-      QUESTIONS.indexOf(this.props.birthCertificateRequest.activeQuestion) + 1;
+    const currentIndex = QUESTIONS.indexOf(
+      this.props.birthCertificateRequest.activeQuestion
+    );
 
     return (
       <progress
         aria-label="Progress"
         max="6"
-        value={currentStep}
+        value={currentIndex}
         className={PROGRESS_BAR_STYLE}
       >
-        Step {currentStep}
+        Step {currentIndex + 1}
       </progress>
     );
   }
@@ -98,6 +99,8 @@ export default class QuestionsFlow extends React.Component<Props> {
       <>
         <Head>
           <title>Boston.gov — Birth Certificates</title>
+
+          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
         <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>

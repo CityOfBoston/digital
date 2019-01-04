@@ -25,6 +25,8 @@ require('./server')
       } else {
         console.info(`Error logged to Rollbar`);
       }
+
+      process.exit(-1);
     });
 
     console.error('Error starting server');

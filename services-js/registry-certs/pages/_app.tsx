@@ -1,9 +1,13 @@
 import React from 'react';
+
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
+
 import { configure as mobxConfigure } from 'mobx';
 import { hydrate } from 'emotion';
+
+import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 
 import {
   makeFetchGraphql,
@@ -13,7 +17,7 @@ import {
   GaSiteAnalytics,
 } from '@cityofboston/next-client-common';
 
-import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
+import BirthCertificateRequest from '../client/store/BirthCertificateRequest';
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
 import OrderProvider from '../client/store/OrderProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
@@ -73,6 +77,7 @@ export type GetInitialProps<
 export interface PageDependencies extends GetInitialPropsDependencies {
   stripe: stripe.Stripe | null;
   checkoutDao: CheckoutDao;
+  birthCertificateRequest: BirthCertificateRequest;
   deathCertificateCart: DeathCertificateCart;
   screenReaderSupport: ScreenReaderSupport;
   routerListener: RouterListener;
@@ -173,6 +178,7 @@ export default class RegistryCertsApp extends App {
 
     const initialPageDependencies = getInitialPageDependencies();
 
+    const birthCertificateRequest = new BirthCertificateRequest();
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
     const siteAnalytics = new GaSiteAnalytics();
@@ -186,9 +192,11 @@ export default class RegistryCertsApp extends App {
       // otherwise an error could be thrown:
       // https://github.com/CityOfBoston/digital/issues/199
       let localStorage: Storage | null = null;
+      let sessionStorage: Storage | null = null;
 
       try {
         localStorage = window.localStorage;
+        sessionStorage = window.sessionStorage;
       } catch {
         //  possible security error; ignore.
       }
@@ -198,7 +206,7 @@ export default class RegistryCertsApp extends App {
         initialPageDependencies.deathCertificatesDao,
         siteAnalytics
       );
-      orderProvider.attach(localStorage);
+      orderProvider.attach(localStorage, sessionStorage);
     }
 
     const config = getConfig();
@@ -217,6 +225,7 @@ export default class RegistryCertsApp extends App {
       routerListener: new RouterListener(),
       screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics,
+      birthCertificateRequest,
       deathCertificateCart,
       orderProvider,
     };

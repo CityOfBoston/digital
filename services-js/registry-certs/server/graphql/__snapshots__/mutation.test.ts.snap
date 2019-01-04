@@ -2,8 +2,6 @@
 
 exports[`Mutation resolvers submitBirthCertificateOrder throws if a validator fails 1`] = `[Error: contactName: The full name field is required.]`;
 
-exports[`Mutation resolvers submitBirthCertificateOrder throws if search fails to find 1`] = `[TypeError: Cannot read property 'length' of undefined]`;
-
 exports[`Mutation resolvers submitDeathCertificateOrder throws if a validator fails 1`] = `[Error: contactName: The full name field is required.]`;
 
 exports[`Mutation resolvers submitDeathCertificateOrder throws if there are no items 1`] = `[Error: Quantity of order is 0]`;

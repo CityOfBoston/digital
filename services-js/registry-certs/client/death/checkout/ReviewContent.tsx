@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
 
+import { StatusModal } from '@cityofboston/react-fleet';
+
 import PageLayout from '../../PageLayout';
 
 import { BreadcrumbNavLinks } from '../breadcrumbs';
@@ -18,25 +20,41 @@ import Order from '../../models/Order';
 
 import CostSummary from '../../common/CostSummary';
 import { DeathOrderDetails } from '../../common/checkout/OrderDetails';
+import { OrderErrorCause } from '../../queries/graphql-types';
+import { SubmissionError } from '../../dao/CheckoutDao';
 
 export interface Props {
-  submit: (cardElement?: stripe.elements.Element) => unknown;
+  submit: (cardElement?: stripe.elements.Element) => Promise<void>;
   cart: Cart;
   order: Order;
   showErrorsForTest?: boolean;
+  testSubmissionError?: SubmissionError;
 }
 
 export interface State {
   acceptNonRefundable: boolean;
   acceptPendingCertificates: boolean;
+  submissionError: string | null;
+  submissionErrorIsForPayment: boolean;
 }
 
 @observer
 export default class ReviewContent extends React.Component<Props, State> {
-  state: State = {
-    acceptNonRefundable: false,
-    acceptPendingCertificates: false,
-  };
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      acceptNonRefundable: false,
+      acceptPendingCertificates: false,
+      submissionError:
+        (props.testSubmissionError && props.testSubmissionError.message) ||
+        null,
+      submissionErrorIsForPayment:
+        (props.testSubmissionError &&
+          props.testSubmissionError.cause === OrderErrorCause.USER_PAYMENT) ||
+        false,
+    };
+  }
 
   componentWillMount() {
     // When we land on this page we create a new idempotency key so that our
@@ -59,24 +77,43 @@ export default class ReviewContent extends React.Component<Props, State> {
     ev.preventDefault();
 
     const { submit, order } = this.props;
-    const success = await submit();
 
-    if (!success) {
+    try {
+      await submit();
+    } catch (err) {
       // If there's an error we need to regenerate the key to allow another
       // submission to occur.
       order.regenerateIdempotencyKey();
+
+      if (err instanceof SubmissionError) {
+        this.setState({
+          submissionError: err.message,
+          submissionErrorIsForPayment:
+            err.cause === OrderErrorCause.USER_PAYMENT,
+        });
+      } else {
+        this.setState({
+          submissionError: err.message || 'An unknown error occurred',
+          submissionErrorIsForPayment: false,
+        });
+      }
     }
   };
 
   render() {
     const { cart, order } = this.props;
-    const { acceptNonRefundable, acceptPendingCertificates } = this.state;
+
+    const {
+      acceptNonRefundable,
+      acceptPendingCertificates,
+      submissionError,
+      submissionErrorIsForPayment,
+    } = this.state;
 
     const {
       paymentIsComplete,
       shippingIsComplete,
       processing,
-      processingError,
       info: {
         shippingName,
         shippingCompanyName,
@@ -88,8 +125,8 @@ export default class ReviewContent extends React.Component<Props, State> {
 
         cardholderName,
         cardLast4,
+        cardFunding,
       },
-      cardFunding,
       billingAddress1,
       billingAddress2,
       billingCity,
@@ -261,20 +298,51 @@ export default class ReviewContent extends React.Component<Props, State> {
               your credit card and place an order with the Registry.
             </div>
 
-            {processingError && (
-              <div
-                className="m-v500 p-a300 br br-a100 br--r"
-                id="processing-error"
-              >
-                <div className="t--intro t--err">
-                  There’s a problem: {processingError}
+            {processing && (
+              <StatusModal message="Submitting your order…">
+                <div className="t--info m-t300">
+                  Please be patient and don’t refresh your browser. This might
+                  take a bit.
                 </div>
-                <div className="t--info">
-                  You can try again. If this keeps happening, please email{' '}
-                  <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
-                </div>
-              </div>
+              </StatusModal>
             )}
+
+            {submissionError &&
+              !submissionErrorIsForPayment && (
+                <StatusModal
+                  message={`There’s a problem: ${submissionError}`}
+                  error
+                  onClose={() => {
+                    this.setState({
+                      submissionError: null,
+                    });
+                  }}
+                >
+                  <div className="t--info m-t300">
+                    You can try again. If this keeps happening, please email{' '}
+                    <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
+                  </div>
+                </StatusModal>
+              )}
+
+            {submissionError &&
+              submissionErrorIsForPayment && (
+                <StatusModal message={submissionError} error>
+                  <div className="t--info m-t300">
+                    You can update your payment information and try to submit
+                    this order again.
+                  </div>
+
+                  <div className="m-v500 ta-c">
+                    <Link
+                      href="/death/checkout?page=payment"
+                      as="/death/checkout"
+                    >
+                      <a className="btn">Update Payment Information</a>
+                    </Link>
+                  </div>
+                </StatusModal>
+              )}
 
             <div className="m-v300">
               <button
@@ -285,11 +353,10 @@ export default class ReviewContent extends React.Component<Props, State> {
                   !paymentIsComplete ||
                   !shippingIsComplete ||
                   needsAccepting ||
-                  processing
+                  processing ||
+                  !!submissionError
                 }
-                aria-describedby={
-                  processingError ? 'processing-error' : 'charge-message'
-                }
+                aria-describedby="charge-message"
               >
                 Submit Order
               </button>

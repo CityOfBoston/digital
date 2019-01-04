@@ -7,12 +7,12 @@ import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import RadioItemComponent from './RadioItemComponent';
 
-import { Relation } from '../types';
+import { Relation } from '../../types';
 
 import { RADIOGROUP_STYLING, RADIOGROUP_UNBORDERED_STYLING } from './styling';
 
 interface Props {
-  forSelf?: boolean;
+  forSelf: boolean | null;
   howRelated?: Relation;
   handleProceed: (answers: State) => void;
 }
@@ -22,6 +22,10 @@ interface State {
   howRelated?: Relation;
 }
 
+/**
+ * Initial question of the workflow. If the user is not requesting their
+ * own record, the howRelated question is also asked.
+ */
 export default class ForSelf extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -88,7 +92,6 @@ export default class ForSelf extends React.Component<Props, State> {
           </div>
         </FieldsetComponent>
 
-        {/*This question is only presented if the user is NOT requesting their own record.*/}
         {this.state.forSelf === 'false' && (
           <FieldsetComponent
             legendText={<h3 id="howRelated">Is this your…</h3>}

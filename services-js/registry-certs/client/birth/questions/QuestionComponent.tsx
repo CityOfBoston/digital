@@ -1,11 +1,10 @@
 import React from 'react';
-import { css } from 'emotion';
 
 import {
-  CHARLES_BLUE,
-  MEDIA_SMALL,
-  OPTIMISTIC_BLUE,
-} from '@cityofboston/react-fleet';
+  BUTTONS_CONTAINER_STYLING,
+  NEXT_BUTTON_STYLE,
+  SECONDARY_BUTTON_STYLE,
+} from './styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -13,6 +12,7 @@ interface Props {
   handleStepBack?: () => void;
   handleReset?: () => void;
   startOver?: boolean;
+  nextButtonText?: string;
 
   children: React.ReactNode;
 }
@@ -28,24 +28,12 @@ export default function QuestionComponent(props: Props): JSX.Element {
       <div>{props.children}</div>
 
       <div className={BUTTONS_CONTAINER_STYLING}>
-        {props.handleProceed &&
-          !props.startOver && (
-            <button
-              type="button"
-              className="btn"
-              onClick={props.handleProceed}
-              disabled={!props.allowProceed}
-            >
-              Next question
-            </button>
-          )}
-
         {/* Button only appears if handler was passed in AND props.startOver is true. */}
         {props.handleReset &&
           props.startOver && (
             <button
               type="button"
-              className={`btn ${BACK_BUTTON_STYLING}`}
+              className={`btn ${SECONDARY_BUTTON_STYLE}`}
               onClick={props.handleReset}
             >
               Start over
@@ -56,43 +44,25 @@ export default function QuestionComponent(props: Props): JSX.Element {
           !props.startOver && (
             <button
               type="button"
-              className={`btn ${BACK_BUTTON_STYLING}`}
+              className={`btn ${SECONDARY_BUTTON_STYLE}`}
               onClick={props.handleStepBack}
             >
               Back
+            </button>
+          )}
+
+        {props.handleProceed &&
+          !props.startOver && (
+            <button
+              type="button"
+              className={`btn ${NEXT_BUTTON_STYLE}`}
+              onClick={props.handleProceed}
+              disabled={!props.allowProceed}
+            >
+              {props.nextButtonText || 'Next question'}
             </button>
           )}
       </div>
     </section>
   );
 }
-
-const BUTTONS_CONTAINER_STYLING = css({
-  marginTop: '3rem',
-  [MEDIA_SMALL]: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  button: {
-    display: 'block',
-    width: '100%',
-    marginBottom: '2rem',
-    [MEDIA_SMALL]: {
-      width: 'auto',
-      marginBottom: 0,
-      '&:last-of-type:not(:only-of-type)': {
-        order: -1,
-        marginRight: '2rem',
-      },
-    },
-  },
-});
-
-const BACK_BUTTON_STYLING = css({
-  backgroundColor: '#fff',
-  color: OPTIMISTIC_BLUE,
-  border: '3px solid currentColor',
-  '&:hover': {
-    borderColor: CHARLES_BLUE,
-  },
-});

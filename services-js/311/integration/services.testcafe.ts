@@ -1,10 +1,11 @@
 import { Selector } from 'testcafe';
 
-import { serverUrl, waitForReact } from './testcafe-helpers';
+import { serverUrl, waitForReact, printConsoleLogs } from './testcafe-helpers';
 
 fixture('Services')
   .page(serverUrl('/services'))
-  .beforeEach(waitForReact);
+  .beforeEach(waitForReact)
+  .afterEach(printConsoleLogs);
 
 test('Expand category, go to service', async t => {
   await t
