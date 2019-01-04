@@ -490,7 +490,7 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
             placeholder={undefined}
             required={undefined}
             type="text"
-            value={undefined}
+            value=""
           />
           <div
             className="t--subinfo t--err m-b100"

@@ -63,6 +63,7 @@ export default class DateOfBirth extends React.Component<Props, State> {
               name="dateOfBirth"
               onChange={this.handleChange}
               onKeyDown={this.handleEnterKeypress}
+              value={this.state.birthDate}
               className={TEXT_FIELD_STYLING}
             />
           </FieldsetComponent>
