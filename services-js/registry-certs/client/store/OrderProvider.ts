@@ -107,7 +107,7 @@ export default class OrderProvider {
 
   /**
    * Returns a filtered OrderInfo based on the values of storeContactAndShipping
-   * and storeBilling. If they're true, includes the related values, '' if
+   * and storeBilling. If either is true, include its value, otherwise include an empty string
    * false.
    *
    * Does not return any card token information.
