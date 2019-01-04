@@ -1,6 +1,16 @@
-import { Server as HapiServer, RequestQuery } from 'hapi';
+import {
+  Server as HapiServer,
+  RequestQuery,
+  ResponseToolkit,
+  Request as HapiRequest,
+} from 'hapi';
 
-import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
+import SamlAuth, {
+  makeSamlAuth,
+  SamlLogoutRequestResult,
+  SamlRequestPostBody,
+} from './services/SamlAuth';
+
 import SamlAuthFake, { makeFakeLoginHandler } from './services/SamlAuthFake';
 
 import {
@@ -74,7 +84,6 @@ export async function addLoginAuth(
     );
   } else {
     samlAuth = new SamlAuthFake({
-      assertUrl: LOGIN_ASSERT_PATH,
       loginFormUrl: FAKE_LOGIN_FORM_PATH,
     }) as any;
   }
@@ -115,16 +124,14 @@ export async function addLoginAuth(
   server.route({
     path: logoutPath,
     method: 'POST',
-    handler: async (request, h) => {
+    handler: (request, h) => {
       // We clear our cookie and stored session when you hit this button, since
       // it's better for us to be logged out on AccessBoston but logged in on
       // the SSO side than the alternative.
       request.yar.reset();
 
-      // We know loginAuth will be defined because this request is
-      // authenticated.
-      const { userId, sessionIndex } = request.auth.credentials.loginAuth!;
-      return h.redirect(await samlAuth.makeLogoutUrl(userId, sessionIndex));
+      // We redirect to this URL and Ping takes over all of the single log-out.
+      return h.redirect(process.env.SINGLE_LOGOUT_URL || '/');
     },
   });
 
@@ -142,53 +149,59 @@ export async function addLoginAuth(
     },
     handler: async (request, h) => {
       const assertResult = await samlAuth.handlePostAssert(
-        request.payload as string
+        request.payload as any
       );
 
-      if (assertResult.type !== 'login') {
-        throw new Error(
-          `Unexpected assert result in POST handler: ${assertResult.type}`
+      if (assertResult.type === 'login') {
+        const {
+          nameId,
+          sessionIndex,
+          firstName,
+          lastName,
+          email,
+          groups,
+          needsMfaDevice,
+          needsNewPassword,
+        } = assertResult;
+
+        // This will be read by the validate method above when doing authentication.
+        const loginAuth: LoginAuth = {
+          type: 'login',
+          userId: nameId,
+          sessionIndex,
+        };
+
+        setSessionAuth(request, loginAuth);
+
+        const session: LoginSession = {
+          type: 'login',
+          firstName,
+          lastName,
+          email,
+          groups,
+          needsNewPassword,
+          needsMfaDevice,
+          mfaSessionId: null,
+          mfaEmail: null,
+          mfaPhoneNumber: null,
+        };
+
+        request.yar.set(LOGIN_SESSION_KEY, session);
+
+        // TODO(finh): Can we get a destination URL from the assertion, rather
+        // than always go to the root?
+        return h.redirect(afterLoginUrl);
+      } else if (assertResult.type === 'logout') {
+        const samlRequest = request.payload as SamlRequestPostBody;
+        return handleLogoutRequest(
+          request,
+          h,
+          assertResult,
+          samlRequest.RelayState
         );
+      } else {
+        throw new Error(`Unexpected assert result in POST handler`);
       }
-
-      const {
-        nameId,
-        sessionIndex,
-        firstName,
-        lastName,
-        email,
-        groups,
-        needsMfaDevice,
-        needsNewPassword,
-      } = assertResult;
-
-      // This will be read by the validate method above when doing authentication.
-      const loginAuth: LoginAuth = {
-        type: 'login',
-        userId: nameId,
-        sessionIndex,
-      };
-
-      setSessionAuth(request, loginAuth);
-
-      const session: LoginSession = {
-        type: 'login',
-        firstName,
-        lastName,
-        email,
-        groups,
-        needsNewPassword,
-        needsMfaDevice,
-        mfaSessionId: null,
-        mfaEmail: null,
-        mfaPhoneNumber: null,
-      };
-
-      request.yar.set(LOGIN_SESSION_KEY, session);
-
-      // TODO(finh): Can we get a destination URL from the assertion, rather
-      // than always go to the root?
-      return h.redirect(afterLoginUrl);
     },
   });
 
@@ -202,9 +215,9 @@ export async function addLoginAuth(
     // "required."
     options: { auth: { mode: 'try' } },
     handler: async (request, h) => {
-      const assertResult = await samlAuth.handleGetAssert(
-        request.query as RequestQuery
-      );
+      const query = request.query as RequestQuery;
+
+      const assertResult = await samlAuth.handleGetAssert(query);
 
       if (assertResult.type !== 'logout') {
         throw new Error(
@@ -212,23 +225,37 @@ export async function addLoginAuth(
         );
       }
 
-      const loginAuth =
-        request.auth.credentials && request.auth.credentials.loginAuth;
-
-      // Check to make sure this is the session we're getting rid of. We're
-      // tolerant of the session being clear already (which happens if we’re the
-      // ones who initiate logout)
-      if (
-        loginAuth &&
-        loginAuth.userId === assertResult.nameId &&
-        loginAuth.sessionIndex === assertResult.sessionIndex
-      ) {
-        request.yar.reset();
-      }
-
-      // We always go back to the SAML provider regardless of whether we cleared
-      // our own session. Distributed client state is fun.
-      return h.redirect(assertResult.successUrl);
+      return handleLogoutRequest(
+        request,
+        h,
+        assertResult,
+        query.RelayState as string
+      );
     },
   });
+
+  async function handleLogoutRequest(
+    request: HapiRequest,
+    h: ResponseToolkit,
+    assertResult: SamlLogoutRequestResult,
+    relayState: string
+  ) {
+    const loginAuth =
+      request.auth.credentials && request.auth.credentials.loginAuth;
+    // Check to make sure this is the session we're getting rid of. We're
+    // tolerant of the session being clear already (which happens if we’re the
+    // ones who initiate logout)
+    if (
+      loginAuth &&
+      loginAuth.userId === assertResult.nameId &&
+      loginAuth.sessionIndex === assertResult.sessionIndex
+    ) {
+      request.yar.reset();
+    }
+    // We always go back to the SAML provider regardless of whether we cleared
+    // our own session. Distributed client state is fun.
+    return h.redirect(
+      await samlAuth.makeLogoutSuccessUrl(assertResult.requestId, relayState)
+    );
+  }
 }

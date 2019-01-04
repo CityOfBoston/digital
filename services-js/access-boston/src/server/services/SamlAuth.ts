@@ -43,6 +43,15 @@ interface SamlLogoutRequestAssertion {
 
 type SamlAssertion = SamlAuthAssertion | SamlLogoutRequestAssertion;
 
+export type SamlRequestPostBody = {
+  SAMLRequest: string;
+  RelayState: string;
+};
+
+export type SamlResponsePostBody = {
+  SAMLResponse: string;
+};
+
 export interface ServiceProviderConfig {
   metadataUrl: string;
   assertUrl: string;
@@ -62,9 +71,9 @@ export interface SamlLoginResult {
 
 export interface SamlLogoutRequestResult {
   type: 'logout';
+  requestId: string;
   nameId: string;
   sessionIndex: string;
-  successUrl: string;
 }
 
 export type SamlAssertResult = SamlLoginResult | SamlLogoutRequestResult;
@@ -230,33 +239,17 @@ export default class SamlAuth {
     });
   }
 
-  makeLogoutUrl(nameId: string, sessionIndex: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-      this.serviceProvider.create_logout_request_url(
-        this.identityProvider,
-        {
-          name_id: nameId,
-          session_index: sessionIndex,
-          sign_get_request: true,
-        },
-        (err, logoutUrl) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(logoutUrl);
-          }
-        }
-      );
-    });
-  }
-
-  protected makeLogoutSuccessUrl(requestId: string): Promise<string> {
+  public makeLogoutSuccessUrl(
+    requestId: string,
+    relayState: string
+  ): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.serviceProvider.create_logout_response_url(
         this.identityProvider,
         {
           in_response_to: requestId,
           sign_get_request: true,
+          relay_state: relayState,
         },
         (err, successUrl) => {
           if (err) {
@@ -269,7 +262,7 @@ export default class SamlAuth {
     });
   }
 
-  protected async processSamlAssertion(
+  private async processSamlAssertion(
     saml: SamlAssertion
   ): Promise<SamlAssertResult> {
     // eslint-disable-next-line no-console
@@ -295,9 +288,9 @@ export default class SamlAuth {
       case 'logout_request':
         return {
           type: 'logout',
+          requestId: saml.response_header.id,
           nameId: saml.name_id,
           sessionIndex: saml.session_index,
-          successUrl: await this.makeLogoutSuccessUrl(saml.response_header.id),
         };
 
       default:
@@ -307,7 +300,9 @@ export default class SamlAuth {
     }
   }
 
-  handlePostAssert(body: string): Promise<SamlAssertResult> {
+  handlePostAssert(
+    body: SamlRequestPostBody | SamlResponsePostBody
+  ): Promise<SamlAssertResult> {
     return new Promise((resolve, reject) => {
       this.serviceProvider.post_assert(
         this.identityProvider,
