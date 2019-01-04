@@ -192,9 +192,11 @@ export default class RegistryCertsApp extends App {
       // otherwise an error could be thrown:
       // https://github.com/CityOfBoston/digital/issues/199
       let localStorage: Storage | null = null;
+      let sessionStorage: Storage | null = null;
 
       try {
         localStorage = window.localStorage;
+        sessionStorage = window.sessionStorage;
       } catch {
         //  possible security error; ignore.
       }
@@ -204,7 +206,7 @@ export default class RegistryCertsApp extends App {
         initialPageDependencies.deathCertificatesDao,
         siteAnalytics
       );
-      orderProvider.attach(localStorage);
+      orderProvider.attach(localStorage, sessionStorage);
     }
 
     const config = getConfig();

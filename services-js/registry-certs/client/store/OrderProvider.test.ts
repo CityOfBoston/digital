@@ -1,7 +1,10 @@
-import OrderProvider, { LOCAL_STORAGE_KEY } from './OrderProvider';
+import OrderProvider, {
+  LOCAL_STORAGE_KEY,
+  SESSION_STORAGE_KEY,
+} from './OrderProvider';
 import { OrderInfo } from '../models/Order';
 
-class FakeLocalStorage {
+class FakeStorage implements Storage {
   store = {};
 
   getItem = (key: string): string => this.store[key];
@@ -13,17 +16,69 @@ class FakeLocalStorage {
   removeItem = (key: string) => {
     delete this.store[key];
   };
+
+  key = (i: number) => {
+    return Object.keys(this.store)[i];
+  };
+
+  get length() {
+    return Object.keys(this.store).length;
+  }
+
+  clear = () => {
+    this.store = {};
+  };
 }
 
 describe('storage', () => {
-  let localStorage;
-  let orderProvider;
+  let localStorage: Storage;
+  let sessionStorage: Storage;
+  let orderProvider: OrderProvider;
 
   beforeEach(() => {
-    localStorage = new FakeLocalStorage();
+    localStorage = new FakeStorage();
+    sessionStorage = new FakeStorage();
 
     orderProvider = new OrderProvider();
-    orderProvider.attach(localStorage as any);
+    orderProvider.attach(localStorage, sessionStorage);
+  });
+
+  it('initializes order from session storage', () => {
+    const orderInfo: OrderInfo = {
+      storeContactAndShipping: true,
+      storeBilling: false,
+
+      contactName: 'Squirrel Girl',
+      contactEmail: 'squirrel.girl@avengers.org',
+      contactPhone: '(555) 123-9999',
+
+      shippingName: 'Doreen Green',
+      shippingCompanyName: 'Empire State University',
+      shippingAddress1: 'Dorm Hall, Apt 5',
+      shippingAddress2: '10 College Avenue',
+      shippingCity: 'New York',
+      shippingState: 'NY',
+      shippingZip: '12345',
+
+      cardholderName: 'Nancy Whitehead',
+      cardLast4: '4040',
+      cardToken: 'tok_testtoken',
+      cardFunding: 'credit',
+
+      billingAddressSameAsShippingAddress: true,
+
+      billingAddress1: '',
+      billingAddress2: '',
+      billingCity: '',
+      billingState: '',
+      billingZip: '',
+    };
+
+    sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(orderInfo));
+
+    const order = orderProvider.get();
+
+    expect(order.info.contactName).toEqual('Squirrel Girl');
   });
 
   it('initializes order from local storage', () => {
@@ -45,6 +100,8 @@ describe('storage', () => {
 
       cardholderName: '',
       cardLast4: '4040',
+      cardToken: null,
+      cardFunding: 'unknown',
 
       billingAddressSameAsShippingAddress: true,
 

@@ -48,8 +48,8 @@ describe('tokenizeCard', () => {
 
     await expect(tokenizePromise).resolves.toBeUndefined();
 
-    expect(order.cardToken).toEqual('tok_id');
-    expect(order.cardFunding).toEqual('debit');
+    expect(order.info.cardToken).toEqual('tok_id');
+    expect(order.info.cardFunding).toEqual('debit');
     expect(order.info.cardLast4).toEqual('4040');
     expect(order.processing).toEqual(false);
   });
