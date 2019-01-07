@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { Formik, FormikProps } from 'formik';
+import { Formik, FormikProps, FormikActions } from 'formik';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -44,6 +44,7 @@ interface FormValues {
   username: string;
   newPassword: string;
   confirmPassword: string;
+  token: string;
 }
 
 export default class ForgotPasswordPage extends React.Component<Props, State> {
@@ -67,8 +68,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   }
 
   private handleSubmit = async (
-    { newPassword, confirmPassword }: FormValues,
-    { setSubmitting, setErrors }
+    { newPassword, confirmPassword, token }: FormValues,
+    { setSubmitting, setErrors }: FormikActions<FormValues>
   ) => {
     this.setState({ showSubmittingModal: true, showNetworkError: false });
 
@@ -76,7 +77,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       const { status, error } = await resetPassword(
         this.props.fetchGraphql,
         newPassword,
-        confirmPassword
+        confirmPassword,
+        token
       );
 
       switch (status) {
@@ -106,6 +108,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
     const initialValues: FormValues = {
       username: account.employeeId,
+      token: account.resetPasswordToken,
       newPassword: '',
       confirmPassword: '',
     };

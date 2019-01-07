@@ -56,6 +56,7 @@ export interface FetchAccountAndApps_account {
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  resetPasswordToken: string;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {
@@ -93,6 +94,7 @@ export interface FetchAccount_account {
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  resetPasswordToken: string;
 }
 
 export interface FetchAccount {
@@ -120,6 +122,7 @@ export interface ResetPassword {
 export interface ResetPasswordVariables {
   newPassword: string;
   confirmPassword: string;
+  token: string;
 }
 
 /* tslint:disable */
