@@ -5,6 +5,7 @@ export interface TravisSnapshotOptions {
   project: string;
   packageName: string;
   buildStorybookOptions?: string;
+  widths?: string[];
 }
 
 const PERCY_WIDTHS = ['320', '840', '1280'];
@@ -21,6 +22,7 @@ export function travisSnapshot({
   project,
   packageName,
   buildStorybookOptions,
+  widths,
 }: TravisSnapshotOptions) {
   if (process.env['CI'] !== 'true') {
     return;
@@ -39,7 +41,7 @@ export function travisSnapshot({
       }`,
       { stdio: 'inherit' }
     );
-    execSync(`percy-storybook --widths=${PERCY_WIDTHS.join(',')}`, {
+    execSync(`percy-storybook --widths=${(widths || PERCY_WIDTHS).join(',')}`, {
       stdio: 'inherit',
       env: Object.assign({}, process.env, {
         PERCY_PROJECT: project,
