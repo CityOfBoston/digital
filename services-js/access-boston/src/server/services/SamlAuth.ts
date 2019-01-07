@@ -29,6 +29,7 @@ interface SamlAuthAssertion {
       email?: string[];
       changePasswordRequired?: string[];
       mfaRegistrationRequired?: string[];
+      userAccessToken?: string[];
     };
   };
 }
@@ -67,6 +68,7 @@ export interface SamlLoginResult {
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+  userAccessToken: string;
 }
 
 export interface SamlLogoutRequestResult {
@@ -283,6 +285,8 @@ export default class SamlAuth {
           groups: parseGroupsAttribute(attributes.groups || []),
           needsNewPassword: attributeIsTrue(attributes.changePasswordRequired),
           needsMfaDevice: attributeIsTrue(attributes.mfaRegistrationRequired),
+          userAccessToken:
+            (attributes.userAccessToken && attributes.userAccessToken[0]) || '',
         };
       }
       case 'logout_request':

@@ -53,7 +53,7 @@ export const changePasswordMutation: MutationResolvers['changePassword'] = async
 
 export const resetPasswordMutation: MutationResolvers['resetPassword'] = async (
   _root,
-  { newPassword, confirmPassword },
+  { newPassword, confirmPassword, token },
   { identityIq, session }
 ) => {
   const { forgotPasswordAuth } = session;
@@ -73,7 +73,8 @@ export const resetPasswordMutation: MutationResolvers['resetPassword'] = async (
 
   const workflowResponse = await identityIq.resetPassword(
     forgotPasswordAuth.userId,
-    newPassword
+    newPassword,
+    token
   );
 
   if (workflowResponse.completionStatus === 'Success') {

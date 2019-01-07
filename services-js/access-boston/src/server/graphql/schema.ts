@@ -61,6 +61,7 @@ export interface Mutation {
   resetPassword(args: {
     newPassword: string;
     confirmPassword: string;
+    token: string;
   }): Workflow;
 
   addMfaDevice(args: {
@@ -80,6 +81,7 @@ export interface Account {
   registered: boolean;
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+  resetPasswordToken: string;
 }
 
 export interface Apps {
@@ -135,6 +137,7 @@ const queryRootResolvers: QueryRootResolvers = {
         registered: !needsMfaDevice && !needsNewPassword,
         needsMfaDevice,
         needsNewPassword,
+        resetPasswordToken: '',
       };
     } else if (forgotPasswordAuth) {
       return {
@@ -144,6 +147,7 @@ const queryRootResolvers: QueryRootResolvers = {
         registered: false,
         needsMfaDevice: false,
         needsNewPassword: false,
+        resetPasswordToken: forgotPasswordAuth.resetPasswordToken,
       };
     } else {
       throw Boom.forbidden();

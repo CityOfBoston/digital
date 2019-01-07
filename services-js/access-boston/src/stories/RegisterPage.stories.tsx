@@ -11,6 +11,7 @@ storiesOf('RegisterPage', module)
         registered: false,
         needsMfaDevice: true,
         needsNewPassword: true,
+        resetPasswordToken: '',
       }}
     />
   ))
@@ -21,6 +22,7 @@ storiesOf('RegisterPage', module)
         registered: false,
         needsMfaDevice: true,
         needsNewPassword: false,
+        resetPasswordToken: '',
       }}
     />
   ));

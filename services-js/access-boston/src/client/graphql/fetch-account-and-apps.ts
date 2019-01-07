@@ -11,6 +11,7 @@ const QUERY = gql`
       registered
       needsMfaDevice
       needsNewPassword
+      resetPasswordToken
     }
 
     apps {

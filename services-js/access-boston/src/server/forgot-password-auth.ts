@@ -127,6 +127,7 @@ export async function addForgotPasswordAuth(
       setSessionAuth(request, {
         type: 'forgotPassword',
         userId: assertResult.nameId,
+        resetPasswordToken: assertResult.userAccessToken,
       });
 
       return h.redirect(forgotPath);

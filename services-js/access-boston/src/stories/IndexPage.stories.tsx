@@ -9,6 +9,7 @@ const ACCOUNT: Account = {
   registered: true,
   needsMfaDevice: false,
   needsNewPassword: false,
+  resetPasswordToken: '',
 };
 
 const APPS: Apps = {

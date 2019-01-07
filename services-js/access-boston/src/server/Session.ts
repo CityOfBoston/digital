@@ -16,6 +16,7 @@ export interface LoginAuth {
 export interface ForgotPasswordAuth {
   type: 'forgotPassword';
   userId: string;
+  resetPasswordToken: string;
 }
 
 declare module 'hapi' {

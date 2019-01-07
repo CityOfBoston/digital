@@ -25,7 +25,15 @@ export default class IdentityIqFake implements Required<IdentityIq> {
 
   async updateUserRegistration(): Promise<any> {}
 
-  async resetPassword(): Promise<LaunchedWorkflowResponse> {
+  async resetPassword(
+    _userId,
+    _password,
+    token
+  ): Promise<LaunchedWorkflowResponse> {
+    if (!token) {
+      throw new Error('Reset password token was not provided');
+    }
+
     return this.loadFixture('LaunchWorkflow-ResetPassword-success');
   }
 

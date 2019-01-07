@@ -5,13 +5,10 @@ const TASK_RESULT_SCHEMA =
   'urn:ietf:params:scim:schemas:sailpoint:1.0:TaskResult';
 const LAUNCHED_WORKFLOW_SCHEMA =
   'urn:ietf:params:scim:schemas:sailpoint:1.0:LaunchedWorkflow';
-const USER_SCHEMA = 'urn:ietf:params:scim:schemas:sailpoint:1.0:User';
-const ENTERPRISE_USER_SCHEMA =
-  'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User';
 
-const CHANGE_PASSWORD_WORKFLOW = 'COB-RESTAPI-Workflow-ChangePassword';
-// TODO(finh): Update when the final workflow is done
-const RESET_PASSWORD_WORKFLOW = 'REST_API_TEST2_WORKFLOW';
+const CHANGE_PASSWORD_WORKFLOW = 'CoB-Workflow-ChangePasswordRESTOnly';
+const RESET_PASSWORD_WORKFLOW = 'CoB-Workflow-ForgortPassword';
+const REGISTER_USER_WORKFLOW = 'CoB-Workflow-MFARegistration';
 
 export interface WorkflowResponse {
   totalResults: number;
@@ -87,76 +84,6 @@ export interface LaunchedWorkflowResponse {
   taskDefinition: string;
   terminated: boolean;
   launcher: string;
-}
-
-interface UserResponse {
-  [USER_SCHEMA]: {
-    capabilities: [];
-    lastRefresh: string;
-    sAMAccountName: string;
-    departmentCode: string;
-    employeeId: string;
-    telephone: string;
-    managerId: string;
-    cobHireDate: string;
-    ssn: string;
-    iiqFriendlyDeptName: string;
-    emailAliases: string[];
-    emplClass: string;
-    cobPrimaryJobCode: string;
-    iiqFriendlyLocName: string;
-    isManager: boolean;
-    isVerifyingIdentity: string;
-    accounts: Array<{
-      displayName: string;
-      value: string;
-      $ref: string;
-    }>;
-    cobJobLocationCode: string;
-    isPasswordExpired: string;
-    cobBusRelTypeCode: string;
-    status: string;
-    pwdLastSet: string;
-    isUserRegistered?: string;
-    userPhone?: string;
-    userEmail?: string;
-  };
-
-  emails: Array<{
-    type: string;
-    value: string;
-    primary: boolean;
-  }>;
-
-  displayName: string;
-
-  meta: {
-    created: string;
-    location: string;
-    lastModified: string;
-    version: string;
-    resourceType: 'User';
-  };
-
-  schemas: string[];
-
-  name: {
-    formatted: string;
-    familyName: string;
-    givenName: string;
-  };
-
-  active: boolean;
-  id: string;
-  userName: string;
-
-  [ENTERPRISE_USER_SCHEMA]: {
-    manager: {
-      displayName: string;
-      value: string;
-      $ref: string;
-    };
-  };
 }
 
 /**
@@ -267,7 +194,8 @@ export default class IdentityIq {
 
   async resetPassword(
     userId: string,
-    newPassword: string
+    newPassword: string,
+    token: string
   ): Promise<LaunchedWorkflowResponse> {
     const requestBody: LaunchWorkflowRequest = {
       schemas: [LAUNCHED_WORKFLOW_SCHEMA, TASK_RESULT_SCHEMA],
@@ -281,6 +209,10 @@ export default class IdentityIq {
           {
             key: 'launcher',
             value: userId,
+          },
+          {
+            key: 'token',
+            value: token,
           },
           {
             key: 'transient',
@@ -301,28 +233,36 @@ export default class IdentityIq {
     userId: string,
     { email, phoneNumber }: { email?: string; phoneNumber?: string }
   ) {
-    // IIQ doesn’t support PATCHing User objects over SCIM, so we have to
-    // download the entire object and then re-upload the modified one.
-    //
-    // WARNING: This response may have the last 4 of the employee’s SSN. Do not
-    // log without masking it.
-    const user: UserResponse = await this.makeScimRequest(`Users/${userId}`);
+    const requestBody: LaunchWorkflowRequest = {
+      schemas: [LAUNCHED_WORKFLOW_SCHEMA, TASK_RESULT_SCHEMA],
+      [LAUNCHED_WORKFLOW_SCHEMA]: {
+        workflowName: REGISTER_USER_WORKFLOW,
+        input: [
+          {
+            key: 'mfaEmail',
+            value: email || '',
+          },
+          {
+            key: 'mfaPhone',
+            value: phoneNumber || '',
+          },
+          {
+            key: 'launcher',
+            value: userId,
+          },
+          {
+            key: 'isUserRegistered',
+            value: 'true',
+          },
+          {
+            key: 'transient',
+            value: 'false',
+          },
+        ],
+      },
+    };
 
-    user[USER_SCHEMA].isUserRegistered = 'true';
-
-    if (email) {
-      user[USER_SCHEMA].userEmail = email;
-    }
-
-    if (phoneNumber) {
-      user[USER_SCHEMA].userPhone = phoneNumber;
-    }
-
-    await this.makeScimRequest(
-      this.makeScimUrl(`Users/${userId}`),
-      'PUT',
-      user
-    );
+    return this.makeScimRequest('LaunchedWorkflows', 'POST', requestBody);
   }
 
   async fetchWorkflow(caseId: string): Promise<LaunchedWorkflowResponse> {
