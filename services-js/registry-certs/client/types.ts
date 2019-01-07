@@ -2,6 +2,8 @@ import {
   FetchDeathCertificates,
   SearchDeathCertificates,
   LookupDeathCertificateOrder,
+  SubmitDeathCertificateOrder_submitDeathCertificateOrder,
+  SubmitBirthCertificateOrder_submitBirthCertificateOrder,
 } from './queries/graphql-types';
 
 export type CertificateType = 'death' | 'birth';
@@ -19,6 +21,9 @@ export interface DeathCertificateOrder
   extends NonNullable<
       LookupDeathCertificateOrder['deathCertificates']['order']
     > {}
+
+export type DeathCertificateOrderResult = SubmitDeathCertificateOrder_submitDeathCertificateOrder;
+export type BirthCertificateOrderResult = SubmitBirthCertificateOrder_submitBirthCertificateOrder;
 
 // Birth-specific
 export type Question =

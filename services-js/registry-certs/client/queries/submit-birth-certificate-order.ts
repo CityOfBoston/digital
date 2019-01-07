@@ -1,15 +1,15 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import Cart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import {
-  SubmitDeathCertificateOrder,
-  SubmitDeathCertificateOrderVariables,
+  SubmitBirthCertificateOrder,
+  SubmitBirthCertificateOrderVariables,
 } from './graphql-types';
-import { DeathCertificateOrderResult } from '../types';
+import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import { BirthCertificateOrderResult } from '../types';
 
 const QUERY = gql`
-  mutation SubmitDeathCertificateOrder(
+  mutation SubmitBirthCertificateOrder(
     $contactName: String!
     $contactEmail: String!
     $contactPhone: String!
@@ -28,10 +28,10 @@ const QUERY = gql`
     $billingCity: String!
     $billingState: String!
     $billingZip: String!
-    $items: [DeathCertificateOrderItemInput!]!
+    $item: BirthCertificateOrderItemInput!
     $idempotencyKey: String!
   ) {
-    submitDeathCertificateOrder(
+    submitBirthCertificateOrder(
       contactName: $contactName
       contactEmail: $contactEmail
       contactPhone: $contactPhone
@@ -50,7 +50,7 @@ const QUERY = gql`
       billingCity: $billingCity
       billingState: $billingState
       billingZip: $billingZip
-      items: $items
+      item: $item
       idempotencyKey: $idempotencyKey
     ) {
       order {
@@ -64,11 +64,11 @@ const QUERY = gql`
   }
 `;
 
-export default async function submitDeathCertificateOrder(
+export default async function submitBirthCertificateOrder(
   fetchGraphql: FetchGraphql,
-  cart: Cart,
+  birthCertificateRequest: BirthCertificateRequest,
   order: Order
-): Promise<DeathCertificateOrderResult> {
+): Promise<BirthCertificateOrderResult> {
   const {
     info: {
       contactName,
@@ -93,19 +93,34 @@ export default async function submitDeathCertificateOrder(
     idempotencyKey,
   } = order;
 
+  const {
+    quantity,
+    requestInformation: {
+      howRelated,
+      birthDate,
+      firstName,
+      lastName,
+      altSpelling,
+      parent1FirstName,
+      parent1LastName,
+      parent2FirstName,
+      parent2LastName,
+    },
+  } = birthCertificateRequest;
+
   if (!cardToken || !cardLast4) {
     throw new Error(
-      'submitDeathCertificateOrder called before card tokenization'
+      'submitBirthCertificateOrder called before card tokenization'
     );
   }
 
   if (!idempotencyKey) {
     throw new Error(
-      'submitDeathCertificateOrder called before setting idempotencyKey'
+      'submitBirthCertificateOrder called before setting idempotencyKey'
     );
   }
 
-  const queryVariables: SubmitDeathCertificateOrderVariables = {
+  const queryVariables: SubmitBirthCertificateOrderVariables = {
     contactName,
     contactEmail,
     contactPhone,
@@ -124,18 +139,25 @@ export default async function submitDeathCertificateOrder(
     billingState,
     billingCity,
     billingZip,
-    items: cart.entries.map(e => ({
-      id: e.id,
-      quantity: e.quantity,
-      name: e.cert ? `${e.cert.firstName} ${e.cert.lastName}` : 'Unknown Name',
-    })),
+    item: {
+      relationship: howRelated || 'unknown',
+      birthDate,
+      firstName,
+      lastName,
+      alternateSpellings: altSpelling || '',
+      parent1FirstName,
+      parent1LastName: parent1LastName || '',
+      parent2FirstName: parent2FirstName || '',
+      parent2LastName: parent2LastName || '',
+      quantity,
+    },
     idempotencyKey,
   };
 
-  const response: SubmitDeathCertificateOrder = await fetchGraphql(
+  const response: SubmitBirthCertificateOrder = await fetchGraphql(
     QUERY,
     queryVariables
   );
 
-  return response.submitDeathCertificateOrder;
+  return response.submitBirthCertificateOrder;
 }

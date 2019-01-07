@@ -40,9 +40,13 @@ const DEFAULT_DEATH_ITEMS = [
 const DEFAULT_BIRTH_ITEM = {
   firstName: 'Danielle',
   lastName: 'Cage',
-  dob: new Date('01 March 2006 00:00:00 GMT'),
+  relationship: 'parent',
+  alternateSpellings: '',
+  birthDate: new Date('01 March 2006 00:00:00 GMT'),
   parent1FirstName: 'Jessica',
+  parent1LastName: 'Jones',
   parent2FirstName: 'Luke',
+  parent2LastName: 'Cage',
   quantity: 10,
 };
 

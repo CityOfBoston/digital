@@ -98,7 +98,7 @@ describe('submit', () => {
       })
     );
 
-    const orderIdPromise = dao.submit(cart, order);
+    const orderIdPromise = dao.submitDeathCertificateCart(cart, order);
     expect(order.processing).toEqual(true);
 
     const orderId = await orderIdPromise;
@@ -111,7 +111,7 @@ describe('submit', () => {
       Promise.reject(new Error('I’m not dead yet!'))
     );
 
-    const orderIdPromise = dao.submit(cart, order);
+    const orderIdPromise = dao.submitDeathCertificateCart(cart, order);
     expect(order.processing).toEqual(true);
 
     await expect(orderIdPromise).rejects.toMatchObject({
@@ -130,7 +130,7 @@ describe('submit', () => {
       })
     );
 
-    const orderIdPromise = dao.submit(cart, order);
+    const orderIdPromise = dao.submitDeathCertificateCart(cart, order);
     expect(order.processing).toEqual(true);
 
     await expect(orderIdPromise).rejects.toMatchObject({
