@@ -6,6 +6,7 @@ import parseArgs from 'minimist';
 import {
   BANNER,
   uploadToS3,
+  downloadFromS3,
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
@@ -19,6 +20,7 @@ const { environment, serviceName, variant } = parseBranch(
 );
 const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
 const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
+const configBucket = `cob-digital-apps-${bucketEnvironment}-config`;
 
 (async function() {
   console.error(BANNER);
@@ -27,7 +29,8 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
     throw new Error('S3 deploy does not support variants');
   }
 
-  console.error(`🛫  Preparing to upload service ${serviceName} to ${bucket}.`);
+  console.error('🎢 Downloading configuration…');
+  await downloadFromS3(configBucket, serviceName);
   console.error();
 
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
@@ -45,6 +48,9 @@ const bucket = `cob-digital-apps-${bucketEnvironment}-static`;
     await runScopedLernaScript(serviceName, 'prepare');
     console.error();
   }
+
+  console.error(`🛫  Preparing to upload service ${serviceName} to ${bucket}.`);
+  console.error();
 
   await uploadToS3(buildDirPath, bucket, serviceName);
   console.error();

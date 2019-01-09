@@ -45,7 +45,7 @@ export default class extends Document {
       rollbarAccessToken,
       rollbarEnvironment,
       css,
-      __NEXT_DATA__: { buildId },
+      __NEXT_DATA__: { buildId, assetPrefix },
     } = this.props;
 
     return (
@@ -54,7 +54,7 @@ export default class extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
-            href="/assets/favicon.ico"
+            href={`${assetPrefix}/assets/favicon.ico`}
             type="image/vnd.microsoft.icon"
           />
           {rollbarAccessToken && (
