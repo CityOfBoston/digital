@@ -1,0 +1,4363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Countdown default 1`] = `
+<div
+  className="css-k57055"
+>
+  <div>
+    <div>
+      Next page in
+       
+      <strong>
+        0:30
+      </strong>
+    </div>
+  </div>
+  <div
+    className="css-1xymmsf"
+  >
+    View all public notices at 
+    <strong>
+      boston.gov/public-notices
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LastUpdated default 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#091f2f",
+      "padding": 16,
+    }
+  }
+>
+  <div
+    className="css-16he614"
+  >
+    Last updated: January 7, 2019 1:56PM
+     
+  </div>
+</div>
+`;
+
+exports[`Storyshots LastUpdated loading 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#091f2f",
+      "padding": 16,
+    }
+  }
+>
+  <div
+    className="css-16he614"
+  >
+    
+     
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail 2nd page 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/53786\\">Licensed Premise Violation hearings</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              1 City Hall Square
+            </div>
+            <div>
+              809A
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              12/18/2018 - 3:01pm
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-testimony"
+    >
+      The public can offer testimony
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  Violation Hearing</strong>
+  
+  <table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>1). Saturday Afternoon, Inc., doing business as: The Machine/Ram Rod</strong></p>
+<p>Location: 1254  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑101573, Notice/Violation#: 070431, Category: GOPAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/10/2018</p>
+<p>Notice/Violation: Patron on Patron A&amp;B in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>2). Alasty Corp., doing business as: Napper Tandys</strong></p>
+<p>Location: 4187 ‑ 4195  Washington St Roslindale, MA  02131</p>
+<p>License#: LB‑99286, Notice/Violation#: 072651, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/19/2018</p>
+<p>Notice/Violation: Sick assist non responded for patron under influence of alcohol &amp; drugs, taken to hospital  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>3). Stretford End, Inc., doing business as: Brighton Music Hall</strong></p>
+<p>Location: 158  Brighton Ave Allston, MA  02134</p>
+<p>License#: LB‑98954, Notice/Violation#: 069612, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/06/2018</p>
+<p>Notice/Violation: Manager assaulted by band member in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>4). Jajb, Inc., doing business as: Tavern In the Square Allston</strong></p>
+<p>Location: 161 ‑ 165  Brighton Av Allston, MA  02134</p>
+<p>License#: LB‑98955, Notice/Violation#: 069613, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Over serving patrons  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>5). Gsth Investment Group, LLC, doing business as: The Bijou</strong></p>
+<p>Location: 51  Stuart St Boston, MA  02116</p>
+<p>License#: LB‑99238, Notice/Violation#: 009263, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Intoxicated underage patron found onsite (EMS required)  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>6). The Pitcher's Mound, Inc., doing business as: Diamond At Fenway</strong></p>
+<p>Location: 72  Brookline Ave Boston, MA  02215</p>
+<p>License#: LB‑99121, Notice/Violation#: 009706, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/23/2018</p>
+<p>Notice/Violation: Sale of alcohol (draft beers) to two intoxicated patrons at 4th floor, Boylston Porch Pub ‑ behind Cumberland Terrace in violation of M.G.L. ch. 138 s. 69.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>7). A.T.G., Inc., doing business as: Clerys</strong></p>
+<p>Location: 331 ‑ 335  Columbus Ave Boston, MA  02116</p>
+<p>License#: LB‑98998, Notice/Violation#: 071867, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol in inside premise (Beer + Vodka) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>8). Baseball Tavern, Inc., doing business as: Baseball Tavern</strong></p>
+<p>Location: 1270  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑98936, Notice/Violation#: 009570, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Vodka) inside premise. Failure to check ID properly (Expired MA. License) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>9). Comm 973 Group LLC, doing business as: T's Pub</strong></p>
+<p>Location: 971 ‑ 973  Commonwealth Av Boston, MA  02215</p>
+<p>License#: LB‑99021, Notice/Violation#: 009568, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol inside premise in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>10). Restaurante Cesaria, Inc.</strong></p>
+<p>Location: 266  Bowdoin St Dorchester, MA  02125</p>
+<p>License#: LB‑99269, Notice/Violation#: 009533, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/11/2018</p>
+<p>Notice/Violation: Overcrowding in excess of licensed capacity of 99 persons, 120 found on mechanical count. DJ and dancing without approval of license division in violation of M.G.L. ch. 138 s. 64 &amp; Board's Rule 1.03J and 1.06 A, F.</p>
+</td>
+</tr></tbody></table><div style=\\"clear:both\\">
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>11). Alumni Assoc Of Omicron Chapt. Of Phi Sigma Kappa, doing business as: M.I.T</strong></p>
+<p>Location: 487  Commonwealth Ave Boston, MA  02215</p>
+<p>License#: LB‑101307, Notice/Violation#: 009545, Category: DRMTY</p>
+</td>
+</tr></tbody></table></div>
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Natural Light Beer) inside premise. Occupants smoking inside premise in violation of Public Health Regulations.  in violation of M.G.L. ch. 138 s. 34.</p>
+<p>Overcrowding in excess of licensed capacity of 26 residents, 150 persons inside premise in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.03 J, 1.06 A, F.</p>
+<p>Expired ISD Certificates, expired on 5/31/2018; Expired Boston Fire Assemby Permit, expired on 6/30/2018 in violation of M.G.L ch. 138 s. 64 and Boards Rule 1.02B.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>12). Highgate Hotels, L.P., doing business as: Taj Boston</strong></p>
+<p>Location: 15  Arlington St Boston, MA  02116</p>
+<p>License#: LB‑101613, Notice/Violation#: 009546, Category: INNAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/16/2018</p>
+<p>Notice/Violation: Two patrons of hotel bar observed in possession of alcoholic beverages (Stella Bottle Beer, Vodka + Tonic) on public sidewalk in front of hotel entrance  in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.09D.</p>
+</td>
+</tr></tbody></table>  </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          2
+           of 
+          …
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          53786
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail cancelled 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/54006\\">Bay Village Historic District Commission</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <span
+              className="notice-canceled"
+            >
+              Canceled
+            </span>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              1 City Hall Square
+            </div>
+            <div>
+              
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              12/26/2018 - 2:45pm
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-testimony"
+    >
+      The public can offer testimony
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  Public Hearing Canceled</strong>
+    </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          1
+           of 
+          …
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          54006
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail default 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/53786\\">Licensed Premise Violation hearings</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              1 City Hall Square
+            </div>
+            <div>
+              809A
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              12/18/2018 - 3:01pm
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-testimony"
+    >
+      The public can offer testimony
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  Violation Hearing</strong>
+  
+  <table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>1). Saturday Afternoon, Inc., doing business as: The Machine/Ram Rod</strong></p>
+<p>Location: 1254  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑101573, Notice/Violation#: 070431, Category: GOPAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/10/2018</p>
+<p>Notice/Violation: Patron on Patron A&amp;B in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>2). Alasty Corp., doing business as: Napper Tandys</strong></p>
+<p>Location: 4187 ‑ 4195  Washington St Roslindale, MA  02131</p>
+<p>License#: LB‑99286, Notice/Violation#: 072651, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/19/2018</p>
+<p>Notice/Violation: Sick assist non responded for patron under influence of alcohol &amp; drugs, taken to hospital  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>3). Stretford End, Inc., doing business as: Brighton Music Hall</strong></p>
+<p>Location: 158  Brighton Ave Allston, MA  02134</p>
+<p>License#: LB‑98954, Notice/Violation#: 069612, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/06/2018</p>
+<p>Notice/Violation: Manager assaulted by band member in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>4). Jajb, Inc., doing business as: Tavern In the Square Allston</strong></p>
+<p>Location: 161 ‑ 165  Brighton Av Allston, MA  02134</p>
+<p>License#: LB‑98955, Notice/Violation#: 069613, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Over serving patrons  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>5). Gsth Investment Group, LLC, doing business as: The Bijou</strong></p>
+<p>Location: 51  Stuart St Boston, MA  02116</p>
+<p>License#: LB‑99238, Notice/Violation#: 009263, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Intoxicated underage patron found onsite (EMS required)  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>6). The Pitcher's Mound, Inc., doing business as: Diamond At Fenway</strong></p>
+<p>Location: 72  Brookline Ave Boston, MA  02215</p>
+<p>License#: LB‑99121, Notice/Violation#: 009706, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/23/2018</p>
+<p>Notice/Violation: Sale of alcohol (draft beers) to two intoxicated patrons at 4th floor, Boylston Porch Pub ‑ behind Cumberland Terrace in violation of M.G.L. ch. 138 s. 69.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>7). A.T.G., Inc., doing business as: Clerys</strong></p>
+<p>Location: 331 ‑ 335  Columbus Ave Boston, MA  02116</p>
+<p>License#: LB‑98998, Notice/Violation#: 071867, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol in inside premise (Beer + Vodka) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>8). Baseball Tavern, Inc., doing business as: Baseball Tavern</strong></p>
+<p>Location: 1270  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑98936, Notice/Violation#: 009570, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Vodka) inside premise. Failure to check ID properly (Expired MA. License) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>9). Comm 973 Group LLC, doing business as: T's Pub</strong></p>
+<p>Location: 971 ‑ 973  Commonwealth Av Boston, MA  02215</p>
+<p>License#: LB‑99021, Notice/Violation#: 009568, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol inside premise in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>10). Restaurante Cesaria, Inc.</strong></p>
+<p>Location: 266  Bowdoin St Dorchester, MA  02125</p>
+<p>License#: LB‑99269, Notice/Violation#: 009533, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/11/2018</p>
+<p>Notice/Violation: Overcrowding in excess of licensed capacity of 99 persons, 120 found on mechanical count. DJ and dancing without approval of license division in violation of M.G.L. ch. 138 s. 64 &amp; Board's Rule 1.03J and 1.06 A, F.</p>
+</td>
+</tr></tbody></table><div style=\\"clear:both\\">
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>11). Alumni Assoc Of Omicron Chapt. Of Phi Sigma Kappa, doing business as: M.I.T</strong></p>
+<p>Location: 487  Commonwealth Ave Boston, MA  02215</p>
+<p>License#: LB‑101307, Notice/Violation#: 009545, Category: DRMTY</p>
+</td>
+</tr></tbody></table></div>
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Natural Light Beer) inside premise. Occupants smoking inside premise in violation of Public Health Regulations.  in violation of M.G.L. ch. 138 s. 34.</p>
+<p>Overcrowding in excess of licensed capacity of 26 residents, 150 persons inside premise in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.03 J, 1.06 A, F.</p>
+<p>Expired ISD Certificates, expired on 5/31/2018; Expired Boston Fire Assemby Permit, expired on 6/30/2018 in violation of M.G.L ch. 138 s. 64 and Boards Rule 1.02B.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>12). Highgate Hotels, L.P., doing business as: Taj Boston</strong></p>
+<p>Location: 15  Arlington St Boston, MA  02116</p>
+<p>License#: LB‑101613, Notice/Violation#: 009546, Category: INNAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/16/2018</p>
+<p>Notice/Violation: Two patrons of hotel bar observed in possession of alcoholic beverages (Stella Bottle Beer, Vodka + Tonic) on public sidewalk in front of hotel entrance  in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.09D.</p>
+</td>
+</tr></tbody></table>  </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          1
+           of 
+          …
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          53786
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail loading 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "&nbsp;",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          />
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div />
+            <div />
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeList default 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "width": 450,
+    }
+  }
+>
+  <ul
+    className="css-1huyjbq"
+  >
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54126\\">Trustees of the Public Library of the City of Boston meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            700 Boylston Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53786\\">Licensed Premise Violation hearings</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53146\\">Massachusetts Development Finance Agency meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            99 High Street
+            <span>
+              , 
+              11th Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/52561\\">Community Preservation Committee meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            26 Court Street
+            <span>
+              , 
+              1st Floor Conference Room
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            C
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54141\\">Entertainment Application hearings</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            B
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54006\\">Bay Village Historic District Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-canceled"
+          >
+            Canceled
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54011\\">Bay State Road/Back Bay West Area Architectural Conservation District Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-canceled"
+          >
+            Canceled
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54186\\">Boston Civic Design Commission meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 900, 9th floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/51506\\">Boston Landmarks Commission Hearing 01/08/2019</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Plaza
+            <span>
+              , 
+              Piemonte Room, Fifth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-canceled"
+          >
+            Canceled
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54156\\">Charlestown Neighborhood Council</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            545 Medford Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54226\\">Boston Residency Compliance Commission meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Human Resources Conference Room, In Room 612
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54231\\">Emergency Management - Homeland Security meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            20 Vine Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54106\\">Licensing Board hearing</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54146\\">Entertainment Administrative hearings</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53451\\">City Council meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Fifth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54216\\">Metro Boston Homeland Security Region Maritime Working Group meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            20 VINE ST
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54116\\">Dudley Street Neighborhood Charter School meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            6 Shirley Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54041\\">Back Bay Architectural Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 900, Ninth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53791\\">Conservation Commission Hearing </a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              5th Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54296\\">Boston Collegiate Charter School Governance Committee meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            605-468-8010
+            <span>
+              , 
+              Access code: 250496#
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54256\\">City on a Hill Development Committee meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            287 Columbus Ave
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54131\\">Non Hearing Common Victualler and Other Transactions</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54176\\">Non Hearing Common Victualler and Other Transactions</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53446\\">Massachusetts Department of Transportation meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            10 Park Plaza
+            <span>
+              , 
+              Conference Rooms 5 and 6, 2nd Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54026\\">Aberdeen Architectural Conservation District Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 801, Eighth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54236\\">Boston Groundwater Trust meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            710 BOYLSTON STREET
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54096\\">Fort Point Channel Landmark District Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              5th Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-canceled"
+          >
+            Canceled
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/53411\\">Community outreach meeting for proposed South End marijuana establishment</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            225 Albany Street
+            <span>
+              , 
+              Barclay Conference Room
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54316\\">Boston Collegiate Charter School Meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            215 Sydney Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/54246\\">Metro Boston Homeland Security Region Safety and Security Subcommittee meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            85 Bragdon Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+          <div
+            className="notice-time"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots PublicNoticesContent default 1`] = `
+<div
+  className="css-1cixtww"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="header"
+    >
+      <h1>
+        City Clerk Postings
+      </h1>
+      <div
+        className="css-16he614"
+      >
+        Last updated: January 7, 2019 1:56PM
+         
+      </div>
+    </div>
+    <div
+      className="main"
+    >
+      <div
+        className="columns"
+      >
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  A
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/53786\\">Licensed Premise Violation hearings</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    1 City Hall Square
+                  </div>
+                  <div>
+                    809A
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    12/18/2018 - 3:01pm
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-testimony"
+          >
+            The public can offer testimony
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  Violation Hearing</strong>
+  
+  <table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>1). Saturday Afternoon, Inc., doing business as: The Machine/Ram Rod</strong></p>
+<p>Location: 1254  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑101573, Notice/Violation#: 070431, Category: GOPAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/10/2018</p>
+<p>Notice/Violation: Patron on Patron A&amp;B in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>2). Alasty Corp., doing business as: Napper Tandys</strong></p>
+<p>Location: 4187 ‑ 4195  Washington St Roslindale, MA  02131</p>
+<p>License#: LB‑99286, Notice/Violation#: 072651, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/19/2018</p>
+<p>Notice/Violation: Sick assist non responded for patron under influence of alcohol &amp; drugs, taken to hospital  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>3). Stretford End, Inc., doing business as: Brighton Music Hall</strong></p>
+<p>Location: 158  Brighton Ave Allston, MA  02134</p>
+<p>License#: LB‑98954, Notice/Violation#: 069612, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/06/2018</p>
+<p>Notice/Violation: Manager assaulted by band member in violation of M.G.L. ch. 138 s. 64, ch. 265 s. 13A.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>4). Jajb, Inc., doing business as: Tavern In the Square Allston</strong></p>
+<p>Location: 161 ‑ 165  Brighton Av Allston, MA  02134</p>
+<p>License#: LB‑98955, Notice/Violation#: 069613, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Over serving patrons  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>5). Gsth Investment Group, LLC, doing business as: The Bijou</strong></p>
+<p>Location: 51  Stuart St Boston, MA  02116</p>
+<p>License#: LB‑99238, Notice/Violation#: 009263, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Intoxicated underage patron found onsite (EMS required)  in violation of M.G.L. ch. 138 s. 64.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>6). The Pitcher's Mound, Inc., doing business as: Diamond At Fenway</strong></p>
+<p>Location: 72  Brookline Ave Boston, MA  02215</p>
+<p>License#: LB‑99121, Notice/Violation#: 009706, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/23/2018</p>
+<p>Notice/Violation: Sale of alcohol (draft beers) to two intoxicated patrons at 4th floor, Boylston Porch Pub ‑ behind Cumberland Terrace in violation of M.G.L. ch. 138 s. 69.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>7). A.T.G., Inc., doing business as: Clerys</strong></p>
+<p>Location: 331 ‑ 335  Columbus Ave Boston, MA  02116</p>
+<p>License#: LB‑98998, Notice/Violation#: 071867, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/12/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol in inside premise (Beer + Vodka) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>8). Baseball Tavern, Inc., doing business as: Baseball Tavern</strong></p>
+<p>Location: 1270  Boylston St Boston, MA  02215</p>
+<p>License#: LB‑98936, Notice/Violation#: 009570, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Vodka) inside premise. Failure to check ID properly (Expired MA. License) in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>9). Comm 973 Group LLC, doing business as: T's Pub</strong></p>
+<p>Location: 971 ‑ 973  Commonwealth Av Boston, MA  02215</p>
+<p>License#: LB‑99021, Notice/Violation#: 009568, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/04/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol inside premise in violation of M.G.L. ch. 138 s. 34.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>10). Restaurante Cesaria, Inc.</strong></p>
+<p>Location: 266  Bowdoin St Dorchester, MA  02125</p>
+<p>License#: LB‑99269, Notice/Violation#: 009533, Category: CV7AL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/11/2018</p>
+<p>Notice/Violation: Overcrowding in excess of licensed capacity of 99 persons, 120 found on mechanical count. DJ and dancing without approval of license division in violation of M.G.L. ch. 138 s. 64 &amp; Board's Rule 1.03J and 1.06 A, F.</p>
+</td>
+</tr></tbody></table><div style=\\"clear:both\\">
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>11). Alumni Assoc Of Omicron Chapt. Of Phi Sigma Kappa, doing business as: M.I.T</strong></p>
+<p>Location: 487  Commonwealth Ave Boston, MA  02215</p>
+<p>License#: LB‑101307, Notice/Violation#: 009545, Category: DRMTY</p>
+</td>
+</tr></tbody></table></div>
+<table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/13/2018</p>
+<p>Notice/Violation: Minor in possession of alcohol (Natural Light Beer) inside premise. Occupants smoking inside premise in violation of Public Health Regulations.  in violation of M.G.L. ch. 138 s. 34.</p>
+<p>Overcrowding in excess of licensed capacity of 26 residents, 150 persons inside premise in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.03 J, 1.06 A, F.</p>
+<p>Expired ISD Certificates, expired on 5/31/2018; Expired Boston Fire Assemby Permit, expired on 6/30/2018 in violation of M.G.L ch. 138 s. 64 and Boards Rule 1.02B.</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"720\\"><tbody><tr><td align=\\"left\\">
+<p><strong>12). Highgate Hotels, L.P., doing business as: Taj Boston</strong></p>
+<p>Location: 15  Arlington St Boston, MA  02116</p>
+<p>License#: LB‑101613, Notice/Violation#: 009546, Category: INNAL</p>
+</td>
+</tr></tbody></table><table cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"732\\"><tbody><tr><td align=\\"left\\">
+<p>Date: 10/16/2018</p>
+<p>Notice/Violation: Two patrons of hotel bar observed in possession of alcoholic beverages (Stella Bottle Beer, Vodka + Tonic) on public sidewalk in front of hotel entrance  in violation of M.G.L. ch. 138 s. 64 and Board's Rule 1.09D.</p>
+</td>
+</tr></tbody></table>  </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                …
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                53786
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  B
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/52561\\">Community Preservation Committee meeting</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    26 Court Street
+                  </div>
+                  <div>
+                    1st Floor Conference Room
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    11/20/2018 - 9:29am
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-testimony"
+          >
+            The public can offer testimony
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  Welcome</strong>
+    </li>
+
+<li>
+  <strong>
+  Brief review previous meetings about affordable housing</strong>
+    </li>
+
+<li>
+  <strong>
+  Discussion of open space/historic preservation projects</strong>
+    </li>
+
+<li>
+  <strong>
+  Tally neighborhood and category representation</strong>
+    </li>
+
+<li>
+  <strong>
+  Public Comment on community priorities</strong>
+    </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                …
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                52561
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  C
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/54141\\">Entertainment Application hearings</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                  <div
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<",
+                      }
+                    }
+                  />
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    1 City Hall Square
+                  </div>
+                  <div>
+                    809A
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    01/03/2019 - 10:03am
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-testimony"
+          >
+            The public can offer testimony
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  RESTAURANTE CESARIA</strong>
+  
+  <p>266 BOWDOIN STREET, DORCHESTER</p>
+<p><strong>REQUEST:</strong> TO ADD DISC JOCKEY AND DANCING TO THEIR EXISTING ENTERTAINMENT LICENSE.</p>
+<p><strong>APPLICANT:</strong> RESTAURANTE CESARIA, INC</p>
+<p><strong>M.O.R.</strong>: ANTONIO BARROS</p>
+  </li>
+
+<li>
+  <strong>
+  THE TROPHY ROOM           RESCHEDULED 2/5/18</strong>
+  
+  <p><s>26-32 CHANDLER STREET, BOSTON</s></p>
+<p><s><strong>REQUEST:</strong> TO MAINTAIN AND OPERATE THE CATEGORIES OF THREE (3) INSTRUMENTAL MUSIC, TWO (2) VOCALIST, KARAOKE, TRIVIA, AND FLOOR SHOWS FOR CABARET PERFORMANCES.</s></p>
+<p><s><strong>APPLICANT:</strong> PINEAPPLE HOSPITALITY GROUP</s></p>
+<p><s><strong>M.O.R.:</strong> EDWARD C. MOSES GRANGER</s></p>
+  </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                …
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                54141
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-k57055"
+      >
+        <div>
+          <div>
+            Next page in
+             
+            <strong>
+              0:30
+            </strong>
+          </div>
+        </div>
+        <div
+          className="css-1xymmsf"
+        >
+          View all public notices at 
+          <strong>
+            boston.gov/public-notices
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sidebar"
+  >
+    <ul
+      className="css-1huyjbq"
+    >
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54126\\">Trustees of the Public Library of the City of Boston meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              700 Boylston Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              A
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53786\\">Licensed Premise Violation hearings</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53146\\">Massachusetts Development Finance Agency meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              99 High Street
+              <span>
+                , 
+                11th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              B
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/52561\\">Community Preservation Committee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              26 Court Street
+              <span>
+                , 
+                1st Floor Conference Room
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              C
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54141\\">Entertainment Application hearings</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54006\\">Bay Village Historic District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54011\\">Bay State Road/Back Bay West Area Architectural Conservation District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54186\\">Boston Civic Design Commission meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 900, 9th floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/51506\\">Boston Landmarks Commission Hearing 01/08/2019</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Plaza
+              <span>
+                , 
+                Piemonte Room, Fifth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54156\\">Charlestown Neighborhood Council</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              545 Medford Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54226\\">Boston Residency Compliance Commission meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Human Resources Conference Room, In Room 612
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54231\\">Emergency Management - Homeland Security meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              20 Vine Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54106\\">Licensing Board hearing</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54146\\">Entertainment Administrative hearings</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53451\\">City Council meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Fifth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54216\\">Metro Boston Homeland Security Region Maritime Working Group meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              20 VINE ST
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54116\\">Dudley Street Neighborhood Charter School meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              6 Shirley Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54041\\">Back Bay Architectural Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 900, Ninth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53791\\">Conservation Commission Hearing </a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                5th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54296\\">Boston Collegiate Charter School Governance Committee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              605-468-8010
+              <span>
+                , 
+                Access code: 250496#
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54256\\">City on a Hill Development Committee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              287 Columbus Ave
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54131\\">Non Hearing Common Victualler and Other Transactions</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54176\\">Non Hearing Common Victualler and Other Transactions</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53446\\">Massachusetts Department of Transportation meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              10 Park Plaza
+              <span>
+                , 
+                Conference Rooms 5 and 6, 2nd Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54026\\">Aberdeen Architectural Conservation District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 801, Eighth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54236\\">Boston Groundwater Trust meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              710 BOYLSTON STREET
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54096\\">Fort Point Channel Landmark District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                5th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/53411\\">Community outreach meeting for proposed South End marijuana establishment</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              225 Albany Street
+              <span>
+                , 
+                Barclay Conference Room
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54316\\">Boston Collegiate Charter School Meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              215 Sydney Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/54246\\">Metro Boston Homeland Security Region Safety and Security Subcommittee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              85 Bragdon Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+            <div
+              className="notice-time"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<",
+                }
+              }
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
