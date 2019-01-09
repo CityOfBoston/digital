@@ -16,6 +16,8 @@ const stat = promisify(fs.stat);
 const readFile = promisify(fs.readFile);
 const lstat = promisify(fs.lstat);
 const realpath = promisify(fs.realpath);
+const mkdir = promisify(fs.mkdir);
+const writeFile = promisify(fs.writeFile);
 
 export const AWS_REGION = 'us-east-1';
 AWS.config.update({ region: AWS_REGION });
@@ -580,6 +582,41 @@ export async function uploadToS3(buildDir, bucket, keyPrefix) {
             }
           )
           .promise();
+      }
+    })
+  );
+}
+
+export async function downloadFromS3(bucket: string, keyPrefix: string) {
+  const s3 = new AWS.S3();
+
+  const paths = await s3
+    .listObjects({ Bucket: bucket, Prefix: keyPrefix })
+    .promise();
+
+  await Promise.all(
+    (paths.Contents || []).map(async ({ Key }) => {
+      const localPath = path.relative(keyPrefix, Key!);
+
+      if (localPath === '') {
+        return;
+      }
+
+      console.log(localPath);
+      if (Key!.endsWith('/')) {
+        try {
+          await mkdir(localPath);
+        } catch (err) {
+          if (err.code !== 'EEXIST') {
+            throw err;
+          }
+        }
+      } else {
+        const object = await s3
+          .getObject({ Bucket: bucket, Key: Key! })
+          .promise();
+
+        await writeFile(localPath, object.Body);
       }
     })
   );
