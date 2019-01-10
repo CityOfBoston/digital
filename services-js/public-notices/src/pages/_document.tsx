@@ -1,12 +1,11 @@
 import React from 'react';
 import { DocumentContext } from 'next';
+import getConfig from 'next/config';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 type Props = {
   __NEXT_DATA__: any;
-  rollbarAccessToken: string | undefined;
-  rollbarEnvironment: string;
   // From Emotion’s hydration
   ids?: string[];
   css: string;
@@ -22,9 +21,6 @@ export default class extends Document {
     return {
       ...page,
       ...styles,
-      rollbarAccessToken: process.env.ROLLBAR_BROWSER_ACCESS_TOKEN,
-      rollbarEnvironment:
-        process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
     };
   }
 
@@ -42,11 +38,15 @@ export default class extends Document {
 
   render() {
     const {
-      rollbarAccessToken,
-      rollbarEnvironment,
       css,
       __NEXT_DATA__: { buildId, assetPrefix },
     } = this.props;
+
+    const config = getConfig();
+    const {
+      rollbarAccessToken,
+      rollbarEnvironment,
+    } = config.publicRuntimeConfig;
 
     return (
       <html lang="en" className="js flexbox">
@@ -54,7 +54,7 @@ export default class extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
-            href={`${assetPrefix}/assets/favicon.ico`}
+            href={`${assetPrefix || ''}/static/favicon.ico`}
             type="image/vnd.microsoft.icon"
           />
           {rollbarAccessToken && (

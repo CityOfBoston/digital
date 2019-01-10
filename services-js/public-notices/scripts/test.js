@@ -9,7 +9,7 @@ travisSnapshot({
   project: 'CityOfBoston/Public-Notices',
   packageName: 'public-notices',
   // Notices is displayed on a big TV. We don’t need to be responsive.
-  widths: ['840'],
+  widths: ['1920'],
 });
 
 // Pass any other args along to Jest (e.g. "--no-cache" or "-u")

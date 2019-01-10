@@ -144,14 +144,8 @@ function renderNotice(
             <div className="notice-canceled">Canceled</div>
           ) : (
             <>
-              <div
-                className="notice-date"
-                dangerouslySetInnerHTML={{ __html: notice.notice_date }}
-              />
-              <div
-                className="notice-time"
-                dangerouslySetInnerHTML={{ __html: notice.notice_time }}
-              />
+              <div className="notice-date">{notice.notice_date}</div>
+              <div className="notice-time">{notice.notice_time}</div>
             </>
           )}
         </div>

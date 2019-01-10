@@ -1,3 +1,4 @@
+import getConfig from 'next/config';
 import Notice from './Notice';
 
 export type NoticeFetcherOptions = {
@@ -7,9 +8,11 @@ export type NoticeFetcherOptions = {
   callback: (notices: Notice[]) => unknown;
 };
 
+const config = getConfig();
+
 const DEFAULT_OPTIONS: NoticeFetcherOptions = {
   intervalMs: 1000 * 60 * 5,
-  url: `https://www.boston.gov/api/v1/public-notices`,
+  url: config.publicRuntimeConfig.noticesApiUrl,
   numNotices: 13,
   callback: () => {},
 };
@@ -65,7 +68,10 @@ export default class NoticeFetcher {
         ? this.options.intervalMs
         : // Math.min so that our exponential backoff never exceeds the scheduled
           // time between requests.
-          Math.min(1000 * (2 ^ this.failureCount), this.options.intervalMs);
+          Math.min(
+            1000 * Math.pow(2, this.failureCount),
+            this.options.intervalMs
+          );
 
     this.nextFetchTimeout = window.setTimeout(
       () => this.runFetch(),
