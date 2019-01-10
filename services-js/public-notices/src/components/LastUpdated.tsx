@@ -18,7 +18,7 @@ export default function LastUpdated({
   //January 7, 2019 1:51PM
   const lastUpdatedString = lastUpdated
     ? `Last updated: ${format(lastUpdated, 'MMMM D, YYYY h:mmA')}`
-    : '';
+    : 'Loading…';
 
   return <div className={LAST_UPDATED_STYLE}>{lastUpdatedString} </div>;
 }

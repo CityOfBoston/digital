@@ -7,19 +7,20 @@
     "prebuild": "rimraf build",
     "build": "next build src",
     "dev": "next dev src",
-    "storybook": "start-storybook -p 9001 -s static",
+    "storybook": "start-storybook -p 9001 -s src/static",
     "watch-dependencies": "lerna run --parallel --scope public-notices --include-filtered-dependencies watch",
     "prepare": "npm run build",
     "start": "next start",
     "pretest": "npm run prebuild && tsc --noEmit",
     "test": "scripts/test.js",
-    "predeploy": "rimraf export && yarn build && next export src -o export && cp -r static/* build/.next/BUILD_ID export",
+    "predeploy": "rimraf export && yarn build && next export src -o export && cp -r build/.next/BUILD_ID export",
     "codebuild-deploy": "s3-apps-deploy export"
   },
   "jest": {
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
+    "@cityofboston/react-fleet": "^0.0.0",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.0",
     "emotion": "9.2.10",
@@ -39,7 +40,6 @@
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
-    "@cityofboston/react-fleet": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
     "@storybook/addon-actions": "4.0.4",
     "@storybook/addon-storyshots": "4.0.4",

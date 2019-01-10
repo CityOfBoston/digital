@@ -1,5 +1,6 @@
 import React from 'react';
 import { css, injectGlobal } from 'emotion';
+import Head from 'next/head';
 
 import { CHARLES_BLUE, OPTIMISTIC_BLUE } from '@cityofboston/react-fleet';
 
@@ -103,24 +104,29 @@ export default function PublicNoticesContent({
   timer,
 }: Props): React.ReactElement<any> {
   return (
-    <div className={APP_STYLE}>
-      <div className="container">
-        <div className="header">
-          <h1>City Clerk Postings</h1>
-          <LastUpdated lastUpdated={lastUpdated} />
-        </div>
-        <div className="main">
-          <div className="columns">
-            {noticeColumns.map(c => (
-              <NoticeDetail noticeColumn={c} key={c.label} />
-            ))}
+    <>
+      <Head>
+        <title>Public Notices | Boston.gov</title>
+      </Head>
+      <div className={APP_STYLE}>
+        <div className="container">
+          <div className="header">
+            <h1>City Clerk Postings</h1>
+            <LastUpdated lastUpdated={lastUpdated} />
           </div>
-          <Countdown timer={timer} />
+          <div className="main">
+            <div className="columns">
+              {noticeColumns.map(c => (
+                <NoticeDetail noticeColumn={c} key={c.label} />
+              ))}
+            </div>
+            <Countdown timer={timer} />
+          </div>
+        </div>
+        <div className="sidebar">
+          <NoticeList notices={notices} noticeColumns={noticeColumns} />
         </div>
       </div>
-      <div className="sidebar">
-        <NoticeList notices={notices} noticeColumns={noticeColumns} />
-      </div>
-    </div>
+    </>
   );
 }

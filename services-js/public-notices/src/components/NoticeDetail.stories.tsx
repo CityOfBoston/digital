@@ -8,7 +8,8 @@ import NoticeDetail from './NoticeDetail';
 
 const NOTICES: Notice[] = require('../../fixtures/notices.json');
 const LONG_NOTICE = NOTICES[1];
-const CANCELLED_NOTICED = NOTICES[5];
+const CANCELLED_NOTICE = NOTICES[17];
+const PUBLIC_TESTIMONY_NOTICE = NOTICES[5];
 
 storiesOf('NoticeDetail', module)
   .addDecorator(story => (
@@ -24,7 +25,12 @@ storiesOf('NoticeDetail', module)
       })}
     />
   ))
+  .add('public testimony', () => (
+    <NoticeDetail
+      noticeColumn={new NoticeColumn('A', PUBLIC_TESTIMONY_NOTICE)}
+    />
+  ))
   .add('cancelled', () => (
-    <NoticeDetail noticeColumn={new NoticeColumn('A', CANCELLED_NOTICED)} />
+    <NoticeDetail noticeColumn={new NoticeColumn('A', CANCELLED_NOTICE)} />
   ))
   .add('loading', () => <NoticeDetail noticeColumn={new NoticeColumn('A')} />);

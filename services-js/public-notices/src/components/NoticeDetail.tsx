@@ -202,15 +202,23 @@ export default class NoticeDetail extends React.Component<Props> {
   private updateHeights() {
     const bodyEl = this.bodyRef.current;
     const contentEl = this.contentRef.current;
+    const { noticeColumn } = this.props;
 
     if (bodyEl && contentEl) {
       this.bodyHeight = bodyEl.clientHeight;
       this.contentHeight = contentEl.clientHeight;
 
-      const { noticeColumn } = this.props;
+      // We calculate how many pages worth of scroll based on the two heights.
+      // There’s a bit of slop so that there’s an overlap from scroll-to-scroll,
+      // but we make sure we always calculate a body height of at least 1px to
+      // avoid dividing by 0 or having negative page numbers.
       noticeColumn.setNumPages(
-        Math.ceil(this.contentHeight / (this.bodyHeight - BODY_SCROLL_SLOP))
+        Math.ceil(
+          this.contentHeight / Math.max(1, this.bodyHeight - BODY_SCROLL_SLOP)
+        )
       );
+    } else {
+      noticeColumn.setNumPages(1);
     }
   }
 
@@ -246,12 +254,8 @@ export default class NoticeDetail extends React.Component<Props> {
                     <span className="notice-canceled">Canceled</span>
                   ) : (
                     <>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: notice.notice_date }}
-                      />
-                      <div
-                        dangerouslySetInnerHTML={{ __html: notice.notice_time }}
-                      />
+                      <div>{notice.notice_date}</div>
+                      <div>{notice.notice_time}</div>
                     </>
                   ))}
               </div>
@@ -275,7 +279,7 @@ export default class NoticeDetail extends React.Component<Props> {
         </div>
 
         {notice &&
-          notice.testimony_time === '' && (
+          notice.is_testimony === '1' && (
             <div className="notice-testimony">
               The public can offer testimony
             </div>
@@ -299,7 +303,7 @@ export default class NoticeDetail extends React.Component<Props> {
                 <ol
                   className="notice-body-list"
                   dangerouslySetInnerHTML={{
-                    __html: notice.field_drawer.join('\n'),
+                    __html: notice.field_drawer,
                   }}
                 />
               </div>

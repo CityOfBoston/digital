@@ -44,10 +44,12 @@ export default class NoticeController {
     this.noticeColumns.forEach(c => {
       // We need a new notice if there isn’t an existing one, the existing one
       // is no longer in the list, or we’ve reached the last page of the
-      // existing one.
+      // existing one. We also do a safety check to see if numPages is null,
+      // meaning the UI never updated it.
       if (
         !c.notice ||
         !this.notices.find(n => n.id === c.notice!.id) ||
+        c.numPages === null ||
         c.currentPage === c.numPages
       ) {
         // If we can’t find a new notice, keep the old one.
