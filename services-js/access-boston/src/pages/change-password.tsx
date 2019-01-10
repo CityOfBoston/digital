@@ -15,7 +15,6 @@ import { changePasswordSchema } from '../lib/validation';
 import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import changePassword from '../client/graphql/change-password';
-import { PasswordError } from '../client/graphql/queries';
 
 import { FlashMessage } from './index';
 
@@ -341,17 +340,19 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   }
 }
 
-function changePasswordErrorToFormErrors(error: PasswordError | null) {
+function changePasswordErrorToFormErrors(error: string | null) {
   if (!error) {
     return {};
   }
 
   switch (error) {
-    case 'CURRENT_PASSWORD_WRONG':
-      return { password: 'Your current password is incorrect' };
     case 'NEW_PASSWORDS_DONT_MATCH':
       return { confirmPassword: 'Password confirmation didn’t match' };
     default:
-      return { password: 'An unknown error occurred' };
+      return {
+        [error.includes('current password')
+          ? 'password'
+          : 'newPassword']: error,
+      };
   }
 }
