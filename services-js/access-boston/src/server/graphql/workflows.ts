@@ -14,13 +14,11 @@ export interface Workflow {
   caseId: string | null;
   status: WorkflowStatus;
   messages: string[];
-  error: PasswordError | null;
+  error: string | null;
 }
 
 export enum PasswordError {
   NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
-  CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
-  NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
   UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
 
@@ -115,18 +113,10 @@ function launchedWorkflowResponseToWorkflow(
   }
 
   const messages = workflowResponse.messages;
-  let error: PasswordError | null = null;
+  let error: PasswordError | string | null = null;
 
   if (status === WorkflowStatus.ERROR) {
-    if (messages.find(m => m === 'Current Password Check Failure')) {
-      error = PasswordError.CURRENT_PASSWORD_WRONG;
-    } else if (
-      messages.find(m => m.includes('Password Policy Compliance Failure'))
-    ) {
-      error = PasswordError.NEW_PASSWORD_POLICY_VIOLATION;
-    } else {
-      error = PasswordError.UNKNOWN_ERROR;
-    }
+    error = messages.join('\n');
   }
 
   return {

@@ -29,7 +29,7 @@ test('Change password', async t => {
 
   await t
     .expect(Selector('body').innerText)
-    .contains('Your current password is incorrect');
+    .contains('You have entered an invalid current password.');
 
   // Corrects the password to see success
   await t

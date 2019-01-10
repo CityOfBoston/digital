@@ -21,7 +21,6 @@ import {
 import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
-import { PasswordError } from '../client/graphql/queries';
 import HelpContactInfo from '../client/HelpContactInfo';
 
 interface InitialProps {
@@ -296,7 +295,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   }
 }
 
-function passwordErrorToFormErrors(error: PasswordError | null) {
+function passwordErrorToFormErrors(error: string | null) {
   if (!error) {
     return {};
   }
@@ -305,6 +304,6 @@ function passwordErrorToFormErrors(error: PasswordError | null) {
     case 'NEW_PASSWORDS_DONT_MATCH':
       return { confirmPassword: 'Password confirmation didn’t match' };
     default:
-      return { newPassword: 'An unknown error occurred' };
+      return { newPassword: error };
   }
 }
