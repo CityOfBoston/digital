@@ -52,6 +52,10 @@ export default class extends Document {
       <html lang="en" className="js flexbox">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <script
+            type="text/javascript"
+            src="https://polyfill.io/v3/polyfill.min.js?features=default%2CSet%2Cfetch"
+          />
           <link
             rel="shortcut icon"
             href={`${assetPrefix || ''}/static/favicon.ico`}
