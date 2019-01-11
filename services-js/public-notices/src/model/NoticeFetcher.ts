@@ -13,7 +13,7 @@ const config = getConfig();
 const DEFAULT_OPTIONS: NoticeFetcherOptions = {
   intervalMs: 1000 * 60 * 5,
   url: config.publicRuntimeConfig.noticesApiUrl,
-  numNotices: 13,
+  numNotices: 12,
   callback: () => {},
 };
 

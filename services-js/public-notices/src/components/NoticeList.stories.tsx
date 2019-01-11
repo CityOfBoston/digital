@@ -8,9 +8,12 @@ import NoticeList from './NoticeList';
 const NOTICES: Notice[] = require('../../fixtures/notices.json');
 
 storiesOf('NoticeList', module).add('default', () => (
-  <div style={{ width: 450, backgroundColor: 'white' }}>
+  // This width and height match the column when it’s on a 1080p TV.
+  <div style={{ width: 576, height: 1080, backgroundColor: 'white' }}>
     <NoticeList
-      notices={NOTICES}
+      notices={NOTICES.slice(0, 12).map(
+        (n, i) => (i === 3 ? Object.assign({}, n, { canceled: '1' }) : n)
+      )}
       noticeColumns={[
         new NoticeColumn('A', NOTICES[1]),
         new NoticeColumn('B', NOTICES[5]),
