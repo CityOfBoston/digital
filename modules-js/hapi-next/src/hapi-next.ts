@@ -156,6 +156,16 @@ export function makeNextHandler(
     // /commissions/apply in the commissions app, not /apply) so we don’t
     // need to do any URL transforming.
     const html = await app.renderToHTML(req, res, page || path, combinedQuery);
-    return h.response(html).code(res.statusCode);
+
+    if (res.finished) {
+      // This can happen when the page’s getInitialProps writes the HTTP headers
+      // and closes the response (for, say, a 3xx). Since things have already
+      // been written, we tell the Hapi stack not to touch the request anymore.
+      // (Otherwise we get things like "Can't set headers after they are sent"
+      // exceptions.)
+      return h.abandon;
+    } else {
+      return h.response(html).code(res.statusCode);
+    }
   };
 }
