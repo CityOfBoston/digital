@@ -5,8 +5,8 @@ import Order from '../models/Order';
 import {
   SubmitDeathCertificateOrder,
   SubmitDeathCertificateOrderVariables,
-  SubmitDeathCertificateOrder_submitDeathCertificateOrder,
 } from './graphql-types';
+import { DeathCertificateOrderResult } from '../types';
 
 const QUERY = gql`
   mutation SubmitDeathCertificateOrder(
@@ -68,7 +68,7 @@ export default async function submitDeathCertificateOrder(
   fetchGraphql: FetchGraphql,
   cart: Cart,
   order: Order
-): Promise<SubmitDeathCertificateOrder_submitDeathCertificateOrder> {
+): Promise<DeathCertificateOrderResult> {
   const {
     info: {
       contactName,

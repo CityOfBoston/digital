@@ -125,6 +125,54 @@ export interface SearchDeathCertificatesVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: SubmitBirthCertificateOrder
+// ====================================================
+
+export interface SubmitBirthCertificateOrder_submitBirthCertificateOrder_order {
+  id: string;
+}
+
+export interface SubmitBirthCertificateOrder_submitBirthCertificateOrder_error {
+  message: string;
+  cause: OrderErrorCause;
+}
+
+export interface SubmitBirthCertificateOrder_submitBirthCertificateOrder {
+  order: SubmitBirthCertificateOrder_submitBirthCertificateOrder_order | null;
+  error: SubmitBirthCertificateOrder_submitBirthCertificateOrder_error | null;
+}
+
+export interface SubmitBirthCertificateOrder {
+  submitBirthCertificateOrder: SubmitBirthCertificateOrder_submitBirthCertificateOrder;
+}
+
+export interface SubmitBirthCertificateOrderVariables {
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  shippingName: string;
+  shippingCompanyName: string;
+  shippingAddress1: string;
+  shippingAddress2: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZip: string;
+  cardToken: string;
+  cardLast4: string;
+  cardholderName: string;
+  billingAddress1: string;
+  billingAddress2: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+  item: BirthCertificateOrderItemInput;
+  idempotencyKey: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: SubmitDeathCertificateOrder
 // ====================================================
 
@@ -179,6 +227,20 @@ export interface SubmitDeathCertificateOrderVariables {
 export enum OrderErrorCause {
   INTERNAL = 'INTERNAL',
   USER_PAYMENT = 'USER_PAYMENT',
+}
+
+// undefined
+export interface BirthCertificateOrderItemInput {
+  alternateSpellings: string;
+  birthDate: any;
+  firstName: string;
+  lastName: string;
+  parent1FirstName: string;
+  parent1LastName: string;
+  parent2FirstName: string;
+  parent2LastName: string;
+  quantity: number;
+  relationship: string;
 }
 
 // undefined

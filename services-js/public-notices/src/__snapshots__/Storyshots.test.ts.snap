@@ -1,0 +1,3503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Countdown default 1`] = `
+<div
+  className="css-k57055"
+>
+  <div>
+    <div>
+      Next page in
+       
+      <strong>
+        0:30
+      </strong>
+    </div>
+  </div>
+  <div
+    className="css-1xymmsf"
+  >
+    View all public notices at 
+    <strong>
+      boston.gov/public-notices
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Storyshots LastUpdated default 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#091f2f",
+      "padding": 16,
+    }
+  }
+>
+  <div
+    className="css-16he614"
+  >
+    Last updated: January 7, 2019 1:56PM
+     
+  </div>
+</div>
+`;
+
+exports[`Storyshots LastUpdated loading 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#091f2f",
+      "padding": 16,
+    }
+  }
+>
+  <div
+    className="css-16he614"
+  >
+    Loading…
+     
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail 2nd page 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/50581\\">Boston Fair Housing Commission Board meeting</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              October 10, 2018
+            </div>
+            <div>
+              10:00am to 11:00am
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              1 City Hall Square
+            </div>
+            <div>
+              Room 966
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              10/04/2018 - 10:08am
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  Meeting Called to Order</strong>
+    </li>
+<li>
+  <strong>
+  Review and/or approval of Meeting Minutes</strong>
+  
+  <p>Review/approve July minutes</p>
+  </li>
+<li>
+  <strong>
+  Office Report: Overview and Updates</strong>
+    </li>
+<li>
+  <strong>
+  Investigations and Enforcement: Program Updates</strong>
+    </li>
+<li>
+  <strong>
+  Commission Decision:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Commission vote on Orders:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Confirm Future Meeting Dates &amp; Closing</strong>
+  
+  <ul><li>October 23, 2018 – 10:00 AM</li>
+<li>November TBD</li>
+<li>December TBD</li>
+</ul>  </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          2
+           of 
+          1
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          50581
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail canceled 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/50651\\">UP Academy Charter School meeting</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <span
+              className="notice-canceled"
+            >
+              Canceled
+            </span>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              35 Westville Street
+            </div>
+            <div>
+              
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              10/05/2018 - 10:40am
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-testimony"
+    >
+      The public can offer testimony
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  8:30 – 8:35 a.m.:	Public Comment</strong>
+    </li>
+<li>
+  <strong>
+  8:35 – 8:50 a.m.:  Review UAD Conditional Renewal Checklist</strong>
+    </li>
+<li>
+  <strong>
+  8:50 – 9:10 a.m.:	Elementary School Updates</strong>
+    </li>
+<li>
+  <strong>
+  9:10 a.m. – 9:30 a.m.:  Middle School Updates</strong>
+    </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          1
+           of 
+          1
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          50651
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail default 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/50581\\">Boston Fair Housing Commission Board meeting</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              October 10, 2018
+            </div>
+            <div>
+              10:00am to 11:00am
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              1 City Hall Square
+            </div>
+            <div>
+              Room 966
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              10/04/2018 - 10:08am
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  Meeting Called to Order</strong>
+    </li>
+<li>
+  <strong>
+  Review and/or approval of Meeting Minutes</strong>
+  
+  <p>Review/approve July minutes</p>
+  </li>
+<li>
+  <strong>
+  Office Report: Overview and Updates</strong>
+    </li>
+<li>
+  <strong>
+  Investigations and Enforcement: Program Updates</strong>
+    </li>
+<li>
+  <strong>
+  Commission Decision:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Commission vote on Orders:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Confirm Future Meeting Dates &amp; Closing</strong>
+  
+  <ul><li>October 23, 2018 – 10:00 AM</li>
+<li>November TBD</li>
+<li>December TBD</li>
+</ul>  </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          1
+           of 
+          1
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          50581
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail loading 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "&nbsp;",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          />
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div />
+            <div />
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeDetail public testimony 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "height": 650,
+    }
+  }
+>
+  <div
+    className="css-2rdcgk"
+  >
+    <div
+      className="notice-header"
+    >
+      <div
+        className="notice-title-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-title"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href=\\"/public-notices/50756\\">Boston School Committee Meeting</a>",
+            }
+          }
+        />
+      </div>
+      <ul
+        className="notice-details"
+      >
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            When
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              October 10, 2018
+            </div>
+            <div>
+              5:30pm
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Where
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              2300 Washington Street
+            </div>
+            <div>
+              School Committee Chamber, 2nd Floor
+            </div>
+          </div>
+        </li>
+        <li
+          className="notice-detail"
+        >
+          <div
+            className="notice-detail-header"
+          >
+            Posted
+          </div>
+          <div
+            className="notice-detail-content"
+          >
+            <div>
+              10/05/2018 - 4:32pm
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="notice-testimony"
+    >
+      The public can offer testimony
+    </div>
+    <div
+      className="notice-body-container"
+    >
+      <div
+        className="notice-body"
+      >
+        <div
+          className="notice-body-content"
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          <div
+            className="notice-body-body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
+            }
+          />
+          <ol
+            className="notice-body-list"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<li>
+  <strong>
+  5:30 p.m. </strong>
+  
+  <p>    Call to Order</p>
+<p>    I. Pledge of Allegiance</p>
+<p>    II. Executive Session</p>
+<p>The Boston School Committee will meet at the date, time and place listed above. The School Committee will immediately adjourn to executive session to discuss collective bargaining strategies related to the American Federation of State, County and Municipal Employees, AFL-CIO, Council 93, Local 230A (“Storekeepers”) and the Administrative Guild of the Boston School System, a Chapter of Local 888, SEI, CTW-CLC. To have such a discussion in an open session would have a detrimental effect on the bargaining position of this body. The Committee will return to public session.  </p>
+  </li>
+<li>
+  <strong>
+  6 p.m.</strong>
+  
+  <p>I. Presentation of Citations to BPS Shattuck Award Recipients</p>
+<p>II. Approval of Meeting Minutes: September 26, 2018</p>
+<p>III. Interim Superintendent's Report</p>
+<p>IV. General Public Comment</p>
+<p>V. Action Items</p>
+<p>        Consent Calendar</p>
+<p>          Grants for Approval Totaling $916,101</p>
+
+<p style=\\"text-align:left\\"><strong>Amount</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>FY</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Grant Name</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Status</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Focus Area(s)</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Sites</strong></p>
+
+
+$100,011
+
+
+2019
+
+
+Boston Children’s Collaboration for Community Health Grant
+
+
+New
+
+
+Early Childhood
+
+
+~50 sites districtwide, including community centers
+
+
+$772,695
+
+
+2018
+
+
+Federal Disaster Relief Grant
+
+
+New
+
+
+Educator Effectiveness
+
+
+Quincy Upper, Hernandez, Orchard Gardens, Gardner, Grew, McCormack, Curley, BInCA
+
+
+$43,395
+
+
+2019
+
+
+MCIEA Performance Assessment Support
+ 
+
+
+New
+
+
+N/A
+
+
+Districtwide
+
+<p> </p>
+<p><em>Action Items (continued)</em></p>
+<ul><li>In-Kind Donations Totaling $1,512,500.07</li>
+</ul><p> </p>
+
+<p style=\\"text-align:left\\"><strong>Donor Name</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Donated Item(s)</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>Description of Donated Item</strong></p>
+
+
+<p style=\\"text-align:left\\"><strong>BPS Recipient </strong>(Site)</p>
+
+
+<p style=\\"text-align:left\\"><strong>BPS Vendor</strong>(Y/N)</p>
+
+
+<p style=\\"text-align:left\\"><strong>Estimated Value</strong> (provided by donor)</p>
+
+
+Matt Asiaf
+
+
+Wurlitzer Baby Grand Piano
+
+
+Wurlitzer Baby Grand Piano
+
+
+Paul A. Dever Elementary School
+
+
+No
+
+
+$3,000.00
+
+
+Headspace
+
+
+Headspace App license
+
+
+Annual subscription to
+mindfulness &amp;
+meditation app for
+teachers &amp; staff
+
+
+BPS educators
+and Staff
+
+
+No
+
+
+$972,510.84
+
+
+Vertex Pharmaceuticals
+
+
+Science Lab Equipment
+
+
+Laboratory Supplies (See attached list)
+
+
+BPS Science Department
+
+
+No
+
+
+$52,000.00
+
+
+Salesforce
+
+
+MacBook Pros
+
+
+MacBook Pro (Retina, 15-inch, Mid 2014)
+
+
+Timilty Middle
+School
+
+
+Yes
+
+
+$120,000.00
+
+
+DonorsChoose
+
+
+Teacher Project Materials
+
+
+Materials for teacher projects on DonorsChoose platform that were delivered in August and September.
+
+
+District wide (see attached)
+
+
+No
+
+
+$276,037.14
+
+
+AFSCME
+
+
+School supplies and backpacks
+
+
+Backpacks, books, folders, rulers, pencils, erasers and bookmarks
+
+
+Elementary and middle schools (see list)
+
+
+No
+
+
+$88,952.09
+
+<p>VI. Report and Action Item: Superintendent Search Committee Charge and Membership</p>
+<p>VII. Reports</p>
+<p>Student Residency Policy Update</p>
+<p>American Federation of State, County and Municipal Employees (AFSME) Local 230A (“Storekeepers”) and Administrative Guild SEIU Local 888 Tentative Collective Bargaining Agreements</p>
+<p>Sickle Cell Disease: BPS Proposed Policy</p>
+<p>2018 State Assessment and Accountability Results</p>
+<p>VIII. Public Comment on Reports (Optional</p>
+<p>IX. New Business<br />X.Adjourn</p>
+  </li>
+",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="notice-meta"
+      >
+        <div
+          className="notice-pages"
+        >
+          1
+           of 
+          1
+        </div>
+        <div
+          className="notice-url"
+        >
+          boston.gov/public-notices/
+          50756
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots NoticeList default 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "height": 1080,
+      "width": 576,
+    }
+  }
+>
+  <ul
+    className="css-1huyjbq"
+  >
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50576\\">Licensing Board hearing</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            10:00am
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            A
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50581\\">Boston Fair Housing Commission Board meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 966
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            10:00am to 11:00am
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50611\\">Emergency Management meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            85 Bragdon Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            10:00am
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50586\\">Boston Fair Housing Commission Preliminary hearing</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              9th floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-canceled"
+          >
+            Canceled
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            C
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50351\\">Back Bay Architectural Commission</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 900, Ninth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            4:30pm
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item active"
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-column"
+        >
+          <span>
+            B
+          </span>
+        </div>
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50756\\">Boston School Committee Meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            2300 Washington Street
+            <span>
+              , 
+              School Committee Chamber, 2nd Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            5:30pm
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50371\\">Clifford Playground Community Meeting </a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1010 Massachusetts Avenue
+            <span>
+              , 
+              2nd Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 10, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            6:00pm
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50701\\">Boston Collegiate Charter School meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            215 Sydney Street
+            
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 11, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            8:00am to 9:00am
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50641\\">Non-Hearing Common Victualler and Other Transactions</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 809A
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 11, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            10:00am
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50716\\">City Council Committee on Ways and Means Hearing on Docket #1240</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            Boston City Hall
+            <span>
+              , 
+              Fifth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 11, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            1:00pm
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50711\\">City Council Committee on Ways and Means Hearing on Dockets #1442 and #1443</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            Boston City Hall
+            <span>
+              , 
+              Fifth Floor
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 11, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            1:30pm
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="notice-item "
+    >
+      <div
+        className="notice-item-container"
+      >
+        <div
+          className="notice-info"
+        >
+          <div
+            className="notice-title notice-oneline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href=\\"/public-notices/50681\\">Board of Election Commissioners meeting</a>",
+              }
+            }
+          />
+          <div
+            className="notice-location"
+          >
+            1 City Hall Square
+            <span>
+              , 
+              Room 241
+            </span>
+          </div>
+        </div>
+        <div
+          className="notice-datetime"
+        >
+          <div
+            className="notice-date"
+          >
+            October 11, 2018
+          </div>
+          <div
+            className="notice-time"
+          >
+            2:30pm
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots PublicNoticesContent default 1`] = `
+<div
+  className="css-1cixtww"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="header"
+    >
+      <h1>
+        City Clerk Postings
+      </h1>
+      <div
+        className="css-16he614"
+      >
+        Last updated: January 7, 2019 1:56PM
+         
+      </div>
+    </div>
+    <div
+      className="main"
+    >
+      <div
+        className="columns"
+      >
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  A
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/50581\\">Boston Fair Housing Commission Board meeting</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    October 10, 2018
+                  </div>
+                  <div>
+                    10:00am to 11:00am
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    1 City Hall Square
+                  </div>
+                  <div>
+                    Room 966
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    10/04/2018 - 10:08am
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  Meeting Called to Order</strong>
+    </li>
+<li>
+  <strong>
+  Review and/or approval of Meeting Minutes</strong>
+  
+  <p>Review/approve July minutes</p>
+  </li>
+<li>
+  <strong>
+  Office Report: Overview and Updates</strong>
+    </li>
+<li>
+  <strong>
+  Investigations and Enforcement: Program Updates</strong>
+    </li>
+<li>
+  <strong>
+  Commission Decision:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Commission vote on Orders:</strong>
+  
+  <p>Parrilla v. Winn Residential et al.; 2017-BFHC-019</p>
+<p>Jackson v. Madison Park Development Corp., et al.; 2015-BFHC-029</p>
+<p>Stokel v. Linder; 28-BFHC-2007</p>
+  </li>
+<li>
+  <strong>
+  Confirm Future Meeting Dates &amp; Closing</strong>
+  
+  <ul><li>October 23, 2018 – 10:00 AM</li>
+<li>November TBD</li>
+<li>December TBD</li>
+</ul>  </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                1
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                50581
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  B
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/50586\\">Boston Fair Housing Commission Preliminary hearing</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    October 10, 2018
+                  </div>
+                  <div>
+                    12:00pm
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    1 City Hall Square
+                  </div>
+                  <div>
+                    9th floor
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    10/04/2018 - 10:47am
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  Agenda</strong>
+  
+  <p>Gilbert v. Talbot Bernard Housing LLC et al.; 2017-BFHC-055; HUD No. 01-8630-8; MCAD No. 18BPR00888 case</p>
+  </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                1
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                50586
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-2rdcgk"
+        >
+          <div
+            className="notice-header"
+          >
+            <div
+              className="notice-title-container"
+            >
+              <div
+                className="notice-column"
+              >
+                <span>
+                  C
+                </span>
+              </div>
+              <div
+                className="notice-title"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<a href=\\"/public-notices/50351\\">Back Bay Architectural Commission</a>",
+                  }
+                }
+              />
+            </div>
+            <ul
+              className="notice-details"
+            >
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  When
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    October 10, 2018
+                  </div>
+                  <div>
+                    4:30pm
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Where
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    1 City Hall Square
+                  </div>
+                  <div>
+                    Room 900, Ninth Floor
+                  </div>
+                </div>
+              </li>
+              <li
+                className="notice-detail"
+              >
+                <div
+                  className="notice-detail-header"
+                >
+                  Posted
+                </div>
+                <div
+                  className="notice-detail-content"
+                >
+                  <div>
+                    09/28/2018 - 11:46am
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="notice-testimony"
+          >
+            The public can offer testimony
+          </div>
+          <div
+            className="notice-body-container"
+          >
+            <div
+              className="notice-body"
+            >
+              <div
+                className="notice-body-content"
+                style={
+                  Object {
+                    "transform": "translateY(0px)",
+                  }
+                }
+              >
+                <div
+                  className="notice-body-body"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<p>(Use Congress Street as an entrance and exit after 5:30 p.m.)</p>
+",
+                    }
+                  }
+                />
+                <ol
+                  className="notice-body-list"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<li>
+  <strong>
+  Violations Committee - 4:30 p.m.</strong>
+  
+  <p>102 Beacon Street: Unapproved rooftop antenna.</p>
+<p>271 Beacon Street: Unapproved roof deck</p>
+<p>271 Beacon Street: Re-built roof deck inconsistent with 2016 approval - Update.</p>
+<p>9 Gloucester Street: Update on unapproved tree removal.</p>
+<p>238 Marlborough Street: Update on unapproved headhouse.</p>
+<p>Ratification of 8/8/2018 Public Meeting Minutes.</p>
+  </li>
+<li>
+  <strong>
+  Design Review Hearing - 5 p.m.</strong>
+  
+  <p>19.507 BB 278 Dartmouth Street &amp; 691 Boylston Street: Install one Bluebike Station near the corner of Dartmouth Street and Newbury Street (278 Dartmouth Street), and one Bluebike Station near the corner of Boylston and Exeter Street (691 Boylston Street). View Presentation</p>
+<p>19.517 BB 125 Newbury Street: Install new signage and outdoor dining area. View Presentation</p>
+<p>19.446 BB 240A Newbury Street: Install outdoor dining area. View Presentation</p>
+<p>19.419 BB 431 Boylston Street: At front façade replace entry doors and signage, and install planters, fixtures and furniture at existing patio dining area. View Presentation</p>
+<p>19.128 BB 370 Commonwealth Avenue: At Massachusetts Avenue and Commonwealth Avenue facades, recover existing window awnings and install new window awnings at first, second and third stories. <strong><em>WITHDRAWN</em></strong></p>
+<p>19.170 BB 82 Marlborough Street: (<em>Continued from 9/12/2018 Public Hearing</em>) At front garden remove dead Magnolia tree.<em><strong> WITHDRAWN</strong></em></p>
+<p>19.505 BB 173 Commonwealth Avenue: At front garden install cast limestone statue. View Presentation</p>
+<p>19.515 BB 294 Marlborough Street: At rear yard replace existing wood fence with a brick wall. View Presentation</p>
+<p>19.513 BB 113-115 Marlborough Street: Replace all existing windows with wood, one-over-one windows; at roof install new door opening at French doors at party wall between 113 and 115 Marlborough Street, install spiral staircase connecting roof decks at 113 and 115 Marlborough Street, and replace roof deck decking with pavers at 113 Marlborough Street; at rear elevation remove fire escapes between 113 and 115 Marlborough Street, and install awning over 113 Marlborough Street’s rear entry; and at rear yard replace asphalt paving with brick pavers. View Presentation</p>
+<p>19.500 BB 45, 47, 49, 51 and 53 Hereford Street: Patch, repair and repaint all exterior stone trim, stoops, curbs, lintels and sills. View Presentation</p>
+<p>19.230 BB 217 Commonwealth Avenue: Masonry restoration; replacement of roofing and roof mechanical equipment; construction of sunken roof deck; removal of elevator headhouses; installation of new elevator headhouses, new stair headhouse, and enlargement of existing headhouse; and installation of solar panels. View Presentation</p>
+  </li>
+<li>
+  <strong>
+  Administrative Review/Approval</strong>
+  
+  <p>19.487 BB 18-19 Arlington Street: Replace rooftop air-conditioning condensing unit.</p>
+<p>19.506 BB 194 Beacon Street: At front façade replace deteriorated wood trim in-kind; repair window lintel, and repair entry steps; and at rear elevation re-point masonry and re-caulk windows.</p>
+<p>19.417 BB 229 Beacon Street: At rear yard install wood fence.</p>
+<p>19.466 BB 281 Beacon Street: Replace deteriorated deck boards at roof deck.</p>
+<p>19.449 BB 381 Beacon Street: At rear elevation replace deteriorated window lintel in-kind and re-point masonry.</p>
+<p>19.468 BB 534 Beacon Street: At Beacon Street façade replace five seventh-story six-over-six wood windows in-kind; and at Charlesgate East façade replace three seventh-story six-over-six wood windows in-kind.</p>
+<p>19.428 BB 399 Boylston Street: At front façade install wall sign consistent with signage masterplan.</p>
+<p>19.462 BB 669 Boylston Street: At front façade replace wall sign.</p>
+<p>19.453 BB 306 Commonwealth Avenue: At rear yard install sensor light fixture.</p>
+<p>19.509 BB 311 Commonwealth Avenue: Replace 170 non-historic one-over-one windows with wood one-over-one windows.</p>
+<p>19.510 BB 390 Commonwealth Avenue: At front façade replace two seventh-story deteriorated two-over-two wood windows in-kind.</p>
+<p>19.469 BB 321 Dartmouth Street: At front façade replace deteriorated section of fascia in-kind, and re-point masonry.</p>
+<p>19.456 BB 57 Marlborough Street: Install rooftop air-conditioning condensing unit.</p>
+<p>19.454 BB 86 Marlborough Street: At roof relocate exhaust vent.</p>
+<p>19.458 BB 111 Marlborough Street: At rear elevation re-point masonry.</p>
+<p>19.103 BB 131 Marlborough Street: At rear yard install brick patio and wood fence.</p>
+<p>19.490 BB 337 Marlborough Street: At front façade replace deteriorated staircase in-kind.</p>
+<p>19.508 BB 18 Newbury Street: At front façade replace deteriorated section of concrete sidewalk in-kind.</p>
+<p>19.488 BB 24 Newbury Street: At rear elevation install louver at transom window.</p>
+<p>19.489 BB 24 Newbury Street: At front façade replace deteriorated section of concrete sidewalk in-kind.</p>
+<p>19.494 BB 144 Newbury Street: Replace window signage.</p>
+<p>19.516 BB 172 Newbury Street: At roof replace black rubber membrane roof in-kind.</p>
+<p>19.511 BB 205-207 Newbury Street: Construct roof deck approved by Back Bay Architectural Commission on 8-11-2017.</p>
+<p>19.532 BB 304 Newbury Street: At front façade replace eleven non-historic one-over-one windows with wood one-over-one windows.</p>
+<p>19.492 BB 323-327 Newbury Street: Replace rooftop air-conditioning condensing units.</p>
+<p>19.518 BB 328 Newbury Street: At roof replace black rubber membrane roof in-kind.</p>
+<p>19.436 BB 353 Newbury Street: At front façade and rear elevation replace eleven non-historic two-over-two steel windows with two-over-two wood windows.</p>
+  </li>
+<li>
+  <strong>
+  Advisory Review</strong>
+  
+  <p>256-260 Newbury Street: At roof construct penthouse addition and roofdeck area; at rear elevation construct a two-story rear addition; and at front façade remove two entry stoops, excavate front  front gardens, and use unitized glass elements at newly excavated ground level facade and selective replacement of a small portion of existing first floor facade. View Presentation</p>
+  </li>
+<li>
+  <strong>
+  V. 	Ratification of 9/12/2018 public hearing minutes</strong>
+    </li>
+<li>
+  <strong>
+  Annual Meeting: Election of Officers and Appointment of Violations Committee</strong>
+    </li>
+<li>
+  <strong>
+  Staff Updates</strong>
+    </li>
+<li>
+  <strong>
+  Projected Adjournment - 8:30 p.m.</strong>
+    </li>
+",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="notice-meta"
+            >
+              <div
+                className="notice-pages"
+              >
+                1
+                 of 
+                1
+              </div>
+              <div
+                className="notice-url"
+              >
+                boston.gov/public-notices/
+                50351
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-k57055"
+      >
+        <div>
+          <div>
+            Next page in
+             
+            <strong>
+              0:30
+            </strong>
+          </div>
+        </div>
+        <div
+          className="css-1xymmsf"
+        >
+          View all public notices at 
+          <strong>
+            boston.gov/public-notices
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sidebar"
+  >
+    <ul
+      className="css-1huyjbq"
+    >
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50576\\">Licensing Board hearing</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              A
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50581\\">Boston Fair Housing Commission Board meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 966
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am to 11:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50611\\">Emergency Management meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              85 Bragdon Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              B
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50586\\">Boston Fair Housing Commission Preliminary hearing</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                9th floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              12:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item active"
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-column"
+          >
+            <span>
+              C
+            </span>
+          </div>
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50351\\">Back Bay Architectural Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 900, Ninth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              4:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50756\\">Boston School Committee Meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              2300 Washington Street
+              <span>
+                , 
+                School Committee Chamber, 2nd Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              5:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50371\\">Clifford Playground Community Meeting </a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1010 Massachusetts Avenue
+              <span>
+                , 
+                2nd Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 10, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              6:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50701\\">Boston Collegiate Charter School meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              215 Sydney Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              8:00am to 9:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50641\\">Non-Hearing Common Victualler and Other Transactions</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 809A
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50716\\">City Council Committee on Ways and Means Hearing on Docket #1240</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              Boston City Hall
+              <span>
+                , 
+                Fifth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              1:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50711\\">City Council Committee on Ways and Means Hearing on Dockets #1442 and #1443</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              Boston City Hall
+              <span>
+                , 
+                Fifth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              1:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50681\\">Board of Election Commissioners meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 241
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              2:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50316\\">Boston Redevelopment Authority d/b/a Boston Planning & Development Agency</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              One CityHall Square
+              <span>
+                , 
+                9th floor room 900
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              3:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50321\\">Economic Development and Industrial Corporation of Boston d/b/a Boston Planning & Development Agency</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              One City Hall Square
+              <span>
+                , 
+                9th floor Room 900
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              3:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50396\\">Aberdeen Architectural Conservation District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 801 Eighth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              4:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50126\\">Fort Point Channel Landmark District Commission</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                5th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              6:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50276\\">Community outreach meeting for proposed marijuana facility</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              68 Central Square
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 11, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              6:20pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50651\\">UP Academy Charter School meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              35 Westville Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50706\\">BCCS Finance Committee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              215 Sydney Street
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 12, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              8:30am to 10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50496\\">City Council Committee on Planning, Development and Transportation hearing on Docket #1169</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                5th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 15, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              11:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50721\\">City Council Committee on Ways and Means Hearing on Docket #1441</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              Boston City Hall
+              <span>
+                , 
+                Fifth Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 15, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              2:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50901\\">Zoning Board of Appeal Hearing</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 801
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              9:30am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50736\\">Licensed Premise Violations hearing</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Squqre
+              <span>
+                , 
+                Room 809
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50876\\">Emergency Management - Homeland Security Meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              400 Rever Beach Parkway
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:30am to 12:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50881\\">Emergency Management - Homeland Security Meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              400 Rever Beach Parkway
+              
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              1:00pm to 3:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50946\\">English Language Learners Task Force Human Capital Subcommittee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              2300 Washington Street
+              <span>
+                , 
+                Room 4-30
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-canceled"
+            >
+              Canceled
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50976\\">Committee on City, Neighborhood Services, Veteran, and Military Affairs Hearing on Dockets #1233 and #1416</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Fifth floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              3:00pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50686\\">Boston Collegiate Charter School meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              215 Sydney Street
+              <span>
+                , 
+                Room 316
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 16, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              3:30pm to 4:30pm
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/36301\\">Boston Retirement Board Meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Room 716
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 17, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="notice-item "
+      >
+        <div
+          className="notice-item-container"
+        >
+          <div
+            className="notice-info"
+          >
+            <div
+              className="notice-title notice-oneline"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<a href=\\"/public-notices/50101\\">Election Advisory Committee meeting</a>",
+                }
+              }
+            />
+            <div
+              className="notice-location"
+            >
+              1 City Hall Square
+              <span>
+                , 
+                Piemonte Room, 5th Floor
+              </span>
+            </div>
+          </div>
+          <div
+            className="notice-datetime"
+          >
+            <div
+              className="notice-date"
+            >
+              October 17, 2018
+            </div>
+            <div
+              className="notice-time"
+            >
+              10:00am
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

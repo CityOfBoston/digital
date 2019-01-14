@@ -8,6 +8,7 @@ import AWS from 'aws-sdk';
 import shell, { ExecOutputReturnValue } from 'shelljs';
 import tar from 'tar';
 import { IncomingWebhook } from '@slack/client';
+import ignore from 'ignore';
 
 import mime from 'mime-types';
 
@@ -16,6 +17,8 @@ const stat = promisify(fs.stat);
 const readFile = promisify(fs.readFile);
 const lstat = promisify(fs.lstat);
 const realpath = promisify(fs.realpath);
+const mkdir = promisify(fs.mkdir);
+const writeFile = promisify(fs.writeFile);
 
 export const AWS_REGION = 'us-east-1';
 AWS.config.update({ region: AWS_REGION });
@@ -517,7 +520,7 @@ export async function postTravisToSlack(
 }
 
 // https://stackoverflow.com/a/45130990/51835
-async function getFiles(dir): Promise<Array<string>> {
+async function getFiles(dir: string): Promise<Array<string>> {
   const contents = await readdir(dir);
 
   const files = await Promise.all(
@@ -530,16 +533,31 @@ async function getFiles(dir): Promise<Array<string>> {
   return files.reduce((a: string[], f) => a.concat(f), []);
 }
 
-export async function uploadToS3(buildDir, bucket, keyPrefix) {
+export async function uploadToS3(
+  buildDir: string,
+  bucket: string,
+  keyPrefix: string
+) {
   const s3 = new AWS.S3();
   const files = await getFiles(buildDir);
 
+  // This lets us use gitignore-like patterns to keep certain files from being
+  // cached. By default we put an hour cache on everything because most of the
+  // static files should be versioned.
+  const noCache = ignore();
+  try {
+    const noCacheRules = await readFile('.nocache', 'utf-8');
+    noCache.add(noCacheRules);
+  } catch (e) {
+    if (e.code !== 'ENOENT') {
+      throw e;
+    }
+  }
+
   await Promise.all(
     files.map(async f => {
-      const key = path.join(
-        keyPrefix,
-        path.relative(path.resolve(buildDir), f)
-      );
+      const relativeFilePath = path.relative(path.resolve(buildDir), f);
+      const key = path.join(keyPrefix, relativeFilePath);
 
       // We convert symlinks into HTTP redirects on S3, as a way to handle cases
       // where a file may have a hash in it, but we need to link to it from a
@@ -562,6 +580,8 @@ export async function uploadToS3(buildDir, bucket, keyPrefix) {
           })
           .promise();
       } else {
+        const maxAge = noCache.ignores(relativeFilePath) ? 0 : 60 * 60;
+
         await s3
           .upload(
             {
@@ -570,9 +590,7 @@ export async function uploadToS3(buildDir, bucket, keyPrefix) {
               Body: await readFile(f),
               ContentType: mime.lookup(f) || 'application/octet-stream',
               ContentEncoding: mime.charset(f) || 'identity',
-              // 1 hour cache time. Most of these resources should have unique
-              // names, but in case they don’t this will expire them eventually.
-              CacheControl: `public, max-age=${60 * 60}`,
+              CacheControl: `public, max-age=${maxAge}`,
               ACL: 'public-read',
             },
             {
@@ -580,6 +598,41 @@ export async function uploadToS3(buildDir, bucket, keyPrefix) {
             }
           )
           .promise();
+      }
+    })
+  );
+}
+
+export async function downloadFromS3(bucket: string, keyPrefix: string) {
+  const s3 = new AWS.S3();
+
+  const paths = await s3
+    .listObjects({ Bucket: bucket, Prefix: keyPrefix })
+    .promise();
+
+  await Promise.all(
+    (paths.Contents || []).map(async ({ Key }) => {
+      const localPath = path.relative(keyPrefix, Key!);
+
+      if (localPath === '') {
+        return;
+      }
+
+      console.log(localPath);
+      if (Key!.endsWith('/')) {
+        try {
+          await mkdir(localPath);
+        } catch (err) {
+          if (err.code !== 'EEXIST') {
+            throw err;
+          }
+        }
+      } else {
+        const object = await s3
+          .getObject({ Bucket: bucket, Key: Key! })
+          .promise();
+
+        await writeFile(localPath, object.Body);
       }
     })
   );

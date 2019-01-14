@@ -6,10 +6,13 @@ import DeathCertificateCart from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
+import { OrderErrorCause } from '../queries/graphql-types';
 import {
-  OrderErrorCause,
-  SubmitDeathCertificateOrder_submitDeathCertificateOrder,
-} from '../queries/graphql-types';
+  DeathCertificateOrderResult,
+  BirthCertificateOrderResult,
+} from '../types';
+import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import submitBirthCertificateOrder from '../queries/submit-birth-certificate-order';
 
 export class SubmissionError extends Error {
   public readonly cause: OrderErrorCause;
@@ -113,19 +116,56 @@ export default class CheckoutDao {
    * @returns The order ID on success.
    * @throws Error or SubmissionError objects. Reports errors to Rollbar.
    */
+  submitDeathCertificateCart(
+    cart: DeathCertificateCart,
+    order: Order
+  ): Promise<string> {
+    const orderPromise = submitDeathCertificateOrder(
+      this.fetchGraphql,
+      cart,
+      order
+    );
+
+    return this.handleOrder(order, orderPromise);
+  }
+
+  /**
+   * Submits a birth certificate request with the order data (address, &c.).
+   *
+   * Sets Order#processing to true while the API call is outstanding
+   *
+   * @returns The order ID on success.
+   * @throws Error or SubmissionError objects. Reports errors to Rollbar.
+   */
+  submitBirthCertificateRequest(
+    birthCertificateRequest: BirthCertificateRequest,
+    order: Order
+  ): Promise<string> {
+    const orderPromise = submitBirthCertificateOrder(
+      this.fetchGraphql,
+      birthCertificateRequest,
+      order
+    );
+
+    return this.handleOrder(order, orderPromise);
+  }
+
   @action
-  async submit(cart: DeathCertificateCart, order: Order): Promise<string> {
+  private async handleOrder(
+    order: Order,
+    orderPromise: Promise<
+      DeathCertificateOrderResult | BirthCertificateOrderResult
+    >
+  ): Promise<string> {
     try {
       order.processing = true;
 
-      let orderResult: SubmitDeathCertificateOrder_submitDeathCertificateOrder;
+      let orderResult:
+        | DeathCertificateOrderResult
+        | BirthCertificateOrderResult;
 
       try {
-        orderResult = await submitDeathCertificateOrder(
-          this.fetchGraphql,
-          cart,
-          order
-        );
+        orderResult = await orderPromise;
       } catch (err) {
         // These errors will be network sorts of errors.
         if ((window as any).Rollbar && !err._reportedException) {

@@ -9,6 +9,7 @@ const ACCOUNT: Account = {
   registered: true,
   needsMfaDevice: false,
   needsNewPassword: false,
+  resetPasswordToken: '',
 };
 
 storiesOf('AccessBostonHeader', module).add('default', () => (

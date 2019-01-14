@@ -30,7 +30,7 @@ export interface AddMfaDeviceVariables {
 export interface ChangePassword_changePassword {
   caseId: string | null;
   status: WorkflowStatus;
-  error: PasswordError | null;
+  error: string | null;
   messages: string[];
 }
 
@@ -56,6 +56,7 @@ export interface FetchAccountAndApps_account {
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  resetPasswordToken: string;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {
@@ -93,6 +94,7 @@ export interface FetchAccount_account {
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  resetPasswordToken: string;
 }
 
 export interface FetchAccount {
@@ -109,7 +111,7 @@ export interface FetchAccount {
 export interface ResetPassword_resetPassword {
   caseId: string | null;
   status: WorkflowStatus;
-  error: PasswordError | null;
+  error: string | null;
   messages: string[];
 }
 
@@ -120,6 +122,7 @@ export interface ResetPassword {
 export interface ResetPasswordVariables {
   newPassword: string;
   confirmPassword: string;
+  token: string;
 }
 
 /* tslint:disable */
@@ -167,13 +170,6 @@ export enum WorkflowStatus {
   ERROR = 'ERROR',
   SUCCESS = 'SUCCESS',
   UNKNOWN = 'UNKNOWN',
-}
-
-export enum PasswordError {
-  CURRENT_PASSWORD_WRONG = 'CURRENT_PASSWORD_WRONG',
-  NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
-  NEW_PASSWORD_POLICY_VIOLATION = 'NEW_PASSWORD_POLICY_VIOLATION',
-  UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
 
 //==============================================================

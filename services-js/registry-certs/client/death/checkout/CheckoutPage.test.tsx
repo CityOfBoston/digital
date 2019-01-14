@@ -213,7 +213,7 @@ describe('operations', () => {
 
   describe('submitOrder', () => {
     it('redirects on success', async () => {
-      (checkoutDao.submit as jest.Mock).mockReturnValue(
+      (checkoutDao.submitDeathCertificateCart as jest.Mock).mockReturnValue(
         Promise.resolve('test-order-id')
       );
       await component.submitOrder();
@@ -221,7 +221,7 @@ describe('operations', () => {
     });
 
     it('stays on the same page on failure', async () => {
-      (checkoutDao.submit as jest.Mock).mockReturnValue(
+      (checkoutDao.submitDeathCertificateCart as jest.Mock).mockReturnValue(
         Promise.reject(
           new SubmissionError(
             'The card is expired',

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { Formik, FormikProps } from 'formik';
+import { Formik, FormikProps, FormikActions } from 'formik';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -21,7 +21,6 @@ import {
 import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
-import { PasswordError } from '../client/graphql/queries';
 import HelpContactInfo from '../client/HelpContactInfo';
 
 interface InitialProps {
@@ -44,6 +43,7 @@ interface FormValues {
   username: string;
   newPassword: string;
   confirmPassword: string;
+  token: string;
 }
 
 export default class ForgotPasswordPage extends React.Component<Props, State> {
@@ -67,8 +67,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   }
 
   private handleSubmit = async (
-    { newPassword, confirmPassword }: FormValues,
-    { setSubmitting, setErrors }
+    { newPassword, confirmPassword, token }: FormValues,
+    { setSubmitting, setErrors }: FormikActions<FormValues>
   ) => {
     this.setState({ showSubmittingModal: true, showNetworkError: false });
 
@@ -76,7 +76,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       const { status, error } = await resetPassword(
         this.props.fetchGraphql,
         newPassword,
-        confirmPassword
+        confirmPassword,
+        token
       );
 
       switch (status) {
@@ -106,6 +107,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
     const initialValues: FormValues = {
       username: account.employeeId,
+      token: account.resetPasswordToken,
       newPassword: '',
       confirmPassword: '',
     };
@@ -293,7 +295,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   }
 }
 
-function passwordErrorToFormErrors(error: PasswordError | null) {
+function passwordErrorToFormErrors(error: string | null) {
   if (!error) {
     return {};
   }
@@ -302,6 +304,6 @@ function passwordErrorToFormErrors(error: PasswordError | null) {
     case 'NEW_PASSWORDS_DONT_MATCH':
       return { confirmPassword: 'Password confirmation didn’t match' };
     default:
-      return { newPassword: 'An unknown error occurred' };
+      return { newPassword: error };
   }
 }

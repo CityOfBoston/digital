@@ -30,18 +30,20 @@ interface DeathCertificateOrderItemInput {
 }
 
 /**
- * You have to know the search terms for a birth certificate in order to buy it.
- * If we just allowed an ID here then one could use the API to purchase
- * arbitrary certificates.
+ * This is the data registry needs to process a birth certificate request.
  *
  * @graphql input
  */
 interface BirthCertificateOrderItemInput {
   firstName: string;
   lastName: string;
-  dob: Date;
+  alternateSpellings: string;
+  birthDate: Date;
   parent1FirstName: string;
+  parent1LastName: string;
   parent2FirstName: string;
+  parent2LastName: string;
+  relationship: string;
   quantity: Int;
 }
 
