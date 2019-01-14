@@ -17,7 +17,7 @@ import PageLayout from '../../PageLayout';
 import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import Cart from '../../store/DeathCertificateCart';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 
 import {
@@ -30,7 +30,7 @@ import makePaymentValidator from '../../../lib/validators/PaymentValidator';
 interface Props {
   submit: (
     cardElement: stripe.elements.Element | null,
-    values: BillingInfo
+    values: Partial<OrderInfo>
   ) => unknown;
   stripe: stripe.Stripe | null;
   cart: Cart;
@@ -49,7 +49,8 @@ export interface BillingInfo {
   cardholderName: string;
   cardLast4: string;
 
-  billingAddressSameAsShippingAddress: boolean | string; // formik needs this value as a string
+  // formik needs this value as a string
+  billingAddressSameAsShippingAddress: 'sameAddress' | 'differentAddress';
 
   billingAddress1: string;
   billingAddress2: string;
@@ -146,7 +147,9 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   // Since formik expects strings for values, we must convert
   // billingAddressSameAsShippingAddress back to a boolean value.
-  valuesFromFormik(values: BillingInfo) {
+  //
+  // Slightly-wonky signature to match the validator’s input.
+  valuesFromFormik(values: BillingInfo): Pick<OrderInfo, keyof BillingInfo> {
     return {
       ...values,
       billingAddressSameAsShippingAddress:
@@ -156,9 +159,7 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   validateForm = (values: BillingInfo): { [key: string]: Array<string> } => {
     const validator = makePaymentValidator(this.valuesFromFormik(values));
-
     validator.check();
-
     return validator.errors.all();
   };
 

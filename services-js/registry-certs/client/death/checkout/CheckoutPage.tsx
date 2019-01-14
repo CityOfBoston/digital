@@ -6,10 +6,10 @@ import { observer } from 'mobx-react';
 import Router from 'next/router';
 
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 
-import ShippingContent, { ShippingInfo } from './ShippingContent';
-import PaymentContent, { BillingInfo } from './PaymentContent';
+import ShippingContent from './ShippingContent';
+import PaymentContent from './PaymentContent';
 import ReviewContent from './ReviewContent';
 import ConfirmationContent from './ConfirmationContent';
 import { DEATH_CERTIFICATE_COST } from '../../../lib/costs';
@@ -166,10 +166,8 @@ export default class CheckoutPageController extends React.Component<Props> {
     }
   }
 
-  advanceToPayment = async (shippingInfo: ShippingInfo) => {
-    runInAction(() => {
-      Object.assign(this.order.info, shippingInfo);
-    });
+  advanceToPayment = async (shippingInfo: Partial<OrderInfo>) => {
+    this.order.updateInfo(shippingInfo);
 
     await Router.push('/death/checkout?page=payment');
 
@@ -178,14 +176,12 @@ export default class CheckoutPageController extends React.Component<Props> {
 
   advanceToReview = async (
     cardElement: stripe.elements.Element | null,
-    billingInfo: BillingInfo
+    billingInfo: Partial<OrderInfo>
   ) => {
     const { order } = this;
     const { checkoutDao } = this.props;
 
-    runInAction(() => {
-      Object.assign(order.info, billingInfo);
-    });
+    this.order.updateInfo(billingInfo);
 
     // This may throw, in which case the payment page will catch it and display
     // the error.

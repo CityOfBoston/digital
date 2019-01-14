@@ -10,7 +10,7 @@ import PageLayout from '../../PageLayout';
 import { BreadcrumbNavLinks } from '../breadcrumbs';
 
 import Cart from '../../store/DeathCertificateCart';
-import Order from '../../models/Order';
+import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../../common/form-elements';
 
 import {
@@ -20,7 +20,7 @@ import {
 import makeShippingValidator from '../../../lib/validators/ShippingValidator';
 
 export interface Props {
-  submit: (shippingInfo: ShippingInfo) => unknown;
+  submit: (values: Partial<OrderInfo>) => unknown;
   cart: Cart;
   order: Order;
   showErrorsForTest?: boolean;
@@ -69,17 +69,13 @@ export default class ShippingContent extends React.Component<Props> {
     };
 
     const validator = makeShippingValidator(this.initialValues);
-
     validator.check();
-
     this.isInitialValid = validator.passes();
   }
 
   validateForm = (values: ShippingInfo): { [key: string]: Array<string> } => {
     const validator = makeShippingValidator(values);
-
     validator.check();
-
     return validator.errors.all();
   };
 
@@ -109,7 +105,7 @@ export default class ShippingContent extends React.Component<Props> {
           <Formik
             initialValues={this.initialValues}
             isInitialValid={this.isInitialValid}
-            onSubmit={submit}
+            onSubmit={values => submit(values)}
             render={this.renderForm}
             validate={this.validateForm}
           />
