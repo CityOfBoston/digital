@@ -89,17 +89,6 @@ export default class Order {
     };
   }
 
-  @action
-  /**
-   * Modifies the info data by updating it with the provided data. Really just a
-   * type-safe wrapper around Object.assign.
-   */
-  updateInfo(partialInfo: Partial<OrderInfo>) {
-    // TIL: TypeScript’s typing of Object.assign does not guarantee that the
-    // first parameter (which gets mutated) maintains its type.
-    Object.assign(this.info, partialInfo);
-  }
-
   @computed
   get shippingValidator(): ShippingValidator {
     const validator = makeShippingValidator(this.info);

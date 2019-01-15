@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import Router from 'next/router';
 
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
-import Order, { OrderInfo } from '../../models/Order';
+import Order from '../../models/Order';
 
 import ShippingContent from './ShippingContent';
 import PaymentContent from './PaymentContent';
@@ -161,34 +161,24 @@ export default class CheckoutPageController extends React.Component<Props> {
         (!this.order.shippingIsComplete || !this.order.paymentIsComplete))
     ) {
       await Router.push('/death/checkout?page=shipping', '/death/checkout');
-
       window.scroll(0, 0);
     }
   }
 
-  advanceToPayment = async (shippingInfo: Partial<OrderInfo>) => {
-    this.order.updateInfo(shippingInfo);
-
-    await Router.push('/death/checkout?page=payment');
-
+  advanceToPayment = async () => {
+    await Router.push('/death/checkout?page=payment', '/death/checkout');
     window.scroll(0, 0);
   };
 
-  advanceToReview = async (
-    cardElement: stripe.elements.Element | null,
-    billingInfo: Partial<OrderInfo>
-  ) => {
+  advanceToReview = async (cardElement: stripe.elements.Element | null) => {
     const { order } = this;
     const { checkoutDao } = this.props;
-
-    this.order.updateInfo(billingInfo);
 
     // This may throw, in which case the payment page will catch it and display
     // the error.
     await checkoutDao.tokenizeCard(order, cardElement);
 
-    await Router.push('/death/checkout?page=review');
-
+    await Router.push('/death/checkout?page=review', '/death/checkout');
     window.scroll(0, 0);
   };
 
@@ -232,7 +222,7 @@ export default class CheckoutPageController extends React.Component<Props> {
       `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
         orderId
       )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-      '/death/checkout?page=confirmation'
+      '/death/checkout'
     );
 
     window.scroll(0, 0);

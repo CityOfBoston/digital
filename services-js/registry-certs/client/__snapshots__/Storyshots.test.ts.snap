@@ -2373,7 +2373,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="cardholderName"
+                  htmlFor="card-name"
                 >
                   Cardholder Name
                    
@@ -2387,10 +2387,11 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
                 <input
                   aria-required="true"
                   className="txt-f "
-                  id="cardholderName"
-                  name="cardholderName"
+                  id="card-name"
+                  name="card-name"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  placeholder="Cardholder Name"
                   type="text"
                   value="Nancy Whitehead"
                 />
@@ -2428,43 +2429,496 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
               <div
                 className="m-v200"
               >
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Same as shipping address
+                  </span>
+                </label>
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="false"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Use a different address
+                  </span>
+                </label>
+              </div>
+              <div
+                className="m-t500"
+              >
                 <div
-                  role="radiogroup"
+                  className="txt"
                 >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-1"
                   >
-                    <input
-                      checked={true}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="sameAddress"
-                    />
+                    Address Line 1
+                     
                     <span
-                      className="ra-l"
+                      aria-hidden={true}
+                      className="t--req"
                     >
-                      Same as shipping address
+                      Required
                     </span>
                   </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-address-1"
+                    name="billing-address-1"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                    value="3 Avengers Towers"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-2"
+                  >
+                    Address Line 2 (optional)
+                  </label>
+                  <input
+                    className="txt-f "
+                    id="billing-address-2"
+                    name="billing-address-2"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 2"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-city"
+                  >
+                    City
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-city"
+                    name="billing-city"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                    value="New York"
+                  />
+                </div>
+                <div
+                  className="sel txt"
+                >
+                  <label
+                    className="sel-l txt-l--sm"
+                    htmlFor="billing-state"
+                  >
+                    State / Territory
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <div
+                    className="sel-c"
+                  >
+                    <select
+                      aria-required="true"
+                      className="sel-f "
+                      id="billing-state"
+                      name="billing-state"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="NY"
+                    >
+                      <option
+                        value="AL"
+                      >
+                        Alabama
+                      </option>
+                      <option
+                        value="AK"
+                      >
+                        Alaska
+                      </option>
+                      <option
+                        value="AS"
+                      >
+                        American Samoa
+                      </option>
+                      <option
+                        value="AZ"
+                      >
+                        Arizona
+                      </option>
+                      <option
+                        value="AR"
+                      >
+                        Arkansas
+                      </option>
+                      <option
+                        value="CA"
+                      >
+                        California
+                      </option>
+                      <option
+                        value="CO"
+                      >
+                        Colorado
+                      </option>
+                      <option
+                        value="CT"
+                      >
+                        Connecticut
+                      </option>
+                      <option
+                        value="DE"
+                      >
+                        Delaware
+                      </option>
+                      <option
+                        value="DC"
+                      >
+                        District Of Columbia
+                      </option>
+                      <option
+                        value="FM"
+                      >
+                        Federated States Of Micronesia
+                      </option>
+                      <option
+                        value="FL"
+                      >
+                        Florida
+                      </option>
+                      <option
+                        value="GA"
+                      >
+                        Georgia
+                      </option>
+                      <option
+                        value="GU"
+                      >
+                        Guam
+                      </option>
+                      <option
+                        value="HI"
+                      >
+                        Hawaii
+                      </option>
+                      <option
+                        value="ID"
+                      >
+                        Idaho
+                      </option>
+                      <option
+                        value="IL"
+                      >
+                        Illinois
+                      </option>
+                      <option
+                        value="IN"
+                      >
+                        Indiana
+                      </option>
+                      <option
+                        value="IA"
+                      >
+                        Iowa
+                      </option>
+                      <option
+                        value="KS"
+                      >
+                        Kansas
+                      </option>
+                      <option
+                        value="KY"
+                      >
+                        Kentucky
+                      </option>
+                      <option
+                        value="LA"
+                      >
+                        Louisiana
+                      </option>
+                      <option
+                        value="ME"
+                      >
+                        Maine
+                      </option>
+                      <option
+                        value="MH"
+                      >
+                        Marshall Islands
+                      </option>
+                      <option
+                        value="MD"
+                      >
+                        Maryland
+                      </option>
+                      <option
+                        value="MA"
+                      >
+                        Massachusetts
+                      </option>
+                      <option
+                        value="MI"
+                      >
+                        Michigan
+                      </option>
+                      <option
+                        value="MN"
+                      >
+                        Minnesota
+                      </option>
+                      <option
+                        value="MS"
+                      >
+                        Mississippi
+                      </option>
+                      <option
+                        value="MO"
+                      >
+                        Missouri
+                      </option>
+                      <option
+                        value="MT"
+                      >
+                        Montana
+                      </option>
+                      <option
+                        value="NE"
+                      >
+                        Nebraska
+                      </option>
+                      <option
+                        value="NV"
+                      >
+                        Nevada
+                      </option>
+                      <option
+                        value="NH"
+                      >
+                        New Hampshire
+                      </option>
+                      <option
+                        value="NJ"
+                      >
+                        New Jersey
+                      </option>
+                      <option
+                        value="NM"
+                      >
+                        New Mexico
+                      </option>
+                      <option
+                        value="NY"
+                      >
+                        New York
+                      </option>
+                      <option
+                        value="NC"
+                      >
+                        North Carolina
+                      </option>
+                      <option
+                        value="ND"
+                      >
+                        North Dakota
+                      </option>
+                      <option
+                        value="MP"
+                      >
+                        Northern Mariana Islands
+                      </option>
+                      <option
+                        value="OH"
+                      >
+                        Ohio
+                      </option>
+                      <option
+                        value="OK"
+                      >
+                        Oklahoma
+                      </option>
+                      <option
+                        value="OR"
+                      >
+                        Oregon
+                      </option>
+                      <option
+                        value="PW"
+                      >
+                        Palau
+                      </option>
+                      <option
+                        value="PA"
+                      >
+                        Pennsylvania
+                      </option>
+                      <option
+                        value="PR"
+                      >
+                        Puerto Rico
+                      </option>
+                      <option
+                        value="RI"
+                      >
+                        Rhode Island
+                      </option>
+                      <option
+                        value="SC"
+                      >
+                        South Carolina
+                      </option>
+                      <option
+                        value="SD"
+                      >
+                        South Dakota
+                      </option>
+                      <option
+                        value="TN"
+                      >
+                        Tennessee
+                      </option>
+                      <option
+                        value="TX"
+                      >
+                        Texas
+                      </option>
+                      <option
+                        value="UT"
+                      >
+                        Utah
+                      </option>
+                      <option
+                        value="VT"
+                      >
+                        Vermont
+                      </option>
+                      <option
+                        value="VI"
+                      >
+                        Virgin Islands
+                      </option>
+                      <option
+                        value="VA"
+                      >
+                        Virginia
+                      </option>
+                      <option
+                        value="WA"
+                      >
+                        Washington
+                      </option>
+                      <option
+                        value="WV"
+                      >
+                        West Virginia
+                      </option>
+                      <option
+                        value="WI"
+                      >
+                        Wisconsin
+                      </option>
+                      <option
+                        value="WY"
+                      >
+                        Wyoming
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-zip"
+                  >
+                    ZIP Code
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f txt-f--50 "
+                    id="billing-zip"
+                    name="billing-zip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="ZIP code"
+                    value="12223"
+                  />
+                </div>
+                <div
+                  className="m-t700"
+                >
+                  <label
+                    className="cb"
                   >
                     <input
                       checked={false}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
+                      className="cb-f"
+                      id="store-billing"
+                      name="store-billing"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="differentAddress"
+                      type="checkbox"
+                      value="true"
                     />
+                     
                     <span
-                      className="ra-l"
+                      className="cb-l"
                     >
-                      Use a different address
+                      Save billing address on this computer
                     </span>
                   </label>
                 </div>
@@ -2932,7 +3386,7 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="cardholderName"
+                  htmlFor="card-name"
                 >
                   Cardholder Name
                    
@@ -2946,10 +3400,11 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
                 <input
                   aria-required="true"
                   className="txt-f "
-                  id="cardholderName"
-                  name="cardholderName"
+                  id="card-name"
+                  name="card-name"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  placeholder="Cardholder Name"
                   type="text"
                   value="Nancy Whitehead"
                 />
@@ -2987,43 +3442,504 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
               <div
                 className="m-v200"
               >
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Same as shipping address
+                  </span>
+                </label>
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="false"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Use a different address
+                  </span>
+                </label>
+              </div>
+              <div
+                className="m-t500"
+              >
                 <div
-                  role="radiogroup"
+                  className="txt"
                 >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-1"
                   >
-                    <input
-                      checked={true}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="sameAddress"
-                    />
+                    Address Line 1
+                     
                     <span
-                      className="ra-l"
+                      aria-hidden={true}
+                      className="t--req"
                     >
-                      Same as shipping address
+                      Required
                     </span>
                   </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-address-1"
+                    name="billing-address-1"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                    value="3 Avengers Towers"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-2"
+                  >
+                    Address Line 2 (optional)
+                  </label>
+                  <input
+                    className="txt-f "
+                    id="billing-address-2"
+                    name="billing-address-2"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 2"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-city"
+                  >
+                    City
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-city"
+                    name="billing-city"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                    value="New York"
+                  />
+                </div>
+                <div
+                  className="sel txt"
+                >
+                  <label
+                    className="sel-l txt-l--sm"
+                    htmlFor="billing-state"
+                  >
+                    State / Territory
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <div
+                    className="sel-c"
+                  >
+                    <select
+                      aria-required="true"
+                      className="sel-f "
+                      id="billing-state"
+                      name="billing-state"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="NY"
+                    >
+                      <option
+                        value="AL"
+                      >
+                        Alabama
+                      </option>
+                      <option
+                        value="AK"
+                      >
+                        Alaska
+                      </option>
+                      <option
+                        value="AS"
+                      >
+                        American Samoa
+                      </option>
+                      <option
+                        value="AZ"
+                      >
+                        Arizona
+                      </option>
+                      <option
+                        value="AR"
+                      >
+                        Arkansas
+                      </option>
+                      <option
+                        value="CA"
+                      >
+                        California
+                      </option>
+                      <option
+                        value="CO"
+                      >
+                        Colorado
+                      </option>
+                      <option
+                        value="CT"
+                      >
+                        Connecticut
+                      </option>
+                      <option
+                        value="DE"
+                      >
+                        Delaware
+                      </option>
+                      <option
+                        value="DC"
+                      >
+                        District Of Columbia
+                      </option>
+                      <option
+                        value="FM"
+                      >
+                        Federated States Of Micronesia
+                      </option>
+                      <option
+                        value="FL"
+                      >
+                        Florida
+                      </option>
+                      <option
+                        value="GA"
+                      >
+                        Georgia
+                      </option>
+                      <option
+                        value="GU"
+                      >
+                        Guam
+                      </option>
+                      <option
+                        value="HI"
+                      >
+                        Hawaii
+                      </option>
+                      <option
+                        value="ID"
+                      >
+                        Idaho
+                      </option>
+                      <option
+                        value="IL"
+                      >
+                        Illinois
+                      </option>
+                      <option
+                        value="IN"
+                      >
+                        Indiana
+                      </option>
+                      <option
+                        value="IA"
+                      >
+                        Iowa
+                      </option>
+                      <option
+                        value="KS"
+                      >
+                        Kansas
+                      </option>
+                      <option
+                        value="KY"
+                      >
+                        Kentucky
+                      </option>
+                      <option
+                        value="LA"
+                      >
+                        Louisiana
+                      </option>
+                      <option
+                        value="ME"
+                      >
+                        Maine
+                      </option>
+                      <option
+                        value="MH"
+                      >
+                        Marshall Islands
+                      </option>
+                      <option
+                        value="MD"
+                      >
+                        Maryland
+                      </option>
+                      <option
+                        value="MA"
+                      >
+                        Massachusetts
+                      </option>
+                      <option
+                        value="MI"
+                      >
+                        Michigan
+                      </option>
+                      <option
+                        value="MN"
+                      >
+                        Minnesota
+                      </option>
+                      <option
+                        value="MS"
+                      >
+                        Mississippi
+                      </option>
+                      <option
+                        value="MO"
+                      >
+                        Missouri
+                      </option>
+                      <option
+                        value="MT"
+                      >
+                        Montana
+                      </option>
+                      <option
+                        value="NE"
+                      >
+                        Nebraska
+                      </option>
+                      <option
+                        value="NV"
+                      >
+                        Nevada
+                      </option>
+                      <option
+                        value="NH"
+                      >
+                        New Hampshire
+                      </option>
+                      <option
+                        value="NJ"
+                      >
+                        New Jersey
+                      </option>
+                      <option
+                        value="NM"
+                      >
+                        New Mexico
+                      </option>
+                      <option
+                        value="NY"
+                      >
+                        New York
+                      </option>
+                      <option
+                        value="NC"
+                      >
+                        North Carolina
+                      </option>
+                      <option
+                        value="ND"
+                      >
+                        North Dakota
+                      </option>
+                      <option
+                        value="MP"
+                      >
+                        Northern Mariana Islands
+                      </option>
+                      <option
+                        value="OH"
+                      >
+                        Ohio
+                      </option>
+                      <option
+                        value="OK"
+                      >
+                        Oklahoma
+                      </option>
+                      <option
+                        value="OR"
+                      >
+                        Oregon
+                      </option>
+                      <option
+                        value="PW"
+                      >
+                        Palau
+                      </option>
+                      <option
+                        value="PA"
+                      >
+                        Pennsylvania
+                      </option>
+                      <option
+                        value="PR"
+                      >
+                        Puerto Rico
+                      </option>
+                      <option
+                        value="RI"
+                      >
+                        Rhode Island
+                      </option>
+                      <option
+                        value="SC"
+                      >
+                        South Carolina
+                      </option>
+                      <option
+                        value="SD"
+                      >
+                        South Dakota
+                      </option>
+                      <option
+                        value="TN"
+                      >
+                        Tennessee
+                      </option>
+                      <option
+                        value="TX"
+                      >
+                        Texas
+                      </option>
+                      <option
+                        value="UT"
+                      >
+                        Utah
+                      </option>
+                      <option
+                        value="VT"
+                      >
+                        Vermont
+                      </option>
+                      <option
+                        value="VI"
+                      >
+                        Virgin Islands
+                      </option>
+                      <option
+                        value="VA"
+                      >
+                        Virginia
+                      </option>
+                      <option
+                        value="WA"
+                      >
+                        Washington
+                      </option>
+                      <option
+                        value="WV"
+                      >
+                        West Virginia
+                      </option>
+                      <option
+                        value="WI"
+                      >
+                        Wisconsin
+                      </option>
+                      <option
+                        value="WY"
+                      >
+                        Wyoming
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-zip"
+                  >
+                    ZIP Code
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-describedby="billingZip-error"
+                    aria-invalid={true}
+                    aria-required="true"
+                    className="txt-f txt-f--50 txt-f--err"
+                    id="billing-zip"
+                    name="billing-zip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="ZIP code"
+                    value="abc123"
+                  />
+                  <div
+                    className="t--info t--err m-t200"
+                    id="billingZip-error"
+                  >
+                    The ZIP code must be a 5 or 9 digit ZIP code
+                  </div>
+                </div>
+                <div
+                  className="m-t700"
+                >
+                  <label
+                    className="cb"
                   >
                     <input
                       checked={false}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
+                      className="cb-f"
+                      id="store-billing"
+                      name="store-billing"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="differentAddress"
+                      type="checkbox"
+                      value="true"
                     />
+                     
                     <span
-                      className="ra-l"
+                      className="cb-l"
                     >
-                      Use a different address
+                      Save billing address on this computer
                     </span>
                   </label>
                 </div>
@@ -3450,7 +4366,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="cardholderName"
+                  htmlFor="card-name"
                 >
                   Cardholder Name
                    
@@ -3464,10 +4380,11 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                 <input
                   aria-required="true"
                   className="txt-f "
-                  id="cardholderName"
-                  name="cardholderName"
+                  id="card-name"
+                  name="card-name"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  placeholder="Cardholder Name"
                   type="text"
                   value="Nancy Whitehead"
                 />
@@ -3509,43 +4426,496 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
               <div
                 className="m-v200"
               >
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Same as shipping address
+                  </span>
+                </label>
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="false"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Use a different address
+                  </span>
+                </label>
+              </div>
+              <div
+                className="m-t500"
+              >
                 <div
-                  role="radiogroup"
+                  className="txt"
                 >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-1"
                   >
-                    <input
-                      checked={true}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="sameAddress"
-                    />
+                    Address Line 1
+                     
                     <span
-                      className="ra-l"
+                      aria-hidden={true}
+                      className="t--req"
                     >
-                      Same as shipping address
+                      Required
                     </span>
                   </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-address-1"
+                    name="billing-address-1"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                    value="3 Avengers Towers"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-2"
+                  >
+                    Address Line 2 (optional)
+                  </label>
+                  <input
+                    className="txt-f "
+                    id="billing-address-2"
+                    name="billing-address-2"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 2"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-city"
+                  >
+                    City
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-city"
+                    name="billing-city"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                    value="New York"
+                  />
+                </div>
+                <div
+                  className="sel txt"
+                >
+                  <label
+                    className="sel-l txt-l--sm"
+                    htmlFor="billing-state"
+                  >
+                    State / Territory
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <div
+                    className="sel-c"
+                  >
+                    <select
+                      aria-required="true"
+                      className="sel-f "
+                      id="billing-state"
+                      name="billing-state"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="NY"
+                    >
+                      <option
+                        value="AL"
+                      >
+                        Alabama
+                      </option>
+                      <option
+                        value="AK"
+                      >
+                        Alaska
+                      </option>
+                      <option
+                        value="AS"
+                      >
+                        American Samoa
+                      </option>
+                      <option
+                        value="AZ"
+                      >
+                        Arizona
+                      </option>
+                      <option
+                        value="AR"
+                      >
+                        Arkansas
+                      </option>
+                      <option
+                        value="CA"
+                      >
+                        California
+                      </option>
+                      <option
+                        value="CO"
+                      >
+                        Colorado
+                      </option>
+                      <option
+                        value="CT"
+                      >
+                        Connecticut
+                      </option>
+                      <option
+                        value="DE"
+                      >
+                        Delaware
+                      </option>
+                      <option
+                        value="DC"
+                      >
+                        District Of Columbia
+                      </option>
+                      <option
+                        value="FM"
+                      >
+                        Federated States Of Micronesia
+                      </option>
+                      <option
+                        value="FL"
+                      >
+                        Florida
+                      </option>
+                      <option
+                        value="GA"
+                      >
+                        Georgia
+                      </option>
+                      <option
+                        value="GU"
+                      >
+                        Guam
+                      </option>
+                      <option
+                        value="HI"
+                      >
+                        Hawaii
+                      </option>
+                      <option
+                        value="ID"
+                      >
+                        Idaho
+                      </option>
+                      <option
+                        value="IL"
+                      >
+                        Illinois
+                      </option>
+                      <option
+                        value="IN"
+                      >
+                        Indiana
+                      </option>
+                      <option
+                        value="IA"
+                      >
+                        Iowa
+                      </option>
+                      <option
+                        value="KS"
+                      >
+                        Kansas
+                      </option>
+                      <option
+                        value="KY"
+                      >
+                        Kentucky
+                      </option>
+                      <option
+                        value="LA"
+                      >
+                        Louisiana
+                      </option>
+                      <option
+                        value="ME"
+                      >
+                        Maine
+                      </option>
+                      <option
+                        value="MH"
+                      >
+                        Marshall Islands
+                      </option>
+                      <option
+                        value="MD"
+                      >
+                        Maryland
+                      </option>
+                      <option
+                        value="MA"
+                      >
+                        Massachusetts
+                      </option>
+                      <option
+                        value="MI"
+                      >
+                        Michigan
+                      </option>
+                      <option
+                        value="MN"
+                      >
+                        Minnesota
+                      </option>
+                      <option
+                        value="MS"
+                      >
+                        Mississippi
+                      </option>
+                      <option
+                        value="MO"
+                      >
+                        Missouri
+                      </option>
+                      <option
+                        value="MT"
+                      >
+                        Montana
+                      </option>
+                      <option
+                        value="NE"
+                      >
+                        Nebraska
+                      </option>
+                      <option
+                        value="NV"
+                      >
+                        Nevada
+                      </option>
+                      <option
+                        value="NH"
+                      >
+                        New Hampshire
+                      </option>
+                      <option
+                        value="NJ"
+                      >
+                        New Jersey
+                      </option>
+                      <option
+                        value="NM"
+                      >
+                        New Mexico
+                      </option>
+                      <option
+                        value="NY"
+                      >
+                        New York
+                      </option>
+                      <option
+                        value="NC"
+                      >
+                        North Carolina
+                      </option>
+                      <option
+                        value="ND"
+                      >
+                        North Dakota
+                      </option>
+                      <option
+                        value="MP"
+                      >
+                        Northern Mariana Islands
+                      </option>
+                      <option
+                        value="OH"
+                      >
+                        Ohio
+                      </option>
+                      <option
+                        value="OK"
+                      >
+                        Oklahoma
+                      </option>
+                      <option
+                        value="OR"
+                      >
+                        Oregon
+                      </option>
+                      <option
+                        value="PW"
+                      >
+                        Palau
+                      </option>
+                      <option
+                        value="PA"
+                      >
+                        Pennsylvania
+                      </option>
+                      <option
+                        value="PR"
+                      >
+                        Puerto Rico
+                      </option>
+                      <option
+                        value="RI"
+                      >
+                        Rhode Island
+                      </option>
+                      <option
+                        value="SC"
+                      >
+                        South Carolina
+                      </option>
+                      <option
+                        value="SD"
+                      >
+                        South Dakota
+                      </option>
+                      <option
+                        value="TN"
+                      >
+                        Tennessee
+                      </option>
+                      <option
+                        value="TX"
+                      >
+                        Texas
+                      </option>
+                      <option
+                        value="UT"
+                      >
+                        Utah
+                      </option>
+                      <option
+                        value="VT"
+                      >
+                        Vermont
+                      </option>
+                      <option
+                        value="VI"
+                      >
+                        Virgin Islands
+                      </option>
+                      <option
+                        value="VA"
+                      >
+                        Virginia
+                      </option>
+                      <option
+                        value="WA"
+                      >
+                        Washington
+                      </option>
+                      <option
+                        value="WV"
+                      >
+                        West Virginia
+                      </option>
+                      <option
+                        value="WI"
+                      >
+                        Wisconsin
+                      </option>
+                      <option
+                        value="WY"
+                      >
+                        Wyoming
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-zip"
+                  >
+                    ZIP Code
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f txt-f--50 "
+                    id="billing-zip"
+                    name="billing-zip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="ZIP code"
+                    value="12223"
+                  />
+                </div>
+                <div
+                  className="m-t700"
+                >
+                  <label
+                    className="cb"
                   >
                     <input
                       checked={false}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
+                      className="cb-f"
+                      id="store-billing"
+                      name="store-billing"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="differentAddress"
+                      type="checkbox"
+                      value="true"
                     />
+                     
                     <span
-                      className="ra-l"
+                      className="cb-l"
                     >
-                      Use a different address
+                      Save billing address on this computer
                     </span>
                   </label>
                 </div>
@@ -3972,7 +5342,7 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="cardholderName"
+                  htmlFor="card-name"
                 >
                   Cardholder Name
                    
@@ -3986,10 +5356,11 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
                 <input
                   aria-required="true"
                   className="txt-f "
-                  id="cardholderName"
-                  name="cardholderName"
+                  id="card-name"
+                  name="card-name"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  placeholder="Cardholder Name"
                   type="text"
                   value="Nancy Whitehead"
                 />
@@ -4027,46 +5398,42 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
               <div
                 className="m-v200"
               >
-                <div
-                  role="radiogroup"
+                <label
+                  className="ra"
                 >
-                  <label
-                    className="ra"
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    className="ra-l"
                   >
-                    <input
-                      checked={true}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="sameAddress"
-                    />
-                    <span
-                      className="ra-l"
-                    >
-                      Same as shipping address
-                    </span>
-                  </label>
-                  <label
-                    className="ra"
+                    Same as shipping address
+                  </span>
+                </label>
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="false"
+                  />
+                  <span
+                    className="ra-l"
                   >
-                    <input
-                      checked={false}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="differentAddress"
-                    />
-                    <span
-                      className="ra-l"
-                    >
-                      Use a different address
-                    </span>
-                  </label>
-                </div>
+                    Use a different address
+                  </span>
+                </label>
               </div>
             </fieldset>
             <div
@@ -4490,7 +5857,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="cardholderName"
+                  htmlFor="card-name"
                 >
                   Cardholder Name
                    
@@ -4504,10 +5871,11 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
                 <input
                   aria-required="true"
                   className="txt-f "
-                  id="cardholderName"
-                  name="cardholderName"
+                  id="card-name"
+                  name="card-name"
                   onBlur={[Function]}
                   onChange={[Function]}
+                  placeholder="Cardholder Name"
                   type="text"
                   value="Nancy Whitehead"
                 />
@@ -4545,43 +5913,496 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
               <div
                 className="m-v200"
               >
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Same as shipping address
+                  </span>
+                </label>
+                <label
+                  className="ra"
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="billing-address-same-as-shipping-address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="radio"
+                    value="false"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Use a different address
+                  </span>
+                </label>
+              </div>
+              <div
+                className="m-t500"
+              >
                 <div
-                  role="radiogroup"
+                  className="txt"
                 >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-1"
                   >
-                    <input
-                      checked={true}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="sameAddress"
-                    />
+                    Address Line 1
+                     
                     <span
-                      className="ra-l"
+                      aria-hidden={true}
+                      className="t--req"
                     >
-                      Same as shipping address
+                      Required
                     </span>
                   </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-address-1"
+                    name="billing-address-1"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 1"
+                    type="text"
+                    value="3 Avengers Towers"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
                   <label
-                    className="ra"
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-address-2"
+                  >
+                    Address Line 2 (optional)
+                  </label>
+                  <input
+                    className="txt-f "
+                    id="billing-address-2"
+                    name="billing-address-2"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Address Line 2"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-city"
+                  >
+                    City
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f "
+                    id="billing-city"
+                    name="billing-city"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="City"
+                    type="text"
+                    value="New York"
+                  />
+                </div>
+                <div
+                  className="sel txt"
+                >
+                  <label
+                    className="sel-l txt-l--sm"
+                    htmlFor="billing-state"
+                  >
+                    State / Territory
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <div
+                    className="sel-c"
+                  >
+                    <select
+                      aria-required="true"
+                      className="sel-f "
+                      id="billing-state"
+                      name="billing-state"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="NY"
+                    >
+                      <option
+                        value="AL"
+                      >
+                        Alabama
+                      </option>
+                      <option
+                        value="AK"
+                      >
+                        Alaska
+                      </option>
+                      <option
+                        value="AS"
+                      >
+                        American Samoa
+                      </option>
+                      <option
+                        value="AZ"
+                      >
+                        Arizona
+                      </option>
+                      <option
+                        value="AR"
+                      >
+                        Arkansas
+                      </option>
+                      <option
+                        value="CA"
+                      >
+                        California
+                      </option>
+                      <option
+                        value="CO"
+                      >
+                        Colorado
+                      </option>
+                      <option
+                        value="CT"
+                      >
+                        Connecticut
+                      </option>
+                      <option
+                        value="DE"
+                      >
+                        Delaware
+                      </option>
+                      <option
+                        value="DC"
+                      >
+                        District Of Columbia
+                      </option>
+                      <option
+                        value="FM"
+                      >
+                        Federated States Of Micronesia
+                      </option>
+                      <option
+                        value="FL"
+                      >
+                        Florida
+                      </option>
+                      <option
+                        value="GA"
+                      >
+                        Georgia
+                      </option>
+                      <option
+                        value="GU"
+                      >
+                        Guam
+                      </option>
+                      <option
+                        value="HI"
+                      >
+                        Hawaii
+                      </option>
+                      <option
+                        value="ID"
+                      >
+                        Idaho
+                      </option>
+                      <option
+                        value="IL"
+                      >
+                        Illinois
+                      </option>
+                      <option
+                        value="IN"
+                      >
+                        Indiana
+                      </option>
+                      <option
+                        value="IA"
+                      >
+                        Iowa
+                      </option>
+                      <option
+                        value="KS"
+                      >
+                        Kansas
+                      </option>
+                      <option
+                        value="KY"
+                      >
+                        Kentucky
+                      </option>
+                      <option
+                        value="LA"
+                      >
+                        Louisiana
+                      </option>
+                      <option
+                        value="ME"
+                      >
+                        Maine
+                      </option>
+                      <option
+                        value="MH"
+                      >
+                        Marshall Islands
+                      </option>
+                      <option
+                        value="MD"
+                      >
+                        Maryland
+                      </option>
+                      <option
+                        value="MA"
+                      >
+                        Massachusetts
+                      </option>
+                      <option
+                        value="MI"
+                      >
+                        Michigan
+                      </option>
+                      <option
+                        value="MN"
+                      >
+                        Minnesota
+                      </option>
+                      <option
+                        value="MS"
+                      >
+                        Mississippi
+                      </option>
+                      <option
+                        value="MO"
+                      >
+                        Missouri
+                      </option>
+                      <option
+                        value="MT"
+                      >
+                        Montana
+                      </option>
+                      <option
+                        value="NE"
+                      >
+                        Nebraska
+                      </option>
+                      <option
+                        value="NV"
+                      >
+                        Nevada
+                      </option>
+                      <option
+                        value="NH"
+                      >
+                        New Hampshire
+                      </option>
+                      <option
+                        value="NJ"
+                      >
+                        New Jersey
+                      </option>
+                      <option
+                        value="NM"
+                      >
+                        New Mexico
+                      </option>
+                      <option
+                        value="NY"
+                      >
+                        New York
+                      </option>
+                      <option
+                        value="NC"
+                      >
+                        North Carolina
+                      </option>
+                      <option
+                        value="ND"
+                      >
+                        North Dakota
+                      </option>
+                      <option
+                        value="MP"
+                      >
+                        Northern Mariana Islands
+                      </option>
+                      <option
+                        value="OH"
+                      >
+                        Ohio
+                      </option>
+                      <option
+                        value="OK"
+                      >
+                        Oklahoma
+                      </option>
+                      <option
+                        value="OR"
+                      >
+                        Oregon
+                      </option>
+                      <option
+                        value="PW"
+                      >
+                        Palau
+                      </option>
+                      <option
+                        value="PA"
+                      >
+                        Pennsylvania
+                      </option>
+                      <option
+                        value="PR"
+                      >
+                        Puerto Rico
+                      </option>
+                      <option
+                        value="RI"
+                      >
+                        Rhode Island
+                      </option>
+                      <option
+                        value="SC"
+                      >
+                        South Carolina
+                      </option>
+                      <option
+                        value="SD"
+                      >
+                        South Dakota
+                      </option>
+                      <option
+                        value="TN"
+                      >
+                        Tennessee
+                      </option>
+                      <option
+                        value="TX"
+                      >
+                        Texas
+                      </option>
+                      <option
+                        value="UT"
+                      >
+                        Utah
+                      </option>
+                      <option
+                        value="VT"
+                      >
+                        Vermont
+                      </option>
+                      <option
+                        value="VI"
+                      >
+                        Virgin Islands
+                      </option>
+                      <option
+                        value="VA"
+                      >
+                        Virginia
+                      </option>
+                      <option
+                        value="WA"
+                      >
+                        Washington
+                      </option>
+                      <option
+                        value="WV"
+                      >
+                        West Virginia
+                      </option>
+                      <option
+                        value="WI"
+                      >
+                        Wisconsin
+                      </option>
+                      <option
+                        value="WY"
+                      >
+                        Wyoming
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="billing-zip"
+                  >
+                    ZIP Code
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    className="txt-f txt-f--50 "
+                    id="billing-zip"
+                    name="billing-zip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="ZIP code"
+                    value="12223"
+                  />
+                </div>
+                <div
+                  className="m-t700"
+                >
+                  <label
+                    className="cb"
                   >
                     <input
                       checked={false}
-                      className="ra-f"
-                      name="billingAddressSameAsShippingAddress"
+                      className="cb-f"
+                      id="store-billing"
+                      name="store-billing"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="differentAddress"
+                      type="checkbox"
+                      value="true"
                     />
+                     
                     <span
-                      className="ra-l"
+                      className="cb-l"
                     >
-                      Use a different address
+                      Save billing address on this computer
                     </span>
                   </label>
                 </div>
@@ -8589,6 +10410,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
             </div>
           </div>
           <form
+            action="javascript:void(0)"
             method="post"
             onSubmit={[Function]}
           >
@@ -8605,7 +10427,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactName"
+                  htmlFor="contact-name"
                 >
                   Full Name
                    
@@ -8618,10 +10440,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="name"
                   className="txt-f txt-f--100 "
-                  id="contactName"
-                  name="contactName"
+                  id="contact-name"
+                  name="name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -8634,7 +10455,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactEmail"
+                  htmlFor="contact-email"
                 >
                   Email Address
                    
@@ -8647,10 +10468,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="email"
                   className="txt-f txt-f--100 "
-                  id="contactEmail"
-                  name="contactEmail"
+                  id="contact-email"
+                  name="email"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Email address"
@@ -8663,7 +10483,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactPhone"
+                  htmlFor="contact-phone"
                 >
                   Phone Number
                    
@@ -8676,10 +10496,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="tel"
                   className="txt-f txt-f--100 "
-                  id="contactPhone"
-                  name="contactPhone"
+                  id="contact-phone"
+                  name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -8705,7 +10524,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingName"
+                  htmlFor="shipping-name"
                 >
                   Full name
                    
@@ -8718,10 +10537,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping name"
                   className="txt-f "
-                  id="shippingName"
-                  name="shippingName"
+                  id="shipping-name"
+                  name="shipping-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -8734,15 +10552,14 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCompanyName"
+                  htmlFor="shipping-company-name"
                 >
                   Company Name (optional)
                 </label>
                 <input
-                  autoComplete="shipping organization"
                   className="txt-f "
-                  id="shippingCompanyName"
-                  name="shippingCompanyName"
+                  id="shipping-company-name"
+                  name="shipping-company-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Company Name"
@@ -8755,7 +10572,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress1"
+                  htmlFor="shipping-address-1"
                 >
                   Address Line 1
                    
@@ -8768,10 +10585,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-line1"
                   className="txt-f "
-                  id="shippingAddress1"
-                  name="shippingAddress1"
+                  id="shipping-address-1"
+                  name="shipping-address-1"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -8784,15 +10600,14 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress2"
+                  htmlFor="shipping-address-2"
                 >
                   Address Line 2 (optional)
                 </label>
                 <input
-                  autoComplete="shipping address-line2"
                   className="txt-f "
-                  id="shippingAddress2"
-                  name="shippingAddress2"
+                  id="shipping-address-2"
+                  name="shipping-address-2"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 2"
@@ -8805,7 +10620,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCity"
+                  htmlFor="shipping-city"
                 >
                   City
                    
@@ -8818,10 +10633,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-level2"
                   className="txt-f "
-                  id="shippingCity"
-                  name="shippingCity"
+                  id="shipping-city"
+                  name="shipping-city"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="City"
@@ -8834,7 +10648,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="sel-l sel-l--sm"
-                  htmlFor="shippingState"
+                  htmlFor="shipping-state"
                 >
                   State / Territory
                    
@@ -8850,10 +10664,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 >
                   <select
                     aria-required="true"
-                    autoComplete="shipping address-level1"
                     className="sel-f "
-                    id="shippingState"
-                    name="shippingState"
+                    id="shipping-state"
+                    name="shipping-state"
                     onBlur={[Function]}
                     onChange={[Function]}
                     value="MA"
@@ -9161,7 +10974,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingZip"
+                  htmlFor="shipping-zip"
                 >
                   ZIP Code
                    
@@ -9174,10 +10987,9 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping postal-code"
                   className="txt-f txt-f--auto "
-                  id="shippingZip"
-                  name="shippingZip"
+                  id="shipping-zip"
+                  name="shipping-zip"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="ZIP code"
@@ -9195,8 +11007,8 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 <input
                   checked={false}
                   className="cb-f"
-                  id="storeContactAndShipping"
-                  name="storeContactAndShipping"
+                  id="store-contact-and-shipping"
+                  name="store-contact-and-shipping"
                   onBlur={[Function]}
                   onChange={[Function]}
                   type="checkbox"
@@ -9576,6 +11388,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
             </div>
           </div>
           <form
+            action="javascript:void(0)"
             method="post"
             onSubmit={[Function]}
           >
@@ -9592,7 +11405,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactName"
+                  htmlFor="contact-name"
                 >
                   Full Name
                    
@@ -9605,10 +11418,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="name"
                   className="txt-f txt-f--100 "
-                  id="contactName"
-                  name="contactName"
+                  id="contact-name"
+                  name="name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -9621,7 +11433,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactEmail"
+                  htmlFor="contact-email"
                 >
                   Email Address
                    
@@ -9636,10 +11448,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                   aria-describedby="contactEmail-error"
                   aria-invalid={true}
                   aria-required="true"
-                  autoComplete="email"
                   className="txt-f txt-f--100 txt-f--err"
-                  id="contactEmail"
-                  name="contactEmail"
+                  id="contact-email"
+                  name="email"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Email address"
@@ -9658,7 +11469,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactPhone"
+                  htmlFor="contact-phone"
                 >
                   Phone Number
                    
@@ -9671,10 +11482,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="tel"
                   className="txt-f txt-f--100 "
-                  id="contactPhone"
-                  name="contactPhone"
+                  id="contact-phone"
+                  name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -9700,7 +11510,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingName"
+                  htmlFor="shipping-name"
                 >
                   Full name
                    
@@ -9713,10 +11523,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping name"
                   className="txt-f "
-                  id="shippingName"
-                  name="shippingName"
+                  id="shipping-name"
+                  name="shipping-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -9729,15 +11538,14 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCompanyName"
+                  htmlFor="shipping-company-name"
                 >
                   Company Name (optional)
                 </label>
                 <input
-                  autoComplete="shipping organization"
                   className="txt-f "
-                  id="shippingCompanyName"
-                  name="shippingCompanyName"
+                  id="shipping-company-name"
+                  name="shipping-company-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Company Name"
@@ -9750,7 +11558,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress1"
+                  htmlFor="shipping-address-1"
                 >
                   Address Line 1
                    
@@ -9763,10 +11571,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-line1"
                   className="txt-f "
-                  id="shippingAddress1"
-                  name="shippingAddress1"
+                  id="shipping-address-1"
+                  name="shipping-address-1"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -9779,15 +11586,14 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress2"
+                  htmlFor="shipping-address-2"
                 >
                   Address Line 2 (optional)
                 </label>
                 <input
-                  autoComplete="shipping address-line2"
                   className="txt-f "
-                  id="shippingAddress2"
-                  name="shippingAddress2"
+                  id="shipping-address-2"
+                  name="shipping-address-2"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 2"
@@ -9800,7 +11606,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCity"
+                  htmlFor="shipping-city"
                 >
                   City
                    
@@ -9813,10 +11619,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-level2"
                   className="txt-f "
-                  id="shippingCity"
-                  name="shippingCity"
+                  id="shipping-city"
+                  name="shipping-city"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="City"
@@ -9829,7 +11634,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="sel-l sel-l--sm"
-                  htmlFor="shippingState"
+                  htmlFor="shipping-state"
                 >
                   State / Territory
                    
@@ -9845,10 +11650,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 >
                   <select
                     aria-required="true"
-                    autoComplete="shipping address-level1"
                     className="sel-f "
-                    id="shippingState"
-                    name="shippingState"
+                    id="shipping-state"
+                    name="shipping-state"
                     onBlur={[Function]}
                     onChange={[Function]}
                     value="NY"
@@ -10156,7 +11960,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingZip"
+                  htmlFor="shipping-zip"
                 >
                   ZIP Code
                    
@@ -10169,10 +11973,9 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping postal-code"
                   className="txt-f txt-f--auto "
-                  id="shippingZip"
-                  name="shippingZip"
+                  id="shipping-zip"
+                  name="shipping-zip"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="ZIP code"
@@ -10190,8 +11993,8 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 <input
                   checked={true}
                   className="cb-f"
-                  id="storeContactAndShipping"
-                  name="storeContactAndShipping"
+                  id="store-contact-and-shipping"
+                  name="store-contact-and-shipping"
                   onBlur={[Function]}
                   onChange={[Function]}
                   type="checkbox"
@@ -10571,6 +12374,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
             </div>
           </div>
           <form
+            action="javascript:void(0)"
             method="post"
             onSubmit={[Function]}
           >
@@ -10587,7 +12391,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactName"
+                  htmlFor="contact-name"
                 >
                   Full Name
                    
@@ -10600,10 +12404,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="name"
                   className="txt-f txt-f--100 "
-                  id="contactName"
-                  name="contactName"
+                  id="contact-name"
+                  name="name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -10616,7 +12419,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactEmail"
+                  htmlFor="contact-email"
                 >
                   Email Address
                    
@@ -10629,10 +12432,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="email"
                   className="txt-f txt-f--100 "
-                  id="contactEmail"
-                  name="contactEmail"
+                  id="contact-email"
+                  name="email"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Email address"
@@ -10645,7 +12447,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="contactPhone"
+                  htmlFor="contact-phone"
                 >
                   Phone Number
                    
@@ -10658,10 +12460,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="tel"
                   className="txt-f txt-f--100 "
-                  id="contactPhone"
-                  name="contactPhone"
+                  id="contact-phone"
+                  name="phone"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -10687,7 +12488,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingName"
+                  htmlFor="shipping-name"
                 >
                   Full name
                    
@@ -10700,10 +12501,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping name"
                   className="txt-f "
-                  id="shippingName"
-                  name="shippingName"
+                  id="shipping-name"
+                  name="shipping-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Full name"
@@ -10716,15 +12516,14 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCompanyName"
+                  htmlFor="shipping-company-name"
                 >
                   Company Name (optional)
                 </label>
                 <input
-                  autoComplete="shipping organization"
                   className="txt-f "
-                  id="shippingCompanyName"
-                  name="shippingCompanyName"
+                  id="shipping-company-name"
+                  name="shipping-company-name"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Company Name"
@@ -10737,7 +12536,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress1"
+                  htmlFor="shipping-address-1"
                 >
                   Address Line 1
                    
@@ -10750,10 +12549,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-line1"
                   className="txt-f "
-                  id="shippingAddress1"
-                  name="shippingAddress1"
+                  id="shipping-address-1"
+                  name="shipping-address-1"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 1"
@@ -10766,15 +12564,14 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingAddress2"
+                  htmlFor="shipping-address-2"
                 >
                   Address Line 2 (optional)
                 </label>
                 <input
-                  autoComplete="shipping address-line2"
                   className="txt-f "
-                  id="shippingAddress2"
-                  name="shippingAddress2"
+                  id="shipping-address-2"
+                  name="shipping-address-2"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Address Line 2"
@@ -10787,7 +12584,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingCity"
+                  htmlFor="shipping-city"
                 >
                   City
                    
@@ -10800,10 +12597,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping address-level2"
                   className="txt-f "
-                  id="shippingCity"
-                  name="shippingCity"
+                  id="shipping-city"
+                  name="shipping-city"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="City"
@@ -10816,7 +12612,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="sel-l sel-l--sm"
-                  htmlFor="shippingState"
+                  htmlFor="shipping-state"
                 >
                   State / Territory
                    
@@ -10832,10 +12628,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 >
                   <select
                     aria-required="true"
-                    autoComplete="shipping address-level1"
                     className="sel-f "
-                    id="shippingState"
-                    name="shippingState"
+                    id="shipping-state"
+                    name="shipping-state"
                     onBlur={[Function]}
                     onChange={[Function]}
                     value="NY"
@@ -11143,7 +12938,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
-                  htmlFor="shippingZip"
+                  htmlFor="shipping-zip"
                 >
                   ZIP Code
                    
@@ -11156,10 +12951,9 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 </label>
                 <input
                   aria-required="true"
-                  autoComplete="shipping postal-code"
                   className="txt-f txt-f--auto "
-                  id="shippingZip"
-                  name="shippingZip"
+                  id="shipping-zip"
+                  name="shipping-zip"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="ZIP code"
@@ -11177,8 +12971,8 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 <input
                   checked={true}
                   className="cb-f"
-                  id="storeContactAndShipping"
-                  name="storeContactAndShipping"
+                  id="store-contact-and-shipping"
+                  name="store-contact-and-shipping"
                   onBlur={[Function]}
                   onChange={[Function]}
                   type="checkbox"
