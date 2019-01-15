@@ -184,7 +184,7 @@ describe('operations', () => {
 
   describe('advanceToPayment', () => {
     it('routes to next stage', () => {
-      component.advanceToPayment({} as any);
+      component.advanceToPayment();
       expect(Router.push).toHaveBeenCalled();
     });
   });
@@ -195,7 +195,7 @@ describe('operations', () => {
         Promise.resolve()
       );
 
-      await component.advanceToReview(null, {} as any);
+      await component.advanceToReview(null);
       expect(Router.push).toHaveBeenCalled();
     });
 
@@ -204,9 +204,7 @@ describe('operations', () => {
         Promise.reject(new Error('tokenization failed'))
       );
 
-      await expect(
-        component.advanceToReview(null, {} as any)
-      ).rejects.toMatchObject({
+      await expect(component.advanceToReview(null)).rejects.toMatchObject({
         message: 'tokenization failed',
       });
       expect(Router.push).not.toHaveBeenCalled();
