@@ -60,7 +60,7 @@ const handleRetriedLoadError = (id: string, rollbar: Rollbar, err: Error) => {
   } else if (missing) {
     return Rx.of(null);
   } else {
-    rollbar.error(err);
+    rollbar.error(err, { metadata: (err as any).metadata });
     return Rx.empty();
   }
 };

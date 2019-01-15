@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import fetch, { Response } from 'node-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
@@ -99,7 +99,7 @@ export interface ServiceRequestActivity {
   }>;
 }
 
-async function processResponse(res): Promise<any> {
+async function processResponse(res: Response): Promise<any> {
   if (res.status === 404) {
     return null;
   } else if (!res.ok) {
@@ -115,7 +115,12 @@ async function processResponse(res): Promise<any> {
       message = await res.text();
     }
 
-    throw new Error(message);
+    throw Object.assign(new Error(message), {
+      metadata: {
+        status: res.status,
+        url: res.url,
+      },
+    });
   }
 
   return res.json();
