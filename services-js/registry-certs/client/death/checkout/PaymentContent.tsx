@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
-import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import {
@@ -37,9 +36,12 @@ interface Props {
   order: Order;
   showErrorsForTest?: boolean;
   tokenizationErrorForTest?: string;
+  cardElementErrorForTest?: string;
 }
 
 interface State {
+  cardElementComplete: boolean;
+  cardElementError: null | string;
   tokenizationError: null | string;
 }
 
@@ -70,6 +72,8 @@ export default class PaymentContent extends React.Component<Props, State> {
     const { info } = props.order;
 
     this.state = {
+      cardElementComplete: false,
+      cardElementError: props.cardElementErrorForTest || null,
       tokenizationError: props.tokenizationErrorForTest || null,
     };
 
@@ -163,27 +167,28 @@ export default class PaymentContent extends React.Component<Props, State> {
     return validator.errors.all();
   };
 
-  handleCardElementChange = action(
-    (ev?: stripe.elements.ElementChangeResponse) => {
-      if (!ev) {
-        return;
-      }
-
-      const { order } = this.props;
-
-      if (ev.error) {
-        order.cardElementError = ev.error.message || null;
-        order.cardElementComplete = false;
-      } else if (ev.brand === 'amex') {
-        order.cardElementError =
-          'Unfortunately, we do not accept American Express.';
-        order.cardElementComplete = false;
-      } else {
-        order.cardElementError = null;
-        order.cardElementComplete = ev.complete;
-      }
+  handleCardElementChange = (ev?: stripe.elements.ElementChangeResponse) => {
+    if (!ev) {
+      return;
     }
-  );
+
+    if (ev.error) {
+      this.setState({
+        cardElementError: ev.error.message || null,
+        cardElementComplete: false,
+      });
+    } else if (ev.brand === 'amex') {
+      this.setState({
+        cardElementError: 'Unfortunately, we do not accept American Express.',
+        cardElementComplete: false,
+      });
+    } else {
+      this.setState({
+        cardElementError: null,
+        cardElementComplete: ev.complete,
+      });
+    }
+  };
 
   handleSubmit = (values: BillingInfo) => {
     const { submit } = this.props;
@@ -236,11 +241,16 @@ export default class PaymentContent extends React.Component<Props, State> {
     handleSubmit,
     touched,
     errors,
+    isValid,
   }: FormikProps<BillingInfo>) => {
     const { order, showErrorsForTest } = this.props;
     const { info } = order;
     const localStorageAvailable = order.localStorageAvailable;
-    const { tokenizationError } = this.state;
+    const {
+      cardElementComplete,
+      cardElementError,
+      tokenizationError,
+    } = this.state;
 
     const fieldListeners = () => {
       return {
@@ -351,8 +361,8 @@ export default class PaymentContent extends React.Component<Props, State> {
             <div ref={this.setCardField} />
 
             <div className="t--info m-t200">
-              {order.cardElementError ? (
-                <span className="t--err">{order.cardElementError}</span>
+              {cardElementError ? (
+                <span className="t--err">{cardElementError}</span>
               ) : (
                 'We accept Visa, MasterCard, and Discover.'
               )}
@@ -536,8 +546,6 @@ export default class PaymentContent extends React.Component<Props, State> {
           )}
         </fieldset>
 
-        {order.cardElementComplete && <h1>complete</h1>}
-
         {tokenizationError && (
           <StatusModal
             message={`There’s a problem: ${tokenizationError}`}
@@ -559,8 +567,9 @@ export default class PaymentContent extends React.Component<Props, State> {
               className="btn btn--b"
               type="submit"
               disabled={
-                !order.paymentIsComplete ||
-                !order.cardElementComplete ||
+                !isValid ||
+                !cardElementComplete ||
+                !!tokenizationError ||
                 order.processing
               }
             >

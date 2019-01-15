@@ -41,9 +41,6 @@ export interface OrderInfo {
 export default class Order {
   @observable info: OrderInfo = null as any;
 
-  @observable cardElementError: string | null = null;
-  @observable cardElementComplete: boolean = false;
-
   idempotencyKey: string | null = null;
 
   // Set to true if there's a network operation related to the order going on,
@@ -171,8 +168,6 @@ export default class Order {
 
   @action
   resetCard() {
-    this.cardElementComplete = false;
-    this.cardElementError = null;
     this.info.cardToken = null;
     this.info.cardFunding = 'credit';
     this.info.cardLast4 = '';
