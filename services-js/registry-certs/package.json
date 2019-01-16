@@ -54,7 +54,7 @@
     "dotenv": "^5.0.0",
     "emotion": "9.2.10",
     "emotion-server": "9.2.10",
-    "formik": "^1.0.3",
+    "formik": "^1.4.2",
     "good": "^8.1.1",
     "good-console": "^7.1.0",
     "good-squeeze": "^5.1.0",
