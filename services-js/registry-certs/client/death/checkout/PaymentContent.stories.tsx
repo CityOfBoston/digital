@@ -92,14 +92,10 @@ storiesOf('Checkout/PaymentContent', module)
     <PaymentContent
       cart={makeCart()}
       stripe={makeStripe()}
-      order={(() => {
-        const order = makeBillingCompleteOrder();
-        order.cardElementError = 'Your card number is incomplete.';
-
-        return order;
-      })()}
+      order={makeBillingCompleteOrder()}
       submit={action('submit')}
       showErrorsForTest
+      cardElementErrorForTest="Your card number is incomplete."
     />
   ))
   .add('ZIP code error', () => (
