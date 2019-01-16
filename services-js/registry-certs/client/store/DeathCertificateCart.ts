@@ -25,6 +25,7 @@ export default class DeathCertificateCart {
   localStorageDisposer: Function | null = null;
   siteAnalytics: GaSiteAnalytics | null = null;
 
+  @action
   attach(
     localStorage: Storage | null,
     deathCertificatesDao: DeathCertificatesDao,
@@ -90,6 +91,7 @@ export default class DeathCertificateCart {
     }
   }
 
+  @action
   detach() {
     if (this.localStorageDisposer) {
       this.localStorageDisposer();
@@ -101,6 +103,7 @@ export default class DeathCertificateCart {
 
   trackCartItems() {
     const { siteAnalytics } = this;
+
     if (!siteAnalytics) {
       return;
     }
@@ -197,6 +200,7 @@ export default class DeathCertificateCart {
     this.entries = this.entries.filter(({ quantity }) => quantity > 0);
   }
 
+  @action
   clear() {
     this.entries = [];
   }

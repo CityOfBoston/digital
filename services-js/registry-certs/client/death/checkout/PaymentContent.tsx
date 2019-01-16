@@ -25,6 +25,7 @@ import {
 } from '../../common/checkout/OrderDetails';
 
 import makePaymentValidator from '../../../lib/validators/PaymentValidator';
+import { runInitialValidation } from './formik-util';
 
 interface Props {
   submit: (
@@ -34,7 +35,6 @@ interface Props {
   stripe: stripe.Stripe | null;
   cart: Cart;
   order: Order;
-  showErrorsForTest?: boolean;
   tokenizationErrorForTest?: string;
   cardElementErrorForTest?: string;
 }
@@ -65,11 +65,16 @@ export interface BillingInfo {
 export default class PaymentContent extends React.Component<Props, State> {
   private cardElement: stripe.elements.Element | null = null;
   private readonly initialValues: BillingInfo;
+  private readonly isInitialValid: boolean;
+  private readonly formikRef = React.createRef<Formik<BillingInfo>>();
 
   constructor(props: Props) {
     super(props);
 
-    const { info } = props.order;
+    const {
+      stripe,
+      order: { info },
+    } = props;
 
     this.state = {
       cardElementComplete: false,
@@ -83,7 +88,9 @@ export default class PaymentContent extends React.Component<Props, State> {
       cardholderName: info.cardholderName,
       cardLast4: info.cardLast4,
 
-      billingAddressSameAsShippingAddress: 'sameAddress',
+      billingAddressSameAsShippingAddress: info.billingAddressSameAsShippingAddress
+        ? 'sameAddress'
+        : 'differentAddress',
 
       billingAddress1: info.billingAddress1,
       billingAddress2: info.billingAddress2,
@@ -91,10 +98,10 @@ export default class PaymentContent extends React.Component<Props, State> {
       billingState: info.billingState,
       billingZip: info.billingZip,
     };
-  }
 
-  componentWillMount() {
-    const { stripe } = this.props;
+    const validator = makePaymentValidator(info);
+    validator.check();
+    this.isInitialValid = validator.passes();
 
     if (stripe) {
       const elements = stripe.elements({
@@ -130,6 +137,10 @@ export default class PaymentContent extends React.Component<Props, State> {
 
       this.cardElement.on('change', this.handleCardElementChange);
     }
+  }
+
+  async componentDidMount() {
+    await runInitialValidation(this.formikRef);
   }
 
   componentWillUnmount() {
@@ -224,7 +235,9 @@ export default class PaymentContent extends React.Component<Props, State> {
           </div>
 
           <Formik
+            ref={this.formikRef}
             initialValues={this.initialValues}
+            isInitialValid={this.isInitialValid}
             onSubmit={this.handleSubmit}
             render={this.renderForm}
             validate={this.validateForm}
@@ -243,7 +256,7 @@ export default class PaymentContent extends React.Component<Props, State> {
     errors,
     isValid,
   }: FormikProps<BillingInfo>) => {
-    const { order, showErrorsForTest } = this.props;
+    const { order } = this.props;
     const { info } = order;
     const localStorageAvailable = order.localStorageAvailable;
     const {
@@ -260,12 +273,10 @@ export default class PaymentContent extends React.Component<Props, State> {
     };
 
     const errorForField = (fieldName: keyof BillingInfo): string | null => {
-      let fieldErrors;
+      let fieldErrors: string | string[] | null;
 
       if (touched[fieldName]) {
-        fieldErrors = errors[fieldName];
-      } else if (showErrorsForTest) {
-        fieldErrors = errors[0];
+        fieldErrors = errors[fieldName] || null;
       } else {
         fieldErrors = null;
       }

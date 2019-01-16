@@ -70,7 +70,6 @@ storiesOf('Checkout/ShippingContent', module)
       cart={makeCart()}
       order={makeOrder({ contactEmail: 'notacompleteaddress@' })}
       submit={action('submit')}
-      showErrorsForTest
     />
   ))
   .add('existing address', () => (

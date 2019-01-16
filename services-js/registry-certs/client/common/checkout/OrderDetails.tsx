@@ -26,6 +26,7 @@ import {
 } from '../FeeDisclosures';
 
 import CertificateRow from '../../common/CertificateRow';
+import { observer } from 'mobx-react';
 
 interface DeathOrderProps {
   cart: DeathCertificateCart;
@@ -36,7 +37,9 @@ interface DeathOrderProps {
  * Displays a list of all death certificates in an order’s cart.
  * Use as child of OrderDetailsDropdown component, or it can be used alone.
  */
-export function DeathOrderDetails(props: DeathOrderProps) {
+export const DeathOrderDetails = observer(function DeathOrderDetails(
+  props: DeathOrderProps
+) {
   const { cart, thin } = props;
 
   const certificateRows = cart.entries.map(
@@ -65,7 +68,7 @@ export function DeathOrderDetails(props: DeathOrderProps) {
   );
 
   return <div>{certificateRows}</div>;
-}
+});
 
 interface DropdownProps {
   orderType: CertificateType;
