@@ -123,7 +123,7 @@ export default class Order {
 
   @computed
   get paymentIsComplete(): boolean {
-    return this.paymentValidator.passes();
+    return this.paymentValidator.passes() && this.info.cardToken !== null;
   }
 
   @computed

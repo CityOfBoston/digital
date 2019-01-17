@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import {
@@ -49,7 +50,6 @@ export interface BillingInfo {
   storeBilling: boolean;
 
   cardholderName: string;
-  cardLast4: string;
 
   // formik needs this value as a string
   billingAddressSameAsShippingAddress: 'sameAddress' | 'differentAddress';
@@ -77,7 +77,7 @@ export default class PaymentContent extends React.Component<Props, State> {
     } = props;
 
     this.state = {
-      cardElementComplete: false,
+      cardElementComplete: !!info.cardToken,
       cardElementError: props.cardElementErrorForTest || null,
       tokenizationError: props.tokenizationErrorForTest || null,
     };
@@ -86,7 +86,6 @@ export default class PaymentContent extends React.Component<Props, State> {
       storeBilling: info.storeBilling,
 
       cardholderName: info.cardholderName,
-      cardLast4: info.cardLast4,
 
       billingAddressSameAsShippingAddress: info.billingAddressSameAsShippingAddress
         ? 'sameAddress'
@@ -202,10 +201,18 @@ export default class PaymentContent extends React.Component<Props, State> {
   };
 
   handleSubmit = (values: BillingInfo) => {
-    const { submit } = this.props;
+    const {
+      submit,
+      order: { info },
+    } = this.props;
 
     try {
-      submit(this.cardElement, this.valuesFromFormik(values));
+      submit(
+        // If there’s a token already that wasn’t cleared, we don’t pass the
+        // card element as a sign that we don’t want to re-tokenize.
+        info.cardToken ? null : this.cardElement,
+        this.valuesFromFormik(values)
+      );
     } catch (e) {
       this.setState({ tokenizationError: e.message || 'An unknown error' });
     }
@@ -368,16 +375,45 @@ export default class PaymentContent extends React.Component<Props, State> {
             <label htmlFor="card-number" className="txt-l txt-l--sm">
               Credit or Debit Card <span className="t--req">Required</span>
             </label>
+            {info.cardToken === null ? (
+              <>
+                <div ref={this.setCardField} />
 
-            <div ref={this.setCardField} />
+                <div className="t--info m-t200">
+                  {cardElementError ? (
+                    <span className="t--err">{cardElementError}</span>
+                  ) : (
+                    'We accept Visa, MasterCard, and Discover.'
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <span
+                  className="txt-f"
+                  style={{
+                    borderColor: 'transparent',
+                    width: 'auto',
+                  }}
+                >
+                  •••• •••• •••• {info.cardLast4}
+                </span>
 
-            <div className="t--info m-t200">
-              {cardElementError ? (
-                <span className="t--err">{cardElementError}</span>
-              ) : (
-                'We accept Visa, MasterCard, and Discover.'
-              )}
-            </div>
+                <button
+                  className="lnk"
+                  style={{ fontStyle: 'italic' }}
+                  onClick={action(() => {
+                    order.info.cardToken = null;
+                    order.info.cardLast4 = '';
+                    this.setState({
+                      cardElementComplete: false,
+                    });
+                  })}
+                >
+                  update
+                </button>
+              </>
+            )}
           </div>
         </fieldset>
 

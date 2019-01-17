@@ -174,7 +174,11 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </div>
 
-              <DeathOrderDetails cart={cart} thin />
+              {cart.size > 0 ? (
+                <DeathOrderDetails cart={cart} thin />
+              ) : (
+                <div className="t--err t--info">Your cart is empty</div>
+              )}
             </div>
 
             <div className="m-v700">
@@ -184,10 +188,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                   <span className="t--reset">
                     &nbsp;—&nbsp;
                     <span className="t--subinfo">
-                      <Link
-                        href="/death/checkout?page=shipping"
-                        as="/death/checkout"
-                      >
+                      <Link href="/death/checkout?page=shipping">
                         <a aria-label="Edit shipping address">edit</a>
                       </Link>
                     </span>
@@ -195,17 +196,25 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </div>
 
-              <div className="t--info" style={{ fontStyle: 'normal' }}>
-                {shippingName}
-                <br />
-                {shippingCompanyName
-                  ? [shippingCompanyName, <br key="br" />]
-                  : null}
-                {shippingAddress1}
-                <br />
-                {shippingAddress2 ? [shippingAddress2, <br key="br" />] : null}
-                {`${shippingCity}, ${shippingState} ${shippingZip}`}
-              </div>
+              {shippingIsComplete ? (
+                <div className="t--info" style={{ fontStyle: 'normal' }}>
+                  {shippingName}
+                  <br />
+                  {shippingCompanyName
+                    ? [shippingCompanyName, <br key="br" />]
+                    : null}
+                  {shippingAddress1}
+                  <br />
+                  {shippingAddress2
+                    ? [shippingAddress2, <br key="br" />]
+                    : null}
+                  {`${shippingCity}, ${shippingState} ${shippingZip}`}
+                </div>
+              ) : (
+                <div className="t--err t--info">
+                  You need to edit your shipping info to fix some errors
+                </div>
+              )}
             </div>
 
             <div className="fs m-v700">
@@ -215,10 +224,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                   <span className="t--reset">
                     &nbsp;—&nbsp;
                     <span className="t--subinfo">
-                      <Link
-                        href="/death/checkout?page=payment"
-                        as="/death/checkout"
-                      >
+                      <Link href="/death/checkout?page=payment">
                         <a aria-label="Edit payment information">edit</a>
                       </Link>
                     </span>
@@ -226,16 +232,22 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </div>
 
-              <div className="t--info" style={{ fontStyle: 'normal' }}>
-                {cardholderName}
-                <br />
-                **** **** **** {cardLast4 || ''}
-                <br />
-                {billingAddress1}
-                <br />
-                {billingAddress2 ? [billingAddress2, <br key="br" />] : null}
-                {billingCity}, {billingState} {billingZip}
-              </div>
+              {paymentIsComplete ? (
+                <div className="t--info" style={{ fontStyle: 'normal' }}>
+                  {cardholderName}
+                  <br />
+                  •••• •••• •••• {cardLast4 || ''}
+                  <br />
+                  {billingAddress1}
+                  <br />
+                  {billingAddress2 ? [billingAddress2, <br key="br" />] : null}
+                  {billingCity}, {billingState} {billingZip}
+                </div>
+              ) : (
+                <div className="t--err t--info">
+                  You need to edit your payment info to fix some errors
+                </div>
+              )}
             </div>
 
             <div className="m-v500">
@@ -352,6 +364,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                 disabled={
                   !paymentIsComplete ||
                   !shippingIsComplete ||
+                  cart.size === 0 ||
                   needsAccepting ||
                   processing ||
                   !!submissionError

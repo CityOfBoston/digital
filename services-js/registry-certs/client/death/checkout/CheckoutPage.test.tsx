@@ -197,7 +197,7 @@ describe('operations', () => {
       );
 
       await expect(
-        component.advanceToReview(null, {} as any)
+        component.advanceToReview({} as any, {} as any)
       ).rejects.toMatchObject({
         message: 'tokenization failed',
       });
