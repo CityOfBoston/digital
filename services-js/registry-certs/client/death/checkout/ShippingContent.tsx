@@ -18,12 +18,12 @@ import {
   OrderDetailsDropdown,
 } from '../../common/checkout/OrderDetails';
 import makeShippingValidator from '../../../lib/validators/ShippingValidator';
+import { runInitialValidation } from './formik-util';
 
 export interface Props {
   submit: (values: Partial<OrderInfo>) => unknown;
   cart: Cart;
   order: Order;
-  showErrorsForTest?: boolean;
 }
 
 export interface ShippingInfo {
@@ -46,6 +46,7 @@ export interface ShippingInfo {
 export default class ShippingContent extends React.Component<Props> {
   private readonly initialValues: ShippingInfo;
   private readonly isInitialValid: boolean;
+  private readonly formikRef = React.createRef<Formik<ShippingInfo>>();
 
   constructor(props: Props) {
     super(props);
@@ -71,6 +72,10 @@ export default class ShippingContent extends React.Component<Props> {
     const validator = makeShippingValidator(this.initialValues);
     validator.check();
     this.isInitialValid = validator.passes();
+  }
+
+  async componentDidMount() {
+    await runInitialValidation(this.formikRef);
   }
 
   validateForm = (values: ShippingInfo): { [key: string]: Array<string> } => {
@@ -103,6 +108,7 @@ export default class ShippingContent extends React.Component<Props> {
           </div>
 
           <Formik
+            ref={this.formikRef}
             initialValues={this.initialValues}
             isInitialValid={this.isInitialValid}
             onSubmit={values => submit(values)}
@@ -123,7 +129,8 @@ export default class ShippingContent extends React.Component<Props> {
     errors,
     isValid,
   }: FormikProps<ShippingInfo>) => {
-    const localStorageAvailable = this.props.order.localStorageAvailable;
+    const { order } = this.props;
+    const { localStorageAvailable } = order;
 
     const fieldListeners = () => {
       return {
@@ -133,14 +140,10 @@ export default class ShippingContent extends React.Component<Props> {
     };
 
     const errorForField = (fieldName: keyof ShippingInfo): string | null => {
-      let fieldErrors;
+      let fieldErrors: string | string[] | null;
 
       if (touched[fieldName]) {
-        fieldErrors = errors[fieldName];
-      } else if (this.props.showErrorsForTest) {
-        const testErrors = this.validateForm(values);
-
-        fieldErrors = testErrors[fieldName];
+        fieldErrors = errors[fieldName] || null;
       } else {
         fieldErrors = null;
       }

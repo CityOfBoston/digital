@@ -2,7 +2,7 @@ import OrderProvider, {
   LOCAL_STORAGE_KEY,
   SESSION_STORAGE_KEY,
 } from './OrderProvider';
-import { OrderInfo } from '../models/Order';
+import Order, { OrderInfo } from '../models/Order';
 
 class FakeStorage implements Storage {
   store = {};
@@ -43,7 +43,7 @@ describe('storage', () => {
     orderProvider.attach(localStorage, sessionStorage);
   });
 
-  it('initializes order from session storage', () => {
+  it('initializes order from session storage', async () => {
     const orderInfo: OrderInfo = {
       storeContactAndShipping: true,
       storeBilling: false,
@@ -76,12 +76,12 @@ describe('storage', () => {
 
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(orderInfo));
 
-    const order = orderProvider.get();
+    const order = await orderProvider.get();
 
     expect(order.info.contactName).toEqual('Squirrel Girl');
   });
 
-  it('initializes order from local storage', () => {
+  it('initializes order from local storage', async () => {
     const orderInfo: OrderInfo = {
       storeContactAndShipping: true,
       storeBilling: false,
@@ -113,13 +113,13 @@ describe('storage', () => {
     };
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(orderInfo));
 
-    const order = orderProvider.get();
+    const order = await orderProvider.get();
 
     expect(order.info.contactName).toEqual('Squirrel Girl');
   });
 
-  it('saves shipping after checking the box, deletes it later', () => {
-    const order = orderProvider.get();
+  it('saves shipping after checking the box, deletes it later', async () => {
+    const order = await orderProvider.get();
 
     order.info.contactName = 'Tippy Toe';
 
@@ -140,8 +140,8 @@ describe('storage', () => {
     ).toBeUndefined();
   });
 
-  it('saves billing after checking the box, deletes it later', () => {
-    const order = orderProvider.get();
+  it('saves billing after checking the box, deletes it later', async () => {
+    const order = await orderProvider.get();
 
     order.info.billingAddress1 = '10 College Avenue';
 
@@ -166,5 +166,27 @@ describe('storage', () => {
         'billingAddress1'
       ]
     ).toBeUndefined();
+  });
+});
+
+describe('promises', () => {
+  it('resolves a promise once attachment happens', async () => {
+    const orderProvider = new OrderProvider();
+    const orderPromise = orderProvider.get();
+
+    orderProvider.attach(null, null);
+
+    // Failure here is a timeout from this never resolving
+    await expect(orderPromise).resolves.toBeInstanceOf(Order);
+  });
+
+  it('resolves promises once it’s been attached', async () => {
+    const orderProvider = new OrderProvider();
+    orderProvider.attach(null, null);
+
+    const orderPromise = orderProvider.get();
+
+    // Failure here is a timeout from this never resolving
+    await expect(orderPromise).resolves.toBeInstanceOf(Order);
   });
 });

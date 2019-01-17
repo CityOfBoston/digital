@@ -1,4 +1,4 @@
-import { autorun, observable } from 'mobx';
+import { autorun, observable, action } from 'mobx';
 import Order, { OrderInfo } from '../models/Order';
 
 export const LOCAL_STORAGE_KEY = 'order';
@@ -14,15 +14,47 @@ export const SESSION_STORAGE_KEY = 'order';
  * We use sessionStorage to keep the order while the forms are being filled out.
  */
 export default class OrderProvider {
-  @observable.ref localStorage: Storage | null = null;
-  @observable.ref sessionStorage: Storage | null = null;
+  @observable.ref private localStorage: Storage | null = null;
+  @observable.ref private sessionStorage: Storage | null = null;
 
+  private attached: boolean = false;
+  private orderResolveFns: Array<(Order) => unknown> = [];
+
+  @action
   attach(localStorage: Storage | null, sessionStorage: Storage | null) {
     this.localStorage = localStorage;
     this.sessionStorage = sessionStorage;
+    this.attached = true;
+
+    this.orderResolveFns.forEach(fn => {
+      fn(this.getOrderInternal());
+    });
+    this.orderResolveFns.length = 0;
   }
 
-  get(): Order {
+  @action
+  detach() {
+    this.localStorage = null;
+    this.sessionStorage = null;
+    this.attached = false;
+  }
+
+  /**
+   * Returns a Promise that will resolve to an Order once we have attached.
+   * Ensures that if there is localStorage / sessionStorage data to initialize
+   * with then we’ve loaded it.
+   */
+  get(): Promise<Order> {
+    if (this.attached) {
+      return Promise.resolve(this.getOrderInternal());
+    } else {
+      return new Promise(resolve => {
+        this.orderResolveFns.push(resolve);
+      });
+    }
+  }
+
+  private getOrderInternal(): Order {
     const { localStorage, sessionStorage } = this;
 
     let orderInfo: OrderInfo | null = null;

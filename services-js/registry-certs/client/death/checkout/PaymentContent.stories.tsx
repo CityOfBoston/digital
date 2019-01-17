@@ -94,7 +94,6 @@ storiesOf('Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
-      showErrorsForTest
       cardElementErrorForTest="Your card number is incomplete."
     />
   ))
@@ -104,9 +103,9 @@ storiesOf('Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeBillingCompleteOrder({
         billingZip: 'abc123',
+        billingAddressSameAsShippingAddress: false,
       })}
       submit={action('submit')}
-      showErrorsForTest
     />
   ))
   .add('Stripe error', () => (
@@ -115,7 +114,6 @@ storiesOf('Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
-      showErrorsForTest
       tokenizationErrorForTest="The card could not be tokenized"
     />
   ))

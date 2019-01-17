@@ -21,7 +21,38 @@ exports[`rendering renders payment 1`] = `
       "siteAnalytics": null,
     }
   }
-  order={null}
+  order={
+    Order {
+      "idempotencyKey": null,
+      "info": Object {
+        "billingAddress1": "",
+        "billingAddress2": "",
+        "billingAddressSameAsShippingAddress": true,
+        "billingCity": "",
+        "billingState": "MA",
+        "billingZip": "",
+        "cardFunding": "unknown",
+        "cardLast4": "",
+        "cardToken": null,
+        "cardholderName": "",
+        "contactEmail": "",
+        "contactName": "",
+        "contactPhone": "",
+        "shippingAddress1": "",
+        "shippingAddress2": "",
+        "shippingCity": "",
+        "shippingCompanyName": "",
+        "shippingName": "",
+        "shippingState": "MA",
+        "shippingZip": "",
+        "storeBilling": false,
+        "storeContactAndShipping": false,
+      },
+      "localStorageAvailable": true,
+      "processing": false,
+      "updateStorageDisposer": null,
+    }
+  }
   stripe={null}
   submit={[Function]}
 />
@@ -35,7 +66,38 @@ exports[`rendering renders review 1`] = `
       "siteAnalytics": null,
     }
   }
-  order={null}
+  order={
+    Order {
+      "idempotencyKey": null,
+      "info": Object {
+        "billingAddress1": "",
+        "billingAddress2": "",
+        "billingAddressSameAsShippingAddress": true,
+        "billingCity": "",
+        "billingState": "MA",
+        "billingZip": "",
+        "cardFunding": "unknown",
+        "cardLast4": "",
+        "cardToken": null,
+        "cardholderName": "",
+        "contactEmail": "",
+        "contactName": "",
+        "contactPhone": "",
+        "shippingAddress1": "",
+        "shippingAddress2": "",
+        "shippingCity": "",
+        "shippingCompanyName": "",
+        "shippingName": "",
+        "shippingState": "MA",
+        "shippingZip": "",
+        "storeBilling": false,
+        "storeContactAndShipping": false,
+      },
+      "localStorageAvailable": true,
+      "processing": false,
+      "updateStorageDisposer": null,
+    }
+  }
   submit={[Function]}
 />
 `;
@@ -48,7 +110,38 @@ exports[`rendering renders shipping 1`] = `
       "siteAnalytics": null,
     }
   }
-  order={null}
+  order={
+    Order {
+      "idempotencyKey": null,
+      "info": Object {
+        "billingAddress1": "",
+        "billingAddress2": "",
+        "billingAddressSameAsShippingAddress": true,
+        "billingCity": "",
+        "billingState": "MA",
+        "billingZip": "",
+        "cardFunding": "unknown",
+        "cardLast4": "",
+        "cardToken": null,
+        "cardholderName": "",
+        "contactEmail": "",
+        "contactName": "",
+        "contactPhone": "",
+        "shippingAddress1": "",
+        "shippingAddress2": "",
+        "shippingCity": "",
+        "shippingCompanyName": "",
+        "shippingName": "",
+        "shippingState": "MA",
+        "shippingZip": "",
+        "storeBilling": false,
+        "storeContactAndShipping": false,
+      },
+      "localStorageAvailable": true,
+      "processing": false,
+      "updateStorageDisposer": null,
+    }
+  }
   submit={[Function]}
 />
 `;
