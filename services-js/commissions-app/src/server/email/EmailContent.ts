@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import Handlebars from 'handlebars';
 import mjml2html from 'mjml';
 
@@ -77,11 +78,11 @@ export default class EmailContent {
   }
 
   private readTemplateFiles(recipient: string): Templates {
-    const path = 'src/server/email';
+    const p = path.resolve(__dirname, '../../../src/server/email');
 
     return {
-      MJML: fs.readFileSync(`${path}/${recipient}.mjml.hbs`, 'utf-8'),
-      TEXT: fs.readFileSync(`${path}/${recipient}.text.hbs`, 'utf-8'),
+      MJML: fs.readFileSync(`${p}/${recipient}.mjml.hbs`, 'utf-8'),
+      TEXT: fs.readFileSync(`${p}/${recipient}.text.hbs`, 'utf-8'),
     };
   }
 }

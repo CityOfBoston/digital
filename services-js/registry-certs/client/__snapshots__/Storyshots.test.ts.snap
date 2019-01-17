@@ -17,7 +17,6 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -456,7 +455,6 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
         </legend>
         <div
           className="css-1u6hmg8"
-          style={undefined}
         >
           <label
             className="txt-l "
@@ -476,19 +474,10 @@ exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
           <input
             aria-label=""
             className="txt-f  "
-            defaultValue={undefined}
-            disabled={undefined}
             id="input-4004051805"
-            inputMode={undefined}
-            maxLength={undefined}
-            minLength={undefined}
             name="dateOfBirth"
-            onBlur={undefined}
             onChange={[Function]}
-            onFocus={undefined}
             onKeyDown={[Function]}
-            placeholder={undefined}
-            required={undefined}
             type="text"
             value=""
           />
@@ -550,10 +539,7 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
         <div
           className="css-cbwvwu"
         >
-          <div
-            className={undefined}
-            style={undefined}
-          >
+          <div>
             <label
               className="txt-l "
               htmlFor="input-2048906072"
@@ -573,20 +559,10 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
               aria-label=""
               className="txt-f  "
               defaultValue=""
-              disabled={undefined}
               id="input-2048906072"
-              inputMode={undefined}
-              maxLength={undefined}
-              minLength={undefined}
               name="firstName"
-              onBlur={undefined}
               onChange={[Function]}
-              onFocus={undefined}
-              onKeyDown={undefined}
-              placeholder={undefined}
-              required={undefined}
               type="text"
-              value={undefined}
             />
             <div
               className="t--subinfo t--err m-b100"
@@ -594,10 +570,7 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
                
             </div>
           </div>
-          <div
-            className={undefined}
-            style={undefined}
-          >
+          <div>
             <label
               className="txt-l "
               htmlFor="input-1103291528"
@@ -617,20 +590,11 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
               aria-label=""
               className="txt-f  "
               defaultValue=""
-              disabled={undefined}
               id="input-1103291528"
-              inputMode={undefined}
-              maxLength={undefined}
-              minLength={undefined}
               name="lastName"
-              onBlur={undefined}
               onChange={[Function]}
-              onFocus={undefined}
               onKeyDown={[Function]}
-              placeholder={undefined}
-              required={undefined}
               type="text"
-              value={undefined}
             />
             <div
               className="t--subinfo t--err m-b100"
@@ -649,7 +613,6 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
             name?
           </h3>
           <div
-            className={undefined}
             style={
               Object {
                 "textAlign": "left",
@@ -675,20 +638,11 @@ exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
               aria-label=""
               className="txt-f  "
               defaultValue=""
-              disabled={undefined}
               id="input-1349562878"
-              inputMode={undefined}
-              maxLength={undefined}
-              minLength={undefined}
               name="altSpelling"
-              onBlur={undefined}
               onChange={[Function]}
-              onFocus={undefined}
               onKeyDown={[Function]}
-              placeholder={undefined}
-              required={undefined}
               type="text"
-              value={undefined}
             />
             <div
               className="t--subinfo t--err m-b100"
@@ -771,10 +725,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
           <div
             className="css-cbwvwu"
           >
-            <div
-              className={undefined}
-              style={undefined}
-            >
+            <div>
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
@@ -794,20 +745,10 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                 aria-label=""
                 className="txt-f  "
                 defaultValue=""
-                disabled={undefined}
                 id="input-2048906072"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
                 name="parent1FirstName"
-                onBlur={undefined}
                 onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
                 type="text"
-                value={undefined}
               />
               <div
                 className="t--subinfo t--err m-b100"
@@ -815,10 +756,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                  
               </div>
             </div>
-            <div
-              className={undefined}
-              style={undefined}
-            >
+            <div>
               <label
                 className="txt-l "
                 htmlFor="input-1103291528"
@@ -838,20 +776,10 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                 aria-label=""
                 className="txt-f  "
                 defaultValue=""
-                disabled={undefined}
                 id="input-1103291528"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
                 name="parent1LastName"
-                onBlur={undefined}
                 onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
                 type="text"
-                value={undefined}
               />
               <div
                 className="t--subinfo t--err m-b100"
@@ -873,10 +801,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
           <div
             className="css-cbwvwu"
           >
-            <div
-              className={undefined}
-              style={undefined}
-            >
+            <div>
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
@@ -896,20 +821,10 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                 aria-label=""
                 className="txt-f  "
                 defaultValue=""
-                disabled={undefined}
                 id="input-2048906072"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
                 name="parent2FirstName"
-                onBlur={undefined}
                 onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
                 type="text"
-                value={undefined}
               />
               <div
                 className="t--subinfo t--err m-b100"
@@ -917,10 +832,7 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                  
               </div>
             </div>
-            <div
-              className={undefined}
-              style={undefined}
-            >
+            <div>
               <label
                 className="txt-l "
                 htmlFor="input-1103291528"
@@ -940,20 +852,10 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
                 aria-label=""
                 className="txt-f  "
                 defaultValue=""
-                disabled={undefined}
                 id="input-1103291528"
-                inputMode={undefined}
-                maxLength={undefined}
-                minLength={undefined}
                 name="parent2LastName"
-                onBlur={undefined}
                 onChange={[Function]}
-                onFocus={undefined}
-                onKeyDown={undefined}
-                placeholder={undefined}
-                required={undefined}
                 type="text"
-                value={undefined}
               />
               <div
                 className="t--subinfo t--err m-b100"
@@ -1180,7 +1082,6 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -1663,7 +1564,6 @@ exports[`Storyshots Checkout/CheckoutPage server-side render 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -1932,7 +1832,6 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -2302,7 +2201,6 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -3323,7 +3221,6 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -4303,7 +4200,6 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -5287,7 +5183,6 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -5805,7 +5700,6 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -6785,7 +6679,6 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -7560,7 +7453,6 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -8251,7 +8143,6 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -8975,7 +8866,6 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -9707,7 +9597,6 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -10420,7 +10309,6 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -11407,7 +11295,6 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -12394,7 +12281,6 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -14370,10 +14256,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
       role="region"
     >
       <div
-        appear={undefined}
         className="dr-c css-1mti76v"
-        enter={undefined}
-        exit={undefined}
         in={true}
         onExited={[Function]}
       >
@@ -14914,7 +14797,6 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -15253,7 +15135,6 @@ exports[`Storyshots Death/CartPage loading 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -15763,7 +15644,6 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -16408,7 +16288,6 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -16948,7 +16827,6 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -17309,7 +17187,6 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -17839,7 +17716,6 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -18369,7 +18245,6 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -19976,7 +19851,6 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -20372,7 +20246,6 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}
@@ -20757,7 +20630,6 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
   </a>
   <input
     aria-label="Open Boston.gov menu"
-    checked={undefined}
     className="brg-tr"
     id="brg-tr"
     onKeyDown={[Function]}

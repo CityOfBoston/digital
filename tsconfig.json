@@ -1,0 +1,3 @@
+{
+  "extends": "./modules-js/config-typescript/tsconfig.default.json"
+}

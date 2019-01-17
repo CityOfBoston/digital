@@ -14,7 +14,12 @@ import Emails from '../services/Emails';
 // This file is built by the "generate-graphql-schema" script from
 // the above interfaces.
 const schemaGraphql = fs.readFileSync(
-  path.resolve('graphql', 'schema.graphql'),
+  path.resolve(
+    // Normalize between dev and compiled file locations
+    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
+    '../../graphql',
+    'schema.graphql'
+  ),
   'utf-8'
 );
 
