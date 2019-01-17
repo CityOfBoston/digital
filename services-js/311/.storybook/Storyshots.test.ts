@@ -9,6 +9,7 @@ function createNodeMock(element) {
 }
 
 initStoryshots({
+  configPath: __dirname,
   test: snapshotWithOptions({
     createNodeMock,
   }),
