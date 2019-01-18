@@ -7,6 +7,12 @@
   "engines": {
     "yarn": "^1.6.0"
   },
+  "jest": {
+    "projects": [
+      "<rootDir>/modules-js/*",
+      "<rootDir>/services-js/*"
+    ]
+  },
   "workspaces": {
     "packages": [
       "services-js/*",
@@ -41,6 +47,8 @@
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
     "jest": "23.6.0",
+    "jest-environment-jsdom": "23.4.0",
+    "jest-environment-node": "23.4.0",
     "khaos": "^0.9.3",
     "lerna": "3.4.0",
     "lint-staged": "^7.0.4",

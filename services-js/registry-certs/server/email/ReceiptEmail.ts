@@ -1,12 +1,21 @@
+import path from 'path';
 import fs from 'fs';
 
 const RECEIPT_MJML_TEMPLATE = fs.readFileSync(
-  'server/email/receipt.mjml.hbs',
+  path.resolve(
+    // This needs to work for both dev and compiled locations of this file.
+    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
+    '../../server/email/receipt.mjml.hbs'
+  ),
   'utf-8'
 );
 
 const RECEIPT_TEXT_TEMPLATE = fs.readFileSync(
-  'server/email/receipt.txt.hbs',
+  path.resolve(
+    // This needs to work for both dev and compiled locations of this file.
+    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
+    '../../server/email/receipt.txt.hbs'
+  ),
   'utf-8'
 );
 

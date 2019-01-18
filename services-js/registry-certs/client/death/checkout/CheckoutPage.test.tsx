@@ -10,6 +10,7 @@ import CheckoutDao, { SubmissionError } from '../../dao/CheckoutDao';
 import OrderProvider from '../../store/OrderProvider';
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import { OrderErrorCause } from '../../queries/graphql-types';
+import Order from '../../models/Order';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -19,54 +20,23 @@ beforeEach(() => {
 });
 
 describe('getInitialProps', () => {
-  let res: any;
-
-  beforeEach(() => {
-    res = {
-      writeHead: jest.fn(),
-      end: jest.fn(),
-    };
-  });
-
   it('treats no page query param as shipping', async () => {
-    const initialProps = await CheckoutPage.getInitialProps(
-      { res, query: {} },
-      {}
-    );
+    const initialProps = await CheckoutPage.getInitialProps({ query: {} }, {});
     expect(initialProps.info.page).toEqual('shipping');
   });
 
   it('process payment on server', async () => {
     const initialProps = await CheckoutPage.getInitialProps(
-      { res, query: { page: 'payment' } },
+      { query: { page: 'payment' } },
       {}
     );
 
     expect(initialProps.info.page).toEqual('payment');
   });
 
-  it('redirects payment on server back to shipping', async () => {
-    await CheckoutPage.getInitialProps({ res, query: { page: 'payment' } }, {});
-
-    expect(res.writeHead).toHaveBeenCalled();
-  });
-
-  it('redirects unknown page query param to shipping on server', async () => {
-    await CheckoutPage.getInitialProps(
-      {
-        res,
-        query: { page: 'not-a-real-page' },
-      },
-      {}
-    );
-
-    expect(res.writeHead).toHaveBeenCalled();
-  });
-
   it('treats unknown page query param as shipping on client', async () => {
     const initialProps = await CheckoutPage.getInitialProps(
       {
-        res: undefined,
         query: { page: 'not-a-real-page' },
       },
       {}
@@ -78,7 +48,6 @@ describe('getInitialProps', () => {
   it('passes confirm props along', async () => {
     const initialProps = await CheckoutPage.getInitialProps(
       {
-        res: undefined,
         query: {
           page: 'confirmation',
           orderId: '123-456-7',
@@ -111,43 +80,59 @@ describe('rendering', () => {
   });
 
   it('renders shipping', () => {
-    expect(
-      new CheckoutPage({
-        info: { page: 'shipping' },
-        ...pageDependenciesProps,
-      }).render()
-    ).toMatchSnapshot();
+    const page = new CheckoutPage({
+      info: { page: 'shipping' },
+      ...pageDependenciesProps,
+    });
+
+    page.state = {
+      order: new Order(),
+    };
+
+    expect(page.render()).toMatchSnapshot();
   });
 
   it('renders payment', () => {
-    expect(
-      new CheckoutPage({
-        info: { page: 'payment' },
-        ...pageDependenciesProps,
-      }).render()
-    ).toMatchSnapshot();
+    const page = new CheckoutPage({
+      info: { page: 'payment' },
+      ...pageDependenciesProps,
+    });
+
+    page.state = {
+      order: new Order(),
+    };
+
+    expect(page.render()).toMatchSnapshot();
   });
 
   it('renders review', () => {
-    expect(
-      new CheckoutPage({
-        info: { page: 'review' },
-        ...pageDependenciesProps,
-      }).render()
-    ).toMatchSnapshot();
+    const page = new CheckoutPage({
+      info: { page: 'review' },
+      ...pageDependenciesProps,
+    });
+
+    page.state = {
+      order: new Order(),
+    };
+
+    expect(page.render()).toMatchSnapshot();
   });
 
   it('renders confirmation', () => {
-    expect(
-      new CheckoutPage({
-        info: {
-          page: 'confirmation',
-          orderId: '123-456-7',
-          contactEmail: 'ttoe@squirrelzone.net',
-        },
-        ...pageDependenciesProps,
-      }).render()
-    ).toMatchSnapshot();
+    const page = new CheckoutPage({
+      info: {
+        page: 'confirmation',
+        orderId: '123-456-7',
+        contactEmail: 'ttoe@squirrelzone.net',
+      },
+      ...pageDependenciesProps,
+    });
+
+    page.state = {
+      order: new Order(),
+    };
+
+    expect(page.render()).toMatchSnapshot();
   });
 });
 
@@ -157,10 +142,11 @@ describe('operations', () => {
   let component: CheckoutPage;
   let scrollSpy;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     scrollSpy = jest.spyOn(window, 'scroll').mockImplementation(() => {});
 
     orderProvider = new OrderProvider();
+    orderProvider.attach(null, null);
     checkoutDao = new CheckoutDao(null as any, null);
 
     // page doesn't really matter for this
@@ -175,7 +161,13 @@ describe('operations', () => {
       checkoutDao,
     });
 
-    component.componentWillMount();
+    component.state = {
+      order: await orderProvider.get(),
+    };
+
+    // Keeps us from setting state in the order succes case, since it will fail
+    // (the component isn’t actually mounted)
+    component.setState = jest.fn();
   });
 
   afterEach(() => {
@@ -184,7 +176,7 @@ describe('operations', () => {
 
   describe('advanceToPayment', () => {
     it('routes to next stage', () => {
-      component.advanceToPayment();
+      component.advanceToPayment({} as any);
       expect(Router.push).toHaveBeenCalled();
     });
   });
@@ -195,7 +187,7 @@ describe('operations', () => {
         Promise.resolve()
       );
 
-      await component.advanceToReview(null);
+      await component.advanceToReview(null, {} as any);
       expect(Router.push).toHaveBeenCalled();
     });
 
@@ -204,7 +196,9 @@ describe('operations', () => {
         Promise.reject(new Error('tokenization failed'))
       );
 
-      await expect(component.advanceToReview(null)).rejects.toMatchObject({
+      await expect(
+        component.advanceToReview({} as any, {} as any)
+      ).rejects.toMatchObject({
         message: 'tokenization failed',
       });
       expect(Router.push).not.toHaveBeenCalled();

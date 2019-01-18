@@ -183,32 +183,6 @@ export default class RegistryCertsApp extends App {
     const orderProvider = new OrderProvider();
     const siteAnalytics = new GaSiteAnalytics();
 
-    if ((process as any).browser) {
-      // We attach to localStorage in the constructor, rather than
-      // componentDidMount, so that the information is available on first
-      // render.
-
-      // We need to ensure localStorage is available in the browser,
-      // otherwise an error could be thrown:
-      // https://github.com/CityOfBoston/digital/issues/199
-      let localStorage: Storage | null = null;
-      let sessionStorage: Storage | null = null;
-
-      try {
-        localStorage = window.localStorage;
-        sessionStorage = window.sessionStorage;
-      } catch {
-        //  possible security error; ignore.
-      }
-
-      deathCertificateCart.attach(
-        localStorage,
-        initialPageDependencies.deathCertificatesDao,
-        siteAnalytics
-      );
-      orderProvider.attach(localStorage, sessionStorage);
-    }
-
     const config = getConfig();
 
     const stripe =
@@ -236,6 +210,9 @@ export default class RegistryCertsApp extends App {
       routerListener,
       screenReaderSupport,
       siteAnalytics,
+      deathCertificateCart,
+      orderProvider,
+      deathCertificatesDao,
     } = this.pageDependencies;
 
     screenReaderSupport.attach();
@@ -244,13 +221,43 @@ export default class RegistryCertsApp extends App {
       siteAnalytics,
       screenReaderSupport,
     });
+
+    // We attach to localStorage in the constructor, rather than
+    // componentDidMount, so that the information is available on first
+    // render.
+
+    // We need to ensure localStorage is available in the browser,
+    // otherwise an error could be thrown:
+    // https://github.com/CityOfBoston/digital/issues/199
+    let localStorage: Storage | null = null;
+    let sessionStorage: Storage | null = null;
+
+    try {
+      localStorage = window.localStorage;
+      sessionStorage = window.sessionStorage;
+    } catch {
+      //  possible security error; ignore.
+    }
+
+    deathCertificateCart.attach(
+      localStorage,
+      deathCertificatesDao,
+      siteAnalytics
+    );
+
+    orderProvider.attach(localStorage, sessionStorage);
   }
 
   componentWillUnmount() {
-    const { routerListener, screenReaderSupport } = this.pageDependencies;
+    const {
+      routerListener,
+      screenReaderSupport,
+      orderProvider,
+    } = this.pageDependencies;
 
     routerListener.detach();
     screenReaderSupport.detach();
+    orderProvider.detach();
   }
 
   render() {
