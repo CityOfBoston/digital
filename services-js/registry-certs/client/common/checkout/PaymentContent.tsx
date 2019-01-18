@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
 import { action } from 'mobx';
@@ -13,29 +12,35 @@ import {
   StatusModal,
 } from '@cityofboston/react-fleet';
 
-import PageLayout from '../../PageLayout';
-import { BreadcrumbNavLinks } from '../../death/breadcrumbs';
+import makePaymentValidator from '../../../lib/validators/PaymentValidator';
 
-import Cart from '../../store/DeathCertificateCart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../form-elements';
 
-import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
-
-import makePaymentValidator from '../../../lib/validators/PaymentValidator';
 import { runInitialValidation } from './formik-util';
+import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
+import CheckoutPageLayout from './CheckoutPageLayout';
 
-interface Props {
+type Props = {
   submit: (
     cardElement: stripe.elements.Element | null,
     values: Partial<OrderInfo>
   ) => unknown;
   stripe: stripe.Stripe | null;
-  cart: Cart;
   order: Order;
   tokenizationErrorForTest?: string;
   cardElementErrorForTest?: string;
-}
+} & (
+  | {
+      certificateType: 'death';
+      deathCertificateCart: DeathCertificateCart;
+    }
+  | {
+      certificateType: 'birth';
+      birthCertificateRequest: BirthCertificateRequest;
+    });
 
 interface State {
   cardElementComplete: boolean;
@@ -216,39 +221,47 @@ export default class PaymentContent extends React.Component<Props, State> {
   };
 
   render() {
-    const { cart } = this.props;
-
     return (
-      <PageLayout breadcrumbNav={BreadcrumbNavLinks}>
-        <div className="b-c b-c--hsm">
-          <Head>
-            <title>Boston.gov — Death Certificates — Payment</title>
-          </Head>
+      <CheckoutPageLayout
+        certificateType={this.props.certificateType}
+        title="Payment"
+      >
+        <div className="m-v300">{this.renderOrderDetails()}</div>
 
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Payment</h1>
-          </div>
-
-          <div className="m-v300">
-            <OrderDetailsDropdown
-              orderType="death"
-              certificateQuantity={cart.size}
-            >
-              <DeathOrderDetails cart={cart} />
-            </OrderDetailsDropdown>
-          </div>
-
-          <Formik
-            ref={this.formikRef}
-            initialValues={this.initialValues}
-            isInitialValid={this.isInitialValid}
-            onSubmit={this.handleSubmit}
-            render={this.renderForm}
-            validate={this.validateForm}
-          />
-        </div>
-      </PageLayout>
+        <Formik
+          ref={this.formikRef}
+          initialValues={this.initialValues}
+          isInitialValid={this.isInitialValid}
+          onSubmit={this.handleSubmit}
+          render={this.renderForm}
+          validate={this.validateForm}
+        />
+      </CheckoutPageLayout>
     );
+  }
+
+  renderOrderDetails(): React.ReactNode {
+    const { props } = this;
+    switch (props.certificateType) {
+      case 'death':
+        return (
+          <OrderDetailsDropdown
+            orderType="death"
+            certificateQuantity={props.deathCertificateCart.size}
+          >
+            <DeathOrderDetails cart={props.deathCertificateCart} />
+          </OrderDetailsDropdown>
+        );
+
+      case 'birth':
+        return (
+          // TODO(fiona): Need content for this / replace it
+          <OrderDetailsDropdown
+            orderType="birth"
+            certificateQuantity={props.birthCertificateRequest.quantity}
+          />
+        );
+    }
   }
 
   renderForm = ({
@@ -315,6 +328,8 @@ export default class PaymentContent extends React.Component<Props, State> {
       return error ? 'txt-f--err' : '';
     };
 
+    const shippingUrl = `/${this.props.certificateType}/checkout?page=shipping`;
+
     return (
       <form acceptCharset="UTF-8" method="post" onSubmit={handleSubmit}>
         <div className="m-v700">
@@ -324,10 +339,7 @@ export default class PaymentContent extends React.Component<Props, State> {
               <span className="t--reset">
                 &nbsp;–&nbsp;
                 <span className="t--subinfo">
-                  <Link
-                    href="/death/checkout?page=shipping"
-                    as="/death/checkout"
-                  >
+                  <Link href={shippingUrl}>
                     <a aria-label="Edit shipping address">edit</a>
                   </Link>
                 </span>
@@ -622,7 +634,7 @@ export default class PaymentContent extends React.Component<Props, State> {
           </div>
 
           <div className="g--7 m-b500">
-            <Link href="/death/checkout?page=shipping" as="/death/checkout">
+            <Link href={shippingUrl}>
               <a style={{ fontStyle: 'italic' }}>
                 ← Back to shipping information
               </a>

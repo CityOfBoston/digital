@@ -1,9 +1,6 @@
 import Router from 'next/router';
 
-import {
-  ScreenReaderSupport,
-  GaSiteAnalytics,
-} from '@cityofboston/next-client-common';
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import CheckoutPage, { PageDependenciesProps } from './CheckoutPage';
 import CheckoutDao, { SubmissionError } from '../../dao/CheckoutDao';
@@ -70,7 +67,6 @@ describe('rendering', () => {
 
   beforeEach(() => {
     pageDependenciesProps = {
-      screenReaderSupport: new ScreenReaderSupport(),
       deathCertificateCart: new DeathCertificateCart(),
       checkoutDao: {} as any,
       orderProvider: new OrderProvider(),
@@ -151,7 +147,6 @@ describe('operations', () => {
 
     // page doesn't really matter for this
     component = new CheckoutPage({
-      screenReaderSupport: new ScreenReaderSupport(),
       deathCertificateCart: new DeathCertificateCart(),
       siteAnalytics: new GaSiteAnalytics(),
       stripe: null,

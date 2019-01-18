@@ -18,7 +18,7 @@ import { PageDependencies } from '../../pages/_app';
 import PageLayout from '../PageLayout';
 import CostSummary from '../common/CostSummary';
 
-import { BREADCRUMB_NAV_LINKS } from './constants';
+import { BIRTH_BREADCRUMB_NAV_LINKS } from './constants';
 
 import {
   BUTTONS_CONTAINER_STYLING,
@@ -73,7 +73,7 @@ export default class ReviewRequest extends React.Component<Props> {
           <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
-        <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>
+        <PageLayout breadcrumbNav={BIRTH_BREADCRUMB_NAV_LINKS}>
           <div className="b-c b-c--nbp">
             <h1 className="sh-title">Review your record request</h1>
             <section className="v-t300">

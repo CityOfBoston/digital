@@ -20,7 +20,12 @@ describe('submitting', () => {
     submit = jest.fn();
 
     wrapper = shallow(
-      <ReviewContent order={order} cart={cart} submit={submit} />
+      <ReviewContent
+        order={order}
+        certificateType="death"
+        deathCertificateCart={cart}
+        submit={submit}
+      />
     );
   });
 

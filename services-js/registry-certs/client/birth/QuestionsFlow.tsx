@@ -15,7 +15,7 @@ import DateOfBirth from './questions/DateOfBirth';
 import ParentsMarried from './questions/ParentsMarried';
 import ParentsNames from './questions/ParentsNames';
 
-import { BREADCRUMB_NAV_LINKS, QUESTIONS } from './constants';
+import { BIRTH_BREADCRUMB_NAV_LINKS, QUESTIONS } from './constants';
 import { Question, BirthCertificateRequestInformation } from '../types';
 
 import { PROGRESS_BAR_STYLE } from './questions/styling';
@@ -103,7 +103,7 @@ export default class QuestionsFlow extends React.Component<Props> {
           <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
-        <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS}>
+        <PageLayout breadcrumbNav={BIRTH_BREADCRUMB_NAV_LINKS}>
           <div className="b-c b-c--nbp">
             <h1 className="sh-title">Request a birth certificate</h1>
 

@@ -4,16 +4,14 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
-import { PageDependencies, GetInitialProps } from '../../../pages/_app';
-import Order, { OrderInfo } from '../../models/Order';
+import { PageDependencies, GetInitialProps } from '../../pages/_app';
+import Order, { OrderInfo } from '../models/Order';
+import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
 
-import { DEATH_CERTIFICATE_COST } from '../../../lib/costs';
-
-import ShippingContent from '../../common/checkout/ShippingContent';
-import PaymentContent from '../../common/checkout/PaymentContent';
-import ReviewContent from '../../common/checkout/ReviewContent';
-import ConfirmationContent from './ConfirmationContent';
-import CheckoutPageLayout from '../../common/checkout/CheckoutPageLayout';
+import ShippingContent from '../common/checkout/ShippingContent';
+import PaymentContent from '../common/checkout/PaymentContent';
+import ReviewContent from '../common/checkout/ReviewContent';
+import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
 
 type PageInfo =
   | {
@@ -37,14 +35,16 @@ interface InitialProps {
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  | 'deathCertificateCart'
+  | 'birthCertificateRequest'
   | 'siteAnalytics'
   | 'orderProvider'
   | 'checkoutDao'
   | 'stripe'
 >;
 
-interface Props extends InitialProps, PageDependenciesProps {}
+interface Props extends InitialProps, PageDependenciesProps {
+  orderForTest?: Order;
+}
 
 type State = {
   /**
@@ -54,14 +54,11 @@ type State = {
 };
 
 @observer
-export default class CheckoutPageController extends React.Component<
-  Props,
-  State
-> {
-  state: State = {
-    order: null,
-  };
-
+/**
+ * This is currently copied over from death’s checkout page, though some
+ * elements could potentially be generalized out from them.
+ */
+export default class BirthCheckoutPage extends React.Component<Props, State> {
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = ({
     query,
   }) => {
@@ -95,10 +92,22 @@ export default class CheckoutPageController extends React.Component<
     return { info };
   };
 
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      order: props.orderForTest || null,
+    };
+  }
+
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
     const { orderProvider } = this.props;
+
+    if (this.state.order) {
+      return;
+    }
 
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
@@ -112,7 +121,7 @@ export default class CheckoutPageController extends React.Component<
     }
   }
 
-  reportCheckoutStep({ info, deathCertificateCart, siteAnalytics }: Props) {
+  reportCheckoutStep({ info, siteAnalytics }: Props) {
     let checkoutStep: number | null = null;
     switch (info.page) {
       case 'shipping':
@@ -127,7 +136,6 @@ export default class CheckoutPageController extends React.Component<
     }
 
     if (checkoutStep) {
-      deathCertificateCart.trackCartItems();
       siteAnalytics.setProductAction('checkout', { step: checkoutStep });
     }
   }
@@ -141,7 +149,7 @@ export default class CheckoutPageController extends React.Component<
 
     order.updateInfo(shippingInfo);
 
-    await Router.push('/death/checkout?page=payment');
+    await Router.push('/birth/checkout?page=payment');
 
     window.scroll(0, 0);
   };
@@ -165,7 +173,7 @@ export default class CheckoutPageController extends React.Component<
       await checkoutDao.tokenizeCard(order, cardElement);
     }
 
-    await Router.push('/death/checkout?page=review');
+    await Router.push('/birth/checkout?page=review');
 
     window.scroll(0, 0);
   };
@@ -177,8 +185,8 @@ export default class CheckoutPageController extends React.Component<
    */
   submitOrder = async () => {
     const {
-      deathCertificateCart,
       checkoutDao,
+      birthCertificateRequest,
       siteAnalytics,
       orderProvider,
     } = this.props;
@@ -189,16 +197,14 @@ export default class CheckoutPageController extends React.Component<
       return;
     }
 
-    const orderId = await checkoutDao.submitDeathCertificateCart(
-      deathCertificateCart,
+    const orderId = await checkoutDao.submitBirthCertificateRequest(
+      birthCertificateRequest,
       order
     );
 
-    deathCertificateCart.trackCartItems();
-
     siteAnalytics.setProductAction('purchase', {
       id: orderId,
-      revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
+      revenue: birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST / 100,
     });
 
     siteAnalytics.sendEvent('click', {
@@ -206,7 +212,7 @@ export default class CheckoutPageController extends React.Component<
       label: 'submit order',
     });
 
-    deathCertificateCart.clear();
+    birthCertificateRequest.clearBirthCertificateRequest();
     orderProvider.clear();
 
     this.setState({
@@ -214,30 +220,30 @@ export default class CheckoutPageController extends React.Component<
     });
 
     await Router.push(
-      `/death/checkout?page=confirmation&orderId=${encodeURIComponent(
+      `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
         orderId
       )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
-      '/death/checkout?page=confirmation'
+      '/birth/checkout?page=confirmation'
     );
 
     window.scroll(0, 0);
   };
 
   render() {
-    const { info, deathCertificateCart, stripe } = this.props;
+    const { info, birthCertificateRequest, stripe } = this.props;
     const { order } = this.state;
 
     // This happens during server side rendering
     if (!order) {
-      return <CheckoutPageLayout certificateType="death" />;
+      return <CheckoutPageLayout certificateType="birth" />;
     }
 
     switch (info.page) {
       case 'shipping':
         return (
           <ShippingContent
-            certificateType="death"
-            deathCertificateCart={deathCertificateCart}
+            certificateType="birth"
+            birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.advanceToPayment}
           />
@@ -246,9 +252,9 @@ export default class CheckoutPageController extends React.Component<
       case 'payment':
         return (
           <PaymentContent
-            certificateType="death"
+            certificateType="birth"
             stripe={stripe}
-            deathCertificateCart={deathCertificateCart}
+            birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.advanceToReview}
           />
@@ -257,21 +263,16 @@ export default class CheckoutPageController extends React.Component<
       case 'review':
         return (
           <ReviewContent
-            certificateType="death"
-            deathCertificateCart={deathCertificateCart}
+            certificateType="birth"
+            birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.submitOrder}
           />
         );
 
       case 'confirmation':
-        return (
-          <ConfirmationContent
-            orderId={info.orderId}
-            contactEmail={info.contactEmail}
-            cart={deathCertificateCart}
-          />
-        );
+        // TODO(fiona): Confirmation UI
+        return <div>DONE</div>;
     }
   }
 }

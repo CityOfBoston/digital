@@ -1,27 +1,32 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
 import { observer } from 'mobx-react';
 import InputMask from 'react-input-mask';
 
-import PageLayout from '../../PageLayout';
+import makeShippingValidator from '../../../lib/validators/ShippingValidator';
 
-import { BreadcrumbNavLinks } from '../../death/breadcrumbs';
-
-import Cart from '../../store/DeathCertificateCart';
+import DeathCertificateCart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../form-elements';
 
-import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
-import makeShippingValidator from '../../../lib/validators/ShippingValidator';
 import { runInitialValidation } from './formik-util';
+import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
+import CheckoutPageLayout from './CheckoutPageLayout';
 
-export interface Props {
+export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
-  cart: Cart;
   order: Order;
-}
+} & (
+  | {
+      certificateType: 'death';
+      deathCertificateCart: DeathCertificateCart;
+    }
+  | {
+      certificateType: 'birth';
+      birthCertificateRequest: BirthCertificateRequest;
+    });
 
 export interface ShippingInfo {
   storeContactAndShipping: boolean;
@@ -82,39 +87,46 @@ export default class ShippingContent extends React.Component<Props> {
   };
 
   render() {
-    const { cart, submit } = this.props;
+    const { submit, certificateType } = this.props;
 
     return (
-      <PageLayout breadcrumbNav={BreadcrumbNavLinks}>
-        <div className="b-c b-c--hsm">
-          <Head>
-            <title>Boston.gov — Death Certificates — Checkout</title>
-          </Head>
+      <CheckoutPageLayout certificateType={certificateType} title="Checkout">
+        <div className="m-v300">{this.renderOrderDetails()}</div>
 
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Checkout</h1>
-          </div>
-
-          <div className="m-v300">
-            <OrderDetailsDropdown
-              orderType="death"
-              certificateQuantity={cart.size}
-            >
-              <DeathOrderDetails cart={cart} />
-            </OrderDetailsDropdown>
-          </div>
-
-          <Formik
-            ref={this.formikRef}
-            initialValues={this.initialValues}
-            isInitialValid={this.isInitialValid}
-            onSubmit={values => submit(values)}
-            render={this.renderForm}
-            validate={this.validateForm}
-          />
-        </div>
-      </PageLayout>
+        <Formik
+          ref={this.formikRef}
+          initialValues={this.initialValues}
+          isInitialValid={this.isInitialValid}
+          onSubmit={values => submit(values)}
+          render={this.renderForm}
+          validate={this.validateForm}
+        />
+      </CheckoutPageLayout>
     );
+  }
+
+  renderOrderDetails(): React.ReactNode {
+    const { props } = this;
+    switch (props.certificateType) {
+      case 'death':
+        return (
+          <OrderDetailsDropdown
+            orderType="death"
+            certificateQuantity={props.deathCertificateCart.size}
+          >
+            <DeathOrderDetails cart={props.deathCertificateCart} />
+          </OrderDetailsDropdown>
+        );
+
+      case 'birth':
+        return (
+          // TODO(fiona): Need content for this / replace it
+          <OrderDetailsDropdown
+            orderType="birth"
+            certificateQuantity={props.birthCertificateRequest.quantity}
+          />
+        );
+    }
   }
 
   renderForm = ({
@@ -446,11 +458,13 @@ export default class ShippingContent extends React.Component<Props> {
             </button>
           </div>
 
-          <div className="g--7 m-b500">
-            <Link href="/death/cart">
-              <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
-            </Link>
-          </div>
+          {this.props.certificateType === 'death' && (
+            <div className="g--7 m-b500">
+              <Link href="/death/cart">
+                <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
+              </Link>
+            </div>
+          )}
         </div>
       </form>
     );
