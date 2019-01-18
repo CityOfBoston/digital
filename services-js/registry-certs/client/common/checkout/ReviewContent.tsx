@@ -7,7 +7,7 @@ import { StatusModal } from '@cityofboston/react-fleet';
 
 import PageLayout from '../../PageLayout';
 
-import { BreadcrumbNavLinks } from '../breadcrumbs';
+import { BreadcrumbNavLinks } from '../../death/breadcrumbs';
 
 import {
   PERCENTAGE_CC_STRING,
@@ -18,8 +18,8 @@ import {
 import Cart from '../../store/DeathCertificateCart';
 import Order from '../../models/Order';
 
-import CostSummary from '../../common/CostSummary';
-import { DeathOrderDetails } from '../../common/checkout/OrderDetails';
+import CostSummary from '../CostSummary';
+import { DeathOrderDetails } from './OrderDetails';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 

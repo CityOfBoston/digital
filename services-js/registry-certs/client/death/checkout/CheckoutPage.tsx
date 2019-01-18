@@ -8,9 +8,9 @@ import Head from 'next/head';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order, { OrderInfo } from '../../models/Order';
 
-import ShippingContent from './ShippingContent';
-import PaymentContent from './PaymentContent';
-import ReviewContent from './ReviewContent';
+import ShippingContent from '../../common/checkout/ShippingContent';
+import PaymentContent from '../../common/checkout/PaymentContent';
+import ReviewContent from '../../common/checkout/ReviewContent';
 import ConfirmationContent from './ConfirmationContent';
 import { DEATH_CERTIFICATE_COST } from '../../../lib/costs';
 import PageLayout from '../../PageLayout';
