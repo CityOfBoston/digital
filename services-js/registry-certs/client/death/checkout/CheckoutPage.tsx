@@ -163,7 +163,9 @@ export default class CheckoutPageController extends React.Component<
 
     // This may throw, in which case the payment page will catch it and display
     // the error.
-    await checkoutDao.tokenizeCard(order, cardElement);
+    if (cardElement) {
+      await checkoutDao.tokenizeCard(order, cardElement);
+    }
 
     await Router.push('/death/checkout?page=review');
 

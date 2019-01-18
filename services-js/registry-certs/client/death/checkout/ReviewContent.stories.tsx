@@ -77,6 +77,20 @@ storiesOf('Checkout/ReviewContent', module)
       submit={action('submit') as any}
     />
   ))
+  .add('empty cart', () => (
+    <ReviewContent
+      cart={new Cart()}
+      order={makeOrder()}
+      submit={action('submit') as any}
+    />
+  ))
+  .add('invalid order', () => (
+    <ReviewContent
+      cart={makeCart()}
+      order={new Order()}
+      submit={action('submit') as any}
+    />
+  ))
   .add('submitting', () => (
     <ReviewContent
       cart={makeCart()}

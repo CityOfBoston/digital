@@ -92,7 +92,7 @@ storiesOf('Checkout/PaymentContent', module)
     <PaymentContent
       cart={makeCart()}
       stripe={makeStripe()}
-      order={makeBillingCompleteOrder()}
+      order={makeShippingCompleteOrder()}
       submit={action('submit')}
       cardElementErrorForTest="Your card number is incomplete."
     />

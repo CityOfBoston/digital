@@ -2576,12 +2576,29 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
                     Required
                   </span>
                 </label>
-                <div />
-                <div
-                  className="t--info m-t200"
+                <span
+                  className="txt-f"
+                  style={
+                    Object {
+                      "borderColor": "transparent",
+                      "width": "auto",
+                    }
+                  }
                 >
-                  We accept Visa, MasterCard, and Discover.
-                </div>
+                  •••• •••• •••• 
+                  4040
+                </span>
+                <button
+                  className="lnk"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  update
+                </button>
               </div>
             </fieldset>
             <fieldset
@@ -3596,12 +3613,29 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
                     Required
                   </span>
                 </label>
-                <div />
-                <div
-                  className="t--info m-t200"
+                <span
+                  className="txt-f"
+                  style={
+                    Object {
+                      "borderColor": "transparent",
+                      "width": "auto",
+                    }
+                  }
                 >
-                  We accept Visa, MasterCard, and Discover.
-                </div>
+                  •••• •••• •••• 
+                  4040
+                </span>
+                <button
+                  className="lnk"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  update
+                </button>
               </div>
             </fieldset>
             <fieldset
@@ -4605,7 +4639,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                     className="ra"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       className="ra-f"
                       name="billingAddressSameAsShippingAddress"
                       onBlur={[Function]}
@@ -4623,7 +4657,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                     className="ra"
                   >
                     <input
-                      checked={true}
+                      checked={false}
                       className="ra-f"
                       name="billingAddressSameAsShippingAddress"
                       onBlur={[Function]}
@@ -4635,468 +4669,6 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                       className="ra-l"
                     >
                       Use a different address
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div
-                className="m-t500"
-              >
-                <div
-                  className="txt"
-                >
-                  <label
-                    className="txt-l txt-l--sm"
-                    htmlFor="billingAddress1"
-                  >
-                    Address Line 1
-                     
-                    <span
-                      aria-hidden={true}
-                      className="t--req"
-                    >
-                      Required
-                    </span>
-                  </label>
-                  <input
-                    aria-required="true"
-                    autoComplete="billing address-line1"
-                    className="txt-f "
-                    id="billingAddress1"
-                    name="billingAddress1"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    placeholder="Address Line 1"
-                    type="text"
-                    value="3 Avengers Towers"
-                  />
-                </div>
-                <div
-                  className="txt"
-                >
-                  <label
-                    className="txt-l txt-l--sm"
-                    htmlFor="billingAddress2"
-                  >
-                    Address Line 2 (optional)
-                  </label>
-                  <input
-                    autoComplete="billing address-line2"
-                    className="txt-f "
-                    id="billingAddress2"
-                    name="billingAddress2"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    placeholder="Address Line 2"
-                    type="text"
-                    value=""
-                  />
-                </div>
-                <div
-                  className="txt"
-                >
-                  <label
-                    className="txt-l txt-l--sm"
-                    htmlFor="billingCity"
-                  >
-                    City
-                     
-                    <span
-                      aria-hidden={true}
-                      className="t--req"
-                    >
-                      Required
-                    </span>
-                  </label>
-                  <input
-                    aria-required="true"
-                    autoComplete="billing address-level2"
-                    className="txt-f "
-                    id="billingCity"
-                    name="billingCity"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    placeholder="City"
-                    type="text"
-                    value="New York"
-                  />
-                </div>
-                <div
-                  className="sel txt"
-                >
-                  <label
-                    className="sel-l txt-l--sm"
-                    htmlFor="billingState"
-                  >
-                    State / Territory
-                     
-                    <span
-                      aria-hidden={true}
-                      className="t--req"
-                    >
-                      Required
-                    </span>
-                  </label>
-                  <div
-                    className="sel-c"
-                  >
-                    <select
-                      aria-required="true"
-                      autoComplete="billing address-level1"
-                      className="sel-f "
-                      id="billingState"
-                      name="billingState"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="NY"
-                    >
-                      <option
-                        value="AL"
-                      >
-                        Alabama
-                      </option>
-                      <option
-                        value="AK"
-                      >
-                        Alaska
-                      </option>
-                      <option
-                        value="AS"
-                      >
-                        American Samoa
-                      </option>
-                      <option
-                        value="AZ"
-                      >
-                        Arizona
-                      </option>
-                      <option
-                        value="AR"
-                      >
-                        Arkansas
-                      </option>
-                      <option
-                        value="CA"
-                      >
-                        California
-                      </option>
-                      <option
-                        value="CO"
-                      >
-                        Colorado
-                      </option>
-                      <option
-                        value="CT"
-                      >
-                        Connecticut
-                      </option>
-                      <option
-                        value="DE"
-                      >
-                        Delaware
-                      </option>
-                      <option
-                        value="DC"
-                      >
-                        District Of Columbia
-                      </option>
-                      <option
-                        value="FM"
-                      >
-                        Federated States Of Micronesia
-                      </option>
-                      <option
-                        value="FL"
-                      >
-                        Florida
-                      </option>
-                      <option
-                        value="GA"
-                      >
-                        Georgia
-                      </option>
-                      <option
-                        value="GU"
-                      >
-                        Guam
-                      </option>
-                      <option
-                        value="HI"
-                      >
-                        Hawaii
-                      </option>
-                      <option
-                        value="ID"
-                      >
-                        Idaho
-                      </option>
-                      <option
-                        value="IL"
-                      >
-                        Illinois
-                      </option>
-                      <option
-                        value="IN"
-                      >
-                        Indiana
-                      </option>
-                      <option
-                        value="IA"
-                      >
-                        Iowa
-                      </option>
-                      <option
-                        value="KS"
-                      >
-                        Kansas
-                      </option>
-                      <option
-                        value="KY"
-                      >
-                        Kentucky
-                      </option>
-                      <option
-                        value="LA"
-                      >
-                        Louisiana
-                      </option>
-                      <option
-                        value="ME"
-                      >
-                        Maine
-                      </option>
-                      <option
-                        value="MH"
-                      >
-                        Marshall Islands
-                      </option>
-                      <option
-                        value="MD"
-                      >
-                        Maryland
-                      </option>
-                      <option
-                        value="MA"
-                      >
-                        Massachusetts
-                      </option>
-                      <option
-                        value="MI"
-                      >
-                        Michigan
-                      </option>
-                      <option
-                        value="MN"
-                      >
-                        Minnesota
-                      </option>
-                      <option
-                        value="MS"
-                      >
-                        Mississippi
-                      </option>
-                      <option
-                        value="MO"
-                      >
-                        Missouri
-                      </option>
-                      <option
-                        value="MT"
-                      >
-                        Montana
-                      </option>
-                      <option
-                        value="NE"
-                      >
-                        Nebraska
-                      </option>
-                      <option
-                        value="NV"
-                      >
-                        Nevada
-                      </option>
-                      <option
-                        value="NH"
-                      >
-                        New Hampshire
-                      </option>
-                      <option
-                        value="NJ"
-                      >
-                        New Jersey
-                      </option>
-                      <option
-                        value="NM"
-                      >
-                        New Mexico
-                      </option>
-                      <option
-                        value="NY"
-                      >
-                        New York
-                      </option>
-                      <option
-                        value="NC"
-                      >
-                        North Carolina
-                      </option>
-                      <option
-                        value="ND"
-                      >
-                        North Dakota
-                      </option>
-                      <option
-                        value="MP"
-                      >
-                        Northern Mariana Islands
-                      </option>
-                      <option
-                        value="OH"
-                      >
-                        Ohio
-                      </option>
-                      <option
-                        value="OK"
-                      >
-                        Oklahoma
-                      </option>
-                      <option
-                        value="OR"
-                      >
-                        Oregon
-                      </option>
-                      <option
-                        value="PW"
-                      >
-                        Palau
-                      </option>
-                      <option
-                        value="PA"
-                      >
-                        Pennsylvania
-                      </option>
-                      <option
-                        value="PR"
-                      >
-                        Puerto Rico
-                      </option>
-                      <option
-                        value="RI"
-                      >
-                        Rhode Island
-                      </option>
-                      <option
-                        value="SC"
-                      >
-                        South Carolina
-                      </option>
-                      <option
-                        value="SD"
-                      >
-                        South Dakota
-                      </option>
-                      <option
-                        value="TN"
-                      >
-                        Tennessee
-                      </option>
-                      <option
-                        value="TX"
-                      >
-                        Texas
-                      </option>
-                      <option
-                        value="UT"
-                      >
-                        Utah
-                      </option>
-                      <option
-                        value="VT"
-                      >
-                        Vermont
-                      </option>
-                      <option
-                        value="VI"
-                      >
-                        Virgin Islands
-                      </option>
-                      <option
-                        value="VA"
-                      >
-                        Virginia
-                      </option>
-                      <option
-                        value="WA"
-                      >
-                        Washington
-                      </option>
-                      <option
-                        value="WV"
-                      >
-                        West Virginia
-                      </option>
-                      <option
-                        value="WI"
-                      >
-                        Wisconsin
-                      </option>
-                      <option
-                        value="WY"
-                      >
-                        Wyoming
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div
-                  className="txt"
-                >
-                  <label
-                    className="txt-l txt-l--sm"
-                    htmlFor="billingZip"
-                  >
-                    ZIP Code
-                     
-                    <span
-                      aria-hidden={true}
-                      className="t--req"
-                    >
-                      Required
-                    </span>
-                  </label>
-                  <input
-                    aria-required="true"
-                    autoComplete="billing postal-code"
-                    className="txt-f txt-f--50 "
-                    id="billingZip"
-                    name="billingZip"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    placeholder="ZIP code"
-                    value="12223"
-                  />
-                </div>
-                <div
-                  className="m-t700"
-                >
-                  <label
-                    className="cb"
-                  >
-                    <input
-                      checked={false}
-                      className="cb-f"
-                      id="storeBilling"
-                      name="storeBilling"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="checkbox"
-                      value="true"
-                    />
-                     
-                    <span
-                      className="cb-l"
-                    >
-                      Save billing address on this computer
                     </span>
                   </label>
                 </div>
@@ -6075,12 +5647,29 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
                     Required
                   </span>
                 </label>
-                <div />
-                <div
-                  className="t--info m-t200"
+                <span
+                  className="txt-f"
+                  style={
+                    Object {
+                      "borderColor": "transparent",
+                      "width": "auto",
+                    }
+                  }
                 >
-                  We accept Visa, MasterCard, and Discover.
-                </div>
+                  •••• •••• •••• 
+                  4040
+                </span>
+                <button
+                  className="lnk"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "fontStyle": "italic",
+                    }
+                  }
+                >
+                  update
+                </button>
               </div>
             </fieldset>
             <fieldset
@@ -6606,7 +6195,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
               >
                 <button
                   className="btn btn--b"
-                  disabled={true}
+                  disabled={false}
                   type="submit"
                 >
                   Next: Review Order
@@ -7102,7 +6691,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                     >
                       <a
                         aria-label="Edit shipping address"
-                        href="/death/checkout"
+                        href="/death/checkout?page=shipping"
                         onClick={[Function]}
                       >
                         edit
@@ -7149,7 +6738,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                     >
                       <a
                         aria-label="Edit payment information"
-                        href="/death/checkout"
+                        href="/death/checkout?page=payment"
                         onClick={[Function]}
                       >
                         edit
@@ -7168,7 +6757,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
               >
                 Nancy Whitehead
                 <br />
-                **** **** **** 
+                •••• •••• •••• 
                 4040
                 <br />
                 3 Avengers Towers
@@ -7819,7 +7408,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                     >
                       <a
                         aria-label="Edit shipping address"
-                        href="/death/checkout"
+                        href="/death/checkout?page=shipping"
                         onClick={[Function]}
                       >
                         edit
@@ -7866,7 +7455,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                     >
                       <a
                         aria-label="Edit payment information"
-                        href="/death/checkout"
+                        href="/death/checkout?page=payment"
                         onClick={[Function]}
                       >
                         edit
@@ -7885,7 +7474,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
               >
                 Nancy Whitehead
                 <br />
-                **** **** **** 
+                •••• •••• •••• 
                 4040
                 <br />
                 3 Avengers Towers
@@ -7895,6 +7484,1286 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                 NY
                  
                 12223
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="css-5x1uzq"
+              >
+                <table
+                  className="t--info ta-r"
+                  style={
+                    Object {
+                      "float": "right",
+                    }
+                  }
+                >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        6
+                         
+                        certificates
+                         ×
+                         
+                        $14.00
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        $
+                        84.00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span>
+                          Credit card service fee 
+                          <a
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </span>
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        $
+                        2.06
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        U.S. shipping included
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        <i>
+                          $0.00
+                        </i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        className="sh-title css-1ujpul8"
+                      >
+                        <span
+                          className="css-1tg3jta"
+                        >
+                          Total
+                        </span>
+                      </td>
+                      <td
+                        className="cost-cell cost br br-t100 p-v200"
+                      >
+                        $
+                        86.06
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="t--info"
+              >
+                You have to read and accept this checkbox before you place your order:
+              </div>
+              <div
+                className="m-v300"
+              >
+                <label
+                  className="cb"
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that
+                     
+                    <strong>
+                      death certificates are non-refundable
+                    </strong>
+                    .
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              className="t--info m-v300"
+              id="charge-message"
+            >
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+            </div>
+            <div
+              className="m-v300"
+            >
+              <button
+                aria-describedby="charge-message"
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "display": "block",
+                    "width": "100%",
+                  }
+                }
+                type="submit"
+              >
+                Submit Order
+              </button>
+            </div>
+            <div
+              className="ta-c t--info m-v700"
+            >
+              <a
+                href="/death"
+                onClick={[Function]}
+              >
+                I’m not done yet, go back to search
+              </a>
+            </div>
+          </form>
+        </div>
+        <div
+          className="b--g m-t700"
+        >
+          <div
+            className="b-c b-c--smv b-c--hsm t--subinfo"
+            id="service-fee"
+          >
+            * You are charged an extra service fee of not more than
+             
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              href="https://www.cityofboston.gov/payments/faqs.asp"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
+<div>
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <nav
+        aria-label="Breadcrumbs"
+        className="brc css-1bakzg2 p-a300"
+      >
+        <ul
+          className="brc-l"
+        >
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/"
+            >
+              Home
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/departments"
+            >
+              Departments
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/departments/registry"
+            >
+              Registry: Birth, death, and marriage
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              aria-current="page"
+              className="css-xtnqqy"
+              href="/death"
+            >
+              Death certificates
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--hsm b-c--nbp"
+        >
+          <div
+            className="sh sh--b0"
+          >
+            <h1
+              className="sh-title"
+            >
+              Review Order
+            </h1>
+          </div>
+          <div
+            className="t--info m-v500"
+          >
+            Your order is not yet complete. Please check the information below, then click the 
+            <b>
+              Submit Order
+            </b>
+             button.
+          </div>
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={[Function]}
+          >
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Order Details
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit cart"
+                        href="/death/cart"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--err t--info"
+              >
+                Your cart is empty
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Shipping Address
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit shipping address"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Doreen Green
+                <br />
+                Empire State University
+                <br />
+                Dorm Hall, Apt 5
+                <br />
+                10 College Avenue
+                <br />
+                New York, NY 12345
+              </div>
+            </div>
+            <div
+              className="fs m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Payment Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit payment information"
+                        href="/death/checkout?page=payment"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                Nancy Whitehead
+                <br />
+                •••• •••• •••• 
+                4040
+                <br />
+                3 Avengers Towers
+                <br />
+                New York
+                , 
+                NY
+                 
+                12223
+              </div>
+            </div>
+            <div
+              className="m-v500"
+            >
+              <div
+                className="css-5x1uzq"
+              >
+                <table
+                  className="t--info ta-r"
+                  style={
+                    Object {
+                      "float": "right",
+                    }
+                  }
+                >
+                  <caption
+                    className="css-1dv1kvn"
+                  >
+                    Cost Summary
+                  </caption>
+                  <thead
+                    className="css-1dv1kvn"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Item
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        0
+                         
+                        certificates
+                         ×
+                         
+                        $14.00
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        $
+                        0.00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span>
+                          Credit card service fee 
+                          <a
+                            href="#service-fee"
+                          >
+                            *
+                          </a>
+                        </span>
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        $
+                        0.26
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        U.S. shipping included
+                      </td>
+                      <td
+                        className="css-1698s6w"
+                      >
+                        <i>
+                          $0.00
+                        </i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        className="sh-title css-1ujpul8"
+                      >
+                        <span
+                          className="css-1tg3jta"
+                        >
+                          Total
+                        </span>
+                      </td>
+                      <td
+                        className="cost-cell cost br br-t100 p-v200"
+                      >
+                        $
+                        0.26
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="t--info"
+              >
+                You have to read and accept this checkbox before you place your order:
+              </div>
+              <div
+                className="m-v300"
+              >
+                <label
+                  className="cb"
+                >
+                  <input
+                    checked={false}
+                    className="cb-f"
+                    id="acceptNonRefundableInput"
+                    name="acceptNonRefundable"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value="true"
+                  />
+                  <span
+                    className="cb-l"
+                  >
+                    I understand that
+                     
+                    <strong>
+                      death certificates are non-refundable
+                    </strong>
+                    .
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              className="t--info m-v300"
+              id="charge-message"
+            >
+              Pressing the “Submit Order” button will charge the total amount to your credit card and place an order with the Registry.
+            </div>
+            <div
+              className="m-v300"
+            >
+              <button
+                aria-describedby="charge-message"
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "display": "block",
+                    "width": "100%",
+                  }
+                }
+                type="submit"
+              >
+                Submit Order
+              </button>
+            </div>
+            <div
+              className="ta-c t--info m-v700"
+            >
+              <a
+                href="/death"
+                onClick={[Function]}
+              >
+                I’m not done yet, go back to search
+              </a>
+            </div>
+          </form>
+        </div>
+        <div
+          className="b--g m-t700"
+        >
+          <div
+            className="b-c b-c--smv b-c--hsm t--subinfo"
+            id="service-fee"
+          >
+            * You are charged an extra service fee of not more than
+             
+            $0.25
+             plus 
+            2.15%
+            . This fee goes directly to a third party to pay for the cost of credit card processing. Learn more about
+             
+            <a
+              href="https://www.cityofboston.gov/payments/faqs.asp"
+            >
+              credit card service fees
+            </a>
+             at the City of Boston.
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
+<div>
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <nav
+        aria-label="Breadcrumbs"
+        className="brc css-1bakzg2 p-a300"
+      >
+        <ul
+          className="brc-l"
+        >
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/"
+            >
+              Home
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/departments"
+            >
+              Departments
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              href="https://www.boston.gov/departments/registry"
+            >
+              Registry: Birth, death, and marriage
+            </a>
+            <span
+              aria-hidden="true"
+              className="brc-s"
+              style={
+                Object {
+                  "cursor": "default",
+                }
+              }
+            >
+               
+              ›
+               
+            </span>
+          </li>
+          <li
+            className="brc-l-i"
+          >
+            <a
+              aria-current="page"
+              className="css-xtnqqy"
+              href="/death"
+            >
+              Death certificates
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--hsm b-c--nbp"
+        >
+          <div
+            className="sh sh--b0"
+          >
+            <h1
+              className="sh-title"
+            >
+              Review Order
+            </h1>
+          </div>
+          <div
+            className="t--info m-v500"
+          >
+            Your order is not yet complete. Please check the information below, then click the 
+            <b>
+              Submit Order
+            </b>
+             button.
+          </div>
+          <form
+            acceptCharset="UTF-8"
+            method="post"
+            onSubmit={[Function]}
+          >
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Order Details
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit cart"
+                        href="/death/cart"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    <span
+                      aria-label="Quantity"
+                    >
+                      1
+                    </span>
+                     ×
+                  </div>
+                  <div
+                    className="css-1rr4qq7"
+                  >
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      BRUCE
+                       
+                      BANNER
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      3/4/2016
+                       — Age: 53
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="p-v200 br b--w css-p2blui "
+                >
+                  <div
+                    className="t--sans p-a300"
+                    style={
+                      Object {
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    <span
+                      aria-label="Quantity"
+                    >
+                      5
+                    </span>
+                     ×
+                  </div>
+                  <div
+                    className="css-1rr4qq7"
+                  >
+                    <div
+                      className="t--sans m-v100 css-1s592rj"
+                    >
+                      MONKEY
+                       
+                      JOE
+                    </div>
+                    <div
+                      className="css-19r4q7b"
+                    >
+                      Died: 
+                      2004
+                       — Age: 6
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Shipping Address
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit shipping address"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--err t--info"
+              >
+                You need to edit your shipping info to fix some errors
+              </div>
+            </div>
+            <div
+              className="fs m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Payment Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit payment information"
+                        href="/death/checkout?page=payment"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--err t--info"
+              >
+                You need to edit your payment info to fix some errors
               </div>
             </div>
             <div
@@ -8509,7 +9378,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                     >
                       <a
                         aria-label="Edit shipping address"
-                        href="/death/checkout"
+                        href="/death/checkout?page=shipping"
                         onClick={[Function]}
                       >
                         edit
@@ -8556,7 +9425,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                     >
                       <a
                         aria-label="Edit payment information"
-                        href="/death/checkout"
+                        href="/death/checkout?page=payment"
                         onClick={[Function]}
                       >
                         edit
@@ -8575,7 +9444,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
               >
                 Nancy Whitehead
                 <br />
-                **** **** **** 
+                •••• •••• •••• 
                 4040
                 <br />
                 3 Avengers Towers
@@ -9232,7 +10101,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                     >
                       <a
                         aria-label="Edit shipping address"
-                        href="/death/checkout"
+                        href="/death/checkout?page=shipping"
                         onClick={[Function]}
                       >
                         edit
@@ -9279,7 +10148,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                     >
                       <a
                         aria-label="Edit payment information"
-                        href="/death/checkout"
+                        href="/death/checkout?page=payment"
                         onClick={[Function]}
                       >
                         edit
@@ -9298,7 +10167,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
               >
                 Nancy Whitehead
                 <br />
-                **** **** **** 
+                •••• •••• •••• 
                 4040
                 <br />
                 3 Avengers Towers
@@ -9963,7 +10832,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                     >
                       <a
                         aria-label="Edit shipping address"
-                        href="/death/checkout"
+                        href="/death/checkout?page=shipping"
                         onClick={[Function]}
                       >
                         edit
@@ -10010,7 +10879,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                     >
                       <a
                         aria-label="Edit payment information"
-                        href="/death/checkout"
+                        href="/death/checkout?page=payment"
                         onClick={[Function]}
                       >
                         edit
@@ -10029,7 +10898,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
               >
                 Nancy Whitehead
                 <br />
-                **** **** **** 
+                •••• •••• •••• 
                 4040
                 <br />
                 3 Avengers Towers
