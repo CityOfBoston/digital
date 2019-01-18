@@ -14,16 +14,13 @@ import {
 } from '@cityofboston/react-fleet';
 
 import PageLayout from '../../PageLayout';
-import { BreadcrumbNavLinks } from '../breadcrumbs';
+import { BreadcrumbNavLinks } from '../../death/breadcrumbs';
 
 import Cart from '../../store/DeathCertificateCart';
 import Order, { OrderInfo } from '../../models/Order';
-import { makeStateSelectOptions } from '../../common/form-elements';
+import { makeStateSelectOptions } from '../form-elements';
 
-import {
-  DeathOrderDetails,
-  OrderDetailsDropdown,
-} from '../../common/checkout/OrderDetails';
+import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
 
 import makePaymentValidator from '../../../lib/validators/PaymentValidator';
 import { runInitialValidation } from './formik-util';
