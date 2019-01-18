@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 
 import ShippingContent from './ShippingContent';
@@ -57,24 +58,39 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
   });
 }
 
+function makeBirthCertificateRequest() {
+  return new BirthCertificateRequest();
+}
+
 storiesOf('Checkout/ShippingContent', module)
   .add('default', () => (
     <ShippingContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={new Order()}
       submit={action('submit')}
     />
   ))
   .add('email error', () => (
     <ShippingContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={makeOrder({ contactEmail: 'notacompleteaddress@' })}
       submit={action('submit')}
     />
   ))
   .add('existing address', () => (
     <ShippingContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
+      order={makeOrder()}
+      submit={action('submit')}
+    />
+  ))
+  .add('birth certificate', () => (
+    <ShippingContent
+      certificateType="birth"
+      birthCertificateRequest={makeBirthCertificateRequest()}
       order={makeOrder()}
       submit={action('submit')}
     />

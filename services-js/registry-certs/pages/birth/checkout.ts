@@ -1,1 +1,1 @@
-export default require('../../client/birth/CheckoutFlow').default;
+export default require('../../client/birth/CheckoutPage').default;

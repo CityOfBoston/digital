@@ -8,7 +8,7 @@ import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 
 import PageLayout from '../../PageLayout';
 
-import { BreadcrumbNavLinks } from '../breadcrumbs';
+import { DeathBreadcrumbNavLinks } from '../breadcrumbs';
 
 import Pagination from '../../common/Pagination';
 
@@ -120,7 +120,7 @@ class SearchPage extends React.Component<Props, State> {
       <PageLayout
         showNav
         cart={deathCertificateCart}
-        breadcrumbNav={BreadcrumbNavLinks}
+        breadcrumbNav={DeathBreadcrumbNavLinks}
       >
         <div>
           <div className="b-c b-c--nbp">

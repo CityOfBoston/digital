@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 
 import PaymentContent from './PaymentContent';
@@ -82,7 +83,8 @@ function makeBillingCompleteOrder(overrides = {}) {
 storiesOf('Checkout/PaymentContent', module)
   .add('default', () => (
     <PaymentContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       stripe={makeStripe()}
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
@@ -90,7 +92,8 @@ storiesOf('Checkout/PaymentContent', module)
   ))
   .add('credit card error', () => (
     <PaymentContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       stripe={makeStripe()}
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
@@ -99,7 +102,8 @@ storiesOf('Checkout/PaymentContent', module)
   ))
   .add('ZIP code error', () => (
     <PaymentContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       stripe={makeStripe()}
       order={makeBillingCompleteOrder({
         billingZip: 'abc123',
@@ -110,7 +114,8 @@ storiesOf('Checkout/PaymentContent', module)
   ))
   .add('Stripe error', () => (
     <PaymentContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
@@ -119,7 +124,17 @@ storiesOf('Checkout/PaymentContent', module)
   ))
   .add('existing billing', () => (
     <PaymentContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
+      stripe={makeStripe()}
+      order={makeBillingCompleteOrder()}
+      submit={action('submit')}
+    />
+  ))
+  .add('birth certificates', () => (
+    <PaymentContent
+      certificateType="birth"
+      birthCertificateRequest={new BirthCertificateRequest()}
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}

@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import { DeathCertificate } from '../../types.js';
 import Cart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 
 import { SubmissionError } from '../../dao/CheckoutDao';
@@ -65,35 +66,40 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
 storiesOf('Checkout/ReviewContent', module)
   .add('default', () => (
     <ReviewContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={makeOrder()}
       submit={action('submit') as any}
     />
   ))
   .add('cart has pending certs', () => (
     <ReviewContent
-      cart={makeCart([PENDING_CERTIFICATE])}
+      certificateType="death"
+      deathCertificateCart={makeCart([PENDING_CERTIFICATE])}
       order={makeOrder()}
       submit={action('submit') as any}
     />
   ))
   .add('empty cart', () => (
     <ReviewContent
-      cart={new Cart()}
+      certificateType="death"
+      deathCertificateCart={new Cart()}
       order={makeOrder()}
       submit={action('submit') as any}
     />
   ))
   .add('invalid order', () => (
     <ReviewContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={new Order()}
       submit={action('submit') as any}
     />
   ))
   .add('submitting', () => (
     <ReviewContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={(() => {
         const order = makeOrder();
         order.processing = true;
@@ -106,7 +112,8 @@ storiesOf('Checkout/ReviewContent', module)
   ))
   .add('submission error', () => (
     <ReviewContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={makeOrder()}
       submit={action('submit') as any}
       testSubmissionError={
@@ -119,7 +126,8 @@ storiesOf('Checkout/ReviewContent', module)
   ))
   .add('payment error', () => (
     <ReviewContent
-      cart={makeCart()}
+      certificateType="death"
+      deathCertificateCart={makeCart()}
       order={makeOrder()}
       submit={action('submit') as any}
       testSubmissionError={
@@ -128,5 +136,13 @@ storiesOf('Checkout/ReviewContent', module)
           OrderErrorCause.USER_PAYMENT
         )
       }
+    />
+  ))
+  .add('birth certificate', () => (
+    <ReviewContent
+      certificateType="birth"
+      birthCertificateRequest={new BirthCertificateRequest()}
+      order={makeOrder()}
+      submit={action('submit') as any}
     />
   ));

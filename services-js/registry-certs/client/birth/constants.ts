@@ -2,7 +2,7 @@ import { Question } from '../types';
 
 import { BreadcrumbNavigation } from '../PageLayout';
 
-export const BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
+export const BIRTH_BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
   parentLinks: [
     {
       url: 'https://www.boston.gov/departments',
