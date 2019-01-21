@@ -581,7 +581,7 @@ exports[`Storyshots Components/Progress Bar default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Progress Bar first step 1`] = `
+exports[`Storyshots Components/Progress Bar first step (interactive demo) 1`] = `
 Array [
   <div
     className="css-v8ihoq"
@@ -618,7 +618,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Components/Progress Bar last step 1`] = `
+exports[`Storyshots Components/Progress Bar last step (interactive demo) 1`] = `
 Array [
   <div
     className="css-v8ihoq"

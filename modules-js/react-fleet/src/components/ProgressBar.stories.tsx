@@ -33,8 +33,8 @@ class InteractiveStep extends React.Component<Props, State> {
     return (
       <>
         <ProgressBar
-          steps={taskList}
-          currentStep={taskList[this.props.currentStep]}
+          totalSteps={taskList.length}
+          currentStep={this.props.currentStep}
           currentStepCompleted={this.state.completed}
         />
 
@@ -57,10 +57,18 @@ class InteractiveStep extends React.Component<Props, State> {
 
 storiesOf('Components/Progress Bar', module)
   .add('default', () => (
-    <ProgressBar steps={taskList} currentStep={taskList[3]} />
+    <ProgressBar totalSteps={taskList.length} currentStep={4} />
   ))
   .add('with task name', () => (
-    <ProgressBar steps={taskList} currentStep={taskList[2]} showStepName />
+    <ProgressBar
+      totalSteps={taskList.length}
+      currentStep={3}
+      showStepName={taskList[2]}
+    />
   ))
-  .add('first step', () => <InteractiveStep currentStep={0} />)
-  .add('last step', () => <InteractiveStep currentStep={4} />);
+  .add('first step (interactive demo)', () => (
+    <InteractiveStep currentStep={1} />
+  ))
+  .add('last step (interactive demo)', () => (
+    <InteractiveStep currentStep={5} />
+  ));

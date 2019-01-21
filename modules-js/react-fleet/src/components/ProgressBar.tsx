@@ -5,17 +5,17 @@ import { css } from 'emotion';
 import { CHARLES_BLUE, OPTIMISTIC_BLUE } from '../utilities/constants';
 
 interface Props {
-  steps: string[];
-  currentStep: string;
+  totalSteps: number;
+  currentStep: number;
   currentStepCompleted?: boolean;
-  showStepName?: boolean;
+  showStepName?: string;
 }
 
 /**
- * Component used to indicate a user’s progress through a number of tasks.
+ * Component to indicate a user’s progress through a number of tasks.
  *
- * Displays current step number in relation to total number of steps
- * below the visual progress indicator.
+ * Displays current step number in relation to total number of steps below
+ * the visual progress indicator.
  *
  * When the current step is completed, the progress bar will grow i.e:
  * when the user begins, the visual progress bar shows no progress. Once the
@@ -26,13 +26,11 @@ interface Props {
  * the current task.
  */
 export default function ProgressBar(props: Props): JSX.Element {
-  const totalSteps = props.steps.length;
-  const currentIndex = props.steps.indexOf(props.currentStep);
-  const currentStepNumber = props.steps.indexOf(props.currentStep) + 1;
-  let progressText = `Step ${currentStepNumber} of ${totalSteps}`;
+  const { totalSteps, currentStep } = props;
+  let progressText = `Step ${currentStep} of ${totalSteps}`;
 
   if (props.showStepName) {
-    progressText = progressText + `: ${props.currentStep}`;
+    progressText = progressText + `: ${props.showStepName}`;
   }
 
   return (
@@ -41,9 +39,9 @@ export default function ProgressBar(props: Props): JSX.Element {
         max={totalSteps}
         aria-valuemin={1}
         aria-valuemax={totalSteps}
-        aria-valuenow={currentStepNumber}
+        aria-valuenow={currentStep}
         aria-valuetext={progressText}
-        value={props.currentStepCompleted ? currentStepNumber : currentIndex}
+        value={props.currentStepCompleted ? currentStep : currentStep - 1}
       >
         {progressText}
       </progress>
