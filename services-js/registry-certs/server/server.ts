@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
 import next from 'next';
+import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
@@ -187,6 +188,21 @@ export async function makeServer({ rollbar }: ServerArgs) {
     path: '/',
     handler: (_, h) => h.redirect(process.env.ROOT_REDIRECT_URL || '/death'),
   });
+
+  // small hack to keep people from finding the UI in prod, since it doesn’t
+  // work
+  if (
+    process.env.NODE_ENV === 'production' &&
+    process.env.BIRTH_CERTS_ENABLED !== '1'
+  ) {
+    server.route({
+      method: 'GET',
+      path: '/birth/{p*}',
+      handler: () => {
+        throw Boom.notFound();
+      },
+    });
+  }
 
   server.route(adminOkRoute);
 
