@@ -559,6 +559,124 @@ exports[`Storyshots Components/Modals Status 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components/Progress Bar default 1`] = `
+<div
+  className="css-v8ihoq"
+>
+  <progress
+    aria-valuemax={5}
+    aria-valuemin={1}
+    aria-valuenow={4}
+    aria-valuetext="Step 4 of 5"
+    max={5}
+    value={3}
+  >
+    Step 4 of 5
+  </progress>
+  <span
+    aria-hidden="true"
+  >
+    Step 4 of 5
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components/Progress Bar first step (interactive demo) 1`] = `
+Array [
+  <div
+    className="css-v8ihoq"
+  >
+    <progress
+      aria-valuemax={5}
+      aria-valuemin={1}
+      aria-valuenow={1}
+      aria-valuetext="Step 1 of 5"
+      max={5}
+      value={0}
+    >
+      Step 1 of 5
+    </progress>
+    <span
+      aria-hidden="true"
+    >
+      Step 1 of 5
+    </span>
+  </div>,
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "block",
+        "fontFamily": "monospace",
+        "margin": "1rem auto",
+      }
+    }
+    type="button"
+  >
+    Storybook demonstration: complete the task
+  </button>,
+]
+`;
+
+exports[`Storyshots Components/Progress Bar last step (interactive demo) 1`] = `
+Array [
+  <div
+    className="css-v8ihoq"
+  >
+    <progress
+      aria-valuemax={5}
+      aria-valuemin={1}
+      aria-valuenow={5}
+      aria-valuetext="Step 5 of 5"
+      max={5}
+      value={4}
+    >
+      Step 5 of 5
+    </progress>
+    <span
+      aria-hidden="true"
+    >
+      Step 5 of 5
+    </span>
+  </div>,
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "block",
+        "fontFamily": "monospace",
+        "margin": "1rem auto",
+      }
+    }
+    type="button"
+  >
+    Storybook demonstration: complete the task
+  </button>,
+]
+`;
+
+exports[`Storyshots Components/Progress Bar with task name 1`] = `
+<div
+  className="css-v8ihoq"
+>
+  <progress
+    aria-valuemax={5}
+    aria-valuemin={1}
+    aria-valuenow={3}
+    aria-valuetext="Step 3 of 5: Shipping information"
+    max={5}
+    value={2}
+  >
+    Step 3 of 5: Shipping information
+  </progress>
+  <span
+    aria-hidden="true"
+  >
+    Step 3 of 5: Shipping information
+  </span>
+</div>
+`;
+
 exports[`Storyshots Components/StatusModal default 1`] = `
 <div
   className="md "
