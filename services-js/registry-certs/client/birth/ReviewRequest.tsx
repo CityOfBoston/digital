@@ -11,17 +11,22 @@ import {
   FREEDOM_RED,
   GRAY_100,
   OPTIMISTIC_BLUE,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
 
 import PageLayout from '../PageLayout';
+import BirthCertificateRequestHeader from './BirthCertificateRequestHeader';
+
 import CostSummary from '../common/CostSummary';
 
-import { BIRTH_BREADCRUMB_NAV_LINKS } from './constants';
+import { BIRTH_BREADCRUMB_NAV_LINKS, STEPS } from './constants';
 
 import {
   BUTTONS_CONTAINER_STYLING,
+  NEXT_BUTTON_STYLE,
+  QUESTION_TEXT_STYLING,
   SECONDARY_BUTTON_STYLE,
 } from './questions/styling';
 
@@ -69,23 +74,24 @@ export default class ReviewRequest extends React.Component<Props> {
       <>
         <Head>
           <title>Boston.gov — Review your record request</title>
-
-          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
         <PageLayout breadcrumbNav={BIRTH_BREADCRUMB_NAV_LINKS}>
           <div className="b-c b-c--nbp">
-            <h1 className="sh-title">Review your record request</h1>
-            <section className="v-t300">
+            <BirthCertificateRequestHeader
+              currentStep={STEPS.indexOf('reviewRequest') + 1}
+              stepComplete={true}
+            />
+
+            <section className="v-t300" style={{ marginTop: '5rem' }}>
+              <h2 className={QUESTION_TEXT_STYLING}>
+                Review your record request
+              </h2>
+
               <p>
                 You can only order copies of one person’s birth certificate at a
                 time. If you want to buy copies of a certificate for another
                 person, you need to do a separate transaction.
-              </p>
-              <p>
-                If you are requesting a restricted record, you will need to
-                provide a valid form of identification (i.e. driver’s license,
-                state ID, military ID, or passport) after you pay.
               </p>
 
               <div>
@@ -102,12 +108,13 @@ export default class ReviewRequest extends React.Component<Props> {
 
                   <div className={`t--sans ${CERTIFICATE_INFO_BOX_STYLE}`}>
                     <div className={CERTIFICATE_NAME_STYLE}>
-                      Birth Certificate (Paper Copy)
+                      {firstName} {lastName}
                     </div>
                     <div className={CERTIFICATE_SUBINFO_STYLE}>
                       <span style={{ marginRight: '2em' }}>
-                        {firstName} {lastName}
+                        Birth Certificate (Paper Copy)
                       </span>
+                      <br />
                       <span>Born: {birthDate}</span>
                     </div>
                   </div>
@@ -131,21 +138,24 @@ export default class ReviewRequest extends React.Component<Props> {
                 serviceFeeType="CREDIT"
               />
 
-              <div className={BUTTONS_CONTAINER_STYLING}>
+              <div
+                className={BUTTONS_CONTAINER_STYLING}
+                style={{ marginTop: '3rem' }}
+              >
                 <button
                   className={`btn ${SECONDARY_BUTTON_STYLE}`}
                   type="button"
                   onClick={this.returnToQuestions}
                 >
-                  Back to last question
+                  Back
                 </button>
 
                 <button
-                  className="btn"
+                  className={`btn ${NEXT_BUTTON_STYLE}`}
                   type="button"
                   onClick={this.goToCheckout}
                 >
-                  Proceed to checkout
+                  Continue
                 </button>
               </div>
             </section>
@@ -183,6 +193,8 @@ const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
 
 const CERTIFICATE_SUBINFO_STYLE = css({
   color: CHARLES_BLUE,
+  fontFamily: SERIF,
+  fontStyle: 'italic',
 });
 
 const CERTIFICATE_ROW_STYLE = css({

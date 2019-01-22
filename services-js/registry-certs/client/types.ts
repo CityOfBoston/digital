@@ -30,12 +30,22 @@ export type Question =
   | 'forSelf'
   | 'bornInBoston'
   | 'nameOnRecord'
-  | 'dateOfBirth'
+  | 'birthDate'
   | 'parentsMarried'
   | 'parentsNames'
   | 'reviewRequest'
   | 'parentsLivedInBoston'
   | 'howRelated';
+
+export type Step =
+  | 'forWhom'
+  | 'bornInBoston'
+  | 'personalInformation'
+  | 'parentalInformation'
+  | 'reviewRequest'
+  | 'shippingInformation'
+  | 'billingInformation'
+  | 'submitRequest';
 
 export type Relation =
   | 'spouse'

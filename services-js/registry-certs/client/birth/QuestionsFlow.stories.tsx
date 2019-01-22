@@ -4,12 +4,10 @@ import { storiesOf } from '@storybook/react';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
 import QuestionsFlow from './QuestionsFlow';
-import ForSelf from './questions/ForSelf';
-import NameOnRecord from './questions/NameOnRecord';
+import ForWhom from './questions/ForWhom';
+import PersonalInformation from './questions/PersonalInformation';
 import BornInBoston from './questions/BornInBoston';
-import ParentsNames from './questions/ParentsNames';
-import ParentsMarried from './questions/ParentsMarried';
-import DateOfBirth from './questions/DateOfBirth';
+import ParentalInformation from './questions/ParentalInformation';
 
 const birthCertificateRequest = new BirthCertificateRequest();
 
@@ -18,48 +16,35 @@ storiesOf('Birth/QuestionsFlow', module)
     <QuestionsFlow birthCertificateRequest={birthCertificateRequest} />
   ))
   .add('who is this for?', () => (
-    <ForSelf forSelf={null} handleProceed={() => {}} />
+    <ForWhom
+      forSelf={null}
+      handleProceed={() => {}}
+      handleStepCompletion={() => {}}
+    />
   ))
   .add('born in Boston?', () => (
     <BornInBoston
       forSelf={true}
       handleProceed={() => {}}
+      handleStepCompletion={() => {}}
       handleStepBack={() => {}}
       handleUserReset={() => {}}
     />
   ))
-
-  .add('enter name', () => (
-    <NameOnRecord
+  .add('personal information', () => (
+    <PersonalInformation
       forSelf={true}
       handleProceed={() => {}}
+      handleStepCompletion={() => {}}
       handleStepBack={() => {}}
     />
   ))
-  .add('date of birth?', () => (
-    <DateOfBirth
-      forSelf={true}
-      firstName="Stacy"
-      birthDate=""
-      handleProceed={() => {}}
-      handleStepBack={() => {}}
-    />
-  ))
-  .add('were parents married?', () => (
-    <ParentsMarried
+  .add('parental information', () => (
+    <ParentalInformation
       forSelf={false}
       firstName="Stacy"
-      parentsMarried=""
       handleProceed={() => {}}
-      handleStepBack={() => {}}
-    />
-  ))
-  .add('parents’ names?', () => (
-    <ParentsNames
-      forSelf={true}
-      parentsMarried="yes"
-      firstName="Stacy"
-      handleProceed={() => {}}
+      handleStepCompletion={() => {}}
       handleStepBack={() => {}}
     />
   ));
