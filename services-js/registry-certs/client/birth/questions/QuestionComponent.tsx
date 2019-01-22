@@ -28,6 +28,16 @@ export default function QuestionComponent(props: Props): JSX.Element {
       <div>{props.children}</div>
 
       <div className={BUTTONS_CONTAINER_STYLING}>
+        {props.handleStepBack && (
+          <button
+            type="button"
+            className={`btn ${SECONDARY_BUTTON_STYLE}`}
+            onClick={props.handleStepBack}
+          >
+            Back
+          </button>
+        )}
+
         {/* Button only appears if handler was passed in AND props.startOver is true. */}
         {props.handleReset &&
           props.startOver && (
@@ -36,18 +46,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
               className={`btn ${SECONDARY_BUTTON_STYLE}`}
               onClick={props.handleReset}
             >
-              Start over
-            </button>
-          )}
-
-        {props.handleStepBack &&
-          !props.startOver && (
-            <button
-              type="button"
-              className={`btn ${SECONDARY_BUTTON_STYLE}`}
-              onClick={props.handleStepBack}
-            >
-              Back
+              Back to start
             </button>
           )}
 

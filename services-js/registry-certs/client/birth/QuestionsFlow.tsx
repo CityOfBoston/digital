@@ -7,40 +7,38 @@ import { observer } from 'mobx-react';
 import { PageDependencies } from '../../pages/_app';
 
 import PageLayout from '../PageLayout';
+import BirthCertificateRequestHeader from './BirthCertificateRequestHeader';
 
-import ForSelf from './questions/ForSelf';
+import ForWhom from './questions/ForWhom';
 import BornInBoston from './questions/BornInBoston';
-import NameOnRecord from './questions/NameOnRecord';
-import DateOfBirth from './questions/DateOfBirth';
-import ParentsMarried from './questions/ParentsMarried';
-import ParentsNames from './questions/ParentsNames';
+import PersonalInformation from './questions/PersonalInformation';
+import ParentalInformation from './questions/ParentalInformation';
 
-import { BIRTH_BREADCRUMB_NAV_LINKS, QUESTIONS } from './constants';
-import { Question, BirthCertificateRequestInformation } from '../types';
-
-import { PROGRESS_BAR_STYLE } from './questions/styling';
+import { BIRTH_BREADCRUMB_NAV_LINKS, STEPS } from './constants';
+import { BirthCertificateRequestInformation, Step } from '../types';
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 
 /**
- * Guides the user through a number of questions in order to provide the
- * Registry with the information they will need to locate the birth record.
+ * Guides the user through a number of questions, step by step, in order to
+ * provide the Registry with the information they will need to locate the
+ * birth record.
  *
  * User will progress to /review upon completion of this workflow.
  */
 @observer
 export default class QuestionsFlow extends React.Component<Props> {
   private answerQuestion = (
-    question: Question,
+    question: Step,
     answers: Partial<BirthCertificateRequestInformation>
   ): void => {
     const {
       answerQuestion,
-      setActiveQuestion,
+      setCurrentStep,
     } = this.props.birthCertificateRequest;
-    const currentIndex = QUESTIONS.indexOf(question);
+    const currentIndex = STEPS.indexOf(question);
 
-    if (question === 'forSelf') {
+    if (question === 'forWhom') {
       answerQuestion({
         ...answers,
         forSelf: answers.forSelf === ('true' as any),
@@ -49,23 +47,21 @@ export default class QuestionsFlow extends React.Component<Props> {
       answerQuestion(answers);
     }
 
-    if (question === 'parentsNames') {
+    if (question === 'parentalInformation') {
       Router.push('/birth/review');
     } else {
-      setActiveQuestion(QUESTIONS[currentIndex + 1]);
+      setCurrentStep(STEPS[currentIndex + 1]);
     }
   };
 
   private stepBackOneQuestion = (): void => {
-    const {
-      activeQuestion,
-      setActiveQuestion,
-    } = this.props.birthCertificateRequest;
-    const currentIndex = QUESTIONS.indexOf(activeQuestion);
+    const { currentStep, setCurrentStep } = this.props.birthCertificateRequest;
+    const currentIndex = STEPS.indexOf(currentStep);
+
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
 
-    setActiveQuestion(QUESTIONS[newIndex]);
+    setCurrentStep(STEPS[newIndex]);
   };
 
   // Clear all data and return to initial question.
@@ -73,102 +69,76 @@ export default class QuestionsFlow extends React.Component<Props> {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
   };
 
-  public progressBar(): React.ReactChild {
-    const currentIndex = QUESTIONS.indexOf(
-      this.props.birthCertificateRequest.activeQuestion
-    );
-
-    return (
-      <progress
-        aria-label="Progress"
-        max="6"
-        value={currentIndex}
-        className={PROGRESS_BAR_STYLE}
-      >
-        Step {currentIndex + 1}
-      </progress>
-    );
-  }
-
   public render() {
     const answers = this.props.birthCertificateRequest.requestInformation;
-    const { activeQuestion } = this.props.birthCertificateRequest;
-    const forSelf = answers.forSelf;
+    const {
+      currentStep,
+      currentStepCompleted,
+      setCurrentStepCompleted,
+    } = this.props.birthCertificateRequest;
 
     return (
       <>
         <Head>
           <title>Boston.gov — Birth Certificates</title>
-
-          <style>{'.txt-f { border-radius: 0; }'}</style>
         </Head>
 
         <PageLayout breadcrumbNav={BIRTH_BREADCRUMB_NAV_LINKS}>
-          <div className="b-c b-c--nbp">
-            <h1 className="sh-title">Request a birth certificate</h1>
+          <div className="b-c b-c--nbp" aria-live="polite">
+            <BirthCertificateRequestHeader
+              currentStep={STEPS.indexOf(currentStep) + 1}
+              stepComplete={currentStepCompleted}
+            />
 
-            {this.progressBar()}
-
-            {activeQuestion === 'forSelf' && (
-              <ForSelf
+            {currentStep === 'forWhom' && (
+              <ForWhom
                 forSelf={answers.forSelf}
                 howRelated={answers.howRelated}
-                handleProceed={a => this.answerQuestion('forSelf', a as any)}
+                handleStepCompletion={setCurrentStepCompleted}
+                handleProceed={a => this.answerQuestion('forWhom', a as any)}
               />
             )}
 
-            {activeQuestion === 'bornInBoston' && (
+            {currentStep === 'bornInBoston' && (
               <BornInBoston
-                forSelf={forSelf}
+                forSelf={answers.forSelf}
                 parentsLivedInBoston={answers.parentsLivedInBoston}
                 bornInBoston={answers.bornInBoston}
+                handleStepCompletion={setCurrentStepCompleted}
                 handleProceed={a => this.answerQuestion('bornInBoston', a)}
                 handleStepBack={this.stepBackOneQuestion}
                 handleUserReset={this.handleUserReset}
               />
             )}
 
-            {activeQuestion === 'nameOnRecord' && (
-              <NameOnRecord
-                forSelf={forSelf}
+            {currentStep === 'personalInformation' && (
+              <PersonalInformation
+                forSelf={answers.forSelf}
                 firstName={answers.firstName}
                 lastName={answers.lastName}
                 altSpelling={answers.altSpelling}
-                handleProceed={a => this.answerQuestion('nameOnRecord', a)}
-                handleStepBack={this.stepBackOneQuestion}
-              />
-            )}
-
-            {activeQuestion === 'dateOfBirth' && (
-              <DateOfBirth
-                forSelf={forSelf}
-                firstName={answers.firstName}
                 birthDate={answers.birthDate}
-                handleProceed={a => this.answerQuestion('dateOfBirth', a)}
+                handleStepCompletion={setCurrentStepCompleted}
+                handleProceed={a =>
+                  this.answerQuestion('personalInformation', a)
+                }
                 handleStepBack={this.stepBackOneQuestion}
               />
             )}
 
-            {activeQuestion === 'parentsMarried' && (
-              <ParentsMarried
-                forSelf={forSelf}
-                firstName={answers.firstName}
-                parentsMarried={answers.parentsMarried}
-                handleProceed={a => this.answerQuestion('parentsMarried', a)}
-                handleStepBack={this.stepBackOneQuestion}
-              />
-            )}
-
-            {activeQuestion === 'parentsNames' && (
-              <ParentsNames
-                forSelf={forSelf}
-                parentsMarried={answers.parentsMarried}
+            {currentStep === 'parentalInformation' && (
+              <ParentalInformation
+                forSelf={answers.forSelf}
                 firstName={answers.firstName}
                 parent1FirstName={answers.parent1FirstName}
                 parent1LastName={answers.parent1LastName}
                 parent2FirstName={answers.parent2FirstName}
                 parent2LastName={answers.parent2LastName}
-                handleProceed={a => this.answerQuestion('parentsNames', a)}
+                parentsMarried={answers.parentsMarried}
+                handleStepCompletion={setCurrentStepCompleted}
+                handleProceed={a =>
+                  this.answerQuestion('parentalInformation', a)
+                }
                 handleStepBack={this.stepBackOneQuestion}
               />
             )}

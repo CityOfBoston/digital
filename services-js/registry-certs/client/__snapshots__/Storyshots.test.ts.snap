@@ -2580,6 +2580,7 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
         className="b-ff"
       >
         <div
+          aria-live="polite"
           className="b-c b-c--nbp"
         >
           <h1
@@ -2587,22 +2588,33 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
           >
             Request a birth certificate
           </h1>
-          <progress
-            aria-label="Progress"
-            className="css-1f3sb52"
-            max="6"
-            value={0}
+          <div
+            className="css-v8ihoq"
           >
-            Step 
-            1
-          </progress>
+            <progress
+              aria-valuemax={8}
+              aria-valuemin={1}
+              aria-valuenow={1}
+              aria-valuetext="Step 1 of 8"
+              max={8}
+              value={0}
+            >
+              Step 1 of 8
+            </progress>
+            <span
+              aria-hidden="true"
+            >
+              Step 1 of 8
+            </span>
+          </div>
           <section>
             <div>
               <fieldset
-                className="css-7i339a"
+                className="css-11cfx11"
               >
                 <legend>
                   <h2
+                    className="css-9w5gmr"
                     id="forSelf"
                   >
                     Who are you ordering a birth certificate for?
@@ -2610,10 +2622,28 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
                 </legend>
                 <div
                   aria-labelledby="forSelf"
-                  className="css-1i08ra6"
+                  className="css-1o0sv25"
                   role="radiogroup"
                 >
-                  <div>
+                  <label
+                    className="css-vz1hu2 css-1gtq3px  "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="heavier"
+                      focusable="false"
+                      viewBox="-25 -4 100 100"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
+                        transform="translate(-88.072 -34)"
+                      />
+                      <path
+                        d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
+                        transform="translate(-89.31 -29.65)"
+                      />
+                    </svg>
                     <input
                       checked={false}
                       id="forSelftrue"
@@ -2622,13 +2652,51 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
                       type="radio"
                       value="true"
                     />
-                    <label
-                      htmlFor="forSelftrue"
-                    >
+                    <span>
                       Myself
-                    </label>
-                  </div>
-                  <div>
+                    </span>
+                  </label>
+                  <label
+                    className="css-vz1hu2 css-1gtq3px  "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="someoneElse heavier"
+                      focusable="false"
+                      viewBox="-2 -4 140 100"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"
+                        transform="translate(-11.995 -29.65)"
+                      />
+                      <path
+                        d="M49.1,47.9A13.9,13.9,0,1,1,35.2,34,13.9,13.9,0,0,1,49.1,47.9Z"
+                        transform="translate(-10.757 -34)"
+                      />
+                      <path
+                        d="M112.468,61.8a13.9,13.9,0,1,1,13.9-13.9,13.9,13.9,0,0,1-13.9,13.9Z"
+                        transform="translate(-0.431 -34)"
+                      />
+                      <path
+                        d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
+                        transform="translate(-0.431 -34)"
+                      />
+                      <path
+                        d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
+                        transform="translate(-1.669 -29.65)"
+                      />
+                      <line
+                        strokeWidth="4"
+                        transform="translate(55.514 68.46)"
+                        x2="15.928"
+                      />
+                      <path
+                        d="M73.27,101.97,85.014,95.19,73.27,88.4Z"
+                        fill="currentColor"
+                        transform="translate(-3.812 -26.73)"
+                      />
+                    </svg>
                     <input
                       checked={false}
                       id="forSelffalse"
@@ -2637,20 +2705,18 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsFlow page 1`] = `
                       type="radio"
                       value="false"
                     />
-                    <label
-                      htmlFor="forSelffalse"
-                    >
+                    <span>
                       Someone Else
-                    </label>
-                  </div>
+                    </span>
+                  </label>
                 </div>
               </fieldset>
             </div>
             <div
-              className="css-ap6642"
+              className="css-1c5enkl"
             >
               <button
-                className="btn css-1j4owm"
+                className="btn css-achae6"
                 disabled={true}
                 onClick={[Function]}
                 type="button"
@@ -2697,10 +2763,11 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-7i339a"
+        className="css-11cfx11"
       >
         <legend>
           <h2
+            className="css-9w5gmr"
             id="bornInBoston"
           >
             Were 
@@ -2708,72 +2775,139 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
              born in Boston?
           </h2>
         </legend>
-        <ul
+        <div
           aria-labelledby="bornInBoston"
-          className="css-1i08ra6 css-1yp2sve"
+          className="css-1o0sv25"
           role="radiogroup"
         >
-          <li>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="yes"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <path
+                d="M50.937,26.2,30.069,47.068,21,38.791"
+                transform="translate(-5.591 -6.213)"
+              />
+            </svg>
             <input
               checked={false}
-              id="bornInBostonyes"
               name="bornInBoston"
               onChange={[Function]}
               type="radio"
               value="yes"
             />
-            <label
-              htmlFor="bornInBostonyes"
-            >
+            <span>
               Yes
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="bornInBostonno"
-              name="bornInBoston"
-              onChange={[Function]}
-              type="radio"
-              value="no"
-            />
-            <label
-              htmlFor="bornInBostonno"
+            </span>
+          </label>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="unknown"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              No
-            </label>
-          </li>
-          <li>
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(20.339 12.679)"
+              >
+                <path
+                  d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+                  transform="translate(-26.6 -17.9)"
+                />
+                <path
+                  d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+                  transform="translate(-27.437 -21.605)"
+                />
+              </g>
+            </svg>
             <input
               checked={false}
-              id="bornInBostonunknown"
               name="bornInBoston"
               onChange={[Function]}
               type="radio"
               value="unknown"
             />
-            <label
-              htmlFor="bornInBostonunknown"
+            <span>
+              I don’t know
+            </span>
+          </label>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="no"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Don’t know
-            </label>
-          </li>
-        </ul>
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(19.107 19.107)"
+              >
+                <line
+                  x2="22.629"
+                  y2="22.629"
+                />
+                <line
+                  x2="22.629"
+                  y1="22.629"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="no"
+            />
+            <span>
+              No
+            </span>
+          </label>
+        </div>
       </fieldset>
       
     </div>
     <div
-      className="css-ap6642"
+      className="css-1c5enkl"
     >
       <button
-        className="btn css-185zgdz"
+        className="btn css-g6p480"
         onClick={[Function]}
         type="button"
       >
         Back
       </button>
       <button
-        className="btn css-1j4owm"
+        className="btn css-achae6"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -2785,289 +2919,48 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
 </div>
 `;
 
-exports[`Storyshots Birth/QuestionsFlow date of birth? 1`] = `
+exports[`Storyshots Birth/QuestionsFlow parental information 1`] = `
 <div>
   <section>
     <div>
       <fieldset
-        className="css-7i339a"
+        className="css-11cfx11"
       >
         <legend>
-          <h2>
-            When 
-            were you
-             born?
-          </h2>
-        </legend>
-        <div
-          className="css-1u6hmg8"
-        >
-          <label
-            className="txt-l "
-            htmlFor="input-4004051805"
+          <h2
+            className="css-9w5gmr"
           >
-            <span
-              style={
-                Object {
-                  "marginRight": "0.5em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              Date of Birth
-            </span>
-          </label>
-          <input
-            aria-label=""
-            className="txt-f  "
-            id="input-4004051805"
-            name="dateOfBirth"
-            onChange={[Function]}
-            onKeyDown={[Function]}
-            type="text"
-            value=""
-          />
-          <div
-            className="t--subinfo t--err m-b100"
-          >
-             
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <div
-      className="css-ap6642"
-    >
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-      <button
-        className="btn css-1j4owm"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-    </div>
-  </section>
-  <aside
-    className="m-t500"
-  >
-    <p>
-      Are you searching for a newborn’s record? You won’t be able to request a newborn’s birth certificate right away. It will be ready within 3 weeks after the parent(s) signed paperwork at the hospital.
-    </p>
-    <p>
-      If you are requesting a certificate that is dated before 1870, there is an additional $10 research fee.
-    </p>
-  </aside>
-</div>
-`;
-
-exports[`Storyshots Birth/QuestionsFlow enter name 1`] = `
-<div>
-  <section>
-    <div>
-      <fieldset
-        className="css-7i339a"
-      >
-        <legend>
-          <h2>
-            What was 
-            your
-             name at birth?
-          </h2>
-        </legend>
-        <div
-          className="css-cbwvwu"
-        >
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-2048906072"
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                First Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              defaultValue=""
-              id="input-2048906072"
-              name="firstName"
-              onChange={[Function]}
-              type="text"
-            />
-            <div
-              className="t--subinfo t--err m-b100"
-            >
-               
-            </div>
-          </div>
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-1103291528"
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Last Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              defaultValue=""
-              id="input-1103291528"
-              name="lastName"
-              onChange={[Function]}
-              onKeyDown={[Function]}
-              type="text"
-            />
-            <div
-              className="t--subinfo t--err m-b100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="m-t300"
-        >
-          <h3>
-            Is there an alternative spelling to 
-            your
-             
-            name?
-          </h3>
-          <div
-            style={
-              Object {
-                "textAlign": "left",
-              }
-            }
-          >
-            <label
-              className="txt-l "
-              htmlFor="input-1349562878"
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Alternative spelling(s)
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              defaultValue=""
-              id="input-1349562878"
-              name="altSpelling"
-              onChange={[Function]}
-              onKeyDown={[Function]}
-              type="text"
-            />
-            <div
-              className="t--subinfo t--err m-b100"
-            >
-               
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <div
-      className="css-ap6642"
-    >
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-      <button
-        className="btn css-1j4owm"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Next question
-      </button>
-    </div>
-  </section>
-  <aside
-    className="m-t500"
-  >
-    <p>
-      If 
-      you
-       changed 
-      your
-       
-      name at some point, please use the name 
-      you
-       
-      were given at birth. If 
-      you
-       were adopted, use
-       
-      your
-       post-adoption name.
-    </p>
-  </aside>
-</div>
-`;
-
-exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
-<div>
-  <section>
-    <div>
-      <fieldset
-        className="css-7i339a"
-      >
-        <legend>
-          <h2>
             What were the names of 
-            your
+            Stacy’s
              
             parents at the time of 
-            your
+            their
              birth?
           </h2>
         </legend>
-        <figure
-          className="m-t400"
+        <p
+          className="css-16zbqj2"
         >
-          <figcaption>
-            Parent 1 
-            <em>
-              (for example: Mother)
-            </em>
-          </figcaption>
+          Please use the names 
+          their
+           parents were given at the time of their birth. If only one parent is listed on
+           
+          the
+           record, you only need to include that name.
+        </p>
+        <fieldset
+          className="m-t400 css-ki54ph"
+        >
+          <legend>
+            <h3
+              className="css-9w5gmr secondary"
+            >
+              Parent 1 
+              <em>
+                (for example: Mother)
+              </em>
+            </h3>
+          </legend>
           <div
             className="css-cbwvwu"
           >
@@ -3134,16 +3027,17 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
               </div>
             </div>
           </div>
-        </figure>
-        <figure
-          className="m-t400"
+        </fieldset>
+        <fieldset
+          className="m-t400 css-ki54ph"
         >
-          <figcaption>
-            Parent 2 
-            <em>
-              (for example: Father)
-            </em>
-          </figcaption>
+          <legend>
+            <h3
+              className="css-9w5gmr secondary"
+            >
+              Parent 2
+            </h3>
+          </legend>
           <div
             className="css-cbwvwu"
           >
@@ -3210,54 +3104,14 @@ exports[`Storyshots Birth/QuestionsFlow parents’ names? 1`] = `
               </div>
             </div>
           </div>
-        </figure>
+        </fieldset>
       </fieldset>
-    </div>
-    <div
-      className="css-ap6642"
-    >
-      <button
-        className="btn css-185zgdz"
-        onClick={[Function]}
-        type="button"
-      >
-        Back
-      </button>
-      <button
-        className="btn css-1j4owm"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Review request
-      </button>
-    </div>
-  </section>
-  <aside
-    className="m-t500"
-  >
-    <p>
-      Please use the names 
-      your
-       parents were given at the time of their birth. If only one parent is listed on
-       
-      your
-       record, you only need to include that name.
-    </p>
-  </aside>
-</div>
-`;
-
-exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
-<div>
-  <section>
-    <div>
       <fieldset
-        className="css-7i339a"
+        className="css-11cfx11"
       >
         <legend>
           <h2
-            id="parentsMarried"
+            className="css-9w5gmr"
           >
             Were 
             Stacy’s
@@ -3266,71 +3120,343 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
              birth?
           </h2>
         </legend>
-        <ul
+        <div
           aria-labelledby="parentsMarried"
-          className="css-1i08ra6 css-1yp2sve"
+          className="css-1o0sv25"
           role="radiogroup"
         >
-          <li>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="yes"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <path
+                d="M50.937,26.2,30.069,47.068,21,38.791"
+                transform="translate(-5.591 -6.213)"
+              />
+            </svg>
             <input
               checked={false}
-              id="parentsMarriedyes"
               name="parentsMarried"
               onChange={[Function]}
               type="radio"
               value="yes"
             />
-            <label
-              htmlFor="parentsMarriedyes"
-            >
+            <span>
               Yes
-            </label>
-          </li>
-          <li>
-            <input
-              checked={false}
-              id="parentsMarriedno"
-              name="parentsMarried"
-              onChange={[Function]}
-              type="radio"
-              value="no"
-            />
-            <label
-              htmlFor="parentsMarriedno"
+            </span>
+          </label>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="unknown"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              No
-            </label>
-          </li>
-          <li>
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(20.339 12.679)"
+              >
+                <path
+                  d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+                  transform="translate(-26.6 -17.9)"
+                />
+                <path
+                  d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+                  transform="translate(-27.437 -21.605)"
+                />
+              </g>
+            </svg>
             <input
               checked={false}
-              id="parentsMarriedunknown"
               name="parentsMarried"
               onChange={[Function]}
               type="radio"
               value="unknown"
             />
-            <label
-              htmlFor="parentsMarriedunknown"
+            <span>
+              I don’t know
+            </span>
+          </label>
+          <label
+            className="css-vz1hu2 css-1f3mz2z  "
+          >
+            <svg
+              aria-hidden="true"
+              className="no"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Don’t know
-            </label>
-          </li>
-        </ul>
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(19.107 19.107)"
+              >
+                <line
+                  x2="22.629"
+                  y2="22.629"
+                />
+                <line
+                  x2="22.629"
+                  y1="22.629"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="parentsMarried"
+              onChange={[Function]}
+              type="radio"
+              value="no"
+            />
+            <span>
+              No
+            </span>
+          </label>
+        </div>
       </fieldset>
     </div>
     <div
-      className="css-ap6642"
+      className="css-1c5enkl"
     >
       <button
-        className="btn css-185zgdz"
+        className="btn css-g6p480"
         onClick={[Function]}
         type="button"
       >
         Back
       </button>
       <button
-        className="btn css-1j4owm"
+        className="btn css-achae6"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Review request
+      </button>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Birth/QuestionsFlow personal information 1`] = `
+<div>
+  <section>
+    <div>
+      <fieldset
+        className="css-11cfx11"
+      >
+        <legend>
+          <h2
+            className="css-9w5gmr"
+          >
+            What was 
+            your
+             name at birth?
+          </h2>
+        </legend>
+        <p
+          className="css-16zbqj2"
+        >
+          If 
+          you
+           changed 
+          your
+           
+          name at some point, please use the name 
+          you
+           
+          were given at birth.
+          <br />
+          If 
+          you
+           were adopted, use 
+          your
+           post-adoption name.
+        </p>
+        <div
+          className="css-cbwvwu"
+        >
+          <div>
+            <label
+              className="txt-l "
+              htmlFor="input-2048906072"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                First Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f  "
+              defaultValue=""
+              id="input-2048906072"
+              name="firstName"
+              onChange={[Function]}
+              type="text"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+          <div>
+            <label
+              className="txt-l "
+              htmlFor="input-1103291528"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Last Name
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f  "
+              defaultValue=""
+              id="input-1103291528"
+              name="lastName"
+              onChange={[Function]}
+              type="text"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+        <div
+          className="m-t700"
+        >
+          <div>
+            <label
+              className="txt-l "
+              htmlFor="input-2099238988"
+            >
+              <span
+                style={
+                  Object {
+                    "marginRight": "0.5em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                Alternative spelling
+              </span>
+            </label>
+            <input
+              aria-label=""
+              className="txt-f  "
+              defaultValue=""
+              id="input-2099238988"
+              name="altSpelling"
+              onChange={[Function]}
+              type="text"
+            />
+            <div
+              className="t--subinfo t--err m-b100"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset
+        className="css-11cfx11"
+      >
+        <legend>
+          <h2
+            className="css-9w5gmr"
+          >
+            When were 
+            you
+             born?
+          </h2>
+        </legend>
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-4004051805"
+          >
+            <span
+              style={
+                Object {
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Date of Birth
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f  "
+            id="input-4004051805"
+            name="birthDate"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100"
+          >
+             
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="css-1c5enkl"
+    >
+      <button
+        className="btn css-g6p480"
+        onClick={[Function]}
+        type="button"
+      >
+        Back
+      </button>
+      <button
+        className="btn css-achae6"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -3339,7 +3465,6 @@ exports[`Storyshots Birth/QuestionsFlow were parents married? 1`] = `
       </button>
     </div>
   </section>
-  
 </div>
 `;
 
@@ -3348,10 +3473,11 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
   <section>
     <div>
       <fieldset
-        className="css-7i339a"
+        className="css-11cfx11"
       >
         <legend>
           <h2
+            className="css-9w5gmr"
             id="forSelf"
           >
             Who are you ordering a birth certificate for?
@@ -3359,10 +3485,28 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
         </legend>
         <div
           aria-labelledby="forSelf"
-          className="css-1i08ra6"
+          className="css-1o0sv25"
           role="radiogroup"
         >
-          <div>
+          <label
+            className="css-vz1hu2 css-1gtq3px  "
+          >
+            <svg
+              aria-hidden="true"
+              className="heavier"
+              focusable="false"
+              viewBox="-25 -4 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
+                transform="translate(-88.072 -34)"
+              />
+              <path
+                d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
+                transform="translate(-89.31 -29.65)"
+              />
+            </svg>
             <input
               checked={false}
               id="forSelftrue"
@@ -3371,13 +3515,51 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
               type="radio"
               value="true"
             />
-            <label
-              htmlFor="forSelftrue"
-            >
+            <span>
               Myself
-            </label>
-          </div>
-          <div>
+            </span>
+          </label>
+          <label
+            className="css-vz1hu2 css-1gtq3px  "
+          >
+            <svg
+              aria-hidden="true"
+              className="someoneElse heavier"
+              focusable="false"
+              viewBox="-2 -4 140 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"
+                transform="translate(-11.995 -29.65)"
+              />
+              <path
+                d="M49.1,47.9A13.9,13.9,0,1,1,35.2,34,13.9,13.9,0,0,1,49.1,47.9Z"
+                transform="translate(-10.757 -34)"
+              />
+              <path
+                d="M112.468,61.8a13.9,13.9,0,1,1,13.9-13.9,13.9,13.9,0,0,1-13.9,13.9Z"
+                transform="translate(-0.431 -34)"
+              />
+              <path
+                d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
+                transform="translate(-0.431 -34)"
+              />
+              <path
+                d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
+                transform="translate(-1.669 -29.65)"
+              />
+              <line
+                strokeWidth="4"
+                transform="translate(55.514 68.46)"
+                x2="15.928"
+              />
+              <path
+                d="M73.27,101.97,85.014,95.19,73.27,88.4Z"
+                fill="currentColor"
+                transform="translate(-3.812 -26.73)"
+              />
+            </svg>
             <input
               checked={false}
               id="forSelffalse"
@@ -3386,20 +3568,18 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
               type="radio"
               value="false"
             />
-            <label
-              htmlFor="forSelffalse"
-            >
+            <span>
               Someone Else
-            </label>
-          </div>
+            </span>
+          </label>
         </div>
       </fieldset>
     </div>
     <div
-      className="css-ap6642"
+      className="css-1c5enkl"
     >
       <button
-        className="btn css-1j4owm"
+        className="btn css-achae6"
         disabled={true}
         onClick={[Function]}
         type="button"
@@ -3650,16 +3830,42 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
           <h1
             className="sh-title"
           >
-            Review your record request
+            Request a birth certificate
           </h1>
+          <div
+            className="css-v8ihoq"
+          >
+            <progress
+              aria-valuemax={8}
+              aria-valuemin={1}
+              aria-valuenow={5}
+              aria-valuetext="Step 5 of 8"
+              max={8}
+              value={5}
+            >
+              Step 5 of 8
+            </progress>
+            <span
+              aria-hidden="true"
+            >
+              Step 5 of 8
+            </span>
+          </div>
           <section
             className="v-t300"
+            style={
+              Object {
+                "marginTop": "5rem",
+              }
+            }
           >
+            <h2
+              className="css-9w5gmr"
+            >
+              Review your record request
+            </h2>
             <p>
               You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
-            </p>
-            <p>
-              If you are requesting a restricted record, you will need to provide a valid form of identification (i.e. driver’s license, state ID, military ID, or passport) after you pay.
             </p>
             <div>
               <div
@@ -3680,10 +3886,12 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
                   <div
                     className="css-g6e7b4"
                   >
-                    Birth Certificate (Paper Copy)
+                    Martin
+                     
+                    Walsh
                   </div>
                   <div
-                    className="css-ko2len"
+                    className="css-1xce2b7"
                   >
                     <span
                       style={
@@ -3692,10 +3900,9 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
                         }
                       }
                     >
-                      Martin
-                       
-                      Walsh
+                      Birth Certificate (Paper Copy)
                     </span>
+                    <br />
                     <span>
                       Born: 
                       1967-04-10
@@ -3842,21 +4049,26 @@ exports[`Storyshots Birth/ReviewRequest default page 1`] = `
               </table>
             </div>
             <div
-              className="css-ap6642"
+              className="css-1c5enkl"
+              style={
+                Object {
+                  "marginTop": "3rem",
+                }
+              }
             >
               <button
-                className="btn css-185zgdz"
+                className="btn css-g6p480"
                 onClick={[Function]}
                 type="button"
               >
-                Back to last question
+                Back
               </button>
               <button
-                className="btn"
+                className="btn css-achae6"
                 onClick={[Function]}
                 type="button"
               >
-                Proceed to checkout
+                Continue
               </button>
             </div>
           </section>

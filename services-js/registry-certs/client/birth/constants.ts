@@ -1,4 +1,4 @@
-import { Question } from '../types';
+import { Step } from '../types';
 
 import { BreadcrumbNavigation } from '../PageLayout';
 
@@ -19,11 +19,13 @@ export const BIRTH_BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
   },
 };
 
-export const QUESTIONS: Question[] = [
-  'forSelf',
+export const STEPS: Step[] = [
+  'forWhom',
   'bornInBoston',
-  'nameOnRecord',
-  'dateOfBirth',
-  'parentsMarried',
-  'parentsNames',
+  'personalInformation',
+  'parentalInformation',
+  'reviewRequest',
+  'shippingInformation',
+  'billingInformation',
+  'submitRequest',
 ];
