@@ -1,5 +1,7 @@
 // Yup requires Array.from(), but does not include the polyfill for IE
 import 'core-js/fn/array/from';
+// IE11 will silently fail to understand Yup.ref() without Map polyfill
+import 'core-js/es6/map';
 
 import * as yup from 'yup';
 
