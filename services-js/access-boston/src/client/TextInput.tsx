@@ -1,3 +1,5 @@
+import 'core-js/fn/object/assign';
+
 import React, { InputHTMLAttributes, ReactNode } from 'react';
 import hash from 'string-hash';
 import { css } from 'emotion';
