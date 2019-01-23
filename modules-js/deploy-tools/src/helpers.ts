@@ -301,9 +301,11 @@ export async function waitForDeployment(
 ) {
   const ecs = new AWS.ECS();
 
+  const startTimeMs = new Date().getTime();
+
   let deployed = false;
   let lastEventId = ((service.events || [])[0] || {}).id;
-  let lastEventTimeMs = new Date().getTime();
+  let lastEventTimeMs = startTimeMs;
 
   while (!deployed) {
     const updatedService = (await ecs
@@ -346,9 +348,16 @@ export async function waitForDeployment(
     );
 
     if (!updatedDeployment) {
-      throw new Error(
-        `Could not find deployment ${deploymentId} in the service`
-      );
+      // We have a 10 second grace time for the deployment to show up in the
+      // API. It’s not always available right away.
+      if (new Date().getTime() - startTimeMs < 10 * 1000) {
+        await sleep(2000);
+        continue;
+      } else {
+        throw new Error(
+          `Could not find deployment ${deploymentId} in the service`
+        );
+      }
     }
 
     const latestEvents: AWS.ECS.ServiceEvent[] = [];
