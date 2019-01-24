@@ -27,3 +27,24 @@ browser.
 _Note:_ The TestCafe `integrations` tests are excluded from `tsconfig.json` so
 that their definitions of `test` don’t conflict with Jest’s. The `testcafe`
 binary does not use `tsconfig.json`, so this doesn’t affect running the tests.
+
+
+## Deployment
+
+### Generating metadata
+
+The Ping identity provider needs us to generate a metadata file in order to
+register as a service provider. We need two, actually: one for the normal app
+and one for the forgot password flow (this is because they have separate MFA
+requirements).
+
+We also need to generate keys.
+
+ 1) `../../scripts/generate-ssl-key.sh . service-provider`
+ 1) `../../scripts/generate-ssl-key.sh . service-provider-forgot`
+ 1) In .env:
+   * Set `SAML_IN_DEV=true`
+   * Set `PUBLIC_HOST` to the user-visible hostname (_e.g._ `access-boston-dev.digital-staging.boston.gov`)
+ 1) `yarn dev`
+ 1) Download `http://localhost:3000/metadata.xml` and
+    `http://localhost:3000/metadata-forgot.xml` and send them to the IAM team.
