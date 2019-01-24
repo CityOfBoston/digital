@@ -21,3 +21,4 @@ export { default as SectionHeader } from './sectioning-elements/SectionHeader';
 export { default as StatusModal } from './components/StatusModal';
 export { default as Textarea } from './form-elements/inputs/Textarea';
 export { default as TextInput } from './form-elements/inputs/TextInput';
+export { default as ErrorPage } from './pages/ErrorPage';
