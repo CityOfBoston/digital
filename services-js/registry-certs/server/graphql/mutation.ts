@@ -213,8 +213,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     await Promise.all(
       items.map(({ id, name, quantity }) =>
-        registryDb.addItem(
-          OrderType.DeathCertificate,
+        registryDb.addDeathCertificateItem(
           orderKey,
           parseInt(id, 10),
           name,
@@ -294,9 +293,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     validateAddresses(args);
 
-    // TODO(finh): Fix all of this when new order queries are ready
-    const ids = [0];
-
     // These are all in cents, to match Stripe
     const { total, serviceFee } = await calculateCostForToken(
       stripe,
@@ -332,12 +328,18 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       idempotencyKey,
     });
 
-    await registryDb.addItem(
-      OrderType.BirthCertificate,
+    await registryDb.addBirthCertificateRequest(
       orderKey,
-      ids[0],
-      // We purposely use user-supplied values
-      `${item.firstName.trim()} ${item.lastName.trim()}`,
+      {
+        certificateFirstName: item.firstName,
+        certificateLastName: item.lastName,
+        alternativeSpellings: item.alternateSpellings,
+        dateOfBirth: item.birthDate,
+        parent1FirstName: item.parent1FirstName,
+        parent1LastName: item.parent1LastName,
+        parent2FirstName: item.parent2FirstName,
+        parent2LastName: item.parent2LastName,
+      },
       item.quantity,
       BIRTH_CERTIFICATE_COST / 100
     );
@@ -526,15 +528,18 @@ async function makeStripeCharge(
 ): Promise<void> {
   let description: string;
   let unitPrice: number;
+  let capture: boolean;
 
   switch (type) {
     case OrderType.DeathCertificate:
       description = 'Death certificates (Registry)';
       unitPrice = DEATH_CERTIFICATE_COST;
+      capture = true;
       break;
     case OrderType.BirthCertificate:
       description = 'Birth certificates (Registry)';
       unitPrice = BIRTH_CERTIFICATE_COST;
+      capture = false;
       break;
     default:
       throw new Error('Unknown OrderType: ' + type);
@@ -546,6 +551,7 @@ async function makeStripeCharge(
       currency: 'usd',
       source: cardToken,
       description,
+      capture,
       statement_descriptor: 'CITYBOSTON*REG + FEE',
       metadata: {
         'webapp.name': 'registry-certs',

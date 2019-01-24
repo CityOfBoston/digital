@@ -6,7 +6,7 @@ import Inert from 'inert';
 import fs from 'fs';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
-import makeStripe from 'stripe';
+import Stripe from 'stripe';
 import { Client as PostmarkClient } from 'postmark';
 import Rollbar from 'rollbar';
 
@@ -96,7 +96,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
   };
 
-  const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
   const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (process.env.NODE_ENV === 'production' && !stripeWebhookSecret) {
     throw new Error('NEED A WEBHOOK SECRET IN PROD');

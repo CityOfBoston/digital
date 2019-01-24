@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 import RegistryDb from './services/RegistryDb';
 import Emails from './services/Emails';
-import { NodeStripe, Event, Charge } from 'stripe';
+import Stripe, { charges, webhooks } from 'stripe';
 
 import { loadOrder } from './graphql/death-certificates';
 
@@ -13,7 +13,7 @@ import {
 
 interface Dependencies {
   emails: Emails;
-  stripe: NodeStripe;
+  stripe: Stripe;
   registryDb: RegistryDb;
 }
 
@@ -36,7 +36,7 @@ interface Dependencies {
 // fulfillment, so we can live with it.
 export async function processChargeSucceeded(
   { emails, registryDb }: Dependencies,
-  charge: Charge
+  charge: charges.ICharge
 ) {
   const {
     metadata: {
@@ -126,7 +126,7 @@ export async function processStripeEvent(
   webhookSignature: string,
   body: string
 ): Promise<void> {
-  const event: Event = webhookSecret
+  const event: webhooks.StripeWebhookEvent<any> = webhookSecret
     ? deps.stripe.webhooks.constructEvent(body, webhookSignature, webhookSecret)
     : JSON.parse(body);
 
@@ -139,7 +139,7 @@ export async function processStripeEvent(
 
   switch (event.type) {
     case 'charge.succeeded':
-      await processChargeSucceeded(deps, event.data.object);
+      await processChargeSucceeded(deps, event.data.object as charges.ICharge);
       break;
     default:
       break;
