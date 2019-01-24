@@ -3,7 +3,7 @@
 import fs from 'fs';
 import Hapi from 'hapi';
 import cleanup from 'node-cleanup';
-import makeStripe from 'stripe';
+import Stripe from 'stripe';
 
 import {
   loggingPlugin,
@@ -44,7 +44,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     options: { rollbar },
   });
 
-  const stripe = makeStripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
 
   const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (process.env.NODE_ENV === 'production' && !stripeWebhookSecret) {

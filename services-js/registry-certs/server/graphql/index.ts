@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { makeExecutableSchema } from 'graphql-tools';
-import { NodeStripe } from 'stripe';
+import Stripe from 'stripe';
 import Rollbar from 'rollbar';
 
 import { Query, resolvers as queryResolvers } from './query';
@@ -26,7 +27,7 @@ const schemaGraphql = fs.readFileSync(
 export interface Context {
   rollbar: Rollbar;
   registryDb: RegistryDb;
-  stripe: NodeStripe;
+  stripe: Stripe;
   emails: Emails;
 }
 
@@ -36,12 +37,40 @@ export interface Schema {
   mutation: Mutation;
 }
 
+const dateResolvers = {
+  Date: new GraphQLScalarType({
+    name: 'Date',
+    description:
+      'JavaScript Date as an ISO string or number of millis since Epoch',
+    parseValue(value: any): Date | null {
+      if (typeof value === 'string' || typeof value === 'number') {
+        return new Date(value);
+      } else {
+        return null;
+      }
+    },
+    parseLiteral(ast): Date | null {
+      if (ast.kind === Kind.STRING) {
+        return new Date(ast.value); // ast value is always in string format
+      } else if (ast.kind === Kind.INT) {
+        return new Date(parseInt(ast.value, 10));
+      } else {
+        return null;
+      }
+    },
+    serialize(value: Date) {
+      return value.toISOString();
+    },
+  }),
+};
+
 export default makeExecutableSchema({
   typeDefs: [schemaGraphql],
   resolvers: {
     ...queryResolvers,
     ...mutationResolvers,
     ...deathResolvers,
+    ...dateResolvers,
   } as any,
   allowUndefinedInResolve: false,
 });

@@ -2251,6 +2251,13 @@
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/@types/stripe-v3/-/stripe-v3-3.0.8.tgz#9c2816acf34dcf0948236fc81ce99442344ebfb4"
 
+"@types/stripe@^5.x.x":
+  version "5.0.27"
+  resolved "https://registry.yarnpkg.com/@types/stripe/-/stripe-5.0.27.tgz#4b89b9b1e149638325aae8312ae8b23f95e23924"
+  integrity sha512-imxRxOU1QdmgTIrP8ZGl++UmM+VSlcuuyAz9HcCL9Ylb65lnzDA2V9iz8YNDKWbtD4A8FFZ4u9N7aazXO4tWvg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/url-join@^0.8.2":
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/@types/url-join/-/url-join-0.8.2.tgz#1181ecbe1d97b7034e0ea1e35e62e86cc26b422d"

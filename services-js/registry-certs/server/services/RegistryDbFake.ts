@@ -29,7 +29,10 @@ export default class RegistryDbFake implements Required<RegistryDb> {
     return 50;
   }
 
-  async addItem(): Promise<void> {}
+  async addDeathCertificateItem(): Promise<void> {}
+  async addBirthCertificateRequest(): Promise<number> {
+    return 105;
+  }
   async addPayment(): Promise<void> {}
 
   async findOrder(): Promise<FindOrderResult | null> {

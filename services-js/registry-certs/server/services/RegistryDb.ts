@@ -104,6 +104,17 @@ export interface FindOrderResult {
   TotalCost: number;
 }
 
+export interface BirthCertificateRequestArgs {
+  certificateLastName: string;
+  certificateFirstName: string;
+  alternativeSpellings: string;
+  dateOfBirth: Date;
+  parent1LastName: string;
+  parent1FirstName: string;
+  parent2LastName: string;
+  parent2FirstName: string;
+}
+
 const MAX_ID_LOOKUP_LENGTH = 1000;
 
 // Converts a list of key strings into an array of comma-separated strings,
@@ -136,8 +147,8 @@ export function splitKeys(
 }
 
 export default class RegistryDb {
-  protected pool: ConnectionPool;
-  protected lookupDeathCertificateLoader: DataLoader<
+  private pool: ConnectionPool;
+  private lookupDeathCertificateLoader: DataLoader<
     string,
     DeathCertificate | null
   >;
@@ -180,7 +191,7 @@ export default class RegistryDb {
   }
 
   // "any" here is really DeathCertificate | null | Error
-  protected async lookupDeathCertificateLoaderFetch(
+  private async lookupDeathCertificateLoaderFetch(
     keys: Array<string>
   ): Promise<Array<any>> {
     // The api can only take 1000 characters of keys at once. We probably won't
@@ -283,8 +294,7 @@ export default class RegistryDb {
     return result.OrderKey;
   }
 
-  async addItem(
-    orderType: OrderType,
+  async addDeathCertificateItem(
     orderKey: number,
     certificateId: number,
     certificateName: string,
@@ -294,7 +304,7 @@ export default class RegistryDb {
     const resp: IResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
-      .input('orderType', orderType)
+      .input('orderType', OrderType.DeathCertificate)
       .input('certificateID', certificateId)
       .input('certificateName', certificateName)
       .input('quantity', quantity)
@@ -308,6 +318,53 @@ export default class RegistryDb {
         `Could not add item to order ${orderKey}. Likely no certificate ID ${certificateId} in the database.`
       );
     }
+  }
+
+  async addBirthCertificateRequest(
+    orderKey: number,
+    {
+      certificateFirstName,
+      certificateLastName,
+      alternativeSpellings,
+      dateOfBirth,
+      parent1FirstName,
+      parent1LastName,
+      parent2FirstName,
+      parent2LastName,
+    }: BirthCertificateRequestArgs,
+    quantity: number,
+    certificateCost: number
+  ): Promise<number> {
+    const resp: IResult<{
+      RequestItemKey: number;
+      ErrorMessage: string;
+    }> = await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('orderType', OrderType.BirthCertificate)
+      .input('certificateLastName', certificateLastName)
+      .input('certificateFirstName', certificateFirstName)
+      .input('alternativeSpellings', alternativeSpellings)
+      .input('dateOfBirth', dateOfBirth)
+      .input('parent1LastName', parent1LastName)
+      .input('parent1FirstName', parent1FirstName)
+      .input('parent2LastName', parent2LastName)
+      .input('parent2FirstName', parent2FirstName)
+      .input('quantity', quantity)
+      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .execute('Commerce.sp_AddBirthRequest');
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      throw new Error(`Could not add birth request to ${orderKey}.`);
+    }
+
+    if (recordset[0].ErrorMessage) {
+      throw new Error(recordset[0].ErrorMessage);
+    }
+
+    return recordset[0].RequestItemKey;
   }
 
   async addPayment(

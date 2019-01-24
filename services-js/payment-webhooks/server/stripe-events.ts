@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import { NodeStripe, Event, Charge } from 'stripe';
+import Stripe, { webhooks, charges } from 'stripe';
 import INovah from './services/INovah';
 
 import Rollbar from 'rollbar';
@@ -8,13 +8,22 @@ import Rollbar from 'rollbar';
 type Dependencies = {
   inovah: INovah;
   rollbar: Rollbar;
-  stripe: NodeStripe;
+  stripe: Stripe;
 };
 
 async function processChargeSucceeded(
   { rollbar, stripe, inovah }: Dependencies,
-  charge: Charge
+  charge: charges.ICharge
 ): Promise<void> {
+  // Birth cert charges aren't captured at first, we wait until the Registry
+  // department fulfills the order to do that. Treasury doesn't want to hear
+  // about the money until it’s captured, so we exit out here without sending
+  // it to iNovah.
+  if (!charge.captured) {
+    console.log(`Charge ${charge.id} is not yet captured`);
+    return;
+  }
+
   // The Charge object only has the gross amount charged to the customer, so we
   // need to look up the associated transaction to find the net amount that will
   // be deposited into our account.
@@ -39,6 +48,12 @@ async function processChargeSucceeded(
   const balanceTransaction = latestCharge.balance_transaction;
   const orderType = charge.metadata['order.orderType'] || 'DC';
 
+  const source = charge.source;
+
+  if (source.object !== 'card') {
+    throw new Error(`Unexpected source type: ${source.object}`);
+  }
+
   const {
     transactionId,
     transactionNum,
@@ -57,12 +72,12 @@ async function processChargeSucceeded(
         parseInt(charge.metadata['order.unitPrice'] || '0', 10) / 100,
     },
     {
-      cardholderName: charge.source.name,
-      billingAddress1: charge.source.address_line1,
-      billingAddress2: charge.source.address_line2,
-      billingCity: charge.source.address_city,
-      billingState: charge.source.address_state,
-      billingZip: charge.source.address_zip,
+      cardholderName: source.name || '',
+      billingAddress1: source.address_line1 || '',
+      billingAddress2: source.address_line2 || '',
+      billingCity: source.address_city || '',
+      billingState: source.address_state || '',
+      billingZip: source.address_zip,
     }
   );
 
@@ -87,7 +102,7 @@ export async function processStripeEvent(
   webhookSignature: string,
   body: string
 ): Promise<void> {
-  const event: Event = webhookSecret
+  const event: webhooks.StripeWebhookEvent<any> = webhookSecret
     ? deps.stripe.webhooks.constructEvent(body, webhookSignature, webhookSecret)
     : JSON.parse(body);
 
@@ -100,7 +115,7 @@ export async function processStripeEvent(
 
   switch (event.type) {
     case 'charge.succeeded':
-      await processChargeSucceeded(deps, event.data.object);
+      await processChargeSucceeded(deps, event.data.object as charges.ICharge);
       break;
     default:
       break;
