@@ -99,9 +99,12 @@ export function addValidationError(
 
 const CITY_DOMAINS = [
   'boston.gov',
-  'cityofboston.gov',
-  'bpl.org',
+  'pd.boston.gov',
   'bostonpublicschools.org',
+  'bpl.org',
+  'cityofboston.gov',
+  'ci.boston.ma.us',
+  'boston.k12.ma.us',
 ];
 
 const CITY_DOMAIN_REGEXPS = CITY_DOMAINS.map(
