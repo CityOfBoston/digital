@@ -20,17 +20,35 @@ export const initialRequestInformation: BirthCertificateRequestInformation = {
   parent2LastName: '',
 };
 
+const initialSteps: Step[] = [
+  'forWhom',
+  'bornInBoston',
+  'personalInformation',
+  'parentalInformation',
+  'reviewRequest',
+  'shippingInformation',
+  'billingInformation',
+  'submitRequest',
+];
+
 /**
  * State object for a birth certificate request.
  *
- * quantity: number of certificates requested
- * currentStep: name of the current step in the overall request flow
- * currentStepCompleted: whether or not the currentStep has been completed (for
+ * quantity: Number of certificates requested
+ *
+ * steps: All steps in request flow. If a record is (probably) restricted,
+ * 'verifyInformation' must be added after 'parentalInformation'.
+ *
+ * currentStep: Name of the current step in the overall request flow
+ *
+ * currentStepCompleted: Whether or not the currentStep has been completed (for
  * progress bar display/user feedback)
- * requestInformation: information needed by the Registry to find the record
+
+ * requestInformation: Information needed by the Registry to find the record
  */
 export default class BirthCertificateRequest {
   @observable quantity: number = 1;
+  @observable steps: Step[] = initialSteps;
   @observable currentStep: Step = 'forWhom';
   @observable currentStepCompleted: boolean = false;
   @observable
@@ -53,6 +71,32 @@ export default class BirthCertificateRequest {
     this.currentStepCompleted = isCompleted;
   };
 
+  @action
+  public addVerificationStep = (): void => {
+    const targetIndex = this.steps.indexOf('parentalInformation') + 1;
+
+    // Normally would avoid mutation, but if we replace the variable with a
+    // new array, the progress bar loses its steps information.
+    if (!this.steps.includes('verifyIdentification')) {
+      this.steps.splice(targetIndex, 0, 'verifyIdentification');
+    }
+  };
+
+  @action
+  public removeVerificationStep = (): void => {
+    const targetIndex = this.steps.indexOf('verifyIdentification');
+
+    // See comment directly above ^^
+    if (this.steps.includes('verifyIdentification')) {
+      this.steps.splice(targetIndex, 1);
+    }
+  };
+
+  @action
+  public verificationStepRequired = (mustVerify: boolean): void => {
+    mustVerify ? this.addVerificationStep() : this.removeVerificationStep();
+  };
+
   // A user’s answer may span several fields:
   @action
   public answerQuestion = (answers: object): void => {
@@ -65,6 +109,7 @@ export default class BirthCertificateRequest {
   @action
   public clearBirthCertificateRequest(): void {
     this.quantity = 0;
+    this.steps = initialSteps;
     this.currentStep = 'forWhom';
     this.requestInformation = initialRequestInformation;
   }

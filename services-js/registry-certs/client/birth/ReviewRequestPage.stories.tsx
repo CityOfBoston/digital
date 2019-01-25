@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
-import ReviewRequest from './ReviewRequest';
+import ReviewRequestPage from './ReviewRequestPage';
 
 import { BirthCertificateRequestInformation } from '../types';
 
@@ -27,6 +27,6 @@ const birthCertificateRequest = new BirthCertificateRequest();
 
 birthCertificateRequest.answerQuestion(birthCertRequest);
 
-storiesOf('Birth/ReviewRequest', module).add('default page', () => (
-  <ReviewRequest birthCertificateRequest={birthCertificateRequest} />
+storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
+  <ReviewRequestPage birthCertificateRequest={birthCertificateRequest} />
 ));

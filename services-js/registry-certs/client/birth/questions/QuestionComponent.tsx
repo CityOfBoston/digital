@@ -3,8 +3,9 @@ import React from 'react';
 import {
   BUTTONS_CONTAINER_STYLING,
   NEXT_BUTTON_STYLE,
+  QUESTION_CONTAINER_STYLING,
   SECONDARY_BUTTON_STYLE,
-} from './styling';
+} from '../styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -24,8 +25,8 @@ interface Props {
  */
 export default function QuestionComponent(props: Props): JSX.Element {
   return (
-    <section>
-      <div>{props.children}</div>
+    <>
+      <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
 
       <div className={BUTTONS_CONTAINER_STYLING}>
         {props.handleStepBack && (
@@ -62,6 +63,6 @@ export default function QuestionComponent(props: Props): JSX.Element {
             </button>
           )}
       </div>
-    </section>
+    </>
   );
 }

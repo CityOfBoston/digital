@@ -1,5 +1,3 @@
-import { Step } from '../types';
-
 import { BreadcrumbNavigation } from '../PageLayout';
 
 export const BIRTH_BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
@@ -18,14 +16,3 @@ export const BIRTH_BREADCRUMB_NAV_LINKS: BreadcrumbNavigation = {
     text: 'Birth certificates',
   },
 };
-
-export const STEPS: Step[] = [
-  'forWhom',
-  'bornInBoston',
-  'personalInformation',
-  'parentalInformation',
-  'reviewRequest',
-  'shippingInformation',
-  'billingInformation',
-  'submitRequest',
-];

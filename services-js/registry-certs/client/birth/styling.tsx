@@ -20,9 +20,9 @@ const FOCUS_STYLE = {
   outlineOffset: 1,
 };
 
-export const QUESTION_TEXT_STYLING = css({
+export const SECTION_HEADING_STYLING = css({
   paddingBottom: '0.25rem',
-  marginBottom: '2rem',
+  marginBottom: '0',
   fontFamily: `${SERIF} !important`,
   fontWeight: 700,
   fontSize: '1.5rem',
@@ -40,9 +40,8 @@ export const QUESTION_TEXT_STYLING = css({
   },
 });
 
-export const QUESTION_SUPPORTING_TEXT_STYLING = css({
-  marginTop: '-1.5rem',
-  marginBottom: '3rem',
+export const SUPPORTING_TEXT_STYLING = css({
+  margin: '1.5rem 0 2.5rem',
 });
 
 export const RADIOITEM_SHARED_STYLING = css({
@@ -60,7 +59,7 @@ export const RADIOITEM_SHARED_STYLING = css({
   },
 
   span: {
-    marginTop: '1rem',
+    marginTop: '1.75rem',
     marginBottom: '2rem',
     padding: '0.8rem 1.5rem',
     fontFamily: SANS,
@@ -123,64 +122,56 @@ export const RADIOITEM_STYLING = css({
   },
 });
 
-export const YESNOITEM_STYLING = css({
+export const ANSWER_ITEM_STYLING = css({
   color: CHARLES_BLUE,
   paddingLeft: '1rem',
   paddingRight: '1rem',
-
-  svg: {
-    width: 80,
-    height: 80,
-    fill: WHITE,
-
-    ellipse: {
-      stroke: 'currentColor',
-      strokeWidth: 5,
-    },
-
-    '&.yes, &.no': {
-      fill: 'none',
-      strokeWidth: 7,
-      strokeLinecap: 'round',
-    },
-
-    '&.yes': {
-      stroke: GREEN,
-    },
-
-    '&.no': {
-      stroke: '#f04f46',
-    },
-
-    '&.unknown': {
-      path: {
-        fill: CHARLES_BLUE,
-        stroke: 'none',
-      },
-    },
-  },
 });
 
-export const PARENT_FIELDSET_STYLING = css({
-  border: 'none',
-  padding: 0,
+export const ANSWER_ICON_STYLING = css({
+  width: 80,
+  height: 80,
+  fill: WHITE,
+
+  ellipse: {
+    stroke: 'currentColor',
+    strokeWidth: 5,
+  },
+
+  '&.checkMark, &.xSymbol': {
+    fill: 'none',
+    strokeWidth: 7,
+    strokeLinecap: 'round',
+  },
+
+  '&.checkMark': {
+    stroke: GREEN,
+  },
+
+  '&.xSymbol': {
+    stroke: '#f04f46',
+  },
+
+  '&.questionMark': {
+    path: {
+      fill: CHARLES_BLUE,
+      stroke: 'none',
+    },
+  },
 });
 
 export const FIELDSET_STYLING = css({
-  marginTop: '2rem',
-  marginBottom: '3rem',
+  margin: 0,
+  padding: 0,
   border: 'none',
-  padding: '1rem 0 0',
-
-  [MEDIA_SMALL]: {
-    marginTop: '5rem',
-  },
 
   legend: {
+    paddingLeft: 0,
     width: '100%',
   },
 
   h2: {
+    marginBottom: 0,
     fontFamily: SANS,
     fontWeight: 700,
     color: CHARLES_BLUE,
@@ -188,11 +179,12 @@ export const FIELDSET_STYLING = css({
 });
 
 export const RADIOGROUP_STYLING = css({
-  marginBottom: '3rem',
+  margin: '2rem 0 3rem',
 
   [MEDIA_SMALL]: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'baseline',
     marginBottom: 0,
   },
 
@@ -201,7 +193,14 @@ export const RADIOGROUP_STYLING = css({
   },
 });
 
+export const QUESTION_CONTAINER_STYLING = css({
+  'fieldset + fieldset': {
+    marginTop: '4rem',
+  },
+});
+
 export const HOW_RELATED_CONTAINER_STYLING = css({
+  marginTop: '2rem',
   label: {
     marginBottom: '2rem',
   },
@@ -247,7 +246,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
 export const BUTTONS_CONTAINER_STYLING = css({
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: '3rem',
+  margin: '3rem 0',
 
   [MEDIA_SMALL]: {
     flexDirection: 'row',
@@ -271,7 +270,7 @@ export const BUTTONS_CONTAINER_STYLING = css({
 });
 
 export const NAME_FIELDS_CONTAINER_STYLING = css({
-  [MEDIA_SMALL]: {
+  [MEDIA_MEDIUM]: {
     display: 'flex',
     justifyContent: 'space-between',
     marginLeft: 'auto',
@@ -281,7 +280,7 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
   '> div': {
     textAlign: 'left',
 
-    [MEDIA_SMALL]: {
+    [MEDIA_MEDIUM]: {
       flexGrow: 1,
 
       '&:last-of-type': {

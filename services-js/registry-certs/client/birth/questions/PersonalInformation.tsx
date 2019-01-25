@@ -7,9 +7,9 @@ import FieldsetComponent from './FieldsetComponent';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
-  QUESTION_SUPPORTING_TEXT_STYLING,
-  QUESTION_TEXT_STYLING,
-} from './styling';
+  SUPPORTING_TEXT_STYLING,
+  SECTION_HEADING_STYLING,
+} from '../styling';
 
 interface Props {
   firstName?: string;
@@ -84,12 +84,12 @@ export default class PersonalInformation extends React.Component<Props, State> {
       >
         <FieldsetComponent
           legendText={
-            <h2 className={QUESTION_TEXT_STYLING}>
+            <h2 className={SECTION_HEADING_STYLING}>
               What was {forSelf ? 'your' : 'their'} name at birth?
             </h2>
           }
         >
-          <p className={QUESTION_SUPPORTING_TEXT_STYLING}>
+          <p className={SUPPORTING_TEXT_STYLING}>
             If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
             name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
             were given at birth.<br />If {forSelf ? 'you' : 'they'} were
@@ -129,7 +129,7 @@ export default class PersonalInformation extends React.Component<Props, State> {
 
         <FieldsetComponent
           legendText={
-            <h2 className={QUESTION_TEXT_STYLING}>
+            <h2 className={SECTION_HEADING_STYLING}>
               When were {forSelf ? 'you' : 'they'} born?
             </h2>
           }

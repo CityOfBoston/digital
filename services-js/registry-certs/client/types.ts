@@ -42,6 +42,7 @@ export type Step =
   | 'bornInBoston'
   | 'personalInformation'
   | 'parentalInformation'
+  | 'verifyIdentification'
   | 'reviewRequest'
   | 'shippingInformation'
   | 'billingInformation'
