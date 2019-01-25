@@ -165,10 +165,14 @@ export async function makeSamlAuth(
   serviceProviderConfig: ServiceProviderConfig,
   logoutUrl: string
 ): Promise<SamlAuth> {
-  const metadata: Promise<Buffer> = new Promise((resolve, reject) => {
+  const metadata: Promise<Buffer | null> = new Promise((resolve, reject) => {
     fs.readFile(metadataPath, (err, buf) => {
       if (err) {
-        reject(err);
+        if (err.code === 'ENOENT') {
+          resolve(null);
+        } else {
+          reject(err);
+        }
       } else {
         resolve(buf);
       }
@@ -197,8 +201,10 @@ export async function makeSamlAuth(
     }
   );
 
+  const metadataBuffer = await metadata;
+
   const [identityProvider, serviceProvider] = await Promise.all([
-    makeIdentityProvider(await metadata, logoutUrl),
+    metadataBuffer ? makeIdentityProvider(metadataBuffer, logoutUrl) : null,
     makeServiceProvider(
       serviceProviderConfig,
       await serviceProviderCert,
@@ -210,11 +216,11 @@ export async function makeSamlAuth(
 }
 
 export default class SamlAuth {
-  private identityProvider: IdentityProvider;
+  private identityProvider: IdentityProvider | null;
   private serviceProvider: ServiceProvider;
 
   constructor(
-    identityProvider: IdentityProvider,
+    identityProvider: IdentityProvider | null,
     serviceProvider: ServiceProvider
   ) {
     this.identityProvider = identityProvider;
