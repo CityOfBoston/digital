@@ -3457,60 +3457,6 @@ Array [
         onSubmit={[Function]}
       >
         <div
-          className="m-b500"
-        >
-          <div
-            aria-labelledby="phoneOrEmail-groupLabel"
-            role="group"
-          >
-            <div
-              className="txt-l"
-              id="phoneOrEmail-groupLabel"
-            >
-              How do you want to get your security codes?
-            </div>
-            <label
-              className="ra  "
-            >
-              <input
-                checked={true}
-                className="ra-f"
-                name="phoneOrEmail"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-                value="phone"
-              />
-              <span
-                className="ra-l"
-              >
-                Phone — 
-                <i>
-                  recommended
-                </i>
-              </span>
-            </label>
-            <label
-              className="ra  "
-            >
-              <input
-                checked={false}
-                className="ra-f"
-                name="phoneOrEmail"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-                value="email"
-              />
-              <span
-                className="ra-l"
-              >
-                Email
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
           className="txt"
           style={
             Object {
@@ -3580,7 +3526,7 @@ Array [
             className="txt-l"
             id="smsOrVoice-groupLabel"
           >
-            How should we send them?
+            How should we send security codes?
           </div>
           <label
             className="ra  "
@@ -3621,6 +3567,205 @@ Array [
               Phone call
             </span>
           </label>
+        </div>
+        <div
+          className="m-v500 ta-r"
+        >
+          <button
+            className="btn"
+            disabled={true}
+            type="submit"
+          >
+            Next Step
+          </button>
+        </div>
+        <div
+          className="t--subinfo m-v500"
+        >
+          Don’t have access to a phone?
+          <br />
+          <a
+            href="/mfa?email=1"
+            onClick={[Function]}
+          >
+            Get codes via personal email
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <form
+    action="/done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
+]
+`;
+
+exports[`Storyshots RegisterMfaPage email 1`] = `
+Array [
+  <div
+    className="css-1gni7w7 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        CON01234
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-1428259210"
+        >
+          Set up security codes
+        </h2>
+      </div>
+      <p
+        className="lh--400 t--s400"
+      >
+        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      </p>
+      <p
+        className="lh--400 t--s400"
+      >
+        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+      </p>
+      <p
+        className="lh--400 t--s400"
+      >
+        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      </p>
+      <hr
+        aria-hidden={true}
+        className="hr hr--sq"
+      />
+      <form
+        className="m-v500"
+        onSubmit={[Function]}
+      >
+        <div
+          className="txt"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          <label
+            className="txt-l"
+            htmlFor="input-3734019359"
+            style={
+              Object {
+                "marginTop": 0,
+              }
+            }
+          >
+            Email address
+            <span
+              aria-hidden="true"
+              className="t--req"
+            >
+               
+              Required
+            </span>
+          </label>
+          <div
+            className="g"
+          >
+            <div
+              className="g--6"
+            >
+              <input
+                className=" txt-f "
+                id="input-3734019359"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="you@example.com"
+                required={true}
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              className="g--6 css-70qvj9"
+            >
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+          </div>
+          <div
+            className="t--subinfo m-t100"
+          >
+            Choose a personal address, not a City of Boston one.
+          </div>
+        </div>
+        <div
+          className="t--subinfo m-v500"
+        >
+          Switch to
+           
+          <a
+            href="/mfa"
+            onClick={[Function]}
+          >
+            get codes via phone call or text
+          </a>
         </div>
         <div
           className="m-v500 ta-r"
@@ -3738,60 +3883,6 @@ Array [
         onSubmit={[Function]}
       >
         <div
-          className="m-b500"
-        >
-          <div
-            aria-labelledby="phoneOrEmail-groupLabel"
-            role="group"
-          >
-            <div
-              className="txt-l"
-              id="phoneOrEmail-groupLabel"
-            >
-              How do you want to get your security codes?
-            </div>
-            <label
-              className="ra  "
-            >
-              <input
-                checked={true}
-                className="ra-f"
-                name="phoneOrEmail"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-                value="phone"
-              />
-              <span
-                className="ra-l"
-              >
-                Phone — 
-                <i>
-                  recommended
-                </i>
-              </span>
-            </label>
-            <label
-              className="ra  "
-            >
-              <input
-                checked={false}
-                className="ra-f"
-                name="phoneOrEmail"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-                value="email"
-              />
-              <span
-                className="ra-l"
-              >
-                Email
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
           className="txt"
           style={
             Object {
@@ -3861,7 +3952,7 @@ Array [
             className="txt-l"
             id="smsOrVoice-groupLabel"
           >
-            How should we send them?
+            How should we send security codes?
           </div>
           <label
             className="ra  "
@@ -3913,6 +4004,18 @@ Array [
           >
             Next Step
           </button>
+        </div>
+        <div
+          className="t--subinfo m-v500"
+        >
+          Don’t have access to a phone?
+          <br />
+          <a
+            href="/mfa?email=1"
+            onClick={[Function]}
+          >
+            Get codes via personal email
+          </a>
         </div>
       </form>
     </div>
@@ -4070,60 +4173,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
       onSubmit={[Function]}
     >
       <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            How do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
-      <div
         className="txt"
         style={
           Object {
@@ -4193,7 +4242,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
           className="txt-l"
           id="smsOrVoice-groupLabel"
         >
-          How should we send them?
+          How should we send security codes?
         </div>
         <label
           className="ra  "
@@ -4251,6 +4300,18 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
           Next Step
         </button>
       </div>
+      <div
+        className="t--subinfo m-v500"
+      >
+        Don’t have access to a phone?
+        <br />
+        <a
+          href="/mfa?email=1"
+          onClick={[Function]}
+        >
+          Get codes via personal email
+        </a>
+      </div>
     </form>
   </div>
 </div>
@@ -4296,60 +4357,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
       className="m-v500"
       onSubmit={[Function]}
     >
-      <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            How do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
       <div
         className="txt"
         style={
@@ -4411,6 +4418,18 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
         </div>
       </div>
       <div
+        className="t--subinfo m-v500"
+      >
+        Switch to
+         
+        <a
+          href="/mfa"
+          onClick={[Function]}
+        >
+          get codes via phone call or text
+        </a>
+      </div>
+      <div
         className="m-v500 ta-r"
       >
         <button
@@ -4466,60 +4485,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
       className="m-v500"
       onSubmit={[Function]}
     >
-      <div
-        className="m-b500"
-      >
-        <div
-          aria-labelledby="phoneOrEmail-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="phoneOrEmail-groupLabel"
-          >
-            How do you want to get your security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="phone"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="phoneOrEmail"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="email"
-            />
-            <span
-              className="ra-l"
-            >
-              Email
-            </span>
-          </label>
-        </div>
-      </div>
       <div
         className="txt"
         style={
@@ -4590,7 +4555,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
           className="txt-l"
           id="smsOrVoice-groupLabel"
         >
-          How should we send them?
+          How should we send security codes?
         </div>
         <label
           className="ra  "
@@ -4642,6 +4607,18 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
         >
           Next Step
         </button>
+      </div>
+      <div
+        className="t--subinfo m-v500"
+      >
+        Don’t have access to a phone?
+        <br />
+        <a
+          href="/mfa?email=1"
+          onClick={[Function]}
+        >
+          Get codes via personal email
+        </a>
       </div>
     </form>
   </div>
