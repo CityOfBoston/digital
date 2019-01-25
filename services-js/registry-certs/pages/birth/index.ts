@@ -1,1 +1,1 @@
-export default require('../../client/birth/QuestionsFlow').default;
+export default require('../../client/birth/QuestionsPage').default;

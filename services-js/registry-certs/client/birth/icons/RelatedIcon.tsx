@@ -1,5 +1,11 @@
 import React from 'react';
 
+const commonAttributes = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  'aria-hidden': 'true',
+  focusable: 'false',
+};
+
 interface Props {
   name: string;
 }
@@ -17,13 +23,7 @@ export default function RelatedIcon(props: Props): JSX.Element {
 
 const icons = {
   myself: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-25 -4 100 100"
-      aria-hidden="true"
-      focusable="false"
-      className="heavier"
-    >
+    <svg {...commonAttributes} viewBox="-25 -4 100 100" className="heavier">
       <path
         d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
         transform="translate(-88.072 -34)"
@@ -36,10 +36,8 @@ const icons = {
   ),
   someoneElse: (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      {...commonAttributes}
       viewBox="-2 -4 140 100"
-      aria-hidden="true"
-      focusable="false"
       className="someoneElse heavier"
     >
       <path
@@ -71,13 +69,7 @@ const icons = {
     </svg>
   ),
   spouse: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-1.5 -14 96 98"
-      aria-hidden="true"
-      focusable="false"
-      className="spouse"
-    >
+    <svg {...commonAttributes} viewBox="-1.5 -14 96 98" className="spouse">
       <ellipse
         cx="27.216"
         cy="27.216"
@@ -115,13 +107,7 @@ const icons = {
     </svg>
   ),
   child: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-24 -3 89 89"
-      aria-hidden="true"
-      focusable="false"
-      className="child"
-    >
+    <svg {...commonAttributes} viewBox="-24 -3 89 89" className="child">
       <path
         d="M32.963,24.006a12.082,12.082,0,1,1-16.4-11.253V5.862A4.374,4.374,0,0,1,20.925,1.5a4.283,4.283,0,0,1,3.053,1.308,4.283,4.283,0,0,1,1.308,3.053v6.891A12.018,12.018,0,0,1,32.963,24.006Z"
         transform="translate(-2.432 -1.5)"
@@ -152,13 +138,7 @@ const icons = {
     </svg>
   ),
   parent: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-8 -6 100 100"
-      aria-hidden="true"
-      focusable="false"
-      className="heavier"
-    >
+    <svg {...commonAttributes} viewBox="-8 -6 100 100" className="heavier">
       <path
         d="M39.755,38.7H17.344L1.5,50.687V91.965H55.494V51.208Z"
         transform="translate(-1.5 0.076)"
@@ -184,13 +164,7 @@ const icons = {
     </svg>
   ),
   familyMember: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-3 -2 102 102"
-      aria-hidden="true"
-      focusable="false"
-      className="heavier"
-    >
+    <svg {...commonAttributes} viewBox="-3 -2 102 102" className="heavier">
       <path
         d="M97.428,99.889l-.206-62.853L49.31,1.9,1.5,37.036V99.889"
         transform="translate(-1.5 -1.9)"
@@ -240,13 +214,7 @@ const icons = {
     </svg>
   ),
   friend: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-7 -7 100 100"
-      aria-hidden="true"
-      focusable="false"
-      className="heavier"
-    >
+    <svg {...commonAttributes} viewBox="-7 -7 100 100" className="heavier">
       <path
         d="M126.139,47.785A13.785,13.785,0,1,1,112.355,34a13.785,13.785,0,0,1,13.785,13.785Z"
         transform="translate(-88.158 -34)"
@@ -266,12 +234,7 @@ const icons = {
     </svg>
   ),
   client: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-2 -12 93 93"
-      aria-hidden="true"
-      focusable="false"
-    >
+    <svg {...commonAttributes} viewBox="-2 -12 93 93">
       <rect width="88.279" height="64.203" transform="translate(0 14.306)" />
       <path
         d="M3.5,17.9H89.25L82.079,43.459H10.025Z"

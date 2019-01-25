@@ -10,10 +10,10 @@ import { YesNoUnknownAnswer } from '../../types';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
-  PARENT_FIELDSET_STYLING,
-  QUESTION_SUPPORTING_TEXT_STYLING,
-  QUESTION_TEXT_STYLING,
-} from './styling';
+  SUPPORTING_TEXT_STYLING,
+  SECTION_HEADING_STYLING,
+  FIELDSET_STYLING,
+} from '../styling';
 
 interface Props {
   forSelf: boolean | null;
@@ -28,6 +28,7 @@ interface Props {
   handleStepCompletion: (isStepComplete: boolean) => void;
   handleProceed: (answers: State) => void;
   handleStepBack: () => void;
+  verificationStepRequired: (mustVerify: boolean) => void;
 }
 
 interface State {
@@ -39,7 +40,7 @@ interface State {
 }
 
 /**
- * Parent 1’s first name is the only required field in this set.
+ * Parent 1’s first name is the only required name field.
  *
  * If the user selects NO for “parents married?”, we’ll know that the record is
  * (probably) restricted.
@@ -70,22 +71,14 @@ export default class ParentalInformation extends React.Component<Props, State> {
 
   // Unless user has specified that the parents were married at the time of
   // birth, we must inform the user that the record may be restricted.
-  private parentsMarried(): boolean {
-    return !this.state.parentsMarried || this.state.parentsMarried === 'yes';
+  private mayBeRestricted(): boolean {
+    return (
+      this.state.parentsMarried === 'no' ||
+      this.state.parentsMarried === 'unknown'
+    );
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      } as any,
-      () => {
-        this.props.handleStepCompletion(this.allowProceed());
-      }
-    );
-  };
-
-  // Activates the “next” button, and shows progress for this step.
+  // Used to activate the “next” button, and show progress for this step.
   private allowProceed(): boolean {
     return (
       this.state.parent1FirstName.length > 0 &&
@@ -93,53 +86,82 @@ export default class ParentalInformation extends React.Component<Props, State> {
     );
   }
 
+  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value } as any, () => {
+      this.props.handleStepCompletion(this.allowProceed());
+    });
+  };
+
   // Returns a function to provide appropriate behavior for “back” button.
   private handleStepBack(): () => void {
-    if (this.parentsMarried()) {
-      return this.props.handleStepBack;
-    } else {
+    if (this.mayBeRestricted()) {
       return () => this.setState({ parentsMarried: '' });
+    } else {
+      return this.props.handleStepBack;
+    }
+  }
+
+  public componentDidUpdate(
+    _prevProps: Readonly<Props>,
+    prevState: Readonly<State>
+  ): void {
+    // Check whether the ID verification step will be required.
+    if (prevState.parentsMarried !== this.state.parentsMarried) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+
+      if (
+        this.state.parentsMarried === 'no' ||
+        this.state.parentsMarried === 'unknown'
+      ) {
+        this.props.verificationStepRequired(true);
+      } else {
+        this.props.verificationStepRequired(false);
+      }
     }
   }
 
   public render() {
+    const needsVerification = this.mayBeRestricted();
+
     return (
       <QuestionComponent
         handleProceed={() => this.props.handleProceed(this.state)}
         handleStepBack={this.handleStepBack()}
         allowProceed={this.allowProceed()}
-        nextButtonText="Review request"
+        nextButtonText={needsVerification ? 'Next' : 'Review request'}
       >
-        {this.parentsMarried()
-          ? this.renderQuestions()
-          : this.renderRestrictedText()}
+        {needsVerification
+          ? this.renderRestrictedText()
+          : this.renderQuestions()}
       </QuestionComponent>
     );
   }
 
-  renderQuestions(): React.ReactChild {
+  private renderQuestions(): React.ReactChild {
     const { forSelf, firstName } = this.props;
 
     return (
       <>
         <FieldsetComponent
           legendText={
-            <h2 className={QUESTION_TEXT_STYLING}>
+            <h2 className={SECTION_HEADING_STYLING}>
               What were the names of {forSelf ? 'your' : `${firstName}’s`}{' '}
               parents at the time of {forSelf ? 'your' : 'their'} birth?
             </h2>
           }
         >
-          <p className={QUESTION_SUPPORTING_TEXT_STYLING}>
+          <p className={SUPPORTING_TEXT_STYLING}>
             Please use the names {forSelf ? 'your' : 'their'} parents were given
             at the time of their birth. If only one parent is listed on{' '}
             {forSelf ? 'your' : 'the'} record, you only need to include that
             name.
           </p>
 
-          <fieldset className={`m-t400 ${PARENT_FIELDSET_STYLING}`}>
+          <fieldset className={FIELDSET_STYLING}>
             <legend>
-              <h3 className={`${QUESTION_TEXT_STYLING} secondary`}>
+              <h3 className={`${SECTION_HEADING_STYLING} secondary`}>
                 Parent 1 <em>(for example: Mother)</em>
               </h3>
             </legend>
@@ -161,9 +183,11 @@ export default class ParentalInformation extends React.Component<Props, State> {
             </div>
           </fieldset>
 
-          <fieldset className={`m-t400 ${PARENT_FIELDSET_STYLING}`}>
+          <fieldset className={FIELDSET_STYLING}>
             <legend>
-              <h3 className={`${QUESTION_TEXT_STYLING} secondary`}>Parent 2</h3>
+              <h3 className={`${SECTION_HEADING_STYLING} secondary`}>
+                Parent 2
+              </h3>
             </legend>
 
             <div className={NAME_FIELDS_CONTAINER_STYLING}>
@@ -186,7 +210,7 @@ export default class ParentalInformation extends React.Component<Props, State> {
 
         <FieldsetComponent
           legendText={
-            <h2 className={QUESTION_TEXT_STYLING}>
+            <h2 className={SECTION_HEADING_STYLING}>
               Were {forSelf ? 'your' : `${firstName}’s`} parents married at the
               time of {forSelf ? 'your' : 'their'} birth?
             </h2>
@@ -202,10 +226,12 @@ export default class ParentalInformation extends React.Component<Props, State> {
     );
   }
 
-  renderRestrictedText(): React.ReactChild {
+  private renderRestrictedText(): React.ReactChild {
     return (
       <div className="m-t500">
-        <h2 className="sh-title">Record may have an access restriction</h2>
+        <h2 className={SECTION_HEADING_STYLING}>
+          Record may have an access restriction
+        </h2>
 
         {/* todo: link to mass. law to explain? */}
         {this.props.forSelf ? (

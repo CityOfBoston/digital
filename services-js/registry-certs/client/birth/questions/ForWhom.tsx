@@ -1,16 +1,18 @@
 import React from 'react';
 
+import RadioItemComponent from '../RadioItemComponent';
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
-import RelatedItemComponent from './RelatedItemComponent';
+import RelatedIcon from '../icons/RelatedIcon';
 
 import { Relation } from '../../types';
 
 import {
   HOW_RELATED_CONTAINER_STYLING,
-  QUESTION_TEXT_STYLING,
+  SECTION_HEADING_STYLING,
   RADIOGROUP_STYLING,
-} from './styling';
+  RADIOITEM_STYLING,
+} from '../styling';
 
 interface Props {
   forSelf: boolean | null;
@@ -58,17 +60,20 @@ export default class ForWhom extends React.Component<Props, State> {
   }
 
   private relationQuestion(
-    questionValue: Relation,
+    answerValue: Relation,
     questionDisplayText: string
   ): React.ReactChild {
     return (
-      <RelatedItemComponent
-        fieldName="howRelated"
-        fieldValue={this.state.howRelated}
-        itemValue={questionValue}
+      <RadioItemComponent
+        questionName="howRelated"
+        questionValue={this.state.howRelated}
+        itemValue={answerValue}
         labelText={questionDisplayText}
+        className={RADIOITEM_STYLING}
         handleChange={this.handleChange}
-      />
+      >
+        <RelatedIcon name={answerValue} />
+      </RadioItemComponent>
     );
   }
 
@@ -80,7 +85,7 @@ export default class ForWhom extends React.Component<Props, State> {
       >
         <FieldsetComponent
           legendText={
-            <h2 id="forSelf" className={QUESTION_TEXT_STYLING}>
+            <h2 id="forSelf" className={SECTION_HEADING_STYLING}>
               Who are you ordering a birth certificate for?
             </h2>
           }
@@ -90,29 +95,34 @@ export default class ForWhom extends React.Component<Props, State> {
             aria-labelledby="forSelf"
             className={RADIOGROUP_STYLING}
           >
-            <RelatedItemComponent
-              fieldName="forSelf"
-              fieldValue={this.state.forSelf}
+            <RadioItemComponent
+              questionName="forSelf"
+              questionValue={this.state.forSelf}
               itemValue="true"
               labelText="Myself"
-              iconName="myself"
+              className={RADIOITEM_STYLING}
               handleChange={this.handleChange}
-            />
-            <RelatedItemComponent
-              fieldName="forSelf"
-              fieldValue={this.state.forSelf}
+            >
+              <RelatedIcon name="myself" />
+            </RadioItemComponent>
+
+            <RadioItemComponent
+              questionName="forSelf"
+              questionValue={this.state.forSelf}
               itemValue="false"
-              labelText="Someone Else"
-              iconName="someoneElse"
+              labelText="Someone else"
+              className={RADIOITEM_STYLING}
               handleChange={this.handleChange}
-            />
+            >
+              <RelatedIcon name="someoneElse" />
+            </RadioItemComponent>
           </div>
         </FieldsetComponent>
 
         {this.state.forSelf === 'false' && (
           <FieldsetComponent
             legendText={
-              <h3 id="howRelated" className={QUESTION_TEXT_STYLING}>
+              <h3 id="howRelated" className={SECTION_HEADING_STYLING}>
                 Is it for your…
               </h3>
             }

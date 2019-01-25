@@ -5,7 +5,7 @@ import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
 import { YesNoUnknownAnswer } from '../../types';
-import { QUESTION_TEXT_STYLING } from './styling';
+import { SECTION_HEADING_STYLING } from '../styling';
 
 interface Props {
   forSelf: boolean | null;
@@ -125,7 +125,7 @@ export default class BornInBoston extends React.Component<Props, State> {
           <>
             <FieldsetComponent
               legendText={
-                <h2 id="bornInBoston" className={QUESTION_TEXT_STYLING}>
+                <h2 id="bornInBoston" className={SECTION_HEADING_STYLING}>
                   Were {forSelf ? 'you' : 'they'} born in Boston?
                 </h2>
               }
@@ -142,7 +142,7 @@ export default class BornInBoston extends React.Component<Props, State> {
                 legendText={
                   <h3
                     id="parentsLivedInBoston"
-                    className={QUESTION_TEXT_STYLING}
+                    className={SECTION_HEADING_STYLING}
                   >
                     Did {forSelf ? 'your' : 'their'} parents live in Boston at
                     the time of {forSelf ? 'your' : 'their'} birth?
