@@ -4,7 +4,7 @@ import VerifyIdentificationComponent from '../VerifyIdentificationComponent';
 import QuestionComponent from './QuestionComponent';
 import RadioItemComponent from '../RadioItemComponent';
 import AnswerIcon from '../icons/AnswerIcon';
-import IdIcon from '../icons/IdIcon';
+import CertificateIcon from '../icons/CertificateIcon';
 
 import {
   ANSWER_ITEM_STYLING,
@@ -114,7 +114,7 @@ export default class VerifyIdentification extends React.Component<
                       handleChange={this.handleChange}
                       className={ANSWER_ITEM_STYLING}
                     >
-                      <IdIcon />
+                      <CertificateIcon name="id" />
                     </RadioItemComponent>
 
                     <RadioItemComponent

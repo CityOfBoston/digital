@@ -3519,11 +3519,14 @@ exports[`Storyshots Birth/QuestionsFlow verify identification 1`] = `
         className="css-13pp1ml css-1qy40j6  "
       >
         <svg
-          className="css-1o3w7vz"
+          aria-hidden="true"
+          className="css-1g1p5e"
+          focusable="false"
           viewBox="0 0 147 97"
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
+            className="frame"
             height="93"
             width="143"
             x="2"
