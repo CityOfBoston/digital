@@ -59,6 +59,8 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     case 'VOICE':
     case 'SMS':
       if (phoneNumber) {
+        phoneNumber = stripNonDigits(phoneNumber);
+
         phoneOrEmail = phoneNumber;
         loginSession.mfaEmail = null;
         loginSession.mfaPhoneNumber = phoneNumber;
@@ -125,3 +127,7 @@ export const verifyMfaDeviceMutation: MutationResolvers['verifyMfaDevice'] = asy
     error: null,
   };
 };
+
+export function stripNonDigits(num: string): string {
+  return num.replace(/[^\d]/g, '');
+}
