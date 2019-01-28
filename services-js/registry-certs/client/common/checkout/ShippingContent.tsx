@@ -453,18 +453,25 @@ export default class ShippingContent extends React.Component<Props> {
 
         <div className="g g--r g--vc">
           <div className="g--5 m-b500">
-            <button className="btn btn--b" type="submit" disabled={!isValid}>
+            <button
+              className="btn btn--b btn--br"
+              type="submit"
+              disabled={!isValid}
+            >
               Next: Payment
             </button>
           </div>
 
-          {this.props.certificateType === 'death' && (
-            <div className="g--7 m-b500">
+          {/* We always want this cell, even if it’s empty,
+              so that the above cell’s margins aren’t weird
+              from being the first and last child at the same time.*/}
+          <div className="g--7 m-b500">
+            {this.props.certificateType === 'death' && (
               <Link href="/death/cart">
                 <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
               </Link>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </form>
     );

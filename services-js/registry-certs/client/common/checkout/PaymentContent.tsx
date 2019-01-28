@@ -620,7 +620,7 @@ export default class PaymentContent extends React.Component<Props, State> {
         <div className="g g--r g--vc">
           <div className="g--5 m-b500">
             <button
-              className="btn btn--b"
+              className="btn btn--b btn--br"
               type="submit"
               disabled={
                 !isValid ||

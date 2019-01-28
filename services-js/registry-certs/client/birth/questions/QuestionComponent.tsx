@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  BUTTONS_CONTAINER_STYLING,
-  NEXT_BUTTON_STYLE,
-  QUESTION_CONTAINER_STYLING,
-  SECONDARY_BUTTON_STYLE,
-} from '../styling';
+import { QUESTION_CONTAINER_STYLING } from '../styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -28,40 +23,46 @@ export default function QuestionComponent(props: Props): JSX.Element {
     <>
       <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
 
-      <div className={BUTTONS_CONTAINER_STYLING}>
-        {props.handleStepBack && (
-          <button
-            type="button"
-            className={`btn ${SECONDARY_BUTTON_STYLE}`}
-            onClick={props.handleStepBack}
-          >
-            Back
-          </button>
-        )}
+      <div className="g g--r m-t700">
+        <div className="g--4 ta-r m-b500">
+          {props.handleProceed &&
+            !props.startOver && (
+              <button
+                type="button"
+                className="btn btn--br btn--b"
+                onClick={props.handleProceed}
+                disabled={!props.allowProceed}
+              >
+                {props.nextButtonText || 'Next question'}
+              </button>
+            )}
+        </div>
 
-        {/* Button only appears if handler was passed in AND props.startOver is true. */}
-        {props.handleReset &&
-          props.startOver && (
+        <div className="g--5" />
+
+        <div className="g--3 m-b500">
+          {props.handleStepBack && (
             <button
               type="button"
-              className={`btn ${SECONDARY_BUTTON_STYLE}`}
-              onClick={props.handleReset}
+              className="btn btn--b btn--br btn--w"
+              onClick={props.handleStepBack}
             >
-              Back to start
+              Back
             </button>
           )}
 
-        {props.handleProceed &&
-          !props.startOver && (
-            <button
-              type="button"
-              className={`btn ${NEXT_BUTTON_STYLE}`}
-              onClick={props.handleProceed}
-              disabled={!props.allowProceed}
-            >
-              {props.nextButtonText || 'Next question'}
-            </button>
-          )}
+          {/* Button only appears if handler was passed in AND props.startOver is true. */}
+          {props.handleReset &&
+            props.startOver && (
+              <button
+                type="button"
+                className="btn btn--b btn--br btn--w"
+                onClick={props.handleReset}
+              >
+                Back to start
+              </button>
+            )}
+        </div>
       </div>
     </>
   );

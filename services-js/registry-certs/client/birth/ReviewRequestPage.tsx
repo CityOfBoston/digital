@@ -19,12 +19,7 @@ import { PageDependencies } from '../../pages/_app';
 import PageWrapper from './PageWrapper';
 import CostSummary from '../common/CostSummary';
 
-import {
-  BUTTONS_CONTAINER_STYLING,
-  NEXT_BUTTON_STYLE,
-  SECTION_HEADING_STYLING,
-  SECONDARY_BUTTON_STYLE,
-} from './styling';
+import { SECTION_HEADING_STYLING } from './styling';
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 
@@ -132,25 +127,28 @@ export default class ReviewRequestPage extends React.Component<Props> {
           serviceFeeType="CREDIT"
         />
 
-        <div
-          className={BUTTONS_CONTAINER_STYLING}
-          style={{ marginTop: '3rem' }}
-        >
-          <button
-            className={`btn ${SECONDARY_BUTTON_STYLE}`}
-            type="button"
-            onClick={this.returnToQuestions}
-          >
-            Back
-          </button>
+        <div className="m-t700 g g--r">
+          <div className="g--4 m-b500">
+            <button
+              className="btn btn--b btn--br"
+              type="button"
+              onClick={this.goToCheckout}
+            >
+              Continue
+            </button>
+          </div>
 
-          <button
-            className={`btn ${NEXT_BUTTON_STYLE}`}
-            type="button"
-            onClick={this.goToCheckout}
-          >
-            Continue
-          </button>
+          <div className="g--5" />
+
+          <div className="g--3 m-b500">
+            <button
+              className="btn btn--b btn--w btn--br"
+              type="button"
+              onClick={this.returnToQuestions}
+            >
+              Back
+            </button>
+          </div>
         </div>
       </PageWrapper>
     );
