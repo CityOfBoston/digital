@@ -1,5 +1,7 @@
 // Yup requires Array.from(), but does not include the polyfill for IE
 import 'core-js/fn/array/from';
+// Needed for IE11 in our regexp testing below
+import 'core-js/fn/array/find';
 // IE11 will silently fail to understand Yup.ref() without Map polyfill
 import 'core-js/es6/map';
 
