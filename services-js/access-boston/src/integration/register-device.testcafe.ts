@@ -29,11 +29,11 @@ fixture('Device Registration')
       .ok();
   });
 
-test('Device registration', async t => {
+test.only('Device registration', async t => {
   const mfaPage = new DeviceRegistrationPageModel();
 
   await t
-    .click(mfaPage.emailRadioButton)
+    .click(mfaPage.emailLink)
     .typeText(mfaPage.emailField, 'test@boston.gov')
     .pressKey('tab')
     .expect(mfaPage.form.innerText)
@@ -62,6 +62,7 @@ test('Device registration', async t => {
 
   await t
     .click(Selector('button').withText('try a different number or email'))
+    .click(mfaPage.phoneLink)
     .typeText(mfaPage.phoneNumberField, '617 555-1212')
     .click(mfaPage.voiceRadioButton)
     .click(mfaPage.submitButton)

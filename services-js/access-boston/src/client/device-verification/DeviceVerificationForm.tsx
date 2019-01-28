@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormikProps } from 'formik';
+import Link from 'next/link';
 
 import { SectionHeader, RadioGroup } from '@cityofboston/react-fleet';
 
@@ -26,7 +27,10 @@ interface AdditionalProps {
 }
 
 export interface FormValues {
-  phoneOrEmail: string;
+  // Even though this value is only changed by the query parameter to the mfa
+  // page, and not through a form field, we keep it in Formik so that it can be
+  // referenced by the validation rules.
+  phoneOrEmail: 'phone' | 'email';
   smsOrVoice: string;
   email: string;
   phoneNumber: string;
@@ -78,26 +82,6 @@ export default function DeviceVerificationForm(props: Props) {
           <hr className="hr hr--sq" aria-hidden />
 
           <form className="m-v500" onSubmit={handleSubmit}>
-            <div className="m-b500">
-              <RadioGroup
-                groupLabel="How do you want to get your security codes?"
-                name="phoneOrEmail"
-                checkedValue={phoneOrEmail}
-                handleItemChange={handleChange}
-                handleItemBlur={handleBlur}
-                items={[
-                  {
-                    label: (
-                      <span className="ra-l">
-                        Phone — <i>recommended</i>
-                      </span>
-                    ),
-                    value: 'phone',
-                  },
-                  { label: 'Email', value: 'email' },
-                ]}
-              />
-            </div>
             {phoneOrEmail === 'phone' && (
               <>
                 <TextInput
@@ -121,7 +105,7 @@ export default function DeviceVerificationForm(props: Props) {
                 />
 
                 <RadioGroup
-                  groupLabel="How should we send them?"
+                  groupLabel="How should we send security codes?"
                   name="smsOrVoice"
                   checkedValue={smsOrVoice}
                   handleItemChange={handleChange}
@@ -160,6 +144,13 @@ export default function DeviceVerificationForm(props: Props) {
                   renderInputFunc={renderErrorNextToInput}
                   hideErrorMessage
                 />
+
+                <div className="t--subinfo m-v500">
+                  Switch to{' '}
+                  <Link href="/mfa">
+                    <a>get codes via phone call or text</a>
+                  </Link>
+                </div>
               </>
             )}
 
@@ -176,6 +167,15 @@ export default function DeviceVerificationForm(props: Props) {
                 Next Step
               </button>
             </div>
+
+            {phoneOrEmail === 'phone' && (
+              <div className="t--subinfo m-v500">
+                Don’t have access to a phone?<br />
+                <Link href="/mfa?email=1">
+                  <a>Get codes via personal email</a>
+                </Link>
+              </div>
+            )}
           </form>
         </div>
       </div>

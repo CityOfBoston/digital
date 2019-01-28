@@ -6,6 +6,19 @@ setup.
 
 ## Development
 
+### Test authentication
+
+By default, the dev server does not attempt to use real SAML for authentication.
+(You can change this by setting `SAML_IN_DEV=true` in `.env`) You can log in
+with any user ID through the fake login form.
+
+**SPECIAL VALUES**
+
+ * Log in with an account ID that starts with "NEW" to get to the registration
+   flow (See `SamlAuthFake.ts`)
+ * Try to use "wrong-password" as your existing password to get a password
+   creation failure. (See `IdentityIqFake.ts`) 
+
 ### TestCafe
 
 This service has [TestCafé](http://devexpress.github.io/testcafe/) tests to

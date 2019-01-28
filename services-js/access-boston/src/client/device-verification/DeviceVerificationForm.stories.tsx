@@ -4,9 +4,9 @@ import DeviceVerificationForm, { FormValues } from './DeviceVerificationForm';
 import { action } from '@storybook/addon-actions';
 
 const DEFAULT_VALUES: FormValues = {
+  phoneOrEmail: 'phone',
   email: '',
   phoneNumber: '',
-  phoneOrEmail: 'phone',
   smsOrVoice: 'sms',
 };
 
@@ -20,6 +20,7 @@ const DEFAULT_PROPS = {
   isSubmitting: false,
   isValid: true,
   serverError: null,
+  phoneOrEmail: 'phone' as 'phone',
 };
 
 storiesOf('RegisterMfaPage/DeviceVerificationForm', module)
@@ -29,8 +30,8 @@ storiesOf('RegisterMfaPage/DeviceVerificationForm', module)
       {...DEFAULT_PROPS}
       values={{
         ...DEFAULT_VALUES,
-        email: 'notanemail.com',
         phoneOrEmail: 'email',
+        email: 'notanemail.com',
       }}
       errors={{ email: 'This doesn’t look like an email address.' }}
       touched={{ email: true }}

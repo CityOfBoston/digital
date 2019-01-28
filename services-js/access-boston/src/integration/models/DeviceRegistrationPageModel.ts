@@ -7,12 +7,12 @@ import PageModel from './PageModel';
 export default class DeviceRegistrationPageModel extends PageModel {
   form = Selector('.mn form');
 
-  phoneRadioButton = this.form.find('input[value=phone]');
+  phoneLink = this.form.find('a').withText('get codes via phone call or text');
   smsRadioButton = this.form.find('input[value=sms]');
   voiceRadioButton = this.form.find('input[value=voice]');
   phoneNumberField = this.form.find('input[name=phoneNumber]');
 
-  emailRadioButton = this.form.find('input[value=email]');
+  emailLink = this.form.find('a').withText('Get codes via personal email');
   emailField = this.form.find('input[name=email]');
 
   submitButton = this.form.find('button[type=submit]');

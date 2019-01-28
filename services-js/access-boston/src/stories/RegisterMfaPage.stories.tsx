@@ -14,11 +14,23 @@ const ACCOUNT: Account = {
 
 storiesOf('RegisterMfaPage', module)
   .add('default', () => (
-    <RegisterMfaPage account={ACCOUNT} fetchGraphql={null as any} />
+    <RegisterMfaPage
+      account={ACCOUNT}
+      phoneOrEmail="phone"
+      fetchGraphql={null as any}
+    />
+  ))
+  .add('email', () => (
+    <RegisterMfaPage
+      account={ACCOUNT}
+      phoneOrEmail="email"
+      fetchGraphql={null as any}
+    />
   ))
   .add('modal open', () => (
     <RegisterMfaPage
       account={ACCOUNT}
+      phoneOrEmail="phone"
       fetchGraphql={null as any}
       testVerificationCodeModal
     />

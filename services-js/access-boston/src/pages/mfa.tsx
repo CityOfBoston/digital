@@ -26,12 +26,13 @@ import DeviceVerificationModal, {
 } from '../client/device-verification/DeviceVerificationModal';
 import verifyMfaDevice from '../client/graphql/verify-mfa-device';
 
-import { MfaError } from '../client/graphql/queries';
+import { MfaError, VerificationType } from '../client/graphql/queries';
 import RedirectForm from '../client/RedirectForm';
 import { registerDeviceSchema } from '../lib/validation';
 
 interface InitialProps {
   account: Account;
+  phoneOrEmail: 'phone' | 'email';
 }
 
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
@@ -60,16 +61,22 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
   }
 
   static getInitialProps: GetInitialProps<InitialProps> = async (
-    _,
+    { query },
     { fetchGraphql }: GetInitialPropsDependencies
   ) => {
     // We need to do this up top because if the forgot password succeeds on a
     // POST it torches the session.
     const account = await fetchAccount(fetchGraphql);
 
-    return {
+    const out: InitialProps = {
       account,
+      // We use the query string for this rather than form state so that people
+      // can click "back" from the email version of the form and get the phone
+      // version of the form.
+      phoneOrEmail: query['email'] === '1' ? 'email' : 'phone',
     };
+
+    return out;
   };
 
   private formValuesToAddDeviceArgs({
@@ -78,14 +85,14 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
     phoneNumber,
     email,
   }: FormValues): AddMfaDeviceArgs {
-    let type;
+    let type: VerificationType;
 
     if (phoneOrEmail === 'email') {
-      type = 'EMAIL';
+      type = VerificationType.EMAIL;
     } else if (smsOrVoice === 'sms') {
-      type = 'SMS';
+      type = VerificationType.SMS;
     } else {
-      type = 'VOICE';
+      type = VerificationType.VOICE;
     }
 
     return { email, phoneNumber, type };
@@ -180,11 +187,11 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { account, testVerificationCodeModal } = this.props;
+    const { account, testVerificationCodeModal, phoneOrEmail } = this.props;
     const { status, verificationError } = this.state;
 
     const initialValues: FormValues = {
-      phoneOrEmail: 'phone',
+      phoneOrEmail,
       smsOrVoice: 'sms',
       email: '',
       phoneNumber: '',
@@ -202,6 +209,9 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
         <Formik
           ref={this.formikRef as any}
           initialValues={initialValues}
+          // True so Formik response to when phoneOrEmail changes (due to query
+          // parameter changing the prop) in initialValues
+          enableReinitialize
           isInitialValid={false}
           validationSchema={registerDeviceSchema}
           onSubmit={this.handleSubmit}
