@@ -20,8 +20,9 @@ import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../form-elements';
 
 import { runInitialValidation } from './formik-util';
-import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
+import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
+import { Progress } from '../../birth/PageWrapper';
 
 type Props = {
   submit: (
@@ -40,6 +41,7 @@ type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
     });
 
 interface State {
@@ -225,6 +227,11 @@ export default class PaymentContent extends React.Component<Props, State> {
       <CheckoutPageLayout
         certificateType={this.props.certificateType}
         title="Payment"
+        progress={
+          this.props.certificateType === 'birth'
+            ? this.props.progress
+            : undefined
+        }
       >
         <div className="m-v300">{this.renderOrderDetails()}</div>
 
@@ -249,17 +256,24 @@ export default class PaymentContent extends React.Component<Props, State> {
             orderType="death"
             certificateQuantity={props.deathCertificateCart.size}
           >
-            <DeathOrderDetails cart={props.deathCertificateCart} />
+            <OrderDetails
+              type="death"
+              deathCertificateCart={props.deathCertificateCart}
+            />
           </OrderDetailsDropdown>
         );
 
       case 'birth':
         return (
-          // TODO(fiona): Need content for this / replace it
           <OrderDetailsDropdown
             orderType="birth"
             certificateQuantity={props.birthCertificateRequest.quantity}
-          />
+          >
+            <OrderDetails
+              type="birth"
+              birthCertificateRequest={props.birthCertificateRequest}
+            />
+          </OrderDetailsDropdown>
         );
     }
   }

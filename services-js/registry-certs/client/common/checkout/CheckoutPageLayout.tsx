@@ -5,12 +5,15 @@ import { CertificateType } from '../../types';
 import { DeathBreadcrumbNavLinks } from '../../death/breadcrumbs';
 import { BIRTH_BREADCRUMB_NAV_LINKS } from '../../birth/constants';
 import PageLayout from '../../PageLayout';
+import PageWrapper, { Progress } from '../../birth/PageWrapper';
+import { SECTION_HEADING_STYLING } from '../../birth/styling';
 
 type Props = {
   certificateType: CertificateType;
   title?: string;
   children?: React.ReactNode;
   footer?: React.ReactNode;
+  progress?: Progress;
 };
 
 /**
@@ -23,6 +26,7 @@ type Props = {
 export default function CheckoutPageLayout({
   certificateType,
   title,
+  progress,
   footer,
   children,
 }: Props): React.ReactElement<any> {
@@ -34,26 +38,42 @@ export default function CheckoutPageLayout({
   const certificateName =
     certificateType === 'death' ? 'Death Certificates' : 'Birth Certificates';
 
-  return (
-    <PageLayout breadcrumbNav={breadcrumbNav}>
-      {/* We add the "no bottom padding" variant if there’s a full-width footer element to render. */}
-      <div className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}>
-        <Head>
-          <title>
-            Boston.gov — {certificateName} — {title || 'Checkout'}
-          </title>
-        </Head>
-
-        {title && (
-          <div className="sh sh--b0">
-            <h1 className="sh-title">{title}</h1>
-          </div>
-        )}
-
-        {children}
-      </div>
-
-      {footer}
-    </PageLayout>
+  const head = (
+    <Head>
+      <title>
+        Boston.gov — {certificateName} — {title || 'Checkout'}
+      </title>
+    </Head>
   );
+
+  switch (certificateType) {
+    case 'birth':
+      return (
+        <PageWrapper footer={footer} progress={progress}>
+          {head}
+          {title && <h2 className={SECTION_HEADING_STYLING}>{title}</h2>}
+          {children}
+        </PageWrapper>
+      );
+
+    case 'death':
+      return (
+        <PageLayout breadcrumbNav={breadcrumbNav}>
+          {head}
+
+          {/* We add the "no bottom padding" variant if there’s a full-width footer element to render. */}
+          <div className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}>
+            {title && (
+              <div className="sh sh--b0">
+                <h1 className="sh-title">{title}</h1>
+              </div>
+            )}
+
+            {children}
+          </div>
+
+          {footer}
+        </PageLayout>
+      );
+  }
 }

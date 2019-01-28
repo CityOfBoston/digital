@@ -1,18 +1,26 @@
 import React from 'react';
 
-import { DeathCertificate } from '../types';
+import { DeathCertificate, BirthCertificateRequestInformation } from '../types';
 import { css } from 'emotion';
 import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
+import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
-export interface Props {
-  certificate: DeathCertificate;
+export type Props = {
   borderTop: boolean;
   borderBottom: boolean;
   children?: (
     renderedCertificate: React.ReactChild
   ) => React.ReactChild | Array<React.ReactChild>;
   thin?: boolean;
-}
+} & (
+  | {
+      type: 'death';
+      certificate: DeathCertificate;
+    }
+  | {
+      type: 'birth';
+      birthCertificateRequest: BirthCertificateRequest;
+    });
 
 const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
 
@@ -40,8 +48,26 @@ const CERTIFICATE_ROW_STYLE = css({
   alignItems: 'center',
 });
 
+type CertificateProps = {
+  firstName: string;
+  lastName: string;
+  subinfo: string;
+  pending: boolean;
+};
+
+const makeDeathSubinfo = ({
+  deathDate,
+  deathYear,
+  age,
+}: DeathCertificate): string =>
+  `Died: ${deathDate || deathYear} ${age && ` — Age: ${age}`}`;
+
+const makeBirthSubinfo = ({
+  birthDate,
+}: BirthCertificateRequestInformation): string => `Born: ${birthDate}`;
+
 const renderCertificate = (
-  { firstName, lastName, deathDate, deathYear, age, pending }: DeathCertificate,
+  { firstName, lastName, pending, subinfo }: CertificateProps,
   thin: boolean
 ) => (
   <div key="certificate" className={CERTIFICATE_INFO_BOX_STYLE}>
@@ -64,10 +90,7 @@ const renderCertificate = (
       )}
     </div>
 
-    <div className={CERTIFICATE_SUBINFO_STYLE}>
-      Died: {deathDate || deathYear}
-      {age && ` — Age: ${age}`}
-    </div>
+    <div className={CERTIFICATE_SUBINFO_STYLE}>{subinfo}</div>
   </div>
 );
 
@@ -75,13 +98,9 @@ const renderCertificate = (
 // construct their own rows. The function is given a <div> component for the
 // certificate, and they can return it and other elements.
 
-export default function CertificateRow({
-  borderTop,
-  borderBottom,
-  certificate,
-  children,
-  thin,
-}: Props) {
+export default function CertificateRow(props: Props) {
+  const { borderTop, borderBottom, children: wrapperFunc, thin } = props;
+
   let borderClass = '';
 
   if (!thin) {
@@ -94,15 +113,32 @@ export default function CertificateRow({
     }
   }
 
+  const certificateProps: CertificateProps =
+    props.type === 'death'
+      ? {
+          firstName: props.certificate.firstName,
+          lastName: props.certificate.lastName,
+          pending: props.certificate.pending,
+          subinfo: makeDeathSubinfo(props.certificate),
+        }
+      : {
+          firstName: props.birthCertificateRequest.requestInformation.firstName,
+          lastName: props.birthCertificateRequest.requestInformation.lastName,
+          pending: false,
+          subinfo: makeBirthSubinfo(
+            props.birthCertificateRequest.requestInformation
+          ),
+        };
+
   return (
     <div
       className={`${
         thin ? 'p-v200' : 'p-v300'
       } br b--w ${CERTIFICATE_ROW_STYLE} ${borderClass}`}
     >
-      {children
-        ? children(renderCertificate(certificate, !!thin))
-        : renderCertificate(certificate, !!thin)}
+      {wrapperFunc
+        ? wrapperFunc(renderCertificate(certificateProps, !!thin))
+        : renderCertificate(certificateProps, !!thin)}
     </div>
   );
 }

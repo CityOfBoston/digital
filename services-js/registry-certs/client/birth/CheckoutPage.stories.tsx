@@ -11,8 +11,17 @@ import BirthCertificateRequest from '../store/BirthCertificateRequest';
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
 
-function makeBirthCertificateRequest(): BirthCertificateRequest {
-  return new BirthCertificateRequest();
+function makeBirthCertificateRequest() {
+  const request = new BirthCertificateRequest();
+
+  request.quantity = 4;
+  request.answerQuestion({
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    birthDate: '3/5/1968',
+  });
+
+  return request;
 }
 
 function makeShippingCompleteOrder(overrides: Partial<OrderInfo> = {}) {

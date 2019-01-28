@@ -27,47 +27,73 @@ import {
 
 import CertificateRow from '../../common/CertificateRow';
 import { observer } from 'mobx-react';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-interface DeathOrderProps {
-  cart: DeathCertificateCart;
-  thin?: boolean;
-}
+type OrderDetailsProps =
+  | {
+      type: 'death';
+      deathCertificateCart: DeathCertificateCart;
+      thin?: boolean;
+    }
+  | {
+      type: 'birth';
+      birthCertificateRequest: BirthCertificateRequest;
+      thin?: boolean;
+    };
 
 /**
  * Displays a list of all death certificates in an order’s cart.
  * Use as child of OrderDetailsDropdown component, or it can be used alone.
  */
-export const DeathOrderDetails = observer(function DeathOrderDetails(
-  props: DeathOrderProps
+export const OrderDetails = observer(function OrderDetails(
+  props: OrderDetailsProps
 ) {
-  const { cart, thin } = props;
+  const makeWrapRow = quantity => certificateDiv => (
+    <>
+      <div className="t--sans p-a300" style={{ fontWeight: 'bold' }}>
+        <span aria-label="Quantity">{quantity}</span> ×
+      </div>
 
-  const certificateRows = cart.entries.map(
-    ({ cert, quantity }, i) =>
-      cert && (
-        <CertificateRow
-          key={cert.id}
-          certificate={cert}
-          borderTop={i !== 0}
-          borderBottom={i === cart.entries.length - 1}
-          thin={thin}
-        >
-          {certificateDiv => [
-            <div
-              key="quantity"
-              className="t--sans p-a300"
-              style={{ fontWeight: 'bold' }}
-            >
-              <span aria-label="Quantity">{quantity}</span> ×
-            </div>,
-
-            certificateDiv,
-          ]}
-        </CertificateRow>
-      )
+      {certificateDiv}
+    </>
   );
 
-  return <div>{certificateRows}</div>;
+  switch (props.type) {
+    case 'death':
+      return (
+        <div>
+          {props.deathCertificateCart.entries.map(
+            ({ cert, quantity }, i) =>
+              cert && (
+                <CertificateRow
+                  type="death"
+                  key={cert.id}
+                  certificate={cert}
+                  borderTop={i !== 0}
+                  borderBottom={
+                    i === props.deathCertificateCart.entries.length - 1
+                  }
+                  thin={props.thin}
+                  children={makeWrapRow(quantity)}
+                />
+              )
+          )}
+        </div>
+      );
+    case 'birth':
+      return (
+        <div>
+          <CertificateRow
+            type="birth"
+            birthCertificateRequest={props.birthCertificateRequest}
+            borderTop={false}
+            borderBottom={true}
+            thin={props.thin}
+            children={makeWrapRow(props.birthCertificateRequest.quantity)}
+          />
+        </div>
+      );
+  }
 });
 
 interface DropdownProps {
@@ -178,7 +204,6 @@ export class OrderDetailsDropdown extends React.Component<
         >
           {open && (
             <div className={`dr-c ${DRAWER_CONTENT_STYLE}`}>
-              {/* <(Death|Birth)OrderDetails> component */}
               {children}
 
               <div className="t--subinfo p-a300">

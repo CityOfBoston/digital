@@ -138,5 +138,10 @@ storiesOf('Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
+      progress={{
+        currentStep: 7,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
     />
   ));

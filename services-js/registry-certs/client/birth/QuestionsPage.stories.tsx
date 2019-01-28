@@ -17,43 +17,53 @@ storiesOf('Birth/QuestionsFlow', module)
     <QuestionsPage birthCertificateRequest={birthCertificateRequest} />
   ))
   .add('who is this for?', () => (
-    <ForWhom
-      forSelf={null}
-      handleProceed={() => {}}
-      handleStepCompletion={() => {}}
-    />
+    <div className="b-c b-c--nbp b-c--hsm">
+      <ForWhom
+        forSelf={null}
+        handleProceed={() => {}}
+        handleStepCompletion={() => {}}
+      />
+    </div>
   ))
   .add('born in Boston?', () => (
-    <BornInBoston
-      forSelf={true}
-      handleProceed={() => {}}
-      handleStepCompletion={() => {}}
-      handleStepBack={() => {}}
-      handleUserReset={() => {}}
-    />
+    <div className="b-c b-c--nbp b-c--hsm">
+      <BornInBoston
+        forSelf={true}
+        handleProceed={() => {}}
+        handleStepCompletion={() => {}}
+        handleStepBack={() => {}}
+        handleUserReset={() => {}}
+      />
+    </div>
   ))
   .add('personal information', () => (
-    <PersonalInformation
-      forSelf={true}
-      handleProceed={() => {}}
-      handleStepCompletion={() => {}}
-      handleStepBack={() => {}}
-    />
+    <div className="b-c b-c--nbp b-c--hsm">
+      <PersonalInformation
+        forSelf={true}
+        handleProceed={() => {}}
+        handleStepCompletion={() => {}}
+        handleStepBack={() => {}}
+      />
+    </div>
   ))
   .add('parental information', () => (
-    <ParentalInformation
-      forSelf={false}
-      firstName="Stacy"
-      handleProceed={() => {}}
-      handleStepCompletion={() => {}}
-      handleStepBack={() => {}}
-      verificationStepRequired={() => {}}
-    />
+    <div className="b-c b-c--nbp b-c--hsm">
+      <ParentalInformation
+        forSelf={false}
+        firstName="Stacy"
+        handleProceed={() => {}}
+        handleStepCompletion={() => {}}
+        handleStepBack={() => {}}
+        verificationStepRequired={() => {}}
+      />
+    </div>
   ))
   .add('verify identification', () => (
-    <VerifyIdentification
-      handleStepCompletion={() => {}}
-      handleProceed={() => {}}
-      handleStepBack={() => {}}
-    />
+    <div className="b-c b-c--nbp b-c--hsm">
+      <VerifyIdentification
+        handleStepCompletion={() => {}}
+        handleProceed={() => {}}
+        handleStepBack={() => {}}
+      />
+    </div>
   ));

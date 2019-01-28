@@ -130,6 +130,7 @@ export default class CartItem extends React.Component<Props, State> {
     return (
       <div>
         <CertificateRow
+          type="death"
           certificate={cert}
           borderTop={true}
           borderBottom={lastRow}

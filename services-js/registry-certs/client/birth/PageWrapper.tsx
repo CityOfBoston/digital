@@ -6,7 +6,7 @@ import PageLayout from '../PageLayout';
 
 import { BIRTH_BREADCRUMB_NAV_LINKS } from './constants';
 
-interface Progress {
+export interface Progress {
   totalSteps: number;
   currentStep: number;
   currentStepCompleted: boolean;
@@ -14,6 +14,7 @@ interface Progress {
 
 interface Props {
   progress?: Progress;
+  footer?: React.ReactNode;
 }
 
 /**
@@ -29,15 +30,22 @@ export default class PageWrapper extends React.Component<Props> {
   }
 
   render() {
+    const { progress, footer, children } = this.props;
+
     return (
       <PageLayout breadcrumbNav={BIRTH_BREADCRUMB_NAV_LINKS}>
-        <div className="b-c b-c--nbp" aria-live="polite">
+        <div
+          className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}
+          aria-live="polite"
+        >
           <h1 className="sh-title">Request a birth certificate</h1>
 
-          {this.props.progress && <ProgressBar {...this.props.progress} />}
+          {progress && <ProgressBar {...progress} />}
 
-          <section className="m-t500">{this.props.children}</section>
+          <section className="m-t500">{children}</section>
         </div>
+
+        {footer}
       </PageLayout>
     );
   }

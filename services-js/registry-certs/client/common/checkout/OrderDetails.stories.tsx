@@ -4,13 +4,14 @@ import { runInAction } from 'mobx';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 
-import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
+import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 function makeCart(loading: boolean): any {
   const cart = new DeathCertificateCart();
@@ -40,6 +41,19 @@ function makeCart(loading: boolean): any {
   return cart;
 }
 
+function makeBirthCertificateRequest(): BirthCertificateRequest {
+  const request = new BirthCertificateRequest();
+
+  request.quantity = 4;
+  request.answerQuestion({
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    birthDate: '3/5/1968',
+  });
+
+  return request;
+}
+
 const loadingCart = makeCart(true);
 const deathCart = makeCart(false);
 
@@ -49,7 +63,7 @@ storiesOf('Common Components/Order Details', module)
       orderType="death"
       certificateQuantity={loadingCart.size}
     >
-      <DeathOrderDetails cart={loadingCart} />
+      <OrderDetails type="death" deathCertificateCart={loadingCart} />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetailsDropdown: closed', () => (
@@ -57,7 +71,7 @@ storiesOf('Common Components/Order Details', module)
       orderType="death"
       certificateQuantity={deathCart.size}
     >
-      <DeathOrderDetails cart={deathCart} />
+      <OrderDetails type="death" deathCertificateCart={deathCart} />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetailsDropdown: open', () => (
@@ -66,7 +80,27 @@ storiesOf('Common Components/Order Details', module)
       certificateQuantity={deathCart.size}
       startExpanded
     >
-      <DeathOrderDetails cart={deathCart} />
+      <OrderDetails type="death" deathCertificateCart={deathCart} />
     </OrderDetailsDropdown>
   ))
-  .add('DeathOrderDetails', () => <DeathOrderDetails cart={deathCart} />);
+  .add('OrderDetailsDropdown: birth open', () => (
+    <OrderDetailsDropdown
+      orderType="birth"
+      certificateQuantity={4}
+      startExpanded
+    >
+      <OrderDetails
+        type="birth"
+        birthCertificateRequest={makeBirthCertificateRequest()}
+      />
+    </OrderDetailsDropdown>
+  ))
+  .add('OrderDetails: death', () => (
+    <OrderDetails type="death" deathCertificateCart={deathCart} />
+  ))
+  .add('OrderDetails: birth', () => (
+    <OrderDetails
+      type="birth"
+      birthCertificateRequest={makeBirthCertificateRequest()}
+    />
+  ));

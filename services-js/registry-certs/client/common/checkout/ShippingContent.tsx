@@ -12,8 +12,9 @@ import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../form-elements';
 
 import { runInitialValidation } from './formik-util';
-import { DeathOrderDetails, OrderDetailsDropdown } from './OrderDetails';
+import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
+import { Progress } from '../../birth/PageWrapper';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
@@ -26,6 +27,7 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
     });
 
 export interface ShippingInfo {
@@ -90,7 +92,15 @@ export default class ShippingContent extends React.Component<Props> {
     const { submit, certificateType } = this.props;
 
     return (
-      <CheckoutPageLayout certificateType={certificateType} title="Checkout">
+      <CheckoutPageLayout
+        certificateType={certificateType}
+        title={certificateType === 'death' ? 'Checkout' : 'Shipping'}
+        progress={
+          this.props.certificateType === 'birth'
+            ? this.props.progress
+            : undefined
+        }
+      >
         <div className="m-v300">{this.renderOrderDetails()}</div>
 
         <Formik
@@ -114,17 +124,24 @@ export default class ShippingContent extends React.Component<Props> {
             orderType="death"
             certificateQuantity={props.deathCertificateCart.size}
           >
-            <DeathOrderDetails cart={props.deathCertificateCart} />
+            <OrderDetails
+              type="death"
+              deathCertificateCart={props.deathCertificateCart}
+            />
           </OrderDetailsDropdown>
         );
 
       case 'birth':
         return (
-          // TODO(fiona): Need content for this / replace it
           <OrderDetailsDropdown
             orderType="birth"
             certificateQuantity={props.birthCertificateRequest.quantity}
-          />
+          >
+            <OrderDetails
+              type="birth"
+              birthCertificateRequest={props.birthCertificateRequest}
+            />
+          </OrderDetailsDropdown>
         );
     }
   }
@@ -469,6 +486,12 @@ export default class ShippingContent extends React.Component<Props> {
             {this.props.certificateType === 'death' && (
               <Link href="/death/cart">
                 <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
+              </Link>
+            )}
+
+            {this.props.certificateType === 'birth' && (
+              <Link href="/birth/review">
+                <a className="btn btn--w btn--b-sm btn--br">Back</a>
               </Link>
             )}
           </div>
