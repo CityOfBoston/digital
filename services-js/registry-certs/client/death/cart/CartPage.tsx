@@ -101,7 +101,10 @@ class CartPage extends React.Component<Props> {
                       href="/death/checkout"
                       prefetch={process.env.NODE_ENV !== 'test'}
                     >
-                      <a className="btn ta-c" style={{ display: 'block' }}>
+                      <a
+                        className="btn btn--br ta-c"
+                        style={{ display: 'block' }}
+                      >
                         Go to checkout
                       </a>
                     </Link>

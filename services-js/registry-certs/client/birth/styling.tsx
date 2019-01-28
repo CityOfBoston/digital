@@ -243,32 +243,6 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
   },
 });
 
-export const BUTTONS_CONTAINER_STYLING = css({
-  display: 'flex',
-  flexDirection: 'column',
-  margin: '3rem 0',
-
-  [MEDIA_SMALL]: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-
-  button: {
-    display: 'block',
-    width: '100%',
-    marginBottom: '2rem',
-
-    [MEDIA_SMALL]: {
-      width: 'auto',
-      marginBottom: 0,
-
-      '&:only-of-type': {
-        marginLeft: 'auto',
-      },
-    },
-  },
-});
-
 export const NAME_FIELDS_CONTAINER_STYLING = css({
   [MEDIA_MEDIUM]: {
     display: 'flex',
@@ -287,40 +261,5 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
         marginLeft: '2rem',
       },
     },
-  },
-});
-
-// Ensures “next” button comes before “back” on mobile, while maintaining the
-// visually-apparent tab order on larger screens.
-export const NEXT_BUTTON_STYLE = css({
-  border: BORDER_STYLE,
-  borderColor: WHITE,
-
-  order: -1,
-
-  [MEDIA_SMALL]: {
-    order: 0,
-  },
-
-  '&:not(:disabled)': {
-    borderColor: CHARLES_BLUE,
-  },
-
-  '&:focus': {
-    ...FOCUS_STYLE,
-  },
-});
-
-export const SECONDARY_BUTTON_STYLE = css({
-  backgroundColor: WHITE,
-  color: OPTIMISTIC_BLUE,
-  border: BORDER_STYLE,
-
-  '&:hover': {
-    backgroundColor: GRAY_100,
-  },
-
-  '&:focus': {
-    ...FOCUS_STYLE,
   },
 });
