@@ -3,6 +3,7 @@ import { processStripeEvent } from './stripe-events';
 import { DeathCertificateSearchResult } from './services/RegistryDb';
 
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
+import CHARGE_UNCAPTURED from '../fixtures/stripe/charge-uncaptured.json';
 import ORDER from '../fixtures/registry-orders/order.json';
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
 import RegistryDbFake from './services/RegistryDbFake';
@@ -27,6 +28,22 @@ describe('charge.created', () => {
       .mockReturnValue(Promise.resolve(CERTIFICATES[0]));
     jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
     jest.spyOn(registryDb, 'addPayment');
+  });
+
+  it('ignores uncaptured charges', async () => {
+    await processStripeEvent(
+      {
+        emails,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify(CHARGE_UNCAPTURED)
+    );
+
+    expect(registryDb.addPayment).not.toHaveBeenCalled();
+    expect(emails.sendReceiptEmail).not.toHaveBeenCalled();
   });
 
   it('marks the order as paid', async () => {

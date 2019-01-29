@@ -57,6 +57,12 @@ export async function processChargeSucceeded(
     return;
   }
 
+  // This happens when birth certs creates holds on the card, waiting for
+  // fulfillment.
+  if (!charge.captured) {
+    return;
+  }
+
   // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
   // side of things. This could be more principled.
   const order = await loadOrder(registryDb, orderId);
