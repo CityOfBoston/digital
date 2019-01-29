@@ -128,9 +128,9 @@ export default class ReviewRequestPage extends React.Component<Props> {
         />
 
         <div className="m-t700 g g--r">
-          <div className="g--4 m-b500">
+          <div className="g--6 ta-r m-b500">
             <button
-              className="btn btn--b btn--br"
+              className="btn btn--b-sm btn--br"
               type="button"
               onClick={this.goToCheckout}
             >
@@ -138,11 +138,9 @@ export default class ReviewRequestPage extends React.Component<Props> {
             </button>
           </div>
 
-          <div className="g--5" />
-
-          <div className="g--3 m-b500">
+          <div className="g--6 m-b500">
             <button
-              className="btn btn--b btn--w btn--br"
+              className="btn btn--b-sm btn--w btn--br"
               type="button"
               onClick={this.returnToQuestions}
             >

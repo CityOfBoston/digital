@@ -24,12 +24,12 @@ export default function QuestionComponent(props: Props): JSX.Element {
       <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
 
       <div className="g g--r m-t700">
-        <div className="g--4 ta-r m-b500">
+        <div className="g--6 ta-r m-b500">
           {props.handleProceed &&
             !props.startOver && (
               <button
                 type="button"
-                className="btn btn--br btn--b"
+                className="btn btn--br btn--b-sm"
                 onClick={props.handleProceed}
                 disabled={!props.allowProceed}
               >
@@ -38,13 +38,11 @@ export default function QuestionComponent(props: Props): JSX.Element {
             )}
         </div>
 
-        <div className="g--5" />
-
-        <div className="g--3 m-b500">
+        <div className="g--6 m-b500">
           {props.handleStepBack && (
             <button
               type="button"
-              className="btn btn--b btn--br btn--w"
+              className="btn btn--b-sm btn--br btn--w"
               onClick={props.handleStepBack}
             >
               Back
@@ -56,7 +54,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
             props.startOver && (
               <button
                 type="button"
-                className="btn btn--b btn--br btn--w"
+                className="btn btn--b-sm btn--br btn--w"
                 onClick={props.handleReset}
               >
                 Back to start
