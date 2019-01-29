@@ -469,9 +469,9 @@ export default class ShippingContent extends React.Component<Props> {
         </div>
 
         <div className="g g--r g--vc">
-          <div className="g--5 m-b500">
+          <div className="g--5 ta-r m-b500">
             <button
-              className="btn btn--b btn--br"
+              className="btn btn--b-sm btn--br"
               type="submit"
               disabled={!isValid}
             >

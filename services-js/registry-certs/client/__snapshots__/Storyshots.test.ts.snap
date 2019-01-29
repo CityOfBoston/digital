@@ -481,10 +481,10 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                 className="g g--r g--vc"
               >
                 <div
-                  className="g--5 m-b500"
+                  className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b btn--br"
+                    className="btn btn--b-sm btn--br"
                     disabled={true}
                     type="submit"
                   >
@@ -495,15 +495,11 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
+                    className="btn btn--w btn--br btn--b-sm"
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
-                    style={
-                      Object {
-                        "fontStyle": "italic",
-                      }
-                    }
                   >
-                    ← Back to shipping information
+                    Back
                   </a>
                 </div>
               </div>
@@ -2421,10 +2417,10 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                 className="g g--r g--vc"
               >
                 <div
-                  className="g--5 m-b500"
+                  className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b btn--br"
+                    className="btn btn--b-sm btn--br"
                     disabled={true}
                     type="submit"
                   >
@@ -2850,10 +2846,10 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsPage 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--4 ta-r m-b500"
+                className="g--6 ta-r m-b500"
               >
                 <button
-                  className="btn btn--br btn--b"
+                  className="btn btn--br btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -2862,10 +2858,7 @@ exports[`Storyshots Birth/QuestionsFlow QuestionsPage 1`] = `
                 </button>
               </div>
               <div
-                className="g--5"
-              />
-              <div
-                className="g--3 m-b500"
+                className="g--6 m-b500"
               />
             </div>
           </section>
@@ -3048,10 +3041,10 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
       className="g g--r m-t700"
     >
       <div
-        className="g--4 ta-r m-b500"
+        className="g--6 ta-r m-b500"
       >
         <button
-          className="btn btn--br btn--b"
+          className="btn btn--br btn--b-sm"
           disabled={true}
           onClick={[Function]}
           type="button"
@@ -3060,13 +3053,10 @@ exports[`Storyshots Birth/QuestionsFlow born in Boston? 1`] = `
         </button>
       </div>
       <div
-        className="g--5"
-      />
-      <div
-        className="g--3 m-b500"
+        className="g--6 m-b500"
       >
         <button
-          className="btn btn--b btn--br btn--w"
+          className="btn btn--b-sm btn--br btn--w"
           onClick={[Function]}
           type="button"
         >
@@ -3407,10 +3397,10 @@ exports[`Storyshots Birth/QuestionsFlow parental information 1`] = `
       className="g g--r m-t700"
     >
       <div
-        className="g--4 ta-r m-b500"
+        className="g--6 ta-r m-b500"
       >
         <button
-          className="btn btn--br btn--b"
+          className="btn btn--br btn--b-sm"
           disabled={true}
           onClick={[Function]}
           type="button"
@@ -3419,13 +3409,10 @@ exports[`Storyshots Birth/QuestionsFlow parental information 1`] = `
         </button>
       </div>
       <div
-        className="g--5"
-      />
-      <div
-        className="g--3 m-b500"
+        className="g--6 m-b500"
       >
         <button
-          className="btn btn--b btn--br btn--w"
+          className="btn btn--b-sm btn--br btn--w"
           onClick={[Function]}
           type="button"
         >
@@ -3627,10 +3614,10 @@ exports[`Storyshots Birth/QuestionsFlow personal information 1`] = `
       className="g g--r m-t700"
     >
       <div
-        className="g--4 ta-r m-b500"
+        className="g--6 ta-r m-b500"
       >
         <button
-          className="btn btn--br btn--b"
+          className="btn btn--br btn--b-sm"
           disabled={true}
           onClick={[Function]}
           type="button"
@@ -3639,13 +3626,10 @@ exports[`Storyshots Birth/QuestionsFlow personal information 1`] = `
         </button>
       </div>
       <div
-        className="g--5"
-      />
-      <div
-        className="g--3 m-b500"
+        className="g--6 m-b500"
       >
         <button
-          className="btn btn--b btn--br btn--w"
+          className="btn btn--b-sm btn--br btn--w"
           onClick={[Function]}
           type="button"
         >
@@ -3833,10 +3817,10 @@ exports[`Storyshots Birth/QuestionsFlow verify identification 1`] = `
       className="g g--r m-t700"
     >
       <div
-        className="g--4 ta-r m-b500"
+        className="g--6 ta-r m-b500"
       >
         <button
-          className="btn btn--br btn--b"
+          className="btn btn--br btn--b-sm"
           disabled={true}
           onClick={[Function]}
           type="button"
@@ -3845,13 +3829,10 @@ exports[`Storyshots Birth/QuestionsFlow verify identification 1`] = `
         </button>
       </div>
       <div
-        className="g--5"
-      />
-      <div
-        className="g--3 m-b500"
+        className="g--6 m-b500"
       >
         <button
-          className="btn btn--b btn--br btn--w"
+          className="btn btn--b-sm btn--br btn--w"
           onClick={[Function]}
           type="button"
         >
@@ -3976,10 +3957,10 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
       className="g g--r m-t700"
     >
       <div
-        className="g--4 ta-r m-b500"
+        className="g--6 ta-r m-b500"
       >
         <button
-          className="btn btn--br btn--b"
+          className="btn btn--br btn--b-sm"
           disabled={true}
           onClick={[Function]}
           type="button"
@@ -3988,10 +3969,7 @@ exports[`Storyshots Birth/QuestionsFlow who is this for? 1`] = `
         </button>
       </div>
       <div
-        className="g--5"
-      />
-      <div
-        className="g--3 m-b500"
+        className="g--6 m-b500"
       />
     </div>
   </div>
@@ -4693,10 +4671,10 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               className="m-t700 g g--r"
             >
               <div
-                className="g--4 m-b500"
+                className="g--6 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   onClick={[Function]}
                   type="button"
                 >
@@ -4704,13 +4682,10 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 </button>
               </div>
               <div
-                className="g--5"
-              />
-              <div
-                className="g--3 m-b500"
+                className="g--6 m-b500"
               >
                 <button
-                  className="btn btn--b btn--w btn--br"
+                  className="btn btn--b-sm btn--w btn--br"
                   onClick={[Function]}
                   type="button"
                 >
@@ -6678,10 +6653,10 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -7674,10 +7649,10 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -8694,10 +8669,10 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                 className="g g--r g--vc"
               >
                 <div
-                  className="g--5 m-b500"
+                  className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b btn--br"
+                    className="btn btn--b-sm btn--br"
                     disabled={false}
                     type="submit"
                   >
@@ -8708,15 +8683,11 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
+                    className="btn btn--w btn--br btn--b-sm"
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
-                    style={
-                      Object {
-                        "fontStyle": "italic",
-                      }
-                    }
                   >
-                    ← Back to shipping information
+                    Back
                   </a>
                 </div>
               </div>
@@ -9216,10 +9187,10 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -9733,10 +9704,10 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -10729,10 +10700,10 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={false}
                   type="submit"
                 >
@@ -17281,10 +17252,10 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
                 className="g g--r g--vc"
               >
                 <div
-                  className="g--5 m-b500"
+                  className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b btn--br"
+                    className="btn btn--b-sm btn--br"
                     disabled={false}
                     type="submit"
                   >
@@ -18264,10 +18235,10 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -19250,10 +19221,10 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={true}
                   type="submit"
                 >
@@ -20236,10 +20207,10 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
               className="g g--r g--vc"
             >
               <div
-                className="g--5 m-b500"
+                className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b btn--br"
+                  className="btn btn--b-sm btn--br"
                   disabled={false}
                   type="submit"
                 >
@@ -22745,17 +22716,12 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                   className="g--8"
                 />
                 <div
-                  className="ta-c ta-r--large g--4 m-v500"
+                  className="ta-r g--4 m-v500"
                 >
                   <a
-                    className="btn btn--br ta-c"
+                    className="btn btn--br btn--b-sm"
                     href="/death/checkout"
                     onClick={[Function]}
-                    style={
-                      Object {
-                        "display": "block",
-                      }
-                    }
                   >
                     Go to checkout
                   </a>
@@ -23383,17 +23349,12 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   className="g--8"
                 />
                 <div
-                  className="ta-c ta-r--large g--4 m-v500"
+                  className="ta-r g--4 m-v500"
                 >
                   <a
-                    className="btn btn--br ta-c"
+                    className="btn btn--br btn--b-sm"
                     href="/death/checkout"
                     onClick={[Function]}
-                    style={
-                      Object {
-                        "display": "block",
-                      }
-                    }
                   >
                     Go to checkout
                   </a>

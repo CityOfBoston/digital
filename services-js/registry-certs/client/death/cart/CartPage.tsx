@@ -96,17 +96,12 @@ class CartPage extends React.Component<Props> {
 
                 <div className="g">
                   <div className="g--8" />
-                  <div className="ta-c ta-r--large g--4 m-v500">
+                  <div className="ta-r g--4 m-v500">
                     <Link
                       href="/death/checkout"
                       prefetch={process.env.NODE_ENV !== 'test'}
                     >
-                      <a
-                        className="btn btn--br ta-c"
-                        style={{ display: 'block' }}
-                      >
-                        Go to checkout
-                      </a>
+                      <a className="btn btn--br btn--b-sm">Go to checkout</a>
                     </Link>
                   </div>
                 </div>

@@ -632,9 +632,9 @@ export default class PaymentContent extends React.Component<Props, State> {
         )}
 
         <div className="g g--r g--vc">
-          <div className="g--5 m-b500">
+          <div className="g--5 ta-r m-b500">
             <button
-              className="btn btn--b btn--br"
+              className="btn btn--b-sm btn--br"
               type="submit"
               disabled={
                 !isValid ||
@@ -649,9 +649,13 @@ export default class PaymentContent extends React.Component<Props, State> {
 
           <div className="g--7 m-b500">
             <Link href={shippingUrl}>
-              <a style={{ fontStyle: 'italic' }}>
-                ← Back to shipping information
-              </a>
+              {this.props.certificateType === 'death' ? (
+                <a style={{ fontStyle: 'italic' }}>
+                  ← Back to shipping information
+                </a>
+              ) : (
+                <a className="btn btn--w btn--br btn--b-sm">Back</a>
+              )}
             </Link>
           </div>
         </div>
