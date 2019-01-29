@@ -109,8 +109,6 @@ export default class ParentalInformation extends React.Component<Props, State> {
   ): void {
     // Check whether the ID verification step will be required.
     if (prevState.parentsMarried !== this.state.parentsMarried) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-
       if (
         this.state.parentsMarried === 'no' ||
         this.state.parentsMarried === 'unknown'

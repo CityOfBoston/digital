@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import { observer } from 'mobx-react';
 
-import { PageDependencies } from '../../pages/_app';
+import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
 import PageWrapper from './PageWrapper';
 
@@ -15,8 +15,15 @@ import ParentalInformation from './questions/ParentalInformation';
 import VerifyIdentification from './questions/VerifyIdentification';
 
 import { BirthCertificateRequestInformation, Step } from '../types';
+import { DEFAULT_STEPS } from '../store/BirthCertificateRequest';
 
-interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
+interface InitialProps {
+  currentStep: Step;
+}
+
+interface Props
+  extends InitialProps,
+    Pick<PageDependencies, 'birthCertificateRequest'> {}
 
 /**
  * Guides the user through a number of questions, step by step, in order to
@@ -27,15 +34,53 @@ interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
  */
 @observer
 export default class QuestionsPage extends React.Component<Props> {
+  static getInitialProps: GetInitialProps<InitialProps, 'query' | 'res'> = ({
+    res,
+    query,
+  }) => {
+    // The lookup into DEFAULT_STEPS ensures that we get an actual step.
+    const currentStepIndex = DEFAULT_STEPS.indexOf(
+      (query['step'] as any) || DEFAULT_STEPS[0]
+    );
+
+    // We only allow the first step for server-side rendering. This means
+    // that we don’t have to accommodate someone manually changing the
+    // URL to a step ahead of what they’ve filled out.
+    if (res && currentStepIndex !== 0) {
+      res.writeHead(302, { Location: '/birth' });
+      res.end();
+
+      // Need to return something for type safety, but Next.js will halt
+      // rendering once it sees that the response has been written.
+      return {
+        currentStep: DEFAULT_STEPS[0],
+      };
+    }
+
+    if (currentStepIndex === -1) {
+      throw new Error(`Unknown step ${query['step']}`);
+    }
+
+    return {
+      currentStep: DEFAULT_STEPS[currentStepIndex],
+    };
+  };
+
+  componentDidMount() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.currentStep !== this.props.currentStep) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }
+
   private answerQuestion = (
     question: Step,
     answers: Partial<BirthCertificateRequestInformation>
   ): void => {
-    const {
-      answerQuestion,
-      setCurrentStep,
-      steps,
-    } = this.props.birthCertificateRequest;
+    const { answerQuestion, steps } = this.props.birthCertificateRequest;
     const currentIndex = steps.indexOf(question);
 
     // We need to convert this value to a boolean for the request state object.
@@ -60,22 +105,20 @@ export default class QuestionsPage extends React.Component<Props> {
     } else if (question === 'verifyIdentification') {
       Router.push('/birth/review');
     } else {
-      setCurrentStep(steps[currentIndex + 1]);
+      Router.push(`/birth?step=${steps[currentIndex + 1]}`);
     }
   };
 
   private stepBackOneQuestion = (): void => {
     const {
-      steps,
+      birthCertificateRequest: { steps },
       currentStep,
-      setCurrentStep,
-    } = this.props.birthCertificateRequest;
+    } = this.props;
     const currentIndex = steps.indexOf(currentStep);
 
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
-
-    setCurrentStep(steps[newIndex]);
+    Router.push(`/birth?step=${steps[newIndex]}`);
   };
 
   // Clear all data and return to initial question.
@@ -85,12 +128,14 @@ export default class QuestionsPage extends React.Component<Props> {
 
   public render() {
     const {
-      requestInformation: answers,
-      steps,
+      birthCertificateRequest: {
+        requestInformation: answers,
+        steps,
+        currentStepCompleted,
+        setCurrentStepCompleted,
+      },
       currentStep,
-      currentStepCompleted,
-      setCurrentStepCompleted,
-    } = this.props.birthCertificateRequest;
+    } = this.props;
 
     return (
       <PageWrapper

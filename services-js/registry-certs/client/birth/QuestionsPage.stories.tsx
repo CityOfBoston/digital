@@ -14,7 +14,10 @@ const birthCertificateRequest = new BirthCertificateRequest();
 
 storiesOf('Birth/QuestionsFlow', module)
   .add('QuestionsPage', () => (
-    <QuestionsPage birthCertificateRequest={birthCertificateRequest} />
+    <QuestionsPage
+      birthCertificateRequest={birthCertificateRequest}
+      currentStep={'forWhom'}
+    />
   ))
   .add('who is this for?', () => (
     <div className="b-c b-c--nbp b-c--hsm">

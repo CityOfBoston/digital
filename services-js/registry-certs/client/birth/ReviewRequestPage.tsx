@@ -32,6 +32,10 @@ interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
  */
 @observer
 export default class ReviewRequestPage extends React.Component<Props> {
+  componentDidMount() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
   private handleQuantityChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -47,7 +51,13 @@ export default class ReviewRequestPage extends React.Component<Props> {
   };
 
   private returnToQuestions = () => {
-    Router.push('/birth');
+    const {
+      birthCertificateRequest: { steps },
+    } = this.props;
+
+    const currentStepIndex = steps.indexOf('reviewRequest');
+
+    Router.push(`/birth?step=${steps[currentStepIndex - 1]}`);
   };
 
   private goToCheckout = () => {
