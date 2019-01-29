@@ -12,6 +12,7 @@ import ShippingContent from '../common/checkout/ShippingContent';
 import PaymentContent from '../common/checkout/PaymentContent';
 import ReviewContent from '../common/checkout/ReviewContent';
 import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
+import BirthConfirmationContent from './BirthConfirmationContent';
 
 type PageInfo =
   | {
@@ -27,6 +28,7 @@ type PageInfo =
       page: 'confirmation';
       orderId: string;
       contactEmail: string;
+      stepCount: number;
     };
 
 interface InitialProps {
@@ -82,6 +84,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
           page: 'confirmation',
           orderId: query.orderId || '',
           contactEmail: query.contactEmail || '',
+          stepCount: parseInt(query.stepCount || '8'),
         };
         break;
       default:
@@ -212,6 +215,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       label: 'submit order',
     });
 
+    const stepCount = birthCertificateRequest.steps.length;
+
     birthCertificateRequest.clearBirthCertificateRequest();
     orderProvider.clear();
 
@@ -222,7 +227,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     await Router.push(
       `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
         orderId
-      )}&contactEmail=${encodeURIComponent(order.info.contactEmail)}`,
+      )}&contactEmail=${encodeURIComponent(
+        order.info.contactEmail
+      )}&stepCount=${stepCount}`,
       '/birth/checkout?page=confirmation'
     );
 
@@ -292,8 +299,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
         );
 
       case 'confirmation':
-        // TODO(fiona): Confirmation UI
-        return <div>DONE</div>;
+        return (
+          <BirthConfirmationContent
+            contactEmail={info.contactEmail}
+            orderId={info.orderId}
+            stepCount={info.stepCount}
+          />
+        );
     }
   }
 }
