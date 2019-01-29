@@ -4,7 +4,9 @@ import { BirthCertificateRequestInformation, Step } from '../types';
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”
-export const initialRequestInformation: BirthCertificateRequestInformation = {
+export const INITIAL_REQUEST_INFORMATION: Readonly<
+  BirthCertificateRequestInformation
+> = {
   forSelf: null,
   howRelated: '',
   bornInBoston: '',
@@ -20,7 +22,7 @@ export const initialRequestInformation: BirthCertificateRequestInformation = {
   parent2LastName: '',
 };
 
-const initialSteps: Step[] = [
+export const DEFAULT_STEPS: Step[] = [
   'forWhom',
   'bornInBoston',
   'personalInformation',
@@ -48,23 +50,17 @@ const initialSteps: Step[] = [
  */
 export default class BirthCertificateRequest {
   @observable quantity: number = 1;
-  @observable steps: Step[] = initialSteps;
-  @observable currentStep: Step = 'forWhom';
+  @observable steps: Step[] = DEFAULT_STEPS;
   @observable currentStepCompleted: boolean = false;
   @observable
-  requestInformation: BirthCertificateRequestInformation = initialRequestInformation;
+  requestInformation: Readonly<
+    BirthCertificateRequestInformation
+  > = INITIAL_REQUEST_INFORMATION;
 
   @action
   public setQuantity(newQuantity: number): void {
     this.quantity = newQuantity;
   }
-
-  @action
-  public setCurrentStep = (step: Step): void => {
-    this.currentStep = step;
-
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  };
 
   @action
   public setCurrentStepCompleted = (isCompleted: boolean): void => {
@@ -111,8 +107,7 @@ export default class BirthCertificateRequest {
   @action
   public clearBirthCertificateRequest(): void {
     this.quantity = 0;
-    this.steps = initialSteps;
-    this.currentStep = 'forWhom';
-    this.requestInformation = initialRequestInformation;
+    this.steps = DEFAULT_STEPS;
+    this.requestInformation = INITIAL_REQUEST_INFORMATION;
   }
 }

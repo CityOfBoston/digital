@@ -25,10 +25,6 @@ interface Props {
  * directed there by a Registry employee
  */
 export default class PageWrapper extends React.Component<Props> {
-  public componentDidMount(): void {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  }
-
   render() {
     const { progress, footer, children } = this.props;
 
