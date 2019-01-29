@@ -15,10 +15,11 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order from '../../models/Order';
 
 import CostSummary from '../CostSummary';
-import { DeathOrderDetails } from './OrderDetails';
+import { OrderDetails } from './OrderDetails';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
+import { Progress } from '../../birth/PageWrapper';
 
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;
@@ -33,6 +34,7 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
     });
 
 export interface State {
@@ -155,6 +157,11 @@ export default class ReviewContent extends React.Component<Props, State> {
       <CheckoutPageLayout
         certificateType={certificateType}
         title="Review Order"
+        progress={
+          this.props.certificateType === 'birth'
+            ? this.props.progress
+            : undefined
+        }
         footer={
           <div className="b--g m-t700">
             <div id="service-fee" className="b-c b-c--smv b-c--hsm t--subinfo">
@@ -365,13 +372,23 @@ export default class ReviewContent extends React.Component<Props, State> {
     switch (props.certificateType) {
       case 'death':
         return props.deathCertificateCart.size > 0 ? (
-          <DeathOrderDetails cart={props.deathCertificateCart} thin />
+          <OrderDetails
+            type="death"
+            deathCertificateCart={props.deathCertificateCart}
+            thin
+          />
         ) : (
           <div className="t--err t--info">Your cart is empty</div>
         );
 
       case 'birth':
-        return `${props.birthCertificateRequest.quantity} copie(s)`;
+        return (
+          <OrderDetails
+            type="birth"
+            birthCertificateRequest={props.birthCertificateRequest}
+            thin
+          />
+        );
     }
   }
 

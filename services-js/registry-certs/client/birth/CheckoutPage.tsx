@@ -233,6 +233,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     const { info, birthCertificateRequest, stripe } = this.props;
     const { order } = this.state;
 
+    const progressSteps = birthCertificateRequest.steps.length;
+
     // This happens during server side rendering
     if (!order) {
       return <CheckoutPageLayout certificateType="birth" />;
@@ -246,6 +248,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.advanceToPayment}
+            progress={{
+              currentStep:
+                birthCertificateRequest.steps.indexOf('shippingInformation') +
+                1,
+              currentStepCompleted: false,
+              totalSteps: progressSteps,
+            }}
           />
         );
 
@@ -257,6 +266,12 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.advanceToReview}
+            progress={{
+              currentStep:
+                birthCertificateRequest.steps.indexOf('billingInformation') + 1,
+              currentStepCompleted: false,
+              totalSteps: progressSteps,
+            }}
           />
         );
 
@@ -267,6 +282,12 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             birthCertificateRequest={birthCertificateRequest}
             order={order}
             submit={this.submitOrder}
+            progress={{
+              currentStep:
+                birthCertificateRequest.steps.indexOf('submitRequest') + 1,
+              currentStepCompleted: false,
+              totalSteps: progressSteps,
+            }}
           />
         );
 

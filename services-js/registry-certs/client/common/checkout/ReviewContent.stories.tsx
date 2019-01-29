@@ -29,6 +29,19 @@ function makeCart(extraCerts?: Array<DeathCertificate>) {
   return cart;
 }
 
+function makeBirthCertificateRequest() {
+  const request = new BirthCertificateRequest();
+
+  request.quantity = 4;
+  request.answerQuestion({
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    birthDate: '3/5/1968',
+  });
+
+  return request;
+}
+
 function makeOrder(overrides: Partial<OrderInfo> = {}) {
   return new Order({
     storeContactAndShipping: true,
@@ -141,8 +154,13 @@ storiesOf('Checkout/ReviewContent', module)
   .add('birth certificate', () => (
     <ReviewContent
       certificateType="birth"
-      birthCertificateRequest={new BirthCertificateRequest()}
+      birthCertificateRequest={makeBirthCertificateRequest()}
       order={makeOrder()}
       submit={action('submit') as any}
+      progress={{
+        currentStep: 8,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
     />
   ));

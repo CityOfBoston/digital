@@ -59,7 +59,16 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
 }
 
 function makeBirthCertificateRequest() {
-  return new BirthCertificateRequest();
+  const request = new BirthCertificateRequest();
+
+  request.quantity = 4;
+  request.answerQuestion({
+    firstName: 'Carol',
+    lastName: 'Danvers',
+    birthDate: '3/5/1968',
+  });
+
+  return request;
 }
 
 storiesOf('Checkout/ShippingContent', module)
@@ -93,5 +102,10 @@ storiesOf('Checkout/ShippingContent', module)
       birthCertificateRequest={makeBirthCertificateRequest()}
       order={makeOrder()}
       submit={action('submit')}
+      progress={{
+        currentStep: 6,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
     />
   ));

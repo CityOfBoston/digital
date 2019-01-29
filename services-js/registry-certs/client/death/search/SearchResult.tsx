@@ -23,6 +23,7 @@ export default function SearchResult({ backUrl, certificate }: Props) {
     >
       <a>
         <CertificateRow
+          type="death"
           certificate={certificate}
           borderTop={false}
           borderBottom={true}

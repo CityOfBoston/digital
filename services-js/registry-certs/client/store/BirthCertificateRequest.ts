@@ -99,7 +99,9 @@ export default class BirthCertificateRequest {
 
   // A user’s answer may span several fields:
   @action
-  public answerQuestion = (answers: object): void => {
+  public answerQuestion = (
+    answers: Partial<BirthCertificateRequestInformation>
+  ): void => {
     this.requestInformation = {
       ...this.requestInformation,
       ...answers,
