@@ -119,4 +119,20 @@ storiesOf('Birth/CheckoutPage', module)
       orderProvider={new OrderProvider()}
       orderForTest={makeBillingCompleteOrder()}
     />
+  ))
+  .add('confirmation', () => (
+    <CheckoutPage
+      birthCertificateRequest={new BirthCertificateRequest()}
+      info={{
+        page: 'confirmation',
+        stepCount: 8,
+        orderId: 'RG-BC201901-414211',
+        contactEmail: 'ttoe@squirrelzone.net',
+      }}
+      siteAnalytics={new GaSiteAnalytics()}
+      checkoutDao={new CheckoutDao(null as any, null)}
+      stripe={makeStripe()}
+      orderProvider={new OrderProvider()}
+      orderForTest={new Order()}
+    />
   ));
