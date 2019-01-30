@@ -7,6 +7,7 @@ export enum MfaError {
   INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER',
   WRONG_PASSWORD = 'WRONG_PASSWORD',
   WRONG_CODE = 'WRONG_CODE',
+  ALREADY_REGISTERED = 'ALREADY_REGISTERED',
 }
 
 export interface AddMfaDeviceResponse {
@@ -31,9 +32,21 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
   }
 
   const { userId } = loginAuth;
-  const { firstName, lastName, email: registeredEmail } = loginSession;
+  const {
+    firstName,
+    lastName,
+    email: registeredEmail,
+    needsMfaDevice,
+  } = loginSession;
 
-  let pingUser = await pingId.getUserDetails(userId);
+  if (!needsMfaDevice) {
+    return {
+      sessionId: null,
+      error: MfaError.ALREADY_REGISTERED,
+    };
+  }
+
+  const pingUser = await pingId.getUserDetails(userId);
 
   if (!pingUser) {
     await pingId.addUser({

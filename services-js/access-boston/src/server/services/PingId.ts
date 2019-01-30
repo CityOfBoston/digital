@@ -65,7 +65,7 @@ export interface UserDetails {
   spList: [];
   lastLogin: number | null;
   bypassExpiration: null;
-  deviceDetails: Object;
+  deviceDetails: Object | null;
   lastTransactions: [];
   devicesDetails: [];
   status: UserStatus;
